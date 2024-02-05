@@ -17,6 +17,7 @@ use PhpMyAdmin\Gis\GisMultiPoint;
 use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Import\Import;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
@@ -79,10 +80,8 @@ class ImportShp extends ImportPlugin
     public function doImport(File|null $importHandle = null): array
     {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['import_file'] ??= null;
-        $GLOBALS['local_import_file'] ??= null;
         $GLOBALS['message'] ??= null;
-        $GLOBALS['finished'] = false;
+        ImportSettings::$finished = false;
 
         if ($importHandle === null || $this->zipExtension === null) {
             return [];
@@ -96,7 +95,10 @@ class ImportShp extends ImportPlugin
         $shp = new ShapeFileImport(1);
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
-        if ($compression === 'application/zip' && $this->zipExtension->getNumberOfFiles($GLOBALS['import_file']) > 1) {
+        if (
+            $compression === 'application/zip'
+            && $this->zipExtension->getNumberOfFiles(ImportSettings::$importFile) > 1
+        ) {
             if ($importHandle->openZip('/^.*\.shp$/i') === false) {
                 $GLOBALS['message'] = Message::error(
                     __('There was an error importing the ESRI shape file: "%s".'),
@@ -115,11 +117,11 @@ class ImportShp extends ImportPlugin
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
             if ($compression === 'application/zip' && $temp !== null) {
-                $dbfFileName = $this->zipExtension->findFile($GLOBALS['import_file'], '/^.*\.dbf$/i');
+                $dbfFileName = $this->zipExtension->findFile(ImportSettings::$importFile, '/^.*\.dbf$/i');
                 // If the corresponding .dbf file is in the zip archive
                 if ($dbfFileName !== false) {
                     // Extract the .dbf file and point to it.
-                    $extracted = $this->zipExtension->extract($GLOBALS['import_file'], $dbfFileName);
+                    $extracted = $this->zipExtension->extract(ImportSettings::$importFile, $dbfFileName);
                     if ($extracted !== false) {
                         // remove filename extension, e.g.
                         // dresden_osm.shp/gis.osm_transport_a_v06.dbf
@@ -143,7 +145,7 @@ class ImportShp extends ImportPlugin
                     }
                 }
             } elseif (
-                ! empty($GLOBALS['local_import_file'])
+                ImportSettings::$localImportFile !== ''
                 && ! empty($config->settings['UploadDir'])
                 && $compression === 'none'
             ) {
@@ -151,7 +153,7 @@ class ImportShp extends ImportPlugin
                 // to load extra data.
                 // Replace the .shp with .*,
                 // so the bsShapeFiles library correctly locates .dbf file.
-                $shp->fileName = mb_substr($GLOBALS['import_file'], 0, -4) . '.*';
+                $shp->fileName = mb_substr(ImportSettings::$importFile, 0, -4) . '.*';
             }
         }
 
@@ -287,7 +289,7 @@ class ImportShp extends ImportPlugin
         $sqlStatements = [];
         $this->import->buildSql($dbName, $tables, $analyses, createDb:$createDb, sqlData:$sqlStatements);
 
-        $GLOBALS['finished'] = true;
+        ImportSettings::$finished = true;
         $GLOBALS['error'] = false;
 
         // Commit any possible data in buffers
@@ -300,7 +302,7 @@ class ImportShp extends ImportPlugin
      * Returns specified number of bytes from the buffer.
      * Buffer automatically fetches next chunk of data when the buffer
      * falls short.
-     * Sets $eof when $GLOBALS['finished'] is set and the buffer falls short.
+     * Sets $eof when ImportSettings::$finished is set and the buffer falls short.
      *
      * @param int $length number of bytes
      */
@@ -313,7 +315,7 @@ class ImportShp extends ImportPlugin
         $import = new Import();
 
         if (strlen((string) $GLOBALS['buffer']) < $length) {
-            if ($GLOBALS['finished']) {
+            if (ImportSettings::$finished) {
                 $GLOBALS['eof'] = true;
             } else {
                 $GLOBALS['buffer'] .= $import->getNextChunk($GLOBALS['importHandle']);

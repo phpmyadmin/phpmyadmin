@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
@@ -22,7 +23,7 @@ class FileTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['charset_conversion'] = false;
+        ImportSettings::$charsetConversion = false;
     }
 
     /**

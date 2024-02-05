@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Import;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
@@ -66,8 +67,6 @@ class ImportMediawiki extends ImportPlugin
     public function doImport(File|null $importHandle = null): array
     {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['timeout_passed'] ??= null;
-        $GLOBALS['finished'] ??= null;
 
         $sqlStatements = [];
 
@@ -99,12 +98,12 @@ class ImportMediawiki extends ImportPlugin
         $inTableHeader = false;
 
         /** @infection-ignore-all */
-        while (! $GLOBALS['finished'] && ! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
+        while (! ImportSettings::$finished && ! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
             $data = $this->import->getNextChunk($importHandle);
 
             if ($data === false) {
                 // Subtract data we didn't handle yet and stop processing
-                $GLOBALS['offset'] -= mb_strlen($buffer);
+                ImportSettings::$offset -= mb_strlen($buffer);
                 break;
             }
 
@@ -131,7 +130,7 @@ class ImportMediawiki extends ImportPlugin
             $fullBufferLinesCount = count($bufferLines);
             // If the reading is not finalized, the final line of the current chunk
             // will not be complete
-            if (! $GLOBALS['finished']) {
+            if (! ImportSettings::$finished) {
                 $lastChunkLine = $bufferLines[--$fullBufferLinesCount];
             }
 

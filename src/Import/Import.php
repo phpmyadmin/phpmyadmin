@@ -96,22 +96,18 @@ class Import
      */
     public function checkTimeout(): bool
     {
-        $GLOBALS['timestamp'] ??= null;
-        $GLOBALS['maximum_time'] ??= null;
-        $GLOBALS['timeout_passed'] ??= null;
-
-        if ($GLOBALS['maximum_time'] == 0) {
+        if (ImportSettings::$maximumTime === 0) {
             return false;
         }
 
-        if ($GLOBALS['timeout_passed']) {
+        if (ImportSettings::$timeoutPassed) {
             return true;
 
             /* 5 in next row might be too much */
         }
 
-        if (time() - $GLOBALS['timestamp'] > $GLOBALS['maximum_time'] - 5) {
-            $GLOBALS['timeout_passed'] = true;
+        if (time() - ImportSettings::$timestamp > ImportSettings::$maximumTime - 5) {
+            ImportSettings::$timeoutPassed = true;
 
             return true;
         }
@@ -129,8 +125,6 @@ class Import
     public function executeQuery(string $sql, array &$sqlData): void
     {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['msg'] ??= null;
-        $GLOBALS['sql_query_disabled'] ??= null;
         $dbi = DatabaseInterface::getInstance();
         $GLOBALS['result'] = $dbi->tryQuery($sql);
 
@@ -138,12 +132,11 @@ class Import
         // while running multiple queries
         $isUseQuery = mb_stripos($sql, 'use ') !== false;
 
-        $GLOBALS['msg'] = '# ';
-        if ($GLOBALS['result'] === false) { // execution failed
-            $GLOBALS['my_die'] ??= [];
-            $GLOBALS['my_die'][] = ['sql' => $sql, 'error' => $dbi->getError()];
+        ImportSettings::$message = '# ';
+        if ($GLOBALS['result'] === false) {
+            ImportSettings::$failedQueries[] = ['sql' => $sql, 'error' => $dbi->getError()];
 
-            $GLOBALS['msg'] .= __('Error');
+            ImportSettings::$message .= __('Error');
 
             if (! Config::getInstance()->settings['IgnoreMultiSubmitErrors']) {
                 $GLOBALS['error'] = true;
@@ -154,12 +147,12 @@ class Import
             $aNumRows = (int) $GLOBALS['result']->numRows();
             $aAffectedRows = (int) @$dbi->affectedRows();
             if ($aNumRows > 0) {
-                $GLOBALS['msg'] .= __('Rows') . ': ' . $aNumRows;
+                ImportSettings::$message .= __('Rows') . ': ' . $aNumRows;
             } elseif ($aAffectedRows > 0) {
                 $message = Message::getMessageForAffectedRows($aAffectedRows);
-                $GLOBALS['msg'] .= $message->getMessage();
+                ImportSettings::$message .= $message->getMessage();
             } else {
-                $GLOBALS['msg'] .= __('MySQL returned an empty result set (i.e. zero rows).');
+                ImportSettings::$message .= __('MySQL returned an empty result set (i.e. zero rows).');
             }
 
             if ($aNumRows > 0 || $isUseQuery) {
@@ -167,8 +160,8 @@ class Import
             }
         }
 
-        if (! $GLOBALS['sql_query_disabled']) {
-            $GLOBALS['sql_query'] .= $GLOBALS['msg'] . "\n";
+        if (! ImportSettings::$sqlQueryDisabled) {
+            $GLOBALS['sql_query'] .= ImportSettings::$message . "\n";
         }
 
         // If a 'USE <db>' SQL-clause was found and the query
@@ -198,17 +191,10 @@ class Import
      */
     public function runQuery(string $sql, array &$sqlData): void
     {
-        $GLOBALS['go_sql'] ??= null;
         $GLOBALS['complete_query'] ??= null;
         $GLOBALS['display_query'] ??= null;
-        $GLOBALS['msg'] ??= null;
-        $GLOBALS['skip_queries'] ??= null;
-        $GLOBALS['executed_queries'] ??= null;
-        $GLOBALS['max_sql_len'] ??= null;
-        $GLOBALS['sql_query_disabled'] ??= null;
-        $GLOBALS['run_query'] ??= null;
 
-        $GLOBALS['read_multiply'] = 1;
+        ImportSettings::$readMultiply = 1;
         if ($this->importRunBuffer === null) {
             // Do we have something to push into buffer?
             $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
@@ -217,28 +203,28 @@ class Import
         }
 
         // Should we skip something?
-        if ($GLOBALS['skip_queries'] > 0) {
-            $GLOBALS['skip_queries']--;
+        if (ImportSettings::$skipQueries > 0) {
+            ImportSettings::$skipQueries--;
             // Do we have something to push into buffer?
             $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
 
             return;
         }
 
-        $GLOBALS['max_sql_len'] = max(
-            $GLOBALS['max_sql_len'],
+        ImportSettings::$maxSqlLength = max(
+            ImportSettings::$maxSqlLength,
             mb_strlen($this->importRunBuffer),
         );
-        if (! $GLOBALS['sql_query_disabled']) {
+        if (! ImportSettings::$sqlQueryDisabled) {
             $GLOBALS['sql_query'] .= $this->importRunBuffer;
         }
 
-        $GLOBALS['executed_queries']++;
+        ImportSettings::$executedQueries++;
 
-        if ($GLOBALS['run_query'] && $GLOBALS['executed_queries'] < 50) {
-            $GLOBALS['go_sql'] = true;
+        if (ImportSettings::$runQuery && ImportSettings::$executedQueries < 50) {
+            ImportSettings::$goSql = true;
 
-            if (! $GLOBALS['sql_query_disabled']) {
+            if (! ImportSettings::$sqlQueryDisabled) {
                 $GLOBALS['complete_query'] = $GLOBALS['sql_query'];
                 $GLOBALS['display_query'] = $GLOBALS['sql_query'];
             } else {
@@ -248,12 +234,12 @@ class Import
 
             $GLOBALS['sql_query'] = $this->importRunBuffer;
             $sqlData[] = $this->importRunBuffer;
-        } elseif ($GLOBALS['run_query']) {
+        } elseif (ImportSettings::$runQuery) {
             /* Handle rollback from go_sql */
-            if ($GLOBALS['go_sql'] && $sqlData !== []) {
+            if (ImportSettings::$goSql && $sqlData !== []) {
                 $queries = $sqlData;
                 $sqlData = [];
-                $GLOBALS['go_sql'] = false;
+                ImportSettings::$goSql = false;
 
                 foreach ($queries as $query) {
                     $this->executeQuery($query, $sqlData);
@@ -266,14 +252,14 @@ class Import
         // check length of query unless we decided to pass it to /sql
         // (if $run_query is false, we are just displaying so show
         // the complete query in the textarea)
-        if (! $GLOBALS['go_sql'] && $GLOBALS['run_query'] && ! empty($GLOBALS['sql_query'])) {
+        if (! ImportSettings::$goSql && ImportSettings::$runQuery && ! empty($GLOBALS['sql_query'])) {
             if (
                 mb_strlen($GLOBALS['sql_query']) > 50000
-                || $GLOBALS['executed_queries'] > 50
-                || $GLOBALS['max_sql_len'] > 1000
+                || ImportSettings::$executedQueries > 50
+                || ImportSettings::$maxSqlLength > 1000
             ) {
                 $GLOBALS['sql_query'] = '';
-                $GLOBALS['sql_query_disabled'] = true;
+                ImportSettings::$sqlQueryDisabled = true;
             }
         }
 
@@ -285,7 +271,7 @@ class Import
             return;
         }
 
-        $GLOBALS['msg'] .= __('[ROLLBACK occurred.]');
+        ImportSettings::$message .= __('[ROLLBACK occurred.]');
     }
 
     /**
@@ -315,43 +301,39 @@ class Import
      */
     public function getNextChunk(File|null $importHandle = null, int $size = 32768): string|bool
     {
-        $GLOBALS['charset_conversion'] ??= null;
-        $GLOBALS['charset_of_file'] ??= null;
-        $GLOBALS['read_multiply'] ??= null;
-
         // Add some progression while reading large amount of data
-        if ($GLOBALS['read_multiply'] <= 8) {
-            $size *= $GLOBALS['read_multiply'];
+        if (ImportSettings::$readMultiply <= 8) {
+            $size *= ImportSettings::$readMultiply;
         } else {
             $size *= 8;
         }
 
-        $GLOBALS['read_multiply']++;
+        ImportSettings::$readMultiply++;
 
         // We can not read too much
-        if ($size > $GLOBALS['read_limit']) {
-            $size = $GLOBALS['read_limit'];
+        if ($size > ImportSettings::$readLimit) {
+            $size = ImportSettings::$readLimit;
         }
 
         if ($this->checkTimeout()) {
             return false;
         }
 
-        if ($GLOBALS['finished']) {
+        if (ImportSettings::$finished) {
             return true;
         }
 
-        if ($GLOBALS['import_file'] === 'none') {
+        if (ImportSettings::$importFile === 'none') {
             // Well this is not yet supported and tested,
             // but should return content of textarea
             if (mb_strlen($GLOBALS['import_text']) < $size) {
-                $GLOBALS['finished'] = true;
+                ImportSettings::$finished = true;
 
                 return $GLOBALS['import_text'];
             }
 
             $r = mb_substr($GLOBALS['import_text'], 0, $size);
-            $GLOBALS['offset'] += $size;
+            ImportSettings::$offset += $size;
             $GLOBALS['import_text'] = mb_substr($GLOBALS['import_text'], $size);
 
             return $r;
@@ -362,11 +344,11 @@ class Import
         }
 
         $result = $importHandle->read($size);
-        $GLOBALS['finished'] = $importHandle->eof();
-        $GLOBALS['offset'] += $size;
+        ImportSettings::$finished = $importHandle->eof();
+        ImportSettings::$offset += $size;
 
-        if ($GLOBALS['charset_conversion']) {
-            return Encoding::convertString($GLOBALS['charset_of_file'], 'utf-8', $result);
+        if (ImportSettings::$charsetConversion) {
+            return Encoding::convertString(ImportSettings::$charsetOfFile, 'utf-8', $result);
         }
 
         /**
@@ -376,7 +358,7 @@ class Import
          *
          * @todo BOM could be used for charset autodetection
          */
-        if ($GLOBALS['offset'] == $size) {
+        if (ImportSettings::$offset === $size) {
             return $this->skipByteOrderMarksFromContents($result);
         }
 
@@ -952,10 +934,8 @@ class Import
         array|null $options = null,
         array &$sqlData = [],
     ): void {
-        $GLOBALS['import_notice'] ??= null;
-
         /* Needed to quell the beast that is Message */
-        $GLOBALS['import_notice'] = null;
+        ImportSettings::$importNotice = '';
 
         /* Take care of the options */
         $collation = $options['db_collation'] ?? 'utf8_general_ci';
@@ -1285,7 +1265,7 @@ class Import
 
         $message .= '</ul></ul>';
 
-        $GLOBALS['import_notice'] = $message;
+        ImportSettings::$importNotice = $message;
     }
 
     /**
@@ -1450,8 +1430,8 @@ class Import
 
         $matcher = '@\.(' . $extensions . ')(\.(' . $fileListing->supportedDecompressions() . '))?$@';
 
-        $active = isset($GLOBALS['timeout_passed'], $GLOBALS['local_import_file']) && $GLOBALS['timeout_passed']
-            ? $GLOBALS['local_import_file']
+        $active = ImportSettings::$localImportFile !== '' && ImportSettings::$timeoutPassed
+            ? ImportSettings::$localImportFile
             : '';
 
         return $fileListing->getFileSelectOptions(

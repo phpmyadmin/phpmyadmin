@@ -2681,16 +2681,6 @@ parameters:
 			path: src/Controllers/HomeController.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Cannot access offset 'error' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Cannot access offset 'go_back_url' on mixed\\.$#"
 			count: 4
 			path: src/Controllers/Import/ImportController.php
@@ -2716,11 +2706,6 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Cannot access offset 'sql' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Cannot access offset 'table_name' on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
@@ -2737,7 +2722,12 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 2
+			count: 3
+			path: src/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 3
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -2747,7 +2737,22 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 13
+			count: 9
+			path: src/Controllers/Import/ImportController.php
+
+		-
+			message: "#^If condition is always false\\.$#"
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Left side of && is always false\\.$#"
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Negated boolean expression is always true\\.$#"
+			count: 1
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -2761,38 +2766,8 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$filename of function is_uploaded_file expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$message of method PhpMyAdmin\\\\Message\\:\\:addHtml\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, mixed given\\.$#"
 			count: 2
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Core\\:\\:securePath\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$serverMessage of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -2811,16 +2786,6 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\Message\\:\\:error\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\Message\\:\\:success\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
@@ -2831,12 +2796,7 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#2 \\$format of static method PhpMyAdmin\\\\Plugins\\:\\:getPlugin\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#2 \\$size of method PhpMyAdmin\\\\Import\\\\Import\\:\\:getNextChunk\\(\\) expects int, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$size of method PhpMyAdmin\\\\Import\\\\Import\\:\\:getNextChunk\\(\\) expects int, float\\|int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -2846,23 +2806,8 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: "#^Parameter \\#2 \\$sqlQuery of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, mixed given\\.$#"
 			count: 5
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#3 \\$number of function _ngettext expects int, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#3 \\$param of static method PhpMyAdmin\\\\Plugins\\:\\:getPlugin\\(\\) expects array\\{export_type\\: string, single_table\\: bool\\}\\|string\\|null, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -2897,6 +2842,21 @@ parameters:
 
 		-
 			message: "#^Parameter \\#8 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Result of \\|\\| is always true\\.$#"
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Static property PhpMyAdmin\\\\Import\\\\ImportSettings\\:\\:\\$readLimit \\(int\\) does not accept float\\|int\\<min, \\-1\\>\\|int\\<1, max\\>\\.$#"
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between 0 and 0 will always evaluate to true\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -5926,32 +5886,7 @@ parameters:
 			path: src/Controllers/Triggers/IndexController.php
 
 		-
-			message: "#^Cannot access offset 'error' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/UserPasswordController.php
-
-		-
-			message: "#^Cannot access offset 'msg' on mixed\\.$#"
-			count: 2
-			path: src/Controllers/UserPasswordController.php
-
-		-
-			message: "#^Cannot call method getDisplay\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Controllers/UserPasswordController.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given\\.$#"
-			count: 1
-			path: src/Controllers/UserPasswordController.php
-
-		-
-			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\ResponseRenderer\\:\\:addHTML\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/UserPasswordController.php
-
-		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/UserPasswordController.php
 
@@ -8841,11 +8776,6 @@ parameters:
 			path: src/Import/Ajax.php
 
 		-
-			message: "#^Cannot access an offset on mixed\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
 			count: 14
 			path: src/Import/Import.php
@@ -8876,13 +8806,8 @@ parameters:
 			path: src/Import/Import.php
 
 		-
-			message: "#^Cannot call method numRows\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 2
+			count: 1
 			path: src/Import/Import.php
 
 		-
@@ -8976,17 +8901,7 @@ parameters:
 			path: src/Import/Import.php
 
 		-
-			message: "#^Parameter \\#1 \\$size of method PhpMyAdmin\\\\File\\:\\:read\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
 			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\\\Import\\:\\:runQuery\\(\\) expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: "#^Parameter \\#1 \\$srcCharset of static method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Import/Import.php
 
@@ -9008,21 +8923,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 6
-			path: src/Import/Import.php
-
-		-
-			message: "#^Parameter \\#2 \\$start of function mb_substr expects int, mixed given\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: "#^Parameter \\#3 \\$active of method PhpMyAdmin\\\\FileListing\\:\\:getFileSelectOptions\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, mixed given\\.$#"
-			count: 1
 			path: src/Import/Import.php
 
 		-
@@ -10407,7 +10307,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins.php
 
 		-
@@ -11826,11 +11726,6 @@ parameters:
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
-			message: "#^Parameter \\#1 \\$path of function basename expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
 			message: "#^Parameter \\#1 \\$serverMessage of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportCsv.php
@@ -11887,7 +11782,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
-			count: 3
+			count: 2
 			path: src/Plugins/Import/ImportLdi.php
 
 		-
@@ -11907,11 +11802,6 @@ parameters:
 
 		-
 			message: "#^Negated boolean expression is always true\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportMediawiki.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\|float\\|int\\|string\\|false\\|null given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportMediawiki.php
 
@@ -12067,7 +11957,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Import/ImportShp.php
 
 		-
@@ -12081,27 +11971,7 @@ parameters:
 			path: src/Plugins/Import/ImportShp.php
 
 		-
-			message: "#^Parameter \\#1 \\$file of method PhpMyAdmin\\\\ZipExtension\\:\\:extract\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportShp.php
-
-		-
-			message: "#^Parameter \\#1 \\$file of method PhpMyAdmin\\\\ZipExtension\\:\\:findFile\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportShp.php
-
-		-
-			message: "#^Parameter \\#1 \\$file of method PhpMyAdmin\\\\ZipExtension\\:\\:getNumberOfFiles\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportShp.php
-
-		-
 			message: "#^Parameter \\#1 \\$importHandle of method PhpMyAdmin\\\\Import\\\\Import\\:\\:getNextChunk\\(\\) expects PhpMyAdmin\\\\File\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportShp.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportShp.php
 
@@ -16911,16 +16781,6 @@ parameters:
 			path: tests/classes/Plugins/Export/ExportXmlTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
-			count: 3
-			path: tests/classes/Plugins/Import/ImportCsvTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$path of function basename expects string, mixed given\\.$#"
-			count: 1
-			path: tests/classes/Plugins/Import/ImportCsvTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 6
 			path: tests/classes/Plugins/Import/ImportCsvTest.php
@@ -16936,24 +16796,9 @@ parameters:
 			path: tests/classes/Plugins/Import/ImportLdiTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
-			count: 2
-			path: tests/classes/Plugins/Import/ImportLdiTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 6
 			path: tests/classes/Plugins/Import/ImportLdiTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
-			count: 1
-			path: tests/classes/Plugins/Import/ImportMediawikiTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
-			count: 5
-			path: tests/classes/Plugins/Import/ImportMediawikiTest.php
 
 		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportOdsTest has an uninitialized property \\$dbi\\. Give it default value or assign it in the constructor\\.$#"
@@ -16967,13 +16812,8 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
-			count: 13
+			count: 3
 			path: tests/classes/Plugins/Import/ImportOdsTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$importNotice of method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportShpTest\\:\\:assertMessages\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: tests/classes/Plugins/Import/ImportShpTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
@@ -16981,24 +16821,9 @@ parameters:
 			path: tests/classes/Plugins/Import/ImportShpTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
-			count: 1
-			path: tests/classes/Plugins/Import/ImportSqlTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 3
 			path: tests/classes/Plugins/Import/ImportSqlTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
-			count: 1
-			path: tests/classes/Plugins/Import/ImportXmlTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
-			count: 5
-			path: tests/classes/Plugins/Import/ImportXmlTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Transformations\\\\TransformationPluginsTest\\:\\:testTransformation\\(\\) has parameter \\$applyArgs with no value type specified in iterable type array\\.$#"

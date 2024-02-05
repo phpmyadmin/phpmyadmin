@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportXml;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -33,31 +34,31 @@ class ImportXmlTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['error'] = null;
-        $GLOBALS['timeout_passed'] = null;
-        $GLOBALS['maximum_time'] = null;
-        $GLOBALS['charset_conversion'] = null;
+        ImportSettings::$timeoutPassed = false;
+        ImportSettings::$maximumTime = 0;
+        ImportSettings::$charsetConversion = false;
         Current::$database = '';
-        $GLOBALS['skip_queries'] = null;
-        $GLOBALS['max_sql_len'] = null;
-        $GLOBALS['sql_query_disabled'] = null;
+        ImportSettings::$skipQueries = 0;
+        ImportSettings::$maxSqlLength = 0;
+        ImportSettings::$sqlQueryDisabled = false;
         $GLOBALS['sql_query'] = '';
-        $GLOBALS['executed_queries'] = null;
-        $GLOBALS['run_query'] = null;
-        $GLOBALS['go_sql'] = null;
+        ImportSettings::$executedQueries = 0;
+        ImportSettings::$runQuery = false;
+        ImportSettings::$goSql = false;
 
         $this->object = new ImportXml();
 
         //setting
-        $GLOBALS['finished'] = false;
-        $GLOBALS['read_limit'] = 100000000;
-        $GLOBALS['offset'] = 0;
+        ImportSettings::$finished = false;
+        ImportSettings::$readLimit = 100000000;
+        ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $GLOBALS['import_file'] = 'tests/test_data/phpmyadmin_importXML_For_Testing.xml';
+        ImportSettings::$importFile = 'tests/test_data/phpmyadmin_importXML_For_Testing.xml';
         $GLOBALS['import_text'] = 'ImportXml_Test';
         $GLOBALS['compression'] = 'none';
-        $GLOBALS['read_multiply'] = 10;
-        $GLOBALS['import_type'] = 'Xml';
+        ImportSettings::$readMultiply = 10;
+        ImportSettings::$importType = 'Xml';
     }
 
     /**
@@ -112,7 +113,7 @@ class ImportXmlTest extends AbstractTestCase
             ->getMock();
         DatabaseInterface::$instance = $dbi;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
         //Test function called
@@ -134,12 +135,12 @@ class ImportXmlTest extends AbstractTestCase
         //asset that all databases and tables are imported
         self::assertStringContainsString(
             'The following structures have either been created or altered.',
-            $GLOBALS['import_notice'],
+            ImportSettings::$importNotice,
         );
-        self::assertStringContainsString('Go to database: `phpmyadmintest`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Edit settings for `phpmyadmintest`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Go to table: `pma_bookmarktest`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Edit settings for `pma_bookmarktest`', $GLOBALS['import_notice']);
-        self::assertTrue($GLOBALS['finished']);
+        self::assertStringContainsString('Go to database: `phpmyadmintest`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Edit settings for `phpmyadmintest`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Go to table: `pma_bookmarktest`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Edit settings for `pma_bookmarktest`', ImportSettings::$importNotice);
+        self::assertTrue(ImportSettings::$finished);
     }
 }

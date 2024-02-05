@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
@@ -28,30 +29,30 @@ class ImportLdiTest extends AbstractTestCase
         parent::setUp();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $GLOBALS['charset_conversion'] = null;
+        ImportSettings::$charsetConversion = false;
         $GLOBALS['ldi_terminated'] = null;
         $GLOBALS['ldi_escaped'] = null;
         $GLOBALS['ldi_columns'] = null;
         $GLOBALS['ldi_enclosed'] = null;
         $GLOBALS['ldi_new_line'] = null;
-        $GLOBALS['max_sql_len'] = null;
+        ImportSettings::$maxSqlLength = 0;
         $GLOBALS['sql_query'] = '';
-        $GLOBALS['executed_queries'] = null;
-        $GLOBALS['skip_queries'] = null;
-        $GLOBALS['run_query'] = null;
-        $GLOBALS['go_sql'] = null;
+        ImportSettings::$executedQueries = 0;
+        ImportSettings::$skipQueries = 0;
+        ImportSettings::$runQuery = false;
+        ImportSettings::$goSql = false;
         //setting
         $GLOBALS['plugin_param'] = 'table';
-        $GLOBALS['finished'] = false;
-        $GLOBALS['read_limit'] = 100000000;
-        $GLOBALS['offset'] = 0;
+        ImportSettings::$finished = false;
+        ImportSettings::$readLimit = 100000000;
+        ImportSettings::$offset = 0;
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
 
-        $GLOBALS['import_file'] = 'tests/test_data/db_test_ldi.csv';
+        ImportSettings::$importFile = 'tests/test_data/db_test_ldi.csv';
         $GLOBALS['import_text'] = 'ImportLdi_Test';
-        $GLOBALS['read_multiply'] = 10;
-        $GLOBALS['import_type'] = 'csv';
+        ImportSettings::$readMultiply = 10;
+        ImportSettings::$importType = 'csv';
 
         //setting for Ldi
         $config->settings['Import']['ldi_replace'] = false;
@@ -124,13 +125,13 @@ class ImportLdiTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
         $dbi = self::createMock(DatabaseInterface::class);
         $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         DatabaseInterface::$instance = $dbi;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
         //Test function called
@@ -142,7 +143,7 @@ class ImportLdiTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 
     /**
@@ -151,7 +152,7 @@ class ImportLdiTest extends AbstractTestCase
     #[Group('medium')]
     public function testDoImportInvalidFile(): void
     {
-        $GLOBALS['import_file'] = 'none';
+        ImportSettings::$importFile = 'none';
 
         //Test function called
         (new ImportLdi())->doImport();
@@ -173,7 +174,7 @@ class ImportLdiTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
         $dbi = self::createMock(DatabaseInterface::class);
         $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
@@ -185,9 +186,9 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['ldi_terminated'] = ',';
         $GLOBALS['ldi_enclosed'] = ')';
         $GLOBALS['ldi_new_line'] = 'newline_mark';
-        $GLOBALS['skip_queries'] = true;
+        ImportSettings::$skipQueries = 1;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
         //Test function called
@@ -209,6 +210,6 @@ class ImportLdiTest extends AbstractTestCase
         //IGNORE
         self::assertStringContainsString('IGNORE 1 LINES', $GLOBALS['sql_query']);
 
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 }

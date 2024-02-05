@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -92,9 +93,6 @@ class ImportLdi extends AbstractImportCsv
      */
     public function doImport(File|null $importHandle = null): array
     {
-        $GLOBALS['finished'] ??= null;
-        $GLOBALS['import_file'] ??= null;
-        $GLOBALS['charset_conversion'] ??= null;
         $GLOBALS['ldi_local_option'] ??= null;
         $GLOBALS['ldi_replace'] ??= null;
         $GLOBALS['ldi_ignore'] ??= null;
@@ -102,7 +100,6 @@ class ImportLdi extends AbstractImportCsv
         $GLOBALS['ldi_enclosed'] ??= null;
         $GLOBALS['ldi_escaped'] ??= null;
         $GLOBALS['ldi_new_line'] ??= null;
-        $GLOBALS['skip_queries'] ??= null;
         $GLOBALS['ldi_columns'] ??= null;
 
         $sqlStatements = [];
@@ -111,7 +108,7 @@ class ImportLdi extends AbstractImportCsv
             $compression = $importHandle->getCompression();
         }
 
-        if ($GLOBALS['import_file'] === 'none' || $compression !== 'none' || $GLOBALS['charset_conversion']) {
+        if (ImportSettings::$importFile === 'none' || $compression !== 'none' || ImportSettings::$charsetConversion) {
             // We handle only some kind of data!
             $GLOBALS['message'] = Message::error(
                 __('This plugin does not support compressed imports!'),
@@ -127,7 +124,7 @@ class ImportLdi extends AbstractImportCsv
         }
 
         $dbi = DatabaseInterface::getInstance();
-        $sql .= ' INFILE ' . $dbi->quoteString($GLOBALS['import_file']);
+        $sql .= ' INFILE ' . $dbi->quoteString(ImportSettings::$importFile);
         if (isset($GLOBALS['ldi_replace'])) {
             $sql .= ' REPLACE';
         } elseif (isset($GLOBALS['ldi_ignore'])) {
@@ -156,9 +153,9 @@ class ImportLdi extends AbstractImportCsv
             $sql .= ' LINES TERMINATED BY \'' . $GLOBALS['ldi_new_line'] . '\'';
         }
 
-        if ($GLOBALS['skip_queries'] > 0) {
-            $sql .= ' IGNORE ' . $GLOBALS['skip_queries'] . ' LINES';
-            $GLOBALS['skip_queries'] = 0;
+        if (ImportSettings::$skipQueries > 0) {
+            $sql .= ' IGNORE ' . ImportSettings::$skipQueries . ' LINES';
+            ImportSettings::$skipQueries = 0;
         }
 
         if (strlen((string) $GLOBALS['ldi_columns']) > 0) {
@@ -186,7 +183,7 @@ class ImportLdi extends AbstractImportCsv
 
         $this->import->runQuery($sql, $sqlStatements);
         $this->import->runQuery('', $sqlStatements);
-        $GLOBALS['finished'] = true;
+        ImportSettings::$finished = true;
 
         return $sqlStatements;
     }

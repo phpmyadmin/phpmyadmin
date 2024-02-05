@@ -34,7 +34,6 @@ class UserPasswordController extends AbstractController
         $GLOBALS['hostname'] ??= null;
         $GLOBALS['username'] ??= null;
         $GLOBALS['change_password_message'] ??= null;
-        $GLOBALS['msg'] ??= null;
 
         $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 
@@ -70,7 +69,7 @@ class UserPasswordController extends AbstractController
                 $pmaPw2,
                 (bool) $noPass,
             );
-            $GLOBALS['msg'] = $GLOBALS['change_password_message']['msg'];
+            $message = $GLOBALS['change_password_message']['msg'];
 
             if (! $GLOBALS['change_password_message']['error']) {
                 $sqlQuery = $this->userPassword->changePassword(
@@ -86,7 +85,7 @@ class UserPasswordController extends AbstractController
                 }
 
                 $this->response->addHTML('<h1>' . __('Change password') . '</h1>' . "\n\n");
-                $this->response->addHTML(Generator::getMessage($GLOBALS['msg'], $sqlQuery, 'success'));
+                $this->response->addHTML(Generator::getMessage($message, $sqlQuery, 'success'));
                 $this->render('user_password');
 
                 return;
@@ -106,8 +105,8 @@ class UserPasswordController extends AbstractController
          */
 
         // Displays an error message if required
-        if (isset($GLOBALS['msg'])) {
-            $this->response->addHTML($GLOBALS['msg']->getDisplay());
+        if (isset($message)) {
+            $this->response->addHTML($message->getDisplay());
         }
 
         $this->response->addHTML($this->userPassword->getFormForChangePassword(

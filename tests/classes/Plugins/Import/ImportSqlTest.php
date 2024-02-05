@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportSql;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -27,29 +28,29 @@ class ImportSqlTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['error'] = null;
-        $GLOBALS['timeout_passed'] = null;
-        $GLOBALS['maximum_time'] = null;
-        $GLOBALS['charset_conversion'] = null;
-        $GLOBALS['skip_queries'] = null;
-        $GLOBALS['max_sql_len'] = null;
+        ImportSettings::$timeoutPassed = false;
+        ImportSettings::$maximumTime = 0;
+        ImportSettings::$charsetConversion = false;
+        ImportSettings::$skipQueries = 0;
+        ImportSettings::$maxSqlLength = 0;
         $GLOBALS['sql_query'] = '';
-        $GLOBALS['executed_queries'] = null;
-        $GLOBALS['run_query'] = null;
-        $GLOBALS['go_sql'] = null;
+        ImportSettings::$executedQueries = 0;
+        ImportSettings::$runQuery = false;
+        ImportSettings::$goSql = false;
 
         $this->object = new ImportSql();
 
         //setting
-        $GLOBALS['finished'] = false;
-        $GLOBALS['read_limit'] = 100000000;
-        $GLOBALS['offset'] = 0;
+        ImportSettings::$finished = false;
+        ImportSettings::$readLimit = 100000000;
+        ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $GLOBALS['import_file'] = 'tests/test_data/pma_bookmark.sql';
+        ImportSettings::$importFile = 'tests/test_data/pma_bookmark.sql';
         $GLOBALS['import_text'] = 'ImportSql_Test';
         $GLOBALS['compression'] = 'none';
-        $GLOBALS['read_multiply'] = 10;
-        $GLOBALS['import_type'] = 'Xml';
+        ImportSettings::$readMultiply = 10;
+        ImportSettings::$importType = 'Xml';
     }
 
     /**
@@ -71,7 +72,7 @@ class ImportSqlTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
 
         //Mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -79,7 +80,7 @@ class ImportSqlTest extends AbstractTestCase
             ->getMock();
         DatabaseInterface::$instance = $dbi;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
         //Test function called
@@ -93,6 +94,6 @@ class ImportSqlTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 }

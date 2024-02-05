@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportOds;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -40,29 +41,29 @@ class ImportOdsTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['plugin_param'] = 'csv';
         $GLOBALS['error'] = null;
-        $GLOBALS['timeout_passed'] = null;
-        $GLOBALS['maximum_time'] = null;
-        $GLOBALS['charset_conversion'] = null;
+        ImportSettings::$timeoutPassed = false;
+        ImportSettings::$maximumTime = 0;
+        ImportSettings::$charsetConversion = false;
         Current::$database = '';
-        $GLOBALS['skip_queries'] = null;
-        $GLOBALS['max_sql_len'] = null;
-        $GLOBALS['executed_queries'] = null;
-        $GLOBALS['run_query'] = null;
+        ImportSettings::$skipQueries = 0;
+        ImportSettings::$maxSqlLength = 0;
+        ImportSettings::$executedQueries = 0;
+        ImportSettings::$runQuery = false;
         $GLOBALS['sql_query'] = '';
-        $GLOBALS['go_sql'] = null;
+        ImportSettings::$goSql = false;
         $this->object = new ImportOds();
 
         //setting
-        $GLOBALS['finished'] = false;
-        $GLOBALS['read_limit'] = 100000000;
-        $GLOBALS['offset'] = 0;
+        ImportSettings::$finished = false;
+        ImportSettings::$readLimit = 100000000;
+        ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         /**
          * Load interface for zip extension.
         */
-        $GLOBALS['read_multiply'] = 10;
-        $GLOBALS['import_type'] = 'ods';
+        ImportSettings::$readMultiply = 10;
+        ImportSettings::$importType = 'ods';
 
         //variable for Ods
         $_REQUEST['ods_recognize_percentages'] = true;
@@ -110,16 +111,16 @@ class ImportOdsTest extends AbstractTestCase
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
 
-        $GLOBALS['import_file'] = 'tests/test_data/db_test.ods';
+        ImportSettings::$importFile = 'tests/test_data/db_test.ods';
         $_REQUEST['ods_empty_rows'] = true;
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->setDecompressContent(true);
         $importHandle->open();
 
@@ -139,15 +140,15 @@ class ImportOdsTest extends AbstractTestCase
         //asset that all databases and tables are imported
         self::assertStringContainsString(
             'The following structures have either been created or altered.',
-            $GLOBALS['import_notice'],
+            ImportSettings::$importNotice,
         );
-        self::assertStringContainsString('Go to database: `ODS_DB`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Edit settings for `ODS_DB`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Go to table: `pma_bookmark`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Edit settings for `pma_bookmark`', $GLOBALS['import_notice']);
+        self::assertStringContainsString('Go to database: `ODS_DB`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Edit settings for `ODS_DB`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Go to table: `pma_bookmark`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Edit settings for `pma_bookmark`', ImportSettings::$importNotice);
 
         //asset that the import process is finished
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 
     /** @return mixed[] */
@@ -167,9 +168,9 @@ class ImportOdsTest extends AbstractTestCase
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
 
-        $GLOBALS['import_file'] = 'tests/test_data/import-slim.ods.xml';
+        ImportSettings::$importFile = 'tests/test_data/import-slim.ods.xml';
         $_REQUEST['ods_col_names'] = true;
         $_REQUEST['ods_empty_rows'] = $odsEmptyRowsMode;
 
@@ -177,7 +178,7 @@ class ImportOdsTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->setDecompressContent(false);// Not compressed
         $importHandle->open();
 
@@ -253,14 +254,14 @@ class ImportOdsTest extends AbstractTestCase
         //asset that all databases and tables are imported
         self::assertStringContainsString(
             'The following structures have either been created or altered.',
-            $GLOBALS['import_notice'],
+            ImportSettings::$importNotice,
         );
-        self::assertStringContainsString('Go to database: `ODS_DB`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Edit settings for `ODS_DB`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Go to table: `Shop`', $GLOBALS['import_notice']);
-        self::assertStringContainsString('Edit settings for `Shop`', $GLOBALS['import_notice']);
+        self::assertStringContainsString('Go to database: `ODS_DB`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Edit settings for `ODS_DB`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Go to table: `Shop`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Edit settings for `Shop`', ImportSettings::$importNotice);
 
         //asset that the import process is finished
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 }

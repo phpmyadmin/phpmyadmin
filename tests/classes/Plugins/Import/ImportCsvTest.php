@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -45,35 +46,35 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['sql_query'] = '';
         $GLOBALS['message'] = null;
         $GLOBALS['csv_columns'] = null;
-        $GLOBALS['timeout_passed'] = null;
-        $GLOBALS['maximum_time'] = null;
-        $GLOBALS['charset_conversion'] = null;
-        $GLOBALS['skip_queries'] = null;
-        $GLOBALS['max_sql_len'] = null;
-        $GLOBALS['executed_queries'] = null;
-        $GLOBALS['run_query'] = null;
-        $GLOBALS['go_sql'] = null;
+        ImportSettings::$timeoutPassed = false;
+        ImportSettings::$maximumTime = 0;
+        ImportSettings::$charsetConversion = false;
+        ImportSettings::$skipQueries = 0;
+        ImportSettings::$maxSqlLength = 0;
+        ImportSettings::$executedQueries = 0;
+        ImportSettings::$runQuery = false;
+        ImportSettings::$goSql = false;
 
         $this->object = new ImportCsv();
 
         //setting
-        $GLOBALS['finished'] = false;
-        $GLOBALS['read_limit'] = 100000000;
-        $GLOBALS['offset'] = 0;
+        ImportSettings::$finished = false;
+        ImportSettings::$readLimit = 100000000;
+        ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $GLOBALS['import_file'] = 'tests/test_data/db_test.csv';
+        ImportSettings::$importFile = 'tests/test_data/db_test.csv';
         $GLOBALS['import_text'] = 'ImportCsv_Test';
         $GLOBALS['compression'] = 'none';
-        $GLOBALS['read_multiply'] = 10;
-        $GLOBALS['import_type'] = 'Xml';
+        ImportSettings::$readMultiply = 10;
+        ImportSettings::$importType = 'Xml';
 
         //separator for csv
         $GLOBALS['csv_terminated'] = "\015";
         $GLOBALS['csv_enclosed'] = '"';
         $GLOBALS['csv_escaped'] = '"';
         $GLOBALS['csv_new_line'] = 'auto';
-        $GLOBALS['import_file_name'] = basename($GLOBALS['import_file'], '.csv');
+        ImportSettings::$importFileName = basename(ImportSettings::$importFile, '.csv');
 
         //$_SESSION
 
@@ -120,9 +121,9 @@ class ImportCsvTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
         //Test function called
@@ -134,11 +135,11 @@ class ImportCsvTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
         self::assertStringContainsString(
-            'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . $GLOBALS['import_file_name'] . '`',
+            'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . ImportSettings::$importFileName . '`',
             $GLOBALS['sql_query'],
         );
 
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 
     /**
@@ -149,12 +150,12 @@ class ImportCsvTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
-        $GLOBALS['import_file'] = 'tests/test_data/db_test_partial_import.csv';
+        ImportSettings::$importFile = 'tests/test_data/db_test_partial_import.csv';
         $_REQUEST['csv_new_tbl_name'] = 'ImportTestTable';
         $_REQUEST['csv_new_db_name'] = 'ImportTestDb';
         $_REQUEST['csv_partial_import'] = 5;
@@ -172,7 +173,7 @@ class ImportCsvTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
 
         unset($_REQUEST['csv_new_tbl_name']);
         unset($_REQUEST['csv_new_db_name']);
@@ -206,9 +207,9 @@ class ImportCsvTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
 
-        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
         //Test function called
@@ -221,11 +222,11 @@ class ImportCsvTest extends AbstractTestCase
         );
 
         self::assertStringContainsString(
-            'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . $GLOBALS['import_file_name'] . '`',
+            'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . ImportSettings::$importFileName . '`',
             $GLOBALS['sql_query'],
         );
 
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 
     /**
@@ -236,9 +237,9 @@ class ImportCsvTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
 
-        $GLOBALS['sql_query_disabled'] = false;
-        $GLOBALS['import_type'] = 'query';
-        $GLOBALS['import_file'] = 'none';
+        ImportSettings::$sqlQueryDisabled = false;
+        ImportSettings::$importType = 'query';
+        ImportSettings::$importFile = 'none';
         $GLOBALS['csv_terminated'] = ',';
         $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
@@ -267,7 +268,7 @@ class ImportCsvTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
         $this->dummyDbi->assertAllQueriesConsumed();
     }
 
@@ -279,9 +280,9 @@ class ImportCsvTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
 
-        $GLOBALS['sql_query_disabled'] = false;
-        $GLOBALS['import_type'] = 'query';
-        $GLOBALS['import_file'] = 'none';
+        ImportSettings::$sqlQueryDisabled = false;
+        ImportSettings::$importType = 'query';
+        ImportSettings::$importFile = 'none';
         $GLOBALS['csv_terminated'] = ',';
         $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
@@ -312,7 +313,7 @@ class ImportCsvTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
         $this->dummyDbi->assertAllQueriesConsumed();
     }
 }

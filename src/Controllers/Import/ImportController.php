@@ -17,6 +17,7 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Import;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Plugins;
@@ -70,36 +71,17 @@ final class ImportController extends AbstractController
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['read_limit'] ??= null;
-        $GLOBALS['finished'] ??= null;
-        $GLOBALS['offset'] ??= null;
-        $GLOBALS['charset_conversion'] ??= null;
-        $GLOBALS['timestamp'] ??= null;
-        $GLOBALS['maximum_time'] ??= null;
-        $GLOBALS['timeout_passed'] ??= null;
-        $GLOBALS['import_file'] ??= null;
-        $GLOBALS['go_sql'] ??= null;
-        $GLOBALS['sql_file'] ??= null;
         $GLOBALS['error'] ??= null;
-        $GLOBALS['max_sql_len'] ??= null;
-        $GLOBALS['msg'] ??= null;
-        $GLOBALS['sql_query_disabled'] ??= null;
-        $GLOBALS['executed_queries'] ??= null;
-        $GLOBALS['run_query'] ??= null;
-        $GLOBALS['reset_charset'] ??= null;
         $GLOBALS['result'] ??= null;
-        $GLOBALS['import_file_name'] ??= null;
-        $GLOBALS['import_notice'] ??= null;
-        $GLOBALS['read_multiply'] ??= null;
 
-        $GLOBALS['charset_of_file'] = $request->getParsedBodyParam('charset_of_file');
-        $GLOBALS['format'] = $request->getParsedBodyParam('format', '');
-        $GLOBALS['import_type'] = $request->getParsedBodyParam('import_type');
+        ImportSettings::$charsetOfFile = (string) $request->getParsedBodyParam('charset_of_file');
+        $format = $request->getParsedBodyParam('format', '');
+        ImportSettings::$importType = (string) $request->getParsedBodyParam('import_type');
         $GLOBALS['is_js_confirmed'] = $request->getParsedBodyParam('is_js_confirmed');
         $GLOBALS['message_to_show'] = $request->getParsedBodyParam('message_to_show');
         $GLOBALS['noplugin'] = $request->getParsedBodyParam('noplugin');
-        $GLOBALS['skip_queries'] = $request->getParsedBodyParam('skip_queries');
-        $GLOBALS['local_import_file'] = $request->getParsedBodyParam('local_import_file');
+        ImportSettings::$skipQueries = (int) $request->getParsedBodyParam('skip_queries');
+        ImportSettings::$localImportFile = (string) $request->getParsedBodyParam('local_import_file');
         $GLOBALS['show_as_php'] = $request->getParsedBodyParam('show_as_php');
 
         // reset import messages for ajax request
@@ -140,8 +122,8 @@ final class ImportController extends AbstractController
 
             // run SQL query
             $GLOBALS['import_text'] = $GLOBALS['sql_query'];
-            $GLOBALS['import_type'] = 'query';
-            $GLOBALS['format'] = 'sql';
+            ImportSettings::$importType = 'query';
+            $format = 'sql';
             $_SESSION['sql_from_query_box'] = true;
 
             // If there is a request to ROLLBACK when finished.
@@ -170,16 +152,10 @@ final class ImportController extends AbstractController
             }
 
             $GLOBALS['sql_query'] = '';
-        } elseif (! empty($GLOBALS['sql_file'])) {
-            // run uploaded SQL file
-            $GLOBALS['import_file'] = $GLOBALS['sql_file'];
-            $GLOBALS['import_type'] = 'queryfile';
-            $GLOBALS['format'] = 'sql';
-            unset($GLOBALS['sql_file']);
         } elseif ($request->hasBodyParam('id_bookmark')) {
             // run bookmark
-            $GLOBALS['import_type'] = 'query';
-            $GLOBALS['format'] = 'sql';
+            ImportSettings::$importType = 'query';
+            $format = 'sql';
         }
 
         // If we didn't get any parameters, either user called this directly, or
@@ -217,7 +193,7 @@ final class ImportController extends AbstractController
          * We only need to load the selected plugin
          */
 
-        if (! in_array($GLOBALS['format'], ['csv', 'ldi', 'mediawiki', 'ods', 'shp', 'sql', 'xml'], true)) {
+        if (! in_array($format, ['csv', 'ldi', 'mediawiki', 'ods', 'shp', 'sql', 'xml'], true)) {
             // this should not happen for a normal user
             // but only during an attack
             $this->response->setRequestStatus(false);
@@ -226,16 +202,12 @@ final class ImportController extends AbstractController
             return;
         }
 
-        $postPatterns = ['/^' . $GLOBALS['format'] . '_/'];
+        $postPatterns = ['/^' . $format . '_/'];
 
         Core::setPostAsGlobal($postPatterns);
 
-        if (! $this->checkParameters(['import_type', 'format'])) {
-            return;
-        }
-
         // We don't want anything special in format
-        $GLOBALS['format'] = Core::securePath($GLOBALS['format']);
+        $format = Core::securePath($format);
 
         if (Current::$table !== '' && Current::$database !== '') {
             $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -246,11 +218,11 @@ final class ImportController extends AbstractController
         }
 
         // Create error and goto url
-        if ($GLOBALS['import_type'] === 'table') {
+        if (ImportSettings::$importType === 'table') {
             $GLOBALS['goto'] = Url::getFromRoute('/table/import');
-        } elseif ($GLOBALS['import_type'] === 'database') {
+        } elseif (ImportSettings::$importType === 'database') {
             $GLOBALS['goto'] = Url::getFromRoute('/database/import');
-        } elseif ($GLOBALS['import_type'] === 'server') {
+        } elseif (ImportSettings::$importType === 'server') {
             $GLOBALS['goto'] = Url::getFromRoute('/server/import');
         } elseif (empty($GLOBALS['goto']) || ! preg_match('@^index\.php$@i', $GLOBALS['goto'])) {
             if (Current::$table !== '' && Current::$database !== '') {
@@ -275,28 +247,28 @@ final class ImportController extends AbstractController
             ini_set('memory_limit', $config->settings['MemoryLimit']);
         }
 
-        $GLOBALS['timestamp'] = time();
-        $GLOBALS['maximum_time'] = 0;
+        ImportSettings::$timestamp = time();
+        ImportSettings::$maximumTime = 0;
         $maxExecutionTime = (int) ini_get('max_execution_time');
         if ($request->hasBodyParam('allow_interrupt') && $maxExecutionTime >= 1) {
-            $GLOBALS['maximum_time'] = $maxExecutionTime - 1; // Give 1 second for phpMyAdmin to exit nicely
+            ImportSettings::$maximumTime = $maxExecutionTime - 1; // Give 1 second for phpMyAdmin to exit nicely
         }
 
         // set default values
-        $GLOBALS['timeout_passed'] = false;
+        ImportSettings::$timeoutPassed = false;
         $GLOBALS['error'] = false;
-        $GLOBALS['read_multiply'] = 1;
-        $GLOBALS['finished'] = false;
-        $GLOBALS['offset'] = 0;
-        $GLOBALS['max_sql_len'] = 0;
+        ImportSettings::$readMultiply = 1;
+        ImportSettings::$finished = false;
+        ImportSettings::$offset = 0;
+        ImportSettings::$maxSqlLength = 0;
         $GLOBALS['sql_query'] = '';
-        $GLOBALS['sql_query_disabled'] = false;
-        $GLOBALS['go_sql'] = false;
-        $GLOBALS['executed_queries'] = 0;
-        $GLOBALS['run_query'] = true;
-        $GLOBALS['charset_conversion'] = false;
-        $GLOBALS['reset_charset'] = false;
-        $GLOBALS['msg'] = 'Sorry an unexpected error happened!';
+        ImportSettings::$sqlQueryDisabled = false;
+        ImportSettings::$goSql = false;
+        ImportSettings::$executedQueries = 0;
+        ImportSettings::$runQuery = true;
+        ImportSettings::$charsetConversion = false;
+        $resetCharset = false;
+        ImportSettings::$message = 'Sorry an unexpected error happened!';
 
         $GLOBALS['result'] = false;
 
@@ -350,7 +322,7 @@ final class ImportController extends AbstractController
                         return;
                     }
 
-                    $GLOBALS['run_query'] = false;
+                    ImportSettings::$runQuery = false;
                     break;
                 case 2: // bookmarked query that have to be deleted
                     $bookmark = $this->bookmarkRepository->get($config->selectedServer['user'], $idBookmark);
@@ -371,7 +343,7 @@ final class ImportController extends AbstractController
                         return;
                     }
 
-                    $GLOBALS['run_query'] = false;
+                    ImportSettings::$runQuery = false;
                     $GLOBALS['error'] = true; // this is kind of hack to skip processing the query
                     break;
             }
@@ -379,8 +351,8 @@ final class ImportController extends AbstractController
 
         // Do no run query if we show PHP code
         if (isset($GLOBALS['show_as_php'])) {
-            $GLOBALS['run_query'] = false;
-            $GLOBALS['go_sql'] = true;
+            ImportSettings::$runQuery = false;
+            ImportSettings::$goSql = true;
         }
 
         // We can not read all at once, otherwise we can run out of memory
@@ -398,7 +370,7 @@ final class ImportController extends AbstractController
         }
 
         // Just to be sure, there might be lot of memory needed for uncompression
-        $GLOBALS['read_limit'] = $memoryLimit / 8;
+        ImportSettings::$readLimit = $memoryLimit / 8;
 
         // handle filenames
         if (
@@ -408,36 +380,36 @@ final class ImportController extends AbstractController
             && is_string($_FILES['import_file']['name'])
             && is_string($_FILES['import_file']['tmp_name'])
         ) {
-            $GLOBALS['import_file'] = $_FILES['import_file']['tmp_name'];
-            $GLOBALS['import_file_name'] = $_FILES['import_file']['name'];
+            ImportSettings::$importFile = $_FILES['import_file']['tmp_name'];
+            ImportSettings::$importFileName = $_FILES['import_file']['name'];
         }
 
-        if (! empty($GLOBALS['local_import_file']) && $config->settings['UploadDir'] !== '') {
+        if (ImportSettings::$localImportFile !== '' && $config->settings['UploadDir'] !== '') {
             // sanitize $local_import_file as it comes from a POST
-            $GLOBALS['local_import_file'] = Core::securePath($GLOBALS['local_import_file']);
+            ImportSettings::$localImportFile = Core::securePath(ImportSettings::$localImportFile);
 
-            $GLOBALS['import_file'] = Util::userDir($config->settings['UploadDir'])
-                . $GLOBALS['local_import_file'];
+            ImportSettings::$importFile = Util::userDir($config->settings['UploadDir'])
+                . ImportSettings::$localImportFile;
 
             /**
              * Do not allow symlinks to avoid security issues
              * (user can create symlink to file they can not access,
              * but phpMyAdmin can).
              */
-            if (@is_link($GLOBALS['import_file'])) {
-                $GLOBALS['import_file'] = 'none';
+            if (@is_link(ImportSettings::$importFile)) {
+                ImportSettings::$importFile = 'none';
             }
-        } elseif (empty($GLOBALS['import_file']) || ! is_uploaded_file($GLOBALS['import_file'])) {
-            $GLOBALS['import_file'] = 'none';
+        } elseif (empty(ImportSettings::$importFile) || ! is_uploaded_file(ImportSettings::$importFile)) {
+            ImportSettings::$importFile = 'none';
         }
 
         // Do we have file to import?
 
-        if ($GLOBALS['import_file'] !== 'none' && ! $GLOBALS['error']) {
+        if (ImportSettings::$importFile !== 'none' && ! $GLOBALS['error']) {
             /**
              *  Handle file compression
              */
-            $importHandle = new File($GLOBALS['import_file']);
+            $importHandle = new File(ImportSettings::$importFile);
             $importHandle->checkUploadedFile();
             if ($importHandle->isError()) {
                 /** @var Message $errorMessage */
@@ -489,28 +461,29 @@ final class ImportController extends AbstractController
         }
 
         // Convert the file's charset if necessary
-        if (Encoding::isSupported() && isset($GLOBALS['charset_of_file'])) {
-            if ($GLOBALS['charset_of_file'] !== 'utf-8') {
-                $GLOBALS['charset_conversion'] = true;
-            }
-        } elseif (isset($GLOBALS['charset_of_file']) && $GLOBALS['charset_of_file'] !== 'utf-8') {
-            $this->dbi->query('SET NAMES \'' . $GLOBALS['charset_of_file'] . '\'');
+        if (
+            Encoding::isSupported()
+            && ImportSettings::$charsetOfFile !== '' && ImportSettings::$charsetOfFile !== 'utf-8'
+        ) {
+            ImportSettings::$charsetConversion = true;
+        } elseif (ImportSettings::$charsetOfFile !== '' && ImportSettings::$charsetOfFile !== 'utf-8') {
+            $this->dbi->query('SET NAMES \'' . ImportSettings::$charsetOfFile . '\'');
             // We can not show query in this case, it is in different charset
-            $GLOBALS['sql_query_disabled'] = true;
-            $GLOBALS['reset_charset'] = true;
+            ImportSettings::$sqlQueryDisabled = true;
+            $resetCharset = true;
         }
 
         // Something to skip? (because timeout has passed)
         if (! $GLOBALS['error'] && $request->hasBodyParam('skip')) {
             $originalSkip = $skip = intval($request->getParsedBodyParam('skip'));
-            while ($skip > 0 && ! $GLOBALS['finished']) {
+            while ($skip > 0 && ! ImportSettings::$finished) {
                 $this->import->getNextChunk(
                     $importHandle ?? null,
-                    min($skip, $GLOBALS['read_limit']),
+                    min($skip, ImportSettings::$readLimit),
                 );
                 // Disable read progressivity, otherwise we eat all memory!
-                $GLOBALS['read_multiply'] = 1;
-                $skip -= $GLOBALS['read_limit'];
+                ImportSettings::$readMultiply = 1;
+                $skip -= ImportSettings::$readLimit;
             }
 
             unset($skip);
@@ -522,7 +495,7 @@ final class ImportController extends AbstractController
 
         if (! $GLOBALS['error']) {
             /** @var ImportPlugin $importPlugin */
-            $importPlugin = Plugins::getPlugin('import', $GLOBALS['format'], $GLOBALS['import_type']);
+            $importPlugin = Plugins::getPlugin('import', $format, ImportSettings::$importType);
             if ($importPlugin == null) {
                 $GLOBALS['message'] = Message::error(
                     __('Could not load import plugins, please check your installation!'),
@@ -554,7 +527,7 @@ final class ImportController extends AbstractController
         }
 
         // Reset charset back, if we did some changes
-        if ($GLOBALS['reset_charset']) {
+        if ($resetCharset) {
             $this->dbi->query('SET CHARACTER SET ' . $this->dbi->getDefaultCharset());
             $this->dbi->setCollation($this->dbi->getDefaultCollation());
         }
@@ -566,27 +539,27 @@ final class ImportController extends AbstractController
             $GLOBALS['error'] = false; // unset error marker, it was used just to skip processing
         } elseif ($idBookmark !== 0 && $actionBookmark === 1) {
             $GLOBALS['message'] = Message::notice(__('Showing bookmark'));
-        } elseif ($GLOBALS['finished'] && ! $GLOBALS['error']) {
+        } elseif (ImportSettings::$finished && ! $GLOBALS['error']) {
             // Do not display the query with message, we do it separately
             $GLOBALS['display_query'] = ';';
-            if ($GLOBALS['import_type'] !== 'query') {
+            if (ImportSettings::$importType !== 'query') {
                 $GLOBALS['message'] = Message::success(
                     '<em>'
                     . _ngettext(
                         'Import has been successfully finished, %d query executed.',
                         'Import has been successfully finished, %d queries executed.',
-                        $GLOBALS['executed_queries'],
+                        ImportSettings::$executedQueries,
                     )
                     . '</em>',
                 );
-                $GLOBALS['message']->addParam($GLOBALS['executed_queries']);
+                $GLOBALS['message']->addParam(ImportSettings::$executedQueries);
 
-                if (! empty($GLOBALS['import_notice'])) {
-                    $GLOBALS['message']->addHtml($GLOBALS['import_notice']);
+                if (ImportSettings::$importNotice !== '') {
+                    $GLOBALS['message']->addHtml(ImportSettings::$importNotice);
                 }
 
-                if (! empty($GLOBALS['local_import_file'])) {
-                    $GLOBALS['message']->addText('(' . $GLOBALS['local_import_file'] . ')');
+                if (ImportSettings::$localImportFile !== '') {
+                    $GLOBALS['message']->addText('(' . ImportSettings::$localImportFile . ')');
                 } elseif (
                     isset($_FILES['import_file'])
                     && is_array($_FILES['import_file'])
@@ -599,11 +572,11 @@ final class ImportController extends AbstractController
         }
 
         // Did we hit timeout? Tell it user.
-        if ($GLOBALS['timeout_passed']) {
+        if (ImportSettings::$timeoutPassed) {
             $GLOBALS['urlParams']['timeout_passed'] = '1';
-            $GLOBALS['urlParams']['offset'] = $GLOBALS['offset'];
-            if (isset($GLOBALS['local_import_file'])) {
-                $GLOBALS['urlParams']['local_import_file'] = $GLOBALS['local_import_file'];
+            $GLOBALS['urlParams']['offset'] = ImportSettings::$offset;
+            if (ImportSettings::$localImportFile !== '') {
+                $GLOBALS['urlParams']['local_import_file'] = ImportSettings::$localImportFile;
             }
 
             $importUrl = $GLOBALS['errorUrl'] = $GLOBALS['goto'] . Url::getCommon($GLOBALS['urlParams'], '&');
@@ -617,7 +590,7 @@ final class ImportController extends AbstractController
             $GLOBALS['message']->addParamHtml('<a href="' . $importUrl . '">');
             $GLOBALS['message']->addParamHtml('</a>');
 
-            if ($GLOBALS['offset'] == 0 || (isset($originalSkip) && $originalSkip == $GLOBALS['offset'])) {
+            if (ImportSettings::$offset === 0 || (isset($originalSkip) && $originalSkip == ImportSettings::$offset)) {
                 $GLOBALS['message']->addText(
                     __(
                         'However on last run no data has been parsed,'
@@ -646,21 +619,18 @@ final class ImportController extends AbstractController
             );
 
             $GLOBALS['reload'] = $statementInfo->reload;
-            $GLOBALS['offset'] = $statementInfo->offset;
+            ImportSettings::$offset = (int) $statementInfo->offset;
 
             if (Current::$table != $tableFromSql && $tableFromSql !== '') {
                 Current::$table = $tableFromSql;
             }
         }
 
-        // There was an error?
-        if (isset($GLOBALS['my_die'])) {
-            foreach ($GLOBALS['my_die'] as $die) {
-                Generator::mysqlDie($die['error'], $die['sql'], false, $GLOBALS['errorUrl'], $GLOBALS['error']);
-            }
+        foreach (ImportSettings::$failedQueries as $die) {
+            Generator::mysqlDie($die['error'], $die['sql'], false, $GLOBALS['errorUrl'], $GLOBALS['error']);
         }
 
-        if ($GLOBALS['go_sql']) {
+        if (ImportSettings::$goSql) {
             if ($queriesToBeExecuted === []) {
                 $queriesToBeExecuted = [$GLOBALS['sql_query']];
             }
@@ -674,7 +644,7 @@ final class ImportController extends AbstractController
                     Current::$database,
                 );
 
-                $GLOBALS['offset'] = $statementInfo->offset;
+                ImportSettings::$offset = (int) $statementInfo->offset;
                 $GLOBALS['reload'] = $statementInfo->reload;
 
                 // Check if User is allowed to issue a 'DROP DATABASE' Statement
@@ -753,14 +723,14 @@ final class ImportController extends AbstractController
             }
 
             $this->response->setRequestStatus(true);
-            $this->response->addJSON('message', Message::success($GLOBALS['msg']));
+            $this->response->addJSON('message', Message::success(ImportSettings::$message));
             $this->response->addJSON(
                 'sql_query',
-                Generator::getMessage($GLOBALS['msg'], $GLOBALS['sql_query'], 'success'),
+                Generator::getMessage(ImportSettings::$message, $GLOBALS['sql_query'], 'success'),
             );
         } elseif ($GLOBALS['result'] === false) {
             $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', Message::error($GLOBALS['msg']));
+            $this->response->addJSON('message', Message::error(ImportSettings::$message));
         } else {
             /** @psalm-suppress UnresolvableInclude */
             include ROOT_PATH . $GLOBALS['goto'];

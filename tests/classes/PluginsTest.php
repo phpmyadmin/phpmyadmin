@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -62,7 +63,7 @@ class PluginsTest extends AbstractTestCase
         $_GET = [];
         $_REQUEST = [];
         if ($timeoutPassed !== null) {
-            $GLOBALS['timeout_passed'] = $timeoutPassed;
+            ImportSettings::$timeoutPassed = $timeoutPassed;
             $_REQUEST[$option] = $actualGet;
         } elseif ($actualGet !== null) {
             $_GET[$option] = $actualGet;

@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportShp;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -33,22 +34,22 @@ class ImportShpTest extends AbstractTestCase
 
         $GLOBALS['error'] = null;
         $GLOBALS['buffer'] = null;
-        $GLOBALS['maximum_time'] = null;
-        $GLOBALS['charset_conversion'] = null;
+        ImportSettings::$maximumTime = 0;
+        ImportSettings::$charsetConversion = false;
         $GLOBALS['eof'] = null;
         Current::$database = '';
-        $GLOBALS['skip_queries'] = null;
-        $GLOBALS['max_sql_len'] = null;
+        ImportSettings::$skipQueries = 0;
+        ImportSettings::$maxSqlLength = 0;
         $GLOBALS['sql_query'] = '';
-        $GLOBALS['executed_queries'] = null;
-        $GLOBALS['run_query'] = null;
-        $GLOBALS['go_sql'] = null;
+        ImportSettings::$executedQueries = 0;
+        ImportSettings::$runQuery = false;
+        ImportSettings::$goSql = false;
 
         //setting
         $GLOBALS['plugin_param'] = 'table';
-        $GLOBALS['finished'] = false;
-        $GLOBALS['read_limit'] = 100000000;
-        $GLOBALS['offset'] = 0;
+        ImportSettings::$finished = false;
+        ImportSettings::$readLimit = 100000000;
+        ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         //Mock DBI
@@ -60,8 +61,8 @@ class ImportShpTest extends AbstractTestCase
         $this->object = new ImportShp();
 
         $GLOBALS['compression'] = 'application/zip';
-        $GLOBALS['read_multiply'] = 10;
-        $GLOBALS['import_type'] = 'ods';
+        ImportSettings::$readMultiply = 10;
+        ImportSettings::$importType = 'ods';
         Current::$database = '';
         Current::$table = '';
     }
@@ -73,7 +74,7 @@ class ImportShpTest extends AbstractTestCase
      */
     protected function runImport(string $filename): void
     {
-        $GLOBALS['import_file'] = $filename;
+        ImportSettings::$importFile = $filename;
 
         $importHandle = new File($filename);
         $importHandle->setDecompressContent(true);
@@ -129,13 +130,13 @@ class ImportShpTest extends AbstractTestCase
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
         Current::$database = '';
 
         //Test function called
         $this->runImport('tests/test_data/dresden_osm.shp.zip');
 
-        $this->assertMessages($GLOBALS['import_notice']);
+        $this->assertMessages(ImportSettings::$importNotice);
 
         $endsWith = "13.737122 51.0542065)))'))";
 
@@ -164,7 +165,7 @@ class ImportShpTest extends AbstractTestCase
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
 
-        $GLOBALS['sql_query_disabled'] = false;
+        ImportSettings::$sqlQueryDisabled = false;
         Current::$database = '';
 
         //Test function called
@@ -204,7 +205,7 @@ class ImportShpTest extends AbstractTestCase
         self::assertStringContainsString("GeomFromText('POINT(1294523.1759236", $GLOBALS['sql_query']);
 
         //asset that all databases and tables are imported
-        $this->assertMessages($GLOBALS['import_notice']);
+        $this->assertMessages(ImportSettings::$importNotice);
     }
 
     /**
@@ -224,6 +225,6 @@ class ImportShpTest extends AbstractTestCase
         self::assertStringContainsString('Edit settings for `TBL_NAME`', $importNotice);
 
         //asset that the import process is finished
-        self::assertTrue($GLOBALS['finished']);
+        self::assertTrue(ImportSettings::$finished);
     }
 }

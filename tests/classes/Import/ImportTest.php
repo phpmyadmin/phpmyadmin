@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Import\Import;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -32,10 +33,10 @@ class ImportTest extends AbstractTestCase
         Config::getInstance()->settings['ServerDefault'] = '';
         $GLOBALS['complete_query'] = null;
         $GLOBALS['display_query'] = null;
-        $GLOBALS['skip_queries'] = null;
-        $GLOBALS['max_sql_len'] = null;
-        $GLOBALS['sql_query_disabled'] = null;
-        $GLOBALS['executed_queries'] = null;
+        ImportSettings::$skipQueries = 0;
+        ImportSettings::$maxSqlLength = 0;
+        ImportSettings::$sqlQueryDisabled = false;
+        ImportSettings::$executedQueries = 0;
         $this->import = new Import();
     }
 
@@ -45,37 +46,37 @@ class ImportTest extends AbstractTestCase
     public function testCheckTimeout(): void
     {
         //Reinit values.
-        $GLOBALS['timestamp'] = time();
-        $GLOBALS['maximum_time'] = 0;
-        $GLOBALS['timeout_passed'] = false;
+        ImportSettings::$timestamp = time();
+        ImportSettings::$maximumTime = 0;
+        ImportSettings::$timeoutPassed = false;
 
         self::assertFalse($this->import->checkTimeout());
 
         //Reinit values.
-        $GLOBALS['timestamp'] = time();
-        $GLOBALS['maximum_time'] = 0;
-        $GLOBALS['timeout_passed'] = true;
+        ImportSettings::$timestamp = time();
+        ImportSettings::$maximumTime = 0;
+        ImportSettings::$timeoutPassed = true;
 
         self::assertFalse($this->import->checkTimeout());
 
         //Reinit values.
-        $GLOBALS['timestamp'] = time();
-        $GLOBALS['maximum_time'] = 30;
-        $GLOBALS['timeout_passed'] = true;
+        ImportSettings::$timestamp = time();
+        ImportSettings::$maximumTime = 30;
+        ImportSettings::$timeoutPassed = true;
 
         self::assertTrue($this->import->checkTimeout());
 
         //Reinit values.
-        $GLOBALS['timestamp'] = time() - 15;
-        $GLOBALS['maximum_time'] = 30;
-        $GLOBALS['timeout_passed'] = false;
+        ImportSettings::$timestamp = time() - 15;
+        ImportSettings::$maximumTime = 30;
+        ImportSettings::$timeoutPassed = false;
 
         self::assertFalse($this->import->checkTimeout());
 
         //Reinit values.
-        $GLOBALS['timestamp'] = time() - 60;
-        $GLOBALS['maximum_time'] = 30;
-        $GLOBALS['timeout_passed'] = false;
+        ImportSettings::$timestamp = time() - 60;
+        ImportSettings::$maximumTime = 30;
+        ImportSettings::$timeoutPassed = false;
 
         self::assertTrue($this->import->checkTimeout());
     }
@@ -311,7 +312,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testRunQuery(): void
     {
-        $GLOBALS['run_query'] = true;
+        ImportSettings::$runQuery = true;
         $sqlData = [];
 
         $this->import->runQuery('SELECT 1', $sqlData);

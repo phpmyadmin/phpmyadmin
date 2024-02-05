@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -90,7 +91,6 @@ class ImportSql extends ImportPlugin
     public function doImport(File|null $importHandle = null): array
     {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['timeout_passed'] ??= null;
 
         // Handle compatibility options.
         $this->setSQLMode(DatabaseInterface::getInstance(), $_REQUEST);
@@ -103,11 +103,11 @@ class ImportSql extends ImportPlugin
         /**
          * Will be set in Import::getNextChunk().
          */
-        $GLOBALS['finished'] = false;
+        ImportSettings::$finished = false;
 
         $sqlStatements = [];
 
-        while (! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
+        while (! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
             // Getting the first statement, the remaining data and the last
             // delimiter.
             $statement = $bq->extract();
@@ -119,13 +119,13 @@ class ImportSql extends ImportPlugin
 
                 // Subtract data we didn't handle yet and stop processing.
                 if ($newData === false) {
-                    $GLOBALS['offset'] -= mb_strlen($bq->query);
+                    ImportSettings::$offset -= mb_strlen($bq->query);
                     break;
                 }
 
                 // Checking if the input buffer has finished.
                 if ($newData === true) {
-                    $GLOBALS['finished'] = true;
+                    ImportSettings::$finished = true;
                     /** @infection-ignore-all */
                     break;
                 }
@@ -143,7 +143,7 @@ class ImportSql extends ImportPlugin
 
         // Extracting remaining statements.
         /** @infection-ignore-all */
-        while (! $GLOBALS['error'] && ! $GLOBALS['timeout_passed'] && ! empty($bq->query)) {
+        while (! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed && ! empty($bq->query)) {
             $statement = $bq->extract(true);
             if ($statement === false || $statement === '') {
                 continue;
