@@ -42,10 +42,6 @@ class Header
      */
     private Scripts $scripts;
     /**
-     * PhpMyAdmin\Console instance
-     */
-    private Console $console;
-    /**
      * Menu instance
      */
     private Menu $menu;
@@ -86,10 +82,9 @@ class Header
     /**
      * Creates a new class instance
      */
-    public function __construct(private readonly Template $template, Console $console)
+    public function __construct(private readonly Template $template, private Console $console)
     {
         $dbi = DatabaseInterface::getInstance();
-        $this->console = $console;
         $this->menuEnabled = $dbi->isConnected();
         $this->menu = new Menu($dbi, $this->template, Current::$database, Current::$table);
         $this->scripts = new Scripts($this->template);

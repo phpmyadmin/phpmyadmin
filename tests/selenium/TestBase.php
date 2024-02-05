@@ -43,6 +43,7 @@ use function property_exists;
 use function random_bytes;
 use function reset;
 use function sprintf;
+use function str_ends_with;
 use function strlen;
 use function substr;
 use function time;
@@ -253,7 +254,7 @@ abstract class TestBase extends TestCase
             $suiteUrl = '';
         }
 
-        if (substr($suiteUrl, -1) === '/') {
+        if (str_ends_with($suiteUrl, '/')) {
             $url = $suiteUrl . $url;
         } else {
             $url = $suiteUrl . '/' . $url;

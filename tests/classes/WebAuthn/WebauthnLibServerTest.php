@@ -9,6 +9,7 @@ use PhpMyAdmin\WebAuthn\WebauthnLibServer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Webauthn\Server as WebauthnServer;
+use Webauthn\TrustPath\EmptyTrustPath;
 
 use function base64_encode;
 use function class_exists;
@@ -57,7 +58,7 @@ class WebauthnLibServerTest extends TestCase
                         'type' => 'public-key',
                         'transports' => [],
                         'attestationType' => 'none',
-                        'trustPath' => ['type' => 'Webauthn\\TrustPath\\EmptyTrustPath'],
+                        'trustPath' => ['type' => EmptyTrustPath::class],
                         'aaguid' => '00000000-0000-0000-0000-000000000000',
                         'credentialPublicKey' => 'Y3JlZGVudGlhbFB1YmxpY0tleTE', // base64url for credentialPublicKey1
                         'userHandle' => 'dXNlckhhbmRsZTE=', // base64 for userHandle1

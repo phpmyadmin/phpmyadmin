@@ -39,14 +39,10 @@ class RulesTest extends TestCase
     {
         return [
             'generic rules' => [
-                static function (): array {
-                    return Rules::getGeneric();
-                },
+                Rules::getGeneric(...),
             ],
             'rules before MySQL 8.0.3' => [
-                static function (): array {
-                    return Rules::getBeforeMySql80003();
-                },
+                Rules::getBeforeMySql80003(...),
             ],
         ];
     }

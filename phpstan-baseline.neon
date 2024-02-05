@@ -16366,6 +16366,11 @@ parameters:
 			path: tests/classes/HeaderTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$urlPath of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:linkOrButton\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/classes/Html/GeneratorTest.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{ssl\\: false, host\\: '127\\.0\\.0\\.1'\\}\\.$#"
 			count: 1
 			path: tests/classes/Html/GeneratorTest.php

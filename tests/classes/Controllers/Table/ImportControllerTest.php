@@ -15,6 +15,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -57,7 +58,7 @@ class ImportControllerTest extends AbstractTestCase
             'page_settings_error_html' => $pageSettings->getErrorHTML(),
             'page_settings_html' => $pageSettings->getHTML(),
             'upload_id' => 'abc1234567890',
-            'handler' => 'PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin',
+            'handler' => UploadNoplugin::class,
             'hidden_inputs' => [
                 'noplugin' => 'abc1234567890',
                 'import_type' => 'table',

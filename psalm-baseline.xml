@@ -9487,9 +9487,6 @@
       <code>$_SESSION</code>
       <code>$_SESSION</code>
     </PossiblyNullArrayOffset>
-    <UnusedClass>
-      <code>UploadNoplugin</code>
-    </UnusedClass>
   </file>
   <file src="src/Plugins/Import/Upload/UploadProgress.php">
     <MixedArgument>
@@ -14273,9 +14270,14 @@
       <code><![CDATA[['ssl' => true, 'ssl_verify' => false, 'host' => 'custom.host']]]></code>
       <code><![CDATA[['ssl' => true, 'ssl_verify' => true, 'host' => 'custom.host']]]></code>
     </InvalidPropertyAssignmentValue>
-    <MixedAssignment>
-      <code>$result</code>
-    </MixedAssignment>
+    <MixedArgument>
+      <code>$params</code>
+      <code>$params</code>
+      <code>$params</code>
+      <code>$params</code>
+      <code>$params</code>
+      <code>$params</code>
+    </MixedArgument>
     <PossiblyUnusedMethod>
       <code>linksOrButtons</code>
       <code>providerForTestGetDefaultFunctionForField</code>
