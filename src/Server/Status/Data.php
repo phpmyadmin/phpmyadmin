@@ -31,7 +31,7 @@ class Data
     /** @var mixed[] */
     public array $status;
 
-    /** @var mixed[] */
+    /** @var array<string, string> */
     public array $sections;
 
     /** @var mixed[] */
@@ -40,7 +40,7 @@ class Data
     /** @var mixed[] */
     public array $usedQueries;
 
-    /** @var mixed[] */
+    /** @var string[] */
     public array $allocationMap;
 
     /** @var mixed[] */
@@ -48,7 +48,7 @@ class Data
 
     public bool $dbIsLocal;
 
-    /** @var mixed[] */
+    /** @var true[] */
     public array $sectionUsed;
 
     public bool $dataLoaded;
@@ -74,7 +74,7 @@ class Data
     /**
      * Gets the allocations for constructor
      *
-     * @return mixed[]
+     * @return array<string, string>
      */
     private function getAllocations(): array
     {
@@ -128,7 +128,7 @@ class Data
     /**
      * Gets the sections for constructor
      *
-     * @return mixed[]
+     * @return array<string, string>
      */
     private function getSections(): array
     {
@@ -284,21 +284,25 @@ class Data
     /**
      * Sort variables into arrays
      *
-     * @param mixed[] $serverStatus  contains results of SHOW GLOBAL STATUS
-     * @param mixed[] $allocations   allocations for sections
-     * @param mixed[] $allocationMap map variables to their section
-     * @param mixed[] $sectionUsed   is a section used?
-     * @param mixed[] $usedQueries   used queries
+     * @param mixed[]               $serverStatus contains results of SHOW GLOBAL STATUS
+     * @param array<string, string> $allocations  allocations for sections
      *
-     * @return mixed[] ($allocationMap, $sectionUsed, $used_queries)
+     * @return array{string[], true[], mixed[]}
      */
     private function sortVariables(
         array $serverStatus,
         array $allocations,
-        array $allocationMap,
-        array $sectionUsed,
-        array $usedQueries,
     ): array {
+        // Variable to contain all com_ variables (query statistics)
+        $usedQueries = [];
+
+        // Variable to map variable names to their respective section name
+        // (used for js category filtering)
+        $allocationMap = [];
+
+        // Variable to mark used sections
+        $sectionUsed = [];
+
         foreach ($serverStatus as $name => $value) {
             $sectionFound = false;
             foreach ($allocations as $filter => $section) {
@@ -360,22 +364,12 @@ class Data
         // define some needful links/commands
         $links = $this->getLinks();
 
-        // Variable to contain all com_ variables (query statistics)
-        $usedQueries = [];
-
-        // Variable to map variable names to their respective section name
-        // (used for js category filtering)
-        $allocationMap = [];
-
-        // Variable to mark used sections
-        $sectionUsed = [];
-
         // sort vars into arrays
         [
             $allocationMap,
             $sectionUsed,
             $usedQueries,
-        ] = $this->sortVariables($serverStatus, $allocations, $allocationMap, $sectionUsed, $usedQueries);
+        ] = $this->sortVariables($serverStatus, $allocations);
 
         // admin commands are not queries (e.g. they include COM_PING,
         // which is excluded from $server_status['Questions'])
@@ -405,9 +399,9 @@ class Data
     /**
      * cleanup of some deprecated values
      *
-     * @param mixed[] $serverStatus status array to process
+     * @param (string|null)[] $serverStatus status array to process
      *
-     * @return mixed[]
+     * @return (string|null)[]
      */
     public static function cleanDeprecated(array $serverStatus): array
     {
