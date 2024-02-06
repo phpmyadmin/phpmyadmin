@@ -470,7 +470,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @param string $text text to be split
      *
-     * @return mixed[]
+     * @return string[]
      */
     private function explodeMarkup(string $text): array
     {

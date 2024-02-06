@@ -9109,7 +9109,6 @@
       <code>string</code>
     </InvalidNullableReturnType>
     <MixedArgument>
-      <code>$cell</code>
       <code>$table[0]</code>
       <code>$table[1]</code>
       <code>$table[2][0]</code>
@@ -9117,9 +9116,6 @@
     <MixedArrayAccess>
       <code>$table[2][0]</code>
     </MixedArrayAccess>
-    <MixedAssignment>
-      <code>$cell</code>
-    </MixedAssignment>
     <NullableReturnStatement>
       <code>$cellData[1]</code>
     </NullableReturnStatement>
