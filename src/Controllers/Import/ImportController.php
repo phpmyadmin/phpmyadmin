@@ -618,8 +618,8 @@ final class ImportController extends AbstractController
                 Current::$database,
             );
 
-            $GLOBALS['reload'] = $statementInfo->reload;
-            ImportSettings::$offset = (int) $statementInfo->offset;
+            $GLOBALS['reload'] = $statementInfo->flags->reload;
+            ImportSettings::$offset = (int) $statementInfo->flags->offset;
 
             if (Current::$table != $tableFromSql && $tableFromSql !== '') {
                 Current::$table = $tableFromSql;
@@ -644,8 +644,8 @@ final class ImportController extends AbstractController
                     Current::$database,
                 );
 
-                ImportSettings::$offset = (int) $statementInfo->offset;
-                $GLOBALS['reload'] = $statementInfo->reload;
+                ImportSettings::$offset = (int) $statementInfo->flags->offset;
+                $GLOBALS['reload'] = $statementInfo->flags->reload;
 
                 // Check if User is allowed to issue a 'DROP DATABASE' Statement
                 if (

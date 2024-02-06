@@ -19,8 +19,11 @@ use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Query;
-use PhpMyAdmin\StatementInfo;
+use PhpMyAdmin\SqlParser\Utils\StatementFlags;
+use PhpMyAdmin\SqlParser\Utils\StatementInfo;
+use PhpMyAdmin\SqlParser\Utils\StatementType;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
@@ -101,7 +104,7 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'isSelect',
-                [StatementInfo::fromStatementInfo(Query::getAll('SELECT * FROM pma'))],
+                [Query::getAll('SELECT * FROM pma')],
             ),
         );
     }
@@ -321,7 +324,7 @@ class ResultsTest extends AbstractTestCase
             $this->object,
             DisplayResults::class,
             'setHighlightedColumnGlobalField',
-            [StatementInfo::fromStatementInfo(Query::getAll($query))],
+            [Query::getAll($query)],
         );
 
         self::assertEquals([
@@ -613,7 +616,7 @@ class ResultsTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['LimitChars'] = 50;
         $config->settings['ProtectBinary'] = $protectBinary;
-        $statementInfo = self::createStub(StatementInfo::class);
+        $statementInfo = new StatementInfo(new Parser(), null, new StatementFlags(), [], []);
         self::assertStringContainsString(
             $output,
             $this->callFunction(
@@ -712,7 +715,7 @@ class ResultsTest extends AbstractTestCase
                 'disabled',
                 false,
                 $query,
-                StatementInfo::fromStatementInfo(Query::getAll($query)),
+                Query::getAll($query),
             ],
         );
 
@@ -868,18 +871,18 @@ class ResultsTest extends AbstractTestCase
         $table = 'test_table';
 
         $query = 'ANALYZE FORMAT=JSON SELECT * FROM test_table';
-        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
+        [$statementInfo] = ParseAnalyze::sqlQuery($query, $db);
 
         $object = new DisplayResults($this->dbi, $db, $table, 2, '', $query);
-        $object->setConfigParamsForDisplayTable($analyzedSqlResults);
+        $object->setConfigParamsForDisplayTable($statementInfo);
 
         self::assertSame('F', $_SESSION['tmpval']['pftext']);
 
         $query = 'ANALYZE NO_WRITE_TO_BINLOG TABLE test_table';
-        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
+        [$statementInfo] = ParseAnalyze::sqlQuery($query, $db);
 
         $object = new DisplayResults($this->dbi, $db, $table, 2, '', $query);
-        $object->setConfigParamsForDisplayTable($analyzedSqlResults);
+        $object->setConfigParamsForDisplayTable($statementInfo);
 
         self::assertSame('P', $_SESSION['tmpval']['pftext']);
     }
@@ -907,10 +910,10 @@ class ResultsTest extends AbstractTestCase
         $db = 'test_db';
         $table = 'test_table';
         $query = 'SELECT * FROM `test_db`.`test_table`;';
-        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
+        [$statementInfo] = ParseAnalyze::sqlQuery($query, $db);
 
         $object = new DisplayResults($this->dbi, $db, $table, 2, '', $query);
-        $object->setConfigParamsForDisplayTable($analyzedSqlResults);
+        $object->setConfigParamsForDisplayTable($statementInfo);
 
         self::assertArrayHasKey('tmpval', $_SESSION);
         self::assertIsArray($_SESSION['tmpval']);
@@ -1161,16 +1164,16 @@ class ResultsTest extends AbstractTestCase
         $object->setProperties(
             3,
             $fieldsMeta,
-            $statementInfo->isCount,
-            $statementInfo->isExport,
-            $statementInfo->isFunction,
-            $statementInfo->isAnalyse,
+            $statementInfo->flags->isCount,
+            $statementInfo->flags->isExport,
+            $statementInfo->flags->isFunc,
+            $statementInfo->flags->isAnalyse,
             3,
             1.234,
             'ltr',
-            $statementInfo->isMaint,
-            $statementInfo->isExplain,
-            $statementInfo->isShow,
+            $statementInfo->flags->isMaint,
+            $statementInfo->flags->queryType === StatementType::Explain,
+            $statementInfo->flags->queryType === StatementType::Show,
             false,
             true,
             false,
@@ -1454,16 +1457,16 @@ class ResultsTest extends AbstractTestCase
         $object->setProperties(
             2,
             $fieldsMeta,
-            $statementInfo->isCount,
-            $statementInfo->isExport,
-            $statementInfo->isFunction,
-            $statementInfo->isAnalyse,
+            $statementInfo->flags->isCount,
+            $statementInfo->flags->isExport,
+            $statementInfo->flags->isFunc,
+            $statementInfo->flags->isAnalyse,
             2,
             1.234,
             'ltr',
-            $statementInfo->isMaint,
-            $statementInfo->isExplain,
-            $statementInfo->isShow,
+            $statementInfo->flags->isMaint,
+            $statementInfo->flags->queryType === StatementType::Explain,
+            $statementInfo->flags->queryType === StatementType::Show,
             false,
             true,
             true,

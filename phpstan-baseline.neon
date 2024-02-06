@@ -16641,11 +16641,6 @@ parameters:
 			path: tests/classes/OpenDocumentTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\StatementInfo' and PhpMyAdmin\\\\StatementInfo will always evaluate to true\\.$#"
-			count: 2
-			path: tests/classes/ParseAnalyzeTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Partitioning\\\\TablePartitionDefinitionTest\\:\\:testGetDetails\\(\\) has parameter \\$partitions with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/classes/Partitioning/TablePartitionDefinitionTest.php
