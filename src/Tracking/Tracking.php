@@ -497,7 +497,7 @@ class Tracking
      * @param mixed[]     $urlParams       url parameters
      * @param string      $dropImageOrText drop image or text
      *
-     * @return mixed[]
+     * @return array{string, int}
      */
     public function getHtmlForDataDefinitionStatements(
         TrackedData $trackedData,
@@ -508,7 +508,7 @@ class Tracking
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
     ): array {
-        [$html, $lineNumber] = $this->getHtmlForDataStatements(
+        return $this->getHtmlForDataStatements(
             $trackedData->ddlog,
             $filterUsers,
             $urlParams,
@@ -519,8 +519,6 @@ class Tracking
             $dateFrom,
             $dateTo,
         );
-
-        return [$html, $lineNumber];
     }
 
     /**
@@ -533,7 +531,7 @@ class Tracking
      * @param LogTypeEnum                                                    $logType         DDL|DML
      * @param int                                                            $lineNumber      line number
      *
-     * @return mixed[] [$html, $lineNumber]
+     * @return array{string, int} [$html, $lineNumber]
      */
     private function getHtmlForDataStatements(
         array $logData,

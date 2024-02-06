@@ -11879,7 +11879,6 @@
     </DeprecatedMethod>
     <MixedArgument>
       <code>$columns</code>
-      <code>$ddlogCount</code>
       <code>$indexes</code>
       <code>$selectedTable</code>
       <code>$selectedTable</code>
@@ -11914,17 +11913,10 @@
       <code>$timestamps[$key]</code>
       <code>$usernames[$key]</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>string</code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$entry['statement']]]></code>
       <code><![CDATA[$entry['statement']]]></code>
-      <code>$temp</code>
     </MixedOperand>
-    <MixedReturnStatement>
-      <code>$html</code>
-    </MixedReturnStatement>
     <PossiblyFalseOperand>
       <code><![CDATA[mb_strpos($logEntry, "\n")]]></code>
       <code><![CDATA[mb_strpos($logEntry, "\n")]]></code>
@@ -15178,9 +15170,6 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code>$html</code>
-    </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$entries[0]['statement']]]></code>
       <code><![CDATA[$entries[0]['username']]]></code>
