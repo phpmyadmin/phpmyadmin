@@ -133,11 +133,8 @@ final class Processes
             }
 
             $columns[$columnKey]['has_full_query'] = true;
-            if (! $showFullSql) {
-                continue;
-            }
 
-            $columns[$columnKey]['is_full'] = true;
+            $columns[$columnKey]['is_full'] = $showFullSql;
         }
 
         return $columns;
