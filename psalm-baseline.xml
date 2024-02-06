@@ -4770,10 +4770,8 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-    </MixedArgument>
     <MixedArrayAssignment>
+      <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
@@ -12111,10 +12109,8 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-    </MixedArgument>
     <MixedArrayAssignment>
+      <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$GLOBALS['errors'][]]]></code>
