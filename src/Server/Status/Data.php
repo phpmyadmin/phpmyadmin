@@ -1,8 +1,4 @@
 <?php
-/**
- * PhpMyAdmin\Server\Status\Data class
- * Used by server_status_*.php pages
- */
 
 declare(strict_types=1);
 
@@ -20,18 +16,17 @@ use function str_contains;
 /**
  * This class provides data about the server status
  *
- * All properties of the class are read-only
- *
  * TODO: Use lazy initialisation for some of the properties
  *       since not all of the server_status_*.php pages need
  *       all the data that this class provides.
  */
-class Data
+final class Data
 {
+    /**
+     * variable name => section
+     * variable names match when they begin with the given string
+     */
     private const ALLOCATIONS = [
-        // variable name => section
-        // variable names match when they begin with the given string
-
         'Com_' => 'com',
         'Innodb_' => 'innodb',
         'Ndb_' => 'ndb',
@@ -74,32 +69,39 @@ class Data
         'Opened_files' => 'files',
     ];
 
-    /** @var mixed[] */
+    /**
+     * @var mixed[]
+     * @readonly
+     * */
     public array $status;
 
     /** @var array<string, string> */
-    public array $sections;
+    public readonly array $sections;
 
     /** @var mixed[] */
-    public array $variables;
+    public readonly array $variables;
 
-    /** @var mixed[] */
+    /**
+     * @var mixed[]
+     * @readonly
+     */
     public array $usedQueries;
 
     /** @var string[] */
-    public array $allocationMap;
+    public readonly array $allocationMap;
 
     /** @var mixed[] */
-    public array $links;
+    public readonly array $links;
 
-    public bool $dbIsLocal;
+    public readonly bool $dbIsLocal;
 
     /** @var true[] */
-    public array $sectionUsed;
+    public readonly array $sectionUsed;
 
+    /** @readonly */
     public bool $dataLoaded;
 
-    private ReplicationInfo $replicationInfo;
+    private readonly ReplicationInfo $replicationInfo;
 
     public function getReplicationInfo(): ReplicationInfo
     {
@@ -107,25 +109,13 @@ class Data
     }
 
     /**
-     * An empty setter makes the above properties read-only
-     *
-     * @param string $a key
-     * @param mixed  $b value
-     */
-    public function __set(string $a, mixed $b): void
-    {
-        // Discard everything
-    }
-
-    /**
-     * Gets the sections for constructor
+     * Returns the map of section => section name (description)
      *
      * @return array<string, string>
      */
     private function getSections(): array
     {
         return [
-            // section => section name (description)
             'com' => 'Com',
             'query' => __('SQL query'),
             'innodb' => 'InnoDB',
@@ -359,17 +349,10 @@ class Data
         // which is excluded from $server_status['Questions'])
         unset($usedQueries['Com_admin_commands']);
 
-        // Set all class properties
-        $this->dbIsLocal = false;
-        // can be null if $cfg['ServerDefault'] = 0;
         $serverHostToLower = mb_strtolower($config->selectedServer['host']);
-        if (
-            $serverHostToLower === 'localhost'
+        $this->dbIsLocal = $serverHostToLower === 'localhost'
             || $config->selectedServer['host'] === '127.0.0.1'
-            || $config->selectedServer['host'] === '::1'
-        ) {
-            $this->dbIsLocal = true;
-        }
+            || $config->selectedServer['host'] === '::1';
 
         $this->status = $serverStatus;
         $this->sections = $this->getSections();

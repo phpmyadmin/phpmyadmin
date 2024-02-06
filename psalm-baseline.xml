@@ -11016,13 +11016,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['primary_connection'] ?? null]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyUnusedMethod>
-      <code>__set</code>
-    </PossiblyUnusedMethod>
-    <PossiblyUnusedParam>
-      <code>$a</code>
-      <code>$b</code>
-    </PossiblyUnusedParam>
     <UnusedProperty>
       <code>$dbi</code>
     </UnusedProperty>
@@ -13370,6 +13363,10 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
+    <InaccessibleProperty>
+      <code><![CDATA[$this->data->dataLoaded]]></code>
+      <code><![CDATA[$this->data->dataLoaded]]></code>
+    </InaccessibleProperty>
   </file>
   <file src="tests/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php">
     <DeprecatedMethod>
@@ -13434,6 +13431,10 @@
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
+    <InaccessibleProperty>
+      <code><![CDATA[$this->data->status]]></code>
+      <code><![CDATA[$this->data->usedQueries]]></code>
+    </InaccessibleProperty>
     <MixedArgument>
       <code>$totalQueries * $hourFactor</code>
       <code><![CDATA[$totalQueries * 60 / $this->data->status['Uptime']]]></code>
@@ -13455,6 +13456,14 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
+    <InaccessibleProperty>
+      <code><![CDATA[$data->status]]></code>
+      <code><![CDATA[$data->status]]></code>
+      <code><![CDATA[$data->status]]></code>
+      <code><![CDATA[$data->status]]></code>
+      <code><![CDATA[$data->status]]></code>
+      <code><![CDATA[$data->status]]></code>
+    </InaccessibleProperty>
   </file>
   <file src="tests/classes/Controllers/Server/Status/VariablesControllerTest.php">
     <DeprecatedMethod>
