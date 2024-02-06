@@ -21,6 +21,8 @@ use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use PhpMyAdmin\SqlParser\Utils\StatementInfo;
+use PhpMyAdmin\SqlParser\Utils\StatementType;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Utils\ForeignKey;
 
@@ -72,13 +74,13 @@ class Sql
         StatementInfo $statementInfo,
         string &$fullSqlQuery,
     ): StatementInfo {
-        if ($statementInfo->statement === null || $statementInfo->parser === null) {
+        if ($statementInfo->statement === null) {
             return $statementInfo;
         }
 
         $tableObject = new Table($table, $db, $this->dbi);
 
-        if (! $statementInfo->order) {
+        if (! $statementInfo->flags->order) {
             // Retrieving the name of the column we should sort after.
             $sortCol = $tableObject->getUiProp(Table::PROP_SORTED_COLUMN);
             if (empty($sortCol)) {
@@ -100,7 +102,7 @@ class Sql
             );
 
             // TODO: Avoid reparsing the query.
-            $statementInfo = StatementInfo::fromStatementInfo(Query::getAll($fullSqlQuery));
+            $statementInfo = Query::getAll($fullSqlQuery);
         } else {
             // Store the remembered table into session.
             $tableObject->setUiProp(
@@ -123,7 +125,7 @@ class Sql
      */
     private function getSqlWithLimitClause(StatementInfo $statementInfo): string
     {
-        if ($statementInfo->statement === null || $statementInfo->parser === null) {
+        if ($statementInfo->statement === null) {
             return '';
         }
 
@@ -337,14 +339,14 @@ class Sql
     private function isRememberSortingOrder(StatementInfo $statementInfo): bool
     {
         return Config::getInstance()->settings['RememberSorting']
-            && ! ($statementInfo->isCount
-                || $statementInfo->isExport
-                || $statementInfo->isFunction
-                || $statementInfo->isAnalyse)
-            && $statementInfo->selectFrom
-            && ($statementInfo->selectExpression === []
-                || (count($statementInfo->selectExpression) === 1
-                    && $statementInfo->selectExpression[0] === '*'))
+            && ! ($statementInfo->flags->isCount
+                || $statementInfo->flags->isExport
+                || $statementInfo->flags->isFunc
+                || $statementInfo->flags->isAnalyse)
+            && $statementInfo->flags->selectFrom
+            && ($statementInfo->selectExpressions === []
+                || (count($statementInfo->selectExpressions) === 1
+                    && $statementInfo->selectExpressions[0] === '*'))
             && count($statementInfo->selectTables) === 1;
     }
 
@@ -357,13 +359,11 @@ class Sql
         // is not needed. Also we would want to show the true query
         // and the true error message to the query executor
 
-        return (isset($statementInfo->parser)
-            && $statementInfo->parser->errors === [])
-            && ($_SESSION['tmpval']['max_rows'] !== 'all')
-            && (! $statementInfo->isExport && ! $statementInfo->isAnalyse)
-            && ($statementInfo->selectFrom
-                || $statementInfo->isSubquery)
-            && ! $statementInfo->limit;
+        return $statementInfo->parser->errors === []
+            && $_SESSION['tmpval']['max_rows'] !== 'all'
+            && ! $statementInfo->flags->isExport && ! $statementInfo->flags->isAnalyse
+            && ($statementInfo->flags->selectFrom || $statementInfo->flags->isSubQuery)
+            && ! $statementInfo->flags->limit;
     }
 
     /**
@@ -371,20 +371,20 @@ class Sql
      */
     public static function isJustBrowsing(StatementInfo $statementInfo, bool $findRealEnd = false): bool
     {
-        return ! $statementInfo->isGroup
-            && ! $statementInfo->isFunction
-            && ! $statementInfo->union
-            && ! $statementInfo->distinct
-            && $statementInfo->selectFrom
+        return ! $statementInfo->flags->isGroup
+            && ! $statementInfo->flags->isFunc
+            && ! $statementInfo->flags->union
+            && ! $statementInfo->flags->distinct
+            && $statementInfo->flags->selectFrom
             && (count($statementInfo->selectTables) === 1)
             && (empty($statementInfo->statement->where)
                 || (count($statementInfo->statement->where) === 1
                     && $statementInfo->statement->where[0]->expr === '1'))
-            && ! $statementInfo->group
+            && ! $statementInfo->flags->group
             && ! $findRealEnd
-            && ! $statementInfo->isSubquery
-            && ! $statementInfo->join
-            && ! $statementInfo->having;
+            && ! $statementInfo->flags->isSubQuery
+            && ! $statementInfo->flags->join
+            && ! $statementInfo->flags->having;
     }
 
     /**
@@ -392,7 +392,8 @@ class Sql
      */
     private function isDeleteTransformationInfo(StatementInfo $statementInfo): bool
     {
-        return $statementInfo->queryType === 'ALTER' || $statementInfo->queryType === 'DROP';
+        return $statementInfo->flags->queryType === StatementType::Alter
+            || $statementInfo->flags->queryType === StatementType::Drop;
     }
 
     /**
@@ -406,7 +407,7 @@ class Sql
         bool $allowUserDropDatabase,
         bool $isSuperUser,
     ): bool {
-        return ! $allowUserDropDatabase && $statementInfo->dropDatabase && ! $isSuperUser;
+        return ! $allowUserDropDatabase && $statementInfo->flags->dropDatabase && ! $isSuperUser;
     }
 
     /**
@@ -621,7 +622,7 @@ class Sql
         StatementInfo $statementInfo,
     ): int|string {
         /* Shortcut for not analyzed/empty query */
-        if ($statementInfo->statement === null || $statementInfo->parser === null) {
+        if ($statementInfo->statement === null) {
             return 0;
         }
 
@@ -635,7 +636,7 @@ class Sql
             // result are less than max_rows to display, there is no need
             // to count total rows for that query again
             $unlimNumRows = $_SESSION['tmpval']['pos'] + $numRows;
-        } elseif ($statementInfo->queryType === 'SELECT' || $statementInfo->isSubquery) {
+        } elseif ($statementInfo->flags->queryType === StatementType::Select || $statementInfo->flags->isSubQuery) {
             //    c o u n t    q u e r y
 
             // If we are "just browsing", there is only one table (and no join),
@@ -663,17 +664,19 @@ class Sql
                 $statement = $statementInfo->statement;
 
                 // Remove ORDER BY to decrease unnecessary sorting time
-                if ($statementInfo->order) {
+                if ($statementInfo->flags->order) {
                     $statement->order = null;
                 }
 
                 // Removes LIMIT clause that might have been added
-                if ($statementInfo->limit) {
+                if ($statementInfo->flags->limit) {
                     $statement->limit = false;
                 }
 
                 if (
-                    ! $statementInfo->isGroup && ! $statementInfo->distinct && ! $statementInfo->union
+                    ! $statementInfo->flags->isGroup
+                    && ! $statementInfo->flags->distinct
+                    && ! $statementInfo->flags->union
                     && count($statement->expr) === 1
                 ) {
                     $statement->expr[0] = new Expression();
@@ -762,7 +765,7 @@ class Sql
         // Gets the number of rows affected/returned
         // (This must be done immediately after the query because
         // mysql_affected_rows() reports about the last query done)
-        $numRows = $this->getNumberOfRowsAffectedOrChanged($statementInfo->isAffected, $result);
+        $numRows = $this->getNumberOfRowsAffectedOrChanged($statementInfo->flags->isAffected, $result);
 
         $profilingResults = Profiling::getInformation($this->dbi);
 
@@ -783,7 +786,7 @@ class Sql
      */
     private function deleteTransformationInfo(string $db, string $table, StatementInfo $statementInfo): void
     {
-        if (! isset($statementInfo->statement)) {
+        if ($statementInfo->statement === null) {
             return;
         }
 
@@ -812,10 +815,10 @@ class Sql
         StatementInfo $statementInfo,
         int|string $numRows,
     ): Message {
-        if ($statementInfo->queryType === 'DELETE') {
+        if ($statementInfo->flags->queryType === StatementType::Delete) {
             $message = Message::getMessageForDeletedRows($numRows);
-        } elseif ($statementInfo->isInsert) {
-            if ($statementInfo->queryType === 'REPLACE') {
+        } elseif ($statementInfo->flags->isInsert) {
+            if ($statementInfo->flags->queryType === StatementType::Replace) {
                 // For REPLACE we get DELETED + INSERTED row count,
                 // so we have to call it affected
                 $message = Message::getMessageForAffectedRows($numRows);
@@ -835,7 +838,7 @@ class Sql
                 $inserted->addParam($insertId + $numRows - 1);
                 $message->addMessage($inserted);
             }
-        } elseif ($statementInfo->isAffected) {
+        } elseif ($statementInfo->flags->isAffected) {
             $message = Message::getMessageForAffectedRows($numRows);
 
             // Ok, here is an explanation for the !$is_select.
@@ -845,7 +848,7 @@ class Sql
             // fact that $message_to_show is sent for every case.
             // The $message_to_show containing a success message and sent with
             // the form should not have priority over errors
-        } elseif ($messageToShow && $statementInfo->queryType !== 'SELECT') {
+        } elseif ($messageToShow && $statementInfo->flags->queryType !== StatementType::Select) {
             $message = Message::rawSuccess(htmlspecialchars($messageToShow));
         } elseif (! empty($GLOBALS['show_as_php'])) {
             $message = Message::success(__('Showing as PHP code'));
@@ -1014,7 +1017,7 @@ class Sql
             'db' => $db,
             'table' => $table,
             'sql_query' => $sqlQuery,
-            'is_procedure' => $statementInfo->isProcedure,
+            'is_procedure' => $statementInfo->flags->isProcedure,
         ]);
     }
 
@@ -1079,7 +1082,7 @@ class Sql
         $printView = isset($_POST['printview']) && $_POST['printview'] == '1';
         $isBrowseDistinct = ! empty($_POST['is_browse_distinct']);
 
-        if ($statementInfo->isProcedure) {
+        if ($statementInfo->flags->isProcedure) {
             return $this->getHtmlForStoredProcedureResults(
                 $result,
                 $displayResultsObject,
@@ -1094,16 +1097,16 @@ class Sql
         $displayResultsObject->setProperties(
             $unlimNumRows,
             $this->dbi->getFieldsMeta($result),
-            $statementInfo->isCount,
-            $statementInfo->isExport,
-            $statementInfo->isFunction,
-            $statementInfo->isAnalyse,
+            $statementInfo->flags->isCount,
+            $statementInfo->flags->isExport,
+            $statementInfo->flags->isFunc,
+            $statementInfo->flags->isAnalyse,
             $numRows,
             $GLOBALS['querytime'],
             LanguageManager::$textDir,
-            $statementInfo->isMaint,
-            $statementInfo->isExplain,
-            $statementInfo->isShow,
+            $statementInfo->flags->isMaint,
+            $statementInfo->flags->queryType === StatementType::Explain,
+            $statementInfo->flags->queryType === StatementType::Show,
             $printView,
             $editable,
             $isBrowseDistinct,
@@ -1130,16 +1133,16 @@ class Sql
                 $displayResultsObject->setProperties(
                     $numRows,
                     $this->dbi->getFieldsMeta($result),
-                    $statementInfo->isCount,
-                    $statementInfo->isExport,
-                    $statementInfo->isFunction,
-                    $statementInfo->isAnalyse,
+                    $statementInfo->flags->isCount,
+                    $statementInfo->flags->isExport,
+                    $statementInfo->flags->isFunc,
+                    $statementInfo->flags->isAnalyse,
                     $numRows,
                     $GLOBALS['querytime'],
                     LanguageManager::$textDir,
-                    $statementInfo->isMaint,
-                    $statementInfo->isExplain,
-                    $statementInfo->isShow,
+                    $statementInfo->flags->isMaint,
+                    $statementInfo->flags->queryType === StatementType::Explain,
+                    $statementInfo->flags->queryType === StatementType::Show,
                     $printView,
                     $editable,
                     $isBrowseDistinct,
@@ -1309,8 +1312,8 @@ class Sql
             }
 
             if (
-                $statementInfo->join
-                || $statementInfo->isSubquery
+                $statementInfo->flags->join
+                || $statementInfo->flags->isSubQuery
                 || count($statementInfo->selectTables) !== 1
             ) {
                 $justOneTable = false;
@@ -1515,7 +1518,7 @@ class Sql
         // drop-down.
         if (
             $this->isRememberSortingOrder($statementInfo)
-            && ! $statementInfo->union
+            && ! $statementInfo->flags->union
             && ! isset($_POST['sort_by_key'])
         ) {
             if (! isset($_SESSION['sql_from_query_box'])) {
@@ -1574,7 +1577,7 @@ class Sql
         $warningMessages = $this->operations->getWarningMessagesArray();
 
         // No rows returned -> move back to the calling page
-        if (($numRows == 0 && $unlimNumRows == 0) || $statementInfo->isAffected || $result === false) {
+        if (($numRows == 0 && $unlimNumRows == 0) || $statementInfo->flags->isAffected || $result === false) {
             $htmlOutput = $this->getQueryResponseForNoResultsReturned(
                 $statementInfo,
                 $db,

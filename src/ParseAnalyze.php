@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\SqlParser\Utils\Query;
+use PhpMyAdmin\SqlParser\Utils\StatementInfo;
 
 use function count;
 use function strcasecmp;
@@ -63,6 +64,6 @@ class ParseAnalyze
             }
         }
 
-        return [StatementInfo::fromStatementInfo($info), $db, $table];
+        return [$info, $db, $table];
     }
 }

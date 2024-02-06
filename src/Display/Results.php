@@ -26,7 +26,8 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
-use PhpMyAdmin\StatementInfo;
+use PhpMyAdmin\SqlParser\Utils\StatementInfo;
+use PhpMyAdmin\SqlParser\Utils\StatementType;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -108,7 +109,6 @@ class Results
 
     public const TABLE_TYPE_INNO_DB = 'InnoDB';
     public const ALL_ROWS = 'all';
-    public const QUERY_TYPE_SELECT = 'SELECT';
 
     public const ACTION_LINK_CONTENT_ICONS = 'icons';
     public const ACTION_LINK_CONTENT_TEXT = 'text';
@@ -573,7 +573,7 @@ class Results
     private function isSelect(StatementInfo $statementInfo): bool
     {
         return ! ($this->isCount || $this->isExport || $this->isFunction || $this->isAnalyse)
-            && $statementInfo->selectFrom
+            && $statementInfo->flags->selectFrom
             && ! empty($statementInfo->statement->from)
             && count($statementInfo->statement->from) === 1
             && ! empty($statementInfo->statement->from[0]->table);
@@ -1885,10 +1885,7 @@ class Results
             ) {
                 $expressions = [];
 
-                if (
-                    isset($statementInfo->statement)
-                    && $statementInfo->statement instanceof SelectStatement
-                ) {
+                if ($statementInfo->statement instanceof SelectStatement) {
                     $expressions = $statementInfo->statement->expr;
                 }
 
@@ -2253,10 +2250,7 @@ class Results
 
             $expressions = [];
 
-            if (
-                isset($statementInfo->statement)
-                && $statementInfo->statement instanceof SelectStatement
-            ) {
+            if ($statementInfo->statement instanceof SelectStatement) {
                 $expressions = $statementInfo->statement->expr;
             }
 
@@ -2413,10 +2407,9 @@ class Results
     private function getUrlSqlQuery(StatementInfo $statementInfo): string
     {
         if (
-            $statementInfo->queryType !== 'SELECT'
+            $statementInfo->flags->queryType !== StatementType::Select
             || mb_strlen($this->sqlQuery) < 200
             || $statementInfo->statement === null
-            || $statementInfo->parser === null
         ) {
             return $this->sqlQuery;
         }
@@ -2987,14 +2980,12 @@ class Results
      * Checks the posted options for viewing query results
      * and sets appropriate values in the session.
      *
-     * @param StatementInfo $analyzedSqlResults the analyzed query results
-     *
      * @todo    make maximum remembered queries configurable
      * @todo    move/split into SQL class!?
      * @todo    currently this is called twice unnecessary
      * @todo    ignore LIMIT and ORDER in query!?
      */
-    public function setConfigParamsForDisplayTable(StatementInfo $analyzedSqlResults): void
+    public function setConfigParamsForDisplayTable(StatementInfo $statementInfo): void
     {
         $sqlMd5 = md5($this->server . $this->db . $this->sqlQuery);
         $query = [];
@@ -3030,7 +3021,7 @@ class Results
         }
 
         // Full text is needed in case of explain statements, if not specified.
-        $fullText = $analyzedSqlResults->isExplain;
+        $fullText = $statementInfo->flags->queryType === StatementType::Explain;
 
         if (
             isset($_REQUEST['pftext']) && in_array(
@@ -3145,12 +3136,8 @@ class Results
         bool $isLimitedDisplay = false,
     ): string {
         // The statement this table is built for.
-        if (isset($statementInfo->statement)) {
-            /** @var SelectStatement $statement */
-            $statement = $statementInfo->statement;
-        } else {
-            $statement = null;
-        }
+        /** @var SelectStatement|null $statement */
+        $statement = $statementInfo->statement;
 
         $preCount = '';
         $afterCount = '';
@@ -3218,7 +3205,7 @@ class Results
         }
 
         // 2.3 Prepare the navigation bars
-        if ($this->table === '' && $statementInfo->queryType === 'SELECT') {
+        if ($this->table === '' && $statementInfo->flags->queryType === StatementType::Select) {
             // table does not always contain a real table name,
             // for example in MySQL 5.0.x, the query SHOW STATUS
             // returns STATUS as a table name
@@ -3228,11 +3215,7 @@ class Results
         $unsortedSqlQuery = '';
         $sortByKeyData = [];
         // can the result be sorted?
-        if (
-            $displayParts->hasSortLink
-            && $statementInfo->statement !== null
-            && $statementInfo->parser !== null
-        ) {
+        if ($displayParts->hasSortLink && $statementInfo->statement !== null) {
             $unsortedSqlQuery = Query::replaceClause(
                 $statementInfo->statement,
                 $statementInfo->parser->list,
@@ -3639,7 +3622,7 @@ class Results
 
     private function hasExportButton(StatementInfo $statementInfo, DeleteLinkEnum $deleteLink): bool
     {
-        return $deleteLink === DeleteLinkEnum::DELETE_ROW && $statementInfo->queryType === 'SELECT';
+        return $deleteLink === DeleteLinkEnum::DELETE_ROW && $statementInfo->flags->queryType === StatementType::Select;
     }
 
     /**
@@ -3683,8 +3666,8 @@ class Results
         // (most probably PROCEDURE ANALYSE()) it makes no sense to
         // display the Export link).
         if (
-            $statementInfo->queryType === self::QUERY_TYPE_SELECT
-            && ! $statementInfo->isProcedure
+            $statementInfo->flags->queryType === StatementType::Select
+            && ! $statementInfo->flags->isProcedure
         ) {
             if (count($statementInfo->selectTables) === 1) {
                 $urlParams['single_table'] = 'true';
@@ -3719,10 +3702,10 @@ class Results
         }
 
         return [
-            'has_procedure' => $statementInfo->isProcedure,
+            'has_procedure' => $statementInfo->flags->isProcedure,
             'has_geometry' => $geometryFound,
             'has_print_link' => $hasPrintLink,
-            'has_export_link' => $statementInfo->queryType === self::QUERY_TYPE_SELECT,
+            'has_export_link' => $statementInfo->flags->queryType === StatementType::Select,
             'url_params' => $urlParams,
         ];
     }
