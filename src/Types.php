@@ -729,7 +729,7 @@ class Types
 
     public function mapAliasToMysqlType(string $alias): string
     {
-        return [
+        return match ($alias) {
             'BOOL' => 'TINYINT',
             'BOOLEAN' => 'TINYINT',
             'CHARACTER VARYING' => 'VARCHAR',
@@ -746,7 +746,8 @@ class Types
             'LONG' => 'MEDIUMTEXT',
             'MIDDLEINT' => 'MEDIUMINT',
             'NUMERIC' => 'DECIMAL',
-        ][$alias] ?? $alias;
+            default => $alias,
+        };
     }
 
     /**
