@@ -279,7 +279,6 @@ final class Data
         // (used for js category filtering)
         $allocationMap = [];
 
-        // Variable to mark used sections
         $sectionUsed = [];
 
         foreach ($serverStatus as $name => $value) {
@@ -309,7 +308,6 @@ final class Data
         $this->replicationInfo = new ReplicationInfo($this->dbi);
         $this->replicationInfo->load($_POST['primary_connection'] ?? null);
 
-        // get status from server
         $serverStatusResult = $this->dbi->tryQuery('SHOW GLOBAL STATUS');
         if ($serverStatusResult === false) {
             $serverStatus = [];
@@ -323,16 +321,12 @@ final class Data
         // for some calculations we require also some server settings
         $serverVariables = $this->dbi->fetchResult('SHOW GLOBAL VARIABLES', 0, 1);
 
-        // cleanup of some deprecated values
         $serverStatus = self::cleanDeprecated($serverStatus);
 
-        // calculate some values
         $serverStatus = $this->calculateValues($serverStatus, $serverVariables);
 
-        // define some needful links/commands
         $links = $this->getLinks();
 
-        // sort vars into arrays
         [
             $allocationMap,
             $sectionUsed,
