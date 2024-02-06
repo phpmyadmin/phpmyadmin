@@ -3550,9 +3550,6 @@
                     ? $relationsForeign['foreign_keys_data']
                     : []]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>usort($columnList, strnatcasecmp(...))</code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$oneKey['ref_db_name']]]></code>
       <code><![CDATA[$oneKey['ref_table_name']]]></code>
@@ -11513,11 +11510,8 @@
       <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
       <code><![CDATA[$_POST['constraint_name'][$masterFieldMd5]]]></code>
       <code>$column</code>
-      <code>$column</code>
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$column['Extra']]]></code>
-      <code>$eachCol</code>
-      <code>$eachCol</code>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['constraint']]]></code>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['constraint']]]></code>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['ref_db_name']]]></code>
@@ -11550,7 +11544,6 @@
     <MixedArgumentTypeCoercion>
       <code>$field</code>
       <code>$foreignField</code>
-      <code>$indexedCols</code>
       <code>$masterField</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
@@ -11615,10 +11608,8 @@
       <code>$altered</code>
       <code>$column</code>
       <code>$column</code>
-      <code>$column</code>
       <code><![CDATA[$columns[$row['Field']]]]></code>
       <code>$constraintName</code>
-      <code>$eachCol</code>
       <code>$foreignDb</code>
       <code>$foreignDb</code>
       <code>$foreignField</code>
