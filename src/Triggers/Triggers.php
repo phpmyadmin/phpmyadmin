@@ -99,7 +99,15 @@ class Triggers
                         $result = $this->dbi->tryQuery($createItem);
 
                         if (! $result) {
-                            $GLOBALS['errors'] = $this->checkResult($createItem, $GLOBALS['errors']);
+                            // OMG, this is really bad! We dropped the query,
+                            // failed to create a new one
+                            // and now even the backup query does not execute!
+                            // This should not happen, but we better handle
+                            // this just in case.
+                            $GLOBALS['errors'][] = __('Sorry, we failed to restore the dropped trigger.') . '<br>'
+                                . __('The backed up query was:')
+                                . '"' . htmlspecialchars($createItem) . '"<br>'
+                                . __('MySQL said: ') . $this->dbi->getError();
                         }
                     } else {
                         $GLOBALS['message'] = Message::success(
@@ -222,27 +230,6 @@ class Triggers
         }
 
         return $query;
-    }
-
-    /**
-     * @param string  $createStatement Query
-     * @param mixed[] $errors          Errors
-     *
-     * @return mixed[]
-     */
-    private function checkResult(string $createStatement, array $errors): array
-    {
-        // OMG, this is really bad! We dropped the query,
-        // failed to create a new one
-        // and now even the backup query does not execute!
-        // This should not happen, but we better handle
-        // this just in case.
-        $errors[] = __('Sorry, we failed to restore the dropped trigger.') . '<br>'
-            . __('The backed up query was:')
-            . '"' . htmlspecialchars($createStatement) . '"<br>'
-            . __('MySQL said: ') . $this->dbi->getError();
-
-        return $errors;
     }
 
     /**
