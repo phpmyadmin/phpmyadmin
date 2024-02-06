@@ -283,7 +283,6 @@ final class Data
         $sectionUsed = [];
 
         foreach ($serverStatus as $name => $value) {
-            $sectionFound = false;
             foreach (self::ALLOCATIONS as $filter => $section) {
                 if (! str_contains($name, $filter)) {
                     continue;
@@ -291,16 +290,11 @@ final class Data
 
                 $allocationMap[$name] = $section;
                 $sectionUsed[$section] = true;
-                $sectionFound = true;
                 if ($section === 'com' && $value > 0) {
                     $usedQueries[$name] = $value;
                 }
 
-                break; // Only exits inner loop
-            }
-
-            if ($sectionFound) {
-                continue;
+                continue 2;
             }
 
             $allocationMap[$name] = 'other';
