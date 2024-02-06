@@ -13746,11 +13746,6 @@ parameters:
 			path: src/Server/Select.php
 
 		-
-			message: "#^Cannot access offset 'Com_admin_commands' on mixed\\.$#"
-			count: 1
-			path: src/Server/Status/Data.php
-
-		-
 			message: "#^Cannot access offset 'doc' on mixed\\.$#"
 			count: 4
 			path: src/Server/Status/Data.php
@@ -13772,26 +13767,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, \\(int\\|string\\) given\\.$#"
-			count: 1
-			path: src/Server/Status/Data.php
-
-		-
-			message: "#^Parameter \\#2 \\$needle of function str_contains expects string, \\(int\\|string\\) given\\.$#"
-			count: 1
-			path: src/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$allocationMap \\(array\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$sectionUsed \\(array\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$usedQueries \\(array\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Server/Status/Data.php
 

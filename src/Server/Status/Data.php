@@ -1,8 +1,4 @@
 <?php
-/**
- * PhpMyAdmin\Server\Status\Data class
- * Used by server_status_*.php pages
- */
 
 declare(strict_types=1);
 
@@ -20,40 +16,92 @@ use function str_contains;
 /**
  * This class provides data about the server status
  *
- * All properties of the class are read-only
- *
  * TODO: Use lazy initialisation for some of the properties
  *       since not all of the server_status_*.php pages need
  *       all the data that this class provides.
  */
-class Data
+final class Data
 {
-    /** @var mixed[] */
+    /**
+     * variable name => section
+     * variable names match when they begin with the given string
+     */
+    private const ALLOCATIONS = [
+        'Com_' => 'com',
+        'Innodb_' => 'innodb',
+        'Ndb_' => 'ndb',
+        'Handler_' => 'handler',
+        'Qcache_' => 'qcache',
+        'Threads_' => 'threads',
+        'Slow_launch_threads' => 'threads',
+
+        'Binlog_cache_' => 'binlog_cache',
+        'Created_tmp_' => 'created_tmp',
+        'Key_' => 'key',
+
+        'Delayed_' => 'delayed',
+        'Not_flushed_delayed_rows' => 'delayed',
+
+        'Flush_commands' => 'query',
+        'Last_query_cost' => 'query',
+        'Slow_queries' => 'query',
+        'Queries' => 'query',
+        'Prepared_stmt_count' => 'query',
+
+        'Select_' => 'select',
+        'Sort_' => 'sort',
+
+        'Open_tables' => 'table',
+        'Opened_tables' => 'table',
+        'Open_table_definitions' => 'table',
+        'Opened_table_definitions' => 'table',
+        'Table_locks_' => 'table',
+
+        'Rpl_status' => 'repl',
+        'Slave_' => 'repl',
+
+        'Tc_' => 'tc',
+
+        'Ssl_' => 'ssl',
+
+        'Open_files' => 'files',
+        'Open_streams' => 'files',
+        'Opened_files' => 'files',
+    ];
+
+    /**
+     * @var mixed[]
+     * @readonly
+     * */
     public array $status;
 
-    /** @var mixed[] */
-    public array $sections;
+    /** @var array<string, string> */
+    public readonly array $sections;
 
     /** @var mixed[] */
-    public array $variables;
+    public readonly array $variables;
 
-    /** @var mixed[] */
+    /**
+     * @var mixed[]
+     * @readonly
+     */
     public array $usedQueries;
 
-    /** @var mixed[] */
-    public array $allocationMap;
+    /** @var string[] */
+    public readonly array $allocationMap;
 
     /** @var mixed[] */
-    public array $links;
+    public readonly array $links;
 
-    public bool $dbIsLocal;
+    public readonly bool $dbIsLocal;
 
-    /** @var mixed[] */
-    public array $sectionUsed;
+    /** @var true[] */
+    public readonly array $sectionUsed;
 
+    /** @readonly */
     public bool $dataLoaded;
 
-    private ReplicationInfo $replicationInfo;
+    private readonly ReplicationInfo $replicationInfo;
 
     public function getReplicationInfo(): ReplicationInfo
     {
@@ -61,79 +109,13 @@ class Data
     }
 
     /**
-     * An empty setter makes the above properties read-only
+     * Returns the map of section => section name (description)
      *
-     * @param string $a key
-     * @param mixed  $b value
-     */
-    public function __set(string $a, mixed $b): void
-    {
-        // Discard everything
-    }
-
-    /**
-     * Gets the allocations for constructor
-     *
-     * @return mixed[]
-     */
-    private function getAllocations(): array
-    {
-        return [
-            // variable name => section
-            // variable names match when they begin with the given string
-
-            'Com_' => 'com',
-            'Innodb_' => 'innodb',
-            'Ndb_' => 'ndb',
-            'Handler_' => 'handler',
-            'Qcache_' => 'qcache',
-            'Threads_' => 'threads',
-            'Slow_launch_threads' => 'threads',
-
-            'Binlog_cache_' => 'binlog_cache',
-            'Created_tmp_' => 'created_tmp',
-            'Key_' => 'key',
-
-            'Delayed_' => 'delayed',
-            'Not_flushed_delayed_rows' => 'delayed',
-
-            'Flush_commands' => 'query',
-            'Last_query_cost' => 'query',
-            'Slow_queries' => 'query',
-            'Queries' => 'query',
-            'Prepared_stmt_count' => 'query',
-
-            'Select_' => 'select',
-            'Sort_' => 'sort',
-
-            'Open_tables' => 'table',
-            'Opened_tables' => 'table',
-            'Open_table_definitions' => 'table',
-            'Opened_table_definitions' => 'table',
-            'Table_locks_' => 'table',
-
-            'Rpl_status' => 'repl',
-            'Slave_' => 'repl',
-
-            'Tc_' => 'tc',
-
-            'Ssl_' => 'ssl',
-
-            'Open_files' => 'files',
-            'Open_streams' => 'files',
-            'Opened_files' => 'files',
-        ];
-    }
-
-    /**
-     * Gets the sections for constructor
-     *
-     * @return mixed[]
+     * @return array<string, string>
      */
     private function getSections(): array
     {
         return [
-            // section => section name (description)
             'com' => 'Com',
             'query' => __('SQL query'),
             'innodb' => 'InnoDB',
@@ -284,40 +266,34 @@ class Data
     /**
      * Sort variables into arrays
      *
-     * @param mixed[] $serverStatus  contains results of SHOW GLOBAL STATUS
-     * @param mixed[] $allocations   allocations for sections
-     * @param mixed[] $allocationMap map variables to their section
-     * @param mixed[] $sectionUsed   is a section used?
-     * @param mixed[] $usedQueries   used queries
+     * @param mixed[] $serverStatus contains results of SHOW GLOBAL STATUS
      *
-     * @return mixed[] ($allocationMap, $sectionUsed, $used_queries)
+     * @return array{string[], true[], mixed[]}
      */
-    private function sortVariables(
-        array $serverStatus,
-        array $allocations,
-        array $allocationMap,
-        array $sectionUsed,
-        array $usedQueries,
-    ): array {
+    private function sortVariables(array $serverStatus): array
+    {
+        // Variable to contain all com_ variables (query statistics)
+        $usedQueries = [];
+
+        // Variable to map variable names to their respective section name
+        // (used for js category filtering)
+        $allocationMap = [];
+
+        $sectionUsed = [];
+
         foreach ($serverStatus as $name => $value) {
-            $sectionFound = false;
-            foreach ($allocations as $filter => $section) {
+            foreach (self::ALLOCATIONS as $filter => $section) {
                 if (! str_contains($name, $filter)) {
                     continue;
                 }
 
                 $allocationMap[$name] = $section;
                 $sectionUsed[$section] = true;
-                $sectionFound = true;
                 if ($section === 'com' && $value > 0) {
                     $usedQueries[$name] = $value;
                 }
 
-                break; // Only exits inner loop
-            }
-
-            if ($sectionFound) {
-                continue;
+                continue 2;
             }
 
             $allocationMap[$name] = 'other';
@@ -332,7 +308,6 @@ class Data
         $this->replicationInfo = new ReplicationInfo($this->dbi);
         $this->replicationInfo->load($_POST['primary_connection'] ?? null);
 
-        // get status from server
         $serverStatusResult = $this->dbi->tryQuery('SHOW GLOBAL STATUS');
         if ($serverStatusResult === false) {
             $serverStatus = [];
@@ -346,55 +321,29 @@ class Data
         // for some calculations we require also some server settings
         $serverVariables = $this->dbi->fetchResult('SHOW GLOBAL VARIABLES', 0, 1);
 
-        // cleanup of some deprecated values
         $serverStatus = self::cleanDeprecated($serverStatus);
 
-        // calculate some values
         $serverStatus = $this->calculateValues($serverStatus, $serverVariables);
 
-        // split variables in sections
-        $allocations = $this->getAllocations();
-
-        $sections = $this->getSections();
-
-        // define some needful links/commands
         $links = $this->getLinks();
 
-        // Variable to contain all com_ variables (query statistics)
-        $usedQueries = [];
-
-        // Variable to map variable names to their respective section name
-        // (used for js category filtering)
-        $allocationMap = [];
-
-        // Variable to mark used sections
-        $sectionUsed = [];
-
-        // sort vars into arrays
         [
             $allocationMap,
             $sectionUsed,
             $usedQueries,
-        ] = $this->sortVariables($serverStatus, $allocations, $allocationMap, $sectionUsed, $usedQueries);
+        ] = $this->sortVariables($serverStatus);
 
         // admin commands are not queries (e.g. they include COM_PING,
         // which is excluded from $server_status['Questions'])
         unset($usedQueries['Com_admin_commands']);
 
-        // Set all class properties
-        $this->dbIsLocal = false;
-        // can be null if $cfg['ServerDefault'] = 0;
         $serverHostToLower = mb_strtolower($config->selectedServer['host']);
-        if (
-            $serverHostToLower === 'localhost'
+        $this->dbIsLocal = $serverHostToLower === 'localhost'
             || $config->selectedServer['host'] === '127.0.0.1'
-            || $config->selectedServer['host'] === '::1'
-        ) {
-            $this->dbIsLocal = true;
-        }
+            || $config->selectedServer['host'] === '::1';
 
         $this->status = $serverStatus;
-        $this->sections = $sections;
+        $this->sections = $this->getSections();
         $this->variables = $serverVariables;
         $this->usedQueries = $usedQueries;
         $this->allocationMap = $allocationMap;
@@ -405,9 +354,9 @@ class Data
     /**
      * cleanup of some deprecated values
      *
-     * @param mixed[] $serverStatus status array to process
+     * @param (string|null)[] $serverStatus status array to process
      *
-     * @return mixed[]
+     * @return (string|null)[]
      */
     public static function cleanDeprecated(array $serverStatus): array
     {

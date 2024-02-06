@@ -2899,7 +2899,6 @@
       <code>$linkName</code>
       <code>$linkUrl</code>
       <code>$sectionLinks</code>
-      <code>$sectionName</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedOperand>
@@ -10984,30 +10983,18 @@
   </file>
   <file src="src/Server/Status/Data.php">
     <MixedArgumentTypeCoercion>
-      <code>$filter</code>
       <code>$name</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$usedQueries['Com_admin_commands']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code>$sectionUsed[$section]</code>
-    </MixedArrayOffset>
     <MixedAssignment>
-      <code>$allocationMap[$name]</code>
       <code>$keyReadRequests</code>
       <code>$keyReads</code>
       <code>$keyWriteRequests</code>
       <code>$keyWrites</code>
-      <code>$section</code>
       <code><![CDATA[$serverStatus['Key_buffer_fraction_%']]]></code>
       <code><![CDATA[$serverStatus['Key_buffer_fraction_%']]]></code>
       <code><![CDATA[$serverStatus['Key_read_ratio_%']]]></code>
       <code><![CDATA[$serverStatus['Key_write_ratio_%']]]></code>
       <code><![CDATA[$serverStatus['Threads_cache_hitrate_%']]]></code>
-      <code><![CDATA[$this->allocationMap]]></code>
-      <code><![CDATA[$this->sectionUsed]]></code>
-      <code><![CDATA[$this->usedQueries]]></code>
       <code>$usedQueries[$name]</code>
       <code>$value</code>
     </MixedAssignment>
@@ -11029,13 +11016,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['primary_connection'] ?? null]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyUnusedMethod>
-      <code>__set</code>
-    </PossiblyUnusedMethod>
-    <PossiblyUnusedParam>
-      <code>$a</code>
-      <code>$b</code>
-    </PossiblyUnusedParam>
     <UnusedProperty>
       <code>$dbi</code>
     </UnusedProperty>
@@ -13383,6 +13363,10 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
+    <InaccessibleProperty>
+      <code><![CDATA[$this->data->dataLoaded]]></code>
+      <code><![CDATA[$this->data->dataLoaded]]></code>
+    </InaccessibleProperty>
   </file>
   <file src="tests/classes/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php">
     <DeprecatedMethod>
@@ -13447,6 +13431,10 @@
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
+    <InaccessibleProperty>
+      <code><![CDATA[$this->data->status]]></code>
+      <code><![CDATA[$this->data->usedQueries]]></code>
+    </InaccessibleProperty>
     <MixedArgument>
       <code>$totalQueries * $hourFactor</code>
       <code><![CDATA[$totalQueries * 60 / $this->data->status['Uptime']]]></code>
@@ -13468,6 +13456,14 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
+    <InaccessibleProperty>
+      <code><![CDATA[$data->status]]></code>
+      <code><![CDATA[$data->status]]></code>
+      <code><![CDATA[$data->status]]></code>
+      <code><![CDATA[$data->status]]></code>
+      <code><![CDATA[$data->status]]></code>
+      <code><![CDATA[$data->status]]></code>
+    </InaccessibleProperty>
   </file>
   <file src="tests/classes/Controllers/Server/Status/VariablesControllerTest.php">
     <DeprecatedMethod>
