@@ -28,6 +28,52 @@ use function str_contains;
  */
 class Data
 {
+    private const ALLOCATIONS = [
+        // variable name => section
+        // variable names match when they begin with the given string
+
+        'Com_' => 'com',
+        'Innodb_' => 'innodb',
+        'Ndb_' => 'ndb',
+        'Handler_' => 'handler',
+        'Qcache_' => 'qcache',
+        'Threads_' => 'threads',
+        'Slow_launch_threads' => 'threads',
+
+        'Binlog_cache_' => 'binlog_cache',
+        'Created_tmp_' => 'created_tmp',
+        'Key_' => 'key',
+
+        'Delayed_' => 'delayed',
+        'Not_flushed_delayed_rows' => 'delayed',
+
+        'Flush_commands' => 'query',
+        'Last_query_cost' => 'query',
+        'Slow_queries' => 'query',
+        'Queries' => 'query',
+        'Prepared_stmt_count' => 'query',
+
+        'Select_' => 'select',
+        'Sort_' => 'sort',
+
+        'Open_tables' => 'table',
+        'Opened_tables' => 'table',
+        'Open_table_definitions' => 'table',
+        'Opened_table_definitions' => 'table',
+        'Table_locks_' => 'table',
+
+        'Rpl_status' => 'repl',
+        'Slave_' => 'repl',
+
+        'Tc_' => 'tc',
+
+        'Ssl_' => 'ssl',
+
+        'Open_files' => 'files',
+        'Open_streams' => 'files',
+        'Opened_files' => 'files',
+    ];
+
     /** @var mixed[] */
     public array $status;
 
@@ -69,60 +115,6 @@ class Data
     public function __set(string $a, mixed $b): void
     {
         // Discard everything
-    }
-
-    /**
-     * Gets the allocations for constructor
-     *
-     * @return array<string, string>
-     */
-    private function getAllocations(): array
-    {
-        return [
-            // variable name => section
-            // variable names match when they begin with the given string
-
-            'Com_' => 'com',
-            'Innodb_' => 'innodb',
-            'Ndb_' => 'ndb',
-            'Handler_' => 'handler',
-            'Qcache_' => 'qcache',
-            'Threads_' => 'threads',
-            'Slow_launch_threads' => 'threads',
-
-            'Binlog_cache_' => 'binlog_cache',
-            'Created_tmp_' => 'created_tmp',
-            'Key_' => 'key',
-
-            'Delayed_' => 'delayed',
-            'Not_flushed_delayed_rows' => 'delayed',
-
-            'Flush_commands' => 'query',
-            'Last_query_cost' => 'query',
-            'Slow_queries' => 'query',
-            'Queries' => 'query',
-            'Prepared_stmt_count' => 'query',
-
-            'Select_' => 'select',
-            'Sort_' => 'sort',
-
-            'Open_tables' => 'table',
-            'Opened_tables' => 'table',
-            'Open_table_definitions' => 'table',
-            'Opened_table_definitions' => 'table',
-            'Table_locks_' => 'table',
-
-            'Rpl_status' => 'repl',
-            'Slave_' => 'repl',
-
-            'Tc_' => 'tc',
-
-            'Ssl_' => 'ssl',
-
-            'Open_files' => 'files',
-            'Open_streams' => 'files',
-            'Opened_files' => 'files',
-        ];
     }
 
     /**
@@ -284,15 +276,12 @@ class Data
     /**
      * Sort variables into arrays
      *
-     * @param mixed[]               $serverStatus contains results of SHOW GLOBAL STATUS
-     * @param array<string, string> $allocations  allocations for sections
+     * @param mixed[] $serverStatus contains results of SHOW GLOBAL STATUS
      *
      * @return array{string[], true[], mixed[]}
      */
-    private function sortVariables(
-        array $serverStatus,
-        array $allocations,
-    ): array {
+    private function sortVariables(array $serverStatus): array
+    {
         // Variable to contain all com_ variables (query statistics)
         $usedQueries = [];
 
@@ -305,7 +294,7 @@ class Data
 
         foreach ($serverStatus as $name => $value) {
             $sectionFound = false;
-            foreach ($allocations as $filter => $section) {
+            foreach (self::ALLOCATIONS as $filter => $section) {
                 if (! str_contains($name, $filter)) {
                     continue;
                 }
@@ -356,11 +345,6 @@ class Data
         // calculate some values
         $serverStatus = $this->calculateValues($serverStatus, $serverVariables);
 
-        // split variables in sections
-        $allocations = $this->getAllocations();
-
-        $sections = $this->getSections();
-
         // define some needful links/commands
         $links = $this->getLinks();
 
@@ -369,7 +353,7 @@ class Data
             $allocationMap,
             $sectionUsed,
             $usedQueries,
-        ] = $this->sortVariables($serverStatus, $allocations);
+        ] = $this->sortVariables($serverStatus);
 
         // admin commands are not queries (e.g. they include COM_PING,
         // which is excluded from $server_status['Questions'])
@@ -388,7 +372,7 @@ class Data
         }
 
         $this->status = $serverStatus;
-        $this->sections = $sections;
+        $this->sections = $this->getSections();
         $this->variables = $serverVariables;
         $this->usedQueries = $usedQueries;
         $this->allocationMap = $allocationMap;
