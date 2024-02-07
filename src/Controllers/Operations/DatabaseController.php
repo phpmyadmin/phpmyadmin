@@ -24,7 +24,6 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -55,7 +54,7 @@ class DatabaseController extends AbstractController
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['single_table'] ??= null;
 
-        $this->checkUserPrivileges->getPrivileges();
+        $userPrivileges = $this->checkUserPrivileges->getPrivileges();
 
         $this->addScriptFiles(['database/operations.js']);
 
@@ -86,7 +85,7 @@ class DatabaseController extends AbstractController
                     );
                 } else {
                     if ($move || $request->hasBodyParam('create_database_before_copying')) {
-                        $this->operations->createDbBeforeCopy($newDatabaseName);
+                        $this->operations->createDbBeforeCopy($userPrivileges, $newDatabaseName);
                     }
 
                     // here I don't use DELIMITER because it's not part of the
@@ -147,7 +146,11 @@ class DatabaseController extends AbstractController
 
                     if ($move) {
                         if ($request->hasBodyParam('adjust_privileges')) {
-                            $this->operations->adjustPrivilegesMoveDb(Current::$database, $newDatabaseName);
+                            $this->operations->adjustPrivilegesMoveDb(
+                                $userPrivileges,
+                                Current::$database,
+                                $newDatabaseName,
+                            );
                         }
 
                         /**
@@ -167,7 +170,11 @@ class DatabaseController extends AbstractController
                         $GLOBALS['message']->addParam($newDatabaseName->getName());
                     } else {
                         if ($request->hasBodyParam('adjust_privileges')) {
-                            $this->operations->adjustPrivilegesCopyDb(Current::$database, $newDatabaseName);
+                            $this->operations->adjustPrivilegesCopyDb(
+                                $userPrivileges,
+                                Current::$database,
+                                $newDatabaseName,
+                            );
                         }
 
                         $GLOBALS['message'] = Message::success(
@@ -260,8 +267,8 @@ class DatabaseController extends AbstractController
             $databaseComment = $this->relation->getDbComment(Current::$database);
         }
 
-        $hasAdjustPrivileges = UserPrivileges::$database && UserPrivileges::$table
-            && UserPrivileges::$column && UserPrivileges::$routines && UserPrivileges::$isReload;
+        $hasAdjustPrivileges = $userPrivileges->database && $userPrivileges->table
+            && $userPrivileges->column && $userPrivileges->routines && $userPrivileges->isReload;
 
         $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $config->settings['AllowUserDropDatabase'])
             && Current::$database !== 'mysql';

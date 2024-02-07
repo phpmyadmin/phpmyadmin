@@ -358,7 +358,7 @@ final class NodeTest extends AbstractTestCase
         $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         DatabaseInterface::$instance = $dbi;
-        $node->getData($relationParameters, '', 10);
+        $node->getData(new UserPrivileges(), $relationParameters, '', 10);
     }
 
     /**
@@ -389,7 +389,7 @@ final class NodeTest extends AbstractTestCase
         $dbi->expects(self::once())->method('fetchResult')->with($expectedSql);
 
         DatabaseInterface::$instance = $dbi;
-        $node->getData($relationParameters, '', 10);
+        $node->getData(new UserPrivileges(), $relationParameters, '', 10);
     }
 
     /**
@@ -399,7 +399,6 @@ final class NodeTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
-        UserPrivileges::$databasesToTest = false;
         $config->settings['NavigationTreeEnableGrouping'] = true;
         $config->settings['FirstLevelNavigationItems'] = 10;
         $config->settings['NavigationTreeDbSeparator'] = '_';
@@ -436,7 +435,7 @@ final class NodeTest extends AbstractTestCase
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
-        $node->getData($relationParameters, '', 0, 'db');
+        $node->getData(new UserPrivileges(), $relationParameters, '', 0, 'db');
     }
 
     /**
@@ -462,7 +461,7 @@ final class NodeTest extends AbstractTestCase
         $dbi = self::createMock(DatabaseInterface::class);
         $dbi->expects(self::once())->method('fetchValue')->with($query);
         DatabaseInterface::$instance = $dbi;
-        self::assertSame(0, $node->getPresence());
+        self::assertSame(0, $node->getPresence(new UserPrivileges()));
     }
 
     /**
@@ -482,7 +481,7 @@ final class NodeTest extends AbstractTestCase
         $dbi = self::createMock(DatabaseInterface::class);
         $dbi->expects(self::once())->method('fetchValue')->with($query);
         DatabaseInterface::$instance = $dbi;
-        self::assertSame(0, $node->getPresence());
+        self::assertSame(0, $node->getPresence(new UserPrivileges()));
     }
 
     /**
@@ -492,7 +491,6 @@ final class NodeTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
-        UserPrivileges::$databasesToTest = false;
         $config->settings['NavigationTreeEnableGrouping'] = true;
 
         $node = new Node('node');
@@ -507,7 +505,7 @@ final class NodeTest extends AbstractTestCase
             ->willReturn($resultStub);
 
         DatabaseInterface::$instance = $dbi;
-        self::assertSame(0, $node->getPresence());
+        self::assertSame(0, $node->getPresence(new UserPrivileges()));
 
         // test with a search clause
         $dbi = self::createMock(DatabaseInterface::class);
@@ -521,7 +519,7 @@ final class NodeTest extends AbstractTestCase
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
-        self::assertSame(0, $node->getPresence('', 'dbname'));
+        self::assertSame(0, $node->getPresence(new UserPrivileges(), '', 'dbname'));
     }
 
     public function testGetInstanceForNewNode(): void

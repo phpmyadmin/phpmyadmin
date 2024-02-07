@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Databases;
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -37,6 +38,9 @@ final class DestroyController extends AbstractController
     {
         $GLOBALS['selected'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
+
+        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
+        $userPrivileges = $checkUserPrivileges->getPrivileges();
 
         $selectedDbs = $request->getParsedBodyParam('selected_dbs');
 
@@ -77,7 +81,7 @@ final class DestroyController extends AbstractController
             $this->transformations->clear($database);
         }
 
-        $this->dbi->getDatabaseList()->build();
+        $this->dbi->getDatabaseList()->build($userPrivileges);
 
         $message = Message::success(
             _ngettext(

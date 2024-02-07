@@ -86,11 +86,12 @@ final class ChangeController extends AbstractController
          * Form for changing properties.
          */
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $checkUserPrivileges->getPrivileges();
+        $userPrivileges = $checkUserPrivileges->getPrivileges();
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
         $templateData = $this->columnsDefinition->displayForm(
+            $userPrivileges,
             '/table/structure/save',
             count($fieldsMeta),
             $selected,

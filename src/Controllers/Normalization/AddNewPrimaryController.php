@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Normalization;
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -23,6 +25,9 @@ final class AddNewPrimaryController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
+        $checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
+        $userPrivileges = $checkUserPrivileges->getPrivileges();
+
         $numFields = 1;
 
         $db = DatabaseName::tryFrom(Current::$database);
@@ -31,7 +36,13 @@ final class AddNewPrimaryController extends AbstractController
         $tableName = isset($table) ? $table->getName() : '';
 
         $columnMeta = ['Field' => $tableName . '_id', 'Extra' => 'auto_increment'];
-        $html = $this->normalization->getHtmlForCreateNewColumn($numFields, $dbName, $tableName, $columnMeta);
+        $html = $this->normalization->getHtmlForCreateNewColumn(
+            $userPrivileges,
+            $numFields,
+            $dbName,
+            $tableName,
+            $columnMeta,
+        );
         $html .= Url::getHiddenInputs($dbName, $tableName);
         $this->response->addHTML($html);
     }

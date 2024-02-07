@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation;
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -53,6 +54,9 @@ class Navigation
      */
     public function getDisplay(): string
     {
+        $checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
+        $userPrivileges = $checkUserPrivileges->getPrivileges();
+
         $config = Config::getInstance();
         $logo = [
             'is_displayed' => $config->settings['NavigationDisplayLogo'],
@@ -103,13 +107,13 @@ class Navigation
         if (! $response->isAjax() || ! empty($_POST['full']) || ! empty($_POST['reload'])) {
             if ($config->settings['ShowDatabasesNavigationAsTree']) {
                 // provide database tree in navigation
-                $navRender = $this->tree->renderState();
+                $navRender = $this->tree->renderState($userPrivileges);
             } else {
                 // provide legacy pre-4.0 navigation
-                $navRender = $this->tree->renderDbSelect();
+                $navRender = $this->tree->renderDbSelect($userPrivileges);
             }
         } else {
-            $navRender = $this->tree->renderPath();
+            $navRender = $this->tree->renderPath($userPrivileges);
         }
 
         return $this->template->render('navigation/main', [

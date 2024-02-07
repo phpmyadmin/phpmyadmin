@@ -26,7 +26,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -62,7 +61,7 @@ class TableController extends AbstractController
         $GLOBALS['message_to_show'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $this->checkUserPrivileges->getPrivileges();
+        $userPrivileges = $this->checkUserPrivileges->getPrivileges();
 
         if ($this->dbi->getLowerCaseNames() === 1) {
             Current::$table = mb_strtolower(Current::$table);
@@ -154,7 +153,7 @@ class TableController extends AbstractController
          * If the table has to be moved to some other database
          */
         if ($request->hasBodyParam('submit_move') || $request->hasBodyParam('submit_copy')) {
-            $message = $this->operations->moveOrCopyTable(Current::$database, Current::$table);
+            $message = $this->operations->moveOrCopyTable($userPrivileges, Current::$database, Current::$table);
 
             if (! $request->isAjax()) {
                 return;
@@ -201,6 +200,7 @@ class TableController extends AbstractController
                         /** @var mixed $dbParam */
                         $dbParam = $request->getParsedBodyParam('db');
                         $this->operations->adjustPrivilegesRenameOrMoveTable(
+                            $userPrivileges,
                             $oldDb,
                             $oldTable,
                             is_string($dbParam) ? $dbParam : '',
@@ -469,7 +469,7 @@ class TableController extends AbstractController
         }
 
         $hasForeignKeys = $this->relation->getForeigners(Current::$database, Current::$table, '', 'foreign') !== [];
-        $hasPrivileges = UserPrivileges::$table && UserPrivileges::$column && UserPrivileges::$isReload;
+        $hasPrivileges = $userPrivileges->table && $userPrivileges->column && $userPrivileges->isReload;
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 
         $partitions = [];

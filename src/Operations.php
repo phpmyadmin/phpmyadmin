@@ -76,7 +76,7 @@ class Operations
     /**
      * Create database before copy
      */
-    public function createDbBeforeCopy(DatabaseName $newDatabaseName): void
+    public function createDbBeforeCopy(UserPrivileges $userPrivileges, DatabaseName $newDatabaseName): void
     {
         $localQuery = 'CREATE DATABASE IF NOT EXISTS '
             . Util::backquote($newDatabaseName);
@@ -102,7 +102,7 @@ class Operations
 
         // rebuild the database list because Table::moveCopy
         // checks in this list if the target db exists
-        $this->dbi->getDatabaseList()->build();
+        $this->dbi->getDatabaseList()->build($userPrivileges);
     }
 
     /**
@@ -290,12 +290,15 @@ class Operations
      *
      * @param string $oldDb Database name before renaming
      */
-    public function adjustPrivilegesMoveDb(string $oldDb, DatabaseName $newDatabaseName): void
-    {
+    public function adjustPrivilegesMoveDb(
+        UserPrivileges $userPrivileges,
+        string $oldDb,
+        DatabaseName $newDatabaseName,
+    ): void {
         if (
-            ! UserPrivileges::$database || ! UserPrivileges::$table
-            || ! UserPrivileges::$column || ! UserPrivileges::$routines
-            || ! UserPrivileges::$isReload
+            ! $userPrivileges->database || ! $userPrivileges->table
+            || ! $userPrivileges->column || ! $userPrivileges->routines
+            || ! $userPrivileges->isReload
         ) {
             return;
         }
@@ -333,12 +336,15 @@ class Operations
      *
      * @param string $oldDb Database name before copying
      */
-    public function adjustPrivilegesCopyDb(string $oldDb, DatabaseName $newDatabaseName): void
-    {
+    public function adjustPrivilegesCopyDb(
+        UserPrivileges $userPrivileges,
+        string $oldDb,
+        DatabaseName $newDatabaseName,
+    ): void {
         if (
-            ! UserPrivileges::$database || ! UserPrivileges::$table
-            || ! UserPrivileges::$column || ! UserPrivileges::$routines
-            || ! UserPrivileges::$isReload
+            ! $userPrivileges->database || ! $userPrivileges->table
+            || ! $userPrivileges->column || ! $userPrivileges->routines
+            || ! $userPrivileges->isReload
         ) {
             return;
         }
@@ -735,12 +741,13 @@ class Operations
      * @param string $newTable Table name after table renaming/moving table
      */
     public function adjustPrivilegesRenameOrMoveTable(
+        UserPrivileges $userPrivileges,
         string $oldDb,
         string $oldTable,
         string $newDb,
         string $newTable,
     ): void {
-        if (! UserPrivileges::$table || ! UserPrivileges::$column || ! UserPrivileges::$isReload) {
+        if (! $userPrivileges->table || ! $userPrivileges->column || ! $userPrivileges->isReload) {
             return;
         }
 
@@ -774,9 +781,14 @@ class Operations
      * @param string $newDb    Database name after table copying
      * @param string $newTable Table name after table copying
      */
-    public function adjustPrivilegesCopyTable(string $oldDb, string $oldTable, string $newDb, string $newTable): void
-    {
-        if (! UserPrivileges::$table || ! UserPrivileges::$column || ! UserPrivileges::$isReload) {
+    public function adjustPrivilegesCopyTable(
+        UserPrivileges $userPrivileges,
+        string $oldDb,
+        string $oldTable,
+        string $newDb,
+        string $newTable,
+    ): void {
+        if (! $userPrivileges->table || ! $userPrivileges->column || ! $userPrivileges->isReload) {
             return;
         }
 
@@ -849,7 +861,7 @@ class Operations
      * @param string $db    current database name
      * @param string $table current table name
      */
-    public function moveOrCopyTable(string $db, string $table): Message
+    public function moveOrCopyTable(UserPrivileges $userPrivileges, string $db, string $table): Message
     {
         /**
          * Selects the database to work with
@@ -889,9 +901,21 @@ class Operations
 
                 if (! empty($_POST['adjust_privileges'])) {
                     if (isset($_POST['submit_move'])) {
-                        $this->adjustPrivilegesRenameOrMoveTable($db, $table, $targetDb, (string) $_POST['new_name']);
+                        $this->adjustPrivilegesRenameOrMoveTable(
+                            $userPrivileges,
+                            $db,
+                            $table,
+                            $targetDb,
+                            (string) $_POST['new_name'],
+                        );
                     } else {
-                        $this->adjustPrivilegesCopyTable($db, $table, $targetDb, (string) $_POST['new_name']);
+                        $this->adjustPrivilegesCopyTable(
+                            $userPrivileges,
+                            $db,
+                            $table,
+                            $targetDb,
+                            (string) $_POST['new_name'],
+                        );
                     }
 
                     if (isset($_POST['submit_move'])) {

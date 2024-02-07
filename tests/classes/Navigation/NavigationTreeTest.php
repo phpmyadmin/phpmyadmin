@@ -11,6 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\NavigationTree;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\UserPrivileges;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(NavigationTree::class)]
@@ -60,7 +61,7 @@ class NavigationTreeTest extends AbstractTestCase
      */
     public function testRenderState(): void
     {
-        $result = $this->object->renderState();
+        $result = $this->object->renderState(new UserPrivileges());
         self::assertStringContainsString('pma_quick_warp', $result);
     }
 
@@ -69,7 +70,7 @@ class NavigationTreeTest extends AbstractTestCase
      */
     public function testRenderPath(): void
     {
-        $result = $this->object->renderPath();
+        $result = $this->object->renderPath(new UserPrivileges());
         self::assertIsString($result);
         self::assertStringContainsString('list_container', $result);
     }
@@ -79,7 +80,7 @@ class NavigationTreeTest extends AbstractTestCase
      */
     public function testRenderDbSelect(): void
     {
-        $result = $this->object->renderDbSelect();
+        $result = $this->object->renderDbSelect(new UserPrivileges());
         self::assertStringContainsString('pma_navigation_select_database', $result);
     }
 
@@ -109,7 +110,7 @@ class NavigationTreeTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         $object = new NavigationTree(new Template(), $dbi, new Relation($dbi));
-        $result = $object->renderState();
+        $result = $object->renderState(new UserPrivileges());
         self::assertStringContainsString('<li class="first navGroup">', $result);
         self::assertStringContainsString('functions' . "\n", $result);
         self::assertStringContainsString('<div class="list_container" style="display: none;">', $result);

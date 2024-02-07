@@ -148,7 +148,7 @@ class NavigationTree
     {
         $this->relationParameters = $relation->getRelationParameters();
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $checkUserPrivileges->getPrivileges();
+        $userPrivileges = $checkUserPrivileges->getPrivileges();
 
         // Save the position at which we are in the database list
         if (isset($_POST['pos'])) {
@@ -156,7 +156,7 @@ class NavigationTree
         } elseif (isset($_GET['pos'])) {
             $this->pos = (int) $_GET['pos'];
         } else {
-            $this->pos = $this->getNavigationDbPos();
+            $this->pos = $this->getNavigationDbPos($userPrivileges);
         }
 
         // Get the active node
@@ -220,7 +220,7 @@ class NavigationTree
     /**
      * Returns the database position for the page selector
      */
-    private function getNavigationDbPos(): int
+    private function getNavigationDbPos(UserPrivileges $userPrivileges): int
     {
         if (Current::$database === '') {
             return 0;
@@ -250,7 +250,7 @@ class NavigationTree
         }
 
         $prefixMap = [];
-        if (UserPrivileges::$databasesToTest === false) {
+        if ($userPrivileges->databasesToTest === false) {
             $handle = $this->dbi->tryQuery('SHOW DATABASES');
             if ($handle !== false) {
                 while ($database = $handle->fetchValue()) {
@@ -268,7 +268,7 @@ class NavigationTree
             }
         } else {
             $databases = [];
-            foreach (UserPrivileges::$databasesToTest as $db) {
+            foreach ($userPrivileges->databasesToTest as $db) {
                 $query = "SHOW DATABASES LIKE '" . $db . "'";
                 $handle = $this->dbi->tryQuery($query);
                 if ($handle === false) {
@@ -315,12 +315,18 @@ class NavigationTree
      *
      * @return Node|bool The active node or false in case of failure, or true: (@see buildPathPart())
      */
-    private function buildPath(): Node|bool
+    private function buildPath(UserPrivileges $userPrivileges): Node|bool
     {
         $retval = $this->tree;
 
         // Add all databases unconditionally
-        $data = $this->tree->getData($this->relationParameters, 'databases', $this->pos, $this->searchClause);
+        $data = $this->tree->getData(
+            $userPrivileges,
+            $this->relationParameters,
+            'databases',
+            $this->pos,
+            $this->searchClause,
+        );
         $hiddenCounts = $this->tree->getNavigationHidingData($this->relationParameters->navigationItemsHidingFeature);
         foreach ($data as $db) {
             $node = new NodeDatabase($db);
@@ -335,6 +341,7 @@ class NavigationTree
         // on whether we have any paths in $this->aPath
         foreach ($this->aPath as $key => $path) {
             $retval = $this->buildPathPart(
+                $userPrivileges,
                 $path,
                 $this->pos2Name[$key] ?? '',
                 $this->pos2Value[$key] ?? 0,
@@ -362,8 +369,14 @@ class NavigationTree
      *
      * @return Node|bool    The active node or false in case of failure, true if the path contains <= 1 items
      */
-    private function buildPathPart(array $path, string $type2, int $pos2, string $type3, int $pos3): Node|bool
-    {
+    private function buildPathPart(
+        UserPrivileges $userPrivileges,
+        array $path,
+        string $type2,
+        int $pos2,
+        string $type3,
+        int $pos3,
+    ): Node|bool {
         if (count($path) <= 1) {
             return true;
         }
@@ -376,7 +389,7 @@ class NavigationTree
             return false;
         }
 
-        $containers = $this->addDbContainers($db, $type2, $pos2);
+        $containers = $this->addDbContainers($userPrivileges, $db, $type2, $pos2);
 
         array_shift($path); // remove db
 
@@ -394,7 +407,13 @@ class NavigationTree
         }
 
         if (count($container->children) <= 1) {
-            $dbData = $db->getData($this->relationParameters, $container->realName, $pos2, $this->searchClause2);
+            $dbData = $db->getData(
+                $userPrivileges,
+                $this->relationParameters,
+                $container->realName,
+                $pos2,
+                $this->searchClause2,
+            );
             foreach ($dbData as $item) {
                 $node = match ($container->realName) {
                     'events' => new NodeEvent($item),
@@ -429,7 +448,7 @@ class NavigationTree
         /** @var NodeTable|null $table */
         $table = $container->getChild($path[0], true);
         if ($table === null) {
-            if ($db->getPresence('tables', $path[0]) === 0) {
+            if ($db->getPresence($userPrivileges, 'tables', $path[0]) === 0) {
                 return false;
             }
 
@@ -445,7 +464,7 @@ class NavigationTree
             }
         }
 
-        $containers = $this->addTableContainers($table, $pos2, $type3, $pos3);
+        $containers = $this->addTableContainers($userPrivileges, $table, $pos2, $type3, $pos3);
         array_shift($path); // remove table
         if ($path === [] || ! array_key_exists($path[0], $containers)) {
             return $table;
@@ -456,7 +475,7 @@ class NavigationTree
             return false;
         }
 
-        $tableData = $table->getData($this->relationParameters, $container->realName, $pos3);
+        $tableData = $table->getData($userPrivileges, $this->relationParameters, $container->realName, $pos3);
         foreach ($tableData as $item) {
             $node = match ($container->realName) {
                 'indexes' => new NodeIndex($item),
@@ -497,19 +516,24 @@ class NavigationTree
      *
      * @return Node[] An array of new nodes
      */
-    private function addTableContainers(NodeTable $table, int $pos2, string $type3, int $pos3): array
-    {
+    private function addTableContainers(
+        UserPrivileges $userPrivileges,
+        NodeTable $table,
+        int $pos2,
+        string $type3,
+        int $pos3,
+    ): array {
         $retval = [];
         if (! $table->hasChildren()) {
-            if ($table->getPresence('columns') !== 0) {
+            if ($table->getPresence($userPrivileges, 'columns') !== 0) {
                 $retval['columns'] = new NodeColumnContainer();
             }
 
-            if ($table->getPresence('indexes') !== 0) {
+            if ($table->getPresence($userPrivileges, 'indexes') !== 0) {
                 $retval['indexes'] = new NodeIndexContainer();
             }
 
-            if ($table->getPresence('triggers') !== 0) {
+            if ($table->getPresence($userPrivileges, 'triggers') !== 0) {
                 $retval['triggers'] = new NodeTriggerContainer();
             }
 
@@ -550,7 +574,7 @@ class NavigationTree
      *
      * @return Node[] An array of new nodes
      */
-    private function addDbContainers(NodeDatabase $db, string $type, int $pos2): array
+    private function addDbContainers(UserPrivileges $userPrivileges, NodeDatabase $db, string $type, int $pos2): array
     {
         // Get items to hide
         $hidden = $db->getHiddenItems($this->relationParameters, 'group');
@@ -577,23 +601,23 @@ class NavigationTree
 
         $retval = [];
         if (! $db->hasChildren()) {
-            if (! in_array('tables', $hidden, true) && $db->getPresence('tables')) {
+            if (! in_array('tables', $hidden, true) && $db->getPresence($userPrivileges, 'tables')) {
                 $retval['tables'] = new NodeTableContainer();
             }
 
-            if (! in_array('views', $hidden, true) && $db->getPresence('views')) {
+            if (! in_array('views', $hidden, true) && $db->getPresence($userPrivileges, 'views')) {
                 $retval['views'] = new NodeViewContainer();
             }
 
-            if (! in_array('functions', $hidden, true) && $db->getPresence('functions')) {
+            if (! in_array('functions', $hidden, true) && $db->getPresence($userPrivileges, 'functions')) {
                 $retval['functions'] = new NodeFunctionContainer();
             }
 
-            if (! in_array('procedures', $hidden, true) && $db->getPresence('procedures')) {
+            if (! in_array('procedures', $hidden, true) && $db->getPresence($userPrivileges, 'procedures')) {
                 $retval['procedures'] = new NodeProcedureContainer();
             }
 
-            if (! in_array('events', $hidden, true) && $db->getPresence('events')) {
+            if (! in_array('events', $hidden, true) && $db->getPresence($userPrivileges, 'events')) {
                 $retval['events'] = new NodeEventContainer();
             }
 
@@ -834,25 +858,25 @@ class NavigationTree
      *
      * @return string HTML code for the navigation tree
      */
-    public function renderState(): string
+    public function renderState(UserPrivileges $userPrivileges): string
     {
-        $this->buildPath();
+        $this->buildPath($userPrivileges);
 
         $quickWarp = $this->quickWarp();
-        $fastFilter = $this->fastFilterHtml($this->tree);
+        $fastFilter = $this->fastFilterHtml($userPrivileges, $this->tree);
         $controls = '';
         if (Config::getInstance()->settings['NavigationTreeEnableExpansion']) {
             $controls = $this->controls();
         }
 
-        $pageSelector = $this->getPageSelector($this->tree);
+        $pageSelector = $this->getPageSelector($userPrivileges, $this->tree);
 
         $this->groupTree();
         $children = $this->tree->children;
         usort($children, self::sortNode(...));
         $this->setVisibility();
 
-        $nodes = $this->renderNodes($children);
+        $nodes = $this->renderNodes($userPrivileges, $children);
 
         return $this->template->render('navigation/tree/state', [
             'quick_warp' => $quickWarp,
@@ -868,19 +892,19 @@ class NavigationTree
      *
      * @return string|false HTML code for the navigation tree
      */
-    public function renderPath(): string|false
+    public function renderPath(UserPrivileges $userPrivileges): string|false
     {
-        $node = $this->buildPath();
+        $node = $this->buildPath($userPrivileges);
         $config = Config::getInstance();
         if (! is_bool($node)) {
             $this->groupTree();
 
-            $listContent = $this->fastFilterHtml($node);
-            $listContent .= $this->getPageSelector($node);
+            $listContent = $this->fastFilterHtml($userPrivileges, $node);
+            $listContent .= $this->getPageSelector($userPrivileges, $node);
             $children = $node->children;
             usort($children, self::sortNode(...));
 
-            $listContent .= $this->renderNodes($children, false);
+            $listContent .= $this->renderNodes($userPrivileges, $children, false);
 
             if (! $config->settings['ShowDatabasesNavigationAsTree']) {
                 $parents = $node->parents(true);
@@ -894,10 +918,10 @@ class NavigationTree
             if ($this->searchClause2 !== '') {
                 if (is_object($node->realParent())) {
                     $results = $node->realParent()
-                        ->getPresence($node->realName, $this->searchClause2);
+                        ->getPresence($userPrivileges, $node->realName, $this->searchClause2);
                 }
             } else {
-                $results = $this->tree->getPresence('databases', $this->searchClause);
+                $results = $this->tree->getPresence($userPrivileges, 'databases', $this->searchClause);
             }
 
             $results = sprintf(
@@ -978,16 +1002,16 @@ class NavigationTree
     }
 
     /** @param Node[] $children */
-    private function renderNodes(array $children, bool $hasFirstClass = true): string
+    private function renderNodes(UserPrivileges $userPrivileges, array $children, bool $hasFirstClass = true): string
     {
         $nodes = '';
         for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
             if ($i === 0) {
-                $nodes .= $this->renderNode($children[0], $hasFirstClass ? 'first' : '');
+                $nodes .= $this->renderNode($userPrivileges, $children[0], $hasFirstClass ? 'first' : '');
             } elseif ($i + 1 !== $nbChildren) {
-                $nodes .= $this->renderNode($children[$i]);
+                $nodes .= $this->renderNode($userPrivileges, $children[$i]);
             } else {
-                $nodes .= $this->renderNode($children[$i], 'last');
+                $nodes .= $this->renderNode($userPrivileges, $children[$i], 'last');
             }
         }
 
@@ -1002,7 +1026,7 @@ class NavigationTree
      *
      * @return string HTML code for the tree node or branch
      */
-    private function renderNode(Node $node, string $class = ''): string
+    private function renderNode(UserPrivileges $userPrivileges, Node $node, string $class = ''): string
     {
         $controlButtons = '';
         $paths = $node->getPaths();
@@ -1107,12 +1131,12 @@ class NavigationTree
                 $extraClass = ' last';
             }
 
-            $buffer .= $this->renderNode($children[$i], $children[$i]->classes . $extraClass);
+            $buffer .= $this->renderNode($userPrivileges, $children[$i], $children[$i]->classes . $extraClass);
         }
 
         if ($buffer !== '') {
-            $recursiveHtml = $this->fastFilterHtml($node);
-            $recursiveHtml .= $this->getPageSelector($node);
+            $recursiveHtml = $this->fastFilterHtml($userPrivileges, $node);
+            $recursiveHtml .= $this->getPageSelector($userPrivileges, $node);
             $recursiveHtml .= $buffer;
         }
 
@@ -1141,9 +1165,9 @@ class NavigationTree
      *
      * @return string HTML code
      */
-    public function renderDbSelect(): string
+    public function renderDbSelect(UserPrivileges $userPrivileges): string
     {
-        $this->buildPath();
+        $this->buildPath($userPrivileges);
 
         $quickWarp = $this->quickWarp();
 
@@ -1152,7 +1176,7 @@ class NavigationTree
         $config = Config::getInstance();
         // Provide for pagination in database select
         $listNavigator = Generator::getListNavigator(
-            $this->tree->getPresence('databases'),
+            $this->tree->getPresence($userPrivileges, 'databases'),
             $this->pos,
             ['server' => Current::$server],
             Url::getFromRoute('/navigation'),
@@ -1188,7 +1212,7 @@ class NavigationTree
         usort($children, self::sortNode(...));
         $this->setVisibility();
 
-        $nodes = $this->renderNodes($children);
+        $nodes = $this->renderNodes($userPrivileges, $children);
 
         $databaseUrl = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
 
@@ -1228,14 +1252,14 @@ class NavigationTree
      *
      * @return string LI element used for the fast filter
      */
-    private function fastFilterHtml(Node $node): string
+    private function fastFilterHtml(UserPrivileges $userPrivileges, Node $node): string
     {
         $config = Config::getInstance();
         $filterDbMin = $config->settings['NavigationTreeDisplayDbFilterMinimum'];
         $filterItemMin = $config->settings['NavigationTreeDisplayItemFilterMinimum'];
         $urlParams = [];
 
-        $isRootNode = $node === $this->tree && $this->tree->getPresence() >= $filterDbMin;
+        $isRootNode = $node === $this->tree && $this->tree->getPresence($userPrivileges) >= $filterDbMin;
         if ($isRootNode) {
             $urlParams = ['pos' => 0];
         } else {
@@ -1247,7 +1271,7 @@ class NavigationTree
             if (
                 $nodeIsContainer && $nodeIsSpecial
                 && $realParent instanceof Node
-                && $realParent->getPresence($node->realName) >= $filterItemMin
+                && $realParent->getPresence($userPrivileges, $node->realName) >= $filterItemMin
             ) {
                 $paths = $node->getPaths();
                 $urlParams = [
@@ -1301,13 +1325,13 @@ class NavigationTree
      * @param Node $node The node for whose children the page
      *                   selector will be created
      */
-    private function getPageSelector(Node $node): string
+    private function getPageSelector(UserPrivileges $userPrivileges, Node $node): string
     {
         $retval = '';
         $config = Config::getInstance();
         if ($node === $this->tree) {
             $retval .= Generator::getListNavigator(
-                $this->tree->getPresence('databases', $this->searchClause),
+                $this->tree->getPresence($userPrivileges, 'databases', $this->searchClause),
                 $this->pos,
                 ['server' => Current::$server],
                 Url::getFromRoute('/navigation'),
@@ -1336,7 +1360,7 @@ class NavigationTree
 
             /** @var Node $realParent */
             $realParent = $node->realParent();
-            $num = $realParent->getPresence($node->realName, $this->searchClause2);
+            $num = $realParent->getPresence($userPrivileges, $node->realName, $this->searchClause2);
             $retval .= Generator::getListNavigator(
                 $num,
                 $pos,

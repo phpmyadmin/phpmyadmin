@@ -77,11 +77,16 @@ SQL;
 
         Current::$database = 'sakila';
         Current::$table = 'actor';
-        UserPrivileges::$column = true;
-        UserPrivileges::$isReload = true;
+        $userPrivileges = new UserPrivileges(column: true, isReload: true);
         $GLOBALS['mime_map'] = null;
 
-        $actual = $columnsDefinition->displayForm('/table/structure/save', 1, ['actor_id'], [$columnMeta]);
+        $actual = $columnsDefinition->displayForm(
+            $userPrivileges,
+            '/table/structure/save',
+            1,
+            ['actor_id'],
+            [$columnMeta],
+        );
 
         $contentCell = [
             'column_number' => 0,

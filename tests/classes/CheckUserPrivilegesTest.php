@@ -25,11 +25,6 @@ class CheckUserPrivilegesTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Config::getInstance()->selectedServer['DisableIS'] = false;
-        UserPrivileges::$column = false;
-        UserPrivileges::$database = false;
-        UserPrivileges::$routines = false;
-        UserPrivileges::$table = false;
-        UserPrivileges::$isReload = false;
 
         $this->checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
     }
@@ -40,56 +35,51 @@ class CheckUserPrivilegesTest extends AbstractTestCase
     public function testCheckRequiredPrivilegesForAdjust(): void
     {
         // TEST CASE 1
+        $userPrivileges = new UserPrivileges();
         $showGrants = new ShowGrants('GRANT ALL PRIVILEGES ON *.* TO \'root\'@\'localhost\' WITH GRANT OPTION');
 
         // call the to-be-tested function
-        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($showGrants);
+        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($userPrivileges, $showGrants);
 
-        self::assertTrue(UserPrivileges::$column);
-        self::assertTrue(UserPrivileges::$database);
-        self::assertTrue(UserPrivileges::$routines);
-        self::assertTrue(UserPrivileges::$table);
-
-        // re-initialise the privileges
-        $this->setUp();
+        self::assertTrue($userPrivileges->column);
+        self::assertTrue($userPrivileges->database);
+        self::assertTrue($userPrivileges->routines);
+        self::assertTrue($userPrivileges->table);
 
         // TEST CASE 2
+        $userPrivileges = new UserPrivileges();
         $showGrants = new ShowGrants('GRANT ALL PRIVILEGES ON `mysql`.* TO \'root\'@\'localhost\' WITH GRANT OPTION');
 
         // call the to-be-tested function
-        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($showGrants);
+        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($userPrivileges, $showGrants);
 
-        self::assertTrue(UserPrivileges::$column);
-        self::assertTrue(UserPrivileges::$database);
-        self::assertTrue(UserPrivileges::$routines);
-        self::assertTrue(UserPrivileges::$table);
-
-        // re-initialise the privileges
-        $this->setUp();
+        self::assertTrue($userPrivileges->column);
+        self::assertTrue($userPrivileges->database);
+        self::assertTrue($userPrivileges->routines);
+        self::assertTrue($userPrivileges->table);
 
         // TEST CASE 3
+        $userPrivileges = new UserPrivileges();
         $showGrants = new ShowGrants('GRANT SELECT, INSERT, UPDATE, DELETE ON `mysql`.* TO \'root\'@\'localhost\'');
 
         // call the to-be-tested function
-        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($showGrants);
+        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($userPrivileges, $showGrants);
 
-        self::assertTrue(UserPrivileges::$column);
-        self::assertTrue(UserPrivileges::$database);
-        self::assertTrue(UserPrivileges::$routines);
-        self::assertTrue(UserPrivileges::$table);
-
-        // re-initialise the privileges
-        $this->setUp();
+        self::assertTrue($userPrivileges->column);
+        self::assertTrue($userPrivileges->database);
+        self::assertTrue($userPrivileges->routines);
+        self::assertTrue($userPrivileges->table);
 
         // TEST CASE 4
+        $userPrivileges = new UserPrivileges();
         $showGrants = new ShowGrants('GRANT SELECT, INSERT, UPDATE, DELETE ON `mysql`.`db` TO \'root\'@\'localhost\'');
 
         // call the to-be-tested function
-        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($showGrants);
+        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($userPrivileges, $showGrants);
 
-        self::assertFalse(UserPrivileges::$column);
-        self::assertTrue(UserPrivileges::$database);
-        self::assertFalse(UserPrivileges::$routines);
-        self::assertFalse(UserPrivileges::$table);
+        self::assertFalse($userPrivileges->column);
+        self::assertTrue($userPrivileges->database);
+        self::assertFalse($userPrivileges->routines);
+        self::assertFalse($userPrivileges->table);
     }
 }

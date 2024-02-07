@@ -2577,8 +2577,11 @@ class Privileges
      *
      * @param string $textDir text directory
      */
-    public function getHtmlForUserOverview(string $textDir, string|null $initial): string
-    {
+    public function getHtmlForUserOverview(
+        UserPrivileges $userPrivileges,
+        string $textDir,
+        string|null $initial,
+    ): string {
         $serverVersion = $this->dbi->getVersion();
         $passwordColumn = Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50706
             ? 'authentication_string'
@@ -2604,7 +2607,7 @@ class Privileges
 
             $response = ResponseRenderer::getInstance();
             if (! $response->isAjax() || ! empty($_REQUEST['ajax_page_request'])) {
-                if (UserPrivileges::$isReload) {
+                if ($userPrivileges->isReload) {
                     $flushnote = new Message(
                         __(
                             'Note: phpMyAdmin gets the users’ privileges directly '

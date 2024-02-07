@@ -68,7 +68,7 @@ class Routines
     /**
      * Handle request to create or edit a routine
      */
-    public function handleRequestCreateOrEdit(string $db): string
+    public function handleRequestCreateOrEdit(UserPrivileges $userPrivileges, string $db): string
     {
         $sqlQuery = '';
         $routineQuery = $this->getQueryFromRequest();
@@ -90,7 +90,7 @@ class Routines
                         $createRoutine = self::getProcedureDefinition($this->dbi, $db, $_POST['item_original_name']);
                     }
 
-                    $privilegesBackup = $this->backupPrivileges();
+                    $privilegesBackup = $this->backupPrivileges($userPrivileges);
 
                     $dropRoutine = 'DROP ' . $_POST['item_original_type'] . ' '
                         . Util::backquote($_POST['item_original_name'])
@@ -105,6 +105,7 @@ class Routines
                         . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         [$newErrors, $GLOBALS['message']] = $this->create(
+                            $userPrivileges,
                             $routineQuery,
                             $createRoutine,
                             $privilegesBackup,
@@ -162,9 +163,9 @@ class Routines
      *
      * @return string[][]
      */
-    public function backupPrivileges(): array
+    public function backupPrivileges(UserPrivileges $userPrivileges): array
     {
-        if (! UserPrivileges::$routines || ! UserPrivileges::$isReload) {
+        if (! $userPrivileges->routines || ! $userPrivileges->isReload) {
             return [];
         }
 
@@ -192,6 +193,7 @@ class Routines
      * @return array{string[], Message|null}
      */
     public function create(
+        UserPrivileges $userPrivileges,
         string $routineQuery,
         string $createRoutine,
         array $privilegesBackup,
@@ -227,7 +229,7 @@ class Routines
         // Default value
         $resultAdjust = false;
 
-        if (UserPrivileges::$routines && UserPrivileges::$isReload) {
+        if ($userPrivileges->routines && $userPrivileges->isReload) {
             // Insert all the previous privileges
             // but with the new name and the new type
             foreach ($privilegesBackup as $priv) {

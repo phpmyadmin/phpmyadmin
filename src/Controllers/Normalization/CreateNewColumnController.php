@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Normalization;
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
@@ -24,8 +26,16 @@ final class CreateNewColumnController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
+        $checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
+        $userPrivileges = $checkUserPrivileges->getPrivileges();
+
         $numFields = min(4096, intval($request->getParsedBodyParam('numFields')));
-        $html = $this->normalization->getHtmlForCreateNewColumn($numFields, Current::$database, Current::$table);
+        $html = $this->normalization->getHtmlForCreateNewColumn(
+            $userPrivileges,
+            $numFields,
+            Current::$database,
+            Current::$table,
+        );
         $html .= Url::getHiddenInputs(Current::$database, Current::$table);
         $this->response->addHTML($html);
     }

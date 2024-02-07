@@ -11,6 +11,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -80,7 +81,7 @@ class NodeTable extends NodeDatabaseChild
      *                             ('columns' or 'indexes')
      * @param string $searchClause A string used to filter the results of the query
      */
-    public function getPresence(string $type = '', string $searchClause = ''): int
+    public function getPresence(UserPrivileges $userPrivileges, string $type = '', string $searchClause = ''): int
     {
         $retval = 0;
         $db = $this->realParent()->realName;
@@ -145,6 +146,7 @@ class NodeTable extends NodeDatabaseChild
      * @return mixed[]
      */
     public function getData(
+        UserPrivileges $userPrivileges,
         RelationParameters $relationParameters,
         string $type,
         int $pos,

@@ -132,16 +132,16 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="src/CheckUserPrivileges.php">
-    <MixedAssignment>
-      <code>UserPrivileges::$column</code>
-      <code>UserPrivileges::$database</code>
-      <code>UserPrivileges::$databaseToCreate</code>
-      <code>UserPrivileges::$databasesToTest</code>
-      <code>UserPrivileges::$isCreateDatabase</code>
-      <code>UserPrivileges::$isReload</code>
-      <code>UserPrivileges::$routines</code>
-      <code>UserPrivileges::$table</code>
-    </MixedAssignment>
+    <MixedArgument>
+      <code><![CDATA[SessionCache::get('col_priv')]]></code>
+      <code><![CDATA[SessionCache::get('db_priv')]]></code>
+      <code><![CDATA[SessionCache::get('db_to_create')]]></code>
+      <code><![CDATA[SessionCache::get('dbs_to_test')]]></code>
+      <code><![CDATA[SessionCache::get('is_create_db_priv')]]></code>
+      <code><![CDATA[SessionCache::get('is_reload_priv')]]></code>
+      <code><![CDATA[SessionCache::get('proc_priv')]]></code>
+      <code><![CDATA[SessionCache::get('table_priv')]]></code>
+    </MixedArgument>
   </file>
   <file src="src/Command/CacheWarmupCommand.php">
     <DeprecatedMethod>
@@ -1379,6 +1379,9 @@
     </DeprecatedMethod>
   </file>
   <file src="src/Controllers/Database/Structure/CopyTableController.php">
+    <DeprecatedMethod>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('what')]]></code>
     </MixedArgument>
@@ -2053,9 +2056,17 @@
     </MixedAssignment>
   </file>
   <file src="src/Controllers/Normalization/AddNewPrimaryController.php">
+    <DeprecatedMethod>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
     <UnusedParam>
       <code>$request</code>
     </UnusedParam>
+  </file>
+  <file src="src/Controllers/Normalization/CreateNewColumnController.php">
+    <DeprecatedMethod>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
   </file>
   <file src="src/Controllers/Normalization/FirstNormalForm/FirstStepController.php">
     <MixedAssignment>
@@ -6905,15 +6916,9 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/ListDatabase.php">
-    <MixedArgument>
-      <code>$db</code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>usort($databaseList, strnatcasecmp(...))</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code>$db</code>
-    </MixedAssignment>
     <UnusedProperty>
       <code>$checkUserPrivileges</code>
     </UnusedProperty>
@@ -6955,6 +6960,7 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <PossiblyNullArrayOffset>
       <code>$hidden</code>
@@ -7119,7 +7125,6 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <MixedArgument>
-      <code>$databases</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -7127,13 +7132,15 @@
       <code>$db</code>
     </MixedArgument>
     <MixedAssignment>
-      <code>$databases</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
     </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code>$databases</code>
+    </PossiblyInvalidArgument>
     <PossiblyNullArgument>
       <code>$arr[0]</code>
       <code>$arr[0]</code>
@@ -12407,17 +12414,6 @@
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <RedundantConditionGivenDocblockType>
-      <code>assertTrue</code>
-      <code>assertTrue</code>
-      <code>assertTrue</code>
-      <code>assertTrue</code>
-      <code>assertTrue</code>
-      <code>assertTrue</code>
-      <code>assertTrue</code>
-      <code>assertTrue</code>
-      <code>assertTrue</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="tests/classes/Command/SetVersionCommandTest.php">
     <PossiblyUnusedMethod>

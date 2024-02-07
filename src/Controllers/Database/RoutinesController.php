@@ -19,7 +19,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -58,7 +57,7 @@ class RoutinesController extends AbstractController
 
         $type = $_REQUEST['type'] ?? null;
 
-        $this->checkUserPrivileges->getPrivileges();
+        $userPrivileges = $this->checkUserPrivileges->getPrivileges();
 
         $config = Config::getInstance();
         if (! $request->isAjax()) {
@@ -119,7 +118,7 @@ class RoutinesController extends AbstractController
         $GLOBALS['message'] ??= null;
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
-            $output = $this->routines->handleRequestCreateOrEdit(Current::$database);
+            $output = $this->routines->handleRequestCreateOrEdit($userPrivileges, Current::$database);
             if ($request->isAjax()) {
                 if (! $GLOBALS['message']->isSuccess()) {
                     $this->response->setRequestStatus(false);
@@ -264,7 +263,7 @@ class RoutinesController extends AbstractController
                     'parameter_rows' => $parameterRows,
                     'charsets' => $charsets,
                     'numeric_options' => $this->routines->numericOptions,
-                    'has_privileges' => UserPrivileges::$routines && UserPrivileges::$isReload,
+                    'has_privileges' => $userPrivileges->routines && $userPrivileges->isReload,
                     'sql_data_access' => $this->routines->sqlDataAccess,
                 ]);
 

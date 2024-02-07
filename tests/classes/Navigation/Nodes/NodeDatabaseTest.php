@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\UserPrivileges;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(NodeDatabase::class)]
@@ -38,27 +39,28 @@ class NodeDatabaseTest extends AbstractTestCase
     {
         Config::getInstance()->selectedServer['DisableIS'] = true;
         DatabaseInterface::$instance = $this->createDatabaseInterface();
+        $userPrivileges = new UserPrivileges();
 
         $parent = new NodeDatabase('default');
         self::assertEquals(
             2,
-            $parent->getPresence('tables'),
+            $parent->getPresence($userPrivileges, 'tables'),
         );
         self::assertEquals(
             0,
-            $parent->getPresence('views'),
+            $parent->getPresence($userPrivileges, 'views'),
         );
         self::assertEquals(
             1,
-            $parent->getPresence('functions'),
+            $parent->getPresence($userPrivileges, 'functions'),
         );
         self::assertEquals(
             0,
-            $parent->getPresence('procedures'),
+            $parent->getPresence($userPrivileges, 'procedures'),
         );
         self::assertEquals(
             0,
-            $parent->getPresence('events'),
+            $parent->getPresence($userPrivileges, 'events'),
         );
     }
 
@@ -69,6 +71,7 @@ class NodeDatabaseTest extends AbstractTestCase
     {
         Config::getInstance()->selectedServer['DisableIS'] = true;
         DatabaseInterface::$instance = $this->createDatabaseInterface();
+        $userPrivileges = new UserPrivileges();
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
@@ -78,19 +81,19 @@ class NodeDatabaseTest extends AbstractTestCase
 
         $parent = new NodeDatabase('default');
 
-        $tables = $parent->getData($relationParameters, 'tables', 0);
+        $tables = $parent->getData($userPrivileges, $relationParameters, 'tables', 0);
         self::assertContains('test1', $tables);
         self::assertContains('test2', $tables);
 
-        $views = $parent->getData($relationParameters, 'views', 0);
+        $views = $parent->getData($userPrivileges, $relationParameters, 'views', 0);
         self::assertEmpty($views);
 
-        $functions = $parent->getData($relationParameters, 'functions', 0);
+        $functions = $parent->getData($userPrivileges, $relationParameters, 'functions', 0);
         self::assertContains('testFunction', $functions);
         self::assertCount(1, $functions);
 
-        self::assertEmpty($parent->getData($relationParameters, 'procedures', 0));
-        self::assertEmpty($parent->getData($relationParameters, 'events', 0));
+        self::assertEmpty($parent->getData($userPrivileges, $relationParameters, 'procedures', 0));
+        self::assertEmpty($parent->getData($userPrivileges, $relationParameters, 'events', 0));
     }
 
     /**

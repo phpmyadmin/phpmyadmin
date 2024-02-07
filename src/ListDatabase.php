@@ -32,9 +32,9 @@ class ListDatabase extends ArrayObject
     ) {
         parent::__construct();
 
-        $this->checkUserPrivileges->getPrivileges();
+        $userPrivileges = $this->checkUserPrivileges->getPrivileges();
 
-        $this->build();
+        $this->build($userPrivileges);
     }
 
     /** @return array<int, array<string, bool|string>> */
@@ -77,7 +77,7 @@ class ListDatabase extends ArrayObject
      *
      * @return mixed[]
      */
-    protected function retrieve(string|null $likeDbName = null): array
+    protected function retrieve(UserPrivileges $userPrivileges, string|null $likeDbName = null): array
     {
         $databaseList = [];
         $command = '';
@@ -86,16 +86,16 @@ class ListDatabase extends ArrayObject
             if ($likeDbName !== null) {
                 $command .= " WHERE `SCHEMA_NAME` LIKE '" . $likeDbName . "'";
             }
-        } elseif (UserPrivileges::$databasesToTest === false || $likeDbName !== null) {
+        } elseif ($userPrivileges->databasesToTest === false || $likeDbName !== null) {
             $command .= 'SHOW DATABASES';
             if ($likeDbName !== null) {
                 $command .= " LIKE '" . $likeDbName . "'";
             }
         } else {
-            foreach (UserPrivileges::$databasesToTest as $db) {
+            foreach ($userPrivileges->databasesToTest as $db) {
                 $databaseList = array_merge(
                     $databaseList,
-                    $this->retrieve($db),
+                    $this->retrieve($userPrivileges, $db),
                 );
             }
         }
@@ -118,10 +118,10 @@ class ListDatabase extends ArrayObject
     /**
      * builds up the list
      */
-    public function build(): void
+    public function build(UserPrivileges $userPrivileges): void
     {
-        if (! $this->checkOnlyDatabase()) {
-            $items = $this->retrieve();
+        if (! $this->checkOnlyDatabase($userPrivileges)) {
+            $items = $this->retrieve($userPrivileges);
             $this->exchangeArray($items);
         }
 
@@ -131,7 +131,7 @@ class ListDatabase extends ArrayObject
     /**
      * checks the only_db configuration
      */
-    protected function checkOnlyDatabase(): bool
+    protected function checkOnlyDatabase(UserPrivileges $userPrivileges): bool
     {
         if (
             is_string($this->config->selectedServer['only_db']) && strlen($this->config->selectedServer['only_db']) > 0
@@ -154,7 +154,7 @@ class ListDatabase extends ArrayObject
                 continue;
             }
 
-            $items = array_merge($items, $this->retrieve($eachOnlyDb));
+            $items = array_merge($items, $this->retrieve($userPrivileges, $eachOnlyDb));
         }
 
         $this->exchangeArray($items);

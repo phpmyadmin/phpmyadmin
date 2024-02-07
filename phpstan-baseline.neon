@@ -191,52 +191,57 @@ parameters:
 			path: src/CheckUserPrivileges.php
 
 		-
+			message: "#^Parameter \\#1 \\$database of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
+			count: 1
+			path: src/CheckUserPrivileges.php
+
+		-
+			message: "#^Parameter \\#2 \\$table of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
+			count: 1
+			path: src/CheckUserPrivileges.php
+
+		-
+			message: "#^Parameter \\#3 \\$column of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
+			count: 1
+			path: src/CheckUserPrivileges.php
+
+		-
 			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, string\\|null given\\.$#"
 			count: 1
 			path: src/CheckUserPrivileges.php
 
 		-
-			message: "#^Static property PhpMyAdmin\\\\UserPrivileges\\:\\:\\$column \\(bool\\) does not accept mixed\\.$#"
+			message: "#^Parameter \\#4 \\$routines of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
 			count: 1
 			path: src/CheckUserPrivileges.php
 
 		-
-			message: "#^Static property PhpMyAdmin\\\\UserPrivileges\\:\\:\\$database \\(bool\\) does not accept mixed\\.$#"
+			message: "#^Parameter \\#5 \\$isReload of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
 			count: 1
 			path: src/CheckUserPrivileges.php
 
 		-
-			message: "#^Static property PhpMyAdmin\\\\UserPrivileges\\:\\:\\$databaseToCreate \\(string\\) does not accept mixed\\.$#"
+			message: "#^Parameter \\#6 \\$isCreateDatabase of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
 			count: 1
 			path: src/CheckUserPrivileges.php
 
 		-
-			message: "#^Static property PhpMyAdmin\\\\UserPrivileges\\:\\:\\$databaseToCreate \\(string\\) does not accept string\\|null\\.$#"
+			message: "#^Parameter \\#7 \\$databaseToCreate of class PhpMyAdmin\\\\UserPrivileges constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/CheckUserPrivileges.php
+
+		-
+			message: "#^Parameter \\#8 \\$databasesToTest of class PhpMyAdmin\\\\UserPrivileges constructor expects array\\<string\\>\\|false, mixed given\\.$#"
+			count: 1
+			path: src/CheckUserPrivileges.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\UserPrivileges\\:\\:\\$databaseToCreate \\(string\\) does not accept string\\|null\\.$#"
 			count: 2
 			path: src/CheckUserPrivileges.php
 
 		-
-			message: "#^Static property PhpMyAdmin\\\\UserPrivileges\\:\\:\\$databasesToTest \\(array\\<string\\>\\|false\\) does not accept mixed\\.$#"
-			count: 2
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Static property PhpMyAdmin\\\\UserPrivileges\\:\\:\\$isCreateDatabase \\(bool\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Static property PhpMyAdmin\\\\UserPrivileges\\:\\:\\$isReload \\(bool\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Static property PhpMyAdmin\\\\UserPrivileges\\:\\:\\$routines \\(bool\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Static property PhpMyAdmin\\\\UserPrivileges\\:\\:\\$table \\(bool\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\UserPrivileges\\:\\:\\$databasesToTest \\(array\\<string\\>\\|false\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/CheckUserPrivileges.php
 
@@ -3516,11 +3521,6 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
-			message: "#^Parameter \\#2 \\$initial of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getHtmlForUserOverview\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
 			message: "#^Parameter \\#2 \\$oldHostname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDataForChangeOrCopyUser\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
@@ -3572,6 +3572,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$hostname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:updatePassword\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Server/PrivilegesController.php
+
+		-
+			message: "#^Parameter \\#3 \\$initial of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getHtmlForUserOverview\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
 
@@ -6686,11 +6691,6 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: "#^Parameter \\#2 \\$createRoutine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:create\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: src/Database/Routines.php
-
-		-
 			message: "#^Parameter \\#2 \\$itemParamDir of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:processParamsAndBuild\\(\\) expects array\\<string\\>, array given\\.$#"
 			count: 1
 			path: src/Database/Routines.php
@@ -6707,6 +6707,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$warnedAboutLength of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:processFunctionSpecificParameters\\(\\) expects bool, mixed given\\.$#"
+			count: 1
+			path: src/Database/Routines.php
+
+		-
+			message: "#^Parameter \\#3 \\$createRoutine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:create\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Database/Routines.php
 
@@ -9296,17 +9301,17 @@ parameters:
 			path: src/ListDatabase.php
 
 		-
-			message: "#^Parameter \\#1 \\$likeDbName of method PhpMyAdmin\\\\ListDatabase\\:\\:retrieve\\(\\) expects string\\|null, array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string given\\.$#"
-			count: 1
-			path: src/ListDatabase.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function strtr expects string, array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string given\\.$#"
 			count: 1
 			path: src/ListDatabase.php
 
 		-
 			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(mixed, mixed\\)\\: int, Closure\\(string, string\\)\\: int\\<\\-1, 1\\> given\\.$#"
+			count: 1
+			path: src/ListDatabase.php
+
+		-
+			message: "#^Parameter \\#2 \\$likeDbName of method PhpMyAdmin\\\\ListDatabase\\:\\:retrieve\\(\\) expects string\\|null, array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string given\\.$#"
 			count: 1
 			path: src/ListDatabase.php
 
@@ -9521,11 +9526,6 @@ parameters:
 			path: src/Navigation/NavigationTree.php
 
 		-
-			message: "#^Parameter \\#1 \\$path of method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:buildPathPart\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
 			count: 1
 			path: src/Navigation/NavigationTree.php
@@ -9541,17 +9541,22 @@ parameters:
 			path: src/Navigation/NavigationTree.php
 
 		-
-			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:addTableContainers\\(\\) expects PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeTable, PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node given\\.$#"
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
 			message: "#^Parameter \\#2 \\$needle of function mb_strpos expects string, mixed given\\.$#"
 			count: 1
 			path: src/Navigation/NavigationTree.php
 
 		-
-			message: "#^Parameter \\#2 \\$searchClause of method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase\\:\\:getPresence\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$path of method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:buildPathPart\\(\\) expects array, mixed given\\.$#"
+			count: 1
+			path: src/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:addTableContainers\\(\\) expects PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeTable, PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node given\\.$#"
+			count: 1
+			path: src/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#3 \\$searchClause of method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase\\:\\:getPresence\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Navigation/NavigationTree.php
 

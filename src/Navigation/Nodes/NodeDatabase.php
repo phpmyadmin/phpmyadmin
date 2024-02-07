@@ -15,6 +15,7 @@ use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -72,7 +73,7 @@ class NodeDatabase extends Node
      * @param string $searchClause A string used to filter the results of
      *                             the query
      */
-    public function getPresence(string $type = '', string $searchClause = ''): int
+    public function getPresence(UserPrivileges $userPrivileges, string $type = '', string $searchClause = ''): int
     {
         return $this->presenceCounts[$type][$searchClause] ??= match ($type) {
             'tables' => $this->getTableCount($searchClause),
@@ -260,6 +261,7 @@ class NodeDatabase extends Node
      * @return mixed[]
      */
     public function getData(
+        UserPrivileges $userPrivileges,
         RelationParameters $relationParameters,
         string $type,
         int $pos,

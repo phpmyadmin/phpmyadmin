@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
@@ -59,6 +60,9 @@ class AddFieldController extends AbstractController
         if (! $this->checkParameters(['db', 'table'])) {
             return;
         }
+
+        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
+        $userPrivileges = $checkUserPrivileges->getPrivileges();
 
         $cfg = $this->config->settings;
 
@@ -188,7 +192,7 @@ class AddFieldController extends AbstractController
             return;
         }
 
-        $templateData = $this->columnsDefinition->displayForm('/table/add-field', $numFields);
+        $templateData = $this->columnsDefinition->displayForm($userPrivileges, '/table/add-field', $numFields);
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
     }

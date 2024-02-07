@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
@@ -32,6 +34,9 @@ final class CopyTableController extends AbstractController
         /** @var string $targetDb */
         $targetDb = $request->getParsedBodyParam('target_db');
 
+        $checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
+        $userPrivileges = $checkUserPrivileges->getPrivileges();
+
         foreach ($selected as $selectedValue) {
             Table::moveCopy(
                 Current::$database,
@@ -48,7 +53,13 @@ final class CopyTableController extends AbstractController
                 continue;
             }
 
-            $this->operations->adjustPrivilegesCopyTable(Current::$database, $selectedValue, $targetDb, $selectedValue);
+            $this->operations->adjustPrivilegesCopyTable(
+                $userPrivileges,
+                Current::$database,
+                $selectedValue,
+                $targetDb,
+                $selectedValue,
+            );
         }
 
         $GLOBALS['message'] = Message::success();

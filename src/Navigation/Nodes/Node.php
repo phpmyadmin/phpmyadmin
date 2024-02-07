@@ -362,6 +362,7 @@ class Node
      * @return mixed[]
      */
     public function getData(
+        UserPrivileges $userPrivileges,
         RelationParameters $relationParameters,
         string $type,
         int $pos,
@@ -372,11 +373,11 @@ class Node
             return $this->getDataFromInfoSchema($pos, $searchClause);
         }
 
-        if (UserPrivileges::$databasesToTest === false) {
+        if ($userPrivileges->databasesToTest === false) {
             return $this->getDataFromShowDatabases($pos, $searchClause);
         }
 
-        return $this->getDataFromShowDatabasesLike($pos, $searchClause);
+        return $this->getDataFromShowDatabasesLike($userPrivileges, $pos, $searchClause);
     }
 
     /**
@@ -388,7 +389,7 @@ class Node
      *                             ('tables', 'views', etc)
      * @param string $searchClause A string used to filter the results of the query
      */
-    public function getPresence(string $type = '', string $searchClause = ''): int
+    public function getPresence(UserPrivileges $userPrivileges, string $type = '', string $searchClause = ''): int
     {
         $dbi = DatabaseInterface::getInstance();
         $config = Config::getInstance();
@@ -403,7 +404,7 @@ class Node
                 return (int) $dbi->fetchValue($query);
             }
 
-            if (UserPrivileges::$databasesToTest === false) {
+            if ($userPrivileges->databasesToTest === false) {
                 $query = 'SHOW DATABASES ';
                 $query .= $this->getWhereClause('Database', $searchClause);
 
@@ -411,7 +412,7 @@ class Node
             }
 
             $retval = 0;
-            foreach ($this->getDatabasesToSearch($searchClause) as $db) {
+            foreach ($this->getDatabasesToSearch($userPrivileges, $searchClause) as $db) {
                 $query = 'SHOW DATABASES LIKE ' . $dbi->quoteString($db);
                 $retval += (int) $dbi->queryAndGetNumRows($query);
             }
@@ -433,9 +434,9 @@ class Node
             return (int) $dbi->fetchValue($query);
         }
 
-        if (UserPrivileges::$databasesToTest !== false) {
+        if ($userPrivileges->databasesToTest !== false) {
             $prefixMap = [];
-            foreach ($this->getDatabasesToSearch($searchClause) as $db) {
+            foreach ($this->getDatabasesToSearch($userPrivileges, $searchClause) as $db) {
                 $query = 'SHOW DATABASES LIKE ' . $dbi->quoteString($db);
                 $handle = $dbi->tryQuery($query);
                 if ($handle === false) {
@@ -500,7 +501,7 @@ class Node
      *
      * @return mixed[] array of databases
      */
-    private function getDatabasesToSearch(string $searchClause): array
+    private function getDatabasesToSearch(UserPrivileges $userPrivileges, string $searchClause): array
     {
         $databases = [];
         $config = Config::getInstance();
@@ -508,8 +509,8 @@ class Node
             $databases = ['%' . DatabaseInterface::getInstance()->escapeMysqlWildcards($searchClause) . '%'];
         } elseif (! empty($config->selectedServer['only_db'])) {
             $databases = $config->selectedServer['only_db'];
-        } elseif (UserPrivileges::$databasesToTest !== false && UserPrivileges::$databasesToTest !== []) {
-            $databases = UserPrivileges::$databasesToTest;
+        } elseif ($userPrivileges->databasesToTest !== false && $userPrivileges->databasesToTest !== []) {
+            $databases = $userPrivileges->databasesToTest;
         }
 
         sort($databases);
@@ -766,7 +767,7 @@ class Node
      *
      * @return mixed[]
      */
-    private function getDataFromShowDatabasesLike(int $pos, string $searchClause): array
+    private function getDataFromShowDatabasesLike(UserPrivileges $userPrivileges, int $pos, string $searchClause): array
     {
         $config = Config::getInstance();
         $maxItems = $config->settings['FirstLevelNavigationItems'];
@@ -776,7 +777,7 @@ class Node
         ) {
             $retval = [];
             $count = 0;
-            foreach ($this->getDatabasesToSearch($searchClause) as $db) {
+            foreach ($this->getDatabasesToSearch($userPrivileges, $searchClause) as $db) {
                 $handle = $dbi->tryQuery(sprintf('SHOW DATABASES LIKE %s', $dbi->quoteString($db)));
                 if ($handle === false) {
                     continue;
@@ -809,7 +810,7 @@ class Node
         $retval = [];
         $prefixMap = [];
         $total = $pos + $maxItems;
-        foreach ($this->getDatabasesToSearch($searchClause) as $db) {
+        foreach ($this->getDatabasesToSearch($userPrivileges, $searchClause) as $db) {
             $handle = $dbi->tryQuery(sprintf('SHOW DATABASES LIKE %s', $dbi->quoteString($db)));
             if ($handle === false) {
                 continue;
@@ -834,7 +835,7 @@ class Node
 
         $prefixes = array_slice(array_keys($prefixMap), $pos);
 
-        foreach ($this->getDatabasesToSearch($searchClause) as $db) {
+        foreach ($this->getDatabasesToSearch($userPrivileges, $searchClause) as $db) {
             $handle = $dbi->tryQuery(sprintf('SHOW DATABASES LIKE %s', $dbi->quoteString($db)));
             if ($handle === false) {
                 continue;

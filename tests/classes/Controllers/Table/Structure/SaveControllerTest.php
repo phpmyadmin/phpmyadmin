@@ -14,6 +14,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UserPrivileges;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
@@ -122,7 +123,7 @@ class SaveControllerTest extends AbstractTestCase
         );
 
         self::assertFalse(
-            $method->invokeArgs($ctrl, [[]]),
+            $method->invokeArgs($ctrl, [new UserPrivileges(), []]),
         );
     }
 }

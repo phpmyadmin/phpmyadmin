@@ -1,7 +1,4 @@
 <?php
-/**
- * Get user's global privileges and some db-specific privileges
- */
 
 declare(strict_types=1);
 
@@ -16,7 +13,7 @@ use function preg_replace;
 use function str_contains;
 
 /**
- * PhpMyAdmin\CheckUserPrivileges class
+ * Get user's global privileges and some db-specific privileges
  */
 class CheckUserPrivileges
 {
@@ -28,9 +25,8 @@ class CheckUserPrivileges
      * Check if user has required privileges for
      * performing 'Adjust privileges' operations
      */
-    public function checkRequiredPrivilegesForAdjust(
-        ShowGrants $showGrants,
-    ): void {
+    public function checkRequiredPrivilegesForAdjust(UserPrivileges $userPrivileges, ShowGrants $showGrants): void
+    {
         // '... ALL PRIVILEGES ON *.* ...' OR '... ALL PRIVILEGES ON `mysql`.* ..'
         // OR
         // SELECT, INSERT, UPDATE, DELETE .... ON *.* OR `mysql`.*
@@ -43,13 +39,13 @@ class CheckUserPrivileges
         }
 
         if ($showGrants->dbName === '*' && $showGrants->tableName === '*') {
-            UserPrivileges::$column = true;
-            UserPrivileges::$database = true;
-            UserPrivileges::$routines = true;
-            UserPrivileges::$table = true;
+            $userPrivileges->column = true;
+            $userPrivileges->database = true;
+            $userPrivileges->routines = true;
+            $userPrivileges->table = true;
 
             if ($showGrants->grants === 'ALL PRIVILEGES' || $showGrants->grants === 'ALL') {
-                UserPrivileges::$isReload = true;
+                $userPrivileges->isReload = true;
             }
         }
 
@@ -61,22 +57,22 @@ class CheckUserPrivileges
 
         switch ($showGrants->tableName) {
             case 'columns_priv':
-                UserPrivileges::$column = true;
+                $userPrivileges->column = true;
                 break;
             case 'db':
-                UserPrivileges::$database = true;
+                $userPrivileges->database = true;
                 break;
             case 'procs_priv':
-                UserPrivileges::$routines = true;
+                $userPrivileges->routines = true;
                 break;
             case 'tables_priv':
-                UserPrivileges::$table = true;
+                $userPrivileges->table = true;
                 break;
             case '*':
-                UserPrivileges::$column = true;
-                UserPrivileges::$database = true;
-                UserPrivileges::$routines = true;
-                UserPrivileges::$table = true;
+                $userPrivileges->column = true;
+                $userPrivileges->database = true;
+                $userPrivileges->routines = true;
+                $userPrivileges->table = true;
                 break;
             default:
         }
@@ -98,37 +94,27 @@ class CheckUserPrivileges
      * displayed. For example, if an anonymous account exists, the named account
      * might be able to use its privileges, but SHOW GRANTS will not display them.
      */
-    private function analyseShowGrant(): void
+    private function analyseShowGrant(): UserPrivileges
     {
         if (SessionCache::has('is_create_db_priv')) {
-            UserPrivileges::$isCreateDatabase = SessionCache::get('is_create_db_priv');
-            UserPrivileges::$isReload = SessionCache::get('is_reload_priv');
-            UserPrivileges::$databaseToCreate = SessionCache::get('db_to_create');
-            UserPrivileges::$databasesToTest = SessionCache::get('dbs_to_test');
-
-            UserPrivileges::$database = SessionCache::get('db_priv');
-            UserPrivileges::$column = SessionCache::get('col_priv');
-            UserPrivileges::$table = SessionCache::get('table_priv');
-            UserPrivileges::$routines = SessionCache::get('proc_priv');
-
-            return;
+            return new UserPrivileges(
+                SessionCache::get('db_priv'),
+                SessionCache::get('table_priv'),
+                SessionCache::get('col_priv'),
+                SessionCache::get('proc_priv'),
+                SessionCache::get('is_reload_priv'),
+                SessionCache::get('is_create_db_priv'),
+                SessionCache::get('db_to_create'),
+                SessionCache::get('dbs_to_test'),
+            );
         }
-
-        // defaults
-        UserPrivileges::$isCreateDatabase = false;
-        UserPrivileges::$isReload = false;
-        UserPrivileges::$databaseToCreate = '';
-        UserPrivileges::$databasesToTest = Utilities::getSystemSchemas();
-        UserPrivileges::$routines = false;
-        UserPrivileges::$database = false;
-        UserPrivileges::$column = false;
-        UserPrivileges::$table = false;
 
         $showGrantsResult = $this->dbi->tryQuery('SHOW GRANTS');
-
         if (! $showGrantsResult) {
-            return;
+            return new UserPrivileges(databasesToTest: Utilities::getSystemSchemas());
         }
+
+        $userPrivileges = new UserPrivileges(databasesToTest: Utilities::getSystemSchemas());
 
         $re0 = '(^|(\\\\\\\\)+|[^\\\\])'; // non-escaped wildcards
         $re1 = '(^|[^\\\\])(\\\)+'; // escaped wildcards
@@ -138,18 +124,18 @@ class CheckUserPrivileges
 
             if ($showGrants->dbName === '*') {
                 if ($showGrants->grants !== 'USAGE') {
-                    UserPrivileges::$databasesToTest = false;
+                    $userPrivileges->databasesToTest = false;
                 }
-            } elseif (UserPrivileges::$databasesToTest !== false) {
-                UserPrivileges::$databasesToTest[] = $showGrants->dbName;
+            } elseif ($userPrivileges->databasesToTest !== false) {
+                $userPrivileges->databasesToTest[] = $showGrants->dbName;
             }
 
             if (str_contains($showGrants->grants, 'RELOAD')) {
-                UserPrivileges::$isReload = true;
+                $userPrivileges->isReload = true;
             }
 
             // check for the required privileges for adjust
-            $this->checkRequiredPrivilegesForAdjust($showGrants);
+            $this->checkRequiredPrivilegesForAdjust($userPrivileges, $showGrants);
 
             /**
              * @todo if we find CREATE VIEW but not CREATE, do not offer
@@ -166,9 +152,9 @@ class CheckUserPrivileges
 
             if ($showGrants->dbName === '*') {
                 // a global CREATE privilege
-                UserPrivileges::$isCreateDatabase = true;
-                UserPrivileges::$isReload = true;
-                UserPrivileges::$databaseToCreate = '';
+                $userPrivileges->isCreateDatabase = true;
+                $userPrivileges->isReload = true;
+                $userPrivileges->databaseToCreate = '';
                 // @todo we should not break here, cause GRANT ALL *.*
                 // could be revoked by a later rule like GRANT SELECT ON db.*
                 break;
@@ -176,7 +162,7 @@ class CheckUserPrivileges
 
             $dbNameToTest = Util::backquote($showGrants->dbName);
 
-            if (UserPrivileges::$isCreateDatabase) {
+            if ($userPrivileges->isCreateDatabase) {
                 // no need for any more tests if we already know this
                 continue;
             }
@@ -201,16 +187,16 @@ class CheckUserPrivileges
              * Do not handle the underscore wildcard
              * (this case must be rare anyway)
              */
-            UserPrivileges::$databaseToCreate = preg_replace('/' . $re0 . '%/', '\\1', $showGrants->dbName);
-            UserPrivileges::$databaseToCreate = preg_replace(
+            $userPrivileges->databaseToCreate = preg_replace('/' . $re0 . '%/', '\\1', $showGrants->dbName);
+            $userPrivileges->databaseToCreate = preg_replace(
                 '/' . $re1 . '(%|_)/',
                 '\\1\\3',
-                UserPrivileges::$databaseToCreate,
+                $userPrivileges->databaseToCreate,
             );
-            UserPrivileges::$isCreateDatabase = true;
+            $userPrivileges->isCreateDatabase = true;
 
             /**
-             * @todo collect \PhpMyAdmin\UserPrivileges::$dbToCreate into an array,
+             * @todo collect {@see UserPrivileges::$databaseToCreate} into an array,
              * to display a drop-down in the "Create database" dialog
              */
             // we don't break, we want all possible databases
@@ -219,24 +205,25 @@ class CheckUserPrivileges
 
         // must also cacheUnset() them in
         // PhpMyAdmin\Plugins\Auth\AuthenticationCookie
-        SessionCache::set('is_create_db_priv', UserPrivileges::$isCreateDatabase);
-        SessionCache::set('is_reload_priv', UserPrivileges::$isReload);
-        SessionCache::set('db_to_create', UserPrivileges::$databaseToCreate);
-        SessionCache::set('dbs_to_test', UserPrivileges::$databasesToTest);
+        SessionCache::set('is_create_db_priv', $userPrivileges->isCreateDatabase);
+        SessionCache::set('is_reload_priv', $userPrivileges->isReload);
+        SessionCache::set('db_to_create', $userPrivileges->databaseToCreate);
+        SessionCache::set('dbs_to_test', $userPrivileges->databasesToTest);
 
-        SessionCache::set('proc_priv', UserPrivileges::$routines);
-        SessionCache::set('table_priv', UserPrivileges::$table);
-        SessionCache::set('col_priv', UserPrivileges::$column);
-        SessionCache::set('db_priv', UserPrivileges::$database);
+        SessionCache::set('proc_priv', $userPrivileges->routines);
+        SessionCache::set('table_priv', $userPrivileges->table);
+        SessionCache::set('col_priv', $userPrivileges->column);
+        SessionCache::set('db_priv', $userPrivileges->database);
+
+        return $userPrivileges;
     }
 
     /**
      * Get user's global privileges and some db-specific privileges
      */
-    public function getPrivileges(): void
+    public function getPrivileges(): UserPrivileges
     {
         $username = '';
-
         $current = $this->dbi->getCurrentUserAndHost();
         if ($current !== []) {
             [$username] = $current;
@@ -244,18 +231,16 @@ class CheckUserPrivileges
 
         // If MySQL is started with --skip-grant-tables
         if ($username === '') {
-            UserPrivileges::$isCreateDatabase = true;
-            UserPrivileges::$isReload = true;
-            UserPrivileges::$databaseToCreate = '';
-            UserPrivileges::$databasesToTest = false;
-            UserPrivileges::$database = true;
-            UserPrivileges::$column = true;
-            UserPrivileges::$table = true;
-            UserPrivileges::$routines = true;
-
-            return;
+            return new UserPrivileges(
+                database: true,
+                table: true,
+                column: true,
+                routines: true,
+                isReload: true,
+                isCreateDatabase: true,
+            );
         }
 
-        $this->analyseShowGrant();
+        return $this->analyseShowGrant();
     }
 }

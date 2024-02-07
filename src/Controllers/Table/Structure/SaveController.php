@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -51,7 +52,10 @@ final class SaveController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $regenerate = $this->updateColumns();
+        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
+        $userPrivileges = $checkUserPrivileges->getPrivileges();
+
+        $regenerate = $this->updateColumns($userPrivileges);
         if (! $regenerate) {
             // continue to show the table's structure
             unset($_POST['selected']);
@@ -65,7 +69,7 @@ final class SaveController extends AbstractController
      *
      * @return bool true if error occurred
      */
-    private function updateColumns(): bool
+    private function updateColumns(UserPrivileges $userPrivileges): bool
     {
         $errUrl = Url::getFromRoute('/table/structure', ['db' => Current::$database, 'table' => Current::$table]);
         $regenerate = false;
@@ -198,7 +202,7 @@ final class SaveController extends AbstractController
             $result = $this->dbi->tryQuery($sqlQuery);
 
             if ($result !== false) {
-                $changedPrivileges = $this->adjustColumnPrivileges($adjustPrivileges);
+                $changedPrivileges = $this->adjustColumnPrivileges($userPrivileges, $adjustPrivileges);
 
                 if ($changedPrivileges) {
                     $message = Message::success(
@@ -358,11 +362,11 @@ final class SaveController extends AbstractController
      * @param mixed[] $adjustPrivileges assoc array of old col names mapped to new
      *                                 cols
      */
-    private function adjustColumnPrivileges(array $adjustPrivileges): bool
+    private function adjustColumnPrivileges(UserPrivileges $userPrivileges, array $adjustPrivileges): bool
     {
         $changed = false;
 
-        if (UserPrivileges::$column && UserPrivileges::$isReload) {
+        if ($userPrivileges->column && $userPrivileges->isReload) {
             $this->dbi->selectDb('mysql');
 
             // For Column specific privileges

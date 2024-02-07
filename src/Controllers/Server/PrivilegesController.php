@@ -51,7 +51,7 @@ class PrivilegesController extends AbstractController
         $GLOBALS['dbname'] ??= null;
 
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $checkUserPrivileges->getPrivileges();
+        $userPrivileges = $checkUserPrivileges->getPrivileges();
 
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -364,6 +364,7 @@ class PrivilegesController extends AbstractController
                 // No username is given --> display the overview
                 $this->response->addHTML(
                     $serverPrivileges->getHtmlForUserOverview(
+                        $userPrivileges,
                         LanguageManager::$textDir,
                         $request->getQueryParam('initial'),
                     ),

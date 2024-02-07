@@ -65,6 +65,7 @@ final class ColumnsDefinition
      * @return array<string, mixed>
      */
     public function displayForm(
+        UserPrivileges $userPrivileges,
         string $action,
         int $numFields = 0,
         array|null $selected = null,
@@ -356,7 +357,7 @@ final class ColumnsDefinition
             'max_rows' => intval($config->settings['MaxRows']),
             'char_editing' => $config->settings['CharEditing'] ?? null,
             'attribute_types' => $this->dbi->types->getAttributes(),
-            'privs_available' => UserPrivileges::$column && UserPrivileges::$isReload,
+            'privs_available' => $userPrivileges->column && $userPrivileges->isReload,
             'max_length' => $this->dbi->getVersion() >= 50503 ? 1024 : 255,
             'have_partitioning' => Partition::havePartitioning(),
             'disable_is' => $config->selectedServer['DisableIS'],

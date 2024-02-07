@@ -18,7 +18,6 @@ use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 use Webmozart\Assert\Assert;
 
@@ -66,14 +65,14 @@ class DatabasesController extends AbstractController
         private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
-
-        $checkUserPrivileges = new CheckUserPrivileges($dbi);
-        $checkUserPrivileges->getPrivileges();
     }
 
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['errorUrl'] ??= null;
+
+        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
+        $userPrivileges = $checkUserPrivileges->getPrivileges();
 
         $this->hasStatistics = ! empty($request->getParam('statistics'));
         $position = (int) $request->getParam('pos');
@@ -126,7 +125,7 @@ class DatabasesController extends AbstractController
 
         $charsetsList = [];
         $config = Config::getInstance();
-        if ($config->settings['ShowCreateDb'] && UserPrivileges::$isCreateDatabase) {
+        if ($config->settings['ShowCreateDb'] && $userPrivileges->isCreateDatabase) {
             $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
             $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
             $serverCollation = $this->dbi->getServerCollation();
@@ -152,9 +151,9 @@ class DatabasesController extends AbstractController
 
         $this->render('server/databases/index', [
             'is_create_database_shown' => $config->settings['ShowCreateDb'],
-            'has_create_database_privileges' => UserPrivileges::$isCreateDatabase,
+            'has_create_database_privileges' => $userPrivileges->isCreateDatabase,
             'has_statistics' => $this->hasStatistics,
-            'database_to_create' => UserPrivileges::$databaseToCreate,
+            'database_to_create' => $userPrivileges->databaseToCreate,
             'databases' => $databases['databases'],
             'total_statistics' => $databases['total_statistics'],
             'header_statistics' => $headerStatistics,
