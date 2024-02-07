@@ -1216,6 +1216,8 @@ class DatabaseInterface implements DbalInterface
      * @param string $query The query to execute
      * @param string $type  NUM|ASSOC|BOTH returned array should either numeric associative or both
      * @psalm-param DatabaseInterface::FETCH_NUM|DatabaseInterface::FETCH_ASSOC $type
+     *
+     * @return array<string|null>|null
      */
     public function fetchSingleRow(
         string $query,
@@ -1248,7 +1250,7 @@ class DatabaseInterface implements DbalInterface
      * @param string          $mode   either self::FETCH_NUM, self::FETCH_ASSOC or self::FETCH_BOTH
      * @psalm-param self::FETCH_NUM|self::FETCH_ASSOC $mode
      *
-     * @return mixed[]
+     * @return array<string|null>
      */
     private function fetchByMode(ResultInterface $result, string $mode): array
     {
@@ -1368,7 +1370,7 @@ class DatabaseInterface implements DbalInterface
     /**
      * Get supported SQL compatibility modes
      *
-     * @return mixed[] supported SQL compatibility modes
+     * @return string[] supported SQL compatibility modes
      */
     public function getCompatibilities(): array
     {

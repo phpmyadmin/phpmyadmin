@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function array_key_exists;
 use function defined;
 use function md5;
 use function str_contains;
@@ -45,7 +46,7 @@ class Scripts
         array $params = [],
     ): void {
         $hash = md5($filename);
-        if (! empty($this->files[$hash]) || $filename === '') {
+        if (array_key_exists($hash, $this->files) || $filename === '') {
             return;
         }
 

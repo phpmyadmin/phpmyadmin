@@ -310,6 +310,8 @@ interface DbalInterface
      * @param string $query The query to execute
      * @param string $type  NUM|ASSOC returned array should either numeric associative or both
      * @psalm-param self::FETCH_NUM|self::FETCH_ASSOC $type
+     *
+     * @return array<string|null>|null
      */
     public function fetchSingleRow(
         string $query,
@@ -375,14 +377,14 @@ interface DbalInterface
     /**
      * Get supported SQL compatibility modes
      *
-     * @return mixed[] supported SQL compatibility modes
+     * @return string[] supported SQL compatibility modes
      */
     public function getCompatibilities(): array;
 
     /**
      * returns warnings for last query
      *
-     * @return mixed[] warnings
+     * @return Warning[] warnings
      */
     public function getWarnings(ConnectionType $connectionType = ConnectionType::User): array;
 

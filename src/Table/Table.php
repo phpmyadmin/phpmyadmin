@@ -1478,7 +1478,7 @@ class Table implements Stringable
      * @param bool $backquoted whether to quote name with backticks ``
      * @param bool $fullName   whether to include full name of the table as a prefix
      *
-     * @return mixed[]
+     * @return string[]
      */
     public function getIndexedColumns(bool $backquoted = true, bool $fullName = true): array
     {
@@ -1499,7 +1499,7 @@ class Table implements Stringable
      * @param bool $backquoted whether to quote name with backticks ``
      * @param bool $fullName   whether to include full name of the table as a prefix
      *
-     * @return mixed[]
+     * @return string[]
      */
     public function getColumns(bool $backquoted = true, bool $fullName = true): array
     {

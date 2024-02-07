@@ -123,7 +123,7 @@ final class ColumnsDefinition
 
         $mimeTypes = ['input_transformation', 'transformation'];
         foreach ($mimeTypes as $mimeType) {
-            if (! isset($availableMime[$mimeType]) || ! is_array($availableMime[$mimeType])) {
+            if (! isset($availableMime[$mimeType])) {
                 continue;
             }
 

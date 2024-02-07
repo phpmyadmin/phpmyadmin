@@ -43,7 +43,7 @@ class BrowseForeigners
      * @param int     $indexByDescription index by description
      * @param string  $currentValue       current value on the edit form
      *
-     * @return mixed[] the generated html
+     * @return array{string, int, int} the generated html
      */
     private function getHtmlForOneKey(
         int $horizontalCount,

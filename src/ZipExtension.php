@@ -59,7 +59,6 @@ class ZipExtension
             ];
         }
 
-        $errorMessage = '';
         $fileData = '';
 
         $res = $this->zip->open($file);
@@ -89,7 +88,7 @@ class ZipExtension
             $fileData = $firstZipEntry;
             $this->zip->close();
 
-            return ['error' => $errorMessage, 'data' => $fileData];
+            return ['error' => '', 'data' => $fileData];
         }
 
         /* Return the correct contents, not just the first entry */
@@ -100,6 +99,7 @@ class ZipExtension
             }
         }
 
+        $errorMessage = '';
         /* Couldn't find any files that matched $specific_entry */
         if ($fileData === '' || $fileData === false) {
             $errorMessage = __('Error in ZIP archive:')

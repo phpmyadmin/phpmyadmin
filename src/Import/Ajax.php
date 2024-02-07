@@ -23,7 +23,7 @@ final class Ajax
     /**
      * Sets up some variables for upload progress
      *
-     * @return mixed[]
+     * @return array{string, string, string[]}
      */
     public static function uploadProgressSetup(): array
     {

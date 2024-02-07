@@ -52,7 +52,10 @@ class UniqueCondition
                 $meta->orgname = $meta->name;
 
                 foreach ($expressions as $expression) {
-                    if (empty($expression->alias) || empty($expression->column)) {
+                    if (
+                        $expression->alias === null || $expression->alias === ''
+                        || $expression->column === null || $expression->column === ''
+                    ) {
                         continue;
                     }
 
@@ -189,7 +192,7 @@ class UniqueCondition
         $isBlobAndIsBinaryCharset = $meta->isType(FieldMetadata::TYPE_BLOB) && $meta->charsetnr === 63;
         if ($meta->isNumeric) {
             $conditionValue = '= ' . $row;
-        } elseif ($isBlobAndIsBinaryCharset || (! empty($row) && $isBinaryString)) {
+        } elseif ($isBlobAndIsBinaryCharset || ($row != 0 && $isBinaryString)) {
             // hexify only if this is a true not empty BLOB or a BINARY
 
             // do not waste memory building a too big condition
@@ -207,7 +210,7 @@ class UniqueCondition
                 // this blob won't be part of the final condition
                 $conditionValue = null;
             }
-        } elseif ($meta->isMappedTypeGeometry && ! empty($row)) {
+        } elseif ($meta->isMappedTypeGeometry && $row != 0) {
             // do not build a too big condition
             if (mb_strlen((string) $row) < 5000) {
                 $condition .= '= CAST(0x' . bin2hex((string) $row) . ' AS BINARY)';

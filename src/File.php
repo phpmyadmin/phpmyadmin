@@ -626,7 +626,7 @@ class File
     public function openZip(string|null $specificEntry = null): bool
     {
         $result = $this->zipExtension->getContents($this->getName(), $specificEntry);
-        if (! empty($result['error'])) {
+        if ($result['error'] !== '') {
             $this->errorMessage = Message::rawError($result['error']);
 
             return false;

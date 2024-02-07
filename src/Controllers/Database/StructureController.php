@@ -551,7 +551,7 @@ final class StructureController extends AbstractController
      * @param mixed[] $currentTable array containing details about the table
      * @param bool    $tableIsView  whether the table is a view
      *
-     * @return mixed[]
+     * @return array{bool, string}
      */
     private function isRowCountApproximated(
         array $currentTable,
@@ -596,7 +596,7 @@ final class StructureController extends AbstractController
      * @param mixed[] $replicaInfo
      * @param string  $table       table name
      *
-     * @return mixed[]
+     * @return array{bool, bool}
      */
     private function getReplicationStatus(array $replicaInfo, string $table): array
     {

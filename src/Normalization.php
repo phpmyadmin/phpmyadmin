@@ -580,7 +580,7 @@ class Normalization
      * @param mixed[] $tables       tables formed after 2NF and need to convert to 3NF
      * @param string  $db           current database
      *
-     * @return mixed[] containing html and the list of new tables
+     * @return array{html:string, newTables:mixed[], success:true} containing html and the list of new tables
      */
     public function getHtmlForNewTables3NF(object $dependencies, array $tables, string $db): array
     {

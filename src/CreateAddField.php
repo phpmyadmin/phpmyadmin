@@ -50,8 +50,7 @@ class CreateAddField
      * @param bool $isCreateTable true if requirement is to get the statement
      *                            for table creation
      *
-     * @return mixed[] An array of initial sql statements
-     *                             according to the request
+     * @return string[] An array of initial sql statements according to the request
      */
     private function buildColumnCreationStatement(
         int $fieldCount,

@@ -320,7 +320,7 @@ class Sql
      * @param string $table      current table
      * @param string $columnName current column
      *
-     * @return mixed[]|null array containing the value list for the column, null on failure
+     * @return string[]|null array containing the value list for the column, null on failure
      */
     public function getValuesForColumn(string $db, string $table, string $columnName): array|null
     {

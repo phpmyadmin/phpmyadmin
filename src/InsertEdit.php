@@ -917,7 +917,7 @@ class InsertEdit
      *
      * @param mixed[] $query built query from buildSqlQuery()
      *
-     * @return mixed[] $total_affected_rows, $last_messages, $warning_messages, $error_messages
+     * @return array{int, Message[], string[], string[]}
      */
     public function executeSqlQuery(array $query): array
     {
@@ -946,7 +946,7 @@ class InsertEdit
             if (! $result) {
                 $errorMessages[] = $this->dbi->getError();
             } else {
-                $totalAffectedRows += $this->dbi->affectedRows();
+                $totalAffectedRows += (int) $this->dbi->affectedRows();
 
                 $insertId = $this->dbi->insertId();
                 if ($insertId !== 0) {

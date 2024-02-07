@@ -20,7 +20,7 @@ final class RecentFavoriteTable implements JsonSerializable
         return new self(DatabaseName::from($array['db']), TableName::from($array['table']));
     }
 
-    /** @return array{db:string, table:string} $array */
+    /** @return array{db:string, table:string} */
     public function toArray(): array
     {
         return ['db' => $this->db->getName(), 'table' => $this->table->getName()];

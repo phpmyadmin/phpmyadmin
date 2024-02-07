@@ -598,7 +598,7 @@ class Common
      * @param string $t2 master db.table
      * @param string $f2 master field
      *
-     * @return mixed[] array of success/failure and message
+     * @return array{bool, string} array of success/failure and message
      */
     public function removeRelation(string $t1, string $f1, string $t2, string $f2): array
     {
