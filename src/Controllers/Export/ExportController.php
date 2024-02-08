@@ -26,6 +26,7 @@ use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function count;
@@ -180,6 +181,8 @@ final class ExportController extends AbstractController
             $GLOBALS['errorUrl'] = Url::getFromRoute('/database/export', ['db' => Current::$database]);
             // Check if we have something to export
             $tableNames = $GLOBALS['table_select'] ?? [];
+            Assert::isArray($tableNames);
+            Assert::allString($tableNames);
         } elseif ($GLOBALS['export_type'] === 'table' && Current::$database !== '' && Current::$table !== '') {
             $GLOBALS['errorUrl'] = Url::getFromRoute('/table/export', [
                 'db' => Current::$database,
@@ -320,7 +323,7 @@ final class ExportController extends AbstractController
             $this->export->dumpBufferLength = 0;
 
             // TODO: This is a temporary hack to avoid GLOBALS. Replace this with something better.
-            if ($exportPlugin instanceof ExportXml && is_array($tableNames)) {
+            if ($exportPlugin instanceof ExportXml) {
                 $exportPlugin->setTables($tableNames);
             }
 

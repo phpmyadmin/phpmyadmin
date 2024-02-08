@@ -2381,16 +2381,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$tables of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportXml\\:\\:setTables\\(\\) expects array\\<string\\>, array given\\.$#"
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$whatStrucOrData of static method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportRaw\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Export/ExportController.php
@@ -2437,16 +2427,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$rememberTemplate of method PhpMyAdmin\\\\Export\\\\Export\\:\\:getFilenameAndMimetype\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tables of method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportDatabase\\(\\) expects array\\<string\\>, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tables of method PhpMyAdmin\\\\Export\\\\Export\\:\\:lockTables\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Export/ExportController.php
 
@@ -2501,7 +2481,7 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#4 \\$tableStructure of method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportDatabase\\(\\) expects array\\<string\\>, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$tableStructure of method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportDatabase\\(\\) expects array\\<string\\>, array given\\.$#"
 			count: 2
 			path: src/Controllers/Export/ExportController.php
 
@@ -2521,7 +2501,7 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Parameter \\#5 \\$tableData of method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportDatabase\\(\\) expects array\\<string\\>, mixed given\\.$#"
+			message: "#^Parameter \\#5 \\$tableData of method PhpMyAdmin\\\\Export\\\\Export\\:\\:exportDatabase\\(\\) expects array\\<string\\>, array given\\.$#"
 			count: 2
 			path: src/Controllers/Export/ExportController.php
 

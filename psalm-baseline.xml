@@ -1685,8 +1685,6 @@
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['table_data']]]></code>
-      <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code>$allrows</code>
       <code>$allrows</code>
       <code>$dbSelect</code>
@@ -1696,11 +1694,6 @@
       <code>$limitTo</code>
       <code>$rememberTemplate</code>
       <code><![CDATA[$request->getParsedBodyParam('filename_template')]]></code>
-      <code>$tableNames</code>
-      <code>$tableNames</code>
-      <code>$tableNames</code>
-      <code>$tableStructure</code>
-      <code>$tableStructure</code>
       <code>$whatStrucOrData</code>
       <code>$whatStrucOrData</code>
       <code>$whatStrucOrData</code>
@@ -1709,8 +1702,10 @@
       <code>$whatStrucOrData</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code>$tableNames</code>
-      <code>$tableNames</code>
+      <code><![CDATA[$GLOBALS['table_data']]]></code>
+      <code><![CDATA[$GLOBALS['table_data']]]></code>
+      <code>$tableStructure</code>
+      <code>$tableStructure</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['aliases']]]></code>
@@ -1807,7 +1802,6 @@
       <code><![CDATA[$GLOBALS['sql_views_as_tables']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
-      <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['texytext_columns']]]></code>
@@ -1831,7 +1825,6 @@
       <code>$limitTo</code>
       <code>$rememberTemplate</code>
       <code>$tableNames</code>
-      <code>$tableStructure</code>
       <code>$tableStructure</code>
       <code>$whatStrucOrData</code>
     </MixedAssignment>
