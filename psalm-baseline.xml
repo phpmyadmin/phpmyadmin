@@ -1105,7 +1105,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
-      <code><![CDATA[$GLOBALS['tables']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
@@ -1128,7 +1127,6 @@
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
-      <code><![CDATA[$GLOBALS['tables']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
       <code>$eachTable</code>
       <code>$selectedTable</code>
@@ -1688,7 +1686,6 @@
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
-      <code><![CDATA[$GLOBALS['tables']]]></code>
       <code><![CDATA[$GLOBALS['time_start']]]></code>
       <code><![CDATA[$GLOBALS['what']]]></code>
     </InvalidArrayOffset>
@@ -1702,10 +1699,6 @@
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
-      <code><![CDATA[$GLOBALS['tables']]]></code>
-      <code><![CDATA[$GLOBALS['tables']]]></code>
-      <code><![CDATA[$GLOBALS['tables']]]></code>
-      <code><![CDATA[$GLOBALS['tables']]]></code>
       <code>$allrows</code>
       <code>$allrows</code>
       <code>$dbSelect</code>
@@ -1715,6 +1708,9 @@
       <code>$limitTo</code>
       <code>$rememberTemplate</code>
       <code><![CDATA[$request->getParsedBodyParam('filename_template')]]></code>
+      <code>$tableNames</code>
+      <code>$tableNames</code>
+      <code>$tableNames</code>
       <code>$tableStructure</code>
       <code>$tableStructure</code>
       <code>$whatStrucOrData</code>
@@ -1724,6 +1720,10 @@
       <code>$whatStrucOrData</code>
       <code>$whatStrucOrData</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code>$tableNames</code>
+      <code>$tableNames</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['aliases']]]></code>
     </MixedArrayAssignment>
@@ -1822,8 +1822,6 @@
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
-      <code><![CDATA[$GLOBALS['tables']]]></code>
-      <code><![CDATA[$GLOBALS['tables']]]></code>
       <code><![CDATA[$GLOBALS['texytext_columns']]]></code>
       <code><![CDATA[$GLOBALS['texytext_null']]]></code>
       <code><![CDATA[$GLOBALS['texytext_structure_or_data']]]></code>
@@ -1844,6 +1842,7 @@
       <code>$limitFrom</code>
       <code>$limitTo</code>
       <code>$rememberTemplate</code>
+      <code>$tableNames</code>
       <code>$tableStructure</code>
       <code>$tableStructure</code>
       <code>$whatStrucOrData</code>
@@ -8578,7 +8577,6 @@
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['tables']]]></code>
       <code><![CDATA[$GLOBALS['xml_export_contents']]]></code>
       <code><![CDATA[$GLOBALS['xml_export_contents']]]></code>
       <code><![CDATA[$GLOBALS['xml_export_contents']]]></code>
@@ -8595,7 +8593,6 @@
       <code>$colAs</code>
       <code>$dbCharset</code>
       <code>$dbCollation</code>
-      <code>$table</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$events</code>
@@ -8606,20 +8603,10 @@
       <code><![CDATA[$result[0]['DEFAULT_COLLATION_NAME']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['tables']]]></code>
       <code>$colAs</code>
       <code>$dbCharset</code>
       <code>$dbCollation</code>
-      <code>$table</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayOffset>
-      <code>$result[$table]</code>
-    </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument>
       <code>$record[$i]</code>
       <code>$tableAlias</code>

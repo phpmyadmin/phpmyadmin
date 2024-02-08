@@ -22,7 +22,6 @@ use PhpMyAdmin\Version;
 
 use function __;
 use function htmlspecialchars;
-use function is_array;
 use function mb_substr;
 use function rtrim;
 use function str_replace;
@@ -41,7 +40,7 @@ class ExportXml extends ExportPlugin
     /**
      * Table names
      *
-     * @var mixed[]
+     * @var string[]
      */
     private array $tables = [];
 
@@ -49,21 +48,6 @@ class ExportXml extends ExportPlugin
     public function getName(): string
     {
         return 'xml';
-    }
-
-    /**
-     * Initialize the local variables that are used for export XML
-     */
-    private function initSpecificVariables(): void
-    {
-        $GLOBALS['tables'] ??= null;
-
-        $this->setTable(Current::$table);
-        if (! is_array($GLOBALS['tables'])) {
-            return;
-        }
-
-        $this->setTables($GLOBALS['tables']);
     }
 
     protected function setProperties(): ExportPluginProperties
@@ -187,7 +171,7 @@ class ExportXml extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        $this->initSpecificVariables();
+        $this->setTable(Current::$table);
 
         $table = $this->getTable();
         $tables = $this->getTables();
@@ -499,7 +483,7 @@ class ExportXml extends ExportPlugin
     /**
      * Gets the table names
      *
-     * @return mixed[]
+     * @return string[]
      */
     private function getTables(): array
     {
@@ -509,9 +493,9 @@ class ExportXml extends ExportPlugin
     /**
      * Sets the table names
      *
-     * @param mixed[] $tables table names
+     * @param string[] $tables table names
      */
-    private function setTables(array $tables): void
+    public function setTables(array $tables): void
     {
         $this->tables = $tables;
     }

@@ -41,7 +41,6 @@ final class ExportController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['tables'] ??= null;
         $GLOBALS['table_select'] ??= null;
         $GLOBALS['unlim_num_rows'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -78,8 +77,8 @@ final class ExportController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/export');
 
-        [$GLOBALS['tables']] = Util::getDbInfo($request, Current::$database, false);
-        $GLOBALS['num_tables'] = count($GLOBALS['tables']);
+        [$tableNames] = Util::getDbInfo($request, Current::$database, false);
+        $GLOBALS['num_tables'] = count($tableNames);
 
         // exit if no tables in db found
         if ($GLOBALS['num_tables'] < 1) {
@@ -97,7 +96,7 @@ final class ExportController extends AbstractController
 
         $tablesForMultiValues = [];
 
-        foreach ($GLOBALS['tables'] as $eachTable) {
+        foreach ($tableNames as $eachTable) {
             $tableSelect = $request->getParsedBodyParam('table_select');
             if (is_array($tableSelect)) {
                 $isChecked = $this->export->getCheckedClause($eachTable['Name'], $tableSelect);

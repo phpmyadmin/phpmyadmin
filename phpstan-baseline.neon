@@ -1786,11 +1786,6 @@ parameters:
 			path: src/Controllers/Database/EventsController.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: src/Controllers/Database/ExportController.php
-
-		-
 			message: "#^Cannot access offset 'Name' on mixed\\.$#"
 			count: 5
 			path: src/Controllers/Database/ExportController.php
@@ -2392,6 +2387,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Export/ExportController.php
+
+		-
+			message: "#^Parameter \\#1 \\$tables of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportXml\\:\\:setTables\\(\\) expects array\\<string\\>, array given\\.$#"
 			count: 1
 			path: src/Controllers/Export/ExportController.php
 
@@ -11286,27 +11286,12 @@ parameters:
 			path: src/Plugins/Export/ExportXml.php
 
 		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 6
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
+			count: 5
 			path: src/Plugins/Export/ExportXml.php
 
 		-
 			message: "#^Parameter \\#3 \\$names of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportXml\\:\\:exportDefinitions\\(\\) expects array\\<string\\>, array given\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Parameter \\#3 \\$table of static method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getDetails\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Export/ExportXml.php
 

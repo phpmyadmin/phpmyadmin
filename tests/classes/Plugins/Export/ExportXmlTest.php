@@ -223,7 +223,7 @@ class ExportXmlTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
 
-        $GLOBALS['tables'] = [];
+        $this->object->setTables([]);
         Current::$table = 'table';
 
         ob_start();
@@ -294,7 +294,7 @@ class ExportXmlTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
 
-        $GLOBALS['tables'] = ['t1', 't2'];
+        $this->object->setTables(['t1', 't2']);
 
         ob_start();
         self::assertTrue(
