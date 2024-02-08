@@ -3001,21 +3001,6 @@ parameters:
 			path: src/Controllers/Operations/Database/CollationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/Database/CollationController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Operations\\:\\:changeAllColumnsCollation\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/Database/CollationController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/Database/CollationController.php
-
-		-
 			message: "#^Parameter \\#3 \\$tableCollation of method PhpMyAdmin\\\\Operations\\:\\:changeAllColumnsCollation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Operations/Database/CollationController.php

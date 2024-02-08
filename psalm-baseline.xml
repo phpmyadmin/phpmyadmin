@@ -2190,15 +2190,10 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code>$dbCollation</code>
-      <code>$tableName</code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code>$tableName</code>
-    </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code>$dbCollation</code>
-      <code><![CDATA[['Name' => $tableName]]]></code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
