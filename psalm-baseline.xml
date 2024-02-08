@@ -1110,25 +1110,13 @@
     <MixedArgument>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
-      <code><![CDATA[$eachTable['Name']]]></code>
-      <code><![CDATA[$eachTable['Name']]]></code>
-      <code><![CDATA[$eachTable['Name']]]></code>
-      <code><![CDATA[$eachTable['Name']]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$eachTable['Name']]]></code>
-      <code><![CDATA[$eachTable['Name']]]></code>
-      <code><![CDATA[$eachTable['Name']]]></code>
-      <code><![CDATA[$eachTable['Name']]]></code>
-      <code><![CDATA[$eachTable['Name']]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
-      <code>$eachTable</code>
       <code>$selectedTable</code>
       <code>$tableData</code>
       <code>$tableSelect</code>
