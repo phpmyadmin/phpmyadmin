@@ -23,7 +23,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
-use function count;
 use function htmlspecialchars;
 use function sprintf;
 
@@ -74,7 +73,6 @@ class TrackingController extends AbstractController
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/database/tracking');
 
-        $numTables = count(Util::getDbInfo($request, Current::$database)[0]);
         $isSystemSchema = Utilities::isSystemSchema(Current::$database);
 
         if ($request->hasBodyParam('delete_tracking') && $request->hasBodyParam('table')) {
@@ -132,7 +130,7 @@ class TrackingController extends AbstractController
         $trackedData = $this->tracking->getTrackedData(Current::$database, '', '1');
 
         // No tables present and no log exist
-        if ($numTables === 0 && $trackedData->ddlog === []) {
+        if ($trackedData->ddlog === [] && $this->dbi->getTables(Current::$database) === []) {
             $this->response->addHTML('<p>' . __('No tables found in database.') . '</p>' . "\n");
 
             if (! $isSystemSchema) {
