@@ -2957,9 +2957,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Sql/DefaultForeignKeyCheckValueController.php">
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
     <UnusedParam>
       <code>$request</code>
     </UnusedParam>
@@ -6503,7 +6500,6 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>

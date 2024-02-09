@@ -1009,47 +1009,23 @@ return [
         ],
         Sql\ColumnPreferencesController::class => [
             'class' => Sql\ColumnPreferencesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$checkUserPrivileges' => '@check_user_privileges',
-                '$dbi' => '@dbi',
-            ],
+            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
         ],
         Sql\DefaultForeignKeyCheckValueController::class => [
             'class' => Sql\DefaultForeignKeyCheckValueController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$checkUserPrivileges' => '@check_user_privileges',
-            ],
+            'arguments' => ['$response' => '@response', '$template' => '@template'],
         ],
         Sql\EnumValuesController::class => [
             'class' => Sql\EnumValuesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$sql' => '@sql',
-                '$checkUserPrivileges' => '@check_user_privileges',
-            ],
+            'arguments' => ['$response' => '@response', '$template' => '@template', '$sql' => '@sql'],
         ],
         Sql\RelationalValuesController::class => [
             'class' => Sql\RelationalValuesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$sql' => '@sql',
-                '$checkUserPrivileges' => '@check_user_privileges',
-            ],
+            'arguments' => ['$response' => '@response', '$template' => '@template', '$sql' => '@sql'],
         ],
         Sql\SetValuesController::class => [
             'class' => Sql\SetValuesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$sql' => '@sql',
-                '$checkUserPrivileges' => '@check_user_privileges',
-            ],
+            'arguments' => ['$response' => '@response', '$template' => '@template', '$sql' => '@sql'],
         ],
         Sql\SqlController::class => [
             'class' => Sql\SqlController::class,
@@ -1057,7 +1033,6 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$sql' => '@sql',
-                '$checkUserPrivileges' => '@check_user_privileges',
                 '$dbi' => '@dbi',
                 '$pageSettings' => '@' . PageSettings::class,
                 '$bookmarkRepository' => '@bookmarkRepository',

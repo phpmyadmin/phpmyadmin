@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
@@ -134,9 +133,6 @@ class TrackingController extends AbstractController
             $this->response->addHTML('<p>' . __('No tables found in database.') . '</p>' . "\n");
 
             if (! $isSystemSchema) {
-                $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-                $checkUserPrivileges->getPrivileges();
-
                 $this->render('database/create_table', ['db' => Current::$database]);
             }
 

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Import;
 
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
@@ -86,9 +85,6 @@ class Import
     public function __construct()
     {
         Config::getInstance()->selectedServer['DisableIS'] = false;
-
-        $checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
-        $checkUserPrivileges->getPrivileges();
     }
 
     /**

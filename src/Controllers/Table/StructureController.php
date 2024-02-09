@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
@@ -73,9 +72,6 @@ class StructureController extends AbstractController
         $this->pageSettings->init('TableStructure');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
-
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $checkUserPrivileges->getPrivileges();
 
         $this->addScriptFiles(['table/structure.js']);
 
