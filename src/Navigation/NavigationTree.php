@@ -45,6 +45,7 @@ use function __;
 use function _ngettext;
 use function array_intersect_key;
 use function array_key_exists;
+use function array_key_last;
 use function array_keys;
 use function array_map;
 use function array_merge;
@@ -1006,13 +1007,14 @@ class NavigationTree
     private function renderNodes(UserPrivileges $userPrivileges, array $children, bool $hasFirstClass = true): string
     {
         $nodes = '';
-        for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
+        $lastKey = array_key_last($children);
+        foreach ($children as $i => $child) {
             if ($i === 0) {
-                $nodes .= $this->renderNode($userPrivileges, $children[0], $hasFirstClass ? 'first' : '');
-            } elseif ($i + 1 !== $nbChildren) {
-                $nodes .= $this->renderNode($userPrivileges, $children[$i]);
+                $nodes .= $this->renderNode($userPrivileges, $child, $hasFirstClass ? 'first' : '');
+            } elseif ($i !== $lastKey) {
+                $nodes .= $this->renderNode($userPrivileges, $child);
             } else {
-                $nodes .= $this->renderNode($userPrivileges, $children[$i], 'last');
+                $nodes .= $this->renderNode($userPrivileges, $child, 'last');
             }
         }
 
@@ -1127,12 +1129,13 @@ class NavigationTree
         usort($children, $this->sortNode(...));
         $buffer = '';
         $extraClass = '';
-        for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
-            if ($i + 1 === $nbChildren) {
+        $lastKey = array_key_last($children);
+        foreach ($children as $i => $child) {
+            if ($i === $lastKey) {
                 $extraClass = ' last';
             }
 
-            $buffer .= $this->renderNode($userPrivileges, $children[$i], $children[$i]->classes . $extraClass);
+            $buffer .= $this->renderNode($userPrivileges, $child, $child->classes . $extraClass);
         }
 
         if ($buffer !== '') {
