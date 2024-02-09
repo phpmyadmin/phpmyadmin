@@ -1214,6 +1214,12 @@ class Export
         return $exportPlugin->getExportInfo($db);
     }
 
+    /** @return string[] */
+    public function getTableNames(string $database): array
+    {
+        return $this->dbi->getTables($database);
+    }
+
     private function getHTMLForRefreshButton(string $exportType): string
     {
         $postParams = $this->getPostParams($exportType);

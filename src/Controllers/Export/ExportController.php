@@ -18,6 +18,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Plugins\Export\ExportXml;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Parser;
@@ -25,6 +26,7 @@ use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function count;
@@ -57,7 +59,6 @@ final class ExportController extends AbstractController
         $GLOBALS['what'] ??= null;
         $GLOBALS['single_table'] ??= null;
         $GLOBALS['save_filename'] ??= null;
-        $GLOBALS['tables'] ??= null;
         $GLOBALS['table_select'] ??= null;
         $GLOBALS['time_start'] ??= null;
         $GLOBALS['charset'] ??= null;
@@ -172,14 +173,16 @@ final class ExportController extends AbstractController
             $this->response->disable();
         }
 
-        $GLOBALS['tables'] = [];
+        $tableNames = [];
         // Generate error url and check for needed variables
         if ($GLOBALS['export_type'] === 'server') {
             $GLOBALS['errorUrl'] = Url::getFromRoute('/server/export');
         } elseif ($GLOBALS['export_type'] === 'database' && Current::$database !== '') {
             $GLOBALS['errorUrl'] = Url::getFromRoute('/database/export', ['db' => Current::$database]);
             // Check if we have something to export
-            $GLOBALS['tables'] = $GLOBALS['table_select'] ?? [];
+            $tableNames = $GLOBALS['table_select'] ?? [];
+            Assert::isArray($tableNames);
+            Assert::allString($tableNames);
         } elseif ($GLOBALS['export_type'] === 'table' && Current::$database !== '' && Current::$table !== '') {
             $GLOBALS['errorUrl'] = Url::getFromRoute('/table/export', [
                 'db' => Current::$database,
@@ -294,7 +297,7 @@ final class ExportController extends AbstractController
         } else {
             // HTML
             if ($GLOBALS['export_type'] === 'database') {
-                $GLOBALS['num_tables'] = count($GLOBALS['tables']);
+                $GLOBALS['num_tables'] = count($tableNames);
                 if ($GLOBALS['num_tables'] === 0) {
                     $GLOBALS['message'] = Message::error(
                         __('No tables found in database.'),
@@ -318,6 +321,11 @@ final class ExportController extends AbstractController
             // Re - initialize
             $this->export->dumpBuffer = '';
             $this->export->dumpBufferLength = 0;
+
+            // TODO: This is a temporary hack to avoid GLOBALS. Replace this with something better.
+            if ($exportPlugin instanceof ExportXml) {
+                $exportPlugin->setTables($tableNames);
+            }
 
             // Add possibly some comments to export
             if (! $exportPlugin->exportHeader()) {
@@ -370,16 +378,16 @@ final class ExportController extends AbstractController
                 }
 
                 if ($structureOrDataForced) {
-                    $tableStructure = $GLOBALS['tables'];
-                    $GLOBALS['table_data'] = $GLOBALS['tables'];
+                    $tableStructure = $tableNames;
+                    $GLOBALS['table_data'] = $tableNames;
                 }
 
                 if ($lockTables) {
-                    $this->export->lockTables(DatabaseName::from(Current::$database), $GLOBALS['tables'], 'READ');
+                    $this->export->lockTables(DatabaseName::from(Current::$database), $tableNames, 'READ');
                     try {
                         $this->export->exportDatabase(
                             DatabaseName::from(Current::$database),
-                            $GLOBALS['tables'],
+                            $tableNames,
                             $whatStrucOrData,
                             $tableStructure,
                             $GLOBALS['table_data'],
@@ -399,7 +407,7 @@ final class ExportController extends AbstractController
                 } else {
                     $this->export->exportDatabase(
                         DatabaseName::from(Current::$database),
-                        $GLOBALS['tables'],
+                        $tableNames,
                         $whatStrucOrData,
                         $tableStructure,
                         $GLOBALS['table_data'],

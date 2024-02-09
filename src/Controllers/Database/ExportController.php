@@ -41,7 +41,6 @@ final class ExportController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['tables'] ??= null;
         $GLOBALS['table_select'] ??= null;
         $GLOBALS['unlim_num_rows'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -78,8 +77,8 @@ final class ExportController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/export');
 
-        [$GLOBALS['tables']] = Util::getDbInfo($request, Current::$database, false);
-        $GLOBALS['num_tables'] = count($GLOBALS['tables']);
+        $tableNames = $this->export->getTableNames(Current::$database);
+        $GLOBALS['num_tables'] = count($tableNames);
 
         // exit if no tables in db found
         if ($GLOBALS['num_tables'] < 1) {
@@ -97,32 +96,32 @@ final class ExportController extends AbstractController
 
         $tablesForMultiValues = [];
 
-        foreach ($GLOBALS['tables'] as $eachTable) {
+        foreach ($tableNames as $tableName) {
             $tableSelect = $request->getParsedBodyParam('table_select');
             if (is_array($tableSelect)) {
-                $isChecked = $this->export->getCheckedClause($eachTable['Name'], $tableSelect);
+                $isChecked = $this->export->getCheckedClause($tableName, $tableSelect);
             } elseif (isset($GLOBALS['table_select'])) {
-                $isChecked = $this->export->getCheckedClause($eachTable['Name'], $GLOBALS['table_select']);
+                $isChecked = $this->export->getCheckedClause($tableName, $GLOBALS['table_select']);
             } else {
                 $isChecked = true;
             }
 
             $tableStructure = $request->getParsedBodyParam('table_structure');
             if (is_array($tableStructure)) {
-                $structureChecked = $this->export->getCheckedClause($eachTable['Name'], $tableStructure);
+                $structureChecked = $this->export->getCheckedClause($tableName, $tableStructure);
             } else {
                 $structureChecked = $isChecked;
             }
 
             $tableData = $request->getParsedBodyParam('table_data');
             if (is_array($tableData)) {
-                $dataChecked = $this->export->getCheckedClause($eachTable['Name'], $tableData);
+                $dataChecked = $this->export->getCheckedClause($tableName, $tableData);
             } else {
                 $dataChecked = $isChecked;
             }
 
             $tablesForMultiValues[] = [
-                'name' => $eachTable['Name'],
+                'name' => $tableName,
                 'is_checked_select' => $isChecked,
                 'is_checked_structure' => $structureChecked,
                 'is_checked_data' => $dataChecked,
