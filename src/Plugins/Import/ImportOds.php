@@ -23,6 +23,7 @@ use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use SimpleXMLElement;
 
 use function __;
+use function array_map;
 use function count;
 use function implode;
 use function rtrim;
@@ -181,12 +182,7 @@ class ImportOds extends ImportPlugin
         unset($rows);
 
         /* Obtain the best-fit MySQL types for each column */
-        $analyses = [];
-
-        $len = count($tables);
-        for ($i = 0; $i < $len; ++$i) {
-            $analyses[] = $this->import->analyzeTable($tables[$i]);
-        }
+        $analyses = array_map($this->import->analyzeTable(...), $tables);
 
         /* Set database name to the currently selected one, if applicable */
         $dbName = Current::$database !== '' ? Current::$database : 'ODS_DB';

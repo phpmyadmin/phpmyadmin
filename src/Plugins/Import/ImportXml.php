@@ -20,6 +20,7 @@ use PhpMyAdmin\Util;
 use SimpleXMLElement;
 
 use function __;
+use function array_map;
 use function count;
 use function in_array;
 use function simplexml_load_string;
@@ -279,12 +280,7 @@ class ImportXml extends ImportPlugin
             unset($rows);
 
             if (! $structPresent) {
-                $analyses = [];
-
-                $len = count($tables);
-                for ($i = 0; $i < $len; ++$i) {
-                    $analyses[] = $this->import->analyzeTable($tables[$i]);
-                }
+                $analyses = array_map($this->import->analyzeTable(...), $tables);
             }
         }
 
