@@ -69,11 +69,11 @@ class Search
     public function __construct(private DatabaseInterface $dbi, private string $db, public Template $template)
     {
         $this->searchTypes = [
-            '1' => __('at least one of the words'),
-            '2' => __('all of the words'),
-            '3' => __('the exact phrase as substring'),
-            '4' => __('the exact phrase as whole field'),
-            '5' => __('as regular expression'),
+            1 => __('at least one of the words'),
+            2 => __('all of the words'),
+            3 => __('the exact phrase as substring'),
+            4 => __('the exact phrase as whole field'),
+            5 => __('as regular expression'),
         ];
         // Sets criteria parameters
         $this->setSearchParams();
