@@ -21,7 +21,7 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
 
 use function __;
-use function count;
+use function addcslashes;
 use function in_array;
 use function mb_strpos;
 use function mb_substr;
@@ -625,12 +625,6 @@ class ExportLatex extends ExportPlugin
      */
     public static function texEscape(string $string): string
     {
-        $escape = ['$', '%', '{', '}', '&', '#', '_', '^'];
-        $cntEscape = count($escape);
-        for ($k = 0; $k < $cntEscape; $k++) {
-            $string = str_replace($escape[$k], '\\' . $escape[$k], $string);
-        }
-
-        return $string;
+        return addcslashes($string, '$%{}&#_^');
     }
 }

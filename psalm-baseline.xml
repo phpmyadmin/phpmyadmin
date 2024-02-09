@@ -7795,11 +7795,9 @@
       <code><![CDATA[$GLOBALS['latex_caption']]]></code>
       <code><![CDATA[$GLOBALS['latex_caption']]]></code>
       <code><![CDATA[$GLOBALS['latex_columns']]]></code>
-      <code><![CDATA[$escape[$k]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$columnsAlias[$i]]]></code>
-      <code><![CDATA[$escape[$k]]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -7814,7 +7812,6 @@
     <MixedOperand>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$comments[$fieldName]]]></code>
-      <code><![CDATA[$escape[$k]]]></code>
       <code><![CDATA[$type]]></code>
     </MixedOperand>
     <PossiblyFalseReference>
