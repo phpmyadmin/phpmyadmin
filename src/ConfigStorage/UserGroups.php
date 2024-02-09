@@ -79,7 +79,7 @@ class UserGroups
         $userGroupsValues = [];
         $action = Url::getFromRoute('/server/privileges');
         $hiddenInputs = null;
-        if ($result && $result->numRows()) {
+        if ($result !== false && $result->numRows()) {
             $hiddenInputs = Url::getHiddenInputs();
             foreach ($result as $row) {
                 $groupName = $row['usergroup'];

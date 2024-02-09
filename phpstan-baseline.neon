@@ -1376,11 +1376,6 @@ parameters:
 			path: src/ConfigStorage/UserGroups.php
 
 		-
-			message: "#^Only booleans are allowed in &&, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given on the left side\\.$#"
-			count: 1
-			path: src/ConfigStorage/UserGroups.php
-
-		-
 			message: "#^Only booleans are allowed in &&, int\\|string given on the right side\\.$#"
 			count: 1
 			path: src/ConfigStorage/UserGroups.php
