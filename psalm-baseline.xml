@@ -1469,16 +1469,8 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$table['TABLE_NAME']]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$table['TABLE_NAME']]]></code>
-      <code><![CDATA[$table['TABLE_NAME']]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code>$table</code>
     </MixedAssignment>
     <PossiblyInvalidCast>
       <code><![CDATA[$parameters['table']]]></code>
@@ -2178,15 +2170,10 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code>$dbCollation</code>
-      <code>$tableName</code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code>$tableName</code>
-    </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code>$dbCollation</code>
-      <code><![CDATA[['Name' => $tableName]]]></code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>

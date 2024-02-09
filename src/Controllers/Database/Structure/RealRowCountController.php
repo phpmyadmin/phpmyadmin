@@ -64,8 +64,6 @@ final class RealRowCountController extends AbstractController
             return;
         }
 
-        [$tables] = Util::getDbInfo($request, Current::$database);
-
         // If there is a request to update all table's row count.
         if (! isset($parameters['real_row_count_all'])) {
             // Get the real row count for the table.
@@ -83,11 +81,11 @@ final class RealRowCountController extends AbstractController
         // Array to store the results.
         $realRowCountAll = [];
         // Iterate over each table and fetch real row count.
-        foreach ($tables as $table) {
+        foreach ($this->dbi->getTables(Current::$database) as $table) {
             $rowCount = $this->dbi
-                ->getTable(Current::$database, $table['TABLE_NAME'])
+                ->getTable(Current::$database, $table)
                 ->getRealRowCountTable();
-            $realRowCountAll[] = ['table' => $table['TABLE_NAME'], 'row_count' => Util::formatNumber($rowCount, 0)];
+            $realRowCountAll[] = ['table' => $table, 'row_count' => Util::formatNumber($rowCount, 0)];
         }
 
         $this->response->addJSON(['real_row_count_all' => $realRowCountAll]);

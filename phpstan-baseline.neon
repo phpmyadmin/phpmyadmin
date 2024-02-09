@@ -2031,22 +2031,12 @@ parameters:
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
-			message: "#^Cannot access offset 'TABLE_NAME' on mixed\\.$#"
-			count: 2
-			path: src/Controllers/Database/Structure/RealRowCountController.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/RealRowCountController.php
 
 		-
 			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatNumber\\(\\) expects float\\|int\\|string, int\\|null given\\.$#"
-			count: 1
-			path: src/Controllers/Database/Structure/RealRowCountController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/RealRowCountController.php
 
@@ -2978,21 +2968,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$collation of static method PhpMyAdmin\\\\Util\\:\\:getCharsetQueryPart\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: src/Controllers/Operations/Database/CollationController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/Database/CollationController.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Operations\\:\\:changeAllColumnsCollation\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/Database/CollationController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Operations/Database/CollationController.php
 
 		-
