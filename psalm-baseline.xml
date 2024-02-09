@@ -15599,7 +15599,6 @@
     <RedundantCondition>
       <code><![CDATA[$text && is_string($text)]]></code>
       <code><![CDATA[$text && is_string($text)]]></code>
-      <code><![CDATA[$this->webDriver !== null]]></code>
       <code>is_string($text)</code>
       <code>is_string($text)</code>
     </RedundantCondition>

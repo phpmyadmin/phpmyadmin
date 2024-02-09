@@ -1188,9 +1188,7 @@ JS;
         $this->markTestAs('failed', $t->getMessage());
         $this->takeScrenshot('test_failed');
         // End testing session
-        if ($this->webDriver !== null) {
-            $this->webDriver->quit();
-        }
+        $this->webDriver->quit();
 
         $this->sqlWindowHandle = null;
 

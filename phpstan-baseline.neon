@@ -17226,11 +17226,6 @@ parameters:
 			path: tests/selenium/TestBase.php
 
 		-
-			message: "#^Strict comparison using \\!\\=\\= between Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebDriver and null will always evaluate to true\\.$#"
-			count: 1
-			path: tests/selenium/TestBase.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebDriver and null will always evaluate to false\\.$#"
 			count: 1
 			path: tests/selenium/TestBase.php
