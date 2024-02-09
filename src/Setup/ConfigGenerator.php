@@ -136,20 +136,13 @@ class ConfigGenerator
             $retv[] = var_export($v, true);
         }
 
-        $ret = '[';
         if (count($retv) <= 4) {
             // up to 4 values - one line
-            return $ret . implode(', ', $retv) . ']';
+            return '[' . implode(', ', $retv) . ']';
         }
 
         // more than 4 values - value per line
-        $imax = count($retv);
-        /** @infection-ignore-all */
-        for ($i = 0; $i < $imax; $i++) {
-            $ret .= ($i > 0 ? ',' : '') . $eol . '    ' . $retv[$i];
-        }
-
-        return $ret . ']';
+        return '[' . $eol . '    ' . implode(',' . $eol . '    ', $retv) . ']';
     }
 
     /**
