@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Crypto\Crypto;
+use PhpMyAdmin\Tests\UrlTest;
 
 use function base64_decode;
 use function base64_encode;
@@ -326,13 +327,9 @@ class Url
     /** @return string|false */
     private static function getArgSeparatorValueFromIni(): string|bool
     {
-        /**
-         * @psalm-suppress ArgumentTypeCoercion
-         * @phpstan-ignore-next-line
-         */
-        if (method_exists('PhpMyAdmin\Tests\UrlTest', 'getInputArgSeparator')) {
-            // phpcs:ignore SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
-            return \PhpMyAdmin\Tests\UrlTest::getInputArgSeparator();
+        /** @phpstan-ignore-next-line */
+        if (method_exists(UrlTest::class, 'getInputArgSeparator')) {
+            return UrlTest::getInputArgSeparator();
         }
 
         return ini_get('arg_separator.input');
