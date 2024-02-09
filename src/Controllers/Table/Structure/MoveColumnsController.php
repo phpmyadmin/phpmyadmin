@@ -16,6 +16,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function array_column;
+use function array_diff;
 use function array_splice;
 use function count;
 use function implode;
@@ -121,13 +122,7 @@ final class MoveColumnsController extends AbstractController
                 $i === 0 ? '-first' : $columnNames[$i - 1],
             );
             // update current column_names array, first delete old position
-            for ($j = 0, $ll = count($columnNames); $j < $ll; $j++) {
-                if ($columnNames[$j] != $column) {
-                    continue;
-                }
-
-                unset($columnNames[$j]);
-            }
+            $columnNames = array_diff($columnNames, [$column]);
 
             // insert moved column
             array_splice($columnNames, $i, 0, $column);
