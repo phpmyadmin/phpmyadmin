@@ -25,12 +25,13 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function abs;
+use function array_key_last;
+use function array_map;
 use function count;
 use function explode;
 use function function_exists;
 use function htmlspecialchars;
 use function implode;
-use function is_array;
 use function is_numeric;
 use function max;
 use function mb_chr;
@@ -69,11 +70,6 @@ class Import
     public const M = 0;
     public const D = 1;
     public const FULL = 2;
-
-    /* Table array defs */
-    public const TBL_NAME = 0;
-    public const COL_NAMES = 1;
-    public const ROWS = 2;
 
     /* Analysis array defs */
     public const TYPES = 0;
@@ -823,18 +819,13 @@ class Import
      *
      * @link https://wiki.phpmyadmin.net/pma/Import
      *
-     * @param mixed[] $table array(string $table_name, array $col_names, array $rows)
-     *
-     * @return mixed[]|bool array(array $types, array $sizes)
-     *
-     * @todo    Handle the error case more elegantly
+     * @return array{int[], (int|string)[]} array(array $types, array $sizes)
      */
-    public function analyzeTable(array $table): array|bool
+    public function analyzeTable(ImportTable $table): array
     {
         /* Get number of rows in table */
-        $numRows = count($table[self::ROWS]);
         /* Get number of columns */
-        $numCols = count($table[self::COL_NAMES]);
+        $numCols = count($table->columns);
         /* Current type for each column */
         $types = [];
         $sizes = [];
@@ -849,24 +840,11 @@ class Import
             $types[$i] = self::NONE;
         }
 
-        /* If the passed array is not of the correct form, do not process it */
-        if (
-            is_array($table[self::TBL_NAME])
-            || ! is_array($table[self::COL_NAMES])
-            || ! is_array($table[self::ROWS])
-        ) {
-            /**
-             * TODO: Handle this better
-             */
-
-            return false;
-        }
-
         /* Analyze each column */
         for ($i = 0; $i < $numCols; ++$i) {
             /* Analyze the column in each row */
-            for ($j = 0; $j < $numRows; ++$j) {
-                $cellValue = $table[self::ROWS][$j][$i];
+            foreach ($table->rows as $row) {
+                $cellValue = $row[$i];
                 /* Determine type of the current cell */
                 $currType = $this->detectType($types[$i], $cellValue === null ? null : (string) $cellValue);
                 /* Determine size of the current cell */
@@ -918,18 +896,18 @@ class Import
      *
      * @link https://wiki.phpmyadmin.net/pma/Import
      *
-     * @param string       $dbName        Name of the database
-     * @param mixed[]      $tables        Array of tables for the specified database
-     * @param mixed[]|null $analyses      Analyses of the tables
-     * @param mixed[]|null $additionalSql Additional SQL statements to be executed
-     * @param mixed[]|null $options       Associative array of options
-     * @param string[]     $sqlData       List of SQL statements to be executed
+     * @param string        $dbName        Name of the database
+     * @param ImportTable[] $tables        Array of tables for the specified database
+     * @param mixed[]|null  $analyses      Analyses of the tables
+     * @param string[]|null $additionalSql Additional SQL statements to be executed
+     * @param mixed[]|null  $options       Associative array of options
+     * @param string[]      $sqlData       List of SQL statements to be executed
      */
     public function buildSql(
         string $dbName,
-        array &$tables,
+        array $tables,
         array|null $analyses = null,
-        array|null &$additionalSql = null,
+        array|null $additionalSql = null,
         bool $createDb = true,
         array|null $options = null,
         array &$sqlData = [],
@@ -941,39 +919,16 @@ class Import
         $collation = $options['db_collation'] ?? 'utf8_general_ci';
         $charset = $options['db_charset'] ?? 'utf8';
 
-        /**
-         * Create SQL code to handle the database
-         *
-         * @var array<int,string> $sql
-         */
-        $sql = [];
-
         if ($createDb) {
-            $sql[] = 'CREATE DATABASE IF NOT EXISTS ' . Util::backquote($dbName)
+            $sql = 'CREATE DATABASE IF NOT EXISTS ' . Util::backquote($dbName)
                 . ' DEFAULT CHARACTER SET ' . $charset . ' COLLATE ' . $collation
                 . ';';
+            $this->runQuery($sql, $sqlData);
         }
-
-        /**
-         * The calling plug-in should include this statement,
-         * if necessary, in the $additional_sql parameter
-         *
-         * $sql[] = "USE " . backquote($db_name);
-         */
-
-        /* Execute the SQL statements create above */
-        $sqlLength = count($sql);
-        for ($i = 0; $i < $sqlLength; ++$i) {
-            $this->runQuery($sql[$i], $sqlData);
-        }
-
-        /* No longer needed */
-        unset($sql);
 
         /* Run the $additional_sql statements supplied by the caller plug-in */
         if ($additionalSql != null) {
             /* Clean the SQL first */
-            $additionalSqlLength = count($additionalSql);
 
             /**
              * Only match tables for now, because CREATE IF NOT EXISTS
@@ -990,8 +945,8 @@ class Import
             $replacement = 'CREATE \\1 IF NOT EXISTS';
 
             // Change CREATE statements to CREATE IF NOT EXISTS to support inserting into existing structures.
-            for ($i = 0; $i < $additionalSqlLength; ++$i) {
-                $additionalSql[$i] = preg_replace($pattern, $replacement, $additionalSql[$i]);
+            foreach ($additionalSql as $i => $singleAdditionalSql) {
+                $additionalSql[$i] = preg_replace($pattern, $replacement, $singleAdditionalSql);
                 /* Execute the resulting statements */
                 $this->runQuery($additionalSql[$i], $sqlData);
             }
@@ -1013,25 +968,23 @@ class Import
             }
 
             /* Create SQL code to create the tables */
-            $numTables = count($tables);
-            for ($i = 0; $i < $numTables; ++$i) {
-                $numCols = count($tables[$i][self::COL_NAMES]);
+            foreach ($tables as $i => $table) {
+                $lastColumnKey = array_key_last($table->columns);
                 $tempSQLStr = 'CREATE TABLE IF NOT EXISTS '
-                . Util::backquote($dbName)
-                . '.' . Util::backquote($tables[$i][self::TBL_NAME]) . ' (';
-                for ($j = 0; $j < $numCols; ++$j) {
+                    . Util::backquote($dbName)
+                    . '.' . Util::backquote($table->tableName) . ' (';
+                foreach ($table->columns as $j => $column) {
                     $size = $analyses[$i][self::SIZES][$j];
                     if ((int) $size == 0) {
                         $size = 10;
                     }
 
-                    $tempSQLStr .= Util::backquote($tables[$i][self::COL_NAMES][$j]) . ' '
-                    . $typeArray[$analyses[$i][self::TYPES][$j]];
+                    $tempSQLStr .= Util::backquote($column) . ' ' . $typeArray[$analyses[$i][self::TYPES][$j]];
                     if ($analyses[$i][self::TYPES][$j] != self::GEOMETRY) {
                         $tempSQLStr .= '(' . $size . ')';
                     }
 
-                    if ($j == count($tables[$i][self::COL_NAMES]) - 1) {
+                    if ($j === $lastColumnKey) {
                         continue;
                     }
 
@@ -1057,28 +1010,20 @@ class Import
          */
         $tempSQLStr = '';
         $colCount = 0;
-        $numTables = count($tables);
         $dbi = DatabaseInterface::getInstance();
-        for ($i = 0; $i < $numTables; ++$i) {
-            $numCols = count($tables[$i][self::COL_NAMES]);
-            $numRows = count($tables[$i][self::ROWS]);
+        foreach ($tables as $i => $table) {
+            $numCols = count($table->columns);
+            $lastColumnKey = array_key_last($table->columns);
 
             $tempSQLStr = 'INSERT INTO ' . Util::backquote($dbName) . '.'
-                . Util::backquote($tables[$i][self::TBL_NAME]) . ' (';
+                . Util::backquote($table->tableName) . ' (';
 
-            for ($m = 0; $m < $numCols; ++$m) {
-                $tempSQLStr .= Util::backquote($tables[$i][self::COL_NAMES][$m]);
-
-                if ($m === $numCols - 1) {
-                    continue;
-                }
-
-                $tempSQLStr .= ', ';
-            }
+            $tempSQLStr .= implode(', ', array_map(Util::backquote(...), $table->columns));
 
             $tempSQLStr .= ') VALUES ';
 
-            for ($j = 0; $j < $numRows; ++$j) {
+            $lastRowKey = array_key_last($table->rows);
+            foreach ($table->rows as $j => $row) {
                 $tempSQLStr .= '(';
 
                 for ($k = 0; $k < $numCols; ++$k) {
@@ -1089,47 +1034,47 @@ class Import
                         && isset($analyses[$i][self::FORMATTEDSQL][$colCount])
                         && $analyses[$i][self::FORMATTEDSQL][$colCount] == true
                     ) {
-                        $tempSQLStr .= (string) $tables[$i][self::ROWS][$j][$k];
+                        $tempSQLStr .= (string) $row[$k];
                     } else {
                         if ($analyses != null) {
                             $isVarchar = $analyses[$i][self::TYPES][$colCount] === self::VARCHAR;
                         } else {
-                            $isVarchar = ! is_numeric($tables[$i][self::ROWS][$j][$k]);
+                            $isVarchar = ! is_numeric($row[$k]);
                         }
 
                         /* Don't put quotes around NULL fields */
-                        if ((string) $tables[$i][self::ROWS][$j][$k] === 'NULL') {
+                        if ((string) $row[$k] === 'NULL') {
                             $isVarchar = false;
                         }
 
                         $tempSQLStr .= $isVarchar
-                            ? $dbi->quoteString((string) $tables[$i][self::ROWS][$j][$k])
-                            : (string) $tables[$i][self::ROWS][$j][$k];
+                            ? $dbi->quoteString((string) $row[$k])
+                            : (string) $row[$k];
                     }
 
-                    if ($k !== $numCols - 1) {
+                    if ($k !== $lastColumnKey) {
                         $tempSQLStr .= ', ';
                     }
 
-                    if ($colCount === $numCols - 1) {
+                    if ($colCount === $lastColumnKey) {
                         $colCount = 0;
                     } else {
                         $colCount++;
                     }
 
                     /* Delete the cell after we are done with it */
-                    unset($tables[$i][self::ROWS][$j][$k]);
+                    unset($table->rows[$j][$k]);
                 }
 
                 $tempSQLStr .= ')';
 
-                if ($j !== $numRows - 1) {
+                if ($j !== $lastRowKey) {
                     $tempSQLStr .= ",\n ";
                 }
 
                 $colCount = 0;
                 /* Delete the row after we are done with it */
-                unset($tables[$i][self::ROWS][$j]);
+                unset($table->rows[$j]);
             }
 
             $tempSQLStr .= ';';
@@ -1170,13 +1115,13 @@ class Import
                 continue;
             }
 
-            for ($n = 0; $n < $numTables; ++$n) {
-                if ($regs[1] === $tables[$n][self::TBL_NAME]) {
+            foreach ($tables as $table) {
+                if ($regs[1] === $table->tableName) {
                     continue 2;
                 }
             }
 
-            $tables[] = [self::TBL_NAME => $regs[1]];
+            $tables[] = new ImportTable($regs[1]);
         }
 
         $params = ['db' => $dbName];
@@ -1212,14 +1157,14 @@ class Import
         unset($params);
 
         foreach ($tables as $table) {
-            $params = ['db' => $dbName, 'table' => (string) $table[self::TBL_NAME]];
+            $params = ['db' => $dbName, 'table' => $table->tableName];
             $tblUrl = Url::getFromRoute('/sql', $params);
             $tblStructUrl = Url::getFromRoute('/table/structure', $params);
             $tblOpsUrl = Url::getFromRoute('/table/operations', $params);
 
             unset($params);
 
-            $tableObj = new Table($table[self::TBL_NAME], $dbName, $dbi);
+            $tableObj = new Table($table->tableName, $dbName, $dbi);
             if (! $tableObj->isView()) {
                 $message .= sprintf(
                     '<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __(
@@ -1229,22 +1174,22 @@ class Import
                     sprintf(
                         __('Go to table: %s'),
                         htmlspecialchars(
-                            Util::backquote($table[self::TBL_NAME]),
+                            Util::backquote($table->tableName),
                         ),
                     ),
-                    htmlspecialchars($table[self::TBL_NAME]),
+                    htmlspecialchars($table->tableName),
                     $tblStructUrl,
                     sprintf(
                         __('Structure of %s'),
                         htmlspecialchars(
-                            Util::backquote($table[self::TBL_NAME]),
+                            Util::backquote($table->tableName),
                         ),
                     ),
                     $tblOpsUrl,
                     sprintf(
                         __('Edit settings for %s'),
                         htmlspecialchars(
-                            Util::backquote($table[self::TBL_NAME]),
+                            Util::backquote($table->tableName),
                         ),
                     ),
                 );
@@ -1255,10 +1200,10 @@ class Import
                     sprintf(
                         __('Go to view: %s'),
                         htmlspecialchars(
-                            Util::backquote($table[self::TBL_NAME]),
+                            Util::backquote($table->tableName),
                         ),
                     ),
-                    htmlspecialchars($table[self::TBL_NAME]),
+                    htmlspecialchars($table->tableName),
                 );
             }
         }

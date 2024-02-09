@@ -6503,24 +6503,6 @@
     </DocblockTypeContradiction>
     <MixedArgument>
       <code>$active</code>
-      <code>$additionalSql[$i]</code>
-      <code>$table[self::COL_NAMES]</code>
-      <code>$table[self::ROWS]</code>
-      <code>$table[self::TBL_NAME]</code>
-      <code>$table[self::TBL_NAME]</code>
-      <code>$table[self::TBL_NAME]</code>
-      <code>$table[self::TBL_NAME]</code>
-      <code>$table[self::TBL_NAME]</code>
-      <code>$table[self::TBL_NAME]</code>
-      <code>$table[self::TBL_NAME]</code>
-      <code>$tables[$i][self::COL_NAMES]</code>
-      <code>$tables[$i][self::COL_NAMES]</code>
-      <code>$tables[$i][self::COL_NAMES]</code>
-      <code>$tables[$i][self::COL_NAMES][$j]</code>
-      <code>$tables[$i][self::COL_NAMES][$m]</code>
-      <code>$tables[$i][self::ROWS]</code>
-      <code>$tables[$i][self::TBL_NAME]</code>
-      <code>$tables[$i][self::TBL_NAME]</code>
     </MixedArgument>
     <MixedArrayAccess>
       <code>$analyses[$i][self::FORMATTEDSQL][$colCount]</code>
@@ -6532,46 +6514,6 @@
       <code>$analyses[$i][self::TYPES][$colCount]</code>
       <code>$analyses[$i][self::TYPES][$j]</code>
       <code>$analyses[$i][self::TYPES][$j]</code>
-      <code>$table[self::ROWS][$j][$i]</code>
-      <code>$table[self::TBL_NAME]</code>
-      <code>$table[self::TBL_NAME]</code>
-      <code>$table[self::TBL_NAME]</code>
-      <code>$table[self::TBL_NAME]</code>
-      <code>$table[self::TBL_NAME]</code>
-      <code>$table[self::TBL_NAME]</code>
-      <code>$table[self::TBL_NAME]</code>
-      <code>$table[self::TBL_NAME]</code>
-      <code>$tables[$i][self::COL_NAMES]</code>
-      <code>$tables[$i][self::COL_NAMES]</code>
-      <code>$tables[$i][self::COL_NAMES]</code>
-      <code>$tables[$i][self::COL_NAMES]</code>
-      <code>$tables[$i][self::COL_NAMES]</code>
-      <code>$tables[$i][self::COL_NAMES][$j]</code>
-      <code>$tables[$i][self::COL_NAMES][$m]</code>
-      <code>$tables[$i][self::ROWS]</code>
-      <code>$tables[$i][self::ROWS]</code>
-      <code>$tables[$i][self::ROWS]</code>
-      <code>$tables[$i][self::ROWS]</code>
-      <code>$tables[$i][self::ROWS]</code>
-      <code>$tables[$i][self::ROWS]</code>
-      <code>$tables[$i][self::ROWS]</code>
-      <code>$tables[$i][self::ROWS]</code>
-      <code>$tables[$i][self::ROWS][$j]</code>
-      <code>$tables[$i][self::ROWS][$j]</code>
-      <code>$tables[$i][self::ROWS][$j]</code>
-      <code>$tables[$i][self::ROWS][$j]</code>
-      <code>$tables[$i][self::ROWS][$j]</code>
-      <code>$tables[$i][self::ROWS][$j]</code>
-      <code>$tables[$i][self::ROWS][$j]</code>
-      <code>$tables[$i][self::ROWS][$j][$k]</code>
-      <code>$tables[$i][self::ROWS][$j][$k]</code>
-      <code>$tables[$i][self::ROWS][$j][$k]</code>
-      <code>$tables[$i][self::ROWS][$j][$k]</code>
-      <code>$tables[$i][self::ROWS][$j][$k]</code>
-      <code>$tables[$i][self::ROWS][$j][$k]</code>
-      <code>$tables[$i][self::TBL_NAME]</code>
-      <code>$tables[$i][self::TBL_NAME]</code>
-      <code>$tables[$n][self::TBL_NAME]</code>
     </MixedArrayAccess>
     <MixedArrayOffset>
       <code>$typeArray[$analyses[$i][self::TYPES][$j]]</code>
@@ -6583,7 +6525,6 @@
       <code>$collation</code>
       <code>$importPlugin</code>
       <code>$size</code>
-      <code>$table</code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>string|int</code>
@@ -6615,7 +6556,6 @@
       <code><![CDATA[strpos($lastCumulativeSize, ',')]]></code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument>
-      <code>$additionalSql[$i]</code>
       <code>$lastCumulativeSize</code>
       <code>$lastCumulativeSize</code>
       <code>$lastCumulativeSize</code>
@@ -6623,7 +6563,6 @@
       <code>$lastCumulativeSize</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
-      <code>$additionalSql[$i]</code>
       <code>$sqlDelimiter</code>
     </PossiblyInvalidCast>
     <RedundantCondition>
@@ -8935,6 +8874,7 @@
     </DocblockTypeContradiction>
     <InvalidArgument>
       <code><![CDATA[$GLOBALS['csv_columns']]]></code>
+      <code>$colNames</code>
     </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
@@ -8950,35 +8890,16 @@
     </InvalidReturnType>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
-      <code>$colName</code>
-      <code>$columnNames</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$result</code>
       <code>$result</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAssignment>
-      <code>$columnNames[$key]</code>
-      <code>$columnNames[]</code>
-    </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code>$columnNames[$key]</code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code>$colName</code>
-      <code>$columnNames</code>
       <code>$fields[]</code>
-      <code>$key</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>mixed[]</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement>
-      <code>$columnNames</code>
-      <code>$columnNames</code>
-    </MixedReturnStatement>
     <PossiblyInvalidArgument>
       <code>$dbName</code>
     </PossiblyInvalidArgument>
@@ -9060,14 +8981,6 @@
     <InvalidNullableReturnType>
       <code>string</code>
     </InvalidNullableReturnType>
-    <MixedArgument>
-      <code>$table[0]</code>
-      <code>$table[1]</code>
-      <code>$table[2][0]</code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code>$table[2][0]</code>
-    </MixedArrayAccess>
     <NullableReturnStatement>
       <code>$cellData[1]</code>
     </NullableReturnStatement>
@@ -9085,59 +8998,22 @@
   <file src="src/Plugins/Import/ImportOds.php">
     <MixedArgument>
       <code>$cellAttrs</code>
-      <code>$colNames</code>
-      <code>$colNames</code>
-      <code>$maxCols</code>
-      <code>$rows</code>
-      <code>$tables</code>
-      <code>$tables</code>
-      <code>$tables</code>
-      <code>$tables[$i]</code>
-      <code>$tempRow</code>
-      <code>$tempRows</code>
-      <code>$tempRows</code>
-      <code>$tempRows[$i]</code>
-      <code>$tempRows[0]</code>
       <code>$text</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
+      <code>$row</code>
       <code>$row</code>
       <code>$values</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$attr['number-columns-repeated']]]></code>
       <code><![CDATA[$attr['number-columns-repeated']]]></code>
-      <code>$rows[$j]</code>
-      <code>$rows[$j]</code>
-      <code>$rows[$j]</code>
-      <code>$rows[$j][Import::COL_NAMES]</code>
-      <code>$rows[$j][Import::ROWS]</code>
-      <code>$rows[$j][Import::TBL_NAME]</code>
-      <code>$tables[$i]</code>
-      <code>$tables[$i]</code>
-      <code>$tables[$i][Import::TBL_NAME]</code>
-      <code>$tempRows[$i]</code>
-      <code>$tempRows[$i]</code>
-      <code>$tempRows[0]</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code>$colNames[]</code>
-      <code>$tables[$i]</code>
-      <code>$tables[$i]</code>
-      <code>$tables[$i][Import::ROWS]</code>
-      <code>$tempRows[$i]</code>
-    </MixedArrayAssignment>
     <MixedAssignment>
       <code>$attr</code>
       <code>$attr</code>
-      <code>$cell</code>
       <code>$cellAttrs</code>
-      <code>$maxCols</code>
       <code>$paragraphValue</code>
-      <code>$tables[$i][Import::ROWS]</code>
-      <code>$tables[$i][]</code>
-      <code>$tempRows[]</code>
-      <code>$tempRows[]</code>
       <code>$text</code>
       <code>$values[]</code>
       <code>$values[]</code>
@@ -9189,14 +9065,13 @@
       <code>$dbfFilePath</code>
       <code>$gisType</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code>$colNames</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code>$c[0]</code>
       <code>$dbfHeader[$n][0]</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code>$analyses[$tableNo][Import::FORMATTEDSQL][$spatialCol]</code>
-      <code>$analyses[$tableNo][Import::TYPES][$spatialCol]</code>
-    </MixedArrayAssignment>
     <MixedArrayOffset>
       <code><![CDATA[$record->dbfData[$c[0]]]]></code>
     </MixedArrayOffset>
@@ -9211,10 +9086,6 @@
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$gisObj->getShape($record->shpData)]]></code>
     </MixedOperand>
-    <PossiblyInvalidArrayAssignment>
-      <code>$analyses[$tableNo][Import::FORMATTEDSQL]</code>
-      <code>$analyses[$tableNo][Import::TYPES]</code>
-    </PossiblyInvalidArrayAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
@@ -9287,9 +9158,6 @@
     <RiskyTruthyFalsyComparison>
       <code>$xml</code>
     </RiskyTruthyFalsyComparison>
-    <UnusedVariable>
-      <code>$val3</code>
-    </UnusedVariable>
   </file>
   <file src="src/Plugins/Import/ShapeFileImport.php">
     <InvalidArrayOffset>

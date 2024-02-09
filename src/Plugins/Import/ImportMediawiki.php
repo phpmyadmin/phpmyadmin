@@ -11,6 +11,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Import\ImportSettings;
+use PhpMyAdmin\Import\ImportTable;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
@@ -45,9 +46,9 @@ class ImportMediawiki extends ImportPlugin
 
     protected function setProperties(): ImportPluginProperties
     {
-        $this->setAnalyze(false);
+        $this->analyze = false;
         if ($GLOBALS['plugin_param'] !== 'table') {
-            $this->setAnalyze(true);
+            $this->analyze = true;
         }
 
         $importPluginProperties = new ImportPluginProperties();
@@ -134,6 +135,7 @@ class ImportMediawiki extends ImportPlugin
                 $lastChunkLine = $bufferLines[--$fullBufferLinesCount];
             }
 
+            /** @var list<string> $curTempLine Temporary storage of cell values */
             $curTempLine = [];
             for ($lineNr = 0; $lineNr < $fullBufferLinesCount; ++$lineNr) {
                 $curBufferLine = trim($bufferLines[$lineNr]);
@@ -225,10 +227,11 @@ class ImportMediawiki extends ImportPlugin
 
                     // No more processing required at the end of the table
                     if (str_starts_with($curBufferLine, '|}')) {
-                        $currentTable = [$curTableName, $curTempTableHeaders, $curTempTable];
-
                         // Import the current table data into the database
-                        $this->importDataOneTable($currentTable, $sqlStatements);
+                        $this->importDataOneTable(
+                            new ImportTable($curTableName, $curTempTableHeaders, $curTempTable),
+                            $sqlStatements,
+                        );
 
                         // Reset table name
                         $curTableName = '';
@@ -279,36 +282,29 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Imports data from a single table
      *
-     * @param mixed[]  $table         containing all table info:
-     *                              <code> $table[0] - string
-     *                              containing table name
-     *                              $table[1] - array[]   of
-     *                              table headers $table[2] -
-     *                              array[][] of table content
-     *                              rows </code>
      * @param string[] $sqlStatements List of SQL statements to be executed
-     *
-     * @global bool $analyze whether to scan for column types
      */
-    private function importDataOneTable(array $table, array &$sqlStatements): void
+    private function importDataOneTable(ImportTable $table, array &$sqlStatements): void
     {
-        $analyze = $this->getAnalyze();
-        if ($analyze) {
+        if ($this->analyze) {
             // Set the table name
-            $this->setTableName($table[0]);
+            $this->setTableName($table->tableName);
 
             // Set generic names for table headers if they don't exist
-            $this->setTableHeaders($table[1], $table[2][0]);
-
-            // Create the tables array to be used in Import::buildSql()
-            $tables = [];
-            $tables[] = [$table[0], $table[1], $table[2]];
+            if ($table->columns === []) {
+                $table->columns = $this->setTableHeaders(count($table->rows[0]));
+            }
 
             // Obtain the best-fit MySQL types for each column
-            $analyses = [];
-            $analyses[] = $this->import->analyzeTable($tables[0]);
+            $analysis = $this->import->analyzeTable($table);
 
-            $this->executeImportTables($tables, $analyses, $sqlStatements);
+            $this->import->buildSql(
+                Current::$database !== '' ? Current::$database : 'mediawiki_DB',
+                [$table],
+                [$analysis],
+                createDb: Current::$database === '',
+                sqlData: $sqlStatements,
+            );
         }
 
         // Commit any possible data in buffers
@@ -334,48 +330,19 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Set generic names for table headers, if they don't exist
      *
-     * @param mixed[] $tableHeaders reference to the array containing the headers
-     *                             of a table
-     * @param mixed[] $tableRow     array containing the first content row
+     * @return list<string>
      */
-    private function setTableHeaders(array &$tableHeaders, array $tableRow): void
+    private function setTableHeaders(int $numCols): array
     {
-        if ($tableHeaders !== []) {
-            return;
-        }
+        $tableHeaders = [];
 
         // The first table row should contain the number of columns
         // If they are not set, generic names will be given (COL 1, COL 2, etc)
-        $numCols = count($tableRow);
         for ($i = 0; $i < $numCols; ++$i) {
-            $tableHeaders[$i] = 'COL ' . ($i + 1);
+            $tableHeaders[] = 'COL ' . ($i + 1);
         }
-    }
 
-    /**
-     * Sets the database name and additional options and calls Import::buildSql()
-     * Used in PMA_importDataAllTables() and $this->importDataOneTable()
-     *
-     * @param mixed[]  $tables        structure:
-     *                              array(
-     *                              array(table_name, array() column_names, array()()
-     *                              rows)
-     *                              )
-     * @param mixed[]  $analyses      structure:
-     *                              $analyses = array(
-     *                              array(array() column_types, array() column_sizes)
-     *                              )
-     * @param string[] $sqlStatements List of SQL statements to be executed
-     *
-     * @global string $db      name of the database to import in
-     */
-    private function executeImportTables(array &$tables, array $analyses, array &$sqlStatements): void
-    {
-        $dbName = Current::$database !== '' ? Current::$database : 'mediawiki_DB';
-        $createDb = Current::$database === '';
-
-        // Create and execute necessary SQL statements from data
-        $this->import->buildSql($dbName, $tables, $analyses, createDb:$createDb, sqlData:$sqlStatements);
+        return $tableHeaders;
     }
 
     /**
@@ -492,31 +459,6 @@ class ImportMediawiki extends ImportPlugin
         return $items;
     }
 
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-    /**
-     * Returns true if the table should be analyzed, false otherwise
-     */
-    private function getAnalyze(): bool
-    {
-        return $this->analyze;
-    }
-
-    /**
-     * Sets to true if the table should be analyzed, false otherwise
-     *
-     * @param bool $analyze status
-     */
-    private function setAnalyze(bool $analyze): void
-    {
-        $this->analyze = $analyze;
-    }
-
-    /**
-     * Get cell
-     *
-     * @param string $cell Cell
-     */
     private function getCellData(string $cell): string
     {
         // A cell could contain both parameters and data
@@ -535,12 +477,6 @@ class ImportMediawiki extends ImportPlugin
         return $cellData[1];
     }
 
-    /**
-     * Get cell content
-     *
-     * @param string $cell         Cell
-     * @param string $colStartChar Start char
-     */
     private function getCellContent(string $cell, string $colStartChar): string
     {
         if (str_starts_with($cell, $colStartChar)) {

@@ -17,7 +17,6 @@ use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Util;
 
 use function __;
-use function count;
 use function is_array;
 use function preg_split;
 use function strlen;
@@ -166,15 +165,14 @@ class ImportLdi extends AbstractImportCsv
                 $tmp = [];
             }
 
-            $cntTmp = count($tmp);
-            for ($i = 0; $i < $cntTmp; $i++) {
+            foreach ($tmp as $i => $iValue) {
                 if ($i > 0) {
                     $sql .= ', ';
                 }
 
                 /* Trim also `, if user already included backquoted fields */
                 $sql .= Util::backquote(
-                    trim($tmp[$i], " \t\r\n\0\x0B`"),
+                    trim($iValue, " \t\r\n\0\x0B`"),
                 );
             }
 
