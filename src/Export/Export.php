@@ -185,7 +185,7 @@ class Export
                 $line = Encoding::convertString('utf-8', $GLOBALS['charset'], $line);
             }
 
-            if ($GLOBALS['save_on_server'] && mb_strlen($line) > 0) {
+            if ($GLOBALS['save_on_server'] && $line !== '') {
                 if ($GLOBALS['file_handle'] !== null) {
                     $writeResult = @fwrite($GLOBALS['file_handle'], $line);
                 } else {

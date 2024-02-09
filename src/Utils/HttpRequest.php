@@ -22,7 +22,6 @@ use function is_dir;
 use function parse_url;
 use function preg_match;
 use function stream_context_create;
-use function strlen;
 
 use const CURL_IPRESOLVE_V4;
 use const CURLINFO_HTTP_CODE;
@@ -87,9 +86,9 @@ class HttpRequest
      */
     private function handleContext(array $context): array
     {
-        if (strlen($this->proxyUrl) > 0) {
+        if ($this->proxyUrl !== '') {
             $context['http'] = ['proxy' => $this->proxyUrl, 'request_fulluri' => true];
-            if (strlen($this->proxyUser) > 0) {
+            if ($this->proxyUser !== '') {
                 $auth = base64_encode($this->proxyUser . ':' . $this->proxyPass);
                 $context['http']['header'] = 'Proxy-Authorization: Basic '
                     . $auth . "\r\n";
@@ -148,9 +147,9 @@ class HttpRequest
         }
 
         $curlStatus = 1;
-        if (strlen($this->proxyUrl) > 0) {
+        if ($this->proxyUrl !== '') {
             $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_PROXY, $this->proxyUrl);
-            if (strlen($this->proxyUser) > 0) {
+            if ($this->proxyUser !== '') {
                 $curlStatus &= (int) curl_setopt(
                     $curlHandle,
                     CURLOPT_PROXYUSERPWD,

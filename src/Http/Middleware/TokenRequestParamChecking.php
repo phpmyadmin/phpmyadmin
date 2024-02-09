@@ -14,7 +14,6 @@ use function __;
 use function hash_equals;
 use function is_scalar;
 use function session_id;
-use function strlen;
 use function trigger_error;
 
 use const E_USER_ERROR;
@@ -45,7 +44,7 @@ final class TokenRequestParamChecking implements MiddlewareInterface
             return;
         }
 
-        if (isset($_POST['token']) && is_scalar($_POST['token']) && strlen((string) $_POST['token']) > 0) {
+        if (isset($_POST['token']) && is_scalar($_POST['token']) && (string) $_POST['token'] !== '') {
             $GLOBALS['token_provided'] = true;
             $GLOBALS['token_mismatch'] = ! @hash_equals($_SESSION[' PMA_token '], (string) $_POST['token']);
         }

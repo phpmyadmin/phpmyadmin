@@ -721,7 +721,6 @@
       <code><![CDATA[$foreignField]]></code>
       <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$foreignTable]]></code>
-      <code><![CDATA[$foreign[$field]]]></code>
       <code><![CDATA[$oneKey['index_list']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -7515,7 +7514,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST[$config->settings['CaptchaResponseParam']]]]></code>
       <code><![CDATA[$_POST['pma_username']]]></code>
-      <code><![CDATA[$_POST['pma_username']]]></code>
       <code><![CDATA[$_REQUEST['pma_servername']]]></code>
       <code><![CDATA[$_REQUEST['pma_servername']]]></code>
       <code><![CDATA[$password]]></code>
@@ -10998,7 +10996,6 @@
       <code><![CDATA[$criteriaValues]]></code>
       <code><![CDATA[$criteriaValues]]></code>
       <code><![CDATA[$criteriaValues]]></code>
-      <code><![CDATA[$criteriaValues]]></code>
       <code><![CDATA[$criteriaValues[$e]]]></code>
       <code><![CDATA[$criteriaValues[0]]]></code>
       <code><![CDATA[$operator]]></code>
@@ -11014,6 +11011,7 @@
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedOperand>
+      <code><![CDATA[$criteriaValues]]></code>
       <code><![CDATA[$criteriaValues]]></code>
       <code><![CDATA[$criteriaValues]]></code>
       <code><![CDATA[$criteriaValues]]></code>
@@ -11524,9 +11522,6 @@
     <MixedReturnStatement>
       <code><![CDATA[$stack]]></code>
     </MixedReturnStatement>
-    <PossiblyNullArgument>
-      <code><![CDATA[$row['comment']]]></code>
-    </PossiblyNullArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
@@ -11707,9 +11702,6 @@
     </MixedArgument>
   </file>
   <file src="src/Util.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$separator]]></code>
-    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>

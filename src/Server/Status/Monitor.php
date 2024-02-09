@@ -489,7 +489,7 @@ class Monitor
 
         $return = [];
 
-        if (strlen($database) > 0) {
+        if ($database !== '') {
             $this->dbi->selectDb($database);
         }
 

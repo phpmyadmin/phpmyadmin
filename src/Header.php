@@ -26,7 +26,6 @@ use function htmlspecialchars;
 use function ini_get;
 use function json_encode;
 use function sprintf;
-use function strlen;
 use function strtolower;
 use function urlencode;
 
@@ -494,7 +493,7 @@ class Header
      */
     public function getPageTitle(): string
     {
-        if (strlen($this->title) == 0) {
+        if ($this->title === '') {
             if (Current::$server > 0) {
                 if (Current::$table !== '') {
                     $tempTitle = $this->config->settings['TitleTable'];

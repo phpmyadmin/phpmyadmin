@@ -585,7 +585,7 @@ class Util
 
         $urlParts = parse_url($url);
 
-        if (is_array($urlParts) && isset($urlParts['query']) && strlen($separator) > 0) {
+        if (is_array($urlParts) && isset($urlParts['query']) && $separator !== '') {
             return explode($separator, $urlParts['query']);
         }
 
@@ -1795,7 +1795,7 @@ class Util
         if (
             isset($_REQUEST['tbl_group'])
             && is_scalar($_REQUEST['tbl_group'])
-            && strlen((string) $_REQUEST['tbl_group']) > 0
+            && (string) $_REQUEST['tbl_group'] !== ''
         ) {
             $group = $dbi->escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
             $groupWithSeparator = $dbi->escapeMysqlWildcards(

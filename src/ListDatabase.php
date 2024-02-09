@@ -13,7 +13,6 @@ use function is_array;
 use function is_string;
 use function preg_match;
 use function sort;
-use function strlen;
 use function strnatcasecmp;
 use function strtr;
 use function usort;
@@ -134,7 +133,7 @@ class ListDatabase extends ArrayObject
     protected function checkOnlyDatabase(UserPrivileges $userPrivileges): bool
     {
         if (
-            is_string($this->config->selectedServer['only_db']) && strlen($this->config->selectedServer['only_db']) > 0
+            is_string($this->config->selectedServer['only_db']) && $this->config->selectedServer['only_db'] !== ''
         ) {
             $this->config->selectedServer['only_db'] = [$this->config->selectedServer['only_db']];
         }

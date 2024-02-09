@@ -223,7 +223,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['from_cookie'] = false;
 
         $config = Config::getInstance();
-        if (isset($_POST['pma_username']) && strlen($_POST['pma_username']) > 0) {
+        if (isset($_POST['pma_username']) && $_POST['pma_username'] != '') {
             // Verify Captcha if it is required.
             if (
                 ! empty($config->settings['CaptchaApi'])
