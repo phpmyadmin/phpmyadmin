@@ -165,8 +165,6 @@ class Partition extends SubPartition
 
                 return array_values($partitionMap);
             }
-
-            return [];
         }
 
         return [];
