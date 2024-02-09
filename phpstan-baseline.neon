@@ -11696,11 +11696,6 @@ parameters:
 			path: src/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Cannot access property \\$spreadsheet on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportOds.php
-
-		-
 			message: "#^Cannot call method __toString\\(\\) on mixed\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportOds.php
@@ -11713,11 +11708,6 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 3
-			path: src/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
 			path: src/Plugins/Import/ImportOds.php
 
 		-
@@ -11766,18 +11756,8 @@ parameters:
 			path: src/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Variable property access on \\(SimpleXMLElement\\|null\\)\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportOds.php
-
-		-
 			message: "#^Variable property access on SimpleXMLElement\\.$#"
 			count: 2
-			path: src/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Variable property access on mixed\\.$#"
-			count: 1
 			path: src/Plugins/Import/ImportOds.php
 
 		-

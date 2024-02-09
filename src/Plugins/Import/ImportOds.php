@@ -144,9 +144,8 @@ class ImportOds extends ImportPlugin
             ));
             $GLOBALS['error'] = true;
         } else {
-            /** @var SimpleXMLElement $root */
-            $root = $xml->children('office', true)->{'body'}->{'spreadsheet'};
-            if (empty($root)) {
+            $root = $xml->children('office', true)->body->spreadsheet;
+            if ($root === null) {
                 $sheets = [];
                 $GLOBALS['message'] = Message::error(
                     __('Could not parse OpenDocument Spreadsheet!'),

@@ -9159,6 +9159,9 @@
       <code><![CDATA[$tblAttr['name']]]></code>
       <code><![CDATA[$tblAttr['name']]]></code>
     </PossiblyNullArrayAccess>
+    <PossiblyNullPropertyFetch>
+      <code><![CDATA[$xml->children('office', true)->body]]></code>
+    </PossiblyNullPropertyFetch>
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
