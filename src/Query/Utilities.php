@@ -88,18 +88,18 @@ class Utilities
         $error = '#' . $errorNumber;
         $separator = ' &mdash; ';
 
-        if ($errorNumber == 2002) {
+        if ($errorNumber === 2002) {
             $error .= ' - ' . $errorMessage;
             $error .= $separator;
             $error .= __('The server is not responding (or the local server\'s socket is not correctly configured).');
-        } elseif ($errorNumber == 2003) {
+        } elseif ($errorNumber === 2003) {
             $error .= ' - ' . $errorMessage;
             $error .= $separator . __('The server is not responding.');
-        } elseif ($errorNumber == 1698) {
+        } elseif ($errorNumber === 1698) {
             $error .= ' - ' . $errorMessage;
             $error .= $separator . '<a href="' . Url::getFromRoute('/logout') . '" class="disableAjax">';
             $error .= __('Logout and try as another user.') . '</a>';
-        } elseif ($errorNumber == 1005) {
+        } elseif ($errorNumber === 1005) {
             if (str_contains($errorMessage, 'errno: 13')) {
                 $error .= ' - ' . $errorMessage;
                 $error .= $separator

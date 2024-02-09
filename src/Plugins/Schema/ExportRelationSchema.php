@@ -227,7 +227,7 @@ class ExportRelationSchema
 
         $filename = $this->db . $extension;
         // Get the name of this page to use as filename
-        if ($this->pageNumber != -1 && ! $this->offline && $pdfFeature !== null) {
+        if ($this->pageNumber !== -1 && ! $this->offline && $pdfFeature !== null) {
             $nameSql = 'SELECT page_descr FROM '
                 . Util::backquote($pdfFeature->database) . '.'
                 . Util::backquote($pdfFeature->pdfPages)

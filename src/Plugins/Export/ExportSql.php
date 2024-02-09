@@ -2248,7 +2248,7 @@ class ExportSql extends ExportPlugin
                 $insertLine = $schemaInsert;
                 /** @infection-ignore-all */
                 for ($i = 0; $i < $fieldsCnt; $i++) {
-                    if ($i == 0) {
+                    if ($i === 0) {
                         $insertLine .= ' ';
                     }
 

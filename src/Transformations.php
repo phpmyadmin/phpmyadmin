@@ -472,11 +472,11 @@ class Transformations
             . Util::backquote($browserTransformationFeature->columnInfo)
             . ' WHERE ';
 
-        if ($column != '' && $table != '') {
+        if ($column !== '' && $table !== '') {
             $deleteSql .= '`db_name` = \'' . $db . '\' AND '
                 . '`table_name` = \'' . $table . '\' AND '
                 . '`column_name` = \'' . $column . '\' ';
-        } elseif ($table != '') {
+        } elseif ($table !== '') {
             $deleteSql .= '`db_name` = \'' . $db . '\' AND '
                 . '`table_name` = \'' . $table . '\' ';
         } else {

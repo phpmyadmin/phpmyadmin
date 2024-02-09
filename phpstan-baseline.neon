@@ -9606,11 +9606,6 @@ parameters:
 			path: src/Normalization.php
 
 		-
-			message: "#^Only booleans are allowed in &&, int given on the left side\\.$#"
-			count: 2
-			path: src/Normalization.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 3
 			path: src/Normalization.php

@@ -669,7 +669,7 @@ class Export
                 // to resolve view dependencies (only when it's a single-file export)
                 if ($isView) {
                     if (
-                        $separateFiles == ''
+                        $separateFiles === ''
                         && isset($GLOBALS['sql_create_view'])
                         && ! $exportPlugin->exportStructure(
                             $db->getName(),
@@ -920,7 +920,7 @@ class Export
             return;
         }
 
-        if (isset($allrows) && $allrows == '0' && $limitTo > 0 && $limitFrom >= 0) {
+        if ($allrows === '0' && $limitTo > 0 && $limitFrom >= 0) {
             $addQuery = ' LIMIT '
                         . ($limitFrom > 0 ? $limitFrom . ', ' : '')
                         . $limitTo;

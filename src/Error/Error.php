@@ -223,7 +223,7 @@ class Error extends Message
      */
     public function getBacktrace(int $count = -1): array
     {
-        if ($count != -1) {
+        if ($count !== -1) {
             return array_slice($this->backtrace, 0, $count);
         }
 

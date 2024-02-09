@@ -215,7 +215,7 @@ class GisGeometryCollection extends GisGeometry
                 $brCount++;
             } elseif ($char === ')') {
                 $brCount--;
-                if ($brCount == 0) {
+                if ($brCount === 0) {
                     $subParts[] = mb_substr($geomCol, $start, $count + 1 - $start);
                     $start = $count + 2;
                 }

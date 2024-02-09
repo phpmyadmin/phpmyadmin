@@ -141,7 +141,7 @@ class Bookmark
 
             $query = str_replace('[VARIABLE' . $i . ']', $var, $query);
             // backward compatibility
-            if ($i != 1) {
+            if ($i !== 1) {
                 continue;
             }
 

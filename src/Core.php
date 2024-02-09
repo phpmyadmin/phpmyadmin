@@ -109,7 +109,7 @@ class Core
 
         $doclink = self::getPHPDocLink('book.' . $extension . '.php');
         $message = sprintf($message, '[a@' . $doclink . '@Documentation][em]' . $extension . '[/em][/a]');
-        if ($extra != '') {
+        if ($extra !== '') {
             $message .= ' ' . $extra;
         }
 

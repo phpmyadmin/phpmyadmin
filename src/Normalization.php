@@ -871,7 +871,7 @@ class Normalization
             }
         }
 
-        if ($extra == '') {
+        if ($extra === '') {
             $headText = __(
                 'No Transitive dependencies possible as the table doesn\'t have any non primary key columns',
             );
@@ -991,11 +991,11 @@ class Normalization
             . ' LIMIT 500) as dt;';
         $res = $this->dbi->fetchResult($query);
         $pkColCnt = $res[0];
-        if ($pkCnt && $pkCnt == $colCnt && $colCnt == $pkColCnt) {
+        if ($pkCnt !== 0 && $pkCnt === $colCnt && $colCnt == $pkColCnt) {
             return true;
         }
 
-        return $totalRows && $totalRows == $pkCnt;
+        return $totalRows !== 0 && $totalRows === $pkCnt;
     }
 
     /**

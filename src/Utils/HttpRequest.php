@@ -111,11 +111,11 @@ class HttpRequest
         int $httpStatus,
         bool $returnOnlyStatus,
     ): string|bool|null {
-        if ($httpStatus == 404) {
+        if ($httpStatus === 404) {
             return false;
         }
 
-        if ($httpStatus != 200) {
+        if ($httpStatus !== 200) {
             return null;
         }
 

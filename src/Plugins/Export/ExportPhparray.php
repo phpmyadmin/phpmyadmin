@@ -202,7 +202,7 @@ class ExportPhparray extends ExportPlugin
         while ($record = $result->fetchRow()) {
             $recordCnt++;
 
-            if ($recordCnt == 1) {
+            if ($recordCnt === 1) {
                 $buffer .= "\n" . '  array(';
             } else {
                 $buffer .= ',' . "\n" . '  array(';

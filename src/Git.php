@@ -172,7 +172,7 @@ class Git
         }
 
         // we care only about commit objects
-        if ($type != 1) {
+        if ($type !== 1) {
             return null;
         }
 

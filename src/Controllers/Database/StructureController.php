@@ -365,7 +365,7 @@ final class StructureController extends AbstractController
                 );
             }
 
-            if ($numColumns > 0 && $this->numTables > $numColumns && ($rowCount % $numColumns) == 0) {
+            if ($numColumns > 0 && $this->numTables > $numColumns && ($rowCount % $numColumns) === 0) {
                 $rowCount = 1;
 
                 $html .= $this->template->render('database/structure/table_header', [

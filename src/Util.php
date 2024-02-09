@@ -518,12 +518,12 @@ class Util
             _pgettext('Short week day name for Saturday', 'Sat'),
         ];
 
-        if ($format == '') {
+        if ($format === '') {
             /* l10n: See https://www.php.net/manual/en/function.strftime.php */
             $format = __('%B %d, %Y at %I:%M %p');
         }
 
-        if ($timestamp == -1) {
+        if ($timestamp === -1) {
             $timestamp = time();
         }
 
@@ -865,7 +865,7 @@ class Util
                 ++$i;
             }
 
-            if ($i != 0) {
+            if ($i !== 0) {
                 --$i;
             }
 

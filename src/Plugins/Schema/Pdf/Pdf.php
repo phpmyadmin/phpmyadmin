@@ -247,7 +247,7 @@ class Pdf extends PdfLib
         }
 
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
-        if ($this->offline || $this->pageNumber == -1 || $pdfFeature === null) {
+        if ($this->offline || $this->pageNumber === -1 || $pdfFeature === null) {
             $pgName = __('PDF export page');
         } else {
             $dbi = DatabaseInterface::getInstance();
@@ -347,7 +347,7 @@ class Pdf extends PdfLib
     {
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $cw = &$this->CurrentFont['cw'];
-        if ($w == 0) {
+        if ($w === 0) {
             $w = $this->w - $this->rMargin - $this->x;
         }
 

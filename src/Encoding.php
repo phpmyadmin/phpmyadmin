@@ -218,7 +218,7 @@ class Encoding
      */
     public static function kanjiStrConv(string $str, string $enc, string $kana): string
     {
-        if ($enc == '' && $kana == '') {
+        if ($enc === '' && $kana === '') {
             return $str;
         }
 
@@ -232,7 +232,7 @@ class Encoding
             $str = $dist;
         }
 
-        if ($stringEncoding !== $enc && $enc != '') {
+        if ($stringEncoding !== $enc && $enc !== '') {
             return mb_convert_encoding($str, $enc, $stringEncoding);
         }
 
@@ -250,7 +250,7 @@ class Encoding
      */
     public static function kanjiFileConv(string $file, string $enc, string $kana): string
     {
-        if ($enc == '' && $kana == '') {
+        if ($enc === '' && $kana === '') {
             return $file;
         }
 

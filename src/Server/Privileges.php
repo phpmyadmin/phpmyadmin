@@ -1253,9 +1253,9 @@ class Privileges
         string $initial = '',
     ): string {
         $linkClass = '';
-        if ($linktype == 'edit') {
+        if ($linktype === 'edit') {
             $linkClass = 'edit_user_anchor';
-        } elseif ($linktype == 'export') {
+        } elseif ($linktype === 'export') {
             $linkClass = 'export_user_anchor ajax';
         }
 

@@ -339,7 +339,7 @@ abstract class GisGeometry
     protected function toOpenLayersObject(string $constructor, array $coordinates, int $srid): string
     {
         $ol = 'new ' . $constructor . '(' . json_encode($coordinates) . ')';
-        if ($srid != 3857) {
+        if ($srid !== 3857) {
             $ol .= '.transform(\'EPSG:' . ($srid !== 0 ? $srid : 4326) . '\', \'EPSG:3857\')';
         }
 

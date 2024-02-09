@@ -157,7 +157,7 @@ class Tracker
         $relation = new Relation($dbi);
 
         $config = Config::getInstance();
-        if ($trackingSet == '') {
+        if ($trackingSet === '') {
             $trackingSet = $config->selectedServer['tracking_default_statements'];
         }
 
@@ -259,7 +259,7 @@ class Tracker
         $date = Util::date('Y-m-d H:i:s');
 
         $config = Config::getInstance();
-        if ($trackingSet == '') {
+        if ($trackingSet === '') {
             $trackingSet = $config->selectedServer['tracking_default_statements'];
         }
 

@@ -1348,7 +1348,7 @@ class NavigationTree
                 'server' => Current::$server,
                 'pos2_name' => $paths['aPath_clean'][2],
             ];
-            if ($level == 3) {
+            if ($level === 3) {
                 $pos = $node->pos3;
                 $urlParams['pos2_value'] = $node->pos2;
                 $urlParams['pos3_name'] = $paths['aPath_clean'][4];

@@ -160,7 +160,7 @@ class Search
         $allColumns = $this->dbi->getColumns(Current::$database, $table);
         $likeClauses = [];
         // Based on search type, decide like/regex & '%'/''
-        $likeOrRegex = $this->criteriaSearchType == 5 ? 'REGEXP' : 'LIKE';
+        $likeOrRegex = $this->criteriaSearchType === 5 ? 'REGEXP' : 'LIKE';
         $automaticWildcard = $this->criteriaSearchType < 4 ? '%' : '';
         // For "as regular expression" (search option 5), LIKE won't be used
         // Usage example: If user is searching for a literal $ in a regexp search,
@@ -205,7 +205,7 @@ class Search
         }
 
         // Use 'OR' if 'at least one word' is to be searched, else use 'AND'
-        $implodeStr = $this->criteriaSearchType == 1 ? ' OR ' : ' AND ';
+        $implodeStr = $this->criteriaSearchType === 1 ? ' OR ' : ' AND ';
 
         return ' WHERE (' . implode(') ' . $implodeStr . ' (', $likeClauses) . ')';
     }
