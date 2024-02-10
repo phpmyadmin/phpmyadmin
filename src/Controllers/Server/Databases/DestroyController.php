@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Databases;
 
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -15,6 +14,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -39,8 +39,8 @@ final class DestroyController extends AbstractController
         $GLOBALS['selected'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $userPrivileges = $checkUserPrivileges->getPrivileges();
+        $userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
+        $userPrivileges = $userPrivilegesFactory->getPrivileges();
 
         $selectedDbs = $request->getParsedBodyParam('selected_dbs');
 

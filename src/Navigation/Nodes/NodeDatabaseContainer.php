@@ -7,10 +7,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\NodeType;
+use PhpMyAdmin\UserPrivilegesFactory;
 
 use function _pgettext;
 
@@ -26,8 +26,8 @@ class NodeDatabaseContainer extends Node
      */
     public function __construct(string $name)
     {
-        $checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
-        $userPrivileges = $checkUserPrivileges->getPrivileges();
+        $userPrivilegesFactory = new UserPrivilegesFactory(DatabaseInterface::getInstance());
+        $userPrivileges = $userPrivilegesFactory->getPrivileges();
 
         parent::__construct($name, NodeType::Container);
 

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
@@ -18,6 +17,7 @@ use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 use Webmozart\Assert\Assert;
 
@@ -71,8 +71,8 @@ class DatabasesController extends AbstractController
     {
         $GLOBALS['errorUrl'] ??= null;
 
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $userPrivileges = $checkUserPrivileges->getPrivileges();
+        $userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
+        $userPrivileges = $userPrivilegesFactory->getPrivileges();
 
         $this->hasStatistics = ! empty($request->getParam('statistics'));
         $position = (int) $request->getParam('pos');

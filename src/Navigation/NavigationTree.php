@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation;
 
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -39,6 +38,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivileges;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -147,8 +147,8 @@ class NavigationTree
     public function __construct(private Template $template, private DatabaseInterface $dbi, Relation $relation)
     {
         $this->relationParameters = $relation->getRelationParameters();
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $userPrivileges = $checkUserPrivileges->getPrivileges();
+        $userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
+        $userPrivileges = $userPrivilegesFactory->getPrivileges();
 
         // Save the position at which we are in the database list
         if (isset($_POST['pos'])) {

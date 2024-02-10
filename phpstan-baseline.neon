@@ -171,81 +171,6 @@ parameters:
 			path: src/Charsets.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Only booleans are allowed in \\|\\|, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given on the left side\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Only booleans are allowed in \\|\\|, int\\|false given on the right side\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Parameter \\#1 \\$database of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Parameter \\#3 \\$column of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, string\\|null given\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Parameter \\#4 \\$routines of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Parameter \\#5 \\$isReload of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Parameter \\#6 \\$isCreateDatabase of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Parameter \\#7 \\$databaseToCreate of class PhpMyAdmin\\\\UserPrivileges constructor expects string, mixed given\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Parameter \\#8 \\$databasesToTest of class PhpMyAdmin\\\\UserPrivileges constructor expects array\\<string\\>\\|false, mixed given\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\UserPrivileges\\:\\:\\$databaseToCreate \\(string\\) does not accept string\\|null\\.$#"
-			count: 2
-			path: src/CheckUserPrivileges.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\UserPrivileges\\:\\:\\$databasesToTest \\(array\\<string\\>\\|false\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/CheckUserPrivileges.php
-
-		-
 			message: "#^Parameter \\#1 \\$source of method PhpMyAdmin\\\\Config\\:\\:loadAndCheck\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Command/CacheWarmupCommand.php
@@ -15119,6 +15044,81 @@ parameters:
 			message: "#^Ternary operator condition is always true\\.$#"
 			count: 1
 			path: src/UserPreferences.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
+			count: 1
+			path: src/UserPrivilegesFactory.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
+			count: 1
+			path: src/UserPrivilegesFactory.php
+
+		-
+			message: "#^Only booleans are allowed in \\|\\|, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given on the left side\\.$#"
+			count: 1
+			path: src/UserPrivilegesFactory.php
+
+		-
+			message: "#^Only booleans are allowed in \\|\\|, int\\|false given on the right side\\.$#"
+			count: 1
+			path: src/UserPrivilegesFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$database of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
+			count: 1
+			path: src/UserPrivilegesFactory.php
+
+		-
+			message: "#^Parameter \\#2 \\$table of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
+			count: 1
+			path: src/UserPrivilegesFactory.php
+
+		-
+			message: "#^Parameter \\#3 \\$column of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
+			count: 1
+			path: src/UserPrivilegesFactory.php
+
+		-
+			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, string\\|null given\\.$#"
+			count: 1
+			path: src/UserPrivilegesFactory.php
+
+		-
+			message: "#^Parameter \\#4 \\$routines of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
+			count: 1
+			path: src/UserPrivilegesFactory.php
+
+		-
+			message: "#^Parameter \\#5 \\$isReload of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
+			count: 1
+			path: src/UserPrivilegesFactory.php
+
+		-
+			message: "#^Parameter \\#6 \\$isCreateDatabase of class PhpMyAdmin\\\\UserPrivileges constructor expects bool, mixed given\\.$#"
+			count: 1
+			path: src/UserPrivilegesFactory.php
+
+		-
+			message: "#^Parameter \\#7 \\$databaseToCreate of class PhpMyAdmin\\\\UserPrivileges constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/UserPrivilegesFactory.php
+
+		-
+			message: "#^Parameter \\#8 \\$databasesToTest of class PhpMyAdmin\\\\UserPrivileges constructor expects array\\<string\\>\\|false, mixed given\\.$#"
+			count: 1
+			path: src/UserPrivilegesFactory.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\UserPrivileges\\:\\:\\$databaseToCreate \\(string\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/UserPrivilegesFactory.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\UserPrivileges\\:\\:\\$databasesToTest \\(array\\<string\\>\\|false\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/UserPrivilegesFactory.php
 
 		-
 			message: "#^Binary operation \"\\.\" between bool\\|float\\|int\\|string and array\\<string\\>\\|string\\|false results in an error\\.$#"

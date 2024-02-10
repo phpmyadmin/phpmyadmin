@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -19,6 +18,7 @@ use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivilegesFactory;
 
 use function __;
 use function htmlspecialchars;
@@ -50,8 +50,8 @@ class PrivilegesController extends AbstractController
         $GLOBALS['hostname'] ??= null;
         $GLOBALS['dbname'] ??= null;
 
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $userPrivileges = $checkUserPrivileges->getPrivileges();
+        $userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
+        $userPrivileges = $userPrivilegesFactory->getPrivileges();
 
         $relationParameters = $this->relation->getRelationParameters();
 

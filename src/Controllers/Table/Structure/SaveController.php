@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -22,6 +21,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivileges;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -52,8 +52,8 @@ final class SaveController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $userPrivileges = $checkUserPrivileges->getPrivileges();
+        $userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
+        $userPrivileges = $userPrivilegesFactory->getPrivileges();
 
         $regenerate = $this->updateColumns($userPrivileges);
         if (! $regenerate) {

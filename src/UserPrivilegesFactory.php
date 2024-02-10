@@ -15,7 +15,7 @@ use function str_contains;
 /**
  * Get user's global privileges and some db-specific privileges
  */
-class CheckUserPrivileges
+class UserPrivilegesFactory
 {
     public function __construct(private DatabaseInterface $dbi)
     {

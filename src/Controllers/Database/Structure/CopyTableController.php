@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Current;
@@ -15,6 +14,7 @@ use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\UserPrivilegesFactory;
 
 final class CopyTableController extends AbstractController
 {
@@ -34,8 +34,8 @@ final class CopyTableController extends AbstractController
         /** @var string $targetDb */
         $targetDb = $request->getParsedBodyParam('target_db');
 
-        $checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
-        $userPrivileges = $checkUserPrivileges->getPrivileges();
+        $userPrivilegesFactory = new UserPrivilegesFactory(DatabaseInterface::getInstance());
+        $userPrivileges = $userPrivilegesFactory->getPrivileges();
 
         foreach ($selected as $selectedValue) {
             Table::moveCopy(

@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ShowGrants;
 use PhpMyAdmin\UserPrivileges;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PHPUnit\Framework\Attributes\CoversClass;
 
-#[CoversClass(CheckUserPrivileges::class)]
-class CheckUserPrivilegesTest extends AbstractTestCase
+#[CoversClass(UserPrivilegesFactory::class)]
+final class UserPrivilegesFactoryTest extends AbstractTestCase
 {
-    private CheckUserPrivileges $checkUserPrivileges;
+    private UserPrivilegesFactory $userPrivilegesFactory;
 
     /**
      * prepares environment for tests
@@ -26,7 +26,7 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $this->checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
+        $this->userPrivilegesFactory = new UserPrivilegesFactory(DatabaseInterface::getInstance());
     }
 
     /**
@@ -39,7 +39,7 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         $showGrants = new ShowGrants('GRANT ALL PRIVILEGES ON *.* TO \'root\'@\'localhost\' WITH GRANT OPTION');
 
         // call the to-be-tested function
-        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($userPrivileges, $showGrants);
+        $this->userPrivilegesFactory->checkRequiredPrivilegesForAdjust($userPrivileges, $showGrants);
 
         self::assertTrue($userPrivileges->column);
         self::assertTrue($userPrivileges->database);
@@ -51,7 +51,7 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         $showGrants = new ShowGrants('GRANT ALL PRIVILEGES ON `mysql`.* TO \'root\'@\'localhost\' WITH GRANT OPTION');
 
         // call the to-be-tested function
-        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($userPrivileges, $showGrants);
+        $this->userPrivilegesFactory->checkRequiredPrivilegesForAdjust($userPrivileges, $showGrants);
 
         self::assertTrue($userPrivileges->column);
         self::assertTrue($userPrivileges->database);
@@ -63,7 +63,7 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         $showGrants = new ShowGrants('GRANT SELECT, INSERT, UPDATE, DELETE ON `mysql`.* TO \'root\'@\'localhost\'');
 
         // call the to-be-tested function
-        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($userPrivileges, $showGrants);
+        $this->userPrivilegesFactory->checkRequiredPrivilegesForAdjust($userPrivileges, $showGrants);
 
         self::assertTrue($userPrivileges->column);
         self::assertTrue($userPrivileges->database);
@@ -75,7 +75,7 @@ class CheckUserPrivilegesTest extends AbstractTestCase
         $showGrants = new ShowGrants('GRANT SELECT, INSERT, UPDATE, DELETE ON `mysql`.`db` TO \'root\'@\'localhost\'');
 
         // call the to-be-tested function
-        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust($userPrivileges, $showGrants);
+        $this->userPrivilegesFactory->checkRequiredPrivilegesForAdjust($userPrivileges, $showGrants);
 
         self::assertFalse($userPrivileges->column);
         self::assertTrue($userPrivileges->database);

@@ -44,6 +44,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Theme\ThemeManager;
+use PhpMyAdmin\UserPrivilegesFactory;
 
 return [
     'services' => [
@@ -187,7 +188,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$operations' => '@operations',
-                '$checkUserPrivileges' => '@check_user_privileges',
+                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
                 '$relation' => '@relation',
                 '$relationCleanup' => '@relation_cleanup',
                 '$dbi' => '@dbi',
@@ -208,7 +209,7 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$checkUserPrivileges' => '@check_user_privileges',
+                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
                 '$dbi' => '@dbi',
                 '$routines' => '@routines',
                 '$dbTableExists' => '@' . DbTableExists::class,
@@ -1296,7 +1297,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$operations' => '@operations',
-                '$checkUserPrivileges' => '@check_user_privileges',
+                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
                 '$relation' => '@relation',
                 '$dbi' => '@dbi',
                 '$dbTableExists' => '@' . DbTableExists::class,

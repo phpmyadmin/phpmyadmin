@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation;
 
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -23,6 +22,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -54,8 +54,8 @@ class Navigation
      */
     public function getDisplay(): string
     {
-        $checkUserPrivileges = new CheckUserPrivileges(DatabaseInterface::getInstance());
-        $userPrivileges = $checkUserPrivileges->getPrivileges();
+        $userPrivilegesFactory = new UserPrivilegesFactory(DatabaseInterface::getInstance());
+        $userPrivileges = $userPrivilegesFactory->getPrivileges();
 
         $config = Config::getInstance();
         $logo = [

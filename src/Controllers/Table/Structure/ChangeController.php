@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
@@ -13,6 +12,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\UserPrivilegesFactory;
 
 use function __;
 use function array_filter;
@@ -85,8 +85,8 @@ final class ChangeController extends AbstractController
         /**
          * Form for changing properties.
          */
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $userPrivileges = $checkUserPrivileges->getPrivileges();
+        $userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
+        $userPrivileges = $userPrivilegesFactory->getPrivileges();
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 

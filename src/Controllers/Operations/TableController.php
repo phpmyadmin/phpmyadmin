@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Operations;
 
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -26,6 +25,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -46,7 +46,7 @@ class TableController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Operations $operations,
-        private CheckUserPrivileges $checkUserPrivileges,
+        private UserPrivilegesFactory $userPrivilegesFactory,
         private Relation $relation,
         private DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
@@ -61,7 +61,7 @@ class TableController extends AbstractController
         $GLOBALS['message_to_show'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $userPrivileges = $this->checkUserPrivileges->getPrivileges();
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         if ($this->dbi->getLowerCaseNames() === 1) {
             Current::$table = mb_strtolower(Current::$table);

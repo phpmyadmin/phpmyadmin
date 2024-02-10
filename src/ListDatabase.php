@@ -28,11 +28,11 @@ class ListDatabase extends ArrayObject
     public function __construct(
         private readonly DatabaseInterface $dbi,
         private readonly Config $config,
-        private readonly CheckUserPrivileges $checkUserPrivileges,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
         parent::__construct();
 
-        $userPrivileges = $this->checkUserPrivileges->getPrivileges();
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $this->build($userPrivileges);
     }

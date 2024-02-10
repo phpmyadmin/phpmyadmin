@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
@@ -19,6 +18,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -39,7 +39,7 @@ class RoutinesController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private CheckUserPrivileges $checkUserPrivileges,
+        private UserPrivilegesFactory $userPrivilegesFactory,
         private DatabaseInterface $dbi,
         private Routines $routines,
         private readonly DbTableExists $dbTableExists,
@@ -57,7 +57,7 @@ class RoutinesController extends AbstractController
 
         $type = $_REQUEST['type'] ?? null;
 
-        $userPrivileges = $this->checkUserPrivileges->getPrivileges();
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $config = Config::getInstance();
         if (! $request->isAjax()) {

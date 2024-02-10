@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Operations;
 
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
@@ -24,6 +23,7 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -38,7 +38,7 @@ class DatabaseController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Operations $operations,
-        private CheckUserPrivileges $checkUserPrivileges,
+        private UserPrivilegesFactory $userPrivilegesFactory,
         private Relation $relation,
         private RelationCleanup $relationCleanup,
         private DatabaseInterface $dbi,
@@ -54,7 +54,7 @@ class DatabaseController extends AbstractController
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['single_table'] ??= null;
 
-        $userPrivileges = $this->checkUserPrivileges->getPrivileges();
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $this->addScriptFiles(['database/operations.js']);
 

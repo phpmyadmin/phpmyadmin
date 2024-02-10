@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Operations;
 
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Operations\TableController;
@@ -19,6 +18,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(TableController::class)]
@@ -126,7 +126,7 @@ class TableControllerTest extends AbstractTestCase
             $responseRenderer,
             new Template($config),
             new Operations($this->dbi, $relation),
-            new CheckUserPrivileges($this->dbi),
+            new UserPrivilegesFactory($this->dbi),
             $relation,
             $this->dbi,
             new DbTableExists($this->dbi),

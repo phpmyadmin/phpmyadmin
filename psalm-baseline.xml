@@ -131,18 +131,6 @@
       <code><![CDATA[self::$collations[$row['Charset']]]]></code>
     </PossiblyNullArrayOffset>
   </file>
-  <file src="src/CheckUserPrivileges.php">
-    <MixedArgument>
-      <code><![CDATA[SessionCache::get('col_priv')]]></code>
-      <code><![CDATA[SessionCache::get('db_priv')]]></code>
-      <code><![CDATA[SessionCache::get('db_to_create')]]></code>
-      <code><![CDATA[SessionCache::get('dbs_to_test')]]></code>
-      <code><![CDATA[SessionCache::get('is_create_db_priv')]]></code>
-      <code><![CDATA[SessionCache::get('is_reload_priv')]]></code>
-      <code><![CDATA[SessionCache::get('proc_priv')]]></code>
-      <code><![CDATA[SessionCache::get('table_priv')]]></code>
-    </MixedArgument>
-  </file>
   <file src="src/Command/CacheWarmupCommand.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
@@ -6916,7 +6904,7 @@
       <code>usort($databaseList, strnatcasecmp(...))</code>
     </MixedArgumentTypeCoercion>
     <UnusedProperty>
-      <code>$checkUserPrivileges</code>
+      <code>$userPrivilegesFactory</code>
     </UnusedProperty>
   </file>
   <file src="src/Menu.php">
@@ -12071,6 +12059,18 @@
       <code>$hasConfig</code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/UserPrivilegesFactory.php">
+    <MixedArgument>
+      <code><![CDATA[SessionCache::get('col_priv')]]></code>
+      <code><![CDATA[SessionCache::get('db_priv')]]></code>
+      <code><![CDATA[SessionCache::get('db_to_create')]]></code>
+      <code><![CDATA[SessionCache::get('dbs_to_test')]]></code>
+      <code><![CDATA[SessionCache::get('is_create_db_priv')]]></code>
+      <code><![CDATA[SessionCache::get('is_reload_priv')]]></code>
+      <code><![CDATA[SessionCache::get('proc_priv')]]></code>
+      <code><![CDATA[SessionCache::get('table_priv')]]></code>
+    </MixedArgument>
+  </file>
   <file src="src/Util.php">
     <ArgumentTypeCoercion>
       <code>$separator</code>
@@ -12404,12 +12404,6 @@
     <PossiblyUnusedMethod>
       <code>providerTestBuildDescription</code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/classes/CheckUserPrivilegesTest.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-    </DeprecatedMethod>
   </file>
   <file src="tests/classes/Command/SetVersionCommandTest.php">
     <PossiblyUnusedMethod>
@@ -15281,6 +15275,12 @@
       <code><![CDATA[$_SESSION['userconfig']['db']]]></code>
       <code><![CDATA[$_SESSION['userconfig']['ts']]]></code>
     </MixedArrayAccess>
+  </file>
+  <file src="tests/classes/UserPrivilegesFactoryTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
+    </DeprecatedMethod>
   </file>
   <file src="tests/classes/UtilTest.php">
     <ArgumentTypeCoercion>
