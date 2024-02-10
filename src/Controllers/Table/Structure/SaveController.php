@@ -44,6 +44,7 @@ final class SaveController extends AbstractController
         private Transformations $transformations,
         private DatabaseInterface $dbi,
         private StructureController $structureController,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
         parent::__construct($response, $template);
 
@@ -52,8 +53,7 @@ final class SaveController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
-        $userPrivileges = $userPrivilegesFactory->getPrivileges();
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $regenerate = $this->updateColumns($userPrivileges);
         if (! $regenerate) {

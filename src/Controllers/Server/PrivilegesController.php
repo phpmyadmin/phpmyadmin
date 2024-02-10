@@ -38,6 +38,7 @@ class PrivilegesController extends AbstractController
         Template $template,
         private Relation $relation,
         private DatabaseInterface $dbi,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
         parent::__construct($response, $template);
     }
@@ -50,8 +51,7 @@ class PrivilegesController extends AbstractController
         $GLOBALS['hostname'] ??= null;
         $GLOBALS['dbname'] ??= null;
 
-        $userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
-        $userPrivileges = $userPrivilegesFactory->getPrivileges();
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $relationParameters = $this->relation->getRelationParameters();
 

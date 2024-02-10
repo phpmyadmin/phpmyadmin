@@ -15,6 +15,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
@@ -51,6 +52,7 @@ class ChangeControllerTest extends AbstractTestCase
             new Template(),
             $this->dbi,
             new ColumnsDefinition($this->dbi, new Relation($this->dbi), new Transformations()),
+            new UserPrivilegesFactory($this->dbi),
         );
 
         $method->invokeArgs($ctrl, [[$_REQUEST['field']]]);

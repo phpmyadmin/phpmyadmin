@@ -15,6 +15,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UserPrivileges;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
@@ -98,6 +99,7 @@ class SaveControllerTest extends AbstractTestCase
             new Transformations(),
             $dbi,
             $mock,
+            new UserPrivilegesFactory($dbi),
         ))($request);
 
         self::assertArrayNotHasKey('selected', $_POST);
@@ -120,6 +122,7 @@ class SaveControllerTest extends AbstractTestCase
             new Transformations(),
             $dbi,
             self::createStub(StructureController::class),
+            new UserPrivilegesFactory($dbi),
         );
 
         self::assertFalse(

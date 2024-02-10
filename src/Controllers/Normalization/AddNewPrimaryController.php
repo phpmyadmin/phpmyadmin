@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers\Normalization;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -18,15 +17,18 @@ use PhpMyAdmin\UserPrivilegesFactory;
 
 final class AddNewPrimaryController extends AbstractController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private Normalization $normalization)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        private Normalization $normalization,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
+    ) {
         parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $userPrivilegesFactory = new UserPrivilegesFactory(DatabaseInterface::getInstance());
-        $userPrivileges = $userPrivilegesFactory->getPrivileges();
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $numFields = 1;
 

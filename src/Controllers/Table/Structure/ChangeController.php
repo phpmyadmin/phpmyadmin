@@ -29,6 +29,7 @@ final class ChangeController extends AbstractController
         Template $template,
         private DatabaseInterface $dbi,
         private ColumnsDefinition $columnsDefinition,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
         parent::__construct($response, $template);
     }
@@ -85,8 +86,7 @@ final class ChangeController extends AbstractController
         /**
          * Form for changing properties.
          */
-        $userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
-        $userPrivileges = $userPrivilegesFactory->getPrivileges();
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 

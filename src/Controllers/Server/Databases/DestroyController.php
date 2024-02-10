@@ -30,6 +30,7 @@ final class DestroyController extends AbstractController
         private DatabaseInterface $dbi,
         private Transformations $transformations,
         private RelationCleanup $relationCleanup,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
         parent::__construct($response, $template);
     }
@@ -39,8 +40,7 @@ final class DestroyController extends AbstractController
         $GLOBALS['selected'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
-        $userPrivileges = $userPrivilegesFactory->getPrivileges();
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $selectedDbs = $request->getParsedBodyParam('selected_dbs');
 

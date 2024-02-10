@@ -41,10 +41,12 @@ use const PHP_URL_HOST;
 class Navigation
 {
     private NavigationTree $tree;
+    private readonly UserPrivilegesFactory $userPrivilegesFactory;
 
     public function __construct(private Template $template, private Relation $relation, private DatabaseInterface $dbi)
     {
         $this->tree = new NavigationTree($this->template, $this->dbi, $this->relation);
+        $this->userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
     }
 
     /**
@@ -54,8 +56,7 @@ class Navigation
      */
     public function getDisplay(): string
     {
-        $userPrivilegesFactory = new UserPrivilegesFactory(DatabaseInterface::getInstance());
-        $userPrivileges = $userPrivilegesFactory->getPrivileges();
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $config = Config::getInstance();
         $logo = [

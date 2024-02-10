@@ -16,6 +16,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(AddFieldController::class)]
@@ -265,6 +266,7 @@ class AddFieldControllerTest extends AbstractTestCase
             $dbi,
             new ColumnsDefinition($dbi, $relation, $transformations),
             new DbTableExists($dbi),
+            new UserPrivilegesFactory($dbi),
         ))($request);
 
         self::assertSame($expected, $response->getHTMLResult());

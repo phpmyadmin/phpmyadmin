@@ -14,6 +14,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(PrivilegesController::class)]
@@ -68,7 +69,13 @@ class PrivilegesControllerTest extends AbstractTestCase
         $request->method('getQueryParam')->willReturnMap([['initial', null, null]]);
 
         $response = new ResponseRenderer();
-        (new PrivilegesController($response, new Template(), new Relation($this->dbi), $this->dbi))($request);
+        (new PrivilegesController(
+            $response,
+            new Template(),
+            new Relation($this->dbi),
+            $this->dbi,
+            new UserPrivilegesFactory($this->dbi),
+        ))($request);
 
         $actual = $response->getHTMLResult();
         self::assertStringContainsString('User accounts overview', $actual);

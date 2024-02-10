@@ -43,6 +43,7 @@ class AddFieldController extends AbstractController
         private DatabaseInterface $dbi,
         private ColumnsDefinition $columnsDefinition,
         private readonly DbTableExists $dbTableExists,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
         parent::__construct($response, $template);
     }
@@ -61,8 +62,7 @@ class AddFieldController extends AbstractController
             return;
         }
 
-        $userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
-        $userPrivileges = $userPrivilegesFactory->getPrivileges();
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $cfg = $this->config->settings;
 

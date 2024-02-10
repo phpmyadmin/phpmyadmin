@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
@@ -23,6 +22,7 @@ final class CopyTableController extends AbstractController
         Template $template,
         private Operations $operations,
         private StructureController $structureController,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
         parent::__construct($response, $template);
     }
@@ -34,8 +34,7 @@ final class CopyTableController extends AbstractController
         /** @var string $targetDb */
         $targetDb = $request->getParsedBodyParam('target_db');
 
-        $userPrivilegesFactory = new UserPrivilegesFactory(DatabaseInterface::getInstance());
-        $userPrivileges = $userPrivilegesFactory->getPrivileges();
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         foreach ($selected as $selectedValue) {
             Table::moveCopy(

@@ -63,6 +63,7 @@ class DatabasesController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private DatabaseInterface $dbi,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
         parent::__construct($response, $template);
     }
@@ -71,8 +72,7 @@ class DatabasesController extends AbstractController
     {
         $GLOBALS['errorUrl'] ??= null;
 
-        $userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
-        $userPrivileges = $userPrivilegesFactory->getPrivileges();
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $this->hasStatistics = ! empty($request->getParam('statistics'));
         $position = (int) $request->getParam('pos');
