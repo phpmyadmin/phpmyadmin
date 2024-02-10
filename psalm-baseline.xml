@@ -8696,7 +8696,6 @@
     </DeprecatedMethod>
     <DocblockTypeContradiction>
       <code>$nameArray === false</code>
-      <code>$nameArray === false</code>
     </DocblockTypeContradiction>
     <InvalidArgument>
       <code><![CDATA[$GLOBALS['csv_columns']]]></code>
@@ -8717,10 +8716,6 @@
     <MixedArgument>
       <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$result</code>
-      <code>$result</code>
-    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>

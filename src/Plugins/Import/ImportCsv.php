@@ -28,10 +28,11 @@ use function array_pad;
 use function array_shift;
 use function basename;
 use function count;
+use function in_array;
 use function mb_strlen;
-use function mb_strtolower;
 use function mb_substr;
 use function preg_grep;
+use function preg_quote;
 use function preg_replace;
 use function preg_split;
 use function rtrim;
@@ -690,8 +691,8 @@ class ImportCsv extends AbstractImportCsv
     private function getTableNameFromImport(string $databaseName): string
     {
         $importFileName = basename(ImportSettings::$importFileName, '.csv');
-        $importFileName = mb_strtolower($importFileName);
-        $importFileName = (string) preg_replace('/[^a-zA-Z0-9_]/', '_', $importFileName);
+        $importFileName = rtrim($importFileName);
+        $importFileName = (string) preg_replace('/[^\x{0001}-\x{FFFF}]/u', '_', $importFileName);
 
         // get new table name, if user didn't provide one, set the default name
         if (isset($_REQUEST['csv_new_tbl_name']) && (string) $_REQUEST['csv_new_tbl_name'] !== '') {
@@ -699,23 +700,16 @@ class ImportCsv extends AbstractImportCsv
         }
 
         if ($databaseName !== '') {
-            $result = DatabaseInterface::getInstance()->fetchResult('SHOW TABLES');
-
-            // logic to get table name from filename
-            // if no table then use filename as table name
-            if ($result === []) {
-                return $importFileName;
-            }
+            $existingTables = DatabaseInterface::getInstance()->getTables($databaseName);
 
             // check to see if {filename} as table exist
-            $nameArray = preg_grep('/' . $importFileName . '/isU', $result);
             // if no use filename as table name
-            if ($nameArray === false || $nameArray === []) {
+            if (! in_array($importFileName, $existingTables, true)) {
                 return $importFileName;
             }
 
             // check if {filename}_ as table exist
-            $nameArray = preg_grep('/' . $importFileName . '_/isU', $result);
+            $nameArray = preg_grep('/^' . preg_quote($importFileName, '/') . '_/isU', $existingTables);
             if ($nameArray === false) {
                 return $importFileName;
             }
