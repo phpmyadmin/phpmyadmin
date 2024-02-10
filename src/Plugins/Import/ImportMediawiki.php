@@ -200,9 +200,9 @@ class ImportMediawiki extends ImportPlugin
                     // End processing because the current line does not
                     // contain any column information
                 } elseif (
-                    mb_substr($curBufferLine, 0, 2) === '|-'
-                    || mb_substr($curBufferLine, 0, 2) === '|+'
-                    || mb_substr($curBufferLine, 0, 2) === '|}'
+                    str_starts_with($curBufferLine, '|-')
+                    || str_starts_with($curBufferLine, '|+')
+                    || str_starts_with($curBufferLine, '|}')
                 ) {
                     // Check begin row or end table
 
@@ -224,7 +224,7 @@ class ImportMediawiki extends ImportPlugin
                     $curTempLine = [];
 
                     // No more processing required at the end of the table
-                    if (mb_substr($curBufferLine, 0, 2) === '|}') {
+                    if (str_starts_with($curBufferLine, '|}')) {
                         $currentTable = [$curTableName, $curTempTableHeaders, $curTempTable];
 
                         // Import the current table data into the database
