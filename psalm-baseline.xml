@@ -6426,7 +6426,6 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <DocblockTypeContradiction>
       <code>$nameArray === false</code>
@@ -8850,7 +8849,6 @@
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
       <code><![CDATA[$tblAttr['name']]]></code>
-      <code><![CDATA[$tblAttr['name']]]></code>
     </PossiblyNullArrayAccess>
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$xml->children('office', true)->body]]></code>
@@ -8938,23 +8936,13 @@
   <file src="src/Plugins/Import/ImportXml.php">
     <MixedArrayAccess>
       <code><![CDATA[$attrs['name']]]></code>
-      <code><![CDATA[$rowAttr['name']]]></code>
-      <code><![CDATA[$rowAttr['name']]]></code>
-      <code><![CDATA[$tblAttr['name']]]></code>
-      <code><![CDATA[$tblAttr['name']]]></code>
-      <code><![CDATA[$tblAttr['name']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code>$attrs</code>
-      <code>$rowAttr</code>
-      <code>$tblAttr</code>
-      <code>$v2</code>
       <code>$val2</code>
       <code>$val3</code>
     </MixedAssignment>
     <MixedMethodCall>
-      <code>attributes</code>
-      <code>attributes</code>
       <code>attributes</code>
     </MixedMethodCall>
     <PossiblyNullArrayAccess>
@@ -8963,17 +8951,15 @@
       <code><![CDATA[$dbAttr['name']]]></code>
       <code><![CDATA[$dbAttr['name']]]></code>
     </PossiblyNullArrayAccess>
+    <PossiblyNullPropertyFetch>
+      <code><![CDATA[$xml->children($namespaces['pma'] ?? null)->structure_schemas]]></code>
+    </PossiblyNullPropertyFetch>
     <PossiblyNullReference>
       <code>attributes</code>
-      <code>children</code>
-      <code>count</code>
     </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code>$xml</code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Import/ShapeFileImport.php">
     <InvalidArrayOffset>

@@ -158,27 +158,7 @@ class ImportOds extends ImportPlugin
             }
         }
 
-        [$tables, $rows] = $this->readSheets($sheets, isset($_REQUEST['ods_col_names']));
-
-        /**
-         * Bring accumulated rows into the corresponding table
-         */
-        foreach ($tables as $table) {
-            foreach ($rows as $row) {
-                if ($table->tableName !== $row->tableName) {
-                    continue;
-                }
-
-                if ($table->columns === []) {
-                    $table->columns = $row->columns;
-                }
-
-                $table->rows = $row->rows;
-            }
-        }
-
-        /* No longer needed */
-        unset($rows);
+        $tables = $this->readSheets($sheets, isset($_REQUEST['ods_col_names']));
 
         /* Obtain the best-fit MySQL types for each column */
         $analyses = array_map($this->import->analyzeTable(...), $tables);
@@ -331,11 +311,10 @@ class ImportOds extends ImportPlugin
     /**
      * @param mixed[]|SimpleXMLElement $sheets Sheets of the spreadsheet.
      *
-     * @return array{ImportTable[], ImportTable[]}
+     * @return ImportTable[]
      */
     private function readSheets(array|SimpleXMLElement $sheets, bool $colNamesInFirstRow): array
     {
-        $tables = [];
         $maxCols = 0;
         $rows = [];
 
@@ -367,13 +346,12 @@ class ImportOds extends ImportPlugin
 
             /* Store the table name so we know where to place the row set */
             $tblAttr = $sheet->attributes('table', true);
-            $tables[] = new ImportTable((string) $tblAttr['name']);
 
             /* Store the current sheet in the accumulator */
             $rows[] = new ImportTable((string) $tblAttr['name'], $colNames, $tempRows);
             $maxCols = 0;
         }
 
-        return [$tables, $rows];
+        return $rows;
     }
 }
