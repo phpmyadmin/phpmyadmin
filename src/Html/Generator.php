@@ -52,9 +52,8 @@ use function sprintf;
 use function str_contains;
 use function str_replace;
 use function str_starts_with;
+use function stripos;
 use function strlen;
-use function strtoupper;
-use function substr;
 use function trim;
 
 use const ENT_COMPAT;
@@ -264,7 +263,7 @@ class Generator
             if (
                 $currentClass === 'SPATIAL' &&
                 $dbi->getVersion() >= 50600 &&
-                strtoupper(substr($defaultFunction, 0, 3)) !== 'ST_'
+                stripos($defaultFunction, 'ST_') !== 0
             ) {
                 $defaultFunction = 'ST_' . $defaultFunction;
             }

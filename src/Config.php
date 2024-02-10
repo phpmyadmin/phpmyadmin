@@ -56,7 +56,6 @@ use function str_contains;
 use function str_ends_with;
 use function stripos;
 use function strtolower;
-use function substr;
 use function sys_get_temp_dir;
 use function time;
 use function trim;
@@ -770,7 +769,7 @@ class Config
             $isHttps = true;
         } elseif (strtolower(Core::getEnv('HTTPS')) === 'on') {
             $isHttps = true;
-        } elseif (strtolower(substr(Core::getEnv('REQUEST_URI'), 0, 6)) === 'https:') {
+        } elseif (stripos(Core::getEnv('REQUEST_URI'), 'https:') === 0) {
             $isHttps = true;
         } elseif (strtolower(Core::getEnv('HTTP_HTTPS_FROM_LB')) === 'on') {
             // A10 Networks load balancer

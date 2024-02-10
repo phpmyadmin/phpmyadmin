@@ -39,9 +39,9 @@ use function preg_match;
 use function preg_replace;
 use function sprintf;
 use function str_replace;
+use function stripos;
 use function strlen;
 use function strpos;
-use function strtolower;
 use function substr;
 use function unserialize;
 use function urldecode;
@@ -604,7 +604,7 @@ class Core
      */
     public static function sanitizeMySQLHost(string $name): string
     {
-        while (strtolower(substr($name, 0, 2)) === 'p:') {
+        while (stripos($name, 'p:') === 0) {
             /** @infection-ignore-all */
             $name = substr($name, 2);
         }
