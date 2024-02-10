@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Import\ImportTable;
@@ -21,12 +20,15 @@ use function count;
 use function explode;
 use function mb_strlen;
 use function mb_substr;
+use function pathinfo;
 use function preg_match;
 use function str_contains;
 use function str_replace;
 use function str_starts_with;
 use function strlen;
 use function trim;
+
+use const PATHINFO_FILENAME;
 
 /**
  * Handles the import for the MediaWiki format
@@ -288,7 +290,12 @@ class ImportMediawiki extends ImportPlugin
     {
         if ($this->analyze) {
             // Set the table name
-            $this->setTableName($table->tableName);
+            if ($table->tableName === '') {
+                $table->tableName = $this->import->getNextAvailableTableName(
+                    Current::$database,
+                    pathinfo(ImportSettings::$importFileName, PATHINFO_FILENAME),
+                );
+            }
 
             // Set generic names for table headers if they don't exist
             if ($table->columns === []) {
@@ -309,22 +316,6 @@ class ImportMediawiki extends ImportPlugin
 
         // Commit any possible data in buffers
         $this->import->runQuery('', $sqlStatements);
-    }
-
-    /**
-     * Sets the table name
-     *
-     * @param string $tableName reference to the name of the table
-     */
-    private function setTableName(string &$tableName): void
-    {
-        if ($tableName !== '') {
-            return;
-        }
-
-        $result = DatabaseInterface::getInstance()->fetchResult('SHOW TABLES');
-        // todo check if the name below already exists
-        $tableName = 'TABLE ' . (count($result) + 1);
     }
 
     /**

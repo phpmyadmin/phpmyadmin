@@ -6425,8 +6425,11 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <DocblockTypeContradiction>
+      <code>$nameArray === false</code>
       <code><![CDATA[empty($parser->statements[0])]]></code>
     </DocblockTypeContradiction>
     <MixedArgument>
@@ -8692,11 +8695,7 @@
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <DocblockTypeContradiction>
-      <code>$nameArray === false</code>
-    </DocblockTypeContradiction>
     <InvalidArgument>
       <code><![CDATA[$GLOBALS['csv_columns']]]></code>
       <code>$colNames</code>
@@ -8796,9 +8795,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Import/ImportMediawiki.php">
-    <DeprecatedMethod>
-      <code>DatabaseInterface::getInstance()</code>
-    </DeprecatedMethod>
     <InvalidNullableReturnType>
       <code>string</code>
     </InvalidNullableReturnType>
@@ -8871,7 +8867,6 @@
   <file src="src/Plugins/Import/ImportShp.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
