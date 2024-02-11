@@ -122,7 +122,7 @@ class ReplaceControllerTest extends AbstractTestCase
         $replaceController = new ReplaceController(
             $response,
             $template,
-            new InsertEdit($dbi, $relation, $transformations, new FileListing(), $template),
+            new InsertEdit($dbi, $relation, $transformations, new FileListing(), $template, Config::getInstance()),
             $transformations,
             $relation,
             $dbi,

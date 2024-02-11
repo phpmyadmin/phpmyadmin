@@ -118,7 +118,7 @@ return [
         'import_simulate_dml' => ['class' => SimulateDml::class, 'arguments' => ['@dbi']],
         'insert_edit' => [
             'class' => InsertEdit::class,
-            'arguments' => ['@dbi', '@relation', '@transformations', '@file_listing', '@template'],
+            'arguments' => ['@dbi', '@relation', '@transformations', '@file_listing', '@template', '@config'],
         ],
         'navigation' => [
             'class' => Navigation::class,

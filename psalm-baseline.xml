@@ -6660,30 +6660,12 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/InsertEdit.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
     <InvalidArgument>
       <code>$urlParams</code>
     </InvalidArgument>
     <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$this->config->settings]]></code>
+      <code><![CDATA[$this->config->settings]]></code>
     </InvalidPropertyAssignmentValue>
     <InvalidReturnStatement>
       <code><![CDATA[$_POST['err_url'] ?? Url::getFromRoute('/table/change', $urlParams)]]></code>
@@ -6804,7 +6786,7 @@
       <code><![CDATA[$_POST['where_clause'][0]]]></code>
     </PossiblyInvalidOperand>
     <PropertyTypeCoercion>
-      <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$this->config->settings]]></code>
     </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code>! $gotoInclude</code>
@@ -13363,6 +13345,7 @@
   <file src="tests/classes/Controllers/Table/ReplaceControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="tests/classes/Controllers/Table/SearchControllerTest.php">
@@ -14117,6 +14100,19 @@
   </file>
   <file src="tests/classes/InsertEditTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>

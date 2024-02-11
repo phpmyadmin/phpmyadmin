@@ -96,6 +96,7 @@ class InsertEditTest extends AbstractTestCase
             new Transformations(),
             new FileListing(),
             new Template(),
+            $config,
         );
 
         $this->dbi->setVersion([
@@ -220,6 +221,7 @@ class InsertEditTest extends AbstractTestCase
             new Transformations(),
             new FileListing(),
             new Template(),
+            Config::getInstance(),
         );
         $result = $this->callFunction(
             $this->insertEdit,
@@ -264,6 +266,7 @@ class InsertEditTest extends AbstractTestCase
             new Transformations(),
             new FileListing(),
             new Template(),
+            Config::getInstance(),
         );
 
         $result = $this->callFunction(
@@ -319,6 +322,7 @@ class InsertEditTest extends AbstractTestCase
             new Transformations(),
             new FileListing(),
             new Template(),
+            Config::getInstance(),
         );
 
         $result = $this->callFunction(
@@ -1126,6 +1130,7 @@ class InsertEditTest extends AbstractTestCase
             new Transformations(),
             new FileListing(),
             new Template(),
+            Config::getInstance(),
         );
 
         $currentRow['f'] = '123';
@@ -1335,6 +1340,7 @@ class InsertEditTest extends AbstractTestCase
             new Transformations(),
             new FileListing(),
             new Template(),
+            Config::getInstance(),
         );
         $this->insertEdit->setSessionForEditNext('`a` = 2');
 
@@ -1417,6 +1423,7 @@ class InsertEditTest extends AbstractTestCase
             new Transformations(),
             new FileListing(),
             new Template(),
+            Config::getInstance(),
         );
         $result = $this->insertEdit->executeSqlQuery($query);
 
@@ -1439,6 +1446,7 @@ class InsertEditTest extends AbstractTestCase
             new Transformations(),
             new FileListing(),
             new Template(),
+            Config::getInstance(),
         );
         $result = $this->insertEdit->executeSqlQuery($query);
 
@@ -1470,6 +1478,7 @@ class InsertEditTest extends AbstractTestCase
             new Transformations(),
             new FileListing(),
             new Template(),
+            Config::getInstance(),
         );
 
         $result = (array) $this->callFunction(
@@ -1519,6 +1528,7 @@ class InsertEditTest extends AbstractTestCase
             new Transformations(),
             new FileListing(),
             new Template(),
+            Config::getInstance(),
         );
 
         $result = $this->insertEdit->getDisplayValueForForeignTableColumn('=1', $map, 'f');
@@ -2260,6 +2270,7 @@ class InsertEditTest extends AbstractTestCase
             new Transformations(),
             new FileListing(),
             new Template(),
+            Config::getInstance(),
         );
 
         $this->insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData('db', 'table', 'a', $extraData);
@@ -2307,6 +2318,7 @@ class InsertEditTest extends AbstractTestCase
             new Transformations(),
             new FileListing(),
             new Template(),
+            Config::getInstance(),
         );
 
         $result = $this->insertEdit->getTableColumns('db', 'table');
@@ -2361,6 +2373,7 @@ class InsertEditTest extends AbstractTestCase
             new Transformations(),
             new FileListing(),
             new Template(),
+            Config::getInstance(),
         );
 
         $result = $this->insertEdit->determineInsertOrEdit('1', 'db', 'table');
@@ -2413,6 +2426,7 @@ class InsertEditTest extends AbstractTestCase
             new Transformations(),
             new FileListing(),
             new Template(),
+            Config::getInstance(),
         );
 
         self::assertEquals(
