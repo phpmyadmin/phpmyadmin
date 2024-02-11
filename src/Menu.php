@@ -1,7 +1,4 @@
 <?php
-/**
- * Generates and renders the top menu
- */
 
 declare(strict_types=1);
 
@@ -25,12 +22,10 @@ use function preg_replace;
 use function str_contains;
 
 /**
- * Class for generating the top menu
+ * Generates and renders the top menu
  */
 class Menu
 {
-    private Relation $relation;
-
     /**
      * Creates a new instance of Menu
      *
@@ -38,12 +33,13 @@ class Menu
      * @param string $table Table name
      */
     public function __construct(
-        private DatabaseInterface $dbi,
+        private readonly DatabaseInterface $dbi,
         private readonly Template $template,
+        private readonly Config $config,
+        private readonly Relation $relation,
         private string $db,
         private string $table,
     ) {
-        $this->relation = new Relation($dbi);
     }
 
     /**
@@ -110,13 +106,12 @@ class Menu
             $userTable = Util::backquote($configurableMenusFeature->database)
                 . '.' . Util::backquote($configurableMenusFeature->users);
 
-            $config = Config::getInstance();
             $sqlQuery = 'SELECT `tab` FROM ' . $groupTable
                 . " WHERE `allowed` = 'N'"
                 . " AND `tab` LIKE '" . $level->value . "%'"
                 . ' AND `usergroup` = (SELECT usergroup FROM '
                 . $userTable . ' WHERE `username` = '
-                . $this->dbi->quoteString($config->selectedServer['user'], ConnectionType::ControlUser) . ')';
+                . $this->dbi->quoteString($this->config->selectedServer['user'], ConnectionType::ControlUser) . ')';
 
             $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
             if ($result) {
@@ -143,23 +138,22 @@ class Menu
         $database = [];
         $table = [];
 
-        $config = Config::getInstance();
-        if (empty($config->selectedServer['host'])) {
-            $config->selectedServer['host'] = '';
+        if (empty($this->config->selectedServer['host'])) {
+            $this->config->selectedServer['host'] = '';
         }
 
-        $server['name'] = ! empty($config->selectedServer['verbose'])
-            ? $config->selectedServer['verbose'] : $config->selectedServer['host'];
-        $server['name'] .= empty($config->selectedServer['port'])
-            ? '' : ':' . $config->selectedServer['port'];
-        $server['url'] = Util::getUrlForOption($config->settings['DefaultTabServer'], 'server');
+        $server['name'] = ! empty($this->config->selectedServer['verbose'])
+            ? $this->config->selectedServer['verbose'] : $this->config->selectedServer['host'];
+        $server['name'] .= empty($this->config->selectedServer['port'])
+            ? '' : ':' . $this->config->selectedServer['port'];
+        $server['url'] = Util::getUrlForOption($this->config->settings['DefaultTabServer'], 'server');
 
         if ($this->db !== '') {
             $database['name'] = $this->db;
-            $database['url'] = Util::getUrlForOption($config->settings['DefaultTabDatabase'], 'database');
+            $database['url'] = Util::getUrlForOption($this->config->settings['DefaultTabDatabase'], 'database');
             if ($this->table !== '') {
                 $table['name'] = $this->table;
-                $table['url'] = Util::getUrlForOption($config->settings['DefaultTabTable'], 'table');
+                $table['url'] = Util::getUrlForOption($this->config->settings['DefaultTabTable'], 'table');
                 $tableObj = $this->dbi->getTable($this->db, $this->table);
                 $table['is_view'] = $tableObj->isView();
                 $table['comment'] = '';

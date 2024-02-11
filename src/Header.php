@@ -86,11 +86,13 @@ class Header
     {
         $dbi = DatabaseInterface::getInstance();
         $this->menuEnabled = $dbi->isConnected();
-        $this->menu = new Menu($dbi, $this->template, Current::$database, Current::$table);
+        $config = Config::getInstance();
+        $relation = new Relation($dbi);
+        $this->menu = new Menu($dbi, $this->template, $config, $relation, Current::$database, Current::$table);
         $this->scripts = new Scripts($this->template);
         $this->addDefaultScripts();
 
-        $this->userPreferences = new UserPreferences($dbi, new Relation($dbi), $this->template);
+        $this->userPreferences = new UserPreferences($dbi, $relation, $this->template);
     }
 
     /**

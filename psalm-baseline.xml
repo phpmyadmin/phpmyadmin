@@ -6297,6 +6297,7 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -6897,10 +6898,6 @@
     </UnusedProperty>
   </file>
   <file src="src/Menu.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
     <DeprecatedProperty>
       <code>Routing::$route</code>
       <code>Routing::$route</code>
@@ -14237,11 +14234,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/classes/ListDatabaseTest.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
-  </file>
-  <file src="tests/classes/MenuTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
