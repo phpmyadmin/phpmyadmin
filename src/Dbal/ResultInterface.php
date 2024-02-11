@@ -56,12 +56,12 @@ interface ResultInterface extends IteratorAggregate
     public function fetchAllAssoc(): array;
 
     /**
-     * Returns values from the first column of each row
+     * Returns values from the selected column of each row
      *
      * @return array<int, string|null>
      * @psalm-return list<string|null>
      */
-    public function fetchAllColumn(): array;
+    public function fetchAllColumn(int|string $column = 0): array;
 
     /**
      * Returns values as single dimensional array where the key is the first column

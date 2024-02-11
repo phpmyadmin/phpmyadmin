@@ -19,7 +19,9 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function array_slice;
+use function count;
 use function in_array;
+use function strnatcasecmp;
 use function substr;
 use function usort;
 
@@ -37,6 +39,8 @@ class NodeDatabase extends Node
 
     /** @var int[][] $presenceCounts */
     private array $presenceCounts = [];
+
+    private ObjectFetcher $objectFetcher;
 
     /**
      * Initialises the class
@@ -60,6 +64,8 @@ class NodeDatabase extends Node
 
         $this->classes = 'database';
         $this->urlParamName = 'db';
+
+        $this->objectFetcher = new ObjectFetcher(DatabaseInterface::getInstance(), Config::getInstance());
     }
 
     /**
@@ -75,176 +81,13 @@ class NodeDatabase extends Node
     public function getPresence(string $type = '', string $searchClause = ''): int
     {
         return $this->presenceCounts[$type][$searchClause] ??= match ($type) {
-            'tables' => $this->getTableCount($searchClause),
-            'views' => $this->getViewCount($searchClause),
-            'procedures' => $this->getProcedureCount($searchClause),
-            'functions' => $this->getFunctionCount($searchClause),
-            'events' => $this->getEventCount($searchClause),
+            'tables' => count($this->objectFetcher->getTables($this->realName, $searchClause)),
+            'views' => count($this->objectFetcher->getViews($this->realName, $searchClause)),
+            'procedures' => count($this->objectFetcher->getProcedures($this->realName, $searchClause)),
+            'functions' => count($this->objectFetcher->getFunctions($this->realName, $searchClause)),
+            'events' => count($this->objectFetcher->getEvents($this->realName, $searchClause)),
             default => 0,
         };
-    }
-
-    /**
-     * Returns the number of tables or views present inside this database
-     *
-     * @param string $which        tables|views
-     * @param string $searchClause A string used to filter the results of
-     *                             the query
-     */
-    private function getTableOrViewCount(string $which, string $searchClause): int
-    {
-        $condition = $which === 'tables' ? 'IN' : 'NOT IN';
-
-        $dbi = DatabaseInterface::getInstance();
-        if (! Config::getInstance()->selectedServer['DisableIS']) {
-            $query = 'SELECT COUNT(*) ';
-            $query .= 'FROM `INFORMATION_SCHEMA`.`TABLES` ';
-            $query .= 'WHERE `TABLE_SCHEMA`=' . $dbi->quoteString($this->realName) . ' ';
-            $query .= 'AND `TABLE_TYPE` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
-            if ($searchClause !== '') {
-                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'TABLE_NAME');
-            }
-
-            return (int) $dbi->fetchValue($query);
-        }
-
-        $query = 'SHOW FULL TABLES FROM ';
-        $query .= Util::backquote($this->realName);
-        $query .= ' WHERE `Table_type` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
-        if ($searchClause !== '') {
-            $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'Tables_in_' . $this->realName);
-        }
-
-        return $dbi->queryAndGetNumRows($query);
-    }
-
-    /**
-     * Returns the number of tables present inside this database
-     *
-     * @param string $searchClause A string used to filter the results of
-     *                             the query
-     */
-    private function getTableCount(string $searchClause): int
-    {
-        return $this->getTableOrViewCount('tables', $searchClause);
-    }
-
-    /**
-     * Returns the number of views present inside this database
-     *
-     * @param string $searchClause A string used to filter the results of
-     *                             the query
-     */
-    private function getViewCount(string $searchClause): int
-    {
-        return $this->getTableOrViewCount('views', $searchClause);
-    }
-
-    /**
-     * Returns the number of procedures present inside this database
-     *
-     * @param string $searchClause A string used to filter the results of
-     *                             the query
-     */
-    private function getProcedureCount(string $searchClause): int
-    {
-        $dbi = DatabaseInterface::getInstance();
-        if (! Config::getInstance()->selectedServer['DisableIS']) {
-            $query = 'SELECT COUNT(*) ';
-            $query .= 'FROM `INFORMATION_SCHEMA`.`ROUTINES` ';
-            $query .= 'WHERE `ROUTINE_SCHEMA` '
-                . Util::getCollateForIS() . '=' . $dbi->quoteString($this->realName);
-            $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
-            if ($searchClause !== '') {
-                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'ROUTINE_NAME');
-            }
-
-            return (int) $dbi->fetchValue($query);
-        }
-
-        $query = 'SHOW PROCEDURE STATUS WHERE `Db`=' . $dbi->quoteString($this->realName) . ' ';
-        if ($searchClause !== '') {
-            $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'Name');
-        }
-
-        return $dbi->queryAndGetNumRows($query);
-    }
-
-    /**
-     * Returns the number of functions present inside this database
-     *
-     * @param string $searchClause A string used to filter the results of
-     *                             the query
-     */
-    private function getFunctionCount(string $searchClause): int
-    {
-        $dbi = DatabaseInterface::getInstance();
-        if (! Config::getInstance()->selectedServer['DisableIS']) {
-            $query = 'SELECT COUNT(*) ';
-            $query .= 'FROM `INFORMATION_SCHEMA`.`ROUTINES` ';
-            $query .= 'WHERE `ROUTINE_SCHEMA` '
-                . Util::getCollateForIS() . '=' . $dbi->quoteString($this->realName) . ' ';
-            $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
-            if ($searchClause !== '') {
-                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'ROUTINE_NAME');
-            }
-
-            return (int) $dbi->fetchValue($query);
-        }
-
-        $query = 'SHOW FUNCTION STATUS WHERE `Db`=' . $dbi->quoteString($this->realName) . ' ';
-        if ($searchClause !== '') {
-            $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'Name');
-        }
-
-        return $dbi->queryAndGetNumRows($query);
-    }
-
-    /**
-     * Returns the number of events present inside this database
-     *
-     * @param string $searchClause A string used to filter the results of
-     *                             the query
-     */
-    private function getEventCount(string $searchClause): int
-    {
-        $dbi = DatabaseInterface::getInstance();
-        if (! Config::getInstance()->selectedServer['DisableIS']) {
-            $query = 'SELECT COUNT(*) ';
-            $query .= 'FROM `INFORMATION_SCHEMA`.`EVENTS` ';
-            $query .= 'WHERE `EVENT_SCHEMA` '
-                . Util::getCollateForIS() . '=' . $dbi->quoteString($this->realName) . ' ';
-            if ($searchClause !== '') {
-                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'EVENT_NAME');
-            }
-
-            return (int) $dbi->fetchValue($query);
-        }
-
-        $query = 'SHOW EVENTS FROM ' . Util::backquote($this->realName) . ' ';
-        if ($searchClause !== '') {
-            $query .= 'WHERE ' . $this->getWhereClauseForSearch($searchClause, 'Name');
-        }
-
-        return $dbi->queryAndGetNumRows($query);
-    }
-
-    /**
-     * Returns the WHERE clause for searching inside a database
-     *
-     * @param string $searchClause A string used to filter the results of the query
-     * @param string $columnName   Name of the column in the result set to match
-     *
-     * @return string WHERE clause for searching
-     */
-    private function getWhereClauseForSearch(
-        string $searchClause,
-        string $columnName,
-    ): string {
-        $dbi = DatabaseInterface::getInstance();
-
-        return Util::backquote($columnName) . ' LIKE '
-            . $dbi->quoteString('%' . $dbi->escapeMysqlWildcards($searchClause) . '%');
     }
 
     /**
@@ -257,7 +100,7 @@ class NodeDatabase extends Node
      * @param int    $pos          The offset of the list within the results
      * @param string $searchClause A string used to filter the results of the query
      *
-     * @return mixed[]
+     * @return string[]
      */
     public function getData(
         RelationParameters $relationParameters,
@@ -266,13 +109,22 @@ class NodeDatabase extends Node
         string $searchClause = '',
     ): array {
         $retval = match ($type) {
-            'tables' => $this->getTables($pos, $searchClause),
-            'views' => $this->getViews($pos, $searchClause),
-            'procedures' => $this->getProcedures($pos, $searchClause),
-            'functions' => $this->getFunctions($pos, $searchClause),
-            'events' => $this->getEvents($pos, $searchClause),
+            'tables' => $this->objectFetcher->getTables($this->realName, $searchClause),
+            'views' => $this->objectFetcher->getViews($this->realName, $searchClause),
+            'procedures' => $this->objectFetcher->getProcedures($this->realName, $searchClause),
+            'functions' => $this->objectFetcher->getFunctions($this->realName, $searchClause),
+            'events' => $this->objectFetcher->getEvents($this->realName, $searchClause),
             default => [],
         };
+
+        $config = Config::getInstance();
+        $maxItems = $config->settings['MaxNavigationItems'];
+
+        if ($config->settings['NaturalOrder']) {
+            usort($retval, strnatcasecmp(...));
+        }
+
+        $retval = array_slice($retval, $pos, $maxItems);
 
         // Remove hidden items so that they are not displayed in navigation tree
         if ($relationParameters->navigationItemsHidingFeature !== null) {
@@ -321,237 +173,6 @@ class NodeDatabase extends Node
         }
 
         return $hiddenItems;
-    }
-
-    /**
-     * Returns the list of tables or views inside this database
-     *
-     * @param string $which        tables|views
-     * @param int    $pos          The offset of the list within the results
-     * @param string $searchClause A string used to filter the results of the query
-     *
-     * @return mixed[]
-     */
-    private function getTablesOrViews(string $which, int $pos, string $searchClause): array
-    {
-        $condition = $which === 'tables' ? 'IN' : 'NOT IN';
-
-        $config = Config::getInstance();
-        $maxItems = $config->settings['MaxNavigationItems'];
-        $dbi = DatabaseInterface::getInstance();
-        if (! $config->selectedServer['DisableIS']) {
-            $query = 'SELECT `TABLE_NAME` AS `name` ';
-            $query .= 'FROM `INFORMATION_SCHEMA`.`TABLES` ';
-            $query .= 'WHERE `TABLE_SCHEMA`=' . $dbi->quoteString($this->realName) . ' ';
-            $query .= 'AND `TABLE_TYPE` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
-            if ($searchClause !== '') {
-                $query .= 'AND `TABLE_NAME` LIKE ';
-                $query .= $dbi->quoteString(
-                    '%' . $dbi->escapeMysqlWildcards($searchClause) . '%',
-                );
-            }
-
-            $query .= 'ORDER BY `TABLE_NAME` ASC ';
-            $retval = $dbi->fetchResult($query);
-
-            if ($config->settings['NaturalOrder']) {
-                usort($retval, 'strnatcasecmp');
-            }
-
-            return array_slice($retval, $pos, $maxItems);
-        }
-
-        $query = ' SHOW FULL TABLES FROM ';
-        $query .= Util::backquote($this->realName);
-        $query .= ' WHERE `Table_type` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
-        if ($searchClause !== '') {
-            $query .= 'AND ' . Util::backquote('Tables_in_' . $this->realName);
-            $query .= ' LIKE ' . $dbi->quoteString(
-                '%' . $dbi->escapeMysqlWildcards($searchClause) . '%',
-            );
-        }
-
-        $retval = [];
-        $handle = $dbi->tryQuery($query);
-        if ($handle !== false) {
-            $retval = $handle->fetchAllColumn();
-        }
-
-        if ($config->settings['NaturalOrder']) {
-            usort($retval, 'strnatcasecmp');
-        }
-
-        return array_slice($retval, $pos, $maxItems);
-    }
-
-    /**
-     * Returns the list of tables inside this database
-     *
-     * @param int    $pos          The offset of the list within the results
-     * @param string $searchClause A string used to filter the results of the query
-     *
-     * @return mixed[]
-     */
-    private function getTables(int $pos, string $searchClause): array
-    {
-        return $this->getTablesOrViews('tables', $pos, $searchClause);
-    }
-
-    /**
-     * Returns the list of views inside this database
-     *
-     * @param int    $pos          The offset of the list within the results
-     * @param string $searchClause A string used to filter the results of the query
-     *
-     * @return mixed[]
-     */
-    private function getViews(int $pos, string $searchClause): array
-    {
-        return $this->getTablesOrViews('views', $pos, $searchClause);
-    }
-
-    /**
-     * Returns the list of procedures or functions inside this database
-     *
-     * @param string $routineType  PROCEDURE|FUNCTION
-     * @param int    $pos          The offset of the list within the results
-     * @param string $searchClause A string used to filter the results of the query
-     *
-     * @return mixed[]
-     */
-    private function getRoutines(string $routineType, int $pos, string $searchClause): array
-    {
-        $config = Config::getInstance();
-        $maxItems = $config->settings['MaxNavigationItems'];
-        $dbi = DatabaseInterface::getInstance();
-        if (! $config->selectedServer['DisableIS']) {
-            $query = 'SELECT `ROUTINE_NAME` AS `name` ';
-            $query .= 'FROM `INFORMATION_SCHEMA`.`ROUTINES` ';
-            $query .= 'WHERE `ROUTINE_SCHEMA` '
-                . Util::getCollateForIS() . '=' . $dbi->quoteString($this->realName);
-            $query .= "AND `ROUTINE_TYPE`='" . $routineType . "' ";
-            if ($searchClause !== '') {
-                $query .= 'AND `ROUTINE_NAME` LIKE ';
-                $query .= $dbi->quoteString(
-                    '%' . $dbi->escapeMysqlWildcards($searchClause) . '%',
-                );
-            }
-
-            $query .= 'ORDER BY `ROUTINE_NAME` ASC ';
-            $retval = $dbi->fetchResult($query);
-
-            if ($config->settings['NaturalOrder']) {
-                usort($retval, 'strnatcasecmp');
-            }
-
-            return array_slice($retval, $pos, $maxItems);
-        }
-
-        $query = 'SHOW ' . $routineType . ' STATUS WHERE `Db`=' . $dbi->quoteString($this->realName) . ' ';
-        if ($searchClause !== '') {
-            $query .= 'AND `Name` LIKE ';
-            $query .= $dbi->quoteString(
-                '%' . $dbi->escapeMysqlWildcards($searchClause) . '%',
-            );
-        }
-
-        $retval = [];
-        $handle = $dbi->tryQuery($query);
-        if ($handle !== false) {
-            while ($arr = $handle->fetchAssoc()) {
-                $retval[] = $arr['Name'];
-            }
-        }
-
-        if ($config->settings['NaturalOrder']) {
-            usort($retval, 'strnatcasecmp');
-        }
-
-        return array_slice($retval, $pos, $maxItems);
-    }
-
-    /**
-     * Returns the list of procedures inside this database
-     *
-     * @param int    $pos          The offset of the list within the results
-     * @param string $searchClause A string used to filter the results of the query
-     *
-     * @return mixed[]
-     */
-    private function getProcedures(int $pos, string $searchClause): array
-    {
-        return $this->getRoutines('PROCEDURE', $pos, $searchClause);
-    }
-
-    /**
-     * Returns the list of functions inside this database
-     *
-     * @param int    $pos          The offset of the list within the results
-     * @param string $searchClause A string used to filter the results of the query
-     *
-     * @return mixed[]
-     */
-    private function getFunctions(int $pos, string $searchClause): array
-    {
-        return $this->getRoutines('FUNCTION', $pos, $searchClause);
-    }
-
-    /**
-     * Returns the list of events inside this database
-     *
-     * @param int    $pos          The offset of the list within the results
-     * @param string $searchClause A string used to filter the results of the query
-     *
-     * @return mixed[]
-     */
-    private function getEvents(int $pos, string $searchClause): array
-    {
-        $config = Config::getInstance();
-        $maxItems = $config->settings['MaxNavigationItems'];
-        $dbi = DatabaseInterface::getInstance();
-        if (! $config->selectedServer['DisableIS']) {
-            $query = 'SELECT `EVENT_NAME` AS `name` ';
-            $query .= 'FROM `INFORMATION_SCHEMA`.`EVENTS` ';
-            $query .= 'WHERE `EVENT_SCHEMA` '
-                . Util::getCollateForIS() . '=' . $dbi->quoteString($this->realName) . ' ';
-            if ($searchClause !== '') {
-                $query .= 'AND `EVENT_NAME` LIKE ';
-                $query .= $dbi->quoteString(
-                    '%' . $dbi->escapeMysqlWildcards($searchClause) . '%',
-                );
-            }
-
-            $query .= 'ORDER BY `EVENT_NAME` ASC ';
-            $retval = $dbi->fetchResult($query);
-
-            if ($config->settings['NaturalOrder']) {
-                usort($retval, 'strnatcasecmp');
-            }
-
-            return array_slice($retval, $pos, $maxItems);
-        }
-
-        $query = 'SHOW EVENTS FROM ' . Util::backquote($this->realName) . ' ';
-        if ($searchClause !== '') {
-            $query .= 'WHERE `Name` LIKE ';
-            $query .= $dbi->quoteString(
-                '%' . $dbi->escapeMysqlWildcards($searchClause) . '%',
-            );
-        }
-
-        $retval = [];
-        $handle = $dbi->tryQuery($query);
-        if ($handle !== false) {
-            while ($arr = $handle->fetchAssoc()) {
-                $retval[] = $arr['Name'];
-            }
-        }
-
-        if ($config->settings['NaturalOrder']) {
-            usort($retval, 'strnatcasecmp');
-        }
-
-        return array_slice($retval, $pos, $maxItems);
     }
 
     /**

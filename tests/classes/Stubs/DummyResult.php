@@ -156,12 +156,12 @@ class DummyResult implements ResultInterface
     }
 
     /**
-     * Returns values from the first column of each row
+     * Returns values from the selected column of each row
      *
      * @return array<int, string|null>
      * @psalm-return list<string|null>
      */
-    public function fetchAllColumn(): array
+    public function fetchAllColumn(int|string $column = 0): array
     {
         if ($this->result === null) {
             return [];
@@ -170,7 +170,11 @@ class DummyResult implements ResultInterface
         // This function should return all rows, not only the remaining rows
         $this->seek(0);
 
-        return array_column($this->result, 0);
+        if (is_string($column)) {
+            return array_column($this->fetchAllAssoc(), $column);
+        }
+
+        return array_column($this->result, $column);
     }
 
     /**

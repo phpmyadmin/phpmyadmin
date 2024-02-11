@@ -5142,7 +5142,7 @@
     </InvalidReturnType>
     <MixedReturnTypeCoercion>
       <code><![CDATA[array<array-key, string|null>]]></code>
-      <code><![CDATA[array_column($this->result->fetch_all(), 0)]]></code>
+      <code>array_column($result, $column)</code>
       <code><![CDATA[array_column($this->result->fetch_all(), 1, 0)]]></code>
       <code><![CDATA[list<string|null>]]></code>
     </MixedReturnTypeCoercion>
@@ -7002,11 +7002,6 @@
       <code>$item</code>
       <code>$item</code>
       <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
       <code>$path</code>
       <code>$path[0]</code>
       <code>$path[0]</code>
@@ -7030,7 +7025,6 @@
     </MixedArrayAccess>
     <MixedAssignment>
       <code>$db</code>
-      <code>$item</code>
       <code>$item</code>
       <code>$part</code>
       <code>$path</code>
@@ -7182,43 +7176,9 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <InvalidArgument>
-      <code><![CDATA[usort($retval, 'strnatcasecmp')]]></code>
-      <code><![CDATA[usort($retval, 'strnatcasecmp')]]></code>
-      <code><![CDATA[usort($retval, 'strnatcasecmp')]]></code>
-    </InvalidArgument>
-    <InvalidReturnStatement>
-      <code><![CDATA[$dbi->queryAndGetNumRows($query)]]></code>
-      <code><![CDATA[$dbi->queryAndGetNumRows($query)]]></code>
-      <code><![CDATA[$dbi->queryAndGetNumRows($query)]]></code>
-      <code><![CDATA[$dbi->queryAndGetNumRows($query)]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code>int</code>
-      <code>int</code>
-      <code>int</code>
-      <code>int</code>
-    </InvalidReturnType>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[usort($retval, 'strnatcasecmp')]]></code>
-      <code><![CDATA[usort($retval, 'strnatcasecmp')]]></code>
-      <code><![CDATA[usort($retval, 'strnatcasecmp')]]></code>
-    </MixedArgumentTypeCoercion>
   </file>
   <file src="src/Navigation/Nodes/NodeDatabaseChild.php">
     <PossiblyInvalidPropertyFetch>
@@ -7254,6 +7214,16 @@
     <PossiblyUnusedProperty>
       <code>$secondIcon</code>
     </PossiblyUnusedProperty>
+  </file>
+  <file src="src/Navigation/Nodes/ObjectFetcher.php">
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[$this->dbi->fetchResult($query)]]></code>
+      <code><![CDATA[$this->dbi->fetchResult($query)]]></code>
+      <code><![CDATA[$this->dbi->fetchResult($query)]]></code>
+      <code>array{name:string, type:string}[]</code>
+      <code>string[]</code>
+      <code>string[]</code>
+    </MixedReturnTypeCoercion>
   </file>
   <file src="src/Normalization.php">
     <DeprecatedMethod>
@@ -14366,6 +14336,14 @@
       <code>[]</code>
     </InvalidPropertyAssignmentValue>
   </file>
+  <file src="tests/classes/Navigation/Nodes/ObjectFetcherTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="tests/classes/NormalizationTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
@@ -15023,6 +15001,11 @@
     <InvalidReturnType>
       <code><![CDATA[array<array-key, string|null>]]></code>
     </InvalidReturnType>
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[array_column($this->fetchAllAssoc(), $column)]]></code>
+      <code><![CDATA[array_column($this->result, $column)]]></code>
+      <code><![CDATA[list<string|null>]]></code>
+    </MixedReturnTypeCoercion>
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
