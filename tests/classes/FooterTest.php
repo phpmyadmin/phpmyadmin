@@ -45,7 +45,7 @@ class FooterTest extends AbstractTestCase
         $config->selectedServer['verbose'] = 'verbose host';
         $_GET['reload_left_frame'] = '1';
         $GLOBALS['focus_querywindow'] = 'main_pane_left';
-        $this->object = new Footer(new Template());
+        $this->object = new Footer(new Template(), $config);
         unset($GLOBALS['error_message']);
         unset($GLOBALS['sql_query']);
         $_POST = [];
@@ -103,7 +103,7 @@ class FooterTest extends AbstractTestCase
      */
     public function testDisable(): void
     {
-        $footer = new Footer(new Template());
+        $footer = new Footer(new Template(), Config::getInstance());
         $footer->disable();
         self::assertEquals(
             '',
@@ -114,7 +114,7 @@ class FooterTest extends AbstractTestCase
     public function testGetDisplayWhenAjaxIsEnabled(): void
     {
         $template = new Template();
-        $footer = new Footer($template);
+        $footer = new Footer($template, Config::getInstance());
         $footer->setAjax(true);
         self::assertEquals(
             $template->render('modals/function_confirm') . "\n"
@@ -129,7 +129,7 @@ class FooterTest extends AbstractTestCase
      */
     public function testGetScripts(): void
     {
-        $footer = new Footer(new Template());
+        $footer = new Footer(new Template(), Config::getInstance());
         self::assertStringContainsString(
             '<script data-cfasync="false">',
             $footer->getScripts()->getDisplay(),
@@ -142,7 +142,7 @@ class FooterTest extends AbstractTestCase
     #[Group('medium')]
     public function testDisplay(): void
     {
-        $footer = new Footer(new Template());
+        $footer = new Footer(new Template(), Config::getInstance());
         self::assertStringContainsString(
             'Open new phpMyAdmin window',
             $footer->getDisplay(),
@@ -155,7 +155,7 @@ class FooterTest extends AbstractTestCase
     public function testMinimal(): void
     {
         $template = new Template();
-        $footer = new Footer($template);
+        $footer = new Footer($template, Config::getInstance());
         $footer->setMinimal();
         self::assertEquals(
             $template->render('modals/function_confirm') . "\n"
@@ -169,7 +169,7 @@ class FooterTest extends AbstractTestCase
     public function testSetAjax(): void
     {
         $isAjax = new ReflectionProperty(Footer::class, 'isAjax');
-        $footer = new Footer(new Template());
+        $footer = new Footer(new Template(), Config::getInstance());
 
         self::assertFalse($isAjax->getValue($footer));
         $footer->setAjax(true);

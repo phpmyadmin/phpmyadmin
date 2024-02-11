@@ -155,7 +155,7 @@ class ResponseRenderer
             new Console($relation, $this->template, new BookmarkRepository($dbi, $relation)),
             $config,
         );
-        $this->footer = new Footer($this->template);
+        $this->footer = new Footer($this->template, $config);
         $this->response = ResponseFactory::create()->createResponse();
 
         $this->setAjax(! empty($_REQUEST['ajax_request']));
