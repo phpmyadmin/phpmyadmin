@@ -52,7 +52,8 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
 
         $GLOBALS['lang'] = 'en';
         $this->template = new Template();
-        Config::getInstance()->selectedServer['pmadb'] = 'phpmyadmin';
+        $config = Config::getInstance();
+        $config->selectedServer['pmadb'] = 'phpmyadmin';
         $dummyDbi = new DbiDummy();
         $dummyDbi->addSelectDb('phpmyadmin');
         $dbi = new DatabaseInterface($dummyDbi);
@@ -60,6 +61,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $this->header = new Header(
             $this->template,
             new Console($relation, $this->template, new BookmarkRepository($dbi, $relation)),
+            $config,
         );
         $this->footer = new Footer($this->template);
         $this->response = ResponseFactory::create()->createResponse();

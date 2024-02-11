@@ -6290,14 +6290,6 @@
   </file>
   <file src="src/Header.php">
     <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
@@ -6320,7 +6312,7 @@
       <code>strtolower</code>
     </RedundantFunctionCallGivenDocblockType>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $config->get('DisableShortcutKeys')]]></code>
+      <code><![CDATA[! $this->config->get('DisableShortcutKeys')]]></code>
       <code><![CDATA[empty($_REQUEST['message'])]]></code>
       <code><![CDATA[empty($_REQUEST['recent_table'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -10431,6 +10423,7 @@
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
@@ -13962,6 +13955,7 @@
   </file>
   <file src="tests/classes/HeaderTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
