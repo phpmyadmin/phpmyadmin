@@ -888,7 +888,6 @@ class Import
      * @param ImportTable[]                                             $tables
      * @param array{0:ColumnType[], 1:(int|string)[], 2?:true[]}[]|null $analyses      Analyses of the tables
      * @param string[]|null                                             $additionalSql Additional SQL to be executed
-     * @param mixed[]|null                                              $options       Associative array of options
      * @param string[]                                                  $sqlData       List of SQL to be executed
      */
     public function buildSql(
@@ -896,23 +895,10 @@ class Import
         array $tables,
         array|null $analyses = null,
         array|null $additionalSql = null,
-        bool $createDb = true,
-        array|null $options = null,
         array &$sqlData = [],
     ): void {
         /* Needed to quell the beast that is Message */
         ImportSettings::$importNotice = '';
-
-        /* Take care of the options */
-        $collation = $options['db_collation'] ?? 'utf8_general_ci';
-        $charset = $options['db_charset'] ?? 'utf8';
-
-        if ($createDb) {
-            $sql = 'CREATE DATABASE IF NOT EXISTS ' . Util::backquote($dbName)
-                . ' DEFAULT CHARACTER SET ' . $charset . ' COLLATE ' . $collation
-                . ';';
-            $this->runQuery($sql, $sqlData);
-        }
 
         /* Run the $additional_sql statements supplied by the caller plug-in */
         if ($additionalSql != null) {
@@ -977,8 +963,7 @@ class Import
                     $tempSQLStr .= ', ';
                 }
 
-                $tempSQLStr .= ') DEFAULT CHARACTER SET ' . $charset
-                    . ' COLLATE ' . $collation . ';';
+                $tempSQLStr .= ')';
 
                 /**
                  * Each SQL statement is executed immediately
@@ -994,7 +979,6 @@ class Import
          *
          * Only one insert query is formed for each table
          */
-        $tempSQLStr = '';
         $colCount = 0;
         $dbi = DatabaseInterface::getInstance();
         foreach ($tables as $i => $table) {
@@ -1066,8 +1050,6 @@ class Import
                 unset($table->rows[$j]);
             }
 
-            $tempSQLStr .= ';';
-
             /**
              * Each SQL statement is executed immediately
              * after it is formed so that we don't have
@@ -1075,9 +1057,6 @@ class Import
              */
             $this->runQuery($tempSQLStr, $sqlData);
         }
-
-        /* No longer needed */
-        unset($tempSQLStr);
 
         /**
          * A work in progress
@@ -1403,5 +1382,19 @@ class Import
         }
 
         return $importFileName;
+    }
+
+    /**
+     * @param string[] $sqlData List of SQL statements to be executed
+     *
+     * @return string[]
+     */
+    public function createDatabase(string $dbName, string $charset, string $collation, array $sqlData): array
+    {
+        $sql = 'CREATE DATABASE IF NOT EXISTS ' . Util::backquote($dbName)
+            . ' DEFAULT CHARACTER SET ' . $charset . ' COLLATE ' . $collation;
+        $this->runQuery($sql, $sqlData);
+
+        return $sqlData;
     }
 }

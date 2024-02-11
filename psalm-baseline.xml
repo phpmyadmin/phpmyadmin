@@ -6428,8 +6428,6 @@
     <MixedAssignment>
       <code><![CDATA[$active]]></code>
       <code><![CDATA[$cellValue]]></code>
-      <code><![CDATA[$charset]]></code>
-      <code><![CDATA[$collation]]></code>
       <code><![CDATA[$importPlugin]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
@@ -6440,10 +6438,6 @@
       <code><![CDATA[getProperties]]></code>
     </MixedMethodCall>
     <MixedOperand>
-      <code><![CDATA[$charset]]></code>
-      <code><![CDATA[$charset]]></code>
-      <code><![CDATA[$collation]]></code>
-      <code><![CDATA[$collation]]></code>
       <code><![CDATA[$importPlugin->getProperties()->getExtension()]]></code>
       <code><![CDATA[$size[self::D]]]></code>
       <code><![CDATA[ImportSettings::$maximumTime]]></code>
@@ -8702,13 +8696,9 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$fields[]]]></code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$dbName]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_REQUEST['csv_new_db_name']]]></code>
       <code><![CDATA[$_REQUEST['csv_new_tbl_name']]]></code>
-      <code><![CDATA[$dbName]]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$maxLines]]></code>

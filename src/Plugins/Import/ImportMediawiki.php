@@ -305,11 +305,16 @@ class ImportMediawiki extends ImportPlugin
             // Obtain the best-fit MySQL types for each column
             $analysis = $this->import->analyzeTable($table);
 
+            $dbName = Current::$database !== '' ? Current::$database : 'mediawiki_DB';
+
+            if (Current::$database === '') {
+                $sqlStatements = $this->import->createDatabase($dbName, 'utf8', 'utf8_general_ci', $sqlStatements);
+            }
+
             $this->import->buildSql(
-                Current::$database !== '' ? Current::$database : 'mediawiki_DB',
+                $dbName,
                 [$table],
                 [$analysis],
-                createDb: Current::$database === '',
                 sqlData: $sqlStatements,
             );
         }
