@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-02-04 00:18+0000\n"
+"POT-Creation-Date: 2024-02-11 00:19+0000\n"
 "PO-Revision-Date: 2024-01-16 15:06+0000\n"
 "Last-Translator: yangyangdaji <1504305527@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -333,7 +333,7 @@ msgstr "正在加载"
 #: resources/templates/table/zoom_search/result_form.twig:79
 #: resources/templates/table/zoom_search/result_form.twig:95
 #: src/Controllers/JavaScriptMessagesController.php:146
-#: src/Tracking/Tracking.php:207 src/Tracking/Tracking.php:589
+#: src/Tracking/Tracking.php:207 src/Tracking/Tracking.php:587
 msgid "Close"
 msgstr "关闭"
 
@@ -472,7 +472,7 @@ msgstr "节点用户"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Import/Import.php:1246 src/Menu.php:219 src/Menu.php:323
+#: src/Import/Import.php:1226 src/Menu.php:219 src/Menu.php:323
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:58
 #: src/Navigation/Nodes/NodeTable.php:289 src/Util.php:1057 src/Util.php:1482
@@ -894,7 +894,7 @@ msgstr "重新查询"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:399
-#: src/Display/Results.php:2541 src/Html/Generator.php:545
+#: src/Display/Results.php:2533 src/Html/Generator.php:545
 #: src/Html/Generator.php:811
 msgid "Edit"
 msgstr "编辑"
@@ -913,7 +913,7 @@ msgstr "编辑"
 #: resources/templates/setup/home/index.twig:68
 #: resources/templates/sql/query.twig:184
 #: src/Controllers/JavaScriptMessagesController.php:400
-#: src/Display/Results.php:2600 src/Tracking/Tracking.php:231
+#: src/Display/Results.php:2592 src/Tracking/Tracking.php:231
 msgid "Delete"
 msgstr "删除"
 
@@ -962,7 +962,7 @@ msgstr "历史"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:57
 #: resources/templates/table/structure/display_table_stats.twig:96
-#: src/Import/Import.php:1216 src/Import/Import.php:1247
+#: src/Import/Import.php:1196 src/Import/Import.php:1227
 #: src/Plugins/Export/ExportCodegen.php:52 src/Plugins/Export/ExportCsv.php:43
 #: src/Plugins/Export/ExportExcel.php:37
 #: src/Plugins/Export/ExportHtmlword.php:47
@@ -971,12 +971,12 @@ msgstr "历史"
 #: src/Plugins/Export/ExportOds.php:51 src/Plugins/Export/ExportOdt.php:60
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
 #: src/Plugins/Export/ExportSql.php:115
-#: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:76
-#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:68
-#: src/Plugins/Import/ImportLdi.php:52
-#: src/Plugins/Import/ImportMediawiki.php:56
-#: src/Plugins/Import/ImportOds.php:49 src/Plugins/Import/ImportShp.php:69
-#: src/Plugins/Import/ImportSql.php:41 src/Plugins/Import/ImportXml.php:47
+#: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:60
+#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:69
+#: src/Plugins/Import/ImportLdi.php:53
+#: src/Plugins/Import/ImportMediawiki.php:57
+#: src/Plugins/Import/ImportOds.php:50 src/Plugins/Import/ImportShp.php:70
+#: src/Plugins/Import/ImportSql.php:42 src/Plugins/Import/ImportXml.php:48
 msgid "Options"
 msgstr "选项"
 
@@ -1086,7 +1086,7 @@ msgstr "用时："
 #: resources/templates/console/display.twig:121
 #: resources/templates/server/status/processes/index.twig:14
 #: resources/templates/server/status/variables/index.twig:37
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1238
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1229
 #: src/Html/Generator.php:601
 msgid "Refresh"
 msgstr "刷新"
@@ -1710,7 +1710,7 @@ msgstr "用户"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:382
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
-#: src/Plugins/Export/ExportSql.php:951 src/Plugins/Export/ExportXml.php:100
+#: src/Plugins/Export/ExportSql.php:951 src/Plugins/Export/ExportXml.php:84
 #: src/Util.php:1491
 msgid "Events"
 msgstr "事件"
@@ -1857,7 +1857,7 @@ msgstr "数据表："
 #: src/Controllers/Server/DatabasesController.php:264
 #: src/Navigation/Nodes/NodeTableContainer.php:23
 #: src/Navigation/Nodes/NodeTableContainer.php:25
-#: src/Plugins/Export/ExportXml.php:115 src/Server/Status/Data.php:151
+#: src/Plugins/Export/ExportXml.php:99 src/Server/Status/Data.php:133
 msgid "Tables"
 msgstr "表"
 
@@ -1935,8 +1935,8 @@ msgstr "排序"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:22
 #: resources/templates/table/search/index.twig:154
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1497
-#: src/Display/Results.php:1504 src/Util.php:2000 src/Util.php:2017
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1496
+#: src/Display/Results.php:1503 src/Util.php:2000 src/Util.php:2017
 msgid "Ascending"
 msgstr "递增"
 
@@ -1947,8 +1947,8 @@ msgstr "递增"
 #: resources/templates/server/status/processes/list.twig:11
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:159
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1492
-#: src/Display/Results.php:1509 src/Util.php:2005 src/Util.php:2022
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1491
+#: src/Display/Results.php:1508 src/Util.php:2005 src/Util.php:2022
 msgid "Descending"
 msgstr "递减"
 
@@ -2411,7 +2411,7 @@ msgstr[0] "%s 张表"
 #: resources/templates/database/structure/body_for_table_summary.twig:11
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:4 src/Menu.php:502
-#: src/Server/Status/Data.php:149 src/Util.php:1475
+#: src/Server/Status/Data.php:131 src/Util.php:1475
 msgid "Replication"
 msgstr "复制"
 
@@ -2543,7 +2543,7 @@ msgstr "该操作有可能影响一些列的定义[br]你确认做此更改吗�
 
 #: resources/templates/database/structure/copy_form.twig:2
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:241
-#: src/Plugins/Export/ExportSql.php:888 src/Plugins/Export/ExportXml.php:373
+#: src/Plugins/Export/ExportSql.php:888 src/Plugins/Export/ExportXml.php:357
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "数据库："
@@ -2593,9 +2593,9 @@ msgstr "数据字典"
 
 #: resources/templates/database/structure/index.twig:25
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:87
-#: src/Controllers/Database/TrackingController.php:136
-#: src/Controllers/Export/ExportController.php:300
+#: src/Controllers/Database/ExportController.php:86
+#: src/Controllers/Database/TrackingController.php:134
+#: src/Controllers/Export/ExportController.php:303
 msgid "No tables found in database."
 msgstr "数据库中没有表。"
 
@@ -2619,7 +2619,7 @@ msgstr "显示创建查询"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:29
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:441 src/Server/Privileges.php:1582
+#: src/Plugins/Export/ExportXml.php:425 src/Server/Privileges.php:1582
 #: src/Server/Privileges.php:1584
 msgid "Table"
 msgstr "表"
@@ -2627,7 +2627,7 @@ msgstr "表"
 #: resources/templates/database/structure/show_create.twig:29
 #: src/Navigation/Nodes/NodeViewContainer.php:23
 #: src/Navigation/Nodes/NodeViewContainer.php:25
-#: src/Plugins/Export/ExportXml.php:125
+#: src/Plugins/Export/ExportXml.php:109
 msgid "Views"
 msgstr "视图"
 
@@ -2676,7 +2676,7 @@ msgstr "使用中"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:230
 #: resources/templates/table/structure/display_table_stats.twig:118
-#: src/Controllers/Server/DatabasesController.php:265 src/Import/Import.php:157
+#: src/Controllers/Server/DatabasesController.php:265 src/Import/Import.php:150
 msgid "Rows"
 msgstr "行数"
 
@@ -2770,7 +2770,7 @@ msgstr "追踪报告"
 
 #: resources/templates/database/tracking/tables.twig:126
 #: resources/templates/table/tracking/main.twig:80
-#: src/Tracking/Tracking.php:588
+#: src/Tracking/Tracking.php:586
 msgid "Structure snapshot"
 msgstr "结构快照"
 
@@ -2913,7 +2913,7 @@ msgstr "WKB 二进制表达"
 #: resources/templates/display/results/table.twig:321
 #: resources/templates/gis_data_editor_form.twig:62
 #: src/Controllers/JavaScriptMessagesController.php:487
-#: src/Display/Results.php:2545 src/Html/Generator.php:78
+#: src/Display/Results.php:2537 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "复制"
 
@@ -2950,7 +2950,7 @@ msgstr "转换为假名"
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Html/Generator.php:762 src/Import/Import.php:146 src/InsertEdit.php:493
+#: src/Html/Generator.php:762 src/Import/Import.php:139 src/InsertEdit.php:493
 #: src/Message.php:145
 msgid "Error"
 msgstr "错误"
@@ -3370,7 +3370,7 @@ msgstr "常规设置"
 #: resources/templates/modals/change_password.twig:1
 #: resources/templates/server/privileges/change_password.twig:8
 #: resources/templates/server/privileges/change_password.twig:10
-#: src/Controllers/UserPasswordController.php:88
+#: src/Controllers/UserPasswordController.php:87
 msgid "Change password"
 msgstr "修改密码"
 
@@ -3424,7 +3424,7 @@ msgstr "服务器连接："
 
 #: resources/templates/home/index.twig:193
 #: src/Plugins/Export/ExportLatex.php:214 src/Plugins/Export/ExportSql.php:720
-#: src/Plugins/Export/ExportXml.php:220
+#: src/Plugins/Export/ExportXml.php:204
 msgid "Server version:"
 msgstr "服务器版本："
 
@@ -3525,7 +3525,7 @@ msgstr "取用它"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:1
 #: src/Controllers/JavaScriptMessagesController.php:434
-#: src/Export/Export.php:1274 src/Html/Generator.php:877
+#: src/Export/Export.php:1265 src/Html/Generator.php:877
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "返回"
@@ -4282,7 +4282,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr "请重新登录 phpMyAdmin 以加载新配置并使其生效。"
 
 #: resources/templates/server/binlog/index.twig:2 src/Menu.php:495
-#: src/Server/Status/Data.php:144 src/Util.php:1474
+#: src/Server/Status/Data.php:126 src/Util.php:1474
 msgid "Binary log"
 msgstr "二进制日志"
 
@@ -4291,7 +4291,7 @@ msgid "Select binary log to view"
 msgstr "选择要查看的二进制日志"
 
 #: resources/templates/server/binlog/index.twig:24
-#: src/Server/Status/Data.php:153
+#: src/Server/Status/Data.php:135
 msgid "Files"
 msgstr "文件"
 
@@ -4415,7 +4415,7 @@ msgstr "说明"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:20
 #: resources/templates/sql/query.twig:188 src/Config/ConfigFile.php:579
-#: src/Menu.php:508 src/Server/Status/Data.php:211 src/Util.php:1476
+#: src/Menu.php:508 src/Server/Status/Data.php:193 src/Util.php:1476
 msgid "Variables"
 msgstr "变量"
 
@@ -5157,7 +5157,7 @@ msgstr ""
 #: resources/templates/server/replication/change_primary.twig:22
 #: resources/templates/server/replication/primary_add_replica_user.twig:24
 #: src/Plugins/Export/ExportLatex.php:206 src/Plugins/Export/ExportSql.php:709
-#: src/Plugins/Export/ExportXml.php:211
+#: src/Plugins/Export/ExportXml.php:195
 msgid "Host:"
 msgstr "主机："
 
@@ -5251,7 +5251,7 @@ msgid "This server is configured as primary in a replication process."
 msgstr "此服务器已被配置为一个复制进程中的主服务器。"
 
 #: resources/templates/server/replication/primary_replication.twig:6
-#: src/Server/Status/Data.php:188
+#: src/Server/Status/Data.php:170
 msgid "Show primary status"
 msgstr "显示主服务器状态"
 
@@ -5700,7 +5700,7 @@ msgid "Start auto refresh"
 msgstr "开启自动刷新"
 
 #: resources/templates/server/status/processes/list.twig:43
-#: src/Display/Results.php:2619
+#: src/Display/Results.php:2611
 msgid "Kill"
 msgstr "杀死"
 
@@ -6065,12 +6065,12 @@ msgstr "性能分析结果。"
 #: src/Controllers/Table/Partition/RepairController.php:50
 #: src/Controllers/Table/Partition/TruncateController.php:51
 #: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:993 src/Display/Results.php:3214
+#: src/Database/Routines.php:993 src/Display/Results.php:3200
 #: src/Message.php:129
 msgid "Your SQL query has been executed successfully."
 msgstr "您的 SQL 语句已成功运行。"
 
-#: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:138
+#: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:120
 #: src/Server/Status/Processes.php:103
 msgid "SQL query"
 msgstr "SQL 查询"
@@ -7059,7 +7059,7 @@ msgstr "导出触发器 %s"
 #: src/Plugins/Export/ExportOdt.php:657 src/Plugins/Export/ExportPdf.php:251
 #: src/Plugins/Export/ExportSql.php:1925
 #: src/Plugins/Export/ExportTexytext.php:498
-#: src/Plugins/Export/ExportXml.php:120 src/Util.php:1492 src/Util.php:1508
+#: src/Plugins/Export/ExportXml.php:104 src/Util.php:1492 src/Util.php:1508
 msgid "Triggers"
 msgstr "触发器"
 
@@ -9997,12 +9997,12 @@ msgid "Put columns names in the first row"
 msgstr "首行保存字段名"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:660
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:658
 msgid "Columns enclosed with"
 msgstr "内容分隔符"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:671
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:669
 msgid "Columns escaped with"
 msgstr "内容转义符"
 
@@ -10018,12 +10018,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "删除内容中的回车换行符"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:645
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:643
 msgid "Columns terminated with"
 msgstr "字段分隔符"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:678
+#: src/Plugins/Import/ImportCsv.php:676
 msgid "Lines terminated with"
 msgstr "换行符"
 
@@ -10309,7 +10309,7 @@ msgid "Partial import: allow interrupt"
 msgstr "部分导入：允许中断"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:139 src/Plugins/Import/ImportLdi.php:69
+#: src/Plugins/Import/ImportCsv.php:140 src/Plugins/Import/ImportLdi.php:70
 msgid "Do not abort on INSERT error"
 msgstr "忽略插入错误"
 
@@ -10321,7 +10321,7 @@ msgstr "重复的键更新时添加"
 msgid "Format of imported file"
 msgstr "导入文件的格式"
 
-#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:75
+#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:76
 msgid "Use LOCAL keyword"
 msgstr "使用 LOCAL 关键字"
 
@@ -10329,7 +10329,7 @@ msgstr "使用 LOCAL 关键字"
 msgid "Column names in first row"
 msgstr "首行为字段名"
 
-#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:70
+#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:71
 msgid "Do not import empty rows"
 msgstr "不导入空行"
 
@@ -11349,10 +11349,10 @@ msgstr "已经有名为 “%s” 的页面了，请重新命名。"
 #: src/Controllers/Database/DesignerController.php:170
 #: src/Controllers/Database/DesignerController.php:175
 #: src/Controllers/Database/EventsController.php:61
-#: src/Controllers/Database/ExportController.php:69
-#: src/Controllers/Database/ExportController.php:74
-#: src/Controllers/Database/ImportController.php:66
-#: src/Controllers/Database/ImportController.php:71
+#: src/Controllers/Database/ExportController.php:68
+#: src/Controllers/Database/ExportController.php:73
+#: src/Controllers/Database/ImportController.php:67
+#: src/Controllers/Database/ImportController.php:72
 #: src/Controllers/Database/RoutinesController.php:79
 #: src/Controllers/Database/RoutinesController.php:105
 #: src/Controllers/Database/SearchController.php:54
@@ -11363,8 +11363,8 @@ msgstr "已经有名为 “%s” 的页面了，请重新命名。"
 #: src/Controllers/Database/StructureController.php:150
 #: src/Controllers/Database/Structure/FavoriteTableController.php:83
 #: src/Controllers/Database/Structure/RealRowCountController.php:62
-#: src/Controllers/Database/TrackingController.php:64
-#: src/Controllers/Database/TrackingController.php:69
+#: src/Controllers/Database/TrackingController.php:63
+#: src/Controllers/Database/TrackingController.php:68
 #: src/Controllers/JavaScriptMessagesController.php:354
 #: src/Controllers/Operations/Database/CollationController.php:64
 #: src/Controllers/Operations/DatabaseController.php:234
@@ -11391,8 +11391,8 @@ msgstr "已经有名为 “%s” 的页面了，请重新命名。"
 #: src/Controllers/Table/FindReplaceController.php:83
 #: src/Controllers/Table/GisVisualizationController.php:59
 #: src/Controllers/Table/GisVisualizationController.php:64
-#: src/Controllers/Table/ImportController.php:69
-#: src/Controllers/Table/ImportController.php:74
+#: src/Controllers/Table/ImportController.php:70
+#: src/Controllers/Table/ImportController.php:75
 #: src/Controllers/Table/IndexesController.php:68
 #: src/Controllers/Table/IndexesController.php:73
 #: src/Controllers/Table/IndexRenameController.php:58
@@ -11448,16 +11448,16 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "处理请求时出错：在数据库 %2$s 中找不到名为 %1$s 的事件。"
 
-#: src/Controllers/Database/ExportController.php:153
+#: src/Controllers/Database/ExportController.php:152
 #: src/Controllers/Server/ExportController.php:72
 #: src/Controllers/Table/ExportController.php:105
 msgid "Could not load export plugins, please check your installation!"
 msgstr "无法加载导出插件，请检查安装！"
 
-#: src/Controllers/Database/ImportController.php:82
-#: src/Controllers/Import/ImportController.php:538
-#: src/Controllers/Server/ImportController.php:62
-#: src/Controllers/Table/ImportController.php:102
+#: src/Controllers/Database/ImportController.php:83
+#: src/Controllers/Import/ImportController.php:501
+#: src/Controllers/Server/ImportController.php:63
+#: src/Controllers/Table/ImportController.php:103
 msgid "Could not load import plugins, please check your installation!"
 msgstr "无法加载导入插件，请检查您的安装！"
 
@@ -11503,8 +11503,8 @@ msgstr "您没有权限管理用户！"
 #: src/Controllers/Table/DropColumnConfirmationController.php:69
 #: src/Controllers/Table/FindReplaceController.php:92
 #: src/Controllers/Table/FindReplaceController.php:97
-#: src/Controllers/Table/ImportController.php:83
-#: src/Controllers/Table/ImportController.php:88
+#: src/Controllers/Table/ImportController.php:84
+#: src/Controllers/Table/ImportController.php:89
 #: src/Controllers/Table/IndexesController.php:82
 #: src/Controllers/Table/IndexesController.php:87
 #: src/Controllers/Table/IndexRenameController.php:72
@@ -11582,7 +11582,7 @@ msgid "Success!"
 msgstr "成功！"
 
 #: src/Controllers/Database/StructureController.php:580
-#: src/Display/Results.php:3501
+#: src/Display/Results.php:3483
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -11597,22 +11597,22 @@ msgstr "未知"
 msgid "Favorite List is full!"
 msgstr "收藏夹数量已达上限！"
 
-#: src/Controllers/Database/TrackingController.php:83
-#: src/Controllers/Database/TrackingController.php:109
+#: src/Controllers/Database/TrackingController.php:81
+#: src/Controllers/Database/TrackingController.php:107
 msgid "Tracking data deleted successfully."
 msgstr "追踪数据删除成功。"
 
-#: src/Controllers/Database/TrackingController.php:94
+#: src/Controllers/Database/TrackingController.php:92
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr "已为选中的表创建版本 %1$s，对于它们的追踪已启用。"
 
-#: src/Controllers/Database/TrackingController.php:126
+#: src/Controllers/Database/TrackingController.php:124
 msgid "No tables selected."
 msgstr "没有已选择的表。"
 
-#: src/Controllers/Database/TrackingController.php:165
+#: src/Controllers/Database/TrackingController.php:163
 msgid "Database Log"
 msgstr "数据库日志"
 
@@ -11640,11 +11640,11 @@ msgstr "如果您遇到问题，请手动提交漏洞报告。"
 msgid "You may want to refresh the page."
 msgstr "您需要刷新当前页面。"
 
-#: src/Controllers/Export/ExportController.php:111 src/Export/Export.php:1224
+#: src/Controllers/Export/ExportController.php:112 src/Export/Export.php:1209
 msgid "Bad type!"
 msgstr "类型无效！"
 
-#: src/Controllers/Export/ExportController.php:192
+#: src/Controllers/Export/ExportController.php:195
 msgid "Bad parameters!"
 msgstr "参数无效！"
 
@@ -11759,28 +11759,28 @@ msgstr ""
 "curl 扩展未找到并且 allow_url_fopen 已禁用。因此一些功能如错误报告和版本检查"
 "已禁用。"
 
-#: src/Controllers/Import/ImportController.php:195
+#: src/Controllers/Import/ImportController.php:168
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr "您想要上传的文件可能太大了，请参考%s文档%s来寻找解决方法。"
 
-#: src/Controllers/Import/ImportController.php:227
+#: src/Controllers/Import/ImportController.php:200
 msgid "Incorrect format parameter"
 msgstr "格式参数不正确"
 
-#: src/Controllers/Import/ImportController.php:347
-#: src/Controllers/Import/ImportController.php:578
+#: src/Controllers/Import/ImportController.php:316
+#: src/Controllers/Import/ImportController.php:541
 msgid "Showing bookmark"
 msgstr "显示书签"
 
-#: src/Controllers/Import/ImportController.php:367
-#: src/Controllers/Import/ImportController.php:574
+#: src/Controllers/Import/ImportController.php:336
+#: src/Controllers/Import/ImportController.php:537
 msgid "The bookmark has been deleted."
 msgstr "已删除书签。"
 
-#: src/Controllers/Import/ImportController.php:486
+#: src/Controllers/Import/ImportController.php:448
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -11789,13 +11789,13 @@ msgstr ""
 "没有接收到要导入的数据。可能是文件名没有提交，也可能是文件大小超出 PHP 限制。"
 "参见[doc@faq1-16]常见问题 1.16[/doc]。"
 
-#: src/Controllers/Import/ImportController.php:586
+#: src/Controllers/Import/ImportController.php:549
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "导入成功，执行了 %d 个查询。"
 
-#: src/Controllers/Import/ImportController.php:623
+#: src/Controllers/Import/ImportController.php:586
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -11803,7 +11803,7 @@ msgid ""
 msgstr ""
 "脚本超时，如果您要完成导入，请%s重新提交相同的文件%s，导入将会继续进行。"
 
-#: src/Controllers/Import/ImportController.php:633
+#: src/Controllers/Import/ImportController.php:596
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -11811,7 +11811,7 @@ msgstr ""
 "在最后一次执行时没有数据被解析，建议您增加 PHP 运行时间限制，否则 phpMyAdmin "
 "将无法完成导入操作。"
 
-#: src/Controllers/Import/ImportController.php:699
+#: src/Controllers/Import/ImportController.php:659
 #: src/Controllers/Sql/SqlController.php:165
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "已禁用“删除数据库”语句。"
@@ -11820,7 +11820,7 @@ msgstr "已禁用“删除数据库”语句。"
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "只能预览单一数据表的UPDATE和DELETE查询。"
 
-#: src/Controllers/Import/StatusController.php:63
+#: src/Controllers/Import/StatusController.php:62
 msgid "Could not load the progress of the import."
 msgstr "无法加载导入进度。"
 
@@ -12069,7 +12069,7 @@ msgstr "模板已被删除。"
 
 #. l10n: Other, small valued, queries
 #: src/Controllers/JavaScriptMessagesController.php:159
-#: src/Server/Status/Data.php:155
+#: src/Server/Status/Data.php:137
 msgid "Other"
 msgstr "其它"
 
@@ -14491,7 +14491,7 @@ msgstr "无效数据"
 msgid "Wrong data or no validation for %s"
 msgstr "%s是错误的数据或没有验证"
 
-#: src/Controllers/Sql/SqlController.php:234 src/Sql.php:1048
+#: src/Controllers/Sql/SqlController.php:234 src/Sql.php:1051
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已创建书签 %s。"
@@ -14571,8 +14571,8 @@ msgid "There is an issue with your request."
 msgstr "您的请求有问题。"
 
 #: src/Controllers/Table/GetFieldController.php:83
-#: src/Database/Routines.php:1010 src/Import/Import.php:162
-#: src/InsertEdit.php:200 src/Sql.php:857
+#: src/Database/Routines.php:1010 src/Import/Import.php:155
+#: src/InsertEdit.php:200 src/Sql.php:860
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 返回的查询结果为空 (即零行)。"
 
@@ -14621,7 +14621,7 @@ msgstr "已成功移动字段。"
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:261
-#: src/Tracking/Tracking.php:781
+#: src/Tracking/Tracking.php:779
 msgid "Query error"
 msgstr "查询错误"
 
@@ -14674,7 +14674,7 @@ msgid ""
 "%2$s."
 msgstr "处理请求时出错：在数据库 %2$s 中找不到名为 %1$s 的触发器。"
 
-#: src/Controllers/UserPasswordController.php:52
+#: src/Controllers/UserPasswordController.php:51
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "权限不足！"
 
@@ -14766,72 +14766,72 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "无法加载schema插件，请检查您的安装！"
 
 #: src/Database/Events.php:90 src/Database/Events.php:99
-#: src/Database/Events.php:125 src/Database/Routines.php:101
+#: src/Database/Events.php:133 src/Database/Routines.php:101
 #: src/Database/Routines.php:126 src/Database/Routines.php:203
 #: src/Database/Routines.php:970 src/Triggers/Triggers.php:83
-#: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:119
+#: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:127
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "下列查询失败了: \"%s\""
 
 #: src/Database/Events.php:94 src/Database/Events.php:103
-#: src/Database/Events.php:129 src/Database/Events.php:354
+#: src/Database/Events.php:116 src/Database/Events.php:137
 #: src/Database/Routines.php:105 src/Database/Routines.php:130
 #: src/Database/Routines.php:207 src/Database/Routines.php:221
 #: src/Database/Routines.php:974 src/Html/Generator.php:827
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
-#: src/Triggers/Triggers.php:123 src/Triggers/Triggers.php:243
+#: src/Triggers/Triggers.php:110 src/Triggers/Triggers.php:131
 msgid "MySQL said: "
 msgstr "MySQL 返回： "
 
-#: src/Database/Events.php:112
+#: src/Database/Events.php:113
+msgid "Sorry, we failed to restore the dropped event."
+msgstr "抱歉，恢复已删除的事件失败。"
+
+#: src/Database/Events.php:114 src/Database/Routines.php:219
+#: src/Triggers/Triggers.php:108
+msgid "The backed up query was:"
+msgstr "已备份的查询为:"
+
+#: src/Database/Events.php:120
 #, php-format
 msgid "Event %1$s has been modified."
 msgstr "已修改事件 %1$s 。"
 
-#: src/Database/Events.php:132
+#: src/Database/Events.php:140
 #, php-format
 msgid "Event %1$s has been created."
 msgstr "已创建事件 %1$s 。"
 
-#: src/Database/Events.php:146 src/Database/Routines.php:146
-#: src/Triggers/Triggers.php:140
+#: src/Database/Events.php:154 src/Database/Routines.php:146
+#: src/Triggers/Triggers.php:148
 msgid "One or more errors have occurred while processing your request:"
 msgstr "处理请求时发生了一个或多个错误:"
 
-#: src/Database/Events.php:261 src/Database/Routines.php:772
-#: src/Triggers/Triggers.php:184
+#: src/Database/Events.php:269 src/Database/Routines.php:772
+#: src/Triggers/Triggers.php:192
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "用户必须是 \"用户名@主机名\" 格式！"
 
-#: src/Database/Events.php:269
+#: src/Database/Events.php:277
 msgid "You must provide an event name!"
 msgstr "请输入事件名称!"
 
-#: src/Database/Events.php:283
+#: src/Database/Events.php:291
 msgid "You must provide a valid interval value for the event."
 msgstr "请设置一个有效的运行周期。"
 
-#: src/Database/Events.php:296
+#: src/Database/Events.php:304
 msgid "You must provide a valid execution time for the event."
 msgstr "请设置一个有效的运行时间。"
 
-#: src/Database/Events.php:299
+#: src/Database/Events.php:307
 msgid "You must provide a valid type for the event."
 msgstr "请选择一个有效的事件类型。"
 
-#: src/Database/Events.php:325
+#: src/Database/Events.php:333
 msgid "You must provide an event definition."
 msgstr "请输入事件定义。"
-
-#: src/Database/Events.php:351
-msgid "Sorry, we failed to restore the dropped event."
-msgstr "抱歉，恢复已删除的事件失败。"
-
-#: src/Database/Events.php:352 src/Database/Routines.php:219
-#: src/Triggers/Triggers.php:241
-msgid "The backed up query was:"
-msgstr "已备份的查询为:"
 
 #: src/DatabaseInterface.php:1126
 #, php-format
@@ -14847,7 +14847,7 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr "无法设置配置的整理连接！"
 
-#: src/DatabaseInterface.php:1608
+#: src/DatabaseInterface.php:1610
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "使用配置文件中定义的控制用户连接失败。"
 
@@ -14920,31 +14920,31 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr "错误1045:用户的访问被拒绝。其他错误信息可能可用，但被%s配置指令隐藏。"
 
-#: src/Display/Results.php:2576 src/Display/Results.php:2591
+#: src/Display/Results.php:2568 src/Display/Results.php:2583
 msgid "The row has been deleted."
 msgstr "已删除该行。"
 
-#: src/Display/Results.php:3510
+#: src/Display/Results.php:3492
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "正在显示第 %1s - %2s 行"
 
-#: src/Display/Results.php:3524
+#: src/Display/Results.php:3506
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "总数为 %1$s，查询包含 %2$s"
 
-#: src/Display/Results.php:3529
+#: src/Display/Results.php:3511
 #, php-format
 msgid "%s total"
 msgstr "共 %s 行"
 
-#: src/Display/Results.php:3542 src/Sql.php:863
+#: src/Display/Results.php:3524 src/Sql.php:866
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查询花费 %01.4f 秒。"
 
-#: src/Display/Results.php:3848
+#: src/Display/Results.php:3830
 msgid "Link not found!"
 msgstr "找不到链接！"
 
@@ -14988,7 +14988,7 @@ msgstr "InnoDB 用于缓存数据和索引要使用的内存缓冲大小。"
 msgid "Buffer Pool"
 msgstr "缓冲池"
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:212
+#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:194
 msgid "InnoDB Status"
 msgstr "InnoDB 状态"
 
@@ -15270,30 +15270,30 @@ msgstr "错误信息太多，部分未显示。"
 msgid "Report"
 msgstr "报告"
 
-#: src/Export/Export.php:164 src/Export/Export.php:200
-#: src/Export/Export.php:452
+#: src/Export/Export.php:163 src/Export/Export.php:199
+#: src/Export/Export.php:437
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "没有足够的空间保存文件 %s。"
 
-#: src/Export/Export.php:405
+#: src/Export/Export.php:390
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr "服务器上已存在文件 %s，请修改文件名或选中覆盖选项。"
 
-#: src/Export/Export.php:412 src/Export/Export.php:422
+#: src/Export/Export.php:397 src/Export/Export.php:407
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "网站服务器没有保存文件 %s 的权限。"
 
-#: src/Export/Export.php:459
+#: src/Export/Export.php:444
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "已保存转储到文件 %s 中。"
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:892
+#: src/Export/Export.php:877
 msgid "Exporting a raw query is not supported for this export method."
 msgstr "此导出方法不支持导出原始查询。"
 
@@ -15508,54 +15508,54 @@ msgstr "视图名长度不可超过%d位字符。"
 msgid "The trigger name cannot end with a space character."
 msgstr "视图名不能以空格字符结尾。"
 
-#: src/Import/Import.php:288 src/Sql.php:871
+#: src/Import/Import.php:274 src/Sql.php:874
 msgid "[ROLLBACK occurred.]"
 msgstr "[发生 ROLLBACK.]"
 
-#: src/Import/Import.php:1208
+#: src/Import/Import.php:1188
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "下列结构被创建或修改。你可以:"
 
-#: src/Import/Import.php:1210
+#: src/Import/Import.php:1190
 msgid "View a structure's contents by clicking on its name."
 msgstr "请通过点击结构的名称来查看它的内容。"
 
-#: src/Import/Import.php:1211
+#: src/Import/Import.php:1191
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "点击相应的“选项”链接修改设置。"
 
-#: src/Import/Import.php:1212
+#: src/Import/Import.php:1192
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "请通过点击 \"结构\" 链接来编辑结构."
 
-#: src/Import/Import.php:1219
+#: src/Import/Import.php:1199
 #, php-format
 msgid "Go to database: %s"
 msgstr "转到数据库: %s"
 
-#: src/Import/Import.php:1225 src/Import/Import.php:1265
+#: src/Import/Import.php:1205 src/Import/Import.php:1245
 #, php-format
 msgid "Edit settings for %s"
 msgstr "编辑 %s 的设置"
 
-#: src/Import/Import.php:1250
+#: src/Import/Import.php:1230
 #, php-format
 msgid "Go to table: %s"
 msgstr "转到表: %s"
 
-#: src/Import/Import.php:1258
+#: src/Import/Import.php:1238
 #, php-format
 msgid "Structure of %s"
 msgstr "%s 的结构"
 
-#: src/Import/Import.php:1276
+#: src/Import/Import.php:1256
 #, php-format
 msgid "Go to view: %s"
 msgstr "转到视图: %s"
 
-#: src/Import/Import.php:1302
+#: src/Import/Import.php:1282
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -15574,11 +15574,11 @@ msgstr "索引 %1$s 和 %2$s 似乎是相同的，可以删除其中一个。"
 msgid "web server upload directory:"
 msgstr "网站服务器上传文件夹："
 
-#: src/InsertEdit.php:936 src/Sql.php:854
+#: src/InsertEdit.php:936 src/Sql.php:857
 msgid "Showing SQL query"
 msgstr "显示 SQL 查询"
 
-#: src/InsertEdit.php:960 src/Sql.php:834
+#: src/InsertEdit.php:960 src/Sql.php:837
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "插入的行 id: %1$d"
@@ -15704,7 +15704,7 @@ msgstr "新建"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:23
 #: src/Navigation/Nodes/NodeFunctionContainer.php:25
-#: src/Plugins/Export/ExportSql.php:591 src/Plugins/Export/ExportXml.php:105
+#: src/Plugins/Export/ExportSql.php:591 src/Plugins/Export/ExportXml.php:89
 msgid "Functions"
 msgstr "函数"
 
@@ -15724,7 +15724,7 @@ msgstr "扩展/收起"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:23
 #: src/Navigation/Nodes/NodeProcedureContainer.php:25
-#: src/Plugins/Export/ExportSql.php:580 src/Plugins/Export/ExportXml.php:110
+#: src/Plugins/Export/ExportSql.php:580 src/Plugins/Export/ExportXml.php:94
 msgid "Procedures"
 msgstr "存储过程"
 
@@ -16177,7 +16177,7 @@ msgstr "Excel 版本:"
 #: src/Plugins/Export/ExportHtmlword.php:71
 #: src/Plugins/Export/ExportLatex.php:155 src/Plugins/Export/ExportOdt.php:118
 #: src/Plugins/Export/ExportTexytext.php:70
-#: src/Plugins/Export/ExportXml.php:133
+#: src/Plugins/Export/ExportXml.php:117
 msgid "Data dump options"
 msgstr "数据转储选项"
 
@@ -16264,12 +16264,12 @@ msgid "Put columns names in the first row:"
 msgstr "首行放置列名："
 
 #: src/Plugins/Export/ExportLatex.php:212 src/Plugins/Export/ExportSql.php:716
-#: src/Plugins/Export/ExportXml.php:218
+#: src/Plugins/Export/ExportXml.php:202
 msgid "Generation Time:"
 msgstr "生成日期："
 
 #: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:722
-#: src/Plugins/Export/ExportXml.php:221
+#: src/Plugins/Export/ExportXml.php:205
 msgid "PHP Version:"
 msgstr "PHP 版本："
 
@@ -16545,11 +16545,11 @@ msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr "最大程度兼容数据库系统或旧版本的 MySQL 服务器："
 
-#: src/Plugins/Export/ExportXml.php:94
+#: src/Plugins/Export/ExportXml.php:78
 msgid "Object creation options (all are recommended)"
 msgstr "对象创建选项 (推荐全选)"
 
-#: src/Plugins/Export/ExportXml.php:138
+#: src/Plugins/Export/ExportXml.php:122
 msgid "Export contents"
 msgstr "导出内容"
 
@@ -16562,25 +16562,25 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr "在导入时找到重复键时更新数据（添加ON DUPLICATE KEY UPDATE）"
 
-#: src/Plugins/Import/ImportCsv.php:81
+#: src/Plugins/Import/ImportCsv.php:82
 msgid "Name of the new table (optional):"
 msgstr "新表的名称（可选）："
 
-#: src/Plugins/Import/ImportCsv.php:90
+#: src/Plugins/Import/ImportCsv.php:91
 msgid "Name of the new database (optional):"
 msgstr "新数据库的名称（可选）："
 
-#: src/Plugins/Import/ImportCsv.php:99 src/Plugins/Import/ImportCsv.php:117
+#: src/Plugins/Import/ImportCsv.php:100 src/Plugins/Import/ImportCsv.php:118
 msgid "Import these many number of rows (optional):"
 msgstr "导入这些行（可选）："
 
-#: src/Plugins/Import/ImportCsv.php:107 src/Plugins/Import/ImportOds.php:62
+#: src/Plugins/Import/ImportCsv.php:108 src/Plugins/Import/ImportOds.php:63
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr "文件首行包含数据表的字段名 <i>(若未选此项，首行将被认为是数据)</i>"
 
-#: src/Plugins/Import/ImportCsv.php:124
+#: src/Plugins/Import/ImportCsv.php:125
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -16589,27 +16589,27 @@ msgstr ""
 "若文件每行的数据和数据库中的顺序不一致，请在此列出对应的字段名。字段名间用半"
 "角逗号分隔且不能用引号括起。"
 
-#: src/Plugins/Import/ImportCsv.php:132
+#: src/Plugins/Import/ImportCsv.php:133
 msgid "Column names:"
 msgstr "字段名:"
 
-#: src/Plugins/Import/ImportCsv.php:285 src/Plugins/Import/ImportCsv.php:621
+#: src/Plugins/Import/ImportCsv.php:283 src/Plugins/Import/ImportCsv.php:619
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "CSV 输入的第 %d 行格式有错。"
 
-#: src/Plugins/Import/ImportCsv.php:503
+#: src/Plugins/Import/ImportCsv.php:501
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV 输入的第 %d 行字段数有错。"
 
-#: src/Plugins/Import/ImportCsv.php:643 src/Plugins/Import/ImportCsv.php:658
-#: src/Plugins/Import/ImportCsv.php:669 src/Plugins/Import/ImportCsv.php:676
+#: src/Plugins/Import/ImportCsv.php:641 src/Plugins/Import/ImportCsv.php:656
+#: src/Plugins/Import/ImportCsv.php:667 src/Plugins/Import/ImportCsv.php:674
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "导入 CSV 文件 %s 时有无效参数"
 
-#: src/Plugins/Import/ImportCsv.php:814
+#: src/Plugins/Import/ImportCsv.php:810
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -16618,73 +16618,73 @@ msgstr ""
 "无效字段 (%s)！请检查字段名是否拼写正确，使用半角逗号分隔，并且不要用引号括"
 "起。"
 
-#: src/Plugins/Import/ImportLdi.php:63
+#: src/Plugins/Import/ImportLdi.php:64
 msgid "Column names: "
 msgstr "字段名: "
 
-#: src/Plugins/Import/ImportLdi.php:117
+#: src/Plugins/Import/ImportLdi.php:114
 msgid "This plugin does not support compressed imports!"
 msgstr "该插件不支持导入文件！"
 
-#: src/Plugins/Import/ImportMediawiki.php:53
+#: src/Plugins/Import/ImportMediawiki.php:54
 msgid "MediaWiki Table"
 msgstr "MediaWiki 表"
 
-#: src/Plugins/Import/ImportMediawiki.php:269
+#: src/Plugins/Import/ImportMediawiki.php:268
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "mediawiki输入在此行存在格式错误:<br>%s。"
 
-#: src/Plugins/Import/ImportOds.php:76
+#: src/Plugins/Import/ImportOds.php:77
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "导入百分数为小数 <i>(如: 12.00% 将被导入为 .12)</i>"
 
-#: src/Plugins/Import/ImportOds.php:82
+#: src/Plugins/Import/ImportOds.php:83
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "导入货币 <i>(如: $5.00 将被导入为 5.00)</i>"
 
-#: src/Plugins/Import/ImportOds.php:143 src/Plugins/Import/ImportXml.php:102
-#: src/Plugins/Import/ImportXml.php:163
+#: src/Plugins/Import/ImportOds.php:142 src/Plugins/Import/ImportXml.php:101
+#: src/Plugins/Import/ImportXml.php:162
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr "该 XML 文件有错误或者不完整。请修复错误后重试。"
 
-#: src/Plugins/Import/ImportOds.php:152
+#: src/Plugins/Import/ImportOds.php:151
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "无法解析OpenDocument电子表格！"
 
-#: src/Plugins/Import/ImportShp.php:67
+#: src/Plugins/Import/ImportShp.php:68
 msgid "ESRI Shape File"
 msgstr "ESRI 图形文件"
 
-#: src/Plugins/Import/ImportShp.php:102 src/Plugins/Import/ImportShp.php:169
+#: src/Plugins/Import/ImportShp.php:104 src/Plugins/Import/ImportShp.php:171
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "导入 ESRI 图形文件时出错: \"%s\"。"
 
-#: src/Plugins/Import/ImportShp.php:199
+#: src/Plugins/Import/ImportShp.php:201
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial 扩展不支持 ESRI 类型 \"%s\"。"
 
-#: src/Plugins/Import/ImportShp.php:245
+#: src/Plugins/Import/ImportShp.php:247
 msgid "The imported file does not contain any data!"
 msgstr "文件为空，无数据！"
 
-#: src/Plugins/Import/ImportSql.php:60
+#: src/Plugins/Import/ImportSql.php:61
 msgid "SQL compatibility mode:"
 msgstr "SQL 兼容模式："
 
-#: src/Plugins/Import/ImportSql.php:69
+#: src/Plugins/Import/ImportSql.php:70
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "不要给零值使用自增 (<code>AUTO_INCREMENT</code>)"
 
-#: src/Plugins/Import/ImportXml.php:44
+#: src/Plugins/Import/ImportXml.php:45
 msgid "XML"
 msgstr "XML"
 
-#: src/Plugins.php:600
+#: src/Plugins.php:601
 msgid "This format has no options"
 msgstr "该格式没有选项"
 
@@ -17256,59 +17256,59 @@ msgstr ""
 "存在允许来自localhost的任何用户连接的用户账户。如果其账户的主机部分允许来自任"
 "何（％）主机的连接，这将阻止其他用户连接。"
 
-#: src/Server/Status/Data.php:141
+#: src/Server/Status/Data.php:123
 msgid "Handler"
 msgstr "句柄"
 
-#: src/Server/Status/Data.php:142
+#: src/Server/Status/Data.php:124
 msgid "Query cache"
 msgstr "查询缓存"
 
-#: src/Server/Status/Data.php:143
+#: src/Server/Status/Data.php:125
 msgid "Threads"
 msgstr "线程"
 
-#: src/Server/Status/Data.php:145
+#: src/Server/Status/Data.php:127
 msgid "Temporary data"
 msgstr "临时数据"
 
-#: src/Server/Status/Data.php:146
+#: src/Server/Status/Data.php:128
 msgid "Delayed inserts"
 msgstr "延迟插入"
 
-#: src/Server/Status/Data.php:147
+#: src/Server/Status/Data.php:129
 msgid "Key cache"
 msgstr "索引缓存"
 
-#: src/Server/Status/Data.php:148
+#: src/Server/Status/Data.php:130
 msgid "Joins"
 msgstr "多表查询"
 
-#: src/Server/Status/Data.php:150
+#: src/Server/Status/Data.php:132
 msgid "Sorting"
 msgstr "排序"
 
-#: src/Server/Status/Data.php:152
+#: src/Server/Status/Data.php:134
 msgid "Transaction coordinator"
 msgstr "事务协调"
 
-#: src/Server/Status/Data.php:174
+#: src/Server/Status/Data.php:156
 msgid "Flush (close) all tables"
 msgstr "刷新（关闭）所有表"
 
-#: src/Server/Status/Data.php:178
+#: src/Server/Status/Data.php:160
 msgid "Show open tables"
 msgstr "显示打开的表"
 
-#: src/Server/Status/Data.php:184
+#: src/Server/Status/Data.php:166
 msgid "Show replica hosts"
 msgstr "显示从服务器"
 
-#: src/Server/Status/Data.php:192
+#: src/Server/Status/Data.php:174
 msgid "Show replica status"
 msgstr "显示从服务器状态"
 
-#: src/Server/Status/Data.php:197
+#: src/Server/Status/Data.php:179
 msgid "Flush query cache"
 msgstr "刷新查询缓存"
 
@@ -17343,16 +17343,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "没有新的稳定版本可用"
 
-#: src/Sql.php:431
+#: src/Sql.php:432
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "使用书签 \"%s\" 作为默认的查询。"
 
-#: src/Sql.php:851
+#: src/Sql.php:854
 msgid "Showing as PHP code"
 msgstr "显示为 PHP 代码"
 
-#: src/Sql.php:1216
+#: src/Sql.php:1219
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -17361,7 +17361,7 @@ msgstr ""
 "当前所选内容没有包含唯一字段。单元格编辑、复选框、编辑、复制和删除无法正常使"
 "用。%s"
 
-#: src/Sql.php:1230
+#: src/Sql.php:1233
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -17544,83 +17544,83 @@ msgstr "执行 SQL 语句"
 msgid "Export as %s"
 msgstr "导出为 %s"
 
-#: src/Tracking/Tracking.php:606
+#: src/Tracking/Tracking.php:604
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "版本 %s 的快照 (SQL 代码)"
 
-#: src/Tracking/Tracking.php:841
+#: src/Tracking/Tracking.php:839
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr "你可以通过创建一个临时数据库来执行这个转储。请确保你有足够的权限。"
 
-#: src/Tracking/Tracking.php:845
+#: src/Tracking/Tracking.php:843
 msgid "Comment out these two lines if you do not need them."
 msgstr "如果你不需要，请注释以下两行。"
 
-#: src/Tracking/Tracking.php:856
+#: src/Tracking/Tracking.php:854
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr "SQL 语句已导出。请复制保存或运行它。"
 
-#: src/Tracking/Tracking.php:889
+#: src/Tracking/Tracking.php:887
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "`%s` 的追踪报告"
 
-#: src/Tracking/Tracking.php:912
+#: src/Tracking/Tracking.php:910
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "对%1$s 的追踪从版本 %2$s 已启用。"
 
-#: src/Tracking/Tracking.php:915
+#: src/Tracking/Tracking.php:913
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "对%1$s 的追踪从版本 %2$s 已停用。"
 
-#: src/Tracking/Tracking.php:1010
+#: src/Tracking/Tracking.php:1008
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "%2$s的版本%1$s被删除了。"
 
-#: src/Tracking/Tracking.php:1041
+#: src/Tracking/Tracking.php:1039
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "已创建版本 %1$s，%2$s 的追踪已启用。"
 
-#: src/Triggers/Triggers.php:106
+#: src/Triggers/Triggers.php:107
+msgid "Sorry, we failed to restore the dropped trigger."
+msgstr "抱歉，恢复已删除的触发器失败。"
+
+#: src/Triggers/Triggers.php:114
 #, php-format
 msgid "Trigger %1$s has been modified."
 msgstr "已修改触发器 %1$s 。"
 
-#: src/Triggers/Triggers.php:126
+#: src/Triggers/Triggers.php:134
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "已创建触发器 %1$s 。"
 
-#: src/Triggers/Triggers.php:192
+#: src/Triggers/Triggers.php:200
 msgid "You must provide a trigger name!"
 msgstr "需要触发器名称!"
 
-#: src/Triggers/Triggers.php:198
+#: src/Triggers/Triggers.php:206
 msgid "You must provide a valid timing for the trigger!"
 msgstr "请选择一个有效的触发时机!"
 
-#: src/Triggers/Triggers.php:204
+#: src/Triggers/Triggers.php:212
 msgid "You must provide a valid event for the trigger!"
 msgstr "请选择一个有效的触发事件!"
 
-#: src/Triggers/Triggers.php:214
+#: src/Triggers/Triggers.php:222
 msgid "You must provide a valid table name!"
 msgstr "请选择一个有效的表!"
 
-#: src/Triggers/Triggers.php:221
+#: src/Triggers/Triggers.php:229
 msgid "You must provide a trigger definition."
 msgstr "请输入触发器定义。"
-
-#: src/Triggers/Triggers.php:240
-msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "抱歉，恢复已删除的触发器失败。"
 
 #: src/Types.php:196
 msgid ""
@@ -17942,11 +17942,11 @@ msgstr "%s 天 %s 小时，%s 分 %s 秒"
 msgid "Users"
 msgstr "用户"
 
-#: src/ZipExtension.php:68 src/ZipExtension.php:105
+#: src/ZipExtension.php:67 src/ZipExtension.php:105
 msgid "Error in ZIP archive:"
 msgstr "ZIP 包中有错误:"
 
-#: src/ZipExtension.php:75
+#: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP 包中未找到文件！"
 

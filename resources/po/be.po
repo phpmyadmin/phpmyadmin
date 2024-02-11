@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-02-04 00:18+0000\n"
+"POT-Creation-Date: 2024-02-11 00:19+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -341,7 +341,7 @@ msgstr "Загрузка…"
 #: resources/templates/table/zoom_search/result_form.twig:79
 #: resources/templates/table/zoom_search/result_form.twig:95
 #: src/Controllers/JavaScriptMessagesController.php:146
-#: src/Tracking/Tracking.php:207 src/Tracking/Tracking.php:589
+#: src/Tracking/Tracking.php:207 src/Tracking/Tracking.php:587
 msgid "Close"
 msgstr ""
 
@@ -480,7 +480,7 @@ msgstr "Група вузлоў"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Import/Import.php:1246 src/Menu.php:219 src/Menu.php:323
+#: src/Import/Import.php:1226 src/Menu.php:219 src/Menu.php:323
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:58
 #: src/Navigation/Nodes/NodeTable.php:289 src/Util.php:1057 src/Util.php:1482
@@ -922,7 +922,7 @@ msgstr "Паўтарыць запыт"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:399
-#: src/Display/Results.php:2541 src/Html/Generator.php:545
+#: src/Display/Results.php:2533 src/Html/Generator.php:545
 #: src/Html/Generator.php:811
 msgid "Edit"
 msgstr "Рэдагаваць"
@@ -941,7 +941,7 @@ msgstr "Рэдагаваць"
 #: resources/templates/setup/home/index.twig:68
 #: resources/templates/sql/query.twig:184
 #: src/Controllers/JavaScriptMessagesController.php:400
-#: src/Display/Results.php:2600 src/Tracking/Tracking.php:231
+#: src/Display/Results.php:2592 src/Tracking/Tracking.php:231
 msgid "Delete"
 msgstr "Выдаліць"
 
@@ -990,7 +990,7 @@ msgstr "Гісторыя"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:57
 #: resources/templates/table/structure/display_table_stats.twig:96
-#: src/Import/Import.php:1216 src/Import/Import.php:1247
+#: src/Import/Import.php:1196 src/Import/Import.php:1227
 #: src/Plugins/Export/ExportCodegen.php:52 src/Plugins/Export/ExportCsv.php:43
 #: src/Plugins/Export/ExportExcel.php:37
 #: src/Plugins/Export/ExportHtmlword.php:47
@@ -999,12 +999,12 @@ msgstr "Гісторыя"
 #: src/Plugins/Export/ExportOds.php:51 src/Plugins/Export/ExportOdt.php:60
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
 #: src/Plugins/Export/ExportSql.php:115
-#: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:76
-#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:68
-#: src/Plugins/Import/ImportLdi.php:52
-#: src/Plugins/Import/ImportMediawiki.php:56
-#: src/Plugins/Import/ImportOds.php:49 src/Plugins/Import/ImportShp.php:69
-#: src/Plugins/Import/ImportSql.php:41 src/Plugins/Import/ImportXml.php:47
+#: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:60
+#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:69
+#: src/Plugins/Import/ImportLdi.php:53
+#: src/Plugins/Import/ImportMediawiki.php:57
+#: src/Plugins/Import/ImportOds.php:50 src/Plugins/Import/ImportShp.php:70
+#: src/Plugins/Import/ImportSql.php:42 src/Plugins/Import/ImportXml.php:48
 msgid "Options"
 msgstr "Налады"
 
@@ -1116,7 +1116,7 @@ msgstr ""
 #: resources/templates/console/display.twig:121
 #: resources/templates/server/status/processes/index.twig:14
 #: resources/templates/server/status/variables/index.twig:37
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1238
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1229
 #: src/Html/Generator.php:601
 msgid "Refresh"
 msgstr "Абнавіць"
@@ -1754,7 +1754,7 @@ msgstr ""
 #: resources/templates/database/events/index.twig:3 src/Menu.php:382
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
-#: src/Plugins/Export/ExportSql.php:951 src/Plugins/Export/ExportXml.php:100
+#: src/Plugins/Export/ExportSql.php:951 src/Plugins/Export/ExportXml.php:84
 #: src/Util.php:1491
 msgid "Events"
 msgstr "Падзеі"
@@ -1905,7 +1905,7 @@ msgstr "Табліцы:"
 #: src/Controllers/Server/DatabasesController.php:264
 #: src/Navigation/Nodes/NodeTableContainer.php:23
 #: src/Navigation/Nodes/NodeTableContainer.php:25
-#: src/Plugins/Export/ExportXml.php:115 src/Server/Status/Data.php:151
+#: src/Plugins/Export/ExportXml.php:99 src/Server/Status/Data.php:133
 msgid "Tables"
 msgstr "Табліцы"
 
@@ -1987,8 +1987,8 @@ msgstr "Парадак"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:22
 #: resources/templates/table/search/index.twig:154
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1497
-#: src/Display/Results.php:1504 src/Util.php:2000 src/Util.php:2017
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1496
+#: src/Display/Results.php:1503 src/Util.php:2000 src/Util.php:2017
 msgid "Ascending"
 msgstr "прамы"
 
@@ -1999,8 +1999,8 @@ msgstr "прамы"
 #: resources/templates/server/status/processes/list.twig:11
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:159
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1492
-#: src/Display/Results.php:1509 src/Util.php:2005 src/Util.php:2022
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1491
+#: src/Display/Results.php:1508 src/Util.php:2005 src/Util.php:2022
 msgid "Descending"
 msgstr "адваротны"
 
@@ -2483,7 +2483,7 @@ msgstr[2] "%s табліц"
 #: resources/templates/database/structure/body_for_table_summary.twig:11
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:4 src/Menu.php:502
-#: src/Server/Status/Data.php:149 src/Util.php:1475
+#: src/Server/Status/Data.php:131 src/Util.php:1475
 msgid "Replication"
 msgstr "Рэплікацыя"
 
@@ -2617,7 +2617,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:2
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:241
-#: src/Plugins/Export/ExportSql.php:888 src/Plugins/Export/ExportXml.php:373
+#: src/Plugins/Export/ExportSql.php:888 src/Plugins/Export/ExportXml.php:357
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "База даных:"
@@ -2669,9 +2669,9 @@ msgstr "Слоўнік даных"
 
 #: resources/templates/database/structure/index.twig:25
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:87
-#: src/Controllers/Database/TrackingController.php:136
-#: src/Controllers/Export/ExportController.php:300
+#: src/Controllers/Database/ExportController.php:86
+#: src/Controllers/Database/TrackingController.php:134
+#: src/Controllers/Export/ExportController.php:303
 msgid "No tables found in database."
 msgstr "У базе даных табліц не выяўлена."
 
@@ -2695,7 +2695,7 @@ msgstr "Паказваюцца запыты стварэння"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:29
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:441 src/Server/Privileges.php:1582
+#: src/Plugins/Export/ExportXml.php:425 src/Server/Privileges.php:1582
 #: src/Server/Privileges.php:1584
 msgid "Table"
 msgstr "Табліца"
@@ -2703,7 +2703,7 @@ msgstr "Табліца"
 #: resources/templates/database/structure/show_create.twig:29
 #: src/Navigation/Nodes/NodeViewContainer.php:23
 #: src/Navigation/Nodes/NodeViewContainer.php:25
-#: src/Plugins/Export/ExportXml.php:125
+#: src/Plugins/Export/ExportXml.php:109
 msgid "Views"
 msgstr "Прадстаўленне"
 
@@ -2752,7 +2752,7 @@ msgstr "выкарыстоўваецца"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:230
 #: resources/templates/table/structure/display_table_stats.twig:118
-#: src/Controllers/Server/DatabasesController.php:265 src/Import/Import.php:157
+#: src/Controllers/Server/DatabasesController.php:265 src/Import/Import.php:150
 msgid "Rows"
 msgstr "Радкі"
 
@@ -2846,7 +2846,7 @@ msgstr ""
 
 #: resources/templates/database/tracking/tables.twig:126
 #: resources/templates/table/tracking/main.twig:80
-#: src/Tracking/Tracking.php:588
+#: src/Tracking/Tracking.php:586
 msgid "Structure snapshot"
 msgstr "Здымак структуры"
 
@@ -2993,7 +2993,7 @@ msgstr "Добра вядомыя двайковыя даныя"
 #: resources/templates/display/results/table.twig:321
 #: resources/templates/gis_data_editor_form.twig:62
 #: src/Controllers/JavaScriptMessagesController.php:487
-#: src/Display/Results.php:2545 src/Html/Generator.php:78
+#: src/Display/Results.php:2537 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "Скапіяваць"
 
@@ -3030,7 +3030,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Html/Generator.php:762 src/Import/Import.php:146 src/InsertEdit.php:493
+#: src/Html/Generator.php:762 src/Import/Import.php:139 src/InsertEdit.php:493
 #: src/Message.php:145
 msgid "Error"
 msgstr "Памылка"
@@ -3470,7 +3470,7 @@ msgstr "Асноўныя налады"
 #: resources/templates/modals/change_password.twig:1
 #: resources/templates/server/privileges/change_password.twig:8
 #: resources/templates/server/privileges/change_password.twig:10
-#: src/Controllers/UserPasswordController.php:88
+#: src/Controllers/UserPasswordController.php:87
 msgid "Change password"
 msgstr "Зьмяніць пароль"
 
@@ -3528,7 +3528,7 @@ msgstr "Злучэнне сервера:"
 
 #: resources/templates/home/index.twig:193
 #: src/Plugins/Export/ExportLatex.php:214 src/Plugins/Export/ExportSql.php:720
-#: src/Plugins/Export/ExportXml.php:220
+#: src/Plugins/Export/ExportXml.php:204
 msgid "Server version:"
 msgstr "Версія сервера:"
 
@@ -3632,7 +3632,7 @@ msgstr "Узяць гэта"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:1
 #: src/Controllers/JavaScriptMessagesController.php:434
-#: src/Export/Export.php:1274 src/Html/Generator.php:877
+#: src/Export/Export.php:1265 src/Html/Generator.php:877
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Назад"
@@ -4457,7 +4457,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
 #: resources/templates/server/binlog/index.twig:2 src/Menu.php:495
-#: src/Server/Status/Data.php:144 src/Util.php:1474
+#: src/Server/Status/Data.php:126 src/Util.php:1474
 msgid "Binary log"
 msgstr "Двайковы лог"
 
@@ -4466,7 +4466,7 @@ msgid "Select binary log to view"
 msgstr "Вылучыце двайковы лог для прагляду"
 
 #: resources/templates/server/binlog/index.twig:24
-#: src/Server/Status/Data.php:153
+#: src/Server/Status/Data.php:135
 msgid "Files"
 msgstr "Файлы"
 
@@ -4603,7 +4603,7 @@ msgstr "Апісаньне"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:20
 #: resources/templates/sql/query.twig:188 src/Config/ConfigFile.php:579
-#: src/Menu.php:508 src/Server/Status/Data.php:211 src/Util.php:1476
+#: src/Menu.php:508 src/Server/Status/Data.php:193 src/Util.php:1476
 msgid "Variables"
 msgstr "Зьменныя"
 
@@ -5402,7 +5402,7 @@ msgstr ""
 #: resources/templates/server/replication/change_primary.twig:22
 #: resources/templates/server/replication/primary_add_replica_user.twig:24
 #: src/Plugins/Export/ExportLatex.php:206 src/Plugins/Export/ExportSql.php:709
-#: src/Plugins/Export/ExportXml.php:211
+#: src/Plugins/Export/ExportXml.php:195
 msgid "Host:"
 msgstr "Хост:"
 
@@ -5497,7 +5497,7 @@ msgid "This server is configured as primary in a replication process."
 msgstr ""
 
 #: resources/templates/server/replication/primary_replication.twig:6
-#: src/Server/Status/Data.php:188
+#: src/Server/Status/Data.php:170
 #, fuzzy
 #| msgid "Show master status"
 msgid "Show primary status"
@@ -5956,7 +5956,7 @@ msgid "Start auto refresh"
 msgstr ""
 
 #: resources/templates/server/status/processes/list.twig:43
-#: src/Display/Results.php:2619
+#: src/Display/Results.php:2611
 msgid "Kill"
 msgstr "Спыніць"
 
@@ -6335,12 +6335,12 @@ msgstr "Прафіляваньне вынікаў"
 #: src/Controllers/Table/Partition/RepairController.php:50
 #: src/Controllers/Table/Partition/TruncateController.php:51
 #: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:993 src/Display/Results.php:3214
+#: src/Database/Routines.php:993 src/Display/Results.php:3200
 #: src/Message.php:129
 msgid "Your SQL query has been executed successfully."
 msgstr "Ваш SQL-запыт быў паспяхова выкананы."
 
-#: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:138
+#: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:120
 #: src/Server/Status/Processes.php:103
 msgid "SQL query"
 msgstr "SQL-запыт"
@@ -7380,7 +7380,7 @@ msgstr "Экспартаваць трыгер %s"
 #: src/Plugins/Export/ExportOdt.php:657 src/Plugins/Export/ExportPdf.php:251
 #: src/Plugins/Export/ExportSql.php:1925
 #: src/Plugins/Export/ExportTexytext.php:498
-#: src/Plugins/Export/ExportXml.php:120 src/Util.php:1492 src/Util.php:1508
+#: src/Plugins/Export/ExportXml.php:104 src/Util.php:1492 src/Util.php:1508
 msgid "Triggers"
 msgstr "Трыгеры"
 
@@ -10214,12 +10214,12 @@ msgid "Put columns names in the first row"
 msgstr "Змясціць назвы слупкоў у першым радку"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:660
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:658
 msgid "Columns enclosed with"
 msgstr "Слупкі ўзятыя ў"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:671
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:669
 msgid "Columns escaped with"
 msgstr "Слупкі экранаваныя з"
 
@@ -10235,12 +10235,12 @@ msgid "Remove CRLF characters within columns"
 msgstr ""
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:645
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:643
 msgid "Columns terminated with"
 msgstr "Радкі заканчваюцца на"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:678
+#: src/Plugins/Import/ImportCsv.php:676
 msgid "Lines terminated with"
 msgstr "Радкі заканчваюцца на"
 
@@ -10529,7 +10529,7 @@ msgid "Partial import: allow interrupt"
 msgstr ""
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:139 src/Plugins/Import/ImportLdi.php:69
+#: src/Plugins/Import/ImportCsv.php:140 src/Plugins/Import/ImportLdi.php:70
 msgid "Do not abort on INSERT error"
 msgstr ""
 
@@ -10541,7 +10541,7 @@ msgstr ""
 msgid "Format of imported file"
 msgstr "Фармат імпартаванага файла"
 
-#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:75
+#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:76
 msgid "Use LOCAL keyword"
 msgstr "Выкарыстоўваць ключавое слова LOCAL"
 
@@ -10549,7 +10549,7 @@ msgstr "Выкарыстоўваць ключавое слова LOCAL"
 msgid "Column names in first row"
 msgstr "Назвы слупкоў у першым радку"
 
-#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:70
+#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:71
 msgid "Do not import empty rows"
 msgstr ""
 
@@ -11564,10 +11564,10 @@ msgstr ""
 #: src/Controllers/Database/DesignerController.php:170
 #: src/Controllers/Database/DesignerController.php:175
 #: src/Controllers/Database/EventsController.php:61
-#: src/Controllers/Database/ExportController.php:69
-#: src/Controllers/Database/ExportController.php:74
-#: src/Controllers/Database/ImportController.php:66
-#: src/Controllers/Database/ImportController.php:71
+#: src/Controllers/Database/ExportController.php:68
+#: src/Controllers/Database/ExportController.php:73
+#: src/Controllers/Database/ImportController.php:67
+#: src/Controllers/Database/ImportController.php:72
 #: src/Controllers/Database/RoutinesController.php:79
 #: src/Controllers/Database/RoutinesController.php:105
 #: src/Controllers/Database/SearchController.php:54
@@ -11578,8 +11578,8 @@ msgstr ""
 #: src/Controllers/Database/StructureController.php:150
 #: src/Controllers/Database/Structure/FavoriteTableController.php:83
 #: src/Controllers/Database/Structure/RealRowCountController.php:62
-#: src/Controllers/Database/TrackingController.php:64
-#: src/Controllers/Database/TrackingController.php:69
+#: src/Controllers/Database/TrackingController.php:63
+#: src/Controllers/Database/TrackingController.php:68
 #: src/Controllers/JavaScriptMessagesController.php:354
 #: src/Controllers/Operations/Database/CollationController.php:64
 #: src/Controllers/Operations/DatabaseController.php:234
@@ -11606,8 +11606,8 @@ msgstr ""
 #: src/Controllers/Table/FindReplaceController.php:83
 #: src/Controllers/Table/GisVisualizationController.php:59
 #: src/Controllers/Table/GisVisualizationController.php:64
-#: src/Controllers/Table/ImportController.php:69
-#: src/Controllers/Table/ImportController.php:74
+#: src/Controllers/Table/ImportController.php:70
+#: src/Controllers/Table/ImportController.php:75
 #: src/Controllers/Table/IndexesController.php:68
 #: src/Controllers/Table/IndexesController.php:73
 #: src/Controllers/Table/IndexRenameController.php:58
@@ -11664,7 +11664,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Падзеі з назвай %1$s няма ў базе даных %2$s."
 
-#: src/Controllers/Database/ExportController.php:153
+#: src/Controllers/Database/ExportController.php:152
 #: src/Controllers/Server/ExportController.php:72
 #: src/Controllers/Table/ExportController.php:105
 msgid "Could not load export plugins, please check your installation!"
@@ -11672,10 +11672,10 @@ msgstr ""
 "Немагчыма загрузіць плагіны экспартаваньня, калі ласка, праверце ўсталяваныя "
 "файлы!"
 
-#: src/Controllers/Database/ImportController.php:82
-#: src/Controllers/Import/ImportController.php:538
-#: src/Controllers/Server/ImportController.php:62
-#: src/Controllers/Table/ImportController.php:102
+#: src/Controllers/Database/ImportController.php:83
+#: src/Controllers/Import/ImportController.php:501
+#: src/Controllers/Server/ImportController.php:63
+#: src/Controllers/Table/ImportController.php:103
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Немагчыма загрузіць плагіны імпартаваньня, калі ласка, праверце ўсталёўку!"
@@ -11724,8 +11724,8 @@ msgstr "Вы не маеце прывілеяў для маніпуляцый з
 #: src/Controllers/Table/DropColumnConfirmationController.php:69
 #: src/Controllers/Table/FindReplaceController.php:92
 #: src/Controllers/Table/FindReplaceController.php:97
-#: src/Controllers/Table/ImportController.php:83
-#: src/Controllers/Table/ImportController.php:88
+#: src/Controllers/Table/ImportController.php:84
+#: src/Controllers/Table/ImportController.php:89
 #: src/Controllers/Table/IndexesController.php:82
 #: src/Controllers/Table/IndexesController.php:87
 #: src/Controllers/Table/IndexRenameController.php:72
@@ -11803,7 +11803,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:580
-#: src/Display/Results.php:3501
+#: src/Display/Results.php:3483
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -11820,22 +11820,22 @@ msgstr "невядома"
 msgid "Favorite List is full!"
 msgstr ""
 
-#: src/Controllers/Database/TrackingController.php:83
-#: src/Controllers/Database/TrackingController.php:109
+#: src/Controllers/Database/TrackingController.php:81
+#: src/Controllers/Database/TrackingController.php:107
 msgid "Tracking data deleted successfully."
 msgstr "Даныя адсочвання паспяхова выдаленыя."
 
-#: src/Controllers/Database/TrackingController.php:94
+#: src/Controllers/Database/TrackingController.php:92
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr "Версія %1$s створаная для абраных табліц, адсочванне ўключанае."
 
-#: src/Controllers/Database/TrackingController.php:126
+#: src/Controllers/Database/TrackingController.php:124
 msgid "No tables selected."
 msgstr "Не выбрана ніводнай табліцы."
 
-#: src/Controllers/Database/TrackingController.php:165
+#: src/Controllers/Database/TrackingController.php:163
 msgid "Database Log"
 msgstr "Журнал базы дадзеных"
 
@@ -11863,11 +11863,11 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr ""
 
-#: src/Controllers/Export/ExportController.php:111 src/Export/Export.php:1224
+#: src/Controllers/Export/ExportController.php:112 src/Export/Export.php:1209
 msgid "Bad type!"
 msgstr "Памылковы тып!"
 
-#: src/Controllers/Export/ExportController.php:192
+#: src/Controllers/Export/ExportController.php:195
 msgid "Bad parameters!"
 msgstr "Памылковыя параметры!"
 
@@ -11967,7 +11967,7 @@ msgid ""
 "this some features such as error reporting or version check are disabled."
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:195
+#: src/Controllers/Import/ImportController.php:168
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -11977,23 +11977,23 @@ msgstr ""
 "звярніцеся да %sдакументацыі%s для высвятлення спосабаў абыйсьці гэтае "
 "абмежаваньне."
 
-#: src/Controllers/Import/ImportController.php:227
+#: src/Controllers/Import/ImportController.php:200
 #, fuzzy
 #| msgid "Remove last parameter"
 msgid "Incorrect format parameter"
 msgstr "Выдаліць апошні параметр"
 
-#: src/Controllers/Import/ImportController.php:347
-#: src/Controllers/Import/ImportController.php:578
+#: src/Controllers/Import/ImportController.php:316
+#: src/Controllers/Import/ImportController.php:541
 msgid "Showing bookmark"
 msgstr "Паказваючы закладку"
 
-#: src/Controllers/Import/ImportController.php:367
-#: src/Controllers/Import/ImportController.php:574
+#: src/Controllers/Import/ImportController.php:336
+#: src/Controllers/Import/ImportController.php:537
 msgid "The bookmark has been deleted."
 msgstr "Закладка была выдаленая."
 
-#: src/Controllers/Import/ImportController.php:486
+#: src/Controllers/Import/ImportController.php:448
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12003,7 +12003,7 @@ msgstr ""
 "загружаны, альбо памер файла перавысіў максымальны памер, вызначаны "
 "канфігурацыяй PHP. Гл. [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:586
+#: src/Controllers/Import/ImportController.php:549
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -12011,7 +12011,7 @@ msgstr[0] "Імпартраваньне пасьпяхова завершана�
 msgstr[1] "Імпартраваньне пасьпяхова завершанае, выканана %d запыта."
 msgstr[2] "Імпартраваньне пасьпяхова завершанае, выканана %d запытаў."
 
-#: src/Controllers/Import/ImportController.php:623
+#: src/Controllers/Import/ImportController.php:586
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12021,7 +12021,7 @@ msgstr ""
 "імпартаваньне, калі ласка, %s загрузіце файл %s зноў і імпартаваньне "
 "ўзнавіцца."
 
-#: src/Controllers/Import/ImportController.php:633
+#: src/Controllers/Import/ImportController.php:596
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12030,7 +12030,7 @@ msgstr ""
 "звычайна значыць, што phpMyAdmin ня зможа скончыць гэтае імпартаваньня, калі "
 "вы не павялічыце ліміты выкананьня php-скрыптоў."
 
-#: src/Controllers/Import/ImportController.php:699
+#: src/Controllers/Import/ImportController.php:659
 #: src/Controllers/Sql/SqlController.php:165
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Каманды \"DROP DATABASE\" адключаныя."
@@ -12039,7 +12039,7 @@ msgstr "Каманды \"DROP DATABASE\" адключаныя."
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: src/Controllers/Import/StatusController.php:63
+#: src/Controllers/Import/StatusController.php:62
 msgid "Could not load the progress of the import."
 msgstr ""
 
@@ -12289,7 +12289,7 @@ msgstr "Шаблон быў выдалены."
 
 #. l10n: Other, small valued, queries
 #: src/Controllers/JavaScriptMessagesController.php:159
-#: src/Server/Status/Data.php:155
+#: src/Server/Status/Data.php:137
 msgid "Other"
 msgstr ""
 
@@ -14884,7 +14884,7 @@ msgstr "Памылковыя даныя"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:234 src/Sql.php:1048
+#: src/Controllers/Sql/SqlController.php:234 src/Sql.php:1051
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Закладка %s створаная."
@@ -14970,8 +14970,8 @@ msgid "There is an issue with your request."
 msgstr "Занадта шмат злучэнняў без індэксаў."
 
 #: src/Controllers/Table/GetFieldController.php:83
-#: src/Database/Routines.php:1010 src/Import/Import.php:162
-#: src/InsertEdit.php:200 src/Sql.php:857
+#: src/Database/Routines.php:1010 src/Import/Import.php:155
+#: src/InsertEdit.php:200 src/Sql.php:860
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вярнула пусты вынік (то бок нуль радкоў)."
 
@@ -15026,7 +15026,7 @@ msgstr "Слупкі паспяхова перамешчаныя."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:261
-#: src/Tracking/Tracking.php:781
+#: src/Tracking/Tracking.php:779
 msgid "Query error"
 msgstr "Памылка запыту"
 
@@ -15082,7 +15082,7 @@ msgid ""
 "%2$s."
 msgstr "Трыгера з назвай %1$s няма ў базе даных %2$s."
 
-#: src/Controllers/UserPasswordController.php:52
+#: src/Controllers/UserPasswordController.php:51
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Вы ня маеце дастатковых прывілеяў быць у гэтым месцы ў гэты час!"
 
@@ -15178,71 +15178,71 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "Немагчыма загрузіць плагіны схемы, калі ласка, праверце ўсталёўку!"
 
 #: src/Database/Events.php:90 src/Database/Events.php:99
-#: src/Database/Events.php:125 src/Database/Routines.php:101
+#: src/Database/Events.php:133 src/Database/Routines.php:101
 #: src/Database/Routines.php:126 src/Database/Routines.php:203
 #: src/Database/Routines.php:970 src/Triggers/Triggers.php:83
-#: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:119
+#: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:127
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr ""
 
 #: src/Database/Events.php:94 src/Database/Events.php:103
-#: src/Database/Events.php:129 src/Database/Events.php:354
+#: src/Database/Events.php:116 src/Database/Events.php:137
 #: src/Database/Routines.php:105 src/Database/Routines.php:130
 #: src/Database/Routines.php:207 src/Database/Routines.php:221
 #: src/Database/Routines.php:974 src/Html/Generator.php:827
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
-#: src/Triggers/Triggers.php:123 src/Triggers/Triggers.php:243
+#: src/Triggers/Triggers.php:110 src/Triggers/Triggers.php:131
 msgid "MySQL said: "
 msgstr "Адказ MySQL: "
 
-#: src/Database/Events.php:112
+#: src/Database/Events.php:113
+msgid "Sorry, we failed to restore the dropped event."
+msgstr ""
+
+#: src/Database/Events.php:114 src/Database/Routines.php:219
+#: src/Triggers/Triggers.php:108
+msgid "The backed up query was:"
+msgstr ""
+
+#: src/Database/Events.php:120
 #, php-format
 msgid "Event %1$s has been modified."
 msgstr "Падзея %1$s была змененая."
 
-#: src/Database/Events.php:132
+#: src/Database/Events.php:140
 #, php-format
 msgid "Event %1$s has been created."
 msgstr "Падзея %1$s створаная."
 
-#: src/Database/Events.php:146 src/Database/Routines.php:146
-#: src/Triggers/Triggers.php:140
+#: src/Database/Events.php:154 src/Database/Routines.php:146
+#: src/Triggers/Triggers.php:148
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 
-#: src/Database/Events.php:261 src/Database/Routines.php:772
-#: src/Triggers/Triggers.php:184
+#: src/Database/Events.php:269 src/Database/Routines.php:772
+#: src/Triggers/Triggers.php:192
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 
-#: src/Database/Events.php:269
+#: src/Database/Events.php:277
 msgid "You must provide an event name!"
 msgstr "Неабходна задаць назву падзеі!"
 
-#: src/Database/Events.php:283
+#: src/Database/Events.php:291
 msgid "You must provide a valid interval value for the event."
 msgstr ""
 
-#: src/Database/Events.php:296
+#: src/Database/Events.php:304
 msgid "You must provide a valid execution time for the event."
 msgstr ""
 
-#: src/Database/Events.php:299
+#: src/Database/Events.php:307
 msgid "You must provide a valid type for the event."
 msgstr ""
 
-#: src/Database/Events.php:325
+#: src/Database/Events.php:333
 msgid "You must provide an event definition."
-msgstr ""
-
-#: src/Database/Events.php:351
-msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
-
-#: src/Database/Events.php:352 src/Database/Routines.php:219
-#: src/Triggers/Triggers.php:241
-msgid "The backed up query was:"
 msgstr ""
 
 #: src/DatabaseInterface.php:1126
@@ -15257,7 +15257,7 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr "Не атрымалася ўстанавіць кафігурацыю параўноўвання злучэння!"
 
-#: src/DatabaseInterface.php:1608
+#: src/DatabaseInterface.php:1610
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Не атрымалася ўсталяваць злучэньне для controluser, вызначанае ў вашым "
@@ -15334,32 +15334,32 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2576 src/Display/Results.php:2591
+#: src/Display/Results.php:2568 src/Display/Results.php:2583
 msgid "The row has been deleted."
 msgstr "Радок быў выдалены."
 
-#: src/Display/Results.php:3510
+#: src/Display/Results.php:3492
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Паказаныя запісы %1s - %2s"
 
-#: src/Display/Results.php:3524
+#: src/Display/Results.php:3506
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3529
+#: src/Display/Results.php:3511
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "%d усяго"
 
-#: src/Display/Results.php:3542 src/Sql.php:863
+#: src/Display/Results.php:3524 src/Sql.php:866
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Запыт выконваўся %01.4f секунд."
 
-#: src/Display/Results.php:3848
+#: src/Display/Results.php:3830
 msgid "Link not found!"
 msgstr "Сувязь ня знойдзеная!"
 
@@ -15407,7 +15407,7 @@ msgstr ""
 msgid "Buffer Pool"
 msgstr "Пул буфэру"
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:212
+#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:194
 msgid "InnoDB Status"
 msgstr "Стан InnoDB"
 
@@ -15714,13 +15714,13 @@ msgstr ""
 msgid "Report"
 msgstr "Справаздача"
 
-#: src/Export/Export.php:164 src/Export/Export.php:200
-#: src/Export/Export.php:452
+#: src/Export/Export.php:163 src/Export/Export.php:199
+#: src/Export/Export.php:437
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Недастаткова месца для захаваньня ў файл %s."
 
-#: src/Export/Export.php:405
+#: src/Export/Export.php:390
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -15728,18 +15728,18 @@ msgstr ""
 "Файл %s ужо існуе на сэрвэры, зьмяніце імя файла або праверце опцыю "
 "перазапісу."
 
-#: src/Export/Export.php:412 src/Export/Export.php:422
+#: src/Export/Export.php:397 src/Export/Export.php:407
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Вэб-сэрвэр ня мае дазволу для захаваньня ў файл %s."
 
-#: src/Export/Export.php:459
+#: src/Export/Export.php:444
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Дамп захаваны ў файл %s."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:892
+#: src/Export/Export.php:877
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -15975,54 +15975,54 @@ msgstr "Словы, падзеленыя прагалам (\" \")."
 msgid "The trigger name cannot end with a space character."
 msgstr "Словы, падзеленыя прагалам (\" \")."
 
-#: src/Import/Import.php:288 src/Sql.php:871
+#: src/Import/Import.php:274 src/Sql.php:874
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: src/Import/Import.php:1208
+#: src/Import/Import.php:1188
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: src/Import/Import.php:1210
+#: src/Import/Import.php:1190
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: src/Import/Import.php:1211
+#: src/Import/Import.php:1191
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: src/Import/Import.php:1212
+#: src/Import/Import.php:1192
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: src/Import/Import.php:1219
+#: src/Import/Import.php:1199
 #, php-format
 msgid "Go to database: %s"
 msgstr "Перайсці да базы даных: %s"
 
-#: src/Import/Import.php:1225 src/Import/Import.php:1265
+#: src/Import/Import.php:1205 src/Import/Import.php:1245
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: src/Import/Import.php:1250
+#: src/Import/Import.php:1230
 #, php-format
 msgid "Go to table: %s"
 msgstr "Перайсці да табліцы: %s"
 
-#: src/Import/Import.php:1258
+#: src/Import/Import.php:1238
 #, php-format
 msgid "Structure of %s"
 msgstr "Структура %s"
 
-#: src/Import/Import.php:1276
+#: src/Import/Import.php:1256
 #, php-format
 msgid "Go to view: %s"
 msgstr "Перайсці да прадстаўлення: %s"
 
-#: src/Import/Import.php:1302
+#: src/Import/Import.php:1282
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -16041,11 +16041,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "каталог вэб-сервера для загрузкі:"
 
-#: src/InsertEdit.php:936 src/Sql.php:854
+#: src/InsertEdit.php:936 src/Sql.php:857
 msgid "Showing SQL query"
 msgstr "У выглядзе SQL-запыту"
 
-#: src/InsertEdit.php:960 src/Sql.php:834
+#: src/InsertEdit.php:960 src/Sql.php:837
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID устаўленага радку: %1$d"
@@ -16181,7 +16181,7 @@ msgstr ""
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:23
 #: src/Navigation/Nodes/NodeFunctionContainer.php:25
-#: src/Plugins/Export/ExportSql.php:591 src/Plugins/Export/ExportXml.php:105
+#: src/Plugins/Export/ExportSql.php:591 src/Plugins/Export/ExportXml.php:89
 msgid "Functions"
 msgstr "Функцыі"
 
@@ -16201,7 +16201,7 @@ msgstr ""
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:23
 #: src/Navigation/Nodes/NodeProcedureContainer.php:25
-#: src/Plugins/Export/ExportSql.php:580 src/Plugins/Export/ExportXml.php:110
+#: src/Plugins/Export/ExportSql.php:580 src/Plugins/Export/ExportXml.php:94
 msgid "Procedures"
 msgstr "Працэдуры"
 
@@ -16641,7 +16641,7 @@ msgstr "Версія Excel:"
 #: src/Plugins/Export/ExportHtmlword.php:71
 #: src/Plugins/Export/ExportLatex.php:155 src/Plugins/Export/ExportOdt.php:118
 #: src/Plugins/Export/ExportTexytext.php:70
-#: src/Plugins/Export/ExportXml.php:133
+#: src/Plugins/Export/ExportXml.php:117
 msgid "Data dump options"
 msgstr "Налады дампу даных"
 
@@ -16730,12 +16730,12 @@ msgid "Put columns names in the first row:"
 msgstr "Памясціць назвы слупкоў у першым радку:"
 
 #: src/Plugins/Export/ExportLatex.php:212 src/Plugins/Export/ExportSql.php:716
-#: src/Plugins/Export/ExportXml.php:218
+#: src/Plugins/Export/ExportXml.php:202
 msgid "Generation Time:"
 msgstr "Час генерацыі:"
 
 #: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:722
-#: src/Plugins/Export/ExportXml.php:221
+#: src/Plugins/Export/ExportXml.php:205
 msgid "PHP Version:"
 msgstr "Вэрсія PHP:"
 
@@ -17006,11 +17006,11 @@ msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 
-#: src/Plugins/Export/ExportXml.php:94
+#: src/Plugins/Export/ExportXml.php:78
 msgid "Object creation options (all are recommended)"
 msgstr ""
 
-#: src/Plugins/Export/ExportXml.php:138
+#: src/Plugins/Export/ExportXml.php:122
 msgid "Export contents"
 msgstr "Экспартаваць змест"
 
@@ -17023,128 +17023,128 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:81
+#: src/Plugins/Import/ImportCsv.php:82
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:90
+#: src/Plugins/Import/ImportCsv.php:91
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:99 src/Plugins/Import/ImportCsv.php:117
+#: src/Plugins/Import/ImportCsv.php:100 src/Plugins/Import/ImportCsv.php:118
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:107 src/Plugins/Import/ImportOds.php:62
+#: src/Plugins/Import/ImportCsv.php:108 src/Plugins/Import/ImportOds.php:63
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:124
+#: src/Plugins/Import/ImportCsv.php:125
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:132
+#: src/Plugins/Import/ImportCsv.php:133
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column names:"
 msgstr "Назвы слупкоў: "
 
-#: src/Plugins/Import/ImportCsv.php:285 src/Plugins/Import/ImportCsv.php:621
+#: src/Plugins/Import/ImportCsv.php:283 src/Plugins/Import/ImportCsv.php:619
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Некарэктны фармат CSV-дадзеных у радку %d."
 
-#: src/Plugins/Import/ImportCsv.php:503
+#: src/Plugins/Import/ImportCsv.php:501
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Няправільная колькасць слупкоў у CSV уводзе ў радку %d."
 
-#: src/Plugins/Import/ImportCsv.php:643 src/Plugins/Import/ImportCsv.php:658
-#: src/Plugins/Import/ImportCsv.php:669 src/Plugins/Import/ImportCsv.php:676
+#: src/Plugins/Import/ImportCsv.php:641 src/Plugins/Import/ImportCsv.php:656
+#: src/Plugins/Import/ImportCsv.php:667 src/Plugins/Import/ImportCsv.php:674
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Недапушчальны парэмэтар для імпарту дадзеных у CSV: %s"
 
-#: src/Plugins/Import/ImportCsv.php:814
+#: src/Plugins/Import/ImportCsv.php:810
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
 
-#: src/Plugins/Import/ImportLdi.php:63
+#: src/Plugins/Import/ImportLdi.php:64
 msgid "Column names: "
 msgstr "Назвы слупкоў: "
 
-#: src/Plugins/Import/ImportLdi.php:117
+#: src/Plugins/Import/ImportLdi.php:114
 msgid "This plugin does not support compressed imports!"
 msgstr "Гэты плагін не падтрымлівае сьціснутыя дадзеныя!"
 
-#: src/Plugins/Import/ImportMediawiki.php:53
+#: src/Plugins/Import/ImportMediawiki.php:54
 msgid "MediaWiki Table"
 msgstr ""
 
-#: src/Plugins/Import/ImportMediawiki.php:269
+#: src/Plugins/Import/ImportMediawiki.php:268
 #, fuzzy, php-format
 #| msgid "Invalid format of mediawiki input on line: <br />%s."
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "Некарэктны фармат mediawiki у радку: <br />%s."
 
-#: src/Plugins/Import/ImportOds.php:76
+#: src/Plugins/Import/ImportOds.php:77
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
 
-#: src/Plugins/Import/ImportOds.php:82
+#: src/Plugins/Import/ImportOds.php:83
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr ""
 
-#: src/Plugins/Import/ImportOds.php:143 src/Plugins/Import/ImportXml.php:102
-#: src/Plugins/Import/ImportXml.php:163
+#: src/Plugins/Import/ImportOds.php:142 src/Plugins/Import/ImportXml.php:101
+#: src/Plugins/Import/ImportXml.php:162
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
 
-#: src/Plugins/Import/ImportOds.php:152
+#: src/Plugins/Import/ImportOds.php:151
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Немагчыма разабраць OpenDocument Spreadsheet!"
 
-#: src/Plugins/Import/ImportShp.php:67
+#: src/Plugins/Import/ImportShp.php:68
 msgid "ESRI Shape File"
 msgstr ""
 
-#: src/Plugins/Import/ImportShp.php:102 src/Plugins/Import/ImportShp.php:169
+#: src/Plugins/Import/ImportShp.php:104 src/Plugins/Import/ImportShp.php:171
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
 
-#: src/Plugins/Import/ImportShp.php:199
+#: src/Plugins/Import/ImportShp.php:201
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
-#: src/Plugins/Import/ImportShp.php:245
+#: src/Plugins/Import/ImportShp.php:247
 msgid "The imported file does not contain any data!"
 msgstr "Імпартаваны файл не ўтрымлівае даных!"
 
-#: src/Plugins/Import/ImportSql.php:60
+#: src/Plugins/Import/ImportSql.php:61
 msgid "SQL compatibility mode:"
 msgstr "Рэжым сумяшчальнасці SQL:"
 
-#: src/Plugins/Import/ImportSql.php:69
+#: src/Plugins/Import/ImportSql.php:70
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr ""
 
-#: src/Plugins/Import/ImportXml.php:44
+#: src/Plugins/Import/ImportXml.php:45
 msgid "XML"
 msgstr "XML"
 
-#: src/Plugins.php:600
+#: src/Plugins.php:601
 msgid "This format has no options"
 msgstr "Гэты фармат не мае опцыяў"
 
@@ -17742,63 +17742,63 @@ msgid ""
 "allows a connection from any (%) host."
 msgstr ""
 
-#: src/Server/Status/Data.php:141
+#: src/Server/Status/Data.php:123
 msgid "Handler"
 msgstr "Апрацоўнік"
 
-#: src/Server/Status/Data.php:142
+#: src/Server/Status/Data.php:124
 msgid "Query cache"
 msgstr "Кэш запытаў"
 
-#: src/Server/Status/Data.php:143
+#: src/Server/Status/Data.php:125
 msgid "Threads"
 msgstr "Патокі"
 
-#: src/Server/Status/Data.php:145
+#: src/Server/Status/Data.php:127
 msgid "Temporary data"
 msgstr "Часовыя дадзеныя"
 
-#: src/Server/Status/Data.php:146
+#: src/Server/Status/Data.php:128
 msgid "Delayed inserts"
 msgstr "Адкладзеныя ўстаўкі"
 
-#: src/Server/Status/Data.php:147
+#: src/Server/Status/Data.php:129
 msgid "Key cache"
 msgstr "Кэш ключоў"
 
-#: src/Server/Status/Data.php:148
+#: src/Server/Status/Data.php:130
 msgid "Joins"
 msgstr "Аб'яднаньні"
 
-#: src/Server/Status/Data.php:150
+#: src/Server/Status/Data.php:132
 msgid "Sorting"
 msgstr "Сартаваньне"
 
-#: src/Server/Status/Data.php:152
+#: src/Server/Status/Data.php:134
 msgid "Transaction coordinator"
 msgstr "Каардынатар перакладу"
 
-#: src/Server/Status/Data.php:174
+#: src/Server/Status/Data.php:156
 msgid "Flush (close) all tables"
 msgstr "Скінуць (закрыць) усе табліцы"
 
-#: src/Server/Status/Data.php:178
+#: src/Server/Status/Data.php:160
 msgid "Show open tables"
 msgstr "Паказаць адкрытыя табліцы"
 
-#: src/Server/Status/Data.php:184
+#: src/Server/Status/Data.php:166
 #, fuzzy
 #| msgid "Show slave hosts"
 msgid "Show replica hosts"
 msgstr "Паказаць залежныя сэрвэры"
 
-#: src/Server/Status/Data.php:192
+#: src/Server/Status/Data.php:174
 #, fuzzy
 #| msgid "Show slave status"
 msgid "Show replica status"
 msgstr "Паказаць стан залежных сэрвэраў"
 
-#: src/Server/Status/Data.php:197
+#: src/Server/Status/Data.php:179
 msgid "Flush query cache"
 msgstr "Скінуць кэш запытаў"
 
@@ -17831,23 +17831,23 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr ""
 
-#: src/Sql.php:431
+#: src/Sql.php:432
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:851
+#: src/Sql.php:854
 msgid "Showing as PHP code"
 msgstr "У выглядзе PHP-коду"
 
-#: src/Sql.php:1216
+#: src/Sql.php:1219
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: src/Sql.php:1230
+#: src/Sql.php:1233
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18028,82 +18028,82 @@ msgstr ""
 msgid "Export as %s"
 msgstr "Экспартаваць як %s"
 
-#: src/Tracking/Tracking.php:606
+#: src/Tracking/Tracking.php:604
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
-#: src/Tracking/Tracking.php:841
+#: src/Tracking/Tracking.php:839
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
 
-#: src/Tracking/Tracking.php:845
+#: src/Tracking/Tracking.php:843
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
-#: src/Tracking/Tracking.php:856
+#: src/Tracking/Tracking.php:854
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
-#: src/Tracking/Tracking.php:889
+#: src/Tracking/Tracking.php:887
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr ""
 
-#: src/Tracking/Tracking.php:912
+#: src/Tracking/Tracking.php:910
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr ""
 
-#: src/Tracking/Tracking.php:915
+#: src/Tracking/Tracking.php:913
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr ""
 
-#: src/Tracking/Tracking.php:1010
+#: src/Tracking/Tracking.php:1008
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "Версія %1$s з %2$s выдаленая."
 
-#: src/Tracking/Tracking.php:1041
+#: src/Tracking/Tracking.php:1039
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
 
-#: src/Triggers/Triggers.php:106
+#: src/Triggers/Triggers.php:107
+msgid "Sorry, we failed to restore the dropped trigger."
+msgstr ""
+
+#: src/Triggers/Triggers.php:114
 #, php-format
 msgid "Trigger %1$s has been modified."
 msgstr "Трыгер %1$s быў зменены."
 
-#: src/Triggers/Triggers.php:126
+#: src/Triggers/Triggers.php:134
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "Трыгер %1$s створаны."
 
-#: src/Triggers/Triggers.php:192
+#: src/Triggers/Triggers.php:200
 msgid "You must provide a trigger name!"
 msgstr "Неабходна задаць назву трыгера!"
 
-#: src/Triggers/Triggers.php:198
+#: src/Triggers/Triggers.php:206
 msgid "You must provide a valid timing for the trigger!"
 msgstr "Неабходна задаць правільны час выканання трыгера!"
 
-#: src/Triggers/Triggers.php:204
+#: src/Triggers/Triggers.php:212
 msgid "You must provide a valid event for the trigger!"
 msgstr "Неабходна задаць правільную падзею для трыгера!"
 
-#: src/Triggers/Triggers.php:214
+#: src/Triggers/Triggers.php:222
 msgid "You must provide a valid table name!"
 msgstr "Неабходна задаць правільную назву табліцы!"
 
-#: src/Triggers/Triggers.php:221
+#: src/Triggers/Triggers.php:229
 msgid "You must provide a trigger definition."
-msgstr ""
-
-#: src/Triggers/Triggers.php:240
-msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
 #: src/Types.php:196
@@ -18398,11 +18398,11 @@ msgstr "%s дзён, %s гадзінаў, %s хвілінаў і %s сэкунд
 msgid "Users"
 msgstr "Карыстальнікі"
 
-#: src/ZipExtension.php:68 src/ZipExtension.php:105
+#: src/ZipExtension.php:67 src/ZipExtension.php:105
 msgid "Error in ZIP archive:"
 msgstr "Памылка ў ZIP-архіве:"
 
-#: src/ZipExtension.php:75
+#: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Файлы ў ZIP-архіве ня знойдзеныя!"
 
