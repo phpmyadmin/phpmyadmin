@@ -80,10 +80,12 @@ class CentralColumnsController extends AbstractController
         }
 
         if ($request->hasBodyParam('add_column')) {
-            $tmpMsg = $this->addColumn([
-                'table-select' => $request->getParsedBodyParam('table-select'),
-                'column-select' => $request->getParsedBodyParam('column-select'),
-            ]);
+            $tmpMsg = $this->centralColumns->syncUniqueColumns(
+                DatabaseName::from($request->getParsedBodyParam('db')),
+                [$request->getParsedBodyParam('column-select')],
+                false,
+                $request->getParsedBodyParam('table-select'),
+            );
         }
 
         $this->addScriptFiles([
@@ -102,7 +104,7 @@ class CentralColumnsController extends AbstractController
         }
 
         if ($request->hasBodyParam('multi_edit_central_column_save')) {
-            $GLOBALS['message'] = $this->updateMultipleColumn([
+            $GLOBALS['message'] = $this->centralColumns->updateMultipleColumn([
                 'db' => $request->getParsedBodyParam('db'),
                 'orig_col_name' => $request->getParsedBodyParam('orig_col_name'),
                 'field_name' => $request->getParsedBodyParam('field_name'),
@@ -229,20 +231,6 @@ class CentralColumnsController extends AbstractController
         );
     }
 
-    /**
-     * @param mixed[] $params Request parameters
-     *
-     * @return true|Message
-     */
-    public function addColumn(array $params): bool|Message
-    {
-        return $this->centralColumns->syncUniqueColumns(
-            [$params['column-select']],
-            false,
-            $params['table-select'],
-        );
-    }
-
     /** @param mixed[] $params Request parameters */
     public function editPage(array $params): void
     {
@@ -251,16 +239,6 @@ class CentralColumnsController extends AbstractController
         $rows = $this->centralColumns->getHtmlForEditingPage($params['selected_fld'], $params['db']);
 
         $this->render('database/central_columns/edit', ['rows' => $rows]);
-    }
-
-    /**
-     * @param mixed[] $params Request parameters
-     *
-     * @return true|Message
-     */
-    public function updateMultipleColumn(array $params): bool|Message
-    {
-        return $this->centralColumns->updateMultipleColumn($params);
     }
 
     /**

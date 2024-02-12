@@ -176,7 +176,10 @@ class StructureController extends AbstractController
         }
 
         $centralColumns = new CentralColumns($this->dbi);
-        $centralList = $centralColumns->getFromTable(Current::$database, Current::$table);
+        $centralList = $centralColumns->findExistingColNames(
+            Current::$database,
+            $this->dbi->getColumnNames(Current::$database, Current::$table),
+        );
 
         /**
          * Displays Space usage and row statistics

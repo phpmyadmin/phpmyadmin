@@ -914,14 +914,14 @@
       <code><![CDATA[$params['db']]]></code>
       <code><![CDATA[$params['db']]]></code>
       <code><![CDATA[$params['orig_col_name']]]></code>
-      <code><![CDATA[$params['table-select']]]></code>
       <code><![CDATA[$request->getParsedBodyParam('cur_table', '')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('pos', '')]]></code>
+      <code><![CDATA[$request->getParsedBodyParam('table-select')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('total_rows', '')]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$variables</code>
-      <code><![CDATA[[$params['column-select']]]]></code>
+      <code><![CDATA[[$request->getParsedBodyParam('column-select')]]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['message']]]></code>
@@ -3709,6 +3709,9 @@
     </UnusedParam>
   </file>
   <file src="src/Controllers/Table/Structure/CentralColumnsAddController.php">
+    <MixedArgument>
+      <code><![CDATA[$request->getParsedBodyParam('table')]]></code>
+    </MixedArgument>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
@@ -4397,11 +4400,7 @@
     <MixedArgument>
       <code>$columnDefault[$i]</code>
       <code>$columnExtra[$i]</code>
-      <code><![CDATA[$column['col_name']]]></code>
-      <code><![CDATA[$column['col_name']]]></code>
       <code><![CDATA[$extractedColumnSpec['attribute']]]></code>
-      <code><![CDATA[$meta['DefaultValue']]]></code>
-      <code><![CDATA[$meta['DefaultValue']]]></code>
       <code><![CDATA[$params['db']]]></code>
       <code><![CDATA[$params['field_attribute'][$i]]]></code>
       <code><![CDATA[$params['field_collation'][$i]]]></code>
@@ -4410,30 +4409,15 @@
       <code><![CDATA[$params['field_type'][$i]]]></code>
       <code><![CDATA[$params['orig_col_name']]]></code>
       <code><![CDATA[$params['orig_col_name'][$i]]]></code>
-      <code>$row</code>
       <code><![CDATA[$row['col_extra']]]></code>
       <code><![CDATA[$rowsMeta[$rowNum]['DefaultValue']]]></code>
       <code><![CDATA[$rowsMeta[$rowNum]['DefaultValue']]]></code>
       <code>$type</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$cols</code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code>$columnDefault[$i]</code>
       <code>$columnDefault[$i]</code>
       <code>$columnDefault[$i]</code>
-      <code><![CDATA[$column['col_attribute']]]></code>
-      <code><![CDATA[$column['col_default']]]></code>
-      <code><![CDATA[$column['col_default']]]></code>
-      <code><![CDATA[$column['col_default']]]></code>
-      <code><![CDATA[$column['col_extra']]]></code>
-      <code><![CDATA[$column['col_isNull']]]></code>
-      <code><![CDATA[$column['col_length']]]></code>
-      <code><![CDATA[$column['col_length']]]></code>
-      <code><![CDATA[$column['col_name']]]></code>
-      <code><![CDATA[$column['col_name']]]></code>
-      <code><![CDATA[$column['col_type']]]></code>
       <code><![CDATA[$params['field_attribute'][$i]]]></code>
       <code><![CDATA[$params['field_collation'][$i]]]></code>
       <code><![CDATA[$params['field_default_value'][$i]]]></code>
@@ -4455,59 +4439,39 @@
       <code><![CDATA[$row['col_extra']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code>$cols[]</code>
-      <code>$column</code>
       <code>$columnDefault</code>
       <code>$columnDefault[$i]</code>
       <code>$columnExtra[$i]</code>
-      <code>$defaultValue</code>
       <code>$defaultValues[$rowNum]</code>
-      <code>$field</code>
       <code>$length</code>
-      <code><![CDATA[$meta['DefaultValue']]]></code>
       <code>$row</code>
       <code>$row</code>
-      <code>$row</code>
-      <code><![CDATA[$rowsMeta[$rowNum]['DefaultType']]]></code>
       <code><![CDATA[$rowsMeta[$rowNum]['DefaultValue']]]></code>
       <code>$type</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>string[]|false</code>
-    </MixedInferredReturnType>
-    <MixedOperand>
-      <code><![CDATA[$column['col_attribute']]]></code>
-      <code><![CDATA[$column['col_default']]]></code>
-      <code><![CDATA[$column['col_extra']]]></code>
-      <code><![CDATA[$column['col_length']]]></code>
-      <code><![CDATA[$column['col_type']]]></code>
-    </MixedOperand>
-    <MixedReturnStatement>
-      <code>$cfgCentralColumns</code>
-    </MixedReturnStatement>
+    <MixedReturnTypeCoercion>
+      <code>$hasList</code>
+      <code><![CDATA[$this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser)]]></code>
+      <code>(string|null)[][]</code>
+      <code>string[]</code>
+    </MixedReturnTypeCoercion>
     <PossiblyInvalidArgument>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$table</code>
       <code>$tnPageNow</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$table</code>
-    </PossiblyInvalidCast>
     <PossiblyNullArgument>
+      <code><![CDATA[$column['col_name']]]></code>
       <code>$field</code>
     </PossiblyNullArgument>
+    <PossiblyNullOperand>
+      <code><![CDATA[$column['col_attribute']]]></code>
+      <code><![CDATA[$column['col_extra']]]></code>
+      <code><![CDATA[$column['col_type']]]></code>
+    </PossiblyNullOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$column['col_default']]]></code>
+      <code><![CDATA[$column['col_isNull']]]></code>
+      <code><![CDATA[$column['col_length']]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Database/Designer.php">
     <DeprecatedMethod>
@@ -13423,15 +13387,9 @@
                 $this->centralColumns,
                 CentralColumns::class,
                 'getHtmlForEditTableRow',
-                [$listDetailCols[0], 0],
+                [$this->modifiedColumnData[0], 0],
             )]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code>$listDetailCols[0]</code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code>$listDetailCols</code>
-    </MixedAssignment>
     <RedundantCondition>
       <code>assertIsArray</code>
     </RedundantCondition>

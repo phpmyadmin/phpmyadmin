@@ -12,6 +12,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Types;
@@ -37,26 +38,26 @@ class CentralColumnsTest extends AbstractTestCase
         [
             'col_name' => 'id',
             'col_type' => 'integer',
-            'col_length' => 0,
-            'col_isNull' => 0,
+            'col_length' => '0',
+            'col_isNull' => '0',
             'col_extra' => 'UNSIGNED,auto_increment',
-            'col_default' => 1,
+            'col_default' => '1',
             'col_collation' => '',
         ],
         [
             'col_name' => 'col1',
             'col_type' => 'varchar',
-            'col_length' => 100,
-            'col_isNull' => 1,
+            'col_length' => '100',
+            'col_isNull' => '1',
             'col_extra' => 'BINARY',
-            'col_default' => 1,
+            'col_default' => '1',
             'col_collation' => '',
         ],
         [
             'col_name' => 'col2',
             'col_type' => 'DATETIME',
-            'col_length' => 0,
-            'col_isNull' => 1,
+            'col_length' => '0',
+            'col_isNull' => '1',
             'col_extra' => 'on update CURRENT_TIMESTAMP',
             'col_default' => 'CURRENT_TIMESTAMP',
             'col_collation' => '',
@@ -68,28 +69,28 @@ class CentralColumnsTest extends AbstractTestCase
         [
             'col_name' => 'id',
             'col_type' => 'integer',
-            'col_length' => 0,
-            'col_isNull' => 0,
+            'col_length' => '0',
+            'col_isNull' => '0',
             'col_extra' => 'auto_increment',
-            'col_default' => 1,
+            'col_default' => '1',
             'col_collation' => '',
             'col_attribute' => 'UNSIGNED',
         ],
         [
             'col_name' => 'col1',
             'col_type' => 'varchar',
-            'col_length' => 100,
-            'col_isNull' => 1,
+            'col_length' => '100',
+            'col_isNull' => '1',
             'col_extra' => '',
-            'col_default' => 1,
+            'col_default' => '1',
             'col_collation' => '',
             'col_attribute' => 'BINARY',
         ],
         [
             'col_name' => 'col2',
             'col_type' => 'DATETIME',
-            'col_length' => 0,
-            'col_isNull' => 1,
+            'col_length' => '0',
+            'col_isNull' => '1',
             'col_extra' => '',
             'col_default' => 'CURRENT_TIMESTAMP',
             'col_collation' => '',
@@ -200,7 +201,7 @@ class CentralColumnsTest extends AbstractTestCase
         $this->dbi->expects(self::once())
             ->method('fetchResult')
             ->with(
-                'SELECT count(db_name) FROM `pma_central_columns` WHERE db_name = \'phpmyadmin\';',
+                'SELECT count(db_name) FROM `phpmyadmin`.`pma_central_columns` WHERE db_name = \'phpmyadmin\';',
                 null,
                 null,
                 ConnectionType::ControlUser,
@@ -218,11 +219,9 @@ class CentralColumnsTest extends AbstractTestCase
      */
     public function testSyncUniqueColumns(): void
     {
-        $_POST['db'] = 'PMA_db';
-        $_POST['table'] = 'PMA_table';
-
         self::assertTrue(
             $this->centralColumns->syncUniqueColumns(
+                DatabaseName::from('PMA_db'),
                 ['PMA_table'],
             ),
         );
@@ -243,61 +242,6 @@ class CentralColumnsTest extends AbstractTestCase
             $this->centralColumns->makeConsistentWithList(
                 'phpmyadmin',
                 ['PMA_table'],
-            ),
-        );
-    }
-
-    /**
-     * Test for getFromTable
-     */
-    public function testGetFromTable(): void
-    {
-        $db = 'PMA_db';
-        $table = 'PMA_table';
-
-        $this->dbi->expects(self::once())
-            ->method('fetchResult')
-            ->with(
-                'SELECT col_name FROM `pma_central_columns` '
-                . "WHERE db_name = 'PMA_db' AND col_name IN ('id','col1','col2');",
-                null,
-                null,
-                ConnectionType::ControlUser,
-            )
-            ->willReturn(['id', 'col1']);
-        self::assertSame(
-            ['id', 'col1'],
-            $this->centralColumns->getFromTable(
-                $db,
-                $table,
-            ),
-        );
-    }
-
-    /**
-     * Test for getFromTable with $allFields = true
-     */
-    public function testGetFromTableWithAllFields(): void
-    {
-        $db = 'PMA_db';
-        $table = 'PMA_table';
-
-        $this->dbi->expects(self::once())
-            ->method('fetchResult')
-            ->with(
-                'SELECT * FROM `pma_central_columns` '
-                . "WHERE db_name = 'PMA_db' AND col_name IN ('id','col1','col2');",
-                null,
-                null,
-                ConnectionType::ControlUser,
-            )
-            ->willReturn(array_slice($this->columnData, 0, 2));
-        self::assertSame(
-            array_slice($this->modifiedColumnData, 0, 2),
-            $this->centralColumns->getFromTable(
-                $db,
-                $table,
-                true,
             ),
         );
     }
@@ -365,7 +309,7 @@ class CentralColumnsTest extends AbstractTestCase
         $this->dbi->expects(self::any())
             ->method('fetchResult')
             ->with(
-                'SELECT * FROM `pma_central_columns` '
+                'SELECT * FROM `phpmyadmin`.`pma_central_columns` '
                 . "WHERE db_name = 'phpmyadmin' AND col_name IN ('col1','col2');",
                 null,
                 null,
@@ -376,18 +320,13 @@ class CentralColumnsTest extends AbstractTestCase
             ['col1', 'col2'],
             'phpmyadmin',
         );
-        $listDetailCols = $this->callFunction(
-            $this->centralColumns,
-            CentralColumns::class,
-            'findExistingColNames',
-            ['phpmyadmin', ['col1', 'col2'], true],
-        );
+
         self::assertStringContainsString(
             $this->callFunction(
                 $this->centralColumns,
                 CentralColumns::class,
                 'getHtmlForEditTableRow',
-                [$listDetailCols[0], 0],
+                [$this->modifiedColumnData[0], 0],
             ),
             $result,
         );
@@ -401,7 +340,7 @@ class CentralColumnsTest extends AbstractTestCase
         $this->dbi->expects(self::once())
             ->method('fetchResult')
             ->with(
-                'SELECT * FROM `pma_central_columns` WHERE db_name = \'phpmyadmin\';',
+                'SELECT * FROM `phpmyadmin`.`pma_central_columns` WHERE db_name = \'phpmyadmin\';',
                 null,
                 null,
                 ConnectionType::ControlUser,
@@ -424,7 +363,7 @@ class CentralColumnsTest extends AbstractTestCase
         $this->dbi->expects(self::once())
             ->method('fetchResult')
             ->with(
-                'SELECT * FROM `pma_central_columns` '
+                'SELECT * FROM `phpmyadmin`.`pma_central_columns` '
                 . "WHERE db_name = 'phpmyadmin' AND col_name "
                 . "NOT IN ('id','col1','col2');",
                 null,
@@ -442,26 +381,23 @@ class CentralColumnsTest extends AbstractTestCase
     }
 
     /**
-     * Test for findExistingColNames
+     * Test for findExistingColumns
      */
     public function testFindExistingColNames(): void
     {
+        $expectedQuery = 'SELECT * FROM `phpmyadmin`.`pma_central_columns`'
+            . ' WHERE db_name = \'phpmyadmin\' AND col_name IN (\'col1\');';
         $this->dbi->expects(self::once())
             ->method('fetchResult')
-            ->with(
-                'SELECT * FROM `pma_central_columns` WHERE db_name = \'phpmyadmin\' AND col_name IN (\'col1\');',
-                null,
-                null,
-                ConnectionType::ControlUser,
-            )
+            ->with($expectedQuery, null, null, ConnectionType::ControlUser)
             ->willReturn(array_slice($this->columnData, 1, 1));
         self::assertSame(
             array_slice($this->modifiedColumnData, 1, 1),
             $this->callFunction(
                 $this->centralColumns,
                 CentralColumns::class,
-                'findExistingColNames',
-                ['phpmyadmin', ['col1'], true],
+                'findExistingColumns',
+                ['phpmyadmin', ['col1']],
             ),
         );
     }
