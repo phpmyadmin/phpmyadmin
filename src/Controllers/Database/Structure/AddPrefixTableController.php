@@ -32,12 +32,13 @@ final class AddPrefixTableController extends AbstractController
 
         $GLOBALS['sql_query'] = '';
 
+        $this->dbi->selectDb(Current::$database);
+
         foreach ($selected as $selectedValue) {
             $newTableName = $request->getParsedBodyParam('add_prefix', '') . $selectedValue;
             $aQuery = 'ALTER TABLE ' . Util::backquote($selectedValue) . ' RENAME ' . Util::backquote($newTableName);
 
             $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";
-            $this->dbi->selectDb(Current::$database);
             $this->dbi->query($aQuery);
         }
 

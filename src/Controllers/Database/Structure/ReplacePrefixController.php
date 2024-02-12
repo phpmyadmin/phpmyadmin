@@ -37,6 +37,8 @@ final class ReplacePrefixController extends AbstractController
 
         $GLOBALS['sql_query'] = '';
 
+        $this->dbi->selectDb(Current::$database);
+
         foreach ($selected as $selectedValue) {
             $subFromPrefix = mb_substr($selectedValue, 0, mb_strlen((string) $fromPrefix));
 
@@ -50,7 +52,6 @@ final class ReplacePrefixController extends AbstractController
                 . ' RENAME ' . Util::backquote($newTableName);
 
             $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";
-            $this->dbi->selectDb(Current::$database);
             $this->dbi->query($aQuery);
         }
 

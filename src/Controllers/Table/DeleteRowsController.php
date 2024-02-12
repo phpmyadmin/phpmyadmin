@@ -58,6 +58,8 @@ final class DeleteRowsController extends AbstractController
             $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
             $GLOBALS['sql_query'] = '';
 
+            $this->dbi->selectDb(Current::$database);
+
             foreach ($selected as $row) {
                 $query = sprintf(
                     'DELETE FROM %s WHERE %s LIMIT 1;',
@@ -65,7 +67,6 @@ final class DeleteRowsController extends AbstractController
                     $row,
                 );
                 $GLOBALS['sql_query'] .= $query . "\n";
-                $this->dbi->selectDb(Current::$database);
                 $this->dbi->query($query);
             }
 

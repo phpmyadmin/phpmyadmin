@@ -827,6 +827,7 @@ class Normalization
             . 'in that case you don\'t have to select any.',
         );
         $cnt = 0;
+        $this->dbi->selectDb($db);
         foreach ($tables as $table) {
             $primary = Index::getPrimary($this->dbi, $table, $db);
             $primarycols = $primary === null ? [] : $primary->getColumns();
@@ -836,7 +837,6 @@ class Normalization
                 $pk[] = $col->getName();
             }
 
-            $this->dbi->selectDb($db);
             $columns = $this->dbi->getColumnNames($db, $table);
             if (count($columns) - count($pk) <= 1) {
                 continue;
