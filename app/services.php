@@ -122,7 +122,7 @@ return [
         ],
         'navigation' => [
             'class' => Navigation::class,
-            'arguments' => ['@template', '@relation', '@dbi'],
+            'arguments' => ['@template', '@relation', '@dbi', '@config'],
         ],
         'normalization' => [
             'class' => Normalization::class,

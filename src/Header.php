@@ -315,12 +315,7 @@ class Header
 
         $dbi = DatabaseInterface::getInstance();
         if ($this->menuEnabled && Current::$server > 0) {
-            $nav = new Navigation(
-                $this->template,
-                new Relation($dbi),
-                $dbi,
-            );
-            $navigation = $nav->getDisplay();
+            $navigation = (new Navigation($this->template, new Relation($dbi), $dbi, $this->config))->getDisplay();
         }
 
         $customHeader = Config::renderHeader();

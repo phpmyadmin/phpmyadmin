@@ -6885,13 +6885,6 @@
     </MixedArgument>
   </file>
   <file src="src/Navigation/Navigation.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
     <PossiblyNullArrayOffset>
       <code>$hidden</code>
       <code>$hidden</code>
@@ -14226,6 +14219,8 @@
   </file>
   <file src="tests/classes/Navigation/NavigationTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
