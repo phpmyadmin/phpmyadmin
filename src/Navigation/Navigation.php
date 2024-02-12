@@ -45,7 +45,7 @@ class Navigation
 
     public function __construct(private Template $template, private Relation $relation, private DatabaseInterface $dbi)
     {
-        $this->tree = new NavigationTree($this->template, $this->dbi, $this->relation);
+        $this->tree = new NavigationTree($this->template, $this->dbi, $this->relation, Config::getInstance());
         $this->userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
     }
 

@@ -144,8 +144,12 @@ class NavigationTree
 
     private RelationParameters $relationParameters;
 
-    public function __construct(private Template $template, private DatabaseInterface $dbi, Relation $relation)
-    {
+    public function __construct(
+        private Template $template,
+        private DatabaseInterface $dbi,
+        Relation $relation,
+        private readonly Config $config,
+    ) {
         $this->relationParameters = $relation->getRelationParameters();
         $userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
         $userPrivileges = $userPrivilegesFactory->getPrivileges();
@@ -206,14 +210,14 @@ class NavigationTree
 
         // Initialize the tree by creating a root node
         $this->tree = new NodeDatabaseContainer('root');
-        $config = Config::getInstance();
         if (
-            ! $config->settings['NavigationTreeEnableGrouping'] || ! $config->settings['ShowDatabasesNavigationAsTree']
+            ! $this->config->settings['NavigationTreeEnableGrouping']
+            || ! $this->config->settings['ShowDatabasesNavigationAsTree']
         ) {
             return;
         }
 
-        $this->tree->separator = $config->settings['NavigationTreeDbSeparator'];
+        $this->tree->separator = $this->config->settings['NavigationTreeDbSeparator'];
         $this->tree->separatorDepth = 10000;
     }
 
@@ -226,9 +230,8 @@ class NavigationTree
             return 0;
         }
 
-        $config = Config::getInstance();
         /** @todo describe a scenario where this code is executed */
-        if (! $config->selectedServer['DisableIS']) {
+        if (! $this->config->selectedServer['DisableIS']) {
             $query = 'SELECT (COUNT(DB_first_level) DIV %d) * %d ';
             $query .= 'from ( ';
             $query .= ' SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ';
@@ -241,9 +244,9 @@ class NavigationTree
             return (int) $this->dbi->fetchValue(
                 sprintf(
                     $query,
-                    $config->settings['FirstLevelNavigationItems'],
-                    $config->settings['FirstLevelNavigationItems'],
-                    $this->dbi->quoteString($config->settings['NavigationTreeDbSeparator']),
+                    $this->config->settings['FirstLevelNavigationItems'],
+                    $this->config->settings['FirstLevelNavigationItems'],
+                    $this->dbi->quoteString($this->config->settings['NavigationTreeDbSeparator']),
                     $this->dbi->quoteString(Current::$database),
                 ),
             );
@@ -258,7 +261,7 @@ class NavigationTree
                         break;
                     }
 
-                    $prefix = strstr($database, $config->settings['NavigationTreeDbSeparator'], true);
+                    $prefix = strstr($database, $this->config->settings['NavigationTreeDbSeparator'], true);
                     if ($prefix === false) {
                         $prefix = $database;
                     }
@@ -284,7 +287,7 @@ class NavigationTree
                     break;
                 }
 
-                $prefix = strstr($database, $config->settings['NavigationTreeDbSeparator'], true);
+                $prefix = strstr($database, $this->config->settings['NavigationTreeDbSeparator'], true);
                 if ($prefix === false) {
                     $prefix = $database;
                 }
@@ -293,7 +296,7 @@ class NavigationTree
             }
         }
 
-        $navItems = $config->settings['FirstLevelNavigationItems'];
+        $navItems = $this->config->settings['FirstLevelNavigationItems'];
 
         return (int) floor(count($prefixMap) / $navItems) * $navItems;
     }
@@ -578,24 +581,23 @@ class NavigationTree
     {
         // Get items to hide
         $hidden = $db->getHiddenItems($this->relationParameters, 'group');
-        $config = Config::getInstance();
-        if (! $config->settings['NavigationTreeShowTables'] && ! in_array('tables', $hidden, true)) {
+        if (! $this->config->settings['NavigationTreeShowTables'] && ! in_array('tables', $hidden, true)) {
             $hidden[] = 'tables';
         }
 
-        if (! $config->settings['NavigationTreeShowViews'] && ! in_array('views', $hidden, true)) {
+        if (! $this->config->settings['NavigationTreeShowViews'] && ! in_array('views', $hidden, true)) {
             $hidden[] = 'views';
         }
 
-        if (! $config->settings['NavigationTreeShowFunctions'] && ! in_array('functions', $hidden, true)) {
+        if (! $this->config->settings['NavigationTreeShowFunctions'] && ! in_array('functions', $hidden, true)) {
             $hidden[] = 'functions';
         }
 
-        if (! $config->settings['NavigationTreeShowProcedures'] && ! in_array('procedures', $hidden, true)) {
+        if (! $this->config->settings['NavigationTreeShowProcedures'] && ! in_array('procedures', $hidden, true)) {
             $hidden[] = 'procedures';
         }
 
-        if (! $config->settings['NavigationTreeShowEvents'] && ! in_array('events', $hidden, true)) {
+        if (! $this->config->settings['NavigationTreeShowEvents'] && ! in_array('events', $hidden, true)) {
             $hidden[] = 'events';
         }
 
@@ -669,7 +671,7 @@ class NavigationTree
      */
     public function groupNode(Node $node): void
     {
-        if ($node->type !== NodeType::Container || ! Config::getInstance()->settings['NavigationTreeEnableExpansion']) {
+        if ($node->type !== NodeType::Container || ! $this->config->settings['NavigationTreeEnableExpansion']) {
             return;
         }
 
@@ -865,7 +867,7 @@ class NavigationTree
         $quickWarp = $this->quickWarp();
         $fastFilter = $this->fastFilterHtml($userPrivileges, $this->tree);
         $controls = '';
-        if (Config::getInstance()->settings['NavigationTreeEnableExpansion']) {
+        if ($this->config->settings['NavigationTreeEnableExpansion']) {
             $controls = $this->controls();
         }
 
@@ -873,7 +875,7 @@ class NavigationTree
 
         $this->groupTree();
         $children = $this->tree->children;
-        usort($children, self::sortNode(...));
+        usort($children, $this->sortNode(...));
         $this->setVisibility();
 
         $nodes = $this->renderNodes($userPrivileges, $children);
@@ -895,18 +897,17 @@ class NavigationTree
     public function renderPath(UserPrivileges $userPrivileges): string|false
     {
         $node = $this->buildPath($userPrivileges);
-        $config = Config::getInstance();
         if (! is_bool($node)) {
             $this->groupTree();
 
             $listContent = $this->fastFilterHtml($userPrivileges, $node);
             $listContent .= $this->getPageSelector($userPrivileges, $node);
             $children = $node->children;
-            usort($children, self::sortNode(...));
+            usort($children, $this->sortNode(...));
 
             $listContent .= $this->renderNodes($userPrivileges, $children, false);
 
-            if (! $config->settings['ShowDatabasesNavigationAsTree']) {
+            if (! $this->config->settings['ShowDatabasesNavigationAsTree']) {
                 $parents = $node->parents(true);
                 $parentName = $parents[0]->realName;
             }
@@ -940,7 +941,7 @@ class NavigationTree
             return $this->template->render('navigation/tree/path', [
                 'has_search_results' => $this->searchClause !== '' || $this->searchClause2 !== '',
                 'list_content' => $listContent ?? '',
-                'is_tree' => $config->settings['ShowDatabasesNavigationAsTree'],
+                'is_tree' => $this->config->settings['ShowDatabasesNavigationAsTree'],
                 'parent_name' => $parentName ?? '',
             ]);
         }
@@ -1063,7 +1064,7 @@ class NavigationTree
             if ($nodeIsGroup) {
                 $match = $this->findTreeMatch($this->vPath, $paths['vPath_clean']);
                 $linkClasses = $node->getCssClasses($match);
-                if (Config::getInstance()->settings['ShowDatabasesNavigationAsTree'] || $parentName !== 'root') {
+                if ($this->config->settings['ShowDatabasesNavigationAsTree'] || $parentName !== 'root') {
                     $nodeIcon = $node->getIcon($match);
                 }
             }
@@ -1123,7 +1124,7 @@ class NavigationTree
         }
 
         $children = $node->children;
-        usort($children, self::sortNode(...));
+        usort($children, $this->sortNode(...));
         $buffer = '';
         $extraClass = '';
         for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
@@ -1173,7 +1174,6 @@ class NavigationTree
 
         $this->tree->isGroup = false;
 
-        $config = Config::getInstance();
         // Provide for pagination in database select
         $listNavigator = Generator::getListNavigator(
             $this->tree->getPresence($userPrivileges, 'databases'),
@@ -1181,7 +1181,7 @@ class NavigationTree
             ['server' => Current::$server],
             Url::getFromRoute('/navigation'),
             'frame_navigation',
-            $config->settings['FirstLevelNavigationItems'],
+            $this->config->settings['FirstLevelNavigationItems'],
             'pos',
             ['dbselector'],
         );
@@ -1209,12 +1209,12 @@ class NavigationTree
         }
 
         $children = $this->tree->children;
-        usort($children, self::sortNode(...));
+        usort($children, $this->sortNode(...));
         $this->setVisibility();
 
         $nodes = $this->renderNodes($userPrivileges, $children);
 
-        $databaseUrl = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
+        $databaseUrl = Util::getScriptNameForOption($this->config->settings['DefaultTabDatabase'], 'database');
 
         return $this->template->render('navigation/tree/database_select', [
             'quick_warp' => $quickWarp,
@@ -1254,9 +1254,8 @@ class NavigationTree
      */
     private function fastFilterHtml(UserPrivileges $userPrivileges, Node $node): string
     {
-        $config = Config::getInstance();
-        $filterDbMin = $config->settings['NavigationTreeDisplayDbFilterMinimum'];
-        $filterItemMin = $config->settings['NavigationTreeDisplayItemFilterMinimum'];
+        $filterDbMin = $this->config->settings['NavigationTreeDisplayDbFilterMinimum'];
+        $filterItemMin = $this->config->settings['NavigationTreeDisplayItemFilterMinimum'];
         $urlParams = [];
 
         $isRootNode = $node === $this->tree && $this->tree->getPresence($userPrivileges) >= $filterDbMin;
@@ -1306,7 +1305,7 @@ class NavigationTree
         );
         $syncImage = 's_unlink';
         $title = __('Link with main panel');
-        if (Config::getInstance()->settings['NavigationLinkWithMainPanel']) {
+        if ($this->config->settings['NavigationLinkWithMainPanel']) {
             $syncImage = 's_link';
             $title = __('Unlink from main panel');
         }
@@ -1328,7 +1327,6 @@ class NavigationTree
     private function getPageSelector(UserPrivileges $userPrivileges, Node $node): string
     {
         $retval = '';
-        $config = Config::getInstance();
         if ($node === $this->tree) {
             $retval .= Generator::getListNavigator(
                 $this->tree->getPresence($userPrivileges, 'databases', $this->searchClause),
@@ -1336,7 +1334,7 @@ class NavigationTree
                 ['server' => Current::$server],
                 Url::getFromRoute('/navigation'),
                 'frame_navigation',
-                $config->settings['FirstLevelNavigationItems'],
+                $this->config->settings['FirstLevelNavigationItems'],
                 'pos',
                 ['dbselector'],
             );
@@ -1367,7 +1365,7 @@ class NavigationTree
                 $urlParams,
                 Url::getFromRoute('/navigation'),
                 'frame_navigation',
-                $config->settings['MaxNavigationItems'],
+                $this->config->settings['MaxNavigationItems'],
                 'pos' . $level . '_value',
             );
         }
@@ -1383,7 +1381,7 @@ class NavigationTree
      *
      * @return int See strnatcmp() and strcmp()
      */
-    public static function sortNode(Node $a, Node $b): int
+    private function sortNode(Node $a, Node $b): int
     {
         if ($a->isNew) {
             return -1;
@@ -1393,7 +1391,7 @@ class NavigationTree
             return 1;
         }
 
-        if (Config::getInstance()->settings['NaturalOrder']) {
+        if ($this->config->settings['NaturalOrder']) {
             return strnatcasecmp($a->name, $b->name);
         }
 
@@ -1408,12 +1406,11 @@ class NavigationTree
     private function quickWarp(): string
     {
         $renderDetails = [];
-        $config = Config::getInstance();
-        if ($config->settings['NumRecentTables'] > 0) {
+        if ($this->config->settings['NumRecentTables'] > 0) {
             $renderDetails['recent'] = RecentFavoriteTables::getInstance(TableType::Recent)->getHtml();
         }
 
-        if ($config->settings['NumFavoriteTables'] > 0) {
+        if ($this->config->settings['NumFavoriteTables'] > 0) {
             $renderDetails['favorite'] = RecentFavoriteTables::getInstance(TableType::Favorite)->getHtml();
         }
 

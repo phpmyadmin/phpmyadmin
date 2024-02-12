@@ -6890,6 +6890,7 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
     </DeprecatedMethod>
     <PossiblyNullArrayOffset>
       <code>$hidden</code>
@@ -6905,21 +6906,6 @@
     <ArgumentTypeCoercion>
       <code>$table</code>
     </ArgumentTypeCoercion>
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$this->pos2Name]]></code>
       <code><![CDATA[$this->pos2Name]]></code>
