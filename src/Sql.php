@@ -1530,6 +1530,7 @@ class Sql
 
         $displayResultsObject = new DisplayResults(
             $this->dbi,
+            Config::getInstance(),
             Current::$database,
             Current::$table,
             Current::$server,

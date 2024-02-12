@@ -78,8 +78,9 @@ class ResultsTest extends AbstractTestCase
         Current::$server = 2;
         Current::$database = 'db';
         Current::$table = 'table';
-        $this->object = new DisplayResults($this->dbi, 'as', '', 2, '', '');
-        Config::getInstance()->selectedServer['DisableIS'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
+        $this->object = new DisplayResults($this->dbi, $config, 'as', '', 2, '', '');
         $_SESSION[' HMAC_secret '] = 'test';
     }
 
@@ -654,11 +655,12 @@ class ResultsTest extends AbstractTestCase
             'column_info' => 'column_info',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
-        Config::getInstance()->settings['BrowseMIME'] = true;
+        $config = Config::getInstance();
+        $config->settings['BrowseMIME'] = true;
 
         // Basic data
         $query = 'SELECT 1';
-        $this->object = new DisplayResults($this->dbi, 'db', '', 2, '', '');
+        $this->object = new DisplayResults($this->dbi, $config, 'db', '', 2, '', '');
 
         // Field meta information
         (new ReflectionProperty(DisplayResults::class, 'fieldsMeta'))->setValue($this->object, [
@@ -869,11 +871,12 @@ class ResultsTest extends AbstractTestCase
     {
         $db = 'test_db';
         $table = 'test_table';
+        $config = Config::getInstance();
 
         $query = 'ANALYZE FORMAT=JSON SELECT * FROM test_table';
         [$statementInfo] = ParseAnalyze::sqlQuery($query, $db);
 
-        $object = new DisplayResults($this->dbi, $db, $table, 2, '', $query);
+        $object = new DisplayResults($this->dbi, $config, $db, $table, 2, '', $query);
         $object->setConfigParamsForDisplayTable($statementInfo);
 
         self::assertSame('F', $_SESSION['tmpval']['pftext']);
@@ -881,7 +884,7 @@ class ResultsTest extends AbstractTestCase
         $query = 'ANALYZE NO_WRITE_TO_BINLOG TABLE test_table';
         [$statementInfo] = ParseAnalyze::sqlQuery($query, $db);
 
-        $object = new DisplayResults($this->dbi, $db, $table, 2, '', $query);
+        $object = new DisplayResults($this->dbi, $config, $db, $table, 2, '', $query);
         $object->setConfigParamsForDisplayTable($statementInfo);
 
         self::assertSame('P', $_SESSION['tmpval']['pftext']);
@@ -912,7 +915,7 @@ class ResultsTest extends AbstractTestCase
         $query = 'SELECT * FROM `test_db`.`test_table`;';
         [$statementInfo] = ParseAnalyze::sqlQuery($query, $db);
 
-        $object = new DisplayResults($this->dbi, $db, $table, 2, '', $query);
+        $object = new DisplayResults($this->dbi, Config::getInstance(), $db, $table, 2, '', $query);
         $object->setConfigParamsForDisplayTable($statementInfo);
 
         self::assertArrayHasKey('tmpval', $_SESSION);
@@ -1131,14 +1134,23 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetTable(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
 
         Current::$server = 2;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         $query = 'SELECT * FROM `test_db`.`test_table`;';
 
-        $object = new DisplayResults($this->dbi, Current::$database, Current::$table, Current::$server, '', $query);
+        $object = new DisplayResults(
+            $this->dbi,
+            $config,
+            Current::$database,
+            Current::$table,
+            Current::$server,
+            '',
+            $query,
+        );
 
         (new ReflectionProperty(DisplayResults::class, 'uniqueId'))->setValue($object, 1234567890);
 
@@ -1424,7 +1436,8 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetTable2(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
 
         Current::$server = 2;
         Current::$database = 'test_db';
@@ -1434,7 +1447,7 @@ class ResultsTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $object = new DisplayResults($dbi, Current::$database, Current::$table, 2, '', $query);
+        $object = new DisplayResults($dbi, $config, Current::$database, Current::$table, 2, '', $query);
 
         (new ReflectionProperty(DisplayResults::class, 'uniqueId'))->setValue($object, 1234567890);
 

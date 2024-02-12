@@ -14021,7 +14021,7 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: "#^Parameter \\#6 \\$sqlQuery of class PhpMyAdmin\\\\Display\\\\Results constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#7 \\$sqlQuery of class PhpMyAdmin\\\\Display\\\\Results constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Sql.php
 
