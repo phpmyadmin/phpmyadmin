@@ -817,7 +817,7 @@ class NavigationTree
                     $node->addChild($newChild['node']);
                 }
             } else {
-                $groups[$key] = new Node((string) $key, NodeType::Container, true);
+                $groups[$key] = new Node($this->config, (string) $key, NodeType::Container, true);
                 $groups[$key]->separator = $node->separator;
                 $groups[$key]->separatorDepth = $node->separatorDepth - 1;
                 $groups[$key]->icon = ['image' => 'b_group', 'title' => __('Groups')];

@@ -9546,7 +9546,7 @@ parameters:
 			path: src/Navigation/Nodes/NodeColumn.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:__construct\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$name of method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:__construct\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Navigation/Nodes/NodeColumn.php
 

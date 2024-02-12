@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Navigation\NodeType;
 
 use function __;
@@ -22,7 +23,7 @@ class NodeIndexContainer extends Node
      */
     public function __construct()
     {
-        parent::__construct(__('Indexes'), NodeType::Container);
+        parent::__construct(Config::getInstance(), __('Indexes'), NodeType::Container);
 
         $this->icon = ['image' => 'b_index', 'title' => __('Indexes')];
         $this->links = [

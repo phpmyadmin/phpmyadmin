@@ -29,7 +29,7 @@ class NodeDatabaseContainer extends Node
         $userPrivilegesFactory = new UserPrivilegesFactory(DatabaseInterface::getInstance());
         $userPrivileges = $userPrivilegesFactory->getPrivileges();
 
-        parent::__construct($name, NodeType::Container);
+        parent::__construct(Config::getInstance(), $name, NodeType::Container);
 
         if (! $userPrivileges->isCreateDatabase || Config::getInstance()->settings['ShowCreateDb'] === false) {
             return;

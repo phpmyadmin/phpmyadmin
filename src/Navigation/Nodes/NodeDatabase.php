@@ -50,7 +50,7 @@ class NodeDatabase extends Node
      */
     public function __construct(string $name)
     {
-        parent::__construct($name);
+        parent::__construct(Config::getInstance(), $name);
 
         $this->icon = ['image' => 's_db', 'title' => __('Database operations')];
 

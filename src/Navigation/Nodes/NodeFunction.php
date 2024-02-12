@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
+
 use function __;
 
 /**
@@ -21,7 +23,7 @@ class NodeFunction extends NodeDatabaseChild
      */
     public function __construct(string $name)
     {
-        parent::__construct($name);
+        parent::__construct(Config::getInstance(), $name);
 
         $this->icon = ['image' => 'b_routines', 'title' => __('Function')];
         $this->links = [

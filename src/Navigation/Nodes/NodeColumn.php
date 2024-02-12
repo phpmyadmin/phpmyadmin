@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
+
 use function __;
 use function strlen;
 use function substr;
@@ -25,7 +27,7 @@ class NodeColumn extends Node
     {
         $this->displayName = $this->getDisplayName($item);
 
-        parent::__construct($item['name']);
+        parent::__construct(Config::getInstance(), $item['name']);
 
         $this->icon = ['image' => $this->getColumnIcon($item['key']), 'title' => __('Column')];
         $this->links = [
