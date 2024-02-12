@@ -14961,11 +14961,6 @@ parameters:
 			path: src/Util.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, bool\\|null given\\.$#"
-			count: 1
-			path: src/Util.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\<0, 2\\> given\\.$#"
 			count: 1
 			path: src/Util.php

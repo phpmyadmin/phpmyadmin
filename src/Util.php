@@ -248,12 +248,12 @@ class Util
      *
      * @param Stringable|string|null $identifier    the database, table or field name to "backquote"
      * @param string                 $compatibility string compatibility mode (used by dump functions)
-     * @param bool|null              $doIt          a flag to bypass this function (used by dump functions)
+     * @param bool                   $doIt          a flag to bypass this function (used by dump functions)
      */
     public static function backquoteCompat(
         Stringable|string|null $identifier,
         string $compatibility = 'MSSQL',
-        bool|null $doIt = true,
+        bool $doIt = true,
     ): string {
         $identifier = (string) $identifier;
         if ($identifier === '' || $identifier === '*') {
