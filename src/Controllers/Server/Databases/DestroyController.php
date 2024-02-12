@@ -14,6 +14,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -29,6 +30,7 @@ final class DestroyController extends AbstractController
         private DatabaseInterface $dbi,
         private Transformations $transformations,
         private RelationCleanup $relationCleanup,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
         parent::__construct($response, $template);
     }
@@ -37,6 +39,8 @@ final class DestroyController extends AbstractController
     {
         $GLOBALS['selected'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
+
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $selectedDbs = $request->getParsedBodyParam('selected_dbs');
 
@@ -77,7 +81,7 @@ final class DestroyController extends AbstractController
             $this->transformations->clear($database);
         }
 
-        $this->dbi->getDatabaseList()->build();
+        $this->dbi->getDatabaseList()->build($userPrivileges);
 
         $message = Message::success(
             _ngettext(

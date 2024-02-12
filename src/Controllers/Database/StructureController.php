@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -199,9 +198,6 @@ final class StructureController extends AbstractController
 
         $createTable = '';
         if (! $this->dbIsSystemSchema) {
-            $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-            $checkUserPrivileges->getPrivileges();
-
             $createTable = $this->template->render('database/create_table', ['db' => Current::$database]);
         }
 

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Database;
 
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Database\RoutinesController;
 use PhpMyAdmin\Current;
@@ -15,6 +14,7 @@ use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(RoutinesController::class)]
@@ -107,7 +107,7 @@ final class RoutinesControllerTest extends AbstractTestCase
         (new RoutinesController(
             $response,
             $template,
-            new CheckUserPrivileges($dbi),
+            new UserPrivilegesFactory($dbi),
             $dbi,
             new Routines($dbi),
             new DbTableExists($dbi),
@@ -280,7 +280,7 @@ HTML;
         (new RoutinesController(
             $response,
             $template,
-            new CheckUserPrivileges($dbi),
+            new UserPrivilegesFactory($dbi),
             $dbi,
             new Routines($dbi),
             new DbTableExists($dbi),

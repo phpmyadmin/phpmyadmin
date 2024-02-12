@@ -15,6 +15,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 use function array_merge;
@@ -259,6 +260,7 @@ class CreateControllerTest extends AbstractTestCase
             $this->createConfig(),
             $dbi,
             new ColumnsDefinition($dbi, $relation, $transformations),
+            new UserPrivilegesFactory($dbi),
         ))($request);
 
         self::assertSame($expected, $response->getHTMLResult());

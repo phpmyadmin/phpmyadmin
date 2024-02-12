@@ -14,6 +14,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
@@ -44,6 +45,7 @@ class DestroyControllerTest extends AbstractTestCase
             $dbi,
             new Transformations(),
             new RelationCleanup($dbi, new Relation($dbi)),
+            new UserPrivilegesFactory($dbi),
         );
 
         $request = self::createStub(ServerRequest::class);

@@ -125,7 +125,7 @@ class NormalizationTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['BrowseMIME'] = true;
         $config->settings['MaxRows'] = 25;
-        UserPrivileges::$column = false;
+        $userPrivileges = new UserPrivileges();
         $config->selectedServer['DisableIS'] = false;
         DatabaseInterface::$instance = $this->dbi;
         $db = 'testdb';
@@ -137,7 +137,7 @@ class NormalizationTest extends AbstractTestCase
             new Transformations(),
             new Template(),
         );
-        $result = $normalization->getHtmlForCreateNewColumn($numFields, $db, $table);
+        $result = $normalization->getHtmlForCreateNewColumn($userPrivileges, $numFields, $db, $table);
         self::assertStringContainsString('<table id="table_columns"', $result);
     }
 

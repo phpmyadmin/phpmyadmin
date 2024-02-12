@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\ListDatabase;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(ListDatabase::class)]
@@ -29,7 +29,7 @@ class ListDatabaseTest extends AbstractTestCase
         $config = new Config();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['only_db'] = ['single\\_db'];
-        $this->object = new ListDatabase($dbi, $config, new CheckUserPrivileges($dbi));
+        $this->object = new ListDatabase($dbi, $config, new UserPrivilegesFactory($dbi));
     }
 
     /**
@@ -41,7 +41,7 @@ class ListDatabaseTest extends AbstractTestCase
         $config = new Config();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['only_db'] = ['single\\_db'];
-        $arr = new ListDatabase($dbi, $config, new CheckUserPrivileges($dbi));
+        $arr = new ListDatabase($dbi, $config, new UserPrivilegesFactory($dbi));
         self::assertTrue($arr->exists('single_db'));
     }
 
@@ -51,7 +51,7 @@ class ListDatabaseTest extends AbstractTestCase
         $config = new Config();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['only_db'] = ['single\\_db'];
-        $arr = new ListDatabase($dbi, $config, new CheckUserPrivileges($dbi));
+        $arr = new ListDatabase($dbi, $config, new UserPrivilegesFactory($dbi));
 
         Current::$database = 'db';
         self::assertEquals(

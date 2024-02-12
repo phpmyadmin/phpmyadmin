@@ -1465,7 +1465,7 @@ class PrivilegesTest extends AbstractTestCase
     {
         Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['lang'] = 'en';
-        UserPrivileges::$isReload = true;
+        $userPrivileges = new UserPrivileges(isReload: true);
 
         $dummyDbi = $this->createDbiDummy();
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -1493,7 +1493,7 @@ class PrivilegesTest extends AbstractTestCase
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
 
         $_REQUEST = ['ajax_page_request' => '1'];
-        $actual = $serverPrivileges->getHtmlForUserOverview('ltr', null);
+        $actual = $serverPrivileges->getHtmlForUserOverview($userPrivileges, 'ltr', null);
         self::assertStringContainsString('Note: MySQL privilege names are expressed in English.', $actual);
         self::assertStringContainsString(
             'Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege tables.',
@@ -1513,7 +1513,7 @@ class PrivilegesTest extends AbstractTestCase
         );
         $dummyDbi->addResult('SELECT 1 FROM `mysql`.`user`', false);
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
-        $html = $serverPrivileges->getHtmlForUserOverview('ltr', null);
+        $html = $serverPrivileges->getHtmlForUserOverview($userPrivileges, 'ltr', null);
 
         self::assertStringContainsString(
             Url::getCommon(['adduser' => 1], ''),
@@ -1541,7 +1541,7 @@ class PrivilegesTest extends AbstractTestCase
         );
         $dummyDbi->addResult('SELECT 1 FROM `mysql`.`user`', [[1]]);
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
-        $actual = $serverPrivileges->getHtmlForUserOverview('ltr', null);
+        $actual = $serverPrivileges->getHtmlForUserOverview($userPrivileges, 'ltr', null);
 
         self::assertStringContainsString('Your privilege table structure seems to be older than'
             . ' this MySQL version!<br>'

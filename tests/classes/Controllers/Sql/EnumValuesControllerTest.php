@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Sql;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Sql\EnumValuesController;
@@ -67,12 +66,7 @@ class EnumValuesControllerTest extends AbstractTestCase
             $bookmarkRepository,
         );
 
-        $sqlController = new EnumValuesController(
-            $responseRenderer,
-            $template,
-            $sql,
-            new CheckUserPrivileges($this->dbi),
-        );
+        $sqlController = new EnumValuesController($responseRenderer, $template, $sql);
         $sqlController($request);
 
         self::assertFalse($responseRenderer->hasSuccessState(), 'expected the request to fail');
@@ -123,12 +117,7 @@ class EnumValuesControllerTest extends AbstractTestCase
             $bookmarkRepository,
         );
 
-        $sqlController = new EnumValuesController(
-            $responseRenderer,
-            $template,
-            $sql,
-            new CheckUserPrivileges($this->dbi),
-        );
+        $sqlController = new EnumValuesController($responseRenderer, $template, $sql);
         $sqlController($request);
 
         self::assertTrue($responseRenderer->hasSuccessState(), 'expected the request not to fail');

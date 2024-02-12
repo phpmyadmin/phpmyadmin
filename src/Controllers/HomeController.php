@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Controllers;
 use Fig\Http\Message\RequestMethodInterface;
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
@@ -120,9 +119,6 @@ class HomeController extends AbstractController
             }
 
             if (Current::$server > 0) {
-                $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-                $checkUserPrivileges->getPrivileges();
-
                 $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
                 $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
                 $charsetsList = [];

@@ -17,6 +17,7 @@ use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivilegesFactory;
 
 use function __;
 use function htmlspecialchars;
@@ -39,6 +40,7 @@ class CreateController extends AbstractController
         private Config $config,
         private DatabaseInterface $dbi,
         private ColumnsDefinition $columnsDefinition,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
         parent::__construct($response, $template);
     }
@@ -48,6 +50,8 @@ class CreateController extends AbstractController
         if (! $this->checkParameters(['db'])) {
             return;
         }
+
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $cfg = $this->config->settings;
 
@@ -148,7 +152,7 @@ class CreateController extends AbstractController
             return;
         }
 
-        $templateData = $this->columnsDefinition->displayForm('/table/create', $numFields);
+        $templateData = $this->columnsDefinition->displayForm($userPrivileges, '/table/create', $numFields);
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
     }

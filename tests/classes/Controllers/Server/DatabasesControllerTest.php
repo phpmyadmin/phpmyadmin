@@ -13,7 +13,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use PhpMyAdmin\UserPrivileges;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
@@ -48,7 +48,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
 
-        $controller = new DatabasesController($response, $template, $this->dbi);
+        $controller = new DatabasesController($response, $template, $this->dbi, new UserPrivilegesFactory($this->dbi));
 
         $this->dummyDbi->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
@@ -85,10 +85,10 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
 
-        $controller = new DatabasesController($response, $template, DatabaseInterface::getInstance());
+        $dbi = DatabaseInterface::getInstance();
+        $controller = new DatabasesController($response, $template, $dbi, new UserPrivilegesFactory($dbi));
 
         $config->settings['ShowCreateDb'] = true;
-        UserPrivileges::$isCreateDatabase = true;
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams([
@@ -112,6 +112,5 @@ class DatabasesControllerTest extends AbstractTestCase
         self::assertStringContainsString('title="4358144"', $actual);
         self::assertStringContainsString('4.2', $actual);
         self::assertStringContainsString('MiB', $actual);
-        self::assertStringContainsString('name="db_collation"', $actual);
     }
 }

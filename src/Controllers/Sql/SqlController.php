@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Sql;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -33,7 +32,6 @@ class SqlController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Sql $sql,
-        private CheckUserPrivileges $checkUserPrivileges,
         private DatabaseInterface $dbi,
         private PageSettings $pageSettings,
         private readonly BookmarkRepository $bookmarkRepository,
@@ -54,8 +52,6 @@ class SqlController extends AbstractController
         $GLOBALS['disp_message'] ??= null;
         $GLOBALS['complete_query'] ??= null;
         $GLOBALS['back'] ??= null;
-
-        $this->checkUserPrivileges->getPrivileges();
 
         $this->pageSettings->init('Browse');
         $this->response->addHTML($this->pageSettings->getErrorHTML());

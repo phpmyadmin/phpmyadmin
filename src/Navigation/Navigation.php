@@ -22,6 +22,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -40,10 +41,12 @@ use const PHP_URL_HOST;
 class Navigation
 {
     private NavigationTree $tree;
+    private readonly UserPrivilegesFactory $userPrivilegesFactory;
 
     public function __construct(private Template $template, private Relation $relation, private DatabaseInterface $dbi)
     {
         $this->tree = new NavigationTree($this->template, $this->dbi, $this->relation);
+        $this->userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
     }
 
     /**
@@ -53,6 +56,8 @@ class Navigation
      */
     public function getDisplay(): string
     {
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
+
         $config = Config::getInstance();
         $logo = [
             'is_displayed' => $config->settings['NavigationDisplayLogo'],
@@ -103,13 +108,13 @@ class Navigation
         if (! $response->isAjax() || ! empty($_POST['full']) || ! empty($_POST['reload'])) {
             if ($config->settings['ShowDatabasesNavigationAsTree']) {
                 // provide database tree in navigation
-                $navRender = $this->tree->renderState();
+                $navRender = $this->tree->renderState($userPrivileges);
             } else {
                 // provide legacy pre-4.0 navigation
-                $navRender = $this->tree->renderDbSelect();
+                $navRender = $this->tree->renderDbSelect($userPrivileges);
             }
         } else {
-            $navRender = $this->tree->renderPath();
+            $navRender = $this->tree->renderPath($userPrivileges);
         }
 
         return $this->template->render('navigation/main', [

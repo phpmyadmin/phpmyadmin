@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Sql;
 
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
@@ -21,7 +20,6 @@ final class SetValuesController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Sql $sql,
-        private CheckUserPrivileges $checkUserPrivileges,
     ) {
         parent::__construct($response, $template);
     }
@@ -31,8 +29,6 @@ final class SetValuesController extends AbstractController
      */
     public function __invoke(ServerRequest $request): void
     {
-        $this->checkUserPrivileges->getPrivileges();
-
         $column = $request->getParsedBodyParam('column');
         $currentValue = $request->getParsedBodyParam('curr_value');
         $whereClause = $request->getParsedBodyParam('where_clause');

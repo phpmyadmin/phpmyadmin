@@ -15,7 +15,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
-use PhpMyAdmin\UserPrivileges;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(AddNewPrimaryController::class)]
@@ -24,7 +24,6 @@ class AddNewPrimaryControllerTest extends AbstractTestCase
     public function testDefault(): void
     {
         Config::getInstance()->selectedServer['DisableIS'] = false;
-        UserPrivileges::$column = false;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
 
@@ -39,6 +38,7 @@ class AddNewPrimaryControllerTest extends AbstractTestCase
             $response,
             $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
+            new UserPrivilegesFactory($dbi),
         );
         $controller(self::createStub(ServerRequest::class));
 

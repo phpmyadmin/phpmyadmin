@@ -1972,7 +1972,7 @@ class DatabaseInterface implements DbalInterface
     public function getDatabaseList(): ListDatabase
     {
         if ($this->databaseList === null) {
-            $this->databaseList = new ListDatabase($this, Config::getInstance(), new CheckUserPrivileges($this));
+            $this->databaseList = new ListDatabase($this, Config::getInstance(), new UserPrivilegesFactory($this));
         }
 
         return $this->databaseList;

@@ -13,16 +13,23 @@ use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivilegesFactory;
 
 final class AddNewPrimaryController extends AbstractController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private Normalization $normalization)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        private Normalization $normalization,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
+    ) {
         parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): void
     {
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
+
         $numFields = 1;
 
         $db = DatabaseName::tryFrom(Current::$database);
@@ -31,7 +38,13 @@ final class AddNewPrimaryController extends AbstractController
         $tableName = isset($table) ? $table->getName() : '';
 
         $columnMeta = ['Field' => $tableName . '_id', 'Extra' => 'auto_increment'];
-        $html = $this->normalization->getHtmlForCreateNewColumn($numFields, $dbName, $tableName, $columnMeta);
+        $html = $this->normalization->getHtmlForCreateNewColumn(
+            $userPrivileges,
+            $numFields,
+            $dbName,
+            $tableName,
+            $columnMeta,
+        );
         $html .= Url::getHiddenInputs($dbName, $tableName);
         $this->response->addHTML($html);
     }

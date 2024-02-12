@@ -21,6 +21,7 @@ use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -42,6 +43,7 @@ class AddFieldController extends AbstractController
         private DatabaseInterface $dbi,
         private ColumnsDefinition $columnsDefinition,
         private readonly DbTableExists $dbTableExists,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
         parent::__construct($response, $template);
     }
@@ -59,6 +61,8 @@ class AddFieldController extends AbstractController
         if (! $this->checkParameters(['db', 'table'])) {
             return;
         }
+
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $cfg = $this->config->settings;
 
@@ -188,7 +192,7 @@ class AddFieldController extends AbstractController
             return;
         }
 
-        $templateData = $this->columnsDefinition->displayForm('/table/add-field', $numFields);
+        $templateData = $this->columnsDefinition->displayForm($userPrivileges, '/table/add-field', $numFields);
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
     }

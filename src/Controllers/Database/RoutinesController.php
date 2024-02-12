@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
@@ -19,7 +18,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\UserPrivileges;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -40,7 +39,7 @@ class RoutinesController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private CheckUserPrivileges $checkUserPrivileges,
+        private UserPrivilegesFactory $userPrivilegesFactory,
         private DatabaseInterface $dbi,
         private Routines $routines,
         private readonly DbTableExists $dbTableExists,
@@ -58,7 +57,7 @@ class RoutinesController extends AbstractController
 
         $type = $_REQUEST['type'] ?? null;
 
-        $this->checkUserPrivileges->getPrivileges();
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $config = Config::getInstance();
         if (! $request->isAjax()) {
@@ -119,7 +118,7 @@ class RoutinesController extends AbstractController
         $GLOBALS['message'] ??= null;
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
-            $output = $this->routines->handleRequestCreateOrEdit(Current::$database);
+            $output = $this->routines->handleRequestCreateOrEdit($userPrivileges, Current::$database);
             if ($request->isAjax()) {
                 if (! $GLOBALS['message']->isSuccess()) {
                     $this->response->setRequestStatus(false);
@@ -264,7 +263,7 @@ class RoutinesController extends AbstractController
                     'parameter_rows' => $parameterRows,
                     'charsets' => $charsets,
                     'numeric_options' => $this->routines->numericOptions,
-                    'has_privileges' => UserPrivileges::$routines && UserPrivileges::$isReload,
+                    'has_privileges' => $userPrivileges->routines && $userPrivileges->isReload,
                     'sql_data_access' => $this->routines->sqlDataAccess,
                 ]);
 

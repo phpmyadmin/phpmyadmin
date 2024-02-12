@@ -21,6 +21,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivileges;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -43,6 +44,7 @@ final class SaveController extends AbstractController
         private Transformations $transformations,
         private DatabaseInterface $dbi,
         private StructureController $structureController,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
         parent::__construct($response, $template);
 
@@ -51,7 +53,9 @@ final class SaveController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $regenerate = $this->updateColumns();
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
+
+        $regenerate = $this->updateColumns($userPrivileges);
         if (! $regenerate) {
             // continue to show the table's structure
             unset($_POST['selected']);
@@ -65,7 +69,7 @@ final class SaveController extends AbstractController
      *
      * @return bool true if error occurred
      */
-    private function updateColumns(): bool
+    private function updateColumns(UserPrivileges $userPrivileges): bool
     {
         $errUrl = Url::getFromRoute('/table/structure', ['db' => Current::$database, 'table' => Current::$table]);
         $regenerate = false;
@@ -198,7 +202,7 @@ final class SaveController extends AbstractController
             $result = $this->dbi->tryQuery($sqlQuery);
 
             if ($result !== false) {
-                $changedPrivileges = $this->adjustColumnPrivileges($adjustPrivileges);
+                $changedPrivileges = $this->adjustColumnPrivileges($userPrivileges, $adjustPrivileges);
 
                 if ($changedPrivileges) {
                     $message = Message::success(
@@ -358,11 +362,11 @@ final class SaveController extends AbstractController
      * @param mixed[] $adjustPrivileges assoc array of old col names mapped to new
      *                                 cols
      */
-    private function adjustColumnPrivileges(array $adjustPrivileges): bool
+    private function adjustColumnPrivileges(UserPrivileges $userPrivileges, array $adjustPrivileges): bool
     {
         $changed = false;
 
-        if (UserPrivileges::$column && UserPrivileges::$isReload) {
+        if ($userPrivileges->column && $userPrivileges->isReload) {
             $this->dbi->selectDb('mysql');
 
             // For Column specific privileges

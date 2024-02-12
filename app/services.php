@@ -6,7 +6,6 @@ use PhpMyAdmin\Advisory\Advisor;
 use PhpMyAdmin\Application;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\BrowseForeigners;
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
@@ -57,6 +56,7 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\UserPassword;
 use PhpMyAdmin\UserPreferences;
+use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Utils\HttpRequest;
 use PhpMyAdmin\VersionInformation;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
@@ -83,7 +83,6 @@ return [
         'config' => ['class' => Config::class, 'factory' => [Config::class, 'getInstance']],
         Config\PageSettings::class => ['class' => Config\PageSettings::class, 'arguments' => ['@user_preferences']],
         'central_columns' => ['class' => CentralColumns::class, 'arguments' => ['@dbi']],
-        'check_user_privileges' => ['class' => CheckUserPrivileges::class, 'arguments' => ['@dbi']],
         'create_add_field' => ['class' => CreateAddField::class, 'arguments' => ['@dbi']],
         'dbi' => ['class' => DatabaseInterface::class, 'factory' => [DatabaseInterface::class, 'getInstance']],
         DbTableExists::class => ['class' => DbTableExists::class, 'arguments' => ['@dbi']],
@@ -220,6 +219,7 @@ return [
             'arguments' => ['@server_privileges', '@' . AuthenticationPluginFactory::class, '@dbi'],
         ],
         'user_preferences' => ['class' => UserPreferences::class, 'arguments' => ['@dbi', '@relation', '@template']],
+        UserPrivilegesFactory::class => ['class' => UserPrivilegesFactory::class, 'arguments' => ['@dbi']],
         'version_information' => ['class' => VersionInformation::class],
         DatabaseInterface::class => 'dbi',
         PhpMyAdmin\FlashMessages::class => 'flash',

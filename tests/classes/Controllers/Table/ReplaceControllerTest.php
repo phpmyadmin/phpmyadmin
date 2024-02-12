@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -115,7 +114,6 @@ class ReplaceControllerTest extends AbstractTestCase
                 $template,
                 $bookmarkRepository,
             ),
-            new CheckUserPrivileges($dbi),
             $dbi,
             $pageSettings,
             $bookmarkRepository,

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -19,6 +18,7 @@ use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPrivilegesFactory;
 
 use function __;
 use function htmlspecialchars;
@@ -38,6 +38,7 @@ class PrivilegesController extends AbstractController
         Template $template,
         private Relation $relation,
         private DatabaseInterface $dbi,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
         parent::__construct($response, $template);
     }
@@ -50,8 +51,7 @@ class PrivilegesController extends AbstractController
         $GLOBALS['hostname'] ??= null;
         $GLOBALS['dbname'] ??= null;
 
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $checkUserPrivileges->getPrivileges();
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -364,6 +364,7 @@ class PrivilegesController extends AbstractController
                 // No username is given --> display the overview
                 $this->response->addHTML(
                     $serverPrivileges->getHtmlForUserOverview(
+                        $userPrivileges,
                         LanguageManager::$textDir,
                         $request->getQueryParam('initial'),
                     ),

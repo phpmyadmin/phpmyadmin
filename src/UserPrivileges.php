@@ -6,13 +6,16 @@ namespace PhpMyAdmin;
 
 final class UserPrivileges
 {
-    public static bool $database = false;
-    public static bool $table = false;
-    public static bool $column = false;
-    public static bool $routines = false;
-    public static bool $isReload = false;
-    public static bool $isCreateDatabase = false;
-    public static string $databaseToCreate = '';
-    /** @var string[]|false */
-    public static array|bool $databasesToTest = false;
+    /** @param string[]|false $databasesToTest */
+    public function __construct(
+        public bool $database = false,
+        public bool $table = false,
+        public bool $column = false,
+        public bool $routines = false,
+        public bool $isReload = false,
+        public bool $isCreateDatabase = false,
+        public string $databaseToCreate = '',
+        public array|false $databasesToTest = false,
+    ) {
+    }
 }

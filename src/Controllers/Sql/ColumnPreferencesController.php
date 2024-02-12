@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Sql;
 
-use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
@@ -24,7 +23,6 @@ final class ColumnPreferencesController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private CheckUserPrivileges $checkUserPrivileges,
         private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
@@ -32,8 +30,6 @@ final class ColumnPreferencesController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $this->checkUserPrivileges->getPrivileges();
-
         $tableObject = $this->dbi->getTable(Current::$database, Current::$table);
         $status = false;
 

@@ -13,6 +13,7 @@ use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\UserPrivilegesFactory;
 
 final class CopyTableController extends AbstractController
 {
@@ -21,6 +22,7 @@ final class CopyTableController extends AbstractController
         Template $template,
         private Operations $operations,
         private StructureController $structureController,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
         parent::__construct($response, $template);
     }
@@ -31,6 +33,8 @@ final class CopyTableController extends AbstractController
         $selected = $request->getParsedBodyParam('selected', []);
         /** @var string $targetDb */
         $targetDb = $request->getParsedBodyParam('target_db');
+
+        $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         foreach ($selected as $selectedValue) {
             Table::moveCopy(
@@ -48,7 +52,13 @@ final class CopyTableController extends AbstractController
                 continue;
             }
 
-            $this->operations->adjustPrivilegesCopyTable(Current::$database, $selectedValue, $targetDb, $selectedValue);
+            $this->operations->adjustPrivilegesCopyTable(
+                $userPrivileges,
+                Current::$database,
+                $selectedValue,
+                $targetDb,
+                $selectedValue,
+            );
         }
 
         $GLOBALS['message'] = Message::success();

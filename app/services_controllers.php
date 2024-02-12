@@ -44,6 +44,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Theme\ThemeManager;
+use PhpMyAdmin\UserPrivilegesFactory;
 
 return [
     'services' => [
@@ -187,7 +188,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$operations' => '@operations',
-                '$checkUserPrivileges' => '@check_user_privileges',
+                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
                 '$relation' => '@relation',
                 '$relationCleanup' => '@relation_cleanup',
                 '$dbi' => '@dbi',
@@ -208,7 +209,7 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$checkUserPrivileges' => '@check_user_privileges',
+                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
                 '$dbi' => '@dbi',
                 '$routines' => '@routines',
                 '$dbTableExists' => '@' . DbTableExists::class,
@@ -301,6 +302,7 @@ return [
                 '$template' => '@template',
                 '$operations' => '@operations',
                 '$structureController' => '@' . Database\StructureController::class,
+                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
             ],
         ],
         Database\Structure\CopyTableWithPrefixController::class => [
@@ -616,6 +618,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$normalization' => '@normalization',
+                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
             ],
         ],
         Normalization\CreateNewColumnController::class => [
@@ -624,6 +627,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$normalization' => '@normalization',
+                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
             ],
         ],
         Normalization\GetColumnsController::class => [
@@ -767,11 +771,17 @@ return [
                 '$dbi' => '@dbi',
                 '$transformations' => '@transformations',
                 '$relationCleanup' => '@relation_cleanup',
+                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
             ],
         ],
         Server\DatabasesController::class => [
             'class' => Server\DatabasesController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
+            ],
         ],
         Server\EnginesController::class => [
             'class' => Server\EnginesController::class,
@@ -828,6 +838,7 @@ return [
                 '$template' => '@template',
                 '$relation' => '@relation',
                 '$dbi' => '@dbi',
+                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
             ],
         ],
         Server\ReplicationController::class => [
@@ -1009,47 +1020,23 @@ return [
         ],
         Sql\ColumnPreferencesController::class => [
             'class' => Sql\ColumnPreferencesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$checkUserPrivileges' => '@check_user_privileges',
-                '$dbi' => '@dbi',
-            ],
+            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
         ],
         Sql\DefaultForeignKeyCheckValueController::class => [
             'class' => Sql\DefaultForeignKeyCheckValueController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$checkUserPrivileges' => '@check_user_privileges',
-            ],
+            'arguments' => ['$response' => '@response', '$template' => '@template'],
         ],
         Sql\EnumValuesController::class => [
             'class' => Sql\EnumValuesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$sql' => '@sql',
-                '$checkUserPrivileges' => '@check_user_privileges',
-            ],
+            'arguments' => ['$response' => '@response', '$template' => '@template', '$sql' => '@sql'],
         ],
         Sql\RelationalValuesController::class => [
             'class' => Sql\RelationalValuesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$sql' => '@sql',
-                '$checkUserPrivileges' => '@check_user_privileges',
-            ],
+            'arguments' => ['$response' => '@response', '$template' => '@template', '$sql' => '@sql'],
         ],
         Sql\SetValuesController::class => [
             'class' => Sql\SetValuesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$sql' => '@sql',
-                '$checkUserPrivileges' => '@check_user_privileges',
-            ],
+            'arguments' => ['$response' => '@response', '$template' => '@template', '$sql' => '@sql'],
         ],
         Sql\SqlController::class => [
             'class' => Sql\SqlController::class,
@@ -1057,7 +1044,6 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$sql' => '@sql',
-                '$checkUserPrivileges' => '@check_user_privileges',
                 '$dbi' => '@dbi',
                 '$pageSettings' => '@' . PageSettings::class,
                 '$bookmarkRepository' => '@bookmarkRepository',
@@ -1073,6 +1059,7 @@ return [
                 '$dbi' => '@dbi',
                 '$columnsDefinition' => '@table_columns_definition',
                 '$dbTableExists' => '@' . DbTableExists::class,
+                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
             ],
         ],
         Table\ChangeController::class => [
@@ -1113,6 +1100,7 @@ return [
                 '$config' => '@config',
                 '$dbi' => '@dbi',
                 '$columnsDefinition' => '@table_columns_definition',
+                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
             ],
         ],
         Table\DeleteConfirmController::class => [
@@ -1321,7 +1309,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$operations' => '@operations',
-                '$checkUserPrivileges' => '@check_user_privileges',
+                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
                 '$relation' => '@relation',
                 '$dbi' => '@dbi',
                 '$dbTableExists' => '@' . DbTableExists::class,
@@ -1432,6 +1420,7 @@ return [
                 '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$columnsDefinition' => '@table_columns_definition',
+                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
             ],
         ],
         Table\Structure\FulltextController::class => [
@@ -1481,6 +1470,7 @@ return [
                 '$transformations' => '@transformations',
                 '$dbi' => '@dbi',
                 '$structureController' => '@' . Table\StructureController::class,
+                '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
             ],
         ],
         Table\Structure\SpatialController::class => [
