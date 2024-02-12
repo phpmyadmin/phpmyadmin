@@ -71,6 +71,7 @@ class SqlTest extends AbstractTestCase
             new Transformations(),
             new Template(),
             new BookmarkRepository($this->dbi, $relation),
+            Config::getInstance(),
         );
     }
 

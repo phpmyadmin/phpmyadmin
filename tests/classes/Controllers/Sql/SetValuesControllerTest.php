@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Sql;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Sql\SetValuesController;
@@ -65,6 +66,7 @@ class SetValuesControllerTest extends AbstractTestCase
             self::createStub(Transformations::class),
             $template,
             $bookmarkRepository,
+            Config::getInstance(),
         );
 
         $sqlController = new SetValuesController($responseRenderer, $template, $sql);
@@ -117,6 +119,7 @@ class SetValuesControllerTest extends AbstractTestCase
             self::createStub(Transformations::class),
             $template,
             $bookmarkRepository,
+            Config::getInstance(),
         );
 
         $sqlController = new SetValuesController($responseRenderer, $template, $sql);

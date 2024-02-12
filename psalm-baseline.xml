@@ -1407,6 +1407,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/Structure/EmptyTableController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[$_REQUEST['pos']]]></code>
     </InvalidArgument>
@@ -3197,6 +3200,9 @@
     </MixedAssignment>
   </file>
   <file src="src/Controllers/Table/DeleteRowsController.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[$_REQUEST['pos']]]></code>
     </InvalidArgument>
@@ -3641,6 +3647,7 @@
   </file>
   <file src="src/Controllers/Table/SearchController.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
@@ -4713,6 +4720,7 @@
   </file>
   <file src="src/Database/MultiTableQuery.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
   </file>
@@ -10947,17 +10955,6 @@
     </MixedAssignment>
   </file>
   <file src="src/Sql.php">
-    <DeprecatedMethod>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
@@ -12950,6 +12947,7 @@
   <file src="tests/classes/Controllers/Import/ImportControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
     </DeprecatedMethod>
   </file>
   <file src="tests/classes/Controllers/NavigationControllerTest.php">
@@ -13196,6 +13194,18 @@
       <code>[$formattedValue, $isHtmlFormatted]</code>
     </MixedAssignment>
   </file>
+  <file src="tests/classes/Controllers/Sql/EnumValuesControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="tests/classes/Controllers/Sql/SetValuesControllerTest.php">
+    <DeprecatedMethod>
+      <code>Config::getInstance()</code>
+      <code>Config::getInstance()</code>
+    </DeprecatedMethod>
+  </file>
   <file src="tests/classes/Controllers/Table/AddFieldControllerTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
@@ -13323,6 +13333,7 @@
   </file>
   <file src="tests/classes/Controllers/Table/ReplaceControllerTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
@@ -14912,6 +14923,7 @@
   </file>
   <file src="tests/classes/SqlTest.php">
     <DeprecatedMethod>
+      <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>

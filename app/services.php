@@ -173,6 +173,7 @@ return [
                 '@transformations',
                 '@template',
                 '@bookmarkRepository',
+                '@config',
             ],
         ],
         'sql_query_form' => [
