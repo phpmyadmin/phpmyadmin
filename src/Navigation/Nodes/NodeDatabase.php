@@ -43,20 +43,16 @@ class NodeDatabase extends Node
 
     private ObjectFetcher $objectFetcher;
 
-    /**
-     * Initialises the class
-     *
-     * @param string $name An identifier for the new node
-     */
-    public function __construct(string $name)
+    /** @param string $name An identifier for the new node */
+    public function __construct(Config $config, string $name)
     {
-        parent::__construct(Config::getInstance(), $name);
+        parent::__construct($config, $name);
 
         $this->icon = ['image' => 's_db', 'title' => __('Database operations')];
 
         $this->links = [
             'text' => [
-                'route' => Util::getUrlForOption(Config::getInstance()->settings['DefaultTabDatabase'], 'database'),
+                'route' => Util::getUrlForOption($this->config->settings['DefaultTabDatabase'], 'database'),
                 'params' => ['db' => null],
             ],
             'icon' => ['route' => '/database/operations', 'params' => ['db' => null]],
@@ -66,7 +62,7 @@ class NodeDatabase extends Node
         $this->classes = 'database';
         $this->urlParamName = 'db';
 
-        $this->objectFetcher = new ObjectFetcher(DatabaseInterface::getInstance(), Config::getInstance());
+        $this->objectFetcher = new ObjectFetcher(DatabaseInterface::getInstance(), $this->config);
     }
 
     /**
@@ -119,10 +115,9 @@ class NodeDatabase extends Node
             default => [],
         };
 
-        $config = Config::getInstance();
-        $maxItems = $config->settings['MaxNavigationItems'];
+        $maxItems = $this->config->settings['MaxNavigationItems'];
 
-        if ($config->settings['NaturalOrder']) {
+        if ($this->config->settings['NaturalOrder']) {
             usort($retval, strnatcasecmp(...));
         }
 

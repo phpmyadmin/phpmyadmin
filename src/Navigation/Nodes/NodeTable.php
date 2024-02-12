@@ -30,40 +30,35 @@ class NodeTable extends NodeDatabaseChild
      */
     public array|null $secondIcon = null;
 
-    /**
-     * Initialises the class
-     *
-     * @param string $name An identifier for the new node
-     */
-    public function __construct(string $name)
+    /** @param string $name An identifier for the new node */
+    public function __construct(Config $config, string $name)
     {
-        parent::__construct(Config::getInstance(), $name);
+        parent::__construct($config, $name);
 
-        $config = Config::getInstance();
         $icon = $this->addIcon(
-            Util::getScriptNameForOption($config->settings['NavigationTreeDefaultTabTable'], 'table'),
+            Util::getScriptNameForOption($this->config->settings['NavigationTreeDefaultTabTable'], 'table'),
         );
         if ($icon !== null) {
             $this->icon = $icon;
         }
 
         $this->secondIcon = $this->addIcon(
-            Util::getScriptNameForOption($config->settings['NavigationTreeDefaultTabTable2'], 'table'),
+            Util::getScriptNameForOption($this->config->settings['NavigationTreeDefaultTabTable2'], 'table'),
         );
-        $title = (string) Util::getTitleForTarget($config->settings['DefaultTabTable']);
+        $title = (string) Util::getTitleForTarget($this->config->settings['DefaultTabTable']);
         $this->title = $title;
 
         $this->links = [
             'text' => [
-                'route' => Util::getUrlForOption($config->settings['DefaultTabTable'], 'table'),
+                'route' => Util::getUrlForOption($this->config->settings['DefaultTabTable'], 'table'),
                 'params' => ['pos' => 0, 'db' => null, 'table' => null],
             ],
             'icon' => [
-                'route' => Util::getUrlForOption($config->settings['NavigationTreeDefaultTabTable'], 'table'),
+                'route' => Util::getUrlForOption($this->config->settings['NavigationTreeDefaultTabTable'], 'table'),
                 'params' => ['db' => null, 'table' => null],
             ],
             'second_icon' => [
-                'route' => Util::getUrlForOption($config->settings['NavigationTreeDefaultTabTable2'], 'table'),
+                'route' => Util::getUrlForOption($this->config->settings['NavigationTreeDefaultTabTable2'], 'table'),
                 'params' => ['db' => null, 'table' => null],
             ],
             'title' => $this->title,
@@ -87,10 +82,9 @@ class NodeTable extends NodeDatabaseChild
         $db = $this->realParent()->realName;
         $table = $this->realName;
         $dbi = DatabaseInterface::getInstance();
-        $config = Config::getInstance();
         switch ($type) {
             case 'columns':
-                if (! $config->selectedServer['DisableIS']) {
+                if (! $this->config->selectedServer['DisableIS']) {
                     $query = 'SELECT COUNT(*) ';
                     $query .= 'FROM `INFORMATION_SCHEMA`.`COLUMNS` ';
                     $query .= 'WHERE `TABLE_NAME`=' . $dbi->quoteString($table) . ' ';
@@ -111,7 +105,7 @@ class NodeTable extends NodeDatabaseChild
                 $retval = (int) $dbi->queryAndGetNumRows($query);
                 break;
             case 'triggers':
-                if (! $config->selectedServer['DisableIS']) {
+                if (! $this->config->selectedServer['DisableIS']) {
                     $query = 'SELECT COUNT(*) ';
                     $query .= 'FROM `INFORMATION_SCHEMA`.`TRIGGERS` ';
                     $query .= 'WHERE `EVENT_OBJECT_SCHEMA` '
@@ -152,15 +146,14 @@ class NodeTable extends NodeDatabaseChild
         int $pos,
         string $searchClause = '',
     ): array {
-        $config = Config::getInstance();
-        $maxItems = $config->settings['MaxNavigationItems'];
+        $maxItems = $this->config->settings['MaxNavigationItems'];
         $retval = [];
         $db = $this->realParent()->realName;
         $table = $this->realName;
         $dbi = DatabaseInterface::getInstance();
         switch ($type) {
             case 'columns':
-                if (! $config->selectedServer['DisableIS']) {
+                if (! $this->config->selectedServer['DisableIS']) {
                     $query = 'SELECT `COLUMN_NAME` AS `name` ';
                     $query .= ',`COLUMN_KEY` AS `key` ';
                     $query .= ',`DATA_TYPE` AS `type` ';
@@ -227,7 +220,7 @@ class NodeTable extends NodeDatabaseChild
 
                 break;
             case 'triggers':
-                if (! $config->selectedServer['DisableIS']) {
+                if (! $this->config->selectedServer['DisableIS']) {
                     $query = 'SELECT `TRIGGER_NAME` AS `name` ';
                     $query .= 'FROM `INFORMATION_SCHEMA`.`TRIGGERS` ';
                     $query .= 'WHERE `EVENT_OBJECT_SCHEMA` '

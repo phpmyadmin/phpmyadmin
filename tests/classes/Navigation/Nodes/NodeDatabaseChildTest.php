@@ -63,7 +63,7 @@ class NodeDatabaseChildTest extends AbstractTestCase
             'navigationhiding' => 'navigationhiding',
         ]);
 
-        $parent = new NodeDatabase('parent');
+        $parent = new NodeDatabase(Config::getInstance(), 'parent');
         $parent->addChild($this->object);
         $this->object->expects(self::once())
             ->method('getItemType')

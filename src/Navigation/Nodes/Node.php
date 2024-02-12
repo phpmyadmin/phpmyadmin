@@ -122,7 +122,7 @@ class Node
      *                          Only relevant if the node is of type CONTAINER
      */
     public function __construct(
-        private readonly Config $config,
+        protected readonly Config $config,
         public string $name = '',
         public readonly NodeType $type = NodeType::Object,
         public bool $isGroup = false,

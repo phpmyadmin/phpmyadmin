@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
+
 use function __;
 use function _pgettext;
 
@@ -15,12 +17,9 @@ use function _pgettext;
  */
 class NodeTableContainer extends NodeDatabaseChildContainer
 {
-    /**
-     * Initialises the class
-     */
-    public function __construct()
+    public function __construct(Config $config)
     {
-        parent::__construct(__('Tables'));
+        parent::__construct($config, __('Tables'));
 
         $this->icon = ['image' => 'b_browse', 'title' => __('Tables')];
         $this->links = [

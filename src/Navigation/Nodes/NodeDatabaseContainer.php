@@ -19,19 +19,15 @@ use function _pgettext;
  */
 class NodeDatabaseContainer extends Node
 {
-    /**
-     * Initialises the class
-     *
-     * @param string $name An identifier for the new node
-     */
-    public function __construct(string $name)
+    /** @param string $name An identifier for the new node */
+    public function __construct(Config $config, string $name)
     {
+        parent::__construct($config, $name, NodeType::Container);
+
         $userPrivilegesFactory = new UserPrivilegesFactory(DatabaseInterface::getInstance());
         $userPrivileges = $userPrivilegesFactory->getPrivileges();
 
-        parent::__construct(Config::getInstance(), $name, NodeType::Container);
-
-        if (! $userPrivileges->isCreateDatabase || Config::getInstance()->settings['ShowCreateDb'] === false) {
+        if (! $userPrivileges->isCreateDatabase || $this->config->settings['ShowCreateDb'] === false) {
             return;
         }
 

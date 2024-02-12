@@ -16,14 +16,10 @@ use function __;
  */
 class NodeTrigger extends Node
 {
-    /**
-     * Initialises the class
-     *
-     * @param string $name An identifier for the new node
-     */
-    public function __construct(string $name)
+    /** @param string $name An identifier for the new node */
+    public function __construct(Config $config, string $name)
     {
-        parent::__construct(Config::getInstance(), $name);
+        parent::__construct($config, $name);
 
         $this->icon = ['image' => 'b_triggers', 'title' => __('Trigger')];
         $this->links = [

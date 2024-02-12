@@ -18,12 +18,9 @@ use function _pgettext;
  */
 class NodeIndexContainer extends Node
 {
-    /**
-     * Initialises the class
-     */
-    public function __construct()
+    public function __construct(Config $config)
     {
-        parent::__construct(Config::getInstance(), __('Indexes'), NodeType::Container);
+        parent::__construct($config, __('Indexes'), NodeType::Container);
 
         $this->icon = ['image' => 'b_index', 'title' => __('Indexes')];
         $this->links = [

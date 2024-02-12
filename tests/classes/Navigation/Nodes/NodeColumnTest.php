@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Navigation\Nodes\NodeColumn;
 use PhpMyAdmin\Navigation\NodeType;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -14,7 +15,7 @@ final class NodeColumnTest extends AbstractTestCase
 {
     public function testColumnNode(): void
     {
-        $nodeColumn = new NodeColumn([
+        $nodeColumn = new NodeColumn(new Config(), [
             'name' => 'actor_id',
             'key' => 'PRI',
             'type' => 'smallint',
@@ -45,7 +46,7 @@ final class NodeColumnTest extends AbstractTestCase
 
     public function testColumnNodeWithTruncatedDefaultValue(): void
     {
-        $nodeColumn = new NodeColumn([
+        $nodeColumn = new NodeColumn(new Config(), [
             'name' => 'last_update',
             'key' => '',
             'type' => 'timestamp',
@@ -58,7 +59,7 @@ final class NodeColumnTest extends AbstractTestCase
 
     public function testColumnNodeWithTruncatedDefaultValue2(): void
     {
-        $nodeColumn = new NodeColumn([
+        $nodeColumn = new NodeColumn(new Config(), [
             'name' => 'email',
             'key' => 'UNI',
             'type' => 'varchar',
@@ -71,7 +72,7 @@ final class NodeColumnTest extends AbstractTestCase
 
     public function testColumnNodeWithoutTruncatedDefaultValue(): void
     {
-        $nodeColumn = new NodeColumn([
+        $nodeColumn = new NodeColumn(new Config(), [
             'name' => 'email',
             'key' => '',
             'type' => 'varchar',

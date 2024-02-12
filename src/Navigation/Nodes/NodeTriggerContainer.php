@@ -18,12 +18,9 @@ use function _pgettext;
  */
 class NodeTriggerContainer extends Node
 {
-    /**
-     * Initialises the class
-     */
-    public function __construct()
+    public function __construct(Config $config)
     {
-        parent::__construct(Config::getInstance(), __('Triggers'), NodeType::Container);
+        parent::__construct($config, __('Triggers'), NodeType::Container);
 
         $this->icon = ['image' => 'b_triggers', 'title' => __('Triggers')];
         $this->links = [

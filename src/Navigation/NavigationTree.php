@@ -209,7 +209,7 @@ class NavigationTree
         }
 
         // Initialize the tree by creating a root node
-        $this->tree = new NodeDatabaseContainer('root');
+        $this->tree = new NodeDatabaseContainer($this->config, 'root');
         if (
             ! $this->config->settings['NavigationTreeEnableGrouping']
             || ! $this->config->settings['ShowDatabasesNavigationAsTree']
@@ -332,7 +332,7 @@ class NavigationTree
         );
         $hiddenCounts = $this->tree->getNavigationHidingData($this->relationParameters->navigationItemsHidingFeature);
         foreach ($data as $db) {
-            $node = new NodeDatabase($db);
+            $node = new NodeDatabase($this->config, $db);
             if (isset($hiddenCounts[$db])) {
                 $node->setHiddenCount((int) $hiddenCounts[$db]);
             }
@@ -419,11 +419,11 @@ class NavigationTree
             );
             foreach ($dbData as $item) {
                 $node = match ($container->realName) {
-                    'events' => new NodeEvent($item),
-                    'functions' => new NodeFunction($item),
-                    'procedures' => new NodeProcedure($item),
-                    'tables' => new NodeTable($item),
-                    'views' => new NodeView($item),
+                    'events' => new NodeEvent($this->config, $item),
+                    'functions' => new NodeFunction($this->config, $item),
+                    'procedures' => new NodeProcedure($this->config, $item),
+                    'tables' => new NodeTable($this->config, $item),
+                    'views' => new NodeView($this->config, $item),
                     default => null,
                 };
 
@@ -455,7 +455,7 @@ class NavigationTree
                 return false;
             }
 
-            $node = new NodeTable($path[0]);
+            $node = new NodeTable($this->config, $path[0]);
             if ($type2 === $container->realName) {
                 $node->pos2 = $pos2;
             }
@@ -481,9 +481,9 @@ class NavigationTree
         $tableData = $table->getData($userPrivileges, $this->relationParameters, $container->realName, $pos3);
         foreach ($tableData as $item) {
             $node = match ($container->realName) {
-                'indexes' => new NodeIndex($item),
-                'columns' => new NodeColumn($item),
-                'triggers' => new NodeTrigger($item),
+                'indexes' => new NodeIndex($this->config, $item),
+                'columns' => new NodeColumn($this->config, $item),
+                'triggers' => new NodeTrigger($this->config, $item),
                 default => null,
             };
 
@@ -529,15 +529,15 @@ class NavigationTree
         $retval = [];
         if (! $table->hasChildren()) {
             if ($table->getPresence($userPrivileges, 'columns') !== 0) {
-                $retval['columns'] = new NodeColumnContainer();
+                $retval['columns'] = new NodeColumnContainer($this->config);
             }
 
             if ($table->getPresence($userPrivileges, 'indexes') !== 0) {
-                $retval['indexes'] = new NodeIndexContainer();
+                $retval['indexes'] = new NodeIndexContainer($this->config);
             }
 
             if ($table->getPresence($userPrivileges, 'triggers') !== 0) {
-                $retval['triggers'] = new NodeTriggerContainer();
+                $retval['triggers'] = new NodeTriggerContainer($this->config);
             }
 
             // Add all new Nodes to the tree
@@ -604,23 +604,23 @@ class NavigationTree
         $retval = [];
         if (! $db->hasChildren()) {
             if (! in_array('tables', $hidden, true) && $db->getPresence($userPrivileges, 'tables')) {
-                $retval['tables'] = new NodeTableContainer();
+                $retval['tables'] = new NodeTableContainer($this->config);
             }
 
             if (! in_array('views', $hidden, true) && $db->getPresence($userPrivileges, 'views')) {
-                $retval['views'] = new NodeViewContainer();
+                $retval['views'] = new NodeViewContainer($this->config);
             }
 
             if (! in_array('functions', $hidden, true) && $db->getPresence($userPrivileges, 'functions')) {
-                $retval['functions'] = new NodeFunctionContainer();
+                $retval['functions'] = new NodeFunctionContainer($this->config);
             }
 
             if (! in_array('procedures', $hidden, true) && $db->getPresence($userPrivileges, 'procedures')) {
-                $retval['procedures'] = new NodeProcedureContainer();
+                $retval['procedures'] = new NodeProcedureContainer($this->config);
             }
 
             if (! in_array('events', $hidden, true) && $db->getPresence($userPrivileges, 'events')) {
-                $retval['events'] = new NodeEventContainer();
+                $retval['events'] = new NodeEventContainer($this->config);
             }
 
             // Add all new Nodes to the tree
@@ -783,7 +783,7 @@ class NavigationTree
                         continue;
                     }
 
-                    $newChild = new $child(mb_substr($child->name, $keySeparatorLength));
+                    $newChild = new $child($this->config, mb_substr($child->name, $keySeparatorLength));
                     if ($child instanceof NodeDatabase && $child->getHiddenCount() > 0) {
                         $newChild->setHiddenCount($child->getHiddenCount());
                     }

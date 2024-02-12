@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Navigation\Nodes\NodeFunction;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -16,7 +17,7 @@ class NodeFunctionTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $parent = new NodeFunction('default');
+        $parent = new NodeFunction(new Config(), 'default');
         self::assertEquals(
             [
                 'text' => [

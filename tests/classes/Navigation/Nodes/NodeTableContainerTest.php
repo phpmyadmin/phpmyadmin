@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Navigation\Nodes\NodeTableContainer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -16,7 +17,7 @@ class NodeTableContainerTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $parent = new NodeTableContainer();
+        $parent = new NodeTableContainer(new Config());
         self::assertEquals(
             [
                 'text' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'table', 'db' => null]],

@@ -18,12 +18,9 @@ use function _pgettext;
  */
 class NodeColumnContainer extends Node
 {
-    /**
-     * Initialises the class
-     */
-    public function __construct()
+    public function __construct(Config $config)
     {
-        parent::__construct(Config::getInstance(), __('Columns'), NodeType::Container);
+        parent::__construct($config, __('Columns'), NodeType::Container);
 
         $this->icon = ['image' => 'pause', 'title' => __('Columns')];
         $this->links = [
