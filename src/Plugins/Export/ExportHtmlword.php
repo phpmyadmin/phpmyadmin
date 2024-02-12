@@ -226,11 +226,7 @@ class ExportHtmlword extends ExportPlugin
         while ($row = $result->fetchRow()) {
             $schemaInsert = '<tr class="print-category">';
             foreach ($row as $field) {
-                if ($field === null) {
-                    $value = $GLOBALS[$GLOBALS['what'] . '_null'];
-                } else {
-                    $value = $field;
-                }
+                $value = $field ?? $GLOBALS[$GLOBALS['what'] . '_null'];
 
                 $schemaInsert .= '<td class="print">'
                     . htmlspecialchars((string) $value)

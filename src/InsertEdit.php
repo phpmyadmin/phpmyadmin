@@ -1645,10 +1645,7 @@ class InsertEdit
         } else {
             // (we are inserting)
             // display default values
-            $defaultValue = $column->default ?? null;
-            if (isset($repopulate[$fieldHashMd5])) {
-                $defaultValue = $repopulate[$fieldHashMd5];
-            }
+            $defaultValue = $repopulate[$fieldHashMd5] ?? $column->default ?? null;
 
             $realNullValue = $defaultValue === null;
             $data = (string) $defaultValue;
@@ -1716,10 +1713,7 @@ class InsertEdit
                     ];
                     $transformationOptions['wrapper_link'] = Url::getCommon($urlParams);
                     $transformationOptions['wrapper_params'] = $urlParams;
-                    $currentValue = '';
-                    if (isset($currentRow[$column->field])) {
-                        $currentValue = $currentRow[$column->field];
-                    }
+                    $currentValue = $currentRow[$column->field] ?? '';
 
                     if ($transformationPlugin instanceof IOTransformationsPlugin) {
                         $transformedHtml = $transformationPlugin->getInputHtml(
@@ -1933,18 +1927,12 @@ class InsertEdit
         //store the default value for CharEditing
         $defaultCharEditing = $this->config->settings['CharEditing'];
         $mimeMap = $this->transformations->getMime($db, $table);
-        $whereClause = '';
-        if (isset($whereClauseArray[$rowId])) {
-            $whereClause = $whereClauseArray[$rowId];
-        }
+        $whereClause = $whereClauseArray[$rowId] ?? '';
 
         $columnCount = count($tableColumns);
         for ($columnNumber = 0; $columnNumber < $columnCount; $columnNumber++) {
             $tableColumn = $tableColumns[$columnNumber];
-            $columnMime = [];
-            if (isset($mimeMap[$tableColumn->field])) {
-                $columnMime = $mimeMap[$tableColumn->field];
-            }
+            $columnMime = $mimeMap[$tableColumn->field] ?? [];
 
             $virtual = ['VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'];
             if (in_array($tableColumn->extra, $virtual, true)) {

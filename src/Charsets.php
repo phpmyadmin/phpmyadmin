@@ -179,13 +179,9 @@ class Charsets
             return self::$charsets['utf8'];
         }
 
-        if (self::$serverCharset === null) {// Fallback in case nothing is found
-            return Charset::fromServer(
-                ['Charset' => __('Unknown'), 'Description' => __('Unknown')],
-            );
-        }
-
-        return self::$serverCharset;
+        return self::$serverCharset ?? Charset::fromServer(
+            ['Charset' => __('Unknown'), 'Description' => __('Unknown')],
+        );
     }
 
     /**

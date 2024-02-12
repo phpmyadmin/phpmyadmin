@@ -5161,6 +5161,7 @@
       <code><![CDATA[$_SESSION['tmpval']['query']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['query']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['query'][$sqlMd5]]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['query'][$sqlMd5]]]></code>
       <code><![CDATA[$_SESSION['tmpval']['query'][$sqlMd5]['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
@@ -5719,7 +5720,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <FalsableReturnStatement>
-      <code><![CDATA[$this->detectCompression()]]></code>
+      <code><![CDATA[$this->compression ?? $this->detectCompression()]]></code>
     </FalsableReturnStatement>
     <InvalidArrayOffset>
       <code><![CDATA[$_FILES['fields_upload']['name']['multi_edit']]]></code>

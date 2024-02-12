@@ -2979,10 +2979,7 @@ class Results
     public function setConfigParamsForDisplayTable(StatementInfo $statementInfo): void
     {
         $sqlMd5 = md5($this->server . $this->db . $this->sqlQuery);
-        $query = [];
-        if (isset($_SESSION['tmpval']['query'][$sqlMd5])) {
-            $query = $_SESSION['tmpval']['query'][$sqlMd5];
-        }
+        $query = $_SESSION['tmpval']['query'][$sqlMd5] ?? [];
 
         $query['sql'] = $this->sqlQuery;
 

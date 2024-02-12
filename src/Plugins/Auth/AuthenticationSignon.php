@@ -177,10 +177,7 @@ class AuthenticationSignon extends AuthenticationPlugin
                 $pmaToken = $_SESSION['PMA_single_signon_token'];
             }
 
-            $hmacSecret = Util::generateRandom(16);
-            if (isset($_SESSION['PMA_single_signon_HMAC_secret'])) {
-                $hmacSecret = $_SESSION['PMA_single_signon_HMAC_secret'];
-            }
+            $hmacSecret = $_SESSION['PMA_single_signon_HMAC_secret'] ?? Util::generateRandom(16);
 
             /* End single signon session */
             if (! defined('TESTSUITE')) {

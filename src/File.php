@@ -722,11 +722,7 @@ class File
      */
     public function getCompression(): string
     {
-        if ($this->compression === null) {
-            return $this->detectCompression();
-        }
-
-        return $this->compression;
+        return $this->compression ?? $this->detectCompression();
     }
 
     /**
