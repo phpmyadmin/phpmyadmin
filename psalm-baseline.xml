@@ -690,22 +690,6 @@
   <file src="src/ConfigStorage/Relation.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
-      <code>Config::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArgument>
       <code>usort($tables, strnatcasecmp(...))</code>
@@ -805,8 +789,8 @@
      * }]]></code>
     </MoreSpecificReturnType>
     <PossiblyFalseArgument>
-      <code><![CDATA[$config->selectedServer['column_info']]]></code>
-      <code><![CDATA[$config->selectedServer['column_info']]]></code>
+      <code><![CDATA[$this->config->selectedServer['column_info']]]></code>
+      <code><![CDATA[$this->config->selectedServer['column_info']]]></code>
     </PossiblyFalseArgument>
     <PossiblyInvalidArgument>
       <code>$foreigners</code>
@@ -819,26 +803,26 @@
       <code>$foreigner</code>
       <code>$foreigner</code>
       <code>$relationParams[$work]</code>
-      <code><![CDATA[empty($config->selectedServer[$feature])]]></code>
-      <code><![CDATA[empty($config->selectedServer['bookmarktable'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['central_columns'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['column_info'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['designer_settings'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['export_templates'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['favorite'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['history'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['navigationhiding'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['pdf_pages'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['recent'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['relation'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['savedsearches'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['table_coords'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['table_info'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['table_uiprefs'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['tracking'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['userconfig'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['usergroups'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['users'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer[$feature])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['bookmarktable'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['central_columns'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['column_info'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['designer_settings'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['export_templates'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['favorite'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['history'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['navigationhiding'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['pdf_pages'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['recent'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['relation'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['savedsearches'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['table_coords'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['table_info'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['table_uiprefs'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['tracking'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['userconfig'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['usergroups'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['users'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/ConfigStorage/UserGroups.php">

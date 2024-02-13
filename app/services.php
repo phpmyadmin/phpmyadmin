@@ -142,7 +142,7 @@ return [
             'arguments' => ['$dbi' => '@dbi'],
         ],
         AuthenticationPluginFactory::class => ['class' => AuthenticationPluginFactory::class],
-        'relation' => ['class' => Relation::class, 'arguments' => ['$dbi' => '@dbi']],
+        'relation' => ['class' => Relation::class, 'arguments' => ['$dbi' => '@dbi', '$config' => '@config']],
         'relation_cleanup' => ['class' => RelationCleanup::class, 'arguments' => ['@dbi', '@relation']],
         'replication' => ['class' => Replication::class, 'arguments' => ['$dbi' => '@dbi']],
         'replication_gui' => [

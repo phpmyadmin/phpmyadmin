@@ -9421,11 +9421,6 @@ parameters:
 			path: src/Navigation/NavigationTree.php
 
 		-
-			message: "#^Parameter \\#2 \\$needle of function mb_strpos expects string, mixed given\\.$#"
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
 			message: "#^Parameter \\#2 \\$item of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeColumn constructor expects array, mixed given\\.$#"
 			count: 1
 			path: src/Navigation/NavigationTree.php
@@ -9447,6 +9442,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeTrigger constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#2 \\$needle of function mb_strpos expects string, mixed given\\.$#"
 			count: 1
 			path: src/Navigation/NavigationTree.php
 
