@@ -40,34 +40,36 @@ class CentralColumnsController extends AbstractController
         $db = DatabaseName::from($request->getParam('db'));
 
         if ($request->hasBodyParam('edit_save')) {
-            $this->response->addHTML((string) $this->editSave([
-                'col_name' => $request->getParsedBodyParam('col_name'),
-                'orig_col_name' => $request->getParsedBodyParam('orig_col_name'),
-                'col_default' => $request->getParsedBodyParam('col_default'),
-                'col_default_sel' => $request->getParsedBodyParam('col_default_sel'),
-                'col_extra' => $request->getParsedBodyParam('col_extra'),
-                'col_isNull' => $request->getParsedBodyParam('col_isNull'),
-                'col_length' => $request->getParsedBodyParam('col_length'),
-                'col_attribute' => $request->getParsedBodyParam('col_attribute'),
-                'col_type' => $request->getParsedBodyParam('col_type'),
-                'collation' => $request->getParsedBodyParam('collation'),
-            ], $db));
+            $this->response->addHTML((string) $this->editSave(
+                $request->getParsedBodyParam('col_name'),
+                $request->getParsedBodyParam('orig_col_name'),
+                $request->getParsedBodyParam('col_default'),
+                $request->getParsedBodyParam('col_default_sel'),
+                $request->getParsedBodyParam('col_extra'),
+                $request->getParsedBodyParam('col_isNull'),
+                $request->getParsedBodyParam('col_length'),
+                $request->getParsedBodyParam('col_attribute'),
+                $request->getParsedBodyParam('col_type'),
+                $request->getParsedBodyParam('collation'),
+                $db,
+            ));
 
             return;
         }
 
         if ($request->hasBodyParam('add_new_column')) {
-            $tmpMsg = $this->addNewColumn([
-                'col_name' => $request->getParsedBodyParam('col_name'),
-                'col_default' => $request->getParsedBodyParam('col_default'),
-                'col_default_sel' => $request->getParsedBodyParam('col_default_sel'),
-                'col_extra' => $request->getParsedBodyParam('col_extra'),
-                'col_isNull' => $request->getParsedBodyParam('col_isNull'),
-                'col_length' => $request->getParsedBodyParam('col_length'),
-                'col_attribute' => $request->getParsedBodyParam('col_attribute'),
-                'col_type' => $request->getParsedBodyParam('col_type'),
-                'collation' => $request->getParsedBodyParam('collation'),
-            ], $db);
+            $tmpMsg = $this->addNewColumn(
+                $request->getParsedBodyParam('col_name'),
+                $request->getParsedBodyParam('col_default'),
+                $request->getParsedBodyParam('col_default_sel'),
+                $request->getParsedBodyParam('col_extra'),
+                $request->getParsedBodyParam('col_isNull'),
+                $request->getParsedBodyParam('col_length'),
+                $request->getParsedBodyParam('col_attribute'),
+                $request->getParsedBodyParam('col_type'),
+                $request->getParsedBodyParam('collation'),
+                $db,
+            );
         }
 
         if ($request->hasBodyParam('getColumnList')) {
@@ -179,54 +181,67 @@ class CentralColumnsController extends AbstractController
         $this->render('database/central_columns/main', $variables);
     }
 
-    /**
-     * @param mixed[] $params Request parameters
-     *
-     * @return true|Message
-     */
-    public function editSave(array $params, DatabaseName $db): bool|Message
-    {
-        $columnDefault = $params['col_default'];
-        if ($columnDefault === 'NONE' && $params['col_default_sel'] !== 'USER_DEFINED') {
+    /** @return true|Message */
+    public function editSave(
+        string $colName,
+        string $origColName,
+        string $colDefault,
+        string $colDefaultSel,
+        string|null $colExtra,
+        string|null $colIsNull,
+        string $colLength,
+        string $colAttribute,
+        string $colType,
+        string $collation,
+        DatabaseName $db,
+    ): bool|Message {
+        $columnDefault = $colDefault;
+        if ($columnDefault === 'NONE' && $colDefaultSel !== 'USER_DEFINED') {
             $columnDefault = '';
         }
 
         return $this->centralColumns->updateOneColumn(
             $db->getName(),
-            $params['orig_col_name'],
-            $params['col_name'],
-            $params['col_type'],
-            $params['col_attribute'],
-            $params['col_length'],
-            isset($params['col_isNull']),
-            $params['collation'],
-            $params['col_extra'] ?? '',
+            $origColName,
+            $colName,
+            $colType,
+            $colAttribute,
+            $colLength,
+            $colIsNull !== null,
+            $collation,
+            $colExtra ?? '',
             $columnDefault,
         );
     }
 
-    /**
-     * @param mixed[] $params Request parameters
-     *
-     * @return true|Message
-     */
-    public function addNewColumn(array $params, DatabaseName $db): bool|Message
-    {
-        $columnDefault = $params['col_default'];
-        if ($columnDefault === 'NONE' && $params['col_default_sel'] !== 'USER_DEFINED') {
+    /** @return true|Message */
+    public function addNewColumn(
+        string $colName,
+        string $colDefault,
+        string $colDefaultSel,
+        string|null $colExtra,
+        string|null $colIsNull,
+        string $colLength,
+        string $colAttribute,
+        string $colType,
+        string $collation,
+        DatabaseName $db,
+    ): bool|Message {
+        $columnDefault = $colDefault;
+        if ($columnDefault === 'NONE' && $colDefaultSel !== 'USER_DEFINED') {
             $columnDefault = '';
         }
 
         return $this->centralColumns->updateOneColumn(
             $db->getName(),
             '',
-            $params['col_name'],
-            $params['col_type'],
-            $params['col_attribute'],
-            $params['col_length'],
-            isset($params['col_isNull']),
-            $params['collation'],
-            $params['col_extra'] ?? '',
+            $colName,
+            $colType,
+            $colAttribute,
+            $colLength,
+            $colIsNull !== null,
+            $collation,
+            $colExtra ?? '',
             $columnDefault,
         );
     }
