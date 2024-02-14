@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
+
 use function __;
 use function strlen;
 use function substr;
@@ -16,16 +18,12 @@ use function substr;
  */
 class NodeColumn extends Node
 {
-    /**
-     * Initialises the class
-     *
-     * @param mixed[] $item array to identify the column node
-     */
-    public function __construct(array $item)
+    /** @param mixed[] $item array to identify the column node */
+    public function __construct(Config $config, array $item)
     {
         $this->displayName = $this->getDisplayName($item);
 
-        parent::__construct($item['name']);
+        parent::__construct($config, $item['name']);
 
         $this->icon = ['image' => $this->getColumnIcon($item['key']), 'title' => __('Column')];
         $this->links = [

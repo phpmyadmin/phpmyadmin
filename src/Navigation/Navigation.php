@@ -43,9 +43,13 @@ class Navigation
     private NavigationTree $tree;
     private readonly UserPrivilegesFactory $userPrivilegesFactory;
 
-    public function __construct(private Template $template, private Relation $relation, private DatabaseInterface $dbi)
-    {
-        $this->tree = new NavigationTree($this->template, $this->dbi, $this->relation);
+    public function __construct(
+        private Template $template,
+        private Relation $relation,
+        private DatabaseInterface $dbi,
+        private readonly Config $config,
+    ) {
+        $this->tree = new NavigationTree($this->template, $this->dbi, $this->relation, $this->config);
         $this->userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
     }
 
@@ -58,9 +62,8 @@ class Navigation
     {
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
-        $config = Config::getInstance();
         $logo = [
-            'is_displayed' => $config->settings['NavigationDisplayLogo'],
+            'is_displayed' => $this->config->settings['NavigationDisplayLogo'],
             'has_link' => false,
             'link' => '#',
             'attributes' => ' target="_blank" rel="noopener noreferrer"',
@@ -70,13 +73,13 @@ class Navigation
         $response = ResponseRenderer::getInstance();
         if (! $response->isAjax()) {
             $logo['source'] = $this->getLogoSource();
-            $logo['has_link'] = $config->settings['NavigationLogoLink'] !== '';
-            $logo['link'] = trim($config->settings['NavigationLogoLink']);
+            $logo['has_link'] = $this->config->settings['NavigationLogoLink'] !== '';
+            $logo['link'] = trim($this->config->settings['NavigationLogoLink']);
             if (! Sanitize::checkLink($logo['link'], true)) {
                 $logo['link'] = 'index.php';
             }
 
-            if ($config->settings['NavigationLogoLinkWindow'] === 'main') {
+            if ($this->config->settings['NavigationLogoLinkWindow'] === 'main') {
                 if (empty(parse_url($logo['link'], PHP_URL_HOST))) {
                     $logo['link'] .= Url::getCommon(
                         [],
@@ -91,7 +94,7 @@ class Navigation
                 }
             }
 
-            if ($config->settings['NavigationDisplayServers'] && count($config->settings['Servers']) > 1) {
+            if ($this->config->settings['NavigationDisplayServers'] && count($this->config->settings['Servers']) > 1) {
                 $serverSelect = Select::render(true);
             }
 
@@ -106,7 +109,7 @@ class Navigation
         }
 
         if (! $response->isAjax() || ! empty($_POST['full']) || ! empty($_POST['reload'])) {
-            if ($config->settings['ShowDatabasesNavigationAsTree']) {
+            if ($this->config->settings['ShowDatabasesNavigationAsTree']) {
                 // provide database tree in navigation
                 $navRender = $this->tree->renderState($userPrivileges);
             } else {
@@ -120,19 +123,19 @@ class Navigation
         return $this->template->render('navigation/main', [
             'is_ajax' => $response->isAjax(),
             'logo' => $logo,
-            'config_navigation_width' => $config->settings['NavigationWidth'],
-            'is_synced' => $config->settings['NavigationLinkWithMainPanel'],
-            'is_highlighted' => $config->settings['NavigationTreePointerEnable'],
-            'is_autoexpanded' => $config->settings['NavigationTreeAutoexpandSingleDb'],
+            'config_navigation_width' => $this->config->settings['NavigationWidth'],
+            'is_synced' => $this->config->settings['NavigationLinkWithMainPanel'],
+            'is_highlighted' => $this->config->settings['NavigationTreePointerEnable'],
+            'is_autoexpanded' => $this->config->settings['NavigationTreeAutoexpandSingleDb'],
             'server' => Current::$server,
-            'auth_type' => $config->selectedServer['auth_type'],
-            'is_servers_displayed' => $config->settings['NavigationDisplayServers'],
-            'servers' => $config->settings['Servers'],
+            'auth_type' => $this->config->selectedServer['auth_type'],
+            'is_servers_displayed' => $this->config->settings['NavigationDisplayServers'],
+            'servers' => $this->config->settings['Servers'],
             'server_select' => $serverSelect ?? '',
             'navigation_tree' => $navRender,
             'is_navigation_settings_enabled' => ! defined('PMA_DISABLE_NAVI_SETTINGS'),
             'navigation_settings' => $navigationSettings ?? '',
-            'is_drag_drop_import_enabled' => $config->settings['enable_drag_drop_import'] === true,
+            'is_drag_drop_import_enabled' => $this->config->settings['enable_drag_drop_import'] === true,
             'is_mariadb' => $this->dbi->isMariaDB(),
         ]);
     }
@@ -159,7 +162,7 @@ class Navigation
         $sqlQuery = 'INSERT INTO ' . $navTable
             . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
             . ' VALUES ('
-            . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], ConnectionType::ControlUser) . ','
+            . $this->dbi->quoteString($this->config->selectedServer['user'], ConnectionType::ControlUser) . ','
             . $this->dbi->quoteString($itemName, ConnectionType::ControlUser) . ','
             . $this->dbi->quoteString($itemType, ConnectionType::ControlUser) . ','
             . $this->dbi->quoteString($dbName, ConnectionType::ControlUser) . ','
@@ -190,7 +193,7 @@ class Navigation
         $sqlQuery = 'DELETE FROM ' . $navTable
             . ' WHERE'
             . ' `username`='
-            . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], ConnectionType::ControlUser)
+            . $this->dbi->quoteString($this->config->selectedServer['user'], ConnectionType::ControlUser)
             . ' AND `item_name`=' . $this->dbi->quoteString($itemName, ConnectionType::ControlUser)
             . ' AND `item_type`=' . $this->dbi->quoteString($itemType, ConnectionType::ControlUser)
             . ' AND `db_name`=' . $this->dbi->quoteString($dbName, ConnectionType::ControlUser);
@@ -236,7 +239,7 @@ class Navigation
             . '.' . Util::backquote($navigationItemsHidingFeature->navigationHiding);
         $sqlQuery = 'SELECT `item_name`, `item_type` FROM ' . $navTable
             . ' WHERE `username`='
-            . $this->dbi->quoteString(Config::getInstance()->selectedServer['user'], ConnectionType::ControlUser)
+            . $this->dbi->quoteString($this->config->selectedServer['user'], ConnectionType::ControlUser)
             . ' AND `db_name`=' . $this->dbi->quoteString($database, ConnectionType::ControlUser)
             . " AND `table_name`=''";
         $result = $this->dbi->tryQueryAsControlUser($sqlQuery);

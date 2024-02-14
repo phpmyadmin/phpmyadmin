@@ -28,11 +28,14 @@ use function str_contains;
  */
 class SqlQueryForm
 {
+    private readonly Config $config;
+
     public function __construct(
         private Template $template,
         private DatabaseInterface $dbi,
         private readonly BookmarkRepository $bookmarkRepository,
     ) {
+        $this->config = Config::getInstance();
     }
 
     /**
@@ -88,9 +91,8 @@ class SqlQueryForm
         $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
 
         $bookmarks = [];
-        $config = Config::getInstance();
         if ($displayTab === 'full' && $bookmarkFeature !== null) {
-            $bookmarkList = $this->bookmarkRepository->getList($config->selectedServer['user'], $db);
+            $bookmarkList = $this->bookmarkRepository->getList($this->config->selectedServer['user'], $db);
 
             foreach ($bookmarkList as $bookmarkItem) {
                 $bookmarks[] = [
@@ -104,15 +106,15 @@ class SqlQueryForm
 
         return $this->template->render('sql/query', [
             'legend' => $legend ?? '',
-            'textarea_cols' => $config->settings['TextareaCols'],
-            'textarea_rows' => $config->settings['TextareaRows'],
-            'textarea_auto_select' => $config->settings['TextareaAutoSelect'],
+            'textarea_cols' => $this->config->settings['TextareaCols'],
+            'textarea_rows' => $this->config->settings['TextareaRows'],
+            'textarea_auto_select' => $this->config->settings['TextareaAutoSelect'],
             'columns_list' => $columnsList ?? [],
-            'codemirror_enable' => $config->settings['CodemirrorEnable'],
+            'codemirror_enable' => $this->config->settings['CodemirrorEnable'],
             'has_bookmark' => $bookmarkFeature !== null,
             'delimiter' => $delimiter,
-            'retain_query_box' => $config->settings['RetainQueryBox'] !== false,
-            'is_upload' => $config->get('enable_upload'),
+            'retain_query_box' => $this->config->settings['RetainQueryBox'] !== false,
+            'is_upload' => $this->config->get('enable_upload'),
             'db' => $db,
             'table' => $table,
             'goto' => $goto,
@@ -121,7 +123,7 @@ class SqlQueryForm
             'bookmarks' => $bookmarks,
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
-            'allow_shared_bookmarks' => $config->settings['AllowSharedBookmarks'],
+            'allow_shared_bookmarks' => $this->config->settings['AllowSharedBookmarks'],
         ]);
     }
 
@@ -135,29 +137,28 @@ class SqlQueryForm
     public function init(string $query): array
     {
         $columnsList = [];
-        $config = Config::getInstance();
         if (Current::$database === '') {
             // prepare for server related
             $legend = sprintf(
                 __('Run SQL query/queries on server “%s”'),
                 htmlspecialchars(
-                    ! empty($config->settings['Servers'][Current::$server]['verbose'])
-                    ? $config->settings['Servers'][Current::$server]['verbose']
-                    : $config->settings['Servers'][Current::$server]['host'],
+                    ! empty($this->config->settings['Servers'][Current::$server]['verbose'])
+                    ? $this->config->settings['Servers'][Current::$server]['verbose']
+                    : $this->config->settings['Servers'][Current::$server]['host'],
                 ),
             );
         } elseif (Current::$table === '') {
             // prepare for db related
             $db = Current::$database;
             // if you want navigation:
-            $scriptName = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
+            $scriptName = Util::getScriptNameForOption($this->config->settings['DefaultTabDatabase'], 'database');
             $tmpDbLink = '<a href="' . $scriptName
                 . Url::getCommon(['db' => $db], ! str_contains($scriptName, '?') ? '?' : '&')
                 . '">';
             $tmpDbLink .= htmlspecialchars($db) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on database %s'), $tmpDbLink);
             if ($query === '') {
-                $query = Util::expandUserString($config->settings['DefaultQueryDatabase'], Util::backquote(...));
+                $query = Util::expandUserString($this->config->settings['DefaultQueryDatabase'], Util::backquote(...));
             }
         } else {
             $db = Current::$database;
@@ -167,12 +168,12 @@ class SqlQueryForm
             // trying to synchronize and the table has not yet been created
             $columnsList = $this->dbi->getColumns($db, Current::$table, true);
 
-            $scriptName = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
+            $scriptName = Util::getScriptNameForOption($this->config->settings['DefaultTabTable'], 'table');
             $tmpTblLink = '<a href="' . $scriptName . Url::getCommon(['db' => $db, 'table' => $table], '&') . '">';
             $tmpTblLink .= htmlspecialchars($db) . '.' . htmlspecialchars($table) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on table %s'), $tmpTblLink);
             if ($query === '') {
-                $query = Util::expandUserString($config->settings['DefaultQueryTable'], Util::backquote(...));
+                $query = Util::expandUserString($this->config->settings['DefaultQueryTable'], Util::backquote(...));
             }
         }
 

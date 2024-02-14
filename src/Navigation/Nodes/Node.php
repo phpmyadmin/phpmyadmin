@@ -122,6 +122,7 @@ class Node
      *                          Only relevant if the node is of type CONTAINER
      */
     public function __construct(
+        protected readonly Config $config,
         public string $name = '',
         public readonly NodeType $type = NodeType::Object,
         public bool $isGroup = false,
@@ -139,7 +140,7 @@ class Node
         string $name,
         string $classes,
     ): Node {
-        $node = new Node($name);
+        $node = new Node($this->config, $name);
         $node->title = $name;
         $node->isNew = true;
         $node->classes = $classes;
@@ -368,8 +369,7 @@ class Node
         int $pos,
         string $searchClause = '',
     ): array {
-        $config = Config::getInstance();
-        if (isset($config->selectedServer['DisableIS']) && ! $config->selectedServer['DisableIS']) {
+        if (isset($this->config->selectedServer['DisableIS']) && ! $this->config->selectedServer['DisableIS']) {
             return $this->getDataFromInfoSchema($pos, $searchClause);
         }
 
@@ -392,11 +392,11 @@ class Node
     public function getPresence(UserPrivileges $userPrivileges, string $type = '', string $searchClause = ''): int
     {
         $dbi = DatabaseInterface::getInstance();
-        $config = Config::getInstance();
         if (
-            ! $config->settings['NavigationTreeEnableGrouping'] || ! $config->settings['ShowDatabasesNavigationAsTree']
+            ! $this->config->settings['NavigationTreeEnableGrouping']
+            || ! $this->config->settings['ShowDatabasesNavigationAsTree']
         ) {
-            if (isset($config->selectedServer['DisableIS']) && ! $config->selectedServer['DisableIS']) {
+            if (isset($this->config->selectedServer['DisableIS']) && ! $this->config->selectedServer['DisableIS']) {
                 $query = 'SELECT COUNT(*) ';
                 $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
                 $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
@@ -420,8 +420,8 @@ class Node
             return $retval;
         }
 
-        $dbSeparator = $config->settings['NavigationTreeDbSeparator'];
-        if (! $config->selectedServer['DisableIS']) {
+        $dbSeparator = $this->config->settings['NavigationTreeDbSeparator'];
+        if (! $this->config->selectedServer['DisableIS']) {
             $query = 'SELECT COUNT(*) ';
             $query .= 'FROM ( ';
             $query .= 'SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ';
@@ -485,10 +485,8 @@ class Node
      */
     private function isHideDb(string $db): bool
     {
-        $config = Config::getInstance();
-
-        return ! empty($config->selectedServer['hide_db'])
-            && preg_match('/' . $config->selectedServer['hide_db'] . '/', $db);
+        return ! empty($this->config->selectedServer['hide_db'])
+            && preg_match('/' . $this->config->selectedServer['hide_db'] . '/', $db);
     }
 
     /**
@@ -504,11 +502,10 @@ class Node
     private function getDatabasesToSearch(UserPrivileges $userPrivileges, string $searchClause): array
     {
         $databases = [];
-        $config = Config::getInstance();
         if ($searchClause !== '') {
             $databases = ['%' . DatabaseInterface::getInstance()->escapeMysqlWildcards($searchClause) . '%'];
-        } elseif (! empty($config->selectedServer['only_db'])) {
-            $databases = $config->selectedServer['only_db'];
+        } elseif (! empty($this->config->selectedServer['only_db'])) {
+            $databases = $this->config->selectedServer['only_db'];
         } elseif ($userPrivileges->databasesToTest !== false && $userPrivileges->databasesToTest !== []) {
             $databases = $userPrivileges->databasesToTest;
         }
@@ -534,20 +531,19 @@ class Node
                 . ' LIKE ' . $dbi->quoteString('%' . $dbi->escapeMysqlWildcards($searchClause) . '%') . ' ';
         }
 
-        $config = Config::getInstance();
-        if (! empty($config->selectedServer['hide_db'])) {
+        if (! empty($this->config->selectedServer['hide_db'])) {
             $whereClause .= 'AND ' . Util::backquote($columnName)
-                . ' NOT REGEXP ' . $dbi->quoteString($config->selectedServer['hide_db']) . ' ';
+                . ' NOT REGEXP ' . $dbi->quoteString($this->config->selectedServer['hide_db']) . ' ';
         }
 
-        if (! empty($config->selectedServer['only_db'])) {
-            if (is_string($config->selectedServer['only_db'])) {
-                $config->selectedServer['only_db'] = [$config->selectedServer['only_db']];
+        if (! empty($this->config->selectedServer['only_db'])) {
+            if (is_string($this->config->selectedServer['only_db'])) {
+                $this->config->selectedServer['only_db'] = [$this->config->selectedServer['only_db']];
             }
 
             $whereClause .= 'AND (';
             $subClauses = [];
-            foreach ($config->selectedServer['only_db'] as $eachOnlyDb) {
+            foreach ($this->config->selectedServer['only_db'] as $eachOnlyDb) {
                 $subClauses[] = ' ' . Util::backquote($columnName)
                     . ' LIKE ' . $dbi->quoteString($eachOnlyDb) . ' ';
             }
@@ -577,7 +573,7 @@ class Node
      */
     public function getCssClasses(bool $match): string
     {
-        if (! Config::getInstance()->settings['NavigationTreeEnableExpansion']) {
+        if (! $this->config->settings['NavigationTreeEnableExpansion']) {
             return '';
         }
 
@@ -603,7 +599,7 @@ class Node
      */
     public function getIcon(bool $match): string
     {
-        if (! Config::getInstance()->settings['NavigationTreeEnableExpansion']) {
+        if (! $this->config->settings['NavigationTreeEnableExpansion']) {
             return '';
         }
 
@@ -629,7 +625,7 @@ class Node
             $dbi = DatabaseInterface::getInstance();
             $sqlQuery = 'SELECT `db_name`, COUNT(*) AS `count` FROM ' . $navTable
                 . ' WHERE `username`='
-                . $dbi->quoteString(Config::getInstance()->selectedServer['user'])
+                . $dbi->quoteString($this->config->selectedServer['user'])
                 . ' GROUP BY `db_name`';
 
             return $dbi->fetchResult($sqlQuery, 'db_name', 'count', ConnectionType::ControlUser);
@@ -646,11 +642,11 @@ class Node
      */
     private function getDataFromInfoSchema(int $pos, string $searchClause): array
     {
-        $config = Config::getInstance();
-        $maxItems = $config->settings['FirstLevelNavigationItems'];
+        $maxItems = $this->config->settings['FirstLevelNavigationItems'];
         $dbi = DatabaseInterface::getInstance();
         if (
-            ! $config->settings['NavigationTreeEnableGrouping'] || ! $config->settings['ShowDatabasesNavigationAsTree']
+            ! $this->config->settings['NavigationTreeEnableGrouping']
+            || ! $this->config->settings['ShowDatabasesNavigationAsTree']
         ) {
             $query = sprintf(
                 'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA` %sORDER BY `SCHEMA_NAME` LIMIT %d, %d',
@@ -662,7 +658,7 @@ class Node
             return $dbi->fetchResult($query);
         }
 
-        $dbSeparator = $config->settings['NavigationTreeDbSeparator'];
+        $dbSeparator = $this->config->settings['NavigationTreeDbSeparator'];
         $query = sprintf(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level'
                 . ' FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, %1$s, 1) DB_first_level'
@@ -687,11 +683,11 @@ class Node
      */
     private function getDataFromShowDatabases(int $pos, string $searchClause): array
     {
-        $config = Config::getInstance();
-        $maxItems = $config->settings['FirstLevelNavigationItems'];
+        $maxItems = $this->config->settings['FirstLevelNavigationItems'];
         $dbi = DatabaseInterface::getInstance();
         if (
-            ! $config->settings['NavigationTreeEnableGrouping'] || ! $config->settings['ShowDatabasesNavigationAsTree']
+            ! $this->config->settings['NavigationTreeEnableGrouping']
+            || ! $this->config->settings['ShowDatabasesNavigationAsTree']
         ) {
             $handle = $dbi->tryQuery(sprintf(
                 'SHOW DATABASES %s',
@@ -719,7 +715,7 @@ class Node
             return $retval;
         }
 
-        $dbSeparator = $config->settings['NavigationTreeDbSeparator'];
+        $dbSeparator = $this->config->settings['NavigationTreeDbSeparator'];
         $handle = $dbi->tryQuery(sprintf(
             'SHOW DATABASES %s',
             $this->getWhereClause('Database', $searchClause),
@@ -769,11 +765,11 @@ class Node
      */
     private function getDataFromShowDatabasesLike(UserPrivileges $userPrivileges, int $pos, string $searchClause): array
     {
-        $config = Config::getInstance();
-        $maxItems = $config->settings['FirstLevelNavigationItems'];
+        $maxItems = $this->config->settings['FirstLevelNavigationItems'];
         $dbi = DatabaseInterface::getInstance();
         if (
-            ! $config->settings['NavigationTreeEnableGrouping'] || ! $config->settings['ShowDatabasesNavigationAsTree']
+            ! $this->config->settings['NavigationTreeEnableGrouping']
+            || ! $this->config->settings['ShowDatabasesNavigationAsTree']
         ) {
             $retval = [];
             $count = 0;
@@ -806,7 +802,7 @@ class Node
             return $retval;
         }
 
-        $dbSeparator = $config->settings['NavigationTreeDbSeparator'];
+        $dbSeparator = $this->config->settings['NavigationTreeDbSeparator'];
         $retval = [];
         $prefixMap = [];
         $total = $pos + $maxItems;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Navigation\Nodes\NodeFunctionContainer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -16,7 +17,7 @@ class NodeFunctionContainerTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $parent = new NodeFunctionContainer();
+        $parent = new NodeFunctionContainer(new Config());
         self::assertEquals(
             [
                 'text' => ['route' => '/database/routines', 'params' => ['type' => 'FUNCTION', 'db' => null]],

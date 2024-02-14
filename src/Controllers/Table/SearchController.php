@@ -276,6 +276,7 @@ class SearchController extends AbstractController
             new Transformations(),
             $this->template,
             new BookmarkRepository($this->dbi, $this->relation),
+            Config::getInstance(),
         );
 
         $this->response->addHTML($sql->executeQueryAndSendQueryResponse(

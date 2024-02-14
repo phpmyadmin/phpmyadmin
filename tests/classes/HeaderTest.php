@@ -57,7 +57,11 @@ class HeaderTest extends AbstractTestCase
         $relation = new Relation($dbi);
         $template = new Template();
 
-        return new Header($template, new Console($relation, $template, new BookmarkRepository($dbi, $relation)));
+        return new Header(
+            $template,
+            new Console($relation, $template, new BookmarkRepository($dbi, $relation)),
+            Config::getInstance(),
+        );
     }
 
     /**

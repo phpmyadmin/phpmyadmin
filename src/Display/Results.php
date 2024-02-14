@@ -209,6 +209,7 @@ class Results
      */
     public function __construct(
         private DatabaseInterface $dbi,
+        private Config $config,
         private string $db,
         private string $table,
         private readonly int $server,
@@ -652,7 +653,6 @@ class Results
                 ? 'true'
                 : 'false') . ';"';
 
-        $config = Config::getInstance();
         $posLast = 0;
         if (is_numeric($_SESSION['tmpval']['max_rows'])) {
             $posLast = @((int) ceil(
@@ -672,9 +672,9 @@ class Results
         return [
             'page_selector' => $pageSelector,
             'number_total_page' => $numberTotalPage,
-            'has_show_all' => $config->settings['ShowAll'] || $this->unlimNumRows <= 500,
+            'has_show_all' => $this->config->settings['ShowAll'] || $this->unlimNumRows <= 500,
             'hidden_fields' => $hiddenFields,
-            'session_max_rows' => $isShowingAll ? $config->settings['MaxRows'] : 'all',
+            'session_max_rows' => $isShowingAll ? $this->config->settings['MaxRows'] : 'all',
             'is_showing_all' => $isShowingAll,
             'max_rows' => $_SESSION['tmpval']['max_rows'],
             'pos' => $_SESSION['tmpval']['pos'],
@@ -720,7 +720,6 @@ class Results
             : (int) $_SESSION['tmpval']['query'][$sqlMd5]['max_rows'];
 
         // Prepare Display column comments if enabled
-        // (\PhpMyAdmin\Config::getInstance()->settings['ShowBrowseComments']).
         $commentsMap = $this->getTableCommentsArray($statementInfo);
 
         [$colOrder, $colVisib] = $this->getColumnParams($statementInfo);
@@ -983,9 +982,8 @@ class Results
 
         $emptyPreCondition = $displayParts->hasEditLink && $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE;
 
-        $config = Config::getInstance();
-        $leftOrBoth = $config->settings['RowActionLinks'] === self::POSITION_LEFT
-                   || $config->settings['RowActionLinks'] === self::POSITION_BOTH;
+        $leftOrBoth = $this->config->settings['RowActionLinks'] === self::POSITION_LEFT
+                   || $this->config->settings['RowActionLinks'] === self::POSITION_BOTH;
 
         //     ... before the result table
         if (
@@ -1011,7 +1009,7 @@ class Results
             $this->numEmptyColumnsBefore = $emptyPreCondition ? 4 : 0;
 
             $buttonHtml .= '<td' . $colspan . '></td>';
-        } elseif ($config->settings['RowActionLinks'] === self::POSITION_NONE) {
+        } elseif ($this->config->settings['RowActionLinks'] === self::POSITION_NONE) {
             // ... elseif display an empty column if the actions links are
             //  disabled to match the rest of the table
             $buttonHtml .= '<th class="column_action position-sticky bg-body"></th>';
@@ -1029,7 +1027,7 @@ class Results
      */
     private function getTableCommentsArray(StatementInfo $statementInfo): array
     {
-        if (! Config::getInstance()->settings['ShowBrowseComments'] || empty($statementInfo->statement->from)) {
+        if (! $this->config->settings['ShowBrowseComments'] || empty($statementInfo->statement->from)) {
             return [];
         }
 
@@ -1174,7 +1172,7 @@ class Results
             'comments_map' => $commentsMap,
             'column_name' => $fieldsMeta->name,
             'table_name' => $fieldsMeta->table,
-            'limit_chars' => Config::getInstance()->settings['LimitChars'],
+            'limit_chars' => $this->config->settings['LimitChars'],
         ]);
     }
 
@@ -1275,14 +1273,12 @@ class Results
 
         $orderLink .= $this->getSortOrderHiddenInputs($multiUrlParams, $fieldsMeta->name);
 
-        $config = Config::getInstance();
-
         return [
             'column_name' => $fieldsMeta->name,
             'order_link' => $orderLink,
             'comments' => $comments,
-            'is_browse_pointer_enabled' => $config->settings['BrowsePointerEnable'] === true,
-            'is_browse_marker_enabled' => $config->settings['BrowseMarkerEnable'] === true,
+            'is_browse_pointer_enabled' => $this->config->settings['BrowsePointerEnable'] === true,
+            'is_browse_marker_enabled' => $this->config->settings['BrowseMarkerEnable'] === true,
             'is_column_hidden' => $colVisib && ! $colVisibElement,
             'is_column_numeric' => $this->isColumnNumeric($fieldsMeta),
         ];
@@ -1318,11 +1314,10 @@ class Results
                 ? 0
                 : count($sortExpressionNoDirection);
             $sortExpressionNoDirection[$specialIndex] = Util::backquote($currentName);
-            $config = Config::getInstance();
             // Set the direction to the config value
-            $sortDirection[$specialIndex] = $config->settings['Order'];
+            $sortDirection[$specialIndex] = $this->config->settings['Order'];
             // Or perform SMART mode
-            if ($config->settings['Order'] === self::SMART_SORT_ORDER) {
+            if ($this->config->settings['Order'] === self::SMART_SORT_ORDER) {
                 $isTimeOrDate = $fieldsMeta->isType(FieldMetadata::TYPE_TIME)
                     || $fieldsMeta->isType(FieldMetadata::TYPE_DATE)
                     || $fieldsMeta->isType(FieldMetadata::TYPE_DATETIME)
@@ -1622,12 +1617,11 @@ class Results
     ): string {
         $rightColumnHtml = '';
 
-        $config = Config::getInstance();
         // Displays the needed checkboxes at the right
         // column of the result table header if possible and required...
         if (
-            ($config->settings['RowActionLinks'] === self::POSITION_RIGHT)
-            || ($config->settings['RowActionLinks'] === self::POSITION_BOTH)
+            ($this->config->settings['RowActionLinks'] === self::POSITION_RIGHT)
+            || ($this->config->settings['RowActionLinks'] === self::POSITION_BOTH)
             && ($displayParts->hasEditLink || $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE)
             && $displayParts->hasTextButton
         ) {
@@ -1639,8 +1633,8 @@ class Results
                 . $fullOrPartialTextLink
                 . '</th>';
         } elseif (
-            ($config->settings['RowActionLinks'] === self::POSITION_LEFT)
-            || ($config->settings['RowActionLinks'] === self::POSITION_BOTH)
+            ($this->config->settings['RowActionLinks'] === self::POSITION_LEFT)
+            || ($this->config->settings['RowActionLinks'] === self::POSITION_BOTH)
             && (! $displayParts->hasEditLink
             && $displayParts->deleteLink === DeleteLinkEnum::NO_DELETE)
             && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
@@ -1819,11 +1813,10 @@ class Results
         $rowNumber = 0;
 
         $gridEditConfig = 'double-click';
-        $config = Config::getInstance();
         // If we don't have all the columns of a unique key in the result set, do not permit grid editing.
-        if ($isLimitedDisplay || ! $this->editable || $config->settings['GridEditing'] === 'disabled') {
+        if ($isLimitedDisplay || ! $this->editable || $this->config->settings['GridEditing'] === 'disabled') {
             $gridEditConfig = 'disabled';
-        } elseif ($config->settings['GridEditing'] === 'click') {
+        } elseif ($this->config->settings['GridEditing'] === 'click') {
             $gridEditConfig = 'click';
         }
 
@@ -1852,11 +1845,11 @@ class Results
             }
 
             $trClass = [];
-            if ($config->settings['BrowsePointerEnable'] != true) {
+            if ($this->config->settings['BrowsePointerEnable'] != true) {
                 $trClass[] = 'nopointer';
             }
 
-            if ($config->settings['BrowseMarkerEnable'] != true) {
+            if ($this->config->settings['BrowseMarkerEnable'] != true) {
                 $trClass[] = 'nomarker';
             }
 
@@ -1929,8 +1922,8 @@ class Results
 
                 // 1.3 Displays the links at left if required
                 if (
-                    $config->settings['RowActionLinks'] === self::POSITION_LEFT
-                    || $config->settings['RowActionLinks'] === self::POSITION_BOTH
+                    $this->config->settings['RowActionLinks'] === self::POSITION_LEFT
+                    || $this->config->settings['RowActionLinks'] === self::POSITION_BOTH
                 ) {
                     $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
                         'position' => self::POSITION_LEFT,
@@ -1954,7 +1947,7 @@ class Results
                         'js_conf' => $jsConf ?? '',
                         'grid_edit_config' => $gridEditConfig,
                     ]);
-                } elseif ($config->settings['RowActionLinks'] === self::POSITION_NONE) {
+                } elseif ($this->config->settings['RowActionLinks'] === self::POSITION_NONE) {
                     $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
                         'position' => self::POSITION_NONE,
                         'has_checkbox' => $deleteUrl && $displayParts->deleteLink !== DeleteLinkEnum::KILL_PROCESS,
@@ -2000,8 +1993,8 @@ class Results
             if (
                 ($displayParts->hasEditLink
                     || $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE)
-                && ($config->settings['RowActionLinks'] === self::POSITION_RIGHT
-                    || $config->settings['RowActionLinks'] === self::POSITION_BOTH)
+                && ($this->config->settings['RowActionLinks'] === self::POSITION_RIGHT
+                    || $this->config->settings['RowActionLinks'] === self::POSITION_BOTH)
             ) {
                 $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
                     'position' => self::POSITION_RIGHT,
@@ -2050,7 +2043,7 @@ class Results
             if (
                 $relationParameters->columnCommentsFeature === null
                 || $relationParameters->browserTransformationFeature === null
-                || ! Config::getInstance()->settings['BrowseMIME']
+                || ! $this->config->settings['BrowseMIME']
                 || $_SESSION['tmpval']['hide_transformation']
                 || ! empty($added[$orgFullTableName])
             ) {
@@ -2175,7 +2168,7 @@ class Results
 
             if (
                 $relationParameters->browserTransformationFeature !== null
-                && Config::getInstance()->settings['BrowseMIME']
+                && $this->config->settings['BrowseMIME']
                 && isset($this->mediaTypeMap[$orgFullColName]['mimetype'])
                 && ! empty($this->mediaTypeMap[$orgFullColName]['transformation'])
             ) {
@@ -2480,7 +2473,7 @@ class Results
             $headerHtml .= '    <th colspan="'
                 . $this->numEmptyColumnsBefore . '">'
                 . "\n" . '        &nbsp;</th>' . "\n";
-        } elseif (Config::getInstance()->settings['RowActionLinks'] === self::POSITION_NONE) {
+        } elseif ($this->config->settings['RowActionLinks'] === self::POSITION_NONE) {
             $headerHtml .= '    <th></th>' . "\n";
         }
 
@@ -2627,10 +2620,9 @@ class Results
      */
     private function getActionLinkContent(string $icon, string $displayText): string
     {
-        $config = Config::getInstance();
         if (
-            isset($config->settings['RowActionType'])
-            && $config->settings['RowActionType'] === self::ACTION_LINK_CONTENT_ICONS
+            isset($this->config->settings['RowActionType'])
+            && $this->config->settings['RowActionType'] === self::ACTION_LINK_CONTENT_ICONS
         ) {
             return '<span class="text-nowrap">'
                 . Generator::getImage($icon, $displayText)
@@ -2638,8 +2630,8 @@ class Results
         }
 
         if (
-            isset($config->settings['RowActionType'])
-            && $config->settings['RowActionType'] === self::ACTION_LINK_CONTENT_TEXT
+            isset($this->config->settings['RowActionType'])
+            && $this->config->settings['RowActionType'] === self::ACTION_LINK_CONTENT_TEXT
         ) {
             return '<span class="text-nowrap">' . $displayText . '</span>';
         }
@@ -2873,7 +2865,7 @@ class Results
         // or transformation plugin is of non text type
         // such as image
         $isTypeBlob = $meta->isType(FieldMetadata::TYPE_BLOB);
-        $cfgProtectBinary = Config::getInstance()->settings['ProtectBinary'];
+        $cfgProtectBinary = $this->config->settings['ProtectBinary'];
         if (
             ($meta->isBinary()
             && (
@@ -2994,9 +2986,8 @@ class Results
 
         $query['sql'] = $this->sqlQuery;
 
-        $config = Config::getInstance();
         if (empty($query['repeat_cells'])) {
-            $query['repeat_cells'] = $config->settings['RepeatCells'];
+            $query['repeat_cells'] = $this->config->settings['RepeatCells'];
         }
 
         // The value can also be from _GET as described on issue #16146 when sorting results
@@ -3009,7 +3000,7 @@ class Results
             $query['max_rows'] = self::ALL_ROWS;
             unset($_GET['session_max_rows'], $_POST['session_max_rows']);
         } elseif (empty($query['max_rows'])) {
-            $query['max_rows'] = intval($config->settings['MaxRows']);
+            $query['max_rows'] = intval($this->config->settings['MaxRows']);
         }
 
         if (isset($_REQUEST['pos']) && is_numeric($_REQUEST['pos'])) {
@@ -3050,7 +3041,7 @@ class Results
             // The current session value has priority over a
             // change via Settings; this change will be apparent
             // starting from the next session
-            $query['relational_display'] = $config->settings['RelationalDisplay'];
+            $query['relational_display'] = $this->config->settings['RelationalDisplay'];
         }
 
         if (
@@ -3281,8 +3272,6 @@ class Results
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        $config = Config::getInstance();
-
         return $this->template->render('display/results/table', [
             'sql_query_message' => $sqlQueryMessage,
             'navigation' => $navigation,
@@ -3300,8 +3289,8 @@ class Results
             'unlim_num_rows' => $this->unlimNumRows,
             'displaywork' => $relationParameters->displayFeature !== null,
             'relwork' => $relationParameters->relationFeature !== null,
-            'save_cells_at_once' => $config->settings['SaveCellsAtOnce'],
-            'default_sliders_state' => $config->settings['InitialSlidersState'],
+            'save_cells_at_once' => $this->config->settings['SaveCellsAtOnce'],
+            'default_sliders_state' => $this->config->settings['InitialSlidersState'],
             'text_dir' => $this->textDirection,
             'is_browse_distinct' => $this->isBrowseDistinct,
         ]);
@@ -3389,12 +3378,11 @@ class Results
             $columnForFirstRow = $row !== [] ? $row[$sortedColumnIndex] : '';
         }
 
-        $config = Config::getInstance();
         $columnForFirstRow = mb_strtoupper(
             mb_substr(
                 (string) $columnForFirstRow,
                 0,
-                $config->settings['LimitChars'],
+                $this->config->settings['LimitChars'],
             ) . '...',
         );
 
@@ -3420,7 +3408,7 @@ class Results
             mb_substr(
                 (string) $columnForLastRow,
                 0,
-                $config->settings['LimitChars'],
+                $this->config->settings['LimitChars'],
             ) . '...',
         );
 
@@ -3477,7 +3465,7 @@ class Results
 
         $messageViewWarning = false;
         $table = new Table($this->table, $this->db, $this->dbi);
-        if ($table->isView() && $total == Config::getInstance()->settings['MaxExactCountViews']) {
+        if ($table->isView() && $total == $this->config->settings['MaxExactCountViews']) {
             $message = Message::notice(
                 __(
                     'This view has at least this number of rows. Please refer to %sdocumentation%s.',
@@ -3998,12 +3986,11 @@ class Results
     private function getPartialText(string $str): array
     {
         $originalLength = mb_strlen($str);
-        $config = Config::getInstance();
         if (
-            $originalLength > $config->settings['LimitChars']
+            $originalLength > $this->config->settings['LimitChars']
             && $_SESSION['tmpval']['pftext'] === self::DISPLAY_PARTIAL_TEXT
         ) {
-            $str = mb_substr($str, 0, $config->settings['LimitChars']) . '...';
+            $str = mb_substr($str, 0, $this->config->settings['LimitChars']) . '...';
             $truncated = true;
         } else {
             $truncated = false;

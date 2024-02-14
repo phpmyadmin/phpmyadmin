@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Sql;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Sql\EnumValuesController;
@@ -64,6 +65,7 @@ class EnumValuesControllerTest extends AbstractTestCase
             self::createStub(Transformations::class),
             $template,
             $bookmarkRepository,
+            Config::getInstance(),
         );
 
         $sqlController = new EnumValuesController($responseRenderer, $template, $sql);
@@ -115,6 +117,7 @@ class EnumValuesControllerTest extends AbstractTestCase
             self::createStub(Transformations::class),
             $template,
             $bookmarkRepository,
+            Config::getInstance(),
         );
 
         $sqlController = new EnumValuesController($responseRenderer, $template, $sql);

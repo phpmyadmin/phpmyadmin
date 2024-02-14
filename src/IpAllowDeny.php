@@ -28,6 +28,13 @@ use function substr_replace;
  */
 class IpAllowDeny
 {
+    private readonly Config $config;
+
+    public function __construct()
+    {
+        $this->config = Config::getInstance();
+    }
+
     /**
      * Matches for IPv4 or IPv6 addresses
      *
@@ -241,12 +248,11 @@ class IpAllowDeny
             return false;
         }
 
-        $config = Config::getInstance();
         // copy username
-        $username = $config->selectedServer['user'];
+        $username = $this->config->selectedServer['user'];
 
         // copy rule database
-        $rules = $config->selectedServer['AllowDeny']['rules'];
+        $rules = $this->config->selectedServer['AllowDeny']['rules'];
 
         // lookup table for some name shortcuts
         $shortcuts = ['all' => '0.0.0.0/0', 'localhost' => '127.0.0.1/8'];

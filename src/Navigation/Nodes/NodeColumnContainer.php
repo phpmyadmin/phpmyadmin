@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Navigation\NodeType;
 
 use function __;
@@ -17,12 +18,9 @@ use function _pgettext;
  */
 class NodeColumnContainer extends Node
 {
-    /**
-     * Initialises the class
-     */
-    public function __construct()
+    public function __construct(Config $config)
     {
-        parent::__construct(__('Columns'), NodeType::Container);
+        parent::__construct($config, __('Columns'), NodeType::Container);
 
         $this->icon = ['image' => 'pause', 'title' => __('Columns')];
         $this->links = [

@@ -135,6 +135,7 @@ class DatabaseInterface implements DbalInterface
     public float $lastQueryExecutionTime = 0;
 
     private ListDatabase|null $databaseList = null;
+    private readonly Config $config;
 
     /** @param DbiExtension $extension Object to be used for database queries */
     public function __construct(private DbiExtension $extension)
@@ -146,6 +147,7 @@ class DatabaseInterface implements DbalInterface
 
         $this->cache = new Cache();
         $this->types = new Types($this);
+        $this->config = Config::getInstance();
     }
 
     /** @deprecated Use dependency injection instead. */
@@ -203,8 +205,7 @@ class DatabaseInterface implements DbalInterface
         int $options = self::QUERY_BUFFERED,
         bool $cacheAffectedRows = true,
     ): ResultInterface|false {
-        $config = Config::getInstance();
-        $debug = isset($config->settings['DBG']) && $config->settings['DBG']['sql'];
+        $debug = isset($this->config->settings['DBG']) && $this->config->settings['DBG']['sql'];
         if (! isset($this->connections[$connectionType->value])) {
             return false;
         }
@@ -229,7 +230,7 @@ class DatabaseInterface implements DbalInterface
                 $result,
                 $this->lastQueryExecutionTime,
             );
-            if ($config->settings['DBG']['sqllog']) {
+            if ($this->config->settings['DBG']['sqllog']) {
                 openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_USER);
 
                 syslog(
@@ -326,7 +327,7 @@ class DatabaseInterface implements DbalInterface
             0,
             $connectionType,
         );
-        if (Config::getInstance()->settings['NaturalOrder']) {
+        if ($this->config->settings['NaturalOrder']) {
             usort($tables, strnatcasecmp(...));
         }
 
@@ -371,9 +372,8 @@ class DatabaseInterface implements DbalInterface
         string|null $tableType = null,
         ConnectionType $connectionType = ConnectionType::User,
     ): array {
-        $config = Config::getInstance();
         if ($limitCount === true) {
-            $limitCount = $config->settings['MaxTableList'];
+            $limitCount = $this->config->settings['MaxTableList'];
         }
 
         $tables = [];
@@ -388,7 +388,7 @@ class DatabaseInterface implements DbalInterface
             $pagingApplied = true;
         }
 
-        if (! $config->selectedServer['DisableIS']) {
+        if (! $this->config->selectedServer['DisableIS']) {
             $sqlWhereTable = '';
             if ($table !== [] && $table !== '') {
                 if (is_array($table)) {
@@ -449,7 +449,7 @@ class DatabaseInterface implements DbalInterface
                 }
             }
 
-            if ($sortBy === 'Name' && $config->settings['NaturalOrder']) {
+            if ($sortBy === 'Name' && $this->config->settings['NaturalOrder']) {
                 // here, the array's first key is by schema name
                 foreach ($tables as $oneDatabaseName => $oneDatabaseTables) {
                     uksort($oneDatabaseTables, strnatcasecmp(...));
@@ -552,7 +552,7 @@ class DatabaseInterface implements DbalInterface
 
             // Sort naturally if the config allows it and we're sorting
             // the Name column.
-            if ($sortBy === 'Name' && $config->settings['NaturalOrder']) {
+            if ($sortBy === 'Name' && $this->config->settings['NaturalOrder']) {
                 uksort($eachTables, strnatcasecmp(...));
 
                 if ($sortOrder === 'DESC') {
@@ -633,21 +633,20 @@ class DatabaseInterface implements DbalInterface
     ): array {
         $sortOrder = strtoupper($sortOrder);
 
-        $config = Config::getInstance();
         if ($limitCount === true) {
-            $limitCount = $config->settings['MaxDbList'];
+            $limitCount = $this->config->settings['MaxDbList'];
         }
 
         $applyLimitAndOrderManual = true;
 
-        if (! $config->selectedServer['DisableIS']) {
+        if (! $this->config->selectedServer['DisableIS']) {
             /**
-             * if \PhpMyAdmin\Config::getInstance()->settings['NaturalOrder'] is enabled, we cannot use LIMIT
+             * if NaturalOrder config is enabled, we cannot use LIMIT
              * cause MySQL does not support natural ordering,
              * we have to do it afterward
              */
             $limit = '';
-            if (! $config->settings['NaturalOrder']) {
+            if (! $this->config->settings['NaturalOrder']) {
                 if ($limitCount) {
                     $limit = ' LIMIT ' . $limitCount . ' OFFSET ' . $limitOffset;
                 }
@@ -733,7 +732,7 @@ class DatabaseInterface implements DbalInterface
 
         /**
          * apply limit and order manually now
-         * (caused by older MySQL < 5 or \PhpMyAdmin\Config::getInstance()->settings['NaturalOrder'])
+         * (caused by older MySQL < 5 or NaturalOrder config)
          */
         if ($applyLimitAndOrderManual) {
             usort(
@@ -768,7 +767,7 @@ class DatabaseInterface implements DbalInterface
         string|null $column = null,
         ConnectionType $connectionType = ConnectionType::User,
     ): array {
-        if (! Config::getInstance()->selectedServer['DisableIS']) {
+        if (! $this->config->selectedServer['DisableIS']) {
             $sql = QueryGenerator::getInformationSchemaColumnsFullRequest(
                 $database !== null ? $this->quoteString($database, $connectionType) : null,
                 $table !== null ? $this->quoteString($table, $connectionType) : null,
@@ -1460,7 +1459,7 @@ class DatabaseInterface implements DbalInterface
 
         $hasGrantPrivilege = false;
 
-        if (Config::getInstance()->selectedServer['DisableIS']) {
+        if ($this->config->selectedServer['DisableIS']) {
             $grants = $this->getCurrentUserGrants();
 
             foreach ($grants as $grant) {
@@ -1496,7 +1495,7 @@ class DatabaseInterface implements DbalInterface
 
         $hasCreatePrivilege = false;
 
-        if (Config::getInstance()->selectedServer['DisableIS']) {
+        if ($this->config->selectedServer['DisableIS']) {
             $grants = $this->getCurrentUserGrants();
 
             foreach ($grants as $grant) {
@@ -1875,7 +1874,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function getDbCollation(string $db): string
     {
-        if (! Config::getInstance()->selectedServer['DisableIS']) {
+        if (! $this->config->selectedServer['DisableIS']) {
             // this is slow with thousands of databases
             $sql = 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA'
                 . ' WHERE SCHEMA_NAME = ' . $this->quoteString($db)
@@ -1972,7 +1971,7 @@ class DatabaseInterface implements DbalInterface
     public function getDatabaseList(): ListDatabase
     {
         if ($this->databaseList === null) {
-            $this->databaseList = new ListDatabase($this, Config::getInstance(), new UserPrivilegesFactory($this));
+            $this->databaseList = new ListDatabase($this, $this->config, new UserPrivilegesFactory($this));
         }
 
         return $this->databaseList;

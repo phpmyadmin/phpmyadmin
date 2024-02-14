@@ -9391,33 +9391,8 @@ parameters:
 			path: src/Navigation/NavigationTree.php
 
 		-
-			message: "#^Parameter \\#1 \\$item of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeColumn constructor expects array, mixed given\\.$#"
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
 			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, mixed given\\.$#"
 			count: 2
-			path: src/Navigation/NavigationTree.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase constructor expects string, mixed given\\.$#"
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeIndex constructor expects string, mixed given\\.$#"
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeTable constructor expects string, mixed given\\.$#"
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeTrigger constructor expects string, mixed given\\.$#"
-			count: 1
 			path: src/Navigation/NavigationTree.php
 
 		-
@@ -9442,6 +9417,31 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string1 of function strcasecmp expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#2 \\$item of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeColumn constructor expects array, mixed given\\.$#"
+			count: 1
+			path: src/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#2 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#2 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeIndex constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#2 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeTable constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#2 \\$name of class PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeTrigger constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Navigation/NavigationTree.php
 
@@ -9546,7 +9546,7 @@ parameters:
 			path: src/Navigation/Nodes/NodeColumn.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:__construct\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$name of method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:__construct\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Navigation/Nodes/NodeColumn.php
 
@@ -14021,7 +14021,7 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: "#^Parameter \\#6 \\$sqlQuery of class PhpMyAdmin\\\\Display\\\\Results constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#7 \\$sqlQuery of class PhpMyAdmin\\\\Display\\\\Results constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Sql.php
 

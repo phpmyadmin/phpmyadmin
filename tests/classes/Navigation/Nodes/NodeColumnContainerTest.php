@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Navigation\Nodes\NodeColumnContainer;
 use PhpMyAdmin\Navigation\NodeType;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -14,7 +15,7 @@ final class NodeColumnContainerTest extends AbstractTestCase
 {
     public function testColumnContainer(): void
     {
-        $nodeColumnContainer = new NodeColumnContainer();
+        $nodeColumnContainer = new NodeColumnContainer(new Config());
         self::assertSame('Columns', $nodeColumnContainer->name);
         self::assertSame(NodeType::Container, $nodeColumnContainer->type);
         self::assertFalse($nodeColumnContainer->isGroup);

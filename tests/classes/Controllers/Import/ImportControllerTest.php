@@ -94,6 +94,7 @@ class ImportControllerTest extends AbstractTestCase
             self::createStub(Transformations::class),
             $template,
             $bookmarkRepository,
+            Config::getInstance(),
         );
 
         $importController = new ImportController(

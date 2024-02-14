@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Navigation\Nodes\NodeIndexContainer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -16,7 +17,7 @@ class NodeIndexContainerTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $parent = new NodeIndexContainer();
+        $parent = new NodeIndexContainer(new Config());
         self::assertEquals(
             [
                 'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],

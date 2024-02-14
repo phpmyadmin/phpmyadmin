@@ -118,11 +118,11 @@ return [
         'import_simulate_dml' => ['class' => SimulateDml::class, 'arguments' => ['@dbi']],
         'insert_edit' => [
             'class' => InsertEdit::class,
-            'arguments' => ['@dbi', '@relation', '@transformations', '@file_listing', '@template'],
+            'arguments' => ['@dbi', '@relation', '@transformations', '@file_listing', '@template', '@config'],
         ],
         'navigation' => [
             'class' => Navigation::class,
-            'arguments' => ['@template', '@relation', '@dbi'],
+            'arguments' => ['@template', '@relation', '@dbi', '@config'],
         ],
         'normalization' => [
             'class' => Normalization::class,
@@ -142,7 +142,7 @@ return [
             'arguments' => ['$dbi' => '@dbi'],
         ],
         AuthenticationPluginFactory::class => ['class' => AuthenticationPluginFactory::class],
-        'relation' => ['class' => Relation::class, 'arguments' => ['$dbi' => '@dbi']],
+        'relation' => ['class' => Relation::class, 'arguments' => ['$dbi' => '@dbi', '$config' => '@config']],
         'relation_cleanup' => ['class' => RelationCleanup::class, 'arguments' => ['@dbi', '@relation']],
         'replication' => ['class' => Replication::class, 'arguments' => ['$dbi' => '@dbi']],
         'replication_gui' => [
@@ -173,6 +173,7 @@ return [
                 '@transformations',
                 '@template',
                 '@bookmarkRepository',
+                '@config',
             ],
         ],
         'sql_query_form' => [

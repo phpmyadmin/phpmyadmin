@@ -32,7 +32,8 @@ final class MainController
 
     public function __invoke(ServerRequest $request): Response
     {
-        if (@file_exists(CONFIG_FILE) && ! Config::getInstance()->settings['DBG']['demo']) {
+        $config = Config::getInstance();
+        if (@file_exists(CONFIG_FILE) && ! $config->settings['DBG']['demo']) {
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
 
             return $response->write($this->template->render('error/generic', [
@@ -47,7 +48,7 @@ final class MainController
         $page = in_array($pageParam, ['form', 'config', 'servers'], true) ? $pageParam : 'index';
 
         $response = $this->responseFactory->createResponse();
-        $header = new Header($this->template, $this->console);
+        $header = new Header($this->template, $this->console, $config);
         foreach ($header->getHttpHeaders() as $name => $value) {
             // Sent security-related headers
             $response = $response->withHeader($name, $value);

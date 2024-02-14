@@ -29,12 +29,14 @@ class Console
      * Whether we are servicing an ajax request.
      */
     private bool $isAjax = false;
+    private readonly Config $config;
 
     public function __construct(
         private readonly Relation $relation,
         private readonly Template $template,
         private readonly BookmarkRepository $bookmarkRepository,
     ) {
+        $this->config = Config::getInstance();
     }
 
     /**
@@ -66,7 +68,7 @@ class Console
             return '';
         }
 
-        $bookmarks = $this->bookmarkRepository->getList(Config::getInstance()->selectedServer['user']);
+        $bookmarks = $this->bookmarkRepository->getList($this->config->selectedServer['user']);
         $countBookmarks = count($bookmarks);
         if ($countBookmarks > 0) {
             $welcomeMessage = sprintf(
@@ -107,7 +109,7 @@ class Console
         }
 
         $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
-        $sqlHistory = $this->relation->getHistory(Config::getInstance()->selectedServer['user']);
+        $sqlHistory = $this->relation->getHistory($this->config->selectedServer['user']);
         $bookmarkContent = $this->getBookmarkContent();
 
         return $this->template->render('console/display', [

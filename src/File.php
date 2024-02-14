@@ -79,10 +79,12 @@ class File
     protected string $charset = '';
 
     private ZipExtension $zipExtension;
+    private readonly Config $config;
 
     /** @param bool|string $name file name or false */
     public function __construct(bool|string $name = false)
     {
+        $this->config = Config::getInstance();
         if ($name && is_string($name)) {
             $this->setName($name);
         }
@@ -399,13 +401,12 @@ class File
      */
     public function setLocalSelectedFile(string $name): bool
     {
-        $config = Config::getInstance();
-        if ($config->settings['UploadDir'] === '') {
+        if ($this->config->settings['UploadDir'] === '') {
             return false;
         }
 
         $this->setName(
-            Util::userDir($config->settings['UploadDir']) . Core::securePath($name),
+            Util::userDir($this->config->settings['UploadDir']) . Core::securePath($name),
         );
         if (@is_link((string) $this->getName())) {
             $this->errorMessage = Message::error(__('File is a symbolic link'));
@@ -447,7 +448,7 @@ class File
             return true;
         }
 
-        $tmpSubdir = Config::getInstance()->getUploadTempDir();
+        $tmpSubdir = $this->config->getUploadTempDir();
         if ($tmpSubdir === null) {
             // cannot create directory or access, point user to FAQ 1.11
             $this->errorMessage = Message::error(__(
@@ -574,13 +575,12 @@ class File
             $this->handle = @fopen((string) $this->getName(), 'r');
         }
 
-        $config = Config::getInstance();
         switch ($this->getCompression()) {
             case false:
                 return false;
 
             case 'application/bzip2':
-                if (! $config->settings['BZipDump'] || ! function_exists('bzopen')) {
+                if (! $this->config->settings['BZipDump'] || ! function_exists('bzopen')) {
                     $this->errorUnsupported();
 
                     return false;
@@ -589,7 +589,7 @@ class File
                 $this->handle = @bzopen($this->getName(), 'r');
                 break;
             case 'application/gzip':
-                if (! $config->settings['GZipDump'] || ! function_exists('gzopen')) {
+                if (! $this->config->settings['GZipDump'] || ! function_exists('gzopen')) {
                     $this->errorUnsupported();
 
                     return false;
@@ -598,7 +598,7 @@ class File
                 $this->handle = @gzopen((string) $this->getName(), 'r');
                 break;
             case 'application/zip':
-                if ($config->settings['ZipDump'] && function_exists('zip_open')) {
+                if ($this->config->settings['ZipDump'] && function_exists('zip_open')) {
                     return $this->openZip();
                 }
 

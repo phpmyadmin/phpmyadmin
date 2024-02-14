@@ -47,10 +47,7 @@ class Footer
 
     private Relation $relation;
 
-    /**
-     * Creates a new class instance
-     */
-    public function __construct(private readonly Template $template)
+    public function __construct(private readonly Template $template, private readonly Config $config)
     {
         $this->scripts = new Scripts($this->template);
         $this->relation = new Relation(DatabaseInterface::getInstance());
@@ -106,7 +103,7 @@ class Footer
     {
         $retval = '\'false\'';
         if (
-            Config::getInstance()->settings['DBG']['sql'] && empty($_REQUEST['no_debug']) && ! empty($_SESSION['debug'])
+            $this->config->settings['DBG']['sql'] && empty($_REQUEST['no_debug']) && ! empty($_SESSION['debug'])
         ) {
             // Remove recursions and iterators from $_SESSION['debug']
             self::removeRecursion($_SESSION['debug']);
@@ -187,7 +184,7 @@ class Footer
         $this->relation->setHistory(
             Current::$database,
             Current::$table,
-            Config::getInstance()->selectedServer['user'],
+            $this->config->selectedServer['user'],
             $GLOBALS['sql_query'],
         );
     }
@@ -236,7 +233,6 @@ class Footer
     {
         $this->setHistory();
         if ($this->isEnabled) {
-            $config = Config::getInstance();
             if (! $this->isAjax && ! $this->isMinimal) {
                 if (Core::getEnv('SCRIPT_NAME') !== '') {
                     $url = $this->getSelfUrl();
@@ -246,7 +242,7 @@ class Footer
                 $errorMessages = $this->getErrorMessages();
                 $scripts = $this->scripts->getDisplay();
 
-                if ($config->settings['DBG']['demo']) {
+                if ($this->config->settings['DBG']['demo']) {
                     $gitRevisionInfo = $this->getGitRevisionInfo();
                 }
 
@@ -259,7 +255,7 @@ class Footer
                 'self_url' => $url ?? null,
                 'error_messages' => $errorMessages ?? '',
                 'scripts' => $scripts ?? '',
-                'is_demo' => $config->settings['DBG']['demo'],
+                'is_demo' => $this->config->settings['DBG']['demo'],
                 'git_revision_info' => $gitRevisionInfo ?? [],
                 'footer' => $footer ?? '',
             ]);

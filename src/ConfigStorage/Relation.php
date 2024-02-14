@@ -59,9 +59,11 @@ use const SQL_DIR;
 class Relation
 {
     private static RelationParameters|null $cache = null;
+    private readonly Config $config;
 
-    public function __construct(public DatabaseInterface $dbi)
+    public function __construct(public DatabaseInterface $dbi, Config|null $config = null)
     {
+        $this->config = $config ?? Config::getInstance();
     }
 
     public function getRelationParameters(): RelationParameters
@@ -153,50 +155,49 @@ class Relation
             return null;
         }
 
-        $config = Config::getInstance();
-        $tables = $this->dbi->getTables($config->selectedServer['pmadb'], ConnectionType::ControlUser);
+        $tables = $this->dbi->getTables($this->config->selectedServer['pmadb'], ConnectionType::ControlUser);
         if ($tables === []) {
             return null;
         }
 
         foreach ($tables as $table) {
-            if ($table == $config->selectedServer['bookmarktable']) {
+            if ($table == $this->config->selectedServer['bookmarktable']) {
                 $relationParams['bookmark'] = $table;
-            } elseif ($table == $config->selectedServer['relation']) {
+            } elseif ($table == $this->config->selectedServer['relation']) {
                 $relationParams['relation'] = $table;
-            } elseif ($table == $config->selectedServer['table_info']) {
+            } elseif ($table == $this->config->selectedServer['table_info']) {
                 $relationParams['table_info'] = $table;
-            } elseif ($table == $config->selectedServer['table_coords']) {
+            } elseif ($table == $this->config->selectedServer['table_coords']) {
                 $relationParams['table_coords'] = $table;
-            } elseif ($table == $config->selectedServer['column_info']) {
+            } elseif ($table == $this->config->selectedServer['column_info']) {
                 $relationParams['column_info'] = $table;
-            } elseif ($table == $config->selectedServer['pdf_pages']) {
+            } elseif ($table == $this->config->selectedServer['pdf_pages']) {
                 $relationParams['pdf_pages'] = $table;
-            } elseif ($table == $config->selectedServer['history']) {
+            } elseif ($table == $this->config->selectedServer['history']) {
                 $relationParams['history'] = $table;
-            } elseif ($table == $config->selectedServer['recent']) {
+            } elseif ($table == $this->config->selectedServer['recent']) {
                 $relationParams['recent'] = $table;
-            } elseif ($table == $config->selectedServer['favorite']) {
+            } elseif ($table == $this->config->selectedServer['favorite']) {
                 $relationParams['favorite'] = $table;
-            } elseif ($table == $config->selectedServer['table_uiprefs']) {
+            } elseif ($table == $this->config->selectedServer['table_uiprefs']) {
                 $relationParams['table_uiprefs'] = $table;
-            } elseif ($table == $config->selectedServer['tracking']) {
+            } elseif ($table == $this->config->selectedServer['tracking']) {
                 $relationParams['tracking'] = $table;
-            } elseif ($table == $config->selectedServer['userconfig']) {
+            } elseif ($table == $this->config->selectedServer['userconfig']) {
                 $relationParams['userconfig'] = $table;
-            } elseif ($table == $config->selectedServer['users']) {
+            } elseif ($table == $this->config->selectedServer['users']) {
                 $relationParams['users'] = $table;
-            } elseif ($table == $config->selectedServer['usergroups']) {
+            } elseif ($table == $this->config->selectedServer['usergroups']) {
                 $relationParams['usergroups'] = $table;
-            } elseif ($table == $config->selectedServer['navigationhiding']) {
+            } elseif ($table == $this->config->selectedServer['navigationhiding']) {
                 $relationParams['navigationhiding'] = $table;
-            } elseif ($table == $config->selectedServer['savedsearches']) {
+            } elseif ($table == $this->config->selectedServer['savedsearches']) {
                 $relationParams['savedsearches'] = $table;
-            } elseif ($table == $config->selectedServer['central_columns']) {
+            } elseif ($table == $this->config->selectedServer['central_columns']) {
                 $relationParams['central_columns'] = $table;
-            } elseif ($table == $config->selectedServer['designer_settings']) {
+            } elseif ($table == $this->config->selectedServer['designer_settings']) {
                 $relationParams['designer_settings'] = $table;
-            } elseif ($table == $config->selectedServer['export_templates']) {
+            } elseif ($table == $this->config->selectedServer['export_templates']) {
                 $relationParams['export_templates'] = $table;
             }
         }
@@ -241,19 +242,18 @@ class Relation
         $relationParams['user'] = null;
         $relationParams['db'] = null;
 
-        $config = Config::getInstance();
         if (
             Current::$server === 0
-            || $config->selectedServer['pmadb'] === ''
-            || ! $this->dbi->selectDb($config->selectedServer['pmadb'], ConnectionType::ControlUser)
+            || $this->config->selectedServer['pmadb'] === ''
+            || ! $this->dbi->selectDb($this->config->selectedServer['pmadb'], ConnectionType::ControlUser)
         ) {
-            $config->selectedServer['pmadb'] = '';
+            $this->config->selectedServer['pmadb'] = '';
 
             return $relationParams;
         }
 
-        $relationParams['user'] = $config->selectedServer['user'];
-        $relationParams['db'] = $config->selectedServer['pmadb'];
+        $relationParams['user'] = $this->config->selectedServer['user'];
+        $relationParams['db'] = $this->config->selectedServer['pmadb'];
 
         $relationParamsFilled = $this->fillRelationParamsWithTableNames($relationParams);
 
@@ -270,14 +270,14 @@ class Relation
             }
 
             if (is_string($table)) {
-                if (isset($config->selectedServer[$table]) && $config->selectedServer[$table] !== false) {
+                if (isset($this->config->selectedServer[$table]) && $this->config->selectedServer[$table] !== false) {
                     $allWorks = false;
                     break;
                 }
             } else {
                 $oneNull = false;
                 foreach ($table as $t) {
-                    if (isset($config->selectedServer[$t]) && $config->selectedServer[$t] === false) {
+                    if (isset($this->config->selectedServer[$t]) && $this->config->selectedServer[$t] === false) {
                         $oneNull = true;
                         break;
                     }
@@ -316,10 +316,9 @@ class Relation
         // From 4.3, new input oriented transformation feature was introduced.
         // Check whether column_info table has input transformation columns
         $newCols = ['input_transformation', 'input_transformation_options'];
-        $config = Config::getInstance();
         $query = 'SHOW COLUMNS FROM '
-            . Util::backquote($config->selectedServer['pmadb'])
-            . '.' . Util::backquote($config->selectedServer['column_info'])
+            . Util::backquote($this->config->selectedServer['pmadb'])
+            . '.' . Util::backquote($this->config->selectedServer['column_info'])
             . ' WHERE Field IN (\'' . implode('\', \'', $newCols) . '\')';
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result) {
@@ -341,8 +340,8 @@ class Relation
             $query = str_replace(
                 ['`phpmyadmin`', '`pma__column_info`'],
                 [
-                    Util::backquote($config->selectedServer['pmadb']),
-                    Util::backquote($config->selectedServer['column_info']),
+                    Util::backquote($this->config->selectedServer['pmadb']),
+                    Util::backquote($this->config->selectedServer['column_info']),
                 ],
                 (string) $query,
             );
@@ -596,8 +595,7 @@ class Relation
      */
     public function setHistory(string $db, string $table, string $username, string $sqlquery): void
     {
-        $config = Config::getInstance();
-        $maxCharactersInDisplayedSQL = $config->settings['MaxCharactersInDisplayedSQL'];
+        $maxCharactersInDisplayedSQL = $this->config->settings['MaxCharactersInDisplayedSQL'];
         // Prevent to run this automatically on Footer class destroying in testsuite
         if (mb_strlen($sqlquery) > $maxCharactersInDisplayedSQL) {
             return;
@@ -611,12 +609,12 @@ class Relation
 
         $_SESSION['sql_history'][] = ['db' => $db, 'table' => $table, 'sqlquery' => $sqlquery];
 
-        if (count($_SESSION['sql_history']) > $config->settings['QueryHistoryMax']) {
+        if (count($_SESSION['sql_history']) > $this->config->settings['QueryHistoryMax']) {
             // history should not exceed a maximum count
             array_shift($_SESSION['sql_history']);
         }
 
-        if ($sqlHistoryFeature === null || ! $config->settings['QueryHistoryDB']) {
+        if ($sqlHistoryFeature === null || ! $this->config->settings['QueryHistoryDB']) {
             return;
         }
 
@@ -658,7 +656,7 @@ class Relation
          * if db-based history is disabled but there exists a session-based
          * history, use it
          */
-        if (! Config::getInstance()->settings['QueryHistoryDB']) {
+        if (! $this->config->settings['QueryHistoryDB']) {
             if (isset($_SESSION['sql_history'])) {
                 return array_reverse($_SESSION['sql_history']);
             }
@@ -690,8 +688,7 @@ class Relation
     public function purgeHistory(string $username): void
     {
         $sqlHistoryFeature = $this->getRelationParameters()->sqlHistoryFeature;
-        $config = Config::getInstance();
-        if (! $config->settings['QueryHistoryDB'] || $sqlHistoryFeature === null) {
+        if (! $this->config->settings['QueryHistoryDB'] || $sqlHistoryFeature === null) {
             return;
         }
 
@@ -701,7 +698,7 @@ class Relation
                 . '.' . Util::backquote($sqlHistoryFeature->history) . '
             WHERE `username` = ' . $this->dbi->quoteString($username) . '
             ORDER BY `timevalue` DESC
-            LIMIT ' . $config->settings['QueryHistoryMax'] . ', 1';
+            LIMIT ' . $this->config->settings['QueryHistoryMax'] . ', 1';
 
         $maxTime = $this->dbi->fetchValue($searchQuery, 0, ConnectionType::ControlUser);
 
@@ -732,19 +729,18 @@ class Relation
     {
         $reloptions = [];
 
-        $config = Config::getInstance();
         // id-only is a special mode used when no foreign display column
         // is available
         if ($mode === 'id-content' || $mode === 'id-only') {
             // sort for id-content
-            if ($config->settings['NaturalOrder']) {
+            if ($this->config->settings['NaturalOrder']) {
                 uksort($foreign, strnatcasecmp(...));
             } else {
                 ksort($foreign);
             }
         } elseif ($mode === 'content-id') {
             // sort for content-id
-            if ($config->settings['NaturalOrder']) {
+            if ($this->config->settings['NaturalOrder']) {
                 natcasesort($foreign);
             } else {
                 asort($foreign);
@@ -772,7 +768,7 @@ class Relation
                 mb_check_encoding($value, 'utf-8')
                 && ! preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $value)
             ) {
-                if (mb_strlen($value) <= $config->settings['LimitChars']) {
+                if (mb_strlen($value) <= $this->config->settings['LimitChars']) {
                     // show as text if it's valid utf-8
                     $value = htmlspecialchars($value);
                 } else {
@@ -781,7 +777,7 @@ class Relation
                         mb_substr(
                             $value,
                             0,
-                            $config->settings['LimitChars'],
+                            $this->config->settings['LimitChars'],
                         ) . '...',
                     );
                 }
@@ -828,9 +824,8 @@ class Relation
         string $data,
         int|null $max = null,
     ): string {
-        $config = Config::getInstance();
         if ($max === null) {
-            $max = $config->settings['ForeignKeyMaxLimit'];
+            $max = $this->config->settings['ForeignKeyMaxLimit'];
         }
 
         $foreign = [];
@@ -848,12 +843,14 @@ class Relation
         // put the dropdown sections in correct order
         $bottom = [];
         if ($foreignDisplay !== '') {
-            $top = $this->buildForeignDropdown($foreign, $data, $config->settings['ForeignKeyDropdownOrder'][0]);
+            $top = $this->buildForeignDropdown($foreign, $data, $this->config->settings['ForeignKeyDropdownOrder'][0]);
 
-            if (
-                isset($config->settings['ForeignKeyDropdownOrder'][1])
-            ) {
-                $bottom = $this->buildForeignDropdown($foreign, $data, $config->settings['ForeignKeyDropdownOrder'][1]);
+            if (isset($this->config->settings['ForeignKeyDropdownOrder'][1])) {
+                $bottom = $this->buildForeignDropdown(
+                    $foreign,
+                    $data,
+                    $this->config->settings['ForeignKeyDropdownOrder'][1],
+                );
             }
         } else {
             $top = $this->buildForeignDropdown($foreign, $data, 'id-only');
@@ -933,10 +930,9 @@ class Relation
             // We could also do the SELECT anyway, with a LIMIT, and ensure that
             // the current value of the field is one of the choices.
 
-            // Check if table has more rows than specified by
-            // \PhpMyAdmin\Config::getInstance()->settings['ForeignKeyMaxLimit']
+            // Check if table has more rows than specified by ForeignKeyMaxLimit
             $moreThanLimit = $this->dbi->getTable($foreignDb, $foreignTable)
-                ->checkIfMinRecordsExist(Config::getInstance()->settings['ForeignKeyMaxLimit']);
+                ->checkIfMinRecordsExist($this->config->settings['ForeignKeyMaxLimit']);
 
             if ($overrideTotal || ! $moreThanLimit) {
                 // foreign_display can be false if no display field defined:
@@ -1262,7 +1258,7 @@ class Relation
      */
     public function getChildReferences(string $db, string $table, string $column = ''): array
     {
-        if (! Config::getInstance()->selectedServer['DisableIS']) {
+        if (! $this->config->selectedServer['DisableIS']) {
             $relQuery = 'SELECT `column_name`, `table_name`,'
                 . ' `table_schema`, `referenced_column_name`'
                 . ' FROM `information_schema`.`key_column_usage`'
@@ -1499,9 +1495,8 @@ class Relation
         }
 
         $foundOne = false;
-        $config = Config::getInstance();
         foreach ($tablesToFeatures as $table => $feature) {
-            if (($config->selectedServer[$feature] ?? null) === false) {
+            if (($this->config->selectedServer[$feature] ?? null) === false) {
                 // The feature is disabled by the user in config
                 continue;
             }
@@ -1527,19 +1522,19 @@ class Relation
             $foundOne = true;
 
             // Do not override a user defined value, only fill if empty
-            if (isset($config->selectedServer[$feature]) && $config->selectedServer[$feature] !== '') {
+            if (isset($this->config->selectedServer[$feature]) && $this->config->selectedServer[$feature] !== '') {
                 continue;
             }
 
             // Fill it with the default table name
-            $config->selectedServer[$feature] = $table;
+            $this->config->selectedServer[$feature] = $table;
         }
 
         if (! $foundOne) {
             return;
         }
 
-        $config->selectedServer['pmadb'] = $db;
+        $this->config->selectedServer['pmadb'] = $db;
 
         // Unset the cache as new tables might have been added
         self::$cache = null;
@@ -1571,27 +1566,25 @@ class Relation
      */
     public function arePmadbTablesAllDisabled(): bool
     {
-        $config = Config::getInstance();
-
-        return ($config->selectedServer['bookmarktable'] ?? null) === false
-            && ($config->selectedServer['relation'] ?? null) === false
-            && ($config->selectedServer['table_info'] ?? null) === false
-            && ($config->selectedServer['table_coords'] ?? null) === false
-            && ($config->selectedServer['column_info'] ?? null) === false
-            && ($config->selectedServer['pdf_pages'] ?? null) === false
-            && ($config->selectedServer['history'] ?? null) === false
-            && ($config->selectedServer['recent'] ?? null) === false
-            && ($config->selectedServer['favorite'] ?? null) === false
-            && ($config->selectedServer['table_uiprefs'] ?? null) === false
-            && ($config->selectedServer['tracking'] ?? null) === false
-            && ($config->selectedServer['userconfig'] ?? null) === false
-            && ($config->selectedServer['users'] ?? null) === false
-            && ($config->selectedServer['usergroups'] ?? null) === false
-            && ($config->selectedServer['navigationhiding'] ?? null) === false
-            && ($config->selectedServer['savedsearches'] ?? null) === false
-            && ($config->selectedServer['central_columns'] ?? null) === false
-            && ($config->selectedServer['designer_settings'] ?? null) === false
-            && ($config->selectedServer['export_templates'] ?? null) === false;
+        return ($this->config->selectedServer['bookmarktable'] ?? null) === false
+            && ($this->config->selectedServer['relation'] ?? null) === false
+            && ($this->config->selectedServer['table_info'] ?? null) === false
+            && ($this->config->selectedServer['table_coords'] ?? null) === false
+            && ($this->config->selectedServer['column_info'] ?? null) === false
+            && ($this->config->selectedServer['pdf_pages'] ?? null) === false
+            && ($this->config->selectedServer['history'] ?? null) === false
+            && ($this->config->selectedServer['recent'] ?? null) === false
+            && ($this->config->selectedServer['favorite'] ?? null) === false
+            && ($this->config->selectedServer['table_uiprefs'] ?? null) === false
+            && ($this->config->selectedServer['tracking'] ?? null) === false
+            && ($this->config->selectedServer['userconfig'] ?? null) === false
+            && ($this->config->selectedServer['users'] ?? null) === false
+            && ($this->config->selectedServer['usergroups'] ?? null) === false
+            && ($this->config->selectedServer['navigationhiding'] ?? null) === false
+            && ($this->config->selectedServer['savedsearches'] ?? null) === false
+            && ($this->config->selectedServer['central_columns'] ?? null) === false
+            && ($this->config->selectedServer['designer_settings'] ?? null) === false
+            && ($this->config->selectedServer['export_templates'] ?? null) === false;
     }
 
     /**
@@ -1599,27 +1592,25 @@ class Relation
      */
     public function arePmadbTablesDefined(): bool
     {
-        $config = Config::getInstance();
-
-        return ! (empty($config->selectedServer['bookmarktable'])
-            || empty($config->selectedServer['relation'])
-            || empty($config->selectedServer['table_info'])
-            || empty($config->selectedServer['table_coords'])
-            || empty($config->selectedServer['column_info'])
-            || empty($config->selectedServer['pdf_pages'])
-            || empty($config->selectedServer['history'])
-            || empty($config->selectedServer['recent'])
-            || empty($config->selectedServer['favorite'])
-            || empty($config->selectedServer['table_uiprefs'])
-            || empty($config->selectedServer['tracking'])
-            || empty($config->selectedServer['userconfig'])
-            || empty($config->selectedServer['users'])
-            || empty($config->selectedServer['usergroups'])
-            || empty($config->selectedServer['navigationhiding'])
-            || empty($config->selectedServer['savedsearches'])
-            || empty($config->selectedServer['central_columns'])
-            || empty($config->selectedServer['designer_settings'])
-            || empty($config->selectedServer['export_templates']));
+        return ! (empty($this->config->selectedServer['bookmarktable'])
+            || empty($this->config->selectedServer['relation'])
+            || empty($this->config->selectedServer['table_info'])
+            || empty($this->config->selectedServer['table_coords'])
+            || empty($this->config->selectedServer['column_info'])
+            || empty($this->config->selectedServer['pdf_pages'])
+            || empty($this->config->selectedServer['history'])
+            || empty($this->config->selectedServer['recent'])
+            || empty($this->config->selectedServer['favorite'])
+            || empty($this->config->selectedServer['table_uiprefs'])
+            || empty($this->config->selectedServer['tracking'])
+            || empty($this->config->selectedServer['userconfig'])
+            || empty($this->config->selectedServer['users'])
+            || empty($this->config->selectedServer['usergroups'])
+            || empty($this->config->selectedServer['navigationhiding'])
+            || empty($this->config->selectedServer['savedsearches'])
+            || empty($this->config->selectedServer['central_columns'])
+            || empty($this->config->selectedServer['designer_settings'])
+            || empty($this->config->selectedServer['export_templates']));
     }
 
     /**
@@ -1642,7 +1633,7 @@ class Relation
             $tables[] = $row[0];
         }
 
-        if (Config::getInstance()->settings['NaturalOrder']) {
+        if ($this->config->settings['NaturalOrder']) {
             usort($tables, strnatcasecmp(...));
         }
 
@@ -1651,7 +1642,7 @@ class Relation
 
     public function getConfigurationStorageDbName(): string
     {
-        $cfgStorageDbName = Config::getInstance()->selectedServer['pmadb'] ?? '';
+        $cfgStorageDbName = $this->config->selectedServer['pmadb'] ?? '';
 
         // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
         return empty($cfgStorageDbName) ? 'phpmyadmin' : $cfgStorageDbName;
@@ -1663,8 +1654,7 @@ class Relation
      */
     public function initRelationParamsCache(): void
     {
-        $config = Config::getInstance();
-        $storageDbName = $config->selectedServer['pmadb'] ?? '';
+        $storageDbName = $this->config->selectedServer['pmadb'] ?? '';
         // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
         $storageDbName = $storageDbName !== '' ? $storageDbName : 'phpmyadmin';
 
@@ -1674,7 +1664,7 @@ class Relation
 
         // This global will be changed if fixPmaTables did find one valid table
         // Empty means that until now no pmadb was found eligible
-        if ($config->selectedServer['pmadb'] !== '') {
+        if ($this->config->selectedServer['pmadb'] !== '') {
             return;
         }
 
@@ -1691,13 +1681,12 @@ class Relation
         $tableNameReplacements = [];
 
         foreach ($tablesToFeatures as $table => $feature) {
-            $config = Config::getInstance();
-            if (empty($config->selectedServer[$feature]) || $config->selectedServer[$feature] === $table) {
+            if (empty($this->config->selectedServer[$feature]) || $this->config->selectedServer[$feature] === $table) {
                 continue;
             }
 
             // Set the replacement to transform the default table name into a custom name
-            $tableNameReplacements[$table] = $config->selectedServer[$feature];
+            $tableNameReplacements[$table] = $this->config->selectedServer[$feature];
         }
 
         return $tableNameReplacements;

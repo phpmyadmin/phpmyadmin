@@ -15,22 +15,17 @@ use PhpMyAdmin\Navigation\NodeType;
  */
 abstract class NodeDatabaseChildContainer extends NodeDatabaseChild
 {
-    /**
-     * Initialises the class by setting the common variables
-     *
-     * @param string $name An identifier for the new node
-     */
-    public function __construct(string $name)
+    /** @param string $name An identifier for the new node */
+    public function __construct(Config $config, string $name)
     {
-        parent::__construct($name, NodeType::Container);
+        parent::__construct($config, $name, NodeType::Container);
 
-        $config = Config::getInstance();
-        if (! $config->settings['NavigationTreeEnableGrouping']) {
+        if (! $this->config->settings['NavigationTreeEnableGrouping']) {
             return;
         }
 
-        $this->separator = $config->settings['NavigationTreeTableSeparator'];
-        $this->separatorDepth = $config->settings['NavigationTreeTableLevel'];
+        $this->separator = $this->config->settings['NavigationTreeTableSeparator'];
+        $this->separatorDepth = $this->config->settings['NavigationTreeTableLevel'];
     }
 
     /**

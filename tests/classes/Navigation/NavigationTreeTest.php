@@ -43,7 +43,7 @@ class NavigationTreeTest extends AbstractTestCase
         Current::$database = 'db';
         Current::$table = '';
 
-        $this->object = new NavigationTree(new Template(), $dbi, new Relation($dbi));
+        $this->object = new NavigationTree(new Template(), $dbi, new Relation($dbi), $config);
     }
 
     /**
@@ -87,7 +87,8 @@ class NavigationTreeTest extends AbstractTestCase
     public function testDatabaseGrouping(): void
     {
         Current::$database = '';
-        Config::getInstance()->settings['NavigationTreeDbSeparator'] = '__';
+        $config = Config::getInstance();
+        $config->settings['NavigationTreeDbSeparator'] = '__';
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dummyDbi = $this->createDbiDummy();
@@ -109,7 +110,7 @@ class NavigationTreeTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dummyDbi);
         DatabaseInterface::$instance = $dbi;
 
-        $object = new NavigationTree(new Template(), $dbi, new Relation($dbi));
+        $object = new NavigationTree(new Template(), $dbi, new Relation($dbi), $config);
         $result = $object->renderState(new UserPrivileges());
         self::assertStringContainsString('<li class="first navGroup">', $result);
         self::assertStringContainsString('functions' . "\n", $result);

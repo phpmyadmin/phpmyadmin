@@ -20,7 +20,7 @@ class NodeDatabaseTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $parent = new NodeDatabase('default');
+        $parent = new NodeDatabase(new Config(), 'default');
         self::assertEquals(
             [
                 'text' => ['route' => '/database/structure', 'params' => ['db' => null]],
@@ -37,11 +37,12 @@ class NodeDatabaseTest extends AbstractTestCase
      */
     public function testGetPresence(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $userPrivileges = new UserPrivileges();
 
-        $parent = new NodeDatabase('default');
+        $parent = new NodeDatabase($config, 'default');
         self::assertEquals(
             2,
             $parent->getPresence($userPrivileges, 'tables'),
@@ -69,7 +70,8 @@ class NodeDatabaseTest extends AbstractTestCase
      */
     public function testGetData(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $userPrivileges = new UserPrivileges();
 
@@ -79,7 +81,7 @@ class NodeDatabaseTest extends AbstractTestCase
             'navigationhiding' => 'navigationhiding',
         ]);
 
-        $parent = new NodeDatabase('default');
+        $parent = new NodeDatabase($config, 'default');
 
         $tables = $parent->getData($userPrivileges, $relationParameters, 'tables', 0);
         self::assertContains('test1', $tables);
@@ -101,7 +103,7 @@ class NodeDatabaseTest extends AbstractTestCase
      */
     public function testHiddenCount(): void
     {
-        $parent = new NodeDatabase('default');
+        $parent = new NodeDatabase(new Config(), 'default');
         $parent->setHiddenCount(1);
         self::assertSame(1, $parent->getHiddenCount());
         $parent->setHiddenCount(0);

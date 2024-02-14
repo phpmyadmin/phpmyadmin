@@ -21,10 +21,12 @@ use PhpMyAdmin\Util;
 final class BookmarkRepository
 {
     private BookmarkFeature|null $bookmarkFeature;
+    private readonly Config $config;
 
     public function __construct(private DatabaseInterface $dbi, Relation $relation)
     {
         $this->bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
+        $this->config = Config::getInstance();
     }
 
     /**
@@ -47,7 +49,7 @@ final class BookmarkRepository
             return false;
         }
 
-        if (! Config::getInstance()->settings['AllowSharedBookmarks']) {
+        if (! $this->config->settings['AllowSharedBookmarks']) {
             $shared = false;
         }
 
@@ -76,7 +78,7 @@ final class BookmarkRepository
             return [];
         }
 
-        $exactUserMatch = ! Config::getInstance()->settings['AllowSharedBookmarks'];
+        $exactUserMatch = ! $this->config->settings['AllowSharedBookmarks'];
 
         $query = 'SELECT * FROM ' . Util::backquote($this->bookmarkFeature->database)
             . '.' . Util::backquote($this->bookmarkFeature->bookmark)
@@ -121,7 +123,7 @@ final class BookmarkRepository
         if ($user !== null) {
             $query .= ' AND (user = ' . $this->dbi->quoteString($user);
 
-            $exactUserMatch = ! Config::getInstance()->settings['AllowSharedBookmarks'];
+            $exactUserMatch = ! $this->config->settings['AllowSharedBookmarks'];
             if (! $exactUserMatch) {
                 $query .= " OR user = ''";
             }

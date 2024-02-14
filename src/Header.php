@@ -79,18 +79,19 @@ class Header
 
     private bool $isTransformationWrapper = false;
 
-    /**
-     * Creates a new class instance
-     */
-    public function __construct(private readonly Template $template, private Console $console)
-    {
+    public function __construct(
+        private readonly Template $template,
+        private readonly Console $console,
+        private readonly Config $config,
+    ) {
         $dbi = DatabaseInterface::getInstance();
         $this->menuEnabled = $dbi->isConnected();
-        $this->menu = new Menu($dbi, $this->template, Current::$database, Current::$table);
+        $relation = new Relation($dbi);
+        $this->menu = new Menu($dbi, $this->template, $this->config, $relation, Current::$database, Current::$table);
         $this->scripts = new Scripts($this->template);
         $this->addDefaultScripts();
 
-        $this->userPreferences = new UserPreferences($dbi, new Relation($dbi), $this->template);
+        $this->userPreferences = new UserPreferences($dbi, $relation, $this->template);
     }
 
     /**
@@ -126,32 +127,31 @@ class Header
     {
         $pftext = $_SESSION['tmpval']['pftext'] ?? '';
 
-        $config = Config::getInstance();
         $params = [
             // Do not add any separator, JS code will decide
             'common_query' => Url::getCommonRaw([], ''),
-            'opendb_url' => Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database'),
+            'opendb_url' => Util::getScriptNameForOption($this->config->settings['DefaultTabDatabase'], 'database'),
             'lang' => $GLOBALS['lang'],
             'server' => Current::$server,
             'table' => Current::$table,
             'db' => Current::$database,
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => LanguageManager::$textDir,
-            'LimitChars' => $config->settings['LimitChars'],
+            'LimitChars' => $this->config->settings['LimitChars'],
             'pftext' => $pftext,
-            'confirm' => $config->settings['Confirm'],
-            'LoginCookieValidity' => $config->settings['LoginCookieValidity'],
+            'confirm' => $this->config->settings['Confirm'],
+            'LoginCookieValidity' => $this->config->settings['LoginCookieValidity'],
             'session_gc_maxlifetime' => (int) ini_get('session.gc_maxlifetime'),
             'logged_in' => DatabaseInterface::getInstance()->isConnected(),
-            'is_https' => $config->isHttps(),
-            'rootPath' => $config->getRootPath(),
+            'is_https' => $this->config->isHttps(),
+            'rootPath' => $this->config->getRootPath(),
             'arg_separator' => Url::getArgSeparator(),
             'version' => Version::VERSION,
         ];
-        if ($config->hasSelectedServer()) {
-            $params['auth_type'] = $config->selectedServer['auth_type'];
-            if (isset($config->selectedServer['user'])) {
-                $params['user'] = $config->selectedServer['user'];
+        if ($this->config->hasSelectedServer()) {
+            $params['auth_type'] = $this->config->selectedServer['auth_type'];
+            if (isset($this->config->selectedServer['user'])) {
+                $params['user'] = $this->config->selectedServer['user'];
             }
         }
 
@@ -281,54 +281,48 @@ class Header
 
         // The user preferences have been merged at this point
         // so we can conditionally add CodeMirror, other scripts and settings
-        $config = Config::getInstance();
-        if ($config->settings['CodemirrorEnable']) {
+        if ($this->config->settings['CodemirrorEnable']) {
             $this->scripts->addFile('vendor/codemirror/lib/codemirror.js');
             $this->scripts->addFile('vendor/codemirror/mode/sql/sql.js');
             $this->scripts->addFile('vendor/codemirror/addon/runmode/runmode.js');
             $this->scripts->addFile('vendor/codemirror/addon/hint/show-hint.js');
             $this->scripts->addFile('vendor/codemirror/addon/hint/sql-hint.js');
-            if ($config->settings['LintEnable']) {
+            if ($this->config->settings['LintEnable']) {
                 $this->scripts->addFile('vendor/codemirror/addon/lint/lint.js');
                 $this->scripts->addFile('codemirror/addon/lint/sql-lint.js');
             }
         }
 
-        if ($config->settings['SendErrorReports'] !== 'never') {
+        if ($this->config->settings['SendErrorReports'] !== 'never') {
             $this->scripts->addFile('vendor/tracekit.js');
             $this->scripts->addFile('error_report.js');
         }
 
-        if ($config->settings['enable_drag_drop_import'] === true) {
+        if ($this->config->settings['enable_drag_drop_import'] === true) {
             $this->scripts->addFile('drag_drop_import.js');
         }
 
-        if (! $config->get('DisableShortcutKeys')) {
+        if (! $this->config->get('DisableShortcutKeys')) {
             $this->scripts->addFile('shortcuts_handler.js');
         }
 
         $this->scripts->addCode($this->getVariablesForJavaScript());
 
         $this->scripts->addCode(
-            'ConsoleEnterExecutes=' . ($config->settings['ConsoleEnterExecutes'] ? 'true' : 'false'),
+            'ConsoleEnterExecutes=' . ($this->config->settings['ConsoleEnterExecutes'] ? 'true' : 'false'),
         );
         $this->scripts->addFiles($this->console->getScripts());
 
         $dbi = DatabaseInterface::getInstance();
         if ($this->menuEnabled && Current::$server > 0) {
-            $nav = new Navigation(
-                $this->template,
-                new Relation($dbi),
-                $dbi,
-            );
-            $navigation = $nav->getDisplay();
+            $navigation = (new Navigation($this->template, new Relation($dbi), $dbi, $this->config))->getDisplay();
         }
 
         $customHeader = Config::renderHeader();
 
         // offer to load user preferences from localStorage
         if (
-            $config->get('user_preferences') === 'session'
+            $this->config->get('user_preferences') === 'session'
             && ! isset($_SESSION['userprefs_autoload'])
         ) {
             $loadUserPreferences = $this->userPreferences->autoloadGetHeader();
@@ -347,7 +341,7 @@ class Header
 
         return $this->template->render('header', [
             'lang' => $GLOBALS['lang'],
-            'allow_third_party_framing' => $config->settings['AllowThirdPartyFraming'],
+            'allow_third_party_framing' => $this->config->settings['AllowThirdPartyFraming'],
             'base_dir' => $baseDir,
             'theme_path' => $theme->getPath(),
             'version' => $version,
@@ -359,7 +353,7 @@ class Header
             'navigation' => $navigation ?? '',
             'custom_header' => $customHeader,
             'load_user_preferences' => $loadUserPreferences ?? '',
-            'show_hint' => $config->settings['ShowHint'],
+            'show_hint' => $this->config->settings['ShowHint'],
             'is_warnings_enabled' => $this->warningsEnabled,
             'is_menu_enabled' => $this->menuEnabled,
             'is_logged_in' => $isLoggedIn,
@@ -433,10 +427,9 @@ class Header
         $headers = [];
 
         /* Prevent against ClickJacking by disabling framing */
-        $config = Config::getInstance();
-        if (strtolower((string) $config->settings['AllowThirdPartyFraming']) === 'sameorigin') {
+        if (strtolower((string) $this->config->settings['AllowThirdPartyFraming']) === 'sameorigin') {
             $headers['X-Frame-Options'] = 'SAMEORIGIN';
-        } elseif ($config->settings['AllowThirdPartyFraming'] !== true) {
+        } elseif ($this->config->settings['AllowThirdPartyFraming'] !== true) {
             $headers['X-Frame-Options'] = 'DENY';
         }
 
@@ -503,15 +496,14 @@ class Header
     {
         if (strlen($this->title) == 0) {
             if (Current::$server > 0) {
-                $config = Config::getInstance();
                 if (Current::$table !== '') {
-                    $tempTitle = $config->settings['TitleTable'];
+                    $tempTitle = $this->config->settings['TitleTable'];
                 } elseif (Current::$database !== '') {
-                    $tempTitle = $config->settings['TitleDatabase'];
-                } elseif ($config->selectedServer['host'] !== '') {
-                    $tempTitle = $config->settings['TitleServer'];
+                    $tempTitle = $this->config->settings['TitleDatabase'];
+                } elseif ($this->config->selectedServer['host'] !== '') {
+                    $tempTitle = $this->config->settings['TitleServer'];
                 } else {
-                    $tempTitle = $config->settings['TitleDefault'];
+                    $tempTitle = $this->config->settings['TitleDefault'];
                 }
 
                 $this->title = htmlspecialchars(
@@ -534,17 +526,16 @@ class Header
     {
         $mapTileUrl = ' tile.openstreetmap.org';
         $captchaUrl = '';
-        $config = Config::getInstance();
-        $cspAllow = $config->settings['CSPAllow'];
+        $cspAllow = $this->config->settings['CSPAllow'];
 
         if (
-            ! empty($config->settings['CaptchaLoginPrivateKey'])
-            && ! empty($config->settings['CaptchaLoginPublicKey'])
-            && ! empty($config->settings['CaptchaApi'])
-            && ! empty($config->settings['CaptchaRequestParam'])
-            && ! empty($config->settings['CaptchaResponseParam'])
+            ! empty($this->config->settings['CaptchaLoginPrivateKey'])
+            && ! empty($this->config->settings['CaptchaLoginPublicKey'])
+            && ! empty($this->config->settings['CaptchaApi'])
+            && ! empty($this->config->settings['CaptchaRequestParam'])
+            && ! empty($this->config->settings['CaptchaResponseParam'])
         ) {
-            $captchaUrl = ' ' . $config->settings['CaptchaCsp'] . ' ';
+            $captchaUrl = ' ' . $this->config->settings['CaptchaCsp'] . ' ';
         }
 
         $headers = [];
@@ -595,7 +586,7 @@ class Header
      */
     private function addRecentTable(DatabaseName $db, TableName $table): string
     {
-        if ($this->menuEnabled && Config::getInstance()->settings['NumRecentTables'] > 0) {
+        if ($this->menuEnabled && $this->config->settings['NumRecentTables'] > 0) {
             $favoriteTable = new RecentFavoriteTable($db, $table);
             $error = RecentFavoriteTables::getInstance(TableType::Recent)->add($favoriteTable);
             if ($error === true) {
@@ -625,7 +616,7 @@ class Header
         $maxInputVarsValue = $maxInputVars === false || $maxInputVars === '' ? 'false' : (int) $maxInputVars;
 
         return $this->template->render('javascript/variables', [
-            'first_day_of_calendar' => Config::getInstance()->settings['FirstDayOfCalendar'] ?? 0,
+            'first_day_of_calendar' => $this->config->settings['FirstDayOfCalendar'] ?? 0,
             'max_input_vars' => $maxInputVarsValue,
         ]);
     }

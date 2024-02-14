@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Navigation\Nodes\NodeTriggerContainer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -16,7 +17,7 @@ class NodeTriggerContainerTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $parent = new NodeTriggerContainer();
+        $parent = new NodeTriggerContainer(new Config());
         self::assertEquals(
             [
                 'text' => ['route' => '/triggers', 'params' => ['db' => null, 'table' => null]],

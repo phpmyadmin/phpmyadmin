@@ -58,6 +58,7 @@ class Sql
         private Transformations $transformations,
         private Template $template,
         private readonly BookmarkRepository $bookmarkRepository,
+        private readonly Config $config,
     ) {
     }
 
@@ -242,7 +243,7 @@ class Sql
             $foreignData['foreign_field'],
             $foreignData['foreign_display'],
             $currentValue,
-            Config::getInstance()->settings['ForeignKeyMaxLimit'],
+            $this->config->settings['ForeignKeyMaxLimit'],
         );
 
         return '<select>' . $dropdown . '</select>';
@@ -338,7 +339,7 @@ class Sql
      */
     private function isRememberSortingOrder(StatementInfo $statementInfo): bool
     {
-        return Config::getInstance()->settings['RememberSorting']
+        return $this->config->settings['RememberSorting']
             && ! ($statementInfo->flags->isCount
                 || $statementInfo->flags->isExport
                 || $statementInfo->flags->isFunc
@@ -420,9 +421,8 @@ class Sql
      */
     public function getDefaultSqlQueryForBrowse(string $db, string $table): string
     {
-        $config = Config::getInstance();
         $bookmark = $this->bookmarkRepository->getByLabel(
-            $config->selectedServer['user'],
+            $this->config->selectedServer['user'],
             DatabaseName::from($db),
             $table,
         );
@@ -442,8 +442,8 @@ class Sql
         $defaultOrderByClause = '';
 
         if (
-            isset($config->settings['TablePrimaryKeyOrder'])
-            && ($config->settings['TablePrimaryKeyOrder'] !== 'NONE')
+            isset($this->config->settings['TablePrimaryKeyOrder'])
+            && ($this->config->settings['TablePrimaryKeyOrder'] !== 'NONE')
         ) {
             $primaryKey = null;
             $primary = Index::getPrimary($this->dbi, $table, $db);
@@ -460,7 +460,7 @@ class Sql
                     $defaultOrderByClause = ' ORDER BY '
                         . Util::backquote($table) . '.'
                         . Util::backquote($primaryKey) . ' '
-                        . $config->settings['TablePrimaryKeyOrder'];
+                        . $this->config->settings['TablePrimaryKeyOrder'];
                 }
             }
         }
@@ -508,8 +508,7 @@ class Sql
     ): void {
         // Should we replace bookmark?
         if ($bookmarkReplace && $bookmarkFeature !== null) {
-            $config = Config::getInstance();
-            $bookmarks = $this->bookmarkRepository->getList($config->selectedServer['user'], $db);
+            $bookmarks = $this->bookmarkRepository->getList($this->config->selectedServer['user'], $db);
             foreach ($bookmarks as $bookmark) {
                 if ($bookmark->getLabel() !== $bookmarkLabel) {
                     continue;
@@ -651,7 +650,7 @@ class Sql
                  *       (in this case there would be no need for getting
                  *       an exact count)?
                  */
-                if ($unlimNumRows < Config::getInstance()->settings['MaxExactCount']) {
+                if ($unlimNumRows < $this->config->settings['MaxExactCount']) {
                     // Get the exact count if approximate count
                     // is less than MaxExactCount
                     /**
@@ -741,8 +740,7 @@ class Sql
 
         // Displays an error message if required and stop parsing the script
         $error = $this->dbi->getError();
-        $config = Config::getInstance();
-        if ($error && $config->settings['IgnoreMultiSubmitErrors']) {
+        if ($error && $this->config->settings['IgnoreMultiSubmitErrors']) {
             $errorMessage = $error;
         } elseif ($error !== '') {
             $this->handleQueryExecuteError($isGotoFile, $error, $fullSqlQuery);
@@ -755,7 +753,7 @@ class Sql
             $this->storeTheQueryAsBookmark(
                 $bookmarkFeature,
                 $db,
-                $bookmarkFeature !== null ? $config->selectedServer['user'] : '',
+                $bookmarkFeature !== null ? $this->config->selectedServer['user'] : '',
                 $sqlQueryForBookmark,
                 $_POST['bkm_label'],
                 isset($_POST['bkm_replace']),
@@ -938,10 +936,9 @@ class Sql
         }
 
         // For ajax requests add message and sql_query as JSON
-        $config = Config::getInstance();
         if (empty($_REQUEST['ajax_page_request'])) {
             $extraData['message'] = $message;
-            if ($config->settings['ShowSQL']) {
+            if ($this->config->settings['ShowSQL']) {
                 $extraData['sql_query'] = $queryMessage;
             }
         }
@@ -1003,9 +1000,9 @@ class Sql
                     'sql_query' => $sqlQuery,
                     'id_bookmark' => 1,
                 ]),
-                'user' => $config->selectedServer['user'],
+                'user' => $this->config->selectedServer['user'],
                 'sql_query' => $completeQuery ?? $sqlQuery,
-                'allow_shared_bookmarks' => $config->settings['AllowSharedBookmarks'],
+                'allow_shared_bookmarks' => $this->config->settings['AllowSharedBookmarks'],
             ]);
         }
 
@@ -1322,9 +1319,8 @@ class Sql
 
         $hasUnique = $table !== null && $this->resultSetContainsUniqueKey($db, $table, $fieldsMeta);
 
-        $config = Config::getInstance();
         $editable = ($hasUnique
-            || $config->settings['RowActionLinksWithoutUnique']
+            || $this->config->settings['RowActionLinksWithoutUnique']
             || $updatableView)
             && $justOneTable
             && ! Utilities::isSystemSchema($db);
@@ -1376,7 +1372,7 @@ class Sql
 
         $previousUpdateQueryHtml = $this->getHtmlForPreviousUpdateQuery(
             $dispQuery,
-            $config->settings['ShowSQL'],
+            $this->config->settings['ShowSQL'],
             $sqlData ?? [],
             $dispMessage ?? '',
         );
@@ -1413,7 +1409,7 @@ class Sql
                     'sql_query' => $sqlQuery,
                     'id_bookmark' => 1,
                 ]),
-                'user' => $config->selectedServer['user'],
+                'user' => $this->config->selectedServer['user'],
                 'sql_query' => $completeQuery ?? $sqlQuery,
             ]);
         }
@@ -1530,6 +1526,7 @@ class Sql
 
         $displayResultsObject = new DisplayResults(
             $this->dbi,
+            $this->config,
             Current::$database,
             Current::$table,
             Current::$server,
