@@ -20,6 +20,13 @@ use function str_ends_with;
  */
 class FileListing
 {
+    private readonly Config $config;
+
+    public function __construct()
+    {
+        $this->config = Config::getInstance();
+    }
+
     /**
      * Returns array of filtered file names
      *
@@ -96,12 +103,11 @@ class FileListing
     {
         $compressions = '';
 
-        $config = Config::getInstance();
-        if ($config->settings['GZipDump'] && function_exists('gzopen')) {
+        if ($this->config->settings['GZipDump'] && function_exists('gzopen')) {
             $compressions = 'gz';
         }
 
-        if ($config->settings['BZipDump'] && function_exists('bzopen')) {
+        if ($this->config->settings['BZipDump'] && function_exists('bzopen')) {
             if ($compressions !== '') {
                 $compressions .= '|';
             }
@@ -109,7 +115,7 @@ class FileListing
             $compressions .= 'bz2';
         }
 
-        if ($config->settings['ZipDump'] && function_exists('gzinflate')) {
+        if ($this->config->settings['ZipDump'] && function_exists('gzinflate')) {
             if ($compressions !== '') {
                 $compressions .= '|';
             }

@@ -724,6 +724,12 @@ class LanguageManager
 
     /** @psalm-var 'ltr'|'rtl' */
     public static string $textDir = 'ltr';
+    private readonly Config $config;
+
+    public function __construct()
+    {
+        $this->config = Config::getInstance();
+    }
 
     /**
      * Returns LanguageManager singleton
@@ -785,12 +791,11 @@ class LanguageManager
     public function availableLocales(): array
     {
         if ($this->availableLocales === []) {
-            $config = Config::getInstance();
-            if (empty($config->get('FilterLanguages'))) {
+            if (empty($this->config->get('FilterLanguages'))) {
                 $this->availableLocales = $this->listLocaleDir();
             } else {
                 $this->availableLocales = preg_grep(
-                    '@' . $config->get('FilterLanguages') . '@',
+                    '@' . $this->config->get('FilterLanguages') . '@',
                     $this->listLocaleDir(),
                 );
             }
@@ -873,9 +878,8 @@ class LanguageManager
     public function selectLanguage(): Language
     {
         // check forced language
-        $config = Config::getInstance();
-        if (! empty($config->get('Lang'))) {
-            $lang = $this->getLanguage($config->get('Lang'));
+        if (! empty($this->config->get('Lang'))) {
+            $lang = $this->getLanguage($this->config->get('Lang'));
             if ($lang !== false) {
                 return $lang;
             }
@@ -905,8 +909,8 @@ class LanguageManager
         }
 
         // check previous set language
-        if (! empty($config->getCookie('pma_lang'))) {
-            $lang = $this->getLanguage($config->getCookie('pma_lang'));
+        if (! empty($this->config->getCookie('pma_lang'))) {
+            $lang = $this->getLanguage($this->config->getCookie('pma_lang'));
             if ($lang !== false) {
                 return $lang;
             }
@@ -939,7 +943,7 @@ class LanguageManager
         }
 
         // Fallback to English
-        return $langs[$config->get('DefaultLang')] ?? $langs['en'];
+        return $langs[$this->config->get('DefaultLang')] ?? $langs['en'];
     }
 
     /**

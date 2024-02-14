@@ -30,11 +30,14 @@ use function urlencode;
  */
 class UserPreferences
 {
+    private readonly Config $config;
+
     public function __construct(
         private readonly DatabaseInterface $dbi,
         private readonly Relation $relation,
         private readonly Template $template,
     ) {
+        $this->config = Config::getInstance();
     }
 
     /**
@@ -50,7 +53,7 @@ class UserPreferences
         $cf->setCfgUpdateReadMapping(
             ['Server/hide_db' => 'Servers/1/hide_db', 'Server/only_db' => 'Servers/1/only_db'],
         );
-        $cf->updateWithGlobalConfig(Config::getInstance()->settings);
+        $cf->updateWithGlobalConfig($this->config->settings);
     }
 
     /**
@@ -181,7 +184,7 @@ class UserPreferences
     {
         $query = 'SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '
             . $this->dbi->quoteString($database->getName());
-        if (Config::getInstance()->selectedServer['DisableIS']) {
+        if ($this->config->selectedServer['DisableIS']) {
             $query = 'SHOW DATABASES LIKE '
                 . $this->dbi->quoteString(
                     $this->dbi->escapeMysqlWildcards($database->getName()),
@@ -202,7 +205,7 @@ class UserPreferences
     public function apply(array $configData): array
     {
         $cfg = [];
-        $excludeList = array_flip(Config::getInstance()->settings['UserprefsDisallow']);
+        $excludeList = array_flip($this->config->settings['UserprefsDisallow']);
         $allowList = array_flip(UserFormList::getFields());
         // allow some additional fields which are custom handled
         $allowList['ThemeDefault'] = true;

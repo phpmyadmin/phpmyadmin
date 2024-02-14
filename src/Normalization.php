@@ -32,12 +32,15 @@ use function trim;
  */
 class Normalization
 {
+    private readonly Config $config;
+
     public function __construct(
         private DatabaseInterface $dbi,
         private Relation $relation,
         private Transformations $transformations,
         public Template $template,
     ) {
+        $this->config = Config::getInstance();
     }
 
     /**
@@ -119,8 +122,7 @@ class Normalization
         $contentCells = [];
         $availableMime = [];
         $mimeMap = [];
-        $config = Config::getInstance();
-        if ($relationParameters->browserTransformationFeature !== null && $config->settings['BrowseMIME']) {
+        if ($relationParameters->browserTransformationFeature !== null && $this->config->settings['BrowseMIME']) {
             $mimeMap = $this->transformations->getMime($db, $table);
             $availableMime = $this->transformations->getAvailableMimeTypes();
         }
@@ -145,8 +147,8 @@ class Normalization
             ];
         }
 
-        $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
-        $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
+        $charsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
+        $collations = Charsets::getCollations($this->dbi, $this->config->selectedServer['DisableIS']);
         $charsetsList = [];
         foreach ($charsets as $charset) {
             $collationsList = [];
@@ -168,13 +170,13 @@ class Normalization
             'content_cells' => $contentCells,
             'change_column' => $_POST['change_column'] ?? $_GET['change_column'] ?? null,
             'is_virtual_columns_supported' => Compatibility::isVirtualColumnsSupported($this->dbi->getVersion()),
-            'browse_mime' => $config->settings['BrowseMIME'],
+            'browse_mime' => $this->config->settings['BrowseMIME'],
             'supports_stored_keyword' => Compatibility::supportsStoredKeywordForVirtualColumns(
                 $this->dbi->getVersion(),
             ),
             'server_version' => $this->dbi->getVersion(),
-            'max_rows' => intval($config->settings['MaxRows']),
-            'char_editing' => $config->settings['CharEditing'],
+            'max_rows' => intval($this->config->settings['MaxRows']),
+            'char_editing' => $this->config->settings['CharEditing'],
             'attribute_types' => $this->dbi->types->getAttributes(),
             'privs_available' => $userPrivileges->column && $userPrivileges->isReload,
             'max_length' => $this->dbi->getVersion() >= 50503 ? 1024 : 255,

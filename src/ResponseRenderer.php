@@ -143,19 +143,20 @@ class ResponseRenderer
     protected Response $response;
 
     protected Template $template;
+    protected Config $config;
 
     private function __construct()
     {
+        $this->config = Config::getInstance();
         $this->template = new Template();
         $dbi = DatabaseInterface::getInstance();
         $relation = new Relation($dbi);
-        $config = Config::getInstance();
         $this->header = new Header(
             $this->template,
             new Console($relation, $this->template, new BookmarkRepository($dbi, $relation)),
-            $config,
+            $this->config,
         );
-        $this->footer = new Footer($this->template, $config);
+        $this->footer = new Footer($this->template, $this->config);
         $this->response = ResponseFactory::create()->createResponse();
 
         $this->setAjax(! empty($_REQUEST['ajax_request']));
@@ -323,7 +324,7 @@ class ResponseRenderer
                 // set current db, table and sql query in the querywindow
                 // (this is for the bottom console)
                 $query = '';
-                $maxChars = Config::getInstance()->settings['MaxCharactersInDisplayedSQL'];
+                $maxChars = $this->config->settings['MaxCharactersInDisplayedSQL'];
                 if (isset($GLOBALS['sql_query']) && mb_strlen($GLOBALS['sql_query']) < $maxChars) {
                     $query = $GLOBALS['sql_query'];
                 }
@@ -440,7 +441,7 @@ class ResponseRenderer
          * like /phpmyadmin/index.php/ which some web servers happily accept.
          */
         if (str_starts_with($url, '.')) {
-            $url = Config::getInstance()->getRootPath() . substr($url, 2);
+            $url = $this->config->getRootPath() . substr($url, 2);
         }
 
         $this->addHeader('Location', $url);
