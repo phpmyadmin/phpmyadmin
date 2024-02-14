@@ -3484,6 +3484,8 @@
     </InvalidArgument>
     <MixedArgument>
       <code>$foreignDb</code>
+      <code>$foreignDb</code>
+      <code>$foreignTable</code>
       <code>$foreignTable</code>
       <code><![CDATA[array_key_exists('foreign_keys_data', $relationsForeign)
                     ? $relationsForeign['foreign_keys_data']
@@ -3492,10 +3494,16 @@
     <MixedArrayAccess>
       <code><![CDATA[$oneKey['ref_db_name']]]></code>
       <code><![CDATA[$oneKey['ref_table_name']]]></code>
+      <code><![CDATA[$relations[$column->field]['foreign_db']]]></code>
+      <code><![CDATA[$relations[$column->field]['foreign_field']]]></code>
+      <code><![CDATA[$relations[$column->field]['foreign_table']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code>$existrelForeign</code>
+      <code>$foreignColumn</code>
       <code>$foreignDb</code>
+      <code>$foreignDb</code>
+      <code>$foreignTable</code>
       <code>$foreignTable</code>
       <code>$oneKey</code>
     </MixedAssignment>
@@ -3526,6 +3534,9 @@
     <RiskyTruthyFalsyComparison>
       <code>$foreignDb</code>
       <code>$foreignDb</code>
+      <code>$foreignDb</code>
+      <code>$foreignDb</code>
+      <code>$foreignTable</code>
       <code>$foreignTable</code>
     </RiskyTruthyFalsyComparison>
   </file>

@@ -83,68 +83,33 @@
               </tr>
             </thead>
             <tbody>
-              {% set saved_row_cnt = save_row|length - 1 %}
-              {% for i in 0..saved_row_cnt %}
-                {% set myfield = save_row[i] %}
-                {# Use an md5 as array index to avoid having special characters in the name attribute (see bug #1746964 ) #}
-                {% set myfield_md5 = column_hash_array[myfield] ?? null %}
-
-                {% set foreign_table = false %}
-                {% set foreign_column = false %}
-
-                {# Database dropdown #}
-                {% if existrel[myfield] is defined %}
-                  {% set foreign_db = existrel[myfield]['foreign_db'] %}
-                {% else %}
-                  {% set foreign_db = db %}
-                {% endif %}
-
-                {# Table dropdown #}
-                {% set tables = [] %}
-                {% if foreign_db %}
-                  {% if existrel[myfield] is defined %}
-                    {% set foreign_table = existrel[myfield]['foreign_table'] %}
-                  {% endif %}
-                  {% set tables = dbi.getTables(foreign_db) %}
-                {% endif %}
-
-                {# Column dropdown #}
-                {% set unique_columns = [] %}
-                {% if foreign_db and foreign_table %}
-                  {% if existrel[myfield] is defined %}
-                    {% set foreign_column = existrel[myfield]['foreign_field'] %}
-                  {% endif %}
-                  {% set table_obj = table_get(foreign_table, foreign_db, dbi) %}
-                  {% set unique_columns = table_obj.getUniqueColumns(false, false) %}
-                {% endif %}
-
+              {% for column in internal_relation_columns %}
                 <tr>
                   <td class="align-middle">
-                    <strong>{{ myfield }}</strong>
-                    <input type="hidden" name="fields_name[{{ myfield_md5 }}]"
-                           value="{{ myfield }}">
+                    <strong>{{ column.field }}</strong>
+                    <input type="hidden" name="fields_name[{{ column.field_hash }}]" value="{{ column.field }}">
                   </td>
 
                   <td>
                     {% include 'table/relation/relational_dropdown.twig' with {
-                      'name': 'destination_db[' ~ myfield_md5 ~ ']',
+                      'name': 'destination_db[' ~ column.field_hash ~ ']',
                       'title': 'Database'|trans,
                       'values': databases,
-                      'foreign': foreign_db
+                      'foreign': column.foreign_db
                     } only %}
 
                     {% include 'table/relation/relational_dropdown.twig' with {
-                      'name': 'destination_table[' ~ myfield_md5 ~ ']',
+                      'name': 'destination_table[' ~ column.field_hash ~ ']',
                       'title': 'Table'|trans,
-                      'values': tables,
-                      'foreign': foreign_table
+                      'values': column.tables,
+                      'foreign': column.foreign_table
                     } only %}
 
                     {% include 'table/relation/relational_dropdown.twig' with {
-                      'name': 'destination_column[' ~ myfield_md5 ~ ']',
+                      'name': 'destination_column[' ~ column.field_hash ~ ']',
                       'title': 'Column'|trans,
-                      'values': unique_columns,
-                      'foreign': foreign_column
+                      'values': column.unique_columns,
+                      'foreign': column.foreign_column
                     } only %}
                   </td>
                 </tr>
@@ -163,12 +128,9 @@
           <label class="form-label" for="displayFieldSelect">{% trans 'Choose column to display:' %}</label>
           <select class="form-select" name="display_field" id="displayFieldSelect">
             <option value="">---</option>
-            {% for field in save_row %}
-              <option value="{{ field }}"
-                {%- if display_field is defined and field == display_field %}
-                selected="selected"
-                {%- endif %}>
-                {{ field }}
+            {% for column in internal_relation_columns %}
+              <option value="{{ column.field }}"{{ display_field is defined and column.field == display_field ? ' selected' }}>
+                {{ column.field }}
               </option>
             {% endfor %}
           </select>
