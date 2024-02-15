@@ -188,9 +188,11 @@ final class RelationController extends AbstractController
         $i = 0;
 
         foreach ($existrelForeign as $oneKey) {
+            /** @var string $foreignDb */
             $foreignDb = $oneKey['ref_db_name'] ?? Current::$database;
             $foreignTable = false;
-            if ($foreignDb) {
+            if ($foreignDb !== '') {
+                /** @var string|false $foreignTable */
                 $foreignTable = $oneKey['ref_table_name'] ?? false;
                 $tables = $this->relation->getTables($foreignDb, $storageEngine);
             } else {
@@ -198,7 +200,7 @@ final class RelationController extends AbstractController
             }
 
             $uniqueColumns = [];
-            if ($foreignDb && $foreignTable) {
+            if ($foreignDb !== '' && $foreignTable !== false && $foreignTable !== '') {
                 $tableObject = new Table($foreignTable, $foreignDb, $this->dbi);
                 $uniqueColumns = $tableObject->getUniqueColumns(false, false);
             }
@@ -249,6 +251,7 @@ final class RelationController extends AbstractController
 
             // Database dropdown
             if (isset($relations[$column->field])) {
+                /** @var string $foreignDb */
                 $foreignDb = $relations[$column->field]['foreign_db'];
             } else {
                 $foreignDb = Current::$database;
@@ -256,8 +259,9 @@ final class RelationController extends AbstractController
 
             // Table dropdown
             $foreignTables = [];
-            if ($foreignDb) {
+            if ($foreignDb !== '') {
                 if (isset($relations[$column->field])) {
+                    /** @var string $foreignTable */
                     $foreignTable = $relations[$column->field]['foreign_table'];
                 }
 
@@ -266,8 +270,9 @@ final class RelationController extends AbstractController
 
             // Column dropdown
             $uniqueColumns = [];
-            if ($foreignDb && $foreignTable) {
+            if ($foreignDb !== '' && $foreignTable !== false && $foreignTable !== '') {
                 if (isset($relations[$column->field])) {
+                    /** @var string $foreignColumn */
                     $foreignColumn = $relations[$column->field]['foreign_field'];
                 }
 
