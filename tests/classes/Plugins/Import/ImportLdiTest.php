@@ -73,11 +73,11 @@ class ImportLdiTest extends AbstractTestCase
     public function testGetProperties(): void
     {
         $properties = (new ImportLdi())->getProperties();
-        self::assertEquals(
+        self::assertSame(
             __('CSV using LOAD DATA'),
             $properties->getText(),
         );
-        self::assertEquals(
+        self::assertSame(
             'ldi',
             $properties->getExtension(),
         );
@@ -107,11 +107,11 @@ class ImportLdiTest extends AbstractTestCase
         $config->settings['Import']['ldi_local_option'] = 'auto';
         $properties = (new ImportLdi())->getProperties();
         self::assertTrue($config->settings['Import']['ldi_local_option']);
-        self::assertEquals(
+        self::assertSame(
             __('CSV using LOAD DATA'),
             $properties->getText(),
         );
-        self::assertEquals(
+        self::assertSame(
             'ldi',
             $properties->getExtension(),
         );

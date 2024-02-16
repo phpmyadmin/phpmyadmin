@@ -63,15 +63,15 @@ class ErrorReportTest extends AbstractTestCase
     public function testGetData(): void
     {
         $actual = $this->errorReport->getData('unknown');
-        self::assertEquals([], $actual);
+        self::assertSame([], $actual);
 
         $actual = $this->errorReport->getData('php');
-        self::assertEquals([], $actual);
+        self::assertSame([], $actual);
 
         $_SESSION['prev_errors'] = [];
 
         $actual = $this->errorReport->getData('php');
-        self::assertEquals([], $actual);
+        self::assertSame([], $actual);
 
         $_SESSION['prev_errors'] = [new Error(0, 'error 0', 'file', 1), new Error(1, 'error 1', 'file', 2)];
 
@@ -108,7 +108,7 @@ class ErrorReportTest extends AbstractTestCase
         ];
 
         $actual = $this->errorReport->getData('php');
-        self::assertEquals($report, $actual);
+        self::assertSame($report, $actual);
     }
 
     public function testSend(): void
@@ -139,7 +139,7 @@ class ErrorReportTest extends AbstractTestCase
         );
         $this->errorReport->setSubmissionUrl($submissionUrl);
 
-        self::assertEquals($return, $this->errorReport->send($report));
+        self::assertSame($return, $this->errorReport->send($report));
     }
 
     public function testGetForm(): void
@@ -278,7 +278,7 @@ class ErrorReportTest extends AbstractTestCase
         $data['stack'][1]['context'][1] = '!function(e,t){"use strict";"object"='
                                         . '=typeof module&&"object"==typeof modul//...';
 
-        self::assertEquals($data, $actual['exception']);
+        self::assertSame($data, $actual['exception']);
     }
 
     /**

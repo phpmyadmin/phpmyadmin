@@ -38,7 +38,7 @@ class ZipExtensionTest extends AbstractTestCase
     #[DataProvider('provideTestGetContents')]
     public function testGetContents(string $file, string|null $specificEntry, array $output): void
     {
-        self::assertEquals(
+        self::assertSame(
             $this->zipExtension->getContents($file, $specificEntry),
             $output,
         );
@@ -80,7 +80,7 @@ class ZipExtensionTest extends AbstractTestCase
     #[DataProvider('provideTestFindFile')]
     public function testFindFile(string $file, string $fileRegexp, string|bool $output): void
     {
-        self::assertEquals(
+        self::assertSame(
             $this->zipExtension->findFile($file, $fileRegexp),
             $output,
         );
@@ -105,7 +105,7 @@ class ZipExtensionTest extends AbstractTestCase
      */
     public function testGetNumberOfFiles(): void
     {
-        self::assertEquals(
+        self::assertSame(
             $this->zipExtension->getNumberOfFiles('./tests/test_data/test.zip'),
             1,
         );
@@ -122,7 +122,7 @@ class ZipExtensionTest extends AbstractTestCase
                 'wrongName',
             ),
         );
-        self::assertEquals(
+        self::assertSame(
             "TEST FILE\n",
             $this->zipExtension->extract(
                 './tests/test_data/test.zip',
@@ -149,7 +149,7 @@ class ZipExtensionTest extends AbstractTestCase
             $zip->open($tmp),
         );
 
-        self::assertEquals(0, $zip->locateName('test.txt'));
+        self::assertSame(0, $zip->locateName('test.txt'));
 
         $zip->close();
         unlink($tmp);
@@ -189,8 +189,8 @@ class ZipExtensionTest extends AbstractTestCase
             $zip->open($tmp),
         );
 
-        self::assertEquals(0, $zip->locateName('name1.txt'));
-        self::assertEquals(1, $zip->locateName('name2.txt'));
+        self::assertSame(0, $zip->locateName('name1.txt'));
+        self::assertSame(1, $zip->locateName('name2.txt'));
 
         $zip->close();
         unlink($tmp);

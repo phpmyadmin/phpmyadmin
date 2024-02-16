@@ -379,10 +379,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             $this->object->readCredentials(),
         );
 
-        self::assertEquals(
-            'Missing Captcha verification, maybe it has been blocked by adblock?',
-            $GLOBALS['conn_error'],
-        );
+        self::assertSame('Missing Captcha verification, maybe it has been blocked by adblock?', $GLOBALS['conn_error']);
     }
 
     #[RunInSeparateProcess]
@@ -462,11 +459,11 @@ class AuthenticationCookieTest extends AbstractTestCase
             $this->object->readCredentials(),
         );
 
-        self::assertEquals('testPMAUser', $this->object->user);
+        self::assertSame('testPMAUser', $this->object->user);
 
-        self::assertEquals('testPMAPSWD', $this->object->password);
+        self::assertSame('testPMAPSWD', $this->object->password);
 
-        self::assertEquals('testPMAServer', $GLOBALS['pma_auth_server']);
+        self::assertSame('testPMAServer', $GLOBALS['pma_auth_server']);
 
         self::assertArrayNotHasKey('pmaAuth-1', $_COOKIE);
     }
@@ -532,7 +529,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             $this->object->readCredentials(),
         );
 
-        self::assertEquals('testBF', $this->object->user);
+        self::assertSame('testBF', $this->object->user);
     }
 
     public function testAuthCheckDecryptPassword(): void
@@ -570,7 +567,7 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         self::assertTrue($GLOBALS['from_cookie']);
 
-        self::assertEquals('', $this->object->password);
+        self::assertSame('', $this->object->password);
     }
 
     public function testAuthCheckAuthFails(): void
@@ -638,7 +635,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $arr['password'] = 'testPW';
         $arr['host'] = 'b';
         $arr['port'] = '2';
-        self::assertEquals($arr, $config->selectedServer);
+        self::assertSame($arr, $config->selectedServer);
     }
 
     public function testAuthSetUserWithHeaders(): void
@@ -694,7 +691,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
         self::assertSame(200, $response->getStatusCode());
 
-        self::assertEquals(
+        self::assertSame(
             $GLOBALS['conn_error'],
             'Login without a password is forbidden by configuration (see AllowNoPassword)',
         );
@@ -737,7 +734,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             );
         }
 
-        self::assertEquals($GLOBALS['conn_error'], $connError);
+        self::assertSame($GLOBALS['conn_error'], $connError);
     }
 
     #[RunInSeparateProcess]
@@ -769,7 +766,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
         self::assertSame(200, $response->getStatusCode());
 
-        self::assertEquals($GLOBALS['conn_error'], 'Access denied!');
+        self::assertSame($GLOBALS['conn_error'], 'Access denied!');
     }
 
     #[RunInSeparateProcess]
@@ -804,7 +801,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
         self::assertSame(200, $response->getStatusCode());
 
-        self::assertEquals(
+        self::assertSame(
             $GLOBALS['conn_error'],
             'You have been automatically logged out due to inactivity of 10 seconds.'
             . ' Once you log in again, you should be able to resume the work where you left off.',
@@ -851,7 +848,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
         self::assertSame(200, $response->getStatusCode());
 
-        self::assertEquals($GLOBALS['conn_error'], '#42 Cannot log in to the MySQL server');
+        self::assertSame($GLOBALS['conn_error'], '#42 Cannot log in to the MySQL server');
     }
 
     #[RunInSeparateProcess]
@@ -894,7 +891,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
         self::assertSame(200, $response->getStatusCode());
 
-        self::assertEquals($GLOBALS['conn_error'], 'Cannot log in to the MySQL server');
+        self::assertSame($GLOBALS['conn_error'], 'Cannot log in to the MySQL server');
     }
 
     public function testGetEncryptionSecretEmpty(): void
@@ -1000,15 +997,15 @@ class AuthenticationCookieTest extends AbstractTestCase
         $result = ob_get_clean();
 
         /* Nothing should be printed */
-        self::assertEquals('', $result);
+        self::assertSame('', $result);
 
         /* Verify readCredentials worked */
-        self::assertEquals('testUser', $this->object->user);
-        self::assertEquals('testPassword', $this->object->password);
+        self::assertSame('testUser', $this->object->user);
+        self::assertSame('testPassword', $this->object->password);
 
         /* Verify storeCredentials worked */
-        self::assertEquals('testUser', $config->selectedServer['user']);
-        self::assertEquals('testPassword', $config->selectedServer['password']);
+        self::assertSame('testUser', $config->selectedServer['user']);
+        self::assertSame('testPassword', $config->selectedServer['password']);
     }
 
     /**
@@ -1062,7 +1059,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         }
 
         if ($expected === '') {
-            self::assertEquals($expected, $result);
+            self::assertSame($expected, $result);
         } else {
             self::assertStringContainsString($expected, $result);
         }

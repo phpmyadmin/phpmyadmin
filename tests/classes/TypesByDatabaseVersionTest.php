@@ -606,7 +606,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
     {
         $this->createObject($database, $dbVersion);
 
-        self::assertEquals($expected, $this->object->getColumns());
+        self::assertSame($expected, $this->object->getColumns());
     }
 
     /**

@@ -54,13 +54,13 @@ class ListDatabaseTest extends AbstractTestCase
         $arr = new ListDatabase($dbi, $config, new UserPrivilegesFactory($dbi));
 
         Current::$database = 'db';
-        self::assertEquals(
+        self::assertSame(
             [['name' => 'single_db', 'is_selected' => false]],
             $arr->getList(),
         );
 
         Current::$database = 'single_db';
-        self::assertEquals(
+        self::assertSame(
             [['name' => 'single_db', 'is_selected' => true]],
             $arr->getList(),
         );

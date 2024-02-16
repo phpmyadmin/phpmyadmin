@@ -112,7 +112,7 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetClassForDateTimeRelatedFieldsCase1(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'datetimefield',
             $this->callFunction(
                 $this->object,
@@ -125,7 +125,7 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetClassForDateTimeRelatedFieldsCase2(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'datefield',
             $this->callFunction(
                 $this->object,
@@ -138,7 +138,7 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetClassForDateTimeRelatedFieldsCase3(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'text',
             $this->callFunction(
                 $this->object,
@@ -155,7 +155,7 @@ class ResultsTest extends AbstractTestCase
     public function testGetOffsetsCase1(): void
     {
         $_SESSION['tmpval']['max_rows'] = DisplayResults::ALL_ROWS;
-        self::assertEquals(
+        self::assertSame(
             [0, 0],
             $this->callFunction(
                 $this->object,
@@ -173,7 +173,7 @@ class ResultsTest extends AbstractTestCase
     {
         $_SESSION['tmpval']['max_rows'] = 5;
         $_SESSION['tmpval']['pos'] = 4;
-        self::assertEquals(
+        self::assertSame(
             [9, 0],
             $this->callFunction(
                 $this->object,
@@ -256,7 +256,7 @@ class ResultsTest extends AbstractTestCase
             ],
         ];
 
-        self::assertEquals(
+        self::assertSame(
             $output,
             $this->callFunction(
                 $this->object,
@@ -328,7 +328,7 @@ class ResultsTest extends AbstractTestCase
             [Query::getAll($query)],
         );
 
-        self::assertEquals([
+        self::assertSame([
             'db_name' => true,
             'tbl' => true,
             'id' => true,
@@ -363,7 +363,7 @@ class ResultsTest extends AbstractTestCase
     {
         $_SESSION['tmpval']['pftext'] = $pftext;
         Config::getInstance()->settings['LimitChars'] = $limitChars;
-        self::assertEquals(
+        self::assertSame(
             $output,
             $this->callFunction(
                 $this->object,
@@ -1431,7 +1431,7 @@ class ResultsTest extends AbstractTestCase
             'text_dir' => 'ltr',
         ]);
 
-        self::assertEquals($tableTemplate, $actual);
+        self::assertSame($tableTemplate, $actual);
     }
 
     public function testGetTable2(): void
@@ -1667,7 +1667,7 @@ class ResultsTest extends AbstractTestCase
             'text_dir' => 'ltr',
         ]);
 
-        self::assertEquals($tableTemplate, $actual);
+        self::assertSame($tableTemplate, $actual);
     }
 
     /** @return array<string, array{string, string, int}> */

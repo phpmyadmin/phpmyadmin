@@ -140,7 +140,7 @@ class TrackerTest extends AbstractTestCase
         $date = Util::date('Y-m-d H:i:s');
         Config::getInstance()->selectedServer['user'] = 'pma_test_user';
 
-        self::assertEquals(
+        self::assertSame(
             '# log ' . $date . " pma_test_user\n",
             Tracker::getLogComment(),
         );
@@ -323,21 +323,21 @@ class TrackerTest extends AbstractTestCase
     ): void {
         $result = Tracker::parseQuery($query);
 
-        self::assertEquals($type, $result['type']);
+        self::assertSame($type, $result['type']);
 
-        self::assertEquals($identifier, $result['identifier']);
+        self::assertSame($identifier, $result['identifier']);
 
-        self::assertEquals($tableName, $result['tablename']);
+        self::assertSame($tableName, $result['tablename']);
 
         if ($db !== null && $db !== '') {
-            self::assertEquals($db, Current::$database);
+            self::assertSame($db, Current::$database);
         }
 
         if ($tableNameAfterRename === null || $tableNameAfterRename === '') {
             return;
         }
 
-        self::assertEquals($result['tablename_after_rename'], $tableNameAfterRename);
+        self::assertSame($result['tablename_after_rename'], $tableNameAfterRename);
     }
 
     /**

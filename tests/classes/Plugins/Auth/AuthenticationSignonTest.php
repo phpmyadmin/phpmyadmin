@@ -144,11 +144,11 @@ class AuthenticationSignonTest extends AbstractTestCase
             $this->object->readCredentials(),
         );
 
-        self::assertEquals('user', $this->object->user);
+        self::assertSame('user', $this->object->user);
 
-        self::assertEquals('password', $this->object->password);
+        self::assertSame('password', $this->object->password);
 
-        self::assertEquals('https://example.com/SignonURL', $_SESSION['LAST_SIGNON_URL']);
+        self::assertSame('https://example.com/SignonURL', $_SESSION['LAST_SIGNON_URL']);
     }
 
     #[RunInSeparateProcess]
@@ -186,7 +186,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         self::assertSame(['https://example.com/SignonURL'], $response->getHeader('Location'));
         self::assertSame(302, $response->getStatusCode());
 
-        self::assertEquals(
+        self::assertSame(
             (new Server([
                 'SignonURL' => 'https://example.com/SignonURL',
                 'SignonScript' => '',
@@ -199,12 +199,12 @@ class AuthenticationSignonTest extends AbstractTestCase
             $config->selectedServer,
         );
 
-        self::assertEquals(
+        self::assertSame(
             $sessionName,
             session_name(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             $sessionID,
             session_id(),
         );
@@ -235,9 +235,9 @@ class AuthenticationSignonTest extends AbstractTestCase
             $this->object->readCredentials(),
         );
 
-        self::assertEquals('user123', $this->object->user);
+        self::assertSame('user123', $this->object->user);
 
-        self::assertEquals('pass123', $this->object->password);
+        self::assertSame('pass123', $this->object->password);
     }
 
     public function testAuthSetUser(): void
@@ -250,9 +250,9 @@ class AuthenticationSignonTest extends AbstractTestCase
         );
 
         $config = Config::getInstance();
-        self::assertEquals('testUser123', $config->selectedServer['user']);
+        self::assertSame('testUser123', $config->selectedServer['user']);
 
-        self::assertEquals('testPass123', $config->selectedServer['password']);
+        self::assertSame('testPass123', $config->selectedServer['password']);
     }
 
     public function testAuthFailsForbidden(): void
@@ -274,7 +274,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         } catch (ExitException) {
         }
 
-        self::assertEquals(
+        self::assertSame(
             'Login without a password is forbidden by configuration (see AllowNoPassword)',
             $_SESSION['PMA_single_signon_error_message'],
         );
@@ -299,7 +299,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         } catch (ExitException) {
         }
 
-        self::assertEquals('Access denied!', $_SESSION['PMA_single_signon_error_message']);
+        self::assertSame('Access denied!', $_SESSION['PMA_single_signon_error_message']);
     }
 
     public function testAuthFailsTimeout(): void
@@ -324,7 +324,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         } catch (ExitException) {
         }
 
-        self::assertEquals(
+        self::assertSame(
             'You have been automatically logged out due to inactivity of'
             . ' 1440 seconds. Once you log in again, you should be able to'
             . ' resume the work where you left off.',
@@ -361,7 +361,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         } catch (ExitException) {
         }
 
-        self::assertEquals('error&lt;123&gt;', $_SESSION['PMA_single_signon_error_message']);
+        self::assertSame('error&lt;123&gt;', $_SESSION['PMA_single_signon_error_message']);
     }
 
     public function testAuthFailsConnect(): void
@@ -394,7 +394,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         } catch (ExitException) {
         }
 
-        self::assertEquals('Cannot log in to the MySQL server', $_SESSION['PMA_single_signon_error_message']);
+        self::assertSame('Cannot log in to the MySQL server', $_SESSION['PMA_single_signon_error_message']);
     }
 
     public function testSetCookieParamsDefaults(): void

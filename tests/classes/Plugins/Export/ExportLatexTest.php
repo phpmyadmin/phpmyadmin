@@ -92,22 +92,22 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals(
+        self::assertSame(
             'LaTeX',
             $properties->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'tex',
             $properties->getExtension(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'application/x-tex',
             $properties->getMimeType(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Options',
             $properties->getOptionsText(),
         );
@@ -116,7 +116,7 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals(
+        self::assertSame(
             'Format Specific Options',
             $options->getName(),
         );
@@ -128,7 +128,7 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals(
+        self::assertSame(
             'general_opts',
             $generalOptions->getName(),
         );
@@ -139,12 +139,12 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'caption',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Include table caption',
             $property->getText(),
         );
@@ -154,12 +154,12 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals(
+        self::assertSame(
             'dump_what',
             $generalOptions->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Dump table',
             $generalOptions->getText(),
         );
@@ -170,12 +170,12 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(RadioPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'structure_or_data',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
             $property->getValues(),
         );
@@ -186,17 +186,17 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals(
+        self::assertSame(
             'structure',
             $generalOptions->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Object creation options',
             $generalOptions->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'data',
             $generalOptions->getForce(),
         );
@@ -208,17 +208,17 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'structure_caption',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Table caption:',
             $property->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'faq6-27',
             $property->getDoc(),
         );
@@ -228,17 +228,17 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'structure_continued_caption',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Table caption (continued):',
             $property->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'faq6-27',
             $property->getDoc(),
         );
@@ -248,17 +248,17 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'structure_label',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Label key:',
             $property->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'faq6-27',
             $property->getDoc(),
         );
@@ -268,12 +268,12 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'relation',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Display foreign key relationships',
             $property->getText(),
         );
@@ -283,12 +283,12 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'comments',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Display comments',
             $property->getText(),
         );
@@ -297,12 +297,12 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'mime',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Display media types',
             $property->getText(),
         );
@@ -312,17 +312,17 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals(
+        self::assertSame(
             'data',
             $generalOptions->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Data dump options',
             $generalOptions->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'structure',
             $generalOptions->getForce(),
         );
@@ -334,12 +334,12 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'columns',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Put columns names in the first row:',
             $property->getText(),
         );
@@ -349,17 +349,17 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'data_caption',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Table caption:',
             $property->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'faq6-27',
             $property->getDoc(),
         );
@@ -369,17 +369,17 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'data_continued_caption',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Table caption (continued):',
             $property->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'faq6-27',
             $property->getDoc(),
         );
@@ -389,17 +389,17 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'data_label',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Label key:',
             $property->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'faq6-27',
             $property->getDoc(),
         );
@@ -408,12 +408,12 @@ class ExportLatexTest extends AbstractTestCase
 
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'null',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Replace NULL with:',
             $property->getText(),
         );
@@ -497,7 +497,7 @@ class ExportLatexTest extends AbstractTestCase
         ));
         $result = ob_get_clean();
 
-        self::assertEquals(
+        self::assertSame(
             "\n" . '%' . "\n" .
             '% Data: test_table' . "\n" .
             '%' . "\n" .
@@ -529,7 +529,7 @@ class ExportLatexTest extends AbstractTestCase
         $result = ob_get_clean();
 
         self::assertIsString($result);
-        self::assertEquals(
+        self::assertSame(
             "\n" . '%' . "\n" .
             '% Data: test_table' . "\n" .
             '%' . "\n" .
@@ -620,7 +620,7 @@ class ExportLatexTest extends AbstractTestCase
         $result = ob_get_clean();
 
         //echo $result; die;
-        self::assertEquals(
+        self::assertSame(
             "\n" . '%' . "\n" .
             '% Structure: ' . "\n" .
             '%' . "\n" .
@@ -781,7 +781,7 @@ class ExportLatexTest extends AbstractTestCase
 
     public function testTexEscape(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '\\$\\%\\{foo\\&bar\\}\\#\\_\\^',
             ExportLatex::texEscape('$%{foo&bar}#_^'),
         );

@@ -44,7 +44,7 @@ class MyisamTest extends AbstractTestCase
      */
     public function testGetVariables(): void
     {
-        self::assertEquals(
+        self::assertSame(
             $this->object->getVariables(),
             [
                 'myisam_data_pointer_size' => [

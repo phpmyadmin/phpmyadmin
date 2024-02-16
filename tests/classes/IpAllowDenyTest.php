@@ -68,7 +68,7 @@ class IpAllowDenyTest extends AbstractTestCase
             $_SERVER['TEST_FORWARDED_HEADER'] = $header;
         }
 
-        self::assertEquals(
+        self::assertSame(
             $expected,
             Core::getIp(),
         );

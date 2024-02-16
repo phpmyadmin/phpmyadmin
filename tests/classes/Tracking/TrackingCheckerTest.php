@@ -48,7 +48,7 @@ class TrackingCheckerTest extends AbstractTestCase
         self::assertFalse(Tracker::isEnabled());
 
         $actual = $this->trackingChecker->getTrackedTables('dummyDb');
-        self::assertEquals([], $actual);
+        self::assertSame([], $actual);
 
         Tracker::enable();
 
@@ -68,12 +68,12 @@ class TrackingCheckerTest extends AbstractTestCase
 
         $expectation = ['0', 'actor', 'untrackedTable'];
         $actual = $this->trackingChecker->getUntrackedTableNames('dummyDb');
-        self::assertEquals($expectation, $actual);
+        self::assertSame($expectation, $actual);
 
         Tracker::enable();
 
         $expectation = ['untrackedTable'];
         $actual = $this->trackingChecker->getUntrackedTableNames('dummyDb');
-        self::assertEquals($expectation, $actual);
+        self::assertSame($expectation, $actual);
     }
 }

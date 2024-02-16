@@ -133,6 +133,6 @@ class TableControllerTest extends AbstractTestCase
         );
         $controller($request);
 
-        self::assertEquals($expectedOutput, $responseRenderer->getHTMLResult());
+        self::assertSame($expectedOutput, $responseRenderer->getHTMLResult());
     }
 }

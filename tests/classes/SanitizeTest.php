@@ -27,7 +27,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testXssInHref(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '[a@javascript:alert(&#039;XSS&#039;);@target]link</a>',
             Sanitize::convertBBCode('[a@javascript:alert(\'XSS\');@target]link[/a]'),
         );
@@ -41,7 +41,7 @@ class SanitizeTest extends AbstractTestCase
         $lang = $GLOBALS['lang'];
 
         unset($GLOBALS['lang']);
-        self::assertEquals(
+        self::assertSame(
             '<a href="index.php?route=/url&url=https%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',
             Sanitize::convertBBCode('[a@https://www.phpmyadmin.net/@target]link[/a]'),
         );
@@ -58,7 +58,7 @@ class SanitizeTest extends AbstractTestCase
     #[DataProvider('docLinks')]
     public function testDoc(string $link, string $expected): void
     {
-        self::assertEquals(
+        self::assertSame(
             '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F'
                 . $expected . '" target="documentation">doclink</a>',
             Sanitize::convertBBCode('[doc@' . $link . ']doclink[/doc]'),
@@ -85,7 +85,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testInvalidTarget(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '[a@./Documentation.html@INVALID9]doc</a>',
             Sanitize::convertBBCode('[a@./Documentation.html@INVALID9]doc[/a]'),
         );
@@ -96,7 +96,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testLinkDocXss(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '[a@./Documentation.html&quot; onmouseover=&quot;alert(foo)&quot;]doc</a>',
             Sanitize::convertBBCode('[a@./Documentation.html" onmouseover="alert(foo)"]doc[/a]'),
         );
@@ -107,7 +107,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testLinkAndXssInHref(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2F">doc</a>'
                 . '[a@javascript:alert(&#039;XSS&#039;);@target]link</a>',
             Sanitize::convertBBCode(
@@ -121,7 +121,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testHtmlTags(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '&lt;div onclick=&quot;&quot;&gt;',
             Sanitize::convertBBCode('<div onclick="">'),
         );
@@ -132,7 +132,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testBBCode(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '<strong>strong</strong>',
             Sanitize::convertBBCode('[strong]strong[/strong]'),
         );
@@ -143,7 +143,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testSanitizeFilename(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'File_name_123',
             Sanitize::sanitizeFilename('File_name 123'),
         );
@@ -159,7 +159,7 @@ class SanitizeTest extends AbstractTestCase
     #[DataProvider('variables')]
     public function testGetJsValue(string $key, string|bool|int|array $value, string $expected): void
     {
-        self::assertEquals($expected, Sanitize::getJsValue($key, $value));
+        self::assertSame($expected, Sanitize::getJsValue($key, $value));
     }
 
     /**

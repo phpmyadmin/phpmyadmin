@@ -75,7 +75,7 @@ class RoutingTest extends AbstractTestCase
         $_SERVER['REQUEST_URI'] = $request;
         $_SERVER['PATH_INFO'] = $pathInfo;
         $actual = Routing::getCleanPathInfo();
-        self::assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /** @return array<array{string, string, string, string}> */

@@ -30,7 +30,7 @@ class ForeignKeyTest extends AbstractTestCase
     #[DataProvider('providerIsSupported')]
     public function testIsSupported(string $a, bool $e): void
     {
-        self::assertEquals(
+        self::assertSame(
             $e,
             ForeignKey::isSupported($a),
         );

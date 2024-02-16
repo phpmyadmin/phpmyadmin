@@ -28,115 +28,115 @@ class FontTest extends AbstractTestCase
     public function testGetStringWidth(): void
     {
         // empty string
-        self::assertEquals(
+        self::assertSame(
             0,
             $this->font->getStringWidth('', 'arial', 10),
         );
 
         // empty string
-        self::assertEquals(
+        self::assertSame(
             3,
             $this->font->getStringWidth(' ', 'arial', 10),
         );
 
         // string "a"
-        self::assertEquals(
+        self::assertSame(
             6,
             $this->font->getStringWidth('a', 'arial', 10),
         );
 
         // string "aa"
-        self::assertEquals(
+        self::assertSame(
             12,
             $this->font->getStringWidth('aa', 'arial', 10),
         );
 
         // string "i"
-        self::assertEquals(
+        self::assertSame(
             3,
             $this->font->getStringWidth('i', 'arial', 10),
         );
 
         // string "f"
-        self::assertEquals(
+        self::assertSame(
             3,
             $this->font->getStringWidth('f', 'arial', 10),
         );
 
         // string "t"
-        self::assertEquals(
+        self::assertSame(
             3,
             $this->font->getStringWidth('t', 'arial', 10),
         );
 
         // string "if"
-        self::assertEquals(
+        self::assertSame(
             5,
             $this->font->getStringWidth('if', 'arial', 10),
         );
 
         // string "it"
-        self::assertEquals(
+        self::assertSame(
             6,
             $this->font->getStringWidth('it', 'arial', 10),
         );
 
         // string "r"
-        self::assertEquals(
+        self::assertSame(
             4,
             $this->font->getStringWidth('r', 'arial', 10),
         );
 
         // string "1"
-        self::assertEquals(
+        self::assertSame(
             5,
             $this->font->getStringWidth('1', 'arial', 10),
         );
 
         // string "c"
-        self::assertEquals(
+        self::assertSame(
             5,
             $this->font->getStringWidth('c', 'arial', 10),
         );
 
         // string "F"
-        self::assertEquals(
+        self::assertSame(
             7,
             $this->font->getStringWidth('F', 'arial', 10),
         );
 
         // string "A"
-        self::assertEquals(
+        self::assertSame(
             7,
             $this->font->getStringWidth('A', 'arial', 10),
         );
 
         // string "w"
-        self::assertEquals(
+        self::assertSame(
             8,
             $this->font->getStringWidth('w', 'arial', 10),
         );
 
         // string "G"
-        self::assertEquals(
+        self::assertSame(
             8,
             $this->font->getStringWidth('G', 'arial', 10),
         );
 
         // string "m"
-        self::assertEquals(
+        self::assertSame(
             9,
             $this->font->getStringWidth('m', 'arial', 10),
         );
 
         // string "W"
-        self::assertEquals(
+        self::assertSame(
             10,
             $this->font->getStringWidth('W', 'arial', 10),
         );
 
         // string "$"
-        self::assertEquals(
+        self::assertSame(
             3,
             $this->font->getStringWidth('$', 'arial', 10),
         );
@@ -148,25 +148,25 @@ class FontTest extends AbstractTestCase
     public function testGetStringWidthFont(): void
     {
         // string "phpMyAdmin", with Arial 10
-        self::assertEquals(
+        self::assertSame(
             59,
             $this->font->getStringWidth('phpMyAdmin', 'arial', 10),
         );
 
         // string "phpMyAdmin", with No font
-        self::assertEquals(
+        self::assertSame(
             59,
             $this->font->getStringWidth('phpMyAdmin', '', 10),
         );
 
         // string "phpMyAdmin", with Times 10
-        self::assertEquals(
+        self::assertSame(
             55,
             $this->font->getStringWidth('phpMyAdmin', 'times', 10),
         );
 
         // string "phpMyAdmin", with Broadway 10
-        self::assertEquals(
+        self::assertSame(
             73,
             $this->font->getStringWidth('phpMyAdmin', 'broadway', 10),
         );
@@ -178,25 +178,25 @@ class FontTest extends AbstractTestCase
     public function testGetStringWidthSize(): void
     {
         // string "phpMyAdmin", with font size 0
-        self::assertEquals(
+        self::assertSame(
             0,
             $this->font->getStringWidth('phpMyAdmin', 'arial', 0),
         );
 
         // string "phpMyAdmin", with Arial 10
-        self::assertEquals(
+        self::assertSame(
             59,
             $this->font->getStringWidth('phpMyAdmin', 'arial', 10),
         );
 
         // string "phpMyAdmin", with Arial 11
-        self::assertEquals(
+        self::assertSame(
             65,
             $this->font->getStringWidth('phpMyAdmin', 'arial', 11),
         );
 
         // string "phpMyAdmin", with Arial 20
-        self::assertEquals(
+        self::assertSame(
             118,
             $this->font->getStringWidth('phpMyAdmin', 'arial', 20),
         );
@@ -208,14 +208,14 @@ class FontTest extends AbstractTestCase
     public function testGetStringWidthCharLists(): void
     {
         // string "a", with invalid charlist (= array without proper structure)
-        self::assertEquals(
+        self::assertSame(
             6,
             $this->font->getStringWidth('a', 'arial', 10, ['list']),
         );
 
         // string "a", with invalid charlist (= array without proper structure :
         // modifier is missing
-        self::assertEquals(
+        self::assertSame(
             6,
             $this->font->getStringWidth(
                 'a',
@@ -227,7 +227,7 @@ class FontTest extends AbstractTestCase
 
         // string "a", with invalid charlist (= array without proper structure :
         // chars is missing
-        self::assertEquals(
+        self::assertSame(
             6,
             $this->font->getStringWidth(
                 'a',
@@ -239,7 +239,7 @@ class FontTest extends AbstractTestCase
 
         // string "a", with invalid charlist (= array without proper structure :
         // chars is not an array
-        self::assertEquals(
+        self::assertSame(
             6,
             $this->font->getStringWidth(
                 'a',
@@ -250,7 +250,7 @@ class FontTest extends AbstractTestCase
         );
 
         // string "a", with valid charlist
-        self::assertEquals(
+        self::assertSame(
             7,
             $this->font->getStringWidth(
                 'a',

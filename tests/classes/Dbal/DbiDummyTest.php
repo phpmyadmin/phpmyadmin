@@ -73,7 +73,7 @@ class DbiDummyTest extends AbstractTestCase
     #[DataProvider('schemaData')]
     public function testSystemSchema(string $schema, bool $expected): void
     {
-        self::assertEquals($expected, Utilities::isSystemSchema($schema));
+        self::assertSame($expected, Utilities::isSystemSchema($schema));
     }
 
     /** @return array<array{string, bool}> */
@@ -92,7 +92,7 @@ class DbiDummyTest extends AbstractTestCase
     #[DataProvider('errorData')]
     public function testFormatError(int $number, string $message, string $expected): void
     {
-        self::assertEquals(
+        self::assertSame(
             $expected,
             Utilities::formatError($number, $message),
         );

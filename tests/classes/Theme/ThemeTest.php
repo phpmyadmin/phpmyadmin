@@ -65,8 +65,8 @@ class ThemeTest extends AbstractTestCase
     {
         $this->object->setFsPath(TEST_PATH . 'tests/classes/_data/gen_version_info/');
         self::assertTrue($this->object->loadInfo());
-        self::assertEquals('Test Theme', $this->object->getName());
-        self::assertEquals('6.0', $this->object->getVersion());
+        self::assertSame('Test Theme', $this->object->getName());
+        self::assertSame('6.0', $this->object->getVersion());
     }
 
     /**
@@ -78,7 +78,7 @@ class ThemeTest extends AbstractTestCase
         $infofile = $this->object->getFsPath() . 'theme.json';
         self::assertTrue($this->object->loadInfo());
 
-        self::assertEquals(
+        self::assertSame(
             filemtime($infofile),
             $this->object->mtimeInfo,
         );
@@ -86,7 +86,7 @@ class ThemeTest extends AbstractTestCase
         $this->object->setPath(ROOT_PATH . 'public/themes/original');
         $this->object->mtimeInfo = (int) filemtime($infofile);
         self::assertTrue($this->object->loadInfo());
-        self::assertEquals('Original', $this->object->getName());
+        self::assertSame('Original', $this->object->getName());
     }
 
     /**
@@ -143,7 +143,7 @@ class ThemeTest extends AbstractTestCase
         self::assertEmpty($this->object->getPath());
         $this->object->setPath(ROOT_PATH . 'themes/original');
 
-        self::assertEquals(ROOT_PATH . 'themes/original', $this->object->getPath());
+        self::assertSame(ROOT_PATH . 'themes/original', $this->object->getPath());
     }
 
     /**
@@ -152,14 +152,14 @@ class ThemeTest extends AbstractTestCase
     #[Depends('testLoadInfo')]
     public function testGetSetCheckVersion(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '0.0.0.0',
             $this->object->getVersion(),
             'Version 0.0.0.0 by default',
         );
 
         $this->object->setVersion('1.2.3.4');
-        self::assertEquals('1.2.3.4', $this->object->getVersion());
+        self::assertSame('1.2.3.4', $this->object->getVersion());
 
         self::assertFalse($this->object->checkVersion('0.0.1.1'));
         self::assertTrue($this->object->checkVersion('2.0.1.1'));
@@ -173,7 +173,7 @@ class ThemeTest extends AbstractTestCase
         self::assertEmpty($this->object->getName(), 'Name is empty by default');
         $this->object->setName('New Theme Name');
 
-        self::assertEquals('New Theme Name', $this->object->getName());
+        self::assertSame('New Theme Name', $this->object->getName());
     }
 
     /**
@@ -184,7 +184,7 @@ class ThemeTest extends AbstractTestCase
         self::assertEmpty($this->object->getId(), 'ID is empty by default');
         $this->object->setId('NewID');
 
-        self::assertEquals('NewID', $this->object->getId());
+        self::assertSame('NewID', $this->object->getId());
     }
 
     /**
@@ -198,7 +198,7 @@ class ThemeTest extends AbstractTestCase
         );
         $this->object->setImgPath('/new/path');
 
-        self::assertEquals('/new/path', $this->object->getImgPath());
+        self::assertSame('/new/path', $this->object->getImgPath());
     }
 
     /**
@@ -211,7 +211,7 @@ class ThemeTest extends AbstractTestCase
     #[DataProvider('providerForGetImgPath')]
     public function testGetImgPath(string|null $file, string|null $fallback, string $output): void
     {
-        self::assertEquals(
+        self::assertSame(
             $this->object->getImgPath($file, $fallback),
             $output,
         );

@@ -104,7 +104,7 @@ class ExportSqlTest extends AbstractTestCase
         $properties = $method->invoke($this->object, null);
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
-        self::assertEquals('SQL', $properties->getText());
+        self::assertSame('SQL', $properties->getText());
         self::assertNull($properties->getOptions());
     }
 
@@ -137,7 +137,7 @@ class ExportSqlTest extends AbstractTestCase
         $properties = $method->invoke($this->object, null);
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
-        self::assertEquals('SQL', $properties->getText());
+        self::assertSame('SQL', $properties->getText());
 
         $options = $properties->getOptions();
 
@@ -200,7 +200,7 @@ class ExportSqlTest extends AbstractTestCase
         $properties->next();
         self::assertInstanceOf(SelectPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             ['v1' => 'v1', 'v2' => 'v2'],
             $property->getValues(),
         );
@@ -240,7 +240,7 @@ class ExportSqlTest extends AbstractTestCase
         $leaves->next();
         self::assertInstanceOf(BoolPropertyItem::class, $leaf);
 
-        self::assertEquals(
+        self::assertSame(
             'Add <code>DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT</code><code> / TRIGGER</code> statement',
             $leaf->getText(),
         );
@@ -323,26 +323,26 @@ class ExportSqlTest extends AbstractTestCase
 
         $GLOBALS['sql_include_comments'] = true;
 
-        self::assertEquals(
+        self::assertSame(
             '--' . "\n",
             $method->invoke($this->object, ''),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '-- Comment' . "\n",
             $method->invoke($this->object, 'Comment'),
         );
 
         $GLOBALS['sql_include_comments'] = false;
 
-        self::assertEquals(
+        self::assertSame(
             '',
             $method->invoke($this->object, 'Comment'),
         );
 
         unset($GLOBALS['sql_include_comments']);
 
-        self::assertEquals(
+        self::assertSame(
             '',
             $method->invoke($this->object, 'Comment'),
         );
@@ -354,26 +354,26 @@ class ExportSqlTest extends AbstractTestCase
 
         $GLOBALS['sql_include_comments'] = true;
 
-        self::assertEquals(
+        self::assertSame(
             "\n",
             $method->invoke($this->object, ''),
         );
 
-        self::assertEquals(
+        self::assertSame(
             "\n",
             $method->invoke($this->object, 'Comment'),
         );
 
         $GLOBALS['sql_include_comments'] = false;
 
-        self::assertEquals(
+        self::assertSame(
             '',
             $method->invoke($this->object, 'Comment'),
         );
 
         unset($GLOBALS['sql_include_comments']);
 
-        self::assertEquals(
+        self::assertSame(
             '',
             $method->invoke($this->object, 'Comment'),
         );
@@ -633,7 +633,7 @@ class ExportSqlTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        self::assertEquals('SqlConstraints', $result);
+        self::assertSame('SqlConstraints', $result);
     }
 
     public function testGetTableDefStandIn(): void
@@ -696,7 +696,7 @@ class ExportSqlTest extends AbstractTestCase
         $method = new ReflectionMethod(ExportSql::class, 'getTableDefForView');
         $result = $method->invoke($this->object, 'db', 'view');
 
-        self::assertEquals(
+        self::assertSame(
             "CREATE TABLE `view`(\n" .
             "    `fname` char COLLATE utf-8 NOT NULL DEFAULT 'a' COMMENT 'cmt'\n" .
             ");\n",
@@ -732,7 +732,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $result = $method->invoke($this->object, 'db', 'view');
 
-        self::assertEquals(
+        self::assertSame(
             "CREATE TABLE IF NOT EXISTS `view`(\n" .
             "    `fname` char COLLATE utf-8 DEFAULT NULL COMMENT 'cmt'\n" .
             ");\n",
@@ -1319,7 +1319,7 @@ SQL;
         $method = new ReflectionMethod(ExportSql::class, 'makeCreateTableMSSQLCompatible');
         $result = $method->invoke($this->object, $query);
 
-        self::assertEquals(
+        self::assertSame(
             "CREATE TABLE (\" datetime DEFAULT NULL,\n" .
             "\" datetime DEFAULT NULL\n" .
             "\" datetime NOT NULL,\n" .
@@ -1355,22 +1355,22 @@ SQL;
         $table = null;
 
         $this->object->initAlias($aliases, $db, $table);
-        self::assertEquals('aliastest', $db);
+        self::assertSame('aliastest', $db);
         self::assertNull($table);
 
         $db = 'foo';
         $table = 'qwerty';
 
         $this->object->initAlias($aliases, $db, $table);
-        self::assertEquals('foo', $db);
-        self::assertEquals('qwerty', $table);
+        self::assertSame('foo', $db);
+        self::assertSame('qwerty', $table);
 
         $db = 'a';
         $table = 'foo';
 
         $this->object->initAlias($aliases, $db, $table);
-        self::assertEquals('aliastest', $db);
-        self::assertEquals('qwerty', $table);
+        self::assertSame('aliastest', $db);
+        self::assertSame('qwerty', $table);
     }
 
     public function testGetAlias(): void
@@ -1385,22 +1385,22 @@ SQL;
             ],
         ];
 
-        self::assertEquals(
+        self::assertSame(
             'f',
             $this->object->getAlias($aliases, 'bar'),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'aliastest',
             $this->object->getAlias($aliases, 'a'),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'pphymdain',
             $this->object->getAlias($aliases, 'pqr'),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '',
             $this->object->getAlias($aliases, 'abc'),
         );
@@ -1431,7 +1431,7 @@ SQL;
             . "latin1_general_ci COMMENT='List' AUTO_INCREMENT=5";
         $result = $this->object->replaceWithAliases(null, $sqlQuery, $aliases, $db);
 
-        self::assertEquals(
+        self::assertSame(
             "CREATE TABLE IF NOT EXISTS `bartest` (\n" .
             "  `p` tinyint(3) UNSIGNED NOT NULL COMMENT 'Primary Key',\n" .
             "  `xyz` varchar(255) COLLATE latin1_general_ci NOT NULL COMMENT 'xyz',\n" .
@@ -1443,7 +1443,7 @@ SQL;
 
         $result = $this->object->replaceWithAliases(null, $sqlQuery, [], '');
 
-        self::assertEquals(
+        self::assertSame(
             "CREATE TABLE IF NOT EXISTS foo (\n" .
             "  `baz` tinyint(3) UNSIGNED NOT NULL COMMENT 'Primary Key',\n" .
             "  `xyz` varchar(255) COLLATE latin1_general_ci NOT NULL COMMENT 'xyz',\n" .
@@ -1464,7 +1464,7 @@ SQL;
             . 'END IF; END';
         $result = $this->object->replaceWithAliases('$$', $sqlQuery, $aliases, $db);
 
-        self::assertEquals(
+        self::assertSame(
             'CREATE TRIGGER `BEFORE_bar_INSERT` BEFORE INSERT ON `f` FOR EACH ROW BEGIN ' .
             'SET @cnt=(SELECT count(*) FROM `f` WHERE `n`=NEW.`n` AND id=NEW.id AND abc=NEW.`n` LIMIT 1); ' .
             'IF @cnt<>0 THEN ' .
@@ -1519,6 +1519,6 @@ RETURN TextString ;
 END
 SQL;
 
-        self::assertEquals($expectedQuery, $result);
+        self::assertSame($expectedQuery, $result);
     }
 }

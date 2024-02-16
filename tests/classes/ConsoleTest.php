@@ -22,7 +22,7 @@ class ConsoleTest extends AbstractTestCase
         $relation = new Relation($dbi);
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
         $console = new Console($relation, new Template(), $bookmarkRepository);
-        self::assertEquals(['console.js'], $console->getScripts());
+        self::assertSame(['console.js'], $console->getScripts());
     }
 
     public function testSetAjax(): void

@@ -13,14 +13,14 @@ class GeneratorTest extends AbstractTestCase
 {
     public function testGetColumnsSql(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'SHOW  COLUMNS FROM `mydb`.`mytable`',
             Generator::getColumnsSql(
                 'mydb',
                 'mytable',
             ),
         );
-        self::assertEquals(
+        self::assertSame(
             'SHOW  COLUMNS FROM `mydb`.`mytable` LIKE \'_idcolumn\'',
             Generator::getColumnsSql(
                 'mydb',
@@ -28,7 +28,7 @@ class GeneratorTest extends AbstractTestCase
                 "'_idcolumn'",
             ),
         );
-        self::assertEquals(
+        self::assertSame(
             'SHOW FULL COLUMNS FROM `mydb`.`mytable`',
             Generator::getColumnsSql(
                 'mydb',
@@ -37,7 +37,7 @@ class GeneratorTest extends AbstractTestCase
                 true,
             ),
         );
-        self::assertEquals(
+        self::assertSame(
             'SHOW FULL COLUMNS FROM `mydb`.`mytable` LIKE \'_idcolumn\'',
             Generator::getColumnsSql(
                 'mydb',
@@ -50,14 +50,14 @@ class GeneratorTest extends AbstractTestCase
 
     public function testGetTableIndexesSql(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'SHOW INDEXES FROM `mydb`.`mytable`',
             Generator::getTableIndexesSql(
                 'mydb',
                 'mytable',
             ),
         );
-        self::assertEquals(
+        self::assertSame(
             'SHOW INDEXES FROM `mydb`.`mytable` WHERE (1)',
             Generator::getTableIndexesSql(
                 'mydb',
@@ -69,7 +69,7 @@ class GeneratorTest extends AbstractTestCase
 
     public function testGetSqlQueryForIndexRename(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'ALTER TABLE `mydb`.`mytable` RENAME INDEX `oldIndexName` TO `newIndexName`;',
             Generator::getSqlQueryForIndexRename(
                 'mydb',
@@ -82,7 +82,7 @@ class GeneratorTest extends AbstractTestCase
 
     public function testGetQueryForReorderingTable(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'ALTER TABLE `mytable` ORDER BY `myOrderField` ASC;',
             Generator::getQueryForReorderingTable(
                 'mytable',
@@ -90,7 +90,7 @@ class GeneratorTest extends AbstractTestCase
                 '',
             ),
         );
-        self::assertEquals(
+        self::assertSame(
             'ALTER TABLE `mytable` ORDER BY `myOrderField` ASC;',
             Generator::getQueryForReorderingTable(
                 'mytable',
@@ -98,7 +98,7 @@ class GeneratorTest extends AbstractTestCase
                 'S',
             ),
         );
-        self::assertEquals(
+        self::assertSame(
             'ALTER TABLE `mytable` ORDER BY `myOrderField` ASC;',
             Generator::getQueryForReorderingTable(
                 'mytable',
@@ -106,7 +106,7 @@ class GeneratorTest extends AbstractTestCase
                 'DESC',
             ),
         );
-        self::assertEquals(
+        self::assertSame(
             'ALTER TABLE `mytable` ORDER BY `myOrderField` DESC;',
             Generator::getQueryForReorderingTable(
                 'mytable',
@@ -114,7 +114,7 @@ class GeneratorTest extends AbstractTestCase
                 'desc',
             ),
         );
-        self::assertEquals(
+        self::assertSame(
             'ALTER TABLE `mytable` ORDER BY `myOrderField` ASC;',
             Generator::getQueryForReorderingTable(
                 'mytable',
@@ -126,7 +126,7 @@ class GeneratorTest extends AbstractTestCase
 
     public function testGetQueryForPartitioningTable(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'ALTER TABLE `mytable`  PARTITION ;',
             Generator::getQueryForPartitioningTable(
                 'mytable',
@@ -134,7 +134,7 @@ class GeneratorTest extends AbstractTestCase
                 [],
             ),
         );
-        self::assertEquals(
+        self::assertSame(
             'ALTER TABLE `mytable`  PARTITION p1;',
             Generator::getQueryForPartitioningTable(
                 'mytable',
@@ -142,7 +142,7 @@ class GeneratorTest extends AbstractTestCase
                 ['p1'],
             ),
         );
-        self::assertEquals(
+        self::assertSame(
             'ALTER TABLE `mytable`  PARTITION p1, p2;',
             Generator::getQueryForPartitioningTable(
                 'mytable',
@@ -150,7 +150,7 @@ class GeneratorTest extends AbstractTestCase
                 ['p1', 'p2'],
             ),
         );
-        self::assertEquals(
+        self::assertSame(
             'ALTER TABLE `mytable` COALESCE PARTITION 2',
             Generator::getQueryForPartitioningTable(
                 'mytable',
@@ -168,12 +168,12 @@ class GeneratorTest extends AbstractTestCase
         $queryFields = ['a', 'b'];
         $valueSets = ['1', '2'];
 
-        self::assertEquals(
+        self::assertSame(
             'INSERT IGNORE INTO `table` (a, b) VALUES (1), (2)',
             Generator::buildInsertSqlQuery('table', true, $queryFields, $valueSets),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'INSERT INTO `table` (a, b) VALUES (1), (2)',
             Generator::buildInsertSqlQuery('table', false, $queryFields, $valueSets),
         );

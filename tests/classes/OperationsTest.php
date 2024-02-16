@@ -52,7 +52,7 @@ class OperationsTest extends AbstractTestCase
         $expected = array_merge($choices, $extraChoice);
 
         $actual = $this->object->getPartitionMaintenanceChoices();
-        self::assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /** @psalm-return array<string, array{0: string, 1: array<string, string>}> */

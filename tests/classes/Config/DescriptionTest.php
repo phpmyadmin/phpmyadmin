@@ -35,7 +35,7 @@ class DescriptionTest extends AbstractTestCase
     #[DataProvider('getValues')]
     public function testGet(string $item, string $type, string $expected): void
     {
-        self::assertEquals($expected, Descriptions::get($item, $type));
+        self::assertSame($expected, Descriptions::get($item, $type));
     }
 
     /**

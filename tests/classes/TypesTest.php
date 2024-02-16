@@ -40,7 +40,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetUnaryOperators(): void
     {
-        self::assertEquals(
+        self::assertSame(
             ['IS NULL', 'IS NOT NULL', "= ''", "!= ''"],
             $this->object->getUnaryOperators(),
         );
@@ -51,7 +51,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetNullOperators(): void
     {
-        self::assertEquals(
+        self::assertSame(
             ['IS NULL', 'IS NOT NULL'],
             $this->object->getNullOperators(),
         );
@@ -62,7 +62,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetEnumOperators(): void
     {
-        self::assertEquals(
+        self::assertSame(
             ['=', '!='],
             $this->object->getEnumOperators(),
         );
@@ -73,7 +73,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testgetTextOperators(): void
     {
-        self::assertEquals(
+        self::assertSame(
             [
                 'LIKE',
                 'LIKE %...%',
@@ -100,7 +100,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetNumberOperators(): void
     {
-        self::assertEquals(
+        self::assertSame(
             [
                 '=',
                 '>',
@@ -126,7 +126,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetUUIDOperators(): void
     {
-        self::assertEquals(
+        self::assertSame(
             ['=', '!=', 'LIKE', 'LIKE %...%', 'NOT LIKE', 'NOT LIKE %...%', 'IN (...)', 'NOT IN (...)'],
             $this->object->getUUIDOperators(),
         );
@@ -142,7 +142,7 @@ class TypesTest extends AbstractTestCase
     #[DataProvider('providerForGetTypeOperators')]
     public function testGetTypeOperators(string $type, bool $null, string|array $output): void
     {
-        self::assertEquals(
+        self::assertSame(
             $output,
             $this->object->getTypeOperators($type, $null),
         );
@@ -239,7 +239,7 @@ class TypesTest extends AbstractTestCase
         string $selectedOperator,
         string $output,
     ): void {
-        self::assertEquals(
+        self::assertSame(
             $output,
             $this->object->getTypeOperatorsHtml($type, $null, $selectedOperator),
         );
@@ -276,7 +276,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetUnknownTypeDescription(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '',
             $this->object->getTypeDescription('UNKNOWN'),
         );
@@ -342,7 +342,7 @@ class TypesTest extends AbstractTestCase
     #[DataProvider('providerFortTestGetFunctionsClass')]
     public function testGetFunctionsClass(string $class, array $output): void
     {
-        self::assertEquals(
+        self::assertSame(
             $output,
             $this->object->getFunctionsClass($class),
         );
@@ -501,7 +501,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetFunctions(): void
     {
-        self::assertEquals(
+        self::assertSame(
             [
                 'AES_DECRYPT',
                 'AES_ENCRYPT',
@@ -548,7 +548,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetAllFunctions(): void
     {
-        self::assertEquals(
+        self::assertSame(
             [
                 'ABS',
                 'ACOS',
@@ -678,7 +678,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetAttributes(): void
     {
-        self::assertEquals(
+        self::assertSame(
             ['', 'BINARY', 'UNSIGNED', 'UNSIGNED ZEROFILL', 'on update CURRENT_TIMESTAMP'],
             $this->object->getAttributes(),
         );
@@ -689,7 +689,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetColumns(): void
     {
-        self::assertEquals(
+        self::assertSame(
             [
                 0 => 'INT',
                 1 => 'VARCHAR',
@@ -755,7 +755,7 @@ class TypesTest extends AbstractTestCase
     #[DataProvider('providerFortTestGetTypeClass')]
     public function testGetTypeClass(string $type, string $output): void
     {
-        self::assertEquals(
+        self::assertSame(
             $output,
             $this->object->getTypeClass($type),
         );

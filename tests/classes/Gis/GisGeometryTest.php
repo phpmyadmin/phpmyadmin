@@ -85,7 +85,7 @@ class GisGeometryTest extends AbstractTestCase
     #[DataProvider('providerForTestParseWktAndSrid')]
     public function testParseWktAndSrid(string $value, array $output): void
     {
-        self::assertEquals(
+        self::assertSame(
             $output,
             $this->callFunction(
                 $this->object,

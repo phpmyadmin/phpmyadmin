@@ -18,7 +18,7 @@ class NodeFunctionTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeFunction(new Config(), 'default');
-        self::assertEquals(
+        self::assertSame(
             [
                 'text' => [
                     'route' => '/database/routines',

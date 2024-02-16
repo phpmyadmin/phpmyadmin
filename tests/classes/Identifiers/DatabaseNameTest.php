@@ -20,8 +20,8 @@ class DatabaseNameTest extends TestCase
     public function testValidName(string $validName): void
     {
         $name = DatabaseName::from($validName);
-        self::assertEquals($validName, $name->getName());
-        self::assertEquals($validName, (string) $name);
+        self::assertSame($validName, $name->getName());
+        self::assertSame($validName, (string) $name);
     }
 
     #[DataProvider('providerForTestValidNames')]
@@ -29,8 +29,8 @@ class DatabaseNameTest extends TestCase
     {
         $name = DatabaseName::tryFrom($validName);
         self::assertNotNull($name);
-        self::assertEquals($validName, $name->getName());
-        self::assertEquals($validName, (string) $name);
+        self::assertSame($validName, $name->getName());
+        self::assertSame($validName, (string) $name);
     }
 
     /** @return iterable<int, string[]> */

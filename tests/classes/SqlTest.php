@@ -84,7 +84,7 @@ class SqlTest extends AbstractTestCase
         $GLOBALS['_SESSION']['tmpval']['pos'] = 1;
         $GLOBALS['_SESSION']['tmpval']['max_rows'] = 2;
 
-        self::assertEquals('SELECT * FROM test LIMIT 1, 2 ', $this->callFunction(
+        self::assertSame('SELECT * FROM test LIMIT 1, 2 ', $this->callFunction(
             $this->sql,
             Sql::class,
             'getSqlWithLimitClause',
@@ -452,7 +452,7 @@ class SqlTest extends AbstractTestCase
                 ParseAnalyze::sqlQuery($sqlQuery ?? '', Current::$database)[0],
             ],
         );
-        self::assertEquals($expectedNumRows, $result);
+        self::assertSame($expectedNumRows, $result);
         $this->dummyDbi->assertAllQueriesConsumed();
     }
 

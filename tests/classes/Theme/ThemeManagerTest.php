@@ -35,7 +35,7 @@ class ThemeManagerTest extends AbstractTestCase
     public function testCookieName(): void
     {
         $tm = new ThemeManager();
-        self::assertEquals('pma_theme', $tm->getThemeCookieName());
+        self::assertSame('pma_theme', $tm->getThemeCookieName());
     }
 
     /**
@@ -45,7 +45,7 @@ class ThemeManagerTest extends AbstractTestCase
     {
         $tm = new ThemeManager();
         $tm->setThemePerServer(true);
-        self::assertEquals('pma_theme-99', $tm->getThemeCookieName());
+        self::assertSame('pma_theme-99', $tm->getThemeCookieName());
     }
 
     public function testGetThemesArray(): void

@@ -54,7 +54,7 @@ class UserPreferencesTest extends AbstractTestCase
         $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
         $userPreferences->pageInit(new ConfigFile());
 
-        self::assertEquals(
+        self::assertSame(
             ['Servers' => [1 => ['hide_db' => 'testval123']]],
             $_SESSION['ConfigFile' . Current::$server],
         );
@@ -76,7 +76,7 @@ class UserPreferencesTest extends AbstractTestCase
 
         self::assertCount(3, $result);
 
-        self::assertEquals(
+        self::assertSame(
             [],
             $result['config_data'],
         );
@@ -88,7 +88,7 @@ class UserPreferencesTest extends AbstractTestCase
             '',
         );
 
-        self::assertEquals('session', $result['type']);
+        self::assertSame('session', $result['type']);
 
         // case 2
         $relationParameters = RelationParameters::fromArray([
@@ -117,7 +117,7 @@ class UserPreferencesTest extends AbstractTestCase
         $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
         $result = $userPreferences->load();
 
-        self::assertEquals(
+        self::assertSame(
             ['config_data' => [1, 2], 'mtime' => 123, 'type' => 'db'],
             $result,
         );
@@ -142,7 +142,7 @@ class UserPreferencesTest extends AbstractTestCase
 
         self::assertCount(2, $_SESSION['userconfig']);
 
-        self::assertEquals(
+        self::assertSame(
             [1],
             $_SESSION['userconfig']['db'],
         );
@@ -233,7 +233,7 @@ class UserPreferencesTest extends AbstractTestCase
         $result = $userPreferences->save([1]);
 
         self::assertInstanceOf(Message::class, $result);
-        self::assertEquals(
+        self::assertSame(
             'Could not save configuration<br><br>err1'
             . '<br><br>The phpMyAdmin configuration storage database could not be accessed.',
             $result->getMessage(),
@@ -280,7 +280,7 @@ class UserPreferencesTest extends AbstractTestCase
             ['DBG/sql' => true],
         );
 
-        self::assertEquals(
+        self::assertSame(
             ['DBG' => ['sql' => true]],
             $result,
         );
@@ -350,7 +350,7 @@ class UserPreferencesTest extends AbstractTestCase
 
         $dbi = DatabaseInterface::getInstance();
         $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
-        self::assertEquals(
+        self::assertSame(
             '',
             $userPreferences->autoloadGetHeader(),
         );

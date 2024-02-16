@@ -51,7 +51,7 @@ class UrlTest extends AbstractTestCase
         $expected = '?db=db'
             . $separator . $expected;
 
-        self::assertEquals($expected, Url::getCommon(['db' => 'db']));
+        self::assertSame($expected, Url::getCommon(['db' => 'db']));
     }
 
     /**
@@ -69,7 +69,7 @@ class UrlTest extends AbstractTestCase
             . $separator . 'table=table'
             . $separator . $expected;
         $params = ['db' => 'db', 'table' => 'table'];
-        self::assertEquals($expected, Url::getCommon($params));
+        self::assertSame($expected, Url::getCommon($params));
     }
 
     /**
@@ -85,7 +85,7 @@ class UrlTest extends AbstractTestCase
 
         $expected = '#ABC#db=db' . $separator . 'table=table' . $separator
             . $expected;
-        self::assertEquals(
+        self::assertSame(
             $expected,
             Url::getCommonRaw(
                 ['db' => 'db', 'table' => 'table'],
@@ -104,7 +104,7 @@ class UrlTest extends AbstractTestCase
 
         $separator = Url::getArgSeparator();
         $expected = '?server=2' . $separator . 'lang=en';
-        self::assertEquals($expected, Url::getCommon());
+        self::assertSame($expected, Url::getCommon());
     }
 
     /**
@@ -118,7 +118,7 @@ class UrlTest extends AbstractTestCase
             'field' => '%1\$s',
             'change_column' => 1,
         ]);
-        self::assertEquals(
+        self::assertSame(
             'index.php?route=/test&db=%253%5C%24s&table=%252%5C%24s&field=%251%5C%24s&change_column=1&lang=en',
             $generatedUrl,
         );
@@ -137,9 +137,9 @@ class UrlTest extends AbstractTestCase
         ]);
         $expectedUrl = 'index.php?route=/test&db=%26test%3D_database%3D'
         . '&table=%26test%3D_database%3D&field=%26test%3D_database%3D&change_column=1&lang=en';
-        self::assertEquals($expectedUrl, $generatedUrl);
+        self::assertSame($expectedUrl, $generatedUrl);
 
-        self::assertEquals(
+        self::assertSame(
             'index.php?route=/test&db=&test=_database=&table=&'
             . 'test=_database=&field=&test=_database=&change_column=1&lang=en',
             urldecode(
@@ -161,7 +161,7 @@ class UrlTest extends AbstractTestCase
             'book' => false,
             'worm' => false,
         ]);
-        self::assertEquals(
+        self::assertSame(
             'index.php?route=/test&db=%3Cscript+src%3D%22https%3A%2F%2Fdomain.tld%2Fsvn'
             . '%2Ftrunk%2Fhtml5.js%22%3E%3C%2Fscript%3E&table=%3Cscript+src%3D%22'
             . 'https%3A%2F%2Fdomain.tld%2Fmaybeweshouldusegit%2Ftrunk%2Fhtml5.js%22%3E%3C%2F'
@@ -186,7 +186,7 @@ class UrlTest extends AbstractTestCase
     {
         Config::getInstance()->set('URLQueryEncryption', false);
         $params = ['db' => 'test_db', 'table' => 'test_table', 'pos' => 0];
-        self::assertEquals('db=test_db&table=test_table&pos=0', Url::buildHttpQuery($params));
+        self::assertSame('db=test_db&table=test_table&pos=0', Url::buildHttpQuery($params));
     }
 
     public function testBuildHttpQueryWithUrlQueryEncryptionEnabled(): void

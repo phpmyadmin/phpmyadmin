@@ -38,7 +38,7 @@ class RealRowCountControllerTest extends AbstractTestCase
         (new RealRowCountController($response, new Template(), $dbi, new DbTableExists($dbi)))($request);
 
         $json = $response->getJSONResult();
-        self::assertEquals('4,079', $json['real_row_count']);
+        self::assertSame('4,079', $json['real_row_count']);
 
         $_REQUEST['real_row_count_all'] = 'on';
 
@@ -50,7 +50,7 @@ class RealRowCountControllerTest extends AbstractTestCase
             ['table' => 'Country', 'row_count' => '239'],
             ['table' => 'CountryLanguage', 'row_count' => '984'],
         ];
-        self::assertEquals($expected, $json['real_row_count_all']);
+        self::assertSame($expected, $json['real_row_count_all']);
 
         $dbiDummy->assertAllSelectsConsumed();
     }

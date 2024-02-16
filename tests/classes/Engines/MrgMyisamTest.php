@@ -42,7 +42,7 @@ class MrgMyisamTest extends AbstractTestCase
      */
     public function testGetMysqlHelpPage(): void
     {
-        self::assertEquals(
+        self::assertSame(
             $this->object->getMysqlHelpPage(),
             'merge-storage-engine',
         );

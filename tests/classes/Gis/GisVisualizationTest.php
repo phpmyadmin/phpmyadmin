@@ -105,7 +105,7 @@ class GisVisualizationTest extends AbstractTestCase
             [''],
         );
 
-        self::assertEquals('SELECT ASTEXT(`abc`) AS `abc`, SRID(`abc`) AS `srid` FROM () AS `temp_gis`', $queryString);
+        self::assertSame('SELECT ASTEXT(`abc`) AS `abc`, SRID(`abc`) AS `srid` FROM () AS `temp_gis`', $queryString);
     }
 
     /**
@@ -121,7 +121,7 @@ class GisVisualizationTest extends AbstractTestCase
             [''],
         );
 
-        self::assertEquals(
+        self::assertSame(
             'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis`',
             $queryString,
         );
@@ -140,7 +140,7 @@ class GisVisualizationTest extends AbstractTestCase
             ['SELECT 1 FROM foo;'],
         );
 
-        self::assertEquals(
+        self::assertSame(
             'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM (SELECT 1 FROM foo) AS `temp_gis`',
             $queryString,
         );
@@ -164,7 +164,7 @@ class GisVisualizationTest extends AbstractTestCase
             [''],
         );
 
-        self::assertEquals(
+        self::assertSame(
             'SELECT `country name`, ST_ASTEXT(`country_geom`) AS `country_geom`,'
             . ' ST_SRID(`country_geom`) AS `srid` FROM () AS `temp_gis`',
             $queryString,
@@ -186,7 +186,7 @@ class GisVisualizationTest extends AbstractTestCase
             [''],
         );
 
-        self::assertEquals(
+        self::assertSame(
             'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis` LIMIT 10',
             $queryString,
         );
@@ -201,7 +201,7 @@ class GisVisualizationTest extends AbstractTestCase
             [''],
         );
 
-        self::assertEquals(
+        self::assertSame(
             'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis` LIMIT 10, 15',
             $queryString,
         );
@@ -220,7 +220,7 @@ class GisVisualizationTest extends AbstractTestCase
             [''],
         );
 
-        self::assertEquals(
+        self::assertSame(
             'SELECT ST_ASTEXT(`abc`, \'axis-order=long-lat\') AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis`',
             $queryString,
         );
@@ -239,7 +239,7 @@ class GisVisualizationTest extends AbstractTestCase
             [''],
         );
 
-        self::assertEquals(
+        self::assertSame(
             'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis`',
             $queryString,
         );

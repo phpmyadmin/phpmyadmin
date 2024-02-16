@@ -71,7 +71,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisMultiLineString::singleton();
-        self::assertEquals($output, $object->generateWkt($gisData, $index, $empty));
+        self::assertSame($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
@@ -88,7 +88,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
         ];
 
         $object = GisMultiLineString::singleton();
-        self::assertEquals(
+        self::assertSame(
             'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))',
             $object->getShape($rowData),
         );
@@ -104,7 +104,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     public function testGenerateParams(string $wkt, array $params): void
     {
         $object = GisMultiLineString::singleton();
-        self::assertEquals($params, $object->generateParams($wkt));
+        self::assertSame($params, $object->generateParams($wkt));
     }
 
     /**
@@ -172,8 +172,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
             new ScaleData(offsetX: 3, offsetY: -16, scale: 1.06, height: 124),
             $image,
         );
-        self::assertEquals(200, $image->width());
-        self::assertEquals(124, $image->height());
+        self::assertSame(200, $image->width());
+        self::assertSame(124, $image->height());
 
         $fileExpected = $this->testDir . '/multilinestring-expected.png';
         $fileActual = $this->testDir . '/multilinestring-actual.png';
@@ -242,7 +242,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     ): void {
         $object = GisMultiLineString::singleton();
         $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
-        self::assertEquals($output, $svg);
+        self::assertSame($output, $svg);
     }
 
     /**
@@ -286,7 +286,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     ): void {
         $object = GisMultiLineString::singleton();
         $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
-        self::assertEquals($output, $ol);
+        self::assertSame($output, $ol);
     }
 
     /**

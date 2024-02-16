@@ -537,11 +537,11 @@ final class NodeTest extends AbstractTestCase
     public function testGetInstanceForNewNode(): void
     {
         $node = (new Node(new Config()))->getInstanceForNewNode('New', 'new_database italics');
-        self::assertEquals('New', $node->name);
-        self::assertEquals(NodeType::Object, $node->type);
+        self::assertSame('New', $node->name);
+        self::assertSame(NodeType::Object, $node->type);
         self::assertFalse($node->isGroup);
-        self::assertEquals('New', $node->title);
+        self::assertSame('New', $node->title);
         self::assertTrue($node->isNew);
-        self::assertEquals('new_database italics', $node->classes);
+        self::assertSame('new_database italics', $node->classes);
     }
 }

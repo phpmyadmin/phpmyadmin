@@ -74,6 +74,6 @@ class LogVarsControllerTest extends AbstractTestCase
         $this->dummyDbi->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 
-        self::assertEquals($value, $ret['message']);
+        self::assertSame($value, $ret['message']);
     }
 }

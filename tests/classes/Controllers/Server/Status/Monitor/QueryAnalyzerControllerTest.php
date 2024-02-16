@@ -55,8 +55,8 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $dummyDbi->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 
-        self::assertEquals('cached_affected_rows', $ret['message']['affectedRows']);
-        self::assertEquals(
+        self::assertSame('cached_affected_rows', $ret['message']['affectedRows']);
+        self::assertSame(
             [],
             $ret['message']['profiling'],
         );

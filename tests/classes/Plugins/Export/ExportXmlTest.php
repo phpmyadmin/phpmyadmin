@@ -79,17 +79,17 @@ class ExportXmlTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals(
+        self::assertSame(
             'XML',
             $properties->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'xml',
             $properties->getExtension(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'text/xml',
             $properties->getMimeType(),
         );
@@ -98,7 +98,7 @@ class ExportXmlTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals(
+        self::assertSame(
             'Format Specific Options',
             $options->getName(),
         );
@@ -110,7 +110,7 @@ class ExportXmlTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals(
+        self::assertSame(
             'general_opts',
             $generalOptions->getName(),
         );
@@ -126,7 +126,7 @@ class ExportXmlTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals(
+        self::assertSame(
             'structure',
             $generalOptions->getName(),
         );
@@ -157,7 +157,7 @@ class ExportXmlTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals(
+        self::assertSame(
             'data',
             $generalOptions->getName(),
         );
@@ -389,7 +389,7 @@ class ExportXmlTest extends AbstractTestCase
         $result = ob_get_clean();
 
         self::assertIsString($result);
-        self::assertEquals(
+        self::assertSame(
             '        <!-- Table test_table -->' . "\n"
             . '        <table name="test_table">' . "\n"
             . '            <column name="id">1</column>' . "\n"

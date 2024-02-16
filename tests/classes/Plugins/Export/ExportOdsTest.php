@@ -84,22 +84,22 @@ class ExportOdsTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals(
+        self::assertSame(
             'OpenDocument Spreadsheet',
             $properties->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'ods',
             $properties->getExtension(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'application/vnd.oasis.opendocument.spreadsheet',
             $properties->getMimeType(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Options',
             $properties->getOptionsText(),
         );
@@ -112,7 +112,7 @@ class ExportOdsTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals(
+        self::assertSame(
             'Format Specific Options',
             $options->getName(),
         );
@@ -122,7 +122,7 @@ class ExportOdsTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals(
+        self::assertSame(
             'general_opts',
             $generalOptions->getName(),
         );
@@ -134,12 +134,12 @@ class ExportOdsTest extends AbstractTestCase
 
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'null',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Replace NULL with:',
             $property->getText(),
         );
@@ -149,12 +149,12 @@ class ExportOdsTest extends AbstractTestCase
 
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'columns',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Put columns names in the first row',
             $property->getText(),
         );
@@ -163,7 +163,7 @@ class ExportOdsTest extends AbstractTestCase
 
         self::assertInstanceOf(HiddenPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'structure_or_data',
             $property->getName(),
         );
@@ -269,7 +269,7 @@ class ExportOdsTest extends AbstractTestCase
             ),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '<table:table table:name="table"><table:table-row><table:table-cell ' .
             'office:value-type="string"><text:p>&amp;</text:p></table:table-cell>' .
             '<table:table-cell office:value-type="string"><text:p></text:p>' .
@@ -345,7 +345,7 @@ class ExportOdsTest extends AbstractTestCase
             ),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '<table:table table:name="table"><table:table-row><table:table-cell ' .
             'office:value-type="string"><text:p>fna\&quot;me</text:p></table:table' .
             '-cell><table:table-cell office:value-type="string"><text:p>' .
@@ -397,7 +397,7 @@ class ExportOdsTest extends AbstractTestCase
             ),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '<table:table table:name="table"><table:table-row></table:table-row></table:table>',
             $GLOBALS['ods_buffer'],
         );

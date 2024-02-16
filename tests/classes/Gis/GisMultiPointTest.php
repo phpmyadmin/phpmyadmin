@@ -60,7 +60,7 @@ class GisMultiPointTest extends GisGeomTestCase
     public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisMultiPoint::singleton();
-        self::assertEquals($output, $object->generateWkt($gisData, $index, $empty));
+        self::assertSame($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
@@ -71,7 +71,7 @@ class GisMultiPointTest extends GisGeomTestCase
         $gisData = ['numpoints' => 2, 'points' => [0 => ['x' => 5.02, 'y' => 8.45], 1 => ['x' => 6.14, 'y' => 0.15]]];
 
         $object = GisMultiPoint::singleton();
-        self::assertEquals('MULTIPOINT(5.02 8.45,6.14 0.15)', $object->getShape($gisData));
+        self::assertSame('MULTIPOINT(5.02 8.45,6.14 0.15)', $object->getShape($gisData));
     }
 
     /**
@@ -84,7 +84,7 @@ class GisMultiPointTest extends GisGeomTestCase
     public function testGenerateParams(string $wkt, array $params): void
     {
         $object = GisMultiPoint::singleton();
-        self::assertEquals($params, $object->generateParams($wkt));
+        self::assertSame($params, $object->generateParams($wkt));
     }
 
     /**
@@ -149,8 +149,8 @@ class GisMultiPointTest extends GisGeomTestCase
             new ScaleData(offsetX: -18, offsetY: 14, scale: 1.71, height: 124),
             $image,
         );
-        self::assertEquals(200, $image->width());
-        self::assertEquals(124, $image->height());
+        self::assertSame(200, $image->width());
+        self::assertSame(124, $image->height());
 
         $fileExpected = $this->testDir . '/multipoint-expected.png';
         $fileActual = $this->testDir . '/multipoint-actual.png';
@@ -221,7 +221,7 @@ class GisMultiPointTest extends GisGeomTestCase
     ): void {
         $object = GisMultiPoint::singleton();
         $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
-        self::assertEquals($output, $svg);
+        self::assertSame($output, $svg);
     }
 
     /**
@@ -271,7 +271,7 @@ class GisMultiPointTest extends GisGeomTestCase
     ): void {
         $object = GisMultiPoint::singleton();
         $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
-        self::assertEquals($output, $ol);
+        self::assertSame($output, $ol);
     }
 
     /**

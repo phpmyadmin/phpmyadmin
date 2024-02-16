@@ -64,22 +64,22 @@ class ExportExcelTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals(
+        self::assertSame(
             'CSV for MS Excel',
             $properties->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'csv',
             $properties->getExtension(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'text/comma-separated-values',
             $properties->getMimeType(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Options',
             $properties->getOptionsText(),
         );
@@ -88,7 +88,7 @@ class ExportExcelTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals(
+        self::assertSame(
             'Format Specific Options',
             $options->getName(),
         );
@@ -98,7 +98,7 @@ class ExportExcelTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals(
+        self::assertSame(
             'general_opts',
             $generalOptions->getName(),
         );
@@ -110,12 +110,12 @@ class ExportExcelTest extends AbstractTestCase
 
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'null',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Replace NULL with:',
             $property->getText(),
         );
@@ -125,12 +125,12 @@ class ExportExcelTest extends AbstractTestCase
 
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'removeCRLF',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Remove carriage return/line feed characters within columns',
             $property->getText(),
         );
@@ -140,12 +140,12 @@ class ExportExcelTest extends AbstractTestCase
 
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'columns',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Put columns names in the first row',
             $property->getText(),
         );
@@ -155,12 +155,12 @@ class ExportExcelTest extends AbstractTestCase
 
         self::assertInstanceOf(SelectPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'edition',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             [
                 'win' => 'Windows',
                 'mac_excel2003' => 'Excel 2003 / Macintosh',
@@ -169,7 +169,7 @@ class ExportExcelTest extends AbstractTestCase
             $property->getValues(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Excel edition:',
             $property->getText(),
         );
@@ -178,7 +178,7 @@ class ExportExcelTest extends AbstractTestCase
 
         self::assertInstanceOf(HiddenPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'structure_or_data',
             $property->getName(),
         );

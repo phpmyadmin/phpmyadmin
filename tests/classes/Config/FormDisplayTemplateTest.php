@@ -196,7 +196,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
      */
     public function testDisplayGroupHeader(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '',
             $this->formDisplayTemplate->displayGroupHeader(''),
         );
@@ -226,7 +226,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
     {
         $this->formDisplayTemplate->group = 3;
         $this->formDisplayTemplate->displayGroupFooter();
-        self::assertEquals(2, $this->formDisplayTemplate->group);
+        self::assertSame(2, $this->formDisplayTemplate->group);
     }
 
     /**
@@ -240,7 +240,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         $this->formDisplayTemplate->addJsValidate('testID', $validators, $js);
 
-        self::assertEquals(
+        self::assertSame(
             [
                 'window.Config.registerFieldValidator(\'testID\', \'\\\';\', true, '
                 . '["\\\\r\\\\n\\\\\''

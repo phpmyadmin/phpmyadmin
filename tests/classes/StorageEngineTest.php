@@ -69,7 +69,7 @@ class StorageEngineTest extends AbstractTestCase
     #[RunInSeparateProcess]
     public function testGetStorageEngines(): void
     {
-        self::assertEquals(
+        self::assertSame(
             [
                 'dummy' => ['Engine' => 'dummy', 'Support' => 'YES', 'Comment' => 'dummy comment'],
                 'dummy2' => ['Engine' => 'dummy2', 'Support' => 'NO', 'Comment' => 'dummy2 comment'],
@@ -88,7 +88,7 @@ class StorageEngineTest extends AbstractTestCase
     {
         $actual = $this->object->getArray();
 
-        self::assertEquals(
+        self::assertSame(
             ['dummy' => ['name' => 'dummy', 'comment' => 'dummy comment', 'is_default' => false]],
             $actual,
         );
@@ -156,7 +156,7 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetPage(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '',
             $this->object->getPage('Foo'),
         );
@@ -167,7 +167,7 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetInfoPages(): void
     {
-        self::assertEquals(
+        self::assertSame(
             [],
             $this->object->getInfoPages(),
         );
@@ -178,7 +178,7 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetVariablesLikePattern(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '',
             $this->object->getVariablesLikePattern(),
         );
@@ -189,7 +189,7 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetMysqlHelpPage(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'dummy-storage-engine',
             $this->object->getMysqlHelpPage(),
         );
@@ -200,7 +200,7 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetVariables(): void
     {
-        self::assertEquals(
+        self::assertSame(
             [],
             $this->object->getVariables(),
         );
@@ -211,25 +211,25 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetSupportInformationMessage(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'dummy is available on this MySQL server.',
             $this->object->getSupportInformationMessage(),
         );
 
         $this->object->support = 1;
-        self::assertEquals(
+        self::assertSame(
             'dummy has been disabled for this MySQL server.',
             $this->object->getSupportInformationMessage(),
         );
 
         $this->object->support = 2;
-        self::assertEquals(
+        self::assertSame(
             'dummy is available on this MySQL server.',
             $this->object->getSupportInformationMessage(),
         );
 
         $this->object->support = 3;
-        self::assertEquals(
+        self::assertSame(
             'dummy is the default storage engine on this MySQL server.',
             $this->object->getSupportInformationMessage(),
         );
@@ -240,7 +240,7 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetComment(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'dummy comment',
             $this->object->getComment(),
         );
@@ -251,7 +251,7 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetTitle(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'dummy',
             $this->object->getTitle(),
         );
