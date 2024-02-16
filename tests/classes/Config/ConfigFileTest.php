@@ -54,13 +54,13 @@ class ConfigFileTest extends AbstractTestCase
     public function testNewObjectState(): void
     {
         // Check default dynamic values
-        self::assertEquals(
+        self::assertSame(
             [],
             $this->object->getConfig(),
         );
 
         // Check environment state
-        self::assertEquals(
+        self::assertSame(
             [],
             $_SESSION['ConfigFile1'],
         );
@@ -98,7 +98,7 @@ class ConfigFileTest extends AbstractTestCase
         $this->object->setPersistKeys(array_keys($defaultConfig));
         $this->object->resetConfigData();
         self::assertEmpty($this->object->getConfig());
-        self::assertEquals(
+        self::assertSame(
             $defaultConfig,
             $this->object->getConfigArray(),
         );
@@ -108,7 +108,7 @@ class ConfigFileTest extends AbstractTestCase
          * even if set to default values
          */
         $this->object->set('Servers/2/host', $defaultHost);
-        self::assertEquals(
+        self::assertSame(
             ['Servers' => [2 => ['host' => $defaultHost]]],
             $this->object->getConfig(),
         );
@@ -127,7 +127,7 @@ class ConfigFileTest extends AbstractTestCase
         $this->object->set('b', 2);
         $this->object->set('c', 3);
 
-        self::assertEquals(
+        self::assertSame(
             ['a' => 1, 'c' => 3],
             $this->object->getConfig(),
         );
@@ -156,11 +156,11 @@ class ConfigFileTest extends AbstractTestCase
         $this->object->set('Servers/1/passthrough2', 2);
         $this->object->updateWithGlobalConfig(['Servers/value1' => 3]);
 
-        self::assertEquals(
+        self::assertSame(
             ['Servers' => [1 => ['passthrough1' => 1, 'passthrough2' => 2, 'value1' => 3]]],
             $this->object->getConfig(),
         );
-        self::assertEquals(
+        self::assertSame(
             3,
             $this->object->get('Servers/1/value1'),
         );
@@ -187,11 +187,11 @@ class ConfigFileTest extends AbstractTestCase
         $this->object->set('abc', 'should be deleted by setConfigData');
         $this->object->setConfigData(['a' => 'b']);
 
-        self::assertEquals(
+        self::assertSame(
             ['a' => 'b'],
             $this->object->getConfig(),
         );
-        self::assertEquals(
+        self::assertSame(
             ['a' => 'b'],
             $this->object->getConfigArray(),
         );
@@ -208,15 +208,12 @@ class ConfigFileTest extends AbstractTestCase
         $this->object->set('Servers/4/host', $nonDefaultHost);
         $this->object->set('Servers/5/host', $defaultHost);
         $this->object->set('Servers/6/host', $defaultHost, 'Servers/6/host');
-        self::assertEquals(
+        self::assertSame(
             $nonDefaultHost,
             $this->object->get('Servers/4/host'),
         );
-        self::assertEquals(
-            null,
-            $this->object->get('Servers/5/host'),
-        );
-        self::assertEquals(
+        self::assertNull($this->object->get('Servers/5/host'));
+        self::assertSame(
             $defaultHost,
             $this->object->get('Servers/6/host'),
         );
@@ -225,7 +222,7 @@ class ConfigFileTest extends AbstractTestCase
         self::assertNull(
             $this->object->get('key not excist'),
         );
-        self::assertEquals(
+        self::assertSame(
             [1],
             $this->object->get('key not excist', [1]),
         );
@@ -269,7 +266,7 @@ class ConfigFileTest extends AbstractTestCase
             [self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $configIncPhpValue],
         );
         $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $defaultValue);
-        self::assertEquals(
+        self::assertSame(
             [self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $defaultValue],
             $this->object->getConfig(),
         );
@@ -284,10 +281,10 @@ class ConfigFileTest extends AbstractTestCase
         $flatDefaultConfig = $this->object->getFlatDefaultConfig();
 
         $defaultValue = $this->object->getDefault(self::SIMPLE_KEY_WITH_DEFAULT_VALUE);
-        self::assertEquals($defaultValue, $flatDefaultConfig[self::SIMPLE_KEY_WITH_DEFAULT_VALUE]);
+        self::assertSame($defaultValue, $flatDefaultConfig[self::SIMPLE_KEY_WITH_DEFAULT_VALUE]);
 
         $localhostValue = $this->object->getDefault('Servers/1/host');
-        self::assertEquals($localhostValue, $flatDefaultConfig['Servers/1/host']);
+        self::assertSame($localhostValue, $flatDefaultConfig['Servers/1/host']);
 
         $settings = new Settings([]);
         $cfg = $settings->asArray();
@@ -305,7 +302,7 @@ class ConfigFileTest extends AbstractTestCase
         $this->object->set('key2', 'value');
         $this->object->updateWithGlobalConfig(['key' => 'ABC']);
 
-        self::assertEquals(
+        self::assertSame(
             ['key' => 'ABC', 'key2' => 'value'],
             $this->object->getConfig(),
         );
@@ -316,12 +313,12 @@ class ConfigFileTest extends AbstractTestCase
      */
     public function testGetCanonicalPath(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'Servers/1/abcd',
             $this->object->getCanonicalPath('Servers/2/abcd'),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Servers/foo/bar',
             $this->object->getCanonicalPath('Servers/foo/bar'),
         );
@@ -336,12 +333,12 @@ class ConfigFileTest extends AbstractTestCase
         // verify that $cfg_db read from config.values.php is valid
         self::assertGreaterThanOrEqual(20, count($cfgDb));
 
-        self::assertEquals(
+        self::assertSame(
             $cfgDb['Servers'][1]['port'],
             $this->object->getDbEntry('Servers/1/port'),
         );
         self::assertNull($this->object->getDbEntry('no such key'));
-        self::assertEquals(
+        self::assertSame(
             [1],
             $this->object->getDbEntry('no such key', [1]),
         );
@@ -358,7 +355,7 @@ class ConfigFileTest extends AbstractTestCase
         $this->object->set('Servers/4/x', 4);
         $this->object->set('ServerDefault', 3);
 
-        self::assertEquals(
+        self::assertSame(
             4,
             $this->object->getServerCount(),
         );
@@ -366,7 +363,7 @@ class ConfigFileTest extends AbstractTestCase
         $this->object->removeServer(2);
         $this->object->removeServer(2);
 
-        self::assertEquals(
+        self::assertSame(
             2,
             $this->object->getServerCount(),
         );
@@ -375,11 +372,11 @@ class ConfigFileTest extends AbstractTestCase
             2,
             $this->object->get('ServerDefault'),
         );
-        self::assertEquals(
+        self::assertSame(
             ['Servers' => [1 => ['x' => 1], 2 => ['x' => 4]]],
             $this->object->getConfig(),
         );
-        self::assertEquals(
+        self::assertSame(
             ['Servers/1/x' => 1, 'Servers/2/x' => 4],
             $this->object->getConfigArray(),
         );
@@ -393,7 +390,7 @@ class ConfigFileTest extends AbstractTestCase
         $this->object->set('Servers/1/x', 'a');
         $this->object->set('Servers/2/x', 'b');
 
-        self::assertEquals(
+        self::assertSame(
             [1 => ['x' => 'a'], 2 => ['x' => 'b']],
             $this->object->getServers(),
         );
@@ -404,7 +401,7 @@ class ConfigFileTest extends AbstractTestCase
      */
     public function testGetServerDSN(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '',
             $this->object->getServerDSN(1),
         );
@@ -421,7 +418,7 @@ class ConfigFileTest extends AbstractTestCase
                 ],
             ],
         );
-        self::assertEquals(
+        self::assertSame(
             'mysqli://testUser@example.com:21',
             $this->object->getServerDSN(1),
         );
@@ -440,7 +437,7 @@ class ConfigFileTest extends AbstractTestCase
                 ],
             ],
         );
-        self::assertEquals(
+        self::assertSame(
             'mysqli://testUser@123',
             $this->object->getServerDSN(1),
         );
@@ -458,7 +455,7 @@ class ConfigFileTest extends AbstractTestCase
                 ],
             ],
         );
-        self::assertEquals(
+        self::assertSame(
             'mysqli://testUser:***@example.com:21',
             $this->object->getServerDSN(1),
         );
@@ -469,19 +466,19 @@ class ConfigFileTest extends AbstractTestCase
      */
     public function testGetServerName(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '',
             $this->object->getServerName(1),
         );
 
         $this->object->set('Servers/1/host', 'example.com');
-        self::assertEquals(
+        self::assertSame(
             'example.com',
             $this->object->getServerName(1),
         );
 
         $this->object->set('Servers/1/verbose', 'testData');
-        self::assertEquals(
+        self::assertSame(
             'testData',
             $this->object->getServerName(1),
         );

@@ -60,7 +60,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisGeometryCollection::singleton();
-        self::assertEquals($output, $object->generateWkt($gisData, $index, $empty));
+        self::assertSame($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
@@ -158,7 +158,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     public function testGenerateParams(string $wkt, array $params): void
     {
         $object = GisGeometryCollection::singleton();
-        self::assertEquals($params, $object->generateParams($wkt));
+        self::assertSame($params, $object->generateParams($wkt));
     }
 
     /**
@@ -291,8 +291,8 @@ class GisGeometryCollectionTest extends GisGeomTestCase
             new ScaleData(offsetX: -19, offsetY: -3, scale: 2.29, height: 124),
             $image,
         );
-        self::assertEquals(200, $image->width());
-        self::assertEquals(124, $image->height());
+        self::assertSame(200, $image->width());
+        self::assertSame(124, $image->height());
 
         $fileExpected = $this->testDir . '/geometrycollection-expected.png';
         $fileActual = $this->testDir . '/geometrycollection-actual.png';
@@ -363,7 +363,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     ): void {
         $object = GisGeometryCollection::singleton();
         $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
-        self::assertEquals($output, $svg);
+        self::assertSame($output, $svg);
     }
 
     /**
@@ -405,7 +405,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         string $output,
     ): void {
         $object = GisGeometryCollection::singleton();
-        self::assertEquals(
+        self::assertSame(
             $output,
             $object->prepareRowAsOl(
                 $spatial,

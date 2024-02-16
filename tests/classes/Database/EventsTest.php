@@ -154,7 +154,7 @@ class EventsTest extends AbstractTestCase
             ->getMock();
         DatabaseInterface::$instance = $dbi;
 
-        self::assertEquals($query, $this->events->getQueryFromRequest());
+        self::assertSame($query, $this->events->getQueryFromRequest());
         self::assertCount($numErr, $GLOBALS['errors']);
     }
 

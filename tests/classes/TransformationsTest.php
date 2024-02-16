@@ -55,7 +55,7 @@ class TransformationsTest extends AbstractTestCase
     #[DataProvider('getOptionsData')]
     public function testGetOptions(string $input, array $expected): void
     {
-        self::assertEquals(
+        self::assertSame(
             $expected,
             $this->transformations->getOptions($input),
         );
@@ -177,7 +177,7 @@ class TransformationsTest extends AbstractTestCase
             'column_info' => 'column_info',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
-        self::assertEquals(
+        self::assertSame(
             [
                 'o' => [
                     'column_name' => 'o',
@@ -247,7 +247,7 @@ class TransformationsTest extends AbstractTestCase
     #[DataProvider('fixupData')]
     public function testFixup(string $value, string $expected): void
     {
-        self::assertEquals(
+        self::assertSame(
             $expected,
             $this->transformations->fixUpMime($value),
         );
@@ -274,7 +274,7 @@ class TransformationsTest extends AbstractTestCase
     #[DataProvider('providerGetDescription')]
     public function testGetDescription(string $file, string $expectedDescription): void
     {
-        self::assertEquals(
+        self::assertSame(
             $expectedDescription,
             $this->transformations->getDescription($file),
         );
@@ -299,7 +299,7 @@ class TransformationsTest extends AbstractTestCase
     #[DataProvider('providerGetName')]
     public function testGetName(string $file, string $expectedName): void
     {
-        self::assertEquals(
+        self::assertSame(
             $expectedName,
             $this->transformations->getName($file),
         );

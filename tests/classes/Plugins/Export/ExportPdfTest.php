@@ -70,22 +70,22 @@ class ExportPdfTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals(
+        self::assertSame(
             'PDF',
             $properties->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'pdf',
             $properties->getExtension(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'application/pdf',
             $properties->getMimeType(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Options',
             $properties->getOptionsText(),
         );
@@ -98,7 +98,7 @@ class ExportPdfTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals(
+        self::assertSame(
             'Format Specific Options',
             $options->getName(),
         );
@@ -110,7 +110,7 @@ class ExportPdfTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals(
+        self::assertSame(
             'general_opts',
             $generalOptions->getName(),
         );
@@ -121,7 +121,7 @@ class ExportPdfTest extends AbstractTestCase
 
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'report_title',
             $property->getName(),
         );
@@ -130,12 +130,12 @@ class ExportPdfTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals(
+        self::assertSame(
             'dump_what',
             $generalOptions->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Dump table',
             $generalOptions->getText(),
         );
@@ -146,12 +146,12 @@ class ExportPdfTest extends AbstractTestCase
 
         self::assertInstanceOf(RadioPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'structure_or_data',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
             $property->getValues(),
         );

@@ -47,7 +47,7 @@ class PageSettingsTest extends AbstractTestCase
         $object = new PageSettings(new UserPreferences($dbi, new Relation($dbi), new Template()));
         $object->init('NonExistent');
 
-        self::assertEquals('', $object->getHTML());
+        self::assertSame('', $object->getHTML());
     }
 
     /**

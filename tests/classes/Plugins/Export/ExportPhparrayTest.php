@@ -73,22 +73,22 @@ class ExportPhparrayTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals(
+        self::assertSame(
             'PHP array',
             $properties->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'php',
             $properties->getExtension(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'text/plain',
             $properties->getMimeType(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Options',
             $properties->getOptionsText(),
         );
@@ -97,7 +97,7 @@ class ExportPhparrayTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals(
+        self::assertSame(
             'Format Specific Options',
             $options->getName(),
         );
@@ -107,7 +107,7 @@ class ExportPhparrayTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals(
+        self::assertSame(
             'general_opts',
             $generalOptions->getName(),
         );
@@ -179,7 +179,7 @@ class ExportPhparrayTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        self::assertEquals(
+        self::assertSame(
             "\n" . '/* `test_db`.`test_table` */' . "\n" .
             '$test_table = array(' . "\n" .
             '  array(\'id\' => \'1\',\'name\' => \'abcd\',\'datetimefield\' => \'2011-01-20 02:00:02\'),' . "\n" .
@@ -202,7 +202,7 @@ class ExportPhparrayTest extends AbstractTestCase
         $result = ob_get_clean();
 
         self::assertIsString($result);
-        self::assertEquals(
+        self::assertSame(
             "\n" . '/* `test_db`.`0``932table` */' . "\n" .
             '$_0_932table = array(' . "\n" .
             '  array(\'id\' => \'1\',\'name\' => \'abcd\',\'datetimefield\' => \'2011-01-20 02:00:02\'),' . "\n" .

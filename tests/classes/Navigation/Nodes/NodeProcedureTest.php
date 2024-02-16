@@ -18,7 +18,7 @@ class NodeProcedureTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeProcedure(new Config(), 'default');
-        self::assertEquals(
+        self::assertSame(
             [
                 'text' => [
                     'route' => '/database/routines',

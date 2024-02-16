@@ -47,7 +47,7 @@ class PbxtTest extends AbstractTestCase
      */
     public function testGetVariables(): void
     {
-        self::assertEquals(
+        self::assertSame(
             $this->object->getVariables(),
             [
                 'pbxt_index_cache_size' => [
@@ -168,7 +168,7 @@ class PbxtTest extends AbstractTestCase
     #[DataProvider('providerFortTestResolveTypeSize')]
     public function testResolveTypeSize(string $formattedSize, array $output): void
     {
-        self::assertEquals(
+        self::assertSame(
             $this->object->resolveTypeSize($formattedSize),
             $output,
         );
@@ -189,7 +189,7 @@ class PbxtTest extends AbstractTestCase
      */
     public function testGetInfoPages(): void
     {
-        self::assertEquals(
+        self::assertSame(
             $this->object->getInfoPages(),
             ['Documentation' => 'Documentation'],
         );
@@ -200,7 +200,7 @@ class PbxtTest extends AbstractTestCase
      */
     public function testGetPage(): void
     {
-        self::assertEquals(
+        self::assertSame(
             $this->object->getPage('Documentation'),
             '<p>'
             . sprintf(

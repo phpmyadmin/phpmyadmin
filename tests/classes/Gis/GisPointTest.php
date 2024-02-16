@@ -50,7 +50,7 @@ class GisPointTest extends GisGeomTestCase
     public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisPoint::singleton();
-        self::assertEquals($output, $object->generateWkt($gisData, $index, $empty));
+        self::assertSame($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
@@ -63,7 +63,7 @@ class GisPointTest extends GisGeomTestCase
     public function testGetShape(array $rowData, string $shape): void
     {
         $object = GisPoint::singleton();
-        self::assertEquals($shape, $object->getShape($rowData));
+        self::assertSame($shape, $object->getShape($rowData));
     }
 
     /**
@@ -86,7 +86,7 @@ class GisPointTest extends GisGeomTestCase
     public function testGenerateParams(string $wkt, array $params): void
     {
         $object = GisPoint::singleton();
-        self::assertEquals($params, $object->generateParams($wkt));
+        self::assertSame($params, $object->generateParams($wkt));
     }
 
     /**
@@ -160,8 +160,8 @@ class GisPointTest extends GisGeomTestCase
             new ScaleData(offsetX: -88, offsetY: -27, scale: 1, height: 124),
             $image,
         );
-        self::assertEquals(200, $image->width());
-        self::assertEquals(124, $image->height());
+        self::assertSame(200, $image->width());
+        self::assertSame(124, $image->height());
 
         $fileExpected = $this->testDir . '/point-expected.png';
         $fileActual = $this->testDir . '/point-actual.png';
@@ -232,7 +232,7 @@ class GisPointTest extends GisGeomTestCase
     ): void {
         $object = GisPoint::singleton();
         $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
-        self::assertEquals($output, $svg);
+        self::assertSame($output, $svg);
     }
 
     /**
@@ -272,7 +272,7 @@ class GisPointTest extends GisGeomTestCase
     ): void {
         $object = GisPoint::singleton();
         $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
-        self::assertEquals($output, $ol);
+        self::assertSame($output, $ol);
     }
 
     /**

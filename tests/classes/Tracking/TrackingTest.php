@@ -93,8 +93,8 @@ class TrackingTest extends AbstractTestCase
             new DateTimeImmutable('2020-01-01 12:34:56'),
         );
 
-        self::assertEquals('username1', $ret[0]['username']);
-        self::assertEquals('statement1', $ret[0]['statement']);
+        self::assertSame('username1', $ret[0]['username']);
+        self::assertSame('statement1', $ret[0]['statement']);
     }
 
     public function testGetHtmlForMain(): void
@@ -408,7 +408,7 @@ class TrackingTest extends AbstractTestCase
             $html,
         );
 
-        self::assertEquals(2, $count);
+        self::assertSame(2, $count);
     }
 
     /**
@@ -500,7 +500,7 @@ class TrackingTest extends AbstractTestCase
         $_POST['truncate'] = true;
 
         $trackingSet = $this->tracking->getTrackingSet();
-        self::assertEquals('RENAME TABLE,CREATE TABLE,DROP TABLE,DROP INDEX,INSERT,DELETE,TRUNCATE', $trackingSet);
+        self::assertSame('RENAME TABLE,CREATE TABLE,DROP TABLE,DROP INDEX,INSERT,DELETE,TRUNCATE', $trackingSet);
 
         //other set to true
         $_POST['alter_table'] = true;
@@ -515,7 +515,7 @@ class TrackingTest extends AbstractTestCase
         $_POST['truncate'] = false;
 
         $trackingSet = $this->tracking->getTrackingSet();
-        self::assertEquals('ALTER TABLE,CREATE INDEX,UPDATE', $trackingSet);
+        self::assertSame('ALTER TABLE,CREATE INDEX,UPDATE', $trackingSet);
     }
 
     /**
@@ -540,8 +540,8 @@ class TrackingTest extends AbstractTestCase
             new DateTimeImmutable('2010-01-01 12:34:56'),
             new DateTimeImmutable('2020-01-01 12:34:56'),
         );
-        self::assertEquals('username3', $entries[0]['username']);
-        self::assertEquals('statement1', $entries[0]['statement']);
+        self::assertSame('username3', $entries[0]['username']);
+        self::assertSame('statement1', $entries[0]['statement']);
     }
 
     public function testGetDownloadInfoForExport(): void

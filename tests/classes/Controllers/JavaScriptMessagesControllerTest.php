@@ -33,6 +33,6 @@ class JavaScriptMessagesControllerTest extends TestCase
 
         self::assertIsArray($array);
         self::assertArrayHasKey('strDoYouReally', $array);
-        self::assertEquals('Do you really want to execute "%s"?', $array['strDoYouReally']);
+        self::assertSame('Do you really want to execute "%s"?', $array['strDoYouReally']);
     }
 }

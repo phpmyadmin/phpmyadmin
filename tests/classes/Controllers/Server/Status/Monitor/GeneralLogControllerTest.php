@@ -78,7 +78,7 @@ class GeneralLogControllerTest extends AbstractTestCase
         $resultRows = [$value, $value2];
         $resultSum = ['argument' => 10, 'TOTAL' => 21, 'argument3' => 11];
 
-        self::assertEquals(2, $ret['message']['numRows']);
+        self::assertSame(2, $ret['message']['numRows']);
         self::assertEquals($resultRows, $ret['message']['rows']);
         self::assertEquals($resultSum, $ret['message']['sum']);
     }

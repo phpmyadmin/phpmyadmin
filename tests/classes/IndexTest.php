@@ -62,19 +62,19 @@ class IndexTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $index = new Index($this->params);
-        self::assertEquals(
+        self::assertSame(
             'PMA_Index_comment',
             $index->getComment(),
         );
-        self::assertEquals(
+        self::assertSame(
             'PMA_Comment',
             $index->getRemarks(),
         );
-        self::assertEquals(
+        self::assertSame(
             'PMA_Index_choice',
             $index->getChoice(),
         );
-        self::assertEquals(
+        self::assertSame(
             'PMA_Packed',
             $index->getPacked(),
         );
@@ -90,7 +90,7 @@ class IndexTest extends AbstractTestCase
             'PMA_Index_comment',
             $index->getComments(),
         );
-        self::assertEquals(
+        self::assertSame(
             'PMA_Index_choice',
             $index->getChoice(),
         );
@@ -106,7 +106,7 @@ class IndexTest extends AbstractTestCase
         self::assertTrue(
             $index->isUnique(),
         );
-        self::assertEquals(
+        self::assertSame(
             'Yes',
             $index->isUnique(true),
         );
@@ -122,7 +122,7 @@ class IndexTest extends AbstractTestCase
         self::assertTrue($index->hasColumn('column1'));
         self::assertTrue($index->hasColumn('column2'));
         self::assertTrue($index->hasColumn('column3'));
-        self::assertEquals(
+        self::assertSame(
             3,
             $index->getColumnCount(),
         );
@@ -135,7 +135,7 @@ class IndexTest extends AbstractTestCase
     {
         $index = new Index();
         $index->setName('PMA_name');
-        self::assertEquals(
+        self::assertSame(
             'PMA_name',
             $index->getName(),
         );
@@ -148,7 +148,7 @@ class IndexTest extends AbstractTestCase
 
         $indexColumns = $index->getColumns();
         $indexColumn = $indexColumns['column1'];
-        self::assertEquals(
+        self::assertSame(
             'column1',
             $indexColumn->getName(),
         );
@@ -156,7 +156,7 @@ class IndexTest extends AbstractTestCase
             '1',
             $indexColumn->getSeqInIndex(),
         );
-        self::assertEquals(
+        self::assertSame(
             'Collation1',
             $indexColumn->getCollation(),
         );

@@ -68,7 +68,7 @@ class SvgRelationSchemaTest extends AbstractTestCase
     #[Group('medium')]
     public function testConstructor(): void
     {
-        self::assertEquals(33, $this->object->getPageNumber());
+        self::assertSame(33, $this->object->getPageNumber());
         self::assertTrue($this->object->isShowColor());
         self::assertTrue($this->object->isShowKeys());
         self::assertTrue($this->object->isTableDimension());

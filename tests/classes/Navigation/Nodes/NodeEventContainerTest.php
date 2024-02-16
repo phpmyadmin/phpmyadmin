@@ -18,13 +18,13 @@ class NodeEventContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeEventContainer(new Config());
-        self::assertEquals(
+        self::assertSame(
             [
                 'text' => ['route' => '/database/events', 'params' => ['db' => null]],
                 'icon' => ['route' => '/database/events', 'params' => ['db' => null]],
             ],
             $parent->links,
         );
-        self::assertEquals('events', $parent->realName);
+        self::assertSame('events', $parent->realName);
     }
 }

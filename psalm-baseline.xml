@@ -12249,7 +12249,6 @@
     <MixedAssignment>
       <code>$context</code>
       <code>$context</code>
-      <code>$context</code>
       <code>$filesFound</code>
       <code>$filesFound</code>
       <code>$filesInfos</code>
@@ -12292,6 +12291,11 @@
     <PossiblyUnusedMethod>
       <code>getValues</code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/classes/Config/FormDisplayTemplateTest.php">
+    <TypeDoesNotContainType>
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="tests/classes/Config/FormDisplayTest.php">
     <DeprecatedMethod>
@@ -13320,9 +13324,6 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <MixedAssignment>
-      <code>$output</code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>providerGetDataFromRequest</code>
     </PossiblyUnusedMethod>
@@ -13384,6 +13385,10 @@
       <code>providerTestGotoNowhere</code>
       <code>providerTestLinkURL</code>
     </PossiblyUnusedMethod>
+    <TypeDoesNotContainType>
+      <code>assertSame</code>
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="tests/classes/CreateAddFieldTest.php">
     <DeprecatedMethod>
@@ -13460,9 +13465,6 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <MixedAssignment>
-      <code>$result</code>
-    </MixedAssignment>
   </file>
   <file src="tests/classes/Database/EventsTest.php">
     <DeprecatedMethod>
@@ -13846,13 +13848,6 @@
       <code>$dataSet</code>
       <code>$dataSet</code>
       <code>$queryString</code>
-      <code>$queryString</code>
-      <code>$queryString</code>
-      <code>$queryString</code>
-      <code>$queryString</code>
-      <code>$queryString</code>
-      <code>$queryString</code>
-      <code>$queryString</code>
     </MixedAssignment>
   </file>
   <file src="tests/classes/HeaderTest.php">
@@ -13942,6 +13937,11 @@
       <code>providerForTestCreateUri</code>
       <code>uriFactoryProviders</code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/classes/Http/Middleware/TokenRequestParamCheckingTest.php">
+    <RedundantCondition>
+      <code>assertSame</code>
+    </RedundantCondition>
   </file>
   <file src="tests/classes/Http/ResponseTest.php">
     <PossiblyUnusedMethod>
@@ -14093,12 +14093,6 @@
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
     </MixedAssignment>
     <PossiblyInvalidCast>
       <code>$value</code>
@@ -14110,6 +14104,11 @@
     <PropertyTypeCoercion>
       <code><![CDATA[Config::getInstance()->settings]]></code>
     </PropertyTypeCoercion>
+    <TypeDoesNotContainType>
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="tests/classes/IpAllowDenyTest.php">
     <DeprecatedMethod>
@@ -14227,15 +14226,15 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
+    <DocblockTypeContradiction>
+      <code>assertSame</code>
+    </DocblockTypeContradiction>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
-    <MixedAssignment>
-      <code>$result</code>
-    </MixedAssignment>
   </file>
   <file src="tests/classes/OpenDocumentTest.php">
     <RedundantCondition>
@@ -14246,6 +14245,9 @@
     <PossiblyUnusedMethod>
       <code>providerGetPartitionMaintenanceChoices</code>
     </PossiblyUnusedMethod>
+    <TypeDoesNotContainType>
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="tests/classes/Partitioning/PartitionTest.php">
     <PossiblyUnusedMethod>
@@ -14358,6 +14360,9 @@
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
     </PropertyTypeCoercion>
+    <TypeDoesNotContainType>
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="tests/classes/Plugins/Auth/AuthenticationHttpTest.php">
     <DeprecatedMethod>
@@ -14378,6 +14383,14 @@
     <PossiblyUnusedMethod>
       <code>readCredentialsProvider</code>
     </PossiblyUnusedMethod>
+    <RedundantCondition>
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType>
+      <code>assertSame</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="tests/classes/Plugins/Auth/AuthenticationSignonTest.php">
     <DeprecatedMethod>
@@ -14407,6 +14420,9 @@
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
+    <RedundantCondition>
+      <code>assertSame</code>
+    </RedundantCondition>
   </file>
   <file src="tests/classes/Plugins/AuthenticationPluginFactoryTest.php">
     <DeprecatedMethod>
@@ -14418,18 +14434,23 @@
       <code>providerForTestValidPlugins</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="tests/classes/Plugins/Export/ExportCodegenTest.php">
-    <MixedAssignment>
-      <code>$result</code>
-      <code>$result</code>
-    </MixedAssignment>
-  </file>
   <file src="tests/classes/Plugins/Export/ExportCsvTest.php">
+    <DocblockTypeContradiction>
+      <code>assertSame</code>
+    </DocblockTypeContradiction>
     <RedundantCondition>
       <code>assertFalse</code>
+      <code>assertSame</code>
     </RedundantCondition>
     <RedundantConditionGivenDocblockType>
       <code>assertFalse</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="tests/classes/Plugins/Export/ExportHtmlwordTest.php">
@@ -14463,6 +14484,11 @@
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
   </file>
+  <file src="tests/classes/Plugins/Export/ExportOdsTest.php">
+    <TypeDoesNotContainType>
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
+  </file>
   <file src="tests/classes/Plugins/Export/ExportOdtTest.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
@@ -14482,6 +14508,9 @@
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
+    <TypeDoesNotContainType>
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="tests/classes/Plugins/Export/ExportSqlTest.php">
     <DeprecatedMethod>
@@ -14506,8 +14535,6 @@
       <code>$result</code>
     </MixedArgument>
     <MixedAssignment>
-      <code>$result</code>
-      <code>$result</code>
       <code>$result</code>
       <code>$result</code>
     </MixedAssignment>
@@ -14584,6 +14611,7 @@
     </DeprecatedMethod>
     <RedundantCondition>
       <code>assertFalse</code>
+      <code>assertSame</code>
     </RedundantCondition>
   </file>
   <file src="tests/classes/Plugins/Import/ImportSqlTest.php">
@@ -14811,7 +14839,6 @@
   <file src="tests/classes/Setup/ConfigGeneratorTest.php">
     <MixedAssignment>
       <code>$result</code>
-      <code>$result</code>
     </MixedAssignment>
   </file>
   <file src="tests/classes/Setup/FormProcessingTest.php">
@@ -14827,6 +14854,9 @@
       <code><![CDATA[$_SESSION['messages']['type']]]></code>
       <code><![CDATA[$_SESSION['messages']['type']['123']]]></code>
     </MixedArrayAccess>
+    <TypeDoesNotContainType>
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="tests/classes/SqlQueryFormTest.php">
     <DeprecatedMethod>
@@ -14853,9 +14883,6 @@
       <code>Config::getInstance()</code>
       <code>Config::getInstance()</code>
     </DeprecatedMethod>
-    <MixedAssignment>
-      <code>$result</code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>dataProviderCountQueryResults</code>
     </PossiblyUnusedMethod>
@@ -14933,7 +14960,6 @@
     </InvalidArrayOffset>
     <MixedAssignment>
       <code>$isDefineProperty</code>
-      <code>$sql</code>
       <code>$sql</code>
     </MixedAssignment>
     <PossiblyUnusedMethod>

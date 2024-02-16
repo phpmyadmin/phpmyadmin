@@ -27,7 +27,7 @@ class PluginsTest extends AbstractTestCase
     public function testGetExport(): void
     {
         $plugins = Plugins::getExport('database', false);
-        self::assertEquals(['export_type' => 'database', 'single_table' => false], $GLOBALS['plugin_param']);
+        self::assertSame(['export_type' => 'database', 'single_table' => false], $GLOBALS['plugin_param']);
         self::assertIsArray($plugins);
         self::assertCount(14, $plugins);
         self::assertContainsOnlyInstancesOf(Plugins\ExportPlugin::class, $plugins);
@@ -36,7 +36,7 @@ class PluginsTest extends AbstractTestCase
     public function testGetImport(): void
     {
         $plugins = Plugins::getImport('database');
-        self::assertEquals('database', $GLOBALS['plugin_param']);
+        self::assertSame('database', $GLOBALS['plugin_param']);
         self::assertIsArray($plugins);
         self::assertCount(6, $plugins);
         self::assertContainsOnlyInstancesOf(Plugins\ImportPlugin::class, $plugins);
@@ -135,6 +135,6 @@ class PluginsTest extends AbstractTestCase
             ['name' => 'sql', 'text' => 'SQL', 'is_selected' => false, 'is_binary' => false],
             ['name' => 'xml', 'text' => 'XML', 'is_selected' => true, 'is_binary' => false],
         ];
-        self::assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 }

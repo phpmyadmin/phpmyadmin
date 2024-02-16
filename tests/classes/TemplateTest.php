@@ -79,7 +79,7 @@ class TemplateTest extends AbstractTestCase
     #[DataProvider('providerTestDynamicRender')]
     public function testDynamicRender(string $templateFile, string $key, string $value): void
     {
-        self::assertEquals(
+        self::assertSame(
             $value,
             $this->template->render($templateFile, [$key => $value]),
         );
@@ -113,7 +113,7 @@ class TemplateTest extends AbstractTestCase
     #[DataProvider('providerTestRender')]
     public function testRender(string $templateFile, string $expectedResult): void
     {
-        self::assertEquals(
+        self::assertSame(
             $expectedResult,
             $this->template->render($templateFile),
         );
@@ -139,7 +139,7 @@ class TemplateTest extends AbstractTestCase
     #[DataProvider('providerTestRenderGettext')]
     public function testRenderGettext(string $templateFile, array $renderParams, string $expectedResult): void
     {
-        self::assertEquals(
+        self::assertSame(
             $expectedResult,
             $this->template->render($templateFile, $renderParams),
         );

@@ -57,7 +57,7 @@ class ExportTest extends AbstractTestCase
             ],
         ];
         $actual = $export->mergeAliases($aliases1, $aliases2);
-        self::assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     public function testGetFinalFilenameAndMimetypeForFilename(): void

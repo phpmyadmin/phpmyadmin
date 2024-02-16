@@ -178,7 +178,7 @@ class ReplaceControllerTest extends AbstractTestCase
             [$request1],
         );
 
-        self::assertEquals(
+        self::assertSame(
             [['LIMIT 1'], true, true],
             $result,
         );
@@ -197,7 +197,7 @@ class ReplaceControllerTest extends AbstractTestCase
             [$request2],
         );
 
-        self::assertEquals(
+        self::assertSame(
             [['a', 'c'], false, true],
             $result,
         );

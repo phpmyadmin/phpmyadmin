@@ -48,7 +48,7 @@ class PolygonTest extends AbstractTestCase
     #[DataProvider('providerForTestArea')]
     public function testArea(Polygon $ring, float $area): void
     {
-        self::assertEquals($area, $ring->area());
+        self::assertSame($area, $ring->area());
     }
 
     /**
@@ -95,7 +95,7 @@ class PolygonTest extends AbstractTestCase
     #[DataProvider('providerForTestIsPointInsidePolygon')]
     public function testIsPointInsidePolygon(Point $point, Polygon $polygon, bool $isInside): void
     {
-        self::assertEquals($isInside, $point->isInsidePolygon($polygon));
+        self::assertSame($isInside, $point->isInsidePolygon($polygon));
     }
 
     /**

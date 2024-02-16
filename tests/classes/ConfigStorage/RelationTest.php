@@ -42,7 +42,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addSelectDb('phpmyadmin');
         $db = 'information_schema';
         $table = 'CHARACTER_SETS';
-        self::assertEquals(
+        self::assertSame(
             'DESCRIPTION',
             $relation->getDisplayField($db, $table),
         );
@@ -50,7 +50,7 @@ class RelationTest extends AbstractTestCase
 
         $db = 'information_schema';
         $table = 'TABLES';
-        self::assertEquals(
+        self::assertSame(
             'TABLE_COMMENT',
             $relation->getDisplayField($db, $table),
         );
@@ -88,14 +88,14 @@ class RelationTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         $db = 'information_schema';
-        self::assertEquals(
+        self::assertSame(
             [''],
             $relation->getComments($db),
         );
 
         $db = 'information_schema';
         $table = 'TABLES';
-        self::assertEquals(
+        self::assertSame(
             ['field1' => 'Comment1', 'field2' => 'Comment1'],
             $relation->getComments($db, $table),
         );

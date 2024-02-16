@@ -21,7 +21,7 @@ class NodeDatabaseTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeDatabase(new Config(), 'default');
-        self::assertEquals(
+        self::assertSame(
             [
                 'text' => ['route' => '/database/structure', 'params' => ['db' => null]],
                 'icon' => ['route' => '/database/operations', 'params' => ['db' => null]],
@@ -43,23 +43,23 @@ class NodeDatabaseTest extends AbstractTestCase
         $userPrivileges = new UserPrivileges();
 
         $parent = new NodeDatabase($config, 'default');
-        self::assertEquals(
+        self::assertSame(
             2,
             $parent->getPresence($userPrivileges, 'tables'),
         );
-        self::assertEquals(
+        self::assertSame(
             0,
             $parent->getPresence($userPrivileges, 'views'),
         );
-        self::assertEquals(
+        self::assertSame(
             1,
             $parent->getPresence($userPrivileges, 'functions'),
         );
-        self::assertEquals(
+        self::assertSame(
             0,
             $parent->getPresence($userPrivileges, 'procedures'),
         );
-        self::assertEquals(
+        self::assertSame(
             0,
             $parent->getPresence($userPrivileges, 'events'),
         );

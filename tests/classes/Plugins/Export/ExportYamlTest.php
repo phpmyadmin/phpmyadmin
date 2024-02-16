@@ -72,17 +72,17 @@ class ExportYamlTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals(
+        self::assertSame(
             'YAML',
             $properties->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'yml',
             $properties->getExtension(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'text/yaml',
             $properties->getMimeType(),
         );
@@ -91,7 +91,7 @@ class ExportYamlTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals(
+        self::assertSame(
             'Format Specific Options',
             $options->getName(),
         );
@@ -102,7 +102,7 @@ class ExportYamlTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals(
+        self::assertSame(
             'general_opts',
             $generalOptions->getName(),
         );
@@ -169,7 +169,7 @@ class ExportYamlTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        self::assertEquals(
+        self::assertSame(
             '# test_db.test_table' . "\n" .
             '-' . "\n" .
             '  id: 1' . "\n" .

@@ -103,11 +103,11 @@ class ImportCsvTest extends AbstractTestCase
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
-        self::assertEquals(
+        self::assertSame(
             __('CSV'),
             $properties->getText(),
         );
-        self::assertEquals(
+        self::assertSame(
             'csv',
             $properties->getExtension(),
         );
@@ -189,11 +189,11 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['plugin_param'] = 'table';
         $this->object = new ImportCsv();
         $properties = $this->object->getProperties();
-        self::assertEquals(
+        self::assertSame(
             __('CSV'),
             $properties->getText(),
         );
-        self::assertEquals(
+        self::assertSame(
             'csv',
             $properties->getExtension(),
         );

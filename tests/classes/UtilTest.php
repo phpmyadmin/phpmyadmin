@@ -79,7 +79,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('charsetQueryData')]
     public function testGenerateCharsetQueryPart(string $collation, string $expected): void
     {
-        self::assertEquals(
+        self::assertSame(
             $expected,
             Util::getCharsetQueryPart($collation),
         );
@@ -100,8 +100,8 @@ class UtilTest extends AbstractTestCase
      */
     public function testGenerateRandom(): void
     {
-        self::assertEquals(32, strlen(Util::generateRandom(32)));
-        self::assertEquals(16, strlen(Util::generateRandom(16)));
+        self::assertSame(32, strlen(Util::generateRandom(32)));
+        self::assertSame(16, strlen(Util::generateRandom(16)));
     }
 
     public function testClearUserCache(): void
@@ -109,10 +109,10 @@ class UtilTest extends AbstractTestCase
         Config::getInstance()->selectedServer['user'] = null;
         Current::$server = 2;
         SessionCache::set('is_superuser', 'yes');
-        self::assertEquals('yes', $_SESSION['cache']['server_2']['is_superuser']);
+        self::assertSame('yes', $_SESSION['cache']['server_2']['is_superuser']);
 
         SessionCache::set('mysql_cur_user', 'mysql');
-        self::assertEquals('mysql', $_SESSION['cache']['server_2']['mysql_cur_user']);
+        self::assertSame('mysql', $_SESSION['cache']['server_2']['mysql_cur_user']);
 
         Util::clearUserCache();
         self::assertArrayNotHasKey('is_superuser', $_SESSION['cache']['server_2']);
@@ -128,7 +128,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerConvertBitDefaultValue')]
     public function testConvertBitDefaultValue(string|null $bit, string $val): void
     {
-        self::assertEquals(
+        self::assertSame(
             $val,
             Util::convertBitDefaultValue($bit),
         );
@@ -170,12 +170,12 @@ class UtilTest extends AbstractTestCase
         Current::$database = 'database';
         Current::$table = 'table';
 
-        self::assertEquals(
+        self::assertSame(
             $out,
             Util::expandUserString($in),
         );
 
-        self::assertEquals(
+        self::assertSame(
             htmlspecialchars($out),
             Util::expandUserString(
                 $in,
@@ -357,7 +357,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerParseEnumSetValues')]
     public function testParseEnumSetValues(string $in, bool $escapeHTML, array $out): void
     {
-        self::assertEquals(
+        self::assertSame(
             $out,
             Util::parseEnumSetValues($in, $escapeHTML),
         );
@@ -477,7 +477,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerExtractValueFromFormattedSize')]
     public function testExtractValueFromFormattedSize(int|string $size, int|float $expected): void
     {
-        self::assertEquals(
+        self::assertSame(
             $expected,
             Util::extractValueFromFormattedSize($size),
         );
@@ -548,7 +548,7 @@ class UtilTest extends AbstractTestCase
      */
     private function assertFormatNumber(float|int|string $a, int $b, int $c, string $d): void
     {
-        self::assertEquals(
+        self::assertSame(
             $d,
             Util::formatNumber(
                 $a,
@@ -650,7 +650,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerGetFormattedMaximumUploadSize')]
     public function testGetFormattedMaximumUploadSize(int|float|string $size, string $unit, string $res): void
     {
-        self::assertEquals(
+        self::assertSame(
             '(' . __('Max: ') . $res . $unit . ')',
             Util::getFormattedMaximumUploadSize($size),
         );
@@ -692,7 +692,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerGetTitleForTarget')]
     public function testGetTitleForTarget(string $target, string $result): void
     {
-        self::assertEquals(
+        self::assertSame(
             $result,
             Util::getTitleForTarget($target),
         );
@@ -739,7 +739,7 @@ class UtilTest extends AbstractTestCase
         $tmpTimezone = date_default_timezone_get();
         date_default_timezone_set($tz);
 
-        self::assertEquals(
+        self::assertSame(
             $e,
             Util::localisedDate($a, $b),
         );
@@ -818,7 +818,7 @@ class UtilTest extends AbstractTestCase
         $tmpTimezone = date_default_timezone_get();
         date_default_timezone_set('Europe/London');
 
-        self::assertEquals(
+        self::assertSame(
             $e,
             Util::timespanFormat($a),
         );
@@ -849,7 +849,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerPrintableBitValue')]
     public function testPrintableBitValue(int $a, int $b, string $e): void
     {
-        self::assertEquals(
+        self::assertSame(
             $e,
             Util::printableBitValue($a, $b),
         );
@@ -877,7 +877,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerUnQuote')]
     public function testUnQuote(string $param, string $expected): void
     {
-        self::assertEquals(
+        self::assertSame(
             $expected,
             Util::unQuote($param),
         );
@@ -902,7 +902,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerUnQuoteSelectedChar')]
     public function testUnQuoteSelectedChar(string $param, string $expected): void
     {
-        self::assertEquals(
+        self::assertSame(
             $expected,
             Util::unQuote($param, '"'),
         );
@@ -966,7 +966,7 @@ class UtilTest extends AbstractTestCase
     {
         Config::getInstance()->selectedServer['user'] = 'root';
 
-        self::assertEquals($e, Util::userDir($a));
+        self::assertSame($e, Util::userDir($a));
     }
 
     /**
@@ -988,7 +988,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerDuplicateFirstNewline')]
     public function testDuplicateFirstNewline(string $a, string $e): void
     {
-        self::assertEquals(
+        self::assertSame(
             $e,
             Util::duplicateFirstNewline($a),
         );
@@ -1007,7 +1007,7 @@ class UtilTest extends AbstractTestCase
     public function testUnsupportedDatatypes(): void
     {
         $noSupportTypes = [];
-        self::assertEquals(
+        self::assertSame(
             $noSupportTypes,
             Util::unsupportedDatatypes(),
         );
@@ -1015,10 +1015,10 @@ class UtilTest extends AbstractTestCase
 
     public function testGetPageFromPosition(): void
     {
-        self::assertEquals(Util::getPageFromPosition(0, 1), 1);
-        self::assertEquals(Util::getPageFromPosition(1, 1), 2);
-        self::assertEquals(Util::getPageFromPosition(1, 2), 1);
-        self::assertEquals(Util::getPageFromPosition(1, 6), 1);
+        self::assertSame(Util::getPageFromPosition(0, 1), 1);
+        self::assertSame(Util::getPageFromPosition(1, 1), 2);
+        self::assertSame(Util::getPageFromPosition(1, 2), 1);
+        self::assertSame(Util::getPageFromPosition(1, 6), 1);
     }
 
     /**
@@ -1031,7 +1031,7 @@ class UtilTest extends AbstractTestCase
     public function testIsInteger(bool $expected, mixed $input): void
     {
         $isInteger = Util::isInteger($input);
-        self::assertEquals($expected, $isInteger);
+        self::assertSame($expected, $isInteger);
     }
 
     /**
@@ -1054,7 +1054,7 @@ class UtilTest extends AbstractTestCase
     public function testGetProtoFromForwardedHeader(string $header, string $proto): void
     {
         $protocolDetected = Util::getProtoFromForwardedHeader($header);
-        self::assertEquals($proto, $protocolDetected);
+        self::assertSame($proto, $protocolDetected);
     }
 
     /**
@@ -1543,7 +1543,7 @@ SQL;
             ->willReturn($version);
 
         DatabaseInterface::$instance = $dbi;
-        self::assertEquals(Util::isUUIDSupported(), $expected);
+        self::assertSame(Util::isUUIDSupported(), $expected);
         DatabaseInterface::$instance = null;
     }
 

@@ -35,7 +35,7 @@ class OptionsPropertyMainGroupTest extends AbstractTestCase
 
     public function testGetItemType(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'main',
             $this->object->getItemType(),
         );

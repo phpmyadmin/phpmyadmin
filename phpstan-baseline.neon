@@ -15511,6 +15511,16 @@ parameters:
 			path: tests/classes/Config/DescriptionTest.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with ''\\|'; Compressed export…'\\|'Compressed export…'\\|'Compressed import…'\\|'Compressed import…'\\|'Compressed import…' and null will always evaluate to false\\.$#"
+			count: 1
+			path: tests/classes/Config/FormDisplayTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'string' and 'string' will always evaluate to true\\.$#"
+			count: 1
+			path: tests/classes/Config/FormDisplayTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with null will always evaluate to false\\.$#"
 			count: 1
 			path: tests/classes/Config/FormDisplayTest.php
@@ -16356,6 +16366,11 @@ parameters:
 			path: tests/classes/NormalizationTest.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with '' and PhpMyAdmin\\\\Message will always evaluate to false\\.$#"
+			count: 1
+			path: tests/classes/NormalizationTest.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 2
 			path: tests/classes/NormalizationTest.php
@@ -16391,6 +16406,11 @@ parameters:
 			path: tests/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\{host\\: 'b', port\\: '2', socket\\: true, ssl\\: true, user\\: 'pmaUser2', password\\: 'testPW'\\} and array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\} will always evaluate to false\\.$#"
+			count: 1
+			path: tests/classes/Plugins/Auth/AuthenticationCookieTest.php
+
+		-
 			message: "#^Cannot access offset 'default' on mixed\\.$#"
 			count: 2
 			path: tests/classes/Plugins/Auth/AuthenticationCookieTest.php
@@ -16414,6 +16434,11 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 10
 			path: tests/classes/Plugins/Auth/AuthenticationCookieTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'testUser' and 'testUser' will always evaluate to true\\.$#"
+			count: 1
+			path: tests/classes/Plugins/Auth/AuthenticationHttpTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$selectedServer \\(array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\}\\) does not accept array\\{host\\: 'a', user\\: 'user2'\\}\\.$#"
@@ -16751,12 +16776,27 @@ parameters:
 			path: tests/classes/Stubs/ResponseRenderer.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\) with true will always evaluate to false\\.$#"
+			count: 1
+			path: tests/classes/Table/TableTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Table\\\\\\\\Table' and PhpMyAdmin\\\\Table\\\\Table will always evaluate to true\\.$#"
 			count: 1
 			path: tests/classes/Table/TableTest.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\<PhpMyAdmin\\\\FieldMetadata\\> and array\\{'aNonValidExampleToR…'\\} will always evaluate to false\\.$#"
+			count: 1
+			path: tests/classes/Table/TableTest.php
+
+		-
 			message: "#^Cannot access offset 'SCHEMA_TABLES' on mixed\\.$#"
+			count: 1
+			path: tests/classes/Table/TableTest.php
+
+		-
+			message: "#^Offset 'col_order' on array in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: tests/classes/Table/TableTest.php
 
@@ -16782,6 +16822,11 @@ parameters:
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Theme\\\\\\\\Theme' and PhpMyAdmin\\\\Theme\\\\Theme will always evaluate to true\\.$#"
+			count: 1
+			path: tests/classes/Theme/ThemeTest.php
+
+		-
+			message: "#^Casting to int something that's already int\\.$#"
 			count: 1
 			path: tests/classes/Theme/ThemeTest.php
 

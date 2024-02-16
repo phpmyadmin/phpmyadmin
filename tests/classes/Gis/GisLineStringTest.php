@@ -71,7 +71,7 @@ class GisLineStringTest extends GisGeomTestCase
     public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisLineString::singleton();
-        self::assertEquals($output, $object->generateWkt($gisData, $index, $empty));
+        self::assertSame($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
@@ -164,8 +164,8 @@ class GisLineStringTest extends GisGeomTestCase
             new ScaleData(offsetX: -18, offsetY: 14, scale: 1.71, height: 124),
             $image,
         );
-        self::assertEquals(200, $image->width());
-        self::assertEquals(124, $image->height());
+        self::assertSame(200, $image->width());
+        self::assertSame(124, $image->height());
 
         $fileExpected = $this->testDir . '/linestring-expected.png';
         $fileActual = $this->testDir . '/linestring-actual.png';
@@ -234,7 +234,7 @@ class GisLineStringTest extends GisGeomTestCase
     ): void {
         $object = GisLineString::singleton();
         $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
-        self::assertEquals($output, $svg);
+        self::assertSame($output, $svg);
     }
 
     /**
@@ -276,7 +276,7 @@ class GisLineStringTest extends GisGeomTestCase
     ): void {
         $object = GisLineString::singleton();
         $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
-        self::assertEquals($output, $ol);
+        self::assertSame($output, $ol);
     }
 
     /**

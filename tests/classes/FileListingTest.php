@@ -100,7 +100,7 @@ class FileListingTest extends AbstractTestCase
         $config->settings['ZipDump'] = true;
         $config->settings['GZipDump'] = true;
         $config->settings['BZipDump'] = true;
-        self::assertEquals('gz|bz2|zip', $this->fileListing->supportedDecompressions());
+        self::assertSame('gz|bz2|zip', $this->fileListing->supportedDecompressions());
     }
 
     public function testSupportedDecompressionsPartial(): void
@@ -115,6 +115,6 @@ class FileListingTest extends AbstractTestCase
         }
 
         $extensionString .= '|zip';
-        self::assertEquals($extensionString, $this->fileListing->supportedDecompressions());
+        self::assertSame($extensionString, $this->fileListing->supportedDecompressions());
     }
 }

@@ -44,7 +44,7 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         self::assertTrue(
             $this->stub->getProperties()->contains($propertyItem),
         );
-        self::assertEquals(
+        self::assertSame(
             1,
             $this->stub->getNrOfProperties(),
         );
@@ -90,7 +90,7 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $this->stub->addProperty($propertyItem);
         $propertyItem2 = new BoolPropertyItem();
         $this->stub->addProperty($propertyItem2);
-        self::assertEquals(
+        self::assertSame(
             2,
             $this->stub->getNrOfProperties(),
         );

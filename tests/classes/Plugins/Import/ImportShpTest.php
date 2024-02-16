@@ -83,7 +83,7 @@ class ImportShpTest extends AbstractTestCase
         $GLOBALS['message'] = '';
         $GLOBALS['error'] = false;
         $this->object->doImport($importHandle);
-        self::assertEquals('', $GLOBALS['message']);
+        self::assertSame('', $GLOBALS['message']);
         self::assertFalse($GLOBALS['error']);
     }
 
@@ -105,16 +105,16 @@ class ImportShpTest extends AbstractTestCase
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
-        self::assertEquals(
+        self::assertSame(
             __('ESRI Shape File'),
             $properties->getText(),
         );
-        self::assertEquals(
+        self::assertSame(
             'shp',
             $properties->getExtension(),
         );
         self::assertNull($properties->getOptions());
-        self::assertEquals(
+        self::assertSame(
             __('Options'),
             $properties->getOptionsText(),
         );

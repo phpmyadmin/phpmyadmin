@@ -70,7 +70,7 @@ class TriggersTest extends AbstractTestCase
         $_POST['item_table'] = $table;
         $_POST['item_definition'] = $definition;
 
-        self::assertEquals($query, $this->triggers->getQueryFromRequest());
+        self::assertSame($query, $this->triggers->getQueryFromRequest());
         self::assertCount($numErr, $GLOBALS['errors']);
     }
 

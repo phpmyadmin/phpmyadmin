@@ -23,7 +23,7 @@ class NodeTableTest extends AbstractTestCase
         $config->settings['NavigationTreeDefaultTabTable2'] = 'insert';
 
         $parent = new NodeTable($config, 'default');
-        self::assertEquals(
+        self::assertSame(
             [
                 'text' => ['route' => '/sql', 'params' => ['pos' => 0, 'db' => null, 'table' => null]],
                 'icon' => ['route' => '/table/search', 'params' => ['db' => null, 'table' => null]],
@@ -47,8 +47,8 @@ class NodeTableTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['NavigationTreeDefaultTabTable'] = $target;
         $node = new NodeTable($config, 'default');
-        self::assertEquals($imageName, $node->icon['image']);
-        self::assertEquals($imageTitle, $node->icon['title']);
+        self::assertSame($imageName, $node->icon['image']);
+        self::assertSame($imageTitle, $node->icon['title']);
     }
 
     /**

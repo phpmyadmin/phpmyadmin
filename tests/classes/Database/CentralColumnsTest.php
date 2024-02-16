@@ -182,11 +182,11 @@ class CentralColumnsTest extends AbstractTestCase
                 array_slice($this->columnData, 1, 2),
             );
 
-        self::assertEquals(
+        self::assertSame(
             $this->modifiedColumnData,
             $this->centralColumns->getColumnsList('phpmyadmin'),
         );
-        self::assertEquals(
+        self::assertSame(
             array_slice($this->modifiedColumnData, 1, 2),
             $this->centralColumns->getColumnsList('phpmyadmin', 1, 2),
         );
@@ -207,7 +207,7 @@ class CentralColumnsTest extends AbstractTestCase
             )
             ->willReturn([3]);
 
-        self::assertEquals(
+        self::assertSame(
             3,
             $this->centralColumns->getCount('phpmyadmin'),
         );
@@ -265,7 +265,7 @@ class CentralColumnsTest extends AbstractTestCase
                 ConnectionType::ControlUser,
             )
             ->willReturn(['id', 'col1']);
-        self::assertEquals(
+        self::assertSame(
             ['id', 'col1'],
             $this->centralColumns->getFromTable(
                 $db,
@@ -292,7 +292,7 @@ class CentralColumnsTest extends AbstractTestCase
                 ConnectionType::ControlUser,
             )
             ->willReturn(array_slice($this->columnData, 0, 2));
-        self::assertEquals(
+        self::assertSame(
             array_slice($this->modifiedColumnData, 0, 2),
             $this->centralColumns->getFromTable(
                 $db,
@@ -407,7 +407,7 @@ class CentralColumnsTest extends AbstractTestCase
                 ConnectionType::ControlUser,
             )
             ->willReturn($this->columnData);
-        self::assertEquals(
+        self::assertSame(
             $this->modifiedColumnData,
             $this->centralColumns->getListRaw(
                 'phpmyadmin',
@@ -432,7 +432,7 @@ class CentralColumnsTest extends AbstractTestCase
                 ConnectionType::ControlUser,
             )
             ->willReturn($this->columnData);
-        self::assertEquals(
+        self::assertSame(
             $this->modifiedColumnData,
             $this->centralColumns->getListRaw(
                 'phpmyadmin',
@@ -455,7 +455,7 @@ class CentralColumnsTest extends AbstractTestCase
                 ConnectionType::ControlUser,
             )
             ->willReturn(array_slice($this->columnData, 1, 1));
-        self::assertEquals(
+        self::assertSame(
             array_slice($this->modifiedColumnData, 1, 1),
             $this->callFunction(
                 $this->centralColumns,
@@ -470,6 +470,6 @@ class CentralColumnsTest extends AbstractTestCase
     {
         $columns = $this->centralColumns->getColumnsNotInCentralList('PMA_db', 'PMA_table');
         self::assertIsArray($columns);
-        self::assertEquals(['id', 'col1', 'col2'], $columns);
+        self::assertSame(['id', 'col1', 'col2'], $columns);
     }
 }

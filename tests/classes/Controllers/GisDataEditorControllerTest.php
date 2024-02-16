@@ -47,7 +47,7 @@ class GisDataEditorControllerTest extends AbstractTestCase
                 $value,
             ],
         );
-        self::assertEquals($expected, $gisData);
+        self::assertSame($expected, $gisData);
     }
 
     /** @return iterable<array{0:mixed,1:string,2:string|null,3:string}> */

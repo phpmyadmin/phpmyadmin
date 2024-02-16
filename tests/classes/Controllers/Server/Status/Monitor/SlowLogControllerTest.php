@@ -69,7 +69,7 @@ class SlowLogControllerTest extends AbstractTestCase
 
         $resultRows = [['sql_text' => 'insert sql_text', '#' => 11], ['sql_text' => 'update sql_text', '#' => 10]];
         $resultSum = ['insert' => 11, 'TOTAL' => 21, 'update' => 10];
-        self::assertEquals(2, $ret['message']['numRows']);
+        self::assertSame(2, $ret['message']['numRows']);
         self::assertEquals($resultRows, $ret['message']['rows']);
         self::assertEquals($resultSum, $ret['message']['sum']);
     }

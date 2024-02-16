@@ -9,8 +9,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-use function count;
-
 #[CoversClass(TablePartitionDefinition::class)]
 class TablePartitionDefinitionTest extends TestCase
 {
@@ -233,7 +231,7 @@ class TablePartitionDefinitionTest extends TestCase
         ];
 
         $actual = TablePartitionDefinition::getDetails();
-        self::assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     #[DataProvider('providerGetDetailsWithMaxPartitions')]
@@ -245,7 +243,7 @@ class TablePartitionDefinitionTest extends TestCase
         self::assertArrayHasKey('partitions', $actual);
         self::assertSame($partitionCount, $actual['partition_count']);
         self::assertIsArray($actual['partitions']);
-        self::assertEquals($partitionCount, count($actual['partitions']));
+        self::assertCount($partitionCount, $actual['partitions']);
     }
 
     /** @psalm-return array{0: int, 1: string}[] */

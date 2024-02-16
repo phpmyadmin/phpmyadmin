@@ -34,14 +34,14 @@ class BrowseForeignersTest extends AbstractTestCase
             $this->browseForeigners->getForeignLimit('Show all'),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'LIMIT 0, 25 ',
             $this->browseForeigners->getForeignLimit(null),
         );
 
         $_POST['pos'] = 10;
 
-        self::assertEquals(
+        self::assertSame(
             'LIMIT 10, 25 ',
             $this->browseForeigners->getForeignLimit(null),
         );
@@ -50,12 +50,12 @@ class BrowseForeignersTest extends AbstractTestCase
         $config->set('MaxRows', 50);
         $browseForeigners = new BrowseForeigners(new Template(), $config, new ThemeManager());
 
-        self::assertEquals(
+        self::assertSame(
             'LIMIT 10, 50 ',
             $browseForeigners->getForeignLimit(null),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'LIMIT 10, 50 ',
             $browseForeigners->getForeignLimit('xyz'),
         );
@@ -66,7 +66,7 @@ class BrowseForeignersTest extends AbstractTestCase
      */
     public function testGetHtmlForGotoPage(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '',
             $this->callFunction(
                 $this->browseForeigners,
@@ -81,7 +81,7 @@ class BrowseForeignersTest extends AbstractTestCase
         $foreignData['disp_row'] = [];
         $foreignData['the_total'] = 5;
 
-        self::assertEquals(
+        self::assertSame(
             '',
             $this->callFunction(
                 $this->browseForeigners,
@@ -117,7 +117,7 @@ class BrowseForeignersTest extends AbstractTestCase
     {
         $desc = 'foobar<baz';
 
-        self::assertEquals(
+        self::assertSame(
             ['foobar<baz', ''],
             $this->callFunction(
                 $this->browseForeigners,
@@ -131,7 +131,7 @@ class BrowseForeignersTest extends AbstractTestCase
         $config->set('LimitChars', 5);
         $browseForeigners = new BrowseForeigners(new Template(), $config, new ThemeManager());
 
-        self::assertEquals(
+        self::assertSame(
             ['fooba...', 'foobar<baz'],
             $this->callFunction(
                 $browseForeigners,

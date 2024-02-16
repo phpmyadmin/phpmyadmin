@@ -37,31 +37,31 @@ class TablePropertyTest extends AbstractTestCase
 
     public function testConstructor(): void
     {
-        self::assertEquals('name', $this->object->name);
+        self::assertSame('name', $this->object->name);
 
-        self::assertEquals('int', $this->object->type);
+        self::assertSame('int', $this->object->type);
 
         self::assertEquals(1, $this->object->nullable);
 
-        self::assertEquals('PRI', $this->object->key);
+        self::assertSame('PRI', $this->object->key);
 
-        self::assertEquals('0', $this->object->defaultValue);
+        self::assertSame('0', $this->object->defaultValue);
 
-        self::assertEquals('mysql', $this->object->ext);
+        self::assertSame('mysql', $this->object->ext);
     }
 
     public function testGetPureType(): void
     {
         $this->object->type = 'int(10)';
 
-        self::assertEquals(
+        self::assertSame(
             'int',
             $this->object->getPureType(),
         );
 
         $this->object->type = 'char';
 
-        self::assertEquals(
+        self::assertSame(
             'char',
             $this->object->getPureType(),
         );
@@ -76,7 +76,7 @@ class TablePropertyTest extends AbstractTestCase
     {
         $this->object->nullable = $nullable;
 
-        self::assertEquals(
+        self::assertSame(
             $expected,
             $this->object->isNotNull(),
         );
@@ -101,7 +101,7 @@ class TablePropertyTest extends AbstractTestCase
     {
         $this->object->key = $key;
 
-        self::assertEquals(
+        self::assertSame(
             $expected,
             $this->object->isUnique(),
         );
@@ -126,7 +126,7 @@ class TablePropertyTest extends AbstractTestCase
     {
         $this->object->type = $type;
 
-        self::assertEquals(
+        self::assertSame(
             $expected,
             $this->object->getDotNetPrimitiveType(),
         );
@@ -163,7 +163,7 @@ class TablePropertyTest extends AbstractTestCase
     {
         $this->object->type = $type;
 
-        self::assertEquals(
+        self::assertSame(
             $expected,
             $this->object->getDotNetObjectType(),
         );
@@ -196,14 +196,14 @@ class TablePropertyTest extends AbstractTestCase
         $this->object->name = "ä'7<ab>";
         $this->object->key = 'PRI';
 
-        self::assertEquals(
+        self::assertSame(
             "index=\"ä'7&lt;ab&gt;\"",
             $this->object->getIndexName(),
         );
 
         $this->object->key = '';
 
-        self::assertEquals(
+        self::assertSame(
             '',
             $this->object->getIndexName(),
         );
@@ -228,7 +228,7 @@ class TablePropertyTest extends AbstractTestCase
     {
         $this->object->name = 'Name#name#123';
 
-        self::assertEquals(
+        self::assertSame(
             'text123Namename',
             $this->object->formatCs('text123#name#'),
         );
@@ -238,7 +238,7 @@ class TablePropertyTest extends AbstractTestCase
     {
         $this->object->name = '"a\'';
 
-        self::assertEquals(
+        self::assertSame(
             '&quot;a\'index="&quot;a\'"',
             $this->object->formatXml('#name##indexName#'),
         );
@@ -246,7 +246,7 @@ class TablePropertyTest extends AbstractTestCase
 
     public function testFormat(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'NameintInt32intfalsetrue',
             $this->object->format(
                 '#ucfirstName##dotNetPrimitiveType##dotNetObjectType##type##notNull##unique#',

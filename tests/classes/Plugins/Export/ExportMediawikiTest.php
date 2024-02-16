@@ -78,22 +78,22 @@ class ExportMediawikiTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals(
+        self::assertSame(
             'MediaWiki Table',
             $properties->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'mediawiki',
             $properties->getExtension(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'text/plain',
             $properties->getMimeType(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Options',
             $properties->getOptionsText(),
         );
@@ -102,7 +102,7 @@ class ExportMediawikiTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals(
+        self::assertSame(
             'Format Specific Options',
             $options->getName(),
         );
@@ -112,12 +112,12 @@ class ExportMediawikiTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals(
+        self::assertSame(
             'general_opts',
             $generalOptions->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Dump table',
             $generalOptions->getText(),
         );
@@ -129,12 +129,12 @@ class ExportMediawikiTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertySubgroup::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'dump_table',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Dump table',
             $property->getText(),
         );
@@ -143,12 +143,12 @@ class ExportMediawikiTest extends AbstractTestCase
 
         self::assertInstanceOf(RadioPropertyItem::class, $sgHeader);
 
-        self::assertEquals(
+        self::assertSame(
             'structure_or_data',
             $sgHeader->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             ['structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')],
             $sgHeader->getValues(),
         );
@@ -158,12 +158,12 @@ class ExportMediawikiTest extends AbstractTestCase
 
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'caption',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Export table names',
             $property->getText(),
         );
@@ -172,12 +172,12 @@ class ExportMediawikiTest extends AbstractTestCase
 
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'headers',
             $property->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Export table headers',
             $property->getText(),
         );
@@ -252,7 +252,7 @@ class ExportMediawikiTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        self::assertEquals(
+        self::assertSame(
             "\n<!--\n" .
             "Table structure for `table`\n" .
             "-->\n" .
@@ -300,7 +300,7 @@ class ExportMediawikiTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        self::assertEquals(
+        self::assertSame(
             "\n<!--\n" .
             "Table data for `test_table`\n" .
             "-->\n" .

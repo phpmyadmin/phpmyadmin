@@ -172,12 +172,12 @@ class AuthenticationHttpTest extends AbstractTestCase
 
         $_REQUEST['old_usr'] = $oldUsr;
 
-        self::assertEquals(
+        self::assertSame(
             $expectedReturn,
             $this->object->readCredentials(),
         );
 
-        self::assertEquals($expectedUser, $this->object->user);
+        self::assertSame($expectedUser, $this->object->user);
 
         self::assertEquals($expectedPass, $this->object->password);
 
@@ -231,13 +231,13 @@ class AuthenticationHttpTest extends AbstractTestCase
             $this->object->storeCredentials(),
         );
 
-        self::assertEquals('testUser', $config->selectedServer['user']);
+        self::assertSame('testUser', $config->selectedServer['user']);
 
-        self::assertEquals('testPass', $config->selectedServer['password']);
+        self::assertSame('testPass', $config->selectedServer['password']);
 
         self::assertArrayNotHasKey('PHP_AUTH_PW', $_SERVER);
 
-        self::assertEquals(2, Current::$server);
+        self::assertSame(2, Current::$server);
 
         // case 2
         $this->object->user = 'testUser';
@@ -255,7 +255,7 @@ class AuthenticationHttpTest extends AbstractTestCase
             $config->selectedServer,
         );
 
-        self::assertEquals(2, Current::$server);
+        self::assertSame(2, Current::$server);
 
         // case 3
         Current::$server = 3;
@@ -274,7 +274,7 @@ class AuthenticationHttpTest extends AbstractTestCase
             $config->selectedServer,
         );
 
-        self::assertEquals(3, Current::$server);
+        self::assertSame(3, Current::$server);
     }
 
     #[Group('medium')]

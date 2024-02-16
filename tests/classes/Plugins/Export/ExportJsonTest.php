@@ -67,22 +67,22 @@ class ExportJsonTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals(
+        self::assertSame(
             'JSON',
             $properties->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'json',
             $properties->getExtension(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'text/plain',
             $properties->getMimeType(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Options',
             $properties->getOptionsText(),
         );
@@ -91,7 +91,7 @@ class ExportJsonTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals(
+        self::assertSame(
             'Format Specific Options',
             $options->getName(),
         );
@@ -101,7 +101,7 @@ class ExportJsonTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals(
+        self::assertSame(
             'general_opts',
             $generalOptions->getName(),
         );
@@ -112,7 +112,7 @@ class ExportJsonTest extends AbstractTestCase
 
         self::assertInstanceOf(HiddenPropertyItem::class, $property);
 
-        self::assertEquals(
+        self::assertSame(
             'structure_or_data',
             $property->getName(),
         );

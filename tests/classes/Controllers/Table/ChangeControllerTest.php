@@ -203,7 +203,7 @@ final class ChangeControllerTest extends AbstractTestCase
 
         $result = $changeController->urlParamsInEditMode([1], $whereClauseArray);
 
-        self::assertEquals(
+        self::assertSame(
             ['0' => 1, 'where_clause' => 'bar=2', 'sql_query' => 'SELECT 1'],
             $result,
         );

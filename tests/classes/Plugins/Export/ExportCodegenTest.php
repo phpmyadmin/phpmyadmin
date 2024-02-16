@@ -65,22 +65,22 @@ class ExportCodegenTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals(
+        self::assertSame(
             'CodeGen',
             $properties->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'cs',
             $properties->getExtension(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'text/cs',
             $properties->getMimeType(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Options',
             $properties->getOptionsText(),
         );
@@ -89,7 +89,7 @@ class ExportCodegenTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals(
+        self::assertSame(
             'Format Specific Options',
             $options->getName(),
         );
@@ -99,7 +99,7 @@ class ExportCodegenTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals(
+        self::assertSame(
             'general_opts',
             $generalOptions->getName(),
         );
@@ -111,7 +111,7 @@ class ExportCodegenTest extends AbstractTestCase
 
         self::assertInstanceOf(HiddenPropertyItem::class, $hidden);
 
-        self::assertEquals(
+        self::assertSame(
             'structure_or_data',
             $hidden->getName(),
         );
@@ -120,17 +120,17 @@ class ExportCodegenTest extends AbstractTestCase
 
         self::assertInstanceOf(SelectPropertyItem::class, $select);
 
-        self::assertEquals(
+        self::assertSame(
             'format',
             $select->getName(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Format:',
             $select->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             ['NHibernate C# DO', 'NHibernate XML'],
             $select->getValues(),
         );
@@ -178,7 +178,7 @@ class ExportCodegenTest extends AbstractTestCase
         $result = ob_get_clean();
 
         self::assertIsString($result);
-        self::assertEquals(
+        self::assertSame(
             '<?xml version="1.0" encoding="utf-8" ?>' . "\n"
             . '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Test_db" assembly="Test_db">' . "\n"
             . '    <class name="Test_table" table="Test_table">' . "\n"
@@ -206,17 +206,17 @@ class ExportCodegenTest extends AbstractTestCase
 
     public function testCgMakeIdentifier(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '_Ⅲfoo',
             ExportCodegen::cgMakeIdentifier('Ⅲ{}96`{}foo', true),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'TestⅢ',
             ExportCodegen::cgMakeIdentifier('`98testⅢ{}96`{}', true),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'testⅢ',
             ExportCodegen::cgMakeIdentifier('`98testⅢ{}96`{}', false),
         );
@@ -227,7 +227,7 @@ class ExportCodegenTest extends AbstractTestCase
         $method = new ReflectionMethod(ExportCodegen::class, 'handleNHibernateCSBody');
         $result = $method->invoke($this->object, 'test_db', 'test_table');
 
-        self::assertEquals(
+        self::assertSame(
             'using System;' . "\n" .
             'using System.Collections;' . "\n" .
             'using System.Collections.Generic;' . "\n" .
@@ -279,7 +279,7 @@ class ExportCodegenTest extends AbstractTestCase
         $method = new ReflectionMethod(ExportCodegen::class, 'handleNHibernateXMLBody');
         $result = $method->invoke($this->object, 'test_db', 'test_table');
 
-        self::assertEquals(
+        self::assertSame(
             '<?xml version="1.0" encoding="utf-8" ?>' . "\n" .
             '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Test_db" assembly="Test_db">' . "\n" .
             '    <class name="Test_table" table="Test_table">' . "\n" .

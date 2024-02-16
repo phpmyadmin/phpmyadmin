@@ -74,7 +74,7 @@ class FooterTest extends AbstractTestCase
             ['count' => 1, 'time' => 2.5, 'query' => 'SELECT * FROM `db` WHERE 1'],
         ];
 
-        self::assertEquals(
+        self::assertSame(
             '{"queries":[{"count":1,"time":0.2,"query":"SELECT * FROM `pma_bookmark` WHERE 1"},'
             . '{"count":1,"time":2.5,"query":"SELECT * FROM `db` WHERE 1"}]}',
             $this->object->getDebugMessage(),
@@ -92,7 +92,7 @@ class FooterTest extends AbstractTestCase
         $object->child->parent = $object;
 
         $this->callFunction($this->object, Footer::class, 'removeRecursion', [&$object]);
-        self::assertEquals(
+        self::assertSame(
             '{"child":{"parent":"***RECURSION***"},"childIterator":"***ITERATOR***"}',
             json_encode($object),
         );
@@ -105,7 +105,7 @@ class FooterTest extends AbstractTestCase
     {
         $footer = new Footer(new Template(), Config::getInstance());
         $footer->disable();
-        self::assertEquals(
+        self::assertSame(
             '',
             $footer->getDisplay(),
         );
@@ -116,7 +116,7 @@ class FooterTest extends AbstractTestCase
         $template = new Template();
         $footer = new Footer($template, Config::getInstance());
         $footer->setAjax(true);
-        self::assertEquals(
+        self::assertSame(
             $template->render('modals/function_confirm') . "\n"
             . $template->render('modals/add_index') . "\n"
             . $template->render('modals/page_settings') . "\n",
@@ -157,7 +157,7 @@ class FooterTest extends AbstractTestCase
         $template = new Template();
         $footer = new Footer($template, Config::getInstance());
         $footer->setMinimal();
-        self::assertEquals(
+        self::assertSame(
             $template->render('modals/function_confirm') . "\n"
             . $template->render('modals/add_index') . "\n"
             . $template->render('modals/page_settings')

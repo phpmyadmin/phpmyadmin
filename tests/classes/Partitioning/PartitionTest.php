@@ -31,7 +31,7 @@ class PartitionTest extends AbstractTestCase
     public function testGetPartitionMethodWithRangeMethod(): void
     {
         $actual = Partition::getPartitionMethod('database', 'range_partition_method');
-        self::assertEquals('RANGE', $actual);
+        self::assertSame('RANGE', $actual);
     }
 
     /** @param array<int, array<string, string>> $pluginValue */

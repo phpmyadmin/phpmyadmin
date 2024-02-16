@@ -36,7 +36,7 @@ class FlashMessagesTest extends AbstractTestCase
         $flash->addMessage('error', 'Error');
         self::assertArrayHasKey('error', $_SESSION[self::STORAGE_KEY]);
         self::assertIsArray($_SESSION[self::STORAGE_KEY]['error']);
-        self::assertEquals(['Error'], $_SESSION[self::STORAGE_KEY]['error']);
+        self::assertSame(['Error'], $_SESSION[self::STORAGE_KEY]['error']);
     }
 
     public function testGetMessage(): void
@@ -46,7 +46,7 @@ class FlashMessagesTest extends AbstractTestCase
         $message = $flash->getMessage('error');
         self::assertNull($message);
         $message = $flash->getMessage('warning');
-        self::assertEquals(['Warning'], $message);
+        self::assertSame(['Warning'], $message);
     }
 
     public function testGetMessages(): void
@@ -55,7 +55,7 @@ class FlashMessagesTest extends AbstractTestCase
         $flash = new FlashMessages();
         $flash->addMessage('notice', 'Notice');
         $messages = $flash->getMessages();
-        self::assertEquals(
+        self::assertSame(
             ['error' => ['Error1', 'Error2'], 'warning' => ['Warning']],
             $messages,
         );

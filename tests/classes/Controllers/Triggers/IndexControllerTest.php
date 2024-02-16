@@ -285,7 +285,7 @@ HTML;
             ->willReturn('foo');
 
         $output = $method->invoke($indexController, $request);
-        self::assertEquals($out, $output);
+        self::assertSame($out, $output);
     }
 
     /**

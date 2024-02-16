@@ -75,9 +75,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
             $dummyDbi->addResult('SELECT CURRENT_USER();', $value);
         }
 
-        self::assertEquals($expected, $dbi->getCurrentUserAndHost());
+        self::assertSame($expected, $dbi->getCurrentUserAndHost());
 
-        self::assertEquals($string, $dbi->getCurrentUser());
+        self::assertSame($string, $dbi->getCurrentUser());
 
         $dummyDbi->assertAllQueriesConsumed();
     }
@@ -187,9 +187,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $mock->postConnect(new Server(['SessionTimeZone' => '']));
 
-        self::assertEquals($mock->getVersion(), $versionInt);
-        self::assertEquals($mock->isMariaDB(), $isMariaDb);
-        self::assertEquals($mock->isPercona(), $isPercona);
+        self::assertSame($mock->getVersion(), $versionInt);
+        self::assertSame($mock->isMariaDB(), $isMariaDb);
+        self::assertSame($mock->isPercona(), $isPercona);
     }
 
     /**
@@ -204,7 +204,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = false;
         $config->settings['DBG']['sql'] = false;
 
-        self::assertEquals(
+        self::assertSame(
             'utf8_general_ci',
             $dbi->getDbCollation('pma_test'),
         );
@@ -217,7 +217,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dbiDummy->removeDefaultResults();
         $dbiDummy->addResult('SELECT @@collation_database', [['utf8mb3_general_ci']], ['@@collation_database']);
 
-        self::assertEquals('utf8mb3_general_ci', $dbi->getDbCollation('information_schema'));
+        self::assertSame('utf8mb3_general_ci', $dbi->getDbCollation('information_schema'));
     }
 
     /**
@@ -227,7 +227,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         $dbi = $this->createDatabaseInterface();
         Config::getInstance()->settings['DBG']['sql'] = true;
-        self::assertEquals('utf8_general_ci', $dbi->getServerCollation());
+        self::assertSame('utf8_general_ci', $dbi->getServerCollation());
     }
 
     /**
@@ -276,7 +276,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $dummyDbi->addResult('SELECT @@basedir', $value);
 
-        self::assertEquals(
+        self::assertSame(
             $expected,
             $dbi->isAmazonRds(),
         );
@@ -311,10 +311,10 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testVersion(string $version, int $expected, int $major, bool $upgrade): void
     {
         $verInt = Utilities::versionToInt($version);
-        self::assertEquals($expected, $verInt);
-        self::assertEquals($major, (int) ($verInt / 10000));
+        self::assertSame($expected, $verInt);
+        self::assertSame($major, (int) ($verInt / 10000));
         $mysqlMinVersion = 50500;
-        self::assertEquals($upgrade, $verInt < $mysqlMinVersion);
+        self::assertSame($upgrade, $verInt < $mysqlMinVersion);
     }
 
     /** @return mixed[][] */
@@ -404,7 +404,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         ];
 
         $actual = $dbi->getTablesFull('test_db');
-        self::assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     public function testGetTablesFullWithInformationSchema(): void
@@ -462,7 +462,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         ];
 
         $actual = $dbi->getTablesFull('test_db');
-        self::assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     public function testGetTablesFullBug18913(): void
@@ -731,10 +731,10 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $dbi->setVersion($version);
 
-        self::assertEquals($versionInt, $dbi->getVersion());
-        self::assertEquals($isMariaDb, $dbi->isMariaDB());
-        self::assertEquals($isPercona, $dbi->isPercona());
-        self::assertEquals($version['@@version'], $dbi->getVersionString());
+        self::assertSame($versionInt, $dbi->getVersion());
+        self::assertSame($isMariaDb, $dbi->isMariaDB());
+        self::assertSame($isPercona, $dbi->isPercona());
+        self::assertSame($version['@@version'], $dbi->getVersionString());
     }
 
     /**

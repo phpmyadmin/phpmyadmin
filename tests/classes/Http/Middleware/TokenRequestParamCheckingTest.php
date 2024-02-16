@@ -28,7 +28,7 @@ final class TokenRequestParamCheckingTest extends TestCase
         self::assertFalse($GLOBALS['token_mismatch']);
         self::assertTrue($GLOBALS['token_provided']);
         self::assertArrayHasKey('test', $_POST);
-        self::assertEquals('test', $_POST['test']);
+        self::assertSame('test', $_POST['test']);
     }
 
     public function testCheckTokenRequestParamWithGetMethod(): void

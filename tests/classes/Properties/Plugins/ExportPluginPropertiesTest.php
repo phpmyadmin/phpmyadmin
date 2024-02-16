@@ -35,7 +35,7 @@ class ExportPluginPropertiesTest extends AbstractTestCase
 
     public function testGetItemType(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'export',
             $this->object->getItemType(),
         );

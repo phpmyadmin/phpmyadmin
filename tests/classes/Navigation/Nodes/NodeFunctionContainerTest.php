@@ -18,13 +18,13 @@ class NodeFunctionContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeFunctionContainer(new Config());
-        self::assertEquals(
+        self::assertSame(
             [
                 'text' => ['route' => '/database/routines', 'params' => ['type' => 'FUNCTION', 'db' => null]],
                 'icon' => ['route' => '/database/routines', 'params' => ['type' => 'FUNCTION', 'db' => null]],
             ],
             $parent->links,
         );
-        self::assertEquals('functions', $parent->realName);
+        self::assertSame('functions', $parent->realName);
     }
 }

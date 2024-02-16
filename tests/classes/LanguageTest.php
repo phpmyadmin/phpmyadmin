@@ -116,11 +116,11 @@ class LanguageTest extends AbstractTestCase
         Config::getInstance()->set('FilterLanguages', '');
         $czech = $this->manager->getLanguage('cs');
         self::assertNotFalse($czech);
-        self::assertEquals('cs_CZ', $czech->getMySQLLocale());
+        self::assertSame('cs_CZ', $czech->getMySQLLocale());
 
         $azerbaijani = $this->manager->getLanguage('az');
         self::assertNotFalse($azerbaijani);
-        self::assertEquals('', $azerbaijani->getMySQLLocale());
+        self::assertSame('', $azerbaijani->getMySQLLocale());
     }
 
     /**
@@ -140,8 +140,8 @@ class LanguageTest extends AbstractTestCase
         Config::getInstance()->set('FilterLanguages', '');
         $lang = $this->manager->getLanguage('cs');
         self::assertNotFalse($lang);
-        self::assertEquals('Czech', $lang->getEnglishName());
-        self::assertEquals('Čeština', $lang->getNativeName());
+        self::assertSame('Czech', $lang->getEnglishName());
+        self::assertSame('Čeština', $lang->getNativeName());
         $lang = $this->manager->getLanguage('nonexisting');
         self::assertFalse($lang);
     }
@@ -187,7 +187,7 @@ class LanguageTest extends AbstractTestCase
 
         $lang = $this->manager->selectLanguage();
 
-        self::assertEquals($expect, $lang->getCode());
+        self::assertSame($expect, $lang->getCode());
 
         $config->set('Lang', '');
         $_POST['lang'] = '';
@@ -250,7 +250,7 @@ class LanguageTest extends AbstractTestCase
         self::assertStringContainsString('%s', _ngettext('%s table', '%s tables', 10));
         self::assertStringContainsString('%s', _ngettext('%s table', '%s tables', 1));
 
-        self::assertEquals(
+        self::assertSame(
             $locale,
             $this->manager->getCurrentLanguage()->getCode(),
         );

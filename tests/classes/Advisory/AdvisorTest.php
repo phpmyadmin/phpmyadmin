@@ -35,7 +35,7 @@ class AdvisorTest extends AbstractTestCase
     public function testAdvisorBytime(float $time, string $expected): void
     {
         $result = Advisor::byTime($time, 2);
-        self::assertEquals($expected, $result);
+        self::assertSame($expected, $result);
     }
 
     /** @return mixed[][] */
@@ -69,7 +69,7 @@ class AdvisorTest extends AbstractTestCase
         $advisor->addRule('fired', $rule);
         $runResult = $advisor->getRunResult();
         if ($error !== null) {
-            self::assertEquals([$error], $runResult['errors']);
+            self::assertSame([$error], $runResult['errors']);
         }
 
         if ($runResult['fired'] === [] && $expected === []) {

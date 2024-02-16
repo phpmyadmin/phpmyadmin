@@ -256,7 +256,7 @@ class RoutinesTest extends AbstractTestCase
 
         unset($_POST);
         $_POST = $request;
-        self::assertEquals($query, $routines->getQueryFromRequest());
+        self::assertSame($query, $routines->getQueryFromRequest());
         self::assertCount($numErr, $GLOBALS['errors']);
 
         // reset

@@ -75,20 +75,20 @@ class ImportMediawikiTest extends AbstractTestCase
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
-        self::assertEquals(
+        self::assertSame(
             __('MediaWiki Table'),
             $properties->getText(),
         );
-        self::assertEquals(
+        self::assertSame(
             'txt',
             $properties->getExtension(),
         );
-        self::assertEquals(
+        self::assertSame(
             'text/plain',
             $properties->getMimeType(),
         );
         self::assertNull($properties->getOptions());
-        self::assertEquals(
+        self::assertSame(
             __('Options'),
             $properties->getOptionsText(),
         );

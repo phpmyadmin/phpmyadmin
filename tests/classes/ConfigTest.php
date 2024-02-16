@@ -173,8 +173,8 @@ PHP;
     ): void {
         $_SERVER['HTTP_USER_AGENT'] = $agent;
         $this->object->checkClient();
-        self::assertEquals($os, $this->object->get('PMA_USR_OS'));
-        self::assertEquals($browser, $this->object->get('PMA_USR_BROWSER_AGENT'));
+        self::assertSame($os, $this->object->get('PMA_USR_OS'));
+        self::assertSame($browser, $this->object->get('PMA_USR_BROWSER_AGENT'));
 
         if ($version === null) {
             return;
@@ -258,17 +258,17 @@ PHP;
     {
         $this->object->set('GD2Available', 'yes');
         $this->object->checkGd2();
-        self::assertEquals(1, $this->object->get('PMA_IS_GD2'));
+        self::assertSame(1, $this->object->get('PMA_IS_GD2'));
 
         $this->object->set('GD2Available', 'no');
         $this->object->checkGd2();
-        self::assertEquals(0, $this->object->get('PMA_IS_GD2'));
+        self::assertSame(0, $this->object->get('PMA_IS_GD2'));
 
         $this->object->set('GD2Available', 'auto');
 
         if (! function_exists('imagecreatetruecolor')) {
             $this->object->checkGd2();
-            self::assertEquals(
+            self::assertSame(
                 0,
                 $this->object->get('PMA_IS_GD2'),
                 'imagecreatetruecolor does not exist, PMA_IS_GD2 should be 0',
@@ -279,13 +279,13 @@ PHP;
             $this->object->checkGd2();
             $gdNfo = gd_info();
             if (str_contains($gdNfo['GD Version'], '2.')) {
-                self::assertEquals(
+                self::assertSame(
                     1,
                     $this->object->get('PMA_IS_GD2'),
                     'GD Version >= 2, PMA_IS_GD2 should be 1',
                 );
             } else {
-                self::assertEquals(
+                self::assertSame(
                     0,
                     $this->object->get('PMA_IS_GD2'),
                     'GD Version < 2, PMA_IS_GD2 should be 0',
@@ -305,13 +305,13 @@ PHP;
 
         // TODO: The variable $v clearly is incorrect. Was this meant to be $a?
         if (str_contains($v, '2.')) {
-            self::assertEquals(
+            self::assertSame(
                 1,
                 $this->object->get('PMA_IS_GD2'),
                 'PMA_IS_GD2 should be 1',
             );
         } else {
-            self::assertEquals(
+            self::assertSame(
                 0,
                 $this->object->get('PMA_IS_GD2'),
                 'PMA_IS_GD2 should be 0',
@@ -339,7 +339,7 @@ PHP;
                 self::markTestIncomplete('Not known PHP_OS: ' . PHP_OS);
             }
         } else {
-            self::assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
+            self::assertSame(0, $this->object->get('PMA_IS_WINDOWS'));
 
             define('PHP_OS', 'Windows');
             self::assertTrue($this->object->get('PMA_IS_WINDOWS'));
@@ -353,7 +353,7 @@ PHP;
         $config = $settings->asArray();
         self::assertIsArray($config['Servers']);
         self::assertEquals($settings, $object->getSettings());
-        self::assertEquals($config, $object->default);
+        self::assertSame($config, $object->default);
         self::assertSame($config, $object->settings);
         self::assertSame($config, $object->baseSettings);
     }
@@ -365,7 +365,7 @@ PHP;
     {
         $this->object->setSource('unexisted.config.php');
         self::assertFalse($this->object->checkConfigSource());
-        self::assertEquals(0, $this->object->sourceMtime);
+        self::assertSame(0, $this->object->sourceMtime);
 
         $this->object->setSource(TEST_PATH . 'tests/test_data/config.inc.php');
 
@@ -382,7 +382,7 @@ PHP;
 
         $this->object->set('test_setting', 'test_value');
 
-        self::assertEquals('test_value', $this->object->get('test_setting'));
+        self::assertSame('test_value', $this->object->get('test_setting'));
     }
 
     /**
@@ -396,7 +396,7 @@ PHP;
 
         $this->object->setSource(ROOT_PATH . 'config.sample.inc.php');
 
-        self::assertEquals(
+        self::assertSame(
             ROOT_PATH . 'config.sample.inc.php',
             $this->object->getSource(),
             'Cant set new source',
@@ -444,7 +444,7 @@ PHP;
 
         $this->object->set('is_https', null);
         $this->object->set('PmaAbsoluteUri', $pmaAbsoluteUri);
-        self::assertEquals($expected, $this->object->isHttps());
+        self::assertSame($expected, $this->object->isHttps());
     }
 
     /**
@@ -500,7 +500,7 @@ PHP;
         $_SERVER['REQUEST_URI'] = '';
         $_SERVER['PATH_INFO'] = '';
         $this->object->set('PmaAbsoluteUri', $absolute);
-        self::assertEquals($expected, $this->object->getRootPath());
+        self::assertSame($expected, $this->object->getRootPath());
     }
 
     /**
@@ -560,7 +560,7 @@ PHP;
     {
         $this->object->setUserValue(null, 'lang', 'cs', 'en');
         $this->object->setUserValue('TEST_COOKIE_USER_VAL', '', 'cfg_val_1');
-        self::assertEquals(
+        self::assertSame(
             $this->object->getUserValue('TEST_COOKIE_USER_VAL', 'fail'),
             'cfg_val_1',
         );
@@ -573,7 +573,7 @@ PHP;
      */
     public function testGetUserValue(): void
     {
-        self::assertEquals($this->object->getUserValue('test_val', 'val'), 'val');
+        self::assertSame($this->object->getUserValue('test_val', 'val'), 'val');
     }
 
     /**
@@ -651,7 +651,7 @@ PHP;
         (new ReflectionProperty(Config::class, 'tempDir'))->setValue(null, []);
         $this->object->set('TempDir', $dir . DIRECTORY_SEPARATOR);
         // Check no double slash is here
-        self::assertEquals(
+        self::assertSame(
             $dir . DIRECTORY_SEPARATOR . 'upload',
             $this->object->getTempDir('upload'),
         );
@@ -671,7 +671,7 @@ PHP;
 
         $this->object->set('TempDir', $dir . DIRECTORY_SEPARATOR);
 
-        self::assertEquals(
+        self::assertSame(
             $this->object->getTempDir('upload'),
             $this->object->getUploadTempDir(),
         );

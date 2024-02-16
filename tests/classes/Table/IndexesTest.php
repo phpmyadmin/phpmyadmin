@@ -76,7 +76,7 @@ class IndexesTest extends AbstractTestCase
         $sqlQueryExpected = 'ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD PRIMARY KEY (`id`);';
 
         $_POST['old_index'] = 'PRIMARY';
-        self::assertEquals(
+        self::assertSame(
             $sqlQueryExpected,
             $indexes->getSqlQueryForIndexCreateOrEdit('PRIMARY', $index, $db, $table),
         );

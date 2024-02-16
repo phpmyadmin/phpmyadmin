@@ -65,7 +65,7 @@ class VersionInformationTest extends AbstractTestCase
     public function testVersionToInt(string $version, int $numeric): void
     {
         $versionInformation = new VersionInformation();
-        self::assertEquals(
+        self::assertSame(
             $numeric,
             $versionInformation->versionToInt($version),
         );
@@ -114,7 +114,7 @@ class VersionInformationTest extends AbstractTestCase
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
         self::assertInstanceOf(Release::class, $compatible);
-        self::assertEquals('4.4.14.1', $compatible->version);
+        self::assertSame('4.4.14.1', $compatible->version);
     }
 
     /**
@@ -130,7 +130,7 @@ class VersionInformationTest extends AbstractTestCase
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
         self::assertInstanceOf(Release::class, $compatible);
-        self::assertEquals('4.4.14.1', $compatible->version);
+        self::assertSame('4.4.14.1', $compatible->version);
     }
 
     /**
@@ -146,7 +146,7 @@ class VersionInformationTest extends AbstractTestCase
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
         self::assertInstanceOf(Release::class, $compatible);
-        self::assertEquals('4.0.10.10', $compatible->version);
+        self::assertSame('4.0.10.10', $compatible->version);
     }
 
     /**
@@ -169,7 +169,7 @@ class VersionInformationTest extends AbstractTestCase
         $mockVersionInfo->expects(self::never())->method('getMySQLVersion');
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($versions);
-        self::assertEquals($matchedLastVersion, $compatible->version ?? null);
+        self::assertSame($matchedLastVersion, $compatible->version ?? null);
     }
 
     /**

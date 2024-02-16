@@ -73,7 +73,7 @@ class WebauthnLibServerTest extends TestCase
         $options = $server->getCredentialRequestOptions('user_name', 'userHandle1', 'test.localhost', []);
         self::assertNotEmpty($options['challenge']);
         self::assertSame('test.localhost', $options['rpId']);
-        self::assertEquals(
+        self::assertSame(
             [['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ==']],
             $options['allowCredentials'],
         );

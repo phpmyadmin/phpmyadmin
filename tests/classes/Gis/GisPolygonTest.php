@@ -61,7 +61,7 @@ class GisPolygonTest extends GisGeomTestCase
     public function testGenerateWkt(array $gisData, int $index, string $empty, string $output): void
     {
         $object = GisPolygon::singleton();
-        self::assertEquals($output, $object->generateWkt($gisData, $index, $empty));
+        self::assertSame($output, $object->generateWkt($gisData, $index, $empty));
     }
 
     /**
@@ -167,8 +167,8 @@ class GisPolygonTest extends GisGeomTestCase
             new ScaleData(offsetX: -56, offsetY: -16, scale: 0.94, height: 124),
             $image,
         );
-        self::assertEquals(200, $image->width());
-        self::assertEquals(124, $image->height());
+        self::assertSame(200, $image->width());
+        self::assertSame(124, $image->height());
 
         $fileExpected = $this->testDir . '/polygon-expected.png';
         $fileActual = $this->testDir . '/polygon-actual.png';
@@ -238,7 +238,7 @@ class GisPolygonTest extends GisGeomTestCase
     ): void {
         $object = GisPolygon::singleton();
         $svg = $object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
-        self::assertEquals($output, $svg);
+        self::assertSame($output, $svg);
     }
 
     /**
@@ -280,7 +280,7 @@ class GisPolygonTest extends GisGeomTestCase
     ): void {
         $object = GisPolygon::singleton();
         $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
-        self::assertEquals($output, $ol);
+        self::assertSame($output, $ol);
     }
 
     /**

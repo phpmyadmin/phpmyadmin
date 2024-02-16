@@ -71,18 +71,18 @@ class ConfigGeneratorTest extends AbstractTestCase
         $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('getVarExport');
 
-        self::assertEquals(
+        self::assertSame(
             '$cfg[\'var_name\'] = 1;' . "\n",
             $method->invoke(null, 'var_name', 1, "\n"),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '$cfg[\'var_name\'] = array (' .
             "\n);\n",
             $method->invoke(null, 'var_name', [], "\n"),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '$cfg[\'var_name\'] = [1, 2, 3];' . "\n",
             $method->invoke(
                 null,
@@ -92,7 +92,7 @@ class ConfigGeneratorTest extends AbstractTestCase
             ),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '$cfg[\'var_name\'][\'1a\'] = \'foo\';' . "\n" .
             '$cfg[\'var_name\'][\'b\'] = \'bar\';' . "\n",
             $method->invoke(
@@ -109,7 +109,7 @@ class ConfigGeneratorTest extends AbstractTestCase
         $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('getVarExport');
 
-        self::assertEquals(
+        self::assertSame(
             '$cfg[\'blowfish_secret\'] = \sodium_hex2bin(\''
             . '6161616161616161616161616161616161616161616161616161616161616161\');' . "\n",
             $method->invoke(null, 'blowfish_secret', str_repeat('a', SODIUM_CRYPTO_SECRETBOX_KEYBYTES), "\n"),
@@ -175,13 +175,13 @@ class ConfigGeneratorTest extends AbstractTestCase
 
         $result = $method->invoke(null, $arr, "\n");
 
-        self::assertEquals('[1, 2, 3, 4]', $result);
+        self::assertSame('[1, 2, 3, 4]', $result);
 
         $arr = [1, 2, 3, 4, 7, 'foo'];
 
         $result = $method->invoke(null, $arr, "\n");
 
-        self::assertEquals(
+        self::assertSame(
             '[' . "\n" .
             '    1,' . "\n" .
             '    2,' . "\n" .

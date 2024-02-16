@@ -44,7 +44,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetVariables(): void
     {
-        self::assertEquals(
+        self::assertSame(
             [
                 'innodb_data_home_dir' => [
                     'title' => __('Data home directory'),
@@ -103,7 +103,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetVariablesLikePattern(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'innodb\\_%',
             $this->object->getVariablesLikePattern(),
         );
@@ -114,12 +114,12 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetInfoPages(): void
     {
-        self::assertEquals(
+        self::assertSame(
             [],
             $this->object->getInfoPages(),
         );
         $this->object->support = 2;
-        self::assertEquals(
+        self::assertSame(
             ['Bufferpool' => 'Buffer Pool', 'Status' => 'InnoDB Status'],
             $this->object->getInfoPages(),
         );
@@ -130,7 +130,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetPageBufferpool(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '<table class="table table-striped table-hover w-auto float-start caption-top">' . "\n" .
             '    <caption>' . "\n" .
             '        Buffer Pool Usage' . "\n" .
@@ -213,7 +213,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetPageStatus(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '<pre id="pre_innodb_status">' . "\n\n" . '</pre>' . "\n",
             $this->object->getPageStatus(),
         );
@@ -224,12 +224,12 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetPage(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '',
             $this->object->getPage('Status'),
         );
         $this->object->support = 2;
-        self::assertEquals(
+        self::assertSame(
             '<pre id="pre_innodb_status">' . "\n\n" . '</pre>' . "\n",
             $this->object->getPage('Status'),
         );
@@ -240,7 +240,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetMysqlHelpPage(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'innodb-storage-engine',
             $this->object->getMysqlHelpPage(),
         );
@@ -251,7 +251,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetInnodbPluginVersion(): void
     {
-        self::assertEquals(
+        self::assertSame(
             '1.1.8',
             $this->object->getInnodbPluginVersion(),
         );
@@ -272,7 +272,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetInnodbFileFormat(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'Antelope',
             $this->object->getInnodbFileFormat(),
         );

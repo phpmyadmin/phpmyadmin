@@ -103,8 +103,8 @@ class StructureControllerTest extends AbstractTestCase
         );
 
         self::assertTrue($currentTable['COUNTED']);
-        self::assertEquals(6, $currentTable['TABLE_ROWS']);
-        self::assertEquals(16394, $sumSize);
+        self::assertSame(6, $currentTable['TABLE_ROWS']);
+        self::assertSame(16394, $sumSize);
 
         $currentTable['ENGINE'] = 'MYISAM';
         [$currentTable, , , $sumSize] = $method->invokeArgs(
@@ -113,7 +113,7 @@ class StructureControllerTest extends AbstractTestCase
         );
 
         self::assertFalse($currentTable['COUNTED']);
-        self::assertEquals(16394, $sumSize);
+        self::assertSame(16394, $sumSize);
 
         $controller = new StructureController(
             $this->response,
@@ -129,12 +129,12 @@ class StructureControllerTest extends AbstractTestCase
         $currentTable['ENGINE'] = 'InnoDB';
         [$currentTable, , , $sumSize] = $method->invokeArgs($controller, [$currentTable, 10]);
         self::assertTrue($currentTable['COUNTED']);
-        self::assertEquals(10, $sumSize);
+        self::assertSame(10, $sumSize);
 
         $currentTable['ENGINE'] = 'MYISAM';
         [$currentTable, , , $sumSize] = $method->invokeArgs($controller, [$currentTable, 10]);
         self::assertFalse($currentTable['COUNTED']);
-        self::assertEquals(10, $sumSize);
+        self::assertSame(10, $sumSize);
     }
 
     /**
@@ -167,16 +167,16 @@ class StructureControllerTest extends AbstractTestCase
             $controller,
             [$currentTable, 0, 0, 0, 0, 0, 0],
         );
-        self::assertEquals(6, $currentTable['Rows']);
-        self::assertEquals(16384, $sumSize);
-        self::assertEquals(300, $overheadSize);
+        self::assertSame(6, $currentTable['Rows']);
+        self::assertSame(16384, $sumSize);
+        self::assertSame(300, $overheadSize);
 
         unset($currentTable['Data_free']);
         [$currentTable, , , , , $overheadSize] = $method->invokeArgs(
             $controller,
             [$currentTable, 0, 0, 0, 0, 0, 0],
         );
-        self::assertEquals(0, $overheadSize);
+        self::assertSame(0, $overheadSize);
 
         $controller = new StructureController(
             $this->response,
@@ -192,7 +192,7 @@ class StructureControllerTest extends AbstractTestCase
             $controller,
             [$currentTable, 0, 0, 0, 0, 0, 0],
         );
-        self::assertEquals(0, $sumSize);
+        self::assertSame(0, $sumSize);
 
         $controller = new StructureController(
             $this->response,

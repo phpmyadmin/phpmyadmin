@@ -154,13 +154,13 @@ class TwoFactorTest extends AbstractTestCase
         $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
         $object = $this->getTwoFactorAndLoadConfig('user', ['type' => 'db']);
         $backend = $object->getBackend();
-        self::assertEquals('', $backend::$id);
+        self::assertSame('', $backend::$id);
         // Is always valid
         self::assertTrue($object->check($request, true));
         // Test session persistence
         self::assertTrue($object->check($request));
         self::assertTrue($object->check($request));
-        self::assertEquals('', $object->render($request));
+        self::assertSame('', $object->render($request));
 
         $this->dummyDbi->assertAllQueriesConsumed();
 
@@ -168,7 +168,7 @@ class TwoFactorTest extends AbstractTestCase
         $this->loadQueriesForConfigure('');
 
         self::assertTrue($object->configure($request, ''));
-        self::assertEquals('', $object->setup($request));
+        self::assertSame('', $object->setup($request));
     }
 
     public function testSimple(): void
@@ -178,7 +178,7 @@ class TwoFactorTest extends AbstractTestCase
         $config->settings['DBG']['simple2fa'] = true;
         $object = $this->getTwoFactorAndLoadConfig('user', ['type' => 'db', 'backend' => 'simple']);
         $backend = $object->getBackend();
-        self::assertEquals('simple', $backend::$id);
+        self::assertSame('simple', $backend::$id);
         $config->settings['DBG']['simple2fa'] = false;
 
         unset($_POST['2fa_confirm']);
@@ -190,14 +190,14 @@ class TwoFactorTest extends AbstractTestCase
 
         /* Test rendering */
         self::assertNotEquals('', $object->render($request));
-        self::assertEquals('', $object->setup($request));
+        self::assertSame('', $object->setup($request));
     }
 
     public function testLoad(): void
     {
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         $backend = $object->getBackend();
-        self::assertEquals('', $backend::$id);
+        self::assertSame('', $backend::$id);
     }
 
     public function testConfigureSimple(): void
@@ -214,7 +214,7 @@ class TwoFactorTest extends AbstractTestCase
 
         self::assertTrue($object->configure($request, 'simple'));
         $backend = $object->getBackend();
-        self::assertEquals('simple', $backend::$id);
+        self::assertSame('simple', $backend::$id);
 
         $this->dummyDbi->assertAllQueriesConsumed();
 
@@ -223,7 +223,7 @@ class TwoFactorTest extends AbstractTestCase
 
         self::assertTrue($object->configure($request, ''));
         $backend = $object->getBackend();
-        self::assertEquals('', $backend::$id);
+        self::assertSame('', $backend::$id);
 
         $this->dummyDbi->assertAllQueriesConsumed();
 
@@ -341,19 +341,19 @@ class TwoFactorTest extends AbstractTestCase
         $config = Config::getInstance();
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         $config->set('PmaAbsoluteUri', 'http://demo.example.com');
-        self::assertEquals('http://demo.example.com', $object->getBackend()->getAppId(true));
-        self::assertEquals('demo.example.com', $object->getBackend()->getAppId(false));
+        self::assertSame('http://demo.example.com', $object->getBackend()->getAppId(true));
+        self::assertSame('demo.example.com', $object->getBackend()->getAppId(false));
         $config->set('PmaAbsoluteUri', 'https://demo.example.com:123');
-        self::assertEquals('https://demo.example.com:123', $object->getBackend()->getAppId(true));
-        self::assertEquals('demo.example.com', $object->getBackend()->getAppId(false));
+        self::assertSame('https://demo.example.com:123', $object->getBackend()->getAppId(true));
+        self::assertSame('demo.example.com', $object->getBackend()->getAppId(false));
         $config->set('PmaAbsoluteUri', '');
         $config->set('is_https', true);
         $_SERVER['HTTP_HOST'] = 'pma.example.com';
-        self::assertEquals('https://pma.example.com', $object->getBackend()->getAppId(true));
-        self::assertEquals('pma.example.com', $object->getBackend()->getAppId(false));
+        self::assertSame('https://pma.example.com', $object->getBackend()->getAppId(true));
+        self::assertSame('pma.example.com', $object->getBackend()->getAppId(false));
         $config->set('is_https', false);
-        self::assertEquals('http://pma.example.com', $object->getBackend()->getAppId(true));
-        self::assertEquals('pma.example.com', $object->getBackend()->getAppId(false));
+        self::assertSame('http://pma.example.com', $object->getBackend()->getAppId(true));
+        self::assertSame('pma.example.com', $object->getBackend()->getAppId(false));
     }
 
     /**
