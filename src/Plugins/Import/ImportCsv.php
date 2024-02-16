@@ -14,6 +14,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import\ImportSettings;
+use PhpMyAdmin\Import\ImportTable;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -23,8 +24,8 @@ use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_pad;
 use function array_shift;
-use function array_splice;
 use function basename;
 use function count;
 use function mb_strlen;
@@ -57,10 +58,10 @@ class ImportCsv extends AbstractImportCsv
 
     protected function setProperties(): ImportPluginProperties
     {
-        $this->setAnalyze(false);
+        $this->analyze = false;
 
         if ($GLOBALS['plugin_param'] !== 'table') {
-            $this->setAnalyze(true);
+            $this->analyze = true;
         }
 
         $importPluginProperties = new ImportPluginProperties();
@@ -223,7 +224,6 @@ class ImportCsv extends AbstractImportCsv
         $tempRow = [];
         $rows = [];
         $colNames = [];
-        $tables = [];
 
         $buffer = '';
         $colCount = 0;
@@ -477,7 +477,7 @@ class ImportCsv extends AbstractImportCsv
                     $values[] = '';
                 }
 
-                if ($this->getAnalyze()) {
+                if ($this->analyze) {
                     foreach ($values as $val) {
                         $tempRow[] = $val;
                         ++$colCount;
@@ -564,29 +564,25 @@ class ImportCsv extends AbstractImportCsv
             }
         }
 
-        if ($this->getAnalyze()) {
+        if ($this->analyze) {
             /* Fill out all rows */
-            $numRows = count($rows);
-            for ($i = 0; $i < $numRows; ++$i) {
-                for ($j = count($rows[$i]); $j < $maxCols; ++$j) {
-                    $rows[$i][] = 'NULL';
-                }
+            foreach ($rows as $i => $row) {
+                $rows[$i] = array_pad($row, $maxCols, 'NULL');
             }
-
-            $colNames = $this->getColumnNames($colNames, $maxCols, $rows);
 
             /* Remove the first row if it contains the column names */
             if (isset($_REQUEST['csv_col_names'])) {
-                array_shift($rows);
+                $colNames = array_shift($rows);
             }
+
+            $colNames = $this->getColumnNames($colNames, $maxCols);
 
             $tblName = $this->getTableNameFromImport(Current::$database);
 
-            $tables[] = [$tblName, $colNames, $rows];
+            $table = new ImportTable($tblName, $colNames, $rows);
 
             /* Obtain the best-fit MySQL types for each column */
-            $analyses = [];
-            $analyses[] = $this->import->analyzeTable($tables[0]);
+            $analysis = $this->import->analyzeTable($table);
 
             /**
              * Set database name to the currently selected one, if applicable,
@@ -604,8 +600,7 @@ class ImportCsv extends AbstractImportCsv
             $dbName = Current::$database !== '' ? Current::$database : $newDb;
             $createDb = Current::$database === '';
 
-            /* Created and execute necessary SQL statements from data */
-            $this->import->buildSql($dbName, $tables, $analyses, createDb:$createDb, sqlData:$sqlStatements);
+            $this->import->buildSql($dbName, [$table], [$analysis], createDb:$createDb, sqlData:$sqlStatements);
         }
 
         // Commit any possible data in buffers
@@ -732,23 +727,20 @@ class ImportCsv extends AbstractImportCsv
     }
 
     /**
-     * @param mixed[] $columnNames
-     * @param mixed[] $rows
+     * @param list<string> $columnNames
      *
-     * @return mixed[]
+     * @return list<string>
      */
-    private function getColumnNames(array $columnNames, int $maxCols, array $rows): array
+    private function getColumnNames(array $columnNames, int $maxCols): array
     {
         if (isset($_REQUEST['csv_col_names'])) {
-            $columnNames = array_splice($rows, 0, 1);
-            $columnNames = $columnNames[0];
             // MySQL column names can't end with a space character.
             foreach ($columnNames as $key => $colName) {
                 $columnNames[$key] = rtrim($colName);
             }
         }
 
-        if ((isset($columnNames) && count($columnNames) != $maxCols) || ! isset($columnNames)) {
+        if (count($columnNames) !== $maxCols) {
             // Fill out column names
             /** @infection-ignore-all */
             for ($i = 0; $i < $maxCols; ++$i) {
@@ -770,7 +762,7 @@ class ImportCsv extends AbstractImportCsv
 
         $sqlTemplate = '';
         $fields = [];
-        if (! $this->getAnalyze() && $db !== null && $table !== null) {
+        if (! $this->analyze && $db !== null && $table !== null) {
             $sqlTemplate = 'INSERT';
             if (isset($_POST['csv_ignore'])) {
                 $sqlTemplate .= ' IGNORE';
@@ -852,25 +844,5 @@ class ImportCsv extends AbstractImportCsv
         }
 
         return $ch;
-    }
-
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-    /**
-     * Returns true if the table should be analyzed, false otherwise
-     */
-    private function getAnalyze(): bool
-    {
-        return $this->analyze;
-    }
-
-    /**
-     * Sets to true if the table should be analyzed, false otherwise
-     *
-     * @param bool $analyze status
-     */
-    private function setAnalyze(bool $analyze): void
-    {
-        $this->analyze = $analyze;
     }
 }

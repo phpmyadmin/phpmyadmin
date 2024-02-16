@@ -11,8 +11,8 @@ namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Current;
 use PhpMyAdmin\File;
-use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
+use PhpMyAdmin\Import\ImportTable;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
@@ -20,7 +20,7 @@ use PhpMyAdmin\Util;
 use SimpleXMLElement;
 
 use function __;
-use function count;
+use function array_map;
 use function in_array;
 use function simplexml_load_string;
 use function str_replace;
@@ -107,26 +107,6 @@ class ImportXml extends ImportPlugin
         }
 
         /**
-         * Table accumulator
-         */
-        $tables = [];
-        /**
-         * Row accumulator
-         */
-        $rows = [];
-
-        /**
-         * Temp arrays
-         */
-        $tempRow = [];
-        $tempCells = [];
-
-        /**
-         * CREATE code included (by default: no)
-         */
-        $structPresent = false;
-
-        /**
          * Analyze the data in each table
          */
         $namespaces = $xml->getNamespaces(true);
@@ -168,8 +148,14 @@ class ImportXml extends ImportPlugin
         }
 
         /**
+         * CREATE code included (by default: no)
+         */
+        $structPresent = false;
+
+        /**
          * Retrieve the structure information
          */
+        $create = [];
         if (isset($namespaces['pma'])) {
             /**
              * Get structures for all tables
@@ -177,8 +163,6 @@ class ImportXml extends ImportPlugin
              * @var SimpleXMLElement $struct
              */
             $struct = $xml->children($namespaces['pma']);
-
-            $create = [];
 
             foreach ($struct as $val1) {
                 foreach ($val1 as $val2) {
@@ -207,17 +191,18 @@ class ImportXml extends ImportPlugin
         /**
          * Move down the XML tree to the actual data
          */
-        $xml = $xml->children()
-            ->children();
+        $xml = $xml->children()->children();
 
         $dataPresent = false;
         $analyses = null;
+        $tables = [];
 
         /**
          * Only attempt to analyze/collect data if there is data present
          */
         if ($xml && $xml->children()->count()) {
             $dataPresent = true;
+            $rows = [];
 
             /**
              * Process all database content
@@ -227,18 +212,19 @@ class ImportXml extends ImportPlugin
                 $tblAttr = $v1->attributes();
 
                 $isInTables = false;
-                $numTables = count($tables);
-                for ($i = 0; $i < $numTables; ++$i) {
-                    if ($tables[$i][Import::TBL_NAME] === (string) $tblAttr['name']) {
+                foreach ($tables as $table) {
+                    if ($table->tableName === (string) $tblAttr['name']) {
                         $isInTables = true;
                         break;
                     }
                 }
 
                 if (! $isInTables) {
-                    $tables[] = [(string) $tblAttr['name']];
+                    $tables[] = new ImportTable((string) $tblAttr['name']);
                 }
 
+                $tempRow = [];
+                $tempCells = [];
                 foreach ($v1 as $v2) {
                     /** @psalm-suppress PossiblyNullReference */
                     $rowAttr = $v2->attributes();
@@ -250,45 +236,35 @@ class ImportXml extends ImportPlugin
                 }
 
                 $rows[] = [(string) $tblAttr['name'], $tempRow, $tempCells];
-
-                $tempRow = [];
-                $tempCells = [];
             }
 
-            unset($tempRow, $tempCells, $xml);
+            unset($xml);
 
             /**
              * Bring accumulated rows into the corresponding table
              */
-            $numTables = count($tables);
-            for ($i = 0; $i < $numTables; ++$i) {
-                $numRows = count($rows);
-                for ($j = 0; $j < $numRows; ++$j) {
-                    if ($tables[$i][Import::TBL_NAME] !== $rows[$j][Import::TBL_NAME]) {
+            foreach ($tables as $table) {
+                foreach ($rows as $row) {
+                    if ($table->tableName !== $row[0]) {
                         continue;
                     }
 
-                    if (! isset($tables[$i][Import::COL_NAMES])) {
-                        $tables[$i][] = $rows[$j][Import::COL_NAMES];
+                    if ($table->columns === []) {
+                        $table->columns = $row[1];
                     }
 
-                    $tables[$i][Import::ROWS][] = $rows[$j][Import::ROWS];
+                    $table->rows[] = $row[2];
                 }
             }
 
             unset($rows);
 
             if (! $structPresent) {
-                $analyses = [];
-
-                $len = count($tables);
-                for ($i = 0; $i < $len; ++$i) {
-                    $analyses[] = $this->import->analyzeTable($tables[$i]);
-                }
+                $analyses = array_map($this->import->analyzeTable(...), $tables);
             }
         }
 
-        unset($xml, $tempCells, $rows);
+        unset($xml);
 
         /**
          * Only build SQL from data if there is data present.

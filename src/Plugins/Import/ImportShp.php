@@ -18,6 +18,7 @@ use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
+use PhpMyAdmin\Import\ImportTable;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
@@ -270,16 +271,13 @@ class ImportShp extends ImportPlugin
             $tableName = 'TBL_NAME';
         }
 
-        $tables = [[$tableName, $colNames, $rows]];
+        $table = new ImportTable($tableName, $colNames, $rows);
 
         // Use data from shape file to chose best-fit MySQL types for each column
-        $analyses = [];
-        $analyses[] = $this->import->analyzeTable($tables[0]);
+        $analysis = $this->import->analyzeTable($table);
 
-        $tableNo = 0;
-        $spatialCol = 0;
-        $analyses[$tableNo][Import::TYPES][$spatialCol] = Import::GEOMETRY;
-        $analyses[$tableNo][Import::FORMATTEDSQL][$spatialCol] = true;
+        $analysis[Import::TYPES][0] = Import::GEOMETRY;
+        $analysis[Import::FORMATTEDSQL][0] = true;
 
         // Set database name to the currently selected one, if applicable
         $dbName = Current::$database !== '' ? Current::$database : 'SHP_DB';
@@ -287,7 +285,7 @@ class ImportShp extends ImportPlugin
 
         // Created and execute necessary SQL statements from data
         $sqlStatements = [];
-        $this->import->buildSql($dbName, $tables, $analyses, createDb:$createDb, sqlData:$sqlStatements);
+        $this->import->buildSql($dbName, [$table], [$analysis], createDb:$createDb, sqlData:$sqlStatements);
 
         ImportSettings::$finished = true;
         $GLOBALS['error'] = false;
