@@ -22,7 +22,6 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
-use function array_column;
 use function array_key_exists;
 use function array_keys;
 use function mb_strtoupper;
@@ -168,10 +167,8 @@ final class RelationController extends AbstractController
         $columns = $this->dbi->getColumns(Current::$database, Current::$table);
 
         $columnArray = [];
-        $columnHashArray = [];
         $columnArray[''] = '';
         foreach ($columns as $column) {
-            $columnHashArray[$column->field] = md5($column->field);
             if (strtoupper($storageEngine) !== 'INNODB' && $column->key === '') {
                 continue;
             }
@@ -191,9 +188,11 @@ final class RelationController extends AbstractController
         $i = 0;
 
         foreach ($existrelForeign as $oneKey) {
+            /** @var string $foreignDb */
             $foreignDb = $oneKey['ref_db_name'] ?? Current::$database;
             $foreignTable = false;
-            if ($foreignDb) {
+            if ($foreignDb !== '') {
+                /** @var string|false $foreignTable */
                 $foreignTable = $oneKey['ref_table_name'] ?? false;
                 $tables = $this->relation->getTables($foreignDb, $storageEngine);
             } else {
@@ -201,7 +200,7 @@ final class RelationController extends AbstractController
             }
 
             $uniqueColumns = [];
-            if ($foreignDb && $foreignTable) {
+            if ($foreignDb !== '' && $foreignTable !== false && $foreignTable !== '') {
                 $tableObject = new Table($foreignTable, $foreignDb, $this->dbi);
                 $uniqueColumns = $tableObject->getUniqueColumns(false, false);
             }
@@ -241,6 +240,57 @@ final class RelationController extends AbstractController
             'tables' => $tables,
         ]);
 
+        $internalRelationColumns = [];
+        foreach ($columns as $column) {
+            // Use a md5 as array index to avoid having special characters in the name attribute
+            // (see bug https://github.com/phpmyadmin/phpmyadmin/issues/8827)
+            $fieldHash = md5($column->field);
+
+            $foreignTable = false;
+            $foreignColumn = false;
+
+            // Database dropdown
+            if (isset($relations[$column->field])) {
+                /** @var string $foreignDb */
+                $foreignDb = $relations[$column->field]['foreign_db'];
+            } else {
+                $foreignDb = Current::$database;
+            }
+
+            // Table dropdown
+            $foreignTables = [];
+            if ($foreignDb !== '') {
+                if (isset($relations[$column->field])) {
+                    /** @var string $foreignTable */
+                    $foreignTable = $relations[$column->field]['foreign_table'];
+                }
+
+                $foreignTables = $this->dbi->getTables($foreignDb);
+            }
+
+            // Column dropdown
+            $uniqueColumns = [];
+            if ($foreignDb !== '' && $foreignTable !== false && $foreignTable !== '') {
+                if (isset($relations[$column->field])) {
+                    /** @var string $foreignColumn */
+                    $foreignColumn = $relations[$column->field]['foreign_field'];
+                }
+
+                $tableObject = new Table($foreignTable, $foreignDb, $this->dbi);
+                $uniqueColumns = $tableObject->getUniqueColumns(false, false);
+            }
+
+            $internalRelationColumns[] = [
+                'field' => $column->field,
+                'field_hash' => $fieldHash,
+                'foreign_db' => $foreignDb,
+                'foreign_table' => $foreignTable,
+                'foreign_column' => $foreignColumn,
+                'tables' => $foreignTables,
+                'unique_columns' => $uniqueColumns,
+            ];
+        }
+
         // common form
         $this->render('table/relation/common_form', [
             'is_foreign_key_supported' => ForeignKey::isSupported($storageEngine),
@@ -251,12 +301,9 @@ final class RelationController extends AbstractController
             'existrel' => $relations,
             'existrel_foreign' => $existrelForeign,
             'options_array' => $options,
-            'column_array' => $columnArray,
-            'column_hash_array' => $columnHashArray,
-            'save_row' => array_column($columns, 'field'),
+            'internal_relation_columns' => $internalRelationColumns,
             'url_params' => $GLOBALS['urlParams'],
             'databases' => $this->dbi->getDatabaseList(),
-            'dbi' => $this->dbi,
             'default_sliders_state' => $config->settings['InitialSlidersState'],
             'route' => $request->getRoute(),
             'display_field' => $this->relation->getDisplayField(Current::$database, Current::$table),
