@@ -3084,16 +3084,16 @@ class Privileges
             if (Compatibility::isMariaDb() && ! $isMariaDBPwdPluginActive) {
                 $createUserStmt .= ' USING \'%s\'';
             } elseif (Compatibility::isMariaDb()) {
-                $createUserStmt .= ' IDENTIFIED BY %s';
+                $createUserStmt .= ' IDENTIFIED BY \'%s\'';
             } elseif (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 80011) {
                 if (! str_contains($createUserStmt, 'IDENTIFIED')) {
                     // Maybe the authentication_plugin was not posted and then a part is missing
-                    $createUserStmt .= ' IDENTIFIED BY %s';
+                    $createUserStmt .= ' IDENTIFIED BY \'%s\'';
                 } else {
-                    $createUserStmt .= ' BY %s';
+                    $createUserStmt .= ' BY \'%s\'';
                 }
             } else {
-                $createUserStmt .= ' AS %s';
+                $createUserStmt .= ' AS \'%s\'';
             }
 
             if ($_POST['pred_password'] === 'keep') {
