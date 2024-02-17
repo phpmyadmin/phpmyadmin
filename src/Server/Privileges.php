@@ -3082,18 +3082,18 @@ class Privileges
             // MariaDB uses 'USING' whereas MySQL uses 'AS'
             // but MariaDB with validation plugin needs cleartext password
             if (Compatibility::isMariaDb() && ! $isMariaDBPwdPluginActive) {
-                $createUserStmt .= ' USING \'%s\'';
+                $createUserStmt .= ' USING %s';
             } elseif (Compatibility::isMariaDb()) {
-                $createUserStmt .= ' IDENTIFIED BY \'%s\'';
+                $createUserStmt .= ' IDENTIFIED BY %s';
             } elseif (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 80011) {
                 if (! str_contains($createUserStmt, 'IDENTIFIED')) {
                     // Maybe the authentication_plugin was not posted and then a part is missing
-                    $createUserStmt .= ' IDENTIFIED BY \'%s\'';
+                    $createUserStmt .= ' IDENTIFIED BY %s';
                 } else {
-                    $createUserStmt .= ' BY \'%s\'';
+                    $createUserStmt .= ' BY %s';
                 }
             } else {
-                $createUserStmt .= ' AS \'%s\'';
+                $createUserStmt .= ' AS %s';
             }
 
             if ($_POST['pred_password'] === 'keep') {
@@ -3111,7 +3111,7 @@ class Privileges
                     $hashedPassword = $_POST['pma_pw'];
                 }
 
-                $createUserReal = sprintf($createUserStmt, $hashedPassword);
+                $createUserReal = sprintf($createUserStmt, $this->dbi->quoteString($hashedPassword));
             }
 
             $createUserShow = sprintf($createUserStmt, '\'***\'');
@@ -3123,7 +3123,7 @@ class Privileges
             $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, "''");
         } else {
             $hashedPassword = $this->getHashedPassword($_POST['pma_pw']);
-            $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, $hashedPassword);
+            $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, $this->dbi->quoteString($hashedPassword));
         }
 
         $alterRealSqlQuery = '';
