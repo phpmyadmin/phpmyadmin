@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-02-11 00:19+0000\n"
-"PO-Revision-Date: 2022-12-30 07:50+0000\n"
-"Last-Translator: Iwan Haryatno <iwnharry61@gmail.com>\n"
+"PO-Revision-Date: 2024-02-18 00:19+0000\n"
+"Last-Translator: Ahmad Fauzan Bagaskoro <92.ahmadfauzanbagaskoro@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 5.4\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:30
@@ -38,11 +38,12 @@ msgid "As defined:"
 msgstr "Seperti yang didefinisikan:"
 
 #: resources/templates/columns_definitions/column_attributes.twig:102
-#, fuzzy
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "Hak Akses Anda untuk melanjut tidak cukup!"
+msgstr ""
+"Hak Akses Anda untuk melanjutkan operasi tidak cukup; Mohon periksa "
+"dokumentasi untuk rincian lebih lanjut"
 
 #: resources/templates/columns_definitions/column_attributes.twig:112
 #: resources/templates/database/data_dictionary/index.twig:41
@@ -139,7 +140,6 @@ msgid "Add"
 msgstr "Tambah"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:32
-#, fuzzy
 msgid "column(s)"
 msgstr "Tambahkan kolom"
 
@@ -271,6 +271,8 @@ msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
+"Lebar kolom tipe integer diabaikan pada versi MySQL Anda kecuali jika kolom "
+"TINYINT(1) didefinisikan"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:171
 #: resources/templates/database/designer/main.twig:1090
@@ -3126,13 +3128,14 @@ msgstr "Kirim laporan kesalahan"
 
 #: resources/templates/error/simple.twig:2
 msgid "Something went wrong"
-msgstr ""
+msgstr "Terjadi kesalahan"
 
 #: resources/templates/error/simple.twig:7
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/table/structure/display_structure.twig:359
+#, fuzzy
 msgid "Go back"
-msgstr ""
+msgstr "Kembali"
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:46
@@ -3349,8 +3352,9 @@ msgid "Skip tables larger than:"
 msgstr "Lewati tabel yang lebih besar dari"
 
 #: resources/templates/export.twig:478
+#, fuzzy
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "Ukuran dalam MiB."
 
 #: resources/templates/export.twig:480 resources/templates/import.twig:166
 msgid "Format-specific options:"
@@ -3443,8 +3447,9 @@ msgid "Appearance:"
 msgstr "Pengaturan tampilan"
 
 #: resources/templates/header.twig:76 resources/templates/home/index.twig:152
+#, fuzzy
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "Mode warna untuk tema"
 
 #: resources/templates/header.twig:79 resources/templates/home/index.twig:155
 #, fuzzy
@@ -3455,7 +3460,7 @@ msgstr "Kanan"
 #: resources/templates/header.twig:81 resources/templates/home/index.twig:157
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Gelap"
 
 #: resources/templates/header.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
@@ -3646,8 +3651,9 @@ msgid "Warning"
 msgstr "Peringatan"
 
 #: resources/templates/home/index.twig:305
+#, fuzzy
 msgid "Notice"
-msgstr ""
+msgstr "Pemberitahuan"
 
 #: resources/templates/home/index.twig:314
 #, fuzzy
@@ -3920,11 +3926,15 @@ msgstr ""
 #: resources/templates/login/twofactor/key_configure.twig:6
 #: resources/templates/login/twofactor/key.twig:6
 #: resources/templates/preferences/two_factor/main.twig:59
+#, fuzzy
 msgid ""
 "You can still use Firefox to authenticate your account using the FIDO U2F "
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
+"Anda masih dapat menggunakan Firefox untuk mengotentikasi akun Anda "
+"menggunakan API FIDO U2F, namun sangat disarankan untuk menggunakan "
+"otentikasi WebAuthn."
 
 #: resources/templates/login/twofactor/key_configure.twig:6
 msgid ""
@@ -3998,7 +4008,7 @@ msgstr "Konfirmasi"
 
 #: resources/templates/modals/function_confirm.twig:6
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: resources/templates/modals/unhide_nav_item.twig:1
 msgid "Show hidden navigation tree items."
@@ -5278,8 +5288,9 @@ msgid "Allows creating foreign key relations."
 msgstr "Mengizinkan untuk membuat routine tersimpan."
 
 #: resources/templates/server/privileges/privileges_table.twig:681
+#, fuzzy
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "Tidak digunakan di MariaDB."
 
 #: resources/templates/server/privileges/privileges_table.twig:681
 #, fuzzy
@@ -5439,15 +5450,17 @@ msgstr "Jumlah berkas log"
 
 #: resources/templates/server/privileges/users_overview.twig:102
 #: src/Controllers/JavaScriptMessagesController.php:148
+#, fuzzy
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "Buka kunci"
 
 #: resources/templates/server/privileges/users_overview.twig:105
 #: src/Controllers/JavaScriptMessagesController.php:147
+#, fuzzy
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "Kunci"
 
 #: resources/templates/server/privileges/users_overview.twig:146
 #, fuzzy
@@ -6414,8 +6427,9 @@ msgid "Add a new server"
 msgstr "Tambahkan server baru"
 
 #: resources/templates/setup/servers/index.twig:17
+#, fuzzy
 msgid "Something went wrong."
-msgstr ""
+msgstr "Terjadi kesalahan."
 
 #: resources/templates/sql/bookmark.twig:11
 msgid "Bookmark this SQL query"
@@ -6889,8 +6903,9 @@ msgid "Edit/Insert"
 msgstr "Edit/Tambah"
 
 #: resources/templates/table/insert/continue_insertion_form.twig:14
+#, fuzzy
 msgid "Amount of rows to insert"
-msgstr ""
+msgstr "Jumlah baris untuk dimasukkan"
 
 #: resources/templates/table/maintenance/checksum.twig:12
 #, fuzzy
@@ -9986,8 +10001,11 @@ msgstr ""
 "untuk menampilkan riwayat query(hilang ketika jendela ditutup)."
 
 #: src/Config/Descriptions.php:328
+#, fuzzy
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
+"Izinkan pengguna untuk membuat bookmark yang tersedia untuk semua pengguna "
+"lainnya."
 
 #: src/Config/Descriptions.php:330
 msgid ""
@@ -11489,8 +11507,9 @@ msgid "Query history length"
 msgstr "Panjang riwayat kueri"
 
 #: src/Config/Descriptions.php:851
+#, fuzzy
 msgid "Allow shared bookmarks between users"
-msgstr ""
+msgstr "Izinkan berbagi bookmark antarpengguna"
 
 #: src/Config/Descriptions.php:852
 msgid "Recoding engine"
@@ -12321,10 +12340,12 @@ msgstr "Tampilkan baris %1$s s/d %2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
 #: src/Controllers/Database/DesignerController.php:102
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
+"Laman dengan nama \"%s\" sudah ada, silahkan ganti nama laman dengan nama "
+"yang lain."
 
 #: src/Controllers/Database/DesignerController.php:170
 #: src/Controllers/Database/DesignerController.php:175
@@ -14023,8 +14044,11 @@ msgstr "Hapus halaman"
 
 #. l10n: When the user opens a page saved in the Designer
 #: src/Controllers/JavaScriptMessagesController.php:544
+#, fuzzy
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
+"Sebagian tabel yang disimpan pada laman ini mungkin telah diubah namanya "
+"atau dihapus."
 
 #: src/Controllers/JavaScriptMessagesController.php:546
 msgid "Please select a page to continue"
@@ -14248,12 +14272,14 @@ msgstr ""
 "Sesuai pengaturan Anda, mereka sedang diajukan saat ini, harap bersabar."
 
 #: src/Controllers/JavaScriptMessagesController.php:651
+#, fuzzy
 msgid "Column name successfully copied to clipboard!"
-msgstr ""
+msgstr "Nama kolom berhasil disalin ke clipboard!"
 
 #: src/Controllers/JavaScriptMessagesController.php:652
+#, fuzzy
 msgid "Column name copying to clipboard failed!"
-msgstr ""
+msgstr "Nama kolom gagal disalin ke clipboard!"
 
 #: src/Controllers/JavaScriptMessagesController.php:653
 #, fuzzy
@@ -14364,9 +14390,10 @@ msgstr "Galat tidak dikenal"
 
 #. l10n: error code 3 (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:693
+#, fuzzy
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "Klien tidak mendukung kunci keamanan."
 
 #. l10n: error code 4 (from U2F API) on register
 #: src/Controllers/JavaScriptMessagesController.php:695
@@ -14382,17 +14409,23 @@ msgid "Invalid security key."
 msgstr "Kunci keamanan invalid."
 
 #: src/Controllers/JavaScriptMessagesController.php:700
+#, fuzzy
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuthn tidak tersedia. Silahkan gunakan browser yang didukung pada HTTPS."
 
 #: src/Controllers/JavaScriptMessagesController.php:705
+#, fuzzy
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Anda tidak dapat membuka, menyimpan, atau menghapus tata letak laman Anda "
+"karena IndexedDB tidak berfungsi pada browser Anda dan penyimpanan "
+"konfigurasi phpMyAdmin Anda tidak dikonfigurasi untuk ini."
 
 #: src/Controllers/JavaScriptMessagesController.php:710
 #, fuzzy, php-format
