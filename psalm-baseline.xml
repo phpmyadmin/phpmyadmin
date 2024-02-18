@@ -6391,8 +6391,10 @@
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
+      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <DocblockTypeContradiction>
+      <code>$nameArray === false</code>
       <code><![CDATA[empty($parser->statements[0])]]></code>
     </DocblockTypeContradiction>
     <MixedArgument>
@@ -8658,12 +8660,7 @@
     <DeprecatedMethod>
       <code>DatabaseInterface::getInstance()</code>
       <code>DatabaseInterface::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
-    <DocblockTypeContradiction>
-      <code>$nameArray === false</code>
-      <code>$nameArray === false</code>
-    </DocblockTypeContradiction>
     <InvalidArgument>
       <code><![CDATA[$GLOBALS['csv_columns']]]></code>
       <code>$colNames</code>
@@ -8683,10 +8680,6 @@
     <MixedArgument>
       <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$result</code>
-      <code>$result</code>
-    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -8767,9 +8760,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Import/ImportMediawiki.php">
-    <DeprecatedMethod>
-      <code>DatabaseInterface::getInstance()</code>
-    </DeprecatedMethod>
     <InvalidNullableReturnType>
       <code>string</code>
     </InvalidNullableReturnType>
@@ -8825,7 +8815,6 @@
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
       <code><![CDATA[$tblAttr['name']]]></code>
-      <code><![CDATA[$tblAttr['name']]]></code>
     </PossiblyNullArrayAccess>
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$xml->children('office', true)->body]]></code>
@@ -8842,7 +8831,6 @@
   <file src="src/Plugins/Import/ImportShp.php">
     <DeprecatedMethod>
       <code>Config::getInstance()</code>
-      <code>DatabaseInterface::getInstance()</code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
@@ -8914,23 +8902,13 @@
   <file src="src/Plugins/Import/ImportXml.php">
     <MixedArrayAccess>
       <code><![CDATA[$attrs['name']]]></code>
-      <code><![CDATA[$rowAttr['name']]]></code>
-      <code><![CDATA[$rowAttr['name']]]></code>
-      <code><![CDATA[$tblAttr['name']]]></code>
-      <code><![CDATA[$tblAttr['name']]]></code>
-      <code><![CDATA[$tblAttr['name']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code>$attrs</code>
-      <code>$rowAttr</code>
-      <code>$tblAttr</code>
-      <code>$v2</code>
       <code>$val2</code>
       <code>$val3</code>
     </MixedAssignment>
     <MixedMethodCall>
-      <code>attributes</code>
-      <code>attributes</code>
       <code>attributes</code>
     </MixedMethodCall>
     <PossiblyNullArrayAccess>
@@ -8939,17 +8917,15 @@
       <code><![CDATA[$dbAttr['name']]]></code>
       <code><![CDATA[$dbAttr['name']]]></code>
     </PossiblyNullArrayAccess>
+    <PossiblyNullPropertyFetch>
+      <code><![CDATA[$xml->children($namespaces['pma'] ?? null)->structure_schemas]]></code>
+    </PossiblyNullPropertyFetch>
     <PossiblyNullReference>
       <code>attributes</code>
-      <code>children</code>
-      <code>count</code>
     </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
       <code>string[]</code>
     </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code>$xml</code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Import/ShapeFileImport.php">
     <InvalidArrayOffset>
