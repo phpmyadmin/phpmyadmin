@@ -1011,6 +1011,10 @@ class Import
             $numCols = count($table->columns);
             $lastColumnKey = array_key_last($table->columns);
 
+            if ($table->rows === []) {
+                break;
+            }
+
             $tempSQLStr = 'INSERT INTO ' . Util::backquote($dbName) . '.'
                 . Util::backquote($table->tableName) . ' (';
 

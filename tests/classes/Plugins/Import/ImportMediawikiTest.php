@@ -138,4 +138,48 @@ class ImportMediawikiTest extends AbstractTestCase
         self::assertStringContainsString('Edit settings for `pma_bookmarktest`', ImportSettings::$importNotice);
         self::assertTrue(ImportSettings::$finished);
     }
+
+    /**
+     * Test for doImport
+     *
+     * @group medium
+     */
+    public function testDoImportWithEmptyTable(): void
+    {
+        //Mock DBI
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        DatabaseInterface::$instance = $dbi;
+
+        $importHandle = new File('tests/test_data/__slashes.mediawiki');
+        $importHandle->open();
+
+        //Test function called
+        $this->object->doImport($importHandle);
+
+        // If import successfully, PMA will show all databases and
+        // tables imported as following HTML Page
+        /*
+           The following structures have either been created or altered. Here you
+           can:
+           View a structure's contents by clicking on its name
+           Change any of its settings by clicking the corresponding "Options" link
+           Edit structure by following the "Structure" link
+
+           mediawiki_DB (Options)
+           pma_bookmarktest (Structure) (Options)
+        */
+
+        //asset that all databases and tables are imported
+        self::assertStringContainsString(
+            'The following structures have either been created or altered.',
+            ImportSettings::$importNotice,
+        );
+        self::assertStringContainsString('Go to database: `mediawiki_DB`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Edit settings for `mediawiki_DB`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Go to table: `empty`', ImportSettings::$importNotice);
+        self::assertStringContainsString('Edit settings for `empty`', ImportSettings::$importNotice);
+        self::assertTrue(ImportSettings::$finished);
+    }
 }
