@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -42,7 +43,12 @@ final class CentralColumnsAddController extends AbstractController
 
         Assert::allString($selected);
 
-        $centralColsError = $this->centralColumns->syncUniqueColumns($selected, false);
+        $centralColsError = $this->centralColumns->syncUniqueColumns(
+            DatabaseName::from($request->getParsedBodyParam('db')),
+            $selected,
+            false,
+            $request->getParsedBodyParam('table'),
+        );
 
         if ($centralColsError instanceof Message) {
             $GLOBALS['message'] = $centralColsError;

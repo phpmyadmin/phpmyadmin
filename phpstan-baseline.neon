@@ -1411,12 +1411,17 @@ parameters:
 			path: src/Controllers/Database/CentralColumns/PopulateColumnsController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:deleteColumnsFromList\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$colName of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:addNewColumn\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#1 \\$fieldSelect of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:syncUniqueColumns\\(\\) expects array\\<string\\>, array\\<int, mixed\\> given\\.$#"
+			message: "#^Parameter \\#1 \\$colName of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:editSave\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Database/CentralColumnsController.php
+
+		-
+			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:deleteColumnsFromList\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/CentralColumnsController.php
 
@@ -1431,12 +1436,22 @@ parameters:
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#10 \\$colDefault of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			message: "#^Parameter \\#10 \\$collation of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:editSave\\(\\) expects string, mixed given\\.$#"
+			count: 1
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#2 \\$origColName of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$colDefault of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:addNewColumn\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Database/CentralColumnsController.php
+
+		-
+			message: "#^Parameter \\#2 \\$fieldSelect of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:syncUniqueColumns\\(\\) expects array\\<string\\>, array\\<int, mixed\\> given\\.$#"
+			count: 1
+			path: src/Controllers/Database/CentralColumnsController.php
+
+		-
+			message: "#^Parameter \\#2 \\$origColName of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:editSave\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/CentralColumnsController.php
 
@@ -1461,38 +1476,78 @@ parameters:
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#3 \\$colName of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Database/CentralColumnsController.php
-
-		-
-			message: "#^Parameter \\#3 \\$table of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:syncUniqueColumns\\(\\) expects string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$colDefault of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:editSave\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#4 \\$colType of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			message: "#^Parameter \\#3 \\$colDefaultSel of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:addNewColumn\\(\\) expects string, mixed given\\.$#"
+			count: 1
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#5 \\$colAttribute of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			message: "#^Parameter \\#4 \\$colDefaultSel of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:editSave\\(\\) expects string, mixed given\\.$#"
+			count: 1
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#6 \\$colLength of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			message: "#^Parameter \\#4 \\$colExtra of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:addNewColumn\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#8 \\$collation of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			message: "#^Parameter \\#4 \\$containingTable of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:syncUniqueColumns\\(\\) expects string, mixed given\\.$#"
+			count: 1
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#9 \\$colExtra of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			message: "#^Parameter \\#5 \\$colExtra of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:editSave\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Database/CentralColumnsController.php
+
+		-
+			message: "#^Parameter \\#5 \\$colIsNull of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:addNewColumn\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Database/CentralColumnsController.php
+
+		-
+			message: "#^Parameter \\#6 \\$colIsNull of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:editSave\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Database/CentralColumnsController.php
+
+		-
+			message: "#^Parameter \\#6 \\$colLength of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:addNewColumn\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Database/CentralColumnsController.php
+
+		-
+			message: "#^Parameter \\#7 \\$colAttribute of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:addNewColumn\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Database/CentralColumnsController.php
+
+		-
+			message: "#^Parameter \\#7 \\$colLength of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:editSave\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Database/CentralColumnsController.php
+
+		-
+			message: "#^Parameter \\#8 \\$colAttribute of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:editSave\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Database/CentralColumnsController.php
+
+		-
+			message: "#^Parameter \\#8 \\$colType of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:addNewColumn\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Database/CentralColumnsController.php
+
+		-
+			message: "#^Parameter \\#9 \\$colType of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:editSave\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Database/CentralColumnsController.php
+
+		-
+			message: "#^Parameter \\#9 \\$collation of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:addNewColumn\\(\\) expects string, mixed given\\.$#"
+			count: 1
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
@@ -5056,6 +5111,11 @@ parameters:
 			path: src/Controllers/Table/Structure/CentralColumnsAddController.php
 
 		-
+			message: "#^Parameter \\#4 \\$containingTable of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:syncUniqueColumns\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Table/Structure/CentralColumnsAddController.php
+
+		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/CentralColumnsRemoveController.php
@@ -6036,43 +6096,23 @@ parameters:
 			path: src/CreateAddField.php
 
 		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 4
-			path: src/Database/CentralColumns.php
-
-		-
 			message: "#^Cannot access offset 'col_attribute' on mixed\\.$#"
-			count: 6
+			count: 5
 			path: src/Database/CentralColumns.php
 
 		-
 			message: "#^Cannot access offset 'col_default' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Database/CentralColumns.php
 
 		-
 			message: "#^Cannot access offset 'col_extra' on mixed\\.$#"
-			count: 3
-			path: src/Database/CentralColumns.php
-
-		-
-			message: "#^Cannot access offset 'col_isNull' on mixed\\.$#"
-			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
-			message: "#^Cannot access offset 'col_length' on mixed\\.$#"
-			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
-			message: "#^Cannot access offset 'col_name' on mixed\\.$#"
 			count: 2
 			path: src/Database/CentralColumns.php
 
 		-
 			message: "#^Cannot access offset 'col_type' on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/Database/CentralColumns.php
 
 		-
@@ -6087,16 +6127,16 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 4
-			path: src/Database/CentralColumns.php
-
-		-
-			message: "#^Foreach overwrites \\$table with its value variable\\.$#"
 			count: 2
 			path: src/Database/CentralColumns.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:findExistingColNames\\(\\) should return array but returns mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:findExistingColNames\\(\\) should return array\\<string\\> but returns array\\.$#"
+			count: 1
+			path: src/Database/CentralColumns.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:findExistingColumns\\(\\) should return array\\<array\\<string\\|null\\>\\> but returns mixed\\.$#"
 			count: 1
 			path: src/Database/CentralColumns.php
 
@@ -6111,11 +6151,6 @@ parameters:
 			path: src/Database/CentralColumns.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getParams\\(\\) should return array\\<string\\>\\|false but returns mixed\\.$#"
-			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 3
 			path: src/Database/CentralColumns.php
@@ -6126,28 +6161,13 @@ parameters:
 			path: src/Database/CentralColumns.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
+			message: "#^Only booleans are allowed in an if condition, string\\|null given\\.$#"
 			count: 3
 			path: src/Database/CentralColumns.php
 
 		-
 			message: "#^Parameter \\#1 \\$bitDefaultValue of static method PhpMyAdmin\\\\Util\\:\\:convertBitDefaultValue\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 2
-			path: src/Database/CentralColumns.php
-
-		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumn\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:findExistingColNames\\(\\) expects string, mixed given\\.$#"
-			count: 2
 			path: src/Database/CentralColumns.php
 
 		-
@@ -6156,22 +6176,7 @@ parameters:
 			path: src/Database/CentralColumns.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects PhpMyAdmin\\\\Identifiers\\\\DatabaseName\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
 			message: "#^Parameter \\#1 \\$def of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getInsertQuery\\(\\) expects PhpMyAdmin\\\\ColumnFull, PhpMyAdmin\\\\ColumnFull\\|null given\\.$#"
-			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
-			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getHtmlForEditTableRow\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Database/CentralColumns.php
 
@@ -6182,7 +6187,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function bin2hex expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Database/CentralColumns.php
 
 		-
@@ -6201,16 +6206,6 @@ parameters:
 			path: src/Database/CentralColumns.php
 
 		-
-			message: "#^Parameter \\#2 \\$cols of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:findExistingColNames\\(\\) expects array\\<string\\>, array\\<int\\<0, max\\>, mixed\\> given\\.$#"
-			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getInsertQuery\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Database/CentralColumns.php
-
-		-
 			message: "#^Parameter \\#2 \\$origColName of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Database/CentralColumns.php
@@ -6221,17 +6216,12 @@ parameters:
 			path: src/Database/CentralColumns.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumn\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
 			message: "#^Parameter \\#3 \\$colName of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:updateOneColumn\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Database/CentralColumns.php
 
 		-
-			message: "#^Parameter \\#3 \\$column of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:checkChildForeignReferences\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$column of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:checkChildForeignReferences\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Database/CentralColumns.php
 
@@ -15782,11 +15772,6 @@ parameters:
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
-			count: 1
-			path: tests/classes/Database/CentralColumnsTest.php
-
-		-
-			message: "#^Cannot access offset 0 on mixed\\.$#"
 			count: 1
 			path: tests/classes/Database/CentralColumnsTest.php
 
