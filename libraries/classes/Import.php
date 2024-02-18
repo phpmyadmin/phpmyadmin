@@ -1125,6 +1125,10 @@ class Import
             $numCols = count($tables[$i][self::COL_NAMES]);
             $numRows = count($tables[$i][self::ROWS]);
 
+            if ($numRows === 0) {
+                break;
+            }
+
             $tempSQLStr = 'INSERT INTO ' . Util::backquote($dbName) . '.'
                 . Util::backquote($tables[$i][self::TBL_NAME]) . ' (';
 

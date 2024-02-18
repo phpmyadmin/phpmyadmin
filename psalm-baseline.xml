@@ -16138,7 +16138,8 @@
     </TypeDoesNotContainType>
   </file>
   <file src="test/classes/Plugins/Import/ImportMediawikiTest.php">
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
+      <code>$import_notice</code>
       <code>$import_notice</code>
     </MixedArgument>
   </file>
