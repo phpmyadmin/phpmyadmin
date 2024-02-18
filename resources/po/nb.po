@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-02-11 00:19+0000\n"
+"POT-Creation-Date: 2024-02-18 00:18+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -51,7 +51,7 @@ msgstr "Du har ikke nok rettigheter til å være her nå!"
 #: resources/templates/table/structure/display_structure.twig:145
 #: resources/templates/table/structure/display_structure.twig:295
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:228
+#: src/Controllers/Table/StructureController.php:224
 msgid "Primary"
 msgstr "Primær"
 
@@ -73,8 +73,8 @@ msgstr "Unik"
 #: resources/templates/table/structure/display_structure.twig:301
 #: resources/templates/table/structure/display_table_stats.twig:23
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:232
-#: src/Navigation/Nodes/NodeIndex.php:26
+#: src/Controllers/Table/StructureController.php:228
+#: src/Navigation/Nodes/NodeIndex.php:24
 msgid "Index"
 msgstr "Indeks"
 
@@ -123,7 +123,7 @@ msgstr "Etter %s"
 #: resources/templates/table/zoom_search/index.twig:117
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:219
-#: src/Display/Results.php:960 src/Plugins/Export/ExportSql.php:2053
+#: src/Display/Results.php:959 src/Plugins/Export/ExportSql.php:2053
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Ingen"
@@ -200,7 +200,7 @@ msgstr "Legg til kolonne(r)"
 #: resources/templates/view_create.twig:122 src/BrowseForeigners.php:179
 #: src/Controllers/JavaScriptMessagesController.php:335
 #: src/Controllers/Server/PrivilegesController.php:294
-#: src/Normalization.php:227 src/Tracking/Tracking.php:306
+#: src/Normalization.php:230 src/Tracking/Tracking.php:306
 #: src/Tracking/Tracking.php:448
 msgid "Go"
 msgstr "Gå"
@@ -257,7 +257,7 @@ msgstr "Inneslutt eksport i en transaksjon"
 #: resources/templates/table/index_form.twig:245
 #: resources/templates/table/index_rename_form.twig:22
 #: resources/templates/table/insert/actions_panel.twig:33
-#: resources/templates/table/relation/common_form.twig:177
+#: resources/templates/table/relation/common_form.twig:139
 #: resources/templates/table/structure/display_structure.twig:343
 #: resources/templates/table/structure/display_structure.twig:345
 #: src/Controllers/JavaScriptMessagesController.php:127
@@ -271,7 +271,7 @@ msgstr "Forhåndsvis SQL"
 #: resources/templates/server/variables/index.twig:12
 #: resources/templates/table/gis_visualization/gis_visualization.twig:43
 #: resources/templates/table/insert/actions_panel.twig:8
-#: resources/templates/table/relation/common_form.twig:179
+#: resources/templates/table/relation/common_form.twig:141
 #: resources/templates/table/structure/partition_definition_form.twig:10
 #: resources/templates/table/zoom_search/result_form.twig:74
 #: src/Controllers/JavaScriptMessagesController.php:452
@@ -294,7 +294,7 @@ msgstr ""
 #: resources/templates/modals/preview_sql_confirmation.twig:1
 #: resources/templates/modals/preview_sql_modal.twig:1
 #: resources/templates/table/insert/actions_panel.twig:38
-#: resources/templates/table/relation/common_form.twig:180
+#: resources/templates/table/relation/common_form.twig:142
 #: resources/templates/table/zoom_search/result_form.twig:20
 #: resources/templates/table/zoom_search/result_form.twig:80
 #, fuzzy
@@ -342,8 +342,8 @@ msgstr "Laster…"
 #: resources/templates/sql/query.twig:221
 #: resources/templates/table/insert/actions_panel.twig:48
 #: resources/templates/table/insert/actions_panel.twig:49
-#: resources/templates/table/relation/common_form.twig:188
-#: resources/templates/table/relation/common_form.twig:189
+#: resources/templates/table/relation/common_form.twig:150
+#: resources/templates/table/relation/common_form.twig:151
 #: resources/templates/table/search/index.twig:181
 #: resources/templates/table/structure/display_structure.twig:328
 #: resources/templates/table/structure/display_structure.twig:344
@@ -380,7 +380,7 @@ msgstr "Velg fremmednøkkel"
 #: resources/templates/table/relation/common_form.twig:24
 #: resources/templates/table/relation/common_form.twig:39
 #: resources/templates/table/relation/common_form.twig:70
-#: resources/templates/table/relation/common_form.twig:144
+#: resources/templates/table/relation/common_form.twig:109
 #: resources/templates/table/relation/foreign_key_row.twig:114
 #: resources/templates/table/relation/foreign_key_row.twig:124
 #: resources/templates/table/search/index.twig:38
@@ -389,7 +389,7 @@ msgstr "Velg fremmednøkkel"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:8
 #: resources/templates/table/zoom_search/index.twig:36
 #: resources/templates/table/zoom_search/result_form.twig:31
-#: src/Navigation/Nodes/NodeColumn.php:30
+#: src/Navigation/Nodes/NodeColumn.php:28
 #: src/Plugins/Export/ExportHtmlword.php:263
 #: src/Plugins/Export/ExportHtmlword.php:356
 #: src/Plugins/Export/ExportLatex.php:505 src/Plugins/Export/ExportOdt.php:361
@@ -527,10 +527,10 @@ msgstr "Brukere"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Import/Import.php:1226 src/Menu.php:219 src/Menu.php:323
-#: src/Navigation/Nodes/NodeColumn.php:40
-#: src/Navigation/Nodes/NodeDatabase.php:58
-#: src/Navigation/Nodes/NodeTable.php:289 src/Util.php:1057 src/Util.php:1482
+#: src/Import/Import.php:1167 src/Menu.php:213 src/Menu.php:317
+#: src/Navigation/Nodes/NodeColumn.php:38
+#: src/Navigation/Nodes/NodeDatabase.php:59
+#: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1057 src/Util.php:1482
 #: src/Util.php:1499
 msgid "Structure"
 msgstr "Struktur"
@@ -863,9 +863,9 @@ msgstr "Avslått"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:40
-#: src/Controllers/Database/Structure/EmptyTableController.php:49
+#: src/Controllers/Database/Structure/EmptyTableController.php:50
 #: src/Controllers/JavaScriptMessagesController.php:501
-#: src/Controllers/Table/DeleteRowsController.php:55
+#: src/Controllers/Table/DeleteRowsController.php:57
 #: src/Controllers/Table/DropColumnController.php:46
 #: src/Controllers/Table/Structure/PrimaryController.php:109
 #: src/IndexColumn.php:148 src/Index.php:470
@@ -972,7 +972,7 @@ msgstr "Spør igjen"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:399
-#: src/Display/Results.php:2533 src/Html/Generator.php:545
+#: src/Display/Results.php:2526 src/Html/Generator.php:545
 #: src/Html/Generator.php:811
 msgid "Edit"
 msgstr "Rediger"
@@ -991,7 +991,7 @@ msgstr "Rediger"
 #: resources/templates/setup/home/index.twig:68
 #: resources/templates/sql/query.twig:184
 #: src/Controllers/JavaScriptMessagesController.php:400
-#: src/Display/Results.php:2592 src/Tracking/Tracking.php:231
+#: src/Display/Results.php:2585 src/Tracking/Tracking.php:231
 msgid "Delete"
 msgstr "Slett"
 
@@ -1008,7 +1008,7 @@ msgstr "Slett"
 #: resources/templates/table/operations/index.twig:258
 #: resources/templates/table/operations/index.twig:264
 #: resources/templates/table/relation/common_form.twig:31
-#: resources/templates/table/relation/common_form.twig:130
+#: resources/templates/table/relation/common_form.twig:95
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
@@ -1040,7 +1040,7 @@ msgstr "Historikk"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:57
 #: resources/templates/table/structure/display_table_stats.twig:96
-#: src/Import/Import.php:1196 src/Import/Import.php:1227
+#: src/Import/Import.php:1137 src/Import/Import.php:1168
 #: src/Plugins/Export/ExportCodegen.php:52 src/Plugins/Export/ExportCsv.php:43
 #: src/Plugins/Export/ExportExcel.php:37
 #: src/Plugins/Export/ExportHtmlword.php:47
@@ -1050,10 +1050,10 @@ msgstr "Historikk"
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
 #: src/Plugins/Export/ExportSql.php:115
 #: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:60
-#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:69
-#: src/Plugins/Import/ImportLdi.php:53
-#: src/Plugins/Import/ImportMediawiki.php:57
-#: src/Plugins/Import/ImportOds.php:50 src/Plugins/Import/ImportShp.php:70
+#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:70
+#: src/Plugins/Import/ImportLdi.php:52
+#: src/Plugins/Import/ImportMediawiki.php:58
+#: src/Plugins/Import/ImportOds.php:53 src/Plugins/Import/ImportShp.php:71
 #: src/Plugins/Import/ImportSql.php:42 src/Plugins/Import/ImportXml.php:48
 msgid "Options"
 msgstr "Innstillinger"
@@ -1433,9 +1433,9 @@ msgstr "Lenker til"
 #: resources/templates/indexes.twig:1
 #: resources/templates/table/structure/display_structure.twig:459
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
-#: src/Controllers/Server/DatabasesController.php:267
+#: src/Controllers/Server/DatabasesController.php:266
+#: src/Navigation/Nodes/NodeIndexContainer.php:23
 #: src/Navigation/Nodes/NodeIndexContainer.php:25
-#: src/Navigation/Nodes/NodeIndexContainer.php:27
 msgid "Indexes"
 msgstr "Indekser"
 
@@ -1814,7 +1814,7 @@ msgstr "Hendelsestype"
 #: resources/templates/database/tracking/tables.twig:16
 #: resources/templates/table/tracking/main.twig:30
 #: src/Config/ConfigFile.php:577
-#: src/Controllers/JavaScriptMessagesController.php:286 src/Menu.php:451
+#: src/Controllers/JavaScriptMessagesController.php:286 src/Menu.php:445
 #: src/Server/Status/Processes.php:96 src/Util.php:1469
 msgid "Status"
 msgstr "Status"
@@ -1888,9 +1888,9 @@ msgstr "Komplette inserts"
 msgid "Definer"
 msgstr ""
 
-#: resources/templates/database/events/index.twig:3 src/Menu.php:382
-#: src/Navigation/Nodes/NodeEventContainer.php:23
-#: src/Navigation/Nodes/NodeEventContainer.php:25
+#: resources/templates/database/events/index.twig:3 src/Menu.php:376
+#: src/Navigation/Nodes/NodeEventContainer.php:22
+#: src/Navigation/Nodes/NodeEventContainer.php:24
 #: src/Plugins/Export/ExportSql.php:951 src/Plugins/Export/ExportXml.php:84
 #: src/Util.php:1491
 msgid "Events"
@@ -1953,8 +1953,8 @@ msgstr "Merk alle"
 #: resources/templates/triggers/list.twig:18
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
-#: src/Controllers/JavaScriptMessagesController.php:384 src/Menu.php:246
-#: src/Menu.php:348 src/Menu.php:470 src/Server/Privileges.php:1293
+#: src/Controllers/JavaScriptMessagesController.php:384 src/Menu.php:240
+#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1293
 #: src/Util.php:1471 src/Util.php:1486 src/Util.php:1503
 msgid "Export"
 msgstr "Eksporter"
@@ -1983,7 +1983,7 @@ msgstr "Eksporter"
 #: resources/templates/triggers/list.twig:18
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:523
+#: resources/templates/triggers/row.twig:58 src/Operations.php:529
 msgid "Drop"
 msgstr "Slett"
 
@@ -2038,7 +2038,7 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Eksporter tabell fra \"%s\" database"
 
 #: resources/templates/database/export/index.twig:13
-#: src/Navigation/Navigation.php:211
+#: src/Navigation/Navigation.php:219
 #, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
@@ -2047,9 +2047,9 @@ msgstr "Tabeller"
 #: resources/templates/database/export/index.twig:16
 #: resources/templates/database/structure/show_create.twig:5
 #: src/Config/Descriptions.php:743
-#: src/Controllers/Server/DatabasesController.php:264
-#: src/Navigation/Nodes/NodeTableContainer.php:23
-#: src/Navigation/Nodes/NodeTableContainer.php:25
+#: src/Controllers/Server/DatabasesController.php:263
+#: src/Navigation/Nodes/NodeTableContainer.php:22
+#: src/Navigation/Nodes/NodeTableContainer.php:24
 #: src/Plugins/Export/ExportXml.php:99 src/Server/Status/Data.php:133
 msgid "Tables"
 msgstr "Tabeller"
@@ -2061,7 +2061,7 @@ msgstr "Tabeller"
 #: src/Config/Forms/User/ExportForm.php:106
 #: src/Config/Forms/User/ExportForm.php:131
 #: src/Config/Forms/User/ExportForm.php:137
-#: src/Controllers/Server/DatabasesController.php:266
+#: src/Controllers/Server/DatabasesController.php:265
 msgid "Data"
 msgstr "Data"
 
@@ -2144,8 +2144,8 @@ msgstr "Sorter"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:22
 #: resources/templates/table/search/index.twig:154
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1496
-#: src/Display/Results.php:1503 src/Util.php:2000 src/Util.php:2017
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1491
+#: src/Display/Results.php:1498 src/Util.php:2000 src/Util.php:2017
 msgid "Ascending"
 msgstr "Stigende"
 
@@ -2156,8 +2156,8 @@ msgstr "Stigende"
 #: resources/templates/server/status/processes/list.twig:11
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:159
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1491
-#: src/Display/Results.php:1508 src/Util.php:2005 src/Util.php:2022
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1486
+#: src/Display/Results.php:1503 src/Util.php:2005 src/Util.php:2022
 msgid "Descending"
 msgstr "Synkende"
 
@@ -2212,7 +2212,7 @@ msgid "Submit query"
 msgstr "Kjør spørring"
 
 #: resources/templates/database/operations/index.twig:2
-#: src/Navigation/Nodes/NodeDatabase.php:50
+#: src/Navigation/Nodes/NodeDatabase.php:51
 #, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
@@ -2365,8 +2365,8 @@ msgstr "Loggnavn"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:21
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:262
-#: src/Menu.php:370 src/Util.php:1489 src/Util.php:1505
+#: src/Controllers/Server/PrivilegesController.php:413 src/Menu.php:256
+#: src/Menu.php:364 src/Util.php:1489 src/Util.php:1505
 msgid "Privileges"
 msgstr "Privilegier"
 
@@ -2538,11 +2538,11 @@ msgstr "Rutiner"
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
 #: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:289
-#: src/Navigation/Nodes/NodeFunction.php:26
+#: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr "Funksjon"
 
-#: resources/templates/database/routines/index.twig:3 src/Menu.php:376
+#: resources/templates/database/routines/index.twig:3 src/Menu.php:370
 #: src/Util.php:1490
 msgid "Routines"
 msgstr "Rutiner"
@@ -2554,8 +2554,8 @@ msgstr "Rutiner"
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:521 src/Config/ConfigFile.php:535
-#: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599 src/Menu.php:228
-#: src/Menu.php:332 src/Navigation/Nodes/NodeTable.php:290 src/Util.php:1059
+#: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599 src/Menu.php:222
+#: src/Menu.php:326 src/Navigation/Nodes/NodeTable.php:285 src/Util.php:1059
 #: src/Util.php:1484 src/Util.php:1501
 msgid "Search"
 msgstr "Søk"
@@ -2660,8 +2660,8 @@ msgstr[1] "%1$s treff i <strong>%2$s</strong>"
 #: resources/templates/database/structure/structure_table_row.twig:43
 #: resources/templates/table/structure/display_structure.twig:282
 #: src/Config/ConfigFile.php:525 src/Config/ConfigFile.php:539
-#: src/Config/ConfigFile.php:603 src/Menu.php:212
-#: src/Navigation/Nodes/NodeTable.php:293 src/Util.php:1061 src/Util.php:1498
+#: src/Config/ConfigFile.php:603 src/Menu.php:206
+#: src/Navigation/Nodes/NodeTable.php:288 src/Util.php:1061 src/Util.php:1498
 msgid "Browse"
 msgstr "Se på"
 
@@ -2686,7 +2686,7 @@ msgstr[1] "%s tabeller"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:11
 #: resources/templates/database/structure/table_header.twig:10
-#: resources/templates/server/replication/index.twig:4 src/Menu.php:502
+#: resources/templates/server/replication/index.twig:4 src/Menu.php:496
 #: src/Server/Status/Data.php:131 src/Util.php:1475
 msgid "Replication"
 msgstr "Replikering"
@@ -2803,7 +2803,7 @@ msgid "Copy table with prefix"
 msgstr "Kopier tabell med prefiks"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:410 src/Util.php:1495
+#: src/Menu.php:404 src/Util.php:1495
 msgid "Central columns"
 msgstr "Hovedkolonner"
 
@@ -2898,7 +2898,7 @@ msgstr "Dataordbok"
 #: resources/templates/database/structure/index.twig:25
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:86
-#: src/Controllers/Database/TrackingController.php:134
+#: src/Controllers/Database/TrackingController.php:133
 #: src/Controllers/Export/ExportController.php:303
 msgid "No tables found in database."
 msgstr "Databasen har ingen tabeller."
@@ -2921,7 +2921,7 @@ msgstr "Vis SQL spørringer"
 #: resources/templates/table/operations/index.twig:66
 #: resources/templates/table/operations/index.twig:267
 #: resources/templates/table/relation/common_form.twig:38
-#: resources/templates/table/relation/common_form.twig:137
+#: resources/templates/table/relation/common_form.twig:102
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:29
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
@@ -2931,8 +2931,8 @@ msgid "Table"
 msgstr "Tabell"
 
 #: resources/templates/database/structure/show_create.twig:29
-#: src/Navigation/Nodes/NodeViewContainer.php:23
-#: src/Navigation/Nodes/NodeViewContainer.php:25
+#: src/Navigation/Nodes/NodeViewContainer.php:22
+#: src/Navigation/Nodes/NodeViewContainer.php:24
 #: src/Plugins/Export/ExportXml.php:109
 msgid "Views"
 msgstr "Visning"
@@ -2940,10 +2940,10 @@ msgstr "Visning"
 #: resources/templates/database/structure/show_create.twig:30
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:184
-#: src/Controllers/Operations/TableController.php:125
+#: src/Controllers/Operations/TableController.php:124
 #: src/Controllers/Operations/TableController.php:333
-#: src/Controllers/Table/StructureController.php:164
-#: src/Navigation/Nodes/NodeView.php:26
+#: src/Controllers/Table/StructureController.php:160
+#: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "Vis"
 
@@ -2969,8 +2969,8 @@ msgstr "Replikert"
 
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:74 src/Config/ConfigFile.php:523
-#: src/Config/ConfigFile.php:537 src/Config/ConfigFile.php:601 src/Menu.php:239
-#: src/Navigation/Nodes/NodeTable.php:291 src/Util.php:1060 src/Util.php:1502
+#: src/Config/ConfigFile.php:537 src/Config/ConfigFile.php:601 src/Menu.php:233
+#: src/Navigation/Nodes/NodeTable.php:286 src/Util.php:1060 src/Util.php:1502
 msgid "Insert"
 msgstr "Sett inn"
 
@@ -2982,7 +2982,7 @@ msgstr "i bruk"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:230
 #: resources/templates/table/structure/display_table_stats.twig:118
-#: src/Controllers/Server/DatabasesController.php:265 src/Import/Import.php:150
+#: src/Controllers/Server/DatabasesController.php:264 src/Import/Import.php:142
 msgid "Rows"
 msgstr "Rader"
 
@@ -3001,7 +3001,7 @@ msgstr "Størrelse"
 
 #: resources/templates/database/structure/table_header.twig:38
 #: resources/templates/table/structure/display_table_stats.twig:31
-#: src/Controllers/Server/DatabasesController.php:269
+#: src/Controllers/Server/DatabasesController.php:268
 msgid "Overhead"
 msgstr "Overheng"
 
@@ -3182,12 +3182,12 @@ msgid "Extra options"
 msgstr "Tabellinnstillinger"
 
 #: resources/templates/display/results/table.twig:209
-#: src/Display/Results.php:1143
+#: src/Display/Results.php:1141
 msgid "Partial texts"
 msgstr "Delvise tekster"
 
 #: resources/templates/display/results/table.twig:213
-#: src/Display/Results.php:1147
+#: src/Display/Results.php:1145
 msgid "Full texts"
 msgstr "Hele tekster"
 
@@ -3230,7 +3230,7 @@ msgstr "Velkjent Binær"
 #: resources/templates/display/results/table.twig:321
 #: resources/templates/gis_data_editor_form.twig:62
 #: src/Controllers/JavaScriptMessagesController.php:487
-#: src/Display/Results.php:2537 src/Html/Generator.php:78
+#: src/Display/Results.php:2530 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "Kopier"
 
@@ -3267,7 +3267,7 @@ msgstr "Konverter til Kana"
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Html/Generator.php:762 src/Import/Import.php:139 src/InsertEdit.php:493
+#: src/Html/Generator.php:762 src/Import/Import.php:131 src/InsertEdit.php:492
 #: src/Message.php:145
 msgid "Error"
 msgstr "Feil"
@@ -3679,7 +3679,7 @@ msgstr ""
 
 #: resources/templates/header.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:216 src/Menu.php:480
+#: src/Controllers/JavaScriptMessagesController.php:216 src/Menu.php:474
 #: src/Util.php:1473
 msgid "Settings"
 msgstr "Innstillinger"
@@ -3919,8 +3919,8 @@ msgstr "Tilbake"
 #: resources/templates/preferences/manage/main.twig:3
 #: resources/templates/server/status/monitor/index.twig:61
 #: src/Config/Forms/User/ImportForm.php:58
-#: src/Controllers/JavaScriptMessagesController.php:321 src/Menu.php:255
-#: src/Menu.php:358 src/Menu.php:475 src/Util.php:1472 src/Util.php:1487
+#: src/Controllers/JavaScriptMessagesController.php:321 src/Menu.php:249
+#: src/Menu.php:352 src/Menu.php:469 src/Util.php:1472 src/Util.php:1487
 #: src/Util.php:1504
 msgid "Import"
 msgstr "Importer"
@@ -3966,7 +3966,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:494
+#: src/InsertEdit.php:493
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Katalogen du anga for opplasting kan ikke nåes."
 
@@ -4300,7 +4300,7 @@ msgstr "SQL dump"
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:575 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:441 src/Util.php:1467
+#: src/Config/Descriptions.php:739 src/Menu.php:435 src/Util.php:1467
 msgid "Databases"
 msgstr "Databaser"
 
@@ -4530,7 +4530,7 @@ msgstr ""
 
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:41
-#: src/Controllers/Database/Structure/EmptyTableController.php:50
+#: src/Controllers/Database/Structure/EmptyTableController.php:51
 #: src/Controllers/Operations/TableController.php:349
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:295 src/Core.php:501
@@ -4791,7 +4791,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 "Re-logginn til phpMyAdmin for å laste den oppdaterte konfigurasjonsfila."
 
-#: resources/templates/server/binlog/index.twig:2 src/Menu.php:495
+#: resources/templates/server/binlog/index.twig:2 src/Menu.php:489
 #: src/Server/Status/Data.php:126 src/Util.php:1474
 msgid "Binary log"
 msgstr "Binærlogg"
@@ -4947,7 +4947,7 @@ msgstr "Beskrivelse"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:20
 #: resources/templates/sql/query.twig:188 src/Config/ConfigFile.php:579
-#: src/Menu.php:508 src/Server/Status/Data.php:193 src/Util.php:1476
+#: src/Menu.php:502 src/Server/Status/Data.php:193 src/Util.php:1476
 msgid "Variables"
 msgstr "Variabler"
 
@@ -4971,7 +4971,7 @@ msgstr "Eksporter database fra gjeldende tjener"
 msgid "Importing into the current server"
 msgstr "Importer til gjeldende tjener"
 
-#: resources/templates/server/plugins/index.twig:3 src/Menu.php:523
+#: resources/templates/server/plugins/index.twig:3 src/Menu.php:517
 #: src/Util.php:1478
 msgid "Plugins"
 msgstr "Programtillegg"
@@ -5327,7 +5327,7 @@ msgstr "Tillater lesing av data."
 #: resources/templates/server/privileges/privileges_table.twig:57
 #: resources/templates/server/privileges/privileges_table.twig:84
 #: resources/templates/server/privileges/privileges_table.twig:111
-#: resources/templates/table/search/index.twig:127 src/InsertEdit.php:502
+#: resources/templates/table/search/index.twig:127 src/InsertEdit.php:501
 msgid "Or"
 msgstr "Eller"
 
@@ -6473,7 +6473,7 @@ msgid "Start auto refresh"
 msgstr "Start automatisk oppdatering"
 
 #: resources/templates/server/status/processes/list.twig:43
-#: src/Display/Results.php:2611
+#: src/Display/Results.php:2604
 msgid "Kill"
 msgstr "Avslutt"
 
@@ -6680,7 +6680,7 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: resources/templates/server/user_groups/user_listings.twig:5
-#: src/Controllers/Server/PrivilegesController.php:415
+#: src/Controllers/Server/PrivilegesController.php:416
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "Bruker"
@@ -6893,7 +6893,7 @@ msgstr "Profileringsresultater"
 
 #: resources/templates/sql/query.twig:6
 #: src/Controllers/Operations/ViewController.php:117
-#: src/Controllers/Table/DeleteRowsController.php:76
+#: src/Controllers/Table/DeleteRowsController.php:78
 #: src/Controllers/Table/FindReplaceController.php:121
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:74
 #: src/Controllers/Table/Maintenance/CheckController.php:74
@@ -6907,8 +6907,8 @@ msgstr "Profileringsresultater"
 #: src/Controllers/Table/Partition/RebuildController.php:51
 #: src/Controllers/Table/Partition/RepairController.php:50
 #: src/Controllers/Table/Partition/TruncateController.php:51
-#: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:993 src/Display/Results.php:3200
+#: src/Controllers/Table/RelationController.php:140
+#: src/Database/Routines.php:995 src/Display/Results.php:3191
 #: src/Message.php:129
 msgid "Your SQL query has been executed successfully."
 msgstr "Kommandoen/spørringen er utført."
@@ -6930,8 +6930,8 @@ msgid "Bind parameters"
 msgstr "Feil parametere!"
 
 #: resources/templates/sql/query.twig:60
+#: src/Navigation/Nodes/NodeColumnContainer.php:23
 #: src/Navigation/Nodes/NodeColumnContainer.php:25
-#: src/Navigation/Nodes/NodeColumnContainer.php:27
 msgid "Columns"
 msgstr "Kolonner"
 
@@ -7260,7 +7260,7 @@ msgstr "Dra for å omplassere"
 #: resources/templates/table/index_form.twig:199
 #: src/Controllers/JavaScriptMessagesController.php:486
 #: src/Controllers/JavaScriptMessagesController.php:637
-#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1541
+#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1536
 msgid "Ignore"
 msgstr "Ignorer"
 
@@ -7364,7 +7364,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/table/normalization/normalization.twig:13
-#: src/Normalization.php:198
+#: src/Normalization.php:201
 msgid "First step of normalization (1NF)"
 msgstr ""
 
@@ -7440,7 +7440,7 @@ msgstr "Oppfrisk tabellen (\"FLUSH\")"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:410
+#: src/Controllers/Database/StructureController.php:406
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabellen %s har blitt tømt."
@@ -7457,14 +7457,14 @@ msgstr "Gå til database"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:362
+#: src/Controllers/Database/StructureController.php:358
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Visningen %s har blitt slettet"
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:363
+#: src/Controllers/Database/StructureController.php:359
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
@@ -7492,8 +7492,8 @@ msgid "Check referential integrity"
 msgstr "Sjekk referanseintegritet:"
 
 #: resources/templates/table/operations/view.twig:3
-#: src/Config/ConfigFile.php:591 src/Menu.php:273 src/Menu.php:283
-#: src/Menu.php:363 src/Util.php:1062 src/Util.php:1488 src/Util.php:1506
+#: src/Config/ConfigFile.php:591 src/Menu.php:267 src/Menu.php:277
+#: src/Menu.php:357 src/Util.php:1062 src/Util.php:1488 src/Util.php:1506
 msgid "Operations"
 msgstr "Operasjoner"
 
@@ -7625,7 +7625,7 @@ msgstr ""
 "En intern relasjon er ikke nødvendig når en tilsvarende FOREIGN KEY relasjon "
 "eksisterer."
 
-#: resources/templates/table/relation/common_form.twig:162
+#: resources/templates/table/relation/common_form.twig:127
 #, fuzzy
 #| msgid "Choose column to display"
 msgid "Choose column to display:"
@@ -7719,32 +7719,32 @@ msgid "Index length"
 msgstr "Radlengde"
 
 #: resources/templates/table/structure/display_partitions.twig:85
-#: src/Operations.php:506
+#: src/Operations.php:512
 msgid "Analyze"
 msgstr "Analyser"
 
 #: resources/templates/table/structure/display_partitions.twig:95
-#: src/Operations.php:507
+#: src/Operations.php:513
 msgid "Check"
 msgstr "Kontroller"
 
 #: resources/templates/table/structure/display_partitions.twig:105
-#: src/Operations.php:508
+#: src/Operations.php:514
 msgid "Optimize"
 msgstr "Optimaliser"
 
 #: resources/templates/table/structure/display_partitions.twig:115
-#: src/Operations.php:509
+#: src/Operations.php:515
 msgid "Rebuild"
 msgstr "Gjenoppbygg"
 
 #: resources/templates/table/structure/display_partitions.twig:125
-#: src/Operations.php:510
+#: src/Operations.php:516
 msgid "Repair"
 msgstr "Reparer"
 
 #: resources/templates/table/structure/display_partitions.twig:135
-#: src/Operations.php:511
+#: src/Operations.php:517
 msgid "Truncate"
 msgstr ""
 
@@ -7883,7 +7883,7 @@ msgid "Effective"
 msgstr "Effektiv"
 
 #: resources/templates/table/structure/display_table_stats.twig:44
-#: src/Controllers/Server/DatabasesController.php:268
+#: src/Controllers/Server/DatabasesController.php:267
 #: src/Controllers/Server/Status/StatusController.php:137
 #: src/Controllers/Server/Status/StatusController.php:187
 msgid "Total"
@@ -8053,7 +8053,7 @@ msgstr "Tid"
 
 #: resources/templates/triggers/editor_form.twig:48
 #: resources/templates/triggers/list.twig:51
-#: src/Navigation/Nodes/NodeEvent.php:26
+#: src/Navigation/Nodes/NodeEvent.php:24
 #: src/Plugins/Export/ExportHtmlword.php:461
 #: src/Plugins/Export/ExportOdt.php:575
 #: src/Plugins/Export/ExportTexytext.php:440
@@ -8068,9 +8068,9 @@ msgstr "Hendelse"
 msgid "Export of trigger %s"
 msgstr "Eksporter innhold"
 
-#: resources/templates/triggers/list.twig:3 src/Menu.php:296 src/Menu.php:389
+#: resources/templates/triggers/list.twig:3 src/Menu.php:290 src/Menu.php:383
+#: src/Navigation/Nodes/NodeTriggerContainer.php:23
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
-#: src/Navigation/Nodes/NodeTriggerContainer.php:27
 #: src/Plugins/Export/ExportHtmlword.php:534
 #: src/Plugins/Export/ExportOdt.php:657 src/Plugins/Export/ExportPdf.php:251
 #: src/Plugins/Export/ExportSql.php:1925
@@ -9666,8 +9666,8 @@ msgstr "Vietnamesisk"
 
 #: src/Config/ConfigFile.php:519 src/Config/ConfigFile.php:533
 #: src/Config/ConfigFile.php:587 src/Config/ConfigFile.php:597
-#: src/Config/Descriptions.php:755 src/Menu.php:224 src/Menu.php:328
-#: src/Menu.php:446 src/Navigation/Nodes/NodeTable.php:292 src/Util.php:1058
+#: src/Config/Descriptions.php:755 src/Menu.php:218 src/Menu.php:322
+#: src/Menu.php:440 src/Navigation/Nodes/NodeTable.php:287 src/Util.php:1058
 #: src/Util.php:1468 src/Util.php:1483 src/Util.php:1500
 msgid "SQL"
 msgstr "SQL"
@@ -11515,12 +11515,12 @@ msgid "Put columns names in the first row"
 msgstr "Sett inn kolonnenavn i første rad"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:658
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:653
 msgid "Columns enclosed with"
 msgstr "Kolonner omsluttet av"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:669
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:664
 #, fuzzy
 #| msgid "Columns escaped by"
 msgid "Columns escaped with"
@@ -11538,12 +11538,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "Fjern CRLF tegn inne i kolonner"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:643
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:638
 msgid "Columns terminated with"
 msgstr "Kolonner avsluttet med"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:676
+#: src/Plugins/Import/ImportCsv.php:671
 msgid "Lines terminated with"
 msgstr "Linjer avsluttet med"
 
@@ -11834,7 +11834,7 @@ msgid "Partial import: allow interrupt"
 msgstr "Delvis import: tillat avbrudd"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:140 src/Plugins/Import/ImportLdi.php:70
+#: src/Plugins/Import/ImportCsv.php:141 src/Plugins/Import/ImportLdi.php:69
 msgid "Do not abort on INSERT error"
 msgstr "Ikke avbryt under INSERT feil"
 
@@ -11847,7 +11847,7 @@ msgstr "Legg til OPPDATERING VED DUPLISERING AV NØKKEL"
 msgid "Format of imported file"
 msgstr "Importfilformat"
 
-#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:76
+#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:75
 msgid "Use LOCAL keyword"
 msgstr "Bruk LOCAL nøkkelord"
 
@@ -11855,7 +11855,7 @@ msgstr "Bruk LOCAL nøkkelord"
 msgid "Column names in first row"
 msgstr "Kolonnenavn i første rad"
 
-#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:71
+#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:74
 msgid "Do not import empty rows"
 msgstr "Ikke importer tomme rader"
 
@@ -11957,7 +11957,7 @@ msgstr "Navigasjonspanel"
 
 #: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:606
-#: src/Navigation/NavigationTree.php:1284
+#: src/Navigation/NavigationTree.php:1307
 msgid "Link with main panel"
 msgstr "Lenke med hovedpanelet"
 
@@ -12875,11 +12875,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "Tjener %d"
 
-#: src/ConfigStorage/Relation.php:1245
+#: src/ConfigStorage/Relation.php:1241
 msgid "no description"
 msgstr "ingen beskrivelse"
 
-#: src/ConfigStorage/Relation.php:1442
+#: src/ConfigStorage/Relation.php:1438
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -12981,20 +12981,20 @@ msgstr "Ikke et ikke-negativt nummer!"
 msgid "Value must be less than or equal to %s!"
 msgstr "Verdien må være mindre enn eller lik %s!"
 
-#: src/Console.php:74
+#: src/Console.php:76
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] "Viser %1$d bokmerke (både private og delt)"
 msgstr[1] "Viser %1$d bokmerker (både private og delt)"
 
-#: src/Console.php:81
+#: src/Console.php:83
 msgid "No bookmarks"
 msgstr "Ingen bokmerker"
 
 #: src/Controllers/AbstractController.php:74
 #: src/Controllers/SchemaExportController.php:35
-#: src/Controllers/Server/UserGroupsFormController.php:45
+#: src/Controllers/Server/UserGroupsFormController.php:44
 msgid "Missing parameter:"
 msgstr "Mangler parametere:"
 
@@ -13039,29 +13039,29 @@ msgstr ""
 #: src/Controllers/Database/ExportController.php:73
 #: src/Controllers/Database/ImportController.php:67
 #: src/Controllers/Database/ImportController.php:72
-#: src/Controllers/Database/RoutinesController.php:79
-#: src/Controllers/Database/RoutinesController.php:105
+#: src/Controllers/Database/RoutinesController.php:78
+#: src/Controllers/Database/RoutinesController.php:104
 #: src/Controllers/Database/SearchController.php:54
 #: src/Controllers/Database/SearchController.php:59
 #: src/Controllers/Database/SqlController.php:65
 #: src/Controllers/Database/SqlController.php:70
-#: src/Controllers/Database/StructureController.php:145
-#: src/Controllers/Database/StructureController.php:150
+#: src/Controllers/Database/StructureController.php:144
+#: src/Controllers/Database/StructureController.php:149
 #: src/Controllers/Database/Structure/FavoriteTableController.php:83
 #: src/Controllers/Database/Structure/RealRowCountController.php:62
-#: src/Controllers/Database/TrackingController.php:63
-#: src/Controllers/Database/TrackingController.php:68
+#: src/Controllers/Database/TrackingController.php:62
+#: src/Controllers/Database/TrackingController.php:67
 #: src/Controllers/JavaScriptMessagesController.php:354
 #: src/Controllers/Operations/Database/CollationController.php:64
-#: src/Controllers/Operations/DatabaseController.php:234
-#: src/Controllers/Operations/DatabaseController.php:239
-#: src/Controllers/Operations/TableController.php:89
-#: src/Controllers/Operations/TableController.php:94
+#: src/Controllers/Operations/DatabaseController.php:241
+#: src/Controllers/Operations/DatabaseController.php:246
+#: src/Controllers/Operations/TableController.php:88
+#: src/Controllers/Operations/TableController.php:93
 #: src/Controllers/Operations/ViewController.php:64
 #: src/Controllers/Operations/ViewController.php:69
-#: src/Controllers/Server/Databases/DestroyController.php:59
-#: src/Controllers/Table/AddFieldController.php:161
-#: src/Controllers/Table/AddFieldController.php:166
+#: src/Controllers/Server/Databases/DestroyController.php:63
+#: src/Controllers/Table/AddFieldController.php:165
+#: src/Controllers/Table/AddFieldController.php:170
 #: src/Controllers/Table/ChangeController.php:69
 #: src/Controllers/Table/ChangeController.php:74
 #: src/Controllers/Table/ChartController.php:104
@@ -13087,8 +13087,8 @@ msgstr ""
 #: src/Controllers/Table/SearchController.php:183
 #: src/Controllers/Table/SqlController.php:67
 #: src/Controllers/Table/SqlController.php:72
-#: src/Controllers/Table/StructureController.php:100
-#: src/Controllers/Table/StructureController.php:105
+#: src/Controllers/Table/StructureController.php:96
+#: src/Controllers/Table/StructureController.php:101
 #: src/Controllers/Table/Structure/PrimaryController.php:76
 #: src/Controllers/Table/Structure/PrimaryController.php:81
 #: src/Controllers/Table/TrackingController.php:72
@@ -13115,9 +13115,9 @@ msgid "Edit event"
 msgstr "Rediger tjener"
 
 #: src/Controllers/Database/EventsController.php:195
-#: src/Controllers/Database/RoutinesController.php:288
-#: src/Controllers/Database/RoutinesController.php:318
-#: src/Controllers/Database/RoutinesController.php:386
+#: src/Controllers/Database/RoutinesController.php:287
+#: src/Controllers/Database/RoutinesController.php:317
+#: src/Controllers/Database/RoutinesController.php:385
 #: src/Controllers/Triggers/IndexController.php:227
 #, fuzzy
 #| msgid "Error in Processing Request"
@@ -13156,22 +13156,22 @@ msgstr "Kunne ikke laste eksporttillegg, kontroller din innstallasjon!"
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Kan ikke starte importerings-tilleggene, kontroller din installasjon!"
 
-#: src/Controllers/Database/PrivilegesController.php:68
+#: src/Controllers/Database/PrivilegesController.php:64
 #: src/Controllers/Server/PrivilegesController.php:111
 #: src/Controllers/Server/UserGroupsController.php:47
-#: src/Controllers/Table/PrivilegesController.php:71
+#: src/Controllers/Table/PrivilegesController.php:67
 msgid "No Privileges"
 msgstr "Ingen privilegier"
 
-#: src/Controllers/Database/PrivilegesController.php:77
+#: src/Controllers/Database/PrivilegesController.php:73
 #: src/Controllers/Server/PrivilegesController.php:120
-#: src/Controllers/Table/PrivilegesController.php:80
+#: src/Controllers/Table/PrivilegesController.php:76
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Du har ikke nok rettigheter til å være her nå!"
 
-#: src/Controllers/Database/RoutinesController.php:86
+#: src/Controllers/Database/RoutinesController.php:85
 #: src/Controllers/Database/Structure/AddPrefixController.php:22
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:39
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:40
@@ -13183,12 +13183,12 @@ msgstr "Du har ikke nok rettigheter til å være her nå!"
 #: src/Controllers/Database/Structure/ShowCreateController.php:31
 #: src/Controllers/Export/TablesController.php:29
 #: src/Controllers/JavaScriptMessagesController.php:355
-#: src/Controllers/Operations/TableController.php:103
-#: src/Controllers/Operations/TableController.php:108
+#: src/Controllers/Operations/TableController.php:102
+#: src/Controllers/Operations/TableController.php:107
 #: src/Controllers/Operations/ViewController.php:78
 #: src/Controllers/Operations/ViewController.php:83
-#: src/Controllers/Table/AddFieldController.php:175
-#: src/Controllers/Table/AddFieldController.php:180
+#: src/Controllers/Table/AddFieldController.php:179
+#: src/Controllers/Table/AddFieldController.php:184
 #: src/Controllers/Table/ChangeController.php:83
 #: src/Controllers/Table/ChangeController.php:88
 #: src/Controllers/Table/ChartController.php:118
@@ -13215,8 +13215,8 @@ msgstr "Du har ikke nok rettigheter til å være her nå!"
 #: src/Controllers/Table/SearchController.php:197
 #: src/Controllers/Table/SqlController.php:81
 #: src/Controllers/Table/SqlController.php:86
-#: src/Controllers/Table/StructureController.php:114
-#: src/Controllers/Table/StructureController.php:119
+#: src/Controllers/Table/StructureController.php:110
+#: src/Controllers/Table/StructureController.php:115
 #: src/Controllers/Table/Structure/PrimaryController.php:90
 #: src/Controllers/Table/Structure/PrimaryController.php:95
 #: src/Controllers/Table/ZoomSearchController.php:117
@@ -13227,44 +13227,44 @@ msgstr "Du har ikke nok rettigheter til å være her nå!"
 msgid "No table selected."
 msgstr "Ingen tabeller er valgt."
 
-#: src/Controllers/Database/RoutinesController.php:188
+#: src/Controllers/Database/RoutinesController.php:187
 #, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add routine"
 msgstr "Utfør indeks(er)"
 
-#: src/Controllers/Database/RoutinesController.php:192
+#: src/Controllers/Database/RoutinesController.php:191
 #, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
 msgstr "Redigeringsmodus"
 
-#: src/Controllers/Database/RoutinesController.php:291
+#: src/Controllers/Database/RoutinesController.php:290
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:320
-#: src/Controllers/Database/RoutinesController.php:388
+#: src/Controllers/Database/RoutinesController.php:319
+#: src/Controllers/Database/RoutinesController.php:387
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Ingen tabeller funnet i databasen"
 
-#: src/Controllers/Database/RoutinesController.php:369
-#: src/Controllers/Database/RoutinesController.php:379
+#: src/Controllers/Database/RoutinesController.php:368
+#: src/Controllers/Database/RoutinesController.php:378
 msgid "Execute routine"
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:431
+#: src/Controllers/Database/RoutinesController.php:430
 #, fuzzy, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
 msgstr "Eksportinnstillinger"
 
-#: src/Controllers/Database/RoutinesController.php:450
+#: src/Controllers/Database/RoutinesController.php:449
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -13284,15 +13284,15 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:580
-#: src/Display/Results.php:3483
+#: src/Controllers/Database/StructureController.php:576
+#: src/Display/Results.php:3471
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
 "%sdocumentation%s."
 msgstr "Denne visningen har minst dette antall rader. Sjekk %sdocumentation%s."
 
-#: src/Controllers/Database/StructureController.php:743
+#: src/Controllers/Database/StructureController.php:739
 msgid "unknown"
 msgstr "ukjent"
 
@@ -13300,12 +13300,12 @@ msgstr "ukjent"
 msgid "Favorite List is full!"
 msgstr "Favotittlisten er full!"
 
-#: src/Controllers/Database/TrackingController.php:81
-#: src/Controllers/Database/TrackingController.php:107
+#: src/Controllers/Database/TrackingController.php:80
+#: src/Controllers/Database/TrackingController.php:106
 msgid "Tracking data deleted successfully."
 msgstr "Sporingsdata ble slettet."
 
-#: src/Controllers/Database/TrackingController.php:92
+#: src/Controllers/Database/TrackingController.php:91
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
@@ -13313,11 +13313,11 @@ msgstr ""
 "Versjon %1$s ble opprettet for de valgte tabellene, og overvåking er "
 "aktivert."
 
-#: src/Controllers/Database/TrackingController.php:124
+#: src/Controllers/Database/TrackingController.php:123
 msgid "No tables selected."
 msgstr "Ingen tabeller er valgt."
 
-#: src/Controllers/Database/TrackingController.php:163
+#: src/Controllers/Database/TrackingController.php:159
 msgid "Database Log"
 msgstr "Databaselogg"
 
@@ -13356,7 +13356,7 @@ msgstr "Feil type!"
 msgid "Bad parameters!"
 msgstr "Feil parametere!"
 
-#: src/Controllers/HomeController.php:102
+#: src/Controllers/HomeController.php:101
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -13364,7 +13364,7 @@ msgstr ""
 "Du ble logget ut fra én tjener. For å logge helt ut av phpMyAdmin må du "
 "logge ut av alle tjenere."
 
-#: src/Controllers/HomeController.php:199
+#: src/Controllers/HomeController.php:195
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -13373,14 +13373,14 @@ msgstr ""
 "Lagring av phpMyAdmin-oppsett er ikke konfigurert riktig i innstillingene, "
 "og noen tilleggsfunksjoner er deaktivert. %sFinn ut hvorfor%s. "
 
-#: src/Controllers/HomeController.php:205
+#: src/Controllers/HomeController.php:201
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Alternativt kan du gå til 'Operasjoner'-fanen for en database og sette det "
 "opp der."
 
-#: src/Controllers/HomeController.php:271
+#: src/Controllers/HomeController.php:267
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -13392,7 +13392,7 @@ msgstr ""
 "enn cookie gyldighet konfigurert i phpMyAdmin. På grunn av dette så kan "
 "innlogging utløpe raskere enn det som er satt i phpMyAdmin."
 
-#: src/Controllers/HomeController.php:291
+#: src/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -13401,7 +13401,7 @@ msgstr ""
 "phpMyAdmin. Innloggingen din vil dermed utløpe raskere enn det som er satt i "
 "phpMyAdmin."
 
-#: src/Controllers/HomeController.php:310
+#: src/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -13411,14 +13411,14 @@ msgstr ""
 "(controlpass), og er åpen for enhver til å ta seg inn; du bør virkelig ordne "
 "dette sikkerhetsproblemet ved å endre passordet for kontrollbrukeren \"pma\"."
 
-#: src/Controllers/HomeController.php:329
+#: src/Controllers/HomeController.php:325
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:339
+#: src/Controllers/HomeController.php:335
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -13426,7 +13426,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:357
+#: src/Controllers/HomeController.php:353
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -13438,7 +13438,7 @@ msgstr ""
 "phpMyAdmin har blitt konfigurert. Ellers kan uautoriserte personer få tak i "
 "konfigurasjonen din og endre serveren."
 
-#: src/Controllers/HomeController.php:378
+#: src/Controllers/HomeController.php:374
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -13447,7 +13447,7 @@ msgstr ""
 "Tjeneren kjører med Suhosin. Sjekk %sdokumentasjonen%s for potensielle "
 "problemer."
 
-#: src/Controllers/HomeController.php:392
+#: src/Controllers/HomeController.php:388
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -13456,7 +13456,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) er ikke tilgjengelig. phpMyAdmin kan ikke hurtiglagre "
 "maler, og vil være tregt som følge av dette."
 
-#: src/Controllers/HomeController.php:449
+#: src/Controllers/HomeController.php:445
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -13466,7 +13466,7 @@ msgstr ""
 "mangetegns tegnsett. Uten mbstring-tillegget kan ikke phpMyAdmin splitte "
 "strenger korrekt, dette kan medføre uønskede resultater."
 
-#: src/Controllers/HomeController.php:467
+#: src/Controllers/HomeController.php:463
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -13535,7 +13535,7 @@ msgstr ""
 "PHP-tidsgrensen."
 
 #: src/Controllers/Import/ImportController.php:659
-#: src/Controllers/Sql/SqlController.php:165
+#: src/Controllers/Sql/SqlController.php:161
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\"-uttrykk er avslått."
 
@@ -14284,8 +14284,8 @@ msgid "Request failed!!"
 msgstr "Forespørsel feilet!!"
 
 #: src/Controllers/JavaScriptMessagesController.php:347
-#: src/Controllers/Sql/EnumValuesController.php:41
-#: src/Controllers/Sql/SetValuesController.php:43
+#: src/Controllers/Sql/EnumValuesController.php:37
+#: src/Controllers/Sql/SetValuesController.php:39
 msgid "Error in processing request"
 msgstr "Feil i prosesseringsforespørsel"
 
@@ -14430,7 +14430,7 @@ msgid "Variable %d:"
 msgstr "Variabel %d:"
 
 #: src/Controllers/JavaScriptMessagesController.php:410
-#: src/Normalization.php:947
+#: src/Normalization.php:950
 msgid "Pick"
 msgstr "Velg"
 
@@ -14464,7 +14464,7 @@ msgid "Primary key added."
 msgstr "Primærnøkkel lagt til."
 
 #: src/Controllers/JavaScriptMessagesController.php:422
-#: src/Normalization.php:253
+#: src/Normalization.php:256
 msgid "Taking you to next step…"
 msgstr "Tar deg videre til neste trinn…"
 
@@ -14474,8 +14474,8 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr "Første trinn av normaliseringen er ferdig for tabellen '%s'."
 
 #: src/Controllers/JavaScriptMessagesController.php:424
-#: src/Normalization.php:509 src/Normalization.php:568
-#: src/Normalization.php:655 src/Normalization.php:728
+#: src/Normalization.php:512 src/Normalization.php:571
+#: src/Normalization.php:658 src/Normalization.php:731
 msgid "End of step"
 msgstr "Slutten på dette trinnet"
 
@@ -14486,7 +14486,7 @@ msgstr "Andre trinn for normaliseringen (2NF)"
 #. l10n: Display text for calendar close link
 #: src/Controllers/JavaScriptMessagesController.php:426
 #: src/Controllers/JavaScriptMessagesController.php:773
-#: src/Normalization.php:341
+#: src/Normalization.php:344
 msgid "Done"
 msgstr "Utført"
 
@@ -14887,7 +14887,7 @@ msgid "Hide panel"
 msgstr "Skjul panel"
 
 #: src/Controllers/JavaScriptMessagesController.php:607
-#: src/Navigation/NavigationTree.php:1287
+#: src/Navigation/NavigationTree.php:1310
 msgid "Unlink from main panel"
 msgstr "Fjern lenke fra hovedpanelet"
 
@@ -15618,19 +15618,19 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: src/Controllers/Normalization/GetColumnsController.php:26
-#: src/Normalization.php:217
+#: src/Normalization.php:220
 msgid "Select one…"
 msgstr "Velg en…"
 
 #: src/Controllers/Normalization/GetColumnsController.php:27
-#: src/Normalization.php:218
+#: src/Normalization.php:221
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "No such column"
 msgstr "Fjern kolonne(r)"
 
 #: src/Controllers/Normalization/GetColumnsController.php:32
-#: src/Normalization.php:222 src/Types.php:696
+#: src/Normalization.php:225 src/Types.php:696
 msgctxt "string types"
 msgid "String"
 msgstr "Streng"
@@ -15640,21 +15640,21 @@ msgstr "Streng"
 msgid "No collation provided."
 msgstr ""
 
-#: src/Controllers/Operations/DatabaseController.php:85
+#: src/Controllers/Operations/DatabaseController.php:84
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr "Kan ikke kopiere database til samme navn. Endre navnet og prøv igjen."
 
-#: src/Controllers/Operations/DatabaseController.php:164
+#: src/Controllers/Operations/DatabaseController.php:167
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Databasen %1$s endret navn til %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:174
+#: src/Controllers/Operations/DatabaseController.php:181
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Databasen %1$s har blitt kopiert til %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:277
+#: src/Controllers/Operations/DatabaseController.php:284
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -15693,7 +15693,7 @@ msgstr "Ugyldig autentiseringsmetode satt opp i konfigureringen:"
 msgid "Database %1$s has been created."
 msgstr "Databasen %1$s er opprettet."
 
-#: src/Controllers/Server/Databases/DestroyController.php:84
+#: src/Controllers/Server/Databases/DestroyController.php:88
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -16455,7 +16455,7 @@ msgstr "Overvåkning er ikke aktiv."
 msgid "The number of threads that are not sleeping."
 msgstr "Antall tråder som ikke sover."
 
-#: src/Controllers/Server/UserGroupsFormController.php:57
+#: src/Controllers/Server/UserGroupsFormController.php:53
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "User groups management is not enabled."
@@ -16493,7 +16493,7 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Usikker tilkobling"
 
-#: src/Controllers/Setup/MainController.php:41
+#: src/Controllers/Setup/MainController.php:42
 msgid "Configuration already exists, setup is disabled!"
 msgstr ""
 
@@ -16508,20 +16508,20 @@ msgstr "Ingen databaser"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:234 src/Sql.php:1051
+#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1048
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bokmerke %s har blitt opprettet."
 
-#: src/Controllers/Sql/SqlController.php:241
+#: src/Controllers/Sql/SqlController.php:237
 msgid "Bookmark not created!"
 msgstr "Bokmerke er ikke opprettet!"
 
-#: src/Controllers/Table/AddFieldController.php:132
+#: src/Controllers/Table/AddFieldController.php:136
 #: src/Controllers/Table/IndexesController.php:141
 #: src/Controllers/Table/IndexRenameController.php:130
 #: src/Controllers/Table/Structure/PartitioningController.php:265
-#: src/Controllers/Table/Structure/SaveController.php:211
+#: src/Controllers/Table/Structure/SaveController.php:215
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabellen %1$s har blitt endret."
@@ -16549,17 +16549,17 @@ msgstr ""
 msgid "No data to display"
 msgstr "Ingen data funnet"
 
-#: src/Controllers/Table/CreateController.php:57
+#: src/Controllers/Table/CreateController.php:61
 msgid "The database name is empty!"
 msgstr "Databasenavnet er tomt!"
 
-#: src/Controllers/Table/CreateController.php:69
+#: src/Controllers/Table/CreateController.php:73
 #: src/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "'%s' database eksisterer ikke."
 
-#: src/Controllers/Table/CreateController.php:79
+#: src/Controllers/Table/CreateController.php:83
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Tabel %s eksisterer allerede!"
@@ -16570,7 +16570,7 @@ msgstr "Tabel %s eksisterer allerede!"
 #: src/Controllers/Table/Structure/BrowseController.php:31
 #: src/Controllers/Table/Structure/CentralColumnsAddController.php:38
 #: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:39
-#: src/Controllers/Table/Structure/ChangeController.php:52
+#: src/Controllers/Table/Structure/ChangeController.php:53
 #: src/Controllers/Table/Structure/PrimaryController.php:49
 #, fuzzy
 #| msgid "No rows selected"
@@ -16599,8 +16599,8 @@ msgid "There is an issue with your request."
 msgstr "Det er ingen filer å laste opp"
 
 #: src/Controllers/Table/GetFieldController.php:83
-#: src/Database/Routines.php:1010 src/Import/Import.php:155
-#: src/InsertEdit.php:200 src/Sql.php:860
+#: src/Database/Routines.php:1012 src/Import/Import.php:147
+#: src/InsertEdit.php:201 src/Sql.php:858
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerte et tomt resultat - det vil si ingen rader."
 
@@ -16636,13 +16636,13 @@ msgstr "Tabellnavnet er tomt!"
 msgid "Invalid database or table name."
 msgstr "Ugylding tabellnavn"
 
-#: src/Controllers/Table/RelationController.php:276
+#: src/Controllers/Table/RelationController.php:323
 #, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
 msgstr "Tråd %s ble avsluttet med suksess."
 
-#: src/Controllers/Table/RelationController.php:310
+#: src/Controllers/Table/RelationController.php:357
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationships were successfully updated."
@@ -16660,7 +16660,7 @@ msgid "The columns have been moved successfully."
 msgstr "De valgte brukerne har blitt slettet."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
-#: src/Controllers/Table/Structure/SaveController.php:261
+#: src/Controllers/Table/Structure/SaveController.php:265
 #: src/Tracking/Tracking.php:779
 #, fuzzy
 #| msgid "Gather errors"
@@ -16674,7 +16674,7 @@ msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Controllers/Table/Structure/SaveController.php:206
+#: src/Controllers/Table/Structure/SaveController.php:210
 #, fuzzy, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
@@ -16840,8 +16840,8 @@ msgstr "Kan ikke starte importerings-tilleggene, kontroller din installasjon!"
 
 #: src/Database/Events.php:90 src/Database/Events.php:99
 #: src/Database/Events.php:133 src/Database/Routines.php:101
-#: src/Database/Routines.php:126 src/Database/Routines.php:203
-#: src/Database/Routines.php:970 src/Triggers/Triggers.php:83
+#: src/Database/Routines.php:127 src/Database/Routines.php:205
+#: src/Database/Routines.php:972 src/Triggers/Triggers.php:83
 #: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:127
 #, fuzzy, php-format
 #| msgid "The following queries have been executed:"
@@ -16850,9 +16850,9 @@ msgstr "Følgende spørringer har blitt utført:"
 
 #: src/Database/Events.php:94 src/Database/Events.php:103
 #: src/Database/Events.php:116 src/Database/Events.php:137
-#: src/Database/Routines.php:105 src/Database/Routines.php:130
-#: src/Database/Routines.php:207 src/Database/Routines.php:221
-#: src/Database/Routines.php:974 src/Html/Generator.php:827
+#: src/Database/Routines.php:105 src/Database/Routines.php:131
+#: src/Database/Routines.php:209 src/Database/Routines.php:223
+#: src/Database/Routines.php:976 src/Html/Generator.php:827
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:110 src/Triggers/Triggers.php:131
 msgid "MySQL said: "
@@ -16862,7 +16862,7 @@ msgstr "MySQL sa: "
 msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
-#: src/Database/Events.php:114 src/Database/Routines.php:219
+#: src/Database/Events.php:114 src/Database/Routines.php:221
 #: src/Triggers/Triggers.php:108
 msgid "The backed up query was:"
 msgstr ""
@@ -16879,12 +16879,12 @@ msgstr "Kolonne %s har blitt slettet"
 msgid "Event %1$s has been created."
 msgstr "Tabellen %1$s har blitt opprettet."
 
-#: src/Database/Events.php:154 src/Database/Routines.php:146
+#: src/Database/Events.php:154 src/Database/Routines.php:147
 #: src/Triggers/Triggers.php:148
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 
-#: src/Database/Events.php:269 src/Database/Routines.php:772
+#: src/Database/Events.php:269 src/Database/Routines.php:774
 #: src/Triggers/Triggers.php:192
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
@@ -16911,7 +16911,7 @@ msgstr ""
 msgid "You must provide an event definition."
 msgstr ""
 
-#: src/DatabaseInterface.php:1126
+#: src/DatabaseInterface.php:1125
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -16919,81 +16919,81 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/DatabaseInterface.php:1168
+#: src/DatabaseInterface.php:1167
 #, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
 msgstr "Kunne ikke lese konfigurasjonsfilen!"
 
-#: src/DatabaseInterface.php:1610
+#: src/DatabaseInterface.php:1609
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Tilkoblingen for kontrollbrukeren som definert i din konfigurasjon feilet."
 
-#: src/Database/Routines.php:82 src/Database/Routines.php:780
+#: src/Database/Routines.php:82 src/Database/Routines.php:782
 #, fuzzy, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
 msgstr "Ugyldig tjenerindeks: \"%s\""
 
-#: src/Database/Routines.php:133
+#: src/Database/Routines.php:134
 #, fuzzy, php-format
 #| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
 msgstr "Tabellen %1$s har blitt opprettet."
 
-#: src/Database/Routines.php:218
+#: src/Database/Routines.php:220
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
-#: src/Database/Routines.php:268
+#: src/Database/Routines.php:270
 #, fuzzy, php-format
 #| msgid "Column %s has been dropped."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Kolonne %s har blitt slettet"
 
-#: src/Database/Routines.php:273
+#: src/Database/Routines.php:275
 #, fuzzy, php-format
 #| msgid "Column %s has been dropped."
 msgid "Routine %1$s has been modified."
 msgstr "Kolonne %s har blitt slettet"
 
-#: src/Database/Routines.php:613
+#: src/Database/Routines.php:615
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: src/Database/Routines.php:631
+#: src/Database/Routines.php:633
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: src/Database/Routines.php:651 src/Database/Routines.php:718
+#: src/Database/Routines.php:653 src/Database/Routines.php:720
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: src/Database/Routines.php:700
+#: src/Database/Routines.php:702
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: src/Database/Routines.php:788
+#: src/Database/Routines.php:790
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a routine name!"
 msgstr "Ugylding tabellnavn"
 
-#: src/Database/Routines.php:852
+#: src/Database/Routines.php:854
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: src/Database/Routines.php:986
+#: src/Database/Routines.php:988
 #, fuzzy, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
 msgstr "Tillater utføring av lagrede rutiner."
 
-#: src/Database/Routines.php:1001
+#: src/Database/Routines.php:1003
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -17007,33 +17007,33 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2568 src/Display/Results.php:2583
+#: src/Display/Results.php:2561 src/Display/Results.php:2576
 msgid "The row has been deleted."
 msgstr "Raden er slettet."
 
-#: src/Display/Results.php:3492
+#: src/Display/Results.php:3480
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Viser radene %1s - %2s"
 
-#: src/Display/Results.php:3506
+#: src/Display/Results.php:3494
 #, fuzzy, php-format
 #| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "%1$d total, %2$d i spørring"
 
-#: src/Display/Results.php:3511
+#: src/Display/Results.php:3499
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "%d totalt"
 
-#: src/Display/Results.php:3524 src/Sql.php:866
+#: src/Display/Results.php:3512 src/Sql.php:864
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Spørring tok %01.4f sekunder."
 
-#: src/Display/Results.php:3830
+#: src/Display/Results.php:3818
 msgid "Link not found!"
 msgstr "Link ikke funnet!"
 
@@ -17433,17 +17433,17 @@ msgstr "Nylige"
 msgid "Favorites"
 msgstr "Favoritter"
 
-#: src/File.php:225
+#: src/File.php:227
 msgid "File was not an uploaded file."
 msgstr "Filen var ikke en opplastet fil."
 
-#: src/File.php:260
+#: src/File.php:262
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Opplastingsfilen er større enn upload_max_filesize direktivet definert i php."
 "ini."
 
-#: src/File.php:265
+#: src/File.php:267
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -17451,51 +17451,51 @@ msgstr ""
 "Opplastingsfilen er større enn MAX_FILE_SIZE direktivet som ble spesifisert "
 "i HTML-skjemaet."
 
-#: src/File.php:270
+#: src/File.php:272
 msgid "The uploaded file was only partially uploaded."
 msgstr "Opplastingsfilen ble bare delvis opplastet."
 
-#: src/File.php:274
+#: src/File.php:276
 msgid "Missing a temporary folder."
 msgstr "Mangler en midlertidig mappe."
 
-#: src/File.php:277
+#: src/File.php:279
 msgid "Failed to write file to disk."
 msgstr "Feil ved skriving av fil til disk."
 
-#: src/File.php:280
+#: src/File.php:282
 msgid "File upload stopped by extension."
 msgstr "Filopplasting stoppet av utvidelse."
 
-#: src/File.php:283
+#: src/File.php:285
 msgid "Unknown error in file upload."
 msgstr "Ukjent feil oppstod under filopplastingen."
 
-#: src/File.php:411
+#: src/File.php:412
 msgid "File is a symbolic link"
 msgstr "Filen er en symbolsk lenke"
 
-#: src/File.php:418 src/File.php:509
+#: src/File.php:419 src/File.php:510
 msgid "File could not be read!"
 msgstr "Filen kunne ikke leses!"
 
-#: src/File.php:454
+#: src/File.php:455
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "Feil oppstod under forsøk på flytting av den opplastede filen, se "
 "[doc@faq1-11]FAQ 1.11[/doc]."
 
-#: src/File.php:474
+#: src/File.php:475
 msgid "Error while moving uploaded file."
 msgstr "Feil oppstod imens den opplastede filen ble flyttet."
 
-#: src/File.php:483
+#: src/File.php:484
 #, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
 msgstr "Kan ikke lese (flyttet) opplastet fil."
 
-#: src/File.php:560
+#: src/File.php:561
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -17654,23 +17654,23 @@ msgstr "Ikke skriv inn mer enn {0} tegn"
 msgid "The trigger name cannot end with a space character."
 msgstr "Ord er separert med et mellomrom (\" \")."
 
-#: src/Import/Import.php:274 src/Sql.php:874
+#: src/Import/Import.php:266 src/Sql.php:872
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: src/Import/Import.php:1188
+#: src/Import/Import.php:1129
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "Følgende strukturer har enten blitt opprettet eller endret. Her kan du:"
 
-#: src/Import/Import.php:1190
+#: src/Import/Import.php:1131
 #, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
 msgstr "Vis en strukturs innhold ved å klikke på dens navn"
 
-#: src/Import/Import.php:1191
+#: src/Import/Import.php:1132
 #, fuzzy
 #| msgid ""
 #| "Change any of its settings by clicking the corresponding \"Options\" link"
@@ -17680,43 +17680,43 @@ msgstr ""
 "Endre noen av dens innstillinger ved å klikke på den tilhørende "
 "\"Innstillinger\" link"
 
-#: src/Import/Import.php:1192
+#: src/Import/Import.php:1133
 #, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Endre dens struktur ved å følge \"Struktur\" linken"
 
-#: src/Import/Import.php:1199
+#: src/Import/Import.php:1140
 #, fuzzy, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
 msgstr "Gå til database"
 
-#: src/Import/Import.php:1205 src/Import/Import.php:1245
+#: src/Import/Import.php:1146 src/Import/Import.php:1186
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
 msgstr "Mangler data for %s"
 
-#: src/Import/Import.php:1230
+#: src/Import/Import.php:1171
 #, fuzzy, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
 msgstr "Gå til tabell"
 
-#: src/Import/Import.php:1238
+#: src/Import/Import.php:1179
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Kun struktur"
 
-#: src/Import/Import.php:1256
+#: src/Import/Import.php:1197
 #, fuzzy, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
 msgstr "Gå til visning"
 
-#: src/Import/Import.php:1282
+#: src/Import/Import.php:1223
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -17731,22 +17731,22 @@ msgstr ""
 "Indeksene %1$s og %2$s ser ut til å være like og en av dem burde kunne "
 "fjernes."
 
-#: src/InsertEdit.php:503
+#: src/InsertEdit.php:502
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "webtjener opplastingskatalog"
 
-#: src/InsertEdit.php:936 src/Sql.php:857
+#: src/InsertEdit.php:932 src/Sql.php:855
 msgid "Showing SQL query"
 msgstr "Viser SQL spørring"
 
-#: src/InsertEdit.php:960 src/Sql.php:837
+#: src/InsertEdit.php:956 src/Sql.php:835
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Insatt rad id: %1$d"
 
-#: src/LanguageManager.php:957
+#: src/LanguageManager.php:961
 msgid "Ignoring unsupported language code."
 msgstr ""
 
@@ -17760,31 +17760,31 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: src/Menu.php:289 src/Menu.php:396 src/Util.php:1493 src/Util.php:1507
+#: src/Menu.php:283 src/Menu.php:390 src/Util.php:1493 src/Util.php:1507
 msgid "Tracking"
 msgstr "Overvåkning"
 
-#: src/Menu.php:337 src/Menu.php:345 src/Menu.php:353
+#: src/Menu.php:331 src/Menu.php:339 src/Menu.php:347
 msgid "Database seems to be empty!"
 msgstr "Databasen ser ut til å være tom!"
 
-#: src/Menu.php:340 src/Util.php:1485
+#: src/Menu.php:334 src/Util.php:1485
 msgid "Query"
 msgstr "Spørring"
 
-#: src/Menu.php:403 src/Util.php:1494
+#: src/Menu.php:397 src/Util.php:1494
 msgid "Designer"
 msgstr "Designer"
 
-#: src/Menu.php:464
+#: src/Menu.php:458
 msgid "User accounts"
 msgstr "Brukerkontoer"
 
-#: src/Menu.php:513 src/Util.php:1477
+#: src/Menu.php:507 src/Util.php:1477
 msgid "Charsets"
 msgstr "Tegnsett"
 
-#: src/Menu.php:518 src/Util.php:1479
+#: src/Menu.php:512 src/Util.php:1479
 msgid "Engines"
 msgstr "Motorer"
 
@@ -17809,232 +17809,232 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d rad innsatt."
 msgstr[1] "%1$d rader innsatt."
 
-#: src/Navigation/Navigation.php:207
+#: src/Navigation/Navigation.php:215
 msgid "Groups:"
 msgstr "Grupper:"
 
-#: src/Navigation/Navigation.php:208
+#: src/Navigation/Navigation.php:216
 #, fuzzy
 #| msgid "Events"
 msgid "Events:"
 msgstr "Hendelser"
 
-#: src/Navigation/Navigation.php:209
+#: src/Navigation/Navigation.php:217
 #, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
 msgstr "Funsjoner"
 
-#: src/Navigation/Navigation.php:210
+#: src/Navigation/Navigation.php:218
 #, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
 msgstr "Prosedyrer"
 
-#: src/Navigation/Navigation.php:212
+#: src/Navigation/Navigation.php:220
 #, fuzzy
 #| msgid "Views"
 msgid "Views:"
 msgstr "Visning"
 
-#: src/Navigation/NavigationTree.php:737
+#: src/Navigation/NavigationTree.php:763
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: src/Navigation/NavigationTree.php:797
+#: src/Navigation/NavigationTree.php:823
 msgid "Groups"
 msgstr "Grupper"
 
-#: src/Navigation/NavigationTree.php:905
+#: src/Navigation/NavigationTree.php:930
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Navigation/NavigationTree.php:1279
+#: src/Navigation/NavigationTree.php:1302
 msgid "Collapse all"
 msgstr ""
 
-#: src/Navigation/Nodes/NodeColumnContainer.php:34
+#: src/Navigation/Nodes/NodeColumnContainer.php:32
 msgctxt "Create new column"
 msgid "New"
 msgstr ""
 
-#: src/Navigation/Nodes/NodeDatabaseContainer.php:39
+#: src/Navigation/Nodes/NodeDatabaseContainer.php:34
 msgctxt "Create new database"
 msgid "New"
 msgstr "Ny"
 
-#: src/Navigation/Nodes/NodeDatabase.php:573
+#: src/Navigation/Nodes/NodeDatabase.php:191
 #, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
 msgstr "Vis hint"
 
-#: src/Navigation/Nodes/NodeEventContainer.php:32
+#: src/Navigation/Nodes/NodeEventContainer.php:31
 msgctxt "Create new event"
 msgid "New"
 msgstr "Ny"
 
-#: src/Navigation/Nodes/NodeFunctionContainer.php:23
-#: src/Navigation/Nodes/NodeFunctionContainer.php:25
+#: src/Navigation/Nodes/NodeFunctionContainer.php:22
+#: src/Navigation/Nodes/NodeFunctionContainer.php:24
 #: src/Plugins/Export/ExportSql.php:591 src/Plugins/Export/ExportXml.php:89
 msgid "Functions"
 msgstr "Funsjoner"
 
-#: src/Navigation/Nodes/NodeFunctionContainer.php:32
+#: src/Navigation/Nodes/NodeFunctionContainer.php:31
 msgctxt "Create new function"
 msgid "New"
 msgstr "Ny"
 
-#: src/Navigation/Nodes/NodeIndexContainer.php:34
+#: src/Navigation/Nodes/NodeIndexContainer.php:32
 msgctxt "Create new index"
 msgid "New"
 msgstr "Ny"
 
-#: src/Navigation/Nodes/Node.php:615
+#: src/Navigation/Nodes/Node.php:612
 msgid "Expand/Collapse"
 msgstr ""
 
-#: src/Navigation/Nodes/NodeProcedureContainer.php:23
-#: src/Navigation/Nodes/NodeProcedureContainer.php:25
+#: src/Navigation/Nodes/NodeProcedureContainer.php:22
+#: src/Navigation/Nodes/NodeProcedureContainer.php:24
 #: src/Plugins/Export/ExportSql.php:580 src/Plugins/Export/ExportXml.php:94
 msgid "Procedures"
 msgstr "Prosedyrer"
 
-#: src/Navigation/Nodes/NodeProcedureContainer.php:32
+#: src/Navigation/Nodes/NodeProcedureContainer.php:31
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Ny"
 
-#: src/Navigation/Nodes/NodeProcedure.php:26
+#: src/Navigation/Nodes/NodeProcedure.php:24
 #, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
 msgstr "Prosedyrer"
 
-#: src/Navigation/Nodes/NodeTableContainer.php:33
+#: src/Navigation/Nodes/NodeTableContainer.php:32
 msgctxt "Create new table"
 msgid "New"
 msgstr "Ny"
 
-#: src/Navigation/Nodes/NodeTriggerContainer.php:34
+#: src/Navigation/Nodes/NodeTriggerContainer.php:32
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "Ny"
 
-#: src/Navigation/Nodes/NodeTrigger.php:26
+#: src/Navigation/Nodes/NodeTrigger.php:24
 #, fuzzy
 #| msgid "Triggers"
 msgid "Trigger"
 msgstr "Triggere"
 
-#: src/Navigation/Nodes/NodeViewContainer.php:33
+#: src/Navigation/Nodes/NodeViewContainer.php:32
 msgctxt "Create new view"
 msgid "New"
 msgstr "Ny"
 
-#: src/Normalization.php:197
+#: src/Normalization.php:200
 msgid "Make all columns atomic"
 msgstr ""
 
-#: src/Normalization.php:200 src/Normalization.php:249
-#: src/Normalization.php:295 src/Normalization.php:327
+#: src/Normalization.php:203 src/Normalization.php:252
+#: src/Normalization.php:298 src/Normalization.php:330
 msgid "Step 1."
 msgstr ""
 
-#: src/Normalization.php:203
+#: src/Normalization.php:206
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
 
-#: src/Normalization.php:208
+#: src/Normalization.php:211
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 
-#: src/Normalization.php:210
+#: src/Normalization.php:213
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
 
-#: src/Normalization.php:225
+#: src/Normalization.php:228
 msgid "split into "
 msgstr ""
 
-#: src/Normalization.php:246
+#: src/Normalization.php:249
 #, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
 msgstr "Legg til primærnøkkel"
 
-#: src/Normalization.php:252
+#: src/Normalization.php:255
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
 msgstr "Feil: relasjoner eksisterer allerede."
 
-#: src/Normalization.php:257
+#: src/Normalization.php:260
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
 
-#: src/Normalization.php:265
+#: src/Normalization.php:268
 msgid "Add a primary key on existing column(s)"
 msgstr ""
 
-#: src/Normalization.php:269
+#: src/Normalization.php:272
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 
-#: src/Normalization.php:271
+#: src/Normalization.php:274
 #, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
 msgstr "Legg til primærnøkkel"
 
-#: src/Normalization.php:294
+#: src/Normalization.php:297
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove redundant columns"
 msgstr "Fjern kolonne(r)"
 
-#: src/Normalization.php:297
+#: src/Normalization.php:300
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
 
-#: src/Normalization.php:303
+#: src/Normalization.php:306
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
 
-#: src/Normalization.php:308
+#: src/Normalization.php:311
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "Fjern valgte brukere"
 
-#: src/Normalization.php:310
+#: src/Normalization.php:313
 #, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
 msgstr "Legg til kolonne(r)"
 
-#: src/Normalization.php:326
+#: src/Normalization.php:329
 msgid "Move repeating groups"
 msgstr ""
 
-#: src/Normalization.php:329
+#: src/Normalization.php:332
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -18043,116 +18043,116 @@ msgid ""
 "should be created."
 msgstr ""
 
-#: src/Normalization.php:337
+#: src/Normalization.php:340
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
 
-#: src/Normalization.php:342
+#: src/Normalization.php:345
 msgid "No repeating group"
 msgstr ""
 
-#: src/Normalization.php:370
+#: src/Normalization.php:373
 msgid "Step 2."
 msgstr ""
 
-#: src/Normalization.php:370
+#: src/Normalization.php:373
 msgid "Find partial dependencies"
 msgstr ""
 
-#: src/Normalization.php:391
+#: src/Normalization.php:394
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
 
-#: src/Normalization.php:397 src/Normalization.php:439
+#: src/Normalization.php:400 src/Normalization.php:442
 msgid "Table is already in second normal form."
 msgstr ""
 
-#: src/Normalization.php:402
+#: src/Normalization.php:405
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
 
-#: src/Normalization.php:406 src/Normalization.php:817
+#: src/Normalization.php:409 src/Normalization.php:820
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
 
-#: src/Normalization.php:408
+#: src/Normalization.php:411
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: src/Normalization.php:411
+#: src/Normalization.php:414
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
 
-#: src/Normalization.php:424 src/Normalization.php:859
+#: src/Normalization.php:427 src/Normalization.php:862
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr ""
 
-#: src/Normalization.php:435
+#: src/Normalization.php:438
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
 
-#: src/Normalization.php:463
+#: src/Normalization.php:466
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: src/Normalization.php:505
+#: src/Normalization.php:508
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
 
-#: src/Normalization.php:557 src/Normalization.php:717
-#: src/Normalization.php:792
+#: src/Normalization.php:560 src/Normalization.php:720
+#: src/Normalization.php:795
 msgid "Error in processing!"
 msgstr "Feil i gjennomføring!"
 
-#: src/Normalization.php:604
+#: src/Normalization.php:607
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: src/Normalization.php:653
+#: src/Normalization.php:656
 msgid "The third step of normalization is complete."
 msgstr ""
 
-#: src/Normalization.php:768
+#: src/Normalization.php:771
 #, fuzzy, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Valgte måltabeller har blitt synkronisert med kildetabeller."
 
-#: src/Normalization.php:815
+#: src/Normalization.php:818
 #, fuzzy
 #| msgid "Sep"
 msgid "Step 3."
 msgstr "Sep"
 
-#: src/Normalization.php:815
+#: src/Normalization.php:818
 msgid "Find transitive dependencies"
 msgstr ""
 
-#: src/Normalization.php:819
+#: src/Normalization.php:822
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -18160,63 +18160,63 @@ msgid ""
 "that case you don't have to select any."
 msgstr ""
 
-#: src/Normalization.php:873
+#: src/Normalization.php:876
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
 
-#: src/Normalization.php:876
+#: src/Normalization.php:879
 msgid "Table is already in Third normal form!"
 msgstr ""
 
-#: src/Normalization.php:943
+#: src/Normalization.php:946
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
 
-#: src/Normalization.php:958
+#: src/Normalization.php:961
 msgid "No partial dependencies found!"
 msgstr ""
 
-#: src/Operations.php:525
+#: src/Operations.php:531
 #, fuzzy
 #| msgid "Close"
 msgid "Coalesce"
 msgstr "Lukk"
 
-#: src/Operations.php:874
+#: src/Operations.php:886
 msgid "Can't move table to same one!"
 msgstr "Kan ikke flytte tabellen til samme navn!"
 
-#: src/Operations.php:876
+#: src/Operations.php:888
 msgid "Can't copy table to same one!"
 msgstr "Kan ikke kopiere tabellen til samme navn!"
 
-#: src/Operations.php:900
+#: src/Operations.php:924
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabellen %s har blitt flyttet til %s."
 
-#: src/Operations.php:906
+#: src/Operations.php:930
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabellen %s er kopiert til %s."
 
-#: src/Operations.php:912
+#: src/Operations.php:936
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabellen %s har blitt flyttet til %s."
 
-#: src/Operations.php:916
+#: src/Operations.php:940
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabellen %s er kopiert til %s."
 
-#: src/Operations.php:939
+#: src/Operations.php:963
 msgid "The table name is empty!"
 msgstr "Tabellnavnet er tomt!"
 
@@ -18817,36 +18817,36 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:82
+#: src/Plugins/Import/ImportCsv.php:83
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:91
+#: src/Plugins/Import/ImportCsv.php:92
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:100 src/Plugins/Import/ImportCsv.php:118
+#: src/Plugins/Import/ImportCsv.php:101 src/Plugins/Import/ImportCsv.php:119
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:108 src/Plugins/Import/ImportOds.php:63
+#: src/Plugins/Import/ImportCsv.php:109 src/Plugins/Import/ImportOds.php:66
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:125
+#: src/Plugins/Import/ImportCsv.php:126
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:133
+#: src/Plugins/Import/ImportCsv.php:134
 msgid "Column names:"
 msgstr "Kolonne navn:"
 
-#: src/Plugins/Import/ImportCsv.php:283 src/Plugins/Import/ImportCsv.php:619
+#: src/Plugins/Import/ImportCsv.php:283 src/Plugins/Import/ImportCsv.php:614
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Ugyldig format i CSV importen i linje %d."
@@ -18856,47 +18856,47 @@ msgstr "Ugyldig format i CSV importen i linje %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Ugyldig antall kolonner i CSV importen i linje %d."
 
-#: src/Plugins/Import/ImportCsv.php:641 src/Plugins/Import/ImportCsv.php:656
-#: src/Plugins/Import/ImportCsv.php:667 src/Plugins/Import/ImportCsv.php:674
+#: src/Plugins/Import/ImportCsv.php:636 src/Plugins/Import/ImportCsv.php:651
+#: src/Plugins/Import/ImportCsv.php:662 src/Plugins/Import/ImportCsv.php:669
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Ugyldig parameter for CSV import: %s"
 
-#: src/Plugins/Import/ImportCsv.php:810
+#: src/Plugins/Import/ImportCsv.php:802
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
 
-#: src/Plugins/Import/ImportLdi.php:64
+#: src/Plugins/Import/ImportLdi.php:63
 msgid "Column names: "
 msgstr "Kolonnenavn: "
 
-#: src/Plugins/Import/ImportLdi.php:114
+#: src/Plugins/Import/ImportLdi.php:113
 msgid "This plugin does not support compressed imports!"
 msgstr "Dette tillegget støtter ikke komprimerte importeringer!"
 
-#: src/Plugins/Import/ImportMediawiki.php:54
+#: src/Plugins/Import/ImportMediawiki.php:55
 msgid "MediaWiki Table"
 msgstr "MediaWiki Tabell"
 
-#: src/Plugins/Import/ImportMediawiki.php:268
+#: src/Plugins/Import/ImportMediawiki.php:271
 #, fuzzy, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "Ugyldig format i CSV importen i linje %d."
 
-#: src/Plugins/Import/ImportOds.php:77
+#: src/Plugins/Import/ImportOds.php:80
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "Importer prosenter som ekte desimaler <i>(eks. 12.00% til .12)</i>"
 
-#: src/Plugins/Import/ImportOds.php:83
+#: src/Plugins/Import/ImportOds.php:86
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Importer valuta <i>(eks. $5.00 til 5.00)</i>"
 
-#: src/Plugins/Import/ImportOds.php:142 src/Plugins/Import/ImportXml.php:101
-#: src/Plugins/Import/ImportXml.php:162
+#: src/Plugins/Import/ImportOds.php:145 src/Plugins/Import/ImportXml.php:101
+#: src/Plugins/Import/ImportXml.php:142
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -18904,27 +18904,27 @@ msgstr ""
 "Den spesifiserte XML-filen var enten skadet eller ufulstendig. Korriger "
 "problemet og prøv igjen."
 
-#: src/Plugins/Import/ImportOds.php:151
+#: src/Plugins/Import/ImportOds.php:153
 #, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Open Document regneark"
 
-#: src/Plugins/Import/ImportShp.php:68
+#: src/Plugins/Import/ImportShp.php:69
 msgid "ESRI Shape File"
 msgstr ""
 
-#: src/Plugins/Import/ImportShp.php:104 src/Plugins/Import/ImportShp.php:171
+#: src/Plugins/Import/ImportShp.php:105 src/Plugins/Import/ImportShp.php:172
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
 
-#: src/Plugins/Import/ImportShp.php:201
+#: src/Plugins/Import/ImportShp.php:202
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
-#: src/Plugins/Import/ImportShp.php:247
+#: src/Plugins/Import/ImportShp.php:248
 msgid "The imported file does not contain any data!"
 msgstr "Den importerte filen inneholder ingen data!"
 
@@ -19474,7 +19474,7 @@ msgid "Error 405! Request method not allowed."
 msgstr ""
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3269
+#: src/Server/Privileges.php:3272
 #, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
@@ -19568,7 +19568,7 @@ msgstr "Brukeren %s finnes fra før!"
 msgid "Privileges for %s"
 msgstr "Privilegier"
 
-#: src/Server/Privileges.php:2610
+#: src/Server/Privileges.php:2613
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -19586,7 +19586,7 @@ msgstr ""
 "privilegiene tjeneren bruker hvis det er utført manuelle endringer på den. I "
 "så fall bør du %soppfriske privilegiene%s før du fortsetter."
 
-#: src/Server/Privileges.php:2626
+#: src/Server/Privileges.php:2629
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -19605,11 +19605,11 @@ msgstr ""
 "privilegiene tjeneren bruker hvis det er utført manuelle endringer på den. I "
 "så fall bør du %soppfriske privilegiene%s før du fortsetter."
 
-#: src/Server/Privileges.php:2914
+#: src/Server/Privileges.php:2917
 msgid "You have added a new user."
 msgstr "Du har lagt til en ny bruker."
 
-#: src/Server/Privileges.php:3362
+#: src/Server/Privileges.php:3365
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -19714,11 +19714,11 @@ msgstr "Ingen ny stabil versjon er tilgjengelig"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:854
+#: src/Sql.php:852
 msgid "Showing as PHP code"
 msgstr "Viser som PHP kode"
 
-#: src/Sql.php:1219
+#: src/Sql.php:1216
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -19731,7 +19731,7 @@ msgstr ""
 "valgene Endring, avkrysningsruten, redigere, kopiere og slette koblinger "
 "virker kanskje ikke etter lagring."
 
-#: src/Sql.php:1233
+#: src/Sql.php:1230
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -19744,18 +19744,18 @@ msgstr ""
 "valgene Endring, avkrysningsruten, redigere, kopiere og slette koblinger "
 "virker kanskje ikke etter lagring."
 
-#: src/SqlQueryForm.php:142
+#: src/SqlQueryForm.php:143
 #, fuzzy, php-format
 #| msgid "Run SQL query/queries on server %s"
 msgid "Run SQL query/queries on server “%s”"
 msgstr "Kjør SQL spørring/spørringer på tjener %s"
 
-#: src/SqlQueryForm.php:158
+#: src/SqlQueryForm.php:159
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "Kjør SQL spørring/spørringer mot databasen %s"
 
-#: src/SqlQueryForm.php:173
+#: src/SqlQueryForm.php:174
 #, fuzzy, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
@@ -19853,7 +19853,7 @@ msgstr ""
 "Feil oppstod under forsøk på opprettelse av fremmednøkkel på %1$s "
 "(kontroller datatyper)"
 
-#: src/Template.php:120
+#: src/Template.php:118
 #, fuzzy, php-format
 #| msgid "Error while loading the search."
 msgid "Error while working with template cache: %s"
@@ -20344,11 +20344,11 @@ msgstr "Profilen har blitt oppdatert."
 msgid "Password is too long!"
 msgstr "Passord er for langt!"
 
-#: src/UserPreferences.php:159
+#: src/UserPreferences.php:162
 msgid "Could not save configuration"
 msgstr "Kunne ikke lagre konfigurasjonen"
 
-#: src/UserPreferences.php:170
+#: src/UserPreferences.php:173
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "The phpMyAdmin configuration storage database could not be accessed."
