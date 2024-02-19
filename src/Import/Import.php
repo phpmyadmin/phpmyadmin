@@ -31,6 +31,7 @@ use function explode;
 use function function_exists;
 use function htmlspecialchars;
 use function implode;
+use function in_array;
 use function is_numeric;
 use function max;
 use function mb_chr;
@@ -41,8 +42,11 @@ use function mb_strpos;
 use function mb_strtoupper;
 use function mb_substr;
 use function mb_substr_count;
+use function preg_grep;
 use function preg_match;
+use function preg_quote;
 use function preg_replace;
+use function rtrim;
 use function sprintf;
 use function str_contains;
 use function str_starts_with;
@@ -1011,6 +1015,10 @@ class Import
             $numCols = count($table->columns);
             $lastColumnKey = array_key_last($table->columns);
 
+            if ($table->rows === []) {
+                break;
+            }
+
             $tempSQLStr = 'INSERT INTO ' . Util::backquote($dbName) . '.'
                 . Util::backquote($table->tableName) . ' (';
 
@@ -1380,5 +1388,35 @@ class Import
             $matcher,
             $active,
         );
+    }
+
+    public function getNextAvailableTableName(string $databaseName, string $proposedTableName): string
+    {
+        if ($proposedTableName === '') {
+            $proposedTableName = 'TABLE';
+        }
+
+        $importFileName = rtrim($proposedTableName);
+        $importFileName = (string) preg_replace('/[^\x{0001}-\x{FFFF}]/u', '_', $importFileName);
+
+        if ($databaseName !== '') {
+            $existingTables = DatabaseInterface::getInstance()->getTables($databaseName);
+
+            // check to see if {filename} as table exist
+            // if no use filename as table name
+            if (! in_array($importFileName, $existingTables, true)) {
+                return $importFileName;
+            }
+
+            // check if {filename}_ as table exist
+            $nameArray = preg_grep('/^' . preg_quote($importFileName, '/') . '_/isU', $existingTables);
+            if ($nameArray === false) {
+                return $importFileName;
+            }
+
+            return $importFileName . '_' . (count($nameArray) + 1);
+        }
+
+        return $importFileName;
     }
 }

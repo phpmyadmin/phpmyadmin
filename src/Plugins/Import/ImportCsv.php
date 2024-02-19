@@ -26,19 +26,18 @@ use PhpMyAdmin\Util;
 use function __;
 use function array_pad;
 use function array_shift;
-use function basename;
 use function count;
 use function mb_strlen;
-use function mb_strtolower;
 use function mb_substr;
-use function preg_grep;
-use function preg_replace;
+use function pathinfo;
 use function preg_split;
 use function rtrim;
 use function str_contains;
 use function strlen;
 use function strtr;
 use function trim;
+
+use const PATHINFO_FILENAME;
 
 /**
  * Handles the import for the CSV format
@@ -689,41 +688,15 @@ class ImportCsv extends AbstractImportCsv
 
     private function getTableNameFromImport(string $databaseName): string
     {
-        $importFileName = basename(ImportSettings::$importFileName, '.csv');
-        $importFileName = mb_strtolower($importFileName);
-        $importFileName = (string) preg_replace('/[^a-zA-Z0-9_]/', '_', $importFileName);
-
         // get new table name, if user didn't provide one, set the default name
         if (isset($_REQUEST['csv_new_tbl_name']) && (string) $_REQUEST['csv_new_tbl_name'] !== '') {
             return $_REQUEST['csv_new_tbl_name'];
         }
 
-        if ($databaseName !== '') {
-            $result = DatabaseInterface::getInstance()->fetchResult('SHOW TABLES');
-
-            // logic to get table name from filename
-            // if no table then use filename as table name
-            if ($result === []) {
-                return $importFileName;
-            }
-
-            // check to see if {filename} as table exist
-            $nameArray = preg_grep('/' . $importFileName . '/isU', $result);
-            // if no use filename as table name
-            if ($nameArray === false || $nameArray === []) {
-                return $importFileName;
-            }
-
-            // check if {filename}_ as table exist
-            $nameArray = preg_grep('/' . $importFileName . '_/isU', $result);
-            if ($nameArray === false) {
-                return $importFileName;
-            }
-
-            return $importFileName . '_' . (count($nameArray) + 1);
-        }
-
-        return $importFileName;
+        return $this->import->getNextAvailableTableName(
+            $databaseName,
+            pathinfo(ImportSettings::$importFileName, PATHINFO_FILENAME),
+        );
     }
 
     /**

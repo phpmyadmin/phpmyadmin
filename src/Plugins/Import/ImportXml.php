@@ -21,6 +21,7 @@ use SimpleXMLElement;
 
 use function __;
 use function array_map;
+use function array_values;
 use function in_array;
 use function simplexml_load_string;
 use function str_replace;
@@ -100,7 +101,6 @@ class ImportXml extends ImportPlugin
             echo Message::error(__(
                 'The XML file specified was either malformed or incomplete. Please correct the issue and try again.',
             ))->getDisplay();
-            unset($xml);
             ImportSettings::$finished = false;
 
             return [];
@@ -114,8 +114,7 @@ class ImportXml extends ImportPlugin
         /**
          * Get the database name, collation and charset
          */
-        $dbAttr = $xml->children($namespaces['pma'] ?? null)
-            ->{'structure_schemas'}->{'database'};
+        $dbAttr = $xml->children($namespaces['pma'] ?? null)->structure_schemas->database;
 
         if ($dbAttr instanceof SimpleXMLElement) {
             $dbAttr = $dbAttr->attributes();
@@ -127,8 +126,7 @@ class ImportXml extends ImportPlugin
              * If the structure section is not present
              * get the database name from the data section
              */
-            $dbAttr = $xml->children()
-                ->attributes();
+            $dbAttr = $xml->children()->attributes();
             $dbName = (string) $dbAttr['name'];
             $collation = null;
             $charset = null;
@@ -141,7 +139,6 @@ class ImportXml extends ImportPlugin
             echo Message::error(__(
                 'The XML file specified was either malformed or incomplete. Please correct the issue and try again.',
             ))->getDisplay();
-            unset($xml);
             ImportSettings::$finished = false;
 
             return [];
@@ -191,77 +188,45 @@ class ImportXml extends ImportPlugin
         /**
          * Move down the XML tree to the actual data
          */
-        $xml = $xml->children()->children();
+        $databaseXml = $xml->database;
 
-        $dataPresent = false;
         $analyses = null;
+        /** @var ImportTable[] $tables */
         $tables = [];
 
-        /**
-         * Only attempt to analyze/collect data if there is data present
-         */
-        if ($xml && $xml->children()->count()) {
-            $dataPresent = true;
-            $rows = [];
+        $databaseName = (string) $databaseXml['name'];
 
-            /**
-             * Process all database content
-             */
-            foreach ($xml as $v1) {
-                /** @psalm-suppress PossiblyNullReference */
-                $tblAttr = $v1->attributes();
+        /** @var SimpleXMLElement $tableRowXml */
+        foreach ($databaseXml->table as $tableRowXml) {
+            $tableName = (string) $tableRowXml['name'];
 
-                $isInTables = false;
-                foreach ($tables as $table) {
-                    if ($table->tableName === (string) $tblAttr['name']) {
-                        $isInTables = true;
-                        break;
-                    }
+            $table = $tables[$tableName] ?? new ImportTable($tableName);
+
+            $tableRow = [];
+            /** @var SimpleXMLElement $tableCellXml */
+            foreach ($tableRowXml->column as $tableCellXml) {
+                /** @psalm-suppress PossiblyNullArrayAccess */
+                $columnName = (string) $tableCellXml['name'];
+                if (! in_array($columnName, $table->columns, true)) {
+                    $table->columns[] = $columnName;
                 }
 
-                if (! $isInTables) {
-                    $tables[] = new ImportTable((string) $tblAttr['name']);
-                }
-
-                $tempRow = [];
-                $tempCells = [];
-                foreach ($v1 as $v2) {
-                    /** @psalm-suppress PossiblyNullReference */
-                    $rowAttr = $v2->attributes();
-                    if (! in_array((string) $rowAttr['name'], $tempRow)) {
-                        $tempRow[] = (string) $rowAttr['name'];
-                    }
-
-                    $tempCells[] = (string) $v2;
-                }
-
-                $rows[] = [(string) $tblAttr['name'], $tempRow, $tempCells];
+                $tableRow[] = (string) $tableCellXml;
             }
 
-            unset($xml);
+            $table->rows[] = $tableRow;
 
-            /**
-             * Bring accumulated rows into the corresponding table
-             */
-            foreach ($tables as $table) {
-                foreach ($rows as $row) {
-                    if ($table->tableName !== $row[0]) {
-                        continue;
-                    }
+            $tables[$tableName] = $table;
+        }
 
-                    if ($table->columns === []) {
-                        $table->columns = $row[1];
-                    }
+        $tables = array_values($tables);
 
-                    $table->rows[] = $row[2];
-                }
-            }
+        foreach ($tables as $table) {
+            $table->tableName = $this->import->getNextAvailableTableName($databaseName, $table->tableName);
+        }
 
-            unset($rows);
-
-            if (! $structPresent) {
-                $analyses = array_map($this->import->analyzeTable(...), $tables);
-            }
+        if (! $structPresent) {
+            $analyses = array_map($this->import->analyzeTable(...), $tables);
         }
 
         unset($xml);
@@ -271,7 +236,7 @@ class ImportXml extends ImportPlugin
          * Set values to NULL if they were not present
          * to maintain Import::buildSql() call integrity
          */
-        if ($dataPresent && $analyses === null && ! $structPresent) {
+        if ($tables !== [] && $analyses === null) {
             $create = null;
         }
 

@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -44,7 +45,7 @@ final class AddController extends AbstractController
         Assert::allString($selected);
 
         $centralColumns = new CentralColumns($this->dbi);
-        $error = $centralColumns->syncUniqueColumns($selected);
+        $error = $centralColumns->syncUniqueColumns(DatabaseName::from($request->getParsedBodyParam('db')), $selected);
 
         $GLOBALS['message'] = $error instanceof Message ? $error : Message::success(__('Success!'));
 

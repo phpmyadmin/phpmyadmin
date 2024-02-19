@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Gis\GisFactory;
 use PhpMyAdmin\Gis\GisMultiLineString;
@@ -40,6 +39,7 @@ use function trim;
 use function unlink;
 
 use const LOCK_EX;
+use const PATHINFO_FILENAME;
 
 /**
  * Handles the import for ESRI Shape files
@@ -265,8 +265,10 @@ class ImportShp extends ImportPlugin
 
         // Set table name based on the number of tables
         if (Current::$database !== '') {
-            $result = DatabaseInterface::getInstance()->fetchResult('SHOW TABLES');
-            $tableName = 'TABLE ' . (count($result) + 1);
+            $tableName = $this->import->getNextAvailableTableName(
+                Current::$database,
+                pathinfo(ImportSettings::$importFileName, PATHINFO_FILENAME),
+            );
         } else {
             $tableName = 'TBL_NAME';
         }
