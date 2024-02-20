@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-08-14 11:48+0000\n"
-"Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-2/nl/"
-">\n"
+"PO-Revision-Date: 2024-02-20 22:32+0000\n"
+"Last-Translator: PAUL MICHIEL VAN DER BLONK <blonkm@gmail.com>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-2/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7368,12 +7368,8 @@ msgid "up to date"
 msgstr "meest recent"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:611
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr ""
-"Er is een fout opgetreden bij het importeren van het ESRI-vormbestand: "
-"\"%s\"."
+msgstr "Er is een fout opgetreden bij het ophalen van Git informatie."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:614
 msgid ""
@@ -10808,10 +10804,8 @@ msgid "The table name is empty!"
 msgstr "De tabelnaam is leeg!"
 
 #: libraries/classes/Partitioning/Maintenance.php:141
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Dit is een alleen-lezen variabele en kan niet worden gewijzigd"
+msgstr "Deze tabel is een view en kan niet worden leeggemaakt."
 
 #: libraries/classes/Pdf.php:136
 msgid "Error while creating PDF:"
@@ -10872,16 +10866,12 @@ msgid "Entered captcha is wrong, try again!"
 msgstr "Invoer is verkeerd, probeer opnieuw!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:301
-#, fuzzy
-#| msgid ""
-#| "Your password is too long. To prevent denial-of-service attacks, "
-#| "phpMyAdmin restricts passwords to less than 1000 characters."
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 "Uw wachtwoord is te lang. Om denial-of-service aanvallen te voorkomen "
-"beperkt phpMyAdmin de wachtwoordlengte tot minder dan 1000 tekens."
+"beperkt phpMyAdmin de wachtwoordlengte tot minder dan 2000 tekens."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
 msgid "You are not allowed to log in to this MySQL server!"
