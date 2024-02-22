@@ -228,4 +228,70 @@ class TriggersTest extends AbstractTestCase
         ];
         self::assertEquals($expected, $triggers);
     }
+
+    public function testGetTriggersByNames(): void
+    {
+        Config::getInstance()->selectedServer['DisableIS'] = true;
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            "SHOW TRIGGERS FROM `test_db` LIKE 'test_table';",
+            [
+                ['trigger_a', 'INSERT', 'test_table', 'BEGIN END', 'AFTER', 'definer@localhost'],
+                ['trigger_b', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+                ['trigger_c', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+                ['trigger_d', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+            ],
+            ['Trigger', 'Event', 'Table', 'Statement', 'Timing', 'Definer'],
+        );
+        $names = ['trigger_b', 'trigger_d'];
+
+        $triggers = new Triggers($this->createDatabaseInterface($dbiDummy));
+
+        $triggers = $triggers->getTriggersByNames('test_db', 'test_table', $names);
+        $expected = [
+            'trigger_b' => Trigger::tryFromArray([
+                'Trigger' => 'trigger_b',
+                'Table' => 'test_table',
+                'Timing' => 'BEFORE',
+                'Event' => 'UPDATE',
+                'Statement' => 'BEGIN END',
+                'Definer' => 'definer@localhost',
+            ]),
+            'trigger_d' => Trigger::tryFromArray([
+                'Trigger' => 'trigger_d',
+                'Table' => 'test_table',
+                'Timing' => 'BEFORE',
+                'Event' => 'UPDATE',
+                'Statement' => 'BEGIN END',
+                'Definer' => 'definer@localhost',
+            ]),
+        ];
+        self::assertEquals($expected, $triggers);
+    }
+
+    public function testGetTriggersByNamesNotFound(): void
+    {
+        Config::getInstance()->selectedServer['DisableIS'] = true;
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            "SHOW TRIGGERS FROM `test_db` LIKE 'test_table';",
+            [
+                ['trigger_a', 'INSERT', 'test_table', 'BEGIN END', 'AFTER', 'definer@localhost'],
+                ['trigger_b', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+                ['trigger_c', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+                ['trigger_d', 'UPDATE', 'test_table', 'BEGIN END', 'BEFORE', 'definer@localhost'],
+            ],
+            ['Trigger', 'Event', 'Table', 'Statement', 'Timing', 'Definer'],
+        );
+        $names = ['trigger_x', 'trigger_y'];
+
+        $triggers = new Triggers($this->createDatabaseInterface($dbiDummy));
+
+        $triggers = $triggers->getTriggersByNames('test_db', 'test_table', $names);
+        $expected = [
+            'trigger_x' => null,
+            'trigger_y' => null,
+        ];
+        self::assertEquals($expected, $triggers);
+    }
 }
