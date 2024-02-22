@@ -31,7 +31,7 @@ class FileListingTest extends AbstractTestCase
     {
         self::assertFalse($this->fileListing->getDirContent('nonexistent directory'));
 
-        $fixturesDir = TEST_PATH . 'tests/classes/_data/file_listing';
+        $fixturesDir = TEST_PATH . 'tests/unit/_data/file_listing';
 
         $dirContent = $this->fileListing->getDirContent($fixturesDir);
         if (is_bool($dirContent)) {
@@ -46,7 +46,7 @@ class FileListingTest extends AbstractTestCase
 
     public function testGetFileSelectOptions(): void
     {
-        $fixturesDir = TEST_PATH . 'tests/classes/_data/file_listing';
+        $fixturesDir = TEST_PATH . 'tests/unit/_data/file_listing';
 
         self::assertFalse($this->fileListing->getFileSelectOptions('nonexistent directory'));
 

@@ -33,7 +33,7 @@
   </php>
   <testsuites>
     <testsuite name="unit">
-      <directory suffix="Test.php">tests/classes</directory>
+      <directory suffix="Test.php">tests/unit</directory>
     </testsuite>
     <testsuite name="selenium">
       <directory suffix="Test.php">tests/selenium</directory>

@@ -85,7 +85,7 @@ class ErrorTest extends AbstractTestCase
             [
                 __FILE__,
                 '.' . DIRECTORY_SEPARATOR . 'tests' . DIRECTORY_SEPARATOR
-                    . 'classes' . DIRECTORY_SEPARATOR . 'Error' . DIRECTORY_SEPARATOR . 'ErrorTest.php',
+                    . 'unit' . DIRECTORY_SEPARATOR . 'Error' . DIRECTORY_SEPARATOR . 'ErrorTest.php',
             ],
             ['./NONEXISTING', 'NONEXISTING'],
         ];

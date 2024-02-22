@@ -8,13 +8,13 @@ on:
       - master
     paths:
       - 'src/**.php'
-      - 'tests/classes/**.php'
+      - 'tests/unit/**.php'
   pull_request:
     branches:
       - master
     paths:
       - 'src/**.php'
-      - 'tests/classes/**.php'
+      - 'tests/unit/**.php'
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'
