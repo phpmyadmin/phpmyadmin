@@ -11986,12 +11986,12 @@
       <code><![CDATA[$tempName]]></code>
     </PossiblyInvalidOperand>
   </file>
-  <file src="tests/selenium/ExportTest.php">
+  <file src="tests/end-to-end/ExportTest.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[exportDataProvider]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="tests/selenium/TestBase.php">
+  <file src="tests/end-to-end/TestBase.php">
     <DeprecatedConstant>
       <code><![CDATA[ChromeOptions::CAPABILITY_W3C]]></code>
     </DeprecatedConstant>

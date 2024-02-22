@@ -35,8 +35,8 @@
     <testsuite name="unit">
       <directory suffix="Test.php">tests/unit</directory>
     </testsuite>
-    <testsuite name="selenium">
-      <directory suffix="Test.php">tests/selenium</directory>
+    <testsuite name="end-to-end">
+      <directory suffix="Test.php">tests/end-to-end</directory>
     </testsuite>
   </testsuites>
   <logging>

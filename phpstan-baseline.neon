@@ -15263,92 +15263,92 @@ parameters:
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement will always evaluate to true\\.$#"
 			count: 1
-			path: tests/selenium/Database/OperationsTest.php
+			path: tests/end-to-end/Database/OperationsTest.php
 
 		-
 			message: "#^Call to function is_string\\(\\) with non\\-falsy\\-string will always evaluate to true\\.$#"
 			count: 2
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Cannot access property \\$public_url on mixed\\.$#"
 			count: 1
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase has an uninitialized property \\$sessionId\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 5
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Only booleans are allowed in &&, string given on the left side\\.$#"
 			count: 2
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, string\\|null given\\.$#"
 			count: 1
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Only booleans are allowed in an elseif condition, string\\|false given\\.$#"
 			count: 1
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, int given\\.$#"
 			count: 2
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
 			count: 2
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Parameter \\#1 \\$by of method Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebDriver\\:\\:findElement\\(\\) expects Facebook\\\\WebDriver\\\\WebDriverBy, mixed given\\.$#"
 			count: 1
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Parameter \\#1 \\$by of static method Facebook\\\\WebDriver\\\\WebDriverExpectedCondition\\:\\:presenceOfElementLocated\\(\\) expects Facebook\\\\WebDriver\\\\WebDriverBy, mixed given\\.$#"
 			count: 2
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Parameter \\#1 \\$by of static method Facebook\\\\WebDriver\\\\WebDriverExpectedCondition\\:\\:visibilityOfElementLocated\\(\\) expects Facebook\\\\WebDriver\\\\WebDriverBy, mixed given\\.$#"
 			count: 1
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Parameter \\#1 \\$handle of method Facebook\\\\WebDriver\\\\Remote\\\\RemoteTargetLocator\\:\\:window\\(\\) expects string, mixed given\\.$#"
 			count: 3
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:\\$sqlWindowHandle \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 1
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Strict comparison using \\=\\=\\= between Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebDriver and null will always evaluate to false\\.$#"
 			count: 1
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Variable static method call on Facebook\\\\WebDriver\\\\WebDriverBy\\.$#"
 			count: 4
-			path: tests/selenium/TestBase.php
+			path: tests/end-to-end/TestBase.php
 
 		-
 			message: "#^Cannot access offset 'Servers' on mixed\\.$#"

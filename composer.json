@@ -37,7 +37,7 @@
     "autoload-dev": {
         "psr-4": {
             "PhpMyAdmin\\Tests\\": "tests/unit",
-            "PhpMyAdmin\\Tests\\Selenium\\": "tests/selenium/"
+            "PhpMyAdmin\\Tests\\Selenium\\": "tests/end-to-end/"
         }
     },
     "repositories": [
