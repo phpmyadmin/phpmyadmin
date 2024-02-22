@@ -125,7 +125,6 @@ class StructureControllerTest extends AbstractTestCase
             'mime_map' => [],
             'tbl_storage_engine' => 'INNODB',
             'primary' => Index::getPrimary($this->dbi, Current::$table, Current::$database),
-            'columns_with_unique_index' => [],
             'columns_list' => ['id', 'name', 'datetimefield'],
             'table_stats' => null,
             'fields' => $fields,

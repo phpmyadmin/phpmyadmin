@@ -121,15 +121,11 @@ class StructureController extends AbstractController
         $columnsWithIndex = $this->dbi
             ->getTable(Current::$database, Current::$table)
             ->getColumnsWithIndex(Index::UNIQUE | Index::INDEX | Index::SPATIAL | Index::FULLTEXT);
-        $columnsWithUniqueIndex = $this->dbi
-            ->getTable(Current::$database, Current::$table)
-            ->getColumnsWithIndex(Index::UNIQUE);
 
         $fields = $this->dbi->getColumns(Current::$database, Current::$table, true);
 
         $this->response->addHTML($this->displayStructure(
             $relationParameters,
-            $columnsWithUniqueIndex,
             $primary,
             $fields,
             $columnsWithIndex,
@@ -141,14 +137,12 @@ class StructureController extends AbstractController
     /**
      * Displays the table structure ('show table' works correct since 3.23.03)
      *
-     * @param (string|int)[] $columnsWithUniqueIndex Columns with unique index
-     * @param ColumnFull[]   $fields                 Fields
-     * @param (string|int)[] $columnsWithIndex       Columns with index
+     * @param ColumnFull[]   $fields           Fields
+     * @param (string|int)[] $columnsWithIndex Columns with index
      * @psalm-param non-empty-string $route
      */
     private function displayStructure(
         RelationParameters $relationParameters,
-        array $columnsWithUniqueIndex,
         Index|null $primaryIndex,
         array $fields,
         array $columnsWithIndex,
@@ -262,7 +256,6 @@ class StructureController extends AbstractController
             'mime_map' => $mimeMap,
             'tbl_storage_engine' => $tableStorageEngine,
             'primary' => $primaryIndex,
-            'columns_with_unique_index' => $columnsWithUniqueIndex,
             'columns_list' => $columnsList,
             'table_stats' => $tablestats ?? null,
             'fields' => $fields,
