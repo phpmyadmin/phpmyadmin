@@ -14426,11 +14426,6 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: "#^Dead catch \\- RuntimeException is never thrown in the try block\\.$#"
-			count: 1
-			path: src/Template.php
-
-		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 1
 			path: src/Theme/Theme.php

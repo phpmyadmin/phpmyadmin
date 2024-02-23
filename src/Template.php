@@ -26,12 +26,6 @@ use Twig\Loader\FilesystemLoader;
 use Twig\RuntimeLoader\ContainerRuntimeLoader;
 use Twig\TemplateWrapper;
 
-use function __;
-use function sprintf;
-use function trigger_error;
-
-use const E_USER_WARNING;
-
 /**
  * Handle front end templating
  */
@@ -106,23 +100,13 @@ class Template
         }
 
         try {
-            $template = static::$twig->load($templateName . '.twig');
-        } catch (RuntimeException $e) {
+            return static::$twig->load($templateName . '.twig');
+        } catch (RuntimeException) { // @phpstan-ignore-line thrown by Twig\Cache\FilesystemCache
             /* Retry with disabled cache */
             static::$twig->setCache(false);
-            $template = static::$twig->load($templateName . '.twig');
-            // The trigger error is intentionally after second load
-            // to avoid triggering error when disabling cache does not solve it.
-            trigger_error(
-                sprintf(
-                    __('Error while working with template cache: %s'),
-                    $e->getMessage(),
-                ),
-                E_USER_WARNING,
-            );
-        }
 
-        return $template;
+            return static::$twig->load($templateName . '.twig');
+        }
     }
 
     /**
