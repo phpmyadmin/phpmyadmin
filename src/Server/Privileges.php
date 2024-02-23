@@ -3123,7 +3123,12 @@ class Privileges
             $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, "''");
         } else {
             $hashedPassword = $this->getHashedPassword($_POST['pma_pw']);
-            $passwordSetReal = sprintf($passwordSetStmt, $slashedUsername, $slashedHostname, $this->dbi->quoteString($hashedPassword));
+            $passwordSetReal = sprintf(
+                $passwordSetStmt,
+                $slashedUsername,
+                $slashedHostname,
+                $this->dbi->quoteString($hashedPassword),
+            );
         }
 
         $alterRealSqlQuery = '';
