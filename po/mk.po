@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-12-30 21:39+0000\n"
+"PO-Revision-Date: 2024-02-24 02:49+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6623,7 +6623,7 @@ msgstr "Полигон"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:482
 #: templates/display/results/table.twig:174
 msgid "Geometry"
-msgstr ""
+msgstr "Геометрија"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:483
 #, fuzzy
@@ -14845,11 +14845,11 @@ msgstr "Транформации на веб прелистувачот"
 
 #: templates/display/results/table.twig:179
 msgid "Well Known Text"
-msgstr ""
+msgstr "Добро Познат Текст"
 
 #: templates/display/results/table.twig:183
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Добро Познат Бинарен"
 
 #: templates/display/results/table.twig:255
 #: templates/sql/no_results_returned.twig:9
