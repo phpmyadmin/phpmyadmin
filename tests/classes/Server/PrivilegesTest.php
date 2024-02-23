@@ -707,6 +707,60 @@ class PrivilegesTest extends AbstractTestCase
         self::assertSame('CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED BY \'***\';', $createUserShow);
     }
 
+    public function testGetSqlQueriesForDisplayAndAddUserMySql50500AndUserDefinedPassword(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+        $dbi->setVersion(['@@version' => '5.5.0']);
+
+        $dbiDummy->addResult('SELECT PASSWORD(\'pma_password\');', [['*ABCDEF']], ['PASSWORD(\'pma_password\')']);
+
+        $serverPrivileges = $this->getPrivileges($dbi);
+
+        $username = 'PMA_username';
+        $hostname = 'PMA_hostname';
+        $password = 'pma_password';
+        $_POST['pred_password'] = 'userdefined';
+        $_POST['pma_pw'] = 'pma_password';
+
+        [, , , , $passwordSetReal, $passwordSetShow] = $serverPrivileges->getSqlQueriesForDisplayAndAddUser(
+            $username,
+            $hostname,
+            $password,
+        );
+
+        self::assertSame('SET PASSWORD FOR \'PMA_username\'@\'PMA_hostname\' = \'*ABCDEF\';', $passwordSetReal);
+        self::assertSame('SET PASSWORD FOR \'PMA_username\'@\'PMA_hostname\' = \'***\';', $passwordSetShow);
+
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testGetSqlQueriesForDisplayAndAddUserWithUserDefinedPassword(): void
+    {
+        $dbi = $this->createDatabaseInterface();
+        $dbi->setVersion(['@@version' => '10.4.3-MariaDB']);
+
+        $serverPrivileges = $this->getPrivileges($dbi);
+
+        $username = 'PMA_username';
+        $hostname = 'PMA_hostname';
+        $password = 'pma_password';
+        $_POST['pred_password'] = 'userdefined';
+        $_POST['pma_pw'] = 'pma_password';
+
+        [$createUserReal, $createUserShow] = $serverPrivileges->getSqlQueriesForDisplayAndAddUser(
+            $username,
+            $hostname,
+            $password,
+        );
+
+        self::assertSame(
+            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED BY \'pma_password\';',
+            $createUserReal,
+        );
+        self::assertSame('CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED BY \'***\';', $createUserShow);
+    }
+
     public function testGetSqlQueriesForDisplayAndAddUser(): void
     {
         Config::getInstance()->selectedServer['DisableIS'] = false;

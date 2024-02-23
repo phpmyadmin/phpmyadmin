@@ -10350,6 +10350,7 @@
       <code><![CDATA[$_REQUEST['hostname']]]></code>
       <code><![CDATA[$_REQUEST['username']]]></code>
       <code>$dbname[0]</code>
+      <code>$hashedPassword</code>
       <code>$oldUserGroup</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
