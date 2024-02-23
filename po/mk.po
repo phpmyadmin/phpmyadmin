@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-12-30 21:39+0000\n"
+"PO-Revision-Date: 2024-02-24 02:49+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -2270,7 +2270,7 @@ msgstr "Полигон"
 
 #: js/messages.php:527 templates/display/results/options_block.twig:79
 msgid "Geometry"
-msgstr ""
+msgstr "Геометрија"
 
 #: js/messages.php:528
 #, fuzzy
@@ -16187,12 +16187,12 @@ msgstr "Транформации на веб прелистувачот"
 #: templates/display/results/options_block.twig:79
 #: templates/display/results/options_block.twig:96
 msgid "Well Known Text"
-msgstr ""
+msgstr "Добро Познат Текст"
 
 #: templates/display/results/options_block.twig:79
 #: templates/display/results/options_block.twig:96
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Добро Познат Бинарен"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
