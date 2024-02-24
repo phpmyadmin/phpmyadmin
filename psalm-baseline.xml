@@ -15043,12 +15043,6 @@
       <code><![CDATA[$_SESSION['userconfig']['ts']]]></code>
     </MixedArrayAccess>
   </file>
-  <file src="tests/unit/UserPrivilegesFactoryTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="tests/unit/UtilTest.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$tz]]></code>
