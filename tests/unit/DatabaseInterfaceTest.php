@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Column;
+use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Current;
@@ -12,6 +14,7 @@ use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Dbal\Statement;
+use PhpMyAdmin\Index;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
@@ -24,6 +27,8 @@ use ReflectionProperty;
 use function array_keys;
 
 #[CoversClass(DatabaseInterface::class)]
+#[CoversClass(Column::class)]
+#[CoversClass(ColumnFull::class)]
 class DatabaseInterfaceTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -791,5 +796,50 @@ class DatabaseInterfaceTest extends AbstractTestCase
         yield 'empty string' => ['', 0];
         yield 'null' => [null, 0];
         yield 'false' => [false, 0];
+    }
+
+    public function testGetColumn(): void
+    {
+        (new ReflectionProperty(Index::class, 'registry'))->setValue(null, []);
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult(
+            'SHOW COLUMNS FROM `test_db`.`test_table` LIKE \'test\\\\_column\'',
+            [['test_column', 'varchar(45)', 'NO', '', null, '']],
+            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+        );
+        $dbiDummy->addResult('SHOW INDEXES FROM `test_db`.`test_table`', []);
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+        $column = new Column('test_column', 'varchar(45)', false, '', null, '');
+        self::assertEquals($column, $dbi->getColumn('test_db', 'test_table', 'test_column'));
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testGetColumnWithFullColumn(): void
+    {
+        (new ReflectionProperty(Index::class, 'registry'))->setValue(null, []);
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult(
+            'SHOW FULL COLUMNS FROM `test_db`.`test_table` LIKE \'test\\\\_column\'',
+            // phpcs:ignore Generic.Files.LineLength.TooLong
+            [['test_column', 'varchar(45)', 'utf8mb4_general_ci', 'NO', '', null, '', 'select,insert,update,references', '']],
+            ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
+        );
+        $dbiDummy->addResult('SHOW INDEXES FROM `test_db`.`test_table`', []);
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+        $column = new ColumnFull(
+            'test_column',
+            'varchar(45)',
+            'utf8mb4_general_ci',
+            false,
+            '',
+            null,
+            '',
+            'select,insert,update,references',
+            '',
+        );
+        self::assertEquals($column, $dbi->getColumn('test_db', 'test_table', 'test_column', true));
+        $dbiDummy->assertAllQueriesConsumed();
     }
 }
