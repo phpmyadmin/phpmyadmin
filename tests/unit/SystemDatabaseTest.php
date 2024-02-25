@@ -17,6 +17,7 @@ use ReflectionProperty;
 use const MYSQLI_TYPE_STRING;
 
 #[CoversClass(SystemDatabase::class)]
+#[CoversClass(SystemColumn::class)]
 class SystemDatabaseTest extends AbstractTestCase
 {
     /**
