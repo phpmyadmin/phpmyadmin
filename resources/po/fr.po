@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-02-18 00:18+0000\n"
+"POT-Creation-Date: 2024-02-25 00:18+0000\n"
 "PO-Revision-Date: 2023-12-06 11:04+0000\n"
 "Last-Translator: EGuillemot <Elouen.Guillemot@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -51,7 +51,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:145
 #: resources/templates/table/structure/display_structure.twig:295
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:224
+#: src/Controllers/Table/StructureController.php:221
 msgid "Primary"
 msgstr "Primaire"
 
@@ -73,7 +73,7 @@ msgstr "Unique"
 #: resources/templates/table/structure/display_structure.twig:301
 #: resources/templates/table/structure/display_table_stats.twig:23
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:228
+#: src/Controllers/Table/StructureController.php:225
 #: src/Navigation/Nodes/NodeIndex.php:24
 msgid "Index"
 msgstr "Index"
@@ -475,7 +475,7 @@ msgstr "Groupe de nœuds"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Import/Import.php:1167 src/Menu.php:213 src/Menu.php:317
+#: src/Import/Import.php:1175 src/Menu.php:213 src/Menu.php:317
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1057 src/Util.php:1482
@@ -973,7 +973,7 @@ msgstr "Historique"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:57
 #: resources/templates/table/structure/display_table_stats.twig:96
-#: src/Import/Import.php:1137 src/Import/Import.php:1168
+#: src/Import/Import.php:1145 src/Import/Import.php:1176
 #: src/Plugins/Export/ExportCodegen.php:52 src/Plugins/Export/ExportCsv.php:43
 #: src/Plugins/Export/ExportExcel.php:37
 #: src/Plugins/Export/ExportHtmlword.php:47
@@ -983,11 +983,11 @@ msgstr "Historique"
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
 #: src/Plugins/Export/ExportSql.php:115
 #: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:60
-#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:70
+#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:69
 #: src/Plugins/Import/ImportLdi.php:52
-#: src/Plugins/Import/ImportMediawiki.php:58
+#: src/Plugins/Import/ImportMediawiki.php:60
 #: src/Plugins/Import/ImportOds.php:53 src/Plugins/Import/ImportShp.php:71
-#: src/Plugins/Import/ImportSql.php:42 src/Plugins/Import/ImportXml.php:48
+#: src/Plugins/Import/ImportSql.php:42 src/Plugins/Import/ImportXml.php:49
 msgid "Options"
 msgstr "Options"
 
@@ -2662,7 +2662,7 @@ msgstr "Vues"
 #: resources/templates/database/structure/structure_table_row.twig:184
 #: src/Controllers/Operations/TableController.php:124
 #: src/Controllers/Operations/TableController.php:333
-#: src/Controllers/Table/StructureController.php:160
+#: src/Controllers/Table/StructureController.php:154
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "Vue"
@@ -2702,7 +2702,7 @@ msgstr "utilisé"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:230
 #: resources/templates/table/structure/display_table_stats.twig:118
-#: src/Controllers/Server/DatabasesController.php:264 src/Import/Import.php:142
+#: src/Controllers/Server/DatabasesController.php:264 src/Import/Import.php:146
 msgid "Rows"
 msgstr "Lignes"
 
@@ -2980,7 +2980,7 @@ msgstr "Convertir en Kana"
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Html/Generator.php:762 src/Import/Import.php:131 src/InsertEdit.php:492
+#: src/Html/Generator.php:762 src/Import/Import.php:135 src/InsertEdit.php:492
 #: src/Message.php:145
 msgid "Error"
 msgstr "Erreur"
@@ -10584,12 +10584,12 @@ msgid "Put columns names in the first row"
 msgstr "Afficher les noms de colonnes en première ligne"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:653
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:652
 msgid "Columns enclosed with"
 msgstr "Colonnes entourées par"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:664
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:663
 msgid "Columns escaped with"
 msgstr "Caractère d'échappement"
 
@@ -10605,12 +10605,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "Retirer les caractères de fin de ligne à l'intérieur des colonnes"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:638
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:637
 msgid "Columns terminated with"
 msgstr "Colonnes terminées par"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:671
+#: src/Plugins/Import/ImportCsv.php:670
 msgid "Lines terminated with"
 msgstr "Lignes terminées par"
 
@@ -10900,7 +10900,7 @@ msgid "Partial import: allow interrupt"
 msgstr "Importation partielle : permettre l'interruption lors de l'importation"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:141 src/Plugins/Import/ImportLdi.php:69
+#: src/Plugins/Import/ImportCsv.php:140 src/Plugins/Import/ImportLdi.php:69
 msgid "Do not abort on INSERT error"
 msgstr "Ne pas arrêter l'importation lors d'une erreur INSERT"
 
@@ -11975,7 +11975,7 @@ msgstr "Échec"
 msgid "Succeeded"
 msgstr "Succès"
 
-#: src/Controllers/Database/CentralColumnsController.php:148
+#: src/Controllers/Database/CentralColumnsController.php:152
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Affichage des lignes %1$s - %2$s."
@@ -12128,7 +12128,7 @@ msgstr ""
 
 #: src/Controllers/Database/RoutinesController.php:85
 #: src/Controllers/Database/Structure/AddPrefixController.php:22
-#: src/Controllers/Database/Structure/CentralColumns/AddController.php:39
+#: src/Controllers/Database/Structure/CentralColumns/AddController.php:40
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:40
 #: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:39
 #: src/Controllers/Database/Structure/ChangePrefixFormController.php:22
@@ -12235,7 +12235,7 @@ msgstr ""
 "La recherche dans la base de données est désactivée par la configuration "
 "[code]$cfg['UseDbSearch'][/code]."
 
-#: src/Controllers/Database/Structure/CentralColumns/AddController.php:49
+#: src/Controllers/Database/Structure/CentralColumns/AddController.php:50
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:50
 #: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:49
 msgid "Success!"
@@ -15436,7 +15436,7 @@ msgstr "La table %s existe déjà !"
 #: src/Controllers/Table/DropColumnController.php:40
 #: src/Controllers/Table/Structure/AbstractIndexController.php:38
 #: src/Controllers/Table/Structure/BrowseController.php:31
-#: src/Controllers/Table/Structure/CentralColumnsAddController.php:38
+#: src/Controllers/Table/Structure/CentralColumnsAddController.php:39
 #: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:39
 #: src/Controllers/Table/Structure/ChangeController.php:53
 #: src/Controllers/Table/Structure/PrimaryController.php:49
@@ -15461,7 +15461,7 @@ msgid "There is an issue with your request."
 msgstr "Il y a un problème avec votre requête."
 
 #: src/Controllers/Table/GetFieldController.php:83
-#: src/Database/Routines.php:1012 src/Import/Import.php:147
+#: src/Database/Routines.php:1012 src/Import/Import.php:151
 #: src/InsertEdit.php:201 src/Sql.php:858
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a retourné un résultat vide (c'est à dire aucune ligne)."
@@ -15586,25 +15586,16 @@ msgstr "Le nom de la vue ne peut être vide !"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Il manque l'extension %s. Merci de vérifier la configuration PHP."
 
-#: src/Database/CentralColumns.php:265 src/Database/CentralColumns.php:366
-#: src/Database/CentralColumns.php:566
-msgid ""
-"The configuration storage is not ready for the central list of columns "
-"feature."
-msgstr ""
-"Le stockage de la configuration n'est pas prêt pour la fonctionnalité de "
-"liste centrale des colonnes."
-
-#: src/Database/CentralColumns.php:320
+#: src/Database/CentralColumns.php:328
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr "Impossible d'ajouter %1$s puisqu'ils existent dans la liste centrale !"
 
-#: src/Database/CentralColumns.php:335
+#: src/Database/CentralColumns.php:342
 msgid "Could not add columns!"
 msgstr "Impossible d'ajouter les colonnes !"
 
-#: src/Database/CentralColumns.php:412
+#: src/Database/CentralColumns.php:415
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
@@ -15612,9 +15603,17 @@ msgstr ""
 "Impossible de supprimer les colonnes %1$s puisqu'elles n'existent pas dans "
 "la liste centrale !"
 
-#: src/Database/CentralColumns.php:426
+#: src/Database/CentralColumns.php:428
 msgid "Could not remove columns!"
 msgstr "Impossible de retirer les colonnes !"
+
+#: src/Database/CentralColumns.php:914
+msgid ""
+"The configuration storage is not ready for the central list of columns "
+"feature."
+msgstr ""
+"Le stockage de la configuration n'est pas prêt pour la fonctionnalité de "
+"liste centrale des colonnes."
 
 #: src/Database/Designer/Common.php:457
 msgctxt ""
@@ -16487,58 +16486,58 @@ msgstr "Le nom de la table ne peut pas être plus long que %d caractères."
 msgid "The trigger name cannot end with a space character."
 msgstr "Le nom de la table ne peut pas se terminer par une espace."
 
-#: src/Import/Import.php:266 src/Sql.php:872
+#: src/Import/Import.php:270 src/Sql.php:872
 msgid "[ROLLBACK occurred.]"
 msgstr "[Un ROLLBACK a eu lieu]"
 
-#: src/Import/Import.php:1129
+#: src/Import/Import.php:1137
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "Les structures suivantes ont été créées ou modifiées. Ici il est possible "
 "de :"
 
-#: src/Import/Import.php:1131
+#: src/Import/Import.php:1139
 msgid "View a structure's contents by clicking on its name."
 msgstr "Consulter le contenu d'une structure en cliquant sur son nom."
 
-#: src/Import/Import.php:1132
+#: src/Import/Import.php:1140
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Modifier l'un de ses paramètres en cliquant le lien « Options » "
 "correspondant."
 
-#: src/Import/Import.php:1133
+#: src/Import/Import.php:1141
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Éditer la structure via le lien « Structure »."
 
-#: src/Import/Import.php:1140
+#: src/Import/Import.php:1148
 #, php-format
 msgid "Go to database: %s"
 msgstr "Aller à la base de données : %s"
 
-#: src/Import/Import.php:1146 src/Import/Import.php:1186
+#: src/Import/Import.php:1154 src/Import/Import.php:1194
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Éditer les paramètres pour %s"
 
-#: src/Import/Import.php:1171
+#: src/Import/Import.php:1179
 #, php-format
 msgid "Go to table: %s"
 msgstr "Aller à la table : %s"
 
-#: src/Import/Import.php:1179
+#: src/Import/Import.php:1187
 #, php-format
 msgid "Structure of %s"
 msgstr "Structure de %s"
 
-#: src/Import/Import.php:1197
+#: src/Import/Import.php:1205
 #, php-format
 msgid "Go to view: %s"
 msgstr "Aller à la vue : %s"
 
-#: src/Import/Import.php:1223
+#: src/Import/Import.php:1231
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -17624,19 +17623,19 @@ msgstr ""
 "Mettre à jour les données lorsque des clés dupliquées sont trouvées lors de "
 "l'importation (ajouter ON DUPLICATE KEY UPDATE)"
 
-#: src/Plugins/Import/ImportCsv.php:83
+#: src/Plugins/Import/ImportCsv.php:82
 msgid "Name of the new table (optional):"
 msgstr "Nom de la nouvelle table (facultatif) :"
 
-#: src/Plugins/Import/ImportCsv.php:92
+#: src/Plugins/Import/ImportCsv.php:91
 msgid "Name of the new database (optional):"
 msgstr "Nom de la nouvelle base de données (facultatif) :"
 
-#: src/Plugins/Import/ImportCsv.php:101 src/Plugins/Import/ImportCsv.php:119
+#: src/Plugins/Import/ImportCsv.php:100 src/Plugins/Import/ImportCsv.php:118
 msgid "Import these many number of rows (optional):"
 msgstr "Importer ce nombre de lignes (facultatif) :"
 
-#: src/Plugins/Import/ImportCsv.php:109 src/Plugins/Import/ImportOds.php:66
+#: src/Plugins/Import/ImportCsv.php:108 src/Plugins/Import/ImportOds.php:66
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -17644,7 +17643,7 @@ msgstr ""
 "La première ligne du fichier contient le nom des colonnes de la table <i>(si "
 "ceci n'est pas coché, la première ligne fait partie des données)</i>"
 
-#: src/Plugins/Import/ImportCsv.php:126
+#: src/Plugins/Import/ImportCsv.php:125
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -17655,27 +17654,27 @@ msgstr ""
 "Les noms de colonnes doivent être séparées par une virgule et non entourées "
 "de guillemets."
 
-#: src/Plugins/Import/ImportCsv.php:134
+#: src/Plugins/Import/ImportCsv.php:133
 msgid "Column names:"
 msgstr "Nom des colonnes :"
 
-#: src/Plugins/Import/ImportCsv.php:283 src/Plugins/Import/ImportCsv.php:614
+#: src/Plugins/Import/ImportCsv.php:282 src/Plugins/Import/ImportCsv.php:613
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Format invalide pour les données CSV à la ligne %d."
 
-#: src/Plugins/Import/ImportCsv.php:501
+#: src/Plugins/Import/ImportCsv.php:500
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Nombre de colonnes invalides dans les données CSV à la ligne %d."
 
-#: src/Plugins/Import/ImportCsv.php:636 src/Plugins/Import/ImportCsv.php:651
-#: src/Plugins/Import/ImportCsv.php:662 src/Plugins/Import/ImportCsv.php:669
+#: src/Plugins/Import/ImportCsv.php:635 src/Plugins/Import/ImportCsv.php:650
+#: src/Plugins/Import/ImportCsv.php:661 src/Plugins/Import/ImportCsv.php:668
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Paramètres invalides pour l'importation CSV : %s"
 
-#: src/Plugins/Import/ImportCsv.php:802
+#: src/Plugins/Import/ImportCsv.php:775
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -17695,11 +17694,11 @@ msgstr ""
 "Cette extensions ne prend pas en charge les importations en format "
 "compressé !"
 
-#: src/Plugins/Import/ImportMediawiki.php:55
+#: src/Plugins/Import/ImportMediawiki.php:57
 msgid "MediaWiki Table"
 msgstr "Tableau MediaWiki"
 
-#: src/Plugins/Import/ImportMediawiki.php:271
+#: src/Plugins/Import/ImportMediawiki.php:273
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "Format mediawiki invalide à la ligne : <br>%s."
@@ -17713,8 +17712,8 @@ msgstr ""
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Importer les valeurs de monnaie <i>($5.00 devient 5.00)</i>"
 
-#: src/Plugins/Import/ImportOds.php:145 src/Plugins/Import/ImportXml.php:101
-#: src/Plugins/Import/ImportXml.php:142
+#: src/Plugins/Import/ImportOds.php:145 src/Plugins/Import/ImportXml.php:102
+#: src/Plugins/Import/ImportXml.php:140
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -17752,7 +17751,7 @@ msgstr "Mode de compatibilité SQL :"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Ne pas utiliser <code>AUTO_INCREMENT</code> pour la valeur zéro"
 
-#: src/Plugins/Import/ImportXml.php:45
+#: src/Plugins/Import/ImportXml.php:46
 msgid "XML"
 msgstr "XML"
 
@@ -18263,7 +18262,7 @@ msgid "Error 405! Request method not allowed."
 msgstr "Erreur 405 ! Méthode de requête non autorisée."
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3272
+#: src/Server/Privileges.php:3277
 msgid "Native MySQL authentication"
 msgstr "Authentification MySQL native"
 
@@ -18377,7 +18376,7 @@ msgstr ""
 msgid "You have added a new user."
 msgstr "L'utilisateur a ajouté un utilisateur."
 
-#: src/Server/Privileges.php:3365
+#: src/Server/Privileges.php:3370
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -18613,11 +18612,6 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 "Erreur lors de la création de la clé étrangère sur %1$s (vérifier le type "
 "des données)"
-
-#: src/Template.php:118
-#, php-format
-msgid "Error while working with template cache: %s"
-msgstr "Erreur en travaillant sur le cache des modèles : %s"
 
 #: src/Theme/ThemeManager.php:75
 #, php-format
@@ -19135,6 +19129,10 @@ msgstr "Erreur rencontrée dans l'archive Zip :"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Aucun fichier présent dans l'archive Zip !"
+
+#, php-format
+#~ msgid "Error while working with template cache: %s"
+#~ msgstr "Erreur en travaillant sur le cache des modèles : %s"
 
 #~ msgid "Unknown table status:"
 #~ msgstr "État de la table inconnu :"

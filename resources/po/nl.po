@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-02-18 00:18+0000\n"
+"POT-Creation-Date: 2024-02-25 00:18+0000\n"
 "PO-Revision-Date: 2023-05-09 14:50+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -52,7 +52,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:145
 #: resources/templates/table/structure/display_structure.twig:295
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:224
+#: src/Controllers/Table/StructureController.php:221
 msgid "Primary"
 msgstr "Primaire sleutel"
 
@@ -74,7 +74,7 @@ msgstr "Unieke waarde"
 #: resources/templates/table/structure/display_structure.twig:301
 #: resources/templates/table/structure/display_table_stats.twig:23
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:228
+#: src/Controllers/Table/StructureController.php:225
 #: src/Navigation/Nodes/NodeIndex.php:24
 msgid "Index"
 msgstr "Index"
@@ -476,7 +476,7 @@ msgstr "Node groep"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Import/Import.php:1167 src/Menu.php:213 src/Menu.php:317
+#: src/Import/Import.php:1175 src/Menu.php:213 src/Menu.php:317
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1057 src/Util.php:1482
@@ -974,7 +974,7 @@ msgstr "Geschiedenis"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:57
 #: resources/templates/table/structure/display_table_stats.twig:96
-#: src/Import/Import.php:1137 src/Import/Import.php:1168
+#: src/Import/Import.php:1145 src/Import/Import.php:1176
 #: src/Plugins/Export/ExportCodegen.php:52 src/Plugins/Export/ExportCsv.php:43
 #: src/Plugins/Export/ExportExcel.php:37
 #: src/Plugins/Export/ExportHtmlword.php:47
@@ -984,11 +984,11 @@ msgstr "Geschiedenis"
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
 #: src/Plugins/Export/ExportSql.php:115
 #: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:60
-#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:70
+#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:69
 #: src/Plugins/Import/ImportLdi.php:52
-#: src/Plugins/Import/ImportMediawiki.php:58
+#: src/Plugins/Import/ImportMediawiki.php:60
 #: src/Plugins/Import/ImportOds.php:53 src/Plugins/Import/ImportShp.php:71
-#: src/Plugins/Import/ImportSql.php:42 src/Plugins/Import/ImportXml.php:48
+#: src/Plugins/Import/ImportSql.php:42 src/Plugins/Import/ImportXml.php:49
 msgid "Options"
 msgstr "Opties"
 
@@ -2663,7 +2663,7 @@ msgstr "Views"
 #: resources/templates/database/structure/structure_table_row.twig:184
 #: src/Controllers/Operations/TableController.php:124
 #: src/Controllers/Operations/TableController.php:333
-#: src/Controllers/Table/StructureController.php:160
+#: src/Controllers/Table/StructureController.php:154
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "View"
@@ -2703,7 +2703,7 @@ msgstr "in gebruik"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:230
 #: resources/templates/table/structure/display_table_stats.twig:118
-#: src/Controllers/Server/DatabasesController.php:264 src/Import/Import.php:142
+#: src/Controllers/Server/DatabasesController.php:264 src/Import/Import.php:146
 msgid "Rows"
 msgstr "Rijen"
 
@@ -2978,7 +2978,7 @@ msgstr "Omzetten naar Kana"
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Html/Generator.php:762 src/Import/Import.php:131 src/InsertEdit.php:492
+#: src/Html/Generator.php:762 src/Import/Import.php:135 src/InsertEdit.php:492
 #: src/Message.php:145
 msgid "Error"
 msgstr "Fout"
@@ -10557,12 +10557,12 @@ msgid "Put columns names in the first row"
 msgstr "Kolomnamen in de eerste rij plaatsen"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:653
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:652
 msgid "Columns enclosed with"
 msgstr "Kolommen ingesloten door"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:664
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:663
 msgid "Columns escaped with"
 msgstr "Kolommen omgezet met wisselteken"
 
@@ -10578,12 +10578,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "Verwijder CRLF-tekens uit kolommen"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:638
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:637
 msgid "Columns terminated with"
 msgstr "Kolommen beëindigd met"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:671
+#: src/Plugins/Import/ImportCsv.php:670
 msgid "Lines terminated with"
 msgstr "Regels beëindigd door"
 
@@ -10872,7 +10872,7 @@ msgid "Partial import: allow interrupt"
 msgstr "Gedeeltelijke import: onderbreken toestaan"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:141 src/Plugins/Import/ImportLdi.php:69
+#: src/Plugins/Import/ImportCsv.php:140 src/Plugins/Import/ImportLdi.php:69
 msgid "Do not abort on INSERT error"
 msgstr "Breek een handeling niet af bij een INSERT-fout"
 
@@ -11941,7 +11941,7 @@ msgstr "Mislukt"
 msgid "Succeeded"
 msgstr "Geslaagd"
 
-#: src/Controllers/Database/CentralColumnsController.php:148
+#: src/Controllers/Database/CentralColumnsController.php:152
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Weergeven van regels %1$s - %2$s."
@@ -12089,7 +12089,7 @@ msgstr "U heeft niet voldoende rechten om de gebruikers te administreren!"
 
 #: src/Controllers/Database/RoutinesController.php:85
 #: src/Controllers/Database/Structure/AddPrefixController.php:22
-#: src/Controllers/Database/Structure/CentralColumns/AddController.php:39
+#: src/Controllers/Database/Structure/CentralColumns/AddController.php:40
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:40
 #: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:39
 #: src/Controllers/Database/Structure/ChangePrefixFormController.php:22
@@ -12193,7 +12193,7 @@ msgstr ""
 "Zoeken binnen de database is uitgeschakeld door de [code]$cfg['UseDbSearch']"
 "[/code] configuratie."
 
-#: src/Controllers/Database/Structure/CentralColumns/AddController.php:49
+#: src/Controllers/Database/Structure/CentralColumns/AddController.php:50
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:50
 #: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:49
 msgid "Success!"
@@ -15384,7 +15384,7 @@ msgstr "Tabel %s bestaat reeds!"
 #: src/Controllers/Table/DropColumnController.php:40
 #: src/Controllers/Table/Structure/AbstractIndexController.php:38
 #: src/Controllers/Table/Structure/BrowseController.php:31
-#: src/Controllers/Table/Structure/CentralColumnsAddController.php:38
+#: src/Controllers/Table/Structure/CentralColumnsAddController.php:39
 #: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:39
 #: src/Controllers/Table/Structure/ChangeController.php:53
 #: src/Controllers/Table/Structure/PrimaryController.php:49
@@ -15409,7 +15409,7 @@ msgid "There is an issue with your request."
 msgstr "Er is een probleem met je vraag."
 
 #: src/Controllers/Table/GetFieldController.php:83
-#: src/Database/Routines.php:1012 src/Import/Import.php:147
+#: src/Database/Routines.php:1012 src/Import/Import.php:151
 #: src/InsertEdit.php:201 src/Sql.php:858
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gaf een lege resultatenset terug (0 rijen)."
@@ -15530,25 +15530,16 @@ msgstr "View naam kan niet leeg zijn!"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "De extensie %s ontbreekt. Controleer uw PHP-configuratie."
 
-#: src/Database/CentralColumns.php:265 src/Database/CentralColumns.php:366
-#: src/Database/CentralColumns.php:566
-msgid ""
-"The configuration storage is not ready for the central list of columns "
-"feature."
-msgstr ""
-"De configuratieopslag is niet klaar voor de centrale lijst van kolommen "
-"functie."
-
-#: src/Database/CentralColumns.php:320
+#: src/Database/CentralColumns.php:328
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr "Kan %1$s niet toevoegen omdat ze al bestaan in de centrale lijst!"
 
-#: src/Database/CentralColumns.php:335
+#: src/Database/CentralColumns.php:342
 msgid "Could not add columns!"
 msgstr "Kolommen konden niet toegevoegd worden!"
 
-#: src/Database/CentralColumns.php:412
+#: src/Database/CentralColumns.php:415
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
@@ -15556,9 +15547,17 @@ msgstr ""
 "Kan kolom(men) %1$s niet verwijderen omdat ze niet bestaan in de centrale "
 "lijst!"
 
-#: src/Database/CentralColumns.php:426
+#: src/Database/CentralColumns.php:428
 msgid "Could not remove columns!"
 msgstr "Kolommen konden niet verwijderd worden!"
+
+#: src/Database/CentralColumns.php:914
+msgid ""
+"The configuration storage is not ready for the central list of columns "
+"feature."
+msgstr ""
+"De configuratieopslag is niet klaar voor de centrale lijst van kolommen "
+"functie."
 
 #: src/Database/Designer/Common.php:457
 msgctxt ""
@@ -16427,54 +16426,54 @@ msgstr "De tabel naam kan niet langer zijn dan %d tekens."
 msgid "The trigger name cannot end with a space character."
 msgstr "De tabelnaam kan niet eindigen op een spatie."
 
-#: src/Import/Import.php:266 src/Sql.php:872
+#: src/Import/Import.php:270 src/Sql.php:872
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK is uitgevoerd]"
 
-#: src/Import/Import.php:1129
+#: src/Import/Import.php:1137
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "De volgende structuren zijn aangemaakt of aangepast. Hier kunt u:"
 
-#: src/Import/Import.php:1131
+#: src/Import/Import.php:1139
 msgid "View a structure's contents by clicking on its name."
 msgstr "Bekijk de inhoud van een structuur door op de naam te klikken."
 
-#: src/Import/Import.php:1132
+#: src/Import/Import.php:1140
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "Een instelling wijzigen door op \"Opties\" te klikken."
 
-#: src/Import/Import.php:1133
+#: src/Import/Import.php:1141
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Klik op de \"Structuur\"-link om de structuur aan te passen."
 
-#: src/Import/Import.php:1140
+#: src/Import/Import.php:1148
 #, php-format
 msgid "Go to database: %s"
 msgstr "Ga naar database: %s"
 
-#: src/Import/Import.php:1146 src/Import/Import.php:1186
+#: src/Import/Import.php:1154 src/Import/Import.php:1194
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Instellingen voor %s wijzigen"
 
-#: src/Import/Import.php:1171
+#: src/Import/Import.php:1179
 #, php-format
 msgid "Go to table: %s"
 msgstr "Ga naar tabel: %s"
 
-#: src/Import/Import.php:1179
+#: src/Import/Import.php:1187
 #, php-format
 msgid "Structure of %s"
 msgstr "Structuur van %s"
 
-#: src/Import/Import.php:1197
+#: src/Import/Import.php:1205
 #, php-format
 msgid "Go to view: %s"
 msgstr "Ga naar view: %s"
 
-#: src/Import/Import.php:1223
+#: src/Import/Import.php:1231
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -17560,19 +17559,19 @@ msgstr ""
 "Werk data bij wanneer dubbele sleutelvelden worden gevonden bij import (voeg "
 "ON DUPLICATE KEY UPDATE toe)"
 
-#: src/Plugins/Import/ImportCsv.php:83
+#: src/Plugins/Import/ImportCsv.php:82
 msgid "Name of the new table (optional):"
 msgstr "Naam van de nieuwe tabel (optioneel):"
 
-#: src/Plugins/Import/ImportCsv.php:92
+#: src/Plugins/Import/ImportCsv.php:91
 msgid "Name of the new database (optional):"
 msgstr "Naam van de nieuwe database (optioneel):"
 
-#: src/Plugins/Import/ImportCsv.php:101 src/Plugins/Import/ImportCsv.php:119
+#: src/Plugins/Import/ImportCsv.php:100 src/Plugins/Import/ImportCsv.php:118
 msgid "Import these many number of rows (optional):"
 msgstr "Importeer dit aantal rijen (optioneel):"
 
-#: src/Plugins/Import/ImportCsv.php:109 src/Plugins/Import/ImportOds.php:66
+#: src/Plugins/Import/ImportCsv.php:108 src/Plugins/Import/ImportOds.php:66
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -17580,7 +17579,7 @@ msgstr ""
 "De eerste regel van het bestand bevat kolomnamen <i>(als dit niet aangevinkt "
 "is, wordt de eerste regel beschouwd als gegevens)</i>"
 
-#: src/Plugins/Import/ImportCsv.php:126
+#: src/Plugins/Import/ImportCsv.php:125
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -17591,27 +17590,27 @@ msgstr ""
 "in. Kolomnamen moeten gescheiden worden door komma's en mogen niet voorzien "
 "zijn van aanhalingstekens."
 
-#: src/Plugins/Import/ImportCsv.php:134
+#: src/Plugins/Import/ImportCsv.php:133
 msgid "Column names:"
 msgstr "Kolomnamen:"
 
-#: src/Plugins/Import/ImportCsv.php:283 src/Plugins/Import/ImportCsv.php:614
+#: src/Plugins/Import/ImportCsv.php:282 src/Plugins/Import/ImportCsv.php:613
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Ongeldig formaat van CSV-invoer op regel %d."
 
-#: src/Plugins/Import/ImportCsv.php:501
+#: src/Plugins/Import/ImportCsv.php:500
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Verkeerd aantal kolommen in CSV-invoer op regel %d."
 
-#: src/Plugins/Import/ImportCsv.php:636 src/Plugins/Import/ImportCsv.php:651
-#: src/Plugins/Import/ImportCsv.php:662 src/Plugins/Import/ImportCsv.php:669
+#: src/Plugins/Import/ImportCsv.php:635 src/Plugins/Import/ImportCsv.php:650
+#: src/Plugins/Import/ImportCsv.php:661 src/Plugins/Import/ImportCsv.php:668
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Ongeldige parameter voor CSV-import: %s"
 
-#: src/Plugins/Import/ImportCsv.php:802
+#: src/Plugins/Import/ImportCsv.php:775
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -17628,11 +17627,11 @@ msgstr "Kolomnamen: "
 msgid "This plugin does not support compressed imports!"
 msgstr "Deze plugin heeft geen ondersteuning voor gecomprimeerde imports!"
 
-#: src/Plugins/Import/ImportMediawiki.php:55
+#: src/Plugins/Import/ImportMediawiki.php:57
 msgid "MediaWiki Table"
 msgstr "MediaWiki-tabel"
 
-#: src/Plugins/Import/ImportMediawiki.php:271
+#: src/Plugins/Import/ImportMediawiki.php:273
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "Ongeldig formaat van mediawiki-invoer op regel: <br>%s."
@@ -17645,8 +17644,8 @@ msgstr "Percentages als decimalen importeren <i>(12.00% naar ,12)</i>"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Valuta importeren <i>($5.00 naar 5.00)</i>"
 
-#: src/Plugins/Import/ImportOds.php:145 src/Plugins/Import/ImportXml.php:101
-#: src/Plugins/Import/ImportXml.php:142
+#: src/Plugins/Import/ImportOds.php:145 src/Plugins/Import/ImportXml.php:102
+#: src/Plugins/Import/ImportXml.php:140
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -17686,7 +17685,7 @@ msgstr "SQL-compatibiliteitsmodus:"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Gebruik geen <code>AUTO_INCREMENT</code> voor 0-waarden"
 
-#: src/Plugins/Import/ImportXml.php:45
+#: src/Plugins/Import/ImportXml.php:46
 msgid "XML"
 msgstr "XML"
 
@@ -18192,7 +18191,7 @@ msgid "Error 405! Request method not allowed."
 msgstr "Fout 405! Methode voor aanvragen niet toegestaan."
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3272
+#: src/Server/Privileges.php:3277
 msgid "Native MySQL authentication"
 msgstr "MySQL authenticatie"
 
@@ -18307,7 +18306,7 @@ msgstr ""
 msgid "You have added a new user."
 msgstr "U heeft een nieuwe gebruiker toegevoegd."
 
-#: src/Server/Privileges.php:3365
+#: src/Server/Privileges.php:3370
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -18542,11 +18541,6 @@ msgstr ""
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 "Fout bij het maken van vreemde sleutel naar %1$s (controleer gegevenstypen)"
-
-#: src/Template.php:118
-#, php-format
-msgid "Error while working with template cache: %s"
-msgstr "Fout bij het laden van de template cache:%s"
 
 #: src/Theme/ThemeManager.php:75
 #, php-format
@@ -19063,6 +19057,10 @@ msgstr "Fout in het ZIP-archief:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Geen bestanden gevonden in ZIP-archief!"
+
+#, php-format
+#~ msgid "Error while working with template cache: %s"
+#~ msgstr "Fout bij het laden van de template cache:%s"
 
 #~ msgid "Unknown table status:"
 #~ msgstr "Onbekende tabelstatus:"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-02-18 00:18+0000\n"
+"POT-Creation-Date: 2024-02-25 00:18+0000\n"
 "PO-Revision-Date: 2024-01-17 19:47+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -51,7 +51,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:145
 #: resources/templates/table/structure/display_structure.twig:295
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:224
+#: src/Controllers/Table/StructureController.php:221
 msgid "Primary"
 msgstr "기본"
 
@@ -73,7 +73,7 @@ msgstr "고유값"
 #: resources/templates/table/structure/display_structure.twig:301
 #: resources/templates/table/structure/display_table_stats.twig:23
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:228
+#: src/Controllers/Table/StructureController.php:225
 #: src/Navigation/Nodes/NodeIndex.php:24
 msgid "Index"
 msgstr "인덱스"
@@ -475,7 +475,7 @@ msgstr "노드 그룹"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Import/Import.php:1167 src/Menu.php:213 src/Menu.php:317
+#: src/Import/Import.php:1175 src/Menu.php:213 src/Menu.php:317
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1057 src/Util.php:1482
@@ -967,7 +967,7 @@ msgstr "최근 기록"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:57
 #: resources/templates/table/structure/display_table_stats.twig:96
-#: src/Import/Import.php:1137 src/Import/Import.php:1168
+#: src/Import/Import.php:1145 src/Import/Import.php:1176
 #: src/Plugins/Export/ExportCodegen.php:52 src/Plugins/Export/ExportCsv.php:43
 #: src/Plugins/Export/ExportExcel.php:37
 #: src/Plugins/Export/ExportHtmlword.php:47
@@ -977,11 +977,11 @@ msgstr "최근 기록"
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
 #: src/Plugins/Export/ExportSql.php:115
 #: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:60
-#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:70
+#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:69
 #: src/Plugins/Import/ImportLdi.php:52
-#: src/Plugins/Import/ImportMediawiki.php:58
+#: src/Plugins/Import/ImportMediawiki.php:60
 #: src/Plugins/Import/ImportOds.php:53 src/Plugins/Import/ImportShp.php:71
-#: src/Plugins/Import/ImportSql.php:42 src/Plugins/Import/ImportXml.php:48
+#: src/Plugins/Import/ImportSql.php:42 src/Plugins/Import/ImportXml.php:49
 msgid "Options"
 msgstr "옵션"
 
@@ -2649,7 +2649,7 @@ msgstr "뷰"
 #: resources/templates/database/structure/structure_table_row.twig:184
 #: src/Controllers/Operations/TableController.php:124
 #: src/Controllers/Operations/TableController.php:333
-#: src/Controllers/Table/StructureController.php:160
+#: src/Controllers/Table/StructureController.php:154
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "뷰"
@@ -2689,7 +2689,7 @@ msgstr "사용중"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:230
 #: resources/templates/table/structure/display_table_stats.twig:118
-#: src/Controllers/Server/DatabasesController.php:264 src/Import/Import.php:142
+#: src/Controllers/Server/DatabasesController.php:264 src/Import/Import.php:146
 msgid "Rows"
 msgstr "행"
 
@@ -2965,7 +2965,7 @@ msgstr "전각 가나로 변환"
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Html/Generator.php:762 src/Import/Import.php:131 src/InsertEdit.php:492
+#: src/Html/Generator.php:762 src/Import/Import.php:135 src/InsertEdit.php:492
 #: src/Message.php:145
 msgid "Error"
 msgstr "오류"
@@ -10266,12 +10266,12 @@ msgid "Put columns names in the first row"
 msgstr "첫 줄에 열 이름을 넣기"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:653
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:652
 msgid "Columns enclosed with"
 msgstr "열을 시작하는 문자"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:664
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:663
 msgid "Columns escaped with"
 msgstr "특수 문자 구분에 사용된 문자"
 
@@ -10287,12 +10287,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "열 내의 CRLF 문자를 제거하기"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:638
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:637
 msgid "Columns terminated with"
 msgstr "열을 종료하는 문자"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:671
+#: src/Plugins/Import/ImportCsv.php:670
 msgid "Lines terminated with"
 msgstr "행을 종료하는 문자"
 
@@ -10579,7 +10579,7 @@ msgid "Partial import: allow interrupt"
 msgstr "일부분만 가져오기: 인터럽트 허용"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:141 src/Plugins/Import/ImportLdi.php:69
+#: src/Plugins/Import/ImportCsv.php:140 src/Plugins/Import/ImportLdi.php:69
 msgid "Do not abort on INSERT error"
 msgstr "INSERT 에러시 종료하지 않기"
 
@@ -11625,7 +11625,7 @@ msgstr "실패함"
 msgid "Succeeded"
 msgstr "성공함"
 
-#: src/Controllers/Database/CentralColumnsController.php:148
+#: src/Controllers/Database/CentralColumnsController.php:152
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "%1$s - %2$s행 표시 중."
@@ -11771,7 +11771,7 @@ msgstr "사용자를 관리할 권한이 없습니다!"
 
 #: src/Controllers/Database/RoutinesController.php:85
 #: src/Controllers/Database/Structure/AddPrefixController.php:22
-#: src/Controllers/Database/Structure/CentralColumns/AddController.php:39
+#: src/Controllers/Database/Structure/CentralColumns/AddController.php:40
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:40
 #: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:39
 #: src/Controllers/Database/Structure/ChangePrefixFormController.php:22
@@ -11874,7 +11874,7 @@ msgstr ""
 "[code]$cfg['UseDbSearch'][/code] 구성으로 데이터베이스 내부 검색을 비활성화"
 "할 수 있습니다."
 
-#: src/Controllers/Database/Structure/CentralColumns/AddController.php:49
+#: src/Controllers/Database/Structure/CentralColumns/AddController.php:50
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:50
 #: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:49
 msgid "Success!"
@@ -14991,7 +14991,7 @@ msgstr "테이블 %s 가 이미 존재합니다!"
 #: src/Controllers/Table/DropColumnController.php:40
 #: src/Controllers/Table/Structure/AbstractIndexController.php:38
 #: src/Controllers/Table/Structure/BrowseController.php:31
-#: src/Controllers/Table/Structure/CentralColumnsAddController.php:38
+#: src/Controllers/Table/Structure/CentralColumnsAddController.php:39
 #: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:39
 #: src/Controllers/Table/Structure/ChangeController.php:53
 #: src/Controllers/Table/Structure/PrimaryController.php:49
@@ -15015,7 +15015,7 @@ msgid "There is an issue with your request."
 msgstr "요청에 문제가 있습니다."
 
 #: src/Controllers/Table/GetFieldController.php:83
-#: src/Database/Routines.php:1012 src/Import/Import.php:147
+#: src/Database/Routines.php:1012 src/Import/Import.php:151
 #: src/InsertEdit.php:201 src/Sql.php:858
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "결과값이 없습니다. (빈 레코드 리턴)."
@@ -15134,31 +15134,30 @@ msgstr "뷰 이름은 비워둘 수 없습니다!"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s 확장기능이 설치되지 않았습니다. PHP의 설정을 확인하십시오."
 
-#: src/Database/CentralColumns.php:265 src/Database/CentralColumns.php:366
-#: src/Database/CentralColumns.php:566
-msgid ""
-"The configuration storage is not ready for the central list of columns "
-"feature."
-msgstr "구성 저장소가 중요 열 목록 기능을 사용할 준비가 되지 않았습니다."
-
-#: src/Database/CentralColumns.php:320
+#: src/Database/CentralColumns.php:328
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr "중요 목록에 이미 존재하므로 %1$s 항목을 추가할 수 없습니다!"
 
-#: src/Database/CentralColumns.php:335
+#: src/Database/CentralColumns.php:342
 msgid "Could not add columns!"
 msgstr "컬럼을 추가할 수 없음!"
 
-#: src/Database/CentralColumns.php:412
+#: src/Database/CentralColumns.php:415
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr "중요 열 목록에 없으므로 %1$s 열을 삭제할 수 없습니다!"
 
-#: src/Database/CentralColumns.php:426
+#: src/Database/CentralColumns.php:428
 msgid "Could not remove columns!"
 msgstr "컬럼을 삭제할 수 없음!"
+
+#: src/Database/CentralColumns.php:914
+msgid ""
+"The configuration storage is not ready for the central list of columns "
+"feature."
+msgstr "구성 저장소가 중요 열 목록 기능을 사용할 준비가 되지 않았습니다."
 
 #: src/Database/Designer/Common.php:457
 msgctxt ""
@@ -15993,54 +15992,54 @@ msgstr "{0} 글자 이하로 입력해 주세요"
 msgid "The trigger name cannot end with a space character."
 msgstr "단어는 스페이스(\" \")로 구분됩니다."
 
-#: src/Import/Import.php:266 src/Sql.php:872
+#: src/Import/Import.php:270 src/Sql.php:872
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK이 발생했습니다.]"
 
-#: src/Import/Import.php:1129
+#: src/Import/Import.php:1137
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "다음 구조가 생성되었거나 변경되었습니다. 다음 기능이 가능합니다:"
 
-#: src/Import/Import.php:1131
+#: src/Import/Import.php:1139
 msgid "View a structure's contents by clicking on its name."
 msgstr "이름을 클릭하면 구조의 내용을 볼 수 있습니다."
 
-#: src/Import/Import.php:1132
+#: src/Import/Import.php:1140
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "해당 '옵션' 링크를 클릭하여 설정을 변경합니다."
 
-#: src/Import/Import.php:1133
+#: src/Import/Import.php:1141
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "\"구조\" 링크를 따라 구조를 편집합니다."
 
-#: src/Import/Import.php:1140
+#: src/Import/Import.php:1148
 #, php-format
 msgid "Go to database: %s"
 msgstr "데이터베이스 이동: %s"
 
-#: src/Import/Import.php:1146 src/Import/Import.php:1186
+#: src/Import/Import.php:1154 src/Import/Import.php:1194
 #, php-format
 msgid "Edit settings for %s"
 msgstr "%s 에 대한 설정 변경"
 
-#: src/Import/Import.php:1171
+#: src/Import/Import.php:1179
 #, php-format
 msgid "Go to table: %s"
 msgstr "테이블 이동: %s"
 
-#: src/Import/Import.php:1179
+#: src/Import/Import.php:1187
 #, php-format
 msgid "Structure of %s"
 msgstr "%s 의 구조"
 
-#: src/Import/Import.php:1197
+#: src/Import/Import.php:1205
 #, php-format
 msgid "Go to view: %s"
 msgstr "뷰로 이동: %s"
 
-#: src/Import/Import.php:1223
+#: src/Import/Import.php:1231
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -17078,19 +17077,19 @@ msgid ""
 msgstr ""
 "가져오기 시 중복 키가 발견되면 데이터 업데이트(ON DUPLICATE KEY UPDATE 추가)"
 
-#: src/Plugins/Import/ImportCsv.php:83
+#: src/Plugins/Import/ImportCsv.php:82
 msgid "Name of the new table (optional):"
 msgstr "새 테이블의 이름(선택 사항):"
 
-#: src/Plugins/Import/ImportCsv.php:92
+#: src/Plugins/Import/ImportCsv.php:91
 msgid "Name of the new database (optional):"
 msgstr "새 데이터베이스의 이름(선택 사항):"
 
-#: src/Plugins/Import/ImportCsv.php:101 src/Plugins/Import/ImportCsv.php:119
+#: src/Plugins/Import/ImportCsv.php:100 src/Plugins/Import/ImportCsv.php:118
 msgid "Import these many number of rows (optional):"
 msgstr "이 많은 개수의 행을 가져옵니다(선택 사항):"
 
-#: src/Plugins/Import/ImportCsv.php:109 src/Plugins/Import/ImportOds.php:66
+#: src/Plugins/Import/ImportCsv.php:108 src/Plugins/Import/ImportOds.php:66
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -17098,7 +17097,7 @@ msgstr ""
 "파일의 첫 줄에는 테이블 열 이름 <i>(이 옵션을 선택하지 않으면 첫 줄이 데이터"
 "의 일부가 됨)</i>이 포함됩니다"
 
-#: src/Plugins/Import/ImportCsv.php:126
+#: src/Plugins/Import/ImportCsv.php:125
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -17108,27 +17107,27 @@ msgstr ""
 "해당 열 이름을 나열합니다. 열 이름은 쉼표로 구분해야 하며 따옴표로 묶어서는 "
 "안 됩니다."
 
-#: src/Plugins/Import/ImportCsv.php:134
+#: src/Plugins/Import/ImportCsv.php:133
 msgid "Column names:"
 msgstr "열 이름:"
 
-#: src/Plugins/Import/ImportCsv.php:283 src/Plugins/Import/ImportCsv.php:614
+#: src/Plugins/Import/ImportCsv.php:282 src/Plugins/Import/ImportCsv.php:613
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "%d 행에 잘못된 형식."
 
-#: src/Plugins/Import/ImportCsv.php:501
+#: src/Plugins/Import/ImportCsv.php:500
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "%d 행에 잘못된 컬럼 수."
 
-#: src/Plugins/Import/ImportCsv.php:636 src/Plugins/Import/ImportCsv.php:651
-#: src/Plugins/Import/ImportCsv.php:662 src/Plugins/Import/ImportCsv.php:669
+#: src/Plugins/Import/ImportCsv.php:635 src/Plugins/Import/ImportCsv.php:650
+#: src/Plugins/Import/ImportCsv.php:661 src/Plugins/Import/ImportCsv.php:668
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV를 가져오기 위한 파라미터가 잘못됨: %s"
 
-#: src/Plugins/Import/ImportCsv.php:802
+#: src/Plugins/Import/ImportCsv.php:775
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -17145,11 +17144,11 @@ msgstr "열(컬럼) 이름: "
 msgid "This plugin does not support compressed imports!"
 msgstr "이 플러그인은 압축파일의 가져오기를 지원하지 않습니다!"
 
-#: src/Plugins/Import/ImportMediawiki.php:55
+#: src/Plugins/Import/ImportMediawiki.php:57
 msgid "MediaWiki Table"
 msgstr "MediaWiki 테이블"
 
-#: src/Plugins/Import/ImportMediawiki.php:271
+#: src/Plugins/Import/ImportMediawiki.php:273
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "잘못된 mediawiki 입력 행:<br>%s."
@@ -17162,8 +17161,8 @@ msgstr "퍼센테이지를 소수로 변경<i>(예: 12.00% 를 .12 로)</i>"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "통화 단위 제거 <i>(예: $5.00 를 5.00 로)</i>"
 
-#: src/Plugins/Import/ImportOds.php:145 src/Plugins/Import/ImportXml.php:101
-#: src/Plugins/Import/ImportXml.php:142
+#: src/Plugins/Import/ImportOds.php:145 src/Plugins/Import/ImportXml.php:102
+#: src/Plugins/Import/ImportXml.php:140
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -17201,7 +17200,7 @@ msgstr "SQL 호환 모드:"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "0 값에 <code>AUTO_INCREMENT</code>를 사용하지 않음"
 
-#: src/Plugins/Import/ImportXml.php:45
+#: src/Plugins/Import/ImportXml.php:46
 msgid "XML"
 msgstr "XML"
 
@@ -17679,7 +17678,7 @@ msgid "Error 405! Request method not allowed."
 msgstr "405 오류! 요청 메서드가 허용되지 않습니다."
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3272
+#: src/Server/Privileges.php:3277
 msgid "Native MySQL authentication"
 msgstr "기본 MySQL 인증"
 
@@ -17791,7 +17790,7 @@ msgstr ""
 msgid "You have added a new user."
 msgstr "새 사용자를 추가했습니다."
 
-#: src/Server/Privileges.php:3365
+#: src/Server/Privileges.php:3370
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -18019,11 +18018,6 @@ msgstr ""
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s의 외래키 생성 에러 (데이터 타입을 확인하세요)"
-
-#: src/Template.php:118
-#, php-format
-msgid "Error while working with template cache: %s"
-msgstr "템플릿 캐시로 작업하는 동안 오류가 발생했습니다: %s"
 
 #: src/Theme/ThemeManager.php:75
 #, php-format
@@ -18518,6 +18512,10 @@ msgstr "ZIP 압축파일 오류:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP 압축 안에서 파일을 발견하지 못했습니다!"
+
+#, php-format
+#~ msgid "Error while working with template cache: %s"
+#~ msgstr "템플릿 캐시로 작업하는 동안 오류가 발생했습니다: %s"
 
 #~ msgid "Unknown table status:"
 #~ msgstr "알 수 없는 테이블 상태:"

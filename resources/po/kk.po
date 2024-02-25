@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-02-18 00:18+0000\n"
+"POT-Creation-Date: 2024-02-25 00:18+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -55,7 +55,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:145
 #: resources/templates/table/structure/display_structure.twig:295
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:224
+#: src/Controllers/Table/StructureController.php:221
 msgid "Primary"
 msgstr "Alǵashqy"
 
@@ -77,7 +77,7 @@ msgstr "Biregeı"
 #: resources/templates/table/structure/display_structure.twig:301
 #: resources/templates/table/structure/display_table_stats.twig:23
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:228
+#: src/Controllers/Table/StructureController.php:225
 #: src/Navigation/Nodes/NodeIndex.php:24
 msgid "Index"
 msgstr "Indeks"
@@ -483,7 +483,7 @@ msgstr "Túıin toby"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Import/Import.php:1167 src/Menu.php:213 src/Menu.php:317
+#: src/Import/Import.php:1175 src/Menu.php:213 src/Menu.php:317
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1057 src/Util.php:1482
@@ -981,7 +981,7 @@ msgstr "Tarıh"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:57
 #: resources/templates/table/structure/display_table_stats.twig:96
-#: src/Import/Import.php:1137 src/Import/Import.php:1168
+#: src/Import/Import.php:1145 src/Import/Import.php:1176
 #: src/Plugins/Export/ExportCodegen.php:52 src/Plugins/Export/ExportCsv.php:43
 #: src/Plugins/Export/ExportExcel.php:37
 #: src/Plugins/Export/ExportHtmlword.php:47
@@ -991,11 +991,11 @@ msgstr "Tarıh"
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
 #: src/Plugins/Export/ExportSql.php:115
 #: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:60
-#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:70
+#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:69
 #: src/Plugins/Import/ImportLdi.php:52
-#: src/Plugins/Import/ImportMediawiki.php:58
+#: src/Plugins/Import/ImportMediawiki.php:60
 #: src/Plugins/Import/ImportOds.php:53 src/Plugins/Import/ImportShp.php:71
-#: src/Plugins/Import/ImportSql.php:42 src/Plugins/Import/ImportXml.php:48
+#: src/Plugins/Import/ImportSql.php:42 src/Plugins/Import/ImportXml.php:49
 msgid "Options"
 msgstr "Opsıalar"
 
@@ -2703,7 +2703,7 @@ msgstr "Kórinister"
 #: resources/templates/database/structure/structure_table_row.twig:184
 #: src/Controllers/Operations/TableController.php:124
 #: src/Controllers/Operations/TableController.php:333
-#: src/Controllers/Table/StructureController.php:160
+#: src/Controllers/Table/StructureController.php:154
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "Kórinis"
@@ -2743,7 +2743,7 @@ msgstr "paıdalanýda"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:230
 #: resources/templates/table/structure/display_table_stats.twig:118
-#: src/Controllers/Server/DatabasesController.php:264 src/Import/Import.php:142
+#: src/Controllers/Server/DatabasesController.php:264 src/Import/Import.php:146
 msgid "Rows"
 msgstr "Joldar"
 
@@ -3027,7 +3027,7 @@ msgstr "Kana úshin túrlendirý"
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Html/Generator.php:762 src/Import/Import.php:131 src/InsertEdit.php:492
+#: src/Html/Generator.php:762 src/Import/Import.php:135 src/InsertEdit.php:492
 #: src/Message.php:145
 msgid "Error"
 msgstr "Qate"
@@ -10892,12 +10892,12 @@ msgid "Put columns names in the first row"
 msgstr "Baǵandardyń ataýlaryn birinshi jolǵa qoıý"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:653
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:652
 msgid "Columns enclosed with"
 msgstr "Baǵandar mynaýmen qorshalǵan"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:664
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:663
 msgid "Columns escaped with"
 msgstr "Baǵandar mynaýmen ekrandalǵan"
 
@@ -10913,12 +10913,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "Baǵandar ishinen CRLF tańbalaryn alastaý"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:638
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:637
 msgid "Columns terminated with"
 msgstr "Baǵandar mynaýmen aıaqtalǵan"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:671
+#: src/Plugins/Import/ImportCsv.php:670
 msgid "Lines terminated with"
 msgstr "Syzyqtar mynaýmen aıaqtalǵan"
 
@@ -11211,7 +11211,7 @@ msgid "Partial import: allow interrupt"
 msgstr "Ishinara ımport: úzilýge ruqsat etý"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:141 src/Plugins/Import/ImportLdi.php:69
+#: src/Plugins/Import/ImportCsv.php:140 src/Plugins/Import/ImportLdi.php:69
 msgid "Do not abort on INSERT error"
 msgstr "INSERT qatesinde toqtatpaý"
 
@@ -12287,7 +12287,7 @@ msgstr "Sátsiz aıaqtaldy"
 msgid "Succeeded"
 msgstr "Sátti aıaqtaldy"
 
-#: src/Controllers/Database/CentralColumnsController.php:148
+#: src/Controllers/Database/CentralColumnsController.php:152
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "%1$s - %2$s joldardy kórsetý."
@@ -12430,7 +12430,7 @@ msgstr "Paıdalanýshylardy basqarý úshin artyqshylyqtaryńyz joq!"
 
 #: src/Controllers/Database/RoutinesController.php:85
 #: src/Controllers/Database/Structure/AddPrefixController.php:22
-#: src/Controllers/Database/Structure/CentralColumns/AddController.php:39
+#: src/Controllers/Database/Structure/CentralColumns/AddController.php:40
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:40
 #: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:39
 #: src/Controllers/Database/Structure/ChangePrefixFormController.php:22
@@ -12536,7 +12536,7 @@ msgid ""
 "code] configuration."
 msgstr ""
 
-#: src/Controllers/Database/Structure/CentralColumns/AddController.php:49
+#: src/Controllers/Database/Structure/CentralColumns/AddController.php:50
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:50
 #: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:49
 msgid "Success!"
@@ -15811,7 +15811,7 @@ msgstr "%s kestesi áldeqashan bar!"
 #: src/Controllers/Table/DropColumnController.php:40
 #: src/Controllers/Table/Structure/AbstractIndexController.php:38
 #: src/Controllers/Table/Structure/BrowseController.php:31
-#: src/Controllers/Table/Structure/CentralColumnsAddController.php:38
+#: src/Controllers/Table/Structure/CentralColumnsAddController.php:39
 #: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:39
 #: src/Controllers/Table/Structure/ChangeController.php:53
 #: src/Controllers/Table/Structure/PrimaryController.php:49
@@ -15840,7 +15840,7 @@ msgid "There is an issue with your request."
 msgstr "Munda tym kóp ındekssiz jalǵasýlar bar."
 
 #: src/Controllers/Table/GetFieldController.php:83
-#: src/Database/Routines.php:1012 src/Import/Import.php:147
+#: src/Database/Routines.php:1012 src/Import/Import.php:151
 #: src/InsertEdit.php:201 src/Sql.php:858
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL bos nátıje jıynyn qaıtardy (ıaǵnı nóldik joldar)."
@@ -15964,33 +15964,32 @@ msgstr "Kórinis aty bos bolýy múmkin emes!"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s keńeıtimi jetispeıdi. PHP konfıgýrasıasyn tekserińiz."
 
-#: src/Database/CentralColumns.php:265 src/Database/CentralColumns.php:366
-#: src/Database/CentralColumns.php:566
+#: src/Database/CentralColumns.php:328
+#, php-format
+msgid "Could not add %1$s as they already exist in central list!"
+msgstr "%1$s ústeý múmkin emes, sebebi olar ortalyq tizimde áldeqashan bar!"
+
+#: src/Database/CentralColumns.php:342
+msgid "Could not add columns!"
+msgstr "Baǵandardy qosý múmkin bolmady!"
+
+#: src/Database/CentralColumns.php:415
+#, php-format
+msgid ""
+"Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
+msgstr "%1$s baǵan(dar) joıylmady, sebebi olar ortalyq baǵandar tiziminde joq!"
+
+#: src/Database/CentralColumns.php:428
+msgid "Could not remove columns!"
+msgstr "Baǵandardy alastaý múmkin bolmady!"
+
+#: src/Database/CentralColumns.php:914
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
 "Konfıgýrasıa saqtaýyshy baǵandardyń ortalyq tizim múmkindigi úshin daıyn "
 "emes."
-
-#: src/Database/CentralColumns.php:320
-#, php-format
-msgid "Could not add %1$s as they already exist in central list!"
-msgstr "%1$s ústeý múmkin emes, sebebi olar ortalyq tizimde áldeqashan bar!"
-
-#: src/Database/CentralColumns.php:335
-msgid "Could not add columns!"
-msgstr "Baǵandardy qosý múmkin bolmady!"
-
-#: src/Database/CentralColumns.php:412
-#, php-format
-msgid ""
-"Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr "%1$s baǵan(dar) joıylmady, sebebi olar ortalyq baǵandar tiziminde joq!"
-
-#: src/Database/CentralColumns.php:426
-msgid "Could not remove columns!"
-msgstr "Baǵandardy alastaý múmkin bolmady!"
 
 #: src/Database/Designer/Common.php:457
 #, fuzzy
@@ -16857,55 +16856,55 @@ msgstr "{0} tańbadan artyq engizbeńiz"
 msgid "The trigger name cannot end with a space character."
 msgstr "Sózder bosoryn tańbasymen bólinedi (« »)."
 
-#: src/Import/Import.php:266 src/Sql.php:872
+#: src/Import/Import.php:270 src/Sql.php:872
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK oryn aldy.]"
 
-#: src/Import/Import.php:1129
+#: src/Import/Import.php:1137
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Kelesi qurylymdar jasaldy nemese ózgertildi. Munda múmkinsiz:"
 
-#: src/Import/Import.php:1131
+#: src/Import/Import.php:1139
 msgid "View a structure's contents by clicking on its name."
 msgstr "Qurylymnyń mazmunyn onyń atyn basý arqyly qarańyz."
 
-#: src/Import/Import.php:1132
+#: src/Import/Import.php:1140
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Sáıkes «Opsıalar» siltemesin basý arqyly onyń kez parametrlerin ózgertińiz."
 
-#: src/Import/Import.php:1133
+#: src/Import/Import.php:1141
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Qurylymdy kelesi «Qurylym» siltemesi boıynsha óńdeý."
 
-#: src/Import/Import.php:1140
+#: src/Import/Import.php:1148
 #, php-format
 msgid "Go to database: %s"
 msgstr "Derekqorǵa ótý: %s"
 
-#: src/Import/Import.php:1146 src/Import/Import.php:1186
+#: src/Import/Import.php:1154 src/Import/Import.php:1194
 #, php-format
 msgid "Edit settings for %s"
 msgstr "%s úshin parametrlerdi óńdeý"
 
-#: src/Import/Import.php:1171
+#: src/Import/Import.php:1179
 #, php-format
 msgid "Go to table: %s"
 msgstr "Kestege ótý: %s"
 
-#: src/Import/Import.php:1179
+#: src/Import/Import.php:1187
 #, php-format
 msgid "Structure of %s"
 msgstr "%s qurylymy"
 
-#: src/Import/Import.php:1197
+#: src/Import/Import.php:1205
 #, php-format
 msgid "Go to view: %s"
 msgstr "Kóriniske ótý: %s"
 
-#: src/Import/Import.php:1223
+#: src/Import/Import.php:1231
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -17987,19 +17986,19 @@ msgstr ""
 "Qaıtalanatyn kiltter ımportta tabylǵan kezde derekterdi jańartyý (ON "
 "DUPLICATE KEY UPDATE qosý)"
 
-#: src/Plugins/Import/ImportCsv.php:83
+#: src/Plugins/Import/ImportCsv.php:82
 msgid "Name of the new table (optional):"
 msgstr "Jańa keste aty (mindetti emes):"
 
-#: src/Plugins/Import/ImportCsv.php:92
+#: src/Plugins/Import/ImportCsv.php:91
 msgid "Name of the new database (optional):"
 msgstr "Jańa derekqor aty (mindetti emes):"
 
-#: src/Plugins/Import/ImportCsv.php:101 src/Plugins/Import/ImportCsv.php:119
+#: src/Plugins/Import/ImportCsv.php:100 src/Plugins/Import/ImportCsv.php:118
 msgid "Import these many number of rows (optional):"
 msgstr "Bul joldardyń kóp sanyn ımporttaý (mindetti emes):"
 
-#: src/Plugins/Import/ImportCsv.php:109 src/Plugins/Import/ImportOds.php:66
+#: src/Plugins/Import/ImportCsv.php:108 src/Plugins/Import/ImportOds.php:66
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -18007,7 +18006,7 @@ msgstr ""
 "Faıldyń birinshi jolynda kesteniń baǵan ataýlary bar <i>(eger bul "
 "belgilenbese, birinshi jol derekterdiń bóligi bolady)</i>"
 
-#: src/Plugins/Import/ImportCsv.php:126
+#: src/Plugins/Import/ImportCsv.php:125
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -18017,27 +18016,27 @@ msgstr ""
 "onda tıisti baǵan ataýlaryn osynda tizimdeńiz. Baǵan ataýlary útirlermen "
 "bólinýi jáne tyrnaqshalarmen qorshaýlanbaýy qajet."
 
-#: src/Plugins/Import/ImportCsv.php:134
+#: src/Plugins/Import/ImportCsv.php:133
 msgid "Column names:"
 msgstr "Baǵan ataýlary:"
 
-#: src/Plugins/Import/ImportCsv.php:283 src/Plugins/Import/ImportCsv.php:614
+#: src/Plugins/Import/ImportCsv.php:282 src/Plugins/Import/ImportCsv.php:613
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "%d jolynda CSV kirisiniń jaramsyz pishimi."
 
-#: src/Plugins/Import/ImportCsv.php:501
+#: src/Plugins/Import/ImportCsv.php:500
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV kirisindegi %d jolynda baǵan sany jaramsyz."
 
-#: src/Plugins/Import/ImportCsv.php:636 src/Plugins/Import/ImportCsv.php:651
-#: src/Plugins/Import/ImportCsv.php:662 src/Plugins/Import/ImportCsv.php:669
+#: src/Plugins/Import/ImportCsv.php:635 src/Plugins/Import/ImportCsv.php:650
+#: src/Plugins/Import/ImportCsv.php:661 src/Plugins/Import/ImportCsv.php:668
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV ımporttaý úshin parametr jaramsyz: %s"
 
-#: src/Plugins/Import/ImportCsv.php:802
+#: src/Plugins/Import/ImportCsv.php:775
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -18055,11 +18054,11 @@ msgstr "Baǵan ataýlary: "
 msgid "This plugin does not support compressed imports!"
 msgstr "Bul plagın qysylǵan ımporttardy qoldamaıdy!"
 
-#: src/Plugins/Import/ImportMediawiki.php:55
+#: src/Plugins/Import/ImportMediawiki.php:57
 msgid "MediaWiki Table"
 msgstr "MediaWiki kestesi"
 
-#: src/Plugins/Import/ImportMediawiki.php:271
+#: src/Plugins/Import/ImportMediawiki.php:273
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "Pishimi jaramsyz mediawiki kirisindegi jol: <br>%s."
@@ -18074,8 +18073,8 @@ msgstr ""
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Aqsha birlikterin ımporttaý <i>(mysaly, $5.00-dan  5.00-ke)</i>"
 
-#: src/Plugins/Import/ImportOds.php:145 src/Plugins/Import/ImportXml.php:101
-#: src/Plugins/Import/ImportXml.php:142
+#: src/Plugins/Import/ImportOds.php:145 src/Plugins/Import/ImportXml.php:102
+#: src/Plugins/Import/ImportXml.php:140
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -18113,7 +18112,7 @@ msgstr "SQL úılesimdilik rejimi:"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Nóldik mánder úshin <code> AUTO_INCREMENT</code> paıdalanbańyz"
 
-#: src/Plugins/Import/ImportXml.php:45
+#: src/Plugins/Import/ImportXml.php:46
 msgid "XML"
 msgstr "XML"
 
@@ -18630,7 +18629,7 @@ msgid "Error 405! Request method not allowed."
 msgstr ""
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3272
+#: src/Server/Privileges.php:3277
 msgid "Native MySQL authentication"
 msgstr "Ishtetilgen MySQL túpnusqalyq rastamasy"
 
@@ -18750,7 +18749,7 @@ msgstr ""
 msgid "You have added a new user."
 msgstr "Jańa paıdalanushyny ústedińiz."
 
-#: src/Server/Privileges.php:3365
+#: src/Server/Privileges.php:3370
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -18985,11 +18984,6 @@ msgstr ""
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 "%1$s boıynsha syrtqy kiltti jasaǵandaǵy qate (derekter túrlerin tekserińiz)"
-
-#: src/Template.php:118
-#, php-format
-msgid "Error while working with template cache: %s"
-msgstr "Úlgi keshimen jumys isteý kezindegi qate: %s"
 
 #: src/Theme/ThemeManager.php:75
 #, php-format
@@ -19501,6 +19495,10 @@ msgstr "ZIP-muraǵatyndaǵy qate:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP-muraǵat isinde faıldar tabylmady!"
+
+#, php-format
+#~ msgid "Error while working with template cache: %s"
+#~ msgstr "Úlgi keshimen jumys isteý kezindegi qate: %s"
 
 #~ msgid "Unknown table status:"
 #~ msgstr "Belgisiz kesteniń mártebesi:"
