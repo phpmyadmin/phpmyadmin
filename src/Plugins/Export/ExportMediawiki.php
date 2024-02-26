@@ -20,7 +20,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function array_values;
-use function count;
 use function htmlspecialchars;
 use function str_repeat;
 
@@ -176,7 +175,6 @@ class ExportMediawiki extends ExportPlugin
         if ($exportMode === 'create_table') {
             $columns = DatabaseInterface::getInstance()->getColumns($db, $table);
             $columns = array_values($columns);
-            $rowCnt = count($columns);
 
             // Print structure comment
             $output = $this->exportComment(
@@ -198,8 +196,8 @@ class ExportMediawiki extends ExportPlugin
                 $output .= '|- style="background:#ffdead;"' . $this->exportCRLF();
                 $output .= '! style="background:#ffffff" | '
                     . $this->exportCRLF();
-                for ($i = 0; $i < $rowCnt; ++$i) {
-                    $colAs = $columns[$i]->field;
+                foreach ($columns as $column) {
+                    $colAs = $column->field;
                     if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
                         $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
                     }
@@ -211,26 +209,26 @@ class ExportMediawiki extends ExportPlugin
             // Add the table structure
             $output .= '|-' . $this->exportCRLF();
             $output .= '! Type' . $this->exportCRLF();
-            for ($i = 0; $i < $rowCnt; ++$i) {
-                $output .= ' | ' . $columns[$i]->type . $this->exportCRLF();
+            foreach ($columns as $column) {
+                $output .= ' | ' . $column->type . $this->exportCRLF();
             }
 
             $output .= '|-' . $this->exportCRLF();
             $output .= '! Null' . $this->exportCRLF();
-            for ($i = 0; $i < $rowCnt; ++$i) {
-                $output .= ' | ' . ($columns[$i]->isNull ? 'YES' : 'NO') . $this->exportCRLF();
+            foreach ($columns as $column) {
+                $output .= ' | ' . ($column->isNull ? 'YES' : 'NO') . $this->exportCRLF();
             }
 
             $output .= '|-' . $this->exportCRLF();
             $output .= '! Default' . $this->exportCRLF();
-            for ($i = 0; $i < $rowCnt; ++$i) {
-                $output .= ' | ' . ($columns[$i]->default ?? '') . $this->exportCRLF();
+            foreach ($columns as $column) {
+                $output .= ' | ' . ($column->default ?? '') . $this->exportCRLF();
             }
 
             $output .= '|-' . $this->exportCRLF();
             $output .= '! Extra' . $this->exportCRLF();
-            for ($i = 0; $i < $rowCnt; ++$i) {
-                $output .= ' | ' . $columns[$i]->extra . $this->exportCRLF();
+            foreach ($columns as $column) {
+                $output .= ' | ' . $column->extra . $this->exportCRLF();
             }
 
             $output .= '|}' . str_repeat($this->exportCRLF(), 2);
