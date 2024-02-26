@@ -908,7 +908,7 @@ class Results
         ];
 
         // Keep the number of rows (25, 50, 100, ...) when changing sort key value
-        if (isset($_SESSION['tmpval'], $_SESSION['tmpval']['max_rows'])) {
+        if (isset($_SESSION['tmpval']['max_rows'])) {
             $hiddenFields['session_max_rows'] = $_SESSION['tmpval']['max_rows'];
         }
 
