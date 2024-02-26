@@ -16036,6 +16036,11 @@ parameters:
 			path: tests/unit/Display/ResultsTest.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Error\\\\\\\\Error' and PhpMyAdmin\\\\Error\\\\Error will always evaluate to true\\.$#"
+			count: 2
+			path: tests/unit/Error/ErrorHandlerTest.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
 			path: tests/unit/Error/ErrorHandlerTest.php
@@ -16384,6 +16389,11 @@ parameters:
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotFalse\\(\\) with string will always evaluate to true\\.$#"
 			count: 1
 			path: tests/unit/OpenDocumentTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) with 3 and array\\{PhpMyAdmin\\\\SqlParser\\\\Utils\\\\StatementInfo, string, string\\} will always evaluate to true\\.$#"
+			count: 2
+			path: tests/unit/ParseAnalyzeTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Partitioning\\\\TablePartitionDefinitionTest\\:\\:testGetDetails\\(\\) has parameter \\$partitions with no value type specified in iterable type array\\.$#"
@@ -16894,6 +16904,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UserPasswordTest\\:\\:providerSetChangePasswordMsg\\(\\) should return array\\<array\\{bool, PhpMyAdmin\\\\Message, string, string, string\\}\\> but returns array\\{array\\{false, PhpMyAdmin\\\\Message, true, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', 'a'\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', 'b'\\}, array\\{true, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}, array\\{false, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}\\}\\.$#"
 			count: 1
 			path: tests/unit/UserPasswordTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) with 3 and array\\{config_data\\: array, mtime\\: int, type\\: 'db'\\|'session'\\} will always evaluate to true\\.$#"
+			count: 1
+			path: tests/unit/UserPreferencesTest.php
 
 		-
 			message: "#^Cannot access offset 'db' on mixed\\.$#"
