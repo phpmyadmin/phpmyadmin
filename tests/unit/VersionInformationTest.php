@@ -12,6 +12,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
 
 #[CoversClass(VersionInformation::class)]
+#[CoversClass(Release::class)]
 class VersionInformationTest extends AbstractTestCase
 {
     /** @var Release[] */

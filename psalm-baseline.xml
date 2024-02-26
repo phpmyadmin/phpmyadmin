@@ -14972,6 +14972,11 @@
       <code><![CDATA[providerGetUniqueConditionForGroupFlag]]></code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="tests/unit/UrlRedirectorTest.php">
+    <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+    </DeprecatedMethod>
+  </file>
   <file src="tests/unit/UrlTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>

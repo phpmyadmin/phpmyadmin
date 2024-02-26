@@ -42,6 +42,8 @@ use const MYSQLI_TYPE_TIMESTAMP;
 use const MYSQLI_TYPE_TINY;
 
 #[CoversClass(InsertEdit::class)]
+#[CoversClass(EditField::class)]
+#[CoversClass(InsertEditColumn::class)]
 #[Group('medium')]
 class InsertEditTest extends AbstractTestCase
 {
