@@ -173,10 +173,8 @@ class PdfRelationSchema extends ExportRelationSchema
         }
 
         // Defines the scale factor
-        $innerWidth = $this->pdf->getPageWidth() - $this->rightMargin
-            - $this->leftMargin;
-        $innerHeight = $this->pdf->getPageHeight() - $this->topMargin
-            - $this->bottomMargin;
+        $innerWidth = $this->pdf->getPageWidth() - $this->rightMargin - $this->leftMargin;
+        $innerHeight = $this->pdf->getPageHeight() - $this->topMargin - $this->bottomMargin;
         $this->scale = ceil(
             max(
                 ($this->xMax - $this->xMin) / $innerWidth,
