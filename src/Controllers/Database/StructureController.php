@@ -49,7 +49,6 @@ use function preg_match;
 use function preg_quote;
 use function sprintf;
 use function str_replace;
-use function strlen;
 use function strtotime;
 use function urlencode;
 
@@ -365,7 +364,7 @@ final class StructureController extends AbstractController
                 );
             }
 
-            if ($numColumns > 0 && $this->numTables > $numColumns && ($rowCount % $numColumns) == 0) {
+            if ($numColumns > 0 && $this->numTables > $numColumns && ($rowCount % $numColumns) === 0) {
                 $rowCount = 1;
 
                 $html .= $this->template->render('database/structure/table_header', [
@@ -603,15 +602,15 @@ final class StructureController extends AbstractController
             $searchDoDBInTruename = array_search($table, $replicaInfo['Do_DB']);
             $searchDoDBInDB = array_search(Current::$database, $replicaInfo['Do_DB']);
 
-            $do = (is_string($searchDoDBInTruename) && strlen($searchDoDBInTruename) > 0)
-                || (is_string($searchDoDBInDB) && strlen($searchDoDBInDB) > 0)
+            $do = (is_string($searchDoDBInTruename) && $searchDoDBInTruename !== '')
+                || (is_string($searchDoDBInDB) && $searchDoDBInDB !== '')
                 || ($nbServReplicaDoDb == 0 && $nbServReplicaIgnoreDb == 0)
                 || $this->hasTable($replicaInfo['Wild_Do_Table'], $table);
 
             $searchDb = array_search(Current::$database, $replicaInfo['Ignore_DB']);
             $searchTable = array_search($table, $replicaInfo['Ignore_Table']);
-            $ignored = (is_string($searchTable) && strlen($searchTable) > 0)
-                || (is_string($searchDb) && strlen($searchDb) > 0)
+            $ignored = (is_string($searchTable) && $searchTable !== '')
+                || (is_string($searchDb) && $searchDb !== '')
                 || $this->hasTable($replicaInfo['Wild_Ignore_Table'], $table);
         }
 

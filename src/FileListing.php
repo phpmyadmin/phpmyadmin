@@ -56,7 +56,7 @@ class FileListing
             if (
                 ! @is_file($dir . $file)
                 || @is_link($dir . $file)
-                || ($expression != '' && ! preg_match($expression, $file))
+                || ($expression !== '' && ! preg_match($expression, $file))
             ) {
                 continue;
             }

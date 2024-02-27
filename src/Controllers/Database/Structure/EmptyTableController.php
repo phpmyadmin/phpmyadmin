@@ -58,6 +58,8 @@ final class EmptyTableController extends AbstractController
 
         $GLOBALS['sql_query'] = '';
 
+        $this->dbi->selectDb(Current::$database);
+
         foreach ($selected as $selectedValue) {
             if (Table::get($selectedValue, Current::$database, $this->dbi)->isView()) {
                 continue;
@@ -67,7 +69,6 @@ final class EmptyTableController extends AbstractController
             $aQuery .= Util::backquote($selectedValue);
 
             $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";
-            $this->dbi->selectDb(Current::$database);
             $this->dbi->query($aQuery);
         }
 

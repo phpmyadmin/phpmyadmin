@@ -20,7 +20,6 @@ use function htmlspecialchars;
 use function proc_close;
 use function proc_open;
 use function sprintf;
-use function strlen;
 use function trigger_error;
 
 use const E_USER_DEPRECATED;
@@ -112,7 +111,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
 
         $program = $allowedPrograms[$options[0]] ?? $allowedPrograms[0];
 
-        if (isset($options[1]) && strlen((string) $options[1]) > 0) {
+        if (isset($options[1]) && (string) $options[1] !== '') {
             trigger_error(sprintf(
                 __(
                     'You are using the external transformation command line'
@@ -125,7 +124,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
 
         // needs PHP >= 4.3.0
         $newstring = '';
-        $descriptorspec = [0 => ['pipe', 'r'], 1 => ['pipe', 'w']];
+        $descriptorspec = [['pipe', 'r'], ['pipe', 'w']];
         $process = proc_open($program . ' ' . $options[1], $descriptorspec, $pipes);
         if ($process !== false) {
             fwrite($pipes[0], $buffer);

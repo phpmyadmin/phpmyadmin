@@ -153,7 +153,7 @@ class Index
                 sprintf(__('A newer version of phpMyAdmin is available and you should consider upgrading.'
                     . ' The newest version is %s, released on %s.'), $version, $date),
             );
-        } elseif ($versionLocal % 100 == 0) {
+        } elseif ($versionLocal % 100 === 0) {
             self::messagesSet(
                 'notice',
                 $messageId,

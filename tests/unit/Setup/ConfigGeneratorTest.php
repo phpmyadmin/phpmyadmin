@@ -127,43 +127,6 @@ class ConfigGeneratorTest extends AbstractTestCase
     }
 
     /**
-     * Test for ConfigGenerator::isZeroBasedArray
-     */
-    public function testIsZeroBasedArray(): void
-    {
-        $reflection = new ReflectionClass(ConfigGenerator::class);
-        $method = $reflection->getMethod('isZeroBasedArray');
-
-        self::assertFalse(
-            $method->invoke(
-                null,
-                ['a' => 1, 'b' => 2],
-            ),
-        );
-
-        self::assertFalse(
-            $method->invoke(
-                null,
-                [0 => 1, 1 => 2, 3 => 3],
-            ),
-        );
-
-        self::assertTrue(
-            $method->invoke(
-                null,
-                [],
-            ),
-        );
-
-        self::assertTrue(
-            $method->invoke(
-                null,
-                [1, 2, 3],
-            ),
-        );
-    }
-
-    /**
      * Test for ConfigGenerator::exportZeroBasedArray
      */
     public function testExportZeroBasedArray(): void

@@ -35,7 +35,7 @@ class Advisor
     private array $variables = [];
 
     /** @var mixed[] */
-    private array $globals = [];
+    private array $globals;
 
     /**
      * @var array<int, array<string, string>>

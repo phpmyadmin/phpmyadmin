@@ -32,8 +32,7 @@ class Triggers
     /** @var array<int, string> */
     private array $time = ['BEFORE', 'AFTER'];
 
-    /** @var array<int, string> */
-    private array $event = ['INSERT', 'UPDATE', 'DELETE'];
+    private const EVENTS = ['INSERT', 'UPDATE', 'DELETE'];
 
     public function __construct(private DatabaseInterface $dbi)
     {
@@ -206,7 +205,7 @@ class Triggers
             $GLOBALS['errors'][] = __('You must provide a valid timing for the trigger!');
         }
 
-        if (! empty($_POST['item_event']) && in_array($_POST['item_event'], $this->event, true)) {
+        if (! empty($_POST['item_event']) && in_array($_POST['item_event'], self::EVENTS, true)) {
             $query .= $_POST['item_event'] . ' ';
         } else {
             $GLOBALS['errors'][] = __('You must provide a valid event for the trigger!');

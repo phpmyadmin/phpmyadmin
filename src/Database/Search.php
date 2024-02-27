@@ -69,11 +69,11 @@ class Search
     public function __construct(private DatabaseInterface $dbi, private string $db, public Template $template)
     {
         $this->searchTypes = [
-            '1' => __('at least one of the words'),
-            '2' => __('all of the words'),
-            '3' => __('the exact phrase as substring'),
-            '4' => __('the exact phrase as whole field'),
-            '5' => __('as regular expression'),
+            1 => __('at least one of the words'),
+            2 => __('all of the words'),
+            3 => __('the exact phrase as substring'),
+            4 => __('the exact phrase as whole field'),
+            5 => __('as regular expression'),
         ];
         // Sets criteria parameters
         $this->setSearchParams();
@@ -160,7 +160,7 @@ class Search
         $allColumns = $this->dbi->getColumns(Current::$database, $table);
         $likeClauses = [];
         // Based on search type, decide like/regex & '%'/''
-        $likeOrRegex = $this->criteriaSearchType == 5 ? 'REGEXP' : 'LIKE';
+        $likeOrRegex = $this->criteriaSearchType === 5 ? 'REGEXP' : 'LIKE';
         $automaticWildcard = $this->criteriaSearchType < 4 ? '%' : '';
         // For "as regular expression" (search option 5), LIKE won't be used
         // Usage example: If user is searching for a literal $ in a regexp search,
@@ -205,7 +205,7 @@ class Search
         }
 
         // Use 'OR' if 'at least one word' is to be searched, else use 'AND'
-        $implodeStr = $this->criteriaSearchType == 1 ? ' OR ' : ' AND ';
+        $implodeStr = $this->criteriaSearchType === 1 ? ' OR ' : ' AND ';
 
         return ' WHERE (' . implode(') ' . $implodeStr . ' (', $likeClauses) . ')';
     }

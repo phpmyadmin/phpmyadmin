@@ -41,7 +41,7 @@ abstract class Bool2TextTransformationsPlugin extends TransformationsPlugin
         $cfg = Config::getInstance()->settings;
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['Bool2Text']);
 
-        if ($buffer == '0') {
+        if ($buffer === '0') {
             return $options[1]; // return false label
         }
 

@@ -1180,9 +1180,8 @@ class Privileges
             )
             ORDER BY `User` ASC, `Host` ASC, `Db` ASC;
         ';
-        $result = $this->dbi->query($query);
 
-        return $result->fetchAllAssoc();
+        return $this->dbi->query($query)->fetchAllAssoc();
     }
 
     /** @return array<int, array<string|null>> */
@@ -1202,9 +1201,7 @@ class Privileges
             return [];
         }
 
-        $result = $statement->getResult();
-
-        return $result->fetchAllAssoc();
+        return $statement->getResult()->fetchAllAssoc();
     }
 
     /** @return array<int, array<string|null>> */
@@ -1214,9 +1211,8 @@ class Privileges
             SELECT *, \'r\' AS `Type`
             FROM `mysql`.`procs_priv`
             WHERE Db = ' . $this->dbi->quoteString($db->getName()) . ';';
-        $result = $this->dbi->query($query);
 
-        return $result->fetchAllAssoc();
+        return $this->dbi->query($query)->fetchAllAssoc();
     }
 
     /**
@@ -1253,9 +1249,9 @@ class Privileges
         string $initial = '',
     ): string {
         $linkClass = '';
-        if ($linktype == 'edit') {
+        if ($linktype === 'edit') {
             $linkClass = 'edit_user_anchor';
-        } elseif ($linktype == 'export') {
+        } elseif ($linktype === 'export') {
             $linkClass = 'export_user_anchor ajax';
         }
 

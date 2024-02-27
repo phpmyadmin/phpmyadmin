@@ -20,7 +20,6 @@ use function is_object;
 use function is_scalar;
 use function json_encode;
 use function json_last_error;
-use function strlen;
 
 /**
  * Class used to output the footer
@@ -172,7 +171,7 @@ class Footer
             (
                 isset($_REQUEST['no_history'])
                 && is_scalar($_REQUEST['no_history'])
-                && strlen((string) $_REQUEST['no_history']) > 0
+                && (string) $_REQUEST['no_history'] !== ''
             )
             || ! empty($GLOBALS['error_message'])
             || empty($GLOBALS['sql_query'])

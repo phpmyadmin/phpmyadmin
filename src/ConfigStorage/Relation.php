@@ -45,7 +45,6 @@ use function preg_match;
 use function sprintf;
 use function str_contains;
 use function str_replace;
-use function strlen;
 use function strnatcasecmp;
 use function trim;
 use function uksort;
@@ -386,14 +385,14 @@ class Relation
                 . '.' . Util::backquote($relationFeature->relation)
                 . ' WHERE `master_db` = ' . $this->dbi->quoteString($db)
                 . ' AND `master_table` = ' . $this->dbi->quoteString($table);
-            if (strlen($column) > 0) {
+            if ($column !== '') {
                 $relQuery .= ' AND `master_field` = ' . $this->dbi->quoteString($column);
             }
 
             $foreign = $this->dbi->fetchResult($relQuery, 'master_field', null, ConnectionType::ControlUser);
         }
 
-        if (($source === 'both' || $source === 'foreign') && strlen($table) > 0) {
+        if (($source === 'both' || $source === 'foreign') && $table !== '') {
             $tableObj = new Table($table, $db, $this->dbi);
             $showCreateTable = $tableObj->showCreate();
             if ($showCreateTable !== '') {
@@ -421,9 +420,9 @@ class Relation
             if (isset($internalRelations[$table])) {
                 foreach ($internalRelations[$table] as $field => $relations) {
                     if (
-                        (strlen($column) !== 0 && $column != $field)
+                        ($column !== '' && $column != $field)
                         || (isset($foreign[$field])
-                        && strlen($foreign[$field]) !== 0)
+                        && $foreign[$field] != '')
                     ) {
                         continue;
                     }
@@ -560,7 +559,7 @@ class Relation
             return false;
         }
 
-        if (strlen($comment) > 0) {
+        if ($comment !== '') {
             $updQuery = 'INSERT INTO '
                 . Util::backquote($columnCommentsFeature->database) . '.'
                 . Util::backquote($columnCommentsFeature->columnInfo)

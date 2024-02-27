@@ -77,7 +77,7 @@ class UserPassword
         }
 
         $sqlQuery = 'SET password = '
-            . ($password == '' ? '\'\'' : $hashingFunction . '(\'***\')');
+            . ($password === '' ? '\'\'' : $hashingFunction . '(\'***\')');
 
         $isPerconaOrMySql = Compatibility::isMySqlOrPerconaDb();
         if ($isPerconaOrMySql && $serverVersion >= 50706) {
@@ -220,7 +220,7 @@ class UserPassword
                 . ' WHERE `User` = ' . $this->dbi->quoteString($username)
                 . ' AND Host = ' . $this->dbi->quoteString($hostname) . ';';
         } else {
-            $localQuery = 'SET password = ' . ($password == ''
+            $localQuery = 'SET password = ' . ($password === ''
                 ? '\'\''
                 : $hashingFunction . '(' . $this->dbi->quoteString($password) . ')');
         }

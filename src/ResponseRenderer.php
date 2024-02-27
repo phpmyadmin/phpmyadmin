@@ -20,7 +20,6 @@ use function json_encode;
 use function json_last_error_msg;
 use function mb_strlen;
 use function str_starts_with;
-use function strlen;
 use function substr;
 
 /**
@@ -308,12 +307,12 @@ class ResponseRenderer
             $this->addJSON('displayMessage', $this->getHeader()->getMessage());
 
             $debug = $this->footer->getDebugMessage();
-            if (empty($_REQUEST['no_debug']) && strlen($debug) > 0) {
+            if (empty($_REQUEST['no_debug']) && $debug !== '') {
                 $this->addJSON('debug', $debug);
             }
 
             $errors = $this->footer->getErrorMessages();
-            if (strlen($errors) > 0) {
+            if ($errors !== '') {
                 $this->addJSON('errors', $errors);
             }
 

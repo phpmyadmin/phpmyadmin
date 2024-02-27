@@ -1336,11 +1336,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getTypeClass\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
@@ -1372,11 +1367,6 @@ parameters:
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/ConfigStorage/UserGroups.php
-
-		-
-			message: "#^Only booleans are allowed in &&, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given on the left side\\.$#"
 			count: 1
 			path: src/ConfigStorage/UserGroups.php
 
@@ -3027,11 +3017,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Operations/TableController.php
 
@@ -9611,11 +9596,6 @@ parameters:
 			path: src/Normalization.php
 
 		-
-			message: "#^Only booleans are allowed in &&, int given on the left side\\.$#"
-			count: 2
-			path: src/Normalization.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 3
 			path: src/Normalization.php
@@ -10197,7 +10177,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
@@ -14081,11 +14061,6 @@ parameters:
 			path: src/Table/Search.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/Search.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
 			count: 3
 			path: src/Table/Search.php
@@ -14651,11 +14626,6 @@ parameters:
 			path: src/Transformations.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, string\\|null given\\.$#"
-			count: 1
-			path: src/Transformations.php
-
-		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Triggers/Triggers.php
@@ -14987,11 +14957,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
-			count: 1
-			path: src/Util.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, bool\\|null given\\.$#"
 			count: 1
 			path: src/Util.php
 

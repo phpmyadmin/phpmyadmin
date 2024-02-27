@@ -37,7 +37,6 @@ use function str_contains;
 use function str_ends_with;
 use function str_replace;
 use function str_starts_with;
-use function strlen;
 use function strtolower;
 use function substr;
 use function trim;
@@ -172,7 +171,7 @@ class Git
         }
 
         // we care only about commit objects
-        if ($type != 1) {
+        if ($type !== 1) {
             return null;
         }
 
@@ -293,7 +292,7 @@ class Git
                 // packs. (to look for them in .git/object/pack directory later)
                 foreach (explode("\n", $packs) as $line) {
                     // skip blank lines
-                    if (strlen(trim($line)) == 0) {
+                    if (trim($line) === '') {
                         continue;
                     }
 

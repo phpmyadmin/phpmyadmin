@@ -153,7 +153,7 @@ class ExportYaml extends ExportPlugin
             $recordCnt++;
 
             // Output table name as comment if this is the first record of the table
-            if ($recordCnt == 1) {
+            if ($recordCnt === 1) {
                 $buffer = '# ' . $dbAlias . '.' . $tableAlias . "\n";
                 $buffer .= '-' . "\n";
             } else {

@@ -468,7 +468,7 @@ class Table implements Stringable
             $query .= '(' . $length . ')';
         }
 
-        if ($attribute != '') {
+        if ($attribute !== '') {
             $query .= ' ' . $attribute;
 
             if ($isTimestamp && stripos($attribute, 'TIMESTAMP') !== false && $length !== '') {
@@ -584,7 +584,7 @@ class Table implements Stringable
         // move column
         if ($moveTo === '-first') { // dash can't appear as part of column name
             $query .= ' FIRST';
-        } elseif ($moveTo != '') {
+        } elseif ($moveTo !== '') {
             $query .= ' AFTER ' . Util::backquote($moveTo);
         }
 
@@ -1691,7 +1691,7 @@ class Table implements Stringable
         }
 
         // do checking based on property
-        if ($property == self::PROP_SORTED_COLUMN) {
+        if ($property === self::PROP_SORTED_COLUMN) {
             if (! isset($this->uiprefs[$property])) {
                 return false;
             }
@@ -1719,7 +1719,7 @@ class Table implements Stringable
             return false;
         }
 
-        if ($property == self::PROP_COLUMN_ORDER || $property == self::PROP_COLUMN_VISIB) {
+        if ($property === self::PROP_COLUMN_ORDER || $property === self::PROP_COLUMN_VISIB) {
             if ($this->isView() || ! isset($this->uiprefs[$property])) {
                 return false;
             }
@@ -1759,7 +1759,7 @@ class Table implements Stringable
         }
 
         // we want to save the create time if the property is PROP_COLUMN_ORDER
-        if (! $this->isView() && ($property == self::PROP_COLUMN_ORDER || $property == self::PROP_COLUMN_VISIB)) {
+        if (! $this->isView() && ($property === self::PROP_COLUMN_ORDER || $property === self::PROP_COLUMN_VISIB)) {
             $currCreateTime = $this->getStatusInfo('CREATE_TIME');
             if ($tableCreateTime === null || $tableCreateTime != $currCreateTime) {
                 // there is no $table_create_time, or
@@ -1883,7 +1883,7 @@ class Table implements Stringable
      */
     public function updateDisplayField(string $displayField, DisplayFeature $displayFeature): void
     {
-        if ($displayField == '') {
+        if ($displayField === '') {
             $updQuery = 'DELETE FROM '
                 . Util::backquote($displayFeature->database)
                 . '.' . Util::backquote($displayFeature->tableInfo)

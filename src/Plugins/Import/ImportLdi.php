@@ -19,7 +19,6 @@ use PhpMyAdmin\Util;
 use function __;
 use function is_array;
 use function preg_split;
-use function strlen;
 use function trim;
 
 use const PHP_EOL;
@@ -132,19 +131,19 @@ class ImportLdi extends AbstractImportCsv
 
         $sql .= ' INTO TABLE ' . Util::backquote(Current::$table);
 
-        if (strlen((string) $GLOBALS['ldi_terminated']) > 0) {
+        if ((string) $GLOBALS['ldi_terminated'] !== '') {
             $sql .= ' FIELDS TERMINATED BY \'' . $GLOBALS['ldi_terminated'] . '\'';
         }
 
-        if (strlen((string) $GLOBALS['ldi_enclosed']) > 0) {
+        if ((string) $GLOBALS['ldi_enclosed'] !== '') {
             $sql .= ' ENCLOSED BY ' . $dbi->quoteString($GLOBALS['ldi_enclosed']);
         }
 
-        if (strlen((string) $GLOBALS['ldi_escaped']) > 0) {
+        if ((string) $GLOBALS['ldi_escaped'] !== '') {
             $sql .= ' ESCAPED BY ' . $dbi->quoteString($GLOBALS['ldi_escaped']);
         }
 
-        if (strlen((string) $GLOBALS['ldi_new_line']) > 0) {
+        if ((string) $GLOBALS['ldi_new_line'] !== '') {
             if ($GLOBALS['ldi_new_line'] === 'auto') {
                 $GLOBALS['ldi_new_line'] = PHP_EOL;
             }
@@ -157,7 +156,7 @@ class ImportLdi extends AbstractImportCsv
             ImportSettings::$skipQueries = 0;
         }
 
-        if (strlen((string) $GLOBALS['ldi_columns']) > 0) {
+        if ((string) $GLOBALS['ldi_columns'] !== '') {
             $sql .= ' (';
             $tmp = preg_split('/,( ?)/', $GLOBALS['ldi_columns']);
 

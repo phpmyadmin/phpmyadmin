@@ -827,6 +827,7 @@ class Normalization
             . 'in that case you don\'t have to select any.',
         );
         $cnt = 0;
+        $this->dbi->selectDb($db);
         foreach ($tables as $table) {
             $primary = Index::getPrimary($this->dbi, $table, $db);
             $primarycols = $primary === null ? [] : $primary->getColumns();
@@ -836,7 +837,6 @@ class Normalization
                 $pk[] = $col->getName();
             }
 
-            $this->dbi->selectDb($db);
             $columns = $this->dbi->getColumnNames($db, $table);
             if (count($columns) - count($pk) <= 1) {
                 continue;
@@ -871,7 +871,7 @@ class Normalization
             }
         }
 
-        if ($extra == '') {
+        if ($extra === '') {
             $headText = __(
                 'No Transitive dependencies possible as the table doesn\'t have any non primary key columns',
             );
@@ -991,11 +991,11 @@ class Normalization
             . ' LIMIT 500) as dt;';
         $res = $this->dbi->fetchResult($query);
         $pkColCnt = $res[0];
-        if ($pkCnt && $pkCnt == $colCnt && $colCnt == $pkColCnt) {
+        if ($pkCnt !== 0 && $pkCnt === $colCnt && $colCnt == $pkColCnt) {
             return true;
         }
 
-        return $totalRows && $totalRows == $pkCnt;
+        return $totalRows !== 0 && $totalRows === $pkCnt;
     }
 
     /**

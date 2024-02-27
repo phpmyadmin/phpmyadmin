@@ -376,11 +376,11 @@ class Transformations
 
         // Do we have any parameter to set?
         $hasValue =
-            strlen($mimetype) > 0 ||
-            strlen($transformation) > 0 ||
-            strlen($transformationOpts) > 0 ||
-            strlen($inputTransform) > 0 ||
-            strlen($inputTransformOpts) > 0;
+            $mimetype != '' ||
+            $transformation != '' ||
+            $transformationOpts !== '' ||
+            $inputTransform !== '' ||
+            $inputTransformOpts !== '';
 
         $testQry = '
              SELECT `mimetype`,
@@ -396,7 +396,7 @@ class Transformations
         if ($testRs->numRows() > 0) {
             $row = $testRs->fetchAssoc();
 
-            if (! $forcedelete && ($hasValue || strlen($row['comment']) > 0)) {
+            if (! $forcedelete && ($hasValue || $row['comment'] != '')) {
                 $updQuery = 'UPDATE '
                     . Util::backquote($browserTransformationFeature->database) . '.'
                     . Util::backquote($browserTransformationFeature->columnInfo)
@@ -472,11 +472,11 @@ class Transformations
             . Util::backquote($browserTransformationFeature->columnInfo)
             . ' WHERE ';
 
-        if ($column != '' && $table != '') {
+        if ($column !== '' && $table !== '') {
             $deleteSql .= '`db_name` = \'' . $db . '\' AND '
                 . '`table_name` = \'' . $table . '\' AND '
                 . '`column_name` = \'' . $column . '\' ';
-        } elseif ($table != '') {
+        } elseif ($table !== '') {
             $deleteSql .= '`db_name` = \'' . $db . '\' AND '
                 . '`table_name` = \'' . $table . '\' ';
         } else {

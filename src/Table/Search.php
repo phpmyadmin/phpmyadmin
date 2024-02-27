@@ -16,7 +16,6 @@ use function is_array;
 use function preg_match;
 use function str_contains;
 use function str_replace;
-use function strlen;
 use function strncasecmp;
 use function trim;
 
@@ -290,7 +289,7 @@ final class Search
             // create gis data from the criteria input
             $gisData = Gis::createData($criteriaValues, $this->dbi->getVersion());
             $where = $geomFunctionApplied . ' ' . $funcType . ' ' . $gisData;
-        } elseif (strlen($criteriaValues) > 0) {
+        } elseif ($criteriaValues != '') {
             $where = $geomFunctionApplied . ' '
                 . $funcType . " '" . $criteriaValues . "'";
         }

@@ -721,7 +721,6 @@
       <code><![CDATA[$foreignField]]></code>
       <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$foreignTable]]></code>
-      <code><![CDATA[$foreign[$field]]]></code>
       <code><![CDATA[$oneKey['index_list']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -5162,6 +5161,7 @@
       <code><![CDATA[$_SESSION['tmpval']['query']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['query']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['query'][$sqlMd5]]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['query'][$sqlMd5]]]></code>
       <code><![CDATA[$_SESSION['tmpval']['query'][$sqlMd5]['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
@@ -5720,7 +5720,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <FalsableReturnStatement>
-      <code><![CDATA[$this->detectCompression()]]></code>
+      <code><![CDATA[$this->compression ?? $this->detectCompression()]]></code>
     </FalsableReturnStatement>
     <InvalidArrayOffset>
       <code><![CDATA[$_FILES['fields_upload']['name']['multi_edit']]]></code>
@@ -7515,7 +7515,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST[$config->settings['CaptchaResponseParam']]]]></code>
       <code><![CDATA[$_POST['pma_username']]]></code>
-      <code><![CDATA[$_POST['pma_username']]]></code>
       <code><![CDATA[$_REQUEST['pma_servername']]]></code>
       <code><![CDATA[$_REQUEST['pma_servername']]]></code>
       <code><![CDATA[$password]]></code>
@@ -7797,11 +7796,9 @@
       <code><![CDATA[$GLOBALS['latex_caption']]]></code>
       <code><![CDATA[$GLOBALS['latex_caption']]]></code>
       <code><![CDATA[$GLOBALS['latex_columns']]]></code>
-      <code><![CDATA[$escape[$k]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$columnsAlias[$i]]]></code>
-      <code><![CDATA[$escape[$k]]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -7816,7 +7813,6 @@
     <MixedOperand>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$comments[$fieldName]]]></code>
-      <code><![CDATA[$escape[$k]]]></code>
       <code><![CDATA[$type]]></code>
     </MixedOperand>
     <PossiblyFalseReference>
@@ -10998,7 +10994,6 @@
       <code><![CDATA[$criteriaValues]]></code>
       <code><![CDATA[$criteriaValues]]></code>
       <code><![CDATA[$criteriaValues]]></code>
-      <code><![CDATA[$criteriaValues]]></code>
       <code><![CDATA[$criteriaValues[$e]]]></code>
       <code><![CDATA[$criteriaValues[0]]]></code>
       <code><![CDATA[$operator]]></code>
@@ -11014,6 +11009,7 @@
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedOperand>
+      <code><![CDATA[$criteriaValues]]></code>
       <code><![CDATA[$criteriaValues]]></code>
       <code><![CDATA[$criteriaValues]]></code>
       <code><![CDATA[$criteriaValues]]></code>
@@ -11524,9 +11520,6 @@
     <MixedReturnStatement>
       <code><![CDATA[$stack]]></code>
     </MixedReturnStatement>
-    <PossiblyNullArgument>
-      <code><![CDATA[$row['comment']]]></code>
-    </PossiblyNullArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
@@ -11707,9 +11700,6 @@
     </MixedArgument>
   </file>
   <file src="src/Util.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$separator]]></code>
-    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>

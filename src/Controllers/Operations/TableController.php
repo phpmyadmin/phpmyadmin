@@ -37,7 +37,6 @@ use function mb_strtolower;
 use function mb_strtoupper;
 use function preg_replace;
 use function str_contains;
-use function strlen;
 use function urldecode;
 
 class TableController extends AbstractController
@@ -457,7 +456,7 @@ class TableController extends AbstractController
             && $pmaTable->isEngine(['MYISAM', 'ARIA', 'ISAM']);
         $hasChecksumAndDelayKeyWrite = $pmaTable->isEngine(['MYISAM', 'ARIA']);
         $hasTransactionalAndPageChecksum = $pmaTable->isEngine('ARIA');
-        $hasAutoIncrement = strlen($GLOBALS['auto_increment']) > 0
+        $hasAutoIncrement = $GLOBALS['auto_increment'] != ''
             && $pmaTable->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB']);
 
         $possibleRowFormats = $this->operations->getPossibleRowFormat();

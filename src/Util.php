@@ -248,12 +248,12 @@ class Util
      *
      * @param Stringable|string|null $identifier    the database, table or field name to "backquote"
      * @param string                 $compatibility string compatibility mode (used by dump functions)
-     * @param bool|null              $doIt          a flag to bypass this function (used by dump functions)
+     * @param bool                   $doIt          a flag to bypass this function (used by dump functions)
      */
     public static function backquoteCompat(
         Stringable|string|null $identifier,
         string $compatibility = 'MSSQL',
-        bool|null $doIt = true,
+        bool $doIt = true,
     ): string {
         $identifier = (string) $identifier;
         if ($identifier === '' || $identifier === '*') {
@@ -518,12 +518,12 @@ class Util
             _pgettext('Short week day name for Saturday', 'Sat'),
         ];
 
-        if ($format == '') {
+        if ($format === '') {
             /* l10n: See https://www.php.net/manual/en/function.strftime.php */
             $format = __('%B %d, %Y at %I:%M %p');
         }
 
-        if ($timestamp == -1) {
+        if ($timestamp === -1) {
             $timestamp = time();
         }
 
@@ -585,7 +585,7 @@ class Util
 
         $urlParts = parse_url($url);
 
-        if (is_array($urlParts) && isset($urlParts['query']) && strlen($separator) > 0) {
+        if (is_array($urlParts) && isset($urlParts['query']) && $separator !== '') {
             return explode($separator, $urlParts['query']);
         }
 
@@ -865,7 +865,7 @@ class Util
                 ++$i;
             }
 
-            if ($i != 0) {
+            if ($i !== 0) {
                 --$i;
             }
 
@@ -1795,7 +1795,7 @@ class Util
         if (
             isset($_REQUEST['tbl_group'])
             && is_scalar($_REQUEST['tbl_group'])
-            && strlen((string) $_REQUEST['tbl_group']) > 0
+            && (string) $_REQUEST['tbl_group'] !== ''
         ) {
             $group = $dbi->escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
             $groupWithSeparator = $dbi->escapeMysqlWildcards(
@@ -2078,7 +2078,7 @@ class Util
                 }
 
                 [$keyName, $value] = $keyValueArray;
-                $value = trim(strtolower($value));
+                $value = strtolower(trim($value));
                 if (strtolower(trim($keyName)) === 'proto' && in_array($value, ['http', 'https'], true)) {
                     return $value;
                 }

@@ -8,7 +8,6 @@ use function __;
 use function array_pop;
 use function count;
 use function htmlspecialchars;
-use function strlen;
 
 /**
  * Index manipulation class
@@ -380,7 +379,7 @@ class Index
     public function getComments(): string
     {
         $comments = $this->getRemarks();
-        if (strlen($comments) > 0) {
+        if ($comments !== '') {
             $comments .= "\n";
         }
 

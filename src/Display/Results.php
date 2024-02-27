@@ -908,7 +908,7 @@ class Results
         ];
 
         // Keep the number of rows (25, 50, 100, ...) when changing sort key value
-        if (isset($_SESSION['tmpval'], $_SESSION['tmpval']['max_rows'])) {
+        if (isset($_SESSION['tmpval']['max_rows'])) {
             $hiddenFields['session_max_rows'] = $_SESSION['tmpval']['max_rows'];
         }
 
@@ -2979,10 +2979,7 @@ class Results
     public function setConfigParamsForDisplayTable(StatementInfo $statementInfo): void
     {
         $sqlMd5 = md5($this->server . $this->db . $this->sqlQuery);
-        $query = [];
-        if (isset($_SESSION['tmpval']['query'][$sqlMd5])) {
-            $query = $_SESSION['tmpval']['query'][$sqlMd5];
-        }
+        $query = $_SESSION['tmpval']['query'][$sqlMd5] ?? [];
 
         $query['sql'] = $this->sqlQuery;
 

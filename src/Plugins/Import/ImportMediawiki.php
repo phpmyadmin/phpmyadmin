@@ -402,7 +402,7 @@ class ImportMediawiki extends ImportPlugin
                 } elseif ($curChar === '>' && ! $insideAttribute) {
                     // end of a tag
                     $insideTag = false;
-                } elseif (($curChar === '"' || $curChar == "'") && $insideTag) {
+                } elseif (($curChar === '"' || $curChar === "'") && $insideTag) {
                     // start or end of an attribute
                     if (! $insideAttribute) {
                         $insideAttribute = true;

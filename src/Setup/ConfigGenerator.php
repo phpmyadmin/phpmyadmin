@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Setup;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Version;
 
+use function array_is_list;
 use function array_keys;
 use function count;
 use function gmdate;
@@ -105,7 +106,7 @@ class ConfigGenerator
                 . var_export($varValue, true) . ';' . $eol;
         }
 
-        if (self::isZeroBasedArray($varValue)) {
+        if (array_is_list($varValue)) {
             return "\$cfg['" . $varName . "'] = "
                 . self::exportZeroBasedArray($varValue, $eol)
                 . ';' . $eol;
@@ -123,22 +124,6 @@ class ConfigGenerator
     }
 
     /**
-     * Check whether $array is a continuous 0-based array
-     *
-     * @param mixed[] $array Array to check
-     */
-    private static function isZeroBasedArray(array $array): bool
-    {
-        for ($i = 0, $nb = count($array); $i < $nb; $i++) {
-            if (! isset($array[$i])) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    /**
      * Exports continuous 0-based array
      *
      * @param mixed[] $array Array to export
@@ -151,20 +136,13 @@ class ConfigGenerator
             $retv[] = var_export($v, true);
         }
 
-        $ret = '[';
         if (count($retv) <= 4) {
             // up to 4 values - one line
-            return $ret . implode(', ', $retv) . ']';
+            return '[' . implode(', ', $retv) . ']';
         }
 
         // more than 4 values - value per line
-        $imax = count($retv);
-        /** @infection-ignore-all */
-        for ($i = 0; $i < $imax; $i++) {
-            $ret .= ($i > 0 ? ',' : '') . $eol . '    ' . $retv[$i];
-        }
-
-        return $ret . ']';
+        return '[' . $eol . '    ' . implode(',' . $eol . '    ', $retv) . ']';
     }
 
     /**
@@ -189,7 +167,7 @@ class ConfigGenerator
             foreach ($server as $k => $v) {
                 $k = preg_replace('/[^A-Za-z0-9_]/', '_', (string) $k);
                 $ret .= "\$cfg['Servers'][\$i]['" . $k . "'] = "
-                    . (is_array($v) && self::isZeroBasedArray($v)
+                    . (is_array($v) && array_is_list($v)
                         ? self::exportZeroBasedArray($v, $eol)
                         : var_export($v, true))
                     . ';' . $eol;

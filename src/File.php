@@ -70,7 +70,7 @@ class File
     protected int $chunkSize = 32768;
 
     /** @var resource|null file handle */
-    protected $handle = null;
+    protected $handle;
 
     /** @var bool whether to decompress content before returning */
     protected bool $decompress = false;
@@ -722,11 +722,7 @@ class File
      */
     public function getCompression(): string
     {
-        if ($this->compression === null) {
-            return $this->detectCompression();
-        }
-
-        return $this->compression;
+        return $this->compression ?? $this->detectCompression();
     }
 
     /**

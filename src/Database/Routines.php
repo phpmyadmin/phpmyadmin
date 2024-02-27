@@ -539,12 +539,12 @@ class Routines
             $index = '%s';
             $dropClass = '';
             $routine = [
-                'item_param_dir' => [0 => ''],
-                'item_param_name' => [0 => ''],
-                'item_param_type' => [0 => ''],
-                'item_param_length' => [0 => ''],
-                'item_param_opts_num' => [0 => ''],
-                'item_param_opts_text' => [0 => ''],
+                'item_param_dir' => [''],
+                'item_param_name' => [''],
+                'item_param_type' => [''],
+                'item_param_length' => [''],
+                'item_param_opts_num' => [''],
+                'item_param_opts_text' => [''],
             ];
         } elseif ($routine !== []) {
             // regular row for routine editor

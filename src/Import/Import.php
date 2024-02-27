@@ -423,7 +423,7 @@ class Import
 
             // subtract 1 of divided value in case the modulus is 0,
             // this is necessary because A-Z has no 'zero'
-            if ($remain == 0) {
+            if ($remain === 0) {
                 $div--;
             }
 
@@ -433,7 +433,7 @@ class Import
             $num = $remain;
         }
 
-        if ($num == 0) {
+        if ($num === 0) {
             // use 'Z' if column number is 0,
             // this is necessary because A-Z has no 'zero'
             $colName .= mb_chr($capitalA + 26 - 1);
@@ -566,14 +566,14 @@ class Import
             return $lastCumulativeSize;
         }
 
-        if ($currentCellType == self::VARCHAR) {
+        if ($currentCellType === self::VARCHAR) {
             /**
              * What to do if the current cell is of type VARCHAR
              */
             /**
              * The last cumulative type was VARCHAR
              */
-            if ($lastCumulativeType == self::VARCHAR) {
+            if ($lastCumulativeType === self::VARCHAR) {
                 if ($currSize >= $lastCumulativeSize) {
                     return $currSize;
                 }
@@ -581,7 +581,7 @@ class Import
                 return $lastCumulativeSize;
             }
 
-            if ($lastCumulativeType == self::DECIMAL) {
+            if ($lastCumulativeType === self::DECIMAL) {
                 /**
                  * The last cumulative type was DECIMAL
                  */
@@ -594,7 +594,7 @@ class Import
                 return $oldM;
             }
 
-            if ($lastCumulativeType == self::BIGINT || $lastCumulativeType == self::INT) {
+            if ($lastCumulativeType === self::BIGINT || $lastCumulativeType === self::INT) {
                 /**
                  * The last cumulative type was BIGINT or INT
                  */
@@ -605,7 +605,7 @@ class Import
                 return $lastCumulativeSize;
             }
 
-            if (! isset($lastCumulativeType) || $lastCumulativeType == self::NONE) {
+            if ($lastCumulativeType === null || $lastCumulativeType === self::NONE) {
                 /**
                  * This is the first row to be analyzed
                  */
@@ -622,14 +622,14 @@ class Import
             return -1;
         }
 
-        if ($currentCellType == self::DECIMAL) {
+        if ($currentCellType === self::DECIMAL) {
             /**
              * What to do if the current cell is of type DECIMAL
              */
             /**
              * The last cumulative type was VARCHAR
              */
-            if ($lastCumulativeType == self::VARCHAR) {
+            if ($lastCumulativeType === self::VARCHAR) {
                 /* Convert $last_cumulative_size from varchar to decimal format */
                 $size = $this->getDecimalSize($cell);
 
@@ -640,7 +640,7 @@ class Import
                 return $lastCumulativeSize;
             }
 
-            if ($lastCumulativeType == self::DECIMAL) {
+            if ($lastCumulativeType === self::DECIMAL) {
                 /**
                  * The last cumulative type was DECIMAL
                  */
@@ -659,7 +659,7 @@ class Import
                 return $lastCumulativeSize;
             }
 
-            if ($lastCumulativeType == self::BIGINT || $lastCumulativeType == self::INT) {
+            if ($lastCumulativeType === self::BIGINT || $lastCumulativeType === self::INT) {
                 /**
                  * The last cumulative type was BIGINT or INT
                  */
@@ -673,7 +673,7 @@ class Import
                 return $lastCumulativeSize . ',' . $size[self::D];
             }
 
-            if (! isset($lastCumulativeType) || $lastCumulativeType == self::NONE) {
+            if ($lastCumulativeType === null || $lastCumulativeType === self::NONE) {
                 /**
                  * This is the first row to be analyzed
                  */
@@ -693,14 +693,14 @@ class Import
             return -1;
         }
 
-        if ($currentCellType == self::BIGINT || $currentCellType == self::INT) {
+        if ($currentCellType === self::BIGINT || $currentCellType === self::INT) {
             /**
              * What to do if the current cell is of type BIGINT or INT
              */
             /**
              * The last cumulative type was VARCHAR
              */
-            if ($lastCumulativeType == self::VARCHAR) {
+            if ($lastCumulativeType === self::VARCHAR) {
                 if ($currSize >= $lastCumulativeSize) {
                     return $currSize;
                 }
@@ -708,7 +708,7 @@ class Import
                 return $lastCumulativeSize;
             }
 
-            if ($lastCumulativeType == self::DECIMAL) {
+            if ($lastCumulativeType === self::DECIMAL) {
                 /**
                  * The last cumulative type was DECIMAL
                  */
@@ -727,7 +727,7 @@ class Import
                 return ($newInt + $oldD) . ',' . $oldD;
             }
 
-            if ($lastCumulativeType == self::BIGINT || $lastCumulativeType == self::INT) {
+            if ($lastCumulativeType === self::BIGINT || $lastCumulativeType === self::INT) {
                 /**
                  * The last cumulative type was BIGINT or INT
                  */
@@ -738,7 +738,7 @@ class Import
                 return $lastCumulativeSize;
             }
 
-            if (! isset($lastCumulativeType) || $lastCumulativeType == self::NONE) {
+            if ($lastCumulativeType === null || $lastCumulativeType === self::NONE) {
                 /**
                  * This is the first row to be analyzed
                  */
@@ -784,7 +784,7 @@ class Import
          */
 
         if ($cell === 'NULL') {
-            if ($lastCumulativeType === null || $lastCumulativeType == self::NONE) {
+            if ($lastCumulativeType === null || $lastCumulativeType === self::NONE) {
                 return self::NONE;
             }
 
@@ -975,7 +975,7 @@ class Import
                     . '.' . Util::backquote($table->tableName) . ' (';
                 foreach ($table->columns as $j => $column) {
                     $size = $analyses[$i][self::SIZES][$j];
-                    if ((int) $size == 0) {
+                    if ((int) $size === 0) {
                         $size = 10;
                     }
 

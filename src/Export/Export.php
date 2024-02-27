@@ -185,7 +185,7 @@ class Export
                 $line = Encoding::convertString('utf-8', $GLOBALS['charset'], $line);
             }
 
-            if ($GLOBALS['save_on_server'] && mb_strlen($line) > 0) {
+            if ($GLOBALS['save_on_server'] && $line !== '') {
                 if ($GLOBALS['file_handle'] !== null) {
                     $writeResult = @fwrite($GLOBALS['file_handle'], $line);
                 } else {
@@ -669,7 +669,7 @@ class Export
                 // to resolve view dependencies (only when it's a single-file export)
                 if ($isView) {
                     if (
-                        $separateFiles == ''
+                        $separateFiles === ''
                         && isset($GLOBALS['sql_create_view'])
                         && ! $exportPlugin->exportStructure(
                             $db->getName(),
@@ -920,7 +920,7 @@ class Export
             return;
         }
 
-        if (isset($allrows) && $allrows == '0' && $limitTo > 0 && $limitFrom >= 0) {
+        if ($allrows === '0' && $limitTo > 0 && $limitFrom >= 0) {
             $addQuery = ' LIMIT '
                         . ($limitFrom > 0 ? $limitFrom . ', ' : '')
                         . $limitTo;

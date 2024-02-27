@@ -11,7 +11,6 @@ use function mb_strpos;
 use function mb_substr;
 use function str_replace;
 use function str_starts_with;
-use function strlen;
 use function trim;
 
 use const ENT_COMPAT;
@@ -188,7 +187,7 @@ class TableProperty
      */
     public function getIndexName(): string
     {
-        if (strlen($this->key) > 0) {
+        if ($this->key !== '') {
             return 'index="'
                 . htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8')
                 . '"';

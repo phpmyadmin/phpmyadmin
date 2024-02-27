@@ -217,11 +217,11 @@ class ErrorHandler
             if (
                 $isSilenced &&
                 $this->errorReporting != 0 &&
-                ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0
+                ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) === 0
             ) {
                 return false;
             }
-        } elseif (($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0) {
+        } elseif (($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) === 0) {
             return false;
         }
 
