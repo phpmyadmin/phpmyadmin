@@ -76,6 +76,19 @@ class NodeTest extends AbstractTestCase
         );
     }
 
+    public function testGetChild(): void
+    {
+        $parent = NodeFactory::getInstance('Node', 'parent');
+        $childOne = NodeFactory::getInstance('Node', '0');
+        $childTwo = NodeFactory::getInstance('Node', '00');
+        $parent->addChild($childOne);
+        $parent->addChild($childTwo);
+        self::assertSame($childTwo, $parent->getChild('00'));
+        self::assertSame($childOne, $parent->getChild('0'));
+        self::assertSame($childTwo, $parent->getChild('00', true));
+        self::assertSame($childOne, $parent->getChild('0', true));
+    }
+
     /**
      * SetUp for hasChildren
      */
