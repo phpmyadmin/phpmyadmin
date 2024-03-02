@@ -116,11 +116,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Tests for DBI::getCurrentRole() method.
      *
-     * @param string           $version         version
-     * @param bool             $isRoleSupported isRoleSupported
-     * @param string[][]|false $value           value
-     * @param string[]|null    $string          string
-     * @param string[][]|null  $expected        expected result
+     * @param string[][]|false $value
+     * @param string[]         $string
+     * @param string[][]       $expected
      *
      * @dataProvider currentRolesData
      */
@@ -128,8 +126,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
         string $version,
         bool $isRoleSupported,
         $value,
-        $string,
-        $expected,
+        array $string,
+        array $expected
     ): void {
         $this->dbi->setVersion(['@@version' => $version]);
 
@@ -139,9 +137,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
             $this->dummyDbi->addResult('SELECT CURRENT_ROLE();', $value);
         }
 
-        $this->assertEquals($expected, $this->dbi->getCurrentRolesAndHost());
+        self::assertSame($expected, $this->dbi->getCurrentRolesAndHost());
 
-        $this->assertEquals($string, $this->dbi->getCurrentRoles());
+        self::assertSame($string, $this->dbi->getCurrentRoles());
 
         $this->assertAllQueriesConsumed();
     }
@@ -154,8 +152,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public static function currentRolesData(): array
     {
         return [
-            ['10.4.99-MariaDB', false, false, null, null],
-            ['5.7.35 - MySQL Community Server (GPL)', false, false, null, null],
+            ['10.4.99-MariaDB', false, false, [], []],
+            ['5.7.35 - MySQL Community Server (GPL)', false, false, [], []],
             [
                 '8.0.0 - MySQL Community Server - GPL',
                 true,

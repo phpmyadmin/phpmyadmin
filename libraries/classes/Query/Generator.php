@@ -252,7 +252,7 @@ class Generator
             . 'SELECT 1 FROM mysql.user '
             . "WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci AND "
             . "'" . $user . "' LIKE `User` AND '' LIKE `Host`"
-            . 'LIMIT 1';
+            . ' LIMIT 1';
     }
 
     public static function getInformationSchemaForeignKeyConstraintsRequest(

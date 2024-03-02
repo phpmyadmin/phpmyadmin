@@ -122,8 +122,8 @@ class DatabaseInterface implements DbalInterface
     /** @var array Current user and host cache */
     private $currentUser;
 
-    /** @var array Current role and host cache */
-    private $currentRoleAndHost;
+    /** @var array<int, array<int, string>>|null Current role and host cache */
+    private $currentRoleAndHost = null;
 
     /** @var string|null lower_case_table_names value cache */
     private $lowerCaseTableNames = null;
