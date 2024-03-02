@@ -114,6 +114,74 @@ class DatabaseInterfaceTest extends AbstractTestCase
     }
 
     /**
+     * Tests for DBI::getCurrentRole() method.
+     *
+     * @param string[][]|false $value
+     * @param string[]         $string
+     * @param string[][]       $expected
+     *
+     * @dataProvider currentRolesData
+     */
+    public function testGetCurrentRoles(
+        string $version,
+        bool $isRoleSupported,
+        $value,
+        array $string,
+        array $expected
+    ): void {
+        $this->dbi->setVersion(['@@version' => $version]);
+
+        SessionCache::remove('mysql_cur_role');
+
+        if ($isRoleSupported) {
+            $this->dummyDbi->addResult('SELECT CURRENT_ROLE();', $value);
+        }
+
+        self::assertSame($expected, $this->dbi->getCurrentRolesAndHost());
+
+        self::assertSame($string, $this->dbi->getCurrentRoles());
+
+        $this->assertAllQueriesConsumed();
+    }
+
+    /**
+     * Data provider for getCurrentRole() tests.
+     *
+     * @return mixed[]
+     */
+    public static function currentRolesData(): array
+    {
+        return [
+            ['10.4.99-MariaDB', false, false, [], []],
+            ['5.7.35 - MySQL Community Server (GPL)', false, false, [], []],
+            [
+                '8.0.0 - MySQL Community Server - GPL',
+                true,
+                [['`role`@`localhost`']],
+                ['role@localhost'],
+                [['role', 'localhost']],
+            ],
+            [
+                '8.0.0 - MySQL Community Server - GPL',
+                true,
+                [['`role`@`localhost`, `role2`@`localhost`']],
+                ['role@localhost', 'role2@localhost'],
+                [['role', 'localhost'], ['role2', 'localhost']],
+            ],
+            ['8.0.0 - MySQL Community Server - GPL', true, [['@`localhost`']], ['@localhost'], [['', 'localhost']]],
+            ['10.5.0-MariaDB', true, [['`role`@`localhost`']], ['role@localhost'], [['role', 'localhost']]],
+            [
+                '10.5.0-MariaDB',
+                true,
+                [['`role`@`localhost`, `role2`@`localhost`']],
+                ['role@localhost', 'role2@localhost'],
+                [['role', 'localhost'], ['role2', 'localhost']],
+            ],
+            ['10.5.0-MariaDB', true, [['@`localhost`']], ['@localhost'], [['', 'localhost']]],
+        ];
+    }
+
+    /**
      * Tests for DBI::getColumnMapFromSql() method.
      */
     public function testPMAGetColumnMap(): void
