@@ -77,6 +77,16 @@ final class MoveColumnsController extends AbstractController
                 unset($data['Extra']);
             }
 
+             // If the database is MariaDB and the field type is enum, retrieve the default value using a different query to avoid additional quotes.
+             if ($this->dbi->isMariaDB() && $data['Field'] == 'enum') {
+                $db = Util::backquote($this->db);
+                $table = Util::backquote($this->table);
+                $query = "SHOW COLUMNS FROM " . $table . " FROM " . $db . " WHERE Field = 'enum'";
+                $row = $this->dbi->fetchSingleRow($query);
+                if (!empty($row))
+                    $data['Default'] = $row['Default'];
+            }
+
             $timeType = $data['Type'] === 'timestamp' || $data['Type'] === 'datetime';
             $timeDefault = $data['Default'] === 'CURRENT_TIMESTAMP' || $data['Default'] === 'current_timestamp()';
             $current_timestamp = $timeType && $timeDefault;
