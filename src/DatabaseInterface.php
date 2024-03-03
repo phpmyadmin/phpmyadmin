@@ -1517,11 +1517,7 @@ class DatabaseInterface implements DbalInterface
         if (! $hasGrantPrivilege) {
             foreach ($this->getCurrentRolesAndHost() as [$role, $roleHost]) {
                 $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($role, $roleHost ?? '');
-                $result = $this->tryQuery($query);
-
-                if ($result) {
-                    $hasGrantPrivilege = (bool) $result->numRows();
-                }
+                $hasGrantPrivilege = (bool) $this->fetchValue($query);
 
                 if ($hasGrantPrivilege) {
                     break;
@@ -1568,11 +1564,7 @@ class DatabaseInterface implements DbalInterface
         if (! $hasCreatePrivilege) {
             foreach ($this->getCurrentRolesAndHost() as [$role, $roleHost]) {
                 $query = QueryGenerator::getInformationSchemaDataForCreateRequest($role, $roleHost ?? '');
-                $result = $this->tryQuery($query);
-
-                if ($result) {
-                    $hasCreatePrivilege = (bool) $result->numRows();
-                }
+                $hasCreatePrivilege = (bool) $this->fetchValue($query);
 
                 if ($hasCreatePrivilege) {
                     break;
