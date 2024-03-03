@@ -51,6 +51,7 @@ use function openlog;
 use function reset;
 use function sprintf;
 use function str_contains;
+use function str_replace;
 use function str_starts_with;
 use function stripos;
 use function strnatcasecmp;
@@ -109,6 +110,9 @@ class DatabaseInterface implements DbalInterface
 
     /** @var array<int, string>|null */
     private array|null $currentUserAndHost = null;
+
+    /** @var array<int, array<int, string>>|null Current role and host cache */
+    private array|null $currentRoleAndHost = null;
 
     /**
      * @var int|null lower_case_table_names value cache
@@ -1430,6 +1434,38 @@ class DatabaseInterface implements DbalInterface
         return '@';
     }
 
+    /**
+     * gets the current role with host. Role maybe multiple separated by comma
+     * Support start from MySQL 8.x / MariaDB 10.0.5
+     *
+     * @see https://dev.mysql.com/doc/refman/8.0/en/roles.html
+     * @see https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_current-role
+     * @see https://mariadb.com/kb/en/mariadb-1005-release-notes/#newly-implemented-features
+     * @see https://mariadb.com/kb/en/roles_overview/
+     *
+     * @return array<int, array<int, string>> the current roles i.e. array of role@host
+     */
+    public function getCurrentRoles(): array
+    {
+        if (($this->isMariaDB() && $this->getVersion() < 100500) || $this->getVersion() < 80000) {
+            return [];
+        }
+
+        if (SessionCache::has('mysql_cur_role')) {
+            return SessionCache::get('mysql_cur_role');
+        }
+
+        $role = $this->fetchValue('SELECT CURRENT_ROLE();');
+        if ($role === false || $role === null || $role === 'NONE') {
+            return [];
+        }
+
+        $role = array_map('trim', explode(',', str_replace('`', '', $role)));
+        SessionCache::set('mysql_cur_role', $role);
+
+        return $role;
+    }
+
     public function isSuperUser(): bool
     {
         if (SessionCache::has('is_superuser')) {
@@ -1478,6 +1514,21 @@ class DatabaseInterface implements DbalInterface
         $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($user, $host);
         $hasGrantPrivilege = (bool) $this->fetchValue($query);
 
+        if (! $hasGrantPrivilege) {
+            foreach ($this->getCurrentRolesAndHost() as [$role, $roleHost]) {
+                $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($role, $roleHost ?? '');
+                $result = $this->tryQuery($query);
+
+                if ($result) {
+                    $hasGrantPrivilege = (bool) $result->numRows();
+                }
+
+                if ($hasGrantPrivilege) {
+                    break;
+                }
+            }
+        }
+
         SessionCache::set('is_grantuser', $hasGrantPrivilege);
 
         return $hasGrantPrivilege;
@@ -1514,6 +1565,21 @@ class DatabaseInterface implements DbalInterface
         $query = QueryGenerator::getInformationSchemaDataForCreateRequest($user, $host);
         $hasCreatePrivilege = (bool) $this->fetchValue($query);
 
+        if (! $hasCreatePrivilege) {
+            foreach ($this->getCurrentRolesAndHost() as [$role, $roleHost]) {
+                $query = QueryGenerator::getInformationSchemaDataForCreateRequest($role, $roleHost ?? '');
+                $result = $this->tryQuery($query);
+
+                if ($result) {
+                    $hasCreatePrivilege = (bool) $result->numRows();
+                }
+
+                if ($hasCreatePrivilege) {
+                    break;
+                }
+            }
+        }
+
         SessionCache::set('is_createuser', $hasCreatePrivilege);
 
         return $hasCreatePrivilege;
@@ -1546,6 +1612,24 @@ class DatabaseInterface implements DbalInterface
         }
 
         return $this->currentUserAndHost;
+    }
+
+    /**
+     * Get the current role and host.
+     *
+     * @return array<int, array<int, string>> array of role and hostname
+     */
+    public function getCurrentRolesAndHost(): array
+    {
+        if ($this->currentRoleAndHost === null) {
+            $roles = $this->getCurrentRoles();
+
+            $this->currentRoleAndHost = array_map(static function (string $role) {
+                return explode('@', $role);
+            }, $roles);
+        }
+
+        return $this->currentRoleAndHost;
     }
 
     /**

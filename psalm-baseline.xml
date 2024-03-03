@@ -4911,6 +4911,15 @@
     <DeprecatedProperty>
       <code><![CDATA[Routing::$route]]></code>
     </DeprecatedProperty>
+    <DocblockTypeContradiction>
+      <code><![CDATA['']]></code>
+      <code><![CDATA['']]></code>
+    </DocblockTypeContradiction>
+    <InvalidArgument>
+      <code><![CDATA[static function (string $role) {
+                return explode('@', $role);
+            }]]></code>
+    </InvalidArgument>
     <InvalidOperand>
       <code><![CDATA[$row['Data_free']]]></code>
       <code><![CDATA[$row['Data_length']]]></code>
@@ -4919,6 +4928,9 @@
       <code><![CDATA[$row['Max_data_length']]]></code>
       <code><![CDATA[$row['Rows']]]></code>
     </InvalidOperand>
+    <InvalidReturnStatement>
+      <code><![CDATA[$role]]></code>
+    </InvalidReturnStatement>
     <MixedArgument>
       <code><![CDATA[$a]]></code>
       <code><![CDATA[$b]]></code>
@@ -4953,6 +4965,7 @@
       <code><![CDATA[$this->versionString]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
+      <code><![CDATA[array<int, array<int, string>>]]></code>
       <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[string]]></code>
@@ -4963,6 +4976,7 @@
     </MixedOperand>
     <MixedReturnStatement>
       <code><![CDATA[$resultRows]]></code>
+      <code><![CDATA[SessionCache::get('mysql_cur_role')]]></code>
       <code><![CDATA[SessionCache::get('mysql_cur_user')]]></code>
       <code><![CDATA[reset($columns)]]></code>
       <code><![CDATA[reset($columns)]]></code>
@@ -5029,6 +5043,10 @@
       <code><![CDATA[bool]]></code>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[$roleHost]]></code>
+      <code><![CDATA[$roleHost]]></code>
+    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$index->isUnique()]]></code>
       <code><![CDATA[$limitCount]]></code>
@@ -13357,6 +13375,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/DatabaseInterfaceTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$value]]></code>
+    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -13369,6 +13390,7 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUnusedMethod>
+      <code><![CDATA[currentRolesData]]></code>
       <code><![CDATA[currentUserData]]></code>
       <code><![CDATA[errorData]]></code>
       <code><![CDATA[isAmazonRdsData]]></code>

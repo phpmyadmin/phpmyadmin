@@ -96,6 +96,20 @@ final class NodeTest extends AbstractTestCase
         self::assertSame($child, $parent->getChild('child real name', true));
     }
 
+    public function testGetChildNodeWithEqualNumericName(): void
+    {
+        $config = new Config();
+        $parent = new Node($config, 'parent');
+        $childOne = new Node($config, '0');
+        $childTwo = new Node($config, '00');
+        $parent->addChild($childOne);
+        $parent->addChild($childTwo);
+        self::assertSame($childTwo, $parent->getChild('00'));
+        self::assertSame($childOne, $parent->getChild('0'));
+        self::assertSame($childTwo, $parent->getChild('00', true));
+        self::assertSame($childOne, $parent->getChild('0', true));
+    }
+
     public function testRemoveChildNode(): void
     {
         $config = new Config();

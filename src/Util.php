@@ -839,6 +839,7 @@ class Util
         SessionCache::remove('is_createuser');
         SessionCache::remove('is_grantuser');
         SessionCache::remove('mysql_cur_user');
+        SessionCache::remove('mysql_cur_role');
     }
 
     /**
