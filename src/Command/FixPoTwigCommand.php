@@ -11,7 +11,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use function file_get_contents;
 use function file_put_contents;
-use function intval;
 use function is_array;
 use function json_decode;
 use function preg_replace_callback;
@@ -55,7 +54,7 @@ final class FixPoTwigCommand extends Command
             '@(twig-templates[0-9a-f/]*.php):([0-9]*)@',
             static function (array $matches) use ($replacements): string {
                 $filename = $matches[1];
-                $line = intval($matches[2]);
+                $line = (int) $matches[2];
                 $replace = $replacements[$filename];
                 foreach ($replace[1] as $cacheLine => $result) {
                     if ($line >= $cacheLine) {

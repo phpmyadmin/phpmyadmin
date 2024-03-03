@@ -28,7 +28,6 @@ use function array_search;
 use function array_values;
 use function htmlspecialchars;
 use function in_array;
-use function intval;
 use function is_array;
 use function is_numeric;
 use function json_encode;
@@ -278,8 +277,8 @@ class ZoomSearchController extends AbstractController
             'criteria_column_names' => $criteriaColumnNames,
             'criteria_column_types' => $_POST['criteriaColumnTypes'] ?? null,
             'max_plot_limit' => ! empty($_POST['maxPlotLimit'])
-                ? intval($_POST['maxPlotLimit'])
-                : intval($config->settings['maxRowPlotLimit']),
+                ? (int) $_POST['maxPlotLimit']
+                : (int) $config->settings['maxRowPlotLimit'],
         ]);
     }
 
@@ -331,7 +330,7 @@ class ZoomSearchController extends AbstractController
 
         $key = array_search($field, $this->columnNames);
         $searchIndex = isset($_POST['it']) && is_numeric($_POST['it'])
-            ? intval($_POST['it']) : 0;
+            ? (int) $_POST['it'] : 0;
 
         $properties = $this->getColumnProperties($searchIndex, $key);
         $this->response->addJSON(

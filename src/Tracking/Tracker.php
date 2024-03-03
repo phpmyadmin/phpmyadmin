@@ -26,7 +26,6 @@ use PhpMyAdmin\SqlParser\Statements\TruncateStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\Util;
 
-use function intval;
 use function preg_quote;
 use function preg_replace;
 use function serialize;
@@ -395,7 +394,7 @@ class Tracker
 
         $row = $result->fetchRow();
 
-        return intval($row[0] ?? -1);
+        return (int) ($row[0] ?? -1);
     }
 
     /**

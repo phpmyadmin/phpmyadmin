@@ -27,7 +27,6 @@ use function __;
 use function array_keys;
 use function defined;
 use function htmlspecialchars;
-use function intval;
 use function max;
 use function min;
 use function session_destroy;
@@ -175,7 +174,7 @@ abstract class AuthenticationPlugin
             return sprintf(
                 __('You have been automatically logged out due to inactivity of %s seconds.'
                 . ' Once you log in again, you should be able to resume the work where you left off.'),
-                intval(Config::getInstance()->settings['LoginCookieValidity']),
+                (int) Config::getInstance()->settings['LoginCookieValidity'],
             );
         }
 
@@ -222,7 +221,7 @@ abstract class AuthenticationPlugin
             // Negative values can cause session expiry extension
             // Too big values can cause overflow and lead to same
             $time = time() - min(
-                max(0, intval($_REQUEST['access_time'])),
+                max(0, (int) $_REQUEST['access_time']),
                 Config::getInstance()->settings['LoginCookieValidity'] + 1,
             );
         } else {

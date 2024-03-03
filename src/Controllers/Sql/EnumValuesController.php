@@ -12,7 +12,6 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 
 use function __;
-use function strval;
 
 final class EnumValuesController extends AbstractController
 {
@@ -31,7 +30,7 @@ final class EnumValuesController extends AbstractController
     {
         $column = $request->getParsedBodyParam('column');
         $currValue = $request->getParsedBodyParam('curr_value');
-        $values = $this->sql->getValuesForColumn(Current::$database, Current::$table, strval($column));
+        $values = $this->sql->getValuesForColumn(Current::$database, Current::$table, (string) $column);
 
         if ($values === null) {
             $this->response->addJSON('message', __('Error in processing request'));
@@ -42,7 +41,7 @@ final class EnumValuesController extends AbstractController
 
         $dropdown = $this->template->render('sql/enum_column_dropdown', [
             'values' => $values,
-            'selected_values' => [strval($currValue)],
+            'selected_values' => [(string) $currValue],
         ]);
 
         $this->response->addJSON('dropdown', $dropdown);

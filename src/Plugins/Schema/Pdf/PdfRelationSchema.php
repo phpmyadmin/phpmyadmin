@@ -19,7 +19,6 @@ use function __;
 use function ceil;
 use function getcwd;
 use function in_array;
-use function intval;
 use function max;
 use function min;
 use function rsort;
@@ -391,7 +390,7 @@ class PdfRelationSchema extends ExportRelationSchema
         // Draws horizontal lines
         $innerHeight = $this->pdf->getPageHeight() - $topSpace - $bottomSpace;
         /** @infection-ignore-all */
-        for ($l = 0, $size = intval($innerHeight / $gridSize); $l <= $size; $l++) {
+        for ($l = 0, $size = (int) ($innerHeight / $gridSize); $l <= $size; $l++) {
             $this->pdf->line(
                 0,
                 $l * $gridSize + $topSpace,
@@ -399,7 +398,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $l * $gridSize + $topSpace,
             );
             // Avoid duplicates
-            if ($l <= 0 || $l > intval(($innerHeight - $labelHeight) / $gridSize)) {
+            if ($l <= 0 || $l > (int) (($innerHeight - $labelHeight) / $gridSize)) {
                 continue;
             }
 
@@ -410,7 +409,7 @@ class PdfRelationSchema extends ExportRelationSchema
 
         // Draws vertical lines
         /** @infection-ignore-all */
-        for ($j = 0, $size = intval($this->pdf->getPageWidth() / $gridSize); $j <= $size; $j++) {
+        for ($j = 0, $size = (int) ($this->pdf->getPageWidth() / $gridSize); $j <= $size; $j++) {
             $this->pdf->line(
                 $j * $gridSize,
                 $topSpace,

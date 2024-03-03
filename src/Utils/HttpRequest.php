@@ -16,7 +16,6 @@ use function file_get_contents;
 use function function_exists;
 use function getenv;
 use function ini_get;
-use function intval;
 use function is_array;
 use function is_dir;
 use function parse_url;
@@ -255,7 +254,7 @@ class HttpRequest
         }
 
         preg_match('#HTTP/[0-9\.]+\s+([0-9]+)#', $http_response_header[0], $out);
-        $httpStatus = intval($out[1]);
+        $httpStatus = (int) $out[1];
 
         return $this->response($response, $httpStatus, $returnOnlyStatus);
     }

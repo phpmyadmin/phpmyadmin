@@ -18,7 +18,6 @@ use function explode;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
-use function intval;
 use function is_array;
 use function json_encode;
 use function mb_strtoupper;
@@ -175,7 +174,7 @@ class Normalization
                 $this->dbi->getVersion(),
             ),
             'server_version' => $this->dbi->getVersion(),
-            'max_rows' => intval($this->config->settings['MaxRows']),
+            'max_rows' => (int) $this->config->settings['MaxRows'],
             'char_editing' => $this->config->settings['CharEditing'],
             'attribute_types' => $this->dbi->types->getAttributes(),
             'privs_available' => $userPrivileges->column && $userPrivileges->isReload,

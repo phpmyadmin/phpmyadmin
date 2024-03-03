@@ -14,7 +14,6 @@ use PhpMyAdmin\Plugins\TransformationsPlugin;
 use function __;
 use function bin2hex;
 use function chunk_split;
-use function intval;
 
 /**
  * Provides common methods for all of the hex transformations plugins.
@@ -45,7 +44,7 @@ abstract class HexTransformationsPlugin extends TransformationsPlugin
         // possibly use a global transform and feed it with special options
         $cfg = Config::getInstance()->settings;
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['Hex']);
-        $options[0] = intval($options[0]);
+        $options[0] = (int) $options[0];
 
         if ($options[0] < 1) {
             return bin2hex($buffer);

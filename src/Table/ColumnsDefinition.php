@@ -23,7 +23,6 @@ use function bin2hex;
 use function count;
 use function explode;
 use function in_array;
-use function intval;
 use function is_array;
 use function mb_strtoupper;
 use function preg_quote;
@@ -354,7 +353,7 @@ final class ColumnsDefinition
                 $this->dbi->getVersion(),
             ),
             'server_version' => $this->dbi->getVersion(),
-            'max_rows' => intval($config->settings['MaxRows']),
+            'max_rows' => (int) $config->settings['MaxRows'],
             'char_editing' => $config->settings['CharEditing'] ?? null,
             'attribute_types' => $this->dbi->types->getAttributes(),
             'privs_available' => $userPrivileges->column && $userPrivileges->isReload,

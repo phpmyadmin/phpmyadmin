@@ -10,7 +10,6 @@ use Throwable;
 use function array_merge;
 use function class_exists;
 use function intdiv;
-use function intval;
 
 /**
  * Windows NT based SysInfo class
@@ -131,9 +130,9 @@ class WindowsNt extends Base
         $peak = 0;
         foreach ($instances as $instance) {
             // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-            $total += intval($instance->AllocatedBaseSize) * 1024; /* @phpstan-ignore-line */
-            $used += intval($instance->CurrentUsage) * 1024; /* @phpstan-ignore-line */
-            $peak += intval($instance->PeakUsage) * 1024; /* @phpstan-ignore-line */
+            $total += (int) $instance->AllocatedBaseSize * 1024; /* @phpstan-ignore-line */
+            $used += (int) $instance->CurrentUsage * 1024; /* @phpstan-ignore-line */
+            $peak += (int) $instance->PeakUsage * 1024; /* @phpstan-ignore-line */
             // phpcs:enable
         }
 

@@ -15,7 +15,6 @@ use function debug_backtrace;
 use function explode;
 use function htmlspecialchars;
 use function htmlspecialchars_decode;
-use function intval;
 use function md5;
 use function sprintf;
 use function str_contains;
@@ -157,7 +156,7 @@ class Utilities
     {
         $match = explode('.', $version);
 
-        return (int) sprintf('%d%02d%02d', $match[0], $match[1], intval($match[2]));
+        return (int) sprintf('%d%02d%02d', $match[0], $match[1], (int) $match[2]);
     }
 
     /**

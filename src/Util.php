@@ -28,7 +28,6 @@ use function decbin;
 use function explode;
 use function extension_loaded;
 use function fclose;
-use function floatval;
 use function floor;
 use function fread;
 use function function_exists;
@@ -388,7 +387,7 @@ class Util
                 /* l10n: Thousands separator */
                 __(','),
             );
-            if ($originalValue != 0 && floatval($value) == 0) {
+            if ($originalValue != 0 && (float) $value == 0) {
                 return ' <' . (1 / 10 ** $digitsRight);
             }
 
@@ -453,7 +452,7 @@ class Util
             $formattedValue = preg_replace('/' . preg_quote($decimalSep, '/') . '?0+$/', '', $formattedValue);
         }
 
-        if ($originalValue != 0 && floatval($value) == 0) {
+        if ($originalValue != 0 && $value == 0) {
             return ' <' . number_format(1 / 10 ** $digitsRight, $digitsRight, $decimalSep, $thousandsSep) . ' ' . $unit;
         }
 

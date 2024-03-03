@@ -29,7 +29,6 @@ use PhpMyAdmin\Utils\Gis;
 
 use function __;
 use function in_array;
-use function intval;
 use function is_array;
 use function mb_strtolower;
 use function md5;
@@ -315,7 +314,7 @@ class SearchController extends AbstractController
             'column_types' => $this->columnTypes,
             'column_collations' => $this->columnCollations,
             'default_sliders_state' => $config->settings['InitialSlidersState'],
-            'max_rows' => intval($config->settings['MaxRows']),
+            'max_rows' => (int) $config->settings['MaxRows'],
         ]);
     }
 

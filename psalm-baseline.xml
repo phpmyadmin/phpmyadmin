@@ -2924,20 +2924,12 @@
     </UnusedParam>
   </file>
   <file src="src/Controllers/Sql/EnumValuesController.php">
-    <MixedArgument>
-      <code><![CDATA[$column]]></code>
-      <code><![CDATA[$currValue]]></code>
-    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$column]]></code>
       <code><![CDATA[$currValue]]></code>
     </MixedAssignment>
   </file>
   <file src="src/Controllers/Sql/RelationalValuesController.php">
-    <MixedArgument>
-      <code><![CDATA[$column]]></code>
-      <code><![CDATA[$currValue]]></code>
-    </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
     </MixedArrayAccess>
@@ -3653,6 +3645,9 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[getColumnProperties]]></code>
     </PossiblyUnusedMethod>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) $config->settings['MaxRows']]]></code>
+    </RedundantCastGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$searchColumnInForeigners]]></code>
       <code><![CDATA[empty($row->collation)]]></code>
@@ -4032,6 +4027,12 @@
       <code><![CDATA[$_POST['maxPlotLimit']]]></code>
       <code><![CDATA[$_POST['where_clause']]]></code>
     </PossiblyInvalidOperand>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) $config->settings['maxRowPlotLimit']]]></code>
+    </RedundantCastGivenDocblockType>
+    <RiskyCast>
+      <code><![CDATA[$_POST['maxPlotLimit']]]></code>
+    </RiskyCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$searchColumnInForeigners]]></code>
       <code><![CDATA[empty($_POST['maxPlotLimit'])]]></code>
@@ -4642,6 +4643,9 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </PossiblyUndefinedArrayOffset>
+    <RiskyCast>
+      <code><![CDATA[$_POST['item_interval_value']]]></code>
+    </RiskyCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
       <code><![CDATA[empty($_POST['item_comment'])]]></code>
@@ -5350,6 +5354,9 @@
       <code><![CDATA[$o->expr->expr]]></code>
       <code><![CDATA[$order->expr->column]]></code>
     </PossiblyNullPropertyFetch>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) $this->config->settings['MaxRows']]]></code>
+    </RedundantCastGivenDocblockType>
     <RedundantCondition>
       <code><![CDATA[! empty($added[$orgFullTableName])]]></code>
       <code><![CDATA[empty($statementInfo->statement->from)]]></code>
@@ -7098,6 +7105,9 @@
     <RedundantCast>
       <code><![CDATA[(string) $dependon]]></code>
     </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) $this->config->settings['MaxRows']]]></code>
+    </RedundantCastGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$dropCols]]></code>
     </RiskyTruthyFalsyComparison>
@@ -7554,6 +7564,9 @@
     <RedundantCast>
       <code><![CDATA[(string) $GLOBALS['conn_error']]]></code>
     </RedundantCast>
+    <RiskyCast>
+      <code><![CDATA[$_GET['session_expired']]]></code>
+    </RiskyCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['conn_error'])]]></code>
       <code><![CDATA[empty($_POST[$config->settings['CaptchaResponseParam']])]]></code>
@@ -7640,6 +7653,12 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_REQUEST['guid']]]></code>
     </PossiblyInvalidCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) Config::getInstance()->settings['LoginCookieValidity']]]></code>
+    </RedundantCastGivenDocblockType>
+    <RiskyCast>
+      <code><![CDATA[$_REQUEST['access_time']]]></code>
+    </RiskyCast>
   </file>
   <file src="src/Plugins/AuthenticationPluginFactory.php">
     <DeprecatedMethod>
@@ -10987,6 +11006,9 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
     </PossiblyUndefinedArrayOffset>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(int) $config->settings['MaxRows']]]></code>
+    </RedundantCastGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $columnMeta['column_status']['isEditable']]]></code>
       <code><![CDATA[! $columnMeta['column_status']['isEditable']]]></code>

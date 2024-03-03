@@ -52,7 +52,6 @@ use function floor;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
-use function intval;
 use function is_array;
 use function is_int;
 use function is_numeric;
@@ -641,15 +640,15 @@ class Results
 
         $isLastPage = $this->unlimNumRows !== -1 && $this->unlimNumRows !== false
             && ($isShowingAll
-                || intval($_SESSION['tmpval']['pos']) + intval($_SESSION['tmpval']['max_rows'])
+                || (int) $_SESSION['tmpval']['pos'] + (int) $_SESSION['tmpval']['max_rows']
                 >= $this->unlimNumRows
                 || $this->numRows < $_SESSION['tmpval']['max_rows']);
 
         $onsubmit = ' onsubmit="return '
-            . (intval($_SESSION['tmpval']['pos'])
-            + intval($_SESSION['tmpval']['max_rows'])
+            . ((int) $_SESSION['tmpval']['pos']
+            + (int) $_SESSION['tmpval']['max_rows']
             < $this->unlimNumRows
-            && $this->numRows >= intval($_SESSION['tmpval']['max_rows'])
+            && $this->numRows >= (int) $_SESSION['tmpval']['max_rows']
                 ? 'true'
                 : 'false') . ';"';
 
@@ -657,7 +656,7 @@ class Results
         if (is_numeric($_SESSION['tmpval']['max_rows'])) {
             $posLast = @((int) ceil(
                 (int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows'],
-            ) - 1) * intval($_SESSION['tmpval']['max_rows']);
+            ) - 1) * (int) $_SESSION['tmpval']['max_rows'];
         }
 
         $hiddenFields = [
@@ -2997,7 +2996,7 @@ class Results
             $query['max_rows'] = self::ALL_ROWS;
             unset($_GET['session_max_rows'], $_POST['session_max_rows']);
         } elseif (empty($query['max_rows'])) {
-            $query['max_rows'] = intval($this->config->settings['MaxRows']);
+            $query['max_rows'] = (int) $this->config->settings['MaxRows'];
         }
 
         if (isset($_REQUEST['pos']) && is_numeric($_REQUEST['pos'])) {

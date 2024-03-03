@@ -21,7 +21,6 @@ use function array_keys;
 use function count;
 use function explode;
 use function in_array;
-use function intval;
 use function is_array;
 use function is_string;
 use function json_decode;
@@ -319,7 +318,7 @@ class Common
 
         $defaultPageNo = $this->dbi->fetchValue($query, 0, ConnectionType::ControlUser);
 
-        return is_string($defaultPageNo) ? intval($defaultPageNo) : -1;
+        return is_string($defaultPageNo) ? (int) $defaultPageNo : -1;
     }
 
     /**
@@ -371,7 +370,7 @@ class Common
 
         $minPageNo = $this->dbi->fetchValue($query, 0, ConnectionType::ControlUser);
 
-        return is_string($minPageNo) ? intval($minPageNo) : -1;
+        return is_string($minPageNo) ? (int) $minPageNo : -1;
     }
 
     /**
