@@ -720,6 +720,7 @@ class StructureController extends AbstractController
             case 'InnoDB':
             case 'PBMS':
             case 'TokuDB':
+            case 'ROCKSDB':
                 // InnoDB table: Row count is not accurate but data and index sizes are.
                 // PBMS table in Drizzle: TABLE_ROWS is taken from table cache,
                 // so it may be unavailable
