@@ -36,7 +36,6 @@ use function in_array;
 use function ini_get;
 use function ini_parse_quantity;
 use function ini_set;
-use function intval;
 use function is_array;
 use function is_link;
 use function is_numeric;
@@ -475,7 +474,7 @@ final class ImportController extends AbstractController
 
         // Something to skip? (because timeout has passed)
         if (! $GLOBALS['error'] && $request->hasBodyParam('skip')) {
-            $originalSkip = $skip = intval($request->getParsedBodyParam('skip'));
+            $originalSkip = $skip = (int) $request->getParsedBodyParam('skip');
             while ($skip > 0 && ! ImportSettings::$finished) {
                 $this->import->getNextChunk(
                     $importHandle ?? null,

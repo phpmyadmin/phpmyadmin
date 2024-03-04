@@ -2627,7 +2627,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 3
+			count: 4
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -2687,11 +2687,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -2856,7 +2851,7 @@ parameters:
 			path: src/Controllers/NavigationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
+			message: "#^Cannot cast mixed to int\\.$#"
 			count: 1
 			path: src/Controllers/Normalization/CreateNewColumnController.php
 
@@ -3861,7 +3856,7 @@ parameters:
 			path: src/Controllers/Setup/ValidateController.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of function strval expects bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
+			message: "#^Cannot cast mixed to string\\.$#"
 			count: 2
 			path: src/Controllers/Sql/EnumValuesController.php
 
@@ -3871,7 +3866,7 @@ parameters:
 			path: src/Controllers/Sql/RelationalValuesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of function strval expects bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
+			message: "#^Cannot cast mixed to string\\.$#"
 			count: 2
 			path: src/Controllers/Sql/RelationalValuesController.php
 
@@ -4221,18 +4216,13 @@ parameters:
 			path: src/Controllers/Table/CreateController.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
-			count: 1
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 5
 			path: src/Controllers/Table/CreateController.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
 			count: 1
-			path: src/Controllers/Table/CreateController.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
-			count: 5
 			path: src/Controllers/Table/CreateController.php
 
 		-
@@ -4971,6 +4961,11 @@ parameters:
 			path: src/Controllers/Table/SearchController.php
 
 		-
+			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
+			count: 1
+			path: src/Controllers/Table/SearchController.php
+
+		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
 			path: src/Controllers/Table/SearchController.php
@@ -5581,7 +5576,17 @@ parameters:
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/Controllers/Table/ZoomSearchController.php
+
+		-
 			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: src/Controllers/Table/ZoomSearchController.php
+
+		-
+			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
 			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
 
@@ -5652,11 +5657,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getTypeOperatorsHtml\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
 
@@ -6381,6 +6381,11 @@ parameters:
 			path: src/Database/Events.php
 
 		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/Database/Events.php
+
+		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 13
 			path: src/Database/Events.php
@@ -6417,11 +6422,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, string\\|null given\\.$#"
-			count: 1
-			path: src/Database/Events.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Database/Events.php
 
@@ -7042,6 +7042,11 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
+			count: 6
+			path: src/Display/Results.php
+
+		-
+			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
 			count: 1
 			path: src/Display/Results.php
 
@@ -7173,11 +7178,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 2
-			path: src/Display/Results.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
-			count: 5
 			path: src/Display/Results.php
 
 		-
@@ -9596,6 +9596,11 @@ parameters:
 			path: src/Normalization.php
 
 		-
+			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
+			count: 1
+			path: src/Normalization.php
+
+		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: src/Normalization.php
@@ -10141,6 +10146,11 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/Plugins/Auth/AuthenticationCookie.php
+
+		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: src/Plugins/Auth/AuthenticationCookie.php
@@ -10197,11 +10207,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
@@ -10316,7 +10321,17 @@ parameters:
 			path: src/Plugins/AuthenticationPlugin.php
 
 		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/Plugins/AuthenticationPlugin.php
+
+		-
 			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: src/Plugins/AuthenticationPlugin.php
+
+		-
+			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
 			count: 1
 			path: src/Plugins/AuthenticationPlugin.php
 
@@ -10327,11 +10342,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$url of method PhpMyAdmin\\\\ResponseRenderer\\:\\:redirect\\(\\) expects non\\-empty\\-string, string given\\.$#"
-			count: 1
-			path: src/Plugins/AuthenticationPlugin.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/AuthenticationPlugin.php
 
@@ -12311,7 +12321,7 @@ parameters:
 			path: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
+			message: "#^Cannot cast mixed to int\\.$#"
 			count: 1
 			path: src/Plugins/Transformations/Abs/HexTransformationsPlugin.php
 
@@ -12321,7 +12331,7 @@ parameters:
 			path: src/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
+			message: "#^Cannot cast mixed to int\\.$#"
 			count: 2
 			path: src/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php
 
@@ -13501,6 +13511,16 @@ parameters:
 			path: src/Server/Status/Processes.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Server\\\\SysInfo\\\\Linux\\:\\:memory\\(\\) should return array\\<string, int\\> but returns array\\<int\\>\\.$#"
+			count: 1
+			path: src/Server/SysInfo/Linux.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(mixed\\)\\: mixed\\)\\|null, Closure\\(array\\|bool\\|float\\|int\\|resource\\|string\\|null, int\\=\\)\\: int given\\.$#"
+			count: 1
+			path: src/Server/SysInfo/Linux.php
+
+		-
 			message: "#^Parameter \\#1 \\$keys of function array_combine expects array\\<int\\|string\\>, mixed given\\.$#"
 			count: 1
 			path: src/Server/SysInfo/Linux.php
@@ -13973,6 +13993,11 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 2
+			path: src/Table/ColumnsDefinition.php
+
+		-
+			message: "#^Casting to int something that's already int\\<1, max\\>\\.$#"
+			count: 1
 			path: src/Table/ColumnsDefinition.php
 
 		-

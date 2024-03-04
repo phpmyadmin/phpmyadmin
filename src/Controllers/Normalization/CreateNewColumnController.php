@@ -13,7 +13,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
 
-use function intval;
 use function min;
 
 final class CreateNewColumnController extends AbstractController
@@ -31,7 +30,7 @@ final class CreateNewColumnController extends AbstractController
     {
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
-        $numFields = min(4096, intval($request->getParsedBodyParam('numFields')));
+        $numFields = min(4096, (int) $request->getParsedBodyParam('numFields'));
         $html = $this->normalization->getHtmlForCreateNewColumn(
             $userPrivileges,
             $numFields,

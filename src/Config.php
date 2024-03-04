@@ -31,7 +31,6 @@ use function function_exists;
 use function gd_info;
 use function implode;
 use function ini_get;
-use function intval;
 use function is_array;
 use function is_bool;
 use function is_dir;
@@ -228,7 +227,7 @@ class Config
             $this->set('PMA_USR_BROWSER_VER', $logVersion[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
         } elseif (preg_match('@Trident/(7)\.0@', $httpUserAgent, $logVersion)) {
-            $this->set('PMA_USR_BROWSER_VER', intval($logVersion[1]) + 4);
+            $this->set('PMA_USR_BROWSER_VER', (int) $logVersion[1] + 4);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
         } elseif (preg_match('@OmniWeb/([0-9]{1,3})@', $httpUserAgent, $logVersion)) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);

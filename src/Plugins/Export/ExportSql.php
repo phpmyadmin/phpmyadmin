@@ -43,7 +43,6 @@ use function defined;
 use function explode;
 use function implode;
 use function in_array;
-use function intval;
 use function is_array;
 use function mb_strlen;
 use function mb_strpos;
@@ -1109,7 +1108,7 @@ class ExportSql extends ExportPlugin
                         . Util::backquote($relationParameters->pdfFeature->database)
                         . '.' . Util::backquote($relationParameters->pdfFeature->pdfPages)
                         . ' WHERE `db_name` = ' . $dbi->quoteString($db)
-                        . ' AND `page_nr` = ' . intval($page);
+                        . ' AND `page_nr` = ' . (int) $page;
 
                     if (
                         ! $this->exportData(

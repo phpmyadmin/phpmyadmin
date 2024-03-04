@@ -26,7 +26,6 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
-use function intval;
 use function is_numeric;
 
 final class ImportController extends AbstractController
@@ -88,7 +87,7 @@ final class ImportController extends AbstractController
 
         $offset = null;
         if (isset($_REQUEST['offset']) && is_numeric($_REQUEST['offset'])) {
-            $offset = intval($_REQUEST['offset']);
+            $offset = (int) $_REQUEST['offset'];
         }
 
         $timeoutPassed = $_REQUEST['timeout_passed'] ?? null;

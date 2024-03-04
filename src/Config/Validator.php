@@ -23,7 +23,6 @@ use function error_get_last;
 use function explode;
 use function filter_var;
 use function htmlspecialchars;
-use function intval;
 use function is_array;
 use function is_object;
 use function mb_strpos;
@@ -491,7 +490,7 @@ class Validator
         $value = Util::requestString($values[$path]);
 
         if (
-            intval($value) != $value
+            (int) $value != $value
             || (! $allowNegative && $value < 0)
             || (! $allowZero && $value == 0)
             || $value > $maxValue

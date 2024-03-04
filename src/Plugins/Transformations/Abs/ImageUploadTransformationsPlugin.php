@@ -13,7 +13,6 @@ use PhpMyAdmin\Url;
 
 use function __;
 use function bin2hex;
-use function intval;
 
 /**
  * Provides common methods for all of the image upload transformations plugins.
@@ -74,8 +73,8 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
         }
 
         $html .= '<img src="' . $src . '" width="'
-            . (isset($options[0]) ? intval($options[0]) : '100') . '" height="'
-            . (isset($options[1]) ? intval($options[1]) : '100') . '" alt="'
+            . (isset($options[0]) ? (int) $options[0] : '100') . '" height="'
+            . (isset($options[1]) ? (int) $options[1] : '100') . '" alt="'
             . __('Image preview here') . '">';
         $html .= '<br><input type="file" name="fields_upload'
             . $columnNameAppendix . '" accept="image/*" class="image-upload">';

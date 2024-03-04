@@ -21,7 +21,6 @@ use PhpMyAdmin\UserPrivilegesFactory;
 
 use function __;
 use function htmlspecialchars;
-use function intval;
 use function is_array;
 use function mb_strtolower;
 use function min;
@@ -112,7 +111,7 @@ class CreateController extends AbstractController
             // Executes the query
             $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
 
-            if ($result) {
+            if ($result !== false) {
                 // Update comment table for mime types [MIME]
                 if (isset($_POST['field_mimetype']) && is_array($_POST['field_mimetype']) && $cfg['BrowseMIME']) {
                     foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
@@ -166,11 +165,11 @@ class CreateController extends AbstractController
         $numFields = $request->getParsedBodyParam('num_fields');
 
         if ($request->hasBodyParam('submit_num_fields')) { // adding new fields
-            $numberOfFields = intval($origNumFields) + intval($request->getParsedBodyParam('added_fields'));
+            $numberOfFields = (int) $origNumFields + (int) $request->getParsedBodyParam('added_fields');
         } elseif ($origNumFields !== null) { // retaining existing fields
-            $numberOfFields = intval($origNumFields);
-        } elseif ($numFields !== null && intval($numFields) > 0) { // new table with specified number of fields
-            $numberOfFields = intval($numFields);
+            $numberOfFields = (int) $origNumFields;
+        } elseif ($numFields !== null && (int) $numFields > 0) { // new table with specified number of fields
+            $numberOfFields = (int) $numFields;
         } else { // new table with unspecified number of fields
             $numberOfFields = 4;
         }

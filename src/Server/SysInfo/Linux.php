@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Server\SysInfo;
 
 use function array_combine;
+use function array_map;
 use function array_merge;
 use function file_get_contents;
 use function intval;
@@ -75,11 +76,7 @@ class Linux extends Base
 
         preg_match_all(SysInfo::MEMORY_REGEXP, $content, $matches);
 
-        /** @var array<string, int>|false $mem */
         $mem = array_combine($matches[1], $matches[2]);
-        if ($mem === false) {
-            return [];
-        }
 
         $defaults = [
             'MemTotal' => 0,
@@ -93,9 +90,7 @@ class Linux extends Base
 
         $mem = array_merge($defaults, $mem);
 
-        foreach ($mem as $idx => $value) {
-            $mem[$idx] = intval($value);
-        }
+        $mem = array_map(intval(...), $mem);
 
         $mem['MemUsed'] = $mem['MemTotal'] - $mem['MemFree'] - $mem['Cached'] - $mem['Buffers'];
         $mem['SwapUsed'] = $mem['SwapTotal'] - $mem['SwapFree'] - $mem['SwapCached'];

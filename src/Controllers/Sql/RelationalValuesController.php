@@ -11,8 +11,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 
-use function strval;
-
 final class RelationalValuesController extends AbstractController
 {
     public function __construct(
@@ -42,8 +40,8 @@ final class RelationalValuesController extends AbstractController
         $dropdown = $this->sql->getHtmlForRelationalColumnDropdown(
             Current::$database,
             Current::$table,
-            strval($column),
-            strval($currValue),
+            (string) $column,
+            (string) $currValue,
         );
         $this->response->addJSON('dropdown', $dropdown);
     }

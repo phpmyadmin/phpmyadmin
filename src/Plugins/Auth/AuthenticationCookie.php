@@ -34,7 +34,6 @@ use function explode;
 use function function_exists;
 use function in_array;
 use function ini_get;
-use function intval;
 use function is_array;
 use function is_string;
 use function json_decode;
@@ -118,7 +117,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Show error message
         if (! empty($GLOBALS['conn_error'])) {
             $errorMessages = Message::rawError((string) $GLOBALS['conn_error'])->getDisplay();
-        } elseif (isset($_GET['session_expired']) && intval($_GET['session_expired']) == 1) {
+        } elseif (isset($_GET['session_expired']) && (int) $_GET['session_expired'] == 1) {
             $errorMessages = Message::rawError(
                 __('Your session has expired. Please log in again.'),
             )->getDisplay();

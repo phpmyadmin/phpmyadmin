@@ -22,7 +22,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function htmlspecialchars;
-use function intval;
 use function is_numeric;
 use function is_string;
 use function round;
@@ -164,11 +163,11 @@ class WrapperController extends AbstractController
          * stays smaller than the new width and new height
          */
         if ($ratioWidth < $ratioHeight) {
-            $destWidth = intval(round($srcWidth / $ratioHeight));
+            $destWidth = (int) round($srcWidth / $ratioHeight);
             $destHeight = $newHeight;
         } else {
             $destWidth = $newWidth;
-            $destHeight = intval(round($srcHeight / $ratioWidth));
+            $destHeight = (int) round($srcHeight / $ratioWidth);
         }
 
         $destImage = ImageWrapper::create($destWidth, $destHeight);

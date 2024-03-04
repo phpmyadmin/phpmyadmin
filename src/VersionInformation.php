@@ -11,7 +11,6 @@ use PhpMyAdmin\Utils\HttpRequest;
 
 use function count;
 use function explode;
-use function intval;
 use function is_array;
 use function is_numeric;
 use function is_string;
@@ -117,7 +116,7 @@ class VersionInformation
             $matches = [];
             if (preg_match('/^(\D+)(\d+)$/', $suffix, $matches)) {
                 $suffix = $matches[1];
-                $result += intval($matches[2]);
+                $result += (int) $matches[2];
             }
 
             switch ($suffix) {

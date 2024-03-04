@@ -18,7 +18,6 @@ use function array_multisort;
 use function explode;
 use function htmlspecialchars;
 use function in_array;
-use function intval;
 use function is_string;
 use function sprintf;
 use function str_contains;
@@ -285,7 +284,7 @@ class Events
                     && ! empty($_POST['item_interval_field'])
                     && in_array($_POST['item_interval_field'], $this->interval, true)
                 ) {
-                    $query .= 'EVERY ' . intval($_POST['item_interval_value']) . ' ';
+                    $query .= 'EVERY ' . (int) $_POST['item_interval_value'] . ' ';
                     $query .= $_POST['item_interval_field'] . ' ';
                 } else {
                     $GLOBALS['errors'][] = __('You must provide a valid interval value for the event.');

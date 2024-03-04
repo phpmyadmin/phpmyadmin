@@ -26,7 +26,6 @@ use function header_remove;
 use function htmlspecialchars;
 use function http_build_query;
 use function in_array;
-use function intval;
 use function is_array;
 use function is_scalar;
 use function is_string;
@@ -656,7 +655,7 @@ class Core
                 case 's':
                     /* string */
                     // parse sting length
-                    $strlen = intval(substr($data, $i + 2));
+                    $strlen = (int) substr($data, $i + 2);
                     // string start
                     $i = strpos($data, ':', $i + 2);
                     if ($i === false) {
