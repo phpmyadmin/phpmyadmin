@@ -27,7 +27,7 @@ class LanguageManager
      * - Language code
      * - English language name
      * - Native language name
-     * - Match regullar expression
+     * - Match regular expression
      * - MySQL locale
      */
     private static $_language_data = array(
@@ -317,6 +317,13 @@ class LanguageManager
             'Asụsụ Igbo',
             'ig|igbo',
             '',
+        ),
+        'is' => array(
+            'is',
+            'Icelandic',
+            'Íslenska',
+            'is|icelandic',
+            'is_IS',
         ),
         'it' => array(
             'it',
