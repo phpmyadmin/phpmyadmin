@@ -24,6 +24,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function abs;
+use function array_fill;
 use function array_key_last;
 use function array_map;
 use function count;
@@ -826,19 +827,12 @@ class Import
         /* Get number of rows in table */
         /* Get number of columns */
         $numCols = count($table->columns);
-        /* Current type for each column */
-        $types = [];
-        $sizes = [];
 
         /* Initialize $sizes to all 0's */
-        for ($i = 0; $i < $numCols; ++$i) {
-            $sizes[$i] = 0;
-        }
+        $sizes = array_fill(0, $numCols, 0);
 
         /* Initialize $types to NONE */
-        for ($i = 0; $i < $numCols; ++$i) {
-            $types[$i] = self::NONE;
-        }
+        $types = array_fill(0, $numCols, self::NONE);
 
         /* Analyze each column */
         for ($i = 0; $i < $numCols; ++$i) {
