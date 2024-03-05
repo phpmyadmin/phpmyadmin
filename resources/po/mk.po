@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-03-03 00:18+0000\n"
-"PO-Revision-Date: 2024-02-24 02:49+0000\n"
+"PO-Revision-Date: 2024-03-06 04:39+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -2843,7 +2843,7 @@ msgid ""
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 "Може да биде приближно. Кликнете на бројот за да добиете точна бројка. "
-"Видете [doc@faq3-11]ЧПП 3.11[/doc]"
+"Видете [doc@faq3-11]ЧПП 3.11[/doc]."
 
 #: resources/templates/database/structure/table_header.twig:36
 #: resources/templates/table/index_form.twig:142
@@ -4584,9 +4584,8 @@ msgid "Create database"
 msgstr "Креирај нова база на податоци"
 
 #: resources/templates/server/databases/index.twig:50
-#, fuzzy
 msgid "No privileges to create databases"
-msgstr "Провери привилегии за базата на податоци \"%s\"."
+msgstr "Нема привилегии за создавање бази на податоци"
 
 #: resources/templates/server/databases/index.twig:156
 #: resources/templates/server/replication/index.twig:17
@@ -4664,18 +4663,16 @@ msgid "Variables"
 msgstr "Променливи"
 
 #: resources/templates/server/engines/show.twig:45
-#, fuzzy
 msgid "Unknown storage engine."
-msgstr "Видови на складишта"
+msgstr "Непознат мотор за складирање."
 
 #: resources/templates/server/export/index.twig:26
 msgid "@SERVER@ will become the server name."
 msgstr ""
 
 #: resources/templates/server/export/index.twig:3
-#, fuzzy
 msgid "Exporting databases from the current server"
-msgstr "Дозволува заклучување на табели на тековните процеси."
+msgstr "Извезување бази на податоци од тековниот сервер"
 
 #: resources/templates/server/import/index.twig:3
 #, fuzzy
@@ -4824,10 +4821,9 @@ msgstr "Привилегии врзани за колоните"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:48
 #: resources/templates/server/privileges/privileges_table.twig:8
 #: resources/templates/server/privileges/privileges_table.twig:270
-#, fuzzy
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr ""
-"Напомена: MySQL имињата на привилегите мора да бидат со латинични букви"
+"Забелешка: Имињата на привилегиите на MySQL се изразени на англиски јазик."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
 #: resources/templates/server/privileges/edit_routine_privileges.twig:66
@@ -5328,14 +5324,12 @@ msgstr ""
 "еден час."
 
 #: resources/templates/server/privileges/privileges_table.twig:790
-#, fuzzy
 msgid "Does not require SSL-encrypted connections."
-msgstr "Конекции"
+msgstr "Не треба врски енкриптирани со SSL."
 
 #: resources/templates/server/privileges/privileges_table.twig:804
-#, fuzzy
 msgid "Requires SSL-encrypted connections."
-msgstr "Конекции"
+msgstr "Потребни се врски енкриптирани со SSL."
 
 #: resources/templates/server/privileges/privileges_table.twig:813
 msgid "Requires a valid X509 certificate."
@@ -5453,11 +5447,9 @@ msgid "Save changes"
 msgstr "избери се"
 
 #: resources/templates/server/replication/change_primary.twig:4
-#, fuzzy
 msgid "Replica configuration - Change or reconfigure primary server"
 msgstr ""
-"Дополнителните можности за работа со поврзаните табели се исклучени. За да "
-"дознаете зошто, кликнете %sовде%s."
+"Конфигурација на реплика - Променете или конфигурирајте го примарниот сервер"
 
 #: resources/templates/server/replication/change_primary.twig:8
 msgid ""
@@ -5485,15 +5477,13 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/replication/index.twig:43
-#, fuzzy
 msgid "No privileges"
-msgstr "Нема привилегии."
+msgstr "Нема привилегии"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:7
 #: resources/templates/server/replication/primary_replication.twig:43
-#, fuzzy
 msgid "Add replica replication user"
-msgstr "Потребно заради помошните сервери за репликација."
+msgstr "Додајте корисник за репликација на реплика"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:21
 #: resources/templates/server/replication/primary_add_replica_user.twig:40
