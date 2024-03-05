@@ -8571,42 +8571,12 @@ parameters:
 			path: src/Import/Ajax.php
 
 		-
-			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 3
-			path: src/Import/Import.php
-
-		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: "#^Cannot access offset 2 on mixed\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: "#^Cannot access offset int on mixed\\.$#"
-			count: 3
-			path: src/Import/Import.php
-
-		-
-			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
-			count: 2
-			path: src/Import/Import.php
-
-		-
 			message: "#^Cannot call method getExtension\\(\\) on mixed\\.$#"
 			count: 1
 			path: src/Import/Import.php
 
 		-
 			message: "#^Cannot call method getProperties\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: "#^Cannot cast mixed to int\\.$#"
 			count: 1
 			path: src/Import/Import.php
 

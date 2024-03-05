@@ -15,6 +15,7 @@ use PhpMyAdmin\Gis\GisMultiLineString;
 use PhpMyAdmin\Gis\GisMultiPoint;
 use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Gis\GisPolygon;
+use PhpMyAdmin\Import\ColumnType;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Import\ImportTable;
@@ -278,7 +279,7 @@ class ImportShp extends ImportPlugin
         // Use data from shape file to chose best-fit MySQL types for each column
         $analysis = $this->import->analyzeTable($table);
 
-        $analysis[Import::TYPES][0] = Import::GEOMETRY;
+        $analysis[Import::TYPES][0] = ColumnType::Geometry;
         $analysis[Import::FORMATTEDSQL][0] = true;
 
         // Set database name to the currently selected one, if applicable
