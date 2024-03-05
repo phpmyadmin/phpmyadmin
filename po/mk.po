@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-02-24 02:49+0000\n"
+"PO-Revision-Date: 2024-03-06 04:39+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/mk/>\n"
@@ -15715,7 +15715,7 @@ msgid ""
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 "Може да биде приближно. Кликнете на бројот за да добиете точна бројка. "
-"Видете [doc@faq3-11]ЧПП 3.11[/doc]"
+"Видете [doc@faq3-11]ЧПП 3.11[/doc]."
 
 #: templates/database/structure/table_header.twig:36
 #: templates/table/index_form.twig:134
@@ -17158,10 +17158,8 @@ msgid "Create database"
 msgstr "Креирај нова база на податоци"
 
 #: templates/server/databases/index.twig:72
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
-msgstr "Провери привилегии за базата на податоци \"%s\"."
+msgstr "Нема привилегии за создавање бази на податоци"
 
 #: templates/server/databases/index.twig:159
 #: templates/server/replication/index.twig:18
@@ -17220,20 +17218,16 @@ msgid "Storage Engine"
 msgstr "Вид на складиште"
 
 #: templates/server/engines/show.twig:45
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Unknown storage engine."
-msgstr "Видови на складишта"
+msgstr "Непознат мотор за складирање."
 
 #: templates/server/export/index.twig:32
 msgid "@SERVER@ will become the server name."
 msgstr ""
 
 #: templates/server/export/index.twig:3
-#, fuzzy
-#| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "Дозволува заклучување на табели на тековните процеси."
+msgstr "Извезување бази на податоци од тековниот сервер"
 
 #: templates/server/export/index.twig:7
 #, fuzzy
@@ -17373,11 +17367,9 @@ msgstr ""
 #: templates/server/privileges/edit_routine_privileges.twig:51
 #: templates/server/privileges/privileges_table.twig:10
 #: templates/server/privileges/privileges_table.twig:248
-#, fuzzy
-#| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr ""
-"Напомена: MySQL имињата на привилегите мора да бидат со латинични букви"
+"Забелешка: Имињата на привилегиите на MySQL се изразени на англиски јазик."
 
 #: templates/server/privileges/edit_routine_privileges.twig:63
 #: templates/server/privileges/edit_routine_privileges.twig:67
@@ -17651,16 +17643,12 @@ msgstr ""
 "еден час."
 
 #: templates/server/privileges/privileges_table.twig:760
-#, fuzzy
-#| msgid "Connections"
 msgid "Does not require SSL-encrypted connections."
-msgstr "Конекции"
+msgstr "Не треба врски енкриптирани со SSL."
 
 #: templates/server/privileges/privileges_table.twig:769
-#, fuzzy
-#| msgid "Connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Конекции"
+msgstr "Потребни се врски енкриптирани со SSL."
 
 #: templates/server/privileges/privileges_table.twig:778
 msgid "Requires a valid X509 certificate."
@@ -17774,10 +17762,8 @@ msgid ""
 msgstr ""
 
 #: templates/server/replication/index.twig:43
-#, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
-msgstr "Нема привилегии."
+msgstr "Нема привилегии"
 
 #: templates/server/replication/master_add_slave_user.twig:6
 #: templates/server/replication/master_replication.twig:44
