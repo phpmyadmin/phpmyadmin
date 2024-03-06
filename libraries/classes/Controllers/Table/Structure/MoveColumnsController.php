@@ -78,7 +78,7 @@ final class MoveColumnsController extends AbstractController
             }
 
              // If the database is MariaDB and the field type is enum, retrieve the default value using a different query to avoid additional quotes.
-             if ($this->dbi->isMariaDB() && $data['Field'] == 'enum') {
+             if ($this->dbi->isMariaDB() && $data['Field'] === 'enum') {
                 $db = Util::backquote($this->db);
                 $table = Util::backquote($this->table);
                 $query = "SHOW COLUMNS FROM " . $table . " FROM " . $db . " WHERE Field = 'enum'";
