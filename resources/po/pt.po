@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-03-03 00:18+0000\n"
-"PO-Revision-Date: 2023-03-13 13:06+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2024-03-07 04:09+0000\n"
+"Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
 "Language: pt\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:30
 #: resources/templates/database/central_columns/edit_table_row.twig:22
@@ -42,8 +42,8 @@ msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
 msgstr ""
-"Você não possui permissão para esta operação; por favor, verifique a "
-"documentação para mais detalhes"
+"Não tem privilégios suficientes para efetuar esta operação; Por favor, "
+"consulte a documentação para mais detalhes"
 
 #: resources/templates/columns_definitions/column_attributes.twig:112
 #: resources/templates/database/data_dictionary/index.twig:41
@@ -259,7 +259,7 @@ msgstr "Pré-visualizar SQL"
 #: resources/templates/table/zoom_search/result_form.twig:74
 #: src/Controllers/JavaScriptMessagesController.php:452
 msgid "Save"
-msgstr "Guarda"
+msgstr "Guardar"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:166
 msgid ""
@@ -267,7 +267,7 @@ msgid ""
 "defining a TINYINT(1) column"
 msgstr ""
 "A largura da coluna de tipos inteiros é ignorada na sua versão do MySQL a "
-"não ser que seja definida uma coluna TINYINT(1)"
+"não ser que defina uma coluna TINYINT(1)"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:171
 #: resources/templates/database/designer/main.twig:1090
@@ -1006,7 +1006,7 @@ msgstr "Use Ctrl+Enter para executar a consulta"
 
 #: resources/templates/console/display.twig:31
 msgid "Press Enter to execute query"
-msgstr "Pressione Enter para executar consulta"
+msgstr "Pressione Enter para executar a querie"
 
 #: resources/templates/console/display.twig:42
 #: resources/templates/console/display.twig:200
@@ -1207,7 +1207,7 @@ msgstr "A_I"
 
 #: resources/templates/database/central_columns/main.twig:128
 msgid "The central list of columns for the current database is empty"
-msgstr "A lista central de colunas para o banco de dados atual está vazia"
+msgstr "A lista central de colunas para a base de dados atual está vazia"
 
 #: resources/templates/database/central_columns/main.twig:164
 #: resources/templates/display/results/table.twig:129
@@ -1306,7 +1306,7 @@ msgstr "Criar"
 
 #: resources/templates/database/data_dictionary/index.twig:4
 msgid "Database comment:"
-msgstr "Comentário do banco de dados:"
+msgstr "Comentário da base de dados:"
 
 #: resources/templates/database/data_dictionary/index.twig:8
 #: resources/templates/database/data_dictionary/index.twig:124
@@ -2012,7 +2012,7 @@ msgstr "Executar consulta"
 #: resources/templates/database/operations/index.twig:2
 #: src/Navigation/Nodes/NodeDatabase.php:51
 msgid "Database operations"
-msgstr "Operações com banco de dados"
+msgstr "Operações da base de dados"
 
 #: resources/templates/database/operations/index.twig:10
 msgid "Database comment"
@@ -2020,7 +2020,7 @@ msgstr "Comentário da base de dados"
 
 #: resources/templates/database/operations/index.twig:55
 msgid "Rename database to"
-msgstr "Renomear banco de dados para"
+msgstr "Mudar o nome da base de dados para"
 
 #: resources/templates/database/operations/index.twig:55
 #: resources/templates/export.twig:278
@@ -2054,7 +2054,7 @@ msgstr "Apagar a Base de Dados (DROP)"
 
 #: resources/templates/database/operations/index.twig:119
 msgid "Copy database to"
-msgstr "Copiar banco de dados para"
+msgstr "Copiar base de dados para"
 
 #: resources/templates/database/operations/index.twig:119
 #: resources/templates/server/databases/index.twig:23
@@ -2574,7 +2574,7 @@ msgstr ""
 #: src/Plugins/Export/ExportSql.php:888 src/Plugins/Export/ExportXml.php:357
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
-msgstr "Banco de dados:"
+msgstr "Base de dados:"
 
 #: resources/templates/database/structure/copy_form.twig:10
 msgid "Options:"
@@ -2595,7 +2595,7 @@ msgstr "Adicionar valor AUTO INCREMENT"
 #: resources/templates/table/structure/drop_confirm.twig:5
 #: resources/templates/table/structure/primary.twig:2
 msgid "Do you really want to execute the following query?"
-msgstr "Você realmente deseja executar a consulta SQL a seguir?"
+msgstr "Deseja realmente executar a seguinte querie?"
 
 #: resources/templates/database/structure/drop_form.twig:14
 #: resources/templates/database/structure/empty_form.twig:14
@@ -2629,7 +2629,7 @@ msgstr "Nenhuma tabela encontrada na base de dados."
 
 #: resources/templates/database/structure/show_create.twig:1
 msgid "Showing create queries"
-msgstr "Mostrar consultas create"
+msgstr "A mostrar a criação de consultas"
 
 #: resources/templates/database/structure/show_create.twig:6
 #: resources/templates/database/structure/table_header.twig:8
@@ -3008,7 +3008,7 @@ msgstr ""
 
 #: resources/templates/error/report_form.twig:12
 msgid "You may examine the data in the error report:"
-msgstr "Você pode examinar os dados no relatório de erros:"
+msgstr "Pode examinar os dados do relatório de erros:"
 
 #: resources/templates/error/report_form.twig:19 src/Error/ErrorHandler.php:404
 msgid "Automatically send report next time"
@@ -3069,7 +3069,7 @@ msgstr "Comando SQL:"
 
 #: resources/templates/export.twig:80
 msgid "Show SQL query"
-msgstr "Exibir consulta SQL"
+msgstr "Mostrar query SQL"
 
 #: resources/templates/export.twig:111
 msgid "Export method:"
@@ -3233,7 +3233,7 @@ msgstr "gzipado"
 
 #: resources/templates/export.twig:465
 msgid "Export databases as separate files"
-msgstr "Exportar bancos de dados como ficheiros separados"
+msgstr "Exportar bases de dados como ficheiros separados"
 
 #: resources/templates/export.twig:467
 msgid "Export tables as separate files"
@@ -3334,10 +3334,8 @@ msgid "MySQL documentation"
 msgstr "Documentação MySQL"
 
 #: resources/templates/header.twig:73
-#, fuzzy
-#| msgid "Appearance settings"
 msgid "Appearance:"
-msgstr "Definições de aspeto"
+msgstr "Aparência:"
 
 #: resources/templates/header.twig:76 resources/templates/home/index.twig:152
 msgid "Color mode for the theme"
@@ -3436,7 +3434,7 @@ msgstr "Mais definições"
 
 #: resources/templates/home/index.twig:93
 msgid "Appearance settings"
-msgstr "Definições de aspeto"
+msgstr "Definições de aparência"
 
 #: resources/templates/home/index.twig:104
 #: resources/templates/home/index.twig:106
@@ -3445,7 +3443,7 @@ msgstr "Definições de aspeto"
 #: resources/templates/setup/home/index.twig:5
 #: resources/templates/setup/home/index.twig:9
 msgid "Language"
-msgstr "Língua"
+msgstr "Idioma"
 
 #: resources/templates/home/index.twig:133
 msgid "Theme"
@@ -3831,8 +3829,8 @@ msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
-"Você não está usando o acesso https para o phpMyAdmin, portanto aparelhos "
-"FIDO U2F provavelmente irão recusar sua autenticação."
+"Não está a utilizar https para aceder ao phpMyAdmin, pelo que o dispositivo "
+"FIDO U2F irá muito provavelmente recusar-se a autenticá-lo."
 
 #: resources/templates/login/twofactor/key.twig:6
 msgid ""
@@ -4167,7 +4165,7 @@ msgstr ""
 
 #: resources/templates/preferences/two_factor/main.twig:49
 msgid "You have enabled two factor authentication."
-msgstr "Você habilitou a autenticação em dois fatores."
+msgstr "Ativou a verificação de dois passos."
 
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:41
@@ -4228,8 +4226,8 @@ msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
 "storage there."
 msgstr ""
-"%sCriar%s um banco de dados chamado '%s' e instalar as configurações do "
-"phpMyAdmin nele."
+"%sCriar%s uma base de dados com o nome '%s' e definir aí o armazenamento de "
+"configuração do phpMyAdmin."
 
 #: resources/templates/relation/check_relations.twig:24
 #, php-format
@@ -4348,9 +4346,8 @@ msgid "Persistent tables' UI preferences:"
 msgstr "Preferências de UI de tabelas persistentes"
 
 #: resources/templates/relation/check_relations.twig:316
-#, fuzzy
 msgid "Tracking:"
-msgstr "Rastreando"
+msgstr "Rastreio:"
 
 #: resources/templates/relation/check_relations.twig:341
 #, fuzzy
@@ -4480,7 +4477,7 @@ msgstr "Criar base de dados"
 
 #: resources/templates/server/databases/index.twig:50
 msgid "No privileges to create databases"
-msgstr "Sem privilégios para criar banco de dados"
+msgstr "Sem privilégios para criar bases de dados"
 
 #: resources/templates/server/databases/index.twig:156
 #: resources/templates/server/replication/index.twig:17
@@ -4498,7 +4495,7 @@ msgstr "Replicação de slave"
 #: resources/templates/server/databases/index.twig:181
 #, php-format
 msgid "Jump to database '%s'"
-msgstr "Ir para banco de dados '%s'"
+msgstr "Ir para a base de dados '%s'"
 
 #: resources/templates/server/databases/index.twig:239
 #, php-format
@@ -4613,11 +4610,12 @@ msgstr "Novo"
 
 #: resources/templates/server/privileges/add_user.twig:10
 msgid "Database for user account"
-msgstr "Banco de dados para a conta de utilizador"
+msgstr "Base de dados para a conta de utilizador"
 
 #: resources/templates/server/privileges/add_user.twig:13
 msgid "Create database with same name and grant all privileges."
-msgstr "Criar banco de dados com o mesmo nome e conceder todos os privilégios."
+msgstr ""
+"Criar uma base de dados com o mesmo nome e conceder todos os privilégios."
 
 #: resources/templates/server/privileges/add_user.twig:16
 msgid "Grant all privileges on wildcard name (username\\_%)."
@@ -4626,7 +4624,7 @@ msgstr "Conceder todos os privilégios no nome curinga (nome_do_utilizador_%)."
 #: resources/templates/server/privileges/add_user.twig:25
 #, php-format
 msgid "Grant all privileges on database %s."
-msgstr "Conceder todos os privilégios ao banco de dados %s."
+msgstr "Conceder todos os privilégios à base de dados %s."
 
 #: resources/templates/server/privileges/add_user.twig:35
 #, fuzzy
@@ -4792,8 +4790,8 @@ msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
-"Quando a tabela Host é usada, este campo é ignorado e em vey disso os "
-"valores armazenados na tabela Host são usados."
+"Quando é utilizada a tabela Host, este campo é ignorado e são utilizados os "
+"valores armazenados na tabela Host."
 
 #: resources/templates/server/privileges/login_information_fields.twig:44
 #: resources/templates/server/privileges/login_information_fields.twig:51
@@ -4856,7 +4854,7 @@ msgstr "Privilégios específicos da Coluna"
 
 #: resources/templates/server/privileges/privileges_summary.twig:55
 msgid "Add privileges on the following database(s):"
-msgstr "Adicionar privilégios no seguinte banco de dados:"
+msgstr "Adicionar privilégios na(s) seguinte(s) base(s) de dados:"
 
 #: resources/templates/server/privileges/privileges_summary.twig:68
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -4996,7 +4994,7 @@ msgstr "Permite executar consultas SHOW CREATE VIEW."
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: src/Server/Privileges.php:296 src/Server/Privileges.php:342
 msgid "Allows creating and dropping triggers."
-msgstr "Permite criar e apagar gatilhos."
+msgstr "Permite criar e apagar triggers."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:233
@@ -5175,8 +5173,8 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"Limita o número de comandos que alteram tabelas ou bancos de dados que o "
-"utilizador pode executar por hora."
+"Limita o número de comandos que alteram qualquer tabela ou base de dados que "
+"o utilizador pode executar por hora."
 
 #: resources/templates/server/privileges/privileges_table.twig:764
 #: resources/templates/server/privileges/privileges_table.twig:776
@@ -5381,7 +5379,6 @@ msgid "Primary configuration"
 msgstr "Configuração do servidor"
 
 #: resources/templates/server/replication/primary_configuration.twig:2
-#, fuzzy
 msgid ""
 "This server is not configured as a primary server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -5389,23 +5386,24 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"Este servidor não está configurado como servidor master num processo de "
-"replicação. Você pode escolher ou replicar todos os bancos de dados e "
-"ignorar alguns deles (útil se você quiser replicar a maioria dos bancos de "
-"dados) ou ignorar todos os bancos de dados por predefinição e permitir "
-"somente certos bancos de dados serem replicados. Favor selecionar o modo:"
+"Este servidor não está configurado como um servidor primário num processo de "
+"replicação. Pode escolher entre replicar todas as bases de dados e ignorar "
+"algumas delas (útil se pretender replicar a maioria das bases de dados) ou "
+"pode optar por ignorar todas as bases de dados por predefinição e permitir "
+"que apenas determinadas bases de dados sejam replicadas. Por favor, "
+"selecione o modo:"
 
 #: resources/templates/server/replication/primary_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
-msgstr "Replicar todos bancos de dados; Ignorar:"
+msgstr "Replicar todas as bases de dados; Ignorar:"
 
 #: resources/templates/server/replication/primary_configuration.twig:11
 msgid "Ignore all databases; Replicate:"
-msgstr "Ignorar todos bancos de dados; Replicar:"
+msgstr "Ignorar todas as bases de dados; Replicar:"
 
 #: resources/templates/server/replication/primary_configuration.twig:12
 msgid "Please select databases:"
-msgstr "Favor selecionar os bancos de dados:"
+msgstr "Por favor, selecione as bases de dados:"
 
 #: resources/templates/server/replication/primary_configuration.twig:15
 msgid ""
@@ -6604,7 +6602,7 @@ msgstr "Arraste para reordenar"
 #: src/Controllers/JavaScriptMessagesController.php:637
 #: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1536
 msgid "Ignore"
-msgstr "Ignora"
+msgstr "Ignorar"
 
 #: resources/templates/table/index_form.twig:237
 #: src/Controllers/JavaScriptMessagesController.php:120
@@ -7052,7 +7050,7 @@ msgstr "Nenhum"
 #: resources/templates/table/structure/display_structure.twig:108
 #: resources/templates/table/structure/display_structure.twig:287
 msgid "Change"
-msgstr "Muda"
+msgstr "Alterar"
 
 #: resources/templates/table/structure/display_structure.twig:116
 #, php-format
@@ -7284,7 +7282,7 @@ msgstr "Transformações de entrada disponíveis"
 
 #: resources/templates/triggers/editor_form.twig:18
 msgid "Trigger name"
-msgstr "Nome do gatilho"
+msgstr "Nome do trigger"
 
 #: resources/templates/triggers/editor_form.twig:38
 msgctxt "Trigger action time"
@@ -7305,7 +7303,7 @@ msgstr "Evento"
 #: src/Controllers/Triggers/IndexController.php:253
 #, php-format
 msgid "Export of trigger %s"
-msgstr "Exportação do gatilho %s"
+msgstr "Exportação do trigger %s"
 
 #: resources/templates/triggers/list.twig:3 src/Menu.php:290 src/Menu.php:383
 #: src/Navigation/Nodes/NodeTriggerContainer.php:23
@@ -7316,15 +7314,15 @@ msgstr "Exportação do gatilho %s"
 #: src/Plugins/Export/ExportTexytext.php:498
 #: src/Plugins/Export/ExportXml.php:104 src/Util.php:1492 src/Util.php:1508
 msgid "Triggers"
-msgstr "Acionadores"
+msgstr "Triggers"
 
 #: resources/templates/triggers/list.twig:29
 msgid "Create new trigger"
-msgstr "Criar gatilho"
+msgstr "Criar novo trigger"
 
 #: resources/templates/triggers/list.twig:40
 msgid "There are no triggers to display."
-msgstr "Não há gatilhos para exibir."
+msgstr "Não há triggers para apresentar."
 
 #: resources/templates/view_create.twig:74
 msgid "VIEW name"
@@ -7645,18 +7643,17 @@ msgid "Suboptimal caching method."
 msgstr "Método de cache sub-ótimo."
 
 #: src/Advisory/Rules.php:217
-#, fuzzy
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple replicas."
 msgstr ""
-"Está a usar o cache do MySQL Query com um banco de dados de tráfego bastante "
-"elevado. Pode valer a pena considerar a possibilidade de usar o <a "
-"href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\"> "
-"memcached </a> em vez do cache de consultas do MySQL, especialmente se tem "
-"vários slaves."
+"Está a usar a cache do MySQL Query com uma base de dados de tráfego bastante "
+"elevado. Pode valer a pena considerar a possibilidade de usar o <a href="
+"\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\"> memcached </"
+"a> em vez da cache de consultas do MySQL, especialmente se tem várias "
+"réplicas."
 
 #: src/Advisory/Rules.php:223
 #, php-format
@@ -8377,13 +8374,13 @@ msgid ""
 msgstr ""
 "Habitualmente é suficiente definir {innodb_log_file_size} a 25% do tamanho "
 "de {innodb_buffer_pool_size}. Um {innodb_log_file_size} muito grande diminui "
-"consideravelmente o tempo de recuperação após uma falha da banco de dados. "
-"Veja também <a href=\"https://www.percona.com/blog/2006/07/03/choosing-"
-"proper-innodb_log_file_size/\">este Artigo</a> . Deve desligar o servidor, "
-"remover os ficheiros de registo do InnoDB, definir o novo valor em my.cnf, "
-"iniciar o servidor e verificar nos registos de erros se tudo correu bem. "
-"Veja também <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">neste blog</a>"
+"consideravelmente o tempo de recuperação após uma falha da base de dados. "
+"Veja também <a href=\"https://www.percona.com/blog/2006/07/03/"
+"choosing-proper-innodb_log_file_size/\">este Artigo</a> . Deve desligar o "
+"servidor, remover os ficheiros de registo do InnoDB, definir o novo valor em "
+"my.cnf, iniciar o servidor e verificar nos registos de erros se tudo correu "
+"bem. Veja também <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">neste blogue</a>"
 
 #: src/Advisory/Rules.php:717
 #, php-format
@@ -8412,18 +8409,16 @@ msgid ""
 "href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
-"O buffer pool do InnoDB possui um profundo impacto no desempenho de tabelas "
+"O buffer pool do InnoDB tem um impacto profundo no desempenho das tabelas "
 "InnoDB. Atribua toda a sua memória restante a este buffer. Para servidores "
-"de bancos de dados que usam somente o InnoDB como mecanismo de armazenamento "
-"e não possuem nenhum outro serviço executando (por exemplo, servidor Web), "
-"deve atribuir até 80% da memória disponível. Se este não for o caso, deve "
-"avaliar cuidadosamente o consumo de memória dos outros serviços e tabelas "
-"não-InnoDB e atribuir o valor desta variável de acordo com o consumo. Tenha "
-"cuidado, pois ao atribuir valores muito altos, o seu sistema começará a "
-"fazer swap (aproveitamento de espaço em disco para função de memória), o que "
-"diminuirá o desempenho significativamente. Veja também <a href=\"https://www."
-"percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">este artigo</"
-"a>"
+"de bases de dados que utilizam apenas o InnoDB como motor de armazenamento e "
+"não têm outros serviços (por exemplo, um servidor Web) em execução, pode "
+"definir este valor como 80% da memória disponível. Se não for esse o caso, "
+"tem de avaliar cuidadosamente o consumo de memória dos seus outros serviços "
+"e tabelas não InnoDB e definir esta variável em conformidade. Se for "
+"definida como muito alta, o sistema começará a fazer swap, o que diminui "
+"significativamente o desempenho. Veja também este artigo: <a href=\"https"
+"://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\"></a>"
 
 #: src/Advisory/Rules.php:738
 #, php-format
@@ -9510,7 +9505,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:240
 msgid "Number of queries to skip from start."
-msgstr "Número de consultas para ignorar do início."
+msgstr "Número de queries a saltar desde o início."
 
 #: src/Config/Descriptions.php:242
 msgid ""
@@ -9610,8 +9605,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Agrupa itens na árvore de navegação (determinado pelo divisor definido nas "
-"abas Banco de Dados e Tabelas acima)."
+"Agrupar itens na árvore de navegação (determinado pelo separador definido "
+"nos separadores Bases de dados e Tabelas acima)."
 
 #: src/Config/Descriptions.php:291
 msgid ""
@@ -9628,8 +9623,8 @@ msgstr ""
 #: src/Config/Descriptions.php:297
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr ""
-"Se deseja expandir um banco de dados único na árvore de navegação "
-"automaticamente."
+"Se a base de dados individual deve ser expandida automaticamente na árvore "
+"de navegação."
 
 #: src/Config/Descriptions.php:299
 msgid "Set to 0 to collapse navigation panel."
@@ -9664,14 +9659,11 @@ msgstr "Destaque servidor sob o cursor do rato."
 
 #: src/Config/Descriptions.php:306
 msgid "Whether to show tables under database in the navigation tree"
-msgstr ""
-"Se deseja mostrar tabelas em banco de dados na árvore no painel de navegação"
+msgstr "Mostrar ou não as tabelas da base de dados na árvore de navegação"
 
 #: src/Config/Descriptions.php:307
 msgid "Whether to show views under database in the navigation tree"
-msgstr ""
-"Se deseja mostrar visualisações em banco de dados na árvore no painel de "
-"navegação"
+msgstr "Mostrar ou não as vistas da base de dados na árvore de navegação"
 
 #: src/Config/Descriptions.php:308
 msgid "Whether to show functions under database in the navigation tree"
@@ -9679,7 +9671,7 @@ msgstr "Se para mostrar funções abaixo da base de dados na árvore de navegaç
 
 #: src/Config/Descriptions.php:309
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Se deseja exibir os eventos no banco de dados na árvore de navegação"
+msgstr "Mostrar ou não eventos na base de dados na árvore de navegação"
 
 #: src/Config/Descriptions.php:311
 msgid ""
@@ -9837,9 +9829,9 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Banco de dados usado para relacionamentos, marcações e características dos "
-"PDF. Veja [doc@linked-tables]pmadb[/doc] para informações completas. Deixe "
-"em branco para nenhum suporte. Sugestão: [kbd]phpmyadmin[/kbd]."
+"Base de dados utilizada para relações, marcadores e funcionalidades de PDF. "
+"Consulte [doc@linked-tables]pmadb[/doc] para obter informações completas. "
+"Deixar em branco para não haver suporte. Sugerido: [kbd]phpmyadmin[/kbd]."
 
 #: src/Config/Descriptions.php:381
 msgid ""
@@ -10381,7 +10373,7 @@ msgstr "Para exibir as Opções"
 
 #: src/Config/Descriptions.php:571
 msgid "Directory where exports can be saved on server."
-msgstr "Pasta onde as exportações serão guardadas no Servidor."
+msgstr "Pasta onde as exportações serão guardadas no servidor."
 
 #: src/Config/Descriptions.php:572
 msgid ""
@@ -10694,7 +10686,7 @@ msgstr "Metodo de Exportação"
 
 #: src/Config/Descriptions.php:680 src/Config/Descriptions.php:683
 msgid "Save on server"
-msgstr "Guardar no Servidor"
+msgstr "Guardar no servidor"
 
 #: src/Config/Descriptions.php:682
 msgid "Export as separate files"
@@ -10757,7 +10749,7 @@ msgstr "%s view"
 
 #: src/Config/Descriptions.php:710
 msgid "Use ignore inserts"
-msgstr "Usar inserções ignoradas"
+msgstr "Utilizar a opção \"ignorar inserções\""
 
 #: src/Config/Descriptions.php:712
 msgid "Syntax to use when inserting data"
@@ -10914,7 +10906,7 @@ msgstr "Parâmetros extra para o iconv"
 
 #: src/Config/Descriptions.php:769
 msgid "Ignore multiple statement errors"
-msgstr "Ignora erro de declarações múltiplas"
+msgstr "Ignorar erros de múltiplas declarações"
 
 #: src/Config/Descriptions.php:770
 msgid "Enable drag and drop import"
@@ -10959,7 +10951,7 @@ msgstr "Importa percentagens como decimal (12.00% para .12)"
 
 #: src/Config/Descriptions.php:790
 msgid "Partial import: skip queries"
-msgstr "Importação parcial: ignorar consultas"
+msgstr "Importação parcial: ignorar queries"
 
 #: src/Config/Descriptions.php:792
 msgid "Do not use AUTO_INCREMENT for zero values"
@@ -11123,7 +11115,7 @@ msgstr "Mostrar eventos em árvore"
 
 #: src/Config/Descriptions.php:833
 msgid "Expand single database"
-msgstr "Expandir banco de dados único"
+msgstr "Expandir a base de dados única"
 
 #: src/Config/Descriptions.php:834
 msgid "Recently used tables"
@@ -11211,7 +11203,7 @@ msgstr "Repetir cabeçalhos"
 
 #: src/Config/Descriptions.php:856
 msgid "Grid editing: trigger action"
-msgstr "Edição de grelha: executar ação"
+msgstr "Edição de grelha: ação do trigger"
 
 #: src/Config/Descriptions.php:857
 msgid "Relational display"
@@ -12099,7 +12091,7 @@ msgstr "Erro no processamento da requisição:"
 #: src/Controllers/Database/EventsController.php:197
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "Nenhum evento com o nome %1$s foi encontrado no banco de dados %2$s."
+msgstr "Não foi encontrado nenhum evento com o nome %1$s na base de dados %2$s."
 
 #: src/Controllers/Database/EventsController.php:223
 #, php-format
@@ -12111,8 +12103,8 @@ msgstr "Exportação do evento %s"
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr ""
-"Erro no processamento da requisição: nenhum evento com o nome %1$s foi "
-"encontrado no banco de dados %2$s."
+"Erro no processamento do pedido: Não foi encontrado nenhum evento com o nome "
+"%1$s na base de dados %2$s."
 
 #: src/Controllers/Database/ExportController.php:152
 #: src/Controllers/Server/ExportController.php:72
@@ -12247,7 +12239,7 @@ msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
-"A pesquisa no interior do banco de dados é desativada pela configuração "
+"A pesquisa no interior da base de dados é desactivada pela configuração "
 "[code]$cfg['UseDbSearch'][/code]."
 
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:50
@@ -12542,13 +12534,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Estará prestes a DESTRUIR uma base de dados completa!"
 
 #: src/Controllers/JavaScriptMessagesController.php:55
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
-"Não é possível renomear o banco de dados com o mesmo nome. Troque o nome e "
-"tente novamente"
+"Não é possível mudar o nome da base de dados para o mesmo nome. Altere o "
+"nome e tente novamente."
 
 #: src/Controllers/JavaScriptMessagesController.php:57
 msgid "You are about to DESTROY a complete table!"
@@ -13171,7 +13160,7 @@ msgstr "Filtrar comandos por palavra/regexp:"
 
 #: src/Controllers/JavaScriptMessagesController.php:302
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr "Agrupar comandos, ignorando dados variáveis em clausulas WHERE"
+msgstr "Agrupar queries, ignorando dados variáveis nas cláusulas WHERE"
 
 #: src/Controllers/JavaScriptMessagesController.php:303
 msgid "Sum of grouped rows:"
@@ -13230,7 +13219,7 @@ msgstr "Por favor, digite um nome de tabela válido."
 
 #: src/Controllers/JavaScriptMessagesController.php:325
 msgid "Please enter a valid database name."
-msgstr "Por favor, digite um nome de banco de dados válido."
+msgstr "Por favor, introduza um nome de base de dados válido."
 
 #: src/Controllers/JavaScriptMessagesController.php:326
 msgid "No files available on server for import!"
@@ -13310,7 +13299,7 @@ msgstr "Copiando Base de Dados"
 
 #: src/Controllers/JavaScriptMessagesController.php:365
 msgid "Changing charset"
-msgstr "Mudando mapa de caracteres"
+msgstr "A alterar o conjunto de caracteres"
 
 #: src/Controllers/JavaScriptMessagesController.php:372
 msgid "Failed to get real row count."
@@ -13705,8 +13694,8 @@ msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
-"Não salvou as mudanças no layout. Estas serão perdidas se não as guardar. "
-"Deseja continuar?"
+"Não guardou as alterações na apresentação. Estas perder-se-ão se não as "
+"guardar. Pretende continuar?"
 
 #: src/Controllers/JavaScriptMessagesController.php:536
 msgid "value/subQuery is empty"
@@ -13749,7 +13738,7 @@ msgstr "Exporta o esquema relacional (schema)"
 
 #: src/Controllers/JavaScriptMessagesController.php:551
 msgid "Modifications have been saved"
-msgstr "Modificações foram guardadas"
+msgstr "Modificações guardadas"
 
 #: src/Controllers/JavaScriptMessagesController.php:554
 #, php-format
@@ -13926,9 +13915,9 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
-"Aviso: um formulário desta página tem mais que %d campos. Ao submeter, "
-"alguns dos campos podem ser ignorados, devido à configuração do PHP "
-"max_input_vars."
+"Aviso: um formulário nesta página tem mais de %d campos. Na submissão, "
+"alguns dos campos podem ser ignorados, devido à configuração max_input_vars "
+"do PHP."
 
 #: src/Controllers/JavaScriptMessagesController.php:632
 #: src/Controllers/JavaScriptMessagesController.php:645
@@ -14570,8 +14559,8 @@ msgstr "Nenhuma colação fornecida."
 #: src/Controllers/Operations/DatabaseController.php:84
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Impossível copiar o banco de dados com o mesmo nome. Troque o nome e tente "
-"novamente."
+"Não é possível copiar a base de dados para o mesmo nome. Altere o nome e "
+"tente novamente."
 
 #: src/Controllers/Operations/DatabaseController.php:167
 #, php-format
@@ -15479,7 +15468,7 @@ msgstr "O nome da base de dados está vazio!"
 #: src/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "O banco de dados '%s' não existe."
+msgstr "A base de dados '%s' não existe."
 
 #: src/Controllers/Table/CreateController.php:83
 #, php-format
@@ -15606,16 +15595,17 @@ msgstr "Não há versões selecionadas."
 
 #: src/Controllers/Triggers/IndexController.php:183
 msgid "Add trigger"
-msgstr "Adicionar gatilho"
+msgstr "Adicionar trigger"
 
 #: src/Controllers/Triggers/IndexController.php:187
 msgid "Edit trigger"
-msgstr "Editar gatilho"
+msgstr "Editar trigger"
 
 #: src/Controllers/Triggers/IndexController.php:229
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Nenhum gatilho com o nome %1$s foi encontrado no banco de dados %2$s."
+msgstr ""
+"Não foi encontrado nenhum trigger com o nome %1$s na base de dados %2$s."
 
 #: src/Controllers/Triggers/IndexController.php:267
 #, php-format
@@ -15623,8 +15613,8 @@ msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
 msgstr ""
-"Erro no processamento da requisição: nenhum gatilho com o nome %1$s foi "
-"encontrado no banco de dados %2$s."
+"Erro no processamento do pedido: Não foi encontrado nenhum trigger com o "
+"nome %1$s na base de dados %2$s."
 
 #: src/Controllers/UserPasswordController.php:51
 msgid "You don't have sufficient privileges to be here right now!"
@@ -15958,8 +15948,8 @@ msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
-"tamanho da memória buffer que o InnoDB utiliza para guardar temporariamente "
-"dados e indices das suas tabelas."
+"O tamanho do buffer de memória que o InnoDB utiliza para armazenar em cache "
+"os dados e índices das suas tabelas."
 
 #: src/Engines/Innodb.php:105
 msgid "Buffer Pool"
@@ -16193,10 +16183,11 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
-"O tamanho máximo do ficheiro de log de dados. O valor predefinido é 64MB. "
-"PBXT pode criar o máximo de 32000 logs da dados, que são usados por todas as "
-"tabelas. Então o valor desta variável pode ser incrementado para aumentar a "
-"quantidade total dos dados que podem ser armazenados no banco de dados."
+"O tamanho máximo de um ficheiro de registo de dados. O valor padrão é 64MB. "
+"O PBXT pode criar um máximo de 32000 registos de dados, que são utilizados "
+"por todas as tabelas. Portanto, o valor dessa variável pode ser aumentado "
+"para aumentar a quantidade total de dados que podem ser armazenados na base "
+"de dados."
 
 #: src/Engines/Pbxt.php:98
 msgid "Garbage threshold"
@@ -16398,7 +16389,7 @@ msgstr "Sessão não encontrada."
 #: src/Html/Generator.php:145
 #, php-format
 msgid "Jump to database “%s”."
-msgstr "Ir para o banco de dados “%s”."
+msgstr "Ir para a base de dados “%s”."
 
 #: src/Html/Generator.php:211
 msgid "SSL is not being used"
@@ -16515,20 +16506,17 @@ msgid "The table name cannot end with a space character."
 msgstr "As palavras são separadas pelo caracter espaço (\" \")."
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
-#| msgid "View name can not be empty!"
 msgid "The trigger name must not be empty."
-msgstr "Nome da VIEW não pode ser em branco!"
+msgstr "O nome do trigger não pode estar vazio."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "Por favor, digite no máximo {0} carateres"
+msgstr "O nome do trigger não pode ter mais de %d caracteres."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
 msgid "The trigger name cannot end with a space character."
-msgstr "As palavras são separadas pelo caracter espaço (\" \")."
+msgstr "O nome do trigger não pode terminar com um carácter de espaço."
 
 #: src/Import/Import.php:270 src/Sql.php:872
 msgid "[ROLLBACK occurred.]"
@@ -16557,7 +16545,7 @@ msgstr "Editar a estrutura seguindo o link \"Estrutura\"."
 #: src/Import/Import.php:1148
 #, php-format
 msgid "Go to database: %s"
-msgstr "Ir para o banco de dados: %s"
+msgstr "Ir para a base de dados: %s"
 
 #: src/Import/Import.php:1154 src/Import/Import.php:1194
 #, php-format
@@ -16610,7 +16598,7 @@ msgstr "Id da linha inserida: %1$d"
 
 #: src/LanguageManager.php:961
 msgid "Ignoring unsupported language code."
-msgstr "Ignorando código de linguagem não suportada."
+msgstr "A ignorar código de linguagem não suportado."
 
 #: src/Linter.php:103
 msgid ""
@@ -16625,7 +16613,7 @@ msgstr "%1$s (perto de <code>%2$s</code>)"
 
 #: src/Menu.php:283 src/Menu.php:390 src/Util.php:1493 src/Util.php:1507
 msgid "Tracking"
-msgstr "Rastreando"
+msgstr "Rastreio"
 
 #: src/Menu.php:331 src/Menu.php:339 src/Menu.php:347
 msgid "Database seems to be empty!"
@@ -16781,7 +16769,7 @@ msgstr "Novo"
 
 #: src/Navigation/Nodes/NodeTrigger.php:24
 msgid "Trigger"
-msgstr "Acionador"
+msgstr "Trigger"
 
 #: src/Navigation/Nodes/NodeViewContainer.php:32
 msgctxt "Create new view"
@@ -17539,7 +17527,7 @@ msgstr ""
 
 #: src/Plugins/Export/ExportSql.php:540
 msgid "It appears your database uses routines;"
-msgstr "Parece que seu banco de dados utiliza rotinas;"
+msgstr "Parece que a sua base de dados utiliza rotinas;"
 
 #: src/Plugins/Export/ExportSql.php:543 src/Plugins/Export/ExportSql.php:1480
 #: src/Plugins/Export/ExportSql.php:1956
@@ -17558,7 +17546,7 @@ msgstr "Metadata para tabela %s"
 #: src/Plugins/Export/ExportSql.php:1075
 #, php-format
 msgid "Metadata for database %s"
-msgstr "Metadata para o banco de dados %s"
+msgstr "Metadados para a base de dados %s"
 
 #: src/Plugins/Export/ExportSql.php:1392
 #, php-format
@@ -17567,7 +17555,7 @@ msgstr "Erro ao ler a estrutura para a tabela %s:"
 
 #: src/Plugins/Export/ExportSql.php:1477
 msgid "It appears your database uses views;"
-msgstr "Parece que seu banco de dados utiliza views;"
+msgstr "Parece que a sua base de dados utiliza views;"
 
 #: src/Plugins/Export/ExportSql.php:1623
 msgid "Constraints for dumped tables"
@@ -17603,7 +17591,7 @@ msgstr "RELACIONAMENTOS PARA TABELAS"
 
 #: src/Plugins/Export/ExportSql.php:1953
 msgid "It appears your table uses triggers;"
-msgstr "Isso demonstra que sua tabela utiliza gatilhos;"
+msgstr "Parece que a sua tabela utiliza triggers;"
 
 #: src/Plugins/Export/ExportSql.php:1983
 #, php-format
@@ -17638,7 +17626,7 @@ msgstr "Última verificação:"
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
-"Sistema de banco de dados ou servidor de MySQL antigo para maximizar "
+"Sistema de base de dados ou servidor MySQL mais antigo para maximizar a "
 "compatibilidade de saída com:"
 
 #: src/Plugins/Export/ExportXml.php:78
@@ -17666,7 +17654,7 @@ msgstr "Nome da nova tabela (opcional):"
 
 #: src/Plugins/Import/ImportCsv.php:91
 msgid "Name of the new database (optional):"
-msgstr "Nome do novo banco de dados (opcional):"
+msgstr "Nome da nova base de dados (opcional):"
 
 #: src/Plugins/Import/ImportCsv.php:100 src/Plugins/Import/ImportCsv.php:118
 msgid "Import these many number of rows (optional):"
@@ -17686,9 +17674,9 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
-"Se os dados em cada linha do ficheiro não estiverem na mesma ordem que no "
-"banco de dados, liste os nomes correspondentes das colunas aqui. Os nomes "
-"das colunas devem estar separados por vírgulas e não devem estar entre aspas."
+"Se os dados em cada linha do ficheiro não estiverem na mesma ordem que na "
+"base de dados, liste aqui os nomes das colunas correspondentes. Os nomes das "
+"colunas devem ser separados por vírgulas e não devem estar entre aspas."
 
 #: src/Plugins/Import/ImportCsv.php:133
 msgid "Column names:"
@@ -17805,7 +17793,7 @@ msgstr "A tabela %s não existe!"
 #: src/Plugins/Schema/Svg/SvgRelationSchema.php:72
 #, php-format
 msgid "Schema of the %s database - Page %s"
-msgstr "Esquema do banco de dados %s - Página %s"
+msgstr "Esquema da base de dados %s - Página %s"
 
 #: src/Plugins/Schema/ExportRelationSchema.php:252
 msgid "SCHEMA ERROR: "
@@ -17818,7 +17806,7 @@ msgstr "Página de exportação PDF"
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:118
 #, php-format
 msgid "Schema of the %s database"
-msgstr "Esquema de banco de dados %s"
+msgstr "Esquema da base de dados %s"
 
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:146
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:508
@@ -18675,7 +18663,7 @@ msgstr "Instrução de manipulação de dados"
 
 #: src/Tracking/Tracking.php:210
 msgid "Tracking statements"
-msgstr "Rastreando instruções"
+msgstr "Declarações de rastreio"
 
 #: src/Tracking/Tracking.php:226
 msgid "Delete tracking data row from report"
@@ -18759,29 +18747,29 @@ msgstr "Versão %1$s foi criada, rastreamento para %2$s está ativado(a)."
 
 #: src/Triggers/Triggers.php:106
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "Desculpe, mas falhamos em restaurar o gatilho eliminado."
+msgstr "Lamentamos, mas não foi possível repor o trigger perdido."
 
 #: src/Triggers/Triggers.php:113
 #, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "O gatilho %1$s foi modificado."
+msgstr "O trigger %1$s foi modificado."
 
 #: src/Triggers/Triggers.php:133
 #, php-format
 msgid "Trigger %1$s has been created."
-msgstr "O gatilho %1$s foi criado."
+msgstr "O trigger %1$s foi criado."
 
 #: src/Triggers/Triggers.php:199
 msgid "You must provide a trigger name!"
-msgstr "Você deve fornecer um nome de gatilho!"
+msgstr "Deve fornecer um nome ao trigger!"
 
 #: src/Triggers/Triggers.php:205
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Você deve fornecer um tempo válido para o gatilho!"
+msgstr "Deve fornecer uma temporização válida ao trigger!"
 
 #: src/Triggers/Triggers.php:211
 msgid "You must provide a valid event for the trigger!"
-msgstr "Você deve fornecer um evento válido para o gatilho!"
+msgstr "Deve fornecer um evento válido ao trigger!"
 
 #: src/Triggers/Triggers.php:221
 msgid "You must provide a valid table name!"
@@ -18789,7 +18777,7 @@ msgstr "Você deve fornecer um nome de tabela válido!"
 
 #: src/Triggers/Triggers.php:228
 msgid "You must provide a trigger definition."
-msgstr "Você deve fornecer uma definição do gatilho."
+msgstr "Deve fornecer uma definição ao trigger."
 
 #: src/Types.php:196
 msgid ""
