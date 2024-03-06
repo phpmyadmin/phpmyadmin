@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
 "PO-Revision-Date: 2024-03-07 04:09+0000\n"
-"Last-Translator: Nabin Ghimire <nnabinn@hotmail.com>\n"
+"Last-Translator: Saroj Dhakal <lotusnagarkot@gmail.com>\n"
 "Language-Team: Nepali <https://hosted.weblate.org/projects/phpmyadmin/5-2/ne/"
 ">\n"
 "Language: ne\n"
@@ -4580,7 +4580,8 @@ msgstr "तथ्याङ्क %1$s लाई %2$s मा प्रतिल�
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr "phpMyAdmin कन्फिगरेसन भण्डारण निष्क्रिय भएको छ। %s किन हो जान्नुहोस %s ।"
+msgstr ""
+"phpMyAdmin कन्फिगरेसन सङ्ग्रह निष्क्रिय भएको छ। %s किन हो जान्नुहोस %s ।"
 
 #: libraries/classes/Controllers/Database/SearchController.php:47
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:90
