@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2024-03-07 04:09+0000\n"
+"PO-Revision-Date: 2024-03-08 06:34+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/pt/>\n"
@@ -15190,7 +15190,7 @@ msgstr "Remover dados ou tabela"
 #: templates/database/structure/check_all_tables.twig:15
 #: templates/database/structure/structure_table_row.twig:74
 msgid "Empty"
-msgstr "Limpa"
+msgstr "Esvaziar"
 
 #: templates/database/structure/check_all_tables.twig:18
 #: templates/table/operations/index.twig:334
@@ -16543,7 +16543,7 @@ msgstr "Início"
 
 #: templates/navigation/main.twig:30 templates/navigation/main.twig:31
 msgid "Empty session data"
-msgstr "Limpar dados de sessão"
+msgstr "Esvaziar os dados da sessão"
 
 #: templates/navigation/main.twig:30 templates/navigation/main.twig:31
 msgid "Log out"
@@ -17193,7 +17193,7 @@ msgstr ""
 
 #: templates/server/privileges/add_user.twig:19
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "Conceder todos os privilégios no nome curinga (nome_do_utilizador_%)."
+msgstr "Conceder todos os privilégios no nome de jóquer (nome_de_utilizador_%)."
 
 #: templates/server/privileges/add_user.twig:24
 #, php-format
