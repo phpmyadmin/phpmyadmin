@@ -6425,27 +6425,12 @@
     <MixedArgument>
       <code><![CDATA[$active]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$analyses[$i][self::FORMATTEDSQL][$colCount]]]></code>
-      <code><![CDATA[$analyses[$i][self::SIZES]]]></code>
-      <code><![CDATA[$analyses[$i][self::SIZES][$j]]]></code>
-      <code><![CDATA[$analyses[$i][self::TYPES]]]></code>
-      <code><![CDATA[$analyses[$i][self::TYPES]]]></code>
-      <code><![CDATA[$analyses[$i][self::TYPES]]]></code>
-      <code><![CDATA[$analyses[$i][self::TYPES][$colCount]]]></code>
-      <code><![CDATA[$analyses[$i][self::TYPES][$j]]]></code>
-      <code><![CDATA[$analyses[$i][self::TYPES][$j]]]></code>
-    </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code><![CDATA[$typeArray[$analyses[$i][self::TYPES][$j]]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$active]]></code>
       <code><![CDATA[$cellValue]]></code>
       <code><![CDATA[$charset]]></code>
       <code><![CDATA[$collation]]></code>
       <code><![CDATA[$importPlugin]]></code>
-      <code><![CDATA[$size]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code><![CDATA[string|int]]></code>
@@ -6460,7 +6445,6 @@
       <code><![CDATA[$collation]]></code>
       <code><![CDATA[$collation]]></code>
       <code><![CDATA[$importPlugin->getProperties()->getExtension()]]></code>
-      <code><![CDATA[$size]]></code>
       <code><![CDATA[$size[self::D]]]></code>
       <code><![CDATA[ImportSettings::$maximumTime]]></code>
       <code><![CDATA[max($size[self::D], $oldD)]]></code>
@@ -8865,6 +8849,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <InvalidArgument>
+      <code><![CDATA[[$analysis]]]></code>
+    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['eof']]]></code>

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Import;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Import\ColumnType;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -215,14 +216,14 @@ class ImportTest extends AbstractTestCase
     /**
      * Test for detectType
      *
-     * @param int         $expected Expected result of the function
-     * @param int|null    $type     Last cumulative column type (VARCHAR or INT or
-     *                              BIGINT or DECIMAL or NONE)
-     * @param string|null $cell     String representation of the cell for which a
-     *                              best-fit type is to be determined
+     * @param ColumnType      $expected Expected result of the function
+     * @param ColumnType|null $type     Last cumulative column type (VARCHAR or INT or
+     *                           BIGINT or DECIMAL or NONE)
+     * @param string|null     $cell     String representation of the cell for which a
+     *                                  best-fit type is to be determined
      */
     #[DataProvider('provDetectType')]
-    public function testDetectType(int $expected, int|null $type, string|null $cell): void
+    public function testDetectType(ColumnType $expected, ColumnType|null $type, string|null $cell): void
     {
         self::assertSame($expected, $this->import->detectType($type, $cell));
     }
@@ -230,32 +231,32 @@ class ImportTest extends AbstractTestCase
     /**
      * Data provider for testDetectType
      *
-     * @return mixed[]
+     * @return array{ColumnType, ColumnType|null, string|null}[]
      */
     public static function provDetectType(): array
     {
         $data = [
-            [Import::NONE, null, 'NULL'],
-            [Import::NONE, Import::NONE, 'NULL'],
-            [Import::INT, Import::INT, 'NULL'],
-            [Import::VARCHAR, Import::VARCHAR, 'NULL'],
-            [Import::VARCHAR, null, null],
-            [Import::VARCHAR, Import::INT, null],
-            [Import::INT, Import::INT, '10'],
-            [Import::DECIMAL, Import::DECIMAL, '10.2'],
-            [Import::DECIMAL, Import::INT, '10.2'],
-            [Import::VARCHAR, Import::VARCHAR, 'test'],
-            [Import::VARCHAR, Import::INT, 'test'],
+            [ColumnType::None, null, 'NULL'],
+            [ColumnType::None, ColumnType::None, 'NULL'],
+            [ColumnType::Int, ColumnType::Int, 'NULL'],
+            [ColumnType::Varchar, ColumnType::Varchar, 'NULL'],
+            [ColumnType::Varchar, null, null],
+            [ColumnType::Varchar, ColumnType::Int, null],
+            [ColumnType::Int, ColumnType::Int, '10'],
+            [ColumnType::Decimal, ColumnType::Decimal, '10.2'],
+            [ColumnType::Decimal, ColumnType::Int, '10.2'],
+            [ColumnType::Varchar, ColumnType::Varchar, 'test'],
+            [ColumnType::Varchar, ColumnType::Int, 'test'],
         ];
 
         if (PHP_INT_MAX > 2147483647) {
-            $data[] = [Import::BIGINT, Import::BIGINT, '2147483648'];
-            $data[] = [Import::BIGINT, Import::INT, '2147483648'];
+            $data[] = [ColumnType::BigInt, ColumnType::BigInt, '2147483648'];
+            $data[] = [ColumnType::BigInt, ColumnType::Int, '2147483648'];
         } else {
             // To be fixed ?
             // Can not detect a BIGINT since the value is over PHP_INT_MAX
-            $data[] = [Import::VARCHAR, Import::BIGINT, '2147483648'];
-            $data[] = [Import::VARCHAR, Import::INT, '2147483648'];
+            $data[] = [ColumnType::Varchar, ColumnType::BigInt, '2147483648'];
+            $data[] = [ColumnType::Varchar, ColumnType::Int, '2147483648'];
         }
 
         return $data;

@@ -24,6 +24,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function abs;
+use function array_fill;
 use function array_key_last;
 use function array_map;
 use function count;
@@ -61,14 +62,6 @@ use function trim;
  */
 class Import
 {
-    /* MySQL type defs */
-    public const NONE = 0;
-    public const VARCHAR = 1;
-    public const INT = 2;
-    public const DECIMAL = 3;
-    public const BIGINT = 4;
-    public const GEOMETRY = 5;
-
     /* Decimal size defs */
     public const M = 0;
     public const D = 1;
@@ -79,7 +72,6 @@ class Import
     public const SIZES = 1;
     public const FORMATTEDSQL = 2;
 
-    /** @var string|null importRunBuffer */
     private string|null $importRunBuffer = null;
 
     public function __construct()
@@ -542,19 +534,19 @@ class Import
     /**
      * Obtains the size of the given cell
      *
-     * @param string|int $lastCumulativeSize Last cumulative column size
-     * @param int|null   $lastCumulativeType Last cumulative column type (NONE or VARCHAR or DECIMAL or INT or BIGINT)
-     * @param int        $currentCellType    Type of the current cell (NONE or VARCHAR or DECIMAL or INT or BIGINT)
-     * @param string     $cell               The current cell
+     * @param string|int      $lastCumulativeSize Last cumulative column size
+     * @param ColumnType|null $lastCumulativeType Last cumulative column type
+     * @param ColumnType      $currentCellType    Type of the current cell
+     * @param string          $cell               The current cell
      *
      * @return string|int Size of the given cell in the type-appropriate format
      *
      * @todo    Handle the error cases more elegantly
      */
-    public function detectSize(
+    private function detectSize(
         string|int $lastCumulativeSize,
-        int|null $lastCumulativeType,
-        int $currentCellType,
+        ColumnType|null $lastCumulativeType,
+        ColumnType $currentCellType,
         string $cell,
     ): string|int {
         $currSize = mb_strlen($cell);
@@ -566,14 +558,14 @@ class Import
             return $lastCumulativeSize;
         }
 
-        if ($currentCellType === self::VARCHAR) {
+        if ($currentCellType === ColumnType::Varchar) {
             /**
              * What to do if the current cell is of type VARCHAR
              */
             /**
              * The last cumulative type was VARCHAR
              */
-            if ($lastCumulativeType === self::VARCHAR) {
+            if ($lastCumulativeType === ColumnType::Varchar) {
                 if ($currSize >= $lastCumulativeSize) {
                     return $currSize;
                 }
@@ -581,7 +573,7 @@ class Import
                 return $lastCumulativeSize;
             }
 
-            if ($lastCumulativeType === self::DECIMAL) {
+            if ($lastCumulativeType === ColumnType::Decimal) {
                 /**
                  * The last cumulative type was DECIMAL
                  */
@@ -594,7 +586,7 @@ class Import
                 return $oldM;
             }
 
-            if ($lastCumulativeType === self::BIGINT || $lastCumulativeType === self::INT) {
+            if ($lastCumulativeType === ColumnType::BigInt || $lastCumulativeType === ColumnType::Int) {
                 /**
                  * The last cumulative type was BIGINT or INT
                  */
@@ -605,7 +597,7 @@ class Import
                 return $lastCumulativeSize;
             }
 
-            if ($lastCumulativeType === null || $lastCumulativeType === self::NONE) {
+            if ($lastCumulativeType === null || $lastCumulativeType === ColumnType::None) {
                 /**
                  * This is the first row to be analyzed
                  */
@@ -622,14 +614,14 @@ class Import
             return -1;
         }
 
-        if ($currentCellType === self::DECIMAL) {
+        if ($currentCellType === ColumnType::Decimal) {
             /**
              * What to do if the current cell is of type DECIMAL
              */
             /**
              * The last cumulative type was VARCHAR
              */
-            if ($lastCumulativeType === self::VARCHAR) {
+            if ($lastCumulativeType === ColumnType::Varchar) {
                 /* Convert $last_cumulative_size from varchar to decimal format */
                 $size = $this->getDecimalSize($cell);
 
@@ -640,7 +632,7 @@ class Import
                 return $lastCumulativeSize;
             }
 
-            if ($lastCumulativeType === self::DECIMAL) {
+            if ($lastCumulativeType === ColumnType::Decimal) {
                 /**
                  * The last cumulative type was DECIMAL
                  */
@@ -659,7 +651,7 @@ class Import
                 return $lastCumulativeSize;
             }
 
-            if ($lastCumulativeType === self::BIGINT || $lastCumulativeType === self::INT) {
+            if ($lastCumulativeType === ColumnType::BigInt || $lastCumulativeType === ColumnType::Int) {
                 /**
                  * The last cumulative type was BIGINT or INT
                  */
@@ -673,7 +665,7 @@ class Import
                 return $lastCumulativeSize . ',' . $size[self::D];
             }
 
-            if ($lastCumulativeType === null || $lastCumulativeType === self::NONE) {
+            if ($lastCumulativeType === null || $lastCumulativeType === ColumnType::None) {
                 /**
                  * This is the first row to be analyzed
                  */
@@ -693,14 +685,14 @@ class Import
             return -1;
         }
 
-        if ($currentCellType === self::BIGINT || $currentCellType === self::INT) {
+        if ($currentCellType === ColumnType::BigInt || $currentCellType === ColumnType::Int) {
             /**
              * What to do if the current cell is of type BIGINT or INT
              */
             /**
              * The last cumulative type was VARCHAR
              */
-            if ($lastCumulativeType === self::VARCHAR) {
+            if ($lastCumulativeType === ColumnType::Varchar) {
                 if ($currSize >= $lastCumulativeSize) {
                     return $currSize;
                 }
@@ -708,7 +700,7 @@ class Import
                 return $lastCumulativeSize;
             }
 
-            if ($lastCumulativeType === self::DECIMAL) {
+            if ($lastCumulativeType === ColumnType::Decimal) {
                 /**
                  * The last cumulative type was DECIMAL
                  */
@@ -727,7 +719,7 @@ class Import
                 return ($newInt + $oldD) . ',' . $oldD;
             }
 
-            if ($lastCumulativeType === self::BIGINT || $lastCumulativeType === self::INT) {
+            if ($lastCumulativeType === ColumnType::BigInt || $lastCumulativeType === ColumnType::Int) {
                 /**
                  * The last cumulative type was BIGINT or INT
                  */
@@ -738,7 +730,7 @@ class Import
                 return $lastCumulativeSize;
             }
 
-            if ($lastCumulativeType === null || $lastCumulativeType === self::NONE) {
+            if ($lastCumulativeType === null || $lastCumulativeType === ColumnType::None) {
                 /**
                  * This is the first row to be analyzed
                  */
@@ -768,15 +760,15 @@ class Import
     /**
      * Determines what MySQL type a cell is
      *
-     * @param int|null    $lastCumulativeType Last cumulative column type
-     *                                        (VARCHAR or INT or BIGINT or DECIMAL or NONE)
-     * @param string|null $cell               String representation of the cell for which
-     *                                        a best-fit type is to be determined
+     * @param ColumnType|null $lastCumulativeType Last cumulative column type
+     *                                     (VARCHAR or INT or BIGINT or DECIMAL or NONE)
+     * @param string|null     $cell               String representation of the cell for which
+     *                                            a best-fit type is to be determined
      *
-     * @return int  The MySQL type representation
+     * @return ColumnType  The MySQL type representation
      *               (VARCHAR or INT or BIGINT or DECIMAL or NONE)
      */
-    public function detectType(int|null $lastCumulativeType, string|null $cell): int
+    public function detectType(ColumnType|null $lastCumulativeType, string|null $cell): ColumnType
     {
         /**
          * If numeric, determine if decimal, int or bigint
@@ -784,15 +776,15 @@ class Import
          */
 
         if ($cell === 'NULL') {
-            if ($lastCumulativeType === null || $lastCumulativeType === self::NONE) {
-                return self::NONE;
+            if ($lastCumulativeType === null || $lastCumulativeType === ColumnType::None) {
+                return ColumnType::None;
             }
 
             return $lastCumulativeType;
         }
 
         if (! is_numeric($cell)) {
-            return self::VARCHAR;
+            return ColumnType::Varchar;
         }
 
         if (
@@ -800,18 +792,18 @@ class Import
             && str_contains($cell, '.')
             && mb_substr_count($cell, '.') === 1
         ) {
-            return self::DECIMAL;
+            return ColumnType::Decimal;
         }
 
         if (abs((int) $cell) > 2147483647) {
-            return self::BIGINT;
+            return ColumnType::BigInt;
         }
 
         if ($cell !== (string) (int) $cell) {
-            return self::VARCHAR;
+            return ColumnType::Varchar;
         }
 
-        return self::INT;
+        return ColumnType::Int;
     }
 
     /**
@@ -819,26 +811,19 @@ class Import
      *
      * @link https://wiki.phpmyadmin.net/pma/Import
      *
-     * @return array{int[], (int|string)[]} array(array $types, array $sizes)
+     * @return array{ColumnType[], (int|string)[]} array(array $types, array $sizes)
      */
     public function analyzeTable(ImportTable $table): array
     {
         /* Get number of rows in table */
         /* Get number of columns */
         $numCols = count($table->columns);
-        /* Current type for each column */
-        $types = [];
-        $sizes = [];
 
         /* Initialize $sizes to all 0's */
-        for ($i = 0; $i < $numCols; ++$i) {
-            $sizes[$i] = 0;
-        }
+        $sizes = array_fill(0, $numCols, 0);
 
         /* Initialize $types to NONE */
-        for ($i = 0; $i < $numCols; ++$i) {
-            $types[$i] = self::NONE;
-        }
+        $types = array_fill(0, $numCols, ColumnType::None);
 
         /* Analyze each column */
         for ($i = 0; $i < $numCols; ++$i) {
@@ -854,23 +839,27 @@ class Import
                  * If a type for this column has already been declared,
                  * only alter it if it was a number and a varchar was found
                  */
-                if ($currType == self::NONE) {
+                if ($currType === ColumnType::None) {
                     continue;
                 }
 
-                if ($currType == self::VARCHAR) {
-                    $types[$i] = self::VARCHAR;
-                } elseif ($currType == self::DECIMAL) {
-                    if ($types[$i] != self::VARCHAR) {
-                        $types[$i] = self::DECIMAL;
+                if ($currType === ColumnType::Varchar) {
+                    $types[$i] = ColumnType::Varchar;
+                } elseif ($currType === ColumnType::Decimal) {
+                    if ($types[$i] !== ColumnType::Varchar) {
+                        $types[$i] = ColumnType::Decimal;
                     }
-                } elseif ($currType == self::BIGINT) {
-                    if ($types[$i] != self::VARCHAR && $types[$i] != self::DECIMAL) {
-                        $types[$i] = self::BIGINT;
+                } elseif ($currType === ColumnType::BigInt) {
+                    if ($types[$i] !== ColumnType::Varchar && $types[$i] !== ColumnType::Decimal) {
+                        $types[$i] = ColumnType::BigInt;
                     }
-                } elseif ($currType == self::INT) {
-                    if ($types[$i] != self::VARCHAR && $types[$i] != self::DECIMAL && $types[$i] != self::BIGINT) {
-                        $types[$i] = self::INT;
+                } elseif ($currType === ColumnType::Int) {
+                    if (
+                        $types[$i] !== ColumnType::Varchar
+                        && $types[$i] !== ColumnType::Decimal
+                        && $types[$i] !== ColumnType::BigInt
+                    ) {
+                        $types[$i] = ColumnType::Int;
                     }
                 }
             }
@@ -879,11 +868,11 @@ class Import
         /* Check to ensure that all types are valid */
         $len = count($types);
         for ($n = 0; $n < $len; ++$n) {
-            if ((string) $types[$n] !== (string) self::NONE) {
+            if ($types[$n] !== ColumnType::None) {
                 continue;
             }
 
-            $types[$n] = self::VARCHAR;
+            $types[$n] = ColumnType::Varchar;
             $sizes[$n] = '10';
         }
 
@@ -896,12 +885,11 @@ class Import
      *
      * @link https://wiki.phpmyadmin.net/pma/Import
      *
-     * @param string        $dbName        Name of the database
-     * @param ImportTable[] $tables        Array of tables for the specified database
-     * @param mixed[]|null  $analyses      Analyses of the tables
-     * @param string[]|null $additionalSql Additional SQL statements to be executed
-     * @param mixed[]|null  $options       Associative array of options
-     * @param string[]      $sqlData       List of SQL statements to be executed
+     * @param ImportTable[]                                             $tables
+     * @param array{0:ColumnType[], 1:(int|string)[], 2?:true[]}[]|null $analyses      Analyses of the tables
+     * @param string[]|null                                             $additionalSql Additional SQL to be executed
+     * @param mixed[]|null                                              $options       Associative array of options
+     * @param string[]                                                  $sqlData       List of SQL to be executed
      */
     public function buildSql(
         string $dbName,
@@ -952,16 +940,7 @@ class Import
             }
         }
 
-        if ($analyses != null) {
-            $typeArray = [
-                self::NONE => 'NULL',
-                self::VARCHAR => 'varchar',
-                self::INT => 'int',
-                self::DECIMAL => 'decimal',
-                self::BIGINT => 'bigint',
-                self::GEOMETRY => 'geometry',
-            ];
-
+        if ($analyses !== null) {
             /* TODO: Do more checking here to make sure they really are matched */
             if (count($tables) !== count($analyses)) {
                 ResponseRenderer::getInstance()->callExit();
@@ -979,8 +958,15 @@ class Import
                         $size = 10;
                     }
 
-                    $tempSQLStr .= Util::backquote($column) . ' ' . $typeArray[$analyses[$i][self::TYPES][$j]];
-                    if ($analyses[$i][self::TYPES][$j] != self::GEOMETRY) {
+                    $tempSQLStr .= Util::backquote($column) . ' ' . match ($analyses[$i][self::TYPES][$j]) {
+                        ColumnType::None => 'NULL',
+                        ColumnType::Varchar => 'varchar',
+                        ColumnType::Int => 'int',
+                        ColumnType::Decimal => 'decimal',
+                        ColumnType::BigInt => 'bigint',
+                        ColumnType::Geometry => 'geometry',
+                    };
+                    if ($analyses[$i][self::TYPES][$j] !== ColumnType::Geometry) {
                         $tempSQLStr .= '(' . $size . ')';
                     }
 
@@ -1034,14 +1020,13 @@ class Import
                     // If fully formatted SQL, no need to enclose
                     // with apostrophes, add slashes etc.
                     if (
-                        $analyses != null
+                        $analyses !== null
                         && isset($analyses[$i][self::FORMATTEDSQL][$colCount])
-                        && $analyses[$i][self::FORMATTEDSQL][$colCount] == true
                     ) {
                         $tempSQLStr .= (string) $row[$k];
                     } else {
-                        if ($analyses != null) {
-                            $isVarchar = $analyses[$i][self::TYPES][$colCount] === self::VARCHAR;
+                        if ($analyses !== null) {
+                            $isVarchar = $analyses[$i][self::TYPES][$colCount] === ColumnType::Varchar;
                         } else {
                             $isVarchar = ! is_numeric($row[$k]);
                         }
