@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-03-03 00:18+0000\n"
-"PO-Revision-Date: 2024-02-20 22:32+0000\n"
-"Last-Translator: PAUL MICHIEL VAN DER BLONK <blonkm@gmail.com>\n"
+"PO-Revision-Date: 2024-03-08 08:41+0000\n"
+"Last-Translator: Nova <luna.bowley@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
 "Language: en_GB\n"
@@ -4425,10 +4425,8 @@ msgstr "Primary replication"
 
 #: resources/templates/server/databases/index.twig:160
 #: resources/templates/server/replication/replica_configuration.twig:1
-#, fuzzy
-#| msgid "Slave replication"
 msgid "Replica replication"
-msgstr "Slave replication"
+msgstr "Replica replication"
 
 #: resources/templates/server/databases/index.twig:181
 #, php-format
@@ -5211,13 +5209,13 @@ msgstr "Lock this account."
 #: src/Controllers/JavaScriptMessagesController.php:148
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "Unlock"
 
 #: resources/templates/server/privileges/users_overview.twig:105
 #: src/Controllers/JavaScriptMessagesController.php:147
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "Lock"
 
 #: resources/templates/server/privileges/users_overview.twig:146
 msgid "Remove selected user accounts"
@@ -5233,10 +5231,8 @@ msgid "Drop the databases that have the same names as the users."
 msgstr "Drop the databases that have the same names as the users."
 
 #: resources/templates/server/privileges/users_overview.twig:176
-#, fuzzy
-#| msgid "Save page"
 msgid "Save changes"
-msgstr "Save page"
+msgstr "Save changes"
 
 #: resources/templates/server/replication/change_primary.twig:4
 msgid "Replica configuration - Change or reconfigure primary server"
@@ -5262,10 +5258,7 @@ msgid "Port:"
 msgstr "Port:"
 
 #: resources/templates/server/replication/index.twig:21
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to %sconfigure%s it?"
+#, php-format
 msgid ""
 "This server is not configured as primary in a replication process. Would you "
 "like to %sconfigure%s it?"
@@ -5279,8 +5272,6 @@ msgstr "No privileges"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:7
 #: resources/templates/server/replication/primary_replication.twig:43
-#, fuzzy
-#| msgid "Add slave replication user"
 msgid "Add replica replication user"
 msgstr "Add replica replication user"
 
@@ -5307,19 +5298,10 @@ msgid "Generate"
 msgstr "Generate"
 
 #: resources/templates/server/replication/primary_configuration.twig:1
-#, fuzzy
-#| msgid "Server configuration"
 msgid "Primary configuration"
-msgstr "Server configuration"
+msgstr "Primary configuration"
 
 #: resources/templates/server/replication/primary_configuration.twig:2
-#, fuzzy
-#| msgid ""
-#| "This server is not configured as a master server in a replication "
-#| "process. You can choose from either replicating all databases and "
-#| "ignoring some of them (useful if you want to replicate a majority of the "
-#| "databases) or you can choose to ignore all databases by default and allow "
-#| "only certain databases to be replicated. Please select the mode:"
 msgid ""
 "This server is not configured as a primary server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -5354,11 +5336,6 @@ msgstr ""
 "and please restart the MySQL server afterwards."
 
 #: resources/templates/server/replication/primary_configuration.twig:20
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <strong>is</"
-#| "strong> configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
@@ -5369,29 +5346,19 @@ msgstr ""
 "configured as primary."
 
 #: resources/templates/server/replication/primary_replication.twig:3
-#, fuzzy
-#| msgid "This server is configured as master in a replication process."
 msgid "This server is configured as primary in a replication process."
 msgstr "This server is configured as primary in a replication process."
 
 #: resources/templates/server/replication/primary_replication.twig:6
 #: src/Server/Status/Data.php:170
-#, fuzzy
-#| msgid "Show master status"
 msgid "Show primary status"
 msgstr "Show primary status"
 
 #: resources/templates/server/replication/primary_replication.twig:11
-#, fuzzy
-#| msgid "Show connected slaves"
 msgid "Show connected replicas"
 msgstr "Show connected replicas"
 
 #: resources/templates/server/replication/primary_replication.twig:38
-#, fuzzy
-#| msgid ""
-#| "Only slaves started with the --report-host=host_name option are visible "
-#| "in this list."
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
@@ -5400,49 +5367,34 @@ msgstr ""
 "this list."
 
 #: resources/templates/server/replication/replica_configuration.twig:5
-#, fuzzy
-#| msgid "Server connection:"
 msgid "Primary connection:"
-msgstr "Server connection:"
+msgstr "Primary connection:"
 
 #: resources/templates/server/replication/replica_configuration.twig:25
-#, fuzzy
-#| msgid "Slave SQL Thread not running!"
 msgid "Replica SQL Thread not running!"
-msgstr "Slave SQL Thread not running!"
+msgstr "Replica SQL Thread not running!"
 
 #: resources/templates/server/replication/replica_configuration.twig:28
-#, fuzzy
-#| msgid "Slave IO Thread not running!"
 msgid "Replica IO Thread not running!"
-msgstr "Slave IO Thread not running!"
+msgstr "Replica IO Thread not running!"
 
 #: resources/templates/server/replication/replica_configuration.twig:30
-#, fuzzy
-#| msgid ""
-#| "Server is configured as slave in a replication process. Would you like to:"
 msgid ""
 "Server is configured as replica in a replication process. Would you like to:"
 msgstr ""
 "Server is configured as replica in a replication process. Would you like to:"
 
 #: resources/templates/server/replication/replica_configuration.twig:31
-#, fuzzy
-#| msgid "See slave status table"
 msgid "See replica status table"
 msgstr "See replica status table"
 
 #: resources/templates/server/replication/replica_configuration.twig:35
-#, fuzzy
-#| msgid "Control slave:"
 msgid "Control replica:"
 msgstr "Control replica:"
 
 #: resources/templates/server/replication/replica_configuration.twig:47
-#, fuzzy
-#| msgid "Not replicated"
 msgid "Reset replica"
-msgstr "Not replicated"
+msgstr "Reset replica"
 
 #: resources/templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
@@ -5478,16 +5430,11 @@ msgid "Skip next %s errors."
 msgstr "Skip next %s errors."
 
 #: resources/templates/server/replication/replica_configuration.twig:96
-#, fuzzy
-#| msgid "Change or reconfigure master server"
 msgid "Change or reconfigure primary server"
 msgstr "Change or reconfigure primary server"
 
 #: resources/templates/server/replication/replica_configuration.twig:107
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to %sconfigure%s it?"
+#, php-format
 msgid ""
 "This server is not configured as replica in a replication process. Would you "
 "like to %sconfigure%s it?"
@@ -5496,16 +5443,12 @@ msgstr ""
 "like to %sconfigure%s it?"
 
 #: resources/templates/server/replication/status_table.twig:6
-#, fuzzy
-#| msgid "Import status"
 msgid "Primary status"
-msgstr "Import status"
+msgstr "Primary status"
 
 #: resources/templates/server/replication/status_table.twig:8
-#, fuzzy
-#| msgid "Replication status"
 msgid "Replica status"
-msgstr "Replication status"
+msgstr "Replica status"
 
 #: resources/templates/server/replication/status_table.twig:13
 #: resources/templates/server/status/variables/index.twig:63
@@ -5920,7 +5863,7 @@ msgstr "ø per hour"
 
 #: resources/templates/server/status/queries/index.twig:52
 msgid "Pie chart with the most frequent statements."
-msgstr ""
+msgstr "Pie chart with the most frequent statements."
 
 #: resources/templates/server/status/status/index.twig:6
 #, php-format
@@ -5959,18 +5902,12 @@ msgstr ""
 "<b>replication</b> process."
 
 #: resources/templates/server/status/status/index.twig:61
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
 msgstr ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
 
 #: resources/templates/server/status/status/index.twig:63
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr ""
@@ -6169,7 +6106,7 @@ msgstr "Add a new server"
 
 #: resources/templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Something went wrong."
 
 #: resources/templates/sql/bookmark.twig:11
 msgid "Bookmark this SQL query"
@@ -6338,10 +6275,8 @@ msgid "Use this value"
 msgstr "Use this value"
 
 #: resources/templates/table/chart/tbl_chart.twig:7
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart type"
-msgstr "Chart title"
+msgstr "Chart type"
 
 #: resources/templates/table/chart/tbl_chart.twig:10
 msgctxt "Chart type"
@@ -6628,7 +6563,7 @@ msgstr "Edit/Insert"
 
 #: resources/templates/table/insert/continue_insertion_form.twig:14
 msgid "Amount of rows to insert"
-msgstr ""
+msgstr "Amount of rows to insert"
 
 #: resources/templates/table/maintenance/checksum.twig:12
 msgid "Checksum"
@@ -6731,10 +6666,8 @@ msgid "Empty the table (TRUNCATE)"
 msgstr "Empty the table (TRUNCATE)"
 
 #: resources/templates/table/operations/index.twig:432
-#, fuzzy
-#| msgid "Empty the table (TRUNCATE)"
 msgid "Empty the table (DELETE FROM)"
-msgstr "Empty the table (TRUNCATE)"
+msgstr "Empty the table (DELETE FROM)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
@@ -7587,12 +7520,6 @@ msgid "Suboptimal caching method."
 msgstr "Suboptimal caching method."
 
 #: src/Advisory/Rules.php:217
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -7600,9 +7527,9 @@ msgid ""
 "cache, especially if you have multiple replicas."
 msgstr ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 
 #: src/Advisory/Rules.php:223
 #, php-format
@@ -9607,7 +9534,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:328
 msgid "Allow users to create bookmarks that are available for all other users"
-msgstr ""
+msgstr "Allow users to create bookmarks that are available for all other users"
 
 #: src/Config/Descriptions.php:330
 msgid ""
@@ -11043,7 +10970,7 @@ msgstr "Query history length"
 
 #: src/Config/Descriptions.php:851
 msgid "Allow shared bookmarks between users"
-msgstr ""
+msgstr "Allow shared bookmarks between users"
 
 #: src/Config/Descriptions.php:852
 msgid "Recoding engine"
@@ -11846,6 +11773,7 @@ msgstr "Showing rows %1$s - %2$s."
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
+"There already exists a page named \"%s\" please rename it to something else."
 
 #: src/Controllers/Database/DesignerController.php:170
 #: src/Controllers/Database/DesignerController.php:175
@@ -12079,6 +12007,8 @@ msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
+"Searching inside the database is disabled by the "
+"[code]$cfg['UseDbSearch'][/code] configuration."
 
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:50
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:50
@@ -12219,6 +12149,9 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"The configuration file needs a valid key for cookie encryption. A temporary "
+"key was automatically generated for you. Please refer to the "
+"[doc@cfg_blowfish_secret]documentation[/doc]."
 
 #: src/Controllers/HomeController.php:335
 #, php-format
@@ -12227,6 +12160,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"The cookie encryption key in the configuration file is longer than "
+"necessary. It should only be %d bytes long. Please refer to the "
+"[doc@cfg_blowfish_secret]documentation[/doc]."
 
 #: src/Controllers/HomeController.php:353
 msgid ""
@@ -13518,7 +13454,7 @@ msgstr "Delete page"
 #. l10n: When the user opens a page saved in the Designer
 #: src/Controllers/JavaScriptMessagesController.php:544
 msgid "Some tables saved in this page might have been renamed or deleted."
-msgstr ""
+msgstr "Some tables saved in this page might have been renamed or deleted."
 
 #: src/Controllers/JavaScriptMessagesController.php:546
 msgid "Please select a page to continue"
@@ -13741,11 +13677,11 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:651
 msgid "Column name successfully copied to clipboard!"
-msgstr ""
+msgstr "…Column name successfully copied to clipboard!"
 
 #: src/Controllers/JavaScriptMessagesController.php:652
 msgid "Column name copying to clipboard failed!"
-msgstr ""
+msgstr "Column name copying to clipboard failed!"
 
 #: src/Controllers/JavaScriptMessagesController.php:653
 msgid "Successfully copied!"
@@ -13833,8 +13769,6 @@ msgstr "Strong"
 
 #. l10n: error code 5 (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:687
-#, fuzzy
-#| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "Timed out waiting for security key activation."
@@ -13843,7 +13777,7 @@ msgstr "Timed out waiting for security key activation."
 #: src/Controllers/JavaScriptMessagesController.php:689
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "Invalid request sent to security key."
 
 #. l10n: unknown error code (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:691
@@ -13855,15 +13789,13 @@ msgstr "Unknown security key error."
 #: src/Controllers/JavaScriptMessagesController.php:693
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "Client does not support security key."
 
 #. l10n: error code 4 (from U2F API) on register
 #: src/Controllers/JavaScriptMessagesController.php:695
-#, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr "Failed security key activation (%s)."
+msgstr "Failed security key activation."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: src/Controllers/JavaScriptMessagesController.php:697
@@ -13876,6 +13808,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuthn is not available. Please use a supported browser in a secure "
+"context (HTTPS)."
 
 #: src/Controllers/JavaScriptMessagesController.php:705
 msgid ""
@@ -13883,6 +13817,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"You can not open, save or delete your page layout, as IndexedDB is not "
+"working in your browser and your phpMyAdmin configuration storage is not "
+"configured for this."
 
 #: src/Controllers/JavaScriptMessagesController.php:710
 #, php-format
@@ -15093,9 +15030,6 @@ msgid "The number of joins that did a full scan of the first table."
 msgstr "The number of joins that did a full scan of the first table."
 
 #: src/Controllers/Server/Status/VariablesController.php:459
-#, fuzzy
-#| msgid ""
-#| "The number of temporary tables currently open by the slave SQL thread."
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr ""
@@ -15690,6 +15624,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Error 1045: Access denied for user. Additional error information may be "
+"available, but is being hidden by the %s configuration directive."
 
 #: src/Display/Results.php:2561 src/Display/Results.php:2576
 msgid "The row has been deleted."
@@ -18029,23 +17965,17 @@ msgid "Error."
 msgstr "Error."
 
 #: src/Replication/ReplicationGui.php:486
-#, fuzzy, php-format
-#| msgid "Unable to connect to master %s."
+#, php-format
 msgid "Unable to connect to primary %s."
 msgstr "Unable to connect to primary %s."
 
 #: src/Replication/ReplicationGui.php:496
-#, fuzzy
-#| msgid ""
-#| "Unable to read master log position. Possible privilege problem on master."
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
 "Unable to read primary log position. Possible privilege problem on primary."
 
 #: src/Replication/ReplicationGui.php:514
-#, fuzzy
-#| msgid "Unable to change master!"
 msgid "Unable to change primary!"
 msgstr "Unable to change primary!"
 
@@ -18097,7 +18027,7 @@ msgstr "Old MySQL-4.0 authentication"
 #: src/Server/Privileges/AccountLocking.php:24
 #: src/Server/Privileges/AccountLocking.php:43
 msgid "Account locking is not supported."
-msgstr ""
+msgstr "Account locking is not supported."
 
 #: src/Server/Privileges.php:266
 msgid "No privileges."
@@ -18243,14 +18173,10 @@ msgid "Show open tables"
 msgstr "Show open tables"
 
 #: src/Server/Status/Data.php:166
-#, fuzzy
-#| msgid "Show slave hosts"
 msgid "Show replica hosts"
 msgstr "Show replica hosts"
 
 #: src/Server/Status/Data.php:174
-#, fuzzy
-#| msgid "Show slave status"
 msgid "Show replica status"
 msgstr "Show replica status"
 
@@ -18892,12 +18818,8 @@ msgid "Could not save configuration"
 msgstr "Could not save configuration"
 
 #: src/UserPreferences.php:173
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr ""
-"%sCreate%s the phpMyAdmin configuration storage in the current database."
+msgstr "The phpMyAdmin configuration storage database could not be accessed."
 
 #: src/Util.php:125
 #, php-format
