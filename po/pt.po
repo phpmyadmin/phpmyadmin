@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-03-07 04:09+0000\n"
+"PO-Revision-Date: 2024-03-08 08:41+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/pt/>\n"
@@ -8436,7 +8436,7 @@ msgstr "Sair"
 
 #: libraries/classes/Navigation/NavigationHeader.php:179
 msgid "Empty session data"
-msgstr "Limpar dados de sessão"
+msgstr "Esvaziar os dados da sessão"
 
 #: libraries/classes/Navigation/NavigationHeader.php:197
 msgid "phpMyAdmin documentation"
@@ -11650,7 +11650,7 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2201
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "Conceder todos os privilégios no nome curinga (nome_do_utilizador_%)."
+msgstr "Conceder todos os privilégios no nome de jóquer (nome_de_utilizador_%)."
 
 #: libraries/classes/Server/Privileges.php:2214
 #, php-format
@@ -13898,7 +13898,7 @@ msgstr "Não existem ficheiros para fazer upload!"
 #: libraries/classes/Util.php:3349 libraries/classes/Util.php:3350
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
-msgstr "Limpa"
+msgstr "Esvaziar"
 
 #: libraries/classes/Util.php:3355 libraries/classes/Util.php:3356
 msgid "Execute"
