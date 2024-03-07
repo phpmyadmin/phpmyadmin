@@ -40,6 +40,12 @@
     <option value="USER_DEFINED"{{ column_meta['DefaultType'] is defined and column_meta['DefaultType'] == 'USER_DEFINED' ? ' selected' }}>
       {% trans 'As defined:' %}
     </option>
+    <option value="USER_DEFINED_VALUE"{{ column_meta['DefaultType'] is defined and column_meta['DefaultType'] == 'USER_DEFINED_VALUE' ? ' selected' }}>
+      {% trans 'As defined value:' %}
+    </option>
+    <option value="USER_DEFINED_FUNCTION"{{ column_meta['DefaultType'] is defined and column_meta['DefaultType'] == 'USER_DEFINED_FUNCTION' ? ' selected' }}>
+      {% trans 'As defined function:' %}
+    </option>
     <option value="NULL"{{ column_meta['DefaultType'] is defined and column_meta['DefaultType'] == 'NULL' ? ' selected' }}>
       NULL
     </option>
@@ -47,6 +53,18 @@
       CURRENT_TIMESTAMP
     </option>
   </select>
+
+  <select name="field_default_function[{{ column_number }}]"
+      class="default_function">
+      <option value="" disabled="disabled"
+          selected="selected">Select a Function
+      </option>
+  {% for function in default_function %}
+  {{ function }}
+  <option value="{{ function }}"
+      {{- option['selected'] ? ' selected="selected"' }}>{{ function }}</option>
+  {% endfor %}
+
   {% if char_editing == 'textarea' %}
     <textarea name="field_default_value[{{ column_number }}]" cols="15" class="textfield default_value">{{ default_value }}</textarea>
   {% else %}
