@@ -1093,9 +1093,8 @@ class Import
             $tables[] = new ImportTable($regs[1]);
         }
 
-        $params = ['db' => $dbName];
-        $dbUrl = Url::getFromRoute('/database/structure', $params);
-        $dbOperationsUrl = Url::getFromRoute('/database/operations', $params);
+        $dbUrl = Url::getFromRoute('/database/structure', ['db' => $dbName]);
+        $dbOperationsUrl = Url::getFromRoute('/database/operations', ['db' => $dbName]);
 
         $message = '<br><br>';
         $message .= '<strong>' . __(
@@ -1123,15 +1122,11 @@ class Import
 
         $message .= '<ul>';
 
-        unset($params);
-
         foreach ($tables as $table) {
             $params = ['db' => $dbName, 'table' => $table->tableName];
             $tblUrl = Url::getFromRoute('/sql', $params);
             $tblStructUrl = Url::getFromRoute('/table/structure', $params);
             $tblOpsUrl = Url::getFromRoute('/table/operations', $params);
-
-            unset($params);
 
             $tableObj = new Table($table->tableName, $dbName, $dbi);
             if (! $tableObj->isView()) {
