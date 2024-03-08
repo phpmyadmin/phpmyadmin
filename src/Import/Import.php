@@ -1093,86 +1093,7 @@ class Import
             $tables[] = new ImportTable($regs[1]);
         }
 
-        $dbUrl = Url::getFromRoute('/database/structure', ['db' => $dbName]);
-        $dbOperationsUrl = Url::getFromRoute('/database/operations', ['db' => $dbName]);
-
-        $message = '<br><br>';
-        $message .= '<strong>' . __(
-            'The following structures have either been created or altered. Here you can:',
-        ) . '</strong><br>';
-        $message .= '<ul><li>' . __("View a structure's contents by clicking on its name.") . '</li>';
-        $message .= '<li>' . __('Change any of its settings by clicking the corresponding "Options" link.') . '</li>';
-        $message .= '<li>' . __('Edit structure by following the "Structure" link.')
-            . '</li>';
-        $message .= sprintf(
-            '<br><li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">'
-            . __('Options') . '</a>)</li>',
-            $dbUrl,
-            sprintf(
-                __('Go to database: %s'),
-                htmlspecialchars(Util::backquote($dbName)),
-            ),
-            htmlspecialchars($dbName),
-            $dbOperationsUrl,
-            sprintf(
-                __('Edit settings for %s'),
-                htmlspecialchars(Util::backquote($dbName)),
-            ),
-        );
-
-        $message .= '<ul>';
-
-        foreach ($tables as $table) {
-            $params = ['db' => $dbName, 'table' => $table->tableName];
-            $tblUrl = Url::getFromRoute('/sql', $params);
-            $tblStructUrl = Url::getFromRoute('/table/structure', $params);
-            $tblOpsUrl = Url::getFromRoute('/table/operations', $params);
-
-            $tableObj = new Table($table->tableName, $dbName, $dbi);
-            if (! $tableObj->isView()) {
-                $message .= sprintf(
-                    '<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __(
-                        'Structure',
-                    ) . '</a>) (<a href="%s" title="%s">' . __('Options') . '</a>)</li>',
-                    $tblUrl,
-                    sprintf(
-                        __('Go to table: %s'),
-                        htmlspecialchars(
-                            Util::backquote($table->tableName),
-                        ),
-                    ),
-                    htmlspecialchars($table->tableName),
-                    $tblStructUrl,
-                    sprintf(
-                        __('Structure of %s'),
-                        htmlspecialchars(
-                            Util::backquote($table->tableName),
-                        ),
-                    ),
-                    $tblOpsUrl,
-                    sprintf(
-                        __('Edit settings for %s'),
-                        htmlspecialchars(
-                            Util::backquote($table->tableName),
-                        ),
-                    ),
-                );
-            } else {
-                $message .= sprintf(
-                    '<li><a href="%s" title="%s">%s</a></li>',
-                    $tblUrl,
-                    sprintf(
-                        __('Go to view: %s'),
-                        htmlspecialchars(
-                            Util::backquote($table->tableName),
-                        ),
-                    ),
-                    htmlspecialchars($table->tableName),
-                );
-            }
-        }
-
-        $message .= '</ul></ul>';
+        $message = $this->getSuccessMessage($dbName, $tables, $dbi);
 
         ImportSettings::$importNotice = $message;
     }
@@ -1392,5 +1313,98 @@ class Import
         $this->runQuery($sql, $sqlData);
 
         return $sqlData;
+    }
+
+    /** @param ImportTable[] $tables */
+    private function getHtmlListForAllTables(array $tables, string $dbName, DatabaseInterface $dbi): string
+    {
+        $message = '<ul>';
+
+        foreach ($tables as $table) {
+            $params = ['db' => $dbName, 'table' => $table->tableName];
+            $tblUrl = Url::getFromRoute('/sql', $params);
+            $tblStructUrl = Url::getFromRoute('/table/structure', $params);
+            $tblOpsUrl = Url::getFromRoute('/table/operations', $params);
+
+            $tableObj = new Table($table->tableName, $dbName, $dbi);
+            if (! $tableObj->isView()) {
+                $message .= sprintf(
+                    '<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __(
+                        'Structure',
+                    ) . '</a>) (<a href="%s" title="%s">' . __('Options') . '</a>)</li>',
+                    $tblUrl,
+                    sprintf(
+                        __('Go to table: %s'),
+                        htmlspecialchars(
+                            Util::backquote($table->tableName),
+                        ),
+                    ),
+                    htmlspecialchars($table->tableName),
+                    $tblStructUrl,
+                    sprintf(
+                        __('Structure of %s'),
+                        htmlspecialchars(
+                            Util::backquote($table->tableName),
+                        ),
+                    ),
+                    $tblOpsUrl,
+                    sprintf(
+                        __('Edit settings for %s'),
+                        htmlspecialchars(
+                            Util::backquote($table->tableName),
+                        ),
+                    ),
+                );
+            } else {
+                $message .= sprintf(
+                    '<li><a href="%s" title="%s">%s</a></li>',
+                    $tblUrl,
+                    sprintf(
+                        __('Go to view: %s'),
+                        htmlspecialchars(
+                            Util::backquote($table->tableName),
+                        ),
+                    ),
+                    htmlspecialchars($table->tableName),
+                );
+            }
+        }
+
+        return $message . '</ul></ul>';
+    }
+
+    /** @param ImportTable[] $tables */
+    private function getSuccessMessage(string $dbName, array $tables, DatabaseInterface $dbi): string
+    {
+        $dbUrl = Url::getFromRoute('/database/structure', ['db' => $dbName]);
+        $dbOperationsUrl = Url::getFromRoute('/database/operations', ['db' => $dbName]);
+
+        $message = '<br><br>';
+        $message .= '<strong>' . __(
+            'The following structures have either been created or altered. Here you can:',
+        ) . '</strong><br>';
+        $message .= '<ul><li>' . __("View a structure's contents by clicking on its name.") . '</li>';
+        $message .= '<li>' . __('Change any of its settings by clicking the corresponding "Options" link.') . '</li>';
+        $message .= '<li>' . __('Edit structure by following the "Structure" link.')
+            . '</li>';
+        $message .= sprintf(
+            '<br><li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">'
+            . __('Options') . '</a>)</li>',
+            $dbUrl,
+            sprintf(
+                __('Go to database: %s'),
+                htmlspecialchars(Util::backquote($dbName)),
+            ),
+            htmlspecialchars($dbName),
+            $dbOperationsUrl,
+            sprintf(
+                __('Edit settings for %s'),
+                htmlspecialchars(Util::backquote($dbName)),
+            ),
+        );
+
+        $message .= $this->getHtmlListForAllTables($tables, $dbName, $dbi);
+
+        return $message;
     }
 }
