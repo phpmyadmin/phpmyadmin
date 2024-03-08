@@ -1252,7 +1252,7 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$maintenance' => '@partitioning_maintenance',
+                '$model' => '@partitioning_maintenance',
             ],
         ],
         Table\Partition\CheckController::class => [
@@ -1260,7 +1260,7 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$maintenance' => '@partitioning_maintenance',
+                '$model' => '@partitioning_maintenance',
             ],
         ],
         Table\Partition\DropController::class => [
@@ -1268,7 +1268,7 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$maintenance' => '@partitioning_maintenance',
+                '$model' => '@partitioning_maintenance',
             ],
         ],
         Table\Partition\OptimizeController::class => [
@@ -1276,7 +1276,7 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$maintenance' => '@partitioning_maintenance',
+                '$model' => '@partitioning_maintenance',
             ],
         ],
         Table\Partition\RebuildController::class => [
@@ -1284,7 +1284,7 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$maintenance' => '@partitioning_maintenance',
+                '$model' => '@partitioning_maintenance',
             ],
         ],
         Table\Partition\RepairController::class => [
@@ -1292,7 +1292,7 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$maintenance' => '@partitioning_maintenance',
+                '$model' => '@partitioning_maintenance',
             ],
         ],
         Table\Partition\TruncateController::class => [
@@ -1300,7 +1300,7 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$maintenance' => '@partitioning_maintenance',
+                '$model' => '@partitioning_maintenance',
             ],
         ],
         Operations\TableController::class => [

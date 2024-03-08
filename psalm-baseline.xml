@@ -12596,6 +12596,11 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
+  <file src="tests/unit/Container/ContainerBuilderTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[servicesProvider]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="tests/unit/Controllers/BrowseForeignersControllerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
