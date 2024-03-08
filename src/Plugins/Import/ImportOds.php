@@ -167,8 +167,12 @@ class ImportOds extends ImportPlugin
         $dbName = Current::$database !== '' ? Current::$database : 'ODS_DB';
         $createDb = Current::$database === '';
 
+        if ($createDb) {
+            $sqlStatements = $this->import->createDatabase($dbName, 'utf8', 'utf8_general_ci', $sqlStatements);
+        }
+
         /* Created and execute necessary SQL statements from data */
-        $this->import->buildSql($dbName, $tables, $analyses, createDb:$createDb, sqlData:$sqlStatements);
+        $this->import->buildSql($dbName, $tables, $analyses, sqlData: $sqlStatements);
 
         /* Commit any possible data in buffers */
         $this->import->runQuery('', $sqlStatements);

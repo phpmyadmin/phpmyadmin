@@ -288,7 +288,11 @@ class ImportShp extends ImportPlugin
 
         // Created and execute necessary SQL statements from data
         $sqlStatements = [];
-        $this->import->buildSql($dbName, [$table], [$analysis], createDb:$createDb, sqlData:$sqlStatements);
+        if ($createDb) {
+            $sqlStatements = $this->import->createDatabase($dbName, 'utf8', 'utf8_general_ci', []);
+        }
+
+        $this->import->buildSql($dbName, [$table], [$analysis], sqlData: $sqlStatements);
 
         ImportSettings::$finished = true;
         $GLOBALS['error'] = false;

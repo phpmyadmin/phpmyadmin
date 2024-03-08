@@ -22,6 +22,7 @@ use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Util;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function array_pad;
@@ -590,6 +591,7 @@ class ImportCsv extends AbstractImportCsv
              */
             if (isset($_REQUEST['csv_new_db_name']) && (string) $_REQUEST['csv_new_db_name'] !== '') {
                 $newDb = $_REQUEST['csv_new_db_name'];
+                Assert::string($newDb);
             } else {
                 $result = $dbi->fetchResult('SHOW DATABASES');
 
@@ -599,7 +601,11 @@ class ImportCsv extends AbstractImportCsv
             $dbName = Current::$database !== '' ? Current::$database : $newDb;
             $createDb = Current::$database === '';
 
-            $this->import->buildSql($dbName, [$table], [$analysis], createDb:$createDb, sqlData:$sqlStatements);
+            if ($createDb) {
+                $sqlStatements = $this->import->createDatabase($dbName, 'utf8', 'utf8_general_ci', $sqlStatements);
+            }
+
+            $this->import->buildSql($dbName, [$table], [$analysis], sqlData: $sqlStatements);
         }
 
         // Commit any possible data in buffers

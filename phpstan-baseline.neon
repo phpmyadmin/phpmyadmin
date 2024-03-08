@@ -8601,6 +8601,11 @@ parameters:
 			path: src/Import/Import.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Import\\\\Import\\:\\:createDatabase\\(\\) should return array\\<string\\> but returns mixed\\.$#"
+			count: 1
+			path: src/Import/Import.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Import\\\\Import\\:\\:detectSize\\(\\) should return int\\|string but returns mixed\\.$#"
 			count: 3
 			path: src/Import/Import.php
@@ -11396,11 +11401,6 @@ parameters:
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\Import\\\\Import\\:\\:buildSql\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
 			message: "#^Parameter \\#1 \\$serverMessage of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportCsv.php
@@ -11437,6 +11437,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$rows of class PhpMyAdmin\\\\Import\\\\ImportTable constructor expects array\\<int, array\\<int, mixed\\>\\>, array\\<int\\<0, max\\>, array\\> given\\.$#"
+			count: 1
+			path: src/Plugins/Import/ImportCsv.php
+
+		-
+			message: "#^Parameter \\#4 \\$sqlData of method PhpMyAdmin\\\\Import\\\\Import\\:\\:createDatabase\\(\\) expects array\\<string\\>, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportCsv.php
 

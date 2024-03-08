@@ -240,21 +240,23 @@ class ImportXml extends ImportPlugin
             $create = null;
         }
 
+        /* Created and execute necessary SQL statements from data */
+        $sqlStatements = [];
+
         /* Set database name to the currently selected one, if applicable */
         if (Current::$database !== '') {
             /* Override the database name in the XML file, if one is selected */
             $dbName = Current::$database;
-            $options = null;
         } else {
-            /* Set database collation/charset */
-            $options = ['db_collation' => $collation, 'db_charset' => $charset];
+            $sqlStatements = $this->import->createDatabase(
+                $dbName,
+                $charset ?? 'utf8',
+                $collation ?? 'utf8_general_ci',
+                [],
+            );
         }
 
-        $createDb = Current::$database === '';
-
-        /* Created and execute necessary SQL statements from data */
-        $sqlStatements = [];
-        $this->import->buildSql($dbName, $tables, $analyses, $create, $createDb, $options, $sqlStatements);
+        $this->import->buildSql($dbName, $tables, $analyses, $create, $sqlStatements);
 
         /* Commit any possible data in buffers */
         $this->import->runQuery('', $sqlStatements);

@@ -181,8 +181,7 @@ class ImportShpTest extends AbstractTestCase
         if (extension_loaded('dbase')) {
             self::assertStringContainsString(
                 'CREATE TABLE IF NOT EXISTS `SHP_DB`.`TBL_NAME` '
-                . '(`SPATIAL` geometry, `ID` int(2), `AUTHORITY` varchar(25), `NAME` varchar(42)) '
-                . 'DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;',
+                . '(`SPATIAL` geometry, `ID` int(2), `AUTHORITY` varchar(25), `NAME` varchar(42));',
                 $GLOBALS['sql_query'],
             );
 
