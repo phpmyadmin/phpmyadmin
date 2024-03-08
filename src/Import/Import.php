@@ -11,6 +11,7 @@ use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
@@ -1327,7 +1328,7 @@ class Import
         return $compressions;
     }
 
-    /** @param mixed[] $importList List of plugin instances. */
+    /** @param ImportPlugin[] $importList List of plugin instances. */
     public static function getLocalFiles(array $importList): false|string
     {
         $fileListing = new FileListing();

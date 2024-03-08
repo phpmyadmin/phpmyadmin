@@ -8571,16 +8571,6 @@ parameters:
 			path: src/Import/Ajax.php
 
 		-
-			message: "#^Cannot call method getExtension\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: "#^Cannot call method getProperties\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 6
 			path: src/Import/Import.php
