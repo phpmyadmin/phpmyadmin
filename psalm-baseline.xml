@@ -6428,17 +6428,11 @@
     <MixedAssignment>
       <code><![CDATA[$active]]></code>
       <code><![CDATA[$cellValue]]></code>
-      <code><![CDATA[$importPlugin]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code><![CDATA[string|int]]></code>
     </MixedInferredReturnType>
-    <MixedMethodCall>
-      <code><![CDATA[getExtension]]></code>
-      <code><![CDATA[getProperties]]></code>
-    </MixedMethodCall>
     <MixedOperand>
-      <code><![CDATA[$importPlugin->getProperties()->getExtension()]]></code>
       <code><![CDATA[$size[self::D]]]></code>
       <code><![CDATA[ImportSettings::$maximumTime]]></code>
       <code><![CDATA[max($size[self::D], $oldD)]]></code>
