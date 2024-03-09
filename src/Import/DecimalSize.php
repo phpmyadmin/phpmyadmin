@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Import;
 
+use Stringable;
+
 use function mb_strlen;
 use function mb_strpos;
 
-final class DecimalSize
+final class DecimalSize implements Stringable
 {
     private function __construct(public readonly int $precision, public readonly int $scale)
     {
@@ -21,5 +23,15 @@ final class DecimalSize
             $precision,
             $precision - (int) mb_strpos($cell, '.'),
         );
+    }
+
+    public static function fromPrecisionAndScale(int $precision, int $scale): self
+    {
+        return new self($precision, $scale);
+    }
+
+    public function __toString(): string
+    {
+        return $this->precision . ',' . $this->scale;
     }
 }

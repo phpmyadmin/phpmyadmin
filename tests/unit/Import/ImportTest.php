@@ -149,50 +149,6 @@ class ImportTest extends AbstractTestCase
     }
 
     /**
-     * Test for getDecimalPrecision
-     *
-     * @param int    $expected Expected result of the function
-     * @param string $size     Size of field
-     */
-    #[DataProvider('provGetDecimalPrecision')]
-    public function testGetDecimalPrecision(int $expected, string $size): void
-    {
-        self::assertSame($expected, $this->import->getDecimalPrecision($size));
-    }
-
-    /**
-     * Data provider for testGetDecimalPrecision
-     *
-     * @return mixed[]
-     */
-    public static function provGetDecimalPrecision(): array
-    {
-        return [[2, '2,1'], [6, '6,2'], [6, '6,0'], [16, '16,2']];
-    }
-
-    /**
-     * Test for getDecimalScale
-     *
-     * @param int    $expected Expected result of the function
-     * @param string $size     Size of field
-     */
-    #[DataProvider('provGetDecimalScale')]
-    public function testGetDecimalScale(int $expected, string $size): void
-    {
-        self::assertSame($expected, $this->import->getDecimalScale($size));
-    }
-
-    /**
-     * Data provider for testGetDecimalScale
-     *
-     * @return mixed[]
-     */
-    public static function provGetDecimalScale(): array
-    {
-        return [[1, '2,1'], [2, '6,2'], [0, '6,0'], [20, '30,20']];
-    }
-
-    /**
      * Test for getDecimalSize
      */
     #[DataProvider('provGetDecimalSize')]

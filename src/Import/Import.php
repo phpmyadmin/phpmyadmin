@@ -51,8 +51,6 @@ use function rtrim;
 use function sprintf;
 use function str_contains;
 use function str_starts_with;
-use function strlen;
-use function strpos;
 use function substr;
 use function time;
 use function trim;
@@ -469,56 +467,23 @@ class Import
     }
 
     /**
-     * Obtains the precision (total # of digits) from a size of type decimal
-     *
-     * @param string $lastCumulativeSize Size of type decimal
-     *
-     * @return int Precision of the given decimal size notation
-     */
-    public function getDecimalPrecision(string $lastCumulativeSize): int
-    {
-        return (int) substr(
-            $lastCumulativeSize,
-            0,
-            (int) strpos($lastCumulativeSize, ','),
-        );
-    }
-
-    /**
-     * Obtains the scale (# of digits to the right of the decimal point)
-     * from a size of type decimal
-     *
-     * @param string $lastCumulativeSize Size of type decimal
-     *
-     * @return int Scale of the given decimal size notation
-     */
-    public function getDecimalScale(string $lastCumulativeSize): int
-    {
-        return (int) substr(
-            $lastCumulativeSize,
-            strpos($lastCumulativeSize, ',') + 1,
-            strlen($lastCumulativeSize) - strpos($lastCumulativeSize, ','),
-        );
-    }
-
-    /**
      * Obtains the size of the given cell
      *
-     * @param string|int      $lastCumulativeSize Last cumulative column size
+     * @param DecimalSize|int $lastCumulativeSize Last cumulative column size
      * @param ColumnType|null $lastCumulativeType Last cumulative column type
      * @param ColumnType      $currentCellType    Type of the current cell
      * @param string          $cell               The current cell
      *
-     * @return string|int Size of the given cell in the type-appropriate format
+     * @return DecimalSize|int Size of the given cell in the type-appropriate format
      *
      * @todo    Handle the error cases more elegantly
      */
     private function detectSize(
-        string|int $lastCumulativeSize,
+        DecimalSize|int $lastCumulativeSize,
         ColumnType|null $lastCumulativeType,
         ColumnType $currentCellType,
         string $cell,
-    ): string|int {
+    ): DecimalSize|int {
         $currSize = mb_strlen($cell);
 
         /**
@@ -529,12 +494,6 @@ class Import
         }
 
         if ($currentCellType === ColumnType::Varchar) {
-            /**
-             * What to do if the current cell is of type VARCHAR
-             */
-            /**
-             * The last cumulative type was VARCHAR
-             */
             if ($lastCumulativeType === ColumnType::Varchar) {
                 if ($currSize >= $lastCumulativeSize) {
                     return $currSize;
@@ -544,22 +503,14 @@ class Import
             }
 
             if ($lastCumulativeType === ColumnType::Decimal) {
-                /**
-                 * The last cumulative type was DECIMAL
-                 */
-                $oldM = $this->getDecimalPrecision($lastCumulativeSize);
-
-                if ($currSize >= $oldM) {
+                if ($currSize >= $lastCumulativeSize->precision) {
                     return $currSize;
                 }
 
-                return $oldM;
+                return $lastCumulativeSize->precision;
             }
 
             if ($lastCumulativeType === ColumnType::BigInt || $lastCumulativeType === ColumnType::Int) {
-                /**
-                 * The last cumulative type was BIGINT or INT
-                 */
                 if ($currSize >= $lastCumulativeSize) {
                     return $currSize;
                 }
@@ -573,24 +524,7 @@ class Import
                  */
                 return $currSize;
             }
-
-            /**
-             * An error has DEFINITELY occurred
-             */
-            /**
-             * TODO: Handle this MUCH more elegantly
-             */
-
-            return -1;
-        }
-
-        if ($currentCellType === ColumnType::Decimal) {
-            /**
-             * What to do if the current cell is of type DECIMAL
-             */
-            /**
-             * The last cumulative type was VARCHAR
-             */
+        } elseif ($currentCellType === ColumnType::Decimal) {
             if ($lastCumulativeType === ColumnType::Varchar) {
                 /* Convert $last_cumulative_size from varchar to decimal format */
                 $size = DecimalSize::fromCell($cell);
@@ -603,64 +537,39 @@ class Import
             }
 
             if ($lastCumulativeType === ColumnType::Decimal) {
-                /**
-                 * The last cumulative type was DECIMAL
-                 */
                 $size = DecimalSize::fromCell($cell);
 
-                $oldM = $this->getDecimalPrecision($lastCumulativeSize);
-                $oldD = $this->getDecimalScale($lastCumulativeSize);
-
-                /* New val if M or D is greater than current largest */
-                if ($size->precision > $oldM || $size->scale > $oldD) {
+                if ($size->precision > $lastCumulativeSize->precision || $size->scale > $lastCumulativeSize->scale) {
                     /* Take the largest of both types */
-                    return max($size->precision, $oldM) . ',' . max($size->scale, $oldD);
+                    return DecimalSize::fromPrecisionAndScale(
+                        max($size->precision, $lastCumulativeSize->precision),
+                        max($size->scale, $lastCumulativeSize->scale),
+                    );
                 }
 
                 return $lastCumulativeSize;
             }
 
             if ($lastCumulativeType === ColumnType::BigInt || $lastCumulativeType === ColumnType::Int) {
-                /**
-                 * The last cumulative type was BIGINT or INT
-                 */
                 /* Convert $last_cumulative_size from int to decimal format */
                 $size = DecimalSize::fromCell($cell);
 
                 if ($size->precision >= $lastCumulativeSize) {
-                    return $size->precision . ',' . $size->scale;
+                    return $size;
                 }
 
-                return $lastCumulativeSize . ',' . $size->scale;
+                return DecimalSize::fromPrecisionAndScale($lastCumulativeSize, $size->scale);
             }
 
             if ($lastCumulativeType === null || $lastCumulativeType === ColumnType::None) {
                 /**
                  * This is the first row to be analyzed
                  */
+
                 /* First row of the column */
-                $size = DecimalSize::fromCell($cell);
-
-                return $size->precision . ',' . $size->scale;
+                return DecimalSize::fromCell($cell);
             }
-
-            /**
-             * An error has DEFINITELY occurred
-             */
-            /**
-             * TODO: Handle this MUCH more elegantly
-             */
-
-            return -1;
-        }
-
-        if ($currentCellType === ColumnType::BigInt || $currentCellType === ColumnType::Int) {
-            /**
-             * What to do if the current cell is of type BIGINT or INT
-             */
-            /**
-             * The last cumulative type was VARCHAR
-             */
+        } elseif ($currentCellType === ColumnType::BigInt || $currentCellType === ColumnType::Int) {
             if ($lastCumulativeType === ColumnType::Varchar) {
                 if ($currSize >= $lastCumulativeSize) {
                     return $currSize;
@@ -670,28 +579,21 @@ class Import
             }
 
             if ($lastCumulativeType === ColumnType::Decimal) {
-                /**
-                 * The last cumulative type was DECIMAL
-                 */
-                $oldM = $this->getDecimalPrecision($lastCumulativeSize);
-                $oldD = $this->getDecimalScale($lastCumulativeSize);
-                $oldInt = $oldM - $oldD;
+                $oldInt = $lastCumulativeSize->precision - $lastCumulativeSize->scale;
                 $newInt = mb_strlen($cell);
 
-                /* See which has the larger integer length */
                 if ($oldInt >= $newInt) {
                     /* Use old decimal size */
                     return $lastCumulativeSize;
                 }
 
-                /* Use $newInt + $oldD as new M */
-                return ($newInt + $oldD) . ',' . $oldD;
+                return DecimalSize::fromPrecisionAndScale(
+                    $newInt + $lastCumulativeSize->scale,
+                    $lastCumulativeSize->scale,
+                );
             }
 
             if ($lastCumulativeType === ColumnType::BigInt || $lastCumulativeType === ColumnType::Int) {
-                /**
-                 * The last cumulative type was BIGINT or INT
-                 */
                 if ($currSize >= $lastCumulativeSize) {
                     return $currSize;
                 }
@@ -705,15 +607,6 @@ class Import
                  */
                 return $currSize;
             }
-
-            /**
-             * An error has DEFINITELY occurred
-             */
-            /**
-             * TODO: Handle this MUCH more elegantly
-             */
-
-            return -1;
         }
 
         /**
@@ -780,7 +673,7 @@ class Import
      *
      * @link https://wiki.phpmyadmin.net/pma/Import
      *
-     * @return array{ColumnType[], (int|string)[]} array(array $types, array $sizes)
+     * @return array{ColumnType[], (int|DecimalSize)[]} array(array $types, array $sizes)
      */
     public function analyzeTable(ImportTable $table): array
     {
@@ -842,7 +735,7 @@ class Import
             }
 
             $types[$n] = ColumnType::Varchar;
-            $sizes[$n] = '10';
+            $sizes[$n] = 10;
         }
 
         return [$types, $sizes];
@@ -854,10 +747,10 @@ class Import
      *
      * @link https://wiki.phpmyadmin.net/pma/Import
      *
-     * @param ImportTable[]                                             $tables
-     * @param array{0:ColumnType[], 1:(int|string)[], 2?:true[]}[]|null $analyses      Analyses of the tables
-     * @param string[]|null                                             $additionalSql Additional SQL to be executed
-     * @param string[]                                                  $sqlData       List of SQL to be executed
+     * @param ImportTable[]                                                  $tables
+     * @param array{0:ColumnType[], 1:(int|DecimalSize)[], 2?:true[]}[]|null $analyses      Analyses of the tables
+     * @param string[]|null                                                  $additionalSql Additional SQL to be executed
+     * @param string[]                                                       $sqlData       List of SQL to be executed
      */
     public function buildSql(
         string $dbName,
@@ -909,7 +802,7 @@ class Import
                     . '.' . Util::backquote($table->tableName) . ' (';
                 foreach ($table->columns as $j => $column) {
                     $size = $analyses[$i][self::SIZES][$j];
-                    if ((int) $size === 0) {
+                    if ($size === 0) {
                         $size = 10;
                     }
 

@@ -6407,21 +6407,20 @@
     <MixedOperand>
       <code><![CDATA[ImportSettings::$maximumTime]]></code>
     </MixedOperand>
-    <PossiblyFalseOperand>
-      <code><![CDATA[$decPos]]></code>
-      <code><![CDATA[strpos($lastCumulativeSize, ',')]]></code>
-      <code><![CDATA[strpos($lastCumulativeSize, ',')]]></code>
-    </PossiblyFalseOperand>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$lastCumulativeSize]]></code>
-      <code><![CDATA[$lastCumulativeSize]]></code>
-      <code><![CDATA[$lastCumulativeSize]]></code>
-      <code><![CDATA[$lastCumulativeSize]]></code>
       <code><![CDATA[$lastCumulativeSize]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$sqlDelimiter]]></code>
     </PossiblyInvalidCast>
+    <PossiblyInvalidPropertyFetch>
+      <code><![CDATA[$lastCumulativeSize->precision]]></code>
+      <code><![CDATA[$lastCumulativeSize->precision]]></code>
+      <code><![CDATA[$lastCumulativeSize->precision]]></code>
+      <code><![CDATA[$lastCumulativeSize->scale]]></code>
+      <code><![CDATA[$lastCumulativeSize->scale]]></code>
+      <code><![CDATA[$lastCumulativeSize->scale]]></code>
+    </PossiblyInvalidPropertyFetch>
     <RedundantCondition>
       <code><![CDATA[$GLOBALS['result'] == false]]></code>
     </RedundantCondition>
@@ -13807,8 +13806,6 @@
       <code><![CDATA[provDetectType]]></code>
       <code><![CDATA[provGetColumnAlphaName]]></code>
       <code><![CDATA[provGetColumnNumberFromName]]></code>
-      <code><![CDATA[provGetDecimalPrecision]]></code>
-      <code><![CDATA[provGetDecimalScale]]></code>
       <code><![CDATA[provGetDecimalSize]]></code>
       <code><![CDATA[providerContentWithByteOrderMarks]]></code>
     </PossiblyUnusedMethod>
