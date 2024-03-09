@@ -4,110 +4,103 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
-use PhpMyAdmin\ColumnFull;
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\FindReplaceController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
-use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Types;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(FindReplaceController::class)]
-class FindReplaceControllerTest extends AbstractTestCase
+final class FindReplaceControllerTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        parent::setLanguage();
-
-        parent::setGlobalConfig();
-
-        Current::$database = 'db';
-        Current::$table = 'table';
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->types = new Types($dbi);
-
-        $columns = [
-            new ColumnFull('Field1', 'Type1', 'Collation1', false, '', null, '', '', ''),
-            new ColumnFull('Field2', 'Type2', 'Collation2', false, '', null, '', '', ''),
-        ];
-        $dbi->expects(self::any())->method('getColumns')
-            ->willReturn($columns);
-
-        $showCreateTable = "CREATE TABLE `table` (
-        `id` int(11) NOT NULL AUTO_INCREMENT,
-        `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-        `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-        `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-        `query` text COLLATE utf8_bin NOT NULL,
-        PRIMARY KEY (`id`),
-        KEY `foreign_field` (`foreign_db`,`foreign_table`)
-        ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin "
-            . "COMMENT='table'";
-
-        $dbi->expects(self::any())->method('fetchValue')
-            ->willReturn($showCreateTable);
-        $dbi->expects(self::any())->method('quoteString')
-            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-
-        DatabaseInterface::$instance = $dbi;
-    }
-
     public function testReplace(): void
     {
-        $dbi = DatabaseInterface::getInstance();
-        $tableSearch = new FindReplaceController(
-            ResponseRenderer::getInstance(),
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addSelectDb('test_db');
+        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
+        $dbiDummy->addResult('SELECT @@character_set_connection', [['utf8mb4']]);
+        // phpcs:ignore Generic.Files.LineLength.TooLong
+        $dbiDummy->addResult('UPDATE `test_table` SET `id` = REPLACE(`id`, \'Field\', \'Column\') WHERE `id` LIKE \'%Field%\' COLLATE utf8mb4_bin', true);
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        $responseRenderer = new ResponseRenderer();
+        $controller = new FindReplaceController(
+            $responseRenderer,
             new Template(),
             $dbi,
             new DbTableExists($dbi),
         );
-        $columnIndex = 0;
-        $find = 'Field';
-        $replaceWith = 'Column';
-        $useRegex = false;
-        $charSet = 'UTF-8';
-        $tableSearch->replace($columnIndex, $find, $replaceWith, $useRegex, $charSet);
 
-        $sqlQuery = $GLOBALS['sql_query'];
-        $result = 'UPDATE `table` SET `Field1` = '
-            . "REPLACE(`Field1`, 'Field', 'Column') "
-            . "WHERE `Field1` LIKE '%Field%' COLLATE UTF-8_bin";
-        self::assertSame($result, $sqlQuery);
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withParsedBody([
+                'db' => 'test_db',
+                'table' => 'test_table',
+                'replace' => '1',
+                'replaceWith' => 'Column',
+                'columnIndex' => '0',
+                'findString' => 'Field',
+            ]);
+
+        $controller($request);
+
+        self::assertStringContainsString(
+            '<pre>' . "\n"
+            . 'UPDATE `test_table` SET `id` = REPLACE(`id`, \'Field\', \'Column\')'
+            . ' WHERE `id` LIKE \'%Field%\' COLLATE utf8mb4_bin'
+            . "\n" . '</pre>',
+            $responseRenderer->getHTMLResult(),
+        );
+        self::assertSame([], $responseRenderer->getJSONResult());
     }
 
     public function testReplaceWithRegex(): void
     {
-        $dbi = DatabaseInterface::getInstance();
-        $tableSearch = new FindReplaceController(
-            ResponseRenderer::getInstance(),
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addSelectDb('test_db');
+        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
+        $dbiDummy->addResult('SELECT @@character_set_connection', [['utf8mb4']]);
+        // phpcs:ignore Generic.Files.LineLength.TooLong
+        $dbiDummy->addResult('SELECT `id`, 1, COUNT(*) FROM `test_db`.`test_table` WHERE `id` RLIKE \'Field\' COLLATE utf8mb4_bin GROUP BY `id` ORDER BY `id` ASC', []);
+        // phpcs:ignore Generic.Files.LineLength.TooLong
+        $dbiDummy->addResult('UPDATE `test_table` SET `id` = `id` WHERE `id` RLIKE \'Field\' COLLATE utf8mb4_bin', true);
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        $responseRenderer = new ResponseRenderer();
+        $controller = new FindReplaceController(
+            $responseRenderer,
             new Template(),
             $dbi,
             new DbTableExists($dbi),
         );
 
-        $columnIndex = 0;
-        $find = 'Field';
-        $replaceWith = 'Column';
-        $useRegex = true;
-        $charSet = 'UTF-8';
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+            ->withParsedBody([
+                'db' => 'test_db',
+                'table' => 'test_table',
+                'replace' => '1',
+                'useRegex' => 'On',
+                'replaceWith' => 'Column',
+                'columnIndex' => '0',
+                'findString' => 'Field',
+            ]);
 
-        $tableSearch->replace($columnIndex, $find, $replaceWith, $useRegex, $charSet);
+        $controller($request);
 
-        $sqlQuery = $GLOBALS['sql_query'];
-
-        $result = 'UPDATE `table` SET `Field1` = `Field1`'
-            . " WHERE `Field1` RLIKE 'Field' COLLATE UTF-8_bin";
-
-        self::assertSame($result, $sqlQuery);
+        self::assertStringContainsString(
+            '<pre>' . "\n"
+            . 'UPDATE `test_table` SET `id` = `id` WHERE `id` RLIKE \'Field\' COLLATE utf8mb4_bin'
+            . "\n" . '</pre>',
+            $responseRenderer->getHTMLResult(),
+        );
+        self::assertSame([], $responseRenderer->getJSONResult());
     }
 }
