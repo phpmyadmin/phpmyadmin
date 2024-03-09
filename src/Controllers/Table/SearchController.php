@@ -9,7 +9,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -28,6 +27,7 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\Gis;
 
 use function __;
+use function array_keys;
 use function in_array;
 use function is_array;
 use function mb_strtolower;
@@ -97,8 +97,6 @@ class SearchController extends AbstractController
         private readonly DbTableExists $dbTableExists,
     ) {
         parent::__construct($response, $template);
-
-        $this->loadTableInfo();
     }
 
     /**
@@ -198,6 +196,8 @@ class SearchController extends AbstractController
             return;
         }
 
+        $this->loadTableInfo();
+
         $this->addScriptFiles([
             'makegrid.js',
             'sql.js',
@@ -224,40 +224,9 @@ class SearchController extends AbstractController
     }
 
     /**
-     * Get data row action
-     */
-    public function getDataRowAction(): void
-    {
-        if (! Core::checkSqlQuerySignature($_POST['where_clause'], $_POST['where_clause_sign'])) {
-            return;
-        }
-
-        $extraData = [];
-        $rowInfoQuery = 'SELECT * FROM ' . Util::backquote($_POST['db']) . '.'
-            . Util::backquote($_POST['table']) . ' WHERE ' . $_POST['where_clause'];
-        $result = $this->dbi->query($rowInfoQuery . ';');
-        $fieldsMeta = $this->dbi->getFieldsMeta($result);
-        while ($row = $result->fetchAssoc()) {
-            // for bit fields we need to convert them to printable form
-            $i = 0;
-            foreach ($row as $col => $val) {
-                if (isset($fieldsMeta[$i]) && $fieldsMeta[$i]->isMappedTypeBit) {
-                    $row[$col] = Util::printableBitValue((int) $val, $fieldsMeta[$i]->length);
-                }
-
-                $i++;
-            }
-
-            $extraData['row_info'] = $row;
-        }
-
-        $this->response->addJSON($extraData);
-    }
-
-    /**
      * Do selection action
      */
-    public function doSelectionAction(): void
+    private function doSelectionAction(): void
     {
         /**
          * Selection criteria have been submitted -> do the work
@@ -297,18 +266,23 @@ class SearchController extends AbstractController
     /**
      * Display selection form action
      */
-    public function displaySelectionFormAction(): void
+    private function displaySelectionFormAction(): void
     {
         $config = Config::getInstance();
         if (! isset($GLOBALS['goto'])) {
             $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
         }
 
+        $properties = [];
+        foreach (array_keys($this->columnNames) as $columnIndex) {
+            $properties[$columnIndex] = $this->getColumnProperties($columnIndex, $columnIndex);
+        }
+
         $this->render('table/search/index', [
             'db' => Current::$database,
             'table' => Current::$table,
             'goto' => $GLOBALS['goto'],
-            'self' => $this,
+            'properties' => $properties,
             'geom_column_flag' => $this->geomColumnFlag,
             'column_names' => $this->columnNames,
             'column_types' => $this->columnTypes,
@@ -321,7 +295,7 @@ class SearchController extends AbstractController
     /**
      * Range search action
      */
-    public function rangeSearchAction(): void
+    private function rangeSearchAction(): void
     {
         $minMax = $this->getColumnMinMax($_POST['column']);
         $this->response->addJSON('column_data', $minMax);
@@ -331,8 +305,10 @@ class SearchController extends AbstractController
      * Finds minimum and maximum value of a given column.
      *
      * @param string $column Column name
+     *
+     * @return mixed[]|null
      */
-    public function getColumnMinMax(string $column): array|null
+    private function getColumnMinMax(string $column): array|null
     {
         $sqlQuery = 'SELECT MIN(' . Util::backquote($column) . ') AS `min`, '
             . 'MAX(' . Util::backquote($column) . ') AS `max` '
@@ -351,7 +327,7 @@ class SearchController extends AbstractController
      *
      * @return mixed[] Array containing column's properties
      */
-    public function getColumnProperties(int $searchIndex, int $columnIndex): array
+    private function getColumnProperties(int $searchIndex, int $columnIndex): array
     {
         $selectedOperator = $_POST['criteriaColumnOperators'][$searchIndex] ?? '';
         $enteredValue = $_POST['criteriaValues'] ?? '';

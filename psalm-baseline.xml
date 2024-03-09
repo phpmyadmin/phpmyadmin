@@ -3628,23 +3628,11 @@
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['column']]]></code>
-      <code><![CDATA[$_POST['db']]]></code>
-      <code><![CDATA[$_POST['table']]]></code>
-      <code><![CDATA[$_POST['where_clause']]]></code>
-      <code><![CDATA[$_POST['where_clause_sign']]]></code>
       <code><![CDATA[$selectedOperator]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['column']]]></code>
-      <code><![CDATA[$_POST['where_clause']]]></code>
-      <code><![CDATA[$_POST['where_clause_sign']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$_POST['where_clause']]]></code>
-    </PossiblyInvalidOperand>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getColumnProperties]]></code>
-    </PossiblyUnusedMethod>
     <RedundantCastGivenDocblockType>
       <code><![CDATA[(int) $config->settings['MaxRows']]]></code>
     </RedundantCastGivenDocblockType>
@@ -13035,13 +13023,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
-  <file src="tests/unit/Controllers/Table/FindReplaceControllerTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="tests/unit/Controllers/Table/ImportControllerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -13132,11 +13113,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
-  <file src="tests/unit/Controllers/Table/SearchControllerTest.php">
-    <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>

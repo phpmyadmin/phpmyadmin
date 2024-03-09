@@ -43,7 +43,7 @@
               </tr>
             </thead>
             <tbody>
-              {% for column_index in 0..column_names|length - 1 %}
+              {% for column_index in column_names|keys %}
                 <tr class="noclick">
                   {# If 'Function' column is present trying to change comment #}
                   {% if geom_column_flag %}
@@ -69,19 +69,18 @@
                     {#- Keep this without extra spaces because it is used for a request to build the BETWEEN modal -#}
                     {{- column_names[column_index] -}}
                   </th>
-                  {% set properties = self.getColumnProperties(column_index, column_index) %}
                   <td dir="ltr">
-                    {{ properties['type'] }}
+                    {{ properties[column_index]['type'] }}
                   </td>
                   <td>
-                    {{ properties['collation'] }}
+                    {{ properties[column_index]['collation'] }}
                   </td>
                   <td>
-                    {{ properties['func']|raw }}
+                    {{ properties[column_index]['func']|raw }}
                   </td>
                   {# here, the data-type attribute is needed for a date/time picker #}
-                  <td data-type="{{ properties['type'] }}">
-                    {{ properties['value']|raw }}
+                  <td data-type="{{ properties[column_index]['type'] }}">
+                    {{ properties[column_index]['value']|raw }}
                     {# Displays hidden fields #}
                     <input type="hidden" name="criteriaColumnNames[{{ column_index }}]" value="{{ column_names[column_index] }}">
                     <input type="hidden" name="criteriaColumnTypes[{{ column_index }}]" value="{{ column_types[column_index] }}">

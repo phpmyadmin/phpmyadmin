@@ -75,12 +75,10 @@
                 </select>
               </th>
               {% if criteria_column_names[i] is defined and criteria_column_names[i] != 'pma_null' %}
-                {% set key = keys[criteria_column_names[i]] %}
-                {% set properties = self.getColumnProperties(i, key) %}
-                {% set type = type|merge({(i): properties['type']}) %}
-                {% set collation = collation|merge({(i): properties['collation']}) %}
-                {% set func = func|merge({(i): properties['func']}) %}
-                {% set value = value|merge({(i): properties['value']}) %}
+                {% set type = type|merge({(i): properties[i]['type']}) %}
+                {% set collation = collation|merge({(i): properties[i]['collation']}) %}
+                {% set func = func|merge({(i): properties[i]['func']}) %}
+                {% set value = value|merge({(i): properties[i]['value']}) %}
               {% endif %}
               {# Column type #}
               <td dir="ltr">

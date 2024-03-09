@@ -42,8 +42,6 @@ class FindReplaceController extends AbstractController
     /** @var mixed[] */
     private array $columnTypes = [];
 
-    private string $connectionCharSet;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
@@ -51,9 +49,6 @@ class FindReplaceController extends AbstractController
         private readonly DbTableExists $dbTableExists,
     ) {
         parent::__construct($response, $template);
-
-        $this->loadTableInfo();
-        $this->connectionCharSet = (string) $this->dbi->fetchValue('SELECT @@character_set_connection');
     }
 
     public function __invoke(ServerRequest $request): void
@@ -99,13 +94,16 @@ class FindReplaceController extends AbstractController
             return;
         }
 
+        $this->loadTableInfo();
+        $connectionCharSet = (string) $this->dbi->fetchValue('SELECT @@character_set_connection');
+
         $useRegex = (bool) $request->getParsedBodyParam('useRegex');
         $replaceWith = (string) $request->getParsedBodyParam('replaceWith');
         $columnIndex = (int) $request->getParsedBodyParam('columnIndex');
 
         if ($request->hasBodyParam('find')) {
             $find = (string) $request->getParsedBodyParam('find');
-            $preview = $this->getReplacePreview($columnIndex, $find, $replaceWith, $useRegex, $this->connectionCharSet);
+            $preview = $this->getReplacePreview($columnIndex, $find, $replaceWith, $useRegex, $connectionCharSet);
             $this->response->addJSON('preview', $preview);
 
             return;
@@ -115,7 +113,7 @@ class FindReplaceController extends AbstractController
 
         if ($request->hasBodyParam('replace')) {
             $findString = (string) $request->getParsedBodyParam('findString');
-            $this->replace($columnIndex, $findString, $replaceWith, $useRegex, $this->connectionCharSet);
+            $this->replace($columnIndex, $findString, $replaceWith, $useRegex, $connectionCharSet);
             $this->response->addHTML(
                 Generator::getMessage(
                     __('Your SQL query has been executed successfully.'),
@@ -168,7 +166,7 @@ class FindReplaceController extends AbstractController
     /**
      * Display selection form action
      */
-    public function displaySelectionFormAction(): void
+    private function displaySelectionFormAction(): void
     {
         if (! isset($GLOBALS['goto'])) {
             $GLOBALS['goto'] = Util::getScriptNameForOption(
@@ -203,7 +201,7 @@ class FindReplaceController extends AbstractController
      *
      * @return string HTML for previewing strings found and their replacements
      */
-    public function getReplacePreview(
+    private function getReplacePreview(
         int $columnIndex,
         string $find,
         string $replaceWith,
@@ -303,7 +301,7 @@ class FindReplaceController extends AbstractController
      * @param bool   $useRegex    to use Regex replace or not
      * @param string $charSet     character set of the connection
      */
-    public function replace(
+    private function replace(
         int $columnIndex,
         string $find,
         string $replaceWith,

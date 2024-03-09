@@ -77,8 +77,6 @@ class ZoomSearchController extends AbstractController
         private readonly DbTableExists $dbTableExists,
     ) {
         parent::__construct($response, $template);
-
-        $this->loadTableInfo();
     }
 
     public function __invoke(ServerRequest $request): void
@@ -122,6 +120,8 @@ class ZoomSearchController extends AbstractController
 
             return;
         }
+
+        $this->loadTableInfo();
 
         $this->addScriptFiles([
             'makegrid.js',
@@ -243,7 +243,7 @@ class ZoomSearchController extends AbstractController
     /**
      * Display selection form action
      */
-    public function displaySelectionFormAction(string $dataLabel): void
+    private function displaySelectionFormAction(string $dataLabel): void
     {
         $config = Config::getInstance();
         if (! isset($GLOBALS['goto'])) {
@@ -251,7 +251,7 @@ class ZoomSearchController extends AbstractController
         }
 
         $criteriaColumnNames = $_POST['criteriaColumnNames'] ?? null;
-        $keys = [];
+        $properties = [];
         /** @infection-ignore-all */
         for ($i = 0; $i < 4; $i++) {
             if (! isset($criteriaColumnNames[$i])) {
@@ -262,18 +262,20 @@ class ZoomSearchController extends AbstractController
                 continue;
             }
 
-            $keys[$criteriaColumnNames[$i]] = array_search($criteriaColumnNames[$i], $this->columnNames);
+            $properties[$i] = $this->getColumnProperties(
+                $i,
+                (int) array_search($criteriaColumnNames[$i], $this->columnNames),
+            );
         }
 
         $this->render('table/zoom_search/index', [
             'db' => Current::$database,
             'table' => Current::$table,
             'goto' => $GLOBALS['goto'],
-            'self' => $this,
+            'properties' => $properties,
             'geom_column_flag' => $this->geomColumnFlag,
             'column_names' => $this->columnNames,
             'data_label' => $dataLabel,
-            'keys' => $keys,
             'criteria_column_names' => $criteriaColumnNames,
             'criteria_column_types' => $_POST['criteriaColumnTypes'] ?? null,
             'max_plot_limit' => ! empty($_POST['maxPlotLimit'])
@@ -285,7 +287,7 @@ class ZoomSearchController extends AbstractController
     /**
      * Get data row action
      */
-    public function getDataRowAction(): void
+    private function getDataRowAction(): void
     {
         if (! Core::checkSqlQuerySignature($_POST['where_clause'], $_POST['where_clause_sign'])) {
             return;
@@ -316,7 +318,7 @@ class ZoomSearchController extends AbstractController
     /**
      * Change table info action
      */
-    public function changeTableInfoAction(): void
+    private function changeTableInfoAction(): void
     {
         $field = $_POST['field'];
         if ($field === 'pma_null') {
@@ -348,7 +350,7 @@ class ZoomSearchController extends AbstractController
      * @param string $dataLabel Data label
      * @param string $goto      Goto
      */
-    public function zoomSubmitAction(string $dataLabel, string $goto): void
+    private function zoomSubmitAction(string $dataLabel, string $goto): void
     {
         //Query generation part
         $sqlQuery = $this->search->buildSqlQuery();
@@ -438,7 +440,7 @@ class ZoomSearchController extends AbstractController
      *
      * @return mixed[] Array containing column's properties
      */
-    public function getColumnProperties(int $searchIndex, int $columnIndex): array
+    private function getColumnProperties(int $searchIndex, int $columnIndex): array
     {
         $selectedOperator = $_POST['criteriaColumnOperators'][$searchIndex] ?? '';
         $enteredValue = $_POST['criteriaValues'] ?? '';
