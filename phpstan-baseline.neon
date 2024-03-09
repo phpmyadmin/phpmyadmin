@@ -5001,17 +5001,7 @@ parameters:
 			path: src/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Table/SearchController.php
-
-		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$sqlQuery of static method PhpMyAdmin\\\\Core\\:\\:checkSqlQuerySignature\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/SearchController.php
 
@@ -5032,11 +5022,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$foreignField of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#2 \\$signature of static method PhpMyAdmin\\\\Core\\:\\:checkSqlQuerySignature\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/SearchController.php
 

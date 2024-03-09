@@ -9,7 +9,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -221,37 +220,6 @@ class SearchController extends AbstractController
         } else {
             $this->doSelectionAction();
         }
-    }
-
-    /**
-     * Get data row action
-     */
-    public function getDataRowAction(): void
-    {
-        if (! Core::checkSqlQuerySignature($_POST['where_clause'], $_POST['where_clause_sign'])) {
-            return;
-        }
-
-        $extraData = [];
-        $rowInfoQuery = 'SELECT * FROM ' . Util::backquote($_POST['db']) . '.'
-            . Util::backquote($_POST['table']) . ' WHERE ' . $_POST['where_clause'];
-        $result = $this->dbi->query($rowInfoQuery . ';');
-        $fieldsMeta = $this->dbi->getFieldsMeta($result);
-        while ($row = $result->fetchAssoc()) {
-            // for bit fields we need to convert them to printable form
-            $i = 0;
-            foreach ($row as $col => $val) {
-                if (isset($fieldsMeta[$i]) && $fieldsMeta[$i]->isMappedTypeBit) {
-                    $row[$col] = Util::printableBitValue((int) $val, $fieldsMeta[$i]->length);
-                }
-
-                $i++;
-            }
-
-            $extraData['row_info'] = $row;
-        }
-
-        $this->response->addJSON($extraData);
     }
 
     /**

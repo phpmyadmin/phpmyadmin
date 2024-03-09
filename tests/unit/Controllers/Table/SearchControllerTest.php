@@ -8,22 +8,16 @@ use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\SearchController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Types;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
-
-use function hash;
-
-use const MYSQLI_TYPE_LONG;
 
 #[CoversClass(SearchController::class)]
 class SearchControllerTest extends AbstractTestCase
@@ -105,56 +99,5 @@ class SearchControllerTest extends AbstractTestCase
 
         $result = $ctrl->getColumnMinMax('column');
         self::assertSame([$expected], $result);
-    }
-
-    /**
-     * Tests for getDataRowAction()
-     */
-    public function testGetDataRowAction(): void
-    {
-        $dummyDbi = $this->createDbiDummy();
-        $dbi = $this->createDatabaseInterface($dummyDbi);
-        DatabaseInterface::$instance = $dbi;
-
-        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
-
-        $dummyDbi->addResult(
-            'SHOW FULL COLUMNS FROM `PMA`.`PMA_BookMark`',
-            [],
-        );
-
-        $dummyDbi->addResult(
-            'SHOW CREATE TABLE `PMA`.`PMA_BookMark`',
-            [],
-        );
-
-        $dummyDbi->addResult(
-            'SELECT * FROM `PMA`.`PMA_BookMark` WHERE `col1` = 1;',
-            [[1, 2]],
-            ['col1', 'col2'],
-            [
-                FieldHelper::fromArray(['type' => MYSQLI_TYPE_LONG, 'length' => 11]),
-                FieldHelper::fromArray(['type' => MYSQLI_TYPE_LONG, 'length' => 11]),
-            ],
-        );
-
-        $ctrl = new SearchController(
-            $this->response,
-            $this->template,
-            new Search($dbi),
-            new Relation($dbi),
-            $dbi,
-            new DbTableExists($dbi),
-        );
-
-        $_POST['db'] = 'PMA';
-        $_POST['table'] = 'PMA_BookMark';
-        $_POST['where_clause'] = '`col1` = 1';
-        $_POST['where_clause_sign'] = Core::signSqlQuery($_POST['where_clause']);
-        $expected = ['col1' => 1, 'col2' => 2];
-        $ctrl->getDataRowAction();
-
-        $json = $this->response->getJSONResult();
-        self::assertEquals($expected, $json['row_info']);
     }
 }

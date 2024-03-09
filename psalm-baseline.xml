@@ -3628,20 +3628,11 @@
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['column']]]></code>
-      <code><![CDATA[$_POST['db']]]></code>
-      <code><![CDATA[$_POST['table']]]></code>
-      <code><![CDATA[$_POST['where_clause']]]></code>
-      <code><![CDATA[$_POST['where_clause_sign']]]></code>
       <code><![CDATA[$selectedOperator]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['column']]]></code>
-      <code><![CDATA[$_POST['where_clause']]]></code>
-      <code><![CDATA[$_POST['where_clause_sign']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$_POST['where_clause']]]></code>
-    </PossiblyInvalidOperand>
     <PossiblyUnusedMethod>
       <code><![CDATA[getColumnProperties]]></code>
     </PossiblyUnusedMethod>
