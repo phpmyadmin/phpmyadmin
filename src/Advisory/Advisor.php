@@ -65,7 +65,7 @@ class Advisor
             'round',
             static function (): void {
             },
-            static fn (array $arguments, float $num): float => round($num)
+            static fn (array $arguments, float $num): float => round($num),
         );
         $this->expression->register(
             'substr',
@@ -76,7 +76,7 @@ class Advisor
                 string $string,
                 int $start,
                 int $length,
-            ): string => substr($string, $start, $length)
+            ): string => substr($string, $start, $length),
         );
         $this->expression->register(
             'preg_match',
@@ -92,13 +92,13 @@ class Advisor
             'ADVISOR_bytime',
             static function (): void {
             },
-            static fn (array $arguments, float $num, int $precision): string => self::byTime($num, $precision)
+            static fn (array $arguments, float $num, int $precision): string => self::byTime($num, $precision),
         );
         $this->expression->register(
             'ADVISOR_timespanFormat',
             static function (): void {
             },
-            static fn (array $arguments, string $seconds): string => Util::timespanFormat((int) $seconds)
+            static fn (array $arguments, string $seconds): string => Util::timespanFormat((int) $seconds),
         );
         $this->expression->register(
             'ADVISOR_formatByteDown',
@@ -109,7 +109,7 @@ class Advisor
                 int $value,
                 int $limes = 6,
                 int $comma = 0,
-            ): string => implode(' ', Util::formatByteDown($value, $limes, $comma))
+            ): string => implode(' ', Util::formatByteDown($value, $limes, $comma)),
         );
         $this->expression->register(
             'fired',

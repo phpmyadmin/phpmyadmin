@@ -103,7 +103,7 @@ class StorageEngine
                     /** @return mixed|false */
                     static fn () => DatabaseInterface::getInstance()->fetchValue(
                         'SELECT @@disabled_storage_engines',
-                    )
+                    ),
                 );
                 foreach (explode(',', $disabled) as $engine) {
                     if (! isset($storageEngines[$engine])) {

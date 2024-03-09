@@ -68,7 +68,7 @@ final class ChangeController extends AbstractController
         $fieldsMeta = $this->dbi->getColumns(Current::$database, Current::$table, true);
         $fieldsMeta = array_values(array_filter(
             $fieldsMeta,
-            static fn (ColumnFull $column): bool => in_array($column->field, $selected, true)
+            static fn (ColumnFull $column): bool => in_array($column->field, $selected, true),
         ));
         // TODO: Refactor columnsDefinition->displayForm() method to avoid unwrapping DTO
         $fieldsMeta = array_map(static fn (ColumnFull $column): array => [
