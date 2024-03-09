@@ -97,8 +97,6 @@ class SearchController extends AbstractController
         private readonly DbTableExists $dbTableExists,
     ) {
         parent::__construct($response, $template);
-
-        $this->loadTableInfo();
     }
 
     /**
@@ -198,6 +196,8 @@ class SearchController extends AbstractController
             return;
         }
 
+        $this->loadTableInfo();
+
         $this->addScriptFiles([
             'makegrid.js',
             'sql.js',
@@ -226,7 +226,7 @@ class SearchController extends AbstractController
     /**
      * Do selection action
      */
-    public function doSelectionAction(): void
+    private function doSelectionAction(): void
     {
         /**
          * Selection criteria have been submitted -> do the work
@@ -266,7 +266,7 @@ class SearchController extends AbstractController
     /**
      * Display selection form action
      */
-    public function displaySelectionFormAction(): void
+    private function displaySelectionFormAction(): void
     {
         $config = Config::getInstance();
         if (! isset($GLOBALS['goto'])) {
@@ -295,7 +295,7 @@ class SearchController extends AbstractController
     /**
      * Range search action
      */
-    public function rangeSearchAction(): void
+    private function rangeSearchAction(): void
     {
         $minMax = $this->getColumnMinMax($_POST['column']);
         $this->response->addJSON('column_data', $minMax);
@@ -305,8 +305,10 @@ class SearchController extends AbstractController
      * Finds minimum and maximum value of a given column.
      *
      * @param string $column Column name
+     *
+     * @return mixed[]|null
      */
-    public function getColumnMinMax(string $column): array|null
+    private function getColumnMinMax(string $column): array|null
     {
         $sqlQuery = 'SELECT MIN(' . Util::backquote($column) . ') AS `min`, '
             . 'MAX(' . Util::backquote($column) . ') AS `max` '

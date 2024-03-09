@@ -4971,11 +4971,6 @@ parameters:
 			path: src/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:getColumnMinMax\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
 			message: "#^Only booleans are allowed in &&, array given on the left side\\.$#"
 			count: 1
 			path: src/Controllers/Table/SearchController.php
