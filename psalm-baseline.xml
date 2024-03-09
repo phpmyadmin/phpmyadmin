@@ -3633,9 +3633,6 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['column']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getColumnProperties]]></code>
-    </PossiblyUnusedMethod>
     <RedundantCastGivenDocblockType>
       <code><![CDATA[(int) $config->settings['MaxRows']]]></code>
     </RedundantCastGivenDocblockType>

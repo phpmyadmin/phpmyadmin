@@ -27,6 +27,7 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\Gis;
 
 use function __;
+use function array_keys;
 use function in_array;
 use function is_array;
 use function mb_strtolower;
@@ -272,11 +273,16 @@ class SearchController extends AbstractController
             $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
         }
 
+        $properties = [];
+        foreach (array_keys($this->columnNames) as $columnIndex) {
+            $properties[$columnIndex] = $this->getColumnProperties($columnIndex, $columnIndex);
+        }
+
         $this->render('table/search/index', [
             'db' => Current::$database,
             'table' => Current::$table,
             'goto' => $GLOBALS['goto'],
-            'self' => $this,
+            'properties' => $properties,
             'geom_column_flag' => $this->geomColumnFlag,
             'column_names' => $this->columnNames,
             'column_types' => $this->columnTypes,
@@ -319,7 +325,7 @@ class SearchController extends AbstractController
      *
      * @return mixed[] Array containing column's properties
      */
-    public function getColumnProperties(int $searchIndex, int $columnIndex): array
+    private function getColumnProperties(int $searchIndex, int $columnIndex): array
     {
         $selectedOperator = $_POST['criteriaColumnOperators'][$searchIndex] ?? '';
         $enteredValue = $_POST['criteriaValues'] ?? '';
