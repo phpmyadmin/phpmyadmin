@@ -251,7 +251,7 @@ class ZoomSearchController extends AbstractController
         }
 
         $criteriaColumnNames = $_POST['criteriaColumnNames'] ?? null;
-        $keys = [];
+        $properties = [];
         /** @infection-ignore-all */
         for ($i = 0; $i < 4; $i++) {
             if (! isset($criteriaColumnNames[$i])) {
@@ -262,18 +262,20 @@ class ZoomSearchController extends AbstractController
                 continue;
             }
 
-            $keys[$criteriaColumnNames[$i]] = array_search($criteriaColumnNames[$i], $this->columnNames);
+            $properties[$i] = $this->getColumnProperties(
+                $i,
+                (int) array_search($criteriaColumnNames[$i], $this->columnNames),
+            );
         }
 
         $this->render('table/zoom_search/index', [
             'db' => Current::$database,
             'table' => Current::$table,
             'goto' => $GLOBALS['goto'],
-            'self' => $this,
+            'properties' => $properties,
             'geom_column_flag' => $this->geomColumnFlag,
             'column_names' => $this->columnNames,
             'data_label' => $dataLabel,
-            'keys' => $keys,
             'criteria_column_names' => $criteriaColumnNames,
             'criteria_column_types' => $_POST['criteriaColumnTypes'] ?? null,
             'max_plot_limit' => ! empty($_POST['maxPlotLimit'])
@@ -438,7 +440,7 @@ class ZoomSearchController extends AbstractController
      *
      * @return mixed[] Array containing column's properties
      */
-    public function getColumnProperties(int $searchIndex, int $columnIndex): array
+    private function getColumnProperties(int $searchIndex, int $columnIndex): array
     {
         $selectedOperator = $_POST['criteriaColumnOperators'][$searchIndex] ?? '';
         $enteredValue = $_POST['criteriaValues'] ?? '';
