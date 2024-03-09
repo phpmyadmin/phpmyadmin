@@ -194,7 +194,7 @@ class ImportTest extends AbstractTestCase
     /**
      * Test for getDecimalSize
      *
-     * @param mixed[] $expected Expected result of the function
+     * @param array{int, int} $expected Expected result of the function
      * @param string  $cell     Cell content
      */
     #[DataProvider('provGetDecimalSize')]
@@ -206,11 +206,11 @@ class ImportTest extends AbstractTestCase
     /**
      * Data provider for testGetDecimalSize
      *
-     * @return mixed[]
+     * @return array{array{int, int}, string}[]
      */
     public static function provGetDecimalSize(): array
     {
-        return [[[2, 1, '2,1'], '2.1'], [[2, 1, '2,1'], '6.2'], [[3, 1, '3,1'], '10.0'], [[4, 2, '4,2'], '30.20']];
+        return [[[2, 1], '2.1'], [[2, 1], '6.2'], [[3, 1], '10.0'], [[4, 2], '30.20']];
     }
 
     /**

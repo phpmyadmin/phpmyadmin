@@ -6404,20 +6404,9 @@
       <code><![CDATA[$active]]></code>
       <code><![CDATA[$cellValue]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[string|int]]></code>
-    </MixedInferredReturnType>
     <MixedOperand>
-      <code><![CDATA[$size[self::D]]]></code>
       <code><![CDATA[ImportSettings::$maximumTime]]></code>
-      <code><![CDATA[max($size[self::D], $oldD)]]></code>
-      <code><![CDATA[max($size[self::M], $oldM)]]></code>
     </MixedOperand>
-    <MixedReturnStatement>
-      <code><![CDATA[$size[self::FULL]]]></code>
-      <code><![CDATA[$size[self::FULL]]]></code>
-      <code><![CDATA[$size[self::M]]]></code>
-    </MixedReturnStatement>
     <PossiblyFalseOperand>
       <code><![CDATA[$decPos]]></code>
       <code><![CDATA[strpos($lastCumulativeSize, ',')]]></code>

@@ -8576,11 +8576,6 @@ parameters:
 			path: src/Import/Import.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Import\\\\Import\\:\\:detectSize\\(\\) should return int\\|string but returns mixed\\.$#"
-			count: 3
-			path: src/Import/Import.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Import\\\\Import\\:\\:getNextChunk\\(\\) should return bool\\|string but returns mixed\\.$#"
 			count: 1
 			path: src/Import/Import.php

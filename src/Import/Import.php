@@ -66,7 +66,6 @@ class Import
     /* Decimal size defs */
     public const M = 0;
     public const D = 1;
-    public const FULL = 2;
 
     /* Analysis array defs */
     public const TYPES = 0;
@@ -508,19 +507,16 @@ class Import
      *
      * @param string $cell cell content
      *
-     * @return mixed[] Contains the precision, scale, and full size
-     *                representation of the given decimal cell
+     * @return array{int, int} Contains the precision and scale of the given decimal cell
      */
     public function getDecimalSize(string $cell): array
     {
-        $currSize = mb_strlen($cell);
-        $decPos = mb_strpos($cell, '.');
-        $decPrecision = $currSize - 1 - $decPos;
+        $precision = mb_strlen($cell) - 1;
 
-        $m = $currSize - 1;
-        $d = $decPrecision;
-
-        return [$m, $d, $m . ',' . $d];
+        return [
+            $precision,
+            $precision - mb_strpos($cell, '.'),
+        ];
     }
 
     /**
@@ -636,8 +632,7 @@ class Import
                 /* New val if M or D is greater than current largest */
                 if ($size[self::M] > $oldM || $size[self::D] > $oldD) {
                     /* Take the largest of both types */
-                    return max($size[self::M], $oldM)
-                        . ',' . max($size[self::D], $oldD);
+                    return max($size[self::M], $oldM) . ',' . max($size[self::D], $oldD);
                 }
 
                 return $lastCumulativeSize;
@@ -651,7 +646,7 @@ class Import
                 $size = $this->getDecimalSize($cell);
 
                 if ($size[self::M] >= $lastCumulativeSize) {
-                    return $size[self::FULL];
+                    return $size[self::M] . ',' . $size[self::D];
                 }
 
                 return $lastCumulativeSize . ',' . $size[self::D];
@@ -664,7 +659,7 @@ class Import
                 /* First row of the column */
                 $size = $this->getDecimalSize($cell);
 
-                return $size[self::FULL];
+                return $size[self::M] . ',' . $size[self::D];
             }
 
             /**
