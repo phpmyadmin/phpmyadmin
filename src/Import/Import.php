@@ -619,17 +619,6 @@ class Import
         return -1;
     }
 
-    /**
-     * Determines what MySQL type a cell is
-     *
-     * @param ColumnType|null $lastCumulativeType Last cumulative column type
-     *                                     (VARCHAR or INT or BIGINT or DECIMAL or NONE)
-     * @param string|null     $cell               String representation of the cell for which
-     *                                            a best-fit type is to be determined
-     *
-     * @return ColumnType  The MySQL type representation
-     *               (VARCHAR or INT or BIGINT or DECIMAL or NONE)
-     */
     public function detectType(ColumnType|null $lastCumulativeType, string|null $cell): ColumnType
     {
         /**
@@ -638,11 +627,7 @@ class Import
          */
 
         if ($cell === 'NULL') {
-            if ($lastCumulativeType === null || $lastCumulativeType === ColumnType::None) {
-                return ColumnType::None;
-            }
-
-            return $lastCumulativeType;
+            return $lastCumulativeType ?? ColumnType::None;
         }
 
         if (! is_numeric($cell)) {
