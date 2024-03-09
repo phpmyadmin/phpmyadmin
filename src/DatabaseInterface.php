@@ -741,7 +741,7 @@ class DatabaseInterface implements DbalInterface
         if ($applyLimitAndOrderManual) {
             usort(
                 $databases,
-                static fn ($a, $b): int => Utilities::usortComparisonCallback($a, $b, $sortBy, $sortOrder)
+                static fn ($a, $b): int => Utilities::usortComparisonCallback($a, $b, $sortBy, $sortOrder),
             );
 
             /**
