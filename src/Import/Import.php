@@ -40,7 +40,6 @@ use function mb_chr;
 use function mb_ord;
 use function mb_stripos;
 use function mb_strlen;
-use function mb_strpos;
 use function mb_strtoupper;
 use function mb_substr;
 use function mb_substr_count;
@@ -503,23 +502,6 @@ class Import
     }
 
     /**
-     * Obtains the decimal size of a given cell
-     *
-     * @param string $cell cell content
-     *
-     * @return array{int, int} Contains the precision and scale of the given decimal cell
-     */
-    public function getDecimalSize(string $cell): array
-    {
-        $precision = mb_strlen($cell) - 1;
-
-        return [
-            $precision,
-            $precision - mb_strpos($cell, '.'),
-        ];
-    }
-
-    /**
      * Obtains the size of the given cell
      *
      * @param string|int      $lastCumulativeSize Last cumulative column size
@@ -611,10 +593,10 @@ class Import
              */
             if ($lastCumulativeType === ColumnType::Varchar) {
                 /* Convert $last_cumulative_size from varchar to decimal format */
-                $size = $this->getDecimalSize($cell);
+                $size = DecimalSize::fromCell($cell);
 
-                if ($size[self::M] >= $lastCumulativeSize) {
-                    return $size[self::M];
+                if ($size->precision >= $lastCumulativeSize) {
+                    return $size->precision;
                 }
 
                 return $lastCumulativeSize;
@@ -624,15 +606,15 @@ class Import
                 /**
                  * The last cumulative type was DECIMAL
                  */
-                $size = $this->getDecimalSize($cell);
+                $size = DecimalSize::fromCell($cell);
 
                 $oldM = $this->getDecimalPrecision($lastCumulativeSize);
                 $oldD = $this->getDecimalScale($lastCumulativeSize);
 
                 /* New val if M or D is greater than current largest */
-                if ($size[self::M] > $oldM || $size[self::D] > $oldD) {
+                if ($size->precision > $oldM || $size->scale > $oldD) {
                     /* Take the largest of both types */
-                    return max($size[self::M], $oldM) . ',' . max($size[self::D], $oldD);
+                    return max($size->precision, $oldM) . ',' . max($size->scale, $oldD);
                 }
 
                 return $lastCumulativeSize;
@@ -643,13 +625,13 @@ class Import
                  * The last cumulative type was BIGINT or INT
                  */
                 /* Convert $last_cumulative_size from int to decimal format */
-                $size = $this->getDecimalSize($cell);
+                $size = DecimalSize::fromCell($cell);
 
-                if ($size[self::M] >= $lastCumulativeSize) {
-                    return $size[self::M] . ',' . $size[self::D];
+                if ($size->precision >= $lastCumulativeSize) {
+                    return $size->precision . ',' . $size->scale;
                 }
 
-                return $lastCumulativeSize . ',' . $size[self::D];
+                return $lastCumulativeSize . ',' . $size->scale;
             }
 
             if ($lastCumulativeType === null || $lastCumulativeType === ColumnType::None) {
@@ -657,9 +639,9 @@ class Import
                  * This is the first row to be analyzed
                  */
                 /* First row of the column */
-                $size = $this->getDecimalSize($cell);
+                $size = DecimalSize::fromCell($cell);
 
-                return $size[self::M] . ',' . $size[self::D];
+                return $size->precision . ',' . $size->scale;
             }
 
             /**

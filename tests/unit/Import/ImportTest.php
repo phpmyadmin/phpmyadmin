@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Import\ColumnType;
+use PhpMyAdmin\Import\DecimalSize;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -193,24 +194,23 @@ class ImportTest extends AbstractTestCase
 
     /**
      * Test for getDecimalSize
-     *
-     * @param array{int, int} $expected Expected result of the function
-     * @param string  $cell     Cell content
      */
     #[DataProvider('provGetDecimalSize')]
-    public function testGetDecimalSize(array $expected, string $cell): void
+    public function testGetDecimalSize(int $precision, int $scale, string $cell): void
     {
-        self::assertSame($expected, $this->import->getDecimalSize($cell));
+        $actual = DecimalSize::fromCell($cell);
+        self::assertSame($precision, $actual->precision);
+        self::assertSame($scale, $actual->scale);
     }
 
     /**
      * Data provider for testGetDecimalSize
      *
-     * @return array{array{int, int}, string}[]
+     * @return array{int, int, string}[]
      */
     public static function provGetDecimalSize(): array
     {
-        return [[[2, 1], '2.1'], [[2, 1], '6.2'], [[3, 1], '10.0'], [[4, 2], '30.20']];
+        return [[2, 1, '2.1'], [2, 1, '6.2'], [3, 1, '10.0'], [4, 2, '30.20']];
     }
 
     /**
