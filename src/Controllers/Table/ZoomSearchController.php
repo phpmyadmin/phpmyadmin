@@ -77,8 +77,6 @@ class ZoomSearchController extends AbstractController
         private readonly DbTableExists $dbTableExists,
     ) {
         parent::__construct($response, $template);
-
-        $this->loadTableInfo();
     }
 
     public function __invoke(ServerRequest $request): void
@@ -122,6 +120,8 @@ class ZoomSearchController extends AbstractController
 
             return;
         }
+
+        $this->loadTableInfo();
 
         $this->addScriptFiles([
             'makegrid.js',
@@ -243,7 +243,7 @@ class ZoomSearchController extends AbstractController
     /**
      * Display selection form action
      */
-    public function displaySelectionFormAction(string $dataLabel): void
+    private function displaySelectionFormAction(string $dataLabel): void
     {
         $config = Config::getInstance();
         if (! isset($GLOBALS['goto'])) {
@@ -287,7 +287,7 @@ class ZoomSearchController extends AbstractController
     /**
      * Get data row action
      */
-    public function getDataRowAction(): void
+    private function getDataRowAction(): void
     {
         if (! Core::checkSqlQuerySignature($_POST['where_clause'], $_POST['where_clause_sign'])) {
             return;
@@ -318,7 +318,7 @@ class ZoomSearchController extends AbstractController
     /**
      * Change table info action
      */
-    public function changeTableInfoAction(): void
+    private function changeTableInfoAction(): void
     {
         $field = $_POST['field'];
         if ($field === 'pma_null') {
@@ -350,7 +350,7 @@ class ZoomSearchController extends AbstractController
      * @param string $dataLabel Data label
      * @param string $goto      Goto
      */
-    public function zoomSubmitAction(string $dataLabel, string $goto): void
+    private function zoomSubmitAction(string $dataLabel, string $goto): void
     {
         //Query generation part
         $sqlQuery = $this->search->buildSqlQuery();
