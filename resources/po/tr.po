@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-03-03 00:18+0000\n"
+"POT-Creation-Date: 2024-03-10 00:19+0000\n"
 "PO-Revision-Date: 2023-12-11 18:03+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -117,10 +117,10 @@ msgstr "%s sonrasına"
 #: resources/templates/server/status/monitor/index.twig:190
 #: resources/templates/server/status/processes/list.twig:72
 #: resources/templates/table/zoom_search/index.twig:60
-#: resources/templates/table/zoom_search/index.twig:117
+#: resources/templates/table/zoom_search/index.twig:115
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:219
-#: src/Display/Results.php:959 src/Plugins/Export/ExportSql.php:2053
+#: src/Display/Results.php:958 src/Plugins/Export/ExportSql.php:2052
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Yok"
@@ -184,18 +184,18 @@ msgstr "sütun(lar)"
 #: resources/templates/table/operations/index.twig:323
 #: resources/templates/table/operations/index.twig:501
 #: resources/templates/table/operations/view.twig:15
-#: resources/templates/table/search/index.twig:169
-#: resources/templates/table/search/index.twig:190
+#: resources/templates/table/search/index.twig:168
+#: resources/templates/table/search/index.twig:189
 #: resources/templates/table/start_and_number_of_rows_fieldset.twig:12
 #: resources/templates/table/structure/display_structure.twig:336
 #: resources/templates/table/structure/display_structure.twig:453
 #: resources/templates/table/structure/display_structure.twig:571
-#: resources/templates/table/zoom_search/index.twig:145
+#: resources/templates/table/zoom_search/index.twig:143
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:122 src/BrowseForeigners.php:179
 #: src/Controllers/JavaScriptMessagesController.php:335
 #: src/Controllers/Server/PrivilegesController.php:294
-#: src/Normalization.php:230 src/Tracking/Tracking.php:306
+#: src/Normalization.php:229 src/Tracking/Tracking.php:306
 #: src/Tracking/Tracking.php:448
 msgid "Go"
 msgstr "Git"
@@ -203,7 +203,7 @@ msgstr "Git"
 #: resources/templates/columns_definitions/column_definitions_form.twig:68
 #: resources/templates/database/data_dictionary/index.twig:16
 #: resources/templates/table/structure/display_table_stats.twig:5
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:574
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:573
 msgid "Table comments:"
 msgstr "Tablo açıklamaları:"
 
@@ -327,7 +327,7 @@ msgstr "Yükleme"
 #: resources/templates/table/insert/actions_panel.twig:49
 #: resources/templates/table/relation/common_form.twig:150
 #: resources/templates/table/relation/common_form.twig:151
-#: resources/templates/table/search/index.twig:181
+#: resources/templates/table/search/index.twig:180
 #: resources/templates/table/structure/display_structure.twig:328
 #: resources/templates/table/structure/display_structure.twig:344
 #: resources/templates/table/structure/display_structure.twig:354
@@ -377,8 +377,8 @@ msgstr "Bir dış anahtardır."
 #: src/Plugins/Export/ExportTexytext.php:285
 #: src/Plugins/Export/ExportTexytext.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:489
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:621
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:643
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:620
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:642
 msgid "Column"
 msgstr "Sütun"
 
@@ -475,7 +475,7 @@ msgstr "Düğüm grubu"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Import/Import.php:1175 src/Menu.php:213 src/Menu.php:317
+#: src/Import/Import.php:1333 src/Menu.php:213 src/Menu.php:317
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1057 src/Util.php:1482
@@ -529,8 +529,8 @@ msgstr "Adı"
 #: src/Plugins/Export/ExportTexytext.php:286
 #: src/Plugins/Export/ExportTexytext.php:367
 #: src/Plugins/Export/Helpers/Pdf.php:491
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:622
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:644
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:621
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:643
 msgid "Type"
 msgstr "Türü"
 
@@ -568,8 +568,8 @@ msgstr ""
 #: src/Plugins/Export/ExportTexytext.php:288
 #: src/Plugins/Export/ExportTexytext.php:369
 #: src/Plugins/Export/Helpers/Pdf.php:495
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:647
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:646
 msgid "Default"
 msgstr "Varsayılan"
 
@@ -606,8 +606,8 @@ msgstr "Karşılaştırma"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:25
 #: resources/templates/database/central_columns/edit.twig:12
 #: resources/templates/table/structure/display_structure.twig:23
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:623
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:645
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:622
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:644
 msgid "Attributes"
 msgstr "Öznitelikler"
 
@@ -631,8 +631,8 @@ msgstr "Öznitelikler"
 #: src/Plugins/Export/ExportTexytext.php:287
 #: src/Plugins/Export/ExportTexytext.php:368
 #: src/Plugins/Export/Helpers/Pdf.php:493
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:646
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:623
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:645
 msgid "Null"
 msgstr "Boş"
 
@@ -655,8 +655,8 @@ msgstr "Yetkileri ayarla"
 #: src/Plugins/Export/ExportLatex.php:514 src/Plugins/Export/ExportOdt.php:473
 #: src/Plugins/Export/ExportTexytext.php:375
 #: src/Plugins/Export/Helpers/Pdf.php:512
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:637
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:650
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:636
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:649
 msgid "Comments"
 msgstr "Açıklamalar"
 
@@ -803,7 +803,7 @@ msgstr "Etkisizleştirildi"
 #: src/Plugins/Export/ExportHtmlword.php:597
 #: src/Plugins/Export/ExportLatex.php:573 src/Plugins/Export/ExportOdt.php:716
 #: src/Plugins/Export/ExportTexytext.php:555
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:689
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:688
 msgid "Yes"
 msgstr "Evet"
 
@@ -839,7 +839,7 @@ msgstr "Evet"
 #: src/Plugins/Export/ExportHtmlword.php:597
 #: src/Plugins/Export/ExportLatex.php:573 src/Plugins/Export/ExportOdt.php:716
 #: src/Plugins/Export/ExportTexytext.php:555
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:689
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:688
 msgid "No"
 msgstr "Hayır"
 
@@ -903,7 +903,7 @@ msgstr "Yeniden sorgula"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:399
-#: src/Display/Results.php:2526 src/Html/Generator.php:544
+#: src/Display/Results.php:2525 src/Html/Generator.php:544
 #: src/Html/Generator.php:810
 msgid "Edit"
 msgstr "Düzenle"
@@ -922,7 +922,7 @@ msgstr "Düzenle"
 #: resources/templates/setup/home/index.twig:68
 #: resources/templates/sql/query.twig:184
 #: src/Controllers/JavaScriptMessagesController.php:400
-#: src/Display/Results.php:2585 src/Tracking/Tracking.php:231
+#: src/Display/Results.php:2584 src/Tracking/Tracking.php:231
 msgid "Delete"
 msgstr "Sil"
 
@@ -971,7 +971,7 @@ msgstr "Geçmiş"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:57
 #: resources/templates/table/structure/display_table_stats.twig:96
-#: src/Import/Import.php:1145 src/Import/Import.php:1176
+#: src/Import/Import.php:1334 src/Import/Import.php:1392
 #: src/Plugins/Export/ExportCodegen.php:52 src/Plugins/Export/ExportCsv.php:43
 #: src/Plugins/Export/ExportExcel.php:37
 #: src/Plugins/Export/ExportHtmlword.php:47
@@ -979,12 +979,12 @@ msgstr "Geçmiş"
 #: src/Plugins/Export/ExportMediawiki.php:43
 #: src/Plugins/Export/ExportOds.php:51 src/Plugins/Export/ExportOdt.php:60
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
-#: src/Plugins/Export/ExportSql.php:115
+#: src/Plugins/Export/ExportSql.php:114
 #: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:60
-#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:69
+#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:70
 #: src/Plugins/Import/ImportLdi.php:51
 #: src/Plugins/Import/ImportMediawiki.php:60
-#: src/Plugins/Import/ImportOds.php:53 src/Plugins/Import/ImportShp.php:71
+#: src/Plugins/Import/ImportOds.php:53 src/Plugins/Import/ImportShp.php:72
 #: src/Plugins/Import/ImportSql.php:42 src/Plugins/Import/ImportXml.php:49
 msgid "Options"
 msgstr "Seçenekler"
@@ -1063,7 +1063,7 @@ msgid "Time taken"
 msgstr "Aldığı süre"
 
 #: resources/templates/console/display.twig:88
-#: resources/templates/table/search/index.twig:144
+#: resources/templates/table/search/index.twig:143
 msgid "Order by:"
 msgstr "Sıralama:"
 
@@ -1279,7 +1279,7 @@ msgstr "Eylem"
 #: resources/templates/server/databases/index.twig:315
 #: resources/templates/server/databases/index.twig:316
 #: resources/templates/server/variables/index.twig:15
-#: resources/templates/table/search/index.twig:196
+#: resources/templates/table/search/index.twig:195
 #: src/Controllers/JavaScriptMessagesController.php:336
 msgid "Cancel"
 msgstr "İptal"
@@ -1318,8 +1318,8 @@ msgstr "Yazdır"
 #: src/Plugins/Export/ExportLatex.php:510 src/Plugins/Export/ExportOdt.php:467
 #: src/Plugins/Export/ExportTexytext.php:371
 #: src/Plugins/Export/Helpers/Pdf.php:504
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:649
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:648
 msgid "Links to"
 msgstr "Bağlantı verilen"
 
@@ -1721,7 +1721,7 @@ msgstr "Tanımlayıcı"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:376
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:951 src/Plugins/Export/ExportXml.php:84
+#: src/Plugins/Export/ExportSql.php:950 src/Plugins/Export/ExportXml.php:84
 #: src/Util.php:1491
 msgid "Events"
 msgstr "Olaylar"
@@ -1945,9 +1945,9 @@ msgstr "Sırala"
 #: resources/templates/server/databases/index.twig:145
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:22
-#: resources/templates/table/search/index.twig:154
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1491
-#: src/Display/Results.php:1498 src/Util.php:2000 src/Util.php:2017
+#: resources/templates/table/search/index.twig:153
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1490
+#: src/Display/Results.php:1497 src/Util.php:2000 src/Util.php:2017
 msgid "Ascending"
 msgstr "Küçükten Büyüğe"
 
@@ -1957,9 +1957,9 @@ msgstr "Küçükten Büyüğe"
 #: resources/templates/server/databases/index.twig:147
 #: resources/templates/server/status/processes/list.twig:11
 #: resources/templates/table/operations/index.twig:28
-#: resources/templates/table/search/index.twig:159
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1486
-#: src/Display/Results.php:1503 src/Util.php:2005 src/Util.php:2022
+#: resources/templates/table/search/index.twig:158
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1485
+#: src/Display/Results.php:1502 src/Util.php:2005 src/Util.php:2022
 msgid "Descending"
 msgstr "Büyükten Küçüğe"
 
@@ -2563,7 +2563,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:2
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:241
-#: src/Plugins/Export/ExportSql.php:888 src/Plugins/Export/ExportXml.php:357
+#: src/Plugins/Export/ExportSql.php:887 src/Plugins/Export/ExportXml.php:357
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "Veritabanı:"
@@ -2696,7 +2696,7 @@ msgstr "kullanımda"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:230
 #: resources/templates/table/structure/display_table_stats.twig:118
-#: src/Controllers/Server/DatabasesController.php:264 src/Import/Import.php:146
+#: src/Controllers/Server/DatabasesController.php:264 src/Import/Import.php:139
 msgid "Rows"
 msgstr "Satır"
 
@@ -2885,17 +2885,17 @@ msgid "Sort by key:"
 msgstr "Anahtara göre sırala:"
 
 #: resources/templates/display/results/table.twig:196
-#: resources/templates/table/search/index.twig:101
+#: resources/templates/table/search/index.twig:100
 msgid "Extra options"
 msgstr "Fazladan seçenekler"
 
 #: resources/templates/display/results/table.twig:209
-#: src/Display/Results.php:1141
+#: src/Display/Results.php:1140
 msgid "Partial texts"
 msgstr "Kısmi metinler"
 
 #: resources/templates/display/results/table.twig:213
-#: src/Display/Results.php:1145
+#: src/Display/Results.php:1144
 msgid "Full texts"
 msgstr "Tam metinler"
 
@@ -2936,7 +2936,7 @@ msgstr "Çok İyi Bilinen İkili Değer"
 #: resources/templates/display/results/table.twig:321
 #: resources/templates/gis_data_editor_form.twig:62
 #: src/Controllers/JavaScriptMessagesController.php:487
-#: src/Display/Results.php:2530 src/Html/Generator.php:77
+#: src/Display/Results.php:2529 src/Html/Generator.php:77
 msgid "Copy"
 msgstr "Kopyala"
 
@@ -2973,7 +2973,7 @@ msgstr "Kana'ya dönüştür"
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Html/Generator.php:761 src/Import/Import.php:135 src/InsertEdit.php:492
+#: src/Html/Generator.php:761 src/Import/Import.php:128 src/InsertEdit.php:492
 #: src/Message.php:145
 msgid "Error"
 msgstr "Hata"
@@ -3452,7 +3452,7 @@ msgid "Server connection:"
 msgstr "Sunucu bağlantısı:"
 
 #: resources/templates/home/index.twig:193
-#: src/Plugins/Export/ExportLatex.php:214 src/Plugins/Export/ExportSql.php:720
+#: src/Plugins/Export/ExportLatex.php:214 src/Plugins/Export/ExportSql.php:719
 #: src/Plugins/Export/ExportXml.php:204
 msgid "Server version:"
 msgstr "Sunucu sürümü:"
@@ -3677,8 +3677,8 @@ msgstr "%s indeksi kaldırıldı."
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:285
 #: src/Language.php:178 src/Pdf.php:83
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:472
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:497
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:471
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:496
 msgid "Page number:"
 msgstr "Sayfa numarası:"
 
@@ -4143,7 +4143,7 @@ msgstr "İki etkenli kimlik doğrulamasını etkinleştirdiniz."
 #: src/Controllers/Database/Structure/EmptyTableController.php:51
 #: src/Controllers/Operations/TableController.php:348
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:295 src/Core.php:501
+#: src/Controllers/Table/ReplaceController.php:295 src/Core.php:500
 msgid "No change"
 msgstr "Değişiklik yok"
 
@@ -4826,7 +4826,7 @@ msgstr "Veri okunmasına izin verir."
 #: resources/templates/server/privileges/privileges_table.twig:57
 #: resources/templates/server/privileges/privileges_table.twig:84
 #: resources/templates/server/privileges/privileges_table.twig:111
-#: resources/templates/table/search/index.twig:127 src/InsertEdit.php:501
+#: resources/templates/table/search/index.twig:126 src/InsertEdit.php:501
 msgid "Or"
 msgstr "Veya"
 
@@ -5263,7 +5263,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:22
 #: resources/templates/server/replication/primary_add_replica_user.twig:24
-#: src/Plugins/Export/ExportLatex.php:206 src/Plugins/Export/ExportSql.php:709
+#: src/Plugins/Export/ExportLatex.php:206 src/Plugins/Export/ExportSql.php:708
 #: src/Plugins/Export/ExportXml.php:195
 msgid "Host:"
 msgstr "Anamakine:"
@@ -5763,13 +5763,13 @@ msgstr "Bir bölen uygula"
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:163
-#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:301
+#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:300
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:167
-#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:303
+#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:302
 msgid "MiB"
 msgstr "MiB"
 
@@ -5841,7 +5841,7 @@ msgid "Start auto refresh"
 msgstr "Otomatik yenilemeyi başlat"
 
 #: resources/templates/server/status/processes/list.twig:43
-#: src/Display/Results.php:2604
+#: src/Display/Results.php:2603
 msgid "Kill"
 msgstr "Sonlandır"
 
@@ -6199,7 +6199,7 @@ msgstr "Sonuçların çıkarılan profilini içeren dilim çizelgesi."
 #: resources/templates/sql/query.twig:6
 #: src/Controllers/Operations/ViewController.php:117
 #: src/Controllers/Table/DeleteRowsController.php:79
-#: src/Controllers/Table/FindReplaceController.php:121
+#: src/Controllers/Table/FindReplaceController.php:119
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:74
 #: src/Controllers/Table/Maintenance/CheckController.php:74
 #: src/Controllers/Table/Maintenance/ChecksumController.php:74
@@ -6213,7 +6213,7 @@ msgstr "Sonuçların çıkarılan profilini içeren dilim çizelgesi."
 #: src/Controllers/Table/Partition/RepairController.php:50
 #: src/Controllers/Table/Partition/TruncateController.php:51
 #: src/Controllers/Table/RelationController.php:140
-#: src/Database/Routines.php:995 src/Display/Results.php:3188
+#: src/Database/Routines.php:995 src/Display/Results.php:3187
 #: src/Message.php:129
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL sorgunuz başarılı olarak çalıştırıldı."
@@ -6607,7 +6607,7 @@ msgstr ""
 "İpucu: Doğru normalleştirmeyi elde etmek için işlemi dikkatlice takip edin"
 
 #: resources/templates/table/normalization/normalization.twig:13
-#: src/Normalization.php:201
+#: src/Normalization.php:200
 msgid "First step of normalization (1NF)"
 msgstr "Normalleştirmenin ilk adımı (1NF)"
 
@@ -6843,31 +6843,31 @@ msgstr "Kısıtlama adı"
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "\"Örnekle sorgulama\" yap. (joker: \"%\")"
 
-#: resources/templates/table/search/index.twig:109
+#: resources/templates/table/search/index.twig:108
 msgid "Select columns (at least one):"
 msgstr "Sütunları seç (en az bir):"
 
-#: resources/templates/table/search/index.twig:129
+#: resources/templates/table/search/index.twig:128
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Arama koşulları ekle (\"where\" yan tümcesi gövdesi):"
 
-#: resources/templates/table/search/index.twig:137
+#: resources/templates/table/search/index.twig:136
 msgid "Number of rows per page"
 msgstr "Sayfa başına satır sayısı"
 
-#: resources/templates/table/search/index.twig:143
+#: resources/templates/table/search/index.twig:142
 msgid "Display order:"
 msgstr "Görünüm düzeni:"
 
-#: resources/templates/table/search/index.twig:172
+#: resources/templates/table/search/index.twig:171
 msgid "Range search"
 msgstr "Aralığı arama"
 
-#: resources/templates/table/search/index.twig:182
+#: resources/templates/table/search/index.twig:181
 msgid "Minimum value:"
 msgstr "En az değer:"
 
-#: resources/templates/table/search/index.twig:187
+#: resources/templates/table/search/index.twig:186
 msgid "Maximum value:"
 msgstr "En fazla değer:"
 
@@ -6941,8 +6941,8 @@ msgstr "Bölümlemeyi düzenle"
 
 #: resources/templates/table/structure/display_structure.twig:30
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:10
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:648
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:647
 msgid "Extra"
 msgstr "Ekstra"
 
@@ -7132,11 +7132,11 @@ msgstr "İki farklı sütun için \"örnekle sorgulama\" (joker: \"%\") yap"
 msgid "Additional search criteria"
 msgstr "İlave arama ölçütleri"
 
-#: resources/templates/table/zoom_search/index.twig:109
+#: resources/templates/table/zoom_search/index.twig:107
 msgid "Use this column to label each point"
 msgstr "Bu sütunu her noktayı etiketlemek için kullan"
 
-#: resources/templates/table/zoom_search/index.twig:135
+#: resources/templates/table/zoom_search/index.twig:133
 msgid "Maximum rows to plot"
 msgstr "Çizim için en fazla satır"
 
@@ -7213,7 +7213,7 @@ msgstr "%s tetikleyicisini dışa aktarma"
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Plugins/Export/ExportHtmlword.php:530
 #: src/Plugins/Export/ExportOdt.php:657 src/Plugins/Export/ExportPdf.php:251
-#: src/Plugins/Export/ExportSql.php:1925
+#: src/Plugins/Export/ExportSql.php:1924
 #: src/Plugins/Export/ExportTexytext.php:498
 #: src/Plugins/Export/ExportXml.php:104 src/Util.php:1492 src/Util.php:1508
 msgid "Triggers"
@@ -8944,7 +8944,7 @@ msgstr "Etkisizleştir"
 #: src/Plugins/Export/ExportLatex.php:94
 #: src/Plugins/Export/ExportMediawiki.php:63
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:214
+#: src/Plugins/Export/ExportSql.php:213
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "structure"
 msgstr "yapı"
@@ -8955,7 +8955,7 @@ msgstr "yapı"
 #: src/Plugins/Export/ExportLatex.php:94
 #: src/Plugins/Export/ExportMediawiki.php:63
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:214
+#: src/Plugins/Export/ExportSql.php:213
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "data"
 msgstr "veri"
@@ -8966,7 +8966,7 @@ msgstr "veri"
 #: src/Plugins/Export/ExportLatex.php:94
 #: src/Plugins/Export/ExportMediawiki.php:63
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:214
+#: src/Plugins/Export/ExportSql.php:213
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "structure and data"
 msgstr "yapı ve veri"
@@ -9169,7 +9169,7 @@ msgstr ""
 "[kbd]0[/kbd])."
 
 #: src/Config/Descriptions.php:168 src/Config/Descriptions.php:708
-#: src/Plugins/Export/ExportSql.php:314
+#: src/Plugins/Export/ExportSql.php:313
 msgid "Exclude definition of current user"
 msgstr "Şu anki kullanıcı tanımını hariç tut"
 
@@ -10459,12 +10459,12 @@ msgid "Put columns names in the first row"
 msgstr "İlk satır içine sütun adlarını koy"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:652
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:658
 msgid "Columns enclosed with"
 msgstr "Sütunlar şununla kapatılsın"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:663
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:669
 msgid "Columns escaped with"
 msgstr "Sütunlar şununla atlatılsın"
 
@@ -10480,12 +10480,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "Sütunlardaki CRLF karakterlerini kaldır"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:637
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:643
 msgid "Columns terminated with"
 msgstr "Sütunlar şununla sonlandırılsın"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:670
+#: src/Plugins/Import/ImportCsv.php:676
 msgid "Lines terminated with"
 msgstr "Satırlar şununla sonlandırılsın"
 
@@ -10512,7 +10512,7 @@ msgstr "Tablo adı şablonu"
 #: src/Plugins/Export/ExportMediawiki.php:53
 #: src/Plugins/Export/ExportMediawiki.php:59
 #: src/Plugins/Export/ExportOdt.php:70 src/Plugins/Export/ExportPdf.php:81
-#: src/Plugins/Export/ExportSql.php:210
+#: src/Plugins/Export/ExportSql.php:209
 #: src/Plugins/Export/ExportTexytext.php:56
 msgid "Dump table"
 msgstr "Tabloyu dökümle"
@@ -10574,11 +10574,11 @@ msgstr "Oluşturma/Güncelleme/Denetleme tarihleri"
 msgid "Use delayed inserts"
 msgstr "Gecikmiş eklemeleri kullan"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:179
+#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:178
 msgid "Disable foreign key checks"
 msgstr "Dış anahtar denetlemelerini etkisizleştir"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:189
+#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:188
 msgid "Export views as tables"
 msgstr "Görünümleri tablolar halinde dışa aktar"
 
@@ -10598,7 +10598,7 @@ msgstr ""
 "IF NOT EXISTS ifadesi ekle (tablo oluşumu sırasında üretilecek olan "
 "indeksler gibi daha az etkili)"
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:320
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:319
 #, php-format
 msgid "%s view"
 msgstr "%s görünümü"
@@ -10611,7 +10611,7 @@ msgstr "Yoksayılan eklemeleri kullan"
 msgid "Syntax to use when inserting data"
 msgstr "Veri eklenirken kullanılacak sözdizimi"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:447
+#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:446
 msgid "Maximal length of created query"
 msgstr "Oluşturulan sorgunun azami uzunluğu"
 
@@ -10619,7 +10619,7 @@ msgstr "Oluşturulan sorgunun azami uzunluğu"
 msgid "Export type"
 msgstr "Dışa aktarma türü"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:169
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:168
 msgid "Enclose export in a transaction"
 msgstr "İşlem içinde dışa aktarmayı kapsa"
 
@@ -10773,7 +10773,7 @@ msgid "Partial import: allow interrupt"
 msgstr "Kısmi içe aktarma: yarıda kesmeye izin ver"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:140 src/Plugins/Import/ImportLdi.php:68
+#: src/Plugins/Import/ImportCsv.php:141 src/Plugins/Import/ImportLdi.php:68
 msgid "Do not abort on INSERT error"
 msgstr "EKLEME hatasında durdurma"
 
@@ -11451,7 +11451,7 @@ msgstr "Sunucu bağlantısı karşılaştırması"
 msgid "Missing data for %s"
 msgstr "%s için kayıp veri"
 
-#: src/Config/FormDisplay.php:620 src/Config/Validator.php:587
+#: src/Config/FormDisplay.php:620 src/Config/Validator.php:586
 #: src/Controllers/JavaScriptMessagesController.php:824
 msgid "Incorrect value!"
 msgstr "Yanlış değer!"
@@ -11530,21 +11530,21 @@ msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 "Ayarlar kaydedilemiyor, gönderilmiş yapılandırma formu hatalar içeriyor!"
 
-#: src/Config.php:610
+#: src/Config.php:609
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Mevcut yapılandırma dosyası (%s) okunabilir değil."
 
-#: src/Config.php:646
+#: src/Config.php:645
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Yapılandırma dosyasında yanlış izinler, herkesçe yazılabilir olmamalıdır!"
 
-#: src/Config.php:660
+#: src/Config.php:659
 msgid "Failed to read configuration file!"
 msgstr "Yapılandırma dosyasını okuma başarısız!"
 
-#: src/Config.php:662
+#: src/Config.php:661
 msgid "This usually means there is a syntax error in it."
 msgstr "Bu genellikle bir sözdizimi hatası var anlamına gelir."
 
@@ -11725,21 +11725,21 @@ msgstr "Veritabanı seviyesi sekmeler"
 msgid "Table-level tabs"
 msgstr "Tablo seviyesi sekmeler"
 
-#: src/Config/Validator.php:243
+#: src/Config/Validator.php:242
 msgid "Could not connect to the database server!"
 msgstr "Veritabanı sunucusuna bağlanamadı!"
 
-#: src/Config/Validator.php:279
+#: src/Config/Validator.php:278
 msgid "Invalid authentication type!"
 msgstr "Geçersiz kimlik doğrulaması türü!"
 
-#: src/Config/Validator.php:284
+#: src/Config/Validator.php:283
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "[kbd]Yapılandırma[/kbd] kimlik doğrulaması yöntemi kullanırken kullanıcı adı "
 "boş!"
 
-#: src/Config/Validator.php:290
+#: src/Config/Validator.php:289
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -11747,20 +11747,20 @@ msgstr ""
 "[kbd]Oturumu açma[/kbd] kimlik doğrulaması yöntemi kullanırken oturumu açma "
 "oturum adı boş!"
 
-#: src/Config/Validator.php:297
+#: src/Config/Validator.php:296
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "[kbd]Oturumu açma[/kbd] kimlik doğrulaması yöntemi kullanırken oturumu açma "
 "URL'si boş!"
 
-#: src/Config/Validator.php:350
+#: src/Config/Validator.php:349
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "phpMyAdmin yapılandırma depolaması kullanırken phpMyAdmin denetim "
 "kullanıcısı boş!"
 
-#: src/Config/Validator.php:357
+#: src/Config/Validator.php:356
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -11768,31 +11768,31 @@ msgstr ""
 "phpMyAdmin yapılandırma depolaması kullanırken phpMyAdmin denetim kullanıcı "
 "parolası boş!"
 
-#: src/Config/Validator.php:448
+#: src/Config/Validator.php:447
 msgid "Incorrect value:"
 msgstr "Yanlış değer:"
 
-#: src/Config/Validator.php:459
+#: src/Config/Validator.php:458
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Yanlış IP adresi: %s"
 
-#: src/Config/Validator.php:522
+#: src/Config/Validator.php:521
 #: src/Controllers/JavaScriptMessagesController.php:823
 msgid "Not a valid port number!"
 msgstr "Geçerli bir bağlantı noktası numarası değil!"
 
-#: src/Config/Validator.php:544
+#: src/Config/Validator.php:543
 #: src/Controllers/JavaScriptMessagesController.php:821
 msgid "Not a positive number!"
 msgstr "Pozitif bir sayı değil!"
 
-#: src/Config/Validator.php:566
+#: src/Config/Validator.php:565
 #: src/Controllers/JavaScriptMessagesController.php:822
 msgid "Not a non-negative number!"
 msgstr "Negatif olmayan bir sayı değil!"
 
-#: src/Config/Validator.php:605
+#: src/Config/Validator.php:604
 #: src/Controllers/JavaScriptMessagesController.php:825
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -11856,8 +11856,8 @@ msgstr ""
 #: src/Controllers/Database/EventsController.php:61
 #: src/Controllers/Database/ExportController.php:68
 #: src/Controllers/Database/ExportController.php:73
-#: src/Controllers/Database/ImportController.php:67
-#: src/Controllers/Database/ImportController.php:72
+#: src/Controllers/Database/ImportController.php:66
+#: src/Controllers/Database/ImportController.php:71
 #: src/Controllers/Database/RoutinesController.php:78
 #: src/Controllers/Database/RoutinesController.php:104
 #: src/Controllers/Database/SearchController.php:54
@@ -11892,18 +11892,18 @@ msgstr ""
 #: src/Controllers/Table/DeleteConfirmController.php:68
 #: src/Controllers/Table/DropColumnConfirmationController.php:51
 #: src/Controllers/Table/DropColumnConfirmationController.php:56
+#: src/Controllers/Table/FindReplaceController.php:73
 #: src/Controllers/Table/FindReplaceController.php:78
-#: src/Controllers/Table/FindReplaceController.php:83
 #: src/Controllers/Table/GisVisualizationController.php:59
 #: src/Controllers/Table/GisVisualizationController.php:64
-#: src/Controllers/Table/ImportController.php:70
-#: src/Controllers/Table/ImportController.php:75
+#: src/Controllers/Table/ImportController.php:69
+#: src/Controllers/Table/ImportController.php:74
 #: src/Controllers/Table/IndexesController.php:68
 #: src/Controllers/Table/IndexesController.php:73
 #: src/Controllers/Table/IndexRenameController.php:58
 #: src/Controllers/Table/IndexRenameController.php:63
-#: src/Controllers/Table/SearchController.php:178
-#: src/Controllers/Table/SearchController.php:183
+#: src/Controllers/Table/SearchController.php:175
+#: src/Controllers/Table/SearchController.php:180
 #: src/Controllers/Table/SqlController.php:67
 #: src/Controllers/Table/SqlController.php:72
 #: src/Controllers/Table/StructureController.php:96
@@ -11912,8 +11912,8 @@ msgstr ""
 #: src/Controllers/Table/Structure/PrimaryController.php:81
 #: src/Controllers/Table/TrackingController.php:72
 #: src/Controllers/Table/TrackingController.php:77
-#: src/Controllers/Table/ZoomSearchController.php:103
-#: src/Controllers/Table/ZoomSearchController.php:108
+#: src/Controllers/Table/ZoomSearchController.php:100
+#: src/Controllers/Table/ZoomSearchController.php:105
 #: src/Controllers/Triggers/IndexController.php:71
 #: src/Controllers/Triggers/IndexController.php:97
 #: src/Controllers/View/CreateController.php:76
@@ -11960,10 +11960,10 @@ msgstr ""
 msgid "Could not load export plugins, please check your installation!"
 msgstr "Dışa aktarma eklentileri yüklenemedi, lütfen kurulumunuzu denetleyin!"
 
-#: src/Controllers/Database/ImportController.php:83
-#: src/Controllers/Import/ImportController.php:501
-#: src/Controllers/Server/ImportController.php:63
-#: src/Controllers/Table/ImportController.php:103
+#: src/Controllers/Database/ImportController.php:82
+#: src/Controllers/Import/ImportController.php:500
+#: src/Controllers/Server/ImportController.php:62
+#: src/Controllers/Table/ImportController.php:102
 msgid "Could not load import plugins, please check your installation!"
 msgstr "İçe aktarma eklentileri yüklenemedi, lütfen kurulumunuzu denetleyin!"
 
@@ -12007,10 +12007,10 @@ msgstr "Kullanıcıları yönetmek için yetkilere sahip değilsiniz!"
 #: src/Controllers/Table/DeleteConfirmController.php:82
 #: src/Controllers/Table/DropColumnConfirmationController.php:64
 #: src/Controllers/Table/DropColumnConfirmationController.php:69
+#: src/Controllers/Table/FindReplaceController.php:87
 #: src/Controllers/Table/FindReplaceController.php:92
-#: src/Controllers/Table/FindReplaceController.php:97
-#: src/Controllers/Table/ImportController.php:84
-#: src/Controllers/Table/ImportController.php:89
+#: src/Controllers/Table/ImportController.php:83
+#: src/Controllers/Table/ImportController.php:88
 #: src/Controllers/Table/IndexesController.php:82
 #: src/Controllers/Table/IndexesController.php:87
 #: src/Controllers/Table/IndexRenameController.php:72
@@ -12020,16 +12020,16 @@ msgstr "Kullanıcıları yönetmek için yetkilere sahip değilsiniz!"
 #: src/Controllers/Table/Maintenance/ChecksumController.php:45
 #: src/Controllers/Table/Maintenance/OptimizeController.php:45
 #: src/Controllers/Table/Maintenance/RepairController.php:45
-#: src/Controllers/Table/SearchController.php:192
-#: src/Controllers/Table/SearchController.php:197
+#: src/Controllers/Table/SearchController.php:189
+#: src/Controllers/Table/SearchController.php:194
 #: src/Controllers/Table/SqlController.php:81
 #: src/Controllers/Table/SqlController.php:86
 #: src/Controllers/Table/StructureController.php:110
 #: src/Controllers/Table/StructureController.php:115
 #: src/Controllers/Table/Structure/PrimaryController.php:90
 #: src/Controllers/Table/Structure/PrimaryController.php:95
-#: src/Controllers/Table/ZoomSearchController.php:117
-#: src/Controllers/Table/ZoomSearchController.php:122
+#: src/Controllers/Table/ZoomSearchController.php:114
+#: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:78
 msgid "No table selected."
 msgstr "Seçilen tablo yok."
@@ -12093,7 +12093,7 @@ msgid "Success!"
 msgstr "Başarılı!"
 
 #: src/Controllers/Database/StructureController.php:575
-#: src/Display/Results.php:3468
+#: src/Display/Results.php:3467
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12291,7 +12291,7 @@ msgstr ""
 "Curl uzantısı bulunamadı ve allow_url_fopen etkisizleştirildi. Bu nedenle "
 "hata raporlama veya sürüm denetleme gibi bazı özellikler etkisizleştirildi."
 
-#: src/Controllers/Import/ImportController.php:168
+#: src/Controllers/Import/ImportController.php:167
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12300,21 +12300,21 @@ msgstr ""
 "Muhtemelen çok büyük dosya göndermeyi denediniz. Lütfen bu sınır için çözüm "
 "yolu olarak %sbelgelere%s bakın."
 
-#: src/Controllers/Import/ImportController.php:200
+#: src/Controllers/Import/ImportController.php:199
 msgid "Incorrect format parameter"
 msgstr "Yanlış biçim parametresi"
 
-#: src/Controllers/Import/ImportController.php:316
-#: src/Controllers/Import/ImportController.php:541
+#: src/Controllers/Import/ImportController.php:315
+#: src/Controllers/Import/ImportController.php:540
 msgid "Showing bookmark"
 msgstr "Gösterilen yer işareti"
 
-#: src/Controllers/Import/ImportController.php:336
-#: src/Controllers/Import/ImportController.php:537
+#: src/Controllers/Import/ImportController.php:335
+#: src/Controllers/Import/ImportController.php:536
 msgid "The bookmark has been deleted."
 msgstr "Yer işareti silindi."
 
-#: src/Controllers/Import/ImportController.php:448
+#: src/Controllers/Import/ImportController.php:447
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12324,14 +12324,14 @@ msgstr ""
 "boyutu PHP yapılandırmanız tarafından izin verilen en fazla boyutu aştı. "
 "[doc@faq1-16]SSS 1.16[/doc]'ya bakın."
 
-#: src/Controllers/Import/ImportController.php:549
+#: src/Controllers/Import/ImportController.php:548
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "İçe aktarma başarılı olarak tamamlandı, %d sorgu çalıştırıldı."
 msgstr[1] "İçe aktarma başarılı olarak tamamlandı, %d sorgu çalıştırıldı."
 
-#: src/Controllers/Import/ImportController.php:586
+#: src/Controllers/Import/ImportController.php:585
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12340,7 +12340,7 @@ msgstr ""
 "Betik zaman aşımı geçti, eğer içe aktarmayı bitirmek istiyorsanız, lütfen "
 "%saynı dosyayı yeniden gönderin%s ve içe aktarma devam edecektir."
 
-#: src/Controllers/Import/ImportController.php:596
+#: src/Controllers/Import/ImportController.php:595
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12349,7 +12349,7 @@ msgstr ""
 "sınırlarını arttırmadığınız sürece phpMyAdmin'in bu içe aktarmayı "
 "biteremeyeceği anlamına gelir."
 
-#: src/Controllers/Import/ImportController.php:659
+#: src/Controllers/Import/ImportController.php:658
 #: src/Controllers/Sql/SqlController.php:161
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" ifadesi etkisizleştirildi."
@@ -12622,14 +12622,14 @@ msgid "Other"
 msgstr "Diğer"
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:161 src/Util.php:389
-#: src/Util.php:421
+#: src/Controllers/JavaScriptMessagesController.php:161 src/Util.php:388
+#: src/Util.php:420
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:163 src/Util.php:387
-#: src/Util.php:419
+#: src/Controllers/JavaScriptMessagesController.php:163 src/Util.php:386
+#: src/Util.php:418
 msgid "."
 msgstr "."
 
@@ -12730,27 +12730,27 @@ msgid "Bytes received"
 msgstr "Alınmış bayt"
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:299
+#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:298
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:305
+#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:304
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:307
+#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:306
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:309
+#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:308
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:311
+#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:310
 msgid "EiB"
 msgstr "EiB"
 
@@ -13082,7 +13082,7 @@ msgid "Request failed!!"
 msgstr "İstek başarısız oldu!!"
 
 #: src/Controllers/JavaScriptMessagesController.php:347
-#: src/Controllers/Sql/EnumValuesController.php:37
+#: src/Controllers/Sql/EnumValuesController.php:36
 #: src/Controllers/Sql/SetValuesController.php:39
 msgid "Error in processing request"
 msgstr "İstek işlemede hata"
@@ -13227,7 +13227,7 @@ msgid "Variable %d:"
 msgstr "Değişken %d:"
 
 #: src/Controllers/JavaScriptMessagesController.php:410
-#: src/Normalization.php:950
+#: src/Normalization.php:949
 msgid "Pick"
 msgstr "Seç"
 
@@ -13261,7 +13261,7 @@ msgid "Primary key added."
 msgstr "Birincil anahtar eklendi."
 
 #: src/Controllers/JavaScriptMessagesController.php:422
-#: src/Normalization.php:256
+#: src/Normalization.php:255
 msgid "Taking you to next step…"
 msgstr "Sizi sonraki adıma götürüyor…"
 
@@ -13271,8 +13271,8 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr "Normalleştirmenin ilk adımı '%s' tablosu için tamamlandı."
 
 #: src/Controllers/JavaScriptMessagesController.php:424
-#: src/Normalization.php:512 src/Normalization.php:571
-#: src/Normalization.php:658 src/Normalization.php:731
+#: src/Normalization.php:511 src/Normalization.php:570
+#: src/Normalization.php:657 src/Normalization.php:730
 msgid "End of step"
 msgstr "Adım sonu"
 
@@ -13283,7 +13283,7 @@ msgstr "Normalleştirmenin ikinci adımı (2NF)"
 #. l10n: Display text for calendar close link
 #: src/Controllers/JavaScriptMessagesController.php:426
 #: src/Controllers/JavaScriptMessagesController.php:773
-#: src/Normalization.php:344
+#: src/Normalization.php:343
 msgid "Done"
 msgstr "Bitti"
 
@@ -13987,97 +13987,97 @@ msgctxt "Month name"
 msgid "December"
 msgstr "Aralık"
 
-#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:497
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Oca"
 
-#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:498
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Şub"
 
-#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:499
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Mar"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:500
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Nis"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:501
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "May"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:502
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Haz"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:503
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Tem"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:504
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Ağu"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:505
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Eyl"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:506
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Eki"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:507
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Kas"
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:508
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Ara"
 
-#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:511
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Paz"
 
-#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:512
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Pzt"
 
-#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:513
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Sal"
 
-#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:514
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Çar"
 
-#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:515
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Per"
 
-#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:516
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Cum"
 
-#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:517
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Cts"
@@ -14314,17 +14314,17 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Önemli hata: Gezintiye sadece AJAX aracılığıyla erişilebilir"
 
 #: src/Controllers/Normalization/GetColumnsController.php:26
-#: src/Normalization.php:220
+#: src/Normalization.php:219
 msgid "Select one…"
 msgstr "Birini seçin…"
 
 #: src/Controllers/Normalization/GetColumnsController.php:27
-#: src/Normalization.php:221
+#: src/Normalization.php:220
 msgid "No such column"
 msgstr "Böyle bir sütun yok"
 
 #: src/Controllers/Normalization/GetColumnsController.php:32
-#: src/Normalization.php:225 src/Types.php:696
+#: src/Normalization.php:224 src/Types.php:696
 msgctxt "string types"
 msgid "String"
 msgstr "Dizgi"
@@ -15212,17 +15212,17 @@ msgstr "Tabloda çizmek için sayısal sütunlar mevcut değil."
 msgid "No data to display"
 msgstr "Görüntülemek için veri yok"
 
-#: src/Controllers/Table/CreateController.php:61
+#: src/Controllers/Table/CreateController.php:60
 msgid "The database name is empty!"
 msgstr "Veritabanı adı boş!"
 
-#: src/Controllers/Table/CreateController.php:73
+#: src/Controllers/Table/CreateController.php:72
 #: src/Controllers/Table/GetFieldController.php:49
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "'%s' veritabanı mevcut değil."
 
-#: src/Controllers/Table/CreateController.php:83
+#: src/Controllers/Table/CreateController.php:82
 #, php-format
 msgid "Table %s already exists!"
 msgstr "%s tablosu zaten var!"
@@ -15251,12 +15251,12 @@ msgstr "Geçersiz tablo adı"
 
 #. l10n: In case a SQL query did not pass a security check
 #: src/Controllers/Table/GetFieldController.php:68
-#: src/Controllers/Transformation/WrapperController.php:74
+#: src/Controllers/Transformation/WrapperController.php:73
 msgid "There is an issue with your request."
 msgstr "İsteğinizle ilgili bir sorun var."
 
 #: src/Controllers/Table/GetFieldController.php:83
-#: src/Database/Routines.php:1012 src/Import/Import.php:151
+#: src/Database/Routines.php:1012 src/Import/Import.php:144
 #: src/InsertEdit.php:201 src/Sql.php:858
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL boş bir sonuç kümesi döndürdü (yani sıfır satır)."
@@ -15370,7 +15370,7 @@ msgstr "Burada bulunmak için yeterli yetkilere sahip değilsiniz!"
 msgid "View name can not be empty!"
 msgstr "Görünüm adı boş olamaz!"
 
-#: src/Core.php:107 src/ZipExtension.php:57
+#: src/Core.php:106 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s uzantısı eksik. Lütfen PHP yapılandırmanızı denetleyin."
@@ -15403,7 +15403,7 @@ msgstr ""
 "Yapılandırma depolaması, sütunların merkezi listesi özelliği için hazır "
 "değil."
 
-#: src/Database/Designer/Common.php:457
+#: src/Database/Designer/Common.php:456
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
@@ -15413,43 +15413,43 @@ msgstr ""
 "phpMyAdmin yapılandırma depolaması \"Görüntü Özellikleri\" için "
 "yapılandırılmamış."
 
-#: src/Database/Designer/Common.php:502
+#: src/Database/Designer/Common.php:501
 msgid "Error: relationship already exists."
 msgstr "Hata: ilişki zaten var."
 
-#: src/Database/Designer/Common.php:551
+#: src/Database/Designer/Common.php:550
 msgid "FOREIGN KEY relationship has been added."
 msgstr "FOREIGN KEY ilişkisi eklendi."
 
-#: src/Database/Designer/Common.php:556
+#: src/Database/Designer/Common.php:555
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Hata: FOREIGN KEY ilişkisi eklenemedi!"
 
-#: src/Database/Designer/Common.php:559
+#: src/Database/Designer/Common.php:558
 msgid "Error: Missing index on column(s)."
 msgstr "Hata: Sütun(lar)da indeks eksik."
 
-#: src/Database/Designer/Common.php:564 src/Database/Designer/Common.php:628
+#: src/Database/Designer/Common.php:563 src/Database/Designer/Common.php:627
 msgid "Error: Relational features are disabled!"
 msgstr "Hata: İlişkisel özellikler etkisizleştirildi!"
 
-#: src/Database/Designer/Common.php:585
+#: src/Database/Designer/Common.php:584
 msgid "Internal relationship has been added."
 msgstr "İç ilişki eklendi."
 
-#: src/Database/Designer/Common.php:590
+#: src/Database/Designer/Common.php:589
 msgid "Error: Internal relationship could not be added!"
 msgstr "Hata: İç ilişki eklenemedi!"
 
-#: src/Database/Designer/Common.php:622
+#: src/Database/Designer/Common.php:621
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "FOREIGN KEY ilişkisi kaldırıldı."
 
-#: src/Database/Designer/Common.php:647
+#: src/Database/Designer/Common.php:646
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Hata: İç ilişki kaldırılamadı!"
 
-#: src/Database/Designer/Common.php:650
+#: src/Database/Designer/Common.php:649
 msgid "Internal relationship has been removed."
 msgstr "İç ilişki kaldırıldı."
 
@@ -15457,8 +15457,8 @@ msgstr "İç ilişki kaldırıldı."
 msgid "Could not load schema plugins, please check your installation!"
 msgstr "Şema eklentileri yüklenemedi, lütfen kurulumunuzu denetleyin!"
 
-#: src/Database/Events.php:90 src/Database/Events.php:99
-#: src/Database/Events.php:133 src/Database/Routines.php:101
+#: src/Database/Events.php:89 src/Database/Events.php:98
+#: src/Database/Events.php:132 src/Database/Routines.php:101
 #: src/Database/Routines.php:127 src/Database/Routines.php:205
 #: src/Database/Routines.php:972 src/Triggers/Triggers.php:82
 #: src/Triggers/Triggers.php:91 src/Triggers/Triggers.php:126
@@ -15466,8 +15466,8 @@ msgstr "Şema eklentileri yüklenemedi, lütfen kurulumunuzu denetleyin!"
 msgid "The following query has failed: \"%s\""
 msgstr "Şurada belirtilen sorgu başarısız oldu: \"%s\""
 
-#: src/Database/Events.php:94 src/Database/Events.php:103
-#: src/Database/Events.php:116 src/Database/Events.php:137
+#: src/Database/Events.php:93 src/Database/Events.php:102
+#: src/Database/Events.php:115 src/Database/Events.php:136
 #: src/Database/Routines.php:105 src/Database/Routines.php:131
 #: src/Database/Routines.php:209 src/Database/Routines.php:223
 #: src/Database/Routines.php:976 src/Html/Generator.php:826
@@ -15476,56 +15476,56 @@ msgstr "Şurada belirtilen sorgu başarısız oldu: \"%s\""
 msgid "MySQL said: "
 msgstr "MySQL çıktısı: "
 
-#: src/Database/Events.php:113
+#: src/Database/Events.php:112
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Üzgünüm, kaldırılmış olayı geri yükleme başarısız oldu."
 
-#: src/Database/Events.php:114 src/Database/Routines.php:221
+#: src/Database/Events.php:113 src/Database/Routines.php:221
 #: src/Triggers/Triggers.php:107
 msgid "The backed up query was:"
 msgstr "Yedeklenmiş sorgu:"
 
-#: src/Database/Events.php:120
+#: src/Database/Events.php:119
 #, php-format
 msgid "Event %1$s has been modified."
 msgstr "Olay %1$s değiştirildi."
 
-#: src/Database/Events.php:140
+#: src/Database/Events.php:139
 #, php-format
 msgid "Event %1$s has been created."
 msgstr "Olay %1$s oluşturuldu."
 
-#: src/Database/Events.php:154 src/Database/Routines.php:147
+#: src/Database/Events.php:153 src/Database/Routines.php:147
 #: src/Triggers/Triggers.php:147
 msgid "One or more errors have occurred while processing your request:"
 msgstr "İsteğiniz işlenirken bir ya da daha fazla hata meydana geldi:"
 
-#: src/Database/Events.php:269 src/Database/Routines.php:774
+#: src/Database/Events.php:268 src/Database/Routines.php:774
 #: src/Triggers/Triggers.php:191
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Tanımlayıcı \"kullanıcıadı@anamakineadı\" biçiminde olmak zorundadır!"
 
-#: src/Database/Events.php:277
+#: src/Database/Events.php:276
 msgid "You must provide an event name!"
 msgstr "Bir olay adı vermek zorundasınız!"
 
-#: src/Database/Events.php:291
+#: src/Database/Events.php:290
 msgid "You must provide a valid interval value for the event."
 msgstr "Her olay için geçerli aralık değeri vermek zorundasınız."
 
-#: src/Database/Events.php:304
+#: src/Database/Events.php:303
 msgid "You must provide a valid execution time for the event."
 msgstr "Olay için geçerli bir yürütme zamanı vermek zorundasınız."
 
-#: src/Database/Events.php:307
+#: src/Database/Events.php:306
 msgid "You must provide a valid type for the event."
 msgstr "Olay için geçerli bir tür vermek zorundasınız."
 
-#: src/Database/Events.php:333
+#: src/Database/Events.php:332
 msgid "You must provide an event definition."
 msgstr "Bir olay tanımı vermek zorundasınız."
 
-#: src/DatabaseInterface.php:1125
+#: src/DatabaseInterface.php:1129
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -15537,11 +15537,11 @@ msgstr ""
 "ayarlarınızı denetleyin. phpMyAdmin, veritabanı sunucusunun şu anki "
 "varsayılan saat dilimini kullanıyor."
 
-#: src/DatabaseInterface.php:1167
+#: src/DatabaseInterface.php:1171
 msgid "Failed to set configured collation connection!"
 msgstr "Yapılandırılmış karşılaştırma bağlantısı ayarlama başarısız!"
 
-#: src/DatabaseInterface.php:1609
+#: src/DatabaseInterface.php:1685
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Yapılandırma dosyanız içinde tanımlanmış denetim kullanıcısı için bağlantı "
@@ -15621,31 +15621,31 @@ msgstr ""
 "Hata 1045: Kullanıcı için erişim reddedildi. Ek hata bilgileri mevcut "
 "olabilir, ancak %s yapılandırma yönergesi tarafından gizleniyor."
 
-#: src/Display/Results.php:2561 src/Display/Results.php:2576
+#: src/Display/Results.php:2560 src/Display/Results.php:2575
 msgid "The row has been deleted."
 msgstr "Satır silindi."
 
-#: src/Display/Results.php:3477
+#: src/Display/Results.php:3476
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Gösterilen satır %1s - %2s"
 
-#: src/Display/Results.php:3491
+#: src/Display/Results.php:3490
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "%1$s toplam, %2$s sorguda"
 
-#: src/Display/Results.php:3496
+#: src/Display/Results.php:3495
 #, php-format
 msgid "%s total"
 msgstr "toplam %s"
 
-#: src/Display/Results.php:3509 src/Sql.php:864
+#: src/Display/Results.php:3508 src/Sql.php:864
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Sorgu %01.4f saniye sürdü."
 
-#: src/Display/Results.php:3815
+#: src/Display/Results.php:3814
 msgid "Link not found!"
 msgstr "Bağlantı bulunamadı!"
 
@@ -16250,62 +16250,62 @@ msgstr "Tetikleyici adı %d karakterden uzun olamaz."
 msgid "The trigger name cannot end with a space character."
 msgstr "Tetikleyici adı bir boşluk karakteriyle bitemez."
 
-#: src/Import/Import.php:270 src/Sql.php:872
+#: src/Import/Import.php:263 src/Sql.php:872
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK meydana geldi.]"
 
-#: src/Import/Import.php:1137
-msgid ""
-"The following structures have either been created or altered. Here you can:"
-msgstr "Aşağıdaki yapılar ya oluşturuldu ya da değiştirildi. Buyurun:"
-
-#: src/Import/Import.php:1139
-msgid "View a structure's contents by clicking on its name."
-msgstr "Adına tıklayarak yapının içeriklerini görüntüleyin."
-
-#: src/Import/Import.php:1140
-msgid ""
-"Change any of its settings by clicking the corresponding \"Options\" link."
-msgstr ""
-"Uyan \"Seçenekler\" bağlantısına tıklayarak bunun herhangi bir ayarını "
-"değiştirin."
-
-#: src/Import/Import.php:1141
-msgid "Edit structure by following the \"Structure\" link."
-msgstr "Aşağıdaki \"Yapı\" bağlantısıyla yapısını düzenleyin."
-
-#: src/Import/Import.php:1148
-#, php-format
-msgid "Go to database: %s"
-msgstr "Şu veritabanına git: %s"
-
-#: src/Import/Import.php:1154 src/Import/Import.php:1194
-#, php-format
-msgid "Edit settings for %s"
-msgstr "%s için ayarları düzenle"
-
-#: src/Import/Import.php:1179
-#, php-format
-msgid "Go to table: %s"
-msgstr "Şu tabloya git: %s"
-
-#: src/Import/Import.php:1187
-#, php-format
-msgid "Structure of %s"
-msgstr "%s yapısı"
-
-#: src/Import/Import.php:1205
-#, php-format
-msgid "Go to view: %s"
-msgstr "Şu görünüme git: %s"
-
-#: src/Import/Import.php:1231
+#: src/Import/Import.php:1112
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
 "Sadece işlem motoru tablolarını içeren INSERT, UPDATE, DELETE ve REPLACE SQL "
 "sorguları geri döndürülebilir."
+
+#: src/Import/Import.php:1337
+#, php-format
+msgid "Go to table: %s"
+msgstr "Şu tabloya git: %s"
+
+#: src/Import/Import.php:1345
+#, php-format
+msgid "Structure of %s"
+msgstr "%s yapısı"
+
+#: src/Import/Import.php:1352 src/Import/Import.php:1401
+#, php-format
+msgid "Edit settings for %s"
+msgstr "%s için ayarları düzenle"
+
+#: src/Import/Import.php:1363
+#, php-format
+msgid "Go to view: %s"
+msgstr "Şu görünüme git: %s"
+
+#: src/Import/Import.php:1384
+msgid ""
+"The following structures have either been created or altered. Here you can:"
+msgstr "Aşağıdaki yapılar ya oluşturuldu ya da değiştirildi. Buyurun:"
+
+#: src/Import/Import.php:1386
+msgid "View a structure's contents by clicking on its name."
+msgstr "Adına tıklayarak yapının içeriklerini görüntüleyin."
+
+#: src/Import/Import.php:1387
+msgid ""
+"Change any of its settings by clicking the corresponding \"Options\" link."
+msgstr ""
+"Uyan \"Seçenekler\" bağlantısına tıklayarak bunun herhangi bir ayarını "
+"değiştirin."
+
+#: src/Import/Import.php:1388
+msgid "Edit structure by following the \"Structure\" link."
+msgstr "Aşağıdaki \"Yapı\" bağlantısıyla yapısını düzenleyin."
+
+#: src/Import/Import.php:1395
+#, php-format
+msgid "Go to database: %s"
+msgstr "Şu veritabanına git: %s"
 
 #: src/Index.php:563
 #, php-format
@@ -16456,7 +16456,7 @@ msgstr "Yeni"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:24
-#: src/Plugins/Export/ExportSql.php:591 src/Plugins/Export/ExportXml.php:89
+#: src/Plugins/Export/ExportSql.php:590 src/Plugins/Export/ExportXml.php:89
 msgid "Functions"
 msgstr "İşlevler"
 
@@ -16476,7 +16476,7 @@ msgstr "Genişlet/Daralt"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:24
-#: src/Plugins/Export/ExportSql.php:580 src/Plugins/Export/ExportXml.php:94
+#: src/Plugins/Export/ExportSql.php:579 src/Plugins/Export/ExportXml.php:94
 msgid "Procedures"
 msgstr "Yordamlar"
 
@@ -16508,16 +16508,16 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "Yeni"
 
-#: src/Normalization.php:200
+#: src/Normalization.php:199
 msgid "Make all columns atomic"
 msgstr "Tüm sütunları çok küçük yap"
 
-#: src/Normalization.php:203 src/Normalization.php:252
-#: src/Normalization.php:298 src/Normalization.php:330
+#: src/Normalization.php:202 src/Normalization.php:251
+#: src/Normalization.php:297 src/Normalization.php:329
 msgid "Step 1."
 msgstr "Adım 1."
 
-#: src/Normalization.php:206
+#: src/Normalization.php:205
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
@@ -16525,11 +16525,11 @@ msgstr ""
 "Birden fazla sütuna bölünebilen herhangi bir sütununuz var mı? Örneğin: "
 "adres cadde,şehir, ülke ve posta kodu olarak bölünebilir."
 
-#: src/Normalization.php:211
+#: src/Normalization.php:210
 msgid "Show me the central list of columns that are not already in this table"
 msgstr "Zaten bu tabloda olmayan sütunların merkezi listesini bana göster"
 
-#: src/Normalization.php:213
+#: src/Normalization.php:212
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
@@ -16537,19 +16537,19 @@ msgstr ""
 "Birden fazla sütuna bölünebilen bir sütun seçin. ('böyle bir sütun yok' "
 "seçiminde, sonraki adıma geçilecek)."
 
-#: src/Normalization.php:228
+#: src/Normalization.php:227
 msgid "split into "
 msgstr "böl "
 
-#: src/Normalization.php:249
+#: src/Normalization.php:248
 msgid "Have a primary key"
 msgstr "Birincil anahtara sahip"
 
-#: src/Normalization.php:255
+#: src/Normalization.php:254
 msgid "Primary key already exists."
 msgstr "Birincil anahtar zaten var."
 
-#: src/Normalization.php:260
+#: src/Normalization.php:259
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
@@ -16558,25 +16558,25 @@ msgstr ""
 "tüm satırları benzersiz olarak tanımlayan bir sütundur (ya da sütunların "
 "birleşimi)."
 
-#: src/Normalization.php:268
+#: src/Normalization.php:267
 msgid "Add a primary key on existing column(s)"
 msgstr "Var olan sütun(lar)a birincil anahtar ekleyin"
 
-#: src/Normalization.php:272
+#: src/Normalization.php:271
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 "Birincil anahtar olarak var olan sütun birleşimleri yapmak mümkün değilse"
 
-#: src/Normalization.php:274
+#: src/Normalization.php:273
 msgid "+ Add a new primary key column"
 msgstr "+ Yeni bir birincil anahtar sütunu ekle"
 
-#: src/Normalization.php:297
+#: src/Normalization.php:296
 msgid "Remove redundant columns"
 msgstr "Gereksiz sütunları kaldır"
 
-#: src/Normalization.php:300
+#: src/Normalization.php:299
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
@@ -16586,7 +16586,7 @@ msgstr ""
 "sahip misiniz? Örneğin, eğer ilk_adı, soy_adı ve tam_adı'na sahipseniz ondan "
 "sonra ilk_adı ve soy_adı birleşimi gereksiz olan tam_adı verir."
 
-#: src/Normalization.php:306
+#: src/Normalization.php:305
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
@@ -16594,19 +16594,19 @@ msgstr ""
 "Gereksiz sütunları denetleyin ve kaldır seçeneğine tıklayın. Eğer gereksiz "
 "sütun yoksa, 'Gereksiz sütun yok' seçeneğine tıklayın"
 
-#: src/Normalization.php:311
+#: src/Normalization.php:310
 msgid "Remove selected"
 msgstr "Seçileni kaldır"
 
-#: src/Normalization.php:313
+#: src/Normalization.php:312
 msgid "No redundant column"
 msgstr "Gereksiz sütun yok"
 
-#: src/Normalization.php:329
+#: src/Normalization.php:328
 msgid "Move repeating groups"
 msgstr "Tekrarlayan grupları taşı"
 
-#: src/Normalization.php:332
+#: src/Normalization.php:331
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -16620,7 +16620,7 @@ msgstr ""
 "benzerleri gibi sütunlara sahip olabilir. Bu durumda yeni bir tablo "
 "(kitap_id, yazar) oluşturulmalıdır."
 
-#: src/Normalization.php:340
+#: src/Normalization.php:339
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
@@ -16628,19 +16628,19 @@ msgstr ""
 "Tekrarlayan bir gruptan olan sütunları denetleyin. Eğer böyle bir grup "
 "yoksa, 'Tekrarlayan grup yok' seçeneğine tıklayın"
 
-#: src/Normalization.php:345
+#: src/Normalization.php:344
 msgid "No repeating group"
 msgstr "Tekrarlayan grup yok"
 
-#: src/Normalization.php:373
+#: src/Normalization.php:372
 msgid "Step 2."
 msgstr "Adım 2."
 
-#: src/Normalization.php:373
+#: src/Normalization.php:372
 msgid "Find partial dependencies"
 msgstr "Kısmi bağımlılıkları bul"
 
-#: src/Normalization.php:394
+#: src/Normalization.php:393
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
@@ -16649,11 +16649,11 @@ msgstr ""
 "Birincil anahtar ( %1$s ), tablodaki tüm sütunlardan oluştuğu sürece "
 "birincil olmayan sütun mevcut olmadığı için kısmi bağımlılıklar mümkün değil."
 
-#: src/Normalization.php:400 src/Normalization.php:442
+#: src/Normalization.php:399 src/Normalization.php:441
 msgid "Table is already in second normal form."
 msgstr "Tablo zaten ikinci normal biçiminde."
 
-#: src/Normalization.php:405
+#: src/Normalization.php:404
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
@@ -16662,7 +16662,7 @@ msgstr ""
 "Birincil anahtar ( %1$s ) birden fazla sütundan meydana geliyor bu yüzden "
 "kısmi bağımlılıkları bulamamız gerekli."
 
-#: src/Normalization.php:409 src/Normalization.php:820
+#: src/Normalization.php:408 src/Normalization.php:819
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
@@ -16670,11 +16670,11 @@ msgstr ""
 "Lütfen aşağıdaki soru(ları)yu doğru normalleştirmeyi elde etmek için "
 "dikkatlice yanıtlayın."
 
-#: src/Normalization.php:411
+#: src/Normalization.php:410
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr "+ Tablodaki veriye dayanarak olası kısmi bağımlılıkları bana göster"
 
-#: src/Normalization.php:414
+#: src/Normalization.php:413
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -16684,12 +16684,12 @@ msgstr ""
 "değerlerle birlikte birleştirilip verilen küme arasındaki sütunların <b>en "
 "az olan kümesini</b> seçin."
 
-#: src/Normalization.php:427 src/Normalization.php:862
+#: src/Normalization.php:426 src/Normalization.php:861
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "'%1$s' bağlı olduğu:"
 
-#: src/Normalization.php:438
+#: src/Normalization.php:437
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
@@ -16698,7 +16698,7 @@ msgstr ""
 "Birincil anahtar ( %1$s ) olarak mümkün olmayan kısmi bağımlılıklar sadece "
 "bir sütuna sahiptir."
 
-#: src/Normalization.php:466
+#: src/Normalization.php:465
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
@@ -16707,17 +16707,17 @@ msgstr ""
 "İkinci normal biçim içine orijinal '%1$s' tablosunu koymak için aşağıdaki "
 "tabloları oluşturmamız gerekli:"
 
-#: src/Normalization.php:508
+#: src/Normalization.php:507
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "Normalleştirmenin ikinci adımı '%1$s' tablosu için tamamlandı."
 
-#: src/Normalization.php:560 src/Normalization.php:720
-#: src/Normalization.php:795
+#: src/Normalization.php:559 src/Normalization.php:719
+#: src/Normalization.php:794
 msgid "Error in processing!"
 msgstr "İşlemede hata!"
 
-#: src/Normalization.php:607
+#: src/Normalization.php:606
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
@@ -16726,24 +16726,24 @@ msgstr ""
 "Üçüncü normal biçim içine orijinal '%1$s' tablosunu koymak için aşağıdaki "
 "tabloları oluşturmamız gerekli:"
 
-#: src/Normalization.php:656
+#: src/Normalization.php:655
 msgid "The third step of normalization is complete."
 msgstr "Normalleştirmenin üçüncü adımı tamamlandı."
 
-#: src/Normalization.php:771
+#: src/Normalization.php:770
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Seçilen tekrarlayan grup '%s' tablosuna taşındı"
 
-#: src/Normalization.php:818
+#: src/Normalization.php:817
 msgid "Step 3."
 msgstr "Adım 3."
 
-#: src/Normalization.php:818
+#: src/Normalization.php:817
 msgid "Find transitive dependencies"
 msgstr "Karşılıklı bağımlılıkları bul"
 
-#: src/Normalization.php:822
+#: src/Normalization.php:821
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -16755,7 +16755,7 @@ msgstr ""
 "az olan kümesini</b> seçin.<br>Not: Bir sütun karşılıklı bağımlılıklara "
 "sahip olamayabilir, bu durumda hiç seçmemek zorundasınız."
 
-#: src/Normalization.php:876
+#: src/Normalization.php:875
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
@@ -16763,11 +16763,11 @@ msgstr ""
 "Herhangi bir birincil anahtar olmayan sütunlara sahip olmayan tablo gibi "
 "Karşılıklı bağımlılıklar da mümkün değil"
 
-#: src/Normalization.php:879
+#: src/Normalization.php:878
 msgid "Table is already in Third normal form!"
 msgstr "Tablo zaten Üçüncü normal biçiminde!"
 
-#: src/Normalization.php:946
+#: src/Normalization.php:945
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
@@ -16775,7 +16775,7 @@ msgstr ""
 "Bu liste tablonun verisinin bir altkümesine dayanır ve mutlaka doğru "
 "değildir. "
 
-#: src/Normalization.php:961
+#: src/Normalization.php:960
 msgid "No partial dependencies found!"
 msgstr "Bulunan kısmi bağımlılıklar yok!"
 
@@ -16830,7 +16830,7 @@ msgstr "Bağlanamıyor: geçersiz ayarlar."
 #: src/Plugins/Auth/AuthenticationConfig.php:85
 #: src/Plugins/Auth/AuthenticationConfig.php:99
 #: src/Plugins/Auth/AuthenticationHttp.php:78
-#: src/Plugins/AuthenticationPlugin.php:171
+#: src/Plugins/AuthenticationPlugin.php:170
 msgid "Access denied!"
 msgstr "Erişim engellendi!"
 
@@ -16859,24 +16859,24 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "Bağlanmayı yeniden dene"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:123
+#: src/Plugins/Auth/AuthenticationCookie.php:122
 msgid "Your session has expired. Please log in again."
 msgstr "Oturumunuzun süresi doldu. Lütfen tekrar oturum açın."
 
-#: src/Plugins/Auth/AuthenticationCookie.php:236
+#: src/Plugins/Auth/AuthenticationCookie.php:235
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr ""
 "Captcha doğrulaması eksik, belki adblock tarafından engellenmiş olabilir mi?"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:271
+#: src/Plugins/Auth/AuthenticationCookie.php:270
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "reCAPTCHA hizmetine bağlanma başarısız!"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:273
+#: src/Plugins/Auth/AuthenticationCookie.php:272
 msgid "Entered captcha is wrong, try again!"
 msgstr "Girilen captcha yanlış, tekrar deneyin!"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:285
+#: src/Plugins/Auth/AuthenticationCookie.php:284
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
@@ -16884,7 +16884,7 @@ msgstr ""
 "Parolanız çok uzun. Hizmet reddi saldırılarını önlemek için phpMyAdmin, "
 "parolaları 2000 karakterden daha azına kısıtlar."
 
-#: src/Plugins/Auth/AuthenticationCookie.php:304
+#: src/Plugins/Auth/AuthenticationCookie.php:303
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Bu MySQL sunucusuna oturum açmanıza izin verilmiyor!"
 
@@ -16900,14 +16900,14 @@ msgstr "Oturumu açma kimlik doğrulaması betiği bulunamıyor:"
 msgid "Invalid authentication method set in configuration:"
 msgstr "Yapılandırma içinde geçersiz kimlik doğrulaması yöntemi ayarı:"
 
-#: src/Plugins/AuthenticationPlugin.php:167
+#: src/Plugins/AuthenticationPlugin.php:166
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Yapılandırma tarafından parolasız oturum açma yasaktır (AllowNoPassword'a "
 "bakın)"
 
-#: src/Plugins/AuthenticationPlugin.php:176
+#: src/Plugins/AuthenticationPlugin.php:175
 #, php-format
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
@@ -16917,12 +16917,12 @@ msgstr ""
 "Tekrar oturum açtıktan sonra, kaldığınız yerden işe devam edebilmeniz "
 "gerekir."
 
-#: src/Plugins/AuthenticationPlugin.php:189
-#: src/Plugins/AuthenticationPlugin.php:192
+#: src/Plugins/AuthenticationPlugin.php:188
+#: src/Plugins/AuthenticationPlugin.php:191
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL sunucusuna oturum açılamıyor"
 
-#: src/Plugins/AuthenticationPlugin.php:330
+#: src/Plugins/AuthenticationPlugin.php:329
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 "İki etkenli kimlik doğrulamasını etkinleştirdiniz, lütfen oturum açma "
@@ -16972,25 +16972,25 @@ msgid "Data dump options"
 msgstr "Veri dökümü seçenekleri"
 
 #: src/Plugins/Export/ExportHtmlword.php:189
-#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2173
+#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2172
 #: src/Plugins/Export/ExportTexytext.php:173
 msgid "Dumping data for table"
 msgstr "Tablo döküm verisi"
 
 #: src/Plugins/Export/ExportHtmlword.php:521
-#: src/Plugins/Export/ExportOdt.php:647 src/Plugins/Export/ExportSql.php:1911
+#: src/Plugins/Export/ExportOdt.php:647 src/Plugins/Export/ExportSql.php:1910
 #: src/Plugins/Export/ExportTexytext.php:491
 msgid "Table structure for table"
 msgstr "Tablo için tablo yapısı"
 
 #: src/Plugins/Export/ExportHtmlword.php:538
-#: src/Plugins/Export/ExportOdt.php:667 src/Plugins/Export/ExportSql.php:1968
+#: src/Plugins/Export/ExportOdt.php:667 src/Plugins/Export/ExportSql.php:1967
 #: src/Plugins/Export/ExportTexytext.php:504
 msgid "Structure for view"
 msgstr "Görünüm yapısı"
 
 #: src/Plugins/Export/ExportHtmlword.php:544
-#: src/Plugins/Export/ExportOdt.php:675 src/Plugins/Export/ExportSql.php:2000
+#: src/Plugins/Export/ExportOdt.php:675 src/Plugins/Export/ExportSql.php:1999
 #: src/Plugins/Export/ExportTexytext.php:508
 msgid "Stand-in structure for view"
 msgstr "Görünüm yapısı durumu"
@@ -17016,7 +17016,7 @@ msgid "Structure of table @TABLE@"
 msgstr "@TABLE@ tablosunun yapısı"
 
 #: src/Plugins/Export/ExportLatex.php:104 src/Plugins/Export/ExportOdt.php:85
-#: src/Plugins/Export/ExportSql.php:226
+#: src/Plugins/Export/ExportSql.php:225
 msgid "Object creation options"
 msgstr "Nesne oluşturma seçenekleri"
 
@@ -17036,7 +17036,7 @@ msgid "Label key:"
 msgstr "Etiket anahtarı:"
 
 #: src/Plugins/Export/ExportLatex.php:130 src/Plugins/Export/ExportOdt.php:93
-#: src/Plugins/Export/ExportSql.php:151
+#: src/Plugins/Export/ExportSql.php:150
 msgid "Display foreign key relationships"
 msgstr "Dış anahtar ilişkilerini görüntüle"
 
@@ -17045,7 +17045,7 @@ msgid "Display comments"
 msgstr "Açıklamaları göster"
 
 #: src/Plugins/Export/ExportLatex.php:143 src/Plugins/Export/ExportOdt.php:106
-#: src/Plugins/Export/ExportSql.php:159
+#: src/Plugins/Export/ExportSql.php:158
 msgid "Display media types"
 msgstr "Ortam türlerini göster"
 
@@ -17053,17 +17053,17 @@ msgstr "Ortam türlerini göster"
 msgid "Put columns names in the first row:"
 msgstr "Sütun adlarını ilk satır içine koy:"
 
-#: src/Plugins/Export/ExportLatex.php:212 src/Plugins/Export/ExportSql.php:716
+#: src/Plugins/Export/ExportLatex.php:212 src/Plugins/Export/ExportSql.php:715
 #: src/Plugins/Export/ExportXml.php:202
 msgid "Generation Time:"
 msgstr "Üretim Zamanı:"
 
-#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:722
+#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:721
 #: src/Plugins/Export/ExportXml.php:205
 msgid "PHP Version:"
 msgstr "PHP Sürümü:"
 
-#: src/Plugins/Export/ExportLatex.php:304 src/Plugins/Export/ExportSql.php:2053
+#: src/Plugins/Export/ExportLatex.php:304 src/Plugins/Export/ExportSql.php:2052
 msgid "Data:"
 msgstr "Veri:"
 
@@ -17104,7 +17104,7 @@ msgstr "Yapıyı görüntüle"
 msgid "Stand in"
 msgstr "Bulunduğu"
 
-#: src/Plugins/Export/ExportSql.php:130
+#: src/Plugins/Export/ExportSql.php:129
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -17112,11 +17112,11 @@ msgstr ""
 "Açıklamaları göster <i>(dışa aktarma zaman damgası, PHP sürümü ve sunucu "
 "sürümü gibi bilgileri dahil et)</i>"
 
-#: src/Plugins/Export/ExportSql.php:137
+#: src/Plugins/Export/ExportSql.php:136
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "İlave özel başlık açıklaması (\\n satırları böler):"
 
-#: src/Plugins/Export/ExportSql.php:143
+#: src/Plugins/Export/ExportSql.php:142
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
@@ -17124,38 +17124,38 @@ msgstr ""
 "Veritabanlarının oluşturulduğu, en son güncellendiği ve en son denetlendiği "
 "zaman damgasını dahil et"
 
-#: src/Plugins/Export/ExportSql.php:196
+#: src/Plugins/Export/ExportSql.php:195
 msgid "Export metadata"
 msgstr "Üstveriyi dışa aktar"
 
-#: src/Plugins/Export/ExportSql.php:234
+#: src/Plugins/Export/ExportSql.php:233
 msgid "Add statements:"
 msgstr "İfadeleri ekle:"
 
-#: src/Plugins/Export/ExportSql.php:242 src/Plugins/Export/ExportSql.php:251
-#: src/Plugins/Export/ExportSql.php:268 src/Plugins/Export/ExportSql.php:277
-#: src/Plugins/Export/ExportSql.php:301 src/Plugins/Export/ExportSql.php:329
-#: src/Plugins/Export/ExportSql.php:338
+#: src/Plugins/Export/ExportSql.php:241 src/Plugins/Export/ExportSql.php:250
+#: src/Plugins/Export/ExportSql.php:267 src/Plugins/Export/ExportSql.php:276
+#: src/Plugins/Export/ExportSql.php:300 src/Plugins/Export/ExportSql.php:328
+#: src/Plugins/Export/ExportSql.php:337
 #, php-format
 msgid "Add %s statement"
 msgstr "%s ifadesi ekle"
 
-#: src/Plugins/Export/ExportSql.php:284
+#: src/Plugins/Export/ExportSql.php:283
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 "(tablo oluşumu sırasında üretilecek olan indeksler gibi daha az etkili)"
 
-#: src/Plugins/Export/ExportSql.php:291
+#: src/Plugins/Export/ExportSql.php:290
 #, php-format
 msgid "%s value"
 msgstr "%s değeri"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: src/Plugins/Export/ExportSql.php:308
+#: src/Plugins/Export/ExportSql.php:307
 msgid "Use simple view export"
 msgstr "Basit görünüm dışa aktarmayı kullan"
 
-#: src/Plugins/Export/ExportSql.php:347
+#: src/Plugins/Export/ExportSql.php:346
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -17163,35 +17163,35 @@ msgstr ""
 "Tablo ve alan adlarını tırnak içine al <i>(Özel karakterlerle ya da anahtar "
 "kelimelerle şekillendirilmiş sütun ve tablo adlarını korur)</i>"
 
-#: src/Plugins/Export/ExportSql.php:362
+#: src/Plugins/Export/ExportSql.php:361
 msgid "Data creation options"
 msgstr "Veri oluşturma seçenekleri"
 
-#: src/Plugins/Export/ExportSql.php:367 src/Plugins/Export/ExportSql.php:2131
+#: src/Plugins/Export/ExportSql.php:366 src/Plugins/Export/ExportSql.php:2130
 msgid "Truncate table before insert"
 msgstr "Eklemeden önce tabloyu kes"
 
-#: src/Plugins/Export/ExportSql.php:374
+#: src/Plugins/Export/ExportSql.php:373
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "<code>INSERT</code> ifadeleri yerine şunu kullan:"
 
-#: src/Plugins/Export/ExportSql.php:380
+#: src/Plugins/Export/ExportSql.php:379
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code> ifadeleri"
 
-#: src/Plugins/Export/ExportSql.php:389 src/Plugins/Export/ExportSql.php:416
+#: src/Plugins/Export/ExportSql.php:388 src/Plugins/Export/ExportSql.php:415
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code> ifadeleri"
 
-#: src/Plugins/Export/ExportSql.php:400
+#: src/Plugins/Export/ExportSql.php:399
 msgid "Function to use when dumping data:"
 msgstr "Veri dökümlenirken kullanılacak işlev:"
 
-#: src/Plugins/Export/ExportSql.php:411
+#: src/Plugins/Export/ExportSql.php:410
 msgid "Syntax to use when inserting data:"
 msgstr "Veri eklenirken kullanılacak sözdizimi:"
 
-#: src/Plugins/Export/ExportSql.php:421
+#: src/Plugins/Export/ExportSql.php:420
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -17201,7 +17201,7 @@ msgstr ""
 "&nbsp; Örnek: <code>INSERT INTO tbl_adı (sütun_A,sütun_B,sütun_C) VALUES "
 "(1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:426
+#: src/Plugins/Export/ExportSql.php:425
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -17211,7 +17211,7 @@ msgstr ""
 "&nbsp; Örnek: <code>INSERT INTO tbl_adı VALUES (1,2,3), (4,5,6), (7,8,9)</"
 "code>"
 
-#: src/Plugins/Export/ExportSql.php:431
+#: src/Plugins/Export/ExportSql.php:430
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -17219,7 +17219,7 @@ msgstr ""
 "yukarıdakilerin ikisi birden<br> &nbsp; &nbsp; &nbsp; Örnek: <code>INSERT "
 "INTO tbl_adı (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:436
+#: src/Plugins/Export/ExportSql.php:435
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -17227,7 +17227,7 @@ msgstr ""
 "yukarıdakilerin hiçbiri<br> &nbsp; &nbsp; &nbsp; Örnek: <code>INSERT INTO "
 "tbl_adı VALUES (1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:455
+#: src/Plugins/Export/ExportSql.php:454
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -17235,7 +17235,7 @@ msgstr ""
 "Onaltılık düzende gösterimdeki ikili değer sütunlarını dökümle <i>(örneğin, "
 "\"abc\", 0x616263 olur)</i>"
 
-#: src/Plugins/Export/ExportSql.php:464
+#: src/Plugins/Export/ExportSql.php:463
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -17244,105 +17244,105 @@ msgstr ""
 "sunucular arasında TIMESTAMP sütunlarını dökümlemek ve yeniden yüklemek için "
 "etkinleştirir)</i>"
 
-#: src/Plugins/Export/ExportSql.php:540
+#: src/Plugins/Export/ExportSql.php:539
 msgid "It appears your database uses routines;"
 msgstr "Görünüşe göre veritabanınız yordamları kullanmakta;"
 
-#: src/Plugins/Export/ExportSql.php:543 src/Plugins/Export/ExportSql.php:1480
-#: src/Plugins/Export/ExportSql.php:1956
+#: src/Plugins/Export/ExportSql.php:542 src/Plugins/Export/ExportSql.php:1479
+#: src/Plugins/Export/ExportSql.php:1955
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 "kodadını dışa aktarma, her durumda güvenilir bir şekilde çalışmayabilir."
 
-#: src/Plugins/Export/ExportSql.php:1007
+#: src/Plugins/Export/ExportSql.php:1006
 msgid "Metadata"
 msgstr "Üstveri"
 
-#: src/Plugins/Export/ExportSql.php:1068
+#: src/Plugins/Export/ExportSql.php:1067
 #, php-format
 msgid "Metadata for table %s"
 msgstr "%s tablosu için üstveri"
 
-#: src/Plugins/Export/ExportSql.php:1075
+#: src/Plugins/Export/ExportSql.php:1074
 #, php-format
 msgid "Metadata for database %s"
 msgstr "%s veritabanı için üstveri"
 
-#: src/Plugins/Export/ExportSql.php:1392
+#: src/Plugins/Export/ExportSql.php:1391
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "%s tablosu için yapı okuma hatası:"
 
-#: src/Plugins/Export/ExportSql.php:1477
+#: src/Plugins/Export/ExportSql.php:1476
 msgid "It appears your database uses views;"
 msgstr "Görünüşe göre veritabanınız görünümleri kullanmakta;"
 
-#: src/Plugins/Export/ExportSql.php:1623
+#: src/Plugins/Export/ExportSql.php:1622
 msgid "Constraints for dumped tables"
 msgstr "Dökümü yapılmış tablolar için kısıtlamalar"
 
-#: src/Plugins/Export/ExportSql.php:1624
+#: src/Plugins/Export/ExportSql.php:1623
 msgid "Constraints for table"
 msgstr "Tablo kısıtlamaları"
 
-#: src/Plugins/Export/ExportSql.php:1651
+#: src/Plugins/Export/ExportSql.php:1650
 msgid "Indexes for dumped tables"
 msgstr "Dökümü yapılmış tablolar için indeksler"
 
-#: src/Plugins/Export/ExportSql.php:1652
+#: src/Plugins/Export/ExportSql.php:1651
 msgid "Indexes for table"
 msgstr "Tablo için indeksler"
 
-#: src/Plugins/Export/ExportSql.php:1682
+#: src/Plugins/Export/ExportSql.php:1681
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "Dökümü yapılmış tablolar için AUTO_INCREMENT değeri"
 
-#: src/Plugins/Export/ExportSql.php:1683
+#: src/Plugins/Export/ExportSql.php:1682
 msgid "AUTO_INCREMENT for table"
 msgstr "Tablo için AUTO_INCREMENT değeri"
 
-#: src/Plugins/Export/ExportSql.php:1754
+#: src/Plugins/Export/ExportSql.php:1753
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "TABLO ORTAM TÜRLERİ"
 
-#: src/Plugins/Export/ExportSql.php:1779
+#: src/Plugins/Export/ExportSql.php:1778
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "TABLO İLİŞKİLERİ"
 
-#: src/Plugins/Export/ExportSql.php:1953
+#: src/Plugins/Export/ExportSql.php:1952
 msgid "It appears your table uses triggers;"
 msgstr "Görünüşe göre tablonuz tetikleyicileri kullanmakta;"
 
-#: src/Plugins/Export/ExportSql.php:1983
+#: src/Plugins/Export/ExportSql.php:1982
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Görünüm yapısı %s bir tablo olarak dışa aktarıldı"
 
-#: src/Plugins/Export/ExportSql.php:2003
+#: src/Plugins/Export/ExportSql.php:2002
 msgid "(See below for the actual view)"
 msgstr "(Asıl görünüm için aşağıya bakın)"
 
-#: src/Plugins/Export/ExportSql.php:2064
+#: src/Plugins/Export/ExportSql.php:2063
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "%s tablosu için veri okuma hatası:"
 
-#: src/Plugins/Export/ExportSql.php:2659
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:585
+#: src/Plugins/Export/ExportSql.php:2658
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:584
 msgid "Creation:"
 msgstr "Oluşturma:"
 
-#: src/Plugins/Export/ExportSql.php:2669
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:596
+#: src/Plugins/Export/ExportSql.php:2668
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:595
 msgid "Last update:"
 msgstr "Son güncelleme:"
 
-#: src/Plugins/Export/ExportSql.php:2679
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:607
+#: src/Plugins/Export/ExportSql.php:2678
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
 msgid "Last check:"
 msgstr "Son denetleme:"
 
-#: src/Plugins/Export/ExportSql.php:2702
+#: src/Plugins/Export/ExportSql.php:2701
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -17368,19 +17368,19 @@ msgstr ""
 "İçe aktarmada kopya anahtarlar bulunduğunda veriyi günceller (ON DUPLICATE "
 "KEY UPDATE ekle)"
 
-#: src/Plugins/Import/ImportCsv.php:82
+#: src/Plugins/Import/ImportCsv.php:83
 msgid "Name of the new table (optional):"
 msgstr "Yeni tablo adı (isteğe bağlı):"
 
-#: src/Plugins/Import/ImportCsv.php:91
+#: src/Plugins/Import/ImportCsv.php:92
 msgid "Name of the new database (optional):"
 msgstr "Yeni veritabanı adı (isteğe bağlı):"
 
-#: src/Plugins/Import/ImportCsv.php:100 src/Plugins/Import/ImportCsv.php:118
+#: src/Plugins/Import/ImportCsv.php:101 src/Plugins/Import/ImportCsv.php:119
 msgid "Import these many number of rows (optional):"
 msgstr "Bu birçok satır sayısını içe aktar (isteğe bağlı):"
 
-#: src/Plugins/Import/ImportCsv.php:108 src/Plugins/Import/ImportOds.php:66
+#: src/Plugins/Import/ImportCsv.php:109 src/Plugins/Import/ImportOds.php:66
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -17388,7 +17388,7 @@ msgstr ""
 "Tablo sütun adlarını içeren dosyanın ilk satırı <i>(eğer bu işaretli "
 "değilse, ilk satır verinin parçası olacaktır)</i>"
 
-#: src/Plugins/Import/ImportCsv.php:125
+#: src/Plugins/Import/ImportCsv.php:126
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -17398,27 +17398,27 @@ msgstr ""
 "değilse, burada uyan sütun adları listelenir. Sütun adları virgüllerle "
 "bölünmeli ve tırnaklarla kapanmamalıdır."
 
-#: src/Plugins/Import/ImportCsv.php:133
+#: src/Plugins/Import/ImportCsv.php:134
 msgid "Column names:"
 msgstr "Sütun adları:"
 
-#: src/Plugins/Import/ImportCsv.php:282 src/Plugins/Import/ImportCsv.php:613
+#: src/Plugins/Import/ImportCsv.php:283 src/Plugins/Import/ImportCsv.php:619
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "%d. satırda CSV girdisinin geçersiz biçimi."
 
-#: src/Plugins/Import/ImportCsv.php:500
+#: src/Plugins/Import/ImportCsv.php:501
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV girdisinde %d. satırda geçersiz sütun sayısı."
 
-#: src/Plugins/Import/ImportCsv.php:635 src/Plugins/Import/ImportCsv.php:650
-#: src/Plugins/Import/ImportCsv.php:661 src/Plugins/Import/ImportCsv.php:668
+#: src/Plugins/Import/ImportCsv.php:641 src/Plugins/Import/ImportCsv.php:656
+#: src/Plugins/Import/ImportCsv.php:667 src/Plugins/Import/ImportCsv.php:674
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV içe aktarma için geçersiz parametre: %s"
 
-#: src/Plugins/Import/ImportCsv.php:775
+#: src/Plugins/Import/ImportCsv.php:781
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -17465,21 +17465,21 @@ msgstr ""
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "OpenDocument Hesap Tablosu ayrıştırılamadı!"
 
-#: src/Plugins/Import/ImportShp.php:69
+#: src/Plugins/Import/ImportShp.php:70
 msgid "ESRI Shape File"
 msgstr "ESRI Şekil Dosyası"
 
-#: src/Plugins/Import/ImportShp.php:105 src/Plugins/Import/ImportShp.php:172
+#: src/Plugins/Import/ImportShp.php:106 src/Plugins/Import/ImportShp.php:173
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "ESRI şekil dosyasının içe aktarılmasında hata var: \"%s\"."
 
-#: src/Plugins/Import/ImportShp.php:202
+#: src/Plugins/Import/ImportShp.php:203
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Uzaysal Uzantısı ESRI türü \"%s\" desteklemiyor."
 
-#: src/Plugins/Import/ImportShp.php:248
+#: src/Plugins/Import/ImportShp.php:249
 msgid "The imported file does not contain any data!"
 msgstr "İçe aktarılan dosya herhangi bir veri içermiyor!"
 
@@ -17521,17 +17521,17 @@ msgstr "ŞEMA HATASI: "
 msgid "PDF export page"
 msgstr "PDF dışa aktarma sayfası"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:118
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:117
 #, php-format
 msgid "Schema of the %s database"
 msgstr "%s veritabanının şeması"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:146
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:508
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:145
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:507
 msgid "Relational schema"
 msgstr "İlişkisel şema"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:461
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:460
 msgid "Table of contents"
 msgstr "İçerik tablosu"
 
@@ -17609,7 +17609,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:70
-#: src/Util.php:523
+#: src/Util.php:522
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y, %H:%M:%S"
 
@@ -17670,7 +17670,7 @@ msgstr ""
 "Sütunun içeriğini, htmlspecialchars() işlevini çalıştırmadan olduğu gibi "
 "görüntüler. Bu, geçerli HTML içerdiği var sayılan sütundur."
 
-#: src/Plugins/Transformations/Abs/HexTransformationsPlugin.php:30
+#: src/Plugins/Transformations/Abs/HexTransformationsPlugin.php:29
 msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
@@ -17682,7 +17682,7 @@ msgstr ""
 msgid "Displays a link to download this image."
 msgstr "Bu resmi indirmek için bağlantı görüntüler."
 
-#: src/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:29
+#: src/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:28
 msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
@@ -17690,7 +17690,7 @@ msgstr ""
 "Ayrıca küçük resim görüntüleyen resim gönderme işlevselliği. Seçenekler "
 "piksel olarak küçük resmin genişliği ve yüksekliğidir. Varsayılanı 100 X 100."
 
-#: src/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:79
+#: src/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:78
 msgid "Image preview here"
 msgstr "Resim önizleme burada"
 
@@ -17881,7 +17881,7 @@ msgstr ""
 "YubiKey gibi WebAuthn/FIDO2 protokolünü destekleyen donanım güvenlik "
 "belirteçlerini kullanarak kimlik doğrulaması sağlar."
 
-#: src/Query/Utilities.php:94
+#: src/Query/Utilities.php:93
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -17889,19 +17889,19 @@ msgstr ""
 "Sunucu yanıt vermiyor (ya da yerel MySQL sunucusunun soketi doğru olarak "
 "yapılandırılmamış)."
 
-#: src/Query/Utilities.php:97
+#: src/Query/Utilities.php:96
 msgid "The server is not responding."
 msgstr "Sunucu yanıt vermiyor."
 
-#: src/Query/Utilities.php:101
+#: src/Query/Utilities.php:100
 msgid "Logout and try as another user."
 msgstr "Oturumu kapatın ve başka bir kullanıcı olarak deneyin."
 
-#: src/Query/Utilities.php:106
+#: src/Query/Utilities.php:105
 msgid "Please check privileges of directory containing database."
 msgstr "Lütfen veritabanını içeren dizinin yetkilerini denetleyin."
 
-#: src/Query/Utilities.php:114
+#: src/Query/Utilities.php:113
 msgid "Details…"
 msgstr "Ayrıntılar…"
 
@@ -18808,22 +18808,22 @@ msgstr "Yapılandırma kaydedilemedi"
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "phpMyAdmin yapılandırma depolama veritabanına erişilemedi."
 
-#: src/Util.php:125
+#: src/Util.php:124
 #, php-format
 msgid "Max: %s%s"
 msgstr "En fazla: %s%s"
 
-#: src/Util.php:546
+#: src/Util.php:545
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "ÖS"
 
-#: src/Util.php:548
+#: src/Util.php:547
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "ÖÖ"
 
-#: src/Util.php:620
+#: src/Util.php:619
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s gün, %s saat, %s dakika ve %s saniye"
