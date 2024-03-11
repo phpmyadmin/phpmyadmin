@@ -60,10 +60,6 @@ use function trim;
  */
 class Import
 {
-    /* Decimal size defs */
-    public const M = 0;
-    public const D = 1;
-
     /* Analysis array defs */
     public const TYPES = 0;
     public const SIZES = 1;
