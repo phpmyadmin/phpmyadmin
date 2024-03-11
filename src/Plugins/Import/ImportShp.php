@@ -224,8 +224,7 @@ class ImportShp extends ImportPlugin
             if ($gisObj == null || ! method_exists($gisObj, 'getShape')) {
                 $tempRow[] = null;
             } else {
-                $tempRow[] = "GeomFromText('"
-                    . $gisObj->getShape($record->shpData) . "')";
+                $tempRow[] = "GeomFromText('" . $gisObj->getShape($record->shpData) . "')";
             }
 
             if ($shp->getDBFHeader() !== null) {
@@ -279,8 +278,10 @@ class ImportShp extends ImportPlugin
         // Use data from shape file to chose best-fit MySQL types for each column
         $analysis = $this->import->analyzeTable($table);
 
-        $analysis[Import::TYPES][0] = ColumnType::Geometry;
-        $analysis[Import::FORMATTEDSQL][0] = true;
+        // The first column is the SPATIAL column defined earlier
+        // This column contains SQL functions and should not be formatted by buildSql()
+        $analysis[0]->type = ColumnType::Geometry;
+        $analysis[0]->isFullyFormattedSql = true;
 
         // Set database name to the currently selected one, if applicable
         $dbName = Current::$database !== '' ? Current::$database : 'SHP_DB';

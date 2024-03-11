@@ -25,7 +25,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function abs;
-use function array_fill;
 use function array_key_last;
 use function array_map;
 use function count;
@@ -60,11 +59,6 @@ use function trim;
  */
 class Import
 {
-    /* Analysis array defs */
-    public const TYPES = 0;
-    public const SIZES = 1;
-    public const FORMATTEDSQL = 2;
-
     private string|null $importRunBuffer = null;
 
     public function __construct()
@@ -654,29 +648,33 @@ class Import
      *
      * @link https://wiki.phpmyadmin.net/pma/Import
      *
-     * @return array{ColumnType[], (int|DecimalSize)[]} array(array $types, array $sizes)
+     * @return AnalysedColumn[]
      */
     public function analyzeTable(ImportTable $table): array
     {
         /* Get number of rows in table */
         /* Get number of columns */
-        $numCols = count($table->columns);
+        $numberOfColumns = count($table->columns);
 
-        /* Initialize $sizes to all 0's */
-        $sizes = array_fill(0, $numCols, 0);
-
-        /* Initialize $types to NONE */
-        $types = array_fill(0, $numCols, ColumnType::None);
+        $columns = [];
+        for ($i = 0; $i < $numberOfColumns; ++$i) {
+            $columns[] = new AnalysedColumn(ColumnType::None, 0);
+        }
 
         /* Analyze each column */
-        for ($i = 0; $i < $numCols; ++$i) {
+        for ($i = 0; $i < $numberOfColumns; ++$i) {
             /* Analyze the column in each row */
             foreach ($table->rows as $row) {
                 $cellValue = $row[$i];
                 /* Determine type of the current cell */
-                $currType = $this->detectType($types[$i], $cellValue === null ? null : (string) $cellValue);
+                $currType = $this->detectType($columns[$i]->type, $cellValue === null ? null : (string) $cellValue);
                 /* Determine size of the current cell */
-                $sizes[$i] = $this->detectSize($sizes[$i], $types[$i], $currType, (string) $cellValue);
+                $columns[$i]->size = $this->detectSize(
+                    $columns[$i]->size,
+                    $columns[$i]->type,
+                    $currType,
+                    (string) $cellValue,
+                );
 
                 /**
                  * If a type for this column has already been declared,
@@ -687,39 +685,38 @@ class Import
                 }
 
                 if ($currType === ColumnType::Varchar) {
-                    $types[$i] = ColumnType::Varchar;
+                    $columns[$i]->type = ColumnType::Varchar;
                 } elseif ($currType === ColumnType::Decimal) {
-                    if ($types[$i] !== ColumnType::Varchar) {
-                        $types[$i] = ColumnType::Decimal;
+                    if ($columns[$i]->type !== ColumnType::Varchar) {
+                        $columns[$i]->type = ColumnType::Decimal;
                     }
                 } elseif ($currType === ColumnType::BigInt) {
-                    if ($types[$i] !== ColumnType::Varchar && $types[$i] !== ColumnType::Decimal) {
-                        $types[$i] = ColumnType::BigInt;
+                    if ($columns[$i]->type !== ColumnType::Varchar && $columns[$i]->type !== ColumnType::Decimal) {
+                        $columns[$i]->type = ColumnType::BigInt;
                     }
                 } elseif ($currType === ColumnType::Int) {
                     if (
-                        $types[$i] !== ColumnType::Varchar
-                        && $types[$i] !== ColumnType::Decimal
-                        && $types[$i] !== ColumnType::BigInt
+                        $columns[$i]->type !== ColumnType::Varchar
+                        && $columns[$i]->type !== ColumnType::Decimal
+                        && $columns[$i]->type !== ColumnType::BigInt
                     ) {
-                        $types[$i] = ColumnType::Int;
+                        $columns[$i]->type = ColumnType::Int;
                     }
                 }
             }
         }
 
         /* Check to ensure that all types are valid */
-        $len = count($types);
-        for ($n = 0; $n < $len; ++$n) {
-            if ($types[$n] !== ColumnType::None) {
+        foreach ($columns as $column) {
+            if ($column->type !== ColumnType::None) {
                 continue;
             }
 
-            $types[$n] = ColumnType::Varchar;
-            $sizes[$n] = 10;
+            $column->type = ColumnType::Varchar;
+            $column->size = 10;
         }
 
-        return [$types, $sizes];
+        return $columns;
     }
 
     /**
@@ -728,11 +725,10 @@ class Import
      *
      * @link https://wiki.phpmyadmin.net/pma/Import
      *
-     * @param ImportTable[]                                                  $tables
-     * @param array{0:ColumnType[], 1:(int|DecimalSize)[], 2?:true[]}[]|null $analyses      Analyses of the tables
-     * @param string[]|null                                                  $additionalSql Additional SQL
-     *                                                                                      to be executed
-     * @param string[]                                                       $sqlData       List of SQL to be executed
+     * @param ImportTable[]           $tables
+     * @param AnalysedColumn[][]|null $analyses      Analyses of the tables
+     * @param string[]|null           $additionalSql Additional SQL to be executed
+     * @param string[]                $sqlData       List of SQL to be executed
      */
     public function buildSql(
         string $dbName,
@@ -783,12 +779,12 @@ class Import
                     . Util::backquote($dbName)
                     . '.' . Util::backquote($table->tableName) . ' (';
                 foreach ($table->columns as $j => $column) {
-                    $size = $analyses[$i][self::SIZES][$j];
+                    $size = $analyses[$i][$j]->size;
                     if ($size === 0) {
                         $size = 10;
                     }
 
-                    $tempSQLStr .= Util::backquote($column) . ' ' . match ($analyses[$i][self::TYPES][$j]) {
+                    $tempSQLStr .= Util::backquote($column) . ' ' . match ($analyses[$i][$j]->type) {
                         ColumnType::None => 'NULL',
                         ColumnType::Varchar => 'varchar',
                         ColumnType::Int => 'int',
@@ -796,7 +792,7 @@ class Import
                         ColumnType::BigInt => 'bigint',
                         ColumnType::Geometry => 'geometry',
                     };
-                    if ($analyses[$i][self::TYPES][$j] !== ColumnType::Geometry) {
+                    if ($analyses[$i][$j]->type !== ColumnType::Geometry) {
                         $tempSQLStr .= '(' . $size . ')';
                     }
 
@@ -823,9 +819,8 @@ class Import
          *
          * Only one insert query is formed for each table
          */
-        $colCount = 0;
         $dbi = DatabaseInterface::getInstance();
-        foreach ($tables as $i => $table) {
+        foreach ($tables as $tableIndex => $table) {
             $numCols = count($table->columns);
             $lastColumnKey = array_key_last($table->columns);
 
@@ -841,57 +836,49 @@ class Import
             $tempSQLStr .= ') VALUES ';
 
             $lastRowKey = array_key_last($table->rows);
-            foreach ($table->rows as $j => $row) {
+            foreach ($table->rows as $rowIndex => $row) {
                 $tempSQLStr .= '(';
 
-                for ($k = 0; $k < $numCols; ++$k) {
+                for ($columnIndex = 0; $columnIndex < $numCols; ++$columnIndex) {
                     // If fully formatted SQL, no need to enclose
                     // with apostrophes, add slashes etc.
                     if (
                         $analyses !== null
-                        && isset($analyses[$i][self::FORMATTEDSQL][$colCount])
+                        && $analyses[$tableIndex][$columnIndex]->isFullyFormattedSql
                     ) {
-                        $tempSQLStr .= (string) $row[$k];
+                        $tempSQLStr .= (string) $row[$columnIndex];
                     } else {
                         if ($analyses !== null) {
-                            $isVarchar = $analyses[$i][self::TYPES][$colCount] === ColumnType::Varchar;
+                            $isVarchar = $analyses[$tableIndex][$columnIndex]->type === ColumnType::Varchar;
                         } else {
-                            $isVarchar = ! is_numeric($row[$k]);
+                            $isVarchar = ! is_numeric($row[$columnIndex]);
                         }
 
                         /* Don't put quotes around NULL fields */
-                        if ((string) $row[$k] === 'NULL') {
+                        if ((string) $row[$columnIndex] === 'NULL') {
                             $isVarchar = false;
                         }
 
                         $tempSQLStr .= $isVarchar
-                            ? $dbi->quoteString((string) $row[$k])
-                            : (string) $row[$k];
+                            ? $dbi->quoteString((string) $row[$columnIndex])
+                            : (string) $row[$columnIndex];
                     }
 
-                    if ($k !== $lastColumnKey) {
-                        $tempSQLStr .= ', ';
+                    if ($columnIndex === $lastColumnKey) {
+                        continue;
                     }
 
-                    if ($colCount === $lastColumnKey) {
-                        $colCount = 0;
-                    } else {
-                        $colCount++;
-                    }
-
-                    /* Delete the cell after we are done with it */
-                    unset($table->rows[$j][$k]);
+                    $tempSQLStr .= ', ';
                 }
 
                 $tempSQLStr .= ')';
 
-                if ($j !== $lastRowKey) {
+                if ($rowIndex !== $lastRowKey) {
                     $tempSQLStr .= ",\n ";
                 }
 
-                $colCount = 0;
                 /* Delete the row after we are done with it */
-                unset($table->rows[$j]);
+                unset($table->rows[$rowIndex]);
             }
 
             /**
