@@ -494,7 +494,7 @@ class Header
             $headers['X-Frame-Options'] = 'DENY';
         }
 
-        $headers['Referrer-Policy'] = 'no-referrer';
+        $headers['Referrer-Policy'] = 'same-origin';
 
         $headers = array_merge($headers, $this->getCspHeaders());
 
