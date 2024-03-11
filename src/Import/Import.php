@@ -734,7 +734,8 @@ class Import
      *
      * @param ImportTable[]                                                  $tables
      * @param array{0:ColumnType[], 1:(int|DecimalSize)[], 2?:true[]}[]|null $analyses      Analyses of the tables
-     * @param string[]|null                                                  $additionalSql Additional SQL to be executed
+     * @param string[]|null                                                  $additionalSql Additional SQL
+     *                                                                                      to be executed
      * @param string[]                                                       $sqlData       List of SQL to be executed
      */
     public function buildSql(
