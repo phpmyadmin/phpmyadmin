@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-03-08 08:41+0000\n"
+"PO-Revision-Date: 2024-03-13 18:01+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/pt/>\n"
@@ -13197,7 +13197,7 @@ msgstr "Limpar"
 
 #: libraries/classes/SqlQueryForm.php:254
 msgid "Get auto-saved query"
-msgstr "Obter consulta auto-salva"
+msgstr "Obter consulta guardada automaticamente"
 
 #: libraries/classes/SqlQueryForm.php:260
 msgid "Bind parameters"
