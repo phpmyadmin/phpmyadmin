@@ -8,7 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
-use PhpMyAdmin\Plugins\TransformationsPlugin;
+use PhpMyAdmin\Plugins\TransformationsInterface;
 use PhpMyAdmin\Utils\Gis;
 
 use function __;
@@ -1118,7 +1118,7 @@ class InsertEdit
         $transformOptions['wrapper_params'] = $urlParams;
 
         $transformationPlugin = $this->transformations->getPluginInstance($file);
-        if ($transformationPlugin instanceof TransformationsPlugin) {
+        if ($transformationPlugin instanceof TransformationsInterface) {
             foreach ($editedValues as $cellIndex => $currCellEditedValues) {
                 if (! isset($currCellEditedValues[$columnName])) {
                     continue;

@@ -21,7 +21,6 @@ use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Json;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\Plugins\TransformationsInterface;
-use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Parser;
@@ -2154,7 +2153,7 @@ class Results
             ) {
                 $file = $this->mediaTypeMap[$orgFullColName]['transformation'];
                 $plugin = $this->transformations->getPluginInstance($file);
-                if ($plugin instanceof TransformationsPlugin) {
+                if ($plugin instanceof TransformationsInterface) {
                     $transformationPlugin = $plugin;
                     $transformOptions = $this->transformations->getOptions(
                         $this->mediaTypeMap[$orgFullColName]['transformation_options'] ?? '',
@@ -2175,19 +2174,16 @@ class Results
                 && trim($row[$i]) !== ''
                 && ! $_SESSION['tmpval']['hide_transformation']
             ) {
-                $plugin = new $this->transformationInfo[$dbLower][$tblLower][$nameLower]();
-                if ($plugin instanceof TransformationsPlugin) {
-                    $transformationPlugin = $plugin;
-                    $transformOptions = $this->transformations->getOptions(
-                        $this->mediaTypeMap[$orgFullColName]['transformation_options'] ?? '',
-                    );
+                $transformationPlugin = new $this->transformationInfo[$dbLower][$tblLower][$nameLower]();
+                $transformOptions = $this->transformations->getOptions(
+                    $this->mediaTypeMap[$orgFullColName]['transformation_options'] ?? '',
+                );
 
-                    $orgTable = mb_strtolower($meta->orgtable);
-                    $orgName = mb_strtolower($meta->orgname);
+                $orgTable = mb_strtolower($meta->orgtable);
+                $orgName = mb_strtolower($meta->orgname);
 
-                    $meta->internalMediaType = $this->transformationInfo[$dbLower][$orgTable][$orgName]::getMIMEType()
-                        . '_' . $this->transformationInfo[$dbLower][$orgTable][$orgName]::getMIMESubtype();
-                }
+                $meta->internalMediaType = $this->transformationInfo[$dbLower][$orgTable][$orgName]::getMIMEType()
+                    . '_' . $this->transformationInfo[$dbLower][$orgTable][$orgName]::getMIMESubtype();
             }
 
             // Check for the predefined fields need to show as link in schemas
@@ -2650,7 +2646,7 @@ class Results
         FieldMetadata $meta,
         array $map,
         StatementInfo $statementInfo,
-        TransformationsPlugin|null $transformationPlugin,
+        TransformationsInterface|null $transformationPlugin,
         array $transformOptions,
     ): string {
         if ($column === null) {
@@ -2700,7 +2696,7 @@ class Results
         array $map,
         array $urlParams,
         bool $conditionField,
-        TransformationsPlugin|null $transformationPlugin,
+        TransformationsInterface|null $transformationPlugin,
         array $transformOptions,
         StatementInfo $statementInfo,
     ): string {
@@ -2816,13 +2812,13 @@ class Results
         array $map,
         array $urlParams,
         bool $conditionField,
-        TransformationsPlugin|null $transformationPlugin,
+        TransformationsInterface|null $transformationPlugin,
         array $transformOptions,
         StatementInfo $statementInfo,
     ): string {
         $originalLength = 0;
 
-        $bIsText = $transformationPlugin !== null && ! str_contains($transformationPlugin->getMIMEType(), 'Text');
+        $bIsText = $transformationPlugin !== null && ! str_contains($transformationPlugin::getMIMEType(), 'Text');
 
         // disable inline grid editing
         // if binary fields are protected
@@ -2857,7 +2853,7 @@ class Results
         $isFieldTruncated = false;
         if (
             ! ($transformationPlugin !== null
-            && str_contains($transformationPlugin->getName(), 'Link'))
+            && str_contains($transformationPlugin::getName(), 'Link'))
             && ! $meta->isBinary()
         ) {
             [$isFieldTruncated, $column, $originalLength] = $this->getPartialText($column);
@@ -3674,7 +3670,7 @@ class Results
     private function handleNonPrintableContents(
         string $category,
         string|null $content,
-        TransformationsPlugin|null $transformationPlugin,
+        TransformationsInterface|null $transformationPlugin,
         array $transformOptions,
         FieldMetadata $meta,
         array $urlParams = [],
@@ -3698,10 +3694,10 @@ class Results
         // if we want to use a text transformation on a BLOB column
         if ($transformationPlugin !== null) {
             $posMimeOctetstream = strpos(
-                $transformationPlugin->getMIMESubtype(),
+                $transformationPlugin::getMIMESubtype(),
                 'Octetstream',
             );
-            if ($posMimeOctetstream || str_contains($transformationPlugin->getMIMEType(), 'Text')) {
+            if ($posMimeOctetstream || str_contains($transformationPlugin::getMIMEType(), 'Text')) {
                 // Applying Transformations on hex string of binary data
                 // seems more appropriate
                 $result = pack('H*', bin2hex($content));
@@ -3818,7 +3814,7 @@ class Results
         array $map,
         string $data,
         string $displayedData,
-        TransformationsPlugin|null $transformationPlugin,
+        TransformationsInterface|null $transformationPlugin,
         string $nowrap,
         string $whereComparison,
         array $transformOptions,

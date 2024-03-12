@@ -7031,21 +7031,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: "#^Dynamic call to static method PhpMyAdmin\\\\Plugins\\\\TransformationsInterface\\:\\:getMIMESubtype\\(\\)\\.$#"
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: "#^Dynamic call to static method PhpMyAdmin\\\\Plugins\\\\TransformationsInterface\\:\\:getMIMEType\\(\\)\\.$#"
-			count: 2
-			path: src/Display/Results.php
-
-		-
-			message: "#^Dynamic call to static method PhpMyAdmin\\\\Plugins\\\\TransformationsInterface\\:\\:getName\\(\\)\\.$#"
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSortByKeyDropDown\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 2
 			path: src/Display/Results.php
@@ -8871,7 +8856,7 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#1 \\$buffer of method PhpMyAdmin\\\\Plugins\\\\TransformationsPlugin\\:\\:applyTransformation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$buffer of method PhpMyAdmin\\\\Plugins\\\\TransformationsInterface\\:\\:applyTransformation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/InsertEdit.php
 
