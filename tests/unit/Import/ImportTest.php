@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Import\ColumnType;
+use PhpMyAdmin\Import\DecimalSize;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -148,69 +149,24 @@ class ImportTest extends AbstractTestCase
     }
 
     /**
-     * Test for getDecimalPrecision
-     *
-     * @param int    $expected Expected result of the function
-     * @param string $size     Size of field
-     */
-    #[DataProvider('provGetDecimalPrecision')]
-    public function testGetDecimalPrecision(int $expected, string $size): void
-    {
-        self::assertSame($expected, $this->import->getDecimalPrecision($size));
-    }
-
-    /**
-     * Data provider for testGetDecimalPrecision
-     *
-     * @return mixed[]
-     */
-    public static function provGetDecimalPrecision(): array
-    {
-        return [[2, '2,1'], [6, '6,2'], [6, '6,0'], [16, '16,2']];
-    }
-
-    /**
-     * Test for getDecimalScale
-     *
-     * @param int    $expected Expected result of the function
-     * @param string $size     Size of field
-     */
-    #[DataProvider('provGetDecimalScale')]
-    public function testGetDecimalScale(int $expected, string $size): void
-    {
-        self::assertSame($expected, $this->import->getDecimalScale($size));
-    }
-
-    /**
-     * Data provider for testGetDecimalScale
-     *
-     * @return mixed[]
-     */
-    public static function provGetDecimalScale(): array
-    {
-        return [[1, '2,1'], [2, '6,2'], [0, '6,0'], [20, '30,20']];
-    }
-
-    /**
      * Test for getDecimalSize
-     *
-     * @param mixed[] $expected Expected result of the function
-     * @param string  $cell     Cell content
      */
     #[DataProvider('provGetDecimalSize')]
-    public function testGetDecimalSize(array $expected, string $cell): void
+    public function testGetDecimalSize(int $precision, int $scale, string $cell): void
     {
-        self::assertSame($expected, $this->import->getDecimalSize($cell));
+        $actual = DecimalSize::fromCell($cell);
+        self::assertSame($precision, $actual->precision);
+        self::assertSame($scale, $actual->scale);
     }
 
     /**
      * Data provider for testGetDecimalSize
      *
-     * @return mixed[]
+     * @return array{int, int, string}[]
      */
     public static function provGetDecimalSize(): array
     {
-        return [[[2, 1, '2,1'], '2.1'], [[2, 1, '2,1'], '6.2'], [[3, 1, '3,1'], '10.0'], [[4, 2, '4,2'], '30.20']];
+        return [[2, 1, '2.1'], [2, 1, '6.2'], [3, 1, '10.0'], [4, 2, '30.20']];
     }
 
     /**
