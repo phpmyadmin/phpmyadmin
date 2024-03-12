@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-03-08 08:41+0000\n"
+"PO-Revision-Date: 2024-03-13 18:01+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/pt/>\n"
@@ -17993,7 +17993,7 @@ msgstr "ø Tempo"
 
 #: templates/sql/query.twig:45
 msgid "Get auto-saved query"
-msgstr "Obter consulta auto-salva"
+msgstr "Obter consulta guardada automaticamente"
 
 #. l10n: Bind parameters in the SQL query using :parameterName format
 #: templates/sql/query.twig:52
