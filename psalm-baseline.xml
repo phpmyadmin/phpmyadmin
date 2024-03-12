@@ -5274,9 +5274,6 @@
     <MixedInferredReturnType>
       <code><![CDATA[Message]]></code>
     </MixedInferredReturnType>
-    <MixedMethodCall>
-      <code><![CDATA[new $this->transformationInfo[$dbLower][$tblLower][$nameLower][1]()]]></code>
-    </MixedMethodCall>
     <MixedOperand>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
@@ -5335,10 +5332,6 @@
       <code><![CDATA[empty($statementInfo->statement->where)]]></code>
       <code><![CDATA[empty($statementInfo->statement->where)]]></code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($specialSchemaLinks[$dbLower][$tblLower][$nameLower])]]></code>
-      <code><![CDATA[! empty($this->transformationInfo[$dbLower][$tblLower][$nameLower])]]></code>
-    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $colVisibCurrent]]></code>
       <code><![CDATA[! $colVisibElement]]></code>
@@ -9831,12 +9824,6 @@
     <UnusedClass>
       <code><![CDATA[Text_Plain_Xml]]></code>
     </UnusedClass>
-  </file>
-  <file src="src/Plugins/TransformationsInterface.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getMIMESubtype]]></code>
-      <code><![CDATA[getMIMEType]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Plugins/TransformationsPlugin.php">
     <MixedAssignment>

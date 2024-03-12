@@ -7027,7 +7027,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 26
+			count: 24
 			path: src/Display/Results.php
 
 		-

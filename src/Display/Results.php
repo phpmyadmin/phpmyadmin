@@ -20,6 +20,7 @@ use PhpMyAdmin\Plugins\Transformations\Output\Text_Octetstream_Sql;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Json;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
+use PhpMyAdmin\Plugins\TransformationsInterface;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
@@ -64,7 +65,6 @@ use function md5;
 use function mt_getrandmax;
 use function pack;
 use function preg_match;
-use function preg_replace;
 use function random_int;
 use function str_contains;
 use function str_ends_with;
@@ -185,10 +185,9 @@ class Results
      * One element of this array represent all relevant columns in all tables in
      * one specific database
      *
-     * @var array<string, array<string, array<string, string[]>>>
-     * @psalm-var array<string, array<string, array<string, array{string, class-string, string}>>> $transformationInfo
+     * @var array<string, array<string, array<string, class-string<TransformationsInterface>>>> $transformationInfo
      */
-    public array $transformationInfo = [];
+    private array $transformationInfo = [];
 
     private Relation $relation;
 
@@ -227,26 +226,10 @@ class Results
      */
     private function setDefaultTransformations(): void
     {
-        $jsonHighlightingData = [
-            'src/Plugins/Transformations/Output/Text_Plain_Json.php',
-            Text_Plain_Json::class,
-            'Text_Plain',
-        ];
-        $sqlHighlightingData = [
-            'src/Plugins/Transformations/Output/Text_Plain_Sql.php',
-            Text_Plain_Sql::class,
-            'Text_Plain',
-        ];
-        $blobSqlHighlightingData = [
-            'src/Plugins/Transformations/Output/Text_Octetstream_Sql.php',
-            Text_Octetstream_Sql::class,
-            'Text_Octetstream',
-        ];
-        $linkData = [
-            'src/Plugins/Transformations/Text_Plain_Link.php',
-            Text_Plain_Link::class,
-            'Text_Plain',
-        ];
+        $jsonHighlightingData = Text_Plain_Json::class;
+        $sqlHighlightingData = Text_Plain_Sql::class;
+        $blobSqlHighlightingData = Text_Octetstream_Sql::class;
+        $linkData = Text_Plain_Link::class;
         $this->transformationInfo = [
             'information_schema' => [
                 'events' => ['event_definition' => $sqlHighlightingData],
@@ -1738,7 +1721,8 @@ class Results
         $classes = array_filter([$class, $nowrap]);
 
         if ($meta->internalMediaType !== null) {
-            $classes[] = preg_replace('/\//', '_', $meta->internalMediaType);
+            // TODO: Is str_replace() necessary here?
+            $classes[] = str_replace('/', '_', $meta->internalMediaType);
         }
 
         if ($conditionField) {
@@ -2159,7 +2143,6 @@ class Results
             $conditionField = isset($this->highlightColumns[$meta->name])
                 || isset($this->highlightColumns[Util::backquote($meta->name)]);
 
-            // Wrap MIME-transformations. [MIME]
             $transformationPlugin = null;
             $transformOptions = [];
 
@@ -2170,16 +2153,14 @@ class Results
                 && ! empty($this->mediaTypeMap[$orgFullColName]['transformation'])
             ) {
                 $file = $this->mediaTypeMap[$orgFullColName]['transformation'];
-                $includeFile = $file;
-
-                $plugin = $this->transformations->getPluginInstance($includeFile);
+                $plugin = $this->transformations->getPluginInstance($file);
                 if ($plugin instanceof TransformationsPlugin) {
                     $transformationPlugin = $plugin;
                     $transformOptions = $this->transformations->getOptions(
                         $this->mediaTypeMap[$orgFullColName]['transformation_options'] ?? '',
                     );
 
-                    $meta->internalMediaType = str_replace('_', '/', $this->mediaTypeMap[$orgFullColName]['mimetype']);
+                    $meta->internalMediaType = $this->mediaTypeMap[$orgFullColName]['mimetype'];
                 }
             }
 
@@ -2189,14 +2170,12 @@ class Results
             $tblLower = mb_strtolower($meta->orgtable);
             $nameLower = mb_strtolower($meta->orgname);
             if (
-                ! empty($this->transformationInfo[$dbLower][$tblLower][$nameLower])
+                isset($this->transformationInfo[$dbLower][$tblLower][$nameLower])
                 && isset($row[$i])
                 && trim($row[$i]) !== ''
                 && ! $_SESSION['tmpval']['hide_transformation']
             ) {
-                /** @psalm-suppress UnresolvableInclude */
-                include_once ROOT_PATH . $this->transformationInfo[$dbLower][$tblLower][$nameLower][0];
-                $plugin = new $this->transformationInfo[$dbLower][$tblLower][$nameLower][1]();
+                $plugin = new $this->transformationInfo[$dbLower][$tblLower][$nameLower]();
                 if ($plugin instanceof TransformationsPlugin) {
                     $transformationPlugin = $plugin;
                     $transformOptions = $this->transformations->getOptions(
@@ -2206,16 +2185,13 @@ class Results
                     $orgTable = mb_strtolower($meta->orgtable);
                     $orgName = mb_strtolower($meta->orgname);
 
-                    $meta->internalMediaType = str_replace(
-                        '_',
-                        '/',
-                        $this->transformationInfo[$dbLower][$orgTable][$orgName][2],
-                    );
+                    $meta->internalMediaType = $this->transformationInfo[$dbLower][$orgTable][$orgName]::getMIMEType()
+                        . '_' . $this->transformationInfo[$dbLower][$orgTable][$orgName]::getMIMESubtype();
                 }
             }
 
             // Check for the predefined fields need to show as link in schemas
-            if (! empty($specialSchemaLinks[$dbLower][$tblLower][$nameLower])) {
+            if (isset($specialSchemaLinks[$dbLower][$tblLower][$nameLower])) {
                 $linkingUrl = $this->getSpecialLinkUrl(
                     $specialSchemaLinks[$dbLower][$tblLower][$nameLower],
                     $row[$i],
@@ -2225,7 +2201,7 @@ class Results
 
                 $transformOptions = [0 => $linkingUrl, 2 => true];
 
-                $meta->internalMediaType = str_replace('_', '/', 'Text/Plain');
+                $meta->internalMediaType = 'Text_Plain';
             }
 
             $expressions = [];
