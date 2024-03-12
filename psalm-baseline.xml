@@ -3592,9 +3592,6 @@
       <code><![CDATA[$whereClause]]></code>
       <code><![CDATA[$whereClause]]></code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[new $className()]]></code>
-    </MixedMethodCall>
     <MixedOperand>
       <code><![CDATA[$relationFieldValue]]></code>
     </MixedOperand>
@@ -5278,7 +5275,6 @@
       <code><![CDATA[Message]]></code>
     </MixedInferredReturnType>
     <MixedMethodCall>
-      <code><![CDATA[new $className()]]></code>
       <code><![CDATA[new $this->transformationInfo[$dbLower][$tblLower][$nameLower][1]()]]></code>
     </MixedMethodCall>
     <MixedOperand>
@@ -6514,7 +6510,7 @@
       <code><![CDATA[$currentRow[$column->field]]]></code>
       <code><![CDATA[$currentRow[$column->field]]]></code>
       <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentValue]]></code>
+      <code><![CDATA[$currentRow[$column->field] ?? '']]></code>
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$extractedColumnspec['enum_set_values']]]></code>
       <code><![CDATA[$extractedColumnspec['spec_in_brackets']]]></code>
@@ -6554,7 +6550,6 @@
       <code><![CDATA[$currentRow[$column->field]]]></code>
       <code><![CDATA[$currentRow[$column->field]]]></code>
       <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentValue]]></code>
       <code><![CDATA[$data]]></code>
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$enumSelectedValue]]></code>
@@ -6570,12 +6565,7 @@
       <code><![CDATA[$whereClause]]></code>
       <code><![CDATA[$whereClause]]></code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[new $className()]]></code>
-      <code><![CDATA[new $className()]]></code>
-    </MixedMethodCall>
     <MixedOperand>
-      <code><![CDATA[$file]]></code>
       <code><![CDATA[$maxlength]]></code>
     </MixedOperand>
     <MoreSpecificReturnType>
@@ -11474,6 +11464,9 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+    <LessSpecificReturnStatement>
+      <code><![CDATA['PhpMyAdmin\\Plugins\\Transformations\\' . str_replace('/', '\\', explode('.php', $filename)[0])]]></code>
+    </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$updQuery]]></code>
     </MixedArgument>
@@ -11483,6 +11476,9 @@
     <MixedReturnStatement>
       <code><![CDATA[$stack]]></code>
     </MixedReturnStatement>
+    <MoreSpecificReturnType>
+      <code><![CDATA[class-string<TransformationsInterface>]]></code>
+    </MoreSpecificReturnType>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>

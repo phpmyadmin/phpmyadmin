@@ -44,10 +44,8 @@ use function array_merge;
 use function array_shift;
 use function bin2hex;
 use function ceil;
-use function class_exists;
 use function count;
 use function explode;
-use function file_exists;
 use function floor;
 use function htmlspecialchars;
 use function implode;
@@ -2172,25 +2170,16 @@ class Results
                 && ! empty($this->mediaTypeMap[$orgFullColName]['transformation'])
             ) {
                 $file = $this->mediaTypeMap[$orgFullColName]['transformation'];
-                $includeFile = 'src/Plugins/Transformations/' . $file;
+                $includeFile = $file;
 
-                if (@file_exists(ROOT_PATH . $includeFile)) {
-                    $className = $this->transformations->getClassName($includeFile);
-                    if (class_exists($className)) {
-                        $plugin = new $className();
-                        if ($plugin instanceof TransformationsPlugin) {
-                            $transformationPlugin = $plugin;
-                            $transformOptions = $this->transformations->getOptions(
-                                $this->mediaTypeMap[$orgFullColName]['transformation_options'] ?? '',
-                            );
+                $plugin = $this->transformations->getPluginInstance($includeFile);
+                if ($plugin instanceof TransformationsPlugin) {
+                    $transformationPlugin = $plugin;
+                    $transformOptions = $this->transformations->getOptions(
+                        $this->mediaTypeMap[$orgFullColName]['transformation_options'] ?? '',
+                    );
 
-                            $meta->internalMediaType = str_replace(
-                                '_',
-                                '/',
-                                $this->mediaTypeMap[$orgFullColName]['mimetype'],
-                            );
-                        }
-                    }
+                    $meta->internalMediaType = str_replace('_', '/', $this->mediaTypeMap[$orgFullColName]['mimetype']);
                 }
             }
 

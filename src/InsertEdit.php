@@ -17,7 +17,6 @@ use function array_key_exists;
 use function array_merge;
 use function array_values;
 use function bin2hex;
-use function class_exists;
 use function count;
 use function current;
 use function explode;
@@ -25,7 +24,6 @@ use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function is_array;
-use function is_file;
 use function is_string;
 use function json_encode;
 use function max;
@@ -1106,36 +1104,31 @@ class InsertEdit
         array $extraData,
         string $type,
     ): array {
-        $includeFile = 'src/Plugins/Transformations/' . $file;
-        if (is_file(ROOT_PATH . $includeFile)) {
-            // $cfg['SaveCellsAtOnce'] = true; JS code sends an array
-            $whereClause = is_array($_POST['where_clause']) ? $_POST['where_clause'][0] : $_POST['where_clause'];
-            $urlParams = [
-                'db' => $db,
-                'table' => $table,
-                'where_clause_sign' => Core::signSqlQuery($whereClause),
-                'where_clause' => $whereClause,
-                'transform_key' => $columnName,
-            ];
-            $transformOptions = $this->transformations->getOptions($transformation[$type . '_options'] ?? '');
-            $transformOptions['wrapper_link'] = Url::getCommon($urlParams);
-            $transformOptions['wrapper_params'] = $urlParams;
-            $className = $this->transformations->getClassName($includeFile);
-            if (class_exists($className)) {
-                /** @var TransformationsPlugin $transformationPlugin */
-                $transformationPlugin = new $className();
+        // $cfg['SaveCellsAtOnce'] = true; JS code sends an array
+        $whereClause = is_array($_POST['where_clause']) ? $_POST['where_clause'][0] : $_POST['where_clause'];
+        $urlParams = [
+            'db' => $db,
+            'table' => $table,
+            'where_clause_sign' => Core::signSqlQuery($whereClause),
+            'where_clause' => $whereClause,
+            'transform_key' => $columnName,
+        ];
+        $transformOptions = $this->transformations->getOptions($transformation[$type . '_options'] ?? '');
+        $transformOptions['wrapper_link'] = Url::getCommon($urlParams);
+        $transformOptions['wrapper_params'] = $urlParams;
 
-                foreach ($editedValues as $cellIndex => $currCellEditedValues) {
-                    if (! isset($currCellEditedValues[$columnName])) {
-                        continue;
-                    }
-
-                    $extraData['transformations'][$cellIndex] = $transformationPlugin->applyTransformation(
-                        $currCellEditedValues[$columnName],
-                        $transformOptions,
-                    );
-                    $editedValues[$cellIndex][$columnName] = $extraData['transformations'][$cellIndex];
+        $transformationPlugin = $this->transformations->getPluginInstance($file);
+        if ($transformationPlugin instanceof TransformationsPlugin) {
+            foreach ($editedValues as $cellIndex => $currCellEditedValues) {
+                if (! isset($currCellEditedValues[$columnName])) {
+                    continue;
                 }
+
+                $extraData['transformations'][$cellIndex] = $transformationPlugin->applyTransformation(
+                    $currCellEditedValues[$columnName],
+                    $transformOptions,
+                );
+                $editedValues[$cellIndex][$columnName] = $extraData['transformations'][$cellIndex];
             }
         }
 
@@ -1696,40 +1689,33 @@ class InsertEdit
         $transformedHtml = '';
         if (! empty($columnMime['input_transformation'])) {
             $file = $columnMime['input_transformation'];
-            $includeFile = 'src/Plugins/Transformations/' . $file;
-            if (is_file(ROOT_PATH . $includeFile)) {
-                $className = $this->transformations->getClassName($includeFile);
-                if (class_exists($className)) {
-                    $transformationPlugin = new $className();
-                    $transformationOptions = $this->transformations->getOptions(
-                        $columnMime['input_transformation_options'],
-                    );
-                    $urlParams = [
-                        'db' => $db,
-                        'table' => $table,
-                        'transform_key' => $column->field,
-                        'where_clause_sign' => Core::signSqlQuery($whereClause),
-                        'where_clause' => $whereClause,
-                    ];
-                    $transformationOptions['wrapper_link'] = Url::getCommon($urlParams);
-                    $transformationOptions['wrapper_params'] = $urlParams;
-                    $currentValue = $currentRow[$column->field] ?? '';
+            $transformationPlugin = $this->transformations->getPluginInstance((string) $file);
+            if ($transformationPlugin instanceof IOTransformationsPlugin) {
+                $transformationOptions = $this->transformations->getOptions(
+                    $columnMime['input_transformation_options'],
+                );
+                $urlParams = [
+                    'db' => $db,
+                    'table' => $table,
+                    'transform_key' => $column->field,
+                    'where_clause_sign' => Core::signSqlQuery($whereClause),
+                    'where_clause' => $whereClause,
+                ];
+                $transformationOptions['wrapper_link'] = Url::getCommon($urlParams);
+                $transformationOptions['wrapper_params'] = $urlParams;
 
-                    if ($transformationPlugin instanceof IOTransformationsPlugin) {
-                        $transformedHtml = $transformationPlugin->getInputHtml(
-                            $columnNameAppendix,
-                            $transformationOptions,
-                            $currentValue,
-                            $textDir,
-                            $this->fieldIndex,
-                        );
+                $transformedHtml = $transformationPlugin->getInputHtml(
+                    $columnNameAppendix,
+                    $transformationOptions,
+                    $currentRow[$column->field] ?? '',
+                    $textDir,
+                    $this->fieldIndex,
+                );
 
-                        $GLOBALS['plugin_scripts'] = array_merge(
-                            $GLOBALS['plugin_scripts'],
-                            $transformationPlugin->getScripts(),
-                        );
-                    }
-                }
+                $GLOBALS['plugin_scripts'] = array_merge(
+                    $GLOBALS['plugin_scripts'],
+                    $transformationPlugin->getScripts(),
+                );
             }
         }
 

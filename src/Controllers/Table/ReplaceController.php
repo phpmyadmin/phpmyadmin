@@ -29,12 +29,9 @@ use PhpMyAdmin\Util;
 use function __;
 use function array_keys;
 use function array_values;
-use function class_exists;
 use function implode;
 use function in_array;
 use function is_array;
-use function is_file;
-use function method_exists;
 use function parse_str;
 use function sprintf;
 
@@ -168,35 +165,27 @@ final class ReplaceController extends AbstractController
                     ! empty($mimeMap[$columnName])
                     && ! empty($mimeMap[$columnName]['input_transformation'])
                 ) {
-                    $filename = 'src/Plugins/Transformations/'
-                        . $mimeMap[$columnName]['input_transformation'];
-                    if (is_file(ROOT_PATH . $filename)) {
-                        $className = $this->transformations->getClassName($filename);
-                        if (class_exists($className)) {
-                            /** @var IOTransformationsPlugin $transformationPlugin */
-                            $transformationPlugin = new $className();
-                            $transformationOptions = $this->transformations->getOptions(
-                                $mimeMap[$columnName]['input_transformation_options'],
+                    $filename = $mimeMap[$columnName]['input_transformation'];
+                    $transformationPlugin = $this->transformations->getPluginInstance($filename);
+                    if ($transformationPlugin instanceof IOTransformationsPlugin) {
+                        $transformationOptions = $this->transformations->getOptions(
+                            $mimeMap[$columnName]['input_transformation_options'],
+                        );
+                        $currentValue = $transformationPlugin->applyTransformation(
+                            $currentValue,
+                            $transformationOptions,
+                        );
+                        // check if transformation was successful or not
+                        // and accordingly set error messages & insert_fail
+                        if (! $transformationPlugin->isSuccess()) {
+                            $insertFail = true;
+                            $rowSkipped = true;
+                            $insertErrors[] = sprintf(
+                                __('Row: %1$s, Column: %2$s, Error: %3$s'),
+                                $rowNumber,
+                                $columnName,
+                                $transformationPlugin->getError(),
                             );
-                            $currentValue = $transformationPlugin->applyTransformation(
-                                $currentValue,
-                                $transformationOptions,
-                            );
-                            // check if transformation was successful or not
-                            // and accordingly set error messages & insert_fail
-                            if (
-                                method_exists($transformationPlugin, 'isSuccess')
-                                && ! $transformationPlugin->isSuccess()
-                            ) {
-                                $insertFail = true;
-                                $rowSkipped = true;
-                                $insertErrors[] = sprintf(
-                                    __('Row: %1$s, Column: %2$s, Error: %3$s'),
-                                    $rowNumber,
-                                    $columnName,
-                                    $transformationPlugin->getError(),
-                                );
-                            }
                         }
                     }
                 }

@@ -184,11 +184,21 @@ class Transformations
      *
      * @param string $filename transformation file name
      *
-     * @return string the class name of transformation
+     * @return class-string<TransformationsInterface> the class name of transformation
      */
-    public function getClassName(string $filename): string
+    private function getClassName(string $filename): string
     {
-        return 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr(explode('.php', $filename)[0], strlen('src/')));
+        return 'PhpMyAdmin\\Plugins\\Transformations\\' . str_replace('/', '\\', explode('.php', $filename)[0]);
+    }
+
+    public function getPluginInstance(string $filename): TransformationsInterface|null
+    {
+        $className = $this->getClassName($filename);
+        if (class_exists($className)) {
+            return new $className();
+        }
+
+        return null;
     }
 
     /**
@@ -200,9 +210,7 @@ class Transformations
      */
     public function getDescription(string $file): string
     {
-        $includeFile = 'src/Plugins/Transformations/' . $file;
-        /** @psalm-var class-string<TransformationsInterface> $className */
-        $className = $this->getClassName($includeFile);
+        $className = $this->getClassName($file);
         if (class_exists($className)) {
             return $className::getInfo();
         }
@@ -219,9 +227,7 @@ class Transformations
      */
     public function getName(string $file): string
     {
-        $includeFile = 'src/Plugins/Transformations/' . $file;
-        /** @psalm-var class-string<TransformationsInterface> $className */
-        $className = $this->getClassName($includeFile);
+        $className = $this->getClassName($file);
         if (class_exists($className)) {
             return $className::getName();
         }
