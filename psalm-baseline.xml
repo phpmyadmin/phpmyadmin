@@ -399,10 +399,6 @@
     <ReferenceReusedFromConfusingScope>
       <code><![CDATA[$name]]></code>
     </ReferenceReusedFromConfusingScope>
-    <UnevaluatedCode>
-      <code><![CDATA[return [];]]></code>
-      <code><![CDATA[return [];]]></code>
-    </UnevaluatedCode>
   </file>
   <file src="src/Config/FormDisplay.php">
     <DeprecatedMethod>
@@ -11269,9 +11265,6 @@
     <PossiblyUnusedProperty>
       <code><![CDATA[$filesizeInfo]]></code>
     </PossiblyUnusedProperty>
-    <UnevaluatedCode>
-      <code><![CDATA[return false;]]></code>
-    </UnevaluatedCode>
   </file>
   <file src="src/Theme/ThemeManager.php">
     <DeprecatedMethod>
@@ -11306,9 +11299,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$cookieTheme]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnevaluatedCode>
-      <code><![CDATA[return false;]]></code>
-    </UnevaluatedCode>
   </file>
   <file src="src/Tracking/Tracker.php">
     <DeprecatedMethod>

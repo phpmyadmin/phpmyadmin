@@ -7,6 +7,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
+use PhpMyAdmin\Exceptions\UndefinedOption;
+use Webmozart\Assert\Assert;
+
 use function array_combine;
 use function array_shift;
 use function array_walk;
@@ -21,9 +24,6 @@ use function mb_strrpos;
 use function mb_substr;
 use function str_replace;
 use function str_starts_with;
-use function trigger_error;
-
-use const E_USER_ERROR;
 
 /**
  * Base class for forms, loads default configuration options, checks allowed
@@ -110,16 +110,10 @@ class Form
     {
         $value = $this->configFile->getDbEntry($optionPath);
         if ($value === null) {
-            trigger_error($optionPath . ' - select options not defined', E_USER_ERROR);
-
-            return [];
+            throw new UndefinedOption($optionPath . ' - select options not defined');
         }
 
-        if (! is_array($value)) {
-            trigger_error($optionPath . ' - not a static value list', E_USER_ERROR);
-
-            return [];
-        }
+        Assert::isArray($value, $optionPath . ' - not a static value list');
 
         // convert array('#', 'a', 'b') to array('a', 'b')
         if (isset($value[0]) && $value[0] === '#') {

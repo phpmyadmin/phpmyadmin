@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Theme;
 
+use PhpMyAdmin\Exceptions\InvalidImagePath;
 use PhpMyAdmin\Version;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
@@ -19,12 +20,10 @@ use function is_dir;
 use function is_readable;
 use function json_decode;
 use function sprintf;
-use function trigger_error;
 use function trim;
 use function version_compare;
 
 use const DIRECTORY_SEPARATOR;
-use const E_USER_ERROR;
 
 /**
  * handles theme
@@ -176,16 +175,10 @@ class Theme
             return true;
         }
 
-        // we failed
-        trigger_error(
-            sprintf(
-                __('No valid image path for theme %s found!'),
-                $this->getName(),
-            ),
-            E_USER_ERROR,
-        );
-
-        return false;
+        throw new InvalidImagePath(sprintf(
+            __('No valid image path for theme %s found!'),
+            $this->getName(),
+        ));
     }
 
     /**
