@@ -8623,7 +8623,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$fields[]]]></code>
     </MixedAssignment>
     <PossiblyInvalidCast>
       <code><![CDATA[$_REQUEST['csv_new_db_name']]]></code>
