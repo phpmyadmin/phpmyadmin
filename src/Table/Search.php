@@ -81,14 +81,12 @@ final class Search
             return ' WHERE ' . $_POST['customWhereClause'];
         }
 
-        // If there are no search criteria set or no unary criteria operators,
-        // return
         if (
-            ! isset($_POST['criteriaColumnOperators'])
-            || (
-                ! isset($_POST['criteriaValues'])
-                && ! isset($_POST['criteriaColumnOperators'])
-                && ! isset($_POST['geom_func'])
+            ! isset(
+                $_POST['criteriaColumnOperators'],
+                $_POST['criteriaValues'],
+                $_POST['criteriaColumnNames'],
+                $_POST['criteriaColumnTypes'],
             )
         ) {
             return '';
