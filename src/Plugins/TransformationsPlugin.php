@@ -7,8 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
-use PhpMyAdmin\FieldMetadata;
-
 /**
  * Provides a common interface that will have to
  * be implemented by all of the transformations plugins.
@@ -16,7 +14,7 @@ use PhpMyAdmin\FieldMetadata;
 abstract class TransformationsPlugin implements TransformationsInterface
 {
     /**
-     * Does the actual work of each specific transformations plugin.
+     * Returns true if the element requires no wrapping
      *
      * @param mixed[] $options transformation options
      */
@@ -24,21 +22,6 @@ abstract class TransformationsPlugin implements TransformationsInterface
     {
         return false;
     }
-
-    /**
-     * Does the actual work of each specific transformations plugin.
-     *
-     * @param string             $buffer  text to be transformed
-     * @param mixed[]            $options transformation options
-     * @param FieldMetadata|null $meta    meta information
-     *
-     * @return string the transformed text
-     */
-    abstract public function applyTransformation(
-        string $buffer,
-        array $options = [],
-        FieldMetadata|null $meta = null,
-    ): string;
 
     /**
      * Returns passed options or default values if they were not set

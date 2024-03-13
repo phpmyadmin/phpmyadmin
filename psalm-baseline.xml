@@ -3592,9 +3592,6 @@
       <code><![CDATA[$whereClause]]></code>
       <code><![CDATA[$whereClause]]></code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[new $className()]]></code>
-    </MixedMethodCall>
     <MixedOperand>
       <code><![CDATA[$relationFieldValue]]></code>
     </MixedOperand>
@@ -5277,10 +5274,6 @@
     <MixedInferredReturnType>
       <code><![CDATA[Message]]></code>
     </MixedInferredReturnType>
-    <MixedMethodCall>
-      <code><![CDATA[new $className()]]></code>
-      <code><![CDATA[new $this->transformationInfo[$dbLower][$tblLower][$nameLower][1]()]]></code>
-    </MixedMethodCall>
     <MixedOperand>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
@@ -5339,10 +5332,6 @@
       <code><![CDATA[empty($statementInfo->statement->where)]]></code>
       <code><![CDATA[empty($statementInfo->statement->where)]]></code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($specialSchemaLinks[$dbLower][$tblLower][$nameLower])]]></code>
-      <code><![CDATA[! empty($this->transformationInfo[$dbLower][$tblLower][$nameLower])]]></code>
-    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $colVisibCurrent]]></code>
       <code><![CDATA[! $colVisibElement]]></code>
@@ -6514,7 +6503,7 @@
       <code><![CDATA[$currentRow[$column->field]]]></code>
       <code><![CDATA[$currentRow[$column->field]]]></code>
       <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentValue]]></code>
+      <code><![CDATA[$currentRow[$column->field] ?? '']]></code>
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$extractedColumnspec['enum_set_values']]]></code>
       <code><![CDATA[$extractedColumnspec['spec_in_brackets']]]></code>
@@ -6554,7 +6543,6 @@
       <code><![CDATA[$currentRow[$column->field]]]></code>
       <code><![CDATA[$currentRow[$column->field]]]></code>
       <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentValue]]></code>
       <code><![CDATA[$data]]></code>
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$enumSelectedValue]]></code>
@@ -6570,12 +6558,7 @@
       <code><![CDATA[$whereClause]]></code>
       <code><![CDATA[$whereClause]]></code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[new $className()]]></code>
-      <code><![CDATA[new $className()]]></code>
-    </MixedMethodCall>
     <MixedOperand>
-      <code><![CDATA[$file]]></code>
       <code><![CDATA[$maxlength]]></code>
     </MixedOperand>
     <MoreSpecificReturnType>
@@ -9839,12 +9822,6 @@
       <code><![CDATA[Text_Plain_Xml]]></code>
     </UnusedClass>
   </file>
-  <file src="src/Plugins/TransformationsInterface.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getMIMESubtype]]></code>
-      <code><![CDATA[getMIMEType]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Plugins/TransformationsPlugin.php">
     <MixedAssignment>
       <code><![CDATA[$result[$key]]]></code>
@@ -11471,6 +11448,9 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+    <LessSpecificReturnStatement>
+      <code><![CDATA['PhpMyAdmin\\Plugins\\Transformations\\' . str_replace('/', '\\', explode('.php', $filename)[0])]]></code>
+    </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$updQuery]]></code>
     </MixedArgument>
@@ -11480,6 +11460,9 @@
     <MixedReturnStatement>
       <code><![CDATA[$stack]]></code>
     </MixedReturnStatement>
+    <MoreSpecificReturnType>
+      <code><![CDATA[class-string<TransformationsInterface>]]></code>
+    </MoreSpecificReturnType>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>

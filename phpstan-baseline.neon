@@ -4746,11 +4746,6 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: "#^Call to function method_exists\\(\\) with PhpMyAdmin\\\\Plugins\\\\IOTransformationsPlugin and 'isSuccess' will always evaluate to true\\.$#"
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
 			message: "#^Cannot access an offset on mixed\\.$#"
 			count: 2
 			path: src/Controllers/Table/ReplaceController.php
@@ -7032,22 +7027,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 26
-			path: src/Display/Results.php
-
-		-
-			message: "#^Dynamic call to static method PhpMyAdmin\\\\Plugins\\\\TransformationsInterface\\:\\:getMIMESubtype\\(\\)\\.$#"
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: "#^Dynamic call to static method PhpMyAdmin\\\\Plugins\\\\TransformationsInterface\\:\\:getMIMEType\\(\\)\\.$#"
-			count: 2
-			path: src/Display/Results.php
-
-		-
-			message: "#^Dynamic call to static method PhpMyAdmin\\\\Plugins\\\\TransformationsInterface\\:\\:getName\\(\\)\\.$#"
-			count: 1
+			count: 24
 			path: src/Display/Results.php
 
 		-
@@ -8792,7 +8772,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 3
+			count: 4
 			path: src/InsertEdit.php
 
 		-
@@ -8876,7 +8856,7 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#1 \\$buffer of method PhpMyAdmin\\\\Plugins\\\\TransformationsPlugin\\:\\:applyTransformation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$buffer of method PhpMyAdmin\\\\Plugins\\\\TransformationsInterface\\:\\:applyTransformation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/InsertEdit.php
 
@@ -14587,6 +14567,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:getAvailableMimeTypes\\(\\) should return array\\<array\\<string\\>\\> but returns mixed\\.$#"
+			count: 1
+			path: src/Transformations.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:getClassName\\(\\) should return class\\-string\\<PhpMyAdmin\\\\Plugins\\\\TransformationsInterface\\> but returns string\\.$#"
 			count: 1
 			path: src/Transformations.php
 
