@@ -11497,7 +11497,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/Plugins/Import/ImportShp.php
 
 		-
