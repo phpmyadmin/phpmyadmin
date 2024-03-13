@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Exceptions\UnsupportedLanguageCode;
+
 use function __;
 use function closedir;
 use function count;
@@ -14,11 +16,8 @@ use function opendir;
 use function preg_grep;
 use function readdir;
 use function strtolower;
-use function trigger_error;
 use function uasort;
 use function ucfirst;
-
-use const E_USER_ERROR;
 
 /**
  * Language selection manager
@@ -957,9 +956,6 @@ class LanguageManager
             return;
         }
 
-        trigger_error(
-            __('Ignoring unsupported language code.'),
-            E_USER_ERROR,
-        );
+        throw new UnsupportedLanguageCode(__('Ignoring unsupported language code.'));
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Http\Middleware;
 
+use PhpMyAdmin\Exceptions\MismatchedSessionId;
 use PhpMyAdmin\Sanitize;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -14,9 +15,6 @@ use function __;
 use function hash_equals;
 use function is_scalar;
 use function session_id;
-use function trigger_error;
-
-use const E_USER_ERROR;
 
 /**
  * Check whether user supplied token is valid, if not remove any possibly
@@ -55,11 +53,10 @@ final class TokenRequestParamChecking implements MiddlewareInterface
 
         // Warn in case the mismatch is result of failed setting of session cookie
         if (isset($_POST['set_session']) && $_POST['set_session'] !== session_id()) {
-            trigger_error(
+            throw new MismatchedSessionId(
                 __(
                     'Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to access phpMyAdmin.',
                 ),
-                E_USER_ERROR,
             );
         }
 

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Theme;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Exceptions\MissingTheme;
 
 use function __;
 use function array_key_exists;
@@ -20,7 +21,6 @@ use function sprintf;
 use function trigger_error;
 
 use const DIRECTORY_SEPARATOR;
-use const E_USER_ERROR;
 use const E_USER_WARNING;
 use const ROOT_PATH;
 
@@ -70,16 +70,13 @@ class ThemeManager
 
         $configThemeExists = $this->checkTheme($config->settings['ThemeDefault']);
         if (! $configThemeExists) {
-            trigger_error(
-                sprintf(
-                    __('Default theme %s not found!'),
-                    htmlspecialchars($config->settings['ThemeDefault']),
-                ),
-                E_USER_ERROR,
-            );
-        } else {
-            $this->themeDefault = $config->settings['ThemeDefault'];
+            throw new MissingTheme(sprintf(
+                __('Default theme %s not found!'),
+                htmlspecialchars($config->settings['ThemeDefault']),
+            ));
         }
+
+        $this->themeDefault = $config->settings['ThemeDefault'];
 
         // check if user have a theme cookie
         $cookieTheme = $this->getThemeCookie();
@@ -116,15 +113,10 @@ class ThemeManager
     public function setActiveTheme(string|null $theme): bool
     {
         if (! $this->checkTheme($theme)) {
-            trigger_error(
-                sprintf(
-                    __('Theme %s not found!'),
-                    htmlspecialchars((string) $theme),
-                ),
-                E_USER_ERROR,
-            );
-
-            return false;
+            throw new MissingTheme(sprintf(
+                __('Theme %s not found!'),
+                htmlspecialchars((string) $theme),
+            ));
         }
 
         $this->activeTheme = $theme;

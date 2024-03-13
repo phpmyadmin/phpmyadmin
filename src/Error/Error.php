@@ -258,7 +258,7 @@ class Error extends Message
     public function getType(): string
     {
         return match ($this->errorNumber) {
-            0 => 'Internal error',
+            default => 'Internal error',
             E_ERROR => 'Error',
             E_WARNING => 'Warning',
             E_PARSE => 'Parsing Error',
@@ -285,7 +285,7 @@ class Error extends Message
     public function getLevel(): string
     {
         return match ($this->errorNumber) {
-            0 => 'error',
+            default => 'error',
             E_ERROR => 'error',
             E_WARNING => 'error',
             E_PARSE => 'error',
