@@ -7,8 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
-use PhpMyAdmin\Exceptions\NotAList;
 use PhpMyAdmin\Exceptions\UndefinedOption;
+use Webmozart\Assert\Assert;
 
 use function array_combine;
 use function array_shift;
@@ -113,9 +113,7 @@ class Form
             throw new UndefinedOption($optionPath . ' - select options not defined');
         }
 
-        if (! is_array($value)) {
-            throw new NotAList($optionPath . ' - not a static value list');
-        }
+        Assert::isArray($value, $optionPath . ' - not a static value list');
 
         // convert array('#', 'a', 'b') to array('a', 'b')
         if (isset($value[0]) && $value[0] === '#') {
