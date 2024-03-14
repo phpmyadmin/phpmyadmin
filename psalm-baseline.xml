@@ -8648,6 +8648,11 @@
       <code><![CDATA[string[]]]></code>
     </PossiblyUnusedReturnValue>
   </file>
+  <file src="src/Plugins/Import/ImportFormat.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getClassName]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="src/Plugins/Import/ImportLdi.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
