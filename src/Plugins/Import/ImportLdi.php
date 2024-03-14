@@ -188,7 +188,7 @@ class ImportLdi extends AbstractImportCsv
     public static function isAvailable(): bool
     {
         // We need relations enabled and we work only on database.
-        return isset($GLOBALS['plugin_param']) && $GLOBALS['plugin_param'] === 'table';
+        return ImportSettings::$importType === 'table';
     }
 
     private function setLdiLocalOptionConfig(): void

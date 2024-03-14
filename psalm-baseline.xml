@@ -1959,6 +1959,9 @@
     <PossiblyInvalidPropertyAssignmentValue>
       <code><![CDATA[$memoryLimit / 8]]></code>
     </PossiblyInvalidPropertyAssignmentValue>
+    <PropertyTypeCoercion>
+      <code><![CDATA[(string) $request->getParsedBodyParam('import_type')]]></code>
+    </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['goto'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -7764,10 +7767,6 @@
       <code><![CDATA[getFieldNames]]></code>
       <code><![CDATA[numFields]]></code>
     </PossiblyFalseReference>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
-    </PossiblyInvalidArrayOffset>
     <PossiblyInvalidOperand>
       <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
     </PossiblyInvalidOperand>
@@ -7782,9 +7781,6 @@
       <code><![CDATA[$tableAlias]]></code>
       <code><![CDATA[$tableAlias]]></code>
     </PossiblyNullOperand>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $GLOBALS['plugin_param']['single_table']]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Export/ExportMediawiki.php">
     <DeprecatedMethod>
@@ -7888,10 +7884,6 @@
       <code><![CDATA[$GLOBALS[$GLOBALS['what'] . '_null']]]></code>
       <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
-    </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument>
       <code><![CDATA[$row[$j]]]></code>
       <code><![CDATA[$tableAlias]]></code>
@@ -7910,7 +7902,6 @@
       <code><![CDATA[string]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $GLOBALS['plugin_param']['single_table']]]></code>
       <code><![CDATA[$foreigner]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -8084,11 +8075,6 @@
       <code><![CDATA[$field->key->columns]]></code>
       <code><![CDATA[$field->references->columns]]></code>
     </MixedPropertyTypeCoercion>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
-    </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument>
       <code><![CDATA[$createQuery]]></code>
       <code><![CDATA[$definition]]></code>
@@ -8134,7 +8120,6 @@
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $GLOBALS['plugin_param']['single_table']]]></code>
       <code><![CDATA[empty($GLOBALS['exporting_metadata'])]]></code>
       <code><![CDATA[empty($GLOBALS['sql_auto_increment'])]]></code>
       <code><![CDATA[empty($GLOBALS['sql_drop_table'])]]></code>
@@ -14264,12 +14249,6 @@
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
     </InvalidPropertyAssignmentValue>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
-    </PossiblyInvalidArrayOffset>
   </file>
   <file src="tests/unit/Plugins/Export/ExportOdsTest.php">
     <TypeDoesNotContainType>
@@ -14289,12 +14268,6 @@
     <MixedAssignment>
       <code><![CDATA[$result]]></code>
     </MixedAssignment>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
-    </PossiblyInvalidArrayOffset>
     <TypeDoesNotContainType>
       <code><![CDATA[assertSame]]></code>
     </TypeDoesNotContainType>
@@ -14325,12 +14298,6 @@
       <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
     </MixedAssignment>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
-    </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
       <code><![CDATA[$GLOBALS['sql_constraints']]]></code>

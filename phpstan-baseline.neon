@@ -2746,6 +2746,11 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
+			message: "#^Static property PhpMyAdmin\\\\Import\\\\ImportSettings\\:\\:\\$importType \\(''\\|'database'\\|'query'\\|'server'\\|'table'\\) does not accept string\\.$#"
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
 			message: "#^Static property PhpMyAdmin\\\\Import\\\\ImportSettings\\:\\:\\$readLimit \\(int\\) does not accept float\\|int\\<min, \\-1\\>\\|int\\<1, max\\>\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php

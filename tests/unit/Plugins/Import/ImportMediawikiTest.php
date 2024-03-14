@@ -42,7 +42,7 @@ class ImportMediawikiTest extends AbstractTestCase
         ImportSettings::$executedQueries = 0;
         ImportSettings::$runQuery = false;
         ImportSettings::$goSql = false;
-        $GLOBALS['plugin_param'] = 'database';
+        ImportSettings::$importType = 'database';
         $this->object = new ImportMediawiki();
 
         //setting
@@ -54,7 +54,6 @@ class ImportMediawikiTest extends AbstractTestCase
         ImportSettings::$importFile = 'tests/test_data/phpmyadmin.mediawiki';
         $GLOBALS['import_text'] = 'ImportMediawiki_Test';
         ImportSettings::$readMultiply = 10;
-        ImportSettings::$importType = 'Mediawiki';
     }
 
     /**

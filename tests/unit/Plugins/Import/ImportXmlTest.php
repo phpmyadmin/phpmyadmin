@@ -58,7 +58,6 @@ class ImportXmlTest extends AbstractTestCase
         $GLOBALS['import_text'] = 'ImportXml_Test';
         $GLOBALS['compression'] = 'none';
         ImportSettings::$readMultiply = 10;
-        ImportSettings::$importType = 'Xml';
     }
 
     /**

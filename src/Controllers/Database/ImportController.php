@@ -75,7 +75,8 @@ final class ImportController extends AbstractController
 
         [$GLOBALS['SESSION_KEY'], $uploadId] = Ajax::uploadProgressSetup();
 
-        $importList = Plugins::getImport('database');
+        ImportSettings::$importType = 'database';
+        $importList = Plugins::getImport();
 
         if ($importList === []) {
             $this->response->addHTML(Message::error(__(

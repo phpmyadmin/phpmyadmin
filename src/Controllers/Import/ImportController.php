@@ -483,7 +483,6 @@ final class ImportController extends AbstractController
         $queriesToBeExecuted = [];
 
         if (! $GLOBALS['error']) {
-            $GLOBALS['plugin_param'] = ImportSettings::$importType;
             $importPlugin = new ($importFormat->getClassName());
 
             // Do the real import

@@ -35,8 +35,8 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetImport(): void
     {
-        $plugins = Plugins::getImport('database');
-        self::assertSame('database', $GLOBALS['plugin_param']);
+        ImportSettings::$importType = 'database';
+        $plugins = Plugins::getImport();
         self::assertIsArray($plugins);
         self::assertCount(6, $plugins);
         self::assertContainsOnlyInstancesOf(Plugins\ImportPlugin::class, $plugins);

@@ -46,7 +46,7 @@ class ImportShpTest extends AbstractTestCase
         ImportSettings::$goSql = false;
 
         //setting
-        $GLOBALS['plugin_param'] = 'table';
+        ImportSettings::$importType = 'table';
         ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
@@ -62,7 +62,6 @@ class ImportShpTest extends AbstractTestCase
 
         $GLOBALS['compression'] = 'application/zip';
         ImportSettings::$readMultiply = 10;
-        ImportSettings::$importType = 'ods';
         Current::$database = '';
         Current::$table = '';
     }

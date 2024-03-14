@@ -63,7 +63,7 @@ class ImportCsv extends AbstractImportCsv
     {
         $this->analyze = false;
 
-        if ($GLOBALS['plugin_param'] !== 'table') {
+        if (ImportSettings::$importType !== 'table') {
             $this->analyze = true;
         }
 
@@ -79,7 +79,7 @@ class ImportCsv extends AbstractImportCsv
 
         $generalOptions = $this->getGeneralOptions();
 
-        if ($GLOBALS['plugin_param'] !== 'table') {
+        if (ImportSettings::$importType !== 'table') {
             $leaf = new TextPropertyItem(
                 'new_tbl_name',
                 __(
@@ -88,7 +88,7 @@ class ImportCsv extends AbstractImportCsv
             );
             $generalOptions->addProperty($leaf);
 
-            if ($GLOBALS['plugin_param'] === 'server') {
+            if (ImportSettings::$importType === 'server') {
                 $leaf = new TextPropertyItem(
                     'new_db_name',
                     __(
