@@ -11296,18 +11296,13 @@ parameters:
 			path: src/Plugins/ExportPlugin.php
 
 		-
-			message: "#^Cannot access offset 0 on mixed\\.$#"
-			count: 10
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
 			message: "#^Cannot call method getMessage\\(\\) on mixed\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 3
+			count: 8
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
@@ -11336,42 +11331,7 @@ parameters:
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
-			message: "#^Parameter \\#1 \\$csvTerminated of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportCsv\\:\\:buildErrorsForParams\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
 			message: "#^Parameter \\#1 \\$serverMessage of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function strtr expects string, mixed given\\.$#"
-			count: 4
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
-			message: "#^Parameter \\#2 \\$csvEnclosed of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportCsv\\:\\:buildErrorsForParams\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
-			message: "#^Parameter \\#2 \\$needle of function str_contains expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
-			message: "#^Parameter \\#3 \\$csvColumns of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportCsv\\:\\:getSqlTemplateAndRequiredFields\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
-			message: "#^Parameter \\#3 \\$csvEscaped of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportCsv\\:\\:buildErrorsForParams\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportCsv.php
 
@@ -11392,16 +11352,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportLdi\\:\\:doImport\\(\\) should return array\\<string\\> but returns mixed\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportLdi.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Plugins/Import/ImportLdi.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_split expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Import/ImportLdi.php
 
