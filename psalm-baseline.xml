@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.23.0@005e3184fb6de4350a873b9b8c4dc3cede9db762">
+<files psalm-version="5.22.2@d768d914152dbbf3486c36398802f74e80cfde48">
   <file src="app/services_loader.php">
     <MixedArgument>
       <code><![CDATA[$argumentName]]></code>
@@ -833,6 +833,9 @@
       <code><![CDATA[$userGroups]]></code>
       <code><![CDATA[$userGroups[$groupName]]]></code>
     </PossiblyNullArrayOffset>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$result->numRows()]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Console.php">
     <DeprecatedMethod>
@@ -2995,6 +2998,7 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['back'])]]></code>
       <code><![CDATA[empty($GLOBALS['goto'])]]></code>
+      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/AddFieldController.php">
@@ -3215,6 +3219,7 @@
     </PossiblyInvalidIterator>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$message->isError()]]></code>
+      <code><![CDATA[empty($selected)]]></code>
     </RiskyTruthyFalsyComparison>
     <UnusedParam>
       <code><![CDATA[$request]]></code>
@@ -3891,6 +3896,11 @@
       <code><![CDATA[$_POST['field_expression'][$i]]]></code>
       <code><![CDATA[$_POST['field_virtuality'][$i]]]></code>
     </PossiblyInvalidOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$_POST['field_virtuality'][$i]]]></code>
+      <code><![CDATA[empty($_POST['field_adjust_privileges'][$i])]]></code>
+      <code><![CDATA[empty($_POST['field_move_to'][$i])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/StructureController.php">
     <DeprecatedMethod>
@@ -4211,6 +4221,7 @@
       <code><![CDATA[$array]]></code>
     </PossiblyUnusedParam>
     <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! $size]]></code>
       <code><![CDATA[Config::getInstance()->get('is_setup')]]></code>
       <code><![CDATA[empty($_SERVER['REMOTE_ADDR'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -4546,6 +4557,7 @@
       <code><![CDATA[! empty($indexArray2[$f2])]]></code>
     </RedundantCondition>
     <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! $value]]></code>
       <code><![CDATA[$foreigner]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -4700,8 +4712,6 @@
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[$routine['item_param_opts_text'][$i]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
@@ -4848,6 +4858,7 @@
     </PossiblyUndefinedArrayOffset>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
+      <code><![CDATA[empty($_POST['funcs'][$routine['item_param_name'][$i]])]]></code>
       <code><![CDATA[empty($_POST['item_adjust_privileges'])]]></code>
       <code><![CDATA[empty($_POST['item_comment'])]]></code>
       <code><![CDATA[empty($_POST['item_returnlength'])]]></code>
@@ -4923,6 +4934,8 @@
       <code><![CDATA[$resultTarget[$row[$keyIndex]]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
+      <code><![CDATA[$row[$keyIndex]]]></code>
+      <code><![CDATA[$row[$keyIndex]]]></code>
       <code><![CDATA[$row[$keyIndex]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
@@ -6685,6 +6698,9 @@
     <PossiblyFalseOperand>
       <code><![CDATA[mb_strpos($tab, '_')]]></code>
     </PossiblyFalseOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($binaryLogs)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Message.php">
     <MixedArgument>
@@ -6858,6 +6874,10 @@
     <PossiblyNullOperand>
       <code><![CDATA[$arr[0]]]></code>
     </PossiblyNullOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($this->config->selectedServer['only_db'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['only_db'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Navigation/Nodes/NodeColumn.php">
     <MixedArgument>
@@ -9347,6 +9367,7 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$foreigner]]></code>
       <code><![CDATA[$foreigner]]></code>
+      <code><![CDATA[empty($showComment)]]></code>
     </RiskyTruthyFalsyComparison>
     <UnusedProperty>
       <code><![CDATA[$bottomMargin]]></code>
@@ -10359,6 +10380,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($server['only_db'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Server/Status/Data.php">
     <MixedArgumentTypeCoercion>

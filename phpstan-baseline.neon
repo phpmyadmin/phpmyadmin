@@ -9256,11 +9256,6 @@ parameters:
 			path: src/Navigation/NavigationTree.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:parsePath\\(\\) should return non\\-empty\\-array\\<int, string\\> but returns non\\-empty\\-array\\<int, string\\|false\\>\\.$#"
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
 			message: "#^Only booleans are allowed in &&, int given on the right side\\.$#"
 			count: 5
 			path: src/Navigation/NavigationTree.php
@@ -12879,6 +12874,11 @@ parameters:
 			message: "#^Parameter \\#1 \\$description of method PhpMyAdmin\\\\Server\\\\Plugins\\:\\:getTranslatedDescription\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Server/Plugins.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/Server/Privileges.php
 
 		-
 			message: "#^Cannot access offset 'CHARACTER_MAXIMUM…' on mixed\\.$#"
