@@ -187,14 +187,7 @@ final class ImportController extends AbstractController
             $this->response->addJSON('console_message_id', $consoleMessageId);
         }
 
-        /**
-         * Sets globals from $_POST patterns, for import plugins
-         * We only need to load the selected plugin
-         */
-
         if (! in_array($format, ['csv', 'ldi', 'mediawiki', 'ods', 'shp', 'sql', 'xml'], true)) {
-            // this should not happen for a normal user
-            // but only during an attack
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error(__('Incorrect format parameter'))->getDisplay());
 
@@ -202,11 +195,7 @@ final class ImportController extends AbstractController
         }
 
         $postPatterns = ['/^' . $format . '_/'];
-
         Core::setPostAsGlobal($postPatterns);
-
-        // We don't want anything special in format
-        $format = Core::securePath($format);
 
         if (Current::$table !== '' && Current::$database !== '') {
             $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
