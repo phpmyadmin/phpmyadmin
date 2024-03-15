@@ -9,7 +9,6 @@ use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Http\ServerRequest;
 
 use function __;
-use function array_keys;
 use function array_pop;
 use function array_walk_recursive;
 use function chr;
@@ -532,24 +531,6 @@ class Core
         }
 
         return empty($value);
-    }
-
-    /**
-     * Creates some globals from $_POST variables matching a pattern
-     *
-     * @param mixed[] $postPatterns The patterns to search for
-     */
-    public static function setPostAsGlobal(array $postPatterns): void
-    {
-        foreach (array_keys($_POST) as $postKey) {
-            foreach ($postPatterns as $onePostPattern) {
-                if (! preg_match($onePostPattern, $postKey)) {
-                    continue;
-                }
-
-                $GLOBALS[$postKey] = $_POST[$postKey];
-            }
-        }
     }
 
     /**

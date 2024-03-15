@@ -5857,7 +5857,7 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 2
+			count: 1
 			path: src/Core.php
 
 		-
@@ -5876,11 +5876,6 @@ parameters:
 			path: src/Core.php
 
 		-
-			message: "#^Parameter \\#1 \\$pattern of function preg_match expects string, mixed given\\.$#"
-			count: 1
-			path: src/Core.php
-
-		-
 			message: "#^Parameter \\#1 \\$sqlQuery of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:formatSql\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Core.php
@@ -5892,11 +5887,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$variableName of static method PhpMyAdmin\\\\Core\\:\\:getEnv\\(\\) expects non\\-empty\\-string, string given\\.$#"
-			count: 1
-			path: src/Core.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: src/Core.php
 
@@ -12922,7 +12912,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 8
+			count: 4
 			path: src/Server/Privileges.php
 
 		-

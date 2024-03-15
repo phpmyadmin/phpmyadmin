@@ -998,38 +998,32 @@ class Privileges
     {
         $sqlQuery = '';
         if (
-            ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] === 'Y')
-            || (isset($GLOBALS['Grant_priv']) && $GLOBALS['Grant_priv'] === 'Y'))
+            isset($_POST['Grant_priv']) && $_POST['Grant_priv'] === 'Y'
             && ! (Compatibility::isMySqlOrPerconaDb() && $this->dbi->getVersion() >= 80011)
         ) {
             $sqlQuery .= ' GRANT OPTION';
         }
 
-        if (isset($_POST['max_questions']) || isset($GLOBALS['max_questions'])) {
-            $maxQuestions = isset($_POST['max_questions'])
-                ? (int) $_POST['max_questions'] : (int) $GLOBALS['max_questions'];
+        if (isset($_POST['max_questions'])) {
+            $maxQuestions = (int) $_POST['max_questions'];
             $maxQuestions = max(0, $maxQuestions);
             $sqlQuery .= ' MAX_QUERIES_PER_HOUR ' . $maxQuestions;
         }
 
-        if (isset($_POST['max_connections']) || isset($GLOBALS['max_connections'])) {
-            $maxConnections = isset($_POST['max_connections'])
-                ? (int) $_POST['max_connections'] : (int) $GLOBALS['max_connections'];
+        if (isset($_POST['max_connections'])) {
+            $maxConnections = (int) $_POST['max_connections'];
             $maxConnections = max(0, $maxConnections);
             $sqlQuery .= ' MAX_CONNECTIONS_PER_HOUR ' . $maxConnections;
         }
 
-        if (isset($_POST['max_updates']) || isset($GLOBALS['max_updates'])) {
-            $maxUpdates = isset($_POST['max_updates'])
-                ? (int) $_POST['max_updates'] : (int) $GLOBALS['max_updates'];
+        if (isset($_POST['max_updates'])) {
+            $maxUpdates = (int) $_POST['max_updates'];
             $maxUpdates = max(0, $maxUpdates);
             $sqlQuery .= ' MAX_UPDATES_PER_HOUR ' . $maxUpdates;
         }
 
-        if (isset($_POST['max_user_connections']) || isset($GLOBALS['max_user_connections'])) {
-            $maxUserConnections = isset($_POST['max_user_connections'])
-                ? (int) $_POST['max_user_connections']
-                : (int) $GLOBALS['max_user_connections'];
+        if (isset($_POST['max_user_connections'])) {
+            $maxUserConnections = (int) $_POST['max_user_connections'];
             $maxUserConnections = max(0, $maxUserConnections);
             $sqlQuery .= ' MAX_USER_CONNECTIONS ' . $maxUserConnections;
         }
@@ -3131,10 +3125,7 @@ class Privileges
         $alterSqlQuery = '';
         if (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 80011) {
             $sqlQueryStmt = '';
-            if (
-                (isset($_POST['Grant_priv']) && $_POST['Grant_priv'] === 'Y')
-                || (isset($GLOBALS['Grant_priv']) && $GLOBALS['Grant_priv'] === 'Y')
-            ) {
+            if (isset($_POST['Grant_priv']) && $_POST['Grant_priv'] === 'Y') {
                 $sqlQueryStmt = ' WITH GRANT OPTION';
             }
 

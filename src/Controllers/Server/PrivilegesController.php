@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -74,11 +73,6 @@ class PrivilegesController extends AbstractController
                 'is_super_user' => $this->dbi->isSuperUser(),
             ]);
         }
-
-        /**
-         * Sets globals from $_POST patterns, for privileges and max_* vars
-         */
-        Core::setPostAsGlobal(['/_priv$/i', '/^max_/i']);
 
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
