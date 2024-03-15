@@ -1558,14 +1558,14 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'SELECT `ENGINE` FROM `information_schema`.`tables` WHERE `table_name` = \'table_1\''
                     . ' AND `table_schema` = \'PMA\' AND UPPER(`engine`)'
-                    . ' IN ("INNODB", "FALCON", "NDB", "INFINIDB", "TOKUDB", "XTRADB", "SEQUENCE", "BDB")',
+                    . ' IN ("INNODB", "FALCON", "NDB", "INFINIDB", "TOKUDB", "XTRADB", "SEQUENCE", "BDB", "ROCKSDB")',
                 'columns' => ['ENGINE'],
                 'result' => [['INNODB']],
             ],
             [
                 'query' => 'SELECT `ENGINE` FROM `information_schema`.`tables` WHERE `table_name` = \'table_2\''
                     . ' AND `table_schema` = \'PMA\' AND UPPER(`engine`)'
-                    . ' IN ("INNODB", "FALCON", "NDB", "INFINIDB", "TOKUDB", "XTRADB", "SEQUENCE", "BDB")',
+                    . ' IN ("INNODB", "FALCON", "NDB", "INFINIDB", "TOKUDB", "XTRADB", "SEQUENCE", "BDB", "ROCKSDB")',
                 'columns' => ['ENGINE'],
                 'result' => [['INNODB']],
             ],

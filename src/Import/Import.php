@@ -1038,7 +1038,17 @@ class Import
         }
 
         // List of Transactional Engines.
-        $transactionalEngines = ['INNODB', 'FALCON', 'NDB', 'INFINIDB', 'TOKUDB', 'XTRADB', 'SEQUENCE', 'BDB'];
+        $transactionalEngines = [
+            'INNODB',
+            'FALCON',
+            'NDB',
+            'INFINIDB',
+            'TOKUDB',
+            'XTRADB',
+            'SEQUENCE',
+            'BDB',
+            'ROCKSDB',
+        ];
 
         // Query to check if table is 'Transactional'.
         $checkQuery = 'SELECT `ENGINE` FROM `information_schema`.`tables` '
