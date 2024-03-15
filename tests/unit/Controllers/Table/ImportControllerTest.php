@@ -14,6 +14,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin;
 use PhpMyAdmin\Template;
@@ -45,7 +46,8 @@ class ImportControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dummyDbi);
         DatabaseInterface::$instance = $dbi;
 
-        $importList = Plugins::getImport('table');
+        ImportSettings::$importType = 'table';
+        $importList = Plugins::getImport();
         $choice = Plugins::getChoice($importList, 'xml');
         $options = Plugins::getOptions('Import', $importList);
 

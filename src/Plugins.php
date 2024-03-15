@@ -95,16 +95,11 @@ class Plugins
     }
 
     /**
-     * @param string $type server|database|table
-     * @psalm-param 'server'|'database'|'table' $type
-     *
      * @return ImportPlugin[]
      * @psalm-return list<ImportPlugin>
      */
-    public static function getImport(string $type): array
+    public static function getImport(): array
     {
-        $GLOBALS['plugin_param'] = $type;
-
         return self::getPlugins('Import');
     }
 

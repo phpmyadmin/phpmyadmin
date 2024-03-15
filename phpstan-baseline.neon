@@ -2592,7 +2592,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'message' on mixed\\.$#"
-			count: 7
+			count: 6
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -2742,6 +2742,11 @@ parameters:
 
 		-
 			message: "#^Result of \\|\\| is always true\\.$#"
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Static property PhpMyAdmin\\\\Import\\\\ImportSettings\\:\\:\\$importType \\(''\\|'database'\\|'query'\\|'server'\\|'table'\\) does not accept string\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 

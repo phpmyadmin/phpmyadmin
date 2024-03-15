@@ -26,6 +26,7 @@ final class ImportSettings
     public static int $timestamp = 0;
     public static string $message = '';
     public static string $importFile = '';
+    /** @var 'query'|'table'|'database'|'server'|'' */
     public static string $importType = '';
     public static string $importFileName = '';
     public static string $localImportFile = '';

@@ -20,8 +20,7 @@ use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
-use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Plugins\ImportPlugin;
+use PhpMyAdmin\Plugins\Import\ImportFormat;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
@@ -29,10 +28,10 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 use Throwable;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function _ngettext;
-use function in_array;
 use function ini_get;
 use function ini_parse_quantity;
 use function ini_set;
@@ -187,14 +186,9 @@ final class ImportController extends AbstractController
             $this->response->addJSON('console_message_id', $consoleMessageId);
         }
 
-        /**
-         * Sets globals from $_POST patterns, for import plugins
-         * We only need to load the selected plugin
-         */
-
-        if (! in_array($format, ['csv', 'ldi', 'mediawiki', 'ods', 'shp', 'sql', 'xml'], true)) {
-            // this should not happen for a normal user
-            // but only during an attack
+        Assert::string($format);
+        $importFormat = ImportFormat::tryFrom($format);
+        if ($importFormat === null) {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error(__('Incorrect format parameter'))->getDisplay());
 
@@ -202,11 +196,7 @@ final class ImportController extends AbstractController
         }
 
         $postPatterns = ['/^' . $format . '_/'];
-
         Core::setPostAsGlobal($postPatterns);
-
-        // We don't want anything special in format
-        $format = Core::securePath($format);
 
         if (Current::$table !== '' && Current::$database !== '') {
             $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -493,21 +483,7 @@ final class ImportController extends AbstractController
         $queriesToBeExecuted = [];
 
         if (! $GLOBALS['error']) {
-            /** @var ImportPlugin $importPlugin */
-            $importPlugin = Plugins::getPlugin('import', $format, ImportSettings::$importType);
-            if ($importPlugin == null) {
-                $GLOBALS['message'] = Message::error(
-                    __('Could not load import plugins, please check your installation!'),
-                );
-
-                $_SESSION['Import_message']['message'] = $GLOBALS['message']->getDisplay();
-
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $GLOBALS['message']->getDisplay());
-                $this->response->addHTML($GLOBALS['message']->getDisplay());
-
-                return;
-            }
+            $importPlugin = new ($importFormat->getClassName());
 
             // Do the real import
             $defaultFkCheck = ForeignKey::handleDisableCheckInit();

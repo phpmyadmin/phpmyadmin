@@ -49,7 +49,7 @@ class ImportMediawiki extends ImportPlugin
     protected function setProperties(): ImportPluginProperties
     {
         $this->analyze = false;
-        if ($GLOBALS['plugin_param'] !== 'table') {
+        if (ImportSettings::$importType !== 'table') {
             $this->analyze = true;
         }
 

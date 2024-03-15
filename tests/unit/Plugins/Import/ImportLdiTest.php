@@ -42,7 +42,7 @@ class ImportLdiTest extends AbstractTestCase
         ImportSettings::$runQuery = false;
         ImportSettings::$goSql = false;
         //setting
-        $GLOBALS['plugin_param'] = 'table';
+        ImportSettings::$importType = 'table';
         ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
@@ -52,7 +52,6 @@ class ImportLdiTest extends AbstractTestCase
         ImportSettings::$importFile = 'tests/test_data/db_test_ldi.csv';
         $GLOBALS['import_text'] = 'ImportLdi_Test';
         ImportSettings::$readMultiply = 10;
-        ImportSettings::$importType = 'csv';
 
         //setting for Ldi
         $config->settings['Import']['ldi_replace'] = false;

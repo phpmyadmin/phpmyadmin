@@ -38,7 +38,6 @@ class ImportCsvTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        $GLOBALS['plugin_param'] = 'csv';
         $GLOBALS['errorUrl'] = 'index.php?route=/';
         $GLOBALS['error'] = false;
         Current::$database = '';
@@ -54,6 +53,7 @@ class ImportCsvTest extends AbstractTestCase
         ImportSettings::$executedQueries = 0;
         ImportSettings::$runQuery = false;
         ImportSettings::$goSql = false;
+        ImportSettings::$importType = 'database';
 
         $this->object = new ImportCsv();
 
@@ -67,7 +67,6 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['import_text'] = 'ImportCsv_Test';
         $GLOBALS['compression'] = 'none';
         ImportSettings::$readMultiply = 10;
-        ImportSettings::$importType = 'Xml';
 
         //separator for csv
         $GLOBALS['csv_terminated'] = "\015";
@@ -186,8 +185,6 @@ class ImportCsvTest extends AbstractTestCase
     #[Group('medium')]
     public function testGetPropertiesForTable(): void
     {
-        $GLOBALS['plugin_param'] = 'table';
-        $this->object = new ImportCsv();
         $properties = $this->object->getProperties();
         self::assertSame(
             __('CSV'),
@@ -238,7 +235,6 @@ class ImportCsvTest extends AbstractTestCase
         //$sql_query_disabled will show the import SQL detail
 
         ImportSettings::$sqlQueryDisabled = false;
-        ImportSettings::$importType = 'query';
         ImportSettings::$importFile = 'none';
         $GLOBALS['csv_terminated'] = ',';
         $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
@@ -281,7 +277,6 @@ class ImportCsvTest extends AbstractTestCase
         //$sql_query_disabled will show the import SQL detail
 
         ImportSettings::$sqlQueryDisabled = false;
-        ImportSettings::$importType = 'query';
         ImportSettings::$importFile = 'none';
         $GLOBALS['csv_terminated'] = ',';
         $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';

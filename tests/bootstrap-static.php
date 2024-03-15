@@ -40,6 +40,3 @@ if (! defined('PMA_PATH_TO_BASEDIR')) {
 }
 
 // phpcs:enable
-
-// for PhpMyAdmin\Plugins\Import\ImportLdi
-$GLOBALS['plugin_param'] = 'table';
