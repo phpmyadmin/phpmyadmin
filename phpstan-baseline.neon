@@ -15201,6 +15201,11 @@ parameters:
 			path: tests/end-to-end/TestBase.php
 
 		-
+			message: "#^Only booleans are allowed in a negated boolean, int given\\.$#"
+			count: 2
+			path: tests/end-to-end/TestBase.php
+
+		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
 			path: tests/end-to-end/TestBase.php
@@ -15213,11 +15218,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in an elseif condition, string\\|false given\\.$#"
 			count: 1
-			path: tests/end-to-end/TestBase.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int given\\.$#"
-			count: 2
 			path: tests/end-to-end/TestBase.php
 
 		-
