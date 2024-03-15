@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -81,6 +82,10 @@ class ImportSql extends ImportPlugin
         }
 
         return $importPluginProperties;
+    }
+
+    public function setImportOptions(ServerRequest $request): void
+    {
     }
 
     /**

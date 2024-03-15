@@ -4169,7 +4169,6 @@
       <code><![CDATA[$matches[1]]]></code>
     </InvalidOperand>
     <MixedArgument>
-      <code><![CDATA[$onePostPattern]]></code>
       <code><![CDATA[$path[$depth + 1]]]></code>
       <code><![CDATA[$query]]></code>
     </MixedArgument>
@@ -4188,7 +4187,6 @@
       <code><![CDATA[$_POST[$urlQueryParamKey]]]></code>
       <code><![CDATA[$_REQUEST[$urlQueryParamKey]]]></code>
       <code><![CDATA[$a[$lastKey]]]></code>
-      <code><![CDATA[$onePostPattern]]></code>
       <code><![CDATA[$parsedBody[$urlQueryParamKey]]]></code>
       <code><![CDATA[$path[$depth]]]></code>
       <code><![CDATA[$query]]></code>
@@ -4201,9 +4199,6 @@
       <code><![CDATA[$secret]]></code>
       <code><![CDATA[$secret]]></code>
     </MixedOperand>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$postKey]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$path[$depth - 1]]]></code>
     </PossiblyInvalidArrayOffset>
@@ -8587,11 +8582,9 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArgument>
-      <code><![CDATA[$GLOBALS['csv_columns']]]></code>
       <code><![CDATA[$colNames]]></code>
     </InvalidArgument>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$values[count($values) - 1]]]></code>
       <code><![CDATA[$values[count($values) - 1]]]></code>
@@ -8602,11 +8595,7 @@
     <InvalidReturnType>
       <code><![CDATA[string]]></code>
     </InvalidReturnType>
-    <MixedArgument>
-      <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
-    </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
     <PossiblyInvalidCast>
@@ -8617,12 +8606,6 @@
       <code><![CDATA[$maxLines]]></code>
       <code><![CDATA[1]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['csv_escaped']]]></code>
-      <code><![CDATA[$GLOBALS['csv_new_line']]]></code>
-      <code><![CDATA[$GLOBALS['csv_terminated']]]></code>
-    </PossiblyNullArgument>
     <PossiblyNullOperand>
       <code><![CDATA[$ch]]></code>
     </PossiblyNullOperand>
@@ -8645,41 +8628,9 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['ldi_columns']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_escaped']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_ignore']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_local_option']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_new_line']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_replace']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_terminated']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['ldi_columns']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_escaped']]]></code>
       <code><![CDATA[ImportSettings::$importFile]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['ldi_columns']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_escaped']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_ignore']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_local_option']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_new_line']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_replace']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_terminated']]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$GLOBALS['ldi_new_line']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_terminated']]]></code>
-    </MixedOperand>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['ldi_columns']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['ldi_escaped']]]></code>
-    </PossiblyNullArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[string[]]]></code>
     </PossiblyUnusedReturnValue>
@@ -10119,13 +10070,7 @@
       <code><![CDATA[$initials]]></code>
     </InvalidArgument>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['Grant_priv']]]></code>
-      <code><![CDATA[$GLOBALS['Grant_priv']]]></code>
       <code><![CDATA[$GLOBALS['dbname']]]></code>
-      <code><![CDATA[$GLOBALS['max_connections']]]></code>
-      <code><![CDATA[$GLOBALS['max_questions']]]></code>
-      <code><![CDATA[$GLOBALS['max_updates']]]></code>
-      <code><![CDATA[$GLOBALS['max_user_connections']]]></code>
       <code><![CDATA[$GLOBALS['new_username']]]></code>
       <code><![CDATA[$GLOBALS['pred_hostname']]]></code>
       <code><![CDATA[$GLOBALS['pred_username']]]></code>

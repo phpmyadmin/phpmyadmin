@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -28,6 +29,15 @@ use const PHP_EOL;
  */
 class ImportLdi extends AbstractImportCsv
 {
+    private bool $localOption = false;
+    private bool $replace = false;
+    private bool $ignore = false;
+    private string $terminated = '';
+    private string $enclosed = '';
+    private string $escaped = '';
+    private string $newLine = '';
+    private string $columns = '';
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -84,6 +94,18 @@ class ImportLdi extends AbstractImportCsv
         return $importPluginProperties;
     }
 
+    public function setImportOptions(ServerRequest $request): void
+    {
+        $this->localOption = $request->getParsedBodyParam('ldi_local_option') !== null;
+        $this->replace = $request->getParsedBodyParam('ldi_replace') !== null;
+        $this->ignore = $request->getParsedBodyParam('ldi_ignore') !== null;
+        $this->terminated = (string) $request->getParsedBodyParam('ldi_terminated');
+        $this->enclosed = (string) $request->getParsedBodyParam('ldi_enclosed');
+        $this->escaped = (string) $request->getParsedBodyParam('ldi_escaped');
+        $this->newLine = (string) $request->getParsedBodyParam('ldi_new_line');
+        $this->columns = (string) $request->getParsedBodyParam('ldi_columns');
+    }
+
     /**
      * Handles the whole import logic
      *
@@ -91,15 +113,6 @@ class ImportLdi extends AbstractImportCsv
      */
     public function doImport(File|null $importHandle = null): array
     {
-        $GLOBALS['ldi_local_option'] ??= null;
-        $GLOBALS['ldi_replace'] ??= null;
-        $GLOBALS['ldi_ignore'] ??= null;
-        $GLOBALS['ldi_terminated'] ??= null;
-        $GLOBALS['ldi_enclosed'] ??= null;
-        $GLOBALS['ldi_escaped'] ??= null;
-        $GLOBALS['ldi_new_line'] ??= null;
-        $GLOBALS['ldi_columns'] ??= null;
-
         $sqlStatements = [];
         $compression = '';
         if ($importHandle !== null) {
@@ -117,38 +130,38 @@ class ImportLdi extends AbstractImportCsv
         }
 
         $sql = 'LOAD DATA';
-        if (isset($GLOBALS['ldi_local_option'])) {
+        if ($this->localOption) {
             $sql .= ' LOCAL';
         }
 
         $dbi = DatabaseInterface::getInstance();
         $sql .= ' INFILE ' . $dbi->quoteString(ImportSettings::$importFile);
-        if (isset($GLOBALS['ldi_replace'])) {
+        if ($this->replace) {
             $sql .= ' REPLACE';
-        } elseif (isset($GLOBALS['ldi_ignore'])) {
+        } elseif ($this->ignore) {
             $sql .= ' IGNORE';
         }
 
         $sql .= ' INTO TABLE ' . Util::backquote(Current::$table);
 
-        if ((string) $GLOBALS['ldi_terminated'] !== '') {
-            $sql .= ' FIELDS TERMINATED BY \'' . $GLOBALS['ldi_terminated'] . '\'';
+        if ($this->terminated !== '') {
+            $sql .= ' FIELDS TERMINATED BY \'' . $this->terminated . '\'';
         }
 
-        if ((string) $GLOBALS['ldi_enclosed'] !== '') {
-            $sql .= ' ENCLOSED BY ' . $dbi->quoteString($GLOBALS['ldi_enclosed']);
+        if ($this->enclosed !== '') {
+            $sql .= ' ENCLOSED BY ' . $dbi->quoteString($this->enclosed);
         }
 
-        if ((string) $GLOBALS['ldi_escaped'] !== '') {
-            $sql .= ' ESCAPED BY ' . $dbi->quoteString($GLOBALS['ldi_escaped']);
+        if ($this->escaped !== '') {
+            $sql .= ' ESCAPED BY ' . $dbi->quoteString($this->escaped);
         }
 
-        if ((string) $GLOBALS['ldi_new_line'] !== '') {
-            if ($GLOBALS['ldi_new_line'] === 'auto') {
-                $GLOBALS['ldi_new_line'] = PHP_EOL;
+        if ($this->newLine !== '') {
+            if ($this->newLine === 'auto') {
+                $this->newLine = PHP_EOL;
             }
 
-            $sql .= ' LINES TERMINATED BY \'' . $GLOBALS['ldi_new_line'] . '\'';
+            $sql .= ' LINES TERMINATED BY \'' . $this->newLine . '\'';
         }
 
         if (ImportSettings::$skipQueries > 0) {
@@ -156,9 +169,9 @@ class ImportLdi extends AbstractImportCsv
             ImportSettings::$skipQueries = 0;
         }
 
-        if ((string) $GLOBALS['ldi_columns'] !== '') {
+        if ($this->columns !== '') {
             $sql .= ' (';
-            $tmp = preg_split('/,( ?)/', $GLOBALS['ldi_columns']);
+            $tmp = preg_split('/,( ?)/', $this->columns);
 
             if (! is_array($tmp)) {
                 $tmp = [];

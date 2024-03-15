@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Current;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Import\ImportTable;
 use PhpMyAdmin\Message;
@@ -94,6 +95,10 @@ class ImportOds extends ImportPlugin
         $importPluginProperties->setOptions($importSpecificOptions);
 
         return $importPluginProperties;
+    }
+
+    public function setImportOptions(ServerRequest $request): void
+    {
     }
 
     /**

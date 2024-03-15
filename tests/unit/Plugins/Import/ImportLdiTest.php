@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -30,11 +31,6 @@ class ImportLdiTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         ImportSettings::$charsetConversion = false;
-        $GLOBALS['ldi_terminated'] = null;
-        $GLOBALS['ldi_escaped'] = null;
-        $GLOBALS['ldi_columns'] = null;
-        $GLOBALS['ldi_enclosed'] = null;
-        $GLOBALS['ldi_new_line'] = null;
         ImportSettings::$maxSqlLength = 0;
         $GLOBALS['sql_query'] = '';
         ImportSettings::$executedQueries = 0;
@@ -179,19 +175,26 @@ class ImportLdiTest extends AbstractTestCase
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         DatabaseInterface::$instance = $dbi;
 
-        $GLOBALS['ldi_local_option'] = true;
-        $GLOBALS['ldi_replace'] = true;
-        $GLOBALS['ldi_ignore'] = true;
-        $GLOBALS['ldi_terminated'] = ',';
-        $GLOBALS['ldi_enclosed'] = ')';
-        $GLOBALS['ldi_new_line'] = 'newline_mark';
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'ldi_local_option' => '1',
+                'ldi_replace' => '1',
+                'ldi_ignore' => '1',
+                'ldi_terminated' => ',',
+                'ldi_enclosed' => ')',
+                'ldi_escaped' => null,
+                'ldi_new_line' => 'newline_mark',
+                'ldi_columns' => null,
+            ]);
         ImportSettings::$skipQueries = 1;
 
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
         //Test function called
-        (new ImportLdi())->doImport($importHandle);
+        $object = new ImportLdi();
+        $object->setImportOptions($request);
+        $object->doImport($importHandle);
 
         //asset that all sql are executed
         //replace

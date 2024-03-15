@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -57,6 +58,16 @@ class ImportCsvTest extends AbstractTestCase
 
         $this->object = new ImportCsv();
 
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'csv_terminated' => "\015",
+                'csv_enclosed' => '"',
+                'csv_escaped' => '"',
+                'csv_new_line' => 'auto',
+                'csv_columns' => null,
+            ]);
+        $this->object->setImportOptions($request);
+
         //setting
         ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
@@ -68,11 +79,6 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['compression'] = 'none';
         ImportSettings::$readMultiply = 10;
 
-        //separator for csv
-        $GLOBALS['csv_terminated'] = "\015";
-        $GLOBALS['csv_enclosed'] = '"';
-        $GLOBALS['csv_escaped'] = '"';
-        $GLOBALS['csv_new_line'] = 'auto';
         ImportSettings::$importFileName = basename(ImportSettings::$importFile, '.csv');
 
         //$_SESSION
@@ -239,6 +245,16 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['csv_terminated'] = ',';
         $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'csv_terminated' => ',',
+                'csv_enclosed' => '"',
+                'csv_escaped' => '"',
+                'csv_new_line' => 'auto',
+                'csv_columns' => null,
+            ]);
+        $this->object->setImportOptions($request);
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
@@ -280,6 +296,16 @@ class ImportCsvTest extends AbstractTestCase
         ImportSettings::$importFile = 'none';
         $GLOBALS['csv_terminated'] = ',';
         $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'csv_terminated' => ',',
+                'csv_enclosed' => '"',
+                'csv_escaped' => '"',
+                'csv_new_line' => 'auto',
+                'csv_columns' => null,
+            ]);
+        $this->object->setImportOptions($request);
 
         $_REQUEST['csv_col_names'] = 'something';
 

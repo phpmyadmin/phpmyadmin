@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Current;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Import\ImportTable;
 use PhpMyAdmin\Message;
@@ -60,6 +61,10 @@ class ImportMediawiki extends ImportPlugin
         $importPluginProperties->setOptionsText(__('Options'));
 
         return $importPluginProperties;
+    }
+
+    public function setImportOptions(ServerRequest $request): void
+    {
     }
 
     /**

@@ -195,9 +195,6 @@ final class ImportController extends AbstractController
             return;
         }
 
-        $postPatterns = ['/^' . $format . '_/'];
-        Core::setPostAsGlobal($postPatterns);
-
         if (Current::$table !== '' && Current::$database !== '') {
             $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
         } elseif (Current::$database !== '') {
@@ -484,6 +481,8 @@ final class ImportController extends AbstractController
 
         if (! $GLOBALS['error']) {
             $importPlugin = new ($importFormat->getClassName());
+
+            $importPlugin->setImportOptions($request);
 
             // Do the real import
             $defaultFkCheck = ForeignKey::handleDisableCheckInit();

@@ -15,6 +15,7 @@ use PhpMyAdmin\Gis\GisMultiLineString;
 use PhpMyAdmin\Gis\GisMultiPoint;
 use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Gis\GisPolygon;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\ColumnType;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
@@ -72,6 +73,10 @@ class ImportShp extends ImportPlugin
         $importPluginProperties->setOptionsText(__('Options'));
 
         return $importPluginProperties;
+    }
+
+    public function setImportOptions(ServerRequest $request): void
+    {
     }
 
     /**
