@@ -22,7 +22,6 @@ use PHPUnit\Framework\TestCase;
 use Throwable;
 
 use function bin2hex;
-use function curl_close;
 use function curl_errno;
 use function curl_error;
 use function curl_exec;
@@ -1139,11 +1138,11 @@ JS;
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
         curl_exec($ch);
-        if (curl_errno($ch)) {
-            echo 'Error: ' . curl_error($ch) . "\n";
+        if (! curl_errno($ch)) {
+            return;
         }
 
-        curl_close($ch);
+        echo 'Error: ' . curl_error($ch) . "\n";
     }
 
     private function getErrorVideoUrl(): void
@@ -1173,11 +1172,11 @@ JS;
             echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . "\n";
         }
 
-        if (curl_errno($ch)) {
-            echo 'Error: ' . curl_error($ch) . "\n";
+        if (! curl_errno($ch)) {
+            return;
         }
 
-        curl_close($ch);
+        echo 'Error: ' . curl_error($ch) . "\n";
     }
 
     /**
