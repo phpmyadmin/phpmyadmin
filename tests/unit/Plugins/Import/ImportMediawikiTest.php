@@ -138,11 +138,7 @@ class ImportMediawikiTest extends AbstractTestCase
         self::assertTrue(ImportSettings::$finished);
     }
 
-    /**
-     * Test for doImport
-     *
-     * @group medium
-     */
+    #[Group('medium')]
     public function testDoImportWithEmptyTable(): void
     {
         //Mock DBI
