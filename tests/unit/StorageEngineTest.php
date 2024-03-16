@@ -24,7 +24,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
-use PHPUnit\Framework\MockObject\MockObject;
 
 use function json_encode;
 
@@ -35,7 +34,7 @@ class StorageEngineTest extends AbstractTestCase
 
     protected DbiDummy $dummyDbi;
 
-    protected StorageEngine&MockObject $object;
+    protected StorageEngine $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -48,10 +47,7 @@ class StorageEngineTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        $this->object = $this->getMockForAbstractClass(
-            StorageEngine::class,
-            ['dummy'],
-        );
+        $this->object = new StorageEngine('dummy');
     }
 
     /**
