@@ -9,9 +9,10 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 
 #[CoversClass(ExportRelationSchema::class)]
+#[Medium]
 class ExportRelationSchemaTest extends AbstractTestCase
 {
     protected ExportRelationSchema $object;
@@ -45,7 +46,6 @@ class ExportRelationSchemaTest extends AbstractTestCase
     /**
      * Test for setPageNumber
      */
-    #[Group('medium')]
     public function testSetPageNumber(): void
     {
         $this->object->setPageNumber(33);
@@ -58,7 +58,6 @@ class ExportRelationSchemaTest extends AbstractTestCase
     /**
      * Test for setShowColor
      */
-    #[Group('medium')]
     public function testSetShowColor(): void
     {
         $this->object->setShowColor(true);
@@ -74,7 +73,6 @@ class ExportRelationSchemaTest extends AbstractTestCase
     /**
      * Test for setOrientation
      */
-    #[Group('medium')]
     public function testSetOrientation(): void
     {
         $this->object->setOrientation('P');
@@ -92,7 +90,6 @@ class ExportRelationSchemaTest extends AbstractTestCase
     /**
      * Test for setTableDimension
      */
-    #[Group('medium')]
     public function testSetTableDimension(): void
     {
         $this->object->setTableDimension(true);
@@ -108,7 +105,6 @@ class ExportRelationSchemaTest extends AbstractTestCase
     /**
      * Test for setPaper
      */
-    #[Group('medium')]
     public function testSetPaper(): void
     {
         $this->object->setPaper('A5');
@@ -126,7 +122,6 @@ class ExportRelationSchemaTest extends AbstractTestCase
     /**
      * Test for setAllTablesSameWidth
      */
-    #[Group('medium')]
     public function testSetAllTablesSameWidth(): void
     {
         $this->object->setAllTablesSameWidth(true);
@@ -142,7 +137,6 @@ class ExportRelationSchemaTest extends AbstractTestCase
     /**
      * Test for setShowKeys
      */
-    #[Group('medium')]
     public function testSetShowKeys(): void
     {
         $this->object->setShowKeys(true);

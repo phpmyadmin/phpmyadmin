@@ -10,6 +10,7 @@ use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function curl_version;
@@ -20,6 +21,7 @@ use const CURLOPT_CAINFO;
 use const CURLOPT_CAPATH;
 
 #[CoversClass(HttpRequest::class)]
+#[Medium]
 class HttpRequestTest extends AbstractTestCase
 {
     private HttpRequest $httpRequest;
@@ -64,7 +66,6 @@ class HttpRequestTest extends AbstractTestCase
      * @param bool|string|null $expected         expected result
      */
     #[DataProvider('httpRequests')]
-    #[Group('medium')]
     #[Group('network')]
     #[RequiresPhpExtension('curl')]
     public function testCurl(string $url, string $method, bool $returnOnlyStatus, bool|string|null $expected): void
@@ -87,7 +88,6 @@ class HttpRequestTest extends AbstractTestCase
      * @param bool|string|null $expected         expected result
      */
     #[DataProvider('httpRequests')]
-    #[Group('medium')]
     #[Group('network')]
     #[RequiresPhpExtension('curl')]
     public function testCurlCAPath(
@@ -117,7 +117,6 @@ class HttpRequestTest extends AbstractTestCase
      * @param bool|string|null $expected         expected result
      */
     #[DataProvider('httpRequests')]
-    #[Group('medium')]
     #[Group('network')]
     #[RequiresPhpExtension('curl')]
     public function testCurlCAInfo(
@@ -147,7 +146,6 @@ class HttpRequestTest extends AbstractTestCase
      * @param bool|string|null $expected         expected result
      */
     #[DataProvider('httpRequests')]
-    #[Group('medium')]
     #[Group('network')]
     public function testFopen(string $url, string $method, bool $returnOnlyStatus, bool|string|null $expected): void
     {
@@ -173,7 +171,6 @@ class HttpRequestTest extends AbstractTestCase
      * @param bool|string|null $expected         expected result
      */
     #[DataProvider('httpRequests')]
-    #[Group('medium')]
     #[Group('network')]
     #[RequiresPhpExtension('curl')]
     public function testCreate(string $url, string $method, bool $returnOnlyStatus, bool|string|null $expected): void

@@ -12,11 +12,12 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 #[CoversClass(DiaRelationSchema::class)]
 #[RequiresPhpExtension('xmlwriter')]
+#[Medium]
 class DiaRelationSchemaTest extends AbstractTestCase
 {
     protected DiaRelationSchema $object;
@@ -63,7 +64,6 @@ class DiaRelationSchemaTest extends AbstractTestCase
     /**
      * Test for construct, the Property is set correctly
      */
-    #[Group('medium')]
     public function testSetProperty(): void
     {
         self::assertSame(33, $this->object->getPageNumber());

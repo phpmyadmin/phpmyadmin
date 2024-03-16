@@ -14,7 +14,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function __;
@@ -22,6 +22,7 @@ use function str_repeat;
 
 #[CoversClass(ImportOds::class)]
 #[RequiresPhpExtension('zip')]
+#[Medium]
 class ImportOdsTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -82,7 +83,6 @@ class ImportOdsTest extends AbstractTestCase
     /**
      * Test for getProperties
      */
-    #[Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -103,7 +103,6 @@ class ImportOdsTest extends AbstractTestCase
     /**
      * Test for doImport
      */
-    #[Group('medium')]
     public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -159,7 +158,6 @@ class ImportOdsTest extends AbstractTestCase
      * Test for doImport using second dataset
      */
     #[DataProvider('dataProviderOdsEmptyRows')]
-    #[Group('medium')]
     #[RequiresPhpExtension('simplexml')]
     public function testDoImportDataset2(bool $odsEmptyRowsMode): void
     {

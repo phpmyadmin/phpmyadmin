@@ -13,6 +13,7 @@ use PhpMyAdmin\Plugins\Import\ImportShp;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function __;
@@ -20,6 +21,7 @@ use function extension_loaded;
 
 #[CoversClass(ImportShp::class)]
 #[RequiresPhpExtension('zip')]
+#[Medium]
 class ImportShpTest extends AbstractTestCase
 {
     protected ImportShp $object;
@@ -100,7 +102,6 @@ class ImportShpTest extends AbstractTestCase
     /**
      * Test for getProperties
      */
-    #[Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -122,7 +123,6 @@ class ImportShpTest extends AbstractTestCase
     /**
      * Test for doImport with complex data
      */
-    #[Group('medium')]
     #[Group('32bit-incompatible')]
     public function testImportOsm(): void
     {
@@ -157,7 +157,6 @@ class ImportShpTest extends AbstractTestCase
     /**
      * Test for doImport
      */
-    #[Group('medium')]
     #[Group('32bit-incompatible')]
     public function testDoImport(): void
     {
