@@ -27,7 +27,9 @@ use function htmlspecialchars;
 use function in_array;
 use function mb_strtoupper;
 use function sprintf;
+use function strnatcasecmp;
 use function trim;
+use function usort;
 
 /**
  * Triggers management.
@@ -202,6 +204,10 @@ final class IndexController extends AbstractController
 
             if ($item !== null) {
                 $tables = $this->triggers->getTables(Current::$database);
+                if (Config::getInstance()->settings['NaturalOrder']) {
+                    usort($tables, strnatcasecmp(...));
+                }
+
                 $editor = $this->template->render('triggers/editor_form', [
                     'db' => Current::$database,
                     'table' => Current::$table,
