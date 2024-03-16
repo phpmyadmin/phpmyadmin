@@ -19,7 +19,7 @@ use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -27,7 +27,7 @@ use function ob_get_clean;
 use function ob_start;
 
 #[CoversClass(ExportXml::class)]
-#[Group('medium')]
+#[Medium]
 class ExportXmlTest extends AbstractTestCase
 {
     protected ExportXml $object;
@@ -68,7 +68,6 @@ class ExportXmlTest extends AbstractTestCase
         unset($this->object);
     }
 
-    #[Group('medium')]
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportXml::class, 'setProperties');
@@ -169,7 +168,6 @@ class ExportXmlTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
     }
 
-    #[Group('medium')]
     public function testExportHeader(): void
     {
         $GLOBALS['xml_export_functions'] = 1;

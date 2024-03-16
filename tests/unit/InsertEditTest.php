@@ -24,7 +24,7 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
 
 use function hash;
@@ -44,7 +44,7 @@ use const MYSQLI_TYPE_TINY;
 #[CoversClass(InsertEdit::class)]
 #[CoversClass(EditField::class)]
 #[CoversClass(InsertEditColumn::class)]
-#[Group('medium')]
+#[Medium]
 class InsertEditTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;

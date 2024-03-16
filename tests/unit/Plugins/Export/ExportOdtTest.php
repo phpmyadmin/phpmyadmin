@@ -29,7 +29,7 @@ use PhpMyAdmin\Triggers\Event;
 use PhpMyAdmin\Triggers\Timing;
 use PhpMyAdmin\Triggers\Trigger;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -44,7 +44,7 @@ use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_STRING;
 
 #[CoversClass(ExportOdt::class)]
-#[Group('medium')]
+#[Medium]
 #[RequiresPhpExtension('zip')]
 class ExportOdtTest extends AbstractTestCase
 {

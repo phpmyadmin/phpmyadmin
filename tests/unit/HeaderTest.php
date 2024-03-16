@@ -14,7 +14,7 @@ use PhpMyAdmin\Header;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
 
 use function gmdate;
@@ -22,7 +22,7 @@ use function gmdate;
 use const DATE_RFC1123;
 
 #[CoversClass(Header::class)]
-#[Group('medium')]
+#[Medium]
 class HeaderTest extends AbstractTestCase
 {
     /**

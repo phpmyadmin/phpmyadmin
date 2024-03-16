@@ -17,14 +17,14 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
 use ReflectionProperty;
 
 use function __;
 
 #[CoversClass(ExportPdf::class)]
-#[Group('medium')]
+#[Medium]
 class ExportPdfTest extends AbstractTestCase
 {
     protected ExportPdf $object;
