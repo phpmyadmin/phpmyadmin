@@ -6,9 +6,10 @@ namespace PhpMyAdmin\Tests\Selenium\Table;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
 use PHPUnit\Framework\Attributes\CoversNothing;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 #[CoversNothing]
+#[Large]
 class InsertTest extends TestBase
 {
     /**
@@ -36,7 +37,6 @@ class InsertTest extends TestBase
     /**
      * Insert data into table
      */
-    #[Group('large')]
     public function testAddData(): void
     {
         if ($this->isSafari()) {

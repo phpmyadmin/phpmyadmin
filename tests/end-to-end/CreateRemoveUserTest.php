@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium;
 
 use PHPUnit\Framework\Attributes\CoversNothing;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 use function bin2hex;
 use function random_bytes;
 
 #[CoversNothing]
+#[Large]
 class CreateRemoveUserTest extends TestBase
 {
     /**
@@ -44,7 +45,6 @@ class CreateRemoveUserTest extends TestBase
     /**
      * Creates and removes a user
      */
-    #[Group('large')]
     public function testCreateRemoveUser(): void
     {
         $this->waitForElement('partialLinkText', 'User accounts')->click();

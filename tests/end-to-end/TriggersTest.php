@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium;
 
 use PHPUnit\Framework\Attributes\CoversNothing;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 #[CoversNothing]
+#[Large]
 class TriggersTest extends TestBase
 {
     /**
@@ -59,7 +60,6 @@ class TriggersTest extends TestBase
     /**
      * Create a Trigger
      */
-    #[Group('large')]
     public function testAddTrigger(): void
     {
         $this->expandMore();
@@ -126,7 +126,6 @@ class TriggersTest extends TestBase
     /**
      * Test for editing Triggers
      */
-    #[Group('large')]
     public function testEditTriggers(): void
     {
         $this->expandMore();
@@ -163,7 +162,6 @@ class TriggersTest extends TestBase
     /**
      * Test for dropping Trigger
      */
-    #[Group('large')]
     public function testDropTrigger(): void
     {
         $this->expandMore();

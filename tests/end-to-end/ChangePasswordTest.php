@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium;
 
 use PHPUnit\Framework\Attributes\CoversNothing;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 use function trim;
 
 #[CoversNothing]
+#[Large]
 class ChangePasswordTest extends TestBase
 {
     /**
@@ -20,7 +21,6 @@ class ChangePasswordTest extends TestBase
     /**
      * Tests the changing of the password
      */
-    #[Group('large')]
     public function testChangePassword(): void
     {
         $this->login();

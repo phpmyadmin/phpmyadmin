@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium;
 
 use PHPUnit\Framework\Attributes\CoversNothing;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 #[CoversNothing]
+#[Large]
 class LoginTest extends TestBase
 {
     /**
@@ -25,7 +26,6 @@ class LoginTest extends TestBase
     /**
      * Test for successful login
      */
-    #[Group('large')]
     public function testSuccessfulLogin(): void
     {
         $this->login();
@@ -37,7 +37,6 @@ class LoginTest extends TestBase
     /**
      * Test for unsuccessful login
      */
-    #[Group('large')]
     public function testLoginWithWrongPassword(): void
     {
         $this->login('Admin', 'Admin');

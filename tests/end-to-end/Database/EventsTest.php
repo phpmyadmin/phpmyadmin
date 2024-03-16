@@ -7,13 +7,14 @@ namespace PhpMyAdmin\Tests\Selenium\Database;
 use PhpMyAdmin\Tests\Selenium\TestBase;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Depends;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 use function date;
 use function sleep;
 use function strtotime;
 
 #[CoversNothing]
+#[Large]
 class EventsTest extends TestBase
 {
     /**
@@ -76,7 +77,6 @@ class EventsTest extends TestBase
     /**
      * Create an event
      */
-    #[Group('large')]
     public function testAddEvent(): void
     {
         $this->waitForElement('partialLinkText', 'Events')->click();
@@ -158,7 +158,6 @@ class EventsTest extends TestBase
      * Test for editing events
      */
     #[Depends('testAddEvent')]
-    #[Group('large')]
     public function testEditEvents(): void
     {
         $this->eventSQL();
@@ -193,7 +192,6 @@ class EventsTest extends TestBase
      * Test for dropping event
      */
     #[Depends('testAddEvent')]
-    #[Group('large')]
     public function testDropEvent(): void
     {
         $this->eventSQL();
