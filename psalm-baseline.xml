@@ -13483,9 +13483,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/Gis/GisGeometryTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[getMockForAbstractClass]]></code>
-    </DeprecatedMethod>
     <MixedAssignment>
       <code><![CDATA[$extent]]></code>
       <code><![CDATA[$points]]></code>
@@ -13892,7 +13889,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[getMockForAbstractClass]]></code>
     </DeprecatedMethod>
   </file>
   <file src="tests/unit/Navigation/Nodes/NodeDatabaseTest.php">
@@ -14392,31 +14388,6 @@
       <code><![CDATA[assertIsArray]]></code>
     </RedundantCondition>
   </file>
-  <file src="tests/unit/Properties/Options/OptionsPropertyGroupTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[getMockForAbstractClass]]></code>
-    </DeprecatedMethod>
-  </file>
-  <file src="tests/unit/Properties/Options/OptionsPropertyItemTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[getMockForAbstractClass]]></code>
-    </DeprecatedMethod>
-  </file>
-  <file src="tests/unit/Properties/Options/OptionsPropertyOneItemTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[getMockForAbstractClass]]></code>
-    </DeprecatedMethod>
-  </file>
-  <file src="tests/unit/Properties/Plugins/PluginPropertyItemTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[getMockForAbstractClass]]></code>
-    </DeprecatedMethod>
-  </file>
-  <file src="tests/unit/Properties/PropertyItemTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[getMockForAbstractClass]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="tests/unit/Query/CompatibilityTest.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[providerForTestHasAccountLocking]]></code>
@@ -14587,9 +14558,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/StorageEngineTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[getMockForAbstractClass]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code><![CDATA[providerGetEngine]]></code>
     </PossiblyUnusedMethod>
