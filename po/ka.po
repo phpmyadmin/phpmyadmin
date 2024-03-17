@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2024-03-16 09:09+0000\n"
+"PO-Revision-Date: 2024-03-18 04:02+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ka/>\n"
@@ -4238,7 +4238,7 @@ msgstr "Microsoft Word 2000"
 #: libraries/classes/Config/Forms/User/ExportForm.php:122
 #: libraries/classes/Config/Forms/User/ImportForm.php:52
 msgid "OpenDocument Spreadsheet"
-msgstr "OpenDocument Spreadsheet"
+msgstr "OpenDocument ელცხრილი"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
 msgid "OpenDocument Text"
@@ -8171,7 +8171,7 @@ msgstr "სანიშნის შექმნა"
 
 #: libraries/classes/Database/Qbe.php:1704
 msgid "Update bookmark"
-msgstr "სანიშნის განახლება"
+msgstr "სანიშნეს განახლება"
 
 #: libraries/classes/Database/Qbe.php:1706
 msgid "Delete bookmark"
@@ -10425,10 +10425,8 @@ msgstr "მეტამონაცემები ბაზისთვის %
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1458
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
-#, fuzzy
-#| msgid "Creation"
 msgid "Creation:"
-msgstr "შეიქმნა"
+msgstr "შეიქმნა:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1468
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:642
@@ -10907,6 +10905,9 @@ msgid ""
 "prefix like \"https://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
+"გამოიტანს ბმულს; სვეტი შეიცავს ფაილის სახელს. პირველი პარამეტრია ბმულის "
+"პრეფიქსი, \"https://www.example.com/\"-ის მსგავსი. მეორე პარამეტრი ბმულის "
+"სათაურია."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:32
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
@@ -15691,7 +15692,7 @@ msgstr "რეპლიკის რეპლიკაცია"
 #: templates/server/databases/index.twig:181
 #, php-format
 msgid "Jump to database '%s'"
-msgstr "'%s' ბაზაზე გადასვლა"
+msgstr "ბაზაზე გადასვლა '%s'"
 
 #: templates/server/databases/index.twig:242
 #, php-format
@@ -16885,10 +16886,8 @@ msgid "Bookmark this SQL query"
 msgstr ""
 
 #: templates/sql/bookmark.twig:15
-#, fuzzy
-#| msgid "Label"
 msgid "Label:"
-msgstr "Label"
+msgstr "ჭდე:"
 
 #: templates/sql/bookmark.twig:22 templates/sql/query.twig:93
 msgid "Let every user access this bookmark"
