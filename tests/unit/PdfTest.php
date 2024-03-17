@@ -6,9 +6,10 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Pdf;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 #[CoversClass(Pdf::class)]
+#[Large]
 class PdfTest extends AbstractTestCase
 {
     /**
@@ -24,7 +25,6 @@ class PdfTest extends AbstractTestCase
     /**
      * Test for Pdf::getPDFData
      */
-    #[Group('large')]
     public function testBasic(): void
     {
         $arr = new Pdf();
@@ -34,7 +34,6 @@ class PdfTest extends AbstractTestCase
     /**
      * Test for Pdf::getPDFData
      */
-    #[Group('large')]
     public function testAlias(): void
     {
         $arr = new Pdf();
@@ -45,7 +44,6 @@ class PdfTest extends AbstractTestCase
     /**
      * Test for Pdf::getPDFData
      */
-    #[Group('large')]
     public function testDocument(): void
     {
         $pdf = new Pdf();

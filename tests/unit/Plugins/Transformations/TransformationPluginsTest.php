@@ -46,7 +46,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
 
 use function date_default_timezone_set;
@@ -95,6 +95,7 @@ use const MYSQLI_TYPE_TINY;
 #[CoversClass(Text_Plain_Longtoipv4::class)]
 #[CoversClass(Text_Plain_PreApPend::class)]
 #[CoversClass(Text_Plain_Substring::class)]
+#[Medium]
 class TransformationPluginsTest extends AbstractTestCase
 {
     /**
@@ -409,7 +410,6 @@ class TransformationPluginsTest extends AbstractTestCase
      * @param mixed[] $args     the array of arguments
      */
     #[DataProvider('multiDataProvider')]
-    #[Group('medium')]
     public function testGetMulti(object $object, string $method, mixed $expected, array $args = []): void
     {
         if (! method_exists($object, $method)) {
@@ -658,7 +658,6 @@ class TransformationPluginsTest extends AbstractTestCase
      * @psalm-param array{string, array, FieldMetadata|null} $applyArgs
      */
     #[DataProvider('transformationDataProvider')]
-    #[Group('medium')]
     public function testTransformation(
         TransformationsPlugin $object,
         array $applyArgs,

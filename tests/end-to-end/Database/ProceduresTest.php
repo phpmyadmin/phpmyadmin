@@ -6,12 +6,13 @@ namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
 use PHPUnit\Framework\Attributes\CoversNothing;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 use function sleep;
 use function str_replace;
 
 #[CoversNothing]
+#[Large]
 class ProceduresTest extends TestBase
 {
     /**
@@ -108,7 +109,6 @@ class ProceduresTest extends TestBase
     /**
      * Create a procedure
      */
-    #[Group('large')]
     public function testAddProcedure(): void
     {
         $this->waitForElement('partialLinkText', 'Routines')->click();
@@ -172,7 +172,6 @@ class ProceduresTest extends TestBase
     /**
      * Test for editing procedure
      */
-    #[Group('large')]
     public function testEditProcedure(): void
     {
         $this->procedureSQL();
@@ -197,7 +196,6 @@ class ProceduresTest extends TestBase
     /**
      * Test for dropping procedure
      */
-    #[Group('large')]
     public function testDropProcedure(): void
     {
         $this->procedureSQL();

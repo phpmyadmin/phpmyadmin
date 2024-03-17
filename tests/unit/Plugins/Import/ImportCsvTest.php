@@ -14,12 +14,13 @@ use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function __;
 use function basename;
 
 #[CoversClass(ImportCsv::class)]
+#[Medium]
 class ImportCsvTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -104,7 +105,6 @@ class ImportCsvTest extends AbstractTestCase
     /**
      * Test for getProperties
      */
-    #[Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -121,7 +121,6 @@ class ImportCsvTest extends AbstractTestCase
     /**
      * Test for doImport
      */
-    #[Group('medium')]
     public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -150,7 +149,6 @@ class ImportCsvTest extends AbstractTestCase
     /**
      * Test for partial import/setting table and database names in doImport
      */
-    #[Group('medium')]
     public function testDoPartialImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -188,7 +186,6 @@ class ImportCsvTest extends AbstractTestCase
     /**
      * Test for getProperties for Table param
      */
-    #[Group('medium')]
     public function testGetPropertiesForTable(): void
     {
         $properties = $this->object->getProperties();
@@ -205,7 +202,6 @@ class ImportCsvTest extends AbstractTestCase
     /**
      * Test for doImport for _getAnalyze = false, should be OK as well
      */
-    #[Group('medium')]
     public function testDoImportNotAnalysis(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -235,7 +231,6 @@ class ImportCsvTest extends AbstractTestCase
     /**
      * Test for doImport in the most basic and normal way
      */
-    #[Group('medium')]
     public function testDoImportNormal(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -287,7 +282,6 @@ class ImportCsvTest extends AbstractTestCase
     /**
      * Test for doImport skipping headers
      */
-    #[Group('medium')]
     public function testDoImportSkipHeaders(): void
     {
         //$sql_query_disabled will show the import SQL detail

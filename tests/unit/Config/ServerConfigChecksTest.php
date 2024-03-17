@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ReflectionException;
 use ReflectionProperty;
 
@@ -130,10 +131,8 @@ class ServerConfigChecksTest extends AbstractTestCase
         self::assertArrayNotHasKey('error', $messages);
     }
 
-    /**
-     * @requires extension bz2
-     * @requires extension zip
-     */
+    #[RequiresPhpExtension('bz2')]
+    #[RequiresPhpExtension('zip')]
     public function testBlowfishWithInvalidSecret(): void
     {
         $_SESSION[$this->sessionID] = [];
@@ -160,10 +159,8 @@ class ServerConfigChecksTest extends AbstractTestCase
         self::assertArrayNotHasKey('error', $messages);
     }
 
-    /**
-     * @requires extension bz2
-     * @requires extension zip
-     */
+    #[RequiresPhpExtension('bz2')]
+    #[RequiresPhpExtension('zip')]
     public function testBlowfishWithValidSecret(): void
     {
         $_SESSION[$this->sessionID] = [];

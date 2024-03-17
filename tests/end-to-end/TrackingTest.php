@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium;
 
 use PHPUnit\Framework\Attributes\CoversNothing;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 #[CoversNothing]
+#[Large]
 class TrackingTest extends TestBase
 {
     /**
@@ -53,7 +54,6 @@ class TrackingTest extends TestBase
     /**
      * Tests basic tracking functionality
      */
-    #[Group('large')]
     public function testTrackingData(): void
     {
         $this->executeSqlAndReturnToTableTracking();
@@ -127,7 +127,6 @@ class TrackingTest extends TestBase
     /**
      * Tests deactivation of tracking
      */
-    #[Group('large')]
     public function testDeactivateTracking(): void
     {
         $this->byCssSelector("input[value='Deactivate now']")->click();
@@ -141,7 +140,6 @@ class TrackingTest extends TestBase
     /**
      * Tests dropping a tracking
      */
-    #[Group('large')]
     public function testDropTracking(): void
     {
         $this->navigateDatabase($this->databaseName, true);
@@ -183,7 +181,6 @@ class TrackingTest extends TestBase
     /**
      * Tests structure snapshot of a tracking
      */
-    #[Group('large')]
     public function testStructureSnapshot(): void
     {
         $this->byPartialLinkText('Structure snapshot')->click();

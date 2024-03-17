@@ -12,9 +12,10 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 #[CoversClass(PdfRelationSchema::class)]
+#[Large]
 class PdfRelationSchemaTest extends AbstractTestCase
 {
     protected PdfRelationSchema $object;
@@ -65,7 +66,6 @@ class PdfRelationSchemaTest extends AbstractTestCase
     /**
      * Test for construct
      */
-    #[Group('large')]
     public function testConstructor(): void
     {
         self::assertSame(33, $this->object->getPageNumber());

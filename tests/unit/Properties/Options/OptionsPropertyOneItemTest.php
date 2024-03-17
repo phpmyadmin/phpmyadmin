@@ -21,7 +21,9 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->stub = $this->getMockForAbstractClass(OptionsPropertyOneItem::class);
+        $this->stub = $this->getMockBuilder(OptionsPropertyOneItem::class)
+            ->onlyMethods(['getItemType'])
+            ->getMock();
     }
 
     /**

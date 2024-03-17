@@ -29,7 +29,7 @@ use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -45,7 +45,7 @@ use const MYSQLI_TYPE_STRING;
 use const MYSQLI_UNIQUE_KEY_FLAG;
 
 #[CoversClass(ExportSql::class)]
-#[Group('medium')]
+#[Medium]
 class ExportSqlTest extends AbstractTestCase
 {
     protected ExportSql $object;
@@ -93,7 +93,6 @@ class ExportSqlTest extends AbstractTestCase
         unset($this->object);
     }
 
-    #[Group('medium')]
     public function testSetPropertiesWithHideSql(): void
     {
         // test with hide structure and hide sql as true
@@ -108,7 +107,6 @@ class ExportSqlTest extends AbstractTestCase
         self::assertNull($properties->getOptions());
     }
 
-    #[Group('medium')]
     public function testSetProperties(): void
     {
         // test with hide structure and hide sql as false
@@ -740,7 +738,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    #[Group('medium')]
     public function testGetTableDef(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -902,7 +899,6 @@ SQL;
         );
     }
 
-    #[Group('medium')]
     public function testExportStructure(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -1013,7 +1009,6 @@ SQL;
         self::assertStringContainsString('CREATE TABLE `test_table`', $result);
     }
 
-    #[Group('medium')]
     public function testExportData(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -1124,7 +1119,6 @@ SQL;
         self::assertStringContainsString('SET IDENTITY_INSERT &quot;table&quot; OFF;', $result);
     }
 
-    #[Group('medium')]
     public function testExportDataWithUpdate(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

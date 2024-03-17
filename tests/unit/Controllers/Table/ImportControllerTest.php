@@ -22,14 +22,13 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 #[CoversClass(ImportController::class)]
 class ImportControllerTest extends AbstractTestCase
 {
-    /**
-     * @requires extension bz2
-     * @requires extension zip
-     */
+    #[RequiresPhpExtension('bz2')]
+    #[RequiresPhpExtension('zip')]
     public function testImportController(): void
     {
         Current::$database = 'test_db';

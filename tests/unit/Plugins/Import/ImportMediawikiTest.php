@@ -12,11 +12,12 @@ use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportMediawiki;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function __;
 
 #[CoversClass(ImportMediawiki::class)]
+#[Medium]
 class ImportMediawikiTest extends AbstractTestCase
 {
     protected ImportMediawiki $object;
@@ -70,7 +71,6 @@ class ImportMediawikiTest extends AbstractTestCase
     /**
      * Test for getProperties
      */
-    #[Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -96,7 +96,6 @@ class ImportMediawikiTest extends AbstractTestCase
     /**
      * Test for doImport
      */
-    #[Group('medium')]
     public function testDoImport(): void
     {
         //$import_notice will show the import detail result
@@ -138,11 +137,6 @@ class ImportMediawikiTest extends AbstractTestCase
         self::assertTrue(ImportSettings::$finished);
     }
 
-    /**
-     * Test for doImport
-     *
-     * @group medium
-     */
     public function testDoImportWithEmptyTable(): void
     {
         //Mock DBI

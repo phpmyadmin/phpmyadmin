@@ -14,7 +14,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
@@ -277,7 +276,6 @@ class AuthenticationHttpTest extends AbstractTestCase
         self::assertSame(3, Current::$server);
     }
 
-    #[Group('medium')]
     #[RunInSeparateProcess]
     #[PreserveGlobalState(false)]
     public function testAuthFails(): void

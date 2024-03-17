@@ -15,13 +15,13 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
 
 use function implode;
 
 #[CoversClass(Relation::class)]
-#[Group('medium')]
+#[Medium]
 class RelationTest extends AbstractTestCase
 {
     /**

@@ -17,14 +17,14 @@ use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 use function htmlspecialchars;
 
 use const ENT_COMPAT;
 
 #[CoversClass(Export::class)]
-#[Group('large')]
+#[Large]
 class ExportTest extends AbstractTestCase
 {
     public function testMergeAliases(): void

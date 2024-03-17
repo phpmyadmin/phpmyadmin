@@ -6,11 +6,12 @@ namespace PhpMyAdmin\Tests\Selenium\Table;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
 use PHPUnit\Framework\Attributes\CoversNothing;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 use function sleep;
 
 #[CoversNothing]
+#[Large]
 class CreateTest extends TestBase
 {
     protected function setUp(): void
@@ -24,7 +25,6 @@ class CreateTest extends TestBase
     /**
      * Creates a table
      */
-    #[Group('large')]
     public function testCreateTable(): void
     {
         $this->waitAjax();

@@ -39,7 +39,10 @@ class NodeDatabaseChildTest extends AbstractTestCase
             'navigationhiding' => 'navigationhiding',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
-        $this->object = $this->getMockForAbstractClass(NodeDatabaseChild::class, [$config, 'child']);
+        $this->object = $this->getMockBuilder(NodeDatabaseChild::class)
+            ->setConstructorArgs([$config, 'child'])
+            ->onlyMethods(['getItemType'])
+            ->getMock();
     }
 
     /**

@@ -12,11 +12,12 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 #[CoversClass(SvgRelationSchema::class)]
 #[RequiresPhpExtension('xmlwriter')]
+#[Medium]
 class SvgRelationSchemaTest extends AbstractTestCase
 {
     protected SvgRelationSchema $object;
@@ -65,7 +66,6 @@ class SvgRelationSchemaTest extends AbstractTestCase
     /**
      * Test for construct
      */
-    #[Group('medium')]
     public function testConstructor(): void
     {
         self::assertSame(33, $this->object->getPageNumber());

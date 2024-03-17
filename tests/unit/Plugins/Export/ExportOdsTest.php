@@ -20,7 +20,7 @@ use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -36,7 +36,7 @@ use const MYSQLI_TYPE_TIME;
 use const MYSQLI_TYPE_TINY_BLOB;
 
 #[CoversClass(ExportOds::class)]
-#[Group('medium')]
+#[Medium]
 #[RequiresPhpExtension('zip')]
 class ExportOdsTest extends AbstractTestCase
 {

@@ -6,11 +6,12 @@ namespace PhpMyAdmin\Tests\Selenium;
 
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 use function strtolower;
 
 #[CoversNothing]
+#[Large]
 class ExportTest extends TestBase
 {
     /**
@@ -40,7 +41,6 @@ class ExportTest extends TestBase
      * @param string[] $expected Array of expected strings
      */
     #[DataProvider('exportDataProvider')]
-    #[Group('large')]
     public function testServerExport(string $plugin, array $expected): void
     {
         $text = $this->doExport('server', $plugin);
@@ -57,7 +57,6 @@ class ExportTest extends TestBase
      * @param string[] $expected Array of expected strings
      */
     #[DataProvider('exportDataProvider')]
-    #[Group('large')]
     public function testDbExport(string $plugin, array $expected): void
     {
         $this->navigateDatabase($this->databaseName);
@@ -76,7 +75,6 @@ class ExportTest extends TestBase
      * @param string[] $expected Array of expected strings
      */
     #[DataProvider('exportDataProvider')]
-    #[Group('large')]
     public function testTableExport(string $plugin, array $expected): void
     {
         $this->dbQuery('INSERT INTO `' . $this->databaseName . '`.`test_table` (val) VALUES (3);');

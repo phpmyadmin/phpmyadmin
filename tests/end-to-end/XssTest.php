@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium;
 
 use PHPUnit\Framework\Attributes\CoversNothing;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 #[CoversNothing]
+#[Large]
 class XssTest extends TestBase
 {
     /**
@@ -25,7 +26,6 @@ class XssTest extends TestBase
     /**
      * Tests the SQL query tab with a null query
      */
-    #[Group('large')]
     public function testQueryTabWithNullValue(): void
     {
         if ($this->isSafari()) {

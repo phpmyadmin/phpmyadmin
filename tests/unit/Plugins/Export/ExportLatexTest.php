@@ -22,7 +22,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -31,7 +31,7 @@ use function ob_get_clean;
 use function ob_start;
 
 #[CoversClass(ExportLatex::class)]
-#[Group('medium')]
+#[Medium]
 class ExportLatexTest extends AbstractTestCase
 {
     protected ExportLatex $object;

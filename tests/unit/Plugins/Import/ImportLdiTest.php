@@ -14,11 +14,12 @@ use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function __;
 
 #[CoversClass(ImportLdi::class)]
+#[Medium]
 class ImportLdiTest extends AbstractTestCase
 {
     /**
@@ -64,7 +65,6 @@ class ImportLdiTest extends AbstractTestCase
     /**
      * Test for getProperties
      */
-    #[Group('medium')]
     public function testGetProperties(): void
     {
         $properties = (new ImportLdi())->getProperties();
@@ -81,7 +81,6 @@ class ImportLdiTest extends AbstractTestCase
     /**
      * Test for getProperties for ldi_local_option = auto
      */
-    #[Group('medium')]
     public function testGetPropertiesAutoLdi(): void
     {
         $dbi = self::createMock(DatabaseInterface::class);
@@ -115,7 +114,6 @@ class ImportLdiTest extends AbstractTestCase
     /**
      * Test for doImport
      */
-    #[Group('medium')]
     public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -144,7 +142,6 @@ class ImportLdiTest extends AbstractTestCase
     /**
      * Test for doImport : invalid import file
      */
-    #[Group('medium')]
     public function testDoImportInvalidFile(): void
     {
         ImportSettings::$importFile = 'none';
@@ -164,7 +161,6 @@ class ImportLdiTest extends AbstractTestCase
     /**
      * Test for doImport with LDI setting
      */
-    #[Group('medium')]
     public function testDoImportLDISetting(): void
     {
         //$sql_query_disabled will show the import SQL detail

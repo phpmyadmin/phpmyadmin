@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium;
 
 use PHPUnit\Framework\Attributes\CoversNothing;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 #[CoversNothing]
+#[Large]
 class ImportTest extends TestBase
 {
     /**
@@ -23,7 +24,6 @@ class ImportTest extends TestBase
     /**
      * Test for server level import
      */
-    #[Group('large')]
     public function testServerImport(): void
     {
         $this->doImport('server');
@@ -42,7 +42,6 @@ class ImportTest extends TestBase
     /**
      * Test for db level import
      */
-    #[Group('large')]
     public function testDbImport(): void
     {
         $this->dbQuery('CREATE DATABASE IF NOT EXISTS `' . $this->databaseName . '`');
@@ -63,7 +62,6 @@ class ImportTest extends TestBase
     /**
      * Test for table level import
      */
-    #[Group('large')]
     public function testTableImport(): void
     {
         // setup the db

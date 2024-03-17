@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium;
 
 use PHPUnit\Framework\Attributes\CoversNothing;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 #[CoversNothing]
+#[Large]
 class NormalizationTest extends TestBase
 {
     /**
@@ -41,7 +42,6 @@ class NormalizationTest extends TestBase
     /**
      * Test for normalization to 1NF
      */
-    #[Group('large')]
     public function testNormalizationTo1NF(): void
     {
         self::assertEquals(

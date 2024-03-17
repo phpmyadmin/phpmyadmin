@@ -12,7 +12,7 @@ use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportXml;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function __;
@@ -20,6 +20,7 @@ use function __;
 #[CoversClass(ImportXml::class)]
 #[RequiresPhpExtension('xml')]
 #[RequiresPhpExtension('xmlwriter')]
+#[Medium]
 class ImportXmlTest extends AbstractTestCase
 {
     protected ImportXml $object;
@@ -74,7 +75,6 @@ class ImportXmlTest extends AbstractTestCase
     /**
      * Test for getProperties
      */
-    #[Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -100,7 +100,6 @@ class ImportXmlTest extends AbstractTestCase
     /**
      * Test for doImport
      */
-    #[Group('medium')]
     #[RequiresPhpExtension('simplexml')]
     public function testDoImport(): void
     {
