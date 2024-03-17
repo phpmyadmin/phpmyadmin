@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-03-16 09:09+0000\n"
+"PO-Revision-Date: 2024-03-18 04:02+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ka/>\n"
@@ -5997,7 +5997,7 @@ msgstr "Microsoft Word 2000"
 #: libraries/classes/Config/Forms/User/ExportForm.php:114
 #: libraries/classes/Config/Forms/User/ImportForm.php:46
 msgid "OpenDocument Spreadsheet"
-msgstr "OpenDocument Spreadsheet"
+msgstr "OpenDocument ელცხრილი"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:118
 msgid "OpenDocument Text"
@@ -6696,7 +6696,7 @@ msgstr "სანიშნის შექმნა"
 
 #: libraries/classes/Database/Qbe.php:1887
 msgid "Update bookmark"
-msgstr "სანიშნის განახლება"
+msgstr "სანიშნეს განახლება"
 
 #: libraries/classes/Database/Qbe.php:1889
 msgid "Delete bookmark"
@@ -8679,10 +8679,8 @@ msgid "Username:"
 msgstr "მომხმარებელი:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:189
-#, fuzzy
-#| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "სერვერის არჩევა"
+msgstr "სერვერის არჩევანი:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:313
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -9133,10 +9131,8 @@ msgstr "მეტამონაცემები ბაზისთვის %
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1419
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:603
-#, fuzzy
-#| msgid "Creation"
 msgid "Creation:"
-msgstr "შეიქმნა"
+msgstr "შეიქმნა:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1432
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:610
@@ -9582,6 +9578,9 @@ msgid ""
 "prefix like \"https://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
+"გამოიტანს ბმულს; სვეტი შეიცავს ფაილის სახელს. პირველი პარამეტრია ბმულის "
+"პრეფიქსი, \"https://www.example.com/\"-ის მსგავსი. მეორე პარამეტრი ბმულის "
+"სათაურია."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:30
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
@@ -9921,10 +9920,8 @@ msgid "Slave replication"
 msgstr "სერვერის კონფიგურაცია"
 
 #: libraries/classes/ReplicationGui.php:161
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Master connection:"
-msgstr "დაუცველი კავშირი"
+msgstr "მთავარი მიერთება:"
 
 #: libraries/classes/ReplicationGui.php:223
 msgid "Slave SQL Thread not running!"
@@ -11371,20 +11368,16 @@ msgid "Advisor"
 msgstr "მრჩეველი"
 
 #: libraries/classes/Server/Status/Data.php:491
-#, fuzzy, php-format
-#| msgid "per second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "წამში"
-msgstr[1] "წამში"
+msgstr[0] "%d წამი"
 
 #: libraries/classes/Server/Status/Data.php:496
-#, fuzzy, php-format
-#| msgid "in use"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "in use"
-msgstr[1] "in use"
+msgstr[0] "%d წუთი"
 
 #: libraries/classes/Server/Status/Monitor.php:73
 msgid "Log statistics"
@@ -12293,10 +12286,8 @@ msgid "Bookmark this SQL query"
 msgstr ""
 
 #: libraries/classes/Sql.php:608
-#, fuzzy
-#| msgid "Label"
 msgid "Label:"
-msgstr "Label"
+msgstr "ჭდე:"
 
 #: libraries/classes/Sql.php:615 libraries/classes/SqlQueryForm.php:316
 msgid "Let every user access this bookmark"
@@ -13625,10 +13616,8 @@ msgid "Maximum rows to plot"
 msgstr "დასახაზი მწკრივების მაქსიმალური რაოდენობა"
 
 #: templates/display/export/selection.twig:3
-#, fuzzy
-#| msgid "Databases"
 msgid "Databases:"
-msgstr "მონაცემთა ბაზები"
+msgstr "მონაცემთა ბაზები:"
 
 #: templates/display/export/options_output.twig:2
 #: templates/display/export/options_quick_export.twig:2
@@ -14323,7 +14312,7 @@ msgstr ""
 #: templates/server/databases/table_row.twig:13
 #, php-format
 msgid "Jump to database '%s'"
-msgstr "'%s' ბაზაზე გადასვლა"
+msgstr "ბაზაზე გადასვლა '%s'"
 
 #: templates/server/databases/table_row.twig:63
 #, php-format
