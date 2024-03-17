@@ -15476,11 +15476,6 @@ parameters:
 			path: tests/unit/Config/SettingsTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Debug' and PhpMyAdmin\\\\Config\\\\Settings\\\\Debug will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/Config/SettingsTest.php
-
-		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Settings\\\\\\\\Export' and PhpMyAdmin\\\\Config\\\\Settings\\\\Export will always evaluate to true\\.$#"
 			count: 1
 			path: tests/unit/Config/SettingsTest.php

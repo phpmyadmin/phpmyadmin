@@ -69,7 +69,7 @@ class FooterTest extends AbstractTestCase
     public function testGetDebugMessage(): void
     {
         $config = Config::getInstance();
-        $config->config->DBG->sql = true;
+        $config->config->debug->sql = true;
         $_SESSION['debug']['queries'] = [
             ['count' => 1, 'time' => 0.2, 'query' => 'SELECT * FROM `pma_bookmark` WHERE 1'],
             ['count' => 1, 'time' => 2.5, 'query' => 'SELECT * FROM `db` WHERE 1'],
@@ -80,7 +80,7 @@ class FooterTest extends AbstractTestCase
             . '{"count":1,"time":2.5,"query":"SELECT * FROM `db` WHERE 1"}]}',
             $this->object->getDebugMessage(),
         );
-        $config->config->DBG->sql = false;
+        $config->config->debug->sql = false;
     }
 
     /**

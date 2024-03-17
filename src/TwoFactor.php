@@ -119,7 +119,7 @@ class TwoFactor
     {
         $result = [];
         $config = Config::getInstance();
-        if ($config->config->DBG->simple2fa) {
+        if ($config->config->debug->simple2fa) {
             $result[] = 'simple';
         }
 

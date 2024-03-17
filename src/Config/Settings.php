@@ -2507,7 +2507,7 @@ final class Settings
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DBG
      */
-    public Debug $DBG;
+    public Debug $debug;
 
     /**
      * Sets the working environment
@@ -2808,7 +2808,7 @@ final class Settings
         $this->SendErrorReports = $this->setSendErrorReports($settings);
         $this->ConsoleEnterExecutes = $this->setConsoleEnterExecutes($settings);
         $this->zeroConf = $this->setZeroConf($settings);
-        $this->DBG = $this->setDBG($settings);
+        $this->debug = $this->setDebug($settings);
         $this->environment = $this->setEnvironment($settings);
         $this->DefaultFunctions = $this->setDefaultFunctions($settings);
         $this->maxRowPlotLimit = $this->setMaxRowPlotLimit($settings);
@@ -3006,7 +3006,7 @@ final class Settings
             'SendErrorReports' => $this->SendErrorReports,
             'ConsoleEnterExecutes' => $this->ConsoleEnterExecutes,
             'ZeroConf' => $this->zeroConf,
-            'DBG' => $this->DBG->asArray(),
+            'DBG' => $this->debug->asArray(),
             'environment' => $this->environment,
             'DefaultFunctions' => $this->DefaultFunctions,
             'maxRowPlotLimit' => $this->maxRowPlotLimit,
@@ -5389,7 +5389,7 @@ final class Settings
     }
 
     /** @param array<int|string, mixed> $settings */
-    private function setDBG(array $settings): Debug
+    private function setDebug(array $settings): Debug
     {
         if (isset($settings['DBG']) && is_array($settings['DBG'])) {
             return new Debug($settings['DBG']);

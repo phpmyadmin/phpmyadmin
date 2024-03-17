@@ -229,7 +229,7 @@ class HomeController extends AbstractController
             'server' => Current::$server,
             'sync_favorite_tables' => $syncFavoriteTables,
             'has_server' => $hasServer,
-            'is_demo' => $config->config->DBG->demo,
+            'is_demo' => $config->config->debug->demo,
             'has_server_selection' => $hasServerSelection ?? false,
             'server_selection' => $serverSelection ?? '',
             'has_change_password_link' => ($config->selectedServer['auth_type'] ?? '') !== 'config'

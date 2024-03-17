@@ -12245,6 +12245,7 @@
       <code><![CDATA[valuesForAllowThirdPartyFramingProvider]]></code>
       <code><![CDATA[valuesForAuthLogProvider]]></code>
       <code><![CDATA[valuesForBlowfishSecretProvider]]></code>
+      <code><![CDATA[valuesForDebugProvider]]></code>
       <code><![CDATA[valuesForExecTimeLimitProvider]]></code>
       <code><![CDATA[valuesForLimitCharsProvider]]></code>
       <code><![CDATA[valuesForMaxCharactersInDisplayedSQLProvider]]></code>
@@ -13232,8 +13233,8 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <InaccessibleProperty>
-      <code><![CDATA[$config->config->DBG->sql]]></code>
-      <code><![CDATA[$config->config->DBG->sql]]></code>
+      <code><![CDATA[$config->config->debug->sql]]></code>
+      <code><![CDATA[$config->config->debug->sql]]></code>
     </InaccessibleProperty>
     <PossiblyUnusedMethod>
       <code><![CDATA[currentRolesData]]></code>
@@ -13445,8 +13446,8 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InaccessibleProperty>
-      <code><![CDATA[$config->config->DBG->sql]]></code>
-      <code><![CDATA[$config->config->DBG->sql]]></code>
+      <code><![CDATA[$config->config->debug->sql]]></code>
+      <code><![CDATA[$config->config->debug->sql]]></code>
     </InaccessibleProperty>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['debug']['queries']]]></code>
@@ -14739,12 +14740,12 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InaccessibleProperty>
-      <code><![CDATA[$config->config->DBG->simple2fa]]></code>
-      <code><![CDATA[$config->config->DBG->simple2fa]]></code>
-      <code><![CDATA[$config->config->DBG->simple2fa]]></code>
-      <code><![CDATA[$config->config->DBG->simple2fa]]></code>
-      <code><![CDATA[$config->config->DBG->simple2fa]]></code>
-      <code><![CDATA[$config->config->DBG->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
     </InaccessibleProperty>
     <MixedArgument>
       <code><![CDATA[$object->config['settings']['secret']]]></code>

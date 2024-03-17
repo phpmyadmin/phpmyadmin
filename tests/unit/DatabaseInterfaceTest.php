@@ -300,9 +300,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         $dbi = $this->createDatabaseInterface();
         $config = Config::getInstance();
-        $config->config->DBG->sql = true;
+        $config->config->debug->sql = true;
         self::assertSame('utf8_general_ci', $dbi->getServerCollation());
-        $config->config->DBG->sql = false;
+        $config->config->debug->sql = false;
     }
 
     /**

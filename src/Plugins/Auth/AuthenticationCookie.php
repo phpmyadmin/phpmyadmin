@@ -161,7 +161,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $response->addHTML($this->template->render('login/form', [
             'login_header' => $loginHeader,
-            'is_demo' => $config->config->DBG->demo,
+            'is_demo' => $config->config->debug->demo,
             'error_messages' => $errorMessages,
             'available_languages' => $availableLanguages,
             'is_session_expired' => $sessionExpired,

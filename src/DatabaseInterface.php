@@ -225,7 +225,7 @@ class DatabaseInterface implements DbalInterface
             $GLOBALS['cached_affected_rows'] = $this->affectedRows($connectionType, false);
         }
 
-        if ($this->config->config->DBG->sql) {
+        if ($this->config->config->debug->sql) {
             $errorMessage = $this->getError($connectionType);
             Utilities::debugLogQueryIntoSession(
                 $query,
@@ -233,7 +233,7 @@ class DatabaseInterface implements DbalInterface
                 $result,
                 $this->lastQueryExecutionTime,
             );
-            if ($this->config->config->DBG->sqllog) {
+            if ($this->config->config->debug->sqllog) {
                 openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_USER);
 
                 syslog(

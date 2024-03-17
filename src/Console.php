@@ -116,7 +116,7 @@ class Console
             'has_bookmark_feature' => $bookmarkFeature !== null,
             'sql_history' => $sqlHistory,
             'bookmark_content' => $bookmarkContent,
-            'debug' => $this->config->config->DBG->sql,
+            'debug' => $this->config->config->debug->sql,
         ]);
     }
 }

@@ -174,11 +174,11 @@ class TwoFactorTest extends AbstractTestCase
     {
         $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
         $config = Config::getInstance();
-        $config->config->DBG->simple2fa = true;
+        $config->config->debug->simple2fa = true;
         $object = $this->getTwoFactorAndLoadConfig('user', ['type' => 'db', 'backend' => 'simple']);
         $backend = $object->getBackend();
         self::assertSame('simple', $backend::$id);
-        $config->config->DBG->simple2fa = false;
+        $config->config->debug->simple2fa = false;
 
         unset($_POST['2fa_confirm']);
         self::assertFalse($object->check($request, true));
@@ -203,7 +203,7 @@ class TwoFactorTest extends AbstractTestCase
     {
         $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
         $config = Config::getInstance();
-        $config->config->DBG->simple2fa = true;
+        $config->config->debug->simple2fa = true;
         $object = $this->getTwoFactorAndLoadConfig('user', null);
 
         $this->dummyDbi->assertAllQueriesConsumed();
@@ -228,7 +228,7 @@ class TwoFactorTest extends AbstractTestCase
 
         $this->initStorageConfigAndData();// Needs a re-init
 
-        $config->config->DBG->simple2fa = false;
+        $config->config->debug->simple2fa = false;
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         self::assertFalse($object->configure($request, 'simple'));
         $this->dummyDbi->assertAllQueriesConsumed();
@@ -483,13 +483,13 @@ class TwoFactorTest extends AbstractTestCase
     public function testBackends(): void
     {
         $config = Config::getInstance();
-        $config->config->DBG->simple2fa = true;
+        $config->config->debug->simple2fa = true;
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         $backends = $object->getAllBackends();
         self::assertCount(
             count($object->getAvailable()) + 1,
             $backends,
         );
-        $config->config->DBG->simple2fa = false;
+        $config->config->debug->simple2fa = false;
     }
 }
