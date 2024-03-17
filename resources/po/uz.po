@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-03-10 00:19+0000\n"
+"POT-Creation-Date: 2024-03-17 00:19+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Uzbek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -125,7 +125,7 @@ msgstr "\"%s\" дан кейин"
 #: resources/templates/table/zoom_search/index.twig:115
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:219
-#: src/Display/Results.php:958 src/Plugins/Export/ExportSql.php:2052
+#: src/Display/Results.php:938 src/Plugins/Export/ExportSql.php:2052
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Йўқ"
@@ -137,7 +137,7 @@ msgid "Table name"
 msgstr "Жадвал номи"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:27
-#: resources/templates/console/display.twig:124
+#: resources/templates/console/display.twig:126
 #: resources/templates/database/central_columns/main.twig:200
 #: resources/templates/export.twig:286 resources/templates/export.twig:302
 #: resources/templates/export.twig:318
@@ -203,7 +203,7 @@ msgstr "Устун(лар) қўшиш"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:122 src/BrowseForeigners.php:179
 #: src/Controllers/JavaScriptMessagesController.php:335
-#: src/Controllers/Server/PrivilegesController.php:294
+#: src/Controllers/Server/PrivilegesController.php:288
 #: src/Normalization.php:229 src/Tracking/Tracking.php:306
 #: src/Tracking/Tracking.php:448
 msgid "Go"
@@ -531,7 +531,7 @@ msgstr "Фойдаланувчи"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Import/Import.php:1333 src/Menu.php:213 src/Menu.php:317
+#: src/Import/Import.php:1173 src/Menu.php:213 src/Menu.php:317
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1057 src/Util.php:1482
@@ -577,7 +577,7 @@ msgstr "Номи"
 #: resources/templates/table/structure/display_structure.twig:475
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:6
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:5
-#: resources/templates/table/zoom_search/index.twig:36 src/InsertEdit.php:290
+#: resources/templates/table/zoom_search/index.twig:36 src/InsertEdit.php:288
 #: src/Plugins/Export/ExportHtmlword.php:262
 #: src/Plugins/Export/ExportHtmlword.php:355
 #: src/Plugins/Export/ExportLatex.php:506 src/Plugins/Export/ExportOdt.php:364
@@ -944,30 +944,30 @@ msgid "Allow users to customize this value"
 msgstr ""
 
 #: resources/templates/console/bookmark_content.twig:7
-#: resources/templates/console/display.twig:38
-#: resources/templates/console/display.twig:104
-#: resources/templates/console/display.twig:196
+#: resources/templates/console/display.twig:40
+#: resources/templates/console/display.twig:106
+#: resources/templates/console/display.twig:198
 msgid "Collapse"
 msgstr ""
 
 #: resources/templates/console/bookmark_content.twig:8
-#: resources/templates/console/display.twig:39
-#: resources/templates/console/display.twig:105
-#: resources/templates/console/display.twig:197
+#: resources/templates/console/display.twig:41
+#: resources/templates/console/display.twig:107
+#: resources/templates/console/display.twig:199
 msgid "Expand"
 msgstr ""
 
 #: resources/templates/console/bookmark_content.twig:9
-#: resources/templates/console/display.twig:40
-#: resources/templates/console/display.twig:198
+#: resources/templates/console/display.twig:42
+#: resources/templates/console/display.twig:200
 #, fuzzy
 #| msgid "in query"
 msgid "Requery"
 msgstr "сўров бўйича"
 
 #: resources/templates/console/bookmark_content.twig:10
-#: resources/templates/console/display.twig:41
-#: resources/templates/console/display.twig:199
+#: resources/templates/console/display.twig:43
+#: resources/templates/console/display.twig:201
 #: resources/templates/database/central_columns/main.twig:271
 #: resources/templates/database/central_columns/main.twig:381
 #: resources/templates/database/central_columns/main.twig:383
@@ -989,7 +989,7 @@ msgstr "сўров бўйича"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:399
-#: src/Display/Results.php:2525 src/Html/Generator.php:544
+#: src/Display/Results.php:2486 src/Html/Generator.php:544
 #: src/Html/Generator.php:810
 msgid "Edit"
 msgstr "Таҳрирлаш"
@@ -1008,13 +1008,13 @@ msgstr "Таҳрирлаш"
 #: resources/templates/setup/home/index.twig:68
 #: resources/templates/sql/query.twig:184
 #: src/Controllers/JavaScriptMessagesController.php:400
-#: src/Display/Results.php:2584 src/Tracking/Tracking.php:231
+#: src/Display/Results.php:2545 src/Tracking/Tracking.php:231
 msgid "Delete"
 msgstr "Ўчириш"
 
 #: resources/templates/console/bookmark_content.twig:12
-#: resources/templates/console/display.twig:48
-#: resources/templates/console/display.twig:206
+#: resources/templates/console/display.twig:50
+#: resources/templates/console/display.twig:208
 #: resources/templates/server/databases/index.twig:105
 #: resources/templates/server/privileges/edit_routine_privileges.twig:13
 #: resources/templates/server/privileges/privileges_table.twig:257
@@ -1029,8 +1029,8 @@ msgstr "Ўчириш"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1572
-#: src/Server/Privileges.php:1574 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1566
+#: src/Server/Privileges.php:1568 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "Маълумотлар базаси"
 
@@ -1057,11 +1057,11 @@ msgid "History"
 msgstr "SQL-сўровлар тарихи"
 
 #: resources/templates/console/display.twig:15
-#: resources/templates/console/display.twig:163
+#: resources/templates/console/display.twig:165
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:57
 #: resources/templates/table/structure/display_table_stats.twig:96
-#: src/Import/Import.php:1334 src/Import/Import.php:1392
+#: src/Import/Import.php:1174 src/Import/Import.php:1232
 #: src/Plugins/Export/ExportCodegen.php:52 src/Plugins/Export/ExportCsv.php:43
 #: src/Plugins/Export/ExportExcel.php:37
 #: src/Plugins/Export/ExportHtmlword.php:47
@@ -1071,152 +1071,152 @@ msgstr "SQL-сўровлар тарихи"
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
 #: src/Plugins/Export/ExportSql.php:114
 #: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:60
-#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:70
-#: src/Plugins/Import/ImportLdi.php:51
-#: src/Plugins/Import/ImportMediawiki.php:60
-#: src/Plugins/Import/ImportOds.php:53 src/Plugins/Import/ImportShp.php:72
-#: src/Plugins/Import/ImportSql.php:42 src/Plugins/Import/ImportXml.php:49
+#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:80
+#: src/Plugins/Import/ImportLdi.php:61
+#: src/Plugins/Import/ImportMediawiki.php:61
+#: src/Plugins/Import/ImportOds.php:54 src/Plugins/Import/ImportShp.php:73
+#: src/Plugins/Import/ImportSql.php:43 src/Plugins/Import/ImportXml.php:50
 msgid "Options"
 msgstr "Параметрлар"
 
 #: resources/templates/console/display.twig:19
-#: resources/templates/console/display.twig:118
+#: resources/templates/console/display.twig:120
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmarks"
 msgstr "Хатчўплар жадвали"
 
-#: resources/templates/console/display.twig:23
-#: resources/templates/console/display.twig:76 src/Config/Descriptions.php:615
+#: resources/templates/console/display.twig:24
+#: resources/templates/console/display.twig:78 src/Config/Descriptions.php:615
 msgid "Debug SQL"
 msgstr ""
 
-#: resources/templates/console/display.twig:28
+#: resources/templates/console/display.twig:30
 #, fuzzy
 #| msgid "Execute bookmarked query"
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Белгиланган сўровни бажариш"
 
-#: resources/templates/console/display.twig:31
+#: resources/templates/console/display.twig:33
 #, fuzzy
 #| msgid "Execute bookmarked query"
 msgid "Press Enter to execute query"
 msgstr "Белгиланган сўровни бажариш"
 
-#: resources/templates/console/display.twig:42
-#: resources/templates/console/display.twig:200
+#: resources/templates/console/display.twig:44
+#: resources/templates/console/display.twig:202
 #, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain"
 msgstr "Сўров таҳлили"
 
-#: resources/templates/console/display.twig:43
-#: resources/templates/console/display.twig:201
+#: resources/templates/console/display.twig:45
+#: resources/templates/console/display.twig:203
 #: resources/templates/sql/profiling_chart.twig:1 src/Html/Generator.php:631
 msgid "Profiling"
 msgstr "Профиллаштириш"
 
-#: resources/templates/console/display.twig:45
-#: resources/templates/console/display.twig:203
+#: resources/templates/console/display.twig:47
+#: resources/templates/console/display.twig:205
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark"
 msgstr "Хатчўплар жадвали"
 
-#: resources/templates/console/display.twig:47
-#: resources/templates/console/display.twig:205
+#: resources/templates/console/display.twig:49
+#: resources/templates/console/display.twig:207
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query failed"
 msgstr "Сўровлар кеши"
 
-#: resources/templates/console/display.twig:49
-#: resources/templates/console/display.twig:207
+#: resources/templates/console/display.twig:51
+#: resources/templates/console/display.twig:209
 #, fuzzy
 #| msgid "Maximum execution time"
 msgid "Queried time"
 msgstr "Максимум бажарилиш вақти"
 
-#: resources/templates/console/display.twig:49
+#: resources/templates/console/display.twig:51
 #, fuzzy
 #| msgid "Skip current error"
 msgid "During current session"
 msgstr "Жорий хатоликларни ташлаб кетиш"
 
-#: resources/templates/console/display.twig:67
+#: resources/templates/console/display.twig:69
 #, fuzzy
 #| msgid "Ascending"
 msgid "ascending"
 msgstr "Ўсиш тартибида"
 
-#: resources/templates/console/display.twig:70
+#: resources/templates/console/display.twig:72
 #, fuzzy
 #| msgid "Descending"
 msgid "descending"
 msgstr "Камайиш тартибида"
 
-#: resources/templates/console/display.twig:73
+#: resources/templates/console/display.twig:75
 msgid "Order:"
 msgstr ""
 
-#: resources/templates/console/display.twig:79
+#: resources/templates/console/display.twig:81
 #: resources/templates/table/find_replace/replace_preview.twig:10
 #, fuzzy
 #| msgid "Column"
 msgid "Count"
 msgstr "Устун"
 
-#: resources/templates/console/display.twig:82
+#: resources/templates/console/display.twig:84
 #, fuzzy
 #| msgid "Execute bookmarked query"
 msgid "Execution order"
 msgstr "Белгиланган сўровни бажариш"
 
-#: resources/templates/console/display.twig:85
+#: resources/templates/console/display.twig:87
 msgid "Time taken"
 msgstr ""
 
-#: resources/templates/console/display.twig:88
+#: resources/templates/console/display.twig:90
 #: resources/templates/table/search/index.twig:143
 msgid "Order by:"
 msgstr ""
 
-#: resources/templates/console/display.twig:91 src/Config/Descriptions.php:964
+#: resources/templates/console/display.twig:93 src/Config/Descriptions.php:964
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
 msgstr "SQL сўровлари"
 
-#: resources/templates/console/display.twig:94
+#: resources/templates/console/display.twig:96
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Ungroup queries"
 msgstr "SQL сўровлари"
 
-#: resources/templates/console/display.twig:106
+#: resources/templates/console/display.twig:108
 #, fuzzy
 #| msgid "Show color"
 msgid "Show trace"
 msgstr "Рангда кўрсатиш"
 
-#: resources/templates/console/display.twig:107
+#: resources/templates/console/display.twig:109
 #, fuzzy
 #| msgid "Apply index(s)"
 msgid "Hide trace"
 msgstr "Индекс(лар)ни сақлаш"
 
-#: resources/templates/console/display.twig:108
+#: resources/templates/console/display.twig:110
 #, fuzzy
 #| msgid "Column"
 msgid "Count:"
 msgstr "Устун"
 
-#: resources/templates/console/display.twig:109
+#: resources/templates/console/display.twig:111
 #: src/Controllers/JavaScriptMessagesController.php:664
 msgid "Time taken:"
 msgstr ""
 
-#: resources/templates/console/display.twig:121
+#: resources/templates/console/display.twig:123
 #: resources/templates/server/status/processes/index.twig:14
 #: resources/templates/server/status/variables/index.twig:37
 #: src/Config/Descriptions.php:928 src/Export/Export.php:1229
@@ -1224,29 +1224,29 @@ msgstr ""
 msgid "Refresh"
 msgstr "Янгилаш"
 
-#: resources/templates/console/display.twig:135
+#: resources/templates/console/display.twig:137
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Add bookmark"
 msgstr "Боғлиқликни ўчириш"
 
-#: resources/templates/console/display.twig:135
+#: resources/templates/console/display.twig:137
 #, fuzzy
 #| msgid "Label"
 msgid "Label"
 msgstr "Хатчўп белгиси"
 
-#: resources/templates/console/display.twig:142
+#: resources/templates/console/display.twig:144
 msgid "Target database"
 msgstr "Нишон база"
 
-#: resources/templates/console/display.twig:145
+#: resources/templates/console/display.twig:147
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Share this bookmark"
 msgstr "Боғлиқликни ўчириш"
 
-#: resources/templates/console/display.twig:149
+#: resources/templates/console/display.twig:151
 #: resources/templates/database/designer/main.twig:270
 #: resources/templates/database/designer/main.twig:650
 #: resources/templates/database/designer/main.twig:718
@@ -1259,33 +1259,33 @@ msgstr "Боғлиқликни ўчириш"
 msgid "OK"
 msgstr "OK"
 
-#: resources/templates/console/display.twig:166
+#: resources/templates/console/display.twig:168
 #, fuzzy
 #| msgid "Restore default value"
 msgid "Set default"
 msgstr "Асл қийматларни тиклаш"
 
-#: resources/templates/console/display.twig:173 src/Config/Descriptions.php:958
+#: resources/templates/console/display.twig:175 src/Config/Descriptions.php:958
 msgid "Always expand query messages"
 msgstr ""
 
-#: resources/templates/console/display.twig:177 src/Config/Descriptions.php:957
+#: resources/templates/console/display.twig:179 src/Config/Descriptions.php:957
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "SQL сўровлари тарихи жадвали"
 
-#: resources/templates/console/display.twig:181 src/Config/Descriptions.php:959
+#: resources/templates/console/display.twig:183 src/Config/Descriptions.php:959
 msgid "Show current browsing query"
 msgstr ""
 
-#: resources/templates/console/display.twig:185
+#: resources/templates/console/display.twig:187
 msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."
 msgstr ""
 
-#: resources/templates/console/display.twig:189 src/Config/Descriptions.php:961
+#: resources/templates/console/display.twig:191 src/Config/Descriptions.php:961
 #, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
@@ -2024,7 +2024,7 @@ msgstr "Барчасини белгилаш"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:384 src/Menu.php:240
-#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1289
+#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1283
 #: src/Util.php:1471 src/Util.php:1486 src/Util.php:1503
 msgid "Export"
 msgstr "Экспорт"
@@ -2214,8 +2214,8 @@ msgstr "Сортировка қилиш"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:22
 #: resources/templates/table/search/index.twig:153
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1490
-#: src/Display/Results.php:1497 src/Util.php:2000 src/Util.php:2017
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1470
+#: src/Display/Results.php:1477 src/Util.php:2000 src/Util.php:2017
 msgid "Ascending"
 msgstr "Ўсиш тартибида"
 
@@ -2226,8 +2226,8 @@ msgstr "Ўсиш тартибида"
 #: resources/templates/server/status/processes/list.twig:11
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1485
-#: src/Display/Results.php:1502 src/Util.php:2005 src/Util.php:2022
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1465
+#: src/Display/Results.php:1482 src/Util.php:2005 src/Util.php:2022
 msgid "Descending"
 msgstr "Камайиш тартибида"
 
@@ -2441,7 +2441,7 @@ msgstr "Журнал файли"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:21
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:413 src/Menu.php:256
+#: src/Controllers/Server/PrivilegesController.php:407 src/Menu.php:256
 #: src/Menu.php:364 src/Util.php:1489 src/Util.php:1505
 msgid "Privileges"
 msgstr "Привилегиялар"
@@ -2487,7 +2487,7 @@ msgstr "Муолажалар"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1281
+#: src/Server/Privileges.php:1275
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges"
@@ -2495,7 +2495,7 @@ msgstr "Привилегияларни таҳрирлаш"
 
 #: resources/templates/database/privileges/index.twig:100
 #: resources/templates/table/privileges/index.twig:104
-#: src/Server/Privileges.php:2068
+#: src/Server/Privileges.php:2062
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
@@ -2518,7 +2518,7 @@ msgstr "Белгиланганларни:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1225
+#: src/Server/Privileges.php:1219
 msgid "Not enough privilege to view users."
 msgstr ""
 
@@ -2615,7 +2615,7 @@ msgstr "Муолажалар"
 
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:289
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:287
 #: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr "Функция"
@@ -3015,8 +3015,8 @@ msgstr "Show SQL сўровларини кўрсатиш"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:29
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:425 src/Server/Privileges.php:1578
-#: src/Server/Privileges.php:1580
+#: src/Plugins/Export/ExportXml.php:425 src/Server/Privileges.php:1572
+#: src/Server/Privileges.php:1574
 msgid "Table"
 msgstr "Жадвал"
 
@@ -3080,7 +3080,7 @@ msgstr "ишлатилмоқда"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:230
 #: resources/templates/table/structure/display_table_stats.twig:118
-#: src/Controllers/Server/DatabasesController.php:264 src/Import/Import.php:139
+#: src/Controllers/Server/DatabasesController.php:264 src/Import/Import.php:125
 msgid "Rows"
 msgstr "Қаторларсони"
 
@@ -3291,14 +3291,14 @@ msgid "Extra options"
 msgstr "Жадвал параметрлари"
 
 #: resources/templates/display/results/table.twig:209
-#: src/Display/Results.php:1140
+#: src/Display/Results.php:1120
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Маълумотларни қисқартириб кўрсатиш"
 
 #: resources/templates/display/results/table.twig:213
-#: src/Display/Results.php:1144
+#: src/Display/Results.php:1124
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
@@ -3345,7 +3345,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:321
 #: resources/templates/gis_data_editor_form.twig:62
 #: src/Controllers/JavaScriptMessagesController.php:487
-#: src/Display/Results.php:2529 src/Html/Generator.php:77
+#: src/Display/Results.php:2490 src/Html/Generator.php:77
 msgid "Copy"
 msgstr ""
 
@@ -3386,7 +3386,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/DropController.php:57
 #: src/Controllers/Table/Partition/RebuildController.php:57
 #: src/Controllers/Table/Partition/TruncateController.php:57
-#: src/Html/Generator.php:761 src/Import/Import.php:128 src/InsertEdit.php:492
+#: src/Html/Generator.php:761 src/Import/Import.php:114 src/InsertEdit.php:490
 #: src/Message.php:145
 msgid "Error"
 msgstr "Хатолик"
@@ -4165,7 +4165,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:493
+#: src/InsertEdit.php:491
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Кўрсатилган каталокка юклаб бўлмади."
 
@@ -4753,7 +4753,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/EmptyTableController.php:51
 #: src/Controllers/Operations/TableController.php:348
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:295 src/Core.php:500
+#: src/Controllers/Table/ReplaceController.php:284 src/Core.php:499
 msgid "No change"
 msgstr "Ўзгариш йўқ"
 
@@ -5350,7 +5350,7 @@ msgstr "Фойдаланувчи"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:25
 #: resources/templates/server/privileges/edit_routine_privileges.twig:43
 #: resources/templates/server/privileges/edit_routine_privileges.twig:58
-#: src/Server/Privileges.php:1584 src/Server/Privileges.php:1586
+#: src/Server/Privileges.php:1578 src/Server/Privileges.php:1580
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine"
@@ -5364,7 +5364,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
-#: src/Server/Privileges.php:1585
+#: src/Server/Privileges.php:1579
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
@@ -5532,7 +5532,7 @@ msgstr "Серверларни таҳрирлаш"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:6
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1579
+#: src/Server/Privileges.php:1573
 msgid "Table-specific privileges"
 msgstr "Жадвал даражасижаги привилегиялар"
 
@@ -5575,7 +5575,7 @@ msgstr "Маълумотларни чақиришга рухсат беради.
 #: resources/templates/server/privileges/privileges_table.twig:57
 #: resources/templates/server/privileges/privileges_table.twig:84
 #: resources/templates/server/privileges/privileges_table.twig:111
-#: resources/templates/table/search/index.twig:126 src/InsertEdit.php:501
+#: resources/templates/table/search/index.twig:126 src/InsertEdit.php:499
 msgid "Or"
 msgstr "Ёки"
 
@@ -5715,7 +5715,7 @@ msgid "Global privileges"
 msgstr "Глобал привилегиялар"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1573
+#: src/Server/Privileges.php:1567
 msgid "Database-specific privileges"
 msgstr "Маълумотлар базаси привилегиялари"
 
@@ -6735,7 +6735,7 @@ msgid "Start auto refresh"
 msgstr ""
 
 #: resources/templates/server/status/processes/list.twig:43
-#: src/Display/Results.php:2603
+#: src/Display/Results.php:2564
 msgid "Kill"
 msgstr "Тугатиш"
 
@@ -6934,7 +6934,7 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: resources/templates/server/user_groups/user_listings.twig:5
-#: src/Controllers/Server/PrivilegesController.php:416
+#: src/Controllers/Server/PrivilegesController.php:410
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "Фойдаланувчи"
@@ -7160,7 +7160,7 @@ msgstr "Профиллаштириш"
 #: src/Controllers/Table/Partition/RepairController.php:50
 #: src/Controllers/Table/Partition/TruncateController.php:51
 #: src/Controllers/Table/RelationController.php:140
-#: src/Database/Routines.php:995 src/Display/Results.php:3187
+#: src/Database/Routines.php:995 src/Display/Results.php:3148
 #: src/Message.php:129
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -7535,7 +7535,7 @@ msgstr ""
 #: resources/templates/table/index_form.twig:199
 #: src/Controllers/JavaScriptMessagesController.php:486
 #: src/Controllers/JavaScriptMessagesController.php:637
-#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1536
+#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1529
 msgid "Ignore"
 msgstr "Эътибор бермаслик"
 
@@ -11991,14 +11991,14 @@ msgid "Put columns names in the first row"
 msgstr "Майдон номларини биринчи қаторга жойлаштириш"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:658
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:655
 #, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with"
 msgstr "Майдон қийматлари қуйидаги белги ичига олинган "
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:669
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:666
 #, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with"
@@ -12020,14 +12020,14 @@ msgid "Remove CRLF characters within columns"
 msgstr "Майдонлар ичидаги сатрдан-сатрга кўчириш белгиларини олиб ташлаш"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:643
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:640
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated with"
 msgstr "Қаторлар бўлувчиси"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:676
+#: src/Plugins/Import/ImportCsv.php:673
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with"
@@ -12361,7 +12361,7 @@ msgid "Partial import: allow interrupt"
 msgstr "Қисман импорт: узишга рухсат бериш"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:141 src/Plugins/Import/ImportLdi.php:68
+#: src/Plugins/Import/ImportCsv.php:151 src/Plugins/Import/ImportLdi.php:78
 msgid "Do not abort on INSERT error"
 msgstr ""
 
@@ -12373,7 +12373,7 @@ msgstr ""
 msgid "Format of imported file"
 msgstr "Импорт қилинаётган файл формати"
 
-#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:74
+#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:84
 msgid "Use LOCAL keyword"
 msgstr "\"LOCAL\" калит сўзини ишлатиш"
 
@@ -12381,7 +12381,7 @@ msgstr "\"LOCAL\" калит сўзини ишлатиш"
 msgid "Column names in first row"
 msgstr "Биринчи қаторга устун номлари"
 
-#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:74
+#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:75
 msgid "Do not import empty rows"
 msgstr "Бўш қаторларни импорт қилмаслик"
 
@@ -13789,10 +13789,9 @@ msgstr ""
 "Экспорт модуллари мавжуд эмас! Ўрнатилган phpMyAdmin нусхасининг libraries/"
 "export каталогини текширинг!"
 
-#: src/Controllers/Database/ImportController.php:82
-#: src/Controllers/Import/ImportController.php:500
-#: src/Controllers/Server/ImportController.php:62
-#: src/Controllers/Table/ImportController.php:102
+#: src/Controllers/Database/ImportController.php:83
+#: src/Controllers/Server/ImportController.php:63
+#: src/Controllers/Table/ImportController.php:103
 #, fuzzy
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
@@ -13800,14 +13799,14 @@ msgstr ""
 "export каталогини текширинг."
 
 #: src/Controllers/Database/PrivilegesController.php:64
-#: src/Controllers/Server/PrivilegesController.php:111
+#: src/Controllers/Server/PrivilegesController.php:105
 #: src/Controllers/Server/UserGroupsController.php:47
 #: src/Controllers/Table/PrivilegesController.php:67
 msgid "No Privileges"
 msgstr "Привилегиялар йўқ"
 
 #: src/Controllers/Database/PrivilegesController.php:73
-#: src/Controllers/Server/PrivilegesController.php:120
+#: src/Controllers/Server/PrivilegesController.php:114
 #: src/Controllers/Table/PrivilegesController.php:76
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
@@ -13928,7 +13927,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:575
-#: src/Display/Results.php:3467
+#: src/Display/Results.php:3428
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -13937,7 +13936,7 @@ msgstr ""
 "Ушбу намойиш камида кўрсатилган миқдорда қаторларга эга. Батафсил маълумот "
 "учун %sдокументацияга%s қаранг."
 
-#: src/Controllers/Database/StructureController.php:738
+#: src/Controllers/Database/StructureController.php:739
 msgid "unknown"
 msgstr "номаълум"
 
@@ -14135,7 +14134,7 @@ msgid ""
 "this some features such as error reporting or version check are disabled."
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:167
+#: src/Controllers/Import/ImportController.php:166
 #, fuzzy, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
@@ -14147,23 +14146,23 @@ msgstr ""
 "Эҳтимол, юкланаётган файл ҳажми жуда катта. Бу муаммони ечишнинг усуллари "
 "%sдокументацияда%s келтирилган."
 
-#: src/Controllers/Import/ImportController.php:199
+#: src/Controllers/Import/ImportController.php:193
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Incorrect format parameter"
 msgstr "Маълумотлар базаси номини қуйидагига ўзгартириш"
 
-#: src/Controllers/Import/ImportController.php:315
-#: src/Controllers/Import/ImportController.php:540
+#: src/Controllers/Import/ImportController.php:302
+#: src/Controllers/Import/ImportController.php:515
 msgid "Showing bookmark"
 msgstr "Хатчўпларни кўрсатиш"
 
-#: src/Controllers/Import/ImportController.php:335
-#: src/Controllers/Import/ImportController.php:536
+#: src/Controllers/Import/ImportController.php:322
+#: src/Controllers/Import/ImportController.php:511
 msgid "The bookmark has been deleted."
 msgstr "Хатчўп ўчирилди."
 
-#: src/Controllers/Import/ImportController.php:447
+#: src/Controllers/Import/ImportController.php:434
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -14173,7 +14172,7 @@ msgstr ""
 "қилинаётган файл ҳажми PHP конфигурацион файлида кўрсатилган максимал "
 "қийматдан катта. Қаранг: [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:548
+#: src/Controllers/Import/ImportController.php:523
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
@@ -14181,7 +14180,7 @@ msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Импорт муваффақиятли тугатилди, бажарилган сўровлар сони: %d."
 msgstr[1] "Импорт муваффақиятли тугатилди, бажарилган сўровлар сони: %d."
 
-#: src/Controllers/Import/ImportController.php:585
+#: src/Controllers/Import/ImportController.php:560
 #, fuzzy, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
@@ -14194,7 +14193,7 @@ msgstr ""
 "ўша файлни танлаган ҳолда уни қайта ишга туширинг ва жараён узилган жойдан "
 "бошлаб давом этади."
 
-#: src/Controllers/Import/ImportController.php:595
+#: src/Controllers/Import/ImportController.php:570
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -14203,7 +14202,7 @@ msgstr ""
 "Одатда, бу ҳол, php-сценарийлар учун ажратилган вақт оширилмагунча "
 "phpMyAdmin дастури импорт жараёнини якунла олмаслигини билдиради."
 
-#: src/Controllers/Import/ImportController.php:658
+#: src/Controllers/Import/ImportController.php:633
 #: src/Controllers/Sql/SqlController.php:161
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" (маълумотлар базасини ўчириш) буйруғи ўчирилган."
@@ -15973,7 +15972,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "\"%s\" номли жадвал мавжуд!"
 
-#: src/Controllers/JavaScriptMessagesController.php:712 src/InsertEdit.php:274
+#: src/Controllers/JavaScriptMessagesController.php:712 src/InsertEdit.php:272
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Яшириш"
@@ -16600,7 +16599,7 @@ msgstr "Белгиланган фойдаланувчилар муваффақи
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Белгиланган фойдаланувчилар муваффақиятли ўчирилди."
 
-#: src/Controllers/Server/PrivilegesController.php:136
+#: src/Controllers/Server/PrivilegesController.php:130
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -17499,8 +17498,8 @@ msgid "There is an issue with your request."
 msgstr "Биронта ҳам конфигурацияланган сервер мавжуд эмас"
 
 #: src/Controllers/Table/GetFieldController.php:83
-#: src/Database/Routines.php:1012 src/Import/Import.php:144
-#: src/InsertEdit.php:201 src/Sql.php:858
+#: src/Database/Routines.php:1012 src/Import/Import.php:130
+#: src/InsertEdit.php:199 src/Sql.php:858
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL бўш натижа берди (яъни нольта сатр)."
 
@@ -17548,7 +17547,7 @@ msgstr "\"%s\" жараёни муваффақиятли якунланди."
 msgid "Internal relationships were successfully updated."
 msgstr "Ички алоқа ўрнатилди"
 
-#: src/Controllers/Table/ReplaceController.php:194
+#: src/Controllers/Table/ReplaceController.php:184
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -17637,7 +17636,7 @@ msgstr "Ушбу саҳифага кириш учун Сизда етарли ҳ
 msgid "View name can not be empty!"
 msgstr ""
 
-#: src/Core.php:106 src/ZipExtension.php:57
+#: src/Core.php:105 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -17919,36 +17918,36 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2560 src/Display/Results.php:2575
+#: src/Display/Results.php:2521 src/Display/Results.php:2536
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Ёзув ўчирилди"
 
-#: src/Display/Results.php:3476
+#: src/Display/Results.php:3437
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Ёзувларни кўрсатиш"
 
-#: src/Display/Results.php:3490
+#: src/Display/Results.php:3451
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3495
+#: src/Display/Results.php:3456
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%s total"
 msgstr "жами"
 
-#: src/Display/Results.php:3508 src/Sql.php:864
+#: src/Display/Results.php:3469 src/Sql.php:864
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Сўров %01.4f секунд вақт олди"
 
-#: src/Display/Results.php:3814
+#: src/Display/Results.php:3775
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -18530,7 +18529,7 @@ msgstr ""
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:60
+#: src/Http/Middleware/TokenRequestParamChecking.php:58
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -18588,54 +18587,54 @@ msgstr "Сўзлар бўш жой (\" \") ёрдамида бўлинган."
 msgid "The trigger name cannot end with a space character."
 msgstr "Сўзлар бўш жой (\" \") ёрдамида бўлинган."
 
-#: src/Import/Import.php:263 src/Sql.php:872
+#: src/Import/Import.php:249 src/Sql.php:872
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: src/Import/Import.php:1112
+#: src/Import/Import.php:942
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
 
-#: src/Import/Import.php:1337
+#: src/Import/Import.php:1177
 #, fuzzy, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
 msgstr "Ушбу жадвалга ўтиш"
 
-#: src/Import/Import.php:1345
+#: src/Import/Import.php:1185
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Фақат тузилиши"
 
-#: src/Import/Import.php:1352 src/Import/Import.php:1401
+#: src/Import/Import.php:1192 src/Import/Import.php:1241
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
 msgstr "\"%s\" майдонида маълумот йўқ"
 
-#: src/Import/Import.php:1363
+#: src/Import/Import.php:1203
 #, fuzzy, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
 msgstr "Ушбу кўринишга ўтиш"
 
-#: src/Import/Import.php:1384
+#: src/Import/Import.php:1224
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "Қуйидаги тузилишлар ё тузилди ё ўзгартирилди. Бу ерда сиз қуйидаги амалларни "
 "бажаришингиз мумкин:"
 
-#: src/Import/Import.php:1386
+#: src/Import/Import.php:1226
 #, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
 msgstr "Тузилмани кўриш учун унинг номи устига сичқонча тугмасини босинг"
 
-#: src/Import/Import.php:1387
+#: src/Import/Import.php:1227
 #, fuzzy
 #| msgid ""
 #| "Change any of its settings by clicking the corresponding \"Options\" link"
@@ -18643,13 +18642,13 @@ msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "Қуйидаги танловларни ўзгартириш учун, \"Танловлар\" боғига босинг"
 
-#: src/Import/Import.php:1388
+#: src/Import/Import.php:1228
 #, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Тузилмани ўзгартириш учун, \"Тузилма\" боғига киринг"
 
-#: src/Import/Import.php:1395
+#: src/Import/Import.php:1235
 #, fuzzy, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
@@ -18662,22 +18661,22 @@ msgid ""
 "removed."
 msgstr "%1$s ва %2$s индекслари бир хил, улардан бирини ўчириш мумкин."
 
-#: src/InsertEdit.php:502
+#: src/InsertEdit.php:500
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "Юклаш каталогидан"
 
-#: src/InsertEdit.php:932 src/Sql.php:855
+#: src/InsertEdit.php:930 src/Sql.php:855
 msgid "Showing SQL query"
 msgstr "SQL-сўровни кўрсатиш"
 
-#: src/InsertEdit.php:956 src/Sql.php:835
+#: src/InsertEdit.php:954 src/Sql.php:835
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Киритилган қатор идентификатори: %1$d"
 
-#: src/LanguageManager.php:961
+#: src/LanguageManager.php:959
 msgid "Ignoring unsupported language code."
 msgstr ""
 
@@ -19771,99 +19770,99 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:83
+#: src/Plugins/Import/ImportCsv.php:93
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:92
+#: src/Plugins/Import/ImportCsv.php:102
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:101 src/Plugins/Import/ImportCsv.php:119
+#: src/Plugins/Import/ImportCsv.php:111 src/Plugins/Import/ImportCsv.php:129
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:109 src/Plugins/Import/ImportOds.php:66
+#: src/Plugins/Import/ImportCsv.php:119 src/Plugins/Import/ImportOds.php:67
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:126
+#: src/Plugins/Import/ImportCsv.php:136
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:134
+#: src/Plugins/Import/ImportCsv.php:144
 #, fuzzy
 #| msgid "Column names"
 msgid "Column names:"
 msgstr "Майдон номлари"
 
-#: src/Plugins/Import/ImportCsv.php:283 src/Plugins/Import/ImportCsv.php:619
+#: src/Plugins/Import/ImportCsv.php:291 src/Plugins/Import/ImportCsv.php:616
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
 "Киритилаётган CSV маълумотларнинг %d қаторидаги маълумотлар формати нотўғри."
 
-#: src/Plugins/Import/ImportCsv.php:501
+#: src/Plugins/Import/ImportCsv.php:498
 #, fuzzy, php-format
 #| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
 "Киритилаётган CSV маълумотларнинг %d қаторидаги майдонлар сони нотўғри."
 
-#: src/Plugins/Import/ImportCsv.php:641 src/Plugins/Import/ImportCsv.php:656
-#: src/Plugins/Import/ImportCsv.php:667 src/Plugins/Import/ImportCsv.php:674
+#: src/Plugins/Import/ImportCsv.php:638 src/Plugins/Import/ImportCsv.php:653
+#: src/Plugins/Import/ImportCsv.php:664 src/Plugins/Import/ImportCsv.php:671
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV импортидаги парамерт нотўғри: \"%s\""
 
-#: src/Plugins/Import/ImportCsv.php:781
+#: src/Plugins/Import/ImportCsv.php:769
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
 
-#: src/Plugins/Import/ImportLdi.php:62
+#: src/Plugins/Import/ImportLdi.php:72
 #, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
 msgstr "Майдон номлари"
 
-#: src/Plugins/Import/ImportLdi.php:112
+#: src/Plugins/Import/ImportLdi.php:125
 msgid "This plugin does not support compressed imports!"
 msgstr "Ушбу модул қисилган маълумотларни импорт қила олмайди!"
 
-#: src/Plugins/Import/ImportMediawiki.php:57
+#: src/Plugins/Import/ImportMediawiki.php:58
 msgid "MediaWiki Table"
 msgstr "MediaWiki жадвали"
 
-#: src/Plugins/Import/ImportMediawiki.php:273
+#: src/Plugins/Import/ImportMediawiki.php:278
 #, fuzzy, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr ""
 "Киритилаётган CSV маълумотларнинг %d қаторидаги маълумотлар формати нотўғри."
 
-#: src/Plugins/Import/ImportOds.php:80
+#: src/Plugins/Import/ImportOds.php:81
 #, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
 "Фоизларни мос ўнли касрлар каби импорт қилиш (масалан, 12.00% ўрнига 0.12)"
 
-#: src/Plugins/Import/ImportOds.php:86
+#: src/Plugins/Import/ImportOds.php:87
 #, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Пул бирликларини импорт қилиш (масалан, $5.00 ни 5.00 га)"
 
-#: src/Plugins/Import/ImportOds.php:145 src/Plugins/Import/ImportXml.php:102
-#: src/Plugins/Import/ImportXml.php:140
+#: src/Plugins/Import/ImportOds.php:150 src/Plugins/Import/ImportXml.php:107
+#: src/Plugins/Import/ImportXml.php:145
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -19871,49 +19870,49 @@ msgstr ""
 "Кўрсатилган XML файл ё нотўғри тузилган ё чала. Уни тўғирлаб, қайта ҳаракат "
 "қилиб кўринг."
 
-#: src/Plugins/Import/ImportOds.php:153
+#: src/Plugins/Import/ImportOds.php:158
 #, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Open Document жадвали"
 
-#: src/Plugins/Import/ImportShp.php:70
+#: src/Plugins/Import/ImportShp.php:71
 msgid "ESRI Shape File"
 msgstr ""
 
-#: src/Plugins/Import/ImportShp.php:106 src/Plugins/Import/ImportShp.php:173
+#: src/Plugins/Import/ImportShp.php:111 src/Plugins/Import/ImportShp.php:178
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
 
-#: src/Plugins/Import/ImportShp.php:203
+#: src/Plugins/Import/ImportShp.php:208
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
-#: src/Plugins/Import/ImportShp.php:249
+#: src/Plugins/Import/ImportShp.php:253
 #, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "The imported file does not contain any data!"
 msgstr "\"%s\" файлида калит идентификатори мавжуд эмас"
 
-#: src/Plugins/Import/ImportSql.php:61
+#: src/Plugins/Import/ImportSql.php:62
 #, fuzzy
 #| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
 msgstr "SQL билан мослик режими"
 
-#: src/Plugins/Import/ImportSql.php:70
+#: src/Plugins/Import/ImportSql.php:71
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Ноль қийматлари учун \"AUTO_INCREMENT\" ишлатмаслик"
 
-#: src/Plugins/Import/ImportXml.php:46
+#: src/Plugins/Import/ImportXml.php:47
 msgid "XML"
 msgstr "XML"
 
-#: src/Plugins.php:601
+#: src/Plugins.php:596
 #, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
@@ -20468,7 +20467,7 @@ msgid "Error 405! Request method not allowed."
 msgstr ""
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3273
+#: src/Server/Privileges.php:3264
 #, fuzzy
 #| msgid "Host authentication order"
 msgid "Native MySQL authentication"
@@ -20521,48 +20520,48 @@ msgstr "\"%s\" фойдаланувчининг пароли муваффақи�
 msgid "You have revoked the privileges for %s."
 msgstr "\"%s\" фойдаланувчининг привилегиялари бекор қилинди."
 
-#: src/Server/Privileges.php:1285
+#: src/Server/Privileges.php:1279
 msgid "Revoke"
 msgstr "Бекор қилиш"
 
-#: src/Server/Privileges.php:1890
+#: src/Server/Privileges.php:1884
 msgid "No users selected for deleting!"
 msgstr "Ўчириш лозим бўлган фойдаланувчилар танланмаган!"
 
-#: src/Server/Privileges.php:1893
+#: src/Server/Privileges.php:1887
 msgid "Reloading the privileges"
 msgstr "Привилегиялар қайта юкланмоқда"
 
-#: src/Server/Privileges.php:1918
+#: src/Server/Privileges.php:1912
 msgid "The selected users have been deleted successfully."
 msgstr "Белгиланган фойдаланувчилар муваффақиятли ўчирилди."
 
-#: src/Server/Privileges.php:1992
+#: src/Server/Privileges.php:1986
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "\"%s\" учун привилегиялар ўзгартирилди."
 
-#: src/Server/Privileges.php:2149
+#: src/Server/Privileges.php:2143
 #, php-format
 msgid "Deleting %s"
 msgstr "\"%s\" ўчирилмоқда"
 
-#: src/Server/Privileges.php:2180
+#: src/Server/Privileges.php:2174
 msgid "The privileges were reloaded successfully."
 msgstr "Привилегиялар муваффақиятли қайта юкланди."
 
-#: src/Server/Privileges.php:2281
+#: src/Server/Privileges.php:2275
 #, php-format
 msgid "The user %s already exists!"
 msgstr "\"%s\" номли фойдаланувчи мавжуд!"
 
-#: src/Server/Privileges.php:2518
+#: src/Server/Privileges.php:2512
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Привилегиялар"
 
-#: src/Server/Privileges.php:2609
+#: src/Server/Privileges.php:2603
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -20580,7 +20579,7 @@ msgstr ""
 "маълумотлар сервер томонидан ишлатилаётган привилегиялардан фарқ қилиши "
 "мумкин. Бу ҳолда %sпривилегияларни қайта юклаш%s керак."
 
-#: src/Server/Privileges.php:2625
+#: src/Server/Privileges.php:2619
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -20599,11 +20598,11 @@ msgstr ""
 "маълумотлар сервер томонидан ишлатилаётган привилегиялардан фарқ қилиши "
 "мумкин. Бу ҳолда %sпривилегияларни қайта юклаш%s керак."
 
-#: src/Server/Privileges.php:2913
+#: src/Server/Privileges.php:2907
 msgid "You have added a new user."
 msgstr "Сиз янги фойдаланувчи қўшдингиз."
 
-#: src/Server/Privileges.php:3366
+#: src/Server/Privileges.php:3357
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -20840,17 +20839,17 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 "%1$s да ташқи калит (FOREIGN KEY) тузишда хатолик (маълумот турини текширинг)"
 
-#: src/Theme/ThemeManager.php:75
+#: src/Theme/ThemeManager.php:68
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "\"%s\" асл мавзуси топилмади!"
 
-#: src/Theme/ThemeManager.php:121
+#: src/Theme/ThemeManager.php:111
 #, php-format
 msgid "Theme %s not found!"
 msgstr "\"%s\" мавзуси топилмади!"
 
-#: src/Theme/Theme.php:182
+#: src/Theme/Theme.php:179
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "\"%s\" мавзуси расмларига тўғри йўл топилмади!"
