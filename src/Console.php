@@ -111,13 +111,12 @@ class Console
         $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
         $sqlHistory = $this->relation->getHistory($this->config->selectedServer['user']);
         $bookmarkContent = $this->getBookmarkContent();
-        $debug = isset($this->config->settings['DBG']) && $this->config->settings['DBG']['sql'];
 
         return $this->template->render('console/display', [
             'has_bookmark_feature' => $bookmarkFeature !== null,
             'sql_history' => $sqlHistory,
             'bookmark_content' => $bookmarkContent,
-            'debug' => $debug,
+            'debug' => $this->config->config->DBG->sql,
         ]);
     }
 }

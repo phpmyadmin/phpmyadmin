@@ -33,7 +33,7 @@ final class MainController
     public function __invoke(ServerRequest $request): Response
     {
         $config = Config::getInstance();
-        if (@file_exists(CONFIG_FILE) && ! $config->settings['DBG']['demo']) {
+        if (@file_exists(CONFIG_FILE) && ! $config->config->DBG->demo) {
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
 
             return $response->write($this->template->render('error/generic', [

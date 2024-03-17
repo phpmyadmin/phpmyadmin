@@ -276,7 +276,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
-        $config->settings['DBG']['sql'] = false;
 
         self::assertSame(
             'utf8_general_ci',
@@ -300,8 +299,10 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testGetServerCollation(): void
     {
         $dbi = $this->createDatabaseInterface();
-        Config::getInstance()->settings['DBG']['sql'] = true;
+        $config = Config::getInstance();
+        $config->config->DBG->sql = true;
         self::assertSame('utf8_general_ci', $dbi->getServerCollation());
+        $config->config->DBG->sql = false;
     }
 
     /**

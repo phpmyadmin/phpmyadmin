@@ -44,7 +44,6 @@ class ReplicationGuiTest extends AbstractTestCase
         $config->settings['ShowSQL'] = true;
         $config->settings['TableNavigationLinksMode'] = 'icons';
         $config->settings['LimitChars'] = 100;
-        $config->settings['DBG']['sql'] = false;
         $config->settings['ShowHint'] = true;
 
         Current::$table = 'table';

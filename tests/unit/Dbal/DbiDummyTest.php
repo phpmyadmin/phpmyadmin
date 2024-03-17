@@ -31,7 +31,6 @@ class DbiDummyTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
         $config = Config::getInstance();
-        $config->settings['DBG']['sql'] = false;
         $config->settings['IconvExtraParams'] = '';
     }
 
