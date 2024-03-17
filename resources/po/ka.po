@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-03-17 00:19+0000\n"
-"PO-Revision-Date: 2024-03-16 09:09+0000\n"
+"PO-Revision-Date: 2024-03-18 04:01+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ka/>\n"
@@ -1622,10 +1622,8 @@ msgid "Select page"
 msgstr "აირჩიეთ გვერდი"
 
 #: resources/templates/database/designer/schema_export.twig:3
-#, fuzzy
-#| msgid "Export relational schema"
 msgid "Select export relational type:"
-msgstr "ურთიერთობის სქემის გატანა"
+msgstr "აირჩიეთ გატანის რელაციის ტიპი:"
 
 #: resources/templates/database/events/editor_form.twig:7
 #: resources/templates/database/routines/editor_form.twig:7
@@ -3270,10 +3268,8 @@ msgid "Javascript must be enabled past this point!"
 msgstr ""
 
 #: resources/templates/header.twig:46
-#, fuzzy
-#| msgid "Add user account"
 msgid "Open user account menu"
-msgstr "მომხმარებლის ანგარიშის დამატება"
+msgstr "მომხმარებლის ანგარიშის მენიუს გახსნა"
 
 #: resources/templates/header.twig:57
 #: resources/templates/navigation/main.twig:35
@@ -3282,22 +3278,16 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin-ის დოკუმენტაცია"
 
 #: resources/templates/header.twig:62
-#, fuzzy
-#| msgid "MariaDB Documentation"
 msgid "MariaDB documentation"
 msgstr "MariaDB-ის დოკუმენტაცია"
 
 #: resources/templates/header.twig:62
-#, fuzzy
-#| msgid "MySQL Documentation"
 msgid "MySQL documentation"
 msgstr "MySQL-ის დოკუმენტაცია"
 
 #: resources/templates/header.twig:73
-#, fuzzy
-#| msgid "Appearance settings"
 msgid "Appearance:"
-msgstr "გარეგნობის პარამეტრები"
+msgstr "გარეგნობა:"
 
 #: resources/templates/header.twig:76 resources/templates/home/index.twig:152
 msgid "Color mode for the theme"
@@ -4358,7 +4348,7 @@ msgstr "რეპლიკის რეპლიკაცია"
 #: resources/templates/server/databases/index.twig:181
 #, php-format
 msgid "Jump to database '%s'"
-msgstr "'%s' ბაზაზე გადასვლა"
+msgstr "ბაზაზე გადასვლა '%s'"
 
 #: resources/templates/server/databases/index.twig:239
 #, php-format
@@ -5133,17 +5123,8 @@ msgid "Save changes"
 msgstr "ცვლილებების შენახვა"
 
 #: resources/templates/server/replication/change_primary.twig:4
-#, fuzzy
-#| msgctxt ""
-#| "phpMyAdmin configuration storage is not configured for \"Display "
-#| "Features\" on designer when user tries to set a display field."
-#| msgid ""
-#| "phpMyAdmin configuration storage is not configured for \"Display "
-#| "Features\"."
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr ""
-"phpMyAdmin-ის კონფიგურაციის საცავი \"ფუნქციების ჩვენებისთვის\" მორგებული "
-"არაა."
+msgstr "რეპლიკის მორგება - მთავარი სერვერის შეცვლა ან თავიდან მორგება"
 
 #: resources/templates/server/replication/change_primary.twig:8
 msgid ""
@@ -5450,14 +5431,10 @@ msgid "Advisor"
 msgstr "მრჩეველი"
 
 #: resources/templates/server/status/monitor/index.twig:4
-#, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
-msgstr "სისტემური მეხსიერება"
+msgstr "სისტემური მონიტორი"
 
 #: resources/templates/server/status/monitor/index.twig:7
-#, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "მონიტორის გაშვება"
 
@@ -6024,10 +6001,8 @@ msgid "ø Time"
 msgstr "ø დრო"
 
 #: resources/templates/sql/profiling_chart.twig:66
-#, fuzzy
-#| msgid "Profiling results"
 msgid "Pie chart with profiling results."
-msgstr "პროფილირების შედეგები"
+msgstr "გრაფიკი პროფილირების შედეგებით."
 
 #: resources/templates/sql/query.twig:6
 #: src/Controllers/Operations/ViewController.php:117
@@ -6447,10 +6422,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr ""
 
 #: resources/templates/table/operations/index.twig:2
-#, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
-msgstr "ცხრილის პარამეტრები"
+msgstr "ცხრილის ოპერაციები"
 
 #: resources/templates/table/operations/index.twig:6
 msgid "Alter table order by"
@@ -6978,19 +6951,16 @@ msgid "Reset zoom"
 msgstr "გადიდების საწყისი პარამეტრები"
 
 #: resources/templates/test/gettext/pgettext.twig:0
-#, fuzzy
 msgctxt "Text context"
 msgid "Text"
-msgstr "შემდეგი"
+msgstr "ტექსტი"
 
 #. l10n: Number of tables
 #: resources/templates/test/gettext/plural_notes.twig:0
 #: resources/templates/test/gettext/plural.twig:0
-#, fuzzy
-#| msgid "Use tables"
 msgid "One table"
 msgid_plural "%count% tables"
-msgstr[0] "გამოიყენე ცხრილები"
+msgstr[0] "%count% ცხრილი"
 
 #: resources/templates/transformation_overview.twig:1
 msgid "Available media types"
@@ -10939,7 +10909,7 @@ msgstr "Microsoft Word 2000"
 #: src/Config/Forms/User/ExportForm.php:120
 #: src/Config/Forms/User/ImportForm.php:46
 msgid "OpenDocument Spreadsheet"
-msgstr "OpenDocument Spreadsheet"
+msgstr "OpenDocument ელცხრილი"
 
 #: src/Config/Forms/User/ExportForm.php:124
 msgid "OpenDocument Text"
@@ -14374,10 +14344,8 @@ msgid "The partition name must be a non-empty string."
 msgstr "დანაყოფის სახელი არაცარიელი სტრიქონი უნდა იყოს."
 
 #: src/Controllers/Table/RecentFavoriteController.php:29
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "Invalid database or table name."
-msgstr "ცხრილის არასწორი სახელი"
+msgstr "არასწორი ბაზის ან ცხრილის სახელი."
 
 #: src/Controllers/Table/RelationController.php:323
 msgid "Display column was successfully updated."
@@ -14713,10 +14681,9 @@ msgid "%1$s total, %2$s in query"
 msgstr ""
 
 #: src/Display/Results.php:3456
-#, fuzzy, php-format
-#| msgid "%d total"
+#, php-format
 msgid "%s total"
-msgstr "%d სულ"
+msgstr "%s სულ"
 
 #: src/Display/Results.php:3469 src/Sql.php:864
 #, php-format
@@ -15255,10 +15222,8 @@ msgid "The table name cannot end with a space character."
 msgstr ""
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
-#| msgid "The table name must be a non-empty string."
 msgid "The trigger name must not be empty."
-msgstr "ცხრილის სახელი არ შეიძლება, ცარიელ სტრიქონს წარმოადგენდეს."
+msgstr "ტრიგერის სახელი არ შეიძლება, ცარიელი იყოს."
 
 #: src/Identifiers/InvalidTriggerName.php:20
 #, php-format
@@ -16633,6 +16598,9 @@ msgid ""
 "prefix like \"https://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
+"გამოიტანს ბმულს; სვეტი შეიცავს ფაილის სახელს. პირველი პარამეტრია ბმულის "
+"პრეფიქსი, \"https://www.example.com/\"-ის მსგავსი. მეორე პარამეტრი ბმულის "
+"სათაურია."
 
 #: src/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:30
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
