@@ -120,13 +120,13 @@ class ImportXml extends ImportPlugin
         /**
          * CREATE code included (by default: no)
          */
-        $structPresent = false;
+        $structPresent = isset($namespaces['pma']);
 
         /**
          * Retrieve the structure information
          */
         $create = [];
-        if (isset($namespaces['pma'])) {
+        if ($structPresent) {
             /**
              * Get structures for all tables
              *
@@ -154,8 +154,6 @@ class ImportXml extends ImportPlugin
                     }
                 }
             }
-
-            $structPresent = true;
         }
 
         /**
