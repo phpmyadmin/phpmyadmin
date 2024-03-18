@@ -54,6 +54,8 @@ class ImportCsv extends AbstractImportCsv
      */
     private bool $analyze = false;
 
+    private bool $replace = false;
+    private bool $ignore = false;
     private string $terminated = '';
     private string $enclosed = '';
     private string $escaped = '';
@@ -163,6 +165,8 @@ class ImportCsv extends AbstractImportCsv
 
     public function setImportOptions(ServerRequest $request): void
     {
+        $this->replace = $request->getParsedBodyParam('csv_replace') !== null;
+        $this->ignore = $request->getParsedBodyParam('csv_ignore') !== null;
         $this->terminated = (string) $request->getParsedBodyParam('csv_terminated');
         $this->enclosed = (string) $request->getParsedBodyParam('csv_enclosed');
         $this->escaped = (string) $request->getParsedBodyParam('csv_escaped');
@@ -182,9 +186,6 @@ class ImportCsv extends AbstractImportCsv
         $GLOBALS['error'] ??= null;
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-
-        // $csv_replace and $csv_ignore should have been here,
-        // but we use directly from $_POST
 
         $replacements = ['\\n' => "\n", '\\t' => "\t", '\\r' => "\r"];
         $this->terminated = strtr($this->terminated, $replacements);
@@ -523,7 +524,7 @@ class ImportCsv extends AbstractImportCsv
                     }
 
                     $sql .= ')';
-                    if (isset($_POST['csv_replace'])) {
+                    if ($this->replace) {
                         $sql .= ' ON DUPLICATE KEY UPDATE ';
                         foreach ($fields as $field) {
                             $fieldName = Util::backquote($field);
@@ -738,7 +739,7 @@ class ImportCsv extends AbstractImportCsv
         $fields = [];
         if (! $this->analyze && $db !== null && $table !== null) {
             $sqlTemplate = 'INSERT';
-            if (isset($_POST['csv_ignore'])) {
+            if ($this->ignore) {
                 $sqlTemplate .= ' IGNORE';
             }
 
