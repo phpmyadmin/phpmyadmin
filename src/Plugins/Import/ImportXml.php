@@ -65,39 +65,7 @@ class ImportXml extends ImportPlugin
     {
         $GLOBALS['error'] ??= null;
 
-        $buffer = '';
-
-        /**
-         * Read in the file via Import::getNextChunk so that
-         * it can process compressed files
-         */
-        /** @infection-ignore-all */
-        while (! ImportSettings::$finished && ! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
-            $data = $this->import->getNextChunk($importHandle);
-            if ($data === false) {
-                /* subtract data we didn't handle yet and stop processing */
-                ImportSettings::$offset -= strlen($buffer);
-                break;
-            }
-
-            if ($data === true) {
-                continue;
-            }
-
-            /* Append new data to buffer */
-            $buffer .= $data;
-        }
-
-        /**
-         * Load the XML string
-         *
-         * The option LIBXML_COMPACT is specified because it can
-         * result in increased performance without the need to
-         * alter the code in any way. It's basically a freebee.
-         */
-        $xml = @simplexml_load_string($buffer, SimpleXMLElement::class, LIBXML_COMPACT);
-
-        unset($buffer);
+        $xml = $this->getFileAsSimpleXmlElement($importHandle);
 
         /**
          * The XML was malformed
@@ -152,13 +120,13 @@ class ImportXml extends ImportPlugin
         /**
          * CREATE code included (by default: no)
          */
-        $structPresent = false;
+        $structPresent = isset($namespaces['pma']);
 
         /**
          * Retrieve the structure information
          */
         $create = [];
-        if (isset($namespaces['pma'])) {
+        if ($structPresent) {
             /**
              * Get structures for all tables
              *
@@ -186,8 +154,6 @@ class ImportXml extends ImportPlugin
                     }
                 }
             }
-
-            $structPresent = true;
         }
 
         /**
@@ -224,6 +190,8 @@ class ImportXml extends ImportPlugin
             $tables[$tableName] = $table;
         }
 
+        unset($xml);
+
         $tables = array_values($tables);
 
         foreach ($tables as $table) {
@@ -233,8 +201,6 @@ class ImportXml extends ImportPlugin
         if (! $structPresent) {
             $analyses = array_map($this->import->analyzeTable(...), $tables);
         }
-
-        unset($xml);
 
         /**
          * Only build SQL from data if there is data present.
@@ -267,5 +233,40 @@ class ImportXml extends ImportPlugin
         $this->import->runQuery('', $sqlStatements);
 
         return $sqlStatements;
+    }
+
+    private function getFileAsSimpleXmlElement(File|null $importHandle): false|SimpleXMLElement
+    {
+        $buffer = '';
+
+        /**
+         * Read in the file via Import::getNextChunk so that
+         * it can process compressed files
+         */
+        /** @infection-ignore-all */
+        while (! ImportSettings::$finished && ! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
+            $data = $this->import->getNextChunk($importHandle);
+            if ($data === false) {
+                /* subtract data we didn't handle yet and stop processing */
+                ImportSettings::$offset -= strlen($buffer);
+                break;
+            }
+
+            if ($data === true) {
+                continue;
+            }
+
+            /* Append new data to buffer */
+            $buffer .= $data;
+        }
+
+        /**
+         * Load the XML string
+         *
+         * The option LIBXML_COMPACT is specified because it can
+         * result in increased performance without the need to
+         * alter the code in any way. It's basically a freebee.
+         */
+        return @simplexml_load_string($buffer, SimpleXMLElement::class, LIBXML_COMPACT);
     }
 }
