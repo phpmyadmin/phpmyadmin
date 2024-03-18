@@ -1442,7 +1442,7 @@ class DatabaseInterface implements DbalInterface
      * @see https://mariadb.com/kb/en/mariadb-1005-release-notes/#newly-implemented-features
      * @see https://mariadb.com/kb/en/roles_overview/
      *
-     * @return array<int, array<int, string>> the current roles i.e. array of role@host
+     * @return list<string> the current roles i.e. array of role@host
      */
     public function getCurrentRoles(): array
     {

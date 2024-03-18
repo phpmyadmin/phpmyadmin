@@ -6681,12 +6681,7 @@ parameters:
 			path: src/DatabaseInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getCurrentRoles\\(\\) should return array\\<int, array\\<int, string\\>\\> but returns array\\<int, string\\>\\.$#"
-			count: 1
-			path: src/DatabaseInterface.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getCurrentRoles\\(\\) should return array\\<int, array\\<int, string\\>\\> but returns mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getCurrentRoles\\(\\) should return array\\<int, string\\> but returns mixed\\.$#"
 			count: 1
 			path: src/DatabaseInterface.php
 
@@ -6727,11 +6722,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$a of static method PhpMyAdmin\\\\Query\\\\Utilities\\:\\:usortComparisonCallback\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(array\\<int, string\\>\\)\\: mixed\\)\\|null, Closure\\(string\\)\\: non\\-empty\\-array\\<int, string\\> given\\.$#"
 			count: 1
 			path: src/DatabaseInterface.php
 
@@ -15779,11 +15769,6 @@ parameters:
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Database\\\\DesignerTest has an uninitialized property \\$designer\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
 			path: tests/unit/Database/DesignerTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\<string\\> and array\\<int, array\\<int, string\\>\\> will always evaluate to false\\.$#"
-			count: 1
-			path: tests/unit/DatabaseInterfaceTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$result of method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:addResult\\(\\) expects array\\<int, non\\-empty\\-array\\<int, float\\|int\\|string\\|null\\>\\>\\|bool, array\\<array\\<string\\>\\>\\|false given\\.$#"

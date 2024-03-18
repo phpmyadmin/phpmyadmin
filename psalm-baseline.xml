@@ -4887,11 +4887,6 @@
       <code><![CDATA['']]></code>
       <code><![CDATA['']]></code>
     </DocblockTypeContradiction>
-    <InvalidArgument>
-      <code><![CDATA[static function (string $role) {
-                return explode('@', $role);
-            }]]></code>
-    </InvalidArgument>
     <InvalidOperand>
       <code><![CDATA[$row['Data_free']]]></code>
       <code><![CDATA[$row['Data_length']]]></code>
@@ -4900,9 +4895,6 @@
       <code><![CDATA[$row['Max_data_length']]]></code>
       <code><![CDATA[$row['Rows']]]></code>
     </InvalidOperand>
-    <InvalidReturnStatement>
-      <code><![CDATA[$role]]></code>
-    </InvalidReturnStatement>
     <MixedArgument>
       <code><![CDATA[$a]]></code>
       <code><![CDATA[$b]]></code>
@@ -4935,7 +4927,7 @@
       <code><![CDATA[$this->versionString]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code><![CDATA[array<int, array<int, string>>]]></code>
+      <code><![CDATA[list<string>]]></code>
       <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[string]]></code>
