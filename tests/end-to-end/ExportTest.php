@@ -92,7 +92,7 @@ class ExportTest extends TestBase
      * @return array<int, array<int, string|array<int, string>>>
      * @psalm-return array<int, array{string, string[]}>
      */
-    public function exportDataProvider(): array
+    public static function exportDataProvider(): array
     {
         return [
             ['CSV', ['"1","2"']],
