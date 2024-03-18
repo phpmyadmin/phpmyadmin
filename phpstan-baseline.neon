@@ -15361,12 +15361,12 @@ parameters:
 			path: tests/unit/Config/DescriptionTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with ''\\|'; Compressed export…'\\|'Compressed export…'\\|'Compressed import…' and null will always evaluate to false\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\) with '' will always evaluate to true\\.$#"
 			count: 1
 			path: tests/unit/Config/FormDisplayTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'string' and 'string' will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with ''\\|'; Compressed export…'\\|'Compressed export…'\\|'Compressed import…' and null will always evaluate to false\\.$#"
 			count: 1
 			path: tests/unit/Config/FormDisplayTest.php
 
@@ -16657,11 +16657,6 @@ parameters:
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Table\\\\\\\\Table' and PhpMyAdmin\\\\Table\\\\Table will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/Table/TableTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\<PhpMyAdmin\\\\FieldMetadata\\> and array\\{'aNonValidExampleToR…'\\} will always evaluate to false\\.$#"
 			count: 1
 			path: tests/unit/Table/TableTest.php
 

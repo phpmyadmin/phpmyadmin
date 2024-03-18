@@ -14,12 +14,15 @@ use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionProperty;
+
+use const MYSQLI_TYPE_STRING;
 
 #[CoversClass(Table::class)]
 class TableTest extends AbstractTestCase
@@ -1124,10 +1127,12 @@ class TableTest extends AbstractTestCase
             ->with('SELECT * FROM `db`.`table` LIMIT 1')
             ->willReturn($resultStub);
 
+        $dummyFieldMetadata = FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING]);
+
         $dbi->expects(self::once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->willReturn(['aNonValidExampleToRefactor']);
+            ->willReturn([$dummyFieldMetadata]);
 
         DatabaseInterface::$instance = $dbi;
 
@@ -1135,7 +1140,7 @@ class TableTest extends AbstractTestCase
 
         self::assertSame(
             $tableObj->getColumnsMeta(),
-            ['aNonValidExampleToRefactor'],
+            [$dummyFieldMetadata],
         );
     }
 
@@ -1238,18 +1243,15 @@ class TableTest extends AbstractTestCase
 
         // Case 1 : Check if table is non-empty
         $return = $tableObj->checkIfMinRecordsExist();
-        $expect = true;
-        self::assertSame($expect, $return);
+        self::assertTrue($return);
 
         // Case 2 : Check if table contains at least 100
         $return = $tableObj->checkIfMinRecordsExist(100);
-        $expect = false;
-        self::assertSame($expect, $return);
+        self::assertFalse($return);
 
         // Case 3 : Check if table contains at least 100
         $return = $tableObj->checkIfMinRecordsExist(100);
-        $expect = true;
-        self::assertSame($expect, $return);
+        self::assertTrue($return);
 
         DatabaseInterface::$instance = $oldDbi;
     }
@@ -1332,8 +1334,7 @@ class TableTest extends AbstractTestCase
         $return = Table::moveCopy($sourceDb, $sourceTable, $targetDb, $targetTable, $what, $move, $mode, true);
 
         //successfully
-        $expect = true;
-        self::assertSame($expect, $return);
+        self::assertTrue($return);
         $sqlQuery = 'INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)'
             . ' SELECT `COLUMN_NAME1` FROM '
             . '`PMA`.`PMA_BookMark`';
@@ -1344,8 +1345,7 @@ class TableTest extends AbstractTestCase
         $return = Table::moveCopy($sourceDb, $sourceTable, $targetDb, $targetTable, $what, false, $mode, true);
 
         //successfully
-        $expect = true;
-        self::assertSame($expect, $return);
+        self::assertTrue($return);
         $sqlQuery = 'INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)'
             . ' SELECT `COLUMN_NAME1` FROM '
             . '`PMA`.`PMA_BookMark`';
