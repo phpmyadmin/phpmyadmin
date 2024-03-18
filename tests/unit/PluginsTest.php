@@ -74,10 +74,7 @@ class PluginsTest extends AbstractTestCase
         self::assertSame($expected, $default);
     }
 
-    /**
-     * @return mixed[][]
-     * @psalm-return array{array{string, string|int|null, string|null, 'Export'|'Import'|'Schema', string, bool|null}}
-     */
+    /** @return array<array{string, string|int|null, string|null, 'Export'|'Import'|'Schema', string, bool|null}> */
     public static function providerForTestGetDefault(): array
     {
         return [

@@ -1371,10 +1371,7 @@ SQL;
         self::assertSame($expected, Util::getMySQLDocuURL($link, $anchor));
     }
 
-    /**
-     * @return array<int, array<int, int|string>>
-     * @psalm-return array<int, array{string, string, int, string}>
-     */
+    /** @return array<int, array{string, string, string, string}> */
     public static function providerForTestGetMySQLDocuURL(): array
     {
         return [
