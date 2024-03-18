@@ -14136,7 +14136,7 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getNameAndTypeOfTheColumns\\(\\) should return array\\<string, string\\> but returns array\\<int\\|string, mixed\\>\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getNameAndTypeOfTheColumns\\(\\) should return array\\<string, string\\> but returns array\\.$#"
 			count: 1
 			path: src/Table/Table.php
 
@@ -15361,7 +15361,7 @@ parameters:
 			path: tests/unit/Config/DescriptionTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with ''\\|'; Compressed export…'\\|'Compressed export…'\\|'Compressed import…'\\|'Compressed import…'\\|'Compressed import…' and null will always evaluate to false\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with ''\\|'; Compressed export…'\\|'Compressed export…'\\|'Compressed import…' and null will always evaluate to false\\.$#"
 			count: 1
 			path: tests/unit/Config/FormDisplayTest.php
 
