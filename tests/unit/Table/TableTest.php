@@ -285,15 +285,6 @@ class TableTest extends AbstractTestCase
     }
 
     /**
-     * Test object creating
-     */
-    public function testCreate(): void
-    {
-        $table = new Table('table1', 'pma_test', $this->mockedDbi);
-        self::assertInstanceOf(Table::class, $table);
-    }
-
-    /**
      * Test for constructor
      */
     public function testConstruct(): void

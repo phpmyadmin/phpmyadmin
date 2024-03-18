@@ -16656,11 +16656,6 @@ parameters:
 			path: tests/unit/Table/TableTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Table\\\\\\\\Table' and PhpMyAdmin\\\\Table\\\\Table will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/Table/TableTest.php
-
-		-
 			message: "#^Cannot access offset 'SCHEMA_TABLES' on mixed\\.$#"
 			count: 1
 			path: tests/unit/Table/TableTest.php
