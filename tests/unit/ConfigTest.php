@@ -17,7 +17,6 @@ use ReflectionProperty;
 
 use function define;
 use function defined;
-use function file_exists;
 use function file_put_contents;
 use function fileperms;
 use function function_exists;
@@ -123,7 +122,7 @@ PHP;
 
         // Teardown
         unlink($tmpConfig);
-        self::assertFalse(file_exists($tmpConfig));
+        self::assertFileDoesNotExist($tmpConfig);
     }
 
     /**

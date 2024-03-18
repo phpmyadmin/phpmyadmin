@@ -15101,11 +15101,6 @@ parameters:
 			path: tests/config.e2e.inc.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement will always evaluate to true\\.$#"
-			count: 1
-			path: tests/end-to-end/Database/OperationsTest.php
-
-		-
 			message: "#^Call to function is_string\\(\\) with non\\-falsy\\-string will always evaluate to true\\.$#"
 			count: 2
 			path: tests/end-to-end/TestBase.php
@@ -15284,16 +15279,6 @@ parameters:
 			message: "#^Missing call to parent\\:\\:setUp\\(\\) method\\.$#"
 			count: 1
 			path: tests/unit/CacheTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Charsets\\\\\\\\Charset' and PhpMyAdmin\\\\Charsets\\\\Charset will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/Charsets/CharsetTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Charsets\\\\\\\\Collation' and PhpMyAdmin\\\\Charsets\\\\Collation will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/Charsets/CollationTest.php
 
 		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Command\\\\SetVersionCommandTest has an uninitialized property \\$command\\. Give it default value or assign it in the constructor\\.$#"
@@ -15744,11 +15729,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, mixed given\\.$#"
 			count: 1
 			path: tests/unit/Crypto/CryptoTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/Database/CentralColumnsTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$needle of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"

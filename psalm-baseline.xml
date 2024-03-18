@@ -13146,9 +13146,6 @@
                 [$this->modifiedColumnData[0], 0],
             )]]></code>
     </MixedArgument>
-    <RedundantCondition>
-      <code><![CDATA[assertIsArray]]></code>
-    </RedundantCondition>
   </file>
   <file src="tests/unit/Database/Designer/CommonTest.php">
     <DeprecatedMethod>

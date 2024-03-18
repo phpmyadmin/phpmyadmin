@@ -22,7 +22,6 @@ class CharsetTest extends AbstractTestCase
 
         $charset = Charset::fromServer($serverCharset);
 
-        self::assertInstanceOf(Charset::class, $charset);
         self::assertSame('utf8', $charset->getName());
         self::assertSame('utf8_general_ci', $charset->getDefaultCollation());
         self::assertSame('UTF-8 Unicode', $charset->getDescription());
