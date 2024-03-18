@@ -574,10 +574,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dummyDbi->addResult($sql, true);
         $dummyDbi->addResult('Invalid query', false);
 
-        self::assertInstanceOf(
-            ResultInterface::class,
-            $dbi->queryAsControlUser($sql),
-        );
+        $dbi->queryAsControlUser($sql);
         self::assertInstanceOf(
             ResultInterface::class,
             $dbi->tryQueryAsControlUser($sql),

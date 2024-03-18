@@ -74,8 +74,6 @@ class UserPreferencesTest extends AbstractTestCase
         $userPreferences = new UserPreferences($dbi1, new Relation($dbi1), new Template());
         $result = $userPreferences->load();
 
-        self::assertCount(3, $result);
-
         self::assertSame(
             [],
             $result['config_data'],

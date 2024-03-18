@@ -30,7 +30,6 @@ class PluginTest extends AbstractTestCase
             'authVersion' => '1.0',
         ]);
 
-        self::assertInstanceOf(Plugin::class, $plugin);
         self::assertSame('BLACKHOLE', $plugin->getName());
         self::assertSame('1.0', $plugin->getVersion());
         self::assertSame('ACTIVE', $plugin->getStatus());

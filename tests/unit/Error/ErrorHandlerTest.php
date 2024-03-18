@@ -279,7 +279,6 @@ class ErrorHandlerTest extends AbstractTestCase
         $errors = $errorHandler->getCurrentErrors();
         self::assertCount(1, $errors);
         $error = array_pop($errors);
-        self::assertInstanceOf(Error::class, $error);
         self::assertSame('Exception: Exception message.', $error->getOnlyMessage());
         self::assertStringContainsString($error->getDisplay(), $output);
         self::assertStringContainsString('Internal error', $output);
@@ -303,7 +302,6 @@ class ErrorHandlerTest extends AbstractTestCase
         $errors = $errorHandler->getCurrentErrors();
         self::assertCount(1, $errors);
         $error = array_pop($errors);
-        self::assertInstanceOf(Error::class, $error);
         self::assertSame('Exception: Exception message.', $error->getOnlyMessage());
         self::assertStringContainsString($error->getDisplay(), $output);
         self::assertStringContainsString('Exception: Exception message.', $output);

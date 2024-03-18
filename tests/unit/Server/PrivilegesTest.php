@@ -1790,8 +1790,6 @@ class PrivilegesTest extends AbstractTestCase
         // Test case 1 : empty queries
         $queries = [];
         $actual = $serverPrivileges->deleteUser($queries);
-        self::assertArrayHasKey(0, $actual);
-        self::assertArrayHasKey(1, $actual);
         self::assertSame('', $actual[0]);
         self::assertSame(
             'No users selected for deleting!',
@@ -1802,8 +1800,6 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['mode'] = 3;
         $queries = ['foo'];
         $actual = $serverPrivileges->deleteUser($queries);
-        self::assertArrayHasKey(0, $actual);
-        self::assertArrayHasKey(1, $actual);
         self::assertSame("foo\n# Reloading the privileges …\nFLUSH PRIVILEGES;", $actual[0]);
         self::assertSame(
             'The selected users have been deleted successfully.',
@@ -1814,8 +1810,6 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['mode'] = 1;
         $queries = ['bar'];
         $actual = $serverPrivileges->deleteUser($queries);
-        self::assertArrayHasKey(0, $actual);
-        self::assertArrayHasKey(1, $actual);
         self::assertSame('bar', $actual[0]);
         self::assertSame(
             'Some error occurred!' . "\n",

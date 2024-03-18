@@ -13958,11 +13958,6 @@
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
-  <file src="tests/unit/OpenDocumentTest.php">
-    <RedundantCondition>
-      <code><![CDATA[assertNotFalse]]></code>
-    </RedundantCondition>
-  </file>
   <file src="tests/unit/OperationsTest.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[providerGetPartitionMaintenanceChoices]]></code>
@@ -14391,11 +14386,6 @@
     <PropertyTypeCoercion>
       <code><![CDATA[Config::getInstance()->settings]]></code>
     </PropertyTypeCoercion>
-    <RedundantCondition>
-      <code><![CDATA[assertIsArray]]></code>
-      <code><![CDATA[assertIsArray]]></code>
-      <code><![CDATA[assertIsArray]]></code>
-    </RedundantCondition>
   </file>
   <file src="tests/unit/Query/CompatibilityTest.php">
     <PossiblyUnusedMethod>
@@ -14446,11 +14436,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <RedundantCondition>
-      <code><![CDATA[assertIsArray]]></code>
-      <code><![CDATA[assertIsArray]]></code>
-      <code><![CDATA[assertIsArray]]></code>
-    </RedundantCondition>
   </file>
   <file src="tests/unit/Server/PrivilegesTest.php">
     <DeprecatedMethod>
@@ -14648,9 +14633,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <RedundantCondition>
-      <code><![CDATA[assertIsArray]]></code>
-    </RedundantCondition>
   </file>
   <file src="tests/unit/Theme/ThemeTest.php">
     <PossiblyUnusedMethod>

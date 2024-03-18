@@ -100,7 +100,6 @@ class ThemeTest extends AbstractTestCase
             'original',
         );
         self::assertNotNull($newTheme);
-        self::assertInstanceOf(Theme::class, $newTheme);
     }
 
     /**

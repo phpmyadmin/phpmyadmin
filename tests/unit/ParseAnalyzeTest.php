@@ -30,7 +30,6 @@ class ParseAnalyzeTest extends AbstractTestCase
 
         /** @psalm-suppress TypeDoesNotContainType */
         self::assertSame('SELECT * FROM `sakila`.`actor`', $GLOBALS['unparsed_sql']);
-        self::assertCount(3, $actual);
         self::assertSame('sakila', $actual[1]);
         self::assertSame('actor', $actual[2]);
         self::assertTrue($actual[0]->flags->reload);
@@ -51,7 +50,6 @@ class ParseAnalyzeTest extends AbstractTestCase
 
         /** @psalm-suppress TypeDoesNotContainType */
         self::assertSame('SELECT `first_name`, `title` FROM `actor`, `film`', $GLOBALS['unparsed_sql']);
-        self::assertCount(3, $actual);
         self::assertSame('sakila', $actual[1]);
         self::assertSame('', $actual[2]);
         self::assertFalse($actual[0]->flags->reload);
