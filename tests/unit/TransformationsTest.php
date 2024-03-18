@@ -41,7 +41,6 @@ class TransformationsTest extends AbstractTestCase
         $config->selectedServer['table_info'] = '';
         $config->selectedServer['table_coords'] = '';
         $config->selectedServer['column_info'] = 'column_info';
-        $config->settings['DBG']['sql'] = false;
 
         $this->transformations = new Transformations();
     }

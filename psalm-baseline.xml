@@ -12245,6 +12245,7 @@
       <code><![CDATA[valuesForAllowThirdPartyFramingProvider]]></code>
       <code><![CDATA[valuesForAuthLogProvider]]></code>
       <code><![CDATA[valuesForBlowfishSecretProvider]]></code>
+      <code><![CDATA[valuesForDebugProvider]]></code>
       <code><![CDATA[valuesForExecTimeLimitProvider]]></code>
       <code><![CDATA[valuesForLimitCharsProvider]]></code>
       <code><![CDATA[valuesForMaxCharactersInDisplayedSQLProvider]]></code>
@@ -13231,6 +13232,10 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+    <InaccessibleProperty>
+      <code><![CDATA[$config->config->debug->sql]]></code>
+      <code><![CDATA[$config->config->debug->sql]]></code>
+    </InaccessibleProperty>
     <PossiblyUnusedMethod>
       <code><![CDATA[currentRolesData]]></code>
       <code><![CDATA[currentUserData]]></code>
@@ -13440,6 +13445,10 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <InaccessibleProperty>
+      <code><![CDATA[$config->config->debug->sql]]></code>
+      <code><![CDATA[$config->config->debug->sql]]></code>
+    </InaccessibleProperty>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['debug']['queries']]]></code>
     </MixedArrayAssignment>
@@ -14409,7 +14418,6 @@
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
   <file src="tests/unit/Routing/RoutingTest.php">
@@ -14562,11 +14570,6 @@
       <code><![CDATA[providerGetEngine]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="tests/unit/Stubs/DbiDummy.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="tests/unit/Stubs/DummyResult.php">
     <InvalidReturnStatement>
       <code><![CDATA[array_column($this->result, 1, 0)]]></code>
@@ -14699,7 +14702,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[['ServerDefault' => 1, 'ActionLinksMode' => 'icons']]]></code>
     </InvalidPropertyAssignmentValue>
     <PossiblyUnusedMethod>
@@ -14737,10 +14739,14 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->settings]]></code>
-      <code><![CDATA[$config->settings]]></code>
-    </InvalidPropertyAssignmentValue>
+    <InaccessibleProperty>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+    </InaccessibleProperty>
     <MixedArgument>
       <code><![CDATA[$object->config['settings']['secret']]]></code>
       <code><![CDATA[$object->config['settings']['secret']]]></code>

@@ -220,7 +220,8 @@ class Validator
         string $pass,
         string $errorKey = 'Server',
     ): bool|array {
-        if (Config::getInstance()->settings['DBG']['demo']) {
+        $config = Config::getInstance();
+        if ($config->config->debug->demo) {
             // Connection test disabled on the demo server!
             return true;
         }

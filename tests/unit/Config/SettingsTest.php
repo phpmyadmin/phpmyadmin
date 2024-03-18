@@ -226,7 +226,6 @@ class SettingsTest extends TestCase
         'DisableMultiTableMaintenance' => false,
         'SendErrorReports' => 'ask',
         'ConsoleEnterExecutes' => false,
-        'DBG' => null,
         'environment' => 'production',
         'DefaultFunctions' => [
             'FUNC_CHAR' => '',
@@ -265,11 +264,6 @@ class SettingsTest extends TestCase
         foreach (array_keys($expectedValues) as $key) {
             if ($key === 'Console') {
                 self::assertInstanceOf(Console::class, $settings->Console);
-                continue;
-            }
-
-            if ($key === 'DBG') {
-                self::assertInstanceOf(Debug::class, $settings->DBG);
                 continue;
             }
 
@@ -468,7 +462,6 @@ class SettingsTest extends TestCase
                     ['DisableMultiTableMaintenance', null, false],
                     ['SendErrorReports', null, 'ask'],
                     ['ConsoleEnterExecutes', null, false],
-                    ['DBG', null, null],
                     ['environment', null, 'production'],
                     ['DefaultFunctions', null, ['FUNC_CHAR' => '', 'FUNC_DATE' => '', 'FUNC_NUMBER' => '', 'FUNC_SPATIAL' => 'GeomFromText', 'FUNC_UUID' => 'UUID', 'first_timestamp' => 'NOW']],
                     ['maxRowPlotLimit', null, 500],
@@ -634,7 +627,6 @@ class SettingsTest extends TestCase
                     ['DisableMultiTableMaintenance', true, true],
                     ['SendErrorReports', 'never', 'never'],
                     ['ConsoleEnterExecutes', true, true],
-                    ['DBG', [], null],
                     ['environment', 'development', 'development'],
                     ['DefaultFunctions', ['key' => 'value', 'key2' => 'value2'], ['key' => 'value', 'key2' => 'value2']],
                     ['maxRowPlotLimit', 1, 1],
@@ -963,7 +955,6 @@ class SettingsTest extends TestCase
                     ['TrustedProxies', 'invalid', []],
                     ['LinkLengthLimit', 0, 1000],
                     ['SendErrorReports', 'invalid', 'ask'],
-                    ['DBG', 'invalid', null],
                     ['environment', 'invalid', 'production'],
                     ['DefaultFunctions', 'invalid', ['FUNC_CHAR' => '', 'FUNC_DATE' => '', 'FUNC_NUMBER' => '', 'FUNC_SPATIAL' => 'GeomFromText', 'FUNC_UUID' => 'UUID', 'first_timestamp' => 'NOW']],
                     ['maxRowPlotLimit', 0, 500],
@@ -1451,6 +1442,26 @@ class SettingsTest extends TestCase
         yield 'valid value' => [true, true];
         yield 'valid value 2' => [false, false];
         yield 'valid value with type coercion' => [0, false];
+    }
+
+    /** @param mixed[] $expected */
+    #[DataProvider('valuesForDebugProvider')]
+    public function testDebug(mixed $actual, array $expected): void
+    {
+        $settings = new Settings(['DBG' => $actual]);
+        $settingsArray = $settings->asArray();
+        $expectedDebug = new Debug($expected);
+        self::assertEquals($expectedDebug, $settings->debug);
+        self::assertSame($expectedDebug->asArray(), $settingsArray['DBG']);
+    }
+
+    /** @return iterable<string, array{mixed, mixed[]}> */
+    public static function valuesForDebugProvider(): iterable
+    {
+        yield 'null value' => [null, []];
+        yield 'valid value' => [[], []];
+        yield 'valid value 2' => [['demo' => true], ['demo' => true]];
+        yield 'invalid value' => ['invalid', []];
     }
 
     /** @param array{internal: int, human: string} $expected */

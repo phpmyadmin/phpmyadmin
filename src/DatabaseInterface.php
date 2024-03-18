@@ -209,7 +209,6 @@ class DatabaseInterface implements DbalInterface
         int $options = self::QUERY_BUFFERED,
         bool $cacheAffectedRows = true,
     ): ResultInterface|false {
-        $debug = isset($this->config->settings['DBG']) && $this->config->settings['DBG']['sql'];
         if (! isset($this->connections[$connectionType->value])) {
             return false;
         }
@@ -226,7 +225,7 @@ class DatabaseInterface implements DbalInterface
             $GLOBALS['cached_affected_rows'] = $this->affectedRows($connectionType, false);
         }
 
-        if ($debug) {
+        if ($this->config->config->debug->sql) {
             $errorMessage = $this->getError($connectionType);
             Utilities::debugLogQueryIntoSession(
                 $query,
@@ -234,7 +233,7 @@ class DatabaseInterface implements DbalInterface
                 $result,
                 $this->lastQueryExecutionTime,
             );
-            if ($this->config->settings['DBG']['sqllog']) {
+            if ($this->config->config->debug->sqllog) {
                 openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_USER);
 
                 syslog(
