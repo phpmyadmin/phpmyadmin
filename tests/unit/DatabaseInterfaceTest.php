@@ -18,7 +18,6 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
-use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Utils\SessionCache;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -168,16 +167,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ],
             ['10.5.0-MariaDB', true, [['@`localhost`']], ['@localhost'], [['', 'localhost']]],
         ];
-    }
-
-    /**
-     * Tests for DBI::getSystemDatabase() method.
-     */
-    public function testGetSystemDatabase(): void
-    {
-        $dbi = $this->createDatabaseInterface();
-        $sd = $dbi->getSystemDatabase();
-        self::assertInstanceOf(SystemDatabase::class, $sd);
     }
 
     /**

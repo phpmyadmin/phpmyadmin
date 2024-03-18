@@ -10,7 +10,6 @@ use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Identifiers\DatabaseName;
-use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Table\Table;
 
 /**
@@ -541,11 +540,6 @@ interface DbalInterface
      * @param int $process Process ID
      */
     public function getKillQuery(int $process): string;
-
-    /**
-     * Get the phpmyadmin database manager
-     */
-    public function getSystemDatabase(): SystemDatabase;
 
     /**
      * Get a table with database name and table name

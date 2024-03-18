@@ -1922,14 +1922,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Get the phpmyadmin database manager
-     */
-    public function getSystemDatabase(): SystemDatabase
-    {
-        return new SystemDatabase($this);
-    }
-
-    /**
      * Get a table with database name and table name
      *
      * @param string $dbName    DB name

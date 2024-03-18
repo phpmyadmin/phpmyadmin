@@ -15781,11 +15781,6 @@ parameters:
 			path: tests/unit/Database/DesignerTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\SystemDatabase' and PhpMyAdmin\\\\SystemDatabase will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/DatabaseInterfaceTest.php
-
-		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\<string\\> and array\\<int, array\\<int, string\\>\\> will always evaluate to false\\.$#"
 			count: 1
 			path: tests/unit/DatabaseInterfaceTest.php
