@@ -32,7 +32,7 @@ class HeaderTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setLanguage();
+        $this->setLanguage();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
@@ -40,7 +40,7 @@ class HeaderTest extends AbstractTestCase
         Current::$database = 'db';
         Current::$table = '';
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         $config = Config::getInstance();
         $config->settings['Servers'] = [];

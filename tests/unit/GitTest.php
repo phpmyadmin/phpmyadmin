@@ -36,7 +36,7 @@ class GitTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setProxySettings();
+        $this->setProxySettings();
 
         $this->testDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR
                         . 'gittempdir_' . random_int(0, mt_getrandmax()) . DIRECTORY_SEPARATOR;

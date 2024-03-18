@@ -27,7 +27,7 @@ class FormTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         $this->object = new Form(
             'pma_form_name',

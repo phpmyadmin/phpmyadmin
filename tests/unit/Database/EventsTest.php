@@ -24,9 +24,9 @@ class EventsTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
-        parent::setLanguage();
+        $this->setLanguage();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$database = 'db';

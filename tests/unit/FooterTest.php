@@ -32,9 +32,9 @@ class FooterTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setLanguage();
+        $this->setLanguage();
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $_SERVER['SCRIPT_NAME'] = 'index.php';

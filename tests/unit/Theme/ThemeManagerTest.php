@@ -20,7 +20,7 @@ class ThemeManagerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         $config = Config::getInstance();
         $config->settings['ThemePerServer'] = false;

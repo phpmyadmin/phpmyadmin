@@ -39,7 +39,7 @@ class NavigationControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        parent::setLanguage();
+        $this->setLanguage();
 
         Current::$database = 'air-balloon_burner_dev2';
         $config = Config::getInstance();
@@ -186,7 +186,7 @@ class NavigationControllerTest extends AbstractTestCase
 
     public function testIndexWithPosAndValue(): void
     {
-        parent::setLanguage();
+        $this->setLanguage();
 
         Current::$database = 'air-balloon_burner_dev2';
         $config = Config::getInstance();

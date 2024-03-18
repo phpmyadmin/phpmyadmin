@@ -37,9 +37,9 @@ class AuthenticationSignonTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setLanguage();
+        $this->setLanguage();
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$database = 'db';

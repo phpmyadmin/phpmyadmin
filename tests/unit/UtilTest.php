@@ -162,7 +162,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerExpandUserString')]
     public function testExpandUserString(string $in, string $out): void
     {
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         $config = Config::getInstance();
         $config->selectedServer['host'] = 'host&';
@@ -731,7 +731,7 @@ class UtilTest extends AbstractTestCase
             self::markTestSkipped('Missing compiled locales.');
         }
 
-        parent::setLanguage();
+        $this->setLanguage();
 
         // A test case for #15830 could be added for using the php setlocale on a Windows CI
         // See https://github.com/phpmyadmin/phpmyadmin/issues/15830

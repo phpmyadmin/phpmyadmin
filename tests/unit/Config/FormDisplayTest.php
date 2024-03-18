@@ -30,7 +30,7 @@ class FormDisplayTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         Current::$server = 2;
         $this->object = new FormDisplay(new ConfigFile());

@@ -40,7 +40,7 @@ class ImportControllerTest extends AbstractTestCase
 
     public function testIndexParametrized(): void
     {
-        parent::setLanguage();
+        $this->setLanguage();
 
         Config::getInstance()->selectedServer['user'] = 'user';
 

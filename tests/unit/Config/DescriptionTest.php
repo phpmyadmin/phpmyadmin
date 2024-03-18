@@ -24,7 +24,7 @@ class DescriptionTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
     }
 
     /**

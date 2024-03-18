@@ -28,7 +28,7 @@ class NodeDatabaseChildTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setLanguage();
+        $this->setLanguage();
 
         $config = Config::getInstance();
         $config->settings['DefaultTabDatabase'] = 'structure';

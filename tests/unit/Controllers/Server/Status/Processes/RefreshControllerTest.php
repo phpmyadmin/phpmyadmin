@@ -31,7 +31,7 @@ class RefreshControllerTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         Current::$database = 'db';
         Current::$table = 'table';

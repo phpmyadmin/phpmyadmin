@@ -31,7 +31,7 @@ class UrlTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setLanguage();
+        $this->setLanguage();
 
         unset($_COOKIE['pma_lang']);
         Config::getInstance()->set('URLQueryEncryption', false);

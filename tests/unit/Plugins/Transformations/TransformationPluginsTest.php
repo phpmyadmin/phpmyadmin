@@ -106,7 +106,7 @@ class TransformationPluginsTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setLanguage();
+        $this->setLanguage();
 
         // For Application Octetstream Download plugin
 
@@ -114,7 +114,7 @@ class TransformationPluginsTest extends AbstractTestCase
         $GLOBALS['row'] = ['pma' => 'aaa', 'pca' => 'bbb'];
 
         // For Image_*_Inline plugin
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         // For Date Format plugin
         date_default_timezone_set('UTC');

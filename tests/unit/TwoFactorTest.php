@@ -239,7 +239,7 @@ class TwoFactorTest extends AbstractTestCase
     #[RequiresPhpExtension('xmlwriter')]
     public function testApplication(): void
     {
-        parent::setLanguage();
+        $this->setLanguage();
 
         $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
 
@@ -293,7 +293,7 @@ class TwoFactorTest extends AbstractTestCase
 
     public function testKey(): void
     {
-        parent::setLanguage();
+        $this->setLanguage();
 
         $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
 

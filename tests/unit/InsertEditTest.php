@@ -60,9 +60,9 @@ class InsertEditTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setLanguage();
+        $this->setLanguage();
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);

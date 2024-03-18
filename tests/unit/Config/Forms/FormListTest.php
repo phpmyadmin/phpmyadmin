@@ -28,7 +28,7 @@ class FormListTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
     }
 
     /**

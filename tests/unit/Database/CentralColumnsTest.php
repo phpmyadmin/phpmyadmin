@@ -105,7 +105,7 @@ class CentralColumnsTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         $config = Config::getInstance();
         $config->selectedServer['user'] = 'pma_user';
