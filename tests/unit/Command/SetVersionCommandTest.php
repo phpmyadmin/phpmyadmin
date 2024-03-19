@@ -19,7 +19,7 @@ class SetVersionCommandTest extends AbstractTestCase
 {
     private SetVersionCommand $command;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         if (! class_exists(Command::class)) {
             return;

@@ -12,7 +12,7 @@ use stdClass;
 #[CoversClass(Cache::class)]
 class CacheTest extends AbstractTestCase
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         Cache::purge();
     }
