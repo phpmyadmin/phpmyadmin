@@ -646,17 +646,13 @@ abstract class TestBase extends TestCase
             $this->typeInTextArea($query);
             $this->scrollIntoView('button_submit_query');
             $this->byId('button_submit_query')->click();
-            if ($afterSubmit !== null) {
-                $afterSubmit->call($this);
-            }
+            $afterSubmit?->call($this);
 
             $this->waitAjax();
             $this->waitForElement('className', 'result_query');
             // If present then
             $didSucceed = $this->isElementPresent('xpath', '//*[@class="result_query"]//*[contains(., "success")]');
-            if ($onResults !== null) {
-                $onResults->call($this);
-            }
+            $onResults?->call($this);
         }
 
         reset($handles);
