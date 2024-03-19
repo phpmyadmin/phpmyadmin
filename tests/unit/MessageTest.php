@@ -405,8 +405,7 @@ class MessageTest extends AbstractTestCase
     public function testAffectedRows(int $rows, string $output): void
     {
         $this->object = new Message();
-        $msg = $this->object->getMessageForAffectedRows($rows);
-        $this->object->addMessage($msg);
+        $this->object->addMessage(Message::getMessageForAffectedRows($rows));
         self::assertSame($output, $this->object->getDisplay());
     }
 
@@ -449,8 +448,7 @@ class MessageTest extends AbstractTestCase
     public function testInsertedRows(int $rows, string $output): void
     {
         $this->object = new Message();
-        $msg = $this->object->getMessageForInsertedRows($rows);
-        $this->object->addMessage($msg);
+        $this->object->addMessage(Message::getMessageForInsertedRows($rows));
         self::assertSame($output, $this->object->getDisplay());
     }
 
@@ -493,8 +491,7 @@ class MessageTest extends AbstractTestCase
     public function testDeletedRows(int $rows, string $output): void
     {
         $this->object = new Message();
-        $msg = $this->object->getMessageForDeletedRows($rows);
-        $this->object->addMessage($msg);
+        $this->object->addMessage(Message::getMessageForDeletedRows($rows));
         self::assertSame($output, $this->object->getDisplay());
     }
 }
