@@ -26,7 +26,6 @@ class CollationTest extends AbstractTestCase
 
         $collation = Collation::fromServer($serverCollation);
 
-        self::assertInstanceOf(Collation::class, $collation);
         self::assertSame('utf8_general_ci', $collation->getName());
         self::assertSame('Unicode, case-insensitive', $collation->getDescription());
         self::assertSame('utf8', $collation->getCharset());

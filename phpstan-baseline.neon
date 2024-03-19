@@ -6681,12 +6681,7 @@ parameters:
 			path: src/DatabaseInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getCurrentRoles\\(\\) should return array\\<int, array\\<int, string\\>\\> but returns array\\<int, string\\>\\.$#"
-			count: 1
-			path: src/DatabaseInterface.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getCurrentRoles\\(\\) should return array\\<int, array\\<int, string\\>\\> but returns mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getCurrentRoles\\(\\) should return array\\<int, string\\> but returns mixed\\.$#"
 			count: 1
 			path: src/DatabaseInterface.php
 
@@ -6727,11 +6722,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$a of static method PhpMyAdmin\\\\Query\\\\Utilities\\:\\:usortComparisonCallback\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(array\\<int, string\\>\\)\\: mixed\\)\\|null, Closure\\(string\\)\\: non\\-empty\\-array\\<int, string\\> given\\.$#"
 			count: 1
 			path: src/DatabaseInterface.php
 
@@ -14136,7 +14126,7 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getNameAndTypeOfTheColumns\\(\\) should return array\\<string, string\\> but returns array\\<int\\|string, mixed\\>\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Table\\\\Table\\:\\:getNameAndTypeOfTheColumns\\(\\) should return array\\<string, string\\> but returns array\\.$#"
 			count: 1
 			path: src/Table/Table.php
 
@@ -15111,11 +15101,6 @@ parameters:
 			path: tests/config.e2e.inc.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement will always evaluate to true\\.$#"
-			count: 1
-			path: tests/end-to-end/Database/OperationsTest.php
-
-		-
 			message: "#^Call to function is_string\\(\\) with non\\-falsy\\-string will always evaluate to true\\.$#"
 			count: 2
 			path: tests/end-to-end/TestBase.php
@@ -15296,16 +15281,6 @@ parameters:
 			path: tests/unit/CacheTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Charsets\\\\\\\\Charset' and PhpMyAdmin\\\\Charsets\\\\Charset will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/Charsets/CharsetTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Charsets\\\\\\\\Collation' and PhpMyAdmin\\\\Charsets\\\\Collation will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/Charsets/CollationTest.php
-
-		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Command\\\\SetVersionCommandTest has an uninitialized property \\$command\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
 			path: tests/unit/Command/SetVersionCommandTest.php
@@ -15361,12 +15336,12 @@ parameters:
 			path: tests/unit/Config/DescriptionTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with ''\\|'; Compressed export…'\\|'Compressed export…'\\|'Compressed import…'\\|'Compressed import…'\\|'Compressed import…' and null will always evaluate to false\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\) with '' will always evaluate to true\\.$#"
 			count: 1
 			path: tests/unit/Config/FormDisplayTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'string' and 'string' will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with ''\\|'; Compressed export…'\\|'Compressed export…'\\|'Compressed import…' and null will always evaluate to false\\.$#"
 			count: 1
 			path: tests/unit/Config/FormDisplayTest.php
 
@@ -15756,11 +15731,6 @@ parameters:
 			path: tests/unit/Crypto/CryptoTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/Database/CentralColumnsTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$needle of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/unit/Database/CentralColumnsTest.php
@@ -15779,21 +15749,6 @@ parameters:
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Database\\\\DesignerTest has an uninitialized property \\$designer\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
 			path: tests/unit/Database/DesignerTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Dbal\\\\\\\\ResultInterface' and PhpMyAdmin\\\\Dbal\\\\ResultInterface will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/DatabaseInterfaceTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\SystemDatabase' and PhpMyAdmin\\\\SystemDatabase will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/DatabaseInterfaceTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\<string\\> and array\\<int, array\\<int, string\\>\\> will always evaluate to false\\.$#"
-			count: 1
-			path: tests/unit/DatabaseInterfaceTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$result of method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:addResult\\(\\) expects array\\<int, non\\-empty\\-array\\<int, float\\|int\\|string\\|null\\>\\>\\|bool, array\\<array\\<string\\>\\>\\|false given\\.$#"
@@ -15894,11 +15849,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 3
 			path: tests/unit/Display/ResultsTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Error\\\\\\\\Error' and PhpMyAdmin\\\\Error\\\\Error will always evaluate to true\\.$#"
-			count: 2
-			path: tests/unit/Error/ErrorHandlerTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
@@ -16246,16 +16196,6 @@ parameters:
 			path: tests/unit/NormalizationTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotFalse\\(\\) with string will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/OpenDocumentTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) with 3 and array\\{PhpMyAdmin\\\\SqlParser\\\\Utils\\\\StatementInfo, string, string\\} will always evaluate to true\\.$#"
-			count: 2
-			path: tests/unit/ParseAnalyzeTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Partitioning\\\\TablePartitionDefinitionTest\\:\\:testGetDetails\\(\\) has parameter \\$partitions with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/unit/Partitioning/TablePartitionDefinitionTest.php
@@ -16456,29 +16396,9 @@ parameters:
 			path: tests/unit/Plugins/Transformations/TransformationPluginsTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\> will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/PluginsTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, PhpMyAdmin\\\\Plugins\\\\ImportPlugin\\> will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/PluginsTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, PhpMyAdmin\\\\Plugins\\\\SchemaPlugin\\> will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/PluginsTest.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
 			path: tests/unit/PluginsTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\OptionsPropertyGroup' and PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/Properties/Options/OptionsPropertyGroupTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
@@ -16496,39 +16416,9 @@ parameters:
 			path: tests/unit/Routing/RoutingTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Server\\\\\\\\Plugin' and PhpMyAdmin\\\\Server\\\\Plugin will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/Server/PluginTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Server\\\\\\\\Plugin' and PhpMyAdmin\\\\Server\\\\Plugin will always evaluate to true\\.$#"
-			count: 2
-			path: tests/unit/Server/PluginsTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<PhpMyAdmin\\\\Server\\\\Plugin\\> will always evaluate to true\\.$#"
-			count: 2
-			path: tests/unit/Server/PluginsTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int\\|string, string\\> will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/Server/PluginsTest.php
-
-		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Server\\\\PluginsTest has an uninitialized property \\$plugins\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
 			path: tests/unit/Server/PluginsTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 0 and array\\{string, PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
-			count: 3
-			path: tests/unit/Server/PrivilegesTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 1 and array\\{string, PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
-			count: 3
-			path: tests/unit/Server/PrivilegesTest.php
 
 		-
 			message: "#^Cannot call method getMessage\\(\\) on mixed\\.$#"
@@ -16656,16 +16546,6 @@ parameters:
 			path: tests/unit/Table/TableTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Table\\\\\\\\Table' and PhpMyAdmin\\\\Table\\\\Table will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/Table/TableTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\<PhpMyAdmin\\\\FieldMetadata\\> and array\\{'aNonValidExampleToR…'\\} will always evaluate to false\\.$#"
-			count: 1
-			path: tests/unit/Table/TableTest.php
-
-		-
 			message: "#^Cannot access offset 'SCHEMA_TABLES' on mixed\\.$#"
 			count: 1
 			path: tests/unit/Table/TableTest.php
@@ -16686,19 +16566,9 @@ parameters:
 			path: tests/unit/Table/TableTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/Theme/ThemeManagerTest.php
-
-		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with true will always evaluate to true\\.$#"
 			count: 1
 			path: tests/unit/Theme/ThemeManagerTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Theme\\\\\\\\Theme' and PhpMyAdmin\\\\Theme\\\\Theme will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/Theme/ThemeTest.php
 
 		-
 			message: "#^Casting to int something that's already int\\.$#"
@@ -16749,11 +16619,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UserPasswordTest\\:\\:providerSetChangePasswordMsg\\(\\) should return array\\<array\\{bool, PhpMyAdmin\\\\Message, string, string, string\\}\\> but returns array\\{array\\{false, PhpMyAdmin\\\\Message, true, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', 'a'\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', 'b'\\}, array\\{true, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}, array\\{false, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}\\}\\.$#"
 			count: 1
 			path: tests/unit/UserPasswordTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) with 3 and array\\{config_data\\: array, mtime\\: int, type\\: 'db'\\|'session'\\} will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/UserPreferencesTest.php
 
 		-
 			message: "#^Cannot access offset 'db' on mixed\\.$#"

@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Server\Plugin;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -35,12 +34,10 @@ class PluginsTest extends AbstractTestCase
 
         $plugins = $this->plugins->getAll();
 
-        self::assertIsArray($plugins);
         self::assertNotEmpty($plugins);
 
         $plugin = $plugins[0];
 
-        self::assertInstanceOf(Plugin::class, $plugin);
         self::assertSame([
             'name' => 'BLACKHOLE',
             'version' => '1.0',
@@ -68,12 +65,10 @@ class PluginsTest extends AbstractTestCase
 
         $plugins = $this->plugins->getAll();
 
-        self::assertIsArray($plugins);
         self::assertNotEmpty($plugins);
 
         $plugin = $plugins[0];
 
-        self::assertInstanceOf(Plugin::class, $plugin);
         self::assertSame([
             'name' => 'partition',
             'version' => null,
@@ -95,7 +90,6 @@ class PluginsTest extends AbstractTestCase
     {
         $this->plugins = new Plugins(DatabaseInterface::getInstance());
         $plugins = $this->plugins->getAuthentication();
-        self::assertIsArray($plugins);
         self::assertNotEmpty($plugins);
         self::assertSame(
             [

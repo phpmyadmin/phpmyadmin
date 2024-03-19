@@ -43,12 +43,7 @@ class OperationsTest extends TestBase
         $this->byName('comment')->sendKeys('comment_foobar');
         $this->byCssSelector("form#formDatabaseComment input[type='submit']")->click();
 
-        self::assertNotNull(
-            $this->waitForElement(
-                'xpath',
-                "//span[@class='breadcrumb-comment' and contains(., 'comment_foobar')]",
-            ),
-        );
+        $this->waitForElement('xpath', "//span[@class='breadcrumb-comment' and contains(., 'comment_foobar')]");
     }
 
     /**

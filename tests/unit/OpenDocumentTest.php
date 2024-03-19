@@ -22,7 +22,6 @@ class OpenDocumentTest extends AbstractTestCase
     public function testCreateDocument(): void
     {
         $document = OpenDocument::create('application/vnd.oasis.opendocument.text', '<data>');
-        self::assertNotFalse($document);
 
         $tmpFile = tempnam('./', 'open-document-test');
         self::assertNotFalse($tmpFile);

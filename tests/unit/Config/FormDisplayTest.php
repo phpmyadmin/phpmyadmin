@@ -17,7 +17,6 @@ use ReflectionMethod;
 use ReflectionProperty;
 
 use function function_exists;
-use function gettype;
 
 #[CoversClass(FormDisplay::class)]
 class FormDisplayTest extends AbstractTestCase
@@ -204,10 +203,7 @@ class FormDisplayTest extends AbstractTestCase
                 [&$value, $arr],
             ),
         );
-        self::assertSame(
-            'string',
-            gettype($value),
-        );
+        self::assertIsString($value);
 
         $arr = [0 => 'foobar'];
         $value = 0;

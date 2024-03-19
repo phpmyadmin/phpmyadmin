@@ -20,6 +20,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -210,7 +211,7 @@ class CreateController extends AbstractController
             $viewColumns = explode(',', $view['column_names']);
         }
 
-        $systemDb = $this->dbi->getSystemDatabase();
+        $systemDb = new SystemDatabase($this->dbi);
         $pmaTransformationData = $systemDb->getExistingTransformationData(Current::$database);
 
         if ($pmaTransformationData !== false) {

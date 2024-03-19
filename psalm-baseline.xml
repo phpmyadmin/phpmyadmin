@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.23.0@005e3184fb6de4350a873b9b8c4dc3cede9db762">
+<files psalm-version="5.23.1@8471a896ccea3526b26d082f4461eeea467f10a4">
   <file src="app/services_loader.php">
     <MixedArgument>
       <code><![CDATA[$argumentName]]></code>
@@ -4887,11 +4887,6 @@
       <code><![CDATA['']]></code>
       <code><![CDATA['']]></code>
     </DocblockTypeContradiction>
-    <InvalidArgument>
-      <code><![CDATA[static function (string $role) {
-                return explode('@', $role);
-            }]]></code>
-    </InvalidArgument>
     <InvalidOperand>
       <code><![CDATA[$row['Data_free']]]></code>
       <code><![CDATA[$row['Data_length']]]></code>
@@ -4900,9 +4895,6 @@
       <code><![CDATA[$row['Max_data_length']]]></code>
       <code><![CDATA[$row['Rows']]]></code>
     </InvalidOperand>
-    <InvalidReturnStatement>
-      <code><![CDATA[$role]]></code>
-    </InvalidReturnStatement>
     <MixedArgument>
       <code><![CDATA[$a]]></code>
       <code><![CDATA[$b]]></code>
@@ -4935,7 +4927,7 @@
       <code><![CDATA[$this->versionString]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code><![CDATA[array<int, array<int, string>>]]></code>
+      <code><![CDATA[list<string>]]></code>
       <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[string]]></code>
@@ -13154,9 +13146,6 @@
                 [$this->modifiedColumnData[0], 0],
             )]]></code>
     </MixedArgument>
-    <RedundantCondition>
-      <code><![CDATA[assertIsArray]]></code>
-    </RedundantCondition>
   </file>
   <file src="tests/unit/Database/Designer/CommonTest.php">
     <DeprecatedMethod>
@@ -13958,11 +13947,6 @@
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
-  <file src="tests/unit/OpenDocumentTest.php">
-    <RedundantCondition>
-      <code><![CDATA[assertNotFalse]]></code>
-    </RedundantCondition>
-  </file>
   <file src="tests/unit/OperationsTest.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[providerGetPartitionMaintenanceChoices]]></code>
@@ -14391,11 +14375,6 @@
     <PropertyTypeCoercion>
       <code><![CDATA[Config::getInstance()->settings]]></code>
     </PropertyTypeCoercion>
-    <RedundantCondition>
-      <code><![CDATA[assertIsArray]]></code>
-      <code><![CDATA[assertIsArray]]></code>
-      <code><![CDATA[assertIsArray]]></code>
-    </RedundantCondition>
   </file>
   <file src="tests/unit/Query/CompatibilityTest.php">
     <PossiblyUnusedMethod>
@@ -14446,11 +14425,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <RedundantCondition>
-      <code><![CDATA[assertIsArray]]></code>
-      <code><![CDATA[assertIsArray]]></code>
-      <code><![CDATA[assertIsArray]]></code>
-    </RedundantCondition>
   </file>
   <file src="tests/unit/Server/PrivilegesTest.php">
     <DeprecatedMethod>
@@ -14648,9 +14622,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <RedundantCondition>
-      <code><![CDATA[assertIsArray]]></code>
-    </RedundantCondition>
   </file>
   <file src="tests/unit/Theme/ThemeTest.php">
     <PossiblyUnusedMethod>

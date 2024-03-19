@@ -405,7 +405,6 @@ class CentralColumnsTest extends AbstractTestCase
     public function testGetColumnsNotInCentralList(): void
     {
         $columns = $this->centralColumns->getColumnsNotInCentralList('PMA_db', 'PMA_table');
-        self::assertIsArray($columns);
         self::assertSame(['id', 'col1', 'col2'], $columns);
     }
 }

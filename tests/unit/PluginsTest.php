@@ -28,7 +28,6 @@ class PluginsTest extends AbstractTestCase
     {
         $plugins = Plugins::getExport('database', false);
         self::assertSame(['export_type' => 'database', 'single_table' => false], $GLOBALS['plugin_param']);
-        self::assertIsArray($plugins);
         self::assertCount(14, $plugins);
         self::assertContainsOnlyInstancesOf(Plugins\ExportPlugin::class, $plugins);
     }
@@ -37,7 +36,6 @@ class PluginsTest extends AbstractTestCase
     {
         ImportSettings::$importType = 'database';
         $plugins = Plugins::getImport();
-        self::assertIsArray($plugins);
         self::assertCount(6, $plugins);
         self::assertContainsOnlyInstancesOf(Plugins\ImportPlugin::class, $plugins);
     }
@@ -45,7 +43,6 @@ class PluginsTest extends AbstractTestCase
     public function testGetSchema(): void
     {
         $plugins = Plugins::getSchema();
-        self::assertIsArray($plugins);
         self::assertCount(4, $plugins);
         self::assertContainsOnlyInstancesOf(Plugins\SchemaPlugin::class, $plugins);
     }

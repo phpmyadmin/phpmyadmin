@@ -67,14 +67,6 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         );
     }
 
-    public function testGetGroup(): void
-    {
-        self::assertInstanceOf(
-            OptionsPropertyGroup::class,
-            $this->stub->getGroup(),
-        );
-    }
-
     public function testGetProperties(): void
     {
         $propertyItem = new BoolPropertyItem();
