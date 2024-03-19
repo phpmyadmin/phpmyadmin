@@ -45,20 +45,18 @@ export const Config = {
      */
     Order: 'asc',
 
-    /**
-     * @param {Object} data
-     */
-    init: function (data): void {
-        this.StartHistory = !! data.StartHistory;
-        this.AlwaysExpand = !! data.AlwaysExpand;
-        this.CurrentQuery = data.CurrentQuery !== undefined ? !! data.CurrentQuery : true;
-        this.EnterExecutes = !! data.EnterExecutes;
-        this.DarkTheme = !! data.DarkTheme;
-        this.Mode = data.Mode === 'show' || data.Mode === 'collapse' ? data.Mode : 'info';
-        this.Height = data.Height > 0 ? Number(data.Height) : 92;
-        this.GroupQueries = !! data.GroupQueries;
-        this.OrderBy = data.OrderBy === 'time' || data.OrderBy === 'count' ? data.OrderBy : 'exec';
-        this.Order = data.Order === 'desc' ? 'desc' : 'asc';
+    init: function (dataset: DOMStringMap): void {
+        this.StartHistory = dataset.startHistory === 'true';
+        this.AlwaysExpand = dataset.alwaysExpand === 'true';
+        this.CurrentQuery = dataset.currentQuery !== undefined ? dataset.currentQuery === 'true' : true;
+        this.EnterExecutes = dataset.enterExecutes === 'true';
+        this.DarkTheme = dataset.darkTheme === 'true';
+        this.Mode = dataset.mode === 'show' || dataset.mode === 'collapse' ? dataset.mode : 'info';
+        const height = Number(dataset.height);
+        this.Height = height > 0 ? height : 92;
+        this.GroupQueries = dataset.groupQueries === 'true';
+        this.OrderBy = dataset.orderBy === 'time' || dataset.orderBy === 'count' ? dataset.orderBy : 'exec';
+        this.Order = dataset.order === 'desc' ? 'desc' : 'asc';
     },
 
     /**

@@ -1,5 +1,15 @@
 <div id="pma_console_container" class="d-print-none">
-  <div id="pma_console">
+  <div id="pma_console"
+       data-start-history="{{ settings.StartHistory ? 'true' : 'false' }}"
+       data-always-expand="{{ settings.AlwaysExpand ? 'true' : 'false' }}"
+       data-current-query="{{ settings.CurrentQuery ? 'true' : 'false' }}"
+       data-enter-executes="{{ settings.EnterExecutes ? 'true' : 'false' }}"
+       data-dark-theme="{{ settings.DarkTheme ? 'true' : 'false' }}"
+       data-mode="{{ settings.Mode }}"
+       data-height="{{ settings.Height }}"
+       data-group-queries="{{ settings.GroupQueries ? 'true' : 'false' }}"
+       data-order-by="{{ settings.OrderBy }}"
+       data-order="{{ settings.Order }}">
     <div class="toolbar collapsed">
       <div class="switch_button console_switch">
         {{ get_image('console', 'SQL Query Console'|trans) }}
