@@ -70,6 +70,7 @@ phpMyAdmin - ChangeLog
 - issue #18865 Fix missing text-nowrap for timestamps columns
 - issue #19022 Fix case where tables from wrong database is loaded in navigation tree
 - issue #18049 Also check that curl_exec is enabled for the new version check
+- issue #18450 Fix central column with a default value cannot be created
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
