@@ -5,7 +5,6 @@ import { Functions } from './functions.ts';
 import { CommonParams } from './common.ts';
 import { Navigation } from './navigation.ts';
 import { Config } from './console/config.ts';
-import { getConfigValue } from './functions/config.ts';
 import { escapeHtml } from './functions/escape.ts';
 
 /**
@@ -58,18 +57,13 @@ var Console = {
      * Used for console initialize, reinit is ok, just some variable assignment
      */
     initialize: function (): void {
-        if ($('#pma_console').length === 0) {
+        const consoleElement = document.getElementById('pma_console');
+        if (consoleElement === null) {
             return;
         }
 
-        getConfigValue('Console', false, (data) => {
-            Config.init(data);
-            Console.setupAfterInit();
-        }, () => {
-            Config.init({});// Avoid null pointers in setupAfterInit()
-            // Fetching data failed, still perform the console init
-            Console.setupAfterInit();
-        });
+        Config.init(consoleElement.dataset);
+        Console.setupAfterInit();
     },
 
     /**
