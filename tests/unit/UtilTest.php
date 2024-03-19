@@ -24,7 +24,6 @@ use function _setlocale;
 use function date_default_timezone_get;
 use function date_default_timezone_set;
 use function file_exists;
-use function floatval;
 use function htmlspecialchars;
 use function ini_get;
 use function ini_set;
@@ -533,8 +532,8 @@ class UtilTest extends AbstractTestCase
             [102400 * 1024, 3, 0, ['100', __('MiB')]],
             [2206451, 1, 2, ['2.10', __('MiB')]],
             [21474836480, 4, 0, ['20', __('GiB')]],
-            [floatval(52) + floatval(2048), 3, 1, ['2.1', 'KiB']],
-            ['' . (floatval(52) + floatval(2048)), 3, 1, ['2.1', 'KiB']],
+            [(float) 52 + (float) 2048, 3, 1, ['2.1', 'KiB']],
+            ['' . ((float) 52 + (float) 2048), 3, 1, ['2.1', 'KiB']],
         ];
     }
 
