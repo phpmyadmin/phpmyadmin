@@ -131,10 +131,17 @@ class ImportCsvTest extends AbstractTestCase
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
-        ImportSettings::$importFile = 'tests/test_data/db_test_partial_import.csv';
-        $_REQUEST['csv_new_tbl_name'] = 'ImportTestTable';
-        $_REQUEST['csv_new_db_name'] = 'ImportTestDb';
-        $_REQUEST['csv_partial_import'] = 5;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'csv_terminated' => ',',
+                'csv_enclosed' => '"',
+                'csv_escaped' => '"',
+                'csv_new_line' => 'auto',
+                'csv_columns' => null,
+                'csv_new_tbl_name' => 'ImportTestTable',
+                'csv_new_db_name' => 'ImportTestDb',
+            ]);
+        $this->object->setImportOptions($request);
 
         DatabaseInterface::$instance = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -154,10 +161,6 @@ class ImportCsvTest extends AbstractTestCase
         );
 
         self::assertTrue(ImportSettings::$finished);
-
-        unset($_REQUEST['csv_new_tbl_name']);
-        unset($_REQUEST['csv_new_db_name']);
-        unset($_REQUEST['csv_partial_import']);
     }
 
     /**
@@ -267,10 +270,9 @@ class ImportCsvTest extends AbstractTestCase
                 'csv_escaped' => '"',
                 'csv_new_line' => 'auto',
                 'csv_columns' => null,
+                'csv_col_names' => 'yes',
             ]);
         $this->object->setImportOptions($request);
-
-        $_REQUEST['csv_col_names'] = 'something';
 
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);

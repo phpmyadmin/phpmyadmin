@@ -8576,23 +8576,9 @@
       <code><![CDATA[$values[count($values) - 1]]]></code>
       <code><![CDATA[$values[count($values) - 1]]]></code>
     </InvalidArrayOffset>
-    <InvalidReturnStatement>
-      <code><![CDATA[$_REQUEST['csv_new_tbl_name']]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[string]]></code>
-    </InvalidReturnType>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_REQUEST['csv_new_db_name']]]></code>
-      <code><![CDATA[$_REQUEST['csv_new_tbl_name']]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$maxLines]]></code>
-      <code><![CDATA[1]]></code>
-    </PossiblyInvalidOperand>
     <PossiblyNullOperand>
       <code><![CDATA[$ch]]></code>
     </PossiblyNullOperand>

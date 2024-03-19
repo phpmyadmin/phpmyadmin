@@ -11261,6 +11261,11 @@ parameters:
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/Plugins/Import/ImportCsv.php
+
+		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 8
 			path: src/Plugins/Import/ImportCsv.php
@@ -11273,11 +11278,6 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportCsv\\:\\:doImport\\(\\) should return array\\<string\\> but returns mixed\\.$#"
 			count: 2
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportCsv\\:\\:getTableNameFromImport\\(\\) should return string but returns mixed\\.$#"
-			count: 1
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
