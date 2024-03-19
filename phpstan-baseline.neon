@@ -16491,21 +16491,6 @@ parameters:
 			path: tests/unit/SqlTest.php
 
 		-
-			message: "#^Dynamic call to static method PhpMyAdmin\\\\StorageEngine\\:\\:getArray\\(\\)\\.$#"
-			count: 1
-			path: tests/unit/StorageEngineTest.php
-
-		-
-			message: "#^Dynamic call to static method PhpMyAdmin\\\\StorageEngine\\:\\:getStorageEngines\\(\\)\\.$#"
-			count: 1
-			path: tests/unit/StorageEngineTest.php
-
-		-
-			message: "#^Dynamic call to static method PhpMyAdmin\\\\StorageEngine\\:\\:isValid\\(\\)\\.$#"
-			count: 4
-			path: tests/unit/StorageEngineTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:affectedRows\\(\\) should return int\\|numeric\\-string but returns mixed\\.$#"
 			count: 1
 			path: tests/unit/Stubs/DbiDummy.php

@@ -76,13 +76,13 @@ class StorageEngineTest extends AbstractTestCase
                 ],
                 'Pbxt' => ['Engine' => 'Pbxt', 'Support' => 'NO', 'Comment' => 'Pbxt storage engine'],
             ],
-            $this->object->getStorageEngines(),
+            StorageEngine::getStorageEngines(),
         );
     }
 
     public function testGetArray(): void
     {
-        $actual = $this->object->getArray();
+        $actual = StorageEngine::getArray();
 
         self::assertSame(
             ['dummy' => ['name' => 'dummy', 'comment' => 'dummy comment', 'is_default' => false]],
@@ -134,16 +134,16 @@ class StorageEngineTest extends AbstractTestCase
     public function testIsValid(): void
     {
         self::assertTrue(
-            $this->object->isValid('PBMS'),
+            StorageEngine::isValid('PBMS'),
         );
         self::assertTrue(
-            $this->object->isValid('dummy'),
+            StorageEngine::isValid('dummy'),
         );
         self::assertTrue(
-            $this->object->isValid('dummy2'),
+            StorageEngine::isValid('dummy2'),
         );
         self::assertFalse(
-            $this->object->isValid('invalid'),
+            StorageEngine::isValid('invalid'),
         );
     }
 
