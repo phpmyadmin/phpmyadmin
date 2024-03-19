@@ -1182,7 +1182,7 @@ JS;
     /**
      * Mark unsuccessful tests as 'Failures' on Browerstack
      */
-    public function onNotSuccessfulTest(Throwable $t): never
+    protected function onNotSuccessfulTest(Throwable $t): never
     {
         $this->markTestAs('failed', $t->getMessage());
         $this->takeScrenshot('test_failed');
