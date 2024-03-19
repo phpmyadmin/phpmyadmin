@@ -475,7 +475,6 @@ class ExportCsvTest extends AbstractTestCase
 
         // case 6
         $GLOBALS['csv_enclosed'] = '"';
-        $GLOBALS['csv_escaped'] = ';';
         $GLOBALS['csv_escaped'] = '#';
 
         ob_start();
