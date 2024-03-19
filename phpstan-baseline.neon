@@ -15451,11 +15451,6 @@ parameters:
 			path: tests/unit/Config/SettingsTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Config\\\\SettingsTest\\:\\:\\$defaultValues type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/unit/Config/SettingsTest.php
-
-		-
 			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\.$#"
 			count: 1
 			path: tests/unit/Config/SettingsTest.php

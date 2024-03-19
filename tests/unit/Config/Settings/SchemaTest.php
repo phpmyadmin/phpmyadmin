@@ -15,8 +15,7 @@ use function array_merge;
 #[CoversClass(Schema::class)]
 class SchemaTest extends TestCase
 {
-    /** @var array<string, bool|string> */
-    private array $defaultValues = [
+    private const DEFAULT_VALUES = [
         'format' => 'pdf',
         'pdf_show_color' => true,
         'pdf_show_keys' => false,
@@ -54,7 +53,7 @@ class SchemaTest extends TestCase
             $expectedValues[$value[0]] = $value[2];
         }
 
-        $expected = array_merge($this->defaultValues, $expectedValues);
+        $expected = array_merge(self::DEFAULT_VALUES, $expectedValues);
         $settings = new Schema($actualValues);
         $schemaArray = $settings->asArray();
 

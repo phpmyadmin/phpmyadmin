@@ -36,8 +36,7 @@ use const ROOT_PATH;
 #[CoversClass(Transformations::class)]
 class SettingsTest extends TestCase
 {
-    /** @var array<string, array|bool|int|string|null> */
-    private array $defaultValues = [
+    private const DEFAULT_VALUES = [
         'MysqlSslWarningSafeHosts' => ['127.0.0.1', 'localhost'],
         'MemoryLimit' => '-1',
         'SkipLockedTables' => false,
@@ -258,7 +257,7 @@ class SettingsTest extends TestCase
             $expectedValues[$value[0]] = $value[2];
         }
 
-        $expected = array_merge($this->defaultValues, $expectedValues);
+        $expected = array_merge(self::DEFAULT_VALUES, $expectedValues);
         $settings = new Settings($actualValues);
         $settingsArray = $settings->asArray();
         foreach (array_keys($expectedValues) as $key) {
