@@ -14251,11 +14251,6 @@
       <code><![CDATA[isUniqueProvider]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="tests/unit/Plugins/Import/ImportCsvTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="tests/unit/Plugins/Import/ImportLdiTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>

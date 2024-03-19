@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
@@ -12,21 +11,15 @@ use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 
 use function __;
-use function basename;
 
 #[CoversClass(ImportCsv::class)]
 #[Medium]
 class ImportCsvTest extends AbstractTestCase
 {
-    protected DatabaseInterface $dbi;
-
-    protected DbiDummy $dummyDbi;
-
     protected ImportCsv $object;
 
     /**
@@ -37,16 +30,12 @@ class ImportCsvTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['errorUrl'] = 'index.php?route=/';
         $GLOBALS['error'] = false;
         Current::$database = '';
         Current::$table = '';
         $GLOBALS['sql_query'] = '';
         $GLOBALS['message'] = null;
-        $GLOBALS['csv_columns'] = null;
         ImportSettings::$timeoutPassed = false;
         ImportSettings::$maximumTime = 0;
         ImportSettings::$charsetConversion = false;
@@ -56,6 +45,13 @@ class ImportCsvTest extends AbstractTestCase
         ImportSettings::$runQuery = false;
         ImportSettings::$goSql = false;
         ImportSettings::$importType = 'database';
+        ImportSettings::$finished = false;
+        ImportSettings::$readLimit = 100000000;
+        ImportSettings::$offset = 0;
+        ImportSettings::$importFile = 'tests/test_data/db_test.csv';
+        ImportSettings::$importFileName = 'db_test';
+        ImportSettings::$readMultiply = 10;
+        ImportSettings::$sqlQueryDisabled = false;
 
         $this->object = new ImportCsv();
 
@@ -69,26 +65,7 @@ class ImportCsvTest extends AbstractTestCase
             ]);
         $this->object->setImportOptions($request);
 
-        //setting
-        ImportSettings::$finished = false;
-        ImportSettings::$readLimit = 100000000;
-        ImportSettings::$offset = 0;
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-
-        ImportSettings::$importFile = 'tests/test_data/db_test.csv';
         $GLOBALS['import_text'] = 'ImportCsv_Test';
-        $GLOBALS['compression'] = 'none';
-        ImportSettings::$readMultiply = 10;
-
-        ImportSettings::$importFileName = basename(ImportSettings::$importFile, '.csv');
-
-        //$_SESSION
-
-        //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        DatabaseInterface::$instance = $dbi;
     }
 
     /**
@@ -123,12 +100,12 @@ class ImportCsvTest extends AbstractTestCase
      */
     public function testDoImport(): void
     {
-        //$sql_query_disabled will show the import SQL detail
-
-        ImportSettings::$sqlQueryDisabled = false;
-
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
+
+        DatabaseInterface::$instance = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
 
         //Test function called
         $this->object->doImport($importHandle);
@@ -151,10 +128,6 @@ class ImportCsvTest extends AbstractTestCase
      */
     public function testDoPartialImport(): void
     {
-        //$sql_query_disabled will show the import SQL detail
-
-        ImportSettings::$sqlQueryDisabled = false;
-
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
@@ -162,6 +135,10 @@ class ImportCsvTest extends AbstractTestCase
         $_REQUEST['csv_new_tbl_name'] = 'ImportTestTable';
         $_REQUEST['csv_new_db_name'] = 'ImportTestDb';
         $_REQUEST['csv_partial_import'] = 5;
+
+        DatabaseInterface::$instance = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
 
         //Test function called
         $this->object->doImport($importHandle);
@@ -204,12 +181,12 @@ class ImportCsvTest extends AbstractTestCase
      */
     public function testDoImportNotAnalysis(): void
     {
-        //$sql_query_disabled will show the import SQL detail
-
-        ImportSettings::$sqlQueryDisabled = false;
-
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
+
+        DatabaseInterface::$instance = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
 
         //Test function called
         $this->object->doImport($importHandle);
@@ -233,11 +210,7 @@ class ImportCsvTest extends AbstractTestCase
      */
     public function testDoImportNormal(): void
     {
-        //$sql_query_disabled will show the import SQL detail
-
-        ImportSettings::$sqlQueryDisabled = false;
         ImportSettings::$importFile = 'none';
-        $GLOBALS['csv_terminated'] = ',';
         $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
@@ -250,16 +223,16 @@ class ImportCsvTest extends AbstractTestCase
             ]);
         $this->object->setImportOptions($request);
 
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        DatabaseInterface::$instance = $dbi;
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SHOW DATABASES',
             [],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SELECT 1 FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = \'CSV_DB 1\' AND TABLE_NAME = \'db_test\'',
             [],
@@ -276,7 +249,7 @@ class ImportCsvTest extends AbstractTestCase
         );
 
         self::assertTrue(ImportSettings::$finished);
-        $this->dummyDbi->assertAllQueriesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
     }
 
     /**
@@ -284,11 +257,7 @@ class ImportCsvTest extends AbstractTestCase
      */
     public function testDoImportSkipHeaders(): void
     {
-        //$sql_query_disabled will show the import SQL detail
-
-        ImportSettings::$sqlQueryDisabled = false;
         ImportSettings::$importFile = 'none';
-        $GLOBALS['csv_terminated'] = ',';
         $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
@@ -303,16 +272,16 @@ class ImportCsvTest extends AbstractTestCase
 
         $_REQUEST['csv_col_names'] = 'something';
 
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        DatabaseInterface::$instance = $dbi;
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SHOW DATABASES',
             [],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SELECT 1 FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = \'CSV_DB 1\' AND TABLE_NAME = \'db_test\'',
             [],
@@ -329,6 +298,6 @@ class ImportCsvTest extends AbstractTestCase
         );
 
         self::assertTrue(ImportSettings::$finished);
-        $this->dummyDbi->assertAllQueriesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
     }
 }
