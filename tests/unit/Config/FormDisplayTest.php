@@ -205,7 +205,7 @@ class FormDisplayTest extends AbstractTestCase
         );
         self::assertIsString($value);
 
-        $arr = [0 => 'foobar'];
+        $arr = ['foobar'];
         $value = 0;
         self::assertTrue(
             $attrValidateSelect->invokeArgs(

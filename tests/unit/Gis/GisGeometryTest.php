@@ -160,18 +160,18 @@ class GisGeometryTest extends AbstractTestCase
     {
         return [
             // with no scale data
-            ['12 35,48 75,69 23', null, false, [0 => [12, 35], 1 => [48, 75], 2 => [69, 23]]],
+            ['12 35,48 75,69 23', null, false, [[12, 35], [48, 75], [69, 23]]],
             // with scale data
             [
                 '12 35,48 75,69 23',
                 new ScaleData(offsetX: 5, offsetY: 5, scale: 2, height: 200),
                 false,
-                [0 => [14, 140], 1 => [86, 60], 2 => [128, 164]],
+                [[14, 140], [86, 60], [128, 164]],
             ],
             // linear output
             ['12 35,48 75,69 23', null, true, [12, 35, 48, 75, 69, 23]],
             // if a single part of a coordinate is empty
-            ['12 35,48 75,69 ', null, false, [0 => [12, 35], 1 => [48, 75], 2 => [0, 0]]],
+            ['12 35,48 75,69 ', null, false, [[12, 35], [48, 75], [0, 0]]],
         ];
     }
 }

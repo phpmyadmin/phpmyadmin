@@ -71,9 +71,9 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     public static function providerForTestGenerateWkt(): array
     {
         $temp1 = [
-            0 => [
+            [
                 'gis_type' => 'LINESTRING',
-                'LINESTRING' => ['data_length' => 2, 0 => ['x' => 5.02,'y' => 8.45], 1 => ['x' => 6.14,'y' => 0.15]],
+                'LINESTRING' => ['data_length' => 2, 0 => ['x' => 5.02, 'y' => 8.45], 1 => ['x' => 6.14, 'y' => 0.15]],
             ],
         ];
 

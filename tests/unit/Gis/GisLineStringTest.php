@@ -28,7 +28,7 @@ class GisLineStringTest extends GisGeomTestCase
     public static function providerForTestGenerateWkt(): array
     {
         $temp1 = [
-            0 => [
+            [
                 'LINESTRING' => [
                     'data_length' => 2,
                     0 => ['x' => 5.02, 'y' => 8.45],

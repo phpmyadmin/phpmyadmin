@@ -1143,7 +1143,7 @@ class SettingsTest extends TestCase
 
         yield 'invalid value' => ['invalid', [1 => $server]];
         yield 'invalid value 2' => [[0 => [], 2 => 'invalid', 'invalid' => [], 4 => []], [4 => $server]];
-        yield 'invalid value 3' => [[0 => []], [1 => $server]];
+        yield 'invalid value 3' => [[[]], [1 => $server]];
     }
 
     #[DataProvider('valuesForServerDefaultProvider')]

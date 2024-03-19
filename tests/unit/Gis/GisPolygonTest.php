@@ -71,7 +71,7 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public static function providerForTestGenerateWkt(): array
     {
-        $temp = [0 => self::getData()];
+        $temp = [self::getData()];
 
         $temp1 = $temp;
         unset($temp1[0]['POLYGON'][1][3]['y']);

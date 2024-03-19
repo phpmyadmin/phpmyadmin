@@ -88,7 +88,7 @@ class ErrorReportTest extends AbstractTestCase
             'php_version' => phpversion(),
             'exception_type' => 'php',
             'errors' => [
-                0 => [
+                [
                     'lineNum' => $_SESSION['prev_errors'][0]->getLine(),
                     'file' => $_SESSION['prev_errors'][0]->getFile(),
                     'type' => $_SESSION['prev_errors'][0]->getType(),
@@ -96,7 +96,7 @@ class ErrorReportTest extends AbstractTestCase
                     'stackTrace' => $_SESSION['prev_errors'][0]->getBacktrace(5),
                     'stackhash' => $_SESSION['prev_errors'][0]->getHash(),
                 ],
-                1 => [
+                [
                     'lineNum' => $_SESSION['prev_errors'][1]->getLine(),
                     'file' => $_SESSION['prev_errors'][1]->getFile(),
                     'type' => $_SESSION['prev_errors'][1]->getType(),

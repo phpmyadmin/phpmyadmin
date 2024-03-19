@@ -259,7 +259,7 @@ class StorageEngineTest extends AbstractTestCase
     public function testResolveTypeSize(): void
     {
         self::assertEquals(
-            [0 => 12, 1 => 'B'],
+            [12, 'B'],
             $this->object->resolveTypeSize(12),
         );
     }
@@ -473,26 +473,26 @@ class StorageEngineTest extends AbstractTestCase
                             'total_chunk_size' => 0,
                             'max_in_use_chunk_id' => 0,
                             'n_garbage_chunks' => [
-                                0 => 0,
-                                1 => 0,
-                                2 => 0,
-                                3 => 0,
-                                4 => 0,
-                                5 => 0,
-                                6 => 0,
-                                7 => 0,
-                                8 => 0,
-                                9 => 0,
-                                10 => 0,
-                                11 => 0,
-                                12 => 0,
-                                13 => 0,
-                                14 => 0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
                             ],
                         ],
                     ],
                     'sources' => [
-                        0 => [
+                        [
                             'id' => 267,
                             'name' => 'search',
                             'table' => [

@@ -30,7 +30,7 @@ class GisMultiPointTest extends GisGeomTestCase
     public static function providerForTestGenerateWkt(): array
     {
         $gisData1 = [
-            0 => [
+            [
                 'MULTIPOINT' => [
                     'data_length' => 2,
                     0 => ['x' => 5.02, 'y' => 8.45],
@@ -68,7 +68,7 @@ class GisMultiPointTest extends GisGeomTestCase
      */
     public function testGetShape(): void
     {
-        $gisData = ['numpoints' => 2, 'points' => [0 => ['x' => 5.02, 'y' => 8.45], 1 => ['x' => 6.14, 'y' => 0.15]]];
+        $gisData = ['numpoints' => 2, 'points' => [['x' => 5.02, 'y' => 8.45], ['x' => 6.14, 'y' => 0.15]]];
 
         $object = GisMultiPoint::singleton();
         self::assertSame('MULTIPOINT(5.02 8.45,6.14 0.15)', $object->getShape($gisData));

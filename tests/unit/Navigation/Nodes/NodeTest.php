@@ -121,7 +121,7 @@ final class NodeTest extends AbstractTestCase
         $parent->addChild($childTwo);
         $parent->addChild($childThree);
         $parent->addChild($childTwo);
-        self::assertSame([0 => $childOne, 1 => $childTwo, 2 => $childThree, 3 => $childTwo], $parent->children);
+        self::assertSame([$childOne, $childTwo, $childThree, $childTwo], $parent->children);
         $parent->removeChild('child two');
         /** @psalm-suppress DocblockTypeContradiction */
         self::assertSame([0 => $childOne, 2 => $childThree, 3 => $childTwo], $parent->children);

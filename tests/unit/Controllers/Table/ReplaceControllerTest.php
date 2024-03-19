@@ -88,9 +88,9 @@ class ReplaceControllerTest extends AbstractTestCase
             ['do_transformations', null, true],
             ['transform_fields_list', '', '0%5Bvc%5D=sss%20s%20s&1%5Bvc%5D=zzff%20s%20sf%0A'],
             ['submit_type', '', 'save'],
-            ['fields', [], ['multi_edit' => [0 => ['zzff s sf'], 1 => ['sss s s']]]],
-            ['fields_name', [], ['multi_edit' => [0 => ['vc'], 1 => ['vc']]]],
-            ['fields_null', [], ['multi_edit' => [0 => [], 1 => []]]],
+            ['fields', [], ['multi_edit' => [['zzff s sf'], ['sss s s']]]],
+            ['fields_name', [], ['multi_edit' => [['vc'], ['vc']]]],
+            ['fields_null', [], ['multi_edit' => [[], []]]],
         ]);
 
         $dummyDbi = $this->createDbiDummy();
