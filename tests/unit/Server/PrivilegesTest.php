@@ -311,6 +311,7 @@ class PrivilegesTest extends AbstractTestCase
             $sqlQuery,
             $addUserError,
         ] = $serverPrivileges->addUser($dbname, $username, $hostname, $dbname, true);
+        self::assertInstanceOf(Message::class, $retMessage);
         self::assertSame(
             'You have added a new user.',
             $retMessage->getMessage(),
@@ -361,6 +362,7 @@ class PrivilegesTest extends AbstractTestCase
             $addUserError,
         ] = $serverPrivileges->addUser($dbname, $username, $hostname, $dbname, true);
 
+        self::assertInstanceOf(Message::class, $retMessage);
         self::assertSame(
             'You have added a new user.',
             $retMessage->getMessage(),
@@ -830,8 +832,6 @@ class PrivilegesTest extends AbstractTestCase
 
         //validate 5: $sqlQuery
         self::assertSame('GRANT USAGE ON *.* TO \'PMA_username\'@\'PMA_hostname\' REQUIRE NONE;', $sqlQuery);
-
-        self::assertInstanceOf(Message::class, $message);
 
         //validate 6: $message
         self::assertSame(

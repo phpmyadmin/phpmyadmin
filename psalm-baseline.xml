@@ -2594,12 +2594,7 @@
       <code><![CDATA[$GLOBALS['sql_query'][$key]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['message']]]></code>
       <code><![CDATA[$dbName ?? '']]></code>
-      <code><![CDATA[$queries]]></code>
-      <code><![CDATA[$queries]]></code>
-      <code><![CDATA[$queries]]></code>
-      <code><![CDATA[$queriesForDisplay]]></code>
       <code><![CDATA[$request->getParsedBodyParam('old_hostname')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('old_hostname', '')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('old_username')]]></code>
@@ -2615,15 +2610,15 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['dbname']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['message']]]></code>
       <code><![CDATA[$dbName]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
     </PossiblyInvalidArgument>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[! empty($GLOBALS['message']) && $GLOBALS['message'] instanceof Message]]></code>
+    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['message'])]]></code>
-      <code><![CDATA[empty($GLOBALS['message'])]]></code>
       <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
       <code><![CDATA[empty($routinename)]]></code>
       <code><![CDATA[empty($routinename)]]></code>
@@ -14407,10 +14402,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedMethodCall>
-      <code><![CDATA[getMessage]]></code>
-      <code><![CDATA[getMessage]]></code>
-    </MixedMethodCall>
     <PossiblyUnusedMethod>
       <code><![CDATA[providerUnEscapeMysqlWildcards]]></code>
     </PossiblyUnusedMethod>

@@ -3406,21 +3406,6 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$queries of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDataForDeleteUsers\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$queries of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDataForQueries\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$queries of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDbSpecificPrivsQueriesForChangeOrCopyUser\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function urlencode expects string, \\(array\\<int, string\\>\\|string\\) given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
@@ -3482,11 +3467,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$oldHostname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDataForChangeOrCopyUser\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$queriesForDisplay of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDataForQueries\\(\\) expects array\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
 
@@ -16399,11 +16379,6 @@ parameters:
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Server\\\\PluginsTest has an uninitialized property \\$plugins\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
 			path: tests/unit/Server/PluginsTest.php
-
-		-
-			message: "#^Cannot call method getMessage\\(\\) on mixed\\.$#"
-			count: 2
-			path: tests/unit/Server/PrivilegesTest.php
 
 		-
 			message: "#^PHPDoc tag @var for variable \\$actual has no value type specified in iterable type array\\.$#"
