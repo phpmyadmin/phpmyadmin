@@ -15296,11 +15296,6 @@ parameters:
 			path: tests/unit/Command/TwigLintCommandTest.php
 
 		-
-			message: "#^Class PhpMyAdmin\\\\Tests\\\\Command\\\\WriteGitRevisionCommandTest has an uninitialized property \\$command\\. Give it default value or assign it in the constructor\\.$#"
-			count: 1
-			path: tests/unit/Command/WriteGitRevisionCommandTest.php
-
-		-
 			message: "#^Cannot access offset 'port' on mixed\\.$#"
 			count: 1
 			path: tests/unit/Config/ConfigFileTest.php
