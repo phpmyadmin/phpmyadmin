@@ -33,8 +33,7 @@ class CentralColumnsTest extends AbstractTestCase
 
     private DatabaseInterface&MockObject $dbi;
 
-    /** @var array<int, array<string, string|int>> */
-    private array $columnData = [
+    private const COLUMN_DATA = [
         [
             'col_name' => 'id',
             'col_type' => 'integer',
@@ -64,8 +63,7 @@ class CentralColumnsTest extends AbstractTestCase
         ],
     ];
 
-    /** @var array<int, array<string, string|int>> */
-    private array $modifiedColumnData = [
+    private const MODIFIED_COLUMN_DATA = [
         [
             'col_name' => 'id',
             'col_type' => 'integer',
@@ -179,16 +177,16 @@ class CentralColumnsTest extends AbstractTestCase
         $this->dbi->expects(self::exactly(2))
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
-                $this->columnData,
-                array_slice($this->columnData, 1, 2),
+                self::COLUMN_DATA,
+                array_slice(self::COLUMN_DATA, 1, 2),
             );
 
         self::assertSame(
-            $this->modifiedColumnData,
+            self::MODIFIED_COLUMN_DATA,
             $this->centralColumns->getColumnsList('phpmyadmin'),
         );
         self::assertSame(
-            array_slice($this->modifiedColumnData, 1, 2),
+            array_slice(self::MODIFIED_COLUMN_DATA, 1, 2),
             $this->centralColumns->getColumnsList('phpmyadmin', 1, 2),
         );
     }
@@ -234,7 +232,7 @@ class CentralColumnsTest extends AbstractTestCase
     {
         $this->dbi->expects(self::any())
             ->method('fetchResult')
-            ->willReturn($this->columnData);
+            ->willReturn(self::COLUMN_DATA);
         $this->dbi->expects(self::any())
             ->method('fetchValue')
             ->willReturn('PMA_table=CREATE table `PMA_table` (id integer)');
@@ -315,7 +313,7 @@ class CentralColumnsTest extends AbstractTestCase
                 null,
                 ConnectionType::ControlUser,
             )
-            ->willReturn($this->columnData);
+            ->willReturn(self::COLUMN_DATA);
         $result = $this->centralColumns->getHtmlForEditingPage(
             ['col1', 'col2'],
             'phpmyadmin',
@@ -326,7 +324,7 @@ class CentralColumnsTest extends AbstractTestCase
                 $this->centralColumns,
                 CentralColumns::class,
                 'getHtmlForEditTableRow',
-                [$this->modifiedColumnData[0], 0],
+                [self::MODIFIED_COLUMN_DATA[0], 0],
             ),
             $result,
         );
@@ -345,9 +343,9 @@ class CentralColumnsTest extends AbstractTestCase
                 null,
                 ConnectionType::ControlUser,
             )
-            ->willReturn($this->columnData);
+            ->willReturn(self::COLUMN_DATA);
         self::assertSame(
-            $this->modifiedColumnData,
+            self::MODIFIED_COLUMN_DATA,
             $this->centralColumns->getListRaw(
                 'phpmyadmin',
                 '',
@@ -370,9 +368,9 @@ class CentralColumnsTest extends AbstractTestCase
                 null,
                 ConnectionType::ControlUser,
             )
-            ->willReturn($this->columnData);
+            ->willReturn(self::COLUMN_DATA);
         self::assertSame(
-            $this->modifiedColumnData,
+            self::MODIFIED_COLUMN_DATA,
             $this->centralColumns->getListRaw(
                 'phpmyadmin',
                 'table1',
@@ -390,9 +388,9 @@ class CentralColumnsTest extends AbstractTestCase
         $this->dbi->expects(self::once())
             ->method('fetchResult')
             ->with($expectedQuery, null, null, ConnectionType::ControlUser)
-            ->willReturn(array_slice($this->columnData, 1, 1));
+            ->willReturn(array_slice(self::COLUMN_DATA, 1, 1));
         self::assertSame(
-            array_slice($this->modifiedColumnData, 1, 1),
+            array_slice(self::MODIFIED_COLUMN_DATA, 1, 1),
             $this->callFunction(
                 $this->centralColumns,
                 CentralColumns::class,

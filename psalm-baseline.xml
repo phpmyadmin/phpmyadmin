@@ -13128,7 +13128,7 @@
                 $this->centralColumns,
                 CentralColumns::class,
                 'getHtmlForEditTableRow',
-                [$this->modifiedColumnData[0], 0],
+                [self::MODIFIED_COLUMN_DATA[0], 0],
             )]]></code>
     </MixedArgument>
   </file>
