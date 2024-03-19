@@ -101,28 +101,6 @@ var Console = {
 
         // Event binds shouldn't run again
         if (Console.isInitialized === false) {
-            // Load config first
-            if (Config.AlwaysExpand) {
-                (document.getElementById('consoleOptionsAlwaysExpandCheckbox') as HTMLInputElement).checked = true;
-            }
-
-            if (Config.StartHistory) {
-                (document.getElementById('consoleOptionsStartHistoryCheckbox') as HTMLInputElement).checked = true;
-            }
-
-            if (Config.CurrentQuery) {
-                (document.getElementById('consoleOptionsCurrentQueryCheckbox') as HTMLInputElement).checked = true;
-            }
-
-            if (Config.EnterExecutes) {
-                (document.getElementById('consoleOptionsEnterExecutesCheckbox') as HTMLInputElement).checked = true;
-            }
-
-            if (Config.DarkTheme) {
-                (document.getElementById('consoleOptionsDarkThemeCheckbox') as HTMLInputElement).checked = true;
-                $('#pma_console').find('>.content').addClass('console_dark_theme');
-            }
-
             ConsoleResizer.initialize();
             ConsoleInput.initialize();
             ConsoleMessages.initialize();
