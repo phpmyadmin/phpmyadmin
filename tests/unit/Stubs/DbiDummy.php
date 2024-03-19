@@ -24,6 +24,7 @@ use stdClass;
 
 use function addslashes;
 use function array_map;
+use function array_shift;
 use function is_array;
 use function preg_replace;
 use function str_replace;
@@ -260,13 +261,7 @@ class DbiDummy implements DbiExtension
      */
     public function getError(Connection $connection): string
     {
-        foreach ($this->fifoErrorCodes as $i => $code) {
-            unset($this->fifoErrorCodes[$i]);
-
-            return $code;
-        }
-
-        return '';
+        return array_shift($this->fifoErrorCodes) ?? '';
     }
 
     /**
