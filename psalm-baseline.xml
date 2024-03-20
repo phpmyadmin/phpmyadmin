@@ -14250,9 +14250,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/Plugins/Import/ImportShpTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <RedundantCondition>
       <code><![CDATA[assertFalse]]></code>
       <code><![CDATA[assertSame]]></code>
