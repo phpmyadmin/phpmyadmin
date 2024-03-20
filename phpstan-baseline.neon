@@ -16321,16 +16321,6 @@ parameters:
 			path: tests/unit/Plugins/Import/ImportLdiTest.php
 
 		-
-			message: "#^Class PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportOdsTest has an uninitialized property \\$dbi\\. Give it default value or assign it in the constructor\\.$#"
-			count: 1
-			path: tests/unit/Plugins/Import/ImportOdsTest.php
-
-		-
-			message: "#^Class PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportOdsTest has an uninitialized property \\$dummyDbi\\. Give it default value or assign it in the constructor\\.$#"
-			count: 1
-			path: tests/unit/Plugins/Import/ImportOdsTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 3
 			path: tests/unit/Plugins/Import/ImportOdsTest.php

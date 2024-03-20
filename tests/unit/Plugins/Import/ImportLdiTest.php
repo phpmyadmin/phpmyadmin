@@ -30,7 +30,6 @@ class ImportLdiTest extends AbstractTestCase
     {
         parent::setUp();
 
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
         ImportSettings::$charsetConversion = false;
         ImportSettings::$maxSqlLength = 0;
         $GLOBALS['sql_query'] = '';
