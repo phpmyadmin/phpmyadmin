@@ -31,7 +31,7 @@ class ConfigGeneratorTest extends AbstractTestCase
     {
         unset($_SESSION['eol']);
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         Current::$server = 2;
         $cf = new ConfigFile();

@@ -61,28 +61,28 @@ class PolygonTest extends AbstractTestCase
         return [
             [
                 Polygon::fromXYArray([
-                    0 => ['x' => 35, 'y' => 10],
-                    1 => ['x' => 10, 'y' => 10],
-                    2 => ['x' => 15, 'y' => 40],
+                    ['x' => 35, 'y' => 10],
+                    ['x' => 10, 'y' => 10],
+                    ['x' => 15, 'y' => 40],
                 ]),
                 -375.00,
             ],
             // first point of the ring repeated as the last point
             [
                 Polygon::fromXYArray([
-                    0 => ['x' => 35, 'y' => 10],
-                    1 => ['x' => 10, 'y' => 10],
-                    2 => ['x' => 15, 'y' => 40],
-                    3 => ['x' => 35, 'y' => 10],
+                    ['x' => 35, 'y' => 10],
+                    ['x' => 10, 'y' => 10],
+                    ['x' => 15, 'y' => 40],
+                    ['x' => 35, 'y' => 10],
                 ]),
                 -375.00,
             ],
             // anticlockwise gives positive area
             [
                 Polygon::fromXYArray([
-                    0 => ['x' => 15, 'y' => 40],
-                    1 => ['x' => 10, 'y' => 10],
-                    2 => ['x' => 35, 'y' => 10],
+                    ['x' => 15, 'y' => 40],
+                    ['x' => 10, 'y' => 10],
+                    ['x' => 35, 'y' => 10],
                 ]),
                 375.00,
             ],
@@ -106,10 +106,10 @@ class PolygonTest extends AbstractTestCase
     public static function providerForTestIsPointInsidePolygon(): array
     {
         $ring = Polygon::fromXYArray([
-            0 => ['x' => 35, 'y' => 10],
-            1 => ['x' => 10, 'y' => 10],
-            2 => ['x' => 15, 'y' => 40],
-            3 => ['x' => 35, 'y' => 10],
+            ['x' => 35, 'y' => 10],
+            ['x' => 10, 'y' => 10],
+            ['x' => 15, 'y' => 40],
+            ['x' => 35, 'y' => 10],
         ]);
 
         return [

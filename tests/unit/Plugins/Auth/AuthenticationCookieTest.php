@@ -50,9 +50,9 @@ class AuthenticationCookieTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setLanguage();
+        $this->setLanguage();
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$database = 'db';
@@ -714,20 +714,15 @@ class AuthenticationCookieTest extends AbstractTestCase
     }
 
     #[DataProvider('dataProviderPasswordLength')]
-    public function testAuthFailsTooLongPass(string $password, bool $trueFalse, string|null $connError): void
+    public function testAuthFailsTooLongPass(string $password, bool $expected, string|null $connError): void
     {
         $_POST['pma_username'] = str_shuffle('123456987rootfoobar');
         $_POST['pma_password'] = $password;
 
-        if ($trueFalse === false) {
-            self::assertFalse(
-                $this->object->readCredentials(),
-            );
-        } else {
-            self::assertTrue(
-                $this->object->readCredentials(),
-            );
-        }
+        self::assertSame(
+            $expected,
+            $this->object->readCredentials(),
+        );
 
         self::assertSame($GLOBALS['conn_error'], $connError);
     }

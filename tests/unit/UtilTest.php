@@ -24,7 +24,6 @@ use function _setlocale;
 use function date_default_timezone_get;
 use function date_default_timezone_set;
 use function file_exists;
-use function floatval;
 use function htmlspecialchars;
 use function ini_get;
 use function ini_set;
@@ -162,7 +161,7 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerExpandUserString')]
     public function testExpandUserString(string $in, string $out): void
     {
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         $config = Config::getInstance();
         $config->selectedServer['host'] = 'host&';
@@ -533,8 +532,8 @@ class UtilTest extends AbstractTestCase
             [102400 * 1024, 3, 0, ['100', __('MiB')]],
             [2206451, 1, 2, ['2.10', __('MiB')]],
             [21474836480, 4, 0, ['20', __('GiB')]],
-            [floatval(52) + floatval(2048), 3, 1, ['2.1', 'KiB']],
-            ['' . (floatval(52) + floatval(2048)), 3, 1, ['2.1', 'KiB']],
+            [(float) 52 + (float) 2048, 3, 1, ['2.1', 'KiB']],
+            ['' . ((float) 52 + (float) 2048), 3, 1, ['2.1', 'KiB']],
         ];
     }
 
@@ -731,7 +730,7 @@ class UtilTest extends AbstractTestCase
             self::markTestSkipped('Missing compiled locales.');
         }
 
-        parent::setLanguage();
+        $this->setLanguage();
 
         // A test case for #15830 could be added for using the php setlocale on a Windows CI
         // See https://github.com/phpmyadmin/phpmyadmin/issues/15830
@@ -1371,10 +1370,7 @@ SQL;
         self::assertSame($expected, Util::getMySQLDocuURL($link, $anchor));
     }
 
-    /**
-     * @return array<int, array<int, int|string>>
-     * @psalm-return array<int, array{string, string, int, string}>
-     */
+    /** @return array<int, array{string, string, string, string}> */
     public static function providerForTestGetMySQLDocuURL(): array
     {
         return [

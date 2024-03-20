@@ -239,7 +239,7 @@ class TwoFactorTest extends AbstractTestCase
     #[RequiresPhpExtension('xmlwriter')]
     public function testApplication(): void
     {
-        parent::setLanguage();
+        $this->setLanguage();
 
         $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
 
@@ -257,8 +257,8 @@ class TwoFactorTest extends AbstractTestCase
         self::assertFalse($object->configure($request, 'application'));
 
         /* Generate valid code */
-        /** @var Application $app */
         $app = $object->getBackend();
+        self::assertInstanceOf(Application::class, $app);
         $google2fa = $app->getGoogle2fa();
         $_POST['2fa_code'] = $google2fa->oathTotp(
             $object->config['settings']['secret'],
@@ -293,7 +293,7 @@ class TwoFactorTest extends AbstractTestCase
 
     public function testKey(): void
     {
-        parent::setLanguage();
+        $this->setLanguage();
 
         $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
 

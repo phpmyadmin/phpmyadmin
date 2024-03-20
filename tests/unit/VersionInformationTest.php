@@ -26,7 +26,7 @@ class VersionInformationTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setProxySettings();
+        $this->setProxySettings();
 
         $this->releases = [];
 

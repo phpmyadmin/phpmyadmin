@@ -30,7 +30,7 @@ class FormDisplayTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         Current::$server = 2;
         $this->object = new FormDisplay(new ConfigFile());
@@ -205,7 +205,7 @@ class FormDisplayTest extends AbstractTestCase
         );
         self::assertIsString($value);
 
-        $arr = [0 => 'foobar'];
+        $arr = ['foobar'];
         $value = 0;
         self::assertTrue(
             $attrValidateSelect->invokeArgs(

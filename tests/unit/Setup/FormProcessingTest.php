@@ -32,7 +32,7 @@ class FormProcessingTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setLanguage();
+        $this->setLanguage();
 
         Current::$database = 'db';
         Current::$table = 'table';

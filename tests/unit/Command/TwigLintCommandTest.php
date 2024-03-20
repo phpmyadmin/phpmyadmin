@@ -25,7 +25,7 @@ class TwigLintCommandTest extends AbstractTestCase
 {
     private TwigLintCommand $command;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         if (! class_exists(Command::class)) {
             self::markTestSkipped('The Symfony Console is missing');

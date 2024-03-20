@@ -2594,12 +2594,7 @@
       <code><![CDATA[$GLOBALS['sql_query'][$key]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['message']]]></code>
       <code><![CDATA[$dbName ?? '']]></code>
-      <code><![CDATA[$queries]]></code>
-      <code><![CDATA[$queries]]></code>
-      <code><![CDATA[$queries]]></code>
-      <code><![CDATA[$queriesForDisplay]]></code>
       <code><![CDATA[$request->getParsedBodyParam('old_hostname')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('old_hostname', '')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('old_username')]]></code>
@@ -2615,15 +2610,15 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['dbname']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['message']]]></code>
       <code><![CDATA[$dbName]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
     </PossiblyInvalidArgument>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[! empty($GLOBALS['message']) && $GLOBALS['message'] instanceof Message]]></code>
+    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['message'])]]></code>
-      <code><![CDATA[empty($GLOBALS['message'])]]></code>
       <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
       <code><![CDATA[empty($routinename)]]></code>
       <code><![CDATA[empty($routinename)]]></code>
@@ -12041,16 +12036,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidReturnStatement>
-      <code><![CDATA[[
-            [User\UserFormList::class, User\ExportForm::class],
-            [Page\PageFormList::class, Page\ExportForm::class],
-            [Setup\SetupFormList::class, Setup\ExportForm::class],
-        ]]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[array{array{class-string<BaseFormList>, class-string<BaseForm>}}]]></code>
-    </InvalidReturnType>
     <PossiblyUnusedMethod>
       <code><![CDATA[formObjects]]></code>
     </PossiblyUnusedMethod>
@@ -13143,7 +13128,7 @@
                 $this->centralColumns,
                 CentralColumns::class,
                 'getHtmlForEditTableRow',
-                [$this->modifiedColumnData[0], 0],
+                [self::MODIFIED_COLUMN_DATA[0], 0],
             )]]></code>
     </MixedArgument>
   </file>
@@ -14347,28 +14332,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidReturnStatement>
-      <code><![CDATA[[
-            ['xml', 'xml', null, 'Export', 'format', null],
-            ['xml', 'sql', 'xml', 'Export', 'format', null],
-            ['xml', null, 'xml', 'Export', 'format', null],
-            ['', null, null, 'Export', 'format', null],
-            [
-                'Structure of table @TABLE@ strTest (continued)',
-                'strLatexStructure strTest strLatexContinued',
-                null,
-                'Export',
-                'latex_structure_continued_caption',
-                null,
-            ],
-            ['xml', 'sql', 'xml', 'Export', 'format', true],
-            ['sql', 'sql', 'xml', 'Export', 'format', false],
-            ['30', 30, null, 'Import', 'skip_queries', null],
-        ]]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[array{array{string, string|int|null, string|null, 'Export'|'Import'|'Schema', string, bool|null}}]]></code>
-    </InvalidReturnType>
     <PossiblyUnusedMethod>
       <code><![CDATA[providerForTestGetDefault]]></code>
     </PossiblyUnusedMethod>
@@ -14439,10 +14402,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedMethodCall>
-      <code><![CDATA[getMessage]]></code>
-      <code><![CDATA[getMessage]]></code>
-    </MixedMethodCall>
     <PossiblyUnusedMethod>
       <code><![CDATA[providerUnEscapeMysqlWildcards]]></code>
     </PossiblyUnusedMethod>
@@ -14772,26 +14731,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/UserPasswordTest.php">
-    <InvalidReturnStatement>
-      <code><![CDATA[[
-            [false, Message::success('The profile has been updated.'), true, '', ''],
-            [true, Message::error('The password is empty!'), false, '', ''],
-            [true, Message::error('The password is empty!'), false, 'a', ''],
-            [true, Message::error('The password is empty!'), false, '', 'a'],
-            [true, Message::error('The passwords aren\'t the same!'), false, 'a', 'b'],
-            [true, Message::error('Password is too long!'), false, str_repeat('a', 257), str_repeat('a', 257)],
-            [
-                false,
-                Message::success('The profile has been updated.'),
-                false,
-                str_repeat('a', 256),
-                str_repeat('a', 256),
-            ],
-        ]]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[array{0: bool, 1: Message, 2: string, 3: string, 4: string}[]]]></code>
-    </InvalidReturnType>
     <PossiblyUnusedMethod>
       <code><![CDATA[providerSetChangePasswordMsg]]></code>
     </PossiblyUnusedMethod>
@@ -14843,48 +14782,6 @@
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[Config::getInstance()->selectedServer]]></code>
     </InvalidPropertyAssignmentValue>
-    <InvalidReturnStatement>
-      <code><![CDATA[[
-            [
-                'ALTER_TABLE',
-                'alter-table-index',
-                '8.0.0',
-                'index.php?route=/url&url='
-                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F8.0%2Fen%2Falter-table.html%23alter-table-index',
-            ],
-            [
-                'ALTER_TABLE',
-                'alter-table-index',
-                '5.7.0',
-                'index.php?route=/url&url='
-                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Falter-table.html%23alter-table-index',
-            ],
-            [
-                '',
-                'alter-table-index',
-                '5.6.0',
-                'index.php?route=/url&url='
-                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.6%2Fen%2Findex.html%23alter-table-index',
-            ],
-            [
-                'ALTER_TABLE',
-                '',
-                '5.5.0',
-                'index.php?route=/url&url='
-                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Falter-table.html',
-            ],
-            [
-                '',
-                '',
-                '5.7.0',
-                'index.php?route=/url&url='
-                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Findex.html',
-            ],
-        ]]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[array<int, array{string, string, int, string}>]]></code>
-    </InvalidReturnType>
     <MixedArgument>
       <code><![CDATA[$_SESSION['cache']['server_2']]]></code>
       <code><![CDATA[$_SESSION['cache']['server_2']]]></code>

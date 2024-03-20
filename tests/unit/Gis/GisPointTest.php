@@ -30,11 +30,11 @@ class GisPointTest extends GisGeomTestCase
     public static function providerForTestGenerateWkt(): array
     {
         return [
-            [[0 => ['POINT' => ['x' => 5.02, 'y' => 8.45]]], 0, '', 'POINT(5.02 8.45)'],
-            [[0 => ['POINT' => ['x' => 5.02, 'y' => 8.45]]], 1, '', 'POINT( )'],
-            [[0 => ['POINT' => ['x' => 5.02]]], 0, '', 'POINT(5.02 )'],
-            [[0 => ['POINT' => ['y' => 8.45]]], 0, '', 'POINT( 8.45)'],
-            [[0 => ['POINT' => []]], 0, '', 'POINT( )'],
+            [[['POINT' => ['x' => 5.02, 'y' => 8.45]]], 0, '', 'POINT(5.02 8.45)'],
+            [[['POINT' => ['x' => 5.02, 'y' => 8.45]]], 1, '', 'POINT( )'],
+            [[['POINT' => ['x' => 5.02]]], 0, '', 'POINT(5.02 )'],
+            [[['POINT' => ['y' => 8.45]]], 0, '', 'POINT( 8.45)'],
+            [[['POINT' => []]], 0, '', 'POINT( )'],
         ];
     }
 

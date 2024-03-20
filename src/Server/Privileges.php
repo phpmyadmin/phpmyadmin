@@ -2219,7 +2219,7 @@ class Privileges
      * @param string|null         $password   password
      * @param bool                $isMenuwork is_menuwork set?
      *
-     * @return mixed[]
+     * @return array{Message|null, string[], string[]|null, string|null, bool}
      */
     public function addUser(
         string|array|null $dbname,
@@ -2881,7 +2881,7 @@ class Privileges
      * @param string $alterRealSqlQuery SQL query for ALTER USER
      * @param string $alterSqlQuery     SQL query for ALTER USER to be displayed
      *
-     * @return array<int,string|Message>
+     * @return array{string, Message}
      */
     public function addUserAndCreateDatabase(
         bool $error,

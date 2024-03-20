@@ -145,7 +145,7 @@ class StructureControllerTest extends AbstractTestCase
             'is_active' => false,
             'have_partitioning' => true,
             'partitions' => [],
-            'partition_names' => [0 => null],
+            'partition_names' => [null],
             'default_sliders_state' => 'closed',
             'attributes' => [1 => ' ', 2 => ' ', 3 => ' '],
             'displayed_fields' => [

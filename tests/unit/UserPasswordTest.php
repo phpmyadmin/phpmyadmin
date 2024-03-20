@@ -61,7 +61,7 @@ class UserPasswordTest extends AbstractTestCase
         );
     }
 
-    /** @psalm-return array{0: bool, 1: Message, 2: string, 3: string, 4: string}[] */
+    /** @psalm-return array{0: bool, 1: Message, 2: bool, 3: string, 4: string}[] */
     public static function providerSetChangePasswordMsg(): array
     {
         return [

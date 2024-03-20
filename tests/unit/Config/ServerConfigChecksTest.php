@@ -29,7 +29,7 @@ class ServerConfigChecksTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         $config = Config::getInstance();
         $config->settings['AvailableCharsets'] = [];

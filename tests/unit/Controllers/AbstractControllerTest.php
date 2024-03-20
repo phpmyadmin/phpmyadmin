@@ -34,7 +34,7 @@ class AbstractControllerTest extends AbstractTestCase
             /** @psalm-param non-empty-list<non-empty-string> $params */
             public function testCheckParameters(array $params): bool
             {
-                return parent::checkParameters($params);
+                return $this->checkParameters($params);
             }
         };
 
@@ -62,7 +62,7 @@ class AbstractControllerTest extends AbstractTestCase
             /** @psalm-param non-empty-list<non-empty-string> $params */
             public function testCheckParameters(array $params): bool
             {
-                return parent::checkParameters($params);
+                return $this->checkParameters($params);
             }
         };
 
@@ -84,7 +84,7 @@ class AbstractControllerTest extends AbstractTestCase
             /** @psalm-param StatusCodeInterface::STATUS_* $statusCode */
             public function testSendErrorResponse(string $message, int $statusCode = 400): void
             {
-                parent::sendErrorResponse($message, $statusCode);
+                $this->sendErrorResponse($message, $statusCode);
             }
         };
 
@@ -105,7 +105,7 @@ class AbstractControllerTest extends AbstractTestCase
             /** @psalm-param StatusCodeInterface::STATUS_* $statusCode */
             public function testSendErrorResponse(string $message, int $statusCode = 400): void
             {
-                parent::sendErrorResponse($message, $statusCode);
+                $this->sendErrorResponse($message, $statusCode);
             }
         };
 

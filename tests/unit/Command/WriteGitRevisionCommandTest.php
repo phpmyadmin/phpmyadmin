@@ -15,26 +15,24 @@ use function sprintf;
 #[CoversClass(WriteGitRevisionCommand::class)]
 class WriteGitRevisionCommandTest extends AbstractTestCase
 {
-    private WriteGitRevisionCommand $command;
-
     public function testGetGeneratedClassValidVersion(): void
     {
         if (! class_exists(Command::class)) {
             self::markTestSkipped('The Symfony Console is missing');
         }
 
-        $this->command = $this->getMockBuilder(WriteGitRevisionCommand::class)
+        $command = $this->getMockBuilder(WriteGitRevisionCommand::class)
             ->onlyMethods(['gitCli'])
             ->getMock();
 
-        $this->command->expects(self::exactly(3))->method('gitCli')->willReturnMap([
+        $command->expects(self::exactly(3))->method('gitCli')->willReturnMap([
             ['describe --always', 'RELEASE_5_1_0-638-g1c018e2a6c'],
             ['log -1 --format="%H"', '1c018e2a6c6d518c4a2dde059e49f33af67c4636'],
             ['symbolic-ref -q HEAD', 'refs/heads/cli-rev-info'],
         ]);
 
         $output = $this->callFunction(
-            $this->command,
+            $command,
             WriteGitRevisionCommand::class,
             'getRevisionInfo',
             ['https://github.com/phpmyadmin/phpmyadmin/commit/%s', 'https://github.com/phpmyadmin/phpmyadmin/tree/%s'],

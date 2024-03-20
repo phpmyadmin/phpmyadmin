@@ -156,7 +156,7 @@ class RelationTest extends AbstractTestCase
                 'foreign_field' => 'value',
             ],
             'foreign_keys_data' => [
-                0 => [
+                [
                     'constraint' => 'ad',
                     'index_list' => ['id', 'value'],
                     'ref_db_name' => 'GSoC14',

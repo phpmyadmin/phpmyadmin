@@ -84,7 +84,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      */
     public static function providerForTestGenerateWkt(): array
     {
-        $temp = [0 => self::getData()];
+        $temp = [self::getData()];
 
         $temp1 = $temp;
         $temp1[0]['MULTIPOLYGON']['data_length'] = 0;
@@ -177,29 +177,29 @@ class GisMultiPolygonTest extends GisGeomTestCase
             [
                 [
                     'parts' => [
-                        0 => [
+                        [
                             'points' => [
-                                0 => ['x' => 10, 'y' => 10],
-                                1 => ['x' => 10, 'y' => 40],
-                                2 => ['x' => 50, 'y' => 40],
-                                3 => ['x' => 50, 'y' => 10],
-                                4 => ['x' => 10, 'y' => 10],
+                                ['x' => 10, 'y' => 10],
+                                ['x' => 10, 'y' => 40],
+                                ['x' => 50, 'y' => 40],
+                                ['x' => 50, 'y' => 10],
+                                ['x' => 10, 'y' => 10],
                             ],
                         ],
-                        1 => [
+                        [
                             'points' => [
-                                0 => ['x' => 60, 'y' => 40],
-                                1 => ['x' => 75, 'y' => 65],
-                                2 => ['x' => 90, 'y' => 40],
-                                3 => ['x' => 60, 'y' => 40],
+                                ['x' => 60, 'y' => 40],
+                                ['x' => 75, 'y' => 65],
+                                ['x' => 90, 'y' => 40],
+                                ['x' => 60, 'y' => 40],
                             ],
                         ],
-                        2 => [
+                        [
                             'points' => [
-                                0 => ['x' => 20, 'y' => 20],
-                                1 => ['x' => 40, 'y' => 20],
-                                2 => ['x' => 25, 'y' => 30],
-                                3 => ['x' => 20, 'y' => 20],
+                                ['x' => 20, 'y' => 20],
+                                ['x' => 40, 'y' => 20],
+                                ['x' => 25, 'y' => 30],
+                                ['x' => 20, 'y' => 20],
                             ],
                         ],
                     ],

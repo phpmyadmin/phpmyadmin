@@ -20,7 +20,7 @@ class AdvisorTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
     }
@@ -62,7 +62,7 @@ class AdvisorTest extends AbstractTestCase
     #[DataProvider('rulesProvider')]
     public function testAddRule(array $rule, array $expected, string|null $error): void
     {
-        parent::setLanguage();
+        $this->setLanguage();
 
         $advisor = new Advisor(DatabaseInterface::getInstance(), new ExpressionLanguage());
         $advisor->setVariable('value', 0);

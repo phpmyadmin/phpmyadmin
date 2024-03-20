@@ -28,7 +28,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     public static function providerForTestGenerateWkt(): array
     {
         $temp = [
-            0 => [
+            [
                 'MULTILINESTRING' => [
                     'data_length' => 2,
                     0 => ['data_length' => 2, 0 => ['x' => 5.02, 'y' => 8.45], 1 => ['x' => 6.14, 'y' => 0.15]],
@@ -82,8 +82,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
         $rowData = [
             'numparts' => 2,
             'parts' => [
-                0 => ['points' => [0 => ['x' => 5.02, 'y' => 8.45], 1 => ['x' => 6.14, 'y' => 0.15]]],
-                1 => ['points' => [0 => ['x' => 1.23, 'y' => 4.25], 1 => ['x' => 9.15, 'y' => 0.47]]],
+                ['points' => [['x' => 5.02, 'y' => 8.45], ['x' => 6.14, 'y' => 0.15]]],
+                ['points' => [['x' => 1.23, 'y' => 4.25], ['x' => 9.15, 'y' => 0.47]]],
             ],
         ];
 

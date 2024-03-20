@@ -21,7 +21,7 @@ class LinterTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setLanguage();
+        $this->setLanguage();
     }
 
     /**

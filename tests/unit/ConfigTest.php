@@ -22,8 +22,7 @@ use function fileperms;
 use function function_exists;
 use function gd_info;
 use function md5;
-use function ob_end_clean;
-use function ob_get_contents;
+use function ob_get_clean;
 use function ob_start;
 use function phpinfo;
 use function preg_match;
@@ -295,8 +294,7 @@ PHP;
         /* Get GD version string from phpinfo output */
         ob_start();
         phpinfo(INFO_MODULES); /* Only modules */
-        $a = strip_tags((string) ob_get_contents());
-        ob_end_clean();
+        $a = strip_tags((string) ob_get_clean());
 
         if (! preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
             return;

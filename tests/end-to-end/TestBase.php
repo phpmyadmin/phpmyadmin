@@ -646,17 +646,13 @@ abstract class TestBase extends TestCase
             $this->typeInTextArea($query);
             $this->scrollIntoView('button_submit_query');
             $this->byId('button_submit_query')->click();
-            if ($afterSubmit !== null) {
-                $afterSubmit->call($this);
-            }
+            $afterSubmit?->call($this);
 
             $this->waitAjax();
             $this->waitForElement('className', 'result_query');
             // If present then
             $didSucceed = $this->isElementPresent('xpath', '//*[@class="result_query"]//*[contains(., "success")]');
-            if ($onResults !== null) {
-                $onResults->call($this);
-            }
+            $onResults?->call($this);
         }
 
         reset($handles);
@@ -875,7 +871,7 @@ abstract class TestBase extends TestCase
      * Wrapper around alertText method to not use it on not supported
      * browsers.
      */
-    public function alertText(): mixed
+    public function alertText(): string
     {
         /**
          * Not supported in Safari Webdriver, see
@@ -1182,7 +1178,7 @@ JS;
     /**
      * Mark unsuccessful tests as 'Failures' on Browerstack
      */
-    public function onNotSuccessfulTest(Throwable $t): never
+    protected function onNotSuccessfulTest(Throwable $t): never
     {
         $this->markTestAs('failed', $t->getMessage());
         $this->takeScrenshot('test_failed');

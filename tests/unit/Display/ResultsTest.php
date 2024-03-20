@@ -68,9 +68,9 @@ class ResultsTest extends AbstractTestCase
     {
         parent::setUp();
 
-        parent::setLanguage();
+        $this->setLanguage();
 
-        parent::setGlobalConfig();
+        $this->setGlobalConfig();
 
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
@@ -237,8 +237,8 @@ class ResultsTest extends AbstractTestCase
                     'routine_name' => [
                         'link_param' => 'item_name',
                         'link_dependancy_params' => [
-                            0 => ['param_info' => 'db', 'column_name' => 'routine_schema'],
-                            1 => ['param_info' => 'item_type', 'column_name' => 'routine_type'],
+                            ['param_info' => 'db', 'column_name' => 'routine_schema'],
+                            ['param_info' => 'item_type', 'column_name' => 'routine_type'],
                         ],
                         'default_page' => 'index.php?route=/database/routines',
                     ],
@@ -247,8 +247,8 @@ class ResultsTest extends AbstractTestCase
                     'column_name' => [
                         'link_param' => 'table_schema',
                         'link_dependancy_params' => [
-                            0 => ['param_info' => 'db', 'column_name' => 'table_schema'],
-                            1 => ['param_info' => 'db2', 'column_name' => 'table_schema'],
+                            ['param_info' => 'db', 'column_name' => 'table_schema'],
+                            ['param_info' => 'db2', 'column_name' => 'table_schema'],
                         ],
                         'default_page' => 'index.php',
                     ],
@@ -286,7 +286,7 @@ class ResultsTest extends AbstractTestCase
         return [
             [
                 $fieldsMeta,
-                [0 => 'localhost', 1 => 'phpmyadmin', 2 => 'pmauser', 3 => 'Y'],
+                ['localhost', 'phpmyadmin', 'pmauser', 'Y'],
                 ['host' => 'localhost', 'select_privilages' => 'Y', 'db' => 'phpmyadmin', 'user' => 'pmauser'],
             ],
         ];
