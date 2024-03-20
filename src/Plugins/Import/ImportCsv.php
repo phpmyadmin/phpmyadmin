@@ -23,7 +23,6 @@ use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Util;
-use Webmozart\Assert\Assert;
 
 use function __;
 use function array_map;
@@ -34,6 +33,7 @@ use function in_array;
 use function max;
 use function mb_strlen;
 use function mb_substr;
+use function min;
 use function pathinfo;
 use function preg_split;
 use function rtrim;
@@ -61,6 +61,10 @@ class ImportCsv extends AbstractImportCsv
     private string $escaped = '';
     private string $newLine = '';
     private string $columns = '';
+    private int $maxLines = 0;
+    private bool $csvHasColumnNames = false;
+    private string $newDatabaseName = '';
+    private string $newTableName = '';
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
@@ -172,6 +176,10 @@ class ImportCsv extends AbstractImportCsv
         $this->escaped = (string) $request->getParsedBodyParam('csv_escaped');
         $this->newLine = (string) $request->getParsedBodyParam('csv_new_line');
         $this->columns = (string) $request->getParsedBodyParam('csv_columns');
+        $this->maxLines = min(0, (int) $request->getParsedBodyParam('csv_partial_import'));
+        $this->csvHasColumnNames = $request->getParsedBodyParam('csv_col_names') !== null;
+        $this->newDatabaseName = (string) $request->getParsedBodyParam('csv_new_db_name');
+        $this->newTableName = (string) $request->getParsedBodyParam('csv_new_tbl_name');
     }
 
     /**
@@ -217,20 +225,10 @@ class ImportCsv extends AbstractImportCsv
         $lasti = -1;
         $values = [];
         $csvFinish = false;
-        $maxLines = 0; // defaults to 0 (get all the lines)
 
-        /**
-         * If we get a negative value, probably someone changed min value
-         * attribute in DOM or there is an integer overflow, whatever be
-         * the case, get all the lines.
-         */
-        if (isset($_REQUEST['csv_partial_import']) && $_REQUEST['csv_partial_import'] > 0) {
-            $maxLines = $_REQUEST['csv_partial_import'];
-        }
-
-        $maxLinesConstraint = $maxLines + 1;
+        $maxLinesConstraint = $this->maxLines + 1;
         // if the first row has to be counted as column names, include one more row in the max lines
-        if (isset($_REQUEST['csv_col_names'])) {
+        if ($this->csvHasColumnNames) {
             $maxLinesConstraint++;
         }
 
@@ -549,13 +547,13 @@ class ImportCsv extends AbstractImportCsv
                 $i = 0;
                 $lasti = -1;
                 $ch = mb_substr($buffer, 0, 1);
-                if ($maxLines > 0 && $line == $maxLinesConstraint) {
+                if ($this->maxLines > 0 && $line == $maxLinesConstraint) {
                     ImportSettings::$finished = true;
                     break;
                 }
             }
 
-            if ($maxLines > 0 && $line == $maxLinesConstraint) {
+            if ($this->maxLines > 0 && $line == $maxLinesConstraint) {
                 ImportSettings::$finished = true;
                 break;
             }
@@ -569,7 +567,7 @@ class ImportCsv extends AbstractImportCsv
 
             $colNames = [];
             /* Remove the first row if it contains the column names */
-            if (isset($_REQUEST['csv_col_names'])) {
+            if ($this->csvHasColumnNames) {
                 $colNames = array_shift($rows);
             }
 
@@ -587,9 +585,8 @@ class ImportCsv extends AbstractImportCsv
              * Otherwise, check if user provided the database name in the request,
              * if not, set the default name
              */
-            if (isset($_REQUEST['csv_new_db_name']) && (string) $_REQUEST['csv_new_db_name'] !== '') {
-                $newDb = $_REQUEST['csv_new_db_name'];
-                Assert::string($newDb);
+            if ($this->newDatabaseName !== '') {
+                $newDb = $this->newDatabaseName;
             } else {
                 $result = $dbi->fetchResult('SHOW DATABASES');
 
@@ -693,8 +690,8 @@ class ImportCsv extends AbstractImportCsv
     private function getTableNameFromImport(string $databaseName): string
     {
         // get new table name, if user didn't provide one, set the default name
-        if (isset($_REQUEST['csv_new_tbl_name']) && (string) $_REQUEST['csv_new_tbl_name'] !== '') {
-            return $_REQUEST['csv_new_tbl_name'];
+        if ($this->newTableName !== '') {
+            return $this->newTableName;
         }
 
         return $this->import->getNextAvailableTableName(
@@ -710,7 +707,7 @@ class ImportCsv extends AbstractImportCsv
      */
     private function getColumnNames(array $columnNames, int $maxCols): array
     {
-        if (isset($_REQUEST['csv_col_names'])) {
+        if ($this->csvHasColumnNames) {
             // MySQL column names can't end with a space character.
             $columnNames = array_map(rtrim(...), $columnNames);
         }

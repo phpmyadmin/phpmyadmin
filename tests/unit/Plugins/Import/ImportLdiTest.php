@@ -38,19 +38,16 @@ class ImportLdiTest extends AbstractTestCase
         ImportSettings::$skipQueries = 0;
         ImportSettings::$runQuery = false;
         ImportSettings::$goSql = false;
-        //setting
         ImportSettings::$importType = 'table';
         ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
         $config = Config::getInstance();
-        $config->selectedServer['DisableIS'] = false;
 
         ImportSettings::$importFile = 'tests/test_data/db_test_ldi.csv';
         $GLOBALS['import_text'] = 'ImportLdi_Test';
         ImportSettings::$readMultiply = 10;
 
-        //setting for Ldi
         $config->settings['Import']['ldi_replace'] = false;
         $config->settings['Import']['ldi_ignore'] = false;
         $config->settings['Import']['ldi_terminated'] = ';';
@@ -116,9 +113,7 @@ class ImportLdiTest extends AbstractTestCase
      */
     public function testDoImport(): void
     {
-        //$sql_query_disabled will show the import SQL detail
-
-        ImportSettings::$sqlQueryDisabled = false;
+        ImportSettings::$sqlQueryDisabled = false; //will show the import SQL detail
         $dbi = self::createMock(DatabaseInterface::class);
         $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
@@ -163,9 +158,7 @@ class ImportLdiTest extends AbstractTestCase
      */
     public function testDoImportLDISetting(): void
     {
-        //$sql_query_disabled will show the import SQL detail
-
-        ImportSettings::$sqlQueryDisabled = false;
+        ImportSettings::$sqlQueryDisabled = false; //will show the import SQL detail
         $dbi = self::createMock(DatabaseInterface::class);
         $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
