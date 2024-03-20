@@ -14255,11 +14255,6 @@
       <code><![CDATA[assertSame]]></code>
     </RedundantCondition>
   </file>
-  <file src="tests/unit/Plugins/Import/ImportXmlTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="tests/unit/Plugins/Schema/DiaRelationSchemaTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
