@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportOds;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -51,11 +52,15 @@ class ImportOdsTest extends AbstractTestCase
         Config::getInstance()->selectedServer['DisableIS'] = false;
         ImportSettings::$readMultiply = 10;
 
-        //variable for Ods
-        $_REQUEST['ods_recognize_percentages'] = true;
-        $_REQUEST['ods_recognize_currency'] = true;
-
         $this->object = new ImportOds();
+
+        //variable for Ods
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'ods_recognize_percentages' => 'yes',
+                'ods_recognize_currency' => 'yes',
+            ]);
+        $this->object->setImportOptions($request);
     }
 
     /**
@@ -97,7 +102,14 @@ class ImportOdsTest extends AbstractTestCase
         ImportSettings::$sqlQueryDisabled = false; //will show the import SQL detail
 
         ImportSettings::$importFile = 'tests/test_data/db_test.ods';
-        $_REQUEST['ods_empty_rows'] = true;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'ods_recognize_percentages' => 'yes',
+                'ods_recognize_currency' => 'yes',
+                'ods_empty_rows' => 'yes',
+            ]);
+        $this->object->setImportOptions($request);
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
@@ -131,12 +143,12 @@ class ImportOdsTest extends AbstractTestCase
         self::assertTrue(ImportSettings::$finished);
     }
 
-    /** @return array<string, bool[]> */
+    /** @return array<string, array<string|null>> */
     public static function dataProviderOdsEmptyRows(): array
     {
         return [
-            'remove empty columns' => [true],
-            'keep empty columns' => [false],
+            'remove empty columns' => ['yes'],
+            'keep empty columns' => [null],
         ];
     }
 
@@ -145,13 +157,19 @@ class ImportOdsTest extends AbstractTestCase
      */
     #[DataProvider('dataProviderOdsEmptyRows')]
     #[RequiresPhpExtension('simplexml')]
-    public function testDoImportDataset2(bool $odsEmptyRowsMode): void
+    public function testDoImportDataset2(string|null $odsEmptyRowsMode): void
     {
         ImportSettings::$sqlQueryDisabled = false; //will show the import SQL detail
 
         ImportSettings::$importFile = 'tests/test_data/import-slim.ods.xml';
-        $_REQUEST['ods_col_names'] = true;
-        $_REQUEST['ods_empty_rows'] = $odsEmptyRowsMode;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'ods_recognize_percentages' => 'yes',
+                'ods_recognize_currency' => 'yes',
+                'ods_col_names' => 'yes',
+                'ods_empty_rows' => $odsEmptyRowsMode,
+            ]);
+        $this->object->setImportOptions($request);
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
@@ -164,7 +182,7 @@ class ImportOdsTest extends AbstractTestCase
 
         $endOfSql = ');';
 
-        if (! $odsEmptyRowsMode) {
+        if ($odsEmptyRowsMode === null) {
             $fullCols = 'NULL' . str_repeat(', NULL', 18);// 19 empty cells
             $endOfSql = '),' . "\n" . ' (' . $fullCols . '),' . "\n" . ' (' . $fullCols . ');';
         }
@@ -220,8 +238,8 @@ class ImportOdsTest extends AbstractTestCase
              . ' (\'0.05\'),' . "\n"
              . ' (\'true\'),' . "\n"
              . ' (\'12\')'
-             . ($odsEmptyRowsMode ? '' : ',' . "\n" . ' (NULL)')
-             . ($odsEmptyRowsMode ? ';' : ',' . "\n" . ' (NULL);'),
+             . ($odsEmptyRowsMode !== null ? '' : ',' . "\n" . ' (NULL)')
+             . ($odsEmptyRowsMode !== null ? ';' : ',' . "\n" . ' (NULL);'),
             $GLOBALS['sql_query'],
         );
 

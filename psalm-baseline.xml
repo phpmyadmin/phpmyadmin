@@ -8671,11 +8671,6 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[string[]]]></code>
     </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$_REQUEST['ods_empty_rows'] ?? false]]></code>
-      <code><![CDATA[$_REQUEST['ods_recognize_currency']]]></code>
-      <code><![CDATA[$_REQUEST['ods_recognize_percentages']]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Import/ImportShp.php">
     <DeprecatedMethod>
