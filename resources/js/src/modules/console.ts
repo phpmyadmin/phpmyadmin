@@ -176,13 +176,35 @@ var Console = {
                 consoleContent.classList.toggle('console_dark_theme', isDarkTheme);
             });
 
-            $('#pma_console_options').find('.button.default').on('click', function () {
-                (document.getElementById('consoleOptionsAlwaysExpandCheckbox') as HTMLInputElement).checked = false;
-                (document.getElementById('consoleOptionsStartHistoryCheckbox') as HTMLInputElement).checked = false;
-                (document.getElementById('consoleOptionsCurrentQueryCheckbox') as HTMLInputElement).checked = true;
-                (document.getElementById('consoleOptionsEnterExecutesCheckbox') as HTMLInputElement).checked = false;
-                (document.getElementById('consoleOptionsDarkThemeCheckbox') as HTMLInputElement).checked = false;
-                Config.update();
+            const restoreConsoleOptionsButton = document.getElementById('pma_console_options').querySelector('.button.default');
+            restoreConsoleOptionsButton?.addEventListener('click', function (): void {
+                if (consoleOptionsAlwaysExpandCheckbox.checked) {
+                    consoleOptionsAlwaysExpandCheckbox.checked = false;
+                    Config.set('AlwaysExpand', false);
+                }
+
+                if (consoleOptionsStartHistoryCheckbox.checked) {
+                    consoleOptionsStartHistoryCheckbox.checked = false;
+                    Config.set('StartHistory', false);
+                }
+
+                if (! consoleOptionsCurrentQueryCheckbox.checked) {
+                    consoleOptionsCurrentQueryCheckbox.checked = true;
+                    Config.set('CurrentQuery', true);
+                }
+
+                if (consoleOptionsEnterExecutesCheckbox.checked) {
+                    consoleOptionsEnterExecutesCheckbox.checked = false;
+                    Config.set('EnterExecutes', false);
+                    ConsoleMessages.showInstructions(false);
+                }
+
+                if (consoleOptionsDarkThemeCheckbox.checked) {
+                    consoleOptionsDarkThemeCheckbox.checked = false;
+                    Config.set('DarkTheme', false);
+                    const consoleContent = document.getElementById('pma_console').querySelector('.content');
+                    consoleContent.classList.remove('console_dark_theme');
+                }
             });
 
             $(document).on('ajaxComplete', function (event, xhr, ajaxOptions) {
