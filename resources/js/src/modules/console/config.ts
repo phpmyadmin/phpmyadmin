@@ -69,24 +69,6 @@ export const Config = {
         this[key] = value;
         setConfigValue(key, value);
     },
-
-    /**
-     * Used for update console config
-     */
-    update: function (): void {
-        this.set('AlwaysExpand', !! (document.getElementById('consoleOptionsAlwaysExpandCheckbox') as HTMLInputElement).checked);
-        this.set('StartHistory', !! (document.getElementById('consoleOptionsStartHistoryCheckbox') as HTMLInputElement).checked);
-        this.set('CurrentQuery', !! (document.getElementById('consoleOptionsCurrentQueryCheckbox') as HTMLInputElement).checked);
-        this.set('EnterExecutes', !! (document.getElementById('consoleOptionsEnterExecutesCheckbox') as HTMLInputElement).checked);
-        this.set('DarkTheme', !! (document.getElementById('consoleOptionsDarkThemeCheckbox') as HTMLInputElement).checked);
-        /* Setting the dark theme of the console*/
-        const consoleContent = document.getElementById('pma_console').querySelector('.content');
-        if (this.DarkTheme) {
-            consoleContent.classList.add('console_dark_theme');
-        } else {
-            consoleContent.classList.remove('console_dark_theme');
-        }
-    }
 };
 
 /**
