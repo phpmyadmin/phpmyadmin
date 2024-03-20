@@ -14,6 +14,7 @@ use PhpMyAdmin\Controllers\CollationConnectionController;
 use PhpMyAdmin\Controllers\ColumnController;
 use PhpMyAdmin\Controllers\Config;
 use PhpMyAdmin\Controllers\Console\Bookmark;
+use PhpMyAdmin\Controllers\Console\UpdateConfigController;
 use PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\Database\Structure\CentralColumns;
 use PhpMyAdmin\Controllers\DatabaseController;
@@ -164,6 +165,7 @@ final class RoutesTest extends TestCase
             '/config/get' => Config\GetConfigController::class,
             '/config/set' => Config\SetConfigController::class,
             '/console/bookmark/add' => Bookmark\AddController::class,
+            '/console/update-config' => UpdateConfigController::class,
             '/database/central-columns' => Database\CentralColumnsController::class,
             '/database/central-columns/populate' => Database\CentralColumns\PopulateColumnsController::class,
             '/database/designer' => Database\DesignerController::class,

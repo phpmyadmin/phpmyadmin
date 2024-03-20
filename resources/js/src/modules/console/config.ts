@@ -1,4 +1,6 @@
-import { setConfigValue } from '../functions/config.ts';
+import $ from 'jquery';
+import { ajaxShowMessage } from '../ajax-message.ts';
+import { CommonParams } from '../common.ts';
 
 /**
  * @link https://docs.phpmyadmin.net/en/latest/config.html#console-settings
@@ -65,7 +67,7 @@ export const Config = {
      */
     set: function (key, value): void {
         this[key] = value;
-        setConfigValue('Console/' + key, value);
+        setConfigValue(key, value);
     },
 
     /**
@@ -86,3 +88,33 @@ export const Config = {
         }
     }
 };
+
+/**
+ * @param {'StartHistory'|'AlwaysExpand'|'CurrentQuery'|'EnterExecutes'|'DarkTheme'|'Mode'|'Height'|'GroupQueries'|'OrderBy'|'Order'} key
+ * @param {boolean|string|number} value
+ */
+function setConfigValue (key, value): void {
+    // Updating value in local storage.
+    const serialized = JSON.stringify(value);
+    localStorage.setItem('Console/' + key, serialized);
+
+    $.ajax({
+        url: 'index.php?route=/console/update-config',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            'ajax_request': true,
+            key: key,
+            server: CommonParams.get('server'),
+            value: serialized,
+        },
+        success: function (data) {
+            if (data.success !== true) {
+                // Try to find a message to display
+                if (data.error || data.message) {
+                    ajaxShowMessage(data.error || data.message);
+                }
+            }
+        }
+    });
+}
