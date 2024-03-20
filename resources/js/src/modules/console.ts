@@ -146,8 +146,34 @@ var Console = {
                 Console.hideCard($(this).closest('.card'));
             });
 
-            $('#pma_console_options').find('input[type=checkbox]').on('change', function () {
-                Config.update();
+            const consoleOptionsAlwaysExpandCheckbox = document.getElementById('consoleOptionsAlwaysExpandCheckbox') as HTMLInputElement;
+            consoleOptionsAlwaysExpandCheckbox?.addEventListener('change', function (): void {
+                Config.set('AlwaysExpand', !! consoleOptionsAlwaysExpandCheckbox.checked);
+            });
+
+            const consoleOptionsStartHistoryCheckbox = document.getElementById('consoleOptionsStartHistoryCheckbox') as HTMLInputElement;
+            consoleOptionsStartHistoryCheckbox?.addEventListener('change', function (): void {
+                Config.set('StartHistory', !! consoleOptionsStartHistoryCheckbox.checked);
+            });
+
+            const consoleOptionsCurrentQueryCheckbox = document.getElementById('consoleOptionsCurrentQueryCheckbox') as HTMLInputElement;
+            consoleOptionsCurrentQueryCheckbox?.addEventListener('change', function (): void {
+                Config.set('CurrentQuery', !! consoleOptionsCurrentQueryCheckbox.checked);
+            });
+
+            const consoleOptionsEnterExecutesCheckbox = document.getElementById('consoleOptionsEnterExecutesCheckbox') as HTMLInputElement;
+            consoleOptionsEnterExecutesCheckbox?.addEventListener('change', function (): void {
+                const isEnterExecutes = !! consoleOptionsEnterExecutesCheckbox.checked;
+                Config.set('EnterExecutes', isEnterExecutes);
+                ConsoleMessages.showInstructions(isEnterExecutes);
+            });
+
+            const consoleOptionsDarkThemeCheckbox = document.getElementById('consoleOptionsDarkThemeCheckbox') as HTMLInputElement;
+            consoleOptionsDarkThemeCheckbox?.addEventListener('change', function (): void {
+                const isDarkTheme = !! consoleOptionsDarkThemeCheckbox.checked;
+                Config.set('DarkTheme', isDarkTheme);
+                const consoleContent = document.getElementById('pma_console').querySelector('.content');
+                consoleContent.classList.toggle('console_dark_theme', isDarkTheme);
             });
 
             $('#pma_console_options').find('.button.default').on('click', function () {
@@ -157,10 +183,6 @@ var Console = {
                 (document.getElementById('consoleOptionsEnterExecutesCheckbox') as HTMLInputElement).checked = false;
                 (document.getElementById('consoleOptionsDarkThemeCheckbox') as HTMLInputElement).checked = false;
                 Config.update();
-            });
-
-            $('#consoleOptionsEnterExecutesCheckbox').on('change', function () {
-                ConsoleMessages.showInstructions(Config.EnterExecutes);
             });
 
             $(document).on('ajaxComplete', function (event, xhr, ajaxOptions) {
