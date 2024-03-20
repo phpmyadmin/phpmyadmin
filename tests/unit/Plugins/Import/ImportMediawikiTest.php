@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
@@ -30,7 +29,6 @@ class ImportMediawikiTest extends AbstractTestCase
     {
         parent::setUp();
 
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['error'] = null;
         ImportSettings::$timeoutPassed = false;
         ImportSettings::$maximumTime = 0;
@@ -44,17 +42,14 @@ class ImportMediawikiTest extends AbstractTestCase
         ImportSettings::$runQuery = false;
         ImportSettings::$goSql = false;
         ImportSettings::$importType = 'database';
-        $this->object = new ImportMediawiki();
-
-        //setting
         ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-
         ImportSettings::$importFile = 'tests/test_data/phpmyadmin.mediawiki';
         $GLOBALS['import_text'] = 'ImportMediawiki_Test';
         ImportSettings::$readMultiply = 10;
+
+        $this->object = new ImportMediawiki();
     }
 
     /**
@@ -98,9 +93,6 @@ class ImportMediawikiTest extends AbstractTestCase
      */
     public function testDoImport(): void
     {
-        //$import_notice will show the import detail result
-
-        //Mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -139,7 +131,6 @@ class ImportMediawikiTest extends AbstractTestCase
 
     public function testDoImportWithEmptyTable(): void
     {
-        //Mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();

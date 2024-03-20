@@ -14246,11 +14246,6 @@
       <code><![CDATA[assertTrue]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="tests/unit/Plugins/Import/ImportMediawikiTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="tests/unit/Plugins/Import/ImportOdsTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
