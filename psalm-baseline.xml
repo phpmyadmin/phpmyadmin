@@ -875,6 +875,11 @@
       <code><![CDATA[$request]]></code>
     </UnusedParam>
   </file>
+  <file src="src/Controllers/Console/UpdateConfigController.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="src/Controllers/Database/CentralColumns/PopulateColumnsController.php">
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('selectedTable')]]></code>
