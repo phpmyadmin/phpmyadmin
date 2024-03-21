@@ -61,13 +61,54 @@ export const Config = {
         this.Order = dataset.order === 'desc' ? 'desc' : 'asc';
     },
 
-    /**
-     * @param {'StartHistory'|'AlwaysExpand'|'CurrentQuery'|'EnterExecutes'|'DarkTheme'|'Mode'|'Height'|'GroupQueries'|'OrderBy'|'Order'} key
-     * @param {boolean|string|number} value
-     */
-    set: function (key, value): void {
-        this[key] = value;
-        setConfigValue(key, value);
+    setStartHistory: function (value: boolean): void {
+        this.StartHistory = value;
+        setConfigValue('StartHistory', value);
+    },
+
+    setAlwaysExpand: function (value: boolean): void {
+        this.AlwaysExpand = value;
+        setConfigValue('AlwaysExpand', value);
+    },
+
+    setCurrentQuery: function (value: boolean): void {
+        this.CurrentQuery = value;
+        setConfigValue('CurrentQuery', value);
+    },
+
+    setEnterExecutes: function (value: boolean): void {
+        this.EnterExecutes = value;
+        setConfigValue('EnterExecutes', value);
+    },
+
+    setDarkTheme: function (value: boolean): void {
+        this.DarkTheme = value;
+        setConfigValue('DarkTheme', value);
+    },
+
+    setMode: function (value: 'info'|'show'|'collapse'): void {
+        this.Mode = value;
+        setConfigValue('Mode', value);
+    },
+
+    setHeight: function (value: number): void {
+        this.Height = value;
+        setConfigValue('Height', value);
+    },
+
+    setGroupQueries: function (value: boolean): void {
+        this.GroupQueries = value;
+        setConfigValue('GroupQueries', value);
+    },
+
+    setOrderBy: function (value: 'exec'|'time'|'count'): void {
+        this.OrderBy = value;
+        setConfigValue('OrderBy', value);
+    },
+
+    setOrder: function (value: 'asc'|'desc'): void {
+        this.Order = value;
+        setConfigValue('Order', value);
     },
 };
 
@@ -75,7 +116,7 @@ export const Config = {
  * @param {'StartHistory'|'AlwaysExpand'|'CurrentQuery'|'EnterExecutes'|'DarkTheme'|'Mode'|'Height'|'GroupQueries'|'OrderBy'|'Order'} key
  * @param {boolean|string|number} value
  */
-function setConfigValue (key, value): void {
+function setConfigValue (key: string, value: boolean|number|string): void {
     // Updating value in local storage.
     const serialized = JSON.stringify(value);
     localStorage.setItem('Console/' + key, serialized);
