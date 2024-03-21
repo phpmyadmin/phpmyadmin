@@ -21,7 +21,6 @@ use function count;
 use function sprintf;
 use function trigger_error;
 
-use const E_USER_NOTICE;
 use const E_USER_WARNING;
 
 /**
@@ -95,46 +94,43 @@ class AuthenticationConfig extends AuthenticationPlugin
         <tr>
             <td>';
         $config = Config::getInstance();
-        if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
-            trigger_error(__('Access denied!'), E_USER_NOTICE);
-        } else {
-            // Check whether user has configured something
-            if ($config->sourceMtime == 0) {
-                echo '<p>' , sprintf(
-                    __(
-                        'You probably did not create a configuration file.'
-                        . ' You might want to use the %1$ssetup script%2$s to'
-                        . ' create one.',
-                    ),
-                    '<a href="setup/">',
-                    '</a>',
-                ) , '</p>' , "\n";
-            } elseif (
-                ! isset($GLOBALS['errno'])
-                || $GLOBALS['errno'] != 2002
-                && $GLOBALS['errno'] != 2003
-            ) {
-                // if we display the "Server not responding" error, do not confuse
-                // users by telling them they have a settings problem
-                // (note: it's true that they could have a badly typed host name,
-                // but anyway the current message tells that the server
-                //  rejected the connection, which is not really what happened)
-                // 2002 is the error given by mysqli
-                // 2003 is the error given by mysql
-                trigger_error(
-                    __(
-                        'phpMyAdmin tried to connect to the MySQL server, and the'
-                        . ' server rejected the connection. You should check the'
-                        . ' host, username and password in your configuration and'
-                        . ' make sure that they correspond to the information given'
-                        . ' by the administrator of the MySQL server.',
-                    ),
-                    E_USER_WARNING,
-                );
-            }
 
-            echo Generator::mysqlDie($connError, '', true, '', false);
+        // Check whether user has configured something
+        if ($config->sourceMtime == 0) {
+            echo '<p>' , sprintf(
+                __(
+                    'You probably did not create a configuration file.'
+                    . ' You might want to use the %1$ssetup script%2$s to'
+                    . ' create one.',
+                ),
+                '<a href="setup/">',
+                '</a>',
+            ) , '</p>' , "\n";
+        } elseif (
+            ! isset($GLOBALS['errno'])
+            || $GLOBALS['errno'] != 2002
+            && $GLOBALS['errno'] != 2003
+        ) {
+            // if we display the "Server not responding" error, do not confuse
+            // users by telling them they have a settings problem
+            // (note: it's true that they could have a badly typed host name,
+            // but anyway the current message tells that the server
+            //  rejected the connection, which is not really what happened)
+            // 2002 is the error given by mysqli
+            // 2003 is the error given by mysql
+            trigger_error(
+                __(
+                    'phpMyAdmin tried to connect to the MySQL server, and the'
+                    . ' server rejected the connection. You should check the'
+                    . ' host, username and password in your configuration and'
+                    . ' make sure that they correspond to the information given'
+                    . ' by the administrator of the MySQL server.',
+                ),
+                E_USER_WARNING,
+            );
         }
+
+        echo Generator::mysqlDie($connError, '', true, '', false);
 
         ErrorHandler::getInstance()->dispUserErrors();
         echo '</td>

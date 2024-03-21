@@ -7396,9 +7396,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['allowDeny_forbidden']]]></code>
-    </InvalidArrayOffset>
   </file>
   <file src="src/Plugins/Auth/AuthenticationCookie.php">
     <DeprecatedMethod>
