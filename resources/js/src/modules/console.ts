@@ -4,8 +4,10 @@ import { AJAX } from './ajax.ts';
 import { Functions } from './functions.ts';
 import { CommonParams } from './common.ts';
 import { Navigation } from './navigation.ts';
-import { Config } from './console/config.ts';
+import Config from './console/config.ts';
 import { escapeHtml } from './functions/escape.ts';
+
+let config: Config;
 
 /**
  * Console object
@@ -62,7 +64,7 @@ var Console = {
             return;
         }
 
-        Config.init(consoleElement.dataset);
+        config = Config.createFromDataset(consoleElement.dataset);
         Console.setupAfterInit();
     },
 
@@ -148,30 +150,30 @@ var Console = {
 
             const consoleOptionsAlwaysExpandCheckbox = document.getElementById('consoleOptionsAlwaysExpandCheckbox') as HTMLInputElement;
             consoleOptionsAlwaysExpandCheckbox?.addEventListener('change', function (): void {
-                Config.setAlwaysExpand(consoleOptionsAlwaysExpandCheckbox.checked);
+                config.setAlwaysExpand(consoleOptionsAlwaysExpandCheckbox.checked);
             });
 
             const consoleOptionsStartHistoryCheckbox = document.getElementById('consoleOptionsStartHistoryCheckbox') as HTMLInputElement;
             consoleOptionsStartHistoryCheckbox?.addEventListener('change', function (): void {
-                Config.setStartHistory(consoleOptionsStartHistoryCheckbox.checked);
+                config.setStartHistory(consoleOptionsStartHistoryCheckbox.checked);
             });
 
             const consoleOptionsCurrentQueryCheckbox = document.getElementById('consoleOptionsCurrentQueryCheckbox') as HTMLInputElement;
             consoleOptionsCurrentQueryCheckbox?.addEventListener('change', function (): void {
-                Config.setCurrentQuery(consoleOptionsCurrentQueryCheckbox.checked);
+                config.setCurrentQuery(consoleOptionsCurrentQueryCheckbox.checked);
             });
 
             const consoleOptionsEnterExecutesCheckbox = document.getElementById('consoleOptionsEnterExecutesCheckbox') as HTMLInputElement;
             consoleOptionsEnterExecutesCheckbox?.addEventListener('change', function (): void {
                 const isEnterExecutes = consoleOptionsEnterExecutesCheckbox.checked;
-                Config.setEnterExecutes(isEnterExecutes);
+                config.setEnterExecutes(isEnterExecutes);
                 ConsoleMessages.showInstructions(isEnterExecutes);
             });
 
             const consoleOptionsDarkThemeCheckbox = document.getElementById('consoleOptionsDarkThemeCheckbox') as HTMLInputElement;
             consoleOptionsDarkThemeCheckbox?.addEventListener('change', function (): void {
                 const isDarkTheme = consoleOptionsDarkThemeCheckbox.checked;
-                Config.setDarkTheme(isDarkTheme);
+                config.setDarkTheme(isDarkTheme);
                 const consoleContent = document.getElementById('pma_console').querySelector('.content');
                 consoleContent.classList.toggle('console_dark_theme', isDarkTheme);
             });
@@ -180,28 +182,28 @@ var Console = {
             restoreConsoleOptionsButton?.addEventListener('click', function (): void {
                 if (consoleOptionsAlwaysExpandCheckbox.checked) {
                     consoleOptionsAlwaysExpandCheckbox.checked = false;
-                    Config.setAlwaysExpand(false);
+                    config.setAlwaysExpand(false);
                 }
 
                 if (consoleOptionsStartHistoryCheckbox.checked) {
                     consoleOptionsStartHistoryCheckbox.checked = false;
-                    Config.setStartHistory(false);
+                    config.setStartHistory(false);
                 }
 
                 if (! consoleOptionsCurrentQueryCheckbox.checked) {
                     consoleOptionsCurrentQueryCheckbox.checked = true;
-                    Config.setCurrentQuery(true);
+                    config.setCurrentQuery(true);
                 }
 
                 if (consoleOptionsEnterExecutesCheckbox.checked) {
                     consoleOptionsEnterExecutesCheckbox.checked = false;
-                    Config.setEnterExecutes(false);
+                    config.setEnterExecutes(false);
                     ConsoleMessages.showInstructions(false);
                 }
 
                 if (consoleOptionsDarkThemeCheckbox.checked) {
                     consoleOptionsDarkThemeCheckbox.checked = false;
-                    Config.setDarkTheme(false);
+                    config.setDarkTheme(false);
                     const consoleContent = document.getElementById('pma_console').querySelector('.content');
                     consoleContent.classList.remove('console_dark_theme');
                 }
@@ -231,7 +233,7 @@ var Console = {
         }
 
         // Change console mode from cookie
-        switch (Config.Mode) {
+        switch (config.mode) {
         case 'collapse':
             Console.collapse();
             break;
@@ -243,7 +245,7 @@ var Console = {
             Console.scrollBottom();
             break;
         default:
-            Config.setMode('info');
+            config.setMode('info');
             Console.info();
         }
     },
@@ -298,7 +300,7 @@ var Console = {
             if (data.reloadQuerywindow.sql_query.length > 0) {
                 ConsoleMessages.appendQuery(data.reloadQuerywindow, 'successed')
                     // @ts-ignore
-                    .$message.addClass(Config.CurrentQuery ? '' : 'hide');
+                    .$message.addClass(config.currentQuery ? '' : 'hide');
             }
         }
     },
@@ -306,8 +308,8 @@ var Console = {
      * Change console to collapse mode
      */
     collapse: function (): void {
-        Config.setMode('collapse');
-        var pmaConsoleHeight = Math.max(92, Config.Height);
+        config.setMode('collapse');
+        var pmaConsoleHeight = Math.max(92, config.height);
 
         Console.$consoleToolbar.addClass('collapsed');
         Console.$consoleAllContents.height(pmaConsoleHeight);
@@ -321,11 +323,11 @@ var Console = {
      * @param {boolean} inputFocus If true, focus the input line after show()
      */
     show: function (inputFocus = undefined): void {
-        Config.setMode('show');
+        config.setMode('show');
 
-        var pmaConsoleHeight = Math.max(92, Config.Height);
+        var pmaConsoleHeight = Math.max(92, config.height);
         // eslint-disable-next-line compat/compat
-        pmaConsoleHeight = Math.min(Config.Height, (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 25);
+        pmaConsoleHeight = Math.min(config.height, (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 25);
         Console.$consoleContent.css({ display: 'block' });
         if (Console.$consoleToolbar.hasClass('collapsed')) {
             Console.$consoleToolbar.removeClass('collapsed');
@@ -351,7 +353,7 @@ var Console = {
      * Used for toggle buttons and shortcuts
      */
     toggle: function (): void {
-        if (Config.Mode === 'show') {
+        if (config.mode === 'show') {
             Console.collapse();
         } else {
             Console.show(true);
@@ -429,7 +431,7 @@ var ConsoleResizer = {
      * @param {MouseEvent} event
      */
     mouseDown: function (event): void {
-        if (Config.Mode !== 'show') {
+        if (config.mode !== 'show') {
             return;
         }
 
@@ -472,7 +474,7 @@ var ConsoleResizer = {
      * Mouseup event handler for bind to resizer
      */
     mouseUp: function (): void {
-        Config.setHeight(Math.round(ConsoleResizer.resultHeight));
+        config.setHeight(Math.round(ConsoleResizer.resultHeight));
         Console.show();
         $(document).off('mousemove');
         $(document).off('mouseup');
@@ -654,7 +656,7 @@ var ConsoleInput = {
      */
     keyDown: function (event): void {
         // Execute command
-        if (Config.EnterExecutes) {
+        if (config.enterExecutes) {
             // Enter, but not in combination with Shift (which writes a new line).
             if (! event.shiftKey && event.keyCode === 13) {
                 ConsoleInput.execute();
@@ -826,7 +828,7 @@ var ConsoleMessages = {
         var now = new Date();
         var $newMessage =
             $('<div class="message ' +
-                (Config.AlwaysExpand ? 'expanded' : 'collapsed') +
+                (config.alwaysExpand ? 'expanded' : 'collapsed') +
                 '" msgid="' + msgId + '"><div class="action_content"></div></div>');
         switch (msgType) {
         case 'query':
@@ -1069,11 +1071,11 @@ var ConsoleMessages = {
      */
     initialize: function (): void {
         ConsoleMessages.messageEventBinds($('#pma_console').find('.message:not(.binded)'));
-        if (Config.StartHistory) {
+        if (config.startHistory) {
             ConsoleMessages.showHistory();
         }
 
-        ConsoleMessages.showInstructions(Config.EnterExecutes);
+        ConsoleMessages.showInstructions(config.enterExecutes);
     }
 };
 
@@ -1179,17 +1181,17 @@ var ConsoleDebug = {
             }
         });
 
-        if (Config.GroupQueries) {
+        if (config.groupQueries) {
             $('#debug_console').addClass('grouped');
         } else {
             $('#debug_console').addClass('ungrouped');
-            if (Config.OrderBy === 'count') {
+            if (config.orderBy === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').addClass('active');
             }
         }
 
-        var orderBy = Config.OrderBy;
-        var order = Config.Order;
+        var orderBy = config.orderBy;
+        var order = config.order;
         $('#debug_console').find('.button.order_by.sort_' + orderBy).addClass('active');
         $('#debug_console').find('.button.order.order_' + order).addClass('active');
 
@@ -1197,9 +1199,9 @@ var ConsoleDebug = {
         $('#debug_console').find('.button.group_queries').on('click', function () {
             $('#debug_console').addClass('grouped');
             $('#debug_console').removeClass('ungrouped');
-            Config.setGroupQueries(true);
+            config.setGroupQueries(true);
             ConsoleDebug.refresh();
-            if (Config.OrderBy === 'count') {
+            if (config.orderBy === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').removeClass('active');
             }
         });
@@ -1207,9 +1209,9 @@ var ConsoleDebug = {
         $('#debug_console').find('.button.ungroup_queries').on('click', function () {
             $('#debug_console').addClass('ungrouped');
             $('#debug_console').removeClass('grouped');
-            Config.setGroupQueries(false);
+            config.setGroupQueries(false);
             ConsoleDebug.refresh();
-            if (Config.OrderBy === 'count') {
+            if (config.orderBy === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').addClass('active');
             }
         });
@@ -1219,11 +1221,11 @@ var ConsoleDebug = {
             $('#debug_console').find('.button.order_by').removeClass('active');
             $this.addClass('active');
             if ($this.hasClass('sort_time')) {
-                Config.setOrderBy('time');
+                config.setOrderBy('time');
             } else if ($this.hasClass('sort_exec')) {
-                Config.setOrderBy('exec');
+                config.setOrderBy('exec');
             } else if ($this.hasClass('sort_count')) {
-                Config.setOrderBy('count');
+                config.setOrderBy('count');
             }
 
             ConsoleDebug.refresh();
@@ -1234,9 +1236,9 @@ var ConsoleDebug = {
             $('#debug_console').find('.button.order').removeClass('active');
             $this.addClass('active');
             if ($this.hasClass('order_asc')) {
-                Config.setOrder('asc');
+                config.setOrder('asc');
             } else if ($this.hasClass('order_desc')) {
-                Config.setOrder('desc');
+                config.setOrder('desc');
             }
 
             ConsoleDebug.refresh();
@@ -1523,7 +1525,7 @@ var ConsoleDebug = {
 
         // For sorting queries
         function sortByTime (a, b) {
-            var order = Config.Order === 'asc' ? 1 : -1;
+            var order = config.order === 'asc' ? 1 : -1;
             if (Array.isArray(a) && Array.isArray(b)) {
                 // It is grouped
                 var timeA = 0;
@@ -1544,15 +1546,15 @@ var ConsoleDebug = {
         }
 
         function sortByCount (a, b) {
-            var order = Config.Order === 'asc' ? 1 : -1;
+            var order = config.order === 'asc' ? 1 : -1;
 
             return (a.length - b.length) * order;
         }
 
-        var orderBy = Config.OrderBy;
-        var order = Config.Order;
+        var orderBy = config.orderBy;
+        var order = config.order;
 
-        if (Config.GroupQueries) {
+        if (config.groupQueries) {
             // Sort queries
             if (orderBy === 'time') {
                 uniqueQueries.sort(sortByTime);

@@ -5,112 +5,118 @@ import { CommonParams } from '../common.ts';
 /**
  * @link https://docs.phpmyadmin.net/en/latest/config.html#console-settings
  */
-export const Config = {
-    /**
-     * @type {boolean}
-     */
-    StartHistory: false,
-    /**
-     * @type {boolean}
-     */
-    AlwaysExpand: false,
-    /**
-     * @type {boolean}
-     */
-    CurrentQuery: true,
-    /**
-     * @type {boolean}
-     */
-    EnterExecutes: false,
-    /**
-     * @type {boolean}
-     */
-    DarkTheme: false,
-    /**
-     * @type {'info'|'show'|'collapse'}
-     */
-    Mode: 'info',
-    /**
-     * @type {number}
-     */
-    Height: 92,
-    /**
-     * @type {boolean}
-     */
-    GroupQueries: false,
-    /**
-     * @type {'exec'|'time'|'count'}
-     */
-    OrderBy: 'exec',
-    /**
-     * @type {'asc'|'desc'}
-     */
-    Order: 'asc',
+export default class Config {
+    startHistory: boolean;
 
-    init: function (dataset: DOMStringMap): void {
-        this.StartHistory = dataset.startHistory === 'true';
-        this.AlwaysExpand = dataset.alwaysExpand === 'true';
-        this.CurrentQuery = dataset.currentQuery !== undefined ? dataset.currentQuery === 'true' : true;
-        this.EnterExecutes = dataset.enterExecutes === 'true';
-        this.DarkTheme = dataset.darkTheme === 'true';
-        this.Mode = dataset.mode === 'show' || dataset.mode === 'collapse' ? dataset.mode : 'info';
+    alwaysExpand: boolean;
+
+    currentQuery: boolean;
+
+    enterExecutes: boolean;
+
+    darkTheme: boolean;
+
+    mode: 'info'|'show'|'collapse';
+
+    height: number;
+
+    groupQueries: boolean;
+
+    orderBy: 'exec'|'time'|'count';
+
+    order: 'asc'|'desc';
+
+    constructor (
+        startHistory: boolean,
+        alwaysExpand: boolean,
+        currentQuery: boolean,
+        enterExecutes: boolean,
+        darkTheme: boolean,
+        mode: 'info'|'show'|'collapse',
+        height: number,
+        groupQueries: boolean,
+        orderBy: 'exec'|'time'|'count',
+        order: 'asc'|'desc',
+    ) {
+        this.startHistory = startHistory;
+        this.alwaysExpand = alwaysExpand;
+        this.currentQuery = currentQuery;
+        this.enterExecutes = enterExecutes;
+        this.darkTheme = darkTheme;
+        this.mode = mode;
+        this.height = height;
+        this.groupQueries = groupQueries;
+        this.orderBy = orderBy;
+        this.order = order;
+    }
+
+    static createFromDataset (dataset: DOMStringMap): Config {
         const height = Number(dataset.height);
-        this.Height = height > 0 ? height : 92;
-        this.GroupQueries = dataset.groupQueries === 'true';
-        this.OrderBy = dataset.orderBy === 'time' || dataset.orderBy === 'count' ? dataset.orderBy : 'exec';
-        this.Order = dataset.order === 'desc' ? 'desc' : 'asc';
-    },
 
-    setStartHistory: function (value: boolean): void {
-        this.StartHistory = value;
+        return new this(
+            dataset.startHistory === 'true',
+            dataset.alwaysExpand === 'true',
+            dataset.currentQuery !== undefined ? dataset.currentQuery === 'true' : true,
+            dataset.enterExecutes === 'true',
+            dataset.darkTheme === 'true',
+            dataset.mode === 'show' || dataset.mode === 'collapse' ? dataset.mode : 'info',
+            height > 0 ? height : 92,
+            dataset.groupQueries === 'true',
+            dataset.orderBy === 'time' || dataset.orderBy === 'count' ? dataset.orderBy : 'exec',
+            dataset.order === 'desc' ? 'desc' : 'asc',
+        );
+    }
+
+    setStartHistory (value: boolean): void {
+        this.startHistory = value;
         setConfigValue('StartHistory', value);
-    },
+    }
 
-    setAlwaysExpand: function (value: boolean): void {
-        this.AlwaysExpand = value;
+    setAlwaysExpand (value: boolean): void {
+        this.alwaysExpand = value;
         setConfigValue('AlwaysExpand', value);
-    },
+    }
 
-    setCurrentQuery: function (value: boolean): void {
-        this.CurrentQuery = value;
+    setCurrentQuery (value: boolean): void {
+        this.currentQuery = value;
         setConfigValue('CurrentQuery', value);
-    },
+    }
 
-    setEnterExecutes: function (value: boolean): void {
-        this.EnterExecutes = value;
+    setEnterExecutes (value: boolean): void {
+        this.enterExecutes = value;
         setConfigValue('EnterExecutes', value);
-    },
+    }
 
-    setDarkTheme: function (value: boolean): void {
-        this.DarkTheme = value;
+    setDarkTheme (value: boolean): void {
+        this.darkTheme = value;
         setConfigValue('DarkTheme', value);
-    },
+    }
 
-    setMode: function (value: 'info'|'show'|'collapse'): void {
-        this.Mode = value;
+    setMode (value: 'info'|'show'|'collapse'): void {
+        this.mode = value;
         setConfigValue('Mode', value);
-    },
+    }
 
-    setHeight: function (value: number): void {
-        this.Height = value;
+    setHeight (value: number): void {
+        this.height = value;
         setConfigValue('Height', value);
-    },
+    }
 
-    setGroupQueries: function (value: boolean): void {
-        this.GroupQueries = value;
+    setGroupQueries (value: boolean): void {
+        this.groupQueries = value;
         setConfigValue('GroupQueries', value);
-    },
+    }
 
-    setOrderBy: function (value: 'exec'|'time'|'count'): void {
-        this.OrderBy = value;
+    setOrderBy (value: 'exec'|'time'|'count'): void {
+        this.orderBy = value;
         setConfigValue('OrderBy', value);
-    },
+    }
 
-    setOrder: function (value: 'asc'|'desc'): void {
-        this.Order = value;
+    setOrder (value: 'asc'|'desc'): void {
+        this.order = value;
         setConfigValue('Order', value);
-    },
-};
+    }
+}
 
 /**
  * @param {'StartHistory'|'AlwaysExpand'|'CurrentQuery'|'EnterExecutes'|'DarkTheme'|'Mode'|'Height'|'GroupQueries'|'OrderBy'|'Order'} key
