@@ -1,8 +1,9 @@
 <div class="container">
+
   {% if is_superuser %}
     <h2>
       {{ get_icon('b_usrcheck') }}
-      {{ 'Users having access to "%s"'|trans|format('<a href="' ~ table_url ~ get_common({
+      {{ 'Users having access to---- "%s"'|trans|format('<a href="' ~ table_url ~ get_common({
         'db': db,
         'table': table
       }, '&') ~ '">' ~ db|escape('html') ~ '.' ~ table|escape('html') ~ '</a>')|raw }}
@@ -77,8 +78,8 @@
                         <a class="edit_user_anchor" href="{{ url('/server/privileges', {
                           'username': privilege.user,
                           'hostname': privilege.host,
-                          'dbname': priv.database != '*' ? priv.database,
-                          'tablename': priv.table is defined and priv.table != '*' ? priv.table,
+                          'dbname': priv.database != '*' ? priv.database: db,
+                          'tablename': priv.table is defined and priv.table != '*' ? priv.table: table,
                           'routinename': priv.routine ?? ''
                         }) }}">
                           {{ get_icon('b_usredit', 'Edit privileges'|trans) }}
