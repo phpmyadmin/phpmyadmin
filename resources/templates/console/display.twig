@@ -1,5 +1,15 @@
 <div id="pma_console_container" class="d-print-none">
-  <div id="pma_console">
+  <div id="pma_console"
+       data-start-history="{{ settings.StartHistory ? 'true' : 'false' }}"
+       data-always-expand="{{ settings.AlwaysExpand ? 'true' : 'false' }}"
+       data-current-query="{{ settings.CurrentQuery ? 'true' : 'false' }}"
+       data-enter-executes="{{ settings.EnterExecutes ? 'true' : 'false' }}"
+       data-dark-theme="{{ settings.DarkTheme ? 'true' : 'false' }}"
+       data-mode="{{ settings.Mode }}"
+       data-height="{{ settings.Height }}"
+       data-group-queries="{{ settings.GroupQueries ? 'true' : 'false' }}"
+       data-order-by="{{ settings.OrderBy }}"
+       data-order="{{ settings.Order }}">
     <div class="toolbar collapsed">
       <div class="switch_button console_switch">
         {{ get_image('console', 'SQL Query Console'|trans) }}
@@ -27,7 +37,7 @@
     </div>
 
     {# Console messages #}
-    <div class="content">
+    <div class="content{{ settings.DarkTheme ? ' console_dark_theme' }}">
       <div class="console_message_container">
         <div class="message welcome">
           <span id="instructions-0">{% trans 'Press Ctrl+Enter to execute query' %}</span>
@@ -165,29 +175,29 @@
           <span>{{ 'Options'|trans }}</span>
         </div>
         <div class="button default">
-          <span>{{ 'Set default'|trans }}</span>
+          <span>{{ 'Restore default values'|trans }}</span>
         </div>
       </div>
 
       <div class="content">
         <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsAlwaysExpandCheckbox" name="always_expand">
+          <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsAlwaysExpandCheckbox" name="always_expand"{{ settings.AlwaysExpand ? ' checked' }}>
           <label class="form-check-label" for="consoleOptionsAlwaysExpandCheckbox">{{ 'Always expand query messages'|trans }}</label>
         </div>
         <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsStartHistoryCheckbox" name="start_history">
+          <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsStartHistoryCheckbox" name="start_history"{{ settings.StartHistory ? ' checked' }}>
           <label class="form-check-label" for="consoleOptionsStartHistoryCheckbox">{{ 'Show query history at start'|trans }}</label>
         </div>
         <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsCurrentQueryCheckbox" name="current_query">
+          <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsCurrentQueryCheckbox" name="current_query"{{ settings.CurrentQuery ? ' checked' }}>
           <label class="form-check-label" for="consoleOptionsCurrentQueryCheckbox">{{ 'Show current browsing query'|trans }}</label>
         </div>
         <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsEnterExecutesCheckbox" name="enter_executes">
+          <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsEnterExecutesCheckbox" name="enter_executes"{{ settings.EnterExecutes ? ' checked' }}>
           <label class="form-check-label" for="consoleOptionsEnterExecutesCheckbox">{{ 'Execute queries on Enter and insert new line with Shift+Enter. To make this permanent, view settings.'|trans }}</label>
         </div>
         <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsDarkThemeCheckbox" name="dark_theme">
+          <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsDarkThemeCheckbox" name="dark_theme"{{ settings.DarkTheme ? ' checked' }}>
           <label class="form-check-label" for="consoleOptionsDarkThemeCheckbox">{{ 'Switch to dark theme'|trans }}</label>
         </div>
       </div>

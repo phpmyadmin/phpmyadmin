@@ -12,6 +12,7 @@ use PhpMyAdmin\Controllers\CollationConnectionController;
 use PhpMyAdmin\Controllers\ColumnController;
 use PhpMyAdmin\Controllers\Config;
 use PhpMyAdmin\Controllers\Console\Bookmark;
+use PhpMyAdmin\Controllers\Console\UpdateConfigController;
 use PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\Controllers\ErrorReportController;
@@ -57,9 +58,12 @@ final class Routes
             $routes->post('/get', Config\GetConfigController::class);
             $routes->post('/set', Config\SetConfigController::class);
         });
-        $routes->addGroup('/console/bookmark', static function (RouteCollector $routes): void {
-            $routes->post('/add', Bookmark\AddController::class);
-            $routes->get('/refresh', Bookmark\RefreshController::class);
+        $routes->addGroup('/console', static function (RouteCollector $routes): void {
+            $routes->addGroup('/bookmark', static function (RouteCollector $routes): void {
+                $routes->post('/add', Bookmark\AddController::class);
+                $routes->get('/refresh', Bookmark\RefreshController::class);
+            });
+            $routes->post('/update-config', UpdateConfigController::class);
         });
         $routes->addGroup('/database', static function (RouteCollector $routes): void {
             $routes->addGroup('/central-columns', static function (RouteCollector $routes): void {
