@@ -13,8 +13,6 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use ReflectionProperty;
 
 #[CoversClass(Transformations::class)]
@@ -76,8 +74,6 @@ class TransformationsTest extends AbstractTestCase
         ];
     }
 
-    #[PreserveGlobalState(false)]
-    #[RunInSeparateProcess]
     public function testGetTypes(): void
     {
         self::assertEquals(

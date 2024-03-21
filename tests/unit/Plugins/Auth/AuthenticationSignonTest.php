@@ -14,8 +14,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use ReflectionProperty;
 use Throwable;
 
@@ -57,8 +55,6 @@ class AuthenticationSignonTest extends AbstractTestCase
         unset($this->object);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuth(): void
     {
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
@@ -81,8 +77,6 @@ class AuthenticationSignonTest extends AbstractTestCase
         self::assertStringContainsString('You must set SignonURL!', $result);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthLogoutURL(): void
     {
         $responseStub = new ResponseRendererStub();
@@ -99,8 +93,6 @@ class AuthenticationSignonTest extends AbstractTestCase
         self::assertSame(302, $response->getStatusCode());
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthLogout(): void
     {
         $responseStub = new ResponseRendererStub();
@@ -151,8 +143,6 @@ class AuthenticationSignonTest extends AbstractTestCase
         self::assertSame('https://example.com/SignonURL', $_SESSION['LAST_SIGNON_URL']);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthCheckToken(): void
     {
         $_SESSION = [' PMA_token ' => 'eefefef'];

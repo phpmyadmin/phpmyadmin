@@ -110,8 +110,6 @@ final class ServerRequestFactoryTest extends TestCase
      * @psalm-param class-string<UriInterface> $expectedUri
      */
     #[DataProvider('providerForTestFromGlobals')]
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testFromGlobals(string $provider, string $uriFactoryProvider, string $expectedUri): void
     {
         $this->skipIfNotAvailable($provider);
@@ -149,8 +147,6 @@ final class ServerRequestFactoryTest extends TestCase
      * @psalm-param class-string<UriInterface> $expectedUri
      */
     #[DataProvider('providerForTestFromGlobals')]
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testFromGlobals2(string $provider, string $uriFactoryProvider, string $expectedUri): void
     {
         $this->skipIfNotAvailable($provider);
@@ -203,8 +199,6 @@ final class ServerRequestFactoryTest extends TestCase
      * @psalm-param class-string<UriInterface> $expectedUri
      */
     #[DataProvider('providerForTestFromGlobals')]
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testFromGlobals3(string $provider, string $uriFactoryProvider, string $expectedUri): void
     {
         $this->skipIfNotAvailable($provider);

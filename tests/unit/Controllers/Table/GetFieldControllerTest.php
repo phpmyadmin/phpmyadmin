@@ -13,16 +13,12 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 
 use function bin2hex;
 
 #[CoversClass(GetFieldController::class)]
 class GetFieldControllerTest extends AbstractTestCase
 {
-    #[PreserveGlobalState(false)]
-    #[RunInSeparateProcess]
     public function testGetFieldController(): void
     {
         Current::$database = 'test_db';

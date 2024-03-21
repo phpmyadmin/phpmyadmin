@@ -6,15 +6,11 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Session;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(Session::class)]
 final class SessionTest extends TestCase
 {
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testSecure(): void
     {
         $_SESSION[' PMA_token '] = null;

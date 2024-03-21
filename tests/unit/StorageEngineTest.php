@@ -22,8 +22,6 @@ use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 
 use function json_encode;
 
@@ -61,8 +59,6 @@ class StorageEngineTest extends AbstractTestCase
         unset($this->object);
     }
 
-    #[PreserveGlobalState(false)]
-    #[RunInSeparateProcess]
     public function testGetStorageEngines(): void
     {
         self::assertSame(
