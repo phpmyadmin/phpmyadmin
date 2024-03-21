@@ -148,30 +148,30 @@ var Console = {
 
             const consoleOptionsAlwaysExpandCheckbox = document.getElementById('consoleOptionsAlwaysExpandCheckbox') as HTMLInputElement;
             consoleOptionsAlwaysExpandCheckbox?.addEventListener('change', function (): void {
-                Config.set('AlwaysExpand', !! consoleOptionsAlwaysExpandCheckbox.checked);
+                Config.setAlwaysExpand(consoleOptionsAlwaysExpandCheckbox.checked);
             });
 
             const consoleOptionsStartHistoryCheckbox = document.getElementById('consoleOptionsStartHistoryCheckbox') as HTMLInputElement;
             consoleOptionsStartHistoryCheckbox?.addEventListener('change', function (): void {
-                Config.set('StartHistory', !! consoleOptionsStartHistoryCheckbox.checked);
+                Config.setStartHistory(consoleOptionsStartHistoryCheckbox.checked);
             });
 
             const consoleOptionsCurrentQueryCheckbox = document.getElementById('consoleOptionsCurrentQueryCheckbox') as HTMLInputElement;
             consoleOptionsCurrentQueryCheckbox?.addEventListener('change', function (): void {
-                Config.set('CurrentQuery', !! consoleOptionsCurrentQueryCheckbox.checked);
+                Config.setCurrentQuery(consoleOptionsCurrentQueryCheckbox.checked);
             });
 
             const consoleOptionsEnterExecutesCheckbox = document.getElementById('consoleOptionsEnterExecutesCheckbox') as HTMLInputElement;
             consoleOptionsEnterExecutesCheckbox?.addEventListener('change', function (): void {
-                const isEnterExecutes = !! consoleOptionsEnterExecutesCheckbox.checked;
-                Config.set('EnterExecutes', isEnterExecutes);
+                const isEnterExecutes = consoleOptionsEnterExecutesCheckbox.checked;
+                Config.setEnterExecutes(isEnterExecutes);
                 ConsoleMessages.showInstructions(isEnterExecutes);
             });
 
             const consoleOptionsDarkThemeCheckbox = document.getElementById('consoleOptionsDarkThemeCheckbox') as HTMLInputElement;
             consoleOptionsDarkThemeCheckbox?.addEventListener('change', function (): void {
-                const isDarkTheme = !! consoleOptionsDarkThemeCheckbox.checked;
-                Config.set('DarkTheme', isDarkTheme);
+                const isDarkTheme = consoleOptionsDarkThemeCheckbox.checked;
+                Config.setDarkTheme(isDarkTheme);
                 const consoleContent = document.getElementById('pma_console').querySelector('.content');
                 consoleContent.classList.toggle('console_dark_theme', isDarkTheme);
             });
@@ -180,28 +180,28 @@ var Console = {
             restoreConsoleOptionsButton?.addEventListener('click', function (): void {
                 if (consoleOptionsAlwaysExpandCheckbox.checked) {
                     consoleOptionsAlwaysExpandCheckbox.checked = false;
-                    Config.set('AlwaysExpand', false);
+                    Config.setAlwaysExpand(false);
                 }
 
                 if (consoleOptionsStartHistoryCheckbox.checked) {
                     consoleOptionsStartHistoryCheckbox.checked = false;
-                    Config.set('StartHistory', false);
+                    Config.setStartHistory(false);
                 }
 
                 if (! consoleOptionsCurrentQueryCheckbox.checked) {
                     consoleOptionsCurrentQueryCheckbox.checked = true;
-                    Config.set('CurrentQuery', true);
+                    Config.setCurrentQuery(true);
                 }
 
                 if (consoleOptionsEnterExecutesCheckbox.checked) {
                     consoleOptionsEnterExecutesCheckbox.checked = false;
-                    Config.set('EnterExecutes', false);
+                    Config.setEnterExecutes(false);
                     ConsoleMessages.showInstructions(false);
                 }
 
                 if (consoleOptionsDarkThemeCheckbox.checked) {
                     consoleOptionsDarkThemeCheckbox.checked = false;
-                    Config.set('DarkTheme', false);
+                    Config.setDarkTheme(false);
                     const consoleContent = document.getElementById('pma_console').querySelector('.content');
                     consoleContent.classList.remove('console_dark_theme');
                 }
@@ -243,7 +243,7 @@ var Console = {
             Console.scrollBottom();
             break;
         default:
-            Config.set('Mode', 'info');
+            Config.setMode('info');
             Console.info();
         }
     },
@@ -306,7 +306,7 @@ var Console = {
      * Change console to collapse mode
      */
     collapse: function (): void {
-        Config.set('Mode', 'collapse');
+        Config.setMode('collapse');
         var pmaConsoleHeight = Math.max(92, Config.Height);
 
         Console.$consoleToolbar.addClass('collapsed');
@@ -321,7 +321,7 @@ var Console = {
      * @param {boolean} inputFocus If true, focus the input line after show()
      */
     show: function (inputFocus = undefined): void {
-        Config.set('Mode', 'show');
+        Config.setMode('show');
 
         var pmaConsoleHeight = Math.max(92, Config.Height);
         // eslint-disable-next-line compat/compat
@@ -472,7 +472,7 @@ var ConsoleResizer = {
      * Mouseup event handler for bind to resizer
      */
     mouseUp: function (): void {
-        Config.set('Height', Math.round(ConsoleResizer.resultHeight));
+        Config.setHeight(Math.round(ConsoleResizer.resultHeight));
         Console.show();
         $(document).off('mousemove');
         $(document).off('mouseup');
@@ -1197,7 +1197,7 @@ var ConsoleDebug = {
         $('#debug_console').find('.button.group_queries').on('click', function () {
             $('#debug_console').addClass('grouped');
             $('#debug_console').removeClass('ungrouped');
-            Config.set('GroupQueries', true);
+            Config.setGroupQueries(true);
             ConsoleDebug.refresh();
             if (Config.OrderBy === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').removeClass('active');
@@ -1207,7 +1207,7 @@ var ConsoleDebug = {
         $('#debug_console').find('.button.ungroup_queries').on('click', function () {
             $('#debug_console').addClass('ungrouped');
             $('#debug_console').removeClass('grouped');
-            Config.set('GroupQueries', false);
+            Config.setGroupQueries(false);
             ConsoleDebug.refresh();
             if (Config.OrderBy === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').addClass('active');
@@ -1219,11 +1219,11 @@ var ConsoleDebug = {
             $('#debug_console').find('.button.order_by').removeClass('active');
             $this.addClass('active');
             if ($this.hasClass('sort_time')) {
-                Config.set('OrderBy', 'time');
+                Config.setOrderBy('time');
             } else if ($this.hasClass('sort_exec')) {
-                Config.set('OrderBy', 'exec');
+                Config.setOrderBy('exec');
             } else if ($this.hasClass('sort_count')) {
-                Config.set('OrderBy', 'count');
+                Config.setOrderBy('count');
             }
 
             ConsoleDebug.refresh();
@@ -1234,9 +1234,9 @@ var ConsoleDebug = {
             $('#debug_console').find('.button.order').removeClass('active');
             $this.addClass('active');
             if ($this.hasClass('order_asc')) {
-                Config.set('Order', 'asc');
+                Config.setOrder('asc');
             } else if ($this.hasClass('order_desc')) {
-                Config.set('Order', 'desc');
+                Config.setOrder('desc');
             }
 
             ConsoleDebug.refresh();
