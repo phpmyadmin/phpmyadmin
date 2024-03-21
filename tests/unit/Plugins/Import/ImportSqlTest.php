@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Import\ImportSettings;
@@ -27,7 +26,6 @@ class ImportSqlTest extends AbstractTestCase
     {
         parent::setUp();
 
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['error'] = null;
         ImportSettings::$timeoutPassed = false;
         ImportSettings::$maximumTime = 0;
@@ -38,19 +36,14 @@ class ImportSqlTest extends AbstractTestCase
         ImportSettings::$executedQueries = 0;
         ImportSettings::$runQuery = false;
         ImportSettings::$goSql = false;
-
-        $this->object = new ImportSql();
-
-        //setting
         ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-
         ImportSettings::$importFile = 'tests/test_data/pma_bookmark.sql';
         $GLOBALS['import_text'] = 'ImportSql_Test';
-        $GLOBALS['compression'] = 'none';
         ImportSettings::$readMultiply = 10;
+
+        $this->object = new ImportSql();
     }
 
     /**
@@ -69,11 +62,8 @@ class ImportSqlTest extends AbstractTestCase
      */
     public function testDoImport(): void
     {
-        //$sql_query_disabled will show the import SQL detail
+        ImportSettings::$sqlQueryDisabled = false; // will show the import SQL detail
 
-        ImportSettings::$sqlQueryDisabled = false;
-
-        //Mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -82,10 +72,8 @@ class ImportSqlTest extends AbstractTestCase
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
-        //Test function called
         $this->object->doImport($importHandle);
 
-        //asset that all sql are executed
         self::assertStringContainsString('SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO"', $GLOBALS['sql_query']);
         self::assertStringContainsString('CREATE TABLE IF NOT EXISTS `pma_bookmark`', $GLOBALS['sql_query']);
         self::assertStringContainsString(

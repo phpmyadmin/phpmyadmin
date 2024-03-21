@@ -40,6 +40,11 @@ use const LIBXML_COMPACT;
  */
 class ImportOds extends ImportPlugin
 {
+    private bool $recognizePercentages = false;
+    private bool $recognizeCurrency = false;
+    private bool $includeEmptyRows = false;
+    private bool $hasColumnNames = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -99,6 +104,10 @@ class ImportOds extends ImportPlugin
 
     public function setImportOptions(ServerRequest $request): void
     {
+        $this->recognizePercentages = $request->getParsedBodyParam('ods_recognize_percentages') !== null;
+        $this->recognizeCurrency = $request->getParsedBodyParam('ods_recognize_currency') !== null;
+        $this->includeEmptyRows = $request->getParsedBodyParam('ods_empty_rows') !== null;
+        $this->hasColumnNames = $request->getParsedBodyParam('ods_col_names') !== null;
     }
 
     /**
@@ -163,7 +172,7 @@ class ImportOds extends ImportPlugin
             }
         }
 
-        $tables = $this->readSheets($sheets, isset($_REQUEST['ods_col_names']));
+        $tables = $this->readSheets($sheets, $this->hasColumnNames);
 
         /* Obtain the best-fit MySQL types for each column */
         $analyses = array_map($this->import->analyzeTable(...), $tables);
@@ -194,16 +203,14 @@ class ImportOds extends ImportPlugin
     protected function getValue(SimpleXMLElement $cellAttrs, SimpleXMLElement $text): float|string
     {
         if (
-            isset($_REQUEST['ods_recognize_percentages'])
-            && $_REQUEST['ods_recognize_percentages']
+            $this->recognizePercentages
             && (string) $cellAttrs['value-type'] === 'percentage'
         ) {
             return (float) $cellAttrs['value'];
         }
 
         if (
-            isset($_REQUEST['ods_recognize_currency'])
-            && $_REQUEST['ods_recognize_currency']
+            $this->recognizeCurrency
             && (string) $cellAttrs['value-type'] === 'currency'
         ) {
             return (float) $cellAttrs['value'];
@@ -302,7 +309,7 @@ class ImportOds extends ImportPlugin
             $maxCols = max(count($tempRow), $maxCols);
 
             /* Don't include a row that is full of NULL values */
-            if ($_REQUEST['ods_empty_rows'] ?? false) {
+            if ($this->includeEmptyRows) {
                 foreach ($tempRow as $cell) {
                     if ((string) $cell !== 'NULL') {
                         $tempRows[] = $tempRow;

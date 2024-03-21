@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
@@ -33,7 +32,6 @@ class ImportXmlTest extends AbstractTestCase
     {
         parent::setUp();
 
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['error'] = null;
         ImportSettings::$timeoutPassed = false;
         ImportSettings::$maximumTime = 0;
@@ -46,19 +44,14 @@ class ImportXmlTest extends AbstractTestCase
         ImportSettings::$executedQueries = 0;
         ImportSettings::$runQuery = false;
         ImportSettings::$goSql = false;
-
-        $this->object = new ImportXml();
-
-        //setting
         ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
-        Config::getInstance()->selectedServer['DisableIS'] = false;
-
         ImportSettings::$importFile = 'tests/test_data/phpmyadmin_importXML_For_Testing.xml';
         $GLOBALS['import_text'] = 'ImportXml_Test';
-        $GLOBALS['compression'] = 'none';
         ImportSettings::$readMultiply = 10;
+
+        $this->object = new ImportXml();
     }
 
     /**
@@ -103,9 +96,6 @@ class ImportXmlTest extends AbstractTestCase
     #[RequiresPhpExtension('simplexml')]
     public function testDoImport(): void
     {
-        //$import_notice will show the import detail result
-
-        //Mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -114,7 +104,6 @@ class ImportXmlTest extends AbstractTestCase
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
-        //Test function called
         $this->object->doImport($importHandle);
 
         // If import successfully, PMA will show all databases and tables
@@ -130,7 +119,6 @@ class ImportXmlTest extends AbstractTestCase
            pma_bookmarktest (Structure) (Options)
         */
 
-        //asset that all databases and tables are imported
         self::assertStringContainsString(
             'The following structures have either been created or altered.',
             ImportSettings::$importNotice,

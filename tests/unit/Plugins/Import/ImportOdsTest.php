@@ -8,10 +8,10 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportOds;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
@@ -25,10 +25,6 @@ use function str_repeat;
 #[Medium]
 class ImportOdsTest extends AbstractTestCase
 {
-    protected DatabaseInterface $dbi;
-
-    protected DbiDummy $dummyDbi;
-
     protected ImportOds $object;
 
     /**
@@ -39,7 +35,6 @@ class ImportOdsTest extends AbstractTestCase
     {
         parent::setUp();
 
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $GLOBALS['error'] = null;
         ImportSettings::$timeoutPassed = false;
         ImportSettings::$maximumTime = 0;
@@ -51,22 +46,21 @@ class ImportOdsTest extends AbstractTestCase
         ImportSettings::$runQuery = false;
         $GLOBALS['sql_query'] = '';
         ImportSettings::$goSql = false;
-        $this->object = new ImportOds();
-
-        //setting
         ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
         Config::getInstance()->selectedServer['DisableIS'] = false;
-
-        /**
-         * Load interface for zip extension.
-        */
         ImportSettings::$readMultiply = 10;
 
+        $this->object = new ImportOds();
+
         //variable for Ods
-        $_REQUEST['ods_recognize_percentages'] = true;
-        $_REQUEST['ods_recognize_currency'] = true;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'ods_recognize_percentages' => 'yes',
+                'ods_recognize_currency' => 'yes',
+            ]);
+        $this->object->setImportOptions($request);
     }
 
     /**
@@ -105,23 +99,24 @@ class ImportOdsTest extends AbstractTestCase
      */
     public function testDoImport(): void
     {
-        //$sql_query_disabled will show the import SQL detail
-        //$import_notice will show the import detail result
-
-        ImportSettings::$sqlQueryDisabled = false;
+        ImportSettings::$sqlQueryDisabled = false; //will show the import SQL detail
 
         ImportSettings::$importFile = 'tests/test_data/db_test.ods';
-        $_REQUEST['ods_empty_rows'] = true;
 
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'ods_recognize_percentages' => 'yes',
+                'ods_recognize_currency' => 'yes',
+                'ods_empty_rows' => 'yes',
+            ]);
+        $this->object->setImportOptions($request);
+
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->setDecompressContent(true);
         $importHandle->open();
 
-        //Test function called
         $this->object->doImport($importHandle);
 
         self::assertStringContainsString(
@@ -134,7 +129,7 @@ class ImportOdsTest extends AbstractTestCase
             $GLOBALS['sql_query'],
         );
 
-        //asset that all databases and tables are imported
+        //assert that all databases and tables are imported
         self::assertStringContainsString(
             'The following structures have either been created or altered.',
             ImportSettings::$importNotice,
@@ -144,14 +139,17 @@ class ImportOdsTest extends AbstractTestCase
         self::assertStringContainsString('Go to table: `pma_bookmark`', ImportSettings::$importNotice);
         self::assertStringContainsString('Edit settings for `pma_bookmark`', ImportSettings::$importNotice);
 
-        //asset that the import process is finished
+        //assert that the import process is finished
         self::assertTrue(ImportSettings::$finished);
     }
 
-    /** @return mixed[] */
+    /** @return array<string, array<string|null>> */
     public static function dataProviderOdsEmptyRows(): array
     {
-        return ['remove empty columns' => [true], 'keep empty columns' => [false]];
+        return [
+            'remove empty columns' => ['yes'],
+            'keep empty columns' => [null],
+        ];
     }
 
     /**
@@ -159,20 +157,21 @@ class ImportOdsTest extends AbstractTestCase
      */
     #[DataProvider('dataProviderOdsEmptyRows')]
     #[RequiresPhpExtension('simplexml')]
-    public function testDoImportDataset2(bool $odsEmptyRowsMode): void
+    public function testDoImportDataset2(string|null $odsEmptyRowsMode): void
     {
-        //$sql_query_disabled will show the import SQL detail
-        //$import_notice will show the import detail result
-
-        ImportSettings::$sqlQueryDisabled = false;
+        ImportSettings::$sqlQueryDisabled = false; //will show the import SQL detail
 
         ImportSettings::$importFile = 'tests/test_data/import-slim.ods.xml';
-        $_REQUEST['ods_col_names'] = true;
-        $_REQUEST['ods_empty_rows'] = $odsEmptyRowsMode;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'ods_recognize_percentages' => 'yes',
+                'ods_recognize_currency' => 'yes',
+                'ods_col_names' => 'yes',
+                'ods_empty_rows' => $odsEmptyRowsMode,
+            ]);
+        $this->object->setImportOptions($request);
 
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->setDecompressContent(false);// Not compressed
@@ -183,12 +182,11 @@ class ImportOdsTest extends AbstractTestCase
 
         $endOfSql = ');';
 
-        if (! $odsEmptyRowsMode) {
+        if ($odsEmptyRowsMode === null) {
             $fullCols = 'NULL' . str_repeat(', NULL', 18);// 19 empty cells
             $endOfSql = '),' . "\n" . ' (' . $fullCols . '),' . "\n" . ' (' . $fullCols . ');';
         }
 
-        //Test function called
         $this->object->doImport($importHandle);
 
         self::assertSame(
@@ -240,12 +238,12 @@ class ImportOdsTest extends AbstractTestCase
              . ' (\'0.05\'),' . "\n"
              . ' (\'true\'),' . "\n"
              . ' (\'12\')'
-             . ($odsEmptyRowsMode ? '' : ',' . "\n" . ' (NULL)')
-             . ($odsEmptyRowsMode ? ';' : ',' . "\n" . ' (NULL);'),
+             . ($odsEmptyRowsMode !== null ? '' : ',' . "\n" . ' (NULL)')
+             . ($odsEmptyRowsMode !== null ? ';' : ',' . "\n" . ' (NULL);'),
             $GLOBALS['sql_query'],
         );
 
-        //asset that all databases and tables are imported
+        //assert that all databases and tables are imported
         self::assertStringContainsString(
             'The following structures have either been created or altered.',
             ImportSettings::$importNotice,
@@ -255,7 +253,7 @@ class ImportOdsTest extends AbstractTestCase
         self::assertStringContainsString('Go to table: `Shop`', ImportSettings::$importNotice);
         self::assertStringContainsString('Edit settings for `Shop`', ImportSettings::$importNotice);
 
-        //asset that the import process is finished
+        //assert that the import process is finished
         self::assertTrue(ImportSettings::$finished);
     }
 }

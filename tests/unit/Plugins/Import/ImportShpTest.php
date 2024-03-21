@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
@@ -35,7 +34,6 @@ class ImportShpTest extends AbstractTestCase
         parent::setUp();
 
         $GLOBALS['error'] = null;
-        $GLOBALS['buffer'] = null;
         ImportSettings::$maximumTime = 0;
         ImportSettings::$charsetConversion = false;
         $GLOBALS['eof'] = null;
@@ -46,15 +44,11 @@ class ImportShpTest extends AbstractTestCase
         ImportSettings::$executedQueries = 0;
         ImportSettings::$runQuery = false;
         ImportSettings::$goSql = false;
-
-        //setting
         ImportSettings::$importType = 'table';
         ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
-        Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        //Mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -62,7 +56,6 @@ class ImportShpTest extends AbstractTestCase
 
         $this->object = new ImportShp();
 
-        $GLOBALS['compression'] = 'application/zip';
         ImportSettings::$readMultiply = 10;
         Current::$database = '';
         Current::$table = '';
@@ -126,13 +119,9 @@ class ImportShpTest extends AbstractTestCase
     #[Group('32bit-incompatible')]
     public function testImportOsm(): void
     {
-        //$sql_query_disabled will show the import SQL detail
-        //$import_notice will show the import detail result
-
-        ImportSettings::$sqlQueryDisabled = false;
+        ImportSettings::$sqlQueryDisabled = false; //will show the import SQL detail
         Current::$database = '';
 
-        //Test function called
         $this->runImport('tests/test_data/dresden_osm.shp.zip');
 
         $this->assertMessages(ImportSettings::$importNotice);
@@ -160,16 +149,11 @@ class ImportShpTest extends AbstractTestCase
     #[Group('32bit-incompatible')]
     public function testDoImport(): void
     {
-        //$sql_query_disabled will show the import SQL detail
-        //$import_notice will show the import detail result
-
-        ImportSettings::$sqlQueryDisabled = false;
+        ImportSettings::$sqlQueryDisabled = false; //will show the import SQL detail
         Current::$database = '';
 
-        //Test function called
         $this->runImport('tests/test_data/timezone.shp.zip');
 
-        // asset that all sql are executed
         self::assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `SHP_DB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci',
             $GLOBALS['sql_query'],
@@ -201,7 +185,7 @@ class ImportShpTest extends AbstractTestCase
 
         self::assertStringContainsString("GeomFromText('POINT(1294523.1759236", $GLOBALS['sql_query']);
 
-        //asset that all databases and tables are imported
+        //assert that all databases and tables are imported
         $this->assertMessages(ImportSettings::$importNotice);
     }
 
@@ -221,7 +205,7 @@ class ImportShpTest extends AbstractTestCase
         self::assertStringContainsString('Go to table: `TBL_NAME`', $importNotice);
         self::assertStringContainsString('Edit settings for `TBL_NAME`', $importNotice);
 
-        //asset that the import process is finished
+        //assert that the import process is finished
         self::assertTrue(ImportSettings::$finished);
     }
 }
