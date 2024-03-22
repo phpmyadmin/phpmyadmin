@@ -218,38 +218,18 @@ class TableMover
             // All constraint names are removed because they must be unique.
 
             if ($move && ! empty($GLOBALS['sql_constraints_query'])) {
-                $parser = new Parser($GLOBALS['sql_constraints_query']);
-
-                /**
-                 * The ALTER statement that generates the constraints.
-                 *
-                 * @var AlterStatement $statement
-                 */
-                $statement = $parser->statements[0];
-
-                // Changing the altered table to the destination.
-                $statement->table = $destination;
-
-                // Removing the name of the constraints.
-                foreach ($statement->altered as $altered) {
-                    // All constraint names are removed because they must be unique.
-                    if (! $altered->options->has('CONSTRAINT')) {
-                        continue;
-                    }
-
-                    $altered->field = null;
-                }
-
-                // Building back the query.
-                $GLOBALS['sql_constraints_query'] = $statement->build() . ';';
-
-                // Executing it.
-                if ($mode === MoveMode::SingleTable) {
-                    $dbi->query($GLOBALS['sql_constraints_query']);
-                }
+                $GLOBALS['sql_constraints_query'] = self::getConstraintsSqlWithoutNames(
+                    $GLOBALS['sql_constraints_query'],
+                    $destination,
+                );
 
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query'];
+
+                // We can only execute it if both tables have been created.
+                // When performing the whole database move,
+                // the constraints can only be created after all tables have been created.
                 if ($mode === MoveMode::SingleTable) {
+                    $dbi->query($GLOBALS['sql_constraints_query']);
                     unset($GLOBALS['sql_constraints_query']);
                 }
             }
@@ -517,5 +497,33 @@ class TableMover
         }
 
         return $lastId;
+    }
+
+    private static function getConstraintsSqlWithoutNames(string $constraintsSql, Expression $destination): string
+    {
+        $parser = new Parser($constraintsSql);
+
+        /**
+         * The ALTER statement that generates the constraints.
+         *
+         * @var AlterStatement $statement
+         */
+        $statement = $parser->statements[0];
+
+        // Changing the altered table to the destination.
+        $statement->table = $destination;
+
+        // Removing the name of the constraints.
+        foreach ($statement->altered as $altered) {
+            // All constraint names are removed because they must be unique.
+            if (! $altered->options->has('CONSTRAINT')) {
+                continue;
+            }
+
+            $altered->field = null;
+        }
+
+        // Building back the query.
+        return $statement->build() . ';';
     }
 }
