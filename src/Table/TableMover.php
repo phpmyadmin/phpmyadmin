@@ -217,7 +217,7 @@ class TableMover
             // Phase 3: Adding constraints.
             // All constraint names are removed because they must be unique.
 
-            if (($move || isset($GLOBALS['add_constraints'])) && ! empty($GLOBALS['sql_constraints_query'])) {
+            if ($move && ! empty($GLOBALS['sql_constraints_query'])) {
                 $parser = new Parser($GLOBALS['sql_constraints_query']);
 
                 /**
