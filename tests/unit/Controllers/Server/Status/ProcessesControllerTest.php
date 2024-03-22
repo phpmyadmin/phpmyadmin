@@ -88,10 +88,11 @@ class ProcessesControllerTest extends AbstractTestCase
         $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['column_name', '', 'Database'],
+            ['full', null, '1'],
             ['order_by_field', '', 'Db'],
             ['sort_order', '', 'ASC'],
         ]);
-        $request->method('hasBodyParam')->willReturnMap([['full', true], ['showExecuting', false]]);
+        $request->method('hasBodyParam')->willReturnMap([['showExecuting', false]]);
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller($request);
@@ -105,10 +106,11 @@ class ProcessesControllerTest extends AbstractTestCase
         $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['column_name', '', 'Host'],
+            ['full', null, '1'],
             ['order_by_field', '', 'Host'],
             ['sort_order', '', 'DESC'],
         ]);
-        $request->method('hasBodyParam')->willReturnMap([['full', true], ['showExecuting', false]]);
+        $request->method('hasBodyParam')->willReturnMap([['showExecuting', false]]);
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller($request);
