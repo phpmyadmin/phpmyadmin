@@ -749,10 +749,6 @@ class ExportSqlTest extends AbstractTestCase
             unset($GLOBALS['sql_constraints']);
         }
 
-        if (isset($GLOBALS['no_constraints_comments'])) {
-            unset($GLOBALS['no_constraints_comments']);
-        }
-
         $createTableStatement = <<<'SQL'
 CREATE TABLE `table` (
     `payment_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -826,10 +822,6 @@ SQL;
 
         if (isset($GLOBALS['sql_constraints'])) {
             unset($GLOBALS['sql_constraints']);
-        }
-
-        if (isset($GLOBALS['no_constraints_comments'])) {
-            unset($GLOBALS['no_constraints_comments']);
         }
 
         $isViewQuery = 'SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'db\' AND TABLE_NAME = \'table\'';

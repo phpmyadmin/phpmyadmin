@@ -2613,29 +2613,23 @@ class ExportSql extends ExportPlugin
         string $compat,
     ): string {
         if ($sqlStatement === null) {
-            if (isset($GLOBALS['no_constraints_comments'])) {
-                $sqlStatement = '';
-            } else {
-                $sqlStatement = "\n"
-                    . $this->exportComment()
-                    . $this->exportComment($comment1)
-                    . $this->exportComment();
-            }
+            $sqlStatement = "\n"
+                . $this->exportComment()
+                . $this->exportComment($comment1)
+                . $this->exportComment();
         }
 
         // comments for current table
-        if (! isset($GLOBALS['no_constraints_comments'])) {
-            $sqlStatement .= "\n"
-                . $this->exportComment()
-                . $this->exportComment(
-                    $comment2 . ' ' . Util::backquoteCompat(
-                        $tableAlias,
-                        $compat,
-                        $this->useSqlBackquotes,
-                    ),
-                )
-                . $this->exportComment();
-        }
+        $sqlStatement .= "\n"
+            . $this->exportComment()
+            . $this->exportComment(
+                $comment2 . ' ' . Util::backquoteCompat(
+                    $tableAlias,
+                    $compat,
+                    $this->useSqlBackquotes,
+                ),
+            )
+            . $this->exportComment();
 
         return $sqlStatement;
     }
