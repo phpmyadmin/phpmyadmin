@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Table;
 
 enum MoveScope: string
 {
-    case Structure = 'structure';
-    case Data = 'data';
+    case StructureOnly = 'structure';
+    case StructureAndData = 'data';
     case DataOnly = 'dataonly';
 }

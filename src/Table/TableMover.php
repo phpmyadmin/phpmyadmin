@@ -51,7 +51,7 @@ class TableMover
         $relation = new Relation($dbi);
 
         // Try moving the tables directly, using native `RENAME` statement.
-        if ($move && $what === MoveScope::Data) {
+        if ($move && $what === MoveScope::StructureAndData) {
             $tbl = new Table($sourceTable, $sourceDb, $dbi);
             if ($tbl->rename($targetTable, $targetDb)) {
                 $GLOBALS['message'] = $tbl->getLastMessage();
@@ -280,7 +280,7 @@ class TableMover
 
         $table = new Table($targetTable, $targetDb, $dbi);
         // Copy the data unless this is a VIEW
-        if (($what === MoveScope::Data || $what === MoveScope::DataOnly) && ! $table->isView()) {
+        if (($what === MoveScope::StructureAndData || $what === MoveScope::DataOnly) && ! $table->isView()) {
             $sqlSetMode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
             $dbi->query($sqlSetMode);
             $GLOBALS['sql_query'] .= "\n\n" . $sqlSetMode . ';';

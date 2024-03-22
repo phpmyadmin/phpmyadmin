@@ -1399,7 +1399,7 @@ class TableTest extends AbstractTestCase
             'ad',
             'bb',
             'ad',
-            MoveScope::Structure,
+            MoveScope::StructureOnly,
             true,
             MoveMode::WholeDatabase,
             true,
