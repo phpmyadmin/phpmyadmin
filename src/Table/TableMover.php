@@ -70,21 +70,14 @@ class TableMover
         // Setting required export settings.
         $GLOBALS['asfile'] = 1;
 
-        /**
-         * The full name of source table, quoted.
-         */
-        $source = Util::backquote($sourceDb) . '.' . Util::backquote($sourceTable);
-
-        // If the target database is not specified, the operation is taking
-        // place in the same database.
-        if ($targetDb === '') {
-            $targetDb = $sourceDb;
-        }
-
         // Selecting the database could avoid some problems with replicated
         // databases, when moving table from replicated one to not replicated one.
         $dbi->selectDb($targetDb);
 
+        /**
+         * The full name of source table, quoted.
+         */
+        $source = Util::backquote($sourceDb) . '.' . Util::backquote($sourceTable);
         /**
          * The full name of target table, quoted.
          */
