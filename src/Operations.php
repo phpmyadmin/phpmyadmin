@@ -12,6 +12,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Table\Table;
+use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\Triggers\Triggers;
 
 use function __;
@@ -193,7 +194,7 @@ class Operations
             $triggers = Triggers::getDetails($this->dbi, $db, $table);
 
             if (
-                ! Table::moveCopy(
+                ! TableMover::moveCopy(
                     $db,
                     $table,
                     $newDatabaseName->getName(),
@@ -268,7 +269,7 @@ class Operations
     {
         // Add DROP IF EXIST to CREATE VIEW query, to remove stand-in VIEW that was created earlier.
         foreach ($views as $view) {
-            $copyingSucceeded = Table::moveCopy(
+            $copyingSucceeded = TableMover::moveCopy(
                 $db,
                 $view,
                 $newDatabaseName->getName(),
@@ -459,7 +460,7 @@ class Operations
         $getFields = ['user', 'label', 'query'];
         $whereFields = ['dbase' => $db];
         $newFields = ['dbase' => $newDatabaseName->getName()];
-        Table::duplicateInfo('bookmarkwork', 'bookmark', $getFields, $whereFields, $newFields);
+        TableMover::duplicateInfo('bookmarkwork', 'bookmark', $getFields, $whereFields, $newFields);
     }
 
     /**
@@ -887,7 +888,7 @@ class Operations
                     $message = Message::error(__('Can\'t copy table to same one!'));
                 }
             } else {
-                Table::moveCopy(
+                TableMover::moveCopy(
                     $db,
                     $table,
                     $targetDb,

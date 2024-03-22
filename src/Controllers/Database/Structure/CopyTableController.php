@@ -11,7 +11,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
-use PhpMyAdmin\Table\Table;
+use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\UserPrivilegesFactory;
 
 final class CopyTableController implements InvocableController
@@ -33,7 +33,7 @@ final class CopyTableController implements InvocableController
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         foreach ($selected as $selectedValue) {
-            Table::moveCopy(
+            TableMover::moveCopy(
                 Current::$database,
                 $selectedValue,
                 $targetDb,

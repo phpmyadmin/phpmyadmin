@@ -10,7 +10,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Table\Table;
+use PhpMyAdmin\Table\TableMover;
 
 use function mb_strlen;
 use function mb_substr;
@@ -33,7 +33,7 @@ final class CopyTableWithPrefixController implements InvocableController
         foreach ($selected as $selectedValue) {
             $newTableName = $toPrefix . mb_substr($selectedValue, mb_strlen((string) $fromPrefix));
 
-            Table::moveCopy(
+            TableMover::moveCopy(
                 Current::$database,
                 $selectedValue,
                 Current::$database,

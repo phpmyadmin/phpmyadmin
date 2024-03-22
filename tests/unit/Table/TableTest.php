@@ -13,6 +13,7 @@ use PhpMyAdmin\ListDatabase;
 use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\Table\Table;
+use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -898,7 +899,7 @@ class TableTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $ret = Table::duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
+        $ret = TableMover::duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
         self::assertSame(-1, $ret);
     }
 
@@ -1322,7 +1323,7 @@ class TableTest extends AbstractTestCase
         $this->mockedDbi->expects(self::any())->method('getTable')
             ->willReturnMap($getTableMap);
 
-        $return = Table::moveCopy($sourceDb, $sourceTable, $targetDb, $targetTable, $what, $move, $mode, true);
+        $return = TableMover::moveCopy($sourceDb, $sourceTable, $targetDb, $targetTable, $what, $move, $mode, true);
 
         //successfully
         self::assertTrue($return);
@@ -1333,7 +1334,7 @@ class TableTest extends AbstractTestCase
         $sqlQuery = 'DROP VIEW `PMA`.`PMA_BookMark`';
         self::assertStringContainsString($sqlQuery, $GLOBALS['sql_query']);
 
-        $return = Table::moveCopy($sourceDb, $sourceTable, $targetDb, $targetTable, $what, false, $mode, true);
+        $return = TableMover::moveCopy($sourceDb, $sourceTable, $targetDb, $targetTable, $what, false, $mode, true);
 
         //successfully
         self::assertTrue($return);
@@ -1375,7 +1376,7 @@ class TableTest extends AbstractTestCase
             ]);
 
         $GLOBALS['sql_query'] = '';
-        $return = Table::moveCopy('aa', 'ad', 'bb', 'ad', 'structure', true, 'db_copy', true);
+        $return = TableMover::moveCopy('aa', 'ad', 'bb', 'ad', 'structure', true, 'db_copy', true);
         self::assertTrue($return);
         self::assertStringContainsString('DROP TABLE IF EXISTS `bb`.`ad`;', $GLOBALS['sql_query']);
         self::assertStringContainsString(
