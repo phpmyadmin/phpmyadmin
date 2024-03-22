@@ -60,32 +60,15 @@ class TableMover
             }
         }
 
-        // Setting required export settings.
-        $GLOBALS['asfile'] = 1;
-
-        // Ensuring the target database is valid.
-        $databaseList = $dbi->getDatabaseList();
-        if (! $databaseList->exists($sourceDb, $targetDb)) {
-            if (! $databaseList->exists($sourceDb)) {
-                $GLOBALS['message'] = Message::rawError(
-                    sprintf(
-                        __('Source database `%s` was not found!'),
-                        htmlspecialchars($sourceDb),
-                    ),
-                );
-            }
-
-            if (! $databaseList->exists($targetDb)) {
-                $GLOBALS['message'] = Message::rawError(
-                    sprintf(
-                        __('Target database `%s` was not found!'),
-                        htmlspecialchars($targetDb),
-                    ),
-                );
-            }
+        $missingDatabaseMessage = self::checkWhetherDatabasesExist($dbi, $sourceDb, $targetDb);
+        if ($missingDatabaseMessage !== null) {
+            $GLOBALS['message'] = $missingDatabaseMessage;
 
             return false;
         }
+
+        // Setting required export settings.
+        $GLOBALS['asfile'] = 1;
 
         /**
          * The full name of source table, quoted.
@@ -525,5 +508,33 @@ class TableMover
 
         // Building back the query.
         return $statement->build() . ';';
+    }
+
+    private static function checkWhetherDatabasesExist(
+        DatabaseInterface $dbi,
+        string $sourceDb,
+        string $targetDb,
+    ): Message|null {
+        $databaseList = $dbi->getDatabaseList();
+
+        if (! $databaseList->exists($sourceDb)) {
+            return Message::rawError(
+                sprintf(
+                    __('Source database `%s` was not found!'),
+                    htmlspecialchars($sourceDb),
+                ),
+            );
+        }
+
+        if (! $databaseList->exists($targetDb)) {
+            return Message::rawError(
+                sprintf(
+                    __('Target database `%s` was not found!'),
+                    htmlspecialchars($targetDb),
+                ),
+            );
+        }
+
+        return null;
     }
 }

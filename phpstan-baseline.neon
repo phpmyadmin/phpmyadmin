@@ -14251,6 +14251,11 @@ parameters:
 			path: src/Table/TableMover.php
 
 		-
+			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Table/TableMover.php
+
+		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|null given\\.$#"
 			count: 6
 			path: src/Table/TableMover.php
