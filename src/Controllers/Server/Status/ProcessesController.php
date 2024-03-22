@@ -29,7 +29,7 @@ class ProcessesController extends AbstractController
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         $showExecuting = $request->hasBodyParam('showExecuting');
-        $full = $request->hasBodyParam('full');
+        $full = $request->getParsedBodyParam('full') === '1';
         $orderByField = (string) $request->getParsedBodyParam('order_by_field', '');
         $sortOrder = (string) $request->getParsedBodyParam('sort_order', '');
 
