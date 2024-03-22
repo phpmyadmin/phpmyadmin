@@ -10,6 +10,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Table\MoveMode;
 use PhpMyAdmin\Table\TableMover;
 
 use function mb_strlen;
@@ -40,7 +41,7 @@ final class CopyTableWithPrefixController implements InvocableController
                 $newTableName,
                 'data',
                 false,
-                'one_table',
+                MoveMode::SingleTable,
                 $dropIfExists,
             );
         }

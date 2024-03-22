@@ -36,7 +36,6 @@ class TableMover
      * @param string $targetTable target table
      * @param string $what        what to be moved or copied (data, dataonly)
      * @param bool   $move        whether to move
-     * @param string $mode        mode
      */
     public static function moveCopy(
         string $sourceDb,
@@ -45,7 +44,7 @@ class TableMover
         string $targetTable,
         string $what,
         bool $move,
-        string $mode,
+        MoveMode $mode,
         bool $addDropIfExists,
     ): bool {
         $GLOBALS['errorUrl'] ??= null;
@@ -246,12 +245,12 @@ class TableMover
                 $GLOBALS['sql_constraints_query'] = $statement->build() . ';';
 
                 // Executing it.
-                if ($mode === 'one_table') {
+                if ($mode === MoveMode::SingleTable) {
                     $dbi->query($GLOBALS['sql_constraints_query']);
                 }
 
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query'];
-                if ($mode === 'one_table') {
+                if ($mode === MoveMode::SingleTable) {
                     unset($GLOBALS['sql_constraints_query']);
                 }
             }
@@ -287,23 +286,19 @@ class TableMover
                     $sqlIndex = $statement->build() . ';';
 
                     // Executing it.
-                    if ($mode === 'one_table' || $mode === 'db_copy') {
-                        $dbi->query($sqlIndex);
-                    }
+                    $dbi->query($sqlIndex);
 
                     $GLOBALS['sql_indexes'] .= $sqlIndex;
                 }
 
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_indexes'];
-                if ($mode === 'one_table' || $mode === 'db_copy') {
-                    unset($GLOBALS['sql_indexes']);
-                }
+                unset($GLOBALS['sql_indexes']);
             }
 
             // -----------------------------------------------------------------
             // Phase 5: Adding AUTO_INCREMENT.
 
-            if (! empty($GLOBALS['sql_auto_increments']) && ($mode === 'one_table' || $mode === 'db_copy')) {
+            if (! empty($GLOBALS['sql_auto_increments'])) {
                 $parser = new Parser($GLOBALS['sql_auto_increments']);
 
                 /**
