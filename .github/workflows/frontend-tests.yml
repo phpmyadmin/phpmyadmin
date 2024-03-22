@@ -1,0 +1,76 @@
+name: Frontend analysis and tests
+
+on:
+  push:
+  pull_request:
+    paths:
+      - 'resources/js/**'
+      - '**.s?css'
+      - 'tests/javascript/**'
+      - '.browserslistrc'
+      - '.eslint*'
+      - '*.cjs'
+      - 'package.json'
+      - 'tsconfig.json'
+      - 'yarn.lock'
+
+permissions:
+  contents: read
+
+jobs:
+  javascript-test:
+    name: Test JavaScript files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - name: Install modules
+        run: yarn install --non-interactive
+
+      - name: Run tests
+        run: yarn test
+
+  javascript-lint:
+    name: Lint JavaScript files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - name: Install modules
+        run: yarn install --non-interactive
+
+      - name: Lint JavaScript files
+        run: yarn run js-lint --quiet
+
+  css-lint:
+    name: Lint CSS files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - name: Install modules
+        run: yarn install --non-interactive
+
+      - name: Lint CSS files
+        run: yarn run css-lint

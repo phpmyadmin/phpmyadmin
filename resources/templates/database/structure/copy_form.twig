@@ -1,0 +1,49 @@
+<form id="ajax_form" action="{{ url('/database/structure/copy-table') }}" method="post">
+  {{ get_hidden_inputs(url_params) }}
+
+  <div class="mb-3">
+    <label for="databaseNameSelect" class="form-label">{% trans 'Database:' %}</label>
+    <select class="form-select" id="databaseNameSelect" name="target_db">
+      {% for each_db in options %}
+        <option value="{{ each_db.name }}"{{ each_db.is_selected ? ' selected' }}>{{ each_db.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <fieldset class="mb-3">
+    <legend class="col-form-label">{% trans 'Options:' %}</legend>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="what" id="whatDataRadio" value="data" checked>
+      <label class="form-check-label" for="whatDataRadio">{% trans 'Structure and data' %}</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="what" id="whatStructureRadio" value="structure">
+      <label class="form-check-label" for="whatStructureRadio">{% trans 'Structure only' %}</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="what" id="whatDataOnlyRadio" value="dataonly">
+      <label class="form-check-label" for="whatDataOnlyRadio">{% trans 'Data only' %}</label>
+    </div>
+  </fieldset>
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="true" name="drop_if_exists" id="addDropTableCheckbox">
+    <label class="form-check-label" for="addDropTableCheckbox">{% trans 'Add DROP TABLE' %}</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="1" name="sql_auto_increment" id="addAutoIncrementCheckbox">
+    <label class="form-check-label" for="addAutoIncrementCheckbox">{% trans 'Add AUTO INCREMENT value' %}</label>
+  </div>
+  <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" value="1" name="add_constraints" id="addConstraintsCheckbox" checked>
+    <label class="form-check-label" for="addConstraintsCheckbox">{% trans 'Add constraints' %}</label>
+  </div>
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="1" name="adjust_privileges" id="adjustPrivilegesCheckbox">
+    <label class="form-check-label" for="adjustPrivilegesCheckbox">
+      {% trans 'Adjust privileges' %}
+      {{ show_docu('faq', 'faq6-39') }}
+    </label>
+  </div>
+</form>

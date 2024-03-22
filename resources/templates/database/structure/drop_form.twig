@@ -1,0 +1,24 @@
+<div class="container">
+  <form action="{{ url('/database/structure/drop-table') }}" method="post" class="card">
+    {{ get_hidden_inputs(url_params) }}
+    <input type="hidden" name="fk_checks" value="0">
+
+    <div class="card-header">{% trans 'Do you really want to execute the following query?' %}</div>
+
+    <div class="card-body">
+      <div class="card mb-3">
+        <div class="card-body"><code>{{ full_query|raw }}</code></div>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="fk_checks" id="checkForeignKeyCheckbox" value="1"{{ is_foreign_key_check ? ' checked' }}>
+        <label class="form-check-label" for="checkForeignKeyCheckbox">{% trans 'Enable foreign key checks' %}</label>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <input id="buttonYes" class="btn btn-danger" type="submit" name="mult_btn" value="{% trans 'Yes' %}">
+      <input id="buttonNo" class="btn btn-secondary" type="submit" name="mult_btn" value="{% trans 'No' %}">
+    </div>
+  </form>
+</div>

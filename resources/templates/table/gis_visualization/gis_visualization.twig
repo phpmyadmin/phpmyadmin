@@ -1,0 +1,61 @@
+<div id="div_view_options" class="container-fluid">
+  <h2>{% trans 'Display GIS Visualization' %}</h2>
+
+  <div class="card">
+    <div id="gis_div" class="card-body">
+      <form method="post" action="{{ url('/table/gis-visualization') }}" class="row g-3 align-items-start">
+        {{ get_hidden_inputs(url_params) }}
+
+        <div class="col-12 col-md-6 col-xl">
+          <label class="form-label" for="labelColumn">{% trans 'Label column' %}</label>
+          <select name="visualizationSettings[labelColumn]" id="labelColumn" class="form-select autosubmit">
+            <option value="">{% trans '-- None --' %}</option>
+            {% for value in label_candidates %}
+              <option value="{{ value }}"{{ value == labelColumn ? ' selected' }}>
+                {{ value }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-12 col-md-6 col-xl">
+          <label class="form-label" for="spatialColumn">{% trans 'Spatial column' %}</label>
+          <select name="visualizationSettings[spatialColumn]" id="spatialColumn" class="form-select autosubmit">
+            {% for value in spatial_candidates %}
+              <option value="{{ value }}"{{ value == spatialColumn ? ' selected' }}>
+                {{ value }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="col-12">
+          {{ include('table/start_and_number_of_rows_fieldset.twig', start_and_number_of_rows_fieldset) }}
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <input type="hidden" name="redraw" value="true">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" name="useBaseLayer" id="choice"{{ useBaseLayer ?? false ? ' checked' }}>
+            <label class="form-check-label" for="choice" id="labelChoice">{% trans 'Use OpenStreetMaps as Base Layer' %}</label>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="saveImageButton" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ get_icon('b_saveimage', 'Save'|trans) }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="saveImageButton">
+              <li><a class="dropdown-item disableAjax" href="{{ download_url|raw }}&fileFormat=png">PNG</a></li>
+              <li><a class="dropdown-item disableAjax" href="{{ download_url|raw }}&fileFormat=pdf">PDF</a></li>
+              <li><a class="dropdown-item disableAjax" href="{{ download_url|raw }}&fileFormat=svg">SVG</a></li>
+            </ul>
+          </div>
+        </div>
+      </form>
+
+      <div id="visualization-placeholder" class="mt-3" style="height: {{ height }}px;">
+        <div class="visualization-target visualization-target-svg hide">{{ visualization|raw }}</div>
+        <div class="visualization-target visualization-target-ol hide"></div>
+      </div>
+      <script>{{ draw_ol|raw }}</script>
+    </div>
+  </div>
+</div>

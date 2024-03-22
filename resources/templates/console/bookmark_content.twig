@@ -1,0 +1,18 @@
+<div class="message welcome">
+  <span>{{ welcome_message }}</span>
+</div>
+{% for bookmark in bookmarks %}
+  <div class="message collapsed bookmark" bookmarkid="{{ bookmark.getId() }}" targetdb="{{ bookmark.getDatabase() }}">
+    <div class="action_content">
+      <span class="action collapse">{{ 'Collapse'|trans }}</span>
+      <span class="action expand">{{ 'Expand'|trans }}</span>
+      <span class="action requery">{{ 'Requery'|trans }}</span>
+      <span class="action edit_bookmark">{{ 'Edit'|trans }}</span>
+      <span class="action delete_bookmark">{{ 'Delete'|trans }}</span>
+      <span class="text targetdb">{{ 'Database'|trans }}: <span>{{ bookmark.getDatabase() }}</span></span>
+    </div>
+
+    <span class="bookmark_label{{ bookmark.getUser() is empty ? ' shared' }}">{{ bookmark.getLabel() }}</span>
+    <span class="query">{{ bookmark.getQuery() }}</span>
+  </div>
+{% endfor %}

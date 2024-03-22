@@ -1,0 +1,9 @@
+{
+    "name": "Metro",
+    "version": "6.0",
+    "description": "Metro theme for phpMyAdmin",
+    "author": "phpMyAdmin developers and hplhu",
+    "url": "https://www.phpmyadmin.net/",
+    "supports": ["6.0"],
+    "colorModes": ["win", "teal", "redmond", "blueeyes", "mono"]
+}

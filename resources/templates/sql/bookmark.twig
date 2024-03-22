@@ -1,0 +1,28 @@
+<form action="{{ url('/sql') }}" method="post" class="card bookmarkQueryForm d-print-none"
+  onsubmit="return ! Functions.emptyCheckTheField(this, 'bkm_fields[bkm_label]');">
+  {{ get_hidden_inputs() }}
+  <input type="hidden" name="db" value="{{ db }}">
+  <input type="hidden" name="goto" value="{{ goto }}">
+  <input type="hidden" name="bkm_fields[bkm_database]" value="{{ db }}">
+  <input type="hidden" name="bkm_fields[bkm_user]" value="{{ user }}">
+  <input type="hidden" name="bkm_fields[bkm_sql_query]" value="{{ sql_query }}">
+  <input type="hidden" name="store_bkm" value="1">
+
+  <div class="card-header">{{ get_icon('b_bookmark', 'Bookmark this SQL query'|trans, true) }}</div>
+  <div class="card-body">
+    <div class="mb-3">
+      <label class="form-label" for="bookmarkLabelField">{% trans 'Bookmark label:' %}</label>
+      <input class="form-control" id="bookmarkLabelField" type="text" name="bkm_fields[bkm_label]" value="">
+    </div>
+
+    {% if allow_shared_bookmarks is defined and allow_shared_bookmarks %}
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="bookmarkAllUsersCheckbox" name="bkm_all_users" value="true">
+        <label class="form-check-label" for="bookmarkAllUsersCheckbox">{% trans 'Let every user access this bookmark' %}</label>
+      </div>
+    {% endif %}
+  </div>
+  <div class="card-footer">
+    <input class="btn btn-secondary" type="submit" value="{% trans 'Create new bookmark' %}">
+  </div>
+</form>

@@ -1,0 +1,17 @@
+<form method="post" action="{{ url('/schema-export') }}" class="disableAjax" id="id_export_pages">
+  {{ get_hidden_inputs(db) }}
+  <input type="hidden" name="page_number" value="{{ page }}">
+
+  <div class="mb-3">
+    <label class="form-label" for="plugins">{% trans 'Select export relational type:' %}</label>
+    <select class="form-select" id="plugins" name="export_type">
+      {% for option in plugins_choice %}
+        <option value="{{ option.name }}"{{ option.is_selected ? ' selected' }}>{{ option.text }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div>
+    {{ options|raw }}
+  </div>
+</form>

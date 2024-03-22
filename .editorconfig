@@ -13,8 +13,8 @@ indent_size = 4
 [{*.{sql,scss,css,twig,yml},package.json}]
 indent_size = 2
 
-[*.twig]
+[*.svg]
 insert_final_newline = false
 
-[test/test_data/*]
+[tests/test_data/*]
 insert_final_newline = false

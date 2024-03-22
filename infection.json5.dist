@@ -1,0 +1,18 @@
+{
+    "source": {
+        "directories": [
+            "src"
+        ]
+    },
+    "logs": {
+        "text": "build/logs/infection.log",
+        "stryker": {
+            "report": "master"
+        }
+    },
+    "mutators": {
+        "@default": true
+    },
+    "minMsi": 29,
+    "minCoveredMsi": 51
+}

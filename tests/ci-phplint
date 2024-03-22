@@ -1,0 +1,16 @@
+#!/bin/sh
+
+FILES=$(find . -name '*.php' -not -path './vendor/*' -not -path './tmp/*' -not -path './node_modules/*')
+
+result=0
+for FILE in $FILES ; do
+    if [ -f "$FILE" ] ; then
+        php -l "$FILE"
+        ret=$?
+        if [ $ret != 0 ] ; then
+            result=$ret
+        fi
+    fi
+done
+
+exit $result

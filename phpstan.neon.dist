@@ -3,21 +3,26 @@ includes:
 parameters:
     level: max
     paths:
-        - .
+        - app
+        - public
+        - src
+        - tests
     scanFiles:
-        - libraries/constants.php
+        - app/constants.php
+        - examples/signon-script.php
     bootstrapFiles:
-        - test/phpstan-constants.php
+        - tests/phpstan-constants.php
     stubFiles:
-        - test/stubs/uploadprogress.stub
+        - tests/stubs/uploadprogress.stub
     excludePaths:
-        - examples/openid.php
-        - node_modules/*
-        - libraries/cache/*
-        - test/doctum-config.php
-        - tmp/*
-        - twig-templates/*
-        - vendor/*
+        - app/cache/*
+        - tests/doctum-config.php
     dynamicConstantNames:
         - ROOT_PATH
+        - TEST_PATH
         - VERSION_SUFFIX
+    checkBenevolentUnionTypes: true
+    checkUninitializedProperties: true
+    checkDynamicProperties: true
+    checkTooWideReturnTypesInProtectedAndPublicMethods: true
+    checkImplicitMixed: true

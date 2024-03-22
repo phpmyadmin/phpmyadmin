@@ -1,4 +1,13 @@
 {
-    "presets": ["@babel/preset-env"],
-    "sourceType": "script"
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "node": "current"
+                }
+            }
+        ],
+        "@babel/preset-typescript"
+    ]
 }

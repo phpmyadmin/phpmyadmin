@@ -3,7 +3,7 @@
  * phpMyAdmin sample configuration, you can use it as base for
  * manual configuration. For easier setup you can use setup/
  *
- * All directives are explained in documentation in the doc/ folder
+ * All directives are explained in documentation in the docs/ folder
  * or at <https://docs.phpmyadmin.net/>.
  */
 
@@ -108,7 +108,7 @@ $cfg['SaveDir'] = '';
 
 /**
  * Default language to use, if not browser-defined or user-defined
- * (you find all languages in the locale folder)
+ * (you find all languages in the 'resources/locale' folder)
  * uncomment the desired line:
  * default = 'en'
  */
@@ -156,5 +156,5 @@ $cfg['SaveDir'] = '';
 
 /**
  * You can find more configuration options in the documentation
- * in the doc/ folder or at <https://docs.phpmyadmin.net/>.
+ * in the docs/ folder or at <https://docs.phpmyadmin.net/>.
  */

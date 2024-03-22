@@ -1,0 +1,9 @@
+<fieldset class="mb-3 col">
+  <legend>{{ title }}</legend>
+  {% for tab_detail in tab_details %}
+    <div class="form-check">
+      <input class="form-check-input checkall" type="checkbox"{{ tab_detail.in_array|raw }} name="{{ level }}_{{ tab_detail.tab }}" id="{{ level }}_{{ tab_detail.tab }}" value="Y">
+      <label class="form-check-label" for="{{ level }}_{{ tab_detail.tab }}">{{ tab_detail.tab_name }}</label>
+    </div>
+  {% endfor %}
+</fieldset>

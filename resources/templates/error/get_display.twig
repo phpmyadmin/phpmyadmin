@@ -1,0 +1,12 @@
+<div class="alert alert-{{ context }}" role="alert">
+  {%- if not is_user_error -%}
+    <p><strong>{{ type }}</strong> in {{ file }}#{{ line }}</p>
+  {%- endif -%}
+
+  {{ message|raw }}
+
+  {%- if not is_user_error -%}
+    <p class="mt-3"><strong>Backtrace</strong></p>
+    {{- formatted_backtrace|raw -}}
+  {%- endif -%}
+</div>

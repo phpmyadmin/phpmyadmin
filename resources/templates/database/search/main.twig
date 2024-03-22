@@ -1,0 +1,90 @@
+<div class="container">
+  <h2>{% trans 'Search in database' %}</h2>
+
+  <a id="db_search"></a>
+  <form id="db_search_form" method="post" action="{{ url('/database/search') }}" name="db_search" class="card mb-3 ajax lock-page">
+    {{ get_hidden_inputs(db) }}
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="criteriaSearchString" class="form-label">{% trans 'Words or values to search for (wildcard: "%"):' %}</label>
+        <input type="text" class="form-control" id="criteriaSearchString" name="criteriaSearchString" value="{{ criteria_search_string }}">
+      </div>
+
+      <fieldset class="mb-3">
+        <legend>{% trans 'Find:' %}</legend>
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio1" value="1"{{ criteria_search_type == '1' ? ' checked' }}>
+          <label class="form-check-label" for="criteriaSearchTypeRadio1">{% trans 'at least one of the words' %} {{ show_hint('Words are separated by a space character (" ").'|trans) }}</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio2" value="2"{{ criteria_search_type == '2' ? ' checked' }}>
+          <label class="form-check-label" for="criteriaSearchTypeRadio2">{% trans 'all of the words' %} {{ show_hint('Words are separated by a space character (" ").'|trans) }}</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio3" value="3"{{ criteria_search_type == '3' ? ' checked' }}>
+          <label class="form-check-label" for="criteriaSearchTypeRadio3">{% trans 'the exact phrase as substring' %}</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio4" value="4"{{ criteria_search_type == '4' ? ' checked' }}>
+          <label class="form-check-label" for="criteriaSearchTypeRadio4">{% trans 'the exact phrase as whole field' %}</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio5" value="5"{{ criteria_search_type == '5' ? ' checked' }}>
+          <label class="form-check-label" for="criteriaSearchTypeRadio5">{% trans 'as regular expression' %} {{ show_mysql_docu('Regexp') }}</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="mb-3">
+        <legend>{% trans 'Inside tables:' %}</legend>
+
+        <div>
+          <button type="button" class="btn btn-link" id="select_all">{% trans 'Select all' %}</button>
+          <button type="button" class="btn btn-link" id="unselect_all">{% trans 'Unselect all' %}</button>
+        </div>
+        <select class="form-select" id="criteriaTables" name="criteriaTables[]" multiple>
+          {% for each_table in tables_names_only %}
+            <option value="{{ each_table }}"
+              {% if criteria_tables|length > 0 %}
+                {{- each_table in criteria_tables ? ' selected' }}
+              {% else %}
+                {{- ' selected' }}
+              {% endif %}
+            >
+              {{ each_table }}
+            </option>
+          {% endfor %}
+        </select>
+      </fieldset>
+
+      <div>
+        <label for="criteriaColumnName" class="form-label">{% trans 'Inside column:' %}</label>
+        <input type="text" class="form-control" id="criteriaColumnName" name="criteriaColumnName" value="{{ criteria_column_name is not empty ? criteria_column_name }}">
+      </div>
+    </div>
+    <div class="card-footer">
+      <input id="buttonGo" class="btn btn-primary" type="submit" name="submit_search" value="{% trans 'Search' %}">
+    </div>
+  </form>
+  <div id="togglesearchformdiv">
+    <button id="togglesearchformlink" class="btn btn-primary my-1"></button>
+  </div>
+  <div id="searchresults"></div>
+  <div id="togglesearchresultsdiv">
+    <button id="togglesearchresultlink" class="btn btn-primary"></button>
+  </div>
+  <br class="clearfloat">
+  {# These two table-image and table-link elements display the table name in browse search results #}
+  <div id="table-info">
+    <a id="table-link" class="item"></a>
+  </div>
+  {# Div for browsing results #}
+  <div id="browse-results">
+    {# This browse-results div is used to load the browse and delete results in the db search #}
+  </div>
+  <div id="sqlqueryform" class="clearfloat">
+    {# This sqlqueryform div is used to load the delete form in the db search #}
+  </div>
+  {# Toggle query box link #}
+  <button class="btn btn-secondary" id="togglequerybox"></button>
+</div>

@@ -1,0 +1,66 @@
+<form id="gis_data_editor_form" action="{{ url('/gis-data-editor') }}" method="post">
+    <div id="gis_data_editor">
+        <button type="button" class="ui-dialog-titlebar-close btn-close cancel_gis_editor close_gis_editor"></button>
+        <h3>{{ 'Value for the column "%s"'|trans|format(field) }}</h3>
+
+        <input type="hidden" name="field" value="{{ field }}">
+        <input type="hidden" name="type" value="{{ column_type }}">
+        {# The input field to which the final result should be added and corresponding null checkbox #}
+        {% if input_name is not null %}
+            <input type="hidden" name="input_name" value="{{ input_name }}">
+        {% endif %}
+        {{ get_hidden_inputs() }}
+
+        {# Visualization section #}
+        <div class="float-end">
+            <div id="visualization-placeholder" style="width: {{ width }}px; height: {{ height }}px;">
+                <div class="visualization-target visualization-target-svg hide">{{ visualization|raw }}</div>
+                <div class="visualization-target visualization-target-ol hide"></div>
+            </div>
+
+            <div class="choice form-switch mt-1">
+                <input type="checkbox" id="choice" class="form-check-input" value="useBaseLayer"{{ srid != 0 ? ' checked="checked"' }}>
+                <label for="choice">{% trans "Use OpenStreetMaps as Base Layer" %}</label>
+            </div>
+        </div>
+
+        <script>{{ open_layers|raw }}</script>
+        {# End of visualization section #}
+
+        {# Data section #}
+        <div id="gis_data" class="gis-geometry" data-gis-data="{{ gis_data|json_encode }}">
+            <template id="gis_type_template">
+                <select class="gis_type">
+                    {% for gis_type in gis_types|slice(0, 6) %}
+                        <option value="{{ gis_type }}">{{ gis_type }}</option>
+                    {% endfor %}
+                </select>
+            </template>
+
+            {# Header section - Inclueds GIS type selector and input field for SRID #}
+            <div class="gis-geometry-type">
+                <select name="gis_data[gis_type]" class="gis_type{{ column_type != 'GEOMETRY' ? ' hide' }}">
+                    {% for gis_type in gis_types %}
+                        <option value="{{ gis_type }}"{{ geom_type == gis_type ? ' selected="selected"' }}>
+                            {{ gis_type }}
+                        </option>
+                    {% endfor %}
+                </select>
+
+                <label for="srid">{% trans %}SRID:{% context %}Spatial Reference System Identifier{% endtrans %}</label>
+                <input id="srid" name="gis_data[srid]" type="text" value="{{ srid }}">
+            </div>
+            {# End of header section #}
+
+        </div>
+        {# End of data section #}
+
+        <div class="gis_data_output">
+            <h3>{% trans 'Output' %}</h3>
+            <textarea id="gis_data_textarea" class="mb-3" rows="5">{{ result }}</textarea>
+
+            <button type="button" class="btn btn-primary gis-copy-data">{{ 'Copy'|trans }}</button>
+            <button type="button" class="btn btn-secondary cancel_gis_editor"> {{ 'Cancel'|trans }}</button>
+        </div>
+    </div>
+</form>

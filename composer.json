@@ -23,11 +23,10 @@
     "non-feature-branches": ["RELEASE_.*"],
     "autoload": {
         "psr-4": {
-            "PhpMyAdmin\\": "libraries/classes"
+            "PhpMyAdmin\\": "src"
         },
-        "files": ["vendor/phpmyadmin/motranslator/src/functions.php"],
         "exclude-from-classmap": [
-            "/test/",
+            "/tests/",
             "/vendor/tecnickcom/tcpdf/tcpdf_barcodes_*.php",
             "/vendor/tecnickcom/tcpdf/tcpdf_import.php",
             "/vendor/tecnickcom/tcpdf/tcpdf_parser.php",
@@ -37,8 +36,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "PhpMyAdmin\\Tests\\": "test/classes",
-            "PhpMyAdmin\\Tests\\Selenium\\": "test/selenium/"
+            "PhpMyAdmin\\Tests\\": "tests/unit",
+            "PhpMyAdmin\\Tests\\Selenium\\": "tests/end-to-end/"
         }
     },
     "repositories": [
@@ -48,32 +47,37 @@
         }
     ],
     "require": {
-        "php": "^7.2.5 || ^8.0",
+        "php": "^8.1.2",
         "ext-hash": "*",
         "ext-iconv": "*",
         "ext-json": "*",
         "ext-mysqli": "*",
         "ext-openssl": "*",
         "ext-pcre": "*",
+        "ext-sodium": "*",
         "ext-xml": "*",
         "composer/ca-bundle": "^1.2",
-        "google/recaptcha": "^1.1",
+        "fig/http-message-util": "^1.1",
+        "google/recaptcha": "^1.3",
+        "laminas/laminas-httphandlerrunner": "^2.6",
         "nikic/fast-route": "^1.3",
-        "paragonie/sodium_compat": "^1.17",
-        "phpmyadmin/motranslator": "^5.0",
-        "phpmyadmin/shapefile": "^3.0.1",
-        "phpmyadmin/sql-parser": "^5.8",
-        "phpmyadmin/twig-i18n-extension": "^4.0.1",
+        "phpmyadmin/motranslator": "^6.0-dev",
+        "phpmyadmin/shapefile": "^4.0-dev",
+        "phpmyadmin/sql-parser": "^6.0-dev",
+        "phpmyadmin/twig-i18n-extension": "^5.0-dev",
+        "psr/container": "^2.0",
         "psr/http-factory": "^1.0",
-        "psr/http-message": "^1.0",
-        "slim/psr7": "^1.4.1",
-        "symfony/config": "^5.2.3",
-        "symfony/dependency-injection": "^5.2.3",
-        "symfony/expression-language": "^5.2.3",
-        "symfony/polyfill-ctype": "^1.17.0",
-        "symfony/polyfill-mbstring": "^1.17.0",
-        "symfony/polyfill-php80": "^1.16",
-        "twig/twig": "^3.3.5",
+        "psr/http-message": "^1.1",
+        "psr/http-server-handler": "^1.0",
+        "psr/http-server-middleware": "^1.0",
+        "slim/psr7": "^1.6.1",
+        "symfony/config": "^6.2",
+        "symfony/dependency-injection": "^6.2",
+        "symfony/expression-language": "^6.2",
+        "symfony/polyfill-ctype": "^1.24",
+        "symfony/polyfill-mbstring": "^1.24",
+        "symfony/polyfill-php82": "^1.29",
+        "twig/twig": "^3.5",
         "webmozart/assert": "^1.10",
         "williamdes/mariadb-mysql-kbs": "^1.2"
     },
@@ -90,9 +94,8 @@
         "ext-zip": "For zip import and export",
         "ext-gd2": "For image transformations",
         "ext-mbstring": "For best performance",
-        "ext-sodium": "Better encryption performance",
         "tecnickcom/tcpdf": "For PDF support",
-        "pragmarx/google2fa-qrcode": "^2.1 - For 2FA authentication",
+        "pragmarx/google2fa-qrcode": "^2.1 or ^3.0 - For 2FA authentication",
         "bacon/bacon-qr-code": "^2.0 - For 2FA authentication",
         "code-lts/u2f-php-server": "For FIDO U2F authentication",
         "web-auth/webauthn-lib": "For better WebAuthn/FIDO2 authentication support"
@@ -100,24 +103,29 @@
     "require-dev": {
         "bacon/bacon-qr-code": "^2.0",
         "code-lts/u2f-php-server": "^1.2",
-        "php-webdriver/webdriver": "^1.13",
-        "phpmyadmin/coding-standard": "^3.0.0",
-        "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan": "^1.4.8",
-        "phpstan/phpstan-phpunit": "^1.0",
-        "phpstan/phpstan-webmozart-assert": "^1.0",
-        "phpunit/phpunit": "^8.5.16 || ^9.5",
-        "pragmarx/google2fa-qrcode": "^2.1",
-        "psalm/plugin-phpunit": "^0.16.1",
+        "guzzlehttp/psr7": "^2.5",
+        "httpsoft/http-message": "^1.1",
+        "laminas/laminas-diactoros": "^3.0",
+        "nyholm/psr7": "^1.8",
+        "php-webdriver/webdriver": "^1.14",
+        "phpmyadmin/coding-standard": "^4.0",
+        "phpstan/extension-installer": "^1.3",
+        "phpstan/phpstan": "^1.10.15",
+        "phpstan/phpstan-phpunit": "^1.3",
+        "phpstan/phpstan-strict-rules": "^1.5",
+        "phpstan/phpstan-webmozart-assert": "^1.2",
+        "phpunit/phpunit": "^10.4",
+        "pragmarx/google2fa-qrcode": "^3.0",
+        "psalm/plugin-phpunit": "^0.18.4",
         "roave/security-advisories": "dev-latest",
-        "symfony/console": "^5.2.3",
+        "symfony/console": "^6.2",
         "tecnickcom/tcpdf": "^6.4.4",
-        "vimeo/psalm": "^4.22",
-        "web-auth/webauthn-lib": "^3.3.2"
+        "vimeo/psalm": "^5.14",
+        "web-auth/webauthn-lib": "^3.3.12"
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "5.2.x-dev"
+            "dev-master": "6.0.x-dev"
         }
     },
     "scripts": {
@@ -136,7 +144,7 @@
             "@php phpstan analyse --generate-baseline",
             "@php psalm --set-baseline=psalm-baseline.xml"
         ],
-        "twig-lint": "@php scripts/console lint:twig --ansi --show-deprecations"
+        "twig-lint": "@php bin/console lint:twig --ansi --show-deprecations"
     },
     "config":{
         "sort-packages": true,
@@ -145,6 +153,9 @@
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "phpstan/extension-installer": true,
             "composer/package-versions-deprecated": true
+        },
+        "platform": {
+            "php": "8.1.99"
         }
     }
 }

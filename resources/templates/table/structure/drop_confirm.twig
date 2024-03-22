@@ -1,0 +1,23 @@
+<div class="container">
+  <h1 class="mt-3 mb-4">{% trans 'Dropping columns from the table' %}</h1>
+
+  <form action="{{ url('/table/structure/drop') }}" method="post" class="disableAjax card border-danger">
+    {{ get_hidden_inputs({'db': db, 'table': table, 'selected': fields}) }}
+
+    <div class="card-header">{% trans 'Do you really want to execute the following query?' %}</div>
+    <div class="card-body">
+      <code>
+        ALTER TABLE {{ backquote(table) }}<br>
+        {% for field in fields %}
+          &nbsp;&nbsp;DROP {{ backquote(field) }}
+          {%- if loop.last %};{% else %},<br>{% endif %}
+        {% endfor %}
+      </code>
+    </div>
+
+    <div class="card-footer">
+      <input id="buttonYes" class="btn btn-danger" type="submit" name="mult_btn" value="{% trans 'Yes' %}">
+      <input id="buttonNo" class="btn btn-secondary" type="submit" name="mult_btn" value="{% trans 'No' %}">
+    </div>
+  </form>
+</div>

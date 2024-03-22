@@ -5,12 +5,11 @@ imports:
 filter:
   excluded_paths:
     - build/
-    - js/vendor/
-    - js/dist/
     - node_modules/
+    - public/js/
     - tmp/
     - vendor/
-    - test/doctum-config.php
+    - tests/doctum-config.php
 checks:
   javascript: true
   php: true
@@ -22,8 +21,8 @@ build:
   nodes:
     analysis:
       environment:
-        php: 7.2
-        node: 12
+        php: 8.1
+        node: 16
       dependencies:
         before:
           - composer config --unset repositories.0

@@ -1,0 +1,21 @@
+.breadcrumb-navbar {
+  padding: $breadcrumb-navbar-padding-y $breadcrumb-navbar-padding-x;
+  margin-bottom: $breadcrumb-navbar-margin-bottom;
+  background-color: $breadcrumb-navbar-bg;
+
+  .breadcrumb-item {
+    + .breadcrumb-comment {
+      padding-left: $breadcrumb-item-padding-x;
+    }
+
+    .icon {
+      margin: 0;
+    }
+  }
+}
+
+@include color-mode(dark) {
+  .breadcrumb-navbar {
+    background-color: $breadcrumb-navbar-bg-dark;
+  }
+}

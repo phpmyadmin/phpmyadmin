@@ -1,0 +1,27 @@
+name: ShellCheck
+
+on:
+  push:
+    paths:
+      - 'bin/**'
+  pull_request:
+    paths:
+      - 'bin/**'
+
+permissions:
+  contents: read
+
+jobs:
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run ShellCheck
+        uses: reviewdog/action-shellcheck@v1
+        with:
+          path: bin
+          check_all_files_with_shebangs: true
+          fail_on_error: true

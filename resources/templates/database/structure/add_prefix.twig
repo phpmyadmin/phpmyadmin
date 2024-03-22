@@ -1,0 +1,7 @@
+<form id="ajax_form" action="{{ url('/database/structure/add-prefix-table') }}" method="post">
+  {{ get_hidden_inputs(url_params) }}
+  <div>
+    <label for="addTablePrefixInput" class="form-label">{% trans 'Add prefix' %}</label>
+    <input type="text" class="form-control" id="addTablePrefixInput" name="add_prefix">
+  </div>
+</form>

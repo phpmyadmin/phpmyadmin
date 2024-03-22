@@ -1,0 +1,11 @@
+<form id="ajax_form" action="{{ url(route) }}" method="post">
+  {{ get_hidden_inputs(url_params) }}
+  <div class="mb-3">
+    <label for="initialPrefixInput" class="form-label">{% trans 'From' %}</label>
+    <input type="text" class="form-control" id="initialPrefixInput" name="from_prefix">
+  </div>
+  <div>
+    <label for="newPrefixInput" class="form-label">{% trans 'To' %}</label>
+    <input type="text" class="form-control" id="newPrefixInput" name="to_prefix">
+  </div>
+</form>

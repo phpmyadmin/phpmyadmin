@@ -1,0 +1,17 @@
+<form id="continueForm" method="post" action="{{ url('/table/change') }}" name="continueForm" class="row g-3">
+  {{ get_hidden_inputs(db, table) }}
+  <input type="hidden" name="goto" value="{{ goto }}">
+  <input type="hidden" name="err_url" value="{{ err_url }}">
+  <input type="hidden" name="sql_query" value="{{ sql_query }}">
+
+  {% if has_where_clause %}
+    {% for key_id, where_clause in where_clause_array %}
+      <input type="hidden" name="where_clause[{{ key_id }}]" value="{{ where_clause|trim }}">
+    {% endfor %}
+  {% endif %}
+
+  <div class="col-auto">
+    <label class="form-label" for="insert_rows">{{ 'Amount of rows to insert'|trans }}</label>
+    <input class="form-control" type="number" name="insert_rows" id="insert_rows" value="{{ insert_rows_default }}" min="1">
+  </div>
+</form>

@@ -1,0 +1,42 @@
+.card {
+  margin-top: 1rem;
+}
+
+.card-header {
+  font-family: $font-family-light;
+  font-size: 1rem;
+  border-bottom: 0;
+}
+
+.card-img-container {
+  height: $card-img-height;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.card-footer {
+  border-top: 0;
+}
+
+#maincontainer {
+  .card {
+    background: none;
+    border: none;
+    margin: 0;
+  }
+
+  .card-header {
+    background: none;
+    color: var(--navi-background);
+    font-size: 2.8em;
+    font-family: $font-family-light;
+    padding: 0;
+  }
+
+  .card-body ul {
+    padding-left: 0;
+  }
+}

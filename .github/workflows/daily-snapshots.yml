@@ -1,0 +1,85 @@
+name: Daily snapshots
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/daily-snapshots.yml'
+      - 'bin/**'
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  generate-snapshots:
+    name: Generate ${{ matrix.version }} snapshots
+    runs-on: ubuntu-latest
+    if: (github.event_name == 'schedule' && github.repository == 'phpmyadmin/phpmyadmin') || (github.event_name != 'schedule')
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { version: '5.2', branch: 'QA_5_2', php-version: '7.2', node-version: '12', python-version: '3.7' }
+          - { version: '6.0', branch: 'master', php-version: '8.1', node-version: '16', python-version: '3.7' }
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.branch }}
+
+      - name: Install Gettext
+        run: sudo apt-get install -y gettext
+
+      - name: Set up PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: mbstring, iconv, mysqli, zip, gd
+          coverage: none
+
+      - name: Set up Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v2
+
+      - name: Install Yarn modules
+        run: yarn install --non-interactive
+
+      - name: Install Sphinx for the documentation build
+        run: pip install 'Sphinx'
+
+      - name: Build the release
+        if: matrix.branch == 'master'
+        run: ./bin/internal/create-release.sh --daily ${{ matrix.version }}+snapshot ${{ matrix.branch }}
+
+      - name: Build the release
+        if: matrix.branch != 'master'
+        run: ./scripts/create-release.sh --daily ${{ matrix.version }}+snapshot ${{ matrix.branch }}
+
+      - name: Check release excludes
+        if: matrix.branch == 'master'
+        run: ./bin/internal/check-release-excludes.sh release/phpMyAdmin-${{ matrix.version }}+snapshot-all-languages.tar.gz
+        continue-on-error: true
+
+      - name: Check release excludes
+        if: matrix.branch != 'master'
+        run: ./scripts/check-release-excludes.sh release/phpMyAdmin-${{ matrix.version }}+snapshot-all-languages.tar.gz
+        continue-on-error: true
+
+      - name: Upload snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: phpMyAdmin-${{ matrix.version }}-snapshots
+          path: release/*
+          retention-days: 1

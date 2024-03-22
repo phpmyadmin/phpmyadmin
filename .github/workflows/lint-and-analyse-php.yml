@@ -12,43 +12,11 @@ permissions:
   contents: read
 
 jobs:
-  lint-node:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 12
-
-      - name: Get Yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      - name: Cache Yarn dependencies
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install modules
-        run: yarn install --non-interactive
-
-      - name: Lint JavaScript files
-        run: yarn run js-lint --quiet
-
-      - name: Lint CSS files
-        run: yarn run css-lint
-
   lint-php-files:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-version: ["7.2"]
+        php-version: ["8.1"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -66,7 +34,6 @@ jobs:
         if: always()
         uses: ramsey/composer-install@v2
         with:
-          dependency-versions: highest
           # Ignore zip for php-webdriver/webdriver
           composer-options: "--ignore-platform-req=ext-zip"
 
@@ -81,7 +48,7 @@ jobs:
       - name: Lint PHP files
         # Allow the previous check to fail but not abort
         if: always()
-        run: ./test/ci-phplint
+        run: ./tests/ci-phplint
 
       - name: Check coding-standard
         # Allow the previous check to fail but not abort
@@ -97,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-version: ["7.2"]
+        php-version: ["8.1"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -110,8 +77,6 @@ jobs:
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v2
-        with:
-          dependency-versions: highest
 
       - name: Analyse files with PHPStan
         run: composer phpstan -- --memory-limit 2G

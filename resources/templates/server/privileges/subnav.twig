@@ -1,0 +1,16 @@
+<div class="row">
+  <ul class="nav nav-pills m-2">
+    <li class="nav-item">
+      <a class="nav-link{{ active == 'privileges' ? ' active' }} disableAjax" href="{{ url('/server/privileges') }}">
+        {% trans 'User accounts overview' %}
+      </a>
+    </li>
+    {% if is_super_user %}
+      <li class="nav-item">
+        <a class="nav-link{{ active == 'user-groups' ? ' active' }} disableAjax" href="{{ url('/server/user-groups') }}">
+          {% trans 'User groups' %}
+        </a>
+      </li>
+    {% endif %}
+  </ul>
+</div>

@@ -1,0 +1,174 @@
+$textarea-cols: 40;
+$textarea-rows: 15;
+
+.CodeMirror {
+  height: 20rem;
+  direction: ltr;
+  border: $card-border-width solid $card-border-color;
+  background-color: var(--#{$prefix}body-bg);
+  color: var(--#{$prefix}body-color);
+
+  @include border-radius($card-border-radius);
+}
+
+.CodeMirror-gutters {
+  border-right-color: var(--#{$prefix}border-color);;
+  background-color: rgba(var(--#{$prefix}body-color-rgb), .03);
+}
+
+// Code mirror default style (do not affect the console style)
+.CodeMirror.cm-s-default {
+  // @see: issue #17705
+  div.CodeMirror-scroll {
+    margin-right: 0;
+    padding-bottom: 0;
+  }
+}
+
+#inline_editor_outer .CodeMirror {
+  height: ceil($textarea-rows * 0.4em);
+}
+
+.insertRowTable .CodeMirror {
+  min-height: ceil($textarea-rows * 0.6em);
+  min-width: ceil($textarea-cols * 0.6em);
+  border: 1px solid #a9a9a9;
+}
+
+#pma_console .CodeMirror-gutters {
+  background-color: initial;
+  border: none;
+}
+
+.cm-s-default {
+  .cm-keyword {
+    color: $pink-600;
+  }
+
+  .cm-number {
+    color: $teal-600;
+  }
+
+  .cm-atom,
+  .cm-def,
+  .cm-variable-2 {
+    color: $blue-600;
+  }
+
+  .cm-string {
+    color: $cyan-600;
+  }
+
+  .cm-comment,
+  .cm-string-2 {
+    color: $orange-600;
+  }
+
+  .cm-builtin {
+    color: $purple-600;
+  }
+
+  .cm-variable-3,
+  .cm-type,
+  .cm-tag {
+    color: $green-600;
+  }
+
+  .cm-attribute,
+  .cm-link {
+    color: $blue-600;
+  }
+
+  .cm-meta,
+  .cm-qualifier,
+  .cm-bracket,
+  .cm-hr {
+    color: $gray-600;
+  }
+
+  .cm-error {
+    color: $red-600;
+  }
+}
+
+@include color-mode(dark) {
+  .cm-s-default {
+    .cm-keyword {
+      color: $pink-400;
+    }
+
+    .cm-number {
+      color: $teal-400;
+    }
+
+    .cm-atom,
+    .cm-def,
+    .cm-variable-2 {
+      color: $blue-400;
+    }
+
+    .cm-string {
+      color: $cyan-400;
+    }
+
+    .cm-comment,
+    .cm-string-2 {
+      color: $orange-400;
+    }
+
+    .cm-builtin {
+      color: $purple-400;
+    }
+
+    .cm-variable-3,
+    .cm-type,
+    .cm-tag {
+      color: $green-400;
+    }
+
+    .cm-attribute,
+    .cm-link {
+      color: $blue-400;
+    }
+
+    .cm-meta,
+    .cm-qualifier,
+    .cm-bracket,
+    .cm-hr {
+      color: $gray-400;
+    }
+
+    .cm-error {
+      color: $red-400;
+    }
+  }
+}
+
+.autocomplete-column-name {
+  display: inline-block;
+}
+
+.autocomplete-column-hint {
+  display: inline-block;
+  float: right;
+  color: #666;
+  margin-left: 1em;
+}
+
+.CodeMirror-hints {
+  z-index: 1999;
+}
+
+.CodeMirror-lint-tooltip {
+  z-index: 200;
+  font-family: inherit;
+
+  code {
+    font-family: monospace;
+    font-weight: bold;
+  }
+}
+
+.CodeMirror-cursor {
+  border-color: var(--bs-body-color);
+}

@@ -35,8 +35,6 @@ jobs:
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v2
-        with:
-          dependency-versions: highest
 
       - name: Set up git config
         run: |
@@ -45,7 +43,7 @@ jobs:
 
       - name: Update PO files
         run: |
-          ./scripts/update-po
+          ./bin/update-po
 
       - name: Push changes
         run: |

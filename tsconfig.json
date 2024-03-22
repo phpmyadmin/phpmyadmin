@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "moduleResolution": "bundler",
+        "allowJs": true,
+        "declaration": true,
+        "declarationMap": true,
+        "checkJs": true,
+        "outDir": "./build/js",
+        "allowSyntheticDefaultImports": true,
+        "allowImportingTsExtensions": true,
+        "strict": false,
+        "isolatedModules": true
+    },
+    "include": ["./resources/js/global.d.ts", "./resources/js/src/**/*"],
+    "exclude": ["node_modules"]
+}

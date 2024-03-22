@@ -20,13 +20,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { php-version: '8', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '8', experimental: false, arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '8', experimental: false, arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '8', experimental: false, arch: 'arm32v6', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '8', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '8', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '8', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '81', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '81', experimental: false, arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '81', experimental: false, arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '81', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '81', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '81', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -41,42 +40,40 @@ jobs:
           printf "set -exu && \
           export V='%s' && \
           apk add --update --no-cache \
-          php\$V-cli php\$V-mysqli php\$V-session php\$V-mbstring php\$V-ctype \
+          php\$V-cli php\$V-mysqli php\$V-session php\$V-mbstring php\$V-ctype php\$V-sodium \
           php\$V-iconv php\$V-xml php\$V-tokenizer php\$V-xmlwriter php\$V-simplexml \
           php\$V-dom php\$V-json php\$V-bz2 php\$V-curl php\$V-gd php\$V-zip \
           musl-locales musl-locales-lang \
           gettext composer git && \
-          composer config version "$(php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::VERSION;")" && \
-          composer update && \
-          ./scripts/generate-mo && \
-          php\$V -d memory_limit=512M ./vendor/bin/phpunit --no-coverage --testsuite unit --exclude-group=%s" \
+          composer config version "$(php -r "define('VERSION_SUFFIX', ''); require_once('src/Version.php'); echo \PhpMyAdmin\Version::VERSION;")" && \
+          composer install && \
+          ./bin/generate-mo && \
+          php\$V -d memory_limit=512M ./vendor/bin/phpunit --no-logging --no-coverage --testsuite unit --exclude-group=%s" \
           "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
 
       - name: Set up multi arch support
         run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
       - name: Print arch
-        run: docker run --rm ${{ matrix.arch }}/alpine:3.15 uname -a
+        run: docker run --rm ${{ matrix.arch }}/alpine:3.17 uname -a
 
       - name: Run tests on php ${{ matrix.php-version }}
-        run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.15 sh /app/do-tests.sh
+        run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.17 sh /app/do-tests.sh
 
   test-php:
-    name: Test on PHP ${{ matrix.php-version }} and ${{ matrix.os }}
+    name: Test on PHP ${{ matrix.php-version }}, ${{ matrix.composer-dependency }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.experimental }}
+    continue-on-error: ${{ matrix.php-version == '8.4' }}
     strategy:
       matrix:
-        php-version: ["7.2", "7.3", "7.4", "8.0", "8.1", "8.2", "8.3"]
-        experimental: [false]
+        php-version: ['8.1', '8.2', '8.3']
         os: [ubuntu-latest]
-        phpunit-options: ['--testsuite unit']
+        composer-dependency: [locked, highest]
         php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
         include:
-          - php-version: 'nightly'
-            experimental: true
+          - php-version: '8.4'
             os: ubuntu-latest
-            phpunit-options: '--configuration test/phpunit-php-nightly.xml'
+            composer-dependency: locked
             composer-options: '--ignore-platform-req=php+'
             php-extensions: 'mbstring, iconv, mysqli, zip, bz2'
     steps:
@@ -90,7 +87,7 @@ jobs:
         run: sudo apt-get install -y gettext
 
       - name: Generate mo files
-        run: ./scripts/generate-mo --quiet
+        run: ./bin/generate-mo --quiet
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
@@ -102,11 +99,11 @@ jobs:
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v2
         with:
-          dependency-versions: highest
+          dependency-versions: ${{ matrix.composer-dependency }}
           composer-options: ${{ matrix.composer-options }}
 
       - name: Run PHP tests
-        run: composer run phpunit -- ${{ matrix.phpunit-options }}
+        run: composer run phpunit -- --testsuite unit --display-deprecations --display-notices --display-warnings --display-errors
 
       - name: Send coverage
         uses: codecov/codecov-action@v3
@@ -136,9 +133,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        php-version: ["7.2"]
+        php-version: ["8.1"]
         os: [ubuntu-latest]
-        extension: ["dbase", "recode"]
+        extension: ["dbase"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -150,7 +147,7 @@ jobs:
         run: sudo apt-get install -y gettext
 
       - name: Generate mo files
-        run: ./scripts/generate-mo --quiet
+        run: ./bin/generate-mo --quiet
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
@@ -161,8 +158,6 @@ jobs:
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v2
-        with:
-          dependency-versions: highest
 
       - name: Run PHP tests
         run: composer run phpunit -- --testsuite unit
@@ -171,7 +166,7 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           flags: ${{ matrix.extension }}-extension
-          name: php-7.2-${{ matrix.extension }}-enabled
+          name: php-${{ matrix.php-version }}-${{ matrix.extension }}-enabled
 
       - name: Send coverage to Scrutinizer
         uses: sudo-bot/action-scrutinizer@latest
@@ -189,102 +184,3 @@ jobs:
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           coverage-reports: build/logs/clover.xml
-
-  test-php-psr7-implementations:
-    name: Test on PHP ${{ matrix.php-version }} (+ psr7-${{ matrix.psr-7-library }})
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        php-version: ['7.2']
-        php-extensions: ['mbstring, iconv, mysqli, zip, bz2']
-        psr-7-library: ['guzzlehttp/psr7', 'slim/psr7', 'nyholm/psr7']
-        include:
-          # See: https://github.com/laminas/laminas-diactoros/releases/tag/2.18.0
-          - {psr-7-library: 'laminas/laminas-diactoros', php-version: '8.0'}
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          # Fetch some commits for Scrutinizer coverage upload
-          fetch-depth: 15
-
-      - name: Install gettext
-        run: sudo apt-get install -y gettext
-
-      - name: Generate mo files
-        run: ./scripts/generate-mo --quiet
-
-      - name: Set up PHP ${{ matrix.php-version }}
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php-version }}
-          extensions: ${{ matrix.php-extensions }}
-          coverage: pcov
-
-      - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
-        with:
-          dependency-versions: highest
-
-      - name: Remove default PSR-7 implementation
-        run: composer remove slim/psr7
-
-      - name: Add PSR-7 implementation
-        run: composer require ${{ matrix.psr-7-library }}
-
-      - name: Run PHP tests
-        run: composer run phpunit -- --testsuite unit
-
-      - name: Send coverage
-        uses: codecov/codecov-action@v3
-        with:
-          flags: ${{ matrix.psr-7-library }}-psr-7
-          name: php-7.2-psr-7
-
-      - name: Send coverage to Scrutinizer
-        uses: sudo-bot/action-scrutinizer@latest
-        # Do not run this step on forked versions of the main repository (example: contributor forks)
-        if: github.repository == 'phpmyadmin/phpmyadmin'
-        with:
-          cli-args: "--format=php-clover build/logs/clover.xml --revision=${{ github.event.pull_request.head.sha || github.sha }}"
-
-      - name: Send coverage to Codacy
-        uses: codacy/codacy-coverage-reporter-action@v1
-        # Do not run this step on forked versions of the main repository (example: contributor forks)
-        if: github.repository == 'phpmyadmin/phpmyadmin'
-        # Upload can fail on forks or if the secret is missing
-        continue-on-error: true
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: build/logs/clover.xml
-
-  test-js:
-    name: Test javascript files
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 12
-
-      - name: Get Yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      - name: Cache Yarn dependencies
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install modules
-        run: yarn install --non-interactive
-
-      - name: Run tests
-        run: yarn test

@@ -1,41 +1,28 @@
 {
     "extends": [
         "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
         "plugin:no-jquery/deprecated",
         "plugin:compat/recommended"
     ],
-    "plugins": ["no-jquery"],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [ "@typescript-eslint", "no-jquery" ],
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
     "env": {
         "browser": true,
-        "es6": true,
-        "jquery": true
-    },
-    "globals": {
-        "AJAX": "readonly",
-        "bootstrap": "readonly",
-        "CodeMirror": "readonly",
-        "CommonActions": "readonly",
-        "CommonParams": "readonly",
-        "Cookies": "readonly",
-        "Functions": "readonly",
-        "Messages": "readonly",
-        "Navigation": "readonly",
-        "OpenLayers": "readonly",
-        "Sql": "readonly"
+        "es6": true
     },
     "rules": {
-        "valid-jsdoc": ["error", {
-            "prefer": {
-                "returns": "return"
-            },
-            "requireReturn": false,
-            "requireParamType": false,
-            "requireReturnDescription": false,
-            "requireParamDescription": false
-        }],
         "array-bracket-spacing": "error",
+        "array-bracket-newline": ["error", { "multiline": true }],
+        "array-element-newline": ["error", "consistent"],
         "brace-style": "error",
         "camelcase": "error",
+        "comma-dangle": ["error", "only-multiline"],
         "comma-style": ["error", "last"],
         "curly": "error",
         "dot-notation": "error",
@@ -43,6 +30,7 @@
         "eqeqeq": "error",
         "indent": ["error", 4],
         "keyword-spacing": "error",
+        "lines-between-class-members": "error",
         "new-cap": "error",
         "no-array-constructor": "error",
         "no-eval": "error",
@@ -56,9 +44,19 @@
         "no-trailing-spaces": "error",
         "no-underscore-dangle": "error",
         "no-unneeded-ternary": "error",
+        "no-var": "off",
         "object-curly-spacing": ["error", "always"],
         "one-var": ["error", "never"],
         "padded-blocks": ["error", "never"],
+        "padding-line-between-statements": [
+            "error",
+            { "blankLine": "always", "prev": "block-like", "next": "*" },
+            { "blankLine": "always", "prev": "multiline-expression", "next": "*" },
+            { "blankLine": "always", "prev": "*", "next": "return" }
+        ],
+        "prefer-const": "off",
+        "prefer-rest-params": "off",
+        "prefer-spread": "off",
         "quotes": ["error", "single"],
         "semi": "error",
         "space-before-blocks": "error",
@@ -66,6 +64,11 @@
         "space-in-parens": "error",
         "space-infix-ops": "error",
         "spaced-comment": ["error", "always"],
-        "wrap-iife": "error"
+        "wrap-iife": "error",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-this-alias": "off"
     }
 }

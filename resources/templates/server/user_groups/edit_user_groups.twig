@@ -1,0 +1,34 @@
+<div class="container">
+  {% if user_group == null %}
+    <h2>{{ 'Add user group'|trans }}</h2>
+  {% else %}
+    <h2>{{ 'Edit user group: \'%s\''|trans|format(edit_user_group_special_chars)|raw }}</h2>
+  {% endif %}
+
+  <form action="{{ user_group_url|raw }}" method="post" class="card disableAjax">
+    {{ hidden_inputs|raw }}
+    <div class="card-header">{{ 'User group menu assignments'|trans }}</div>
+
+    <div class="card-body">
+      {% if user_group == null %}
+        <div class="mb-3">
+          <label class="form-label" for="userGroup">{{ 'Group name:'|trans }}</label>
+          <input class="form-control" type="text" name="userGroup" id="userGroup" maxlength="64" autocomplete="off" required>
+        </div>
+      {% endif %}
+
+      <div class="form-check mb-3">
+        <input class="form-check-input checkall_box" type="checkbox" id="addUsersForm_checkall" title="{{ 'Check all'|trans }}">
+        <label class="form-check-label" for="addUsersForm_checkall">{{ 'Check all'|trans }}</label>
+      </div>
+
+      <div class="row">
+        {{ tab_list|raw }}
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <input class="btn btn-primary" type="submit" value="{{ user_group == null ? 'Add user group'|trans : 'Edit user group'|trans }}">
+    </div>
+  </form>
+</div>

@@ -7,14 +7,20 @@
     <arg name="colors"/>
     <arg name="extensions" value="php"/>
 
-    <file>.</file>
+    <file>./app</file>
+    <file>./bin</file>
+    <file>./examples</file>
+    <file>./public</file>
+    <file>./src</file>
+    <file>./tests</file>
+    <file>./config.sample.inc.php</file>
 
+    <exclude-pattern>*/app/cache/*</exclude-pattern>
+    <exclude-pattern>*/app/language_stats.inc.php</exclude-pattern>
     <exclude-pattern>*/build/*</exclude-pattern>
     <exclude-pattern>*/config.inc.php</exclude-pattern>
-    <exclude-pattern>*/libraries/cache/*</exclude-pattern>
-    <exclude-pattern>*/libraries/language_stats.inc.php</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
-    <exclude-pattern>*/test/doctum-config.php</exclude-pattern>
+    <exclude-pattern>*/tests/doctum-config.php</exclude-pattern>
     <exclude-pattern>*/tmp/*</exclude-pattern>
     <exclude-pattern>*/twig-templates/*</exclude-pattern>
     <exclude-pattern>*/vendor/*</exclude-pattern>
@@ -22,30 +28,19 @@
 
     <rule ref="PhpMyAdmin"/>
 
+    <rule ref="SlevomatCodingStandard.Functions.RequireSingleLineCall"/>
+    <rule ref="SlevomatCodingStandard.Whitespaces.DuplicateSpaces">
+        <properties>
+            <property name="ignoreSpacesInComment" value="true"/>
+        </properties>
+    </rule>
+
     <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
-        <exclude-pattern>*/libraries/classes/Plugins/Transformations/*</exclude-pattern>
+        <exclude-pattern>*/src/Plugins/Transformations/*</exclude-pattern>
     </rule>
 
     <!-- Rules that should be followed, but are not required -->
     <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators">
-        <severity>4</severity>
-    </rule>
-    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint">
-        <severity>4</severity>
-    </rule>
-    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification">
-        <severity>4</severity>
-    </rule>
-    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification">
-        <severity>4</severity>
-    </rule>
-    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint">
-        <severity>4</severity>
-    </rule>
-    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification">
-        <severity>4</severity>
-    </rule>
-    <rule ref="Squiz.NamingConventions.ValidVariableName.NotCamelCaps">
         <severity>4</severity>
     </rule>
 </ruleset>

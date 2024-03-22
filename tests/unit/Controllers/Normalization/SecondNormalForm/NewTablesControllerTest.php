@@ -1,0 +1,51 @@
+<?php
+
+declare(strict_types=1);
+
+namespace PhpMyAdmin\Tests\Controllers\Normalization\SecondNormalForm;
+
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Controllers\Normalization\SecondNormalForm\NewTablesController;
+use PhpMyAdmin\Current;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Normalization;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+
+use function json_encode;
+
+#[CoversClass(NewTablesController::class)]
+class NewTablesControllerTest extends AbstractTestCase
+{
+    public function testDefault(): void
+    {
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
+
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
+        $response = new ResponseRenderer();
+        $template = new Template();
+        $request = self::createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['pd', null, json_encode(['ID, task' => [], 'task' => ['timestamp']])],
+        ]);
+        $controller = new NewTablesController(
+            $response,
+            $template,
+            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
+        );
+        $controller($request);
+
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        self::assertSame(
+            '<p><b>In order to put the original table \'test_table\' into Second normal form we need to create the following tables:</b></p><p><input type="text" name="ID, task" value="test_table">( <u>ID, task</u> )<p><input type="text" name="task" value="table2">( <u>task</u>, timestamp )',
+            $response->getHTMLResult(),
+        );
+        // phpcs:enable
+    }
+}

@@ -1,0 +1,59 @@
+<?php
+
+declare(strict_types=1);
+
+namespace PhpMyAdmin\Tests\Controllers\Normalization\SecondNormalForm;
+
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Controllers\Normalization\SecondNormalForm\CreateNewTablesController;
+use PhpMyAdmin\Current;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Normalization;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+
+use function json_encode;
+
+#[CoversClass(CreateNewTablesController::class)]
+class CreateNewTablesControllerTest extends AbstractTestCase
+{
+    public function testDefault(): void
+    {
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
+
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addSelectDb('test_db');
+        $dbiDummy->addResult('CREATE TABLE `batch_log2` SELECT DISTINCT `ID`, `task` FROM `test_table`;', true);
+        $dbiDummy->addResult('CREATE TABLE `table2` SELECT DISTINCT `task`, `timestamp` FROM `test_table`;', true);
+        $dbiDummy->addResult('DROP TABLE `test_table`', true);
+
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $dbi;
+        $response = new ResponseRenderer();
+        $template = new Template();
+        $request = self::createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['pd', null, json_encode(['ID, task' => [], 'task' => ['timestamp']])],
+            ['newTablesName', null, json_encode(['ID, task' => 'batch_log2', 'task' => 'table2'])],
+        ]);
+
+        $controller = new CreateNewTablesController(
+            $response,
+            $template,
+            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
+        );
+        $controller($request);
+
+        self::assertSame([
+            'legendText' => 'End of step',
+            'headText' => '<h3>The second step of normalization is complete for table \'test_table\'.</h3>',
+            'queryError' => false,
+            'extra' => '',
+        ], $response->getJSONResult());
+    }
+}
