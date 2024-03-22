@@ -7450,7 +7450,7 @@
       <code><![CDATA[$_POST['prev_comment']]]></code>
       <code><![CDATA[$_POST['tbl_collation']]]></code>
       <code><![CDATA[$_POST['what']]]></code>
-      <code><![CDATA[$copyMode ?? 'data']]></code>
+      <code><![CDATA[$copyMode]]></code>
       <code><![CDATA[$newRowFormat]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
@@ -7458,8 +7458,6 @@
       <code><![CDATA[$_POST['db_collation']]]></code>
       <code><![CDATA[$_POST['prev_comment']]]></code>
       <code><![CDATA[$_POST['tbl_collation']]]></code>
-      <code><![CDATA[$_POST['what']]]></code>
-      <code><![CDATA[$copyMode ?? 'data']]></code>
       <code><![CDATA[$newRowFormat]]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
@@ -7478,9 +7476,6 @@
       <code><![CDATA[(string) $_POST['new_name']]]></code>
       <code><![CDATA[(string) $_POST['new_name']]]></code>
     </RedundantCast>
-    <RedundantCondition>
-      <code><![CDATA[$copyMode]]></code>
-    </RedundantCondition>
     <RiskyCast>
       <code><![CDATA[$_POST['new_auto_increment']]]></code>
     </RiskyCast>
@@ -7494,9 +7489,6 @@
       <code><![CDATA[empty($_POST['new_transactional'])]]></code>
       <code><![CDATA[empty($_POST['tbl_collation'])]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainNull>
-      <code><![CDATA['data']]></code>
-    </TypeDoesNotContainNull>
   </file>
   <file src="src/Partitioning/Maintenance.php">
     <MixedArrayAccess>

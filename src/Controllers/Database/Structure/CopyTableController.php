@@ -12,6 +12,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Table\MoveMode;
+use PhpMyAdmin\Table\MoveScope;
 use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\UserPrivilegesFactory;
 
@@ -39,7 +40,7 @@ final class CopyTableController implements InvocableController
                 $selectedValue,
                 $targetDb,
                 $selectedValue,
-                $request->getParsedBodyParam('what'),
+                MoveScope::from($request->getParsedBodyParam('what')),
                 false,
                 MoveMode::SingleTable,
                 $request->getParsedBodyParam('drop_if_exists') === 'true',

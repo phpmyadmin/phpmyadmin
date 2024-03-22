@@ -34,7 +34,6 @@ class TableMover
      * @param string $sourceTable source table
      * @param string $targetDb    target database
      * @param string $targetTable target table
-     * @param string $what        what to be moved or copied (data, dataonly)
      * @param bool   $move        whether to move
      */
     public static function moveCopy(
@@ -42,7 +41,7 @@ class TableMover
         string $sourceTable,
         string $targetDb,
         string $targetTable,
-        string $what,
+        MoveScope $what,
         bool $move,
         MoveMode $mode,
         bool $addDropIfExists,
@@ -52,7 +51,7 @@ class TableMover
         $relation = new Relation($dbi);
 
         // Try moving the tables directly, using native `RENAME` statement.
-        if ($move && $what === 'data') {
+        if ($move && $what === MoveScope::Data) {
             $tbl = new Table($sourceTable, $sourceDb, $dbi);
             if ($tbl->rename($targetTable, $targetDb)) {
                 $GLOBALS['message'] = $tbl->getLastMessage();
@@ -109,7 +108,7 @@ class TableMover
         $target = Util::backquote($targetDb) . '.' . Util::backquote($targetTable);
 
         // No table is created when this is a data-only operation.
-        if ($what !== 'dataonly') {
+        if ($what !== MoveScope::DataOnly) {
             /**
              * Instance used for exporting the current structure of the table.
              *
@@ -325,7 +324,7 @@ class TableMover
 
         $table = new Table($targetTable, $targetDb, $dbi);
         // Copy the data unless this is a VIEW
-        if (($what === 'data' || $what === 'dataonly') && ! $table->isView()) {
+        if (($what === MoveScope::Data || $what === MoveScope::DataOnly) && ! $table->isView()) {
             $sqlSetMode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
             $dbi->query($sqlSetMode);
             $GLOBALS['sql_query'] .= "\n\n" . $sqlSetMode . ';';
@@ -367,7 +366,7 @@ class TableMover
 
         // we are copying
         // Create new entries as duplicates from old PMA DBs
-        if ($what === 'dataonly' || isset($maintainRelations)) {
+        if ($what === MoveScope::DataOnly || isset($maintainRelations)) {
             return true;
         }
 

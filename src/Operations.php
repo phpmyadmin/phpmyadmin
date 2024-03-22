@@ -12,6 +12,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Table\MoveMode;
+use PhpMyAdmin\Table\MoveScope;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\Triggers\Triggers;
@@ -200,7 +201,7 @@ class Operations
                     $table,
                     $newDatabaseName->getName(),
                     $table,
-                    $copyMode ?? 'data',
+                    MoveScope::tryFrom($copyMode) ?? MoveScope::Data,
                     $move,
                     MoveMode::WholeDatabase,
                     isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true',
@@ -275,7 +276,7 @@ class Operations
                 $view,
                 $newDatabaseName->getName(),
                 $view,
-                'structure',
+                MoveScope::Structure,
                 $move,
                 MoveMode::WholeDatabase,
                 true,
@@ -894,7 +895,7 @@ class Operations
                     $table,
                     $targetDb,
                     (string) $_POST['new_name'],
-                    $_POST['what'],
+                    MoveScope::from($_POST['what']),
                     isset($_POST['submit_move']),
                     MoveMode::SingleTable,
                     isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true',

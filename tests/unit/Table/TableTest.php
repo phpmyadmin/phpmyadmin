@@ -13,6 +13,7 @@ use PhpMyAdmin\ListDatabase;
 use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\Table\MoveMode;
+use PhpMyAdmin\Table\MoveScope;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -1310,7 +1311,6 @@ class TableTest extends AbstractTestCase
         $sourceDb = 'PMA';
         $targetTable = 'PMA_BookMark_new';
         $targetDb = 'PMA_new';
-        $what = 'dataonly';
         $move = true;
 
         unset($GLOBALS['sql_drop_table']);
@@ -1323,7 +1323,16 @@ class TableTest extends AbstractTestCase
         $this->mockedDbi->expects(self::any())->method('getTable')
             ->willReturnMap($getTableMap);
 
-        $return = TableMover::moveCopy($sourceDb, $sourceTable, $targetDb, $targetTable, $what, $move, MoveMode::SingleTable, true);
+        $return = TableMover::moveCopy(
+            $sourceDb,
+            $sourceTable,
+            $targetDb,
+            $targetTable,
+            MoveScope::DataOnly,
+            $move,
+            MoveMode::SingleTable,
+            true,
+        );
 
         //successfully
         self::assertTrue($return);
@@ -1334,7 +1343,16 @@ class TableTest extends AbstractTestCase
         $sqlQuery = 'DROP VIEW `PMA`.`PMA_BookMark`';
         self::assertStringContainsString($sqlQuery, $GLOBALS['sql_query']);
 
-        $return = TableMover::moveCopy($sourceDb, $sourceTable, $targetDb, $targetTable, $what, false, MoveMode::SingleTable, true);
+        $return = TableMover::moveCopy(
+            $sourceDb,
+            $sourceTable,
+            $targetDb,
+            $targetTable,
+            MoveScope::DataOnly,
+            false,
+            MoveMode::SingleTable,
+            true,
+        );
 
         //successfully
         self::assertTrue($return);
@@ -1376,7 +1394,16 @@ class TableTest extends AbstractTestCase
             ]);
 
         $GLOBALS['sql_query'] = '';
-        $return = TableMover::moveCopy('aa', 'ad', 'bb', 'ad', 'structure', true, MoveMode::WholeDatabase, true);
+        $return = TableMover::moveCopy(
+            'aa',
+            'ad',
+            'bb',
+            'ad',
+            MoveScope::Structure,
+            true,
+            MoveMode::WholeDatabase,
+            true,
+        );
         self::assertTrue($return);
         self::assertStringContainsString('DROP TABLE IF EXISTS `bb`.`ad`;', $GLOBALS['sql_query']);
         self::assertStringContainsString(

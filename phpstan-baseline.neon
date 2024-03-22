@@ -1906,7 +1906,7 @@ parameters:
 			path: src/Controllers/Database/Structure/CentralColumns/RemoveController.php
 
 		-
-			message: "#^Parameter \\#5 \\$what of static method PhpMyAdmin\\\\Table\\\\TableMover\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Table\\\\MoveScope\\:\\:from\\(\\) expects int\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/CopyTableController.php
 
@@ -9681,8 +9681,13 @@ parameters:
 			path: src/Operations.php
 
 		-
-			message: "#^Parameter \\#5 \\$what of static method PhpMyAdmin\\\\Table\\\\TableMover\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Table\\\\MoveScope\\:\\:from\\(\\) expects int\\|string, mixed given\\.$#"
+			count: 1
+			path: src/Operations.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Table\\\\MoveScope\\:\\:tryFrom\\(\\) expects int\\|string, mixed given\\.$#"
+			count: 1
 			path: src/Operations.php
 
 		-
