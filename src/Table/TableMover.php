@@ -34,7 +34,6 @@ class TableMover
      * @param string $sourceTable source table
      * @param string $targetDb    target database
      * @param string $targetTable target table
-     * @param bool   $move        whether to move
      */
     public static function moveCopy(
         string $sourceDb,
@@ -42,7 +41,6 @@ class TableMover
         string $targetDb,
         string $targetTable,
         MoveScope $what,
-        bool $move,
         MoveMode $mode,
         bool $addDropIfExists,
     ): bool {
@@ -51,7 +49,7 @@ class TableMover
         $relation = new Relation($dbi);
 
         // Try moving the tables directly, using native `RENAME` statement.
-        if ($move && $what === MoveScope::StructureAndData) {
+        if ($what === MoveScope::Move) {
             $tbl = new Table($sourceTable, $sourceDb, $dbi);
             if ($tbl->rename($targetTable, $targetDb)) {
                 $GLOBALS['message'] = $tbl->getLastMessage();
@@ -180,7 +178,7 @@ class TableMover
 
                 // This is to avoid some issues when renaming databases with views
                 // See: https://github.com/phpmyadmin/phpmyadmin/issues/16422
-                if ($move) {
+                if ($what === MoveScope::Move) {
                     $dbi->selectDb($targetDb);
                 }
 
@@ -193,7 +191,7 @@ class TableMover
             // Phase 3: Adding constraints.
             // All constraint names are removed because they must be unique.
 
-            if ($move && ! empty($GLOBALS['sql_constraints_query'])) {
+            if ($what === MoveScope::Move && ! empty($GLOBALS['sql_constraints_query'])) {
                 $GLOBALS['sql_constraints_query'] = self::getConstraintsSqlWithoutNames(
                     $GLOBALS['sql_constraints_query'],
                     $destination,
@@ -204,6 +202,7 @@ class TableMover
                 // We can only execute it if both tables have been created.
                 // When performing the whole database move,
                 // the constraints can only be created after all tables have been created.
+                // Thus, we must keep the global so that the caller can execute these queries.
                 if ($mode === MoveMode::SingleTable) {
                     $dbi->query($GLOBALS['sql_constraints_query']);
                     unset($GLOBALS['sql_constraints_query']);
@@ -280,7 +279,7 @@ class TableMover
 
         $table = new Table($targetTable, $targetDb, $dbi);
         // Copy the data unless this is a VIEW
-        if (($what === MoveScope::StructureAndData || $what === MoveScope::DataOnly) && ! $table->isView()) {
+        if ($what !== MoveScope::StructureOnly && ! $table->isView()) {
             $sqlSetMode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
             $dbi->query($sqlSetMode);
             $GLOBALS['sql_query'] .= "\n\n" . $sqlSetMode . ';';
@@ -301,7 +300,7 @@ class TableMover
         $relationParameters = $relation->getRelationParameters();
 
         // Drops old table if the user has requested to move it
-        if ($move) {
+        if ($what === MoveScope::Move) {
             // This could avoid some problems with replicated databases, when
             // moving table from replicated one to not replicated one
             $dbi->selectDb($sourceDb);

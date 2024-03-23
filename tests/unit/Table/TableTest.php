@@ -1311,7 +1311,6 @@ class TableTest extends AbstractTestCase
         $sourceDb = 'PMA';
         $targetTable = 'PMA_BookMark_new';
         $targetDb = 'PMA_new';
-        $move = true;
 
         unset($GLOBALS['sql_drop_table']);
 
@@ -1328,8 +1327,7 @@ class TableTest extends AbstractTestCase
             $sourceTable,
             $targetDb,
             $targetTable,
-            MoveScope::DataOnly,
-            $move,
+            MoveScope::Move,
             MoveMode::SingleTable,
             true,
         );
@@ -1349,7 +1347,6 @@ class TableTest extends AbstractTestCase
             $targetDb,
             $targetTable,
             MoveScope::DataOnly,
-            false,
             MoveMode::SingleTable,
             true,
         );
@@ -1399,8 +1396,7 @@ class TableTest extends AbstractTestCase
             'ad',
             'bb',
             'ad',
-            MoveScope::StructureOnly,
-            true,
+            MoveScope::Move,
             MoveMode::WholeDatabase,
             true,
         );

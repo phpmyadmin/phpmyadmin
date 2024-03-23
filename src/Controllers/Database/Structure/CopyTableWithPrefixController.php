@@ -41,7 +41,6 @@ final class CopyTableWithPrefixController implements InvocableController
                 Current::$database,
                 $newTableName,
                 MoveScope::StructureAndData,
-                false,
                 MoveMode::SingleTable,
                 $dropIfExists,
             );

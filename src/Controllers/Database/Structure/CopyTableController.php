@@ -41,7 +41,6 @@ final class CopyTableController implements InvocableController
                 $targetDb,
                 $selectedValue,
                 MoveScope::from($request->getParsedBodyParam('what')),
-                false,
                 MoveMode::SingleTable,
                 $request->getParsedBodyParam('drop_if_exists') === 'true',
             );

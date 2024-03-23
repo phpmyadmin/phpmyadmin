@@ -9,4 +9,5 @@ enum MoveScope: string
     case StructureOnly = 'structure';
     case StructureAndData = 'data';
     case DataOnly = 'dataonly';
+    case Move = 'move';
 }

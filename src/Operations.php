@@ -195,14 +195,14 @@ class Operations
             //  for importing via the mysql client or our Import feature)
             $triggers = Triggers::getDetails($this->dbi, $db, $table);
 
+            $moveScope = MoveScope::tryFrom($copyMode) ?? MoveScope::StructureAndData;
             if (
                 ! TableMover::moveCopy(
                     $db,
                     $table,
                     $newDatabaseName->getName(),
                     $table,
-                    MoveScope::tryFrom($copyMode) ?? MoveScope::StructureAndData,
-                    $move,
+                    $move ? MoveScope::Move : $moveScope,
                     MoveMode::WholeDatabase,
                     isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true',
                 )
@@ -276,8 +276,7 @@ class Operations
                 $view,
                 $newDatabaseName->getName(),
                 $view,
-                MoveScope::StructureOnly,
-                $move,
+                $move ? MoveScope::Move : MoveScope::StructureOnly,
                 MoveMode::WholeDatabase,
                 true,
             );
@@ -890,13 +889,13 @@ class Operations
                     $message = Message::error(__('Can\'t copy table to same one!'));
                 }
             } else {
+                $move = isset($_POST['submit_move']);
                 TableMover::moveCopy(
                     $db,
                     $table,
                     $targetDb,
                     (string) $_POST['new_name'],
-                    MoveScope::from($_POST['what']),
-                    isset($_POST['submit_move']),
+                    $move ? MoveScope::Move : MoveScope::from($_POST['what']),
                     MoveMode::SingleTable,
                     isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true',
                 );
