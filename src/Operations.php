@@ -34,8 +34,11 @@ use function urldecode;
  */
 class Operations
 {
-    public function __construct(private DatabaseInterface $dbi, private Relation $relation)
-    {
+    public function __construct(
+        private readonly DatabaseInterface $dbi,
+        private readonly Relation $relation,
+        private readonly TableMover $tableMover,
+    ) {
     }
 
     /**
@@ -197,7 +200,7 @@ class Operations
 
             $moveScope = MoveScope::tryFrom($copyMode) ?? MoveScope::StructureAndData;
             if (
-                ! TableMover::moveCopy(
+                ! $this->tableMover->moveCopy(
                     $db,
                     $table,
                     $newDatabaseName->getName(),
@@ -271,7 +274,7 @@ class Operations
     {
         // Add DROP IF EXIST to CREATE VIEW query, to remove stand-in VIEW that was created earlier.
         foreach ($views as $view) {
-            $copyingSucceeded = TableMover::moveCopy(
+            $copyingSucceeded = $this->tableMover->moveCopy(
                 $db,
                 $view,
                 $newDatabaseName->getName(),
@@ -461,7 +464,7 @@ class Operations
         $getFields = ['user', 'label', 'query'];
         $whereFields = ['dbase' => $db];
         $newFields = ['dbase' => $newDatabaseName->getName()];
-        TableMover::duplicateInfo('bookmarkwork', 'bookmark', $getFields, $whereFields, $newFields);
+        $this->tableMover->duplicateInfo('bookmarkwork', 'bookmark', $getFields, $whereFields, $newFields);
     }
 
     /**
@@ -890,7 +893,7 @@ class Operations
                 }
             } else {
                 $move = isset($_POST['submit_move']);
-                TableMover::moveCopy(
+                $this->tableMover->moveCopy(
                     $db,
                     $table,
                     $targetDb,

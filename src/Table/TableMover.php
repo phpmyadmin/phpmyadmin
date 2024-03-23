@@ -27,15 +27,11 @@ use function sprintf;
 
 class TableMover
 {
-    /**
-     * Copies or renames table
-     *
-     * @param string $sourceDb    source database
-     * @param string $sourceTable source table
-     * @param string $targetDb    target database
-     * @param string $targetTable target table
-     */
-    public static function moveCopy(
+    public function __construct(private readonly DatabaseInterface $dbi, private readonly Relation $relation)
+    {
+    }
+
+    public function moveCopy(
         string $sourceDb,
         string $sourceTable,
         string $targetDb,
@@ -45,12 +41,10 @@ class TableMover
         bool $addDropIfExists,
     ): bool {
         $GLOBALS['errorUrl'] ??= null;
-        $dbi = DatabaseInterface::getInstance();
-        $relation = new Relation($dbi);
 
         // Try moving the tables directly, using native `RENAME` statement.
         if ($what === MoveScope::Move) {
-            $tbl = new Table($sourceTable, $sourceDb, $dbi);
+            $tbl = new Table($sourceTable, $sourceDb, $this->dbi);
             if ($tbl->rename($targetTable, $targetDb)) {
                 $GLOBALS['message'] = $tbl->getLastMessage();
 
@@ -58,7 +52,7 @@ class TableMover
             }
         }
 
-        $missingDatabaseMessage = self::checkWhetherDatabasesExist($dbi, $sourceDb, $targetDb);
+        $missingDatabaseMessage = $this->checkWhetherDatabasesExist($sourceDb, $targetDb);
         if ($missingDatabaseMessage !== null) {
             $GLOBALS['message'] = $missingDatabaseMessage;
 
@@ -70,7 +64,7 @@ class TableMover
 
         // Selecting the database could avoid some problems with replicated
         // databases, when moving table from replicated one to not replicated one.
-        $dbi->selectDb($targetDb);
+        $this->dbi->selectDb($targetDb);
 
         /**
          * The full name of source table, quoted.
@@ -102,7 +96,7 @@ class TableMover
                 $GLOBALS['sql_auto_increment'] = $_POST['sql_auto_increment'];
             }
 
-            $isView = (new Table($sourceTable, $sourceDb, $dbi))->isView();
+            $isView = (new Table($sourceTable, $sourceDb, $this->dbi))->isView();
             /**
              * The old structure of the table.
              */
@@ -121,14 +115,14 @@ class TableMover
             // Find server's SQL mode so the builder can generate correct
             // queries.
             // One of the options that alters the behaviour is `ANSI_QUOTES`.
-            Context::setMode((string) $dbi->fetchValue('SELECT @@sql_mode'));
+            Context::setMode((string) $this->dbi->fetchValue('SELECT @@sql_mode'));
 
             // -----------------------------------------------------------------
             // Phase 1: Dropping existent element of the same name (if exists
             // and required).
 
             if ($addDropIfExists) {
-                self::executeDropIfExists($targetTable, $targetDb, $dbi, $destination);
+                $this->executeDropIfExists($targetTable, $targetDb, $destination);
 
                 // If an existing table gets deleted, maintain any entries for
                 // the PMA_* tables.
@@ -138,14 +132,14 @@ class TableMover
             // -----------------------------------------------------------------
             // Phase 2: Generating the new query of this structure.
 
-            self::createNewStructure($sqlStructure, $destination, $what, $dbi, $targetDb);
+            $this->createNewStructure($sqlStructure, $destination, $what, $targetDb);
 
             // -----------------------------------------------------------------
             // Phase 3: Adding constraints.
             // All constraint names are removed because they must be unique.
 
             if ($what === MoveScope::Move && ! empty($GLOBALS['sql_constraints_query'])) {
-                $GLOBALS['sql_constraints_query'] = self::getConstraintsSqlWithoutNames(
+                $GLOBALS['sql_constraints_query'] = $this->getConstraintsSqlWithoutNames(
                     $GLOBALS['sql_constraints_query'],
                     $destination,
                 );
@@ -157,7 +151,7 @@ class TableMover
                 // the constraints can only be created after all tables have been created.
                 // Thus, we must keep the global so that the caller can execute these queries.
                 if ($mode === MoveMode::SingleTable) {
-                    $dbi->query($GLOBALS['sql_constraints_query']);
+                    $this->dbi->query($GLOBALS['sql_constraints_query']);
                     unset($GLOBALS['sql_constraints_query']);
                 }
             }
@@ -167,27 +161,27 @@ class TableMover
             // View phase 3.
 
             if (! empty($GLOBALS['sql_indexes'])) {
-                self::createIndexes($GLOBALS['sql_indexes'], $destination, $dbi);
+                $this->createIndexes($GLOBALS['sql_indexes'], $destination);
             }
 
             // -----------------------------------------------------------------
             // Phase 5: Adding AUTO_INCREMENT.
 
             if (! empty($GLOBALS['sql_auto_increments'])) {
-                self::executeAlterAutoIncrement($GLOBALS['sql_auto_increments'], $destination, $dbi);
+                $this->executeAlterAutoIncrement($GLOBALS['sql_auto_increments'], $destination);
             }
         } else {
             $GLOBALS['sql_query'] = '';
         }
 
-        $table = new Table($targetTable, $targetDb, $dbi);
+        $table = new Table($targetTable, $targetDb, $this->dbi);
         // Copy the data unless this is a VIEW
         if ($what !== MoveScope::StructureOnly && ! $table->isView()) {
             $sqlSetMode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
-            $dbi->query($sqlSetMode);
+            $this->dbi->query($sqlSetMode);
             $GLOBALS['sql_query'] .= "\n\n" . $sqlSetMode . ';';
 
-            $oldTable = new Table($sourceTable, $sourceDb, $dbi);
+            $oldTable = new Table($sourceTable, $sourceDb, $this->dbi);
             $nonGeneratedCols = $oldTable->getNonGeneratedColumns();
             if ($nonGeneratedCols !== []) {
                 $sqlInsertData = 'INSERT INTO ' . $target . '('
@@ -195,27 +189,27 @@ class TableMover
                     . ') SELECT ' . implode(', ', $nonGeneratedCols)
                     . ' FROM ' . $source;
 
-                $dbi->query($sqlInsertData);
+                $this->dbi->query($sqlInsertData);
                 $GLOBALS['sql_query'] .= "\n\n" . $sqlInsertData . ';';
             }
         }
 
-        $relationParameters = $relation->getRelationParameters();
+        $relationParameters = $this->relation->getRelationParameters();
 
         // Drops old table if the user has requested to move it
         if ($what === MoveScope::Move) {
             // This could avoid some problems with replicated databases, when
             // moving table from replicated one to not replicated one
-            $dbi->selectDb($sourceDb);
+            $this->dbi->selectDb($sourceDb);
 
-            $sourceTableObj = new Table($sourceTable, $sourceDb, $dbi);
+            $sourceTableObj = new Table($sourceTable, $sourceDb, $this->dbi);
             $sqlDropQuery = $sourceTableObj->isView() ? 'DROP VIEW' : 'DROP TABLE';
 
             $sqlDropQuery .= ' ' . $source;
-            $dbi->query($sqlDropQuery);
+            $this->dbi->query($sqlDropQuery);
 
             // Rename table in configuration storage
-            $relation->renameTable($sourceDb, $targetDb, $sourceTable, $targetTable);
+            $this->relation->renameTable($sourceDb, $targetDb, $sourceTable, $targetTable);
 
             $GLOBALS['sql_query'] .= "\n\n" . $sqlDropQuery . ';';
 
@@ -230,7 +224,7 @@ class TableMover
 
         if ($relationParameters->columnCommentsFeature !== null) {
             // Get all comments and MIME-Types for current table
-            $commentsCopyRs = $dbi->queryAsControlUser(
+            $commentsCopyRs = $this->dbi->queryAsControlUser(
                 'SELECT column_name, comment'
                 . ($relationParameters->browserTransformationFeature !== null
                 ? ', mimetype, transformation, transformation_options'
@@ -240,9 +234,9 @@ class TableMover
                 . '.'
                 . Util::backquote($relationParameters->columnCommentsFeature->columnInfo)
                 . ' WHERE '
-                . ' db_name = ' . $dbi->quoteString($sourceDb, ConnectionType::ControlUser)
+                . ' db_name = ' . $this->dbi->quoteString($sourceDb, ConnectionType::ControlUser)
                 . ' AND '
-                . ' table_name = ' . $dbi->quoteString($sourceTable, ConnectionType::ControlUser),
+                . ' table_name = ' . $this->dbi->quoteString($sourceTable, ConnectionType::ControlUser),
             );
 
             // Write every comment as new copied entry. [MIME]
@@ -254,19 +248,21 @@ class TableMover
                     . ($relationParameters->browserTransformationFeature !== null
                         ? ', mimetype, transformation, transformation_options'
                         : '')
-                    . ') VALUES(' . $dbi->quoteString($targetDb, ConnectionType::ControlUser)
-                    . ',' . $dbi->quoteString($targetTable, ConnectionType::ControlUser) . ','
-                    . $dbi->quoteString($commentsCopyRow['column_name'], ConnectionType::ControlUser)
+                    . ') VALUES(' . $this->dbi->quoteString($targetDb, ConnectionType::ControlUser)
+                    . ',' . $this->dbi->quoteString($targetTable, ConnectionType::ControlUser) . ','
+                    . $this->dbi->quoteString($commentsCopyRow['column_name'], ConnectionType::ControlUser)
                     . ','
-                    . $dbi->quoteString($commentsCopyRow['comment'], ConnectionType::ControlUser)
+                    . $this->dbi->quoteString($commentsCopyRow['comment'], ConnectionType::ControlUser)
                     . ($relationParameters->browserTransformationFeature !== null
-                        ? ',' . $dbi->quoteString($commentsCopyRow['mimetype'], ConnectionType::ControlUser)
-                        . ',' . $dbi->quoteString($commentsCopyRow['transformation'], ConnectionType::ControlUser)
-                        . ','
-                        . $dbi->quoteString($commentsCopyRow['transformation_options'], ConnectionType::ControlUser)
+                        ? ',' . $this->dbi->quoteString($commentsCopyRow['mimetype'], ConnectionType::ControlUser)
+                        . ',' . $this->dbi->quoteString($commentsCopyRow['transformation'], ConnectionType::ControlUser)
+                        . ',' . $this->dbi->quoteString(
+                            $commentsCopyRow['transformation_options'],
+                            ConnectionType::ControlUser,
+                        )
                         : '')
                     . ')';
-                $dbi->queryAsControlUser($newCommentQuery);
+                $this->dbi->queryAsControlUser($newCommentQuery);
             }
 
             unset($commentsCopyRs);
@@ -278,18 +274,18 @@ class TableMover
         $getFields = ['display_field'];
         $whereFields = ['db_name' => $sourceDb, 'table_name' => $sourceTable];
         $newFields = ['db_name' => $targetDb, 'table_name' => $targetTable];
-        self::duplicateInfo('displaywork', 'table_info', $getFields, $whereFields, $newFields);
+        $this->duplicateInfo('displaywork', 'table_info', $getFields, $whereFields, $newFields);
 
         /** @todo revise this code when we support cross-db relations */
         $getFields = ['master_field', 'foreign_table', 'foreign_field'];
         $whereFields = ['master_db' => $sourceDb, 'master_table' => $sourceTable];
         $newFields = ['master_db' => $targetDb, 'foreign_db' => $targetDb, 'master_table' => $targetTable];
-        self::duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
+        $this->duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
 
         $getFields = ['foreign_field', 'master_table', 'master_field'];
         $whereFields = ['foreign_db' => $sourceDb, 'foreign_table' => $sourceTable];
         $newFields = ['master_db' => $targetDb, 'foreign_db' => $targetDb, 'foreign_table' => $targetTable];
-        self::duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
+        $this->duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
 
         return true;
     }
@@ -305,16 +301,14 @@ class TableMover
      * @param mixed[]  $newFields   Which fields will be used as new VALUES. These are the important keys which differ
      *                            from the old entry (array('FIELDNAME' => 'NEW FIELDVALUE'))
      */
-    public static function duplicateInfo(
+    public function duplicateInfo(
         string $work,
         string $table,
         array $getFields,
         array $whereFields,
         array $newFields,
     ): int|bool {
-        $dbi = DatabaseInterface::getInstance();
-        $relation = new Relation($dbi);
-        $relationParameters = $relation->getRelationParameters();
+        $relationParameters = $this->relation->getRelationParameters();
         $relationParams = $relationParameters->toArray();
         $lastId = -1;
 
@@ -332,14 +326,14 @@ class TableMover
         $whereParts = [];
         foreach ($whereFields as $where => $value) {
             $whereParts[] = Util::backquote((string) $where) . ' = '
-                . $dbi->quoteString((string) $value, ConnectionType::ControlUser);
+                . $this->dbi->quoteString((string) $value, ConnectionType::ControlUser);
         }
 
         $newParts = [];
         $newValueParts = [];
         foreach ($newFields as $where => $value) {
             $newParts[] = Util::backquote((string) $where);
-            $newValueParts[] = $dbi->quoteString((string) $value, ConnectionType::ControlUser);
+            $newValueParts[] = $this->dbi->quoteString((string) $value, ConnectionType::ControlUser);
         }
 
         $tableCopyQuery = '
@@ -350,7 +344,7 @@ class TableMover
 
         // must use DatabaseInterface::QUERY_BUFFERED here, since we execute
         // another query inside the loop
-        $tableCopyRs = $dbi->queryAsControlUser($tableCopyQuery);
+        $tableCopyRs = $this->dbi->queryAsControlUser($tableCopyQuery);
 
         foreach ($tableCopyRs as $tableCopyRow) {
             $valueParts = [];
@@ -359,7 +353,7 @@ class TableMover
                     continue;
                 }
 
-                $valueParts[] = $dbi->quoteString($val, ConnectionType::ControlUser);
+                $valueParts[] = $this->dbi->quoteString($val, ConnectionType::ControlUser);
             }
 
             $newTableQuery = 'INSERT IGNORE INTO '
@@ -370,14 +364,14 @@ class TableMover
                 . implode(', ', $valueParts) . ', '
                 . implode(', ', $newValueParts) . ')';
 
-            $dbi->queryAsControlUser($newTableQuery);
-            $lastId = $dbi->insertId();
+            $this->dbi->queryAsControlUser($newTableQuery);
+            $lastId = $this->dbi->insertId();
         }
 
         return $lastId;
     }
 
-    private static function getConstraintsSqlWithoutNames(string $constraintsSql, Expression $destination): string
+    private function getConstraintsSqlWithoutNames(string $constraintsSql, Expression $destination): string
     {
         $parser = new Parser($constraintsSql);
 
@@ -405,12 +399,9 @@ class TableMover
         return $statement->build() . ';';
     }
 
-    private static function checkWhetherDatabasesExist(
-        DatabaseInterface $dbi,
-        string $sourceDb,
-        string $targetDb,
-    ): Message|null {
-        $databaseList = $dbi->getDatabaseList();
+    private function checkWhetherDatabasesExist(string $sourceDb, string $targetDb): Message|null
+    {
+        $databaseList = $this->dbi->getDatabaseList();
 
         if (! $databaseList->exists($sourceDb)) {
             return Message::rawError(
@@ -433,11 +424,10 @@ class TableMover
         return null;
     }
 
-    private static function createNewStructure(
+    private function createNewStructure(
         string $sqlStructure,
         Expression $destination,
         MoveScope $what,
-        DatabaseInterface $dbi,
         string $targetDb,
     ): void {
         $parser = new Parser($sqlStructure);
@@ -457,18 +447,18 @@ class TableMover
         // This is to avoid some issues when renaming databases with views
         // See: https://github.com/phpmyadmin/phpmyadmin/issues/16422
         if ($what === MoveScope::Move) {
-            $dbi->selectDb($targetDb);
+            $this->dbi->selectDb($targetDb);
         }
 
-        $dbi->query($sqlStructure);
+        $this->dbi->query($sqlStructure);
         $GLOBALS['sql_query'] .= "\n" . $sqlStructure;
     }
 
-    private static function executeDropIfExists(string $targetTable, string $targetDb, DatabaseInterface $dbi, Expression $destination): void
+    private function executeDropIfExists(string $targetTable, string $targetDb, Expression $destination): void
     {
         $statement = new DropStatement();
 
-        $tbl = new Table($targetTable, $targetDb, $dbi);
+        $tbl = new Table($targetTable, $targetDb, $this->dbi);
 
         $statement->options = new OptionsArray(
             [$tbl->isView() ? 'VIEW' : 'TABLE', 'IF EXISTS'],
@@ -478,11 +468,11 @@ class TableMover
 
         $dropQuery = $statement->build() . ';';
 
-        $dbi->query($dropQuery);
+        $this->dbi->query($dropQuery);
         $GLOBALS['sql_query'] .= "\n" . $dropQuery;
     }
 
-    private static function createIndexes(string $sql, Expression $destination, DatabaseInterface $dbi): void
+    private function createIndexes(string $sql, Expression $destination): void
     {
         $parser = new Parser($sql);
 
@@ -508,7 +498,7 @@ class TableMover
 
             $sqlIndex = $statement->build() . ';';
 
-            $dbi->query($sqlIndex);
+            $this->dbi->query($sqlIndex);
 
             $sqlIndexes .= $sqlIndex;
         }
@@ -516,7 +506,7 @@ class TableMover
         $GLOBALS['sql_query'] .= "\n" . $sqlIndexes;
     }
 
-    private static function executeAlterAutoIncrement(string $sql, Expression $destination, DatabaseInterface $dbi): void
+    private function executeAlterAutoIncrement(string $sql, Expression $destination): void
     {
         $parser = new Parser($sql);
 
@@ -533,7 +523,7 @@ class TableMover
 
         $query = $statement->build() . ';';
 
-        $dbi->query($query);
+        $this->dbi->query($query);
         $GLOBALS['sql_query'] .= "\n" . $query;
     }
 }

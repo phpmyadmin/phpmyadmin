@@ -19,8 +19,10 @@ use function mb_substr;
 
 final class CopyTableWithPrefixController implements InvocableController
 {
-    public function __construct(private readonly StructureController $structureController)
-    {
+    public function __construct(
+        private readonly StructureController $structureController,
+        private readonly TableMover $tableMover,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -35,7 +37,7 @@ final class CopyTableWithPrefixController implements InvocableController
         foreach ($selected as $selectedValue) {
             $newTableName = $toPrefix . mb_substr($selectedValue, mb_strlen((string) $fromPrefix));
 
-            TableMover::moveCopy(
+            $this->tableMover->moveCopy(
                 Current::$database,
                 $selectedValue,
                 Current::$database,

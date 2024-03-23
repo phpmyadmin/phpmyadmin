@@ -901,7 +901,8 @@ class TableTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $ret = TableMover::duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
+        $object = new TableMover($this->mockedDbi, new Relation($this->mockedDbi));
+        $ret = $object->duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
         self::assertSame(-1, $ret);
     }
 
@@ -1322,7 +1323,9 @@ class TableTest extends AbstractTestCase
         $this->mockedDbi->expects(self::any())->method('getTable')
             ->willReturnMap($getTableMap);
 
-        $return = TableMover::moveCopy(
+        $object = new TableMover($this->mockedDbi, new Relation($this->mockedDbi));
+
+        $return = $object->moveCopy(
             $sourceDb,
             $sourceTable,
             $targetDb,
@@ -1341,7 +1344,7 @@ class TableTest extends AbstractTestCase
         $sqlQuery = 'DROP VIEW `PMA`.`PMA_BookMark`';
         self::assertStringContainsString($sqlQuery, $GLOBALS['sql_query']);
 
-        $return = TableMover::moveCopy(
+        $return = $object->moveCopy(
             $sourceDb,
             $sourceTable,
             $targetDb,
@@ -1391,15 +1394,7 @@ class TableTest extends AbstractTestCase
             ]);
 
         $GLOBALS['sql_query'] = '';
-        $return = TableMover::moveCopy(
-            'aa',
-            'ad',
-            'bb',
-            'ad',
-            MoveScope::Move,
-            MoveMode::WholeDatabase,
-            true,
-        );
+        $return = $object->moveCopy('aa', 'ad', 'bb', 'ad', MoveScope::Move, MoveMode::WholeDatabase, true);
         self::assertTrue($return);
         self::assertStringContainsString('DROP TABLE IF EXISTS `bb`.`ad`;', $GLOBALS['sql_query']);
         self::assertStringContainsString(

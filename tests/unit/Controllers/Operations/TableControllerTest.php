@@ -14,6 +14,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\StorageEngine;
+use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -124,7 +125,7 @@ class TableControllerTest extends AbstractTestCase
         $relation = new Relation($this->dbi);
         $controller = new TableController(
             $responseRenderer,
-            new Operations($this->dbi, $relation),
+            new Operations($this->dbi, $relation, new TableMover($this->dbi, $relation)),
             new UserPrivilegesFactory($this->dbi),
             $relation,
             $this->dbi,

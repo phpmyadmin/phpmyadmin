@@ -48,6 +48,7 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Table\Search;
+use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Tracking\Tracking;
@@ -135,7 +136,7 @@ return [
         ],
         'operations' => [
             'class' => Operations::class,
-            'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation'],
+            'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation', '$tableMover' => '@table_mover'],
         ],
         'partitioning_maintenance' => [
             'class' => Maintenance::class,
@@ -226,5 +227,6 @@ return [
         PhpMyAdmin\ResponseRenderer::class => 'response',
         'bookmarkRepository' => ['class' => BookmarkRepository::class, 'arguments' => ['@dbi', '@relation']],
         'console' => ['class' => Console::class, 'arguments' => [ '@relation', '@template', '@bookmarkRepository']],
+        'table_mover' => ['class' => TableMover::class, 'arguments' => ['@dbi', '@relation']],
     ],
 ];

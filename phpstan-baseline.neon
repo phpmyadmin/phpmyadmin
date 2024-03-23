@@ -14246,28 +14246,28 @@ parameters:
 			path: src/Table/TableMover.php
 
 		-
+			message: "#^Parameter \\#1 \\$constraintsSql of method PhpMyAdmin\\\\Table\\\\TableMover\\:\\:getConstraintsSqlWithoutNames\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Table/TableMover.php
+
+		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Table/TableMover.php
 
 		-
-			message: "#^Parameter \\#1 \\$sql of static method PhpMyAdmin\\\\Table\\\\TableMover\\:\\:createIndexes\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Table\\\\TableMover\\:\\:createIndexes\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Table/TableMover.php
 
 		-
-			message: "#^Parameter \\#1 \\$sql of static method PhpMyAdmin\\\\Table\\\\TableMover\\:\\:executeAlterAutoIncrement\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Table\\\\TableMover\\:\\:executeAlterAutoIncrement\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Table/TableMover.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|null given\\.$#"
 			count: 6
-			path: src/Table/TableMover.php
-
-		-
-			message: "#^Parameter \\#2 \\$constraintsSql of static method PhpMyAdmin\\\\Table\\\\TableMover\\:\\:getConstraintsSqlWithoutNames\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: src/Table/TableMover.php
 
 		-

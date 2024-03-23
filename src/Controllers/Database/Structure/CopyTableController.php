@@ -22,6 +22,7 @@ final class CopyTableController implements InvocableController
         private readonly Operations $operations,
         private readonly StructureController $structureController,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,
+        private readonly TableMover $tableMover,
     ) {
     }
 
@@ -35,7 +36,7 @@ final class CopyTableController implements InvocableController
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         foreach ($selected as $selectedValue) {
-            TableMover::moveCopy(
+            $this->tableMover->moveCopy(
                 Current::$database,
                 $selectedValue,
                 $targetDb,

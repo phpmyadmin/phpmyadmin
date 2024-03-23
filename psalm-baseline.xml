@@ -11419,10 +11419,6 @@
     </UnsupportedPropertyReferenceUsage>
   </file>
   <file src="src/Table/TableMover.php">
-    <DeprecatedMethod>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
     <DocblockTypeContradiction>
       <code><![CDATA[empty($parser->statements[0])]]></code>
     </DocblockTypeContradiction>
