@@ -167,39 +167,7 @@ class TableMover
             // View phase 3.
 
             if (! empty($GLOBALS['sql_indexes'])) {
-                $parser = new Parser($GLOBALS['sql_indexes']);
-
-                $GLOBALS['sql_indexes'] = '';
-                /**
-                 * The ALTER statement that generates the indexes.
-                 *
-                 * @var AlterStatement $statement
-                 */
-                foreach ($parser->statements as $statement) {
-                    // Changing the altered table to the destination.
-                    $statement->table = $destination;
-
-                    // Removing the name of the constraints.
-                    foreach ($statement->altered as $altered) {
-                        // All constraint names are removed because they must be unique.
-                        if (! $altered->options->has('CONSTRAINT')) {
-                            continue;
-                        }
-
-                        $altered->field = null;
-                    }
-
-                    // Building back the query.
-                    $sqlIndex = $statement->build() . ';';
-
-                    // Executing it.
-                    $dbi->query($sqlIndex);
-
-                    $GLOBALS['sql_indexes'] .= $sqlIndex;
-                }
-
-                $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_indexes'];
-                unset($GLOBALS['sql_indexes']);
+                self::createIndexes($GLOBALS['sql_indexes'], $destination, $dbi);
             }
 
             // -----------------------------------------------------------------
@@ -530,5 +498,39 @@ class TableMover
 
         $dbi->query($dropQuery);
         $GLOBALS['sql_query'] .= "\n" . $dropQuery;
+    }
+
+    private static function createIndexes(string $sql, Expression $destination, DatabaseInterface $dbi): void
+    {
+        $parser = new Parser($sql);
+
+        $sqlIndexes = '';
+        /**
+         * The ALTER statement that generates the indexes.
+         *
+         * @var AlterStatement $statement
+         */
+        foreach ($parser->statements as $statement) {
+            // Changing the altered table to the destination.
+            $statement->table = $destination;
+
+            // Removing the name of the constraints.
+            foreach ($statement->altered as $altered) {
+                // All constraint names are removed because they must be unique.
+                if (! $altered->options->has('CONSTRAINT')) {
+                    continue;
+                }
+
+                $altered->field = null;
+            }
+
+            $sqlIndex = $statement->build() . ';';
+
+            $dbi->query($sqlIndex);
+
+            $sqlIndexes .= $sqlIndex;
+        }
+
+        $GLOBALS['sql_query'] .= "\n" . $sqlIndexes;
     }
 }
