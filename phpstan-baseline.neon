@@ -14246,17 +14246,17 @@ parameters:
 			path: src/Table/TableMover.php
 
 		-
-			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Table/TableMover.php
-
-		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Table/TableMover.php
 
 		-
 			message: "#^Parameter \\#1 \\$sql of static method PhpMyAdmin\\\\Table\\\\TableMover\\:\\:createIndexes\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Table/TableMover.php
+
+		-
+			message: "#^Parameter \\#1 \\$sql of static method PhpMyAdmin\\\\Table\\\\TableMover\\:\\:executeAlterAutoIncrement\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Table/TableMover.php
 

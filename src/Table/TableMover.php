@@ -174,25 +174,7 @@ class TableMover
             // Phase 5: Adding AUTO_INCREMENT.
 
             if (! empty($GLOBALS['sql_auto_increments'])) {
-                $parser = new Parser($GLOBALS['sql_auto_increments']);
-
-                /**
-                 * The ALTER statement that alters the AUTO_INCREMENT value.
-                 */
-                $statement = $parser->statements[0];
-                if ($statement instanceof AlterStatement) {
-                    // Changing the altered table to the destination.
-                    $statement->table = $destination;
-
-                    // Building back the query.
-                    $GLOBALS['sql_auto_increments'] = $statement->build() . ';';
-
-                    // Executing it.
-                    $dbi->query($GLOBALS['sql_auto_increments']);
-                    $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_auto_increments'];
-                }
-
-                unset($GLOBALS['sql_auto_increments']);
+                self::executeAlterAutoIncrement($GLOBALS['sql_auto_increments'], $destination, $dbi);
             }
         } else {
             $GLOBALS['sql_query'] = '';
@@ -532,5 +514,26 @@ class TableMover
         }
 
         $GLOBALS['sql_query'] .= "\n" . $sqlIndexes;
+    }
+
+    private static function executeAlterAutoIncrement(string $sql, Expression $destination, DatabaseInterface $dbi): void
+    {
+        $parser = new Parser($sql);
+
+        /**
+         * The ALTER statement that alters the AUTO_INCREMENT value.
+         */
+        $statement = $parser->statements[0];
+        if (! ($statement instanceof AlterStatement)) {
+            return;
+        }
+
+        // Changing the altered table to the destination.
+        $statement->table = $destination;
+
+        $query = $statement->build() . ';';
+
+        $dbi->query($query);
+        $GLOBALS['sql_query'] .= "\n" . $query;
     }
 }
