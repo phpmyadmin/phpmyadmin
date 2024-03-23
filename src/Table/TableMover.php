@@ -156,36 +156,7 @@ class TableMover
             // -----------------------------------------------------------------
             // Phase 2: Generating the new query of this structure.
 
-            /**
-             * The parser responsible for parsing the old queries.
-             */
-            $parser = new Parser($sqlStructure);
-
-            if (! empty($parser->statements[0])) {
-
-                /**
-                 * The CREATE statement of this structure.
-                 *
-                 * @var CreateStatement $statement
-                 */
-                $statement = $parser->statements[0];
-
-                // Changing the destination.
-                $statement->name = $destination;
-
-                // Building back the query.
-                $sqlStructure = $statement->build() . ';';
-
-                // This is to avoid some issues when renaming databases with views
-                // See: https://github.com/phpmyadmin/phpmyadmin/issues/16422
-                if ($what === MoveScope::Move) {
-                    $dbi->selectDb($targetDb);
-                }
-
-                // Executing it
-                $dbi->query($sqlStructure);
-                $GLOBALS['sql_query'] .= "\n" . $sqlStructure;
-            }
+            self::createNewStructure($sqlStructure, $destination, $what, $dbi, $targetDb);
 
             // -----------------------------------------------------------------
             // Phase 3: Adding constraints.
@@ -528,5 +499,36 @@ class TableMover
         }
 
         return null;
+    }
+
+    private static function createNewStructure(
+        string $sqlStructure,
+        Expression $destination,
+        MoveScope $what,
+        DatabaseInterface $dbi,
+        string $targetDb,
+    ): void {
+        $parser = new Parser($sqlStructure);
+
+        if (empty($parser->statements[0])) {
+            return;
+        }
+
+        /** @var CreateStatement $statement */
+        $statement = $parser->statements[0];
+
+        // Changing the destination.
+        $statement->name = $destination;
+
+        $sqlStructure = $statement->build() . ';';
+
+        // This is to avoid some issues when renaming databases with views
+        // See: https://github.com/phpmyadmin/phpmyadmin/issues/16422
+        if ($what === MoveScope::Move) {
+            $dbi->selectDb($targetDb);
+        }
+
+        $dbi->query($sqlStructure);
+        $GLOBALS['sql_query'] .= "\n" . $sqlStructure;
     }
 }

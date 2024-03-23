@@ -11423,6 +11423,9 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+    <DocblockTypeContradiction>
+      <code><![CDATA[empty($parser->statements[0])]]></code>
+    </DocblockTypeContradiction>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
@@ -11463,9 +11466,6 @@
       <code><![CDATA[$statement->altered]]></code>
       <code><![CDATA[$statement->altered]]></code>
     </PossiblyNullIterator>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($parser->statements[0])]]></code>
-    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $relationParams[$work]]]></code>
     </RiskyTruthyFalsyComparison>
