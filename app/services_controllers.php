@@ -339,7 +339,6 @@ return [
                 '$dbi' => '@dbi',
                 '$relation' => '@relation',
                 '$relationCleanup' => '@relation_cleanup',
-                '$operations' => '@operations',
                 '$flash' => '@flash',
                 '$structureController' => '@' . Database\StructureController::class,
             ],
@@ -1605,7 +1604,6 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$operations' => '@operations',
                 '$dbi' => '@dbi',
                 '$dbTableExists' => '@' . DbTableExists::class,
             ],

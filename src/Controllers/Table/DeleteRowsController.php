@@ -12,7 +12,6 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
@@ -47,7 +46,6 @@ final class DeleteRowsController extends AbstractController
             $this->dbi,
             $relation,
             new RelationCleanup($this->dbi, $relation),
-            new Operations($this->dbi, $relation),
             new Transformations(),
             $this->template,
             new BookmarkRepository($this->dbi, $relation),

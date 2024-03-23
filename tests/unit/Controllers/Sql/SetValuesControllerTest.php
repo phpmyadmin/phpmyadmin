@@ -12,7 +12,6 @@ use PhpMyAdmin\Controllers\Sql\SetValuesController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Operations;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -62,7 +61,6 @@ class SetValuesControllerTest extends AbstractTestCase
             $this->dbi,
             $relation,
             self::createStub(RelationCleanup::class),
-            self::createStub(Operations::class),
             self::createStub(Transformations::class),
             $template,
             $bookmarkRepository,
@@ -115,7 +113,6 @@ class SetValuesControllerTest extends AbstractTestCase
             $this->dbi,
             $relation,
             self::createStub(RelationCleanup::class),
-            self::createStub(Operations::class),
             self::createStub(Transformations::class),
             $template,
             $bookmarkRepository,

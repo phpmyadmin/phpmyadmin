@@ -20,7 +20,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\InsertEdit;
-use PhpMyAdmin\Operations;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -109,7 +108,6 @@ class ReplaceControllerTest extends AbstractTestCase
                 $dbi,
                 $relation,
                 new RelationCleanup($dbi, $relation),
-                new Operations($dbi, $relation),
                 $transformations,
                 $template,
                 $bookmarkRepository,

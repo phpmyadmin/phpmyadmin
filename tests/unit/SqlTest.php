@@ -10,7 +10,6 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Operations;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
@@ -67,7 +66,6 @@ class SqlTest extends AbstractTestCase
             $this->dbi,
             $relation,
             new RelationCleanup($this->dbi, $relation),
-            new Operations($this->dbi, $relation),
             new Transformations(),
             new Template(),
             new BookmarkRepository($this->dbi, $relation),

@@ -54,7 +54,6 @@ class Sql
         private DatabaseInterface $dbi,
         private Relation $relation,
         private RelationCleanup $relationCleanup,
-        private Operations $operations,
         private Transformations $transformations,
         private Template $template,
         private readonly BookmarkRepository $bookmarkRepository,
@@ -1571,7 +1570,7 @@ class Sql
             $sqlQueryForBookmark,
         );
 
-        $warningMessages = $this->operations->getWarningMessagesArray();
+        $warningMessages = $this->dbi->getWarnings();
 
         // No rows returned -> move back to the calling page
         if (($numRows == 0 && $unlimNumRows == 0) || $statementInfo->flags->isAffected || $result === false) {
@@ -1611,7 +1610,7 @@ class Sql
         ForeignKey::handleDisableCheckCleanup($defaultFkCheck);
 
         foreach ($warningMessages as $warning) {
-            $message = Message::notice(htmlspecialchars($warning));
+            $message = Message::notice(htmlspecialchars((string) $warning));
             $htmlOutput .= $message->getDisplay();
         }
 
