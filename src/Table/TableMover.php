@@ -128,25 +128,7 @@ class TableMover
             // and required).
 
             if ($addDropIfExists) {
-                /**
-                 * Drop statement used for building the query.
-                 */
-                $statement = new DropStatement();
-
-                $tbl = new Table($targetTable, $targetDb, $dbi);
-
-                $statement->options = new OptionsArray(
-                    [$tbl->isView() ? 'VIEW' : 'TABLE', 'IF EXISTS'],
-                );
-
-                $statement->fields = [$destination];
-
-                // Building the query.
-                $dropQuery = $statement->build() . ';';
-
-                // Executing it.
-                $dbi->query($dropQuery);
-                $GLOBALS['sql_query'] .= "\n" . $dropQuery;
+                self::executeDropIfExists($targetTable, $targetDb, $dbi, $destination);
 
                 // If an existing table gets deleted, maintain any entries for
                 // the PMA_* tables.
@@ -530,5 +512,23 @@ class TableMover
 
         $dbi->query($sqlStructure);
         $GLOBALS['sql_query'] .= "\n" . $sqlStructure;
+    }
+
+    private static function executeDropIfExists(string $targetTable, string $targetDb, DatabaseInterface $dbi, Expression $destination): void
+    {
+        $statement = new DropStatement();
+
+        $tbl = new Table($targetTable, $targetDb, $dbi);
+
+        $statement->options = new OptionsArray(
+            [$tbl->isView() ? 'VIEW' : 'TABLE', 'IF EXISTS'],
+        );
+
+        $statement->fields = [$destination];
+
+        $dropQuery = $statement->build() . ';';
+
+        $dbi->query($dropQuery);
+        $GLOBALS['sql_query'] .= "\n" . $dropQuery;
     }
 }
