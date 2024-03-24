@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-03-04 20:01+0000\n"
-"Last-Translator: Szymon John <szymonjohnpl@gmail.com>\n"
+"PO-Revision-Date: 2024-03-24 21:26+0000\n"
+"Last-Translator: Maciej Gomoła <maciejg2008@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-9/pl/"
 ">\n"
 "Language: pl\n"
@@ -1935,6 +1935,7 @@ msgid ""
 msgstr "Uwaga: Jeśli plik zawiera wiele tabel, będzie połączony w jeden."
 
 #: js/messages.php:420
+#, fuzzy
 msgid "Hide query box"
 msgstr "Ukryj okno zapytań"
 
