@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-03-17 00:19+0000\n"
+"POT-Creation-Date: 2024-03-24 00:19+0000\n"
 "PO-Revision-Date: 2023-05-04 20:50+0000\n"
 "Last-Translator: M <bafandehmajid@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1056,10 +1056,10 @@ msgstr "معتبرسازي SQL"
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
 #: src/Plugins/Export/ExportSql.php:114
 #: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:60
-#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:80
+#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:86
 #: src/Plugins/Import/ImportLdi.php:61
 #: src/Plugins/Import/ImportMediawiki.php:61
-#: src/Plugins/Import/ImportOds.php:54 src/Plugins/Import/ImportShp.php:73
+#: src/Plugins/Import/ImportOds.php:59 src/Plugins/Import/ImportShp.php:73
 #: src/Plugins/Import/ImportSql.php:43 src/Plugins/Import/ImportXml.php:50
 #, fuzzy
 msgid "Options"
@@ -11019,14 +11019,14 @@ msgid "Put columns names in the first row"
 msgstr "قراردادن نام ستونها در اولين سطر"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:655
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:653
 #, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with"
 msgstr "ستونهاي درميان‌گرفته با"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:666
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:664
 #, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with"
@@ -11044,14 +11044,14 @@ msgid "Remove CRLF characters within columns"
 msgstr ""
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:640
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:638
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns terminated with"
 msgstr "ستون های از بین رفته به وسیله"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:673
+#: src/Plugins/Import/ImportCsv.php:671
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with"
@@ -11356,7 +11356,7 @@ msgid "Partial import: allow interrupt"
 msgstr "ورودی جزئی : اجازه توقف دادن"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:151 src/Plugins/Import/ImportLdi.php:78
+#: src/Plugins/Import/ImportCsv.php:157 src/Plugins/Import/ImportLdi.php:78
 msgid "Do not abort on INSERT error"
 msgstr "آیا  درج خطا بینتیجه بوده"
 
@@ -11376,7 +11376,7 @@ msgstr "استفاده از کلید واژه های محلی"
 msgid "Column names in first row"
 msgstr "نام ستونها در اولين سطر"
 
-#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:75
+#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:80
 msgid "Do not import empty rows"
 msgstr "ردیف خالی وارد کنید"
 
@@ -12093,7 +12093,7 @@ msgstr "Collation اتصال سرور"
 msgid "Missing data for %s"
 msgstr "داده برای %s وارد نشده است"
 
-#: src/Config/FormDisplay.php:620 src/Config/Validator.php:586
+#: src/Config/FormDisplay.php:620 src/Config/Validator.php:587
 #: src/Controllers/JavaScriptMessagesController.php:824
 #, fuzzy
 #| msgid "Incorrect value"
@@ -12349,23 +12349,23 @@ msgstr "سرور پایگاه داده"
 msgid "Table-level tabs"
 msgstr "توضيحات جدول"
 
-#: src/Config/Validator.php:242
+#: src/Config/Validator.php:243
 msgid "Could not connect to the database server!"
 msgstr ""
 
-#: src/Config/Validator.php:278
+#: src/Config/Validator.php:279
 #, fuzzy
 #| msgid "No valid authentication key plugged"
 msgid "Invalid authentication type!"
 msgstr "کلید ورود معتبری داده نشده است"
 
-#: src/Config/Validator.php:283
+#: src/Config/Validator.php:284
 #, fuzzy
 #| msgid "Can not find signon authentication script:"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "کد ورود یافت نشد :"
 
-#: src/Config/Validator.php:289
+#: src/Config/Validator.php:290
 #, fuzzy
 #| msgid "Can not find signon authentication script:"
 msgid ""
@@ -12373,56 +12373,56 @@ msgid ""
 "method!"
 msgstr "کد ورود یافت نشد :"
 
-#: src/Config/Validator.php:296
+#: src/Config/Validator.php:297
 #, fuzzy
 #| msgid "Can not find signon authentication script:"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "کد ورود یافت نشد :"
 
-#: src/Config/Validator.php:349
+#: src/Config/Validator.php:350
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 
-#: src/Config/Validator.php:356
+#: src/Config/Validator.php:357
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr ""
 
-#: src/Config/Validator.php:447
+#: src/Config/Validator.php:448
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
 msgstr "مقدار ناصحیح"
 
-#: src/Config/Validator.php:458
+#: src/Config/Validator.php:459
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr ""
 
-#: src/Config/Validator.php:521
+#: src/Config/Validator.php:522
 #: src/Controllers/JavaScriptMessagesController.php:823
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
 msgstr "شماره پورت معتبر نیست"
 
-#: src/Config/Validator.php:543
+#: src/Config/Validator.php:544
 #: src/Controllers/JavaScriptMessagesController.php:821
 #, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
 msgstr "عدد مثبت نیست"
 
-#: src/Config/Validator.php:565
+#: src/Config/Validator.php:566
 #: src/Controllers/JavaScriptMessagesController.php:822
 #, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
 msgstr "عدد غیر منفی نیست"
 
-#: src/Config/Validator.php:604
+#: src/Config/Validator.php:605
 #: src/Controllers/JavaScriptMessagesController.php:825
 #, fuzzy, php-format
 #| msgid "Value must be less than or equal to %s"
@@ -12552,8 +12552,8 @@ msgstr ""
 #: src/Controllers/Table/ZoomSearchController.php:105
 #: src/Controllers/Triggers/IndexController.php:71
 #: src/Controllers/Triggers/IndexController.php:97
-#: src/Controllers/View/CreateController.php:76
-#: src/Controllers/View/CreateController.php:81
+#: src/Controllers/View/CreateController.php:77
+#: src/Controllers/View/CreateController.php:82
 msgid "No databases selected."
 msgstr "هیچ پایگاه داده ای انتخاب نشده است."
 
@@ -16168,7 +16168,7 @@ msgstr "در پايگاه داده هيچ جدولي یافت نشد."
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr ""
 
-#: src/Controllers/View/CreateController.php:94
+#: src/Controllers/View/CreateController.php:95
 msgid "View name can not be empty!"
 msgstr ""
 
@@ -16353,7 +16353,7 @@ msgstr ""
 msgid "You must provide an event definition."
 msgstr ""
 
-#: src/DatabaseInterface.php:1129
+#: src/DatabaseInterface.php:1128
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -16361,13 +16361,13 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/DatabaseInterface.php:1171
+#: src/DatabaseInterface.php:1170
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
 msgstr "در خواندن فایل تنظیمات ناموفق بود"
 
-#: src/DatabaseInterface.php:1685
+#: src/DatabaseInterface.php:1684
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
@@ -18190,54 +18190,54 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:93
+#: src/Plugins/Import/ImportCsv.php:99
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:102
+#: src/Plugins/Import/ImportCsv.php:108
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:111 src/Plugins/Import/ImportCsv.php:129
+#: src/Plugins/Import/ImportCsv.php:117 src/Plugins/Import/ImportCsv.php:135
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:119 src/Plugins/Import/ImportOds.php:67
+#: src/Plugins/Import/ImportCsv.php:125 src/Plugins/Import/ImportOds.php:72
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:136
+#: src/Plugins/Import/ImportCsv.php:142
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:144
+#: src/Plugins/Import/ImportCsv.php:150
 #, fuzzy
 #| msgid "Column names"
 msgid "Column names:"
 msgstr "نام ستونها"
 
-#: src/Plugins/Import/ImportCsv.php:291 src/Plugins/Import/ImportCsv.php:616
+#: src/Plugins/Import/ImportCsv.php:290 src/Plugins/Import/ImportCsv.php:614
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:498
+#: src/Plugins/Import/ImportCsv.php:497
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:638 src/Plugins/Import/ImportCsv.php:653
-#: src/Plugins/Import/ImportCsv.php:664 src/Plugins/Import/ImportCsv.php:671
+#: src/Plugins/Import/ImportCsv.php:636 src/Plugins/Import/ImportCsv.php:651
+#: src/Plugins/Import/ImportCsv.php:662 src/Plugins/Import/ImportCsv.php:669
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr ""
 
-#: src/Plugins/Import/ImportCsv.php:769
+#: src/Plugins/Import/ImportCsv.php:767
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -18263,22 +18263,22 @@ msgstr ""
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr ""
 
-#: src/Plugins/Import/ImportOds.php:81
+#: src/Plugins/Import/ImportOds.php:86
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
 
-#: src/Plugins/Import/ImportOds.php:87
+#: src/Plugins/Import/ImportOds.php:92
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr ""
 
-#: src/Plugins/Import/ImportOds.php:150 src/Plugins/Import/ImportXml.php:107
-#: src/Plugins/Import/ImportXml.php:145
+#: src/Plugins/Import/ImportOds.php:159 src/Plugins/Import/ImportXml.php:75
+#: src/Plugins/Import/ImportXml.php:113
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
 
-#: src/Plugins/Import/ImportOds.php:158
+#: src/Plugins/Import/ImportOds.php:167
 #, fuzzy
 #| msgid "Open Document"
 msgid "Could not parse OpenDocument Spreadsheet!"

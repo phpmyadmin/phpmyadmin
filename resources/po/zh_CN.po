@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-03-17 00:19+0000\n"
+"POT-Creation-Date: 2024-03-24 00:19+0000\n"
 "PO-Revision-Date: 2024-01-16 15:06+0000\n"
 "Last-Translator: yangyangdaji <1504305527@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -972,10 +972,10 @@ msgstr "历史"
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
 #: src/Plugins/Export/ExportSql.php:114
 #: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:60
-#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:80
+#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:86
 #: src/Plugins/Import/ImportLdi.php:61
 #: src/Plugins/Import/ImportMediawiki.php:61
-#: src/Plugins/Import/ImportOds.php:54 src/Plugins/Import/ImportShp.php:73
+#: src/Plugins/Import/ImportOds.php:59 src/Plugins/Import/ImportShp.php:73
 #: src/Plugins/Import/ImportSql.php:43 src/Plugins/Import/ImportXml.php:50
 msgid "Options"
 msgstr "选项"
@@ -9997,12 +9997,12 @@ msgid "Put columns names in the first row"
 msgstr "首行保存字段名"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:655
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:653
 msgid "Columns enclosed with"
 msgstr "内容分隔符"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:666
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:664
 msgid "Columns escaped with"
 msgstr "内容转义符"
 
@@ -10018,12 +10018,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "删除内容中的回车换行符"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:640
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:638
 msgid "Columns terminated with"
 msgstr "字段分隔符"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:673
+#: src/Plugins/Import/ImportCsv.php:671
 msgid "Lines terminated with"
 msgstr "换行符"
 
@@ -10309,7 +10309,7 @@ msgid "Partial import: allow interrupt"
 msgstr "部分导入：允许中断"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:151 src/Plugins/Import/ImportLdi.php:78
+#: src/Plugins/Import/ImportCsv.php:157 src/Plugins/Import/ImportLdi.php:78
 msgid "Do not abort on INSERT error"
 msgstr "忽略插入错误"
 
@@ -10329,7 +10329,7 @@ msgstr "使用 LOCAL 关键字"
 msgid "Column names in first row"
 msgstr "首行为字段名"
 
-#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:75
+#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:80
 msgid "Do not import empty rows"
 msgstr "不导入空行"
 
@@ -10985,7 +10985,7 @@ msgstr "服务器连接排序规则"
 msgid "Missing data for %s"
 msgstr "缺少 %s 的数据"
 
-#: src/Config/FormDisplay.php:620 src/Config/Validator.php:586
+#: src/Config/FormDisplay.php:620 src/Config/Validator.php:587
 #: src/Controllers/JavaScriptMessagesController.php:824
 msgid "Incorrect value!"
 msgstr "值错误！"
@@ -11234,64 +11234,64 @@ msgstr "数据库等级标签"
 msgid "Table-level tabs"
 msgstr "表等级标签"
 
-#: src/Config/Validator.php:242
+#: src/Config/Validator.php:243
 msgid "Could not connect to the database server!"
 msgstr "无法连接到数据库！"
 
-#: src/Config/Validator.php:278
+#: src/Config/Validator.php:279
 msgid "Invalid authentication type!"
 msgstr "无效的认证方式！"
 
-#: src/Config/Validator.php:283
+#: src/Config/Validator.php:284
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "使用 [kbd]config[/kbd] 认证方式时用户名不能为空！"
 
-#: src/Config/Validator.php:289
+#: src/Config/Validator.php:290
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr "使用 singon 认证方式时 [kbd]signon[/kbd] 会话名不能为空！"
 
-#: src/Config/Validator.php:296
+#: src/Config/Validator.php:297
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "使用 singon 认证方式时 [kbd]signon[/kbd] 地址不能为空！"
 
-#: src/Config/Validator.php:349
+#: src/Config/Validator.php:350
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr "使用 PMA 数据库时控制用户不能为空！"
 
-#: src/Config/Validator.php:356
+#: src/Config/Validator.php:357
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr "使用 PMA 数据时控制用户的密码不能为空！"
 
-#: src/Config/Validator.php:447
+#: src/Config/Validator.php:448
 msgid "Incorrect value:"
 msgstr "值错误："
 
-#: src/Config/Validator.php:458
+#: src/Config/Validator.php:459
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "IP 地址错误：%s"
 
-#: src/Config/Validator.php:521
+#: src/Config/Validator.php:522
 #: src/Controllers/JavaScriptMessagesController.php:823
 msgid "Not a valid port number!"
 msgstr "请输入有效的端口号！"
 
-#: src/Config/Validator.php:543
+#: src/Config/Validator.php:544
 #: src/Controllers/JavaScriptMessagesController.php:821
 msgid "Not a positive number!"
 msgstr "请输入正数！"
 
-#: src/Config/Validator.php:565
+#: src/Config/Validator.php:566
 #: src/Controllers/JavaScriptMessagesController.php:822
 msgid "Not a non-negative number!"
 msgstr "请输入非负数！"
 
-#: src/Config/Validator.php:604
+#: src/Config/Validator.php:605
 #: src/Controllers/JavaScriptMessagesController.php:825
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -11411,8 +11411,8 @@ msgstr "已经有名为 “%s” 的页面了，请重新命名。"
 #: src/Controllers/Table/ZoomSearchController.php:105
 #: src/Controllers/Triggers/IndexController.php:71
 #: src/Controllers/Triggers/IndexController.php:97
-#: src/Controllers/View/CreateController.php:76
-#: src/Controllers/View/CreateController.php:81
+#: src/Controllers/View/CreateController.php:77
+#: src/Controllers/View/CreateController.php:82
 msgid "No databases selected."
 msgstr "没有已选择的数据库。"
 
@@ -14677,7 +14677,7 @@ msgstr "处理请求时出错：在数据库 %2$s 中找不到名为 %1$s 的触
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "权限不足！"
 
-#: src/Controllers/View/CreateController.php:94
+#: src/Controllers/View/CreateController.php:95
 msgid "View name can not be empty!"
 msgstr "视图名不可为空！"
 
@@ -14831,7 +14831,7 @@ msgstr "请选择一个有效的事件类型。"
 msgid "You must provide an event definition."
 msgstr "请输入事件定义。"
 
-#: src/DatabaseInterface.php:1129
+#: src/DatabaseInterface.php:1128
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -14841,11 +14841,11 @@ msgstr ""
 "无法为服务器 %2$d 设置时区 “%1$s” 。请检查您的配置中 [em]$cfg['Servers']"
 "[%3$d]['SessionTimeZone'][/em] 字段。服务器当前使用默认时区。"
 
-#: src/DatabaseInterface.php:1171
+#: src/DatabaseInterface.php:1170
 msgid "Failed to set configured collation connection!"
 msgstr "无法设置配置的整理连接！"
 
-#: src/DatabaseInterface.php:1685
+#: src/DatabaseInterface.php:1684
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "使用配置文件中定义的控制用户连接失败。"
 
@@ -16560,25 +16560,25 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr "在导入时找到重复键时更新数据（添加ON DUPLICATE KEY UPDATE）"
 
-#: src/Plugins/Import/ImportCsv.php:93
+#: src/Plugins/Import/ImportCsv.php:99
 msgid "Name of the new table (optional):"
 msgstr "新表的名称（可选）："
 
-#: src/Plugins/Import/ImportCsv.php:102
+#: src/Plugins/Import/ImportCsv.php:108
 msgid "Name of the new database (optional):"
 msgstr "新数据库的名称（可选）："
 
-#: src/Plugins/Import/ImportCsv.php:111 src/Plugins/Import/ImportCsv.php:129
+#: src/Plugins/Import/ImportCsv.php:117 src/Plugins/Import/ImportCsv.php:135
 msgid "Import these many number of rows (optional):"
 msgstr "导入这些行（可选）："
 
-#: src/Plugins/Import/ImportCsv.php:119 src/Plugins/Import/ImportOds.php:67
+#: src/Plugins/Import/ImportCsv.php:125 src/Plugins/Import/ImportOds.php:72
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr "文件首行包含数据表的字段名 <i>(若未选此项，首行将被认为是数据)</i>"
 
-#: src/Plugins/Import/ImportCsv.php:136
+#: src/Plugins/Import/ImportCsv.php:142
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -16587,27 +16587,27 @@ msgstr ""
 "若文件每行的数据和数据库中的顺序不一致，请在此列出对应的字段名。字段名间用半"
 "角逗号分隔且不能用引号括起。"
 
-#: src/Plugins/Import/ImportCsv.php:144
+#: src/Plugins/Import/ImportCsv.php:150
 msgid "Column names:"
 msgstr "字段名:"
 
-#: src/Plugins/Import/ImportCsv.php:291 src/Plugins/Import/ImportCsv.php:616
+#: src/Plugins/Import/ImportCsv.php:290 src/Plugins/Import/ImportCsv.php:614
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "CSV 输入的第 %d 行格式有错。"
 
-#: src/Plugins/Import/ImportCsv.php:498
+#: src/Plugins/Import/ImportCsv.php:497
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV 输入的第 %d 行字段数有错。"
 
-#: src/Plugins/Import/ImportCsv.php:638 src/Plugins/Import/ImportCsv.php:653
-#: src/Plugins/Import/ImportCsv.php:664 src/Plugins/Import/ImportCsv.php:671
+#: src/Plugins/Import/ImportCsv.php:636 src/Plugins/Import/ImportCsv.php:651
+#: src/Plugins/Import/ImportCsv.php:662 src/Plugins/Import/ImportCsv.php:669
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "导入 CSV 文件 %s 时有无效参数"
 
-#: src/Plugins/Import/ImportCsv.php:769
+#: src/Plugins/Import/ImportCsv.php:767
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -16633,22 +16633,22 @@ msgstr "MediaWiki 表"
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "mediawiki输入在此行存在格式错误:<br>%s。"
 
-#: src/Plugins/Import/ImportOds.php:81
+#: src/Plugins/Import/ImportOds.php:86
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "导入百分数为小数 <i>(如: 12.00% 将被导入为 .12)</i>"
 
-#: src/Plugins/Import/ImportOds.php:87
+#: src/Plugins/Import/ImportOds.php:92
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "导入货币 <i>(如: $5.00 将被导入为 5.00)</i>"
 
-#: src/Plugins/Import/ImportOds.php:150 src/Plugins/Import/ImportXml.php:107
-#: src/Plugins/Import/ImportXml.php:145
+#: src/Plugins/Import/ImportOds.php:159 src/Plugins/Import/ImportXml.php:75
+#: src/Plugins/Import/ImportXml.php:113
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr "该 XML 文件有错误或者不完整。请修复错误后重试。"
 
-#: src/Plugins/Import/ImportOds.php:158
+#: src/Plugins/Import/ImportOds.php:167
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "无法解析OpenDocument电子表格！"
 

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-03-17 00:19+0000\n"
+"POT-Creation-Date: 2024-03-24 00:19+0000\n"
 "PO-Revision-Date: 2023-04-29 07:51+0000\n"
 "Last-Translator: mixeros <mixer@mixercz.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -983,10 +983,10 @@ msgstr "Historie"
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
 #: src/Plugins/Export/ExportSql.php:114
 #: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:60
-#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:80
+#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:86
 #: src/Plugins/Import/ImportLdi.php:61
 #: src/Plugins/Import/ImportMediawiki.php:61
-#: src/Plugins/Import/ImportOds.php:54 src/Plugins/Import/ImportShp.php:73
+#: src/Plugins/Import/ImportOds.php:59 src/Plugins/Import/ImportShp.php:73
 #: src/Plugins/Import/ImportSql.php:43 src/Plugins/Import/ImportXml.php:50
 msgid "Options"
 msgstr "Nastavení"
@@ -10392,12 +10392,12 @@ msgid "Put columns names in the first row"
 msgstr "Přidat názvy sloupců na první řádek"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:655
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:653
 msgid "Columns enclosed with"
 msgstr "Sloupce uzavřené do"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:666
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:664
 msgid "Columns escaped with"
 msgstr "Sloupce escapované"
 
@@ -10413,12 +10413,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "Odstranit ze sloupců znaky konce řádku"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:640
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:638
 msgid "Columns terminated with"
 msgstr "Sloupce ukončené"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:673
+#: src/Plugins/Import/ImportCsv.php:671
 msgid "Lines terminated with"
 msgstr "Řádky ukončené"
 
@@ -10706,7 +10706,7 @@ msgid "Partial import: allow interrupt"
 msgstr "Částečný import: povolit přerušení"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:151 src/Plugins/Import/ImportLdi.php:78
+#: src/Plugins/Import/ImportCsv.php:157 src/Plugins/Import/ImportLdi.php:78
 msgid "Do not abort on INSERT error"
 msgstr "Nepřerušit při chybě v příkazu INSERT"
 
@@ -10726,7 +10726,7 @@ msgstr "Použít klíčové slovo LOCAL"
 msgid "Column names in first row"
 msgstr "Názvy sloupců na prvním řádku"
 
-#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:75
+#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:80
 msgid "Do not import empty rows"
 msgstr "Neimportovat prázdné řádky"
 
@@ -11384,7 +11384,7 @@ msgstr "Porovnávání pro toto připojení k serveru"
 msgid "Missing data for %s"
 msgstr "Chybí data v %s"
 
-#: src/Config/FormDisplay.php:620 src/Config/Validator.php:586
+#: src/Config/FormDisplay.php:620 src/Config/Validator.php:587
 #: src/Controllers/JavaScriptMessagesController.php:824
 msgid "Incorrect value!"
 msgstr "Nesprávná hodnota!"
@@ -11665,39 +11665,39 @@ msgstr "Záložky pro práci s databází"
 msgid "Table-level tabs"
 msgstr "Záložky pro práci s tabulkou"
 
-#: src/Config/Validator.php:242
+#: src/Config/Validator.php:243
 msgid "Could not connect to the database server!"
 msgstr "Nepodařilo se připojit databázovému serveru!"
 
-#: src/Config/Validator.php:278
+#: src/Config/Validator.php:279
 msgid "Invalid authentication type!"
 msgstr "Chybný typ přihlašování!"
 
-#: src/Config/Validator.php:283
+#: src/Config/Validator.php:284
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Při použití přihlašovací metody [kbd]config[/kbd] nebylo vyplněno "
 "uživatelské jméno!"
 
-#: src/Config/Validator.php:289
+#: src/Config/Validator.php:290
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
 "Prázdný název signon relace při použití přihlašování [kbd]signon[/kbd]!"
 
-#: src/Config/Validator.php:296
+#: src/Config/Validator.php:297
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "Prázdné přihlašovací URL při použití přihlašování [kbd]signon[/kbd]!"
 
-#: src/Config/Validator.php:349
+#: src/Config/Validator.php:350
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Nevyplněný kontrolní uživatel phpMyAdmina při použití úložiště nastavení "
 "phpMyAdmina!"
 
-#: src/Config/Validator.php:356
+#: src/Config/Validator.php:357
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -11705,31 +11705,31 @@ msgstr ""
 "Nevyplněné heslo kontrolního uživatele phpMyAdmina při použití úložiště "
 "nastavení phpMyAdmina!"
 
-#: src/Config/Validator.php:447
+#: src/Config/Validator.php:448
 msgid "Incorrect value:"
 msgstr "Nesprávná hodnota:"
 
-#: src/Config/Validator.php:458
+#: src/Config/Validator.php:459
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Nesprávná IP adresa: %s"
 
-#: src/Config/Validator.php:521
+#: src/Config/Validator.php:522
 #: src/Controllers/JavaScriptMessagesController.php:823
 msgid "Not a valid port number!"
 msgstr "Neplatné číslo portu!"
 
-#: src/Config/Validator.php:543
+#: src/Config/Validator.php:544
 #: src/Controllers/JavaScriptMessagesController.php:821
 msgid "Not a positive number!"
 msgstr "Nebylo zadáno kladné číslo!"
 
-#: src/Config/Validator.php:565
+#: src/Config/Validator.php:566
 #: src/Controllers/JavaScriptMessagesController.php:822
 msgid "Not a non-negative number!"
 msgstr "Nebylo zadáno nezáporné číslo!"
 
-#: src/Config/Validator.php:604
+#: src/Config/Validator.php:605
 #: src/Controllers/JavaScriptMessagesController.php:825
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -11851,8 +11851,8 @@ msgstr "Stránka s názvem \"%s\" již existuje. Přejmenuje ji na něco jiného
 #: src/Controllers/Table/ZoomSearchController.php:105
 #: src/Controllers/Triggers/IndexController.php:71
 #: src/Controllers/Triggers/IndexController.php:97
-#: src/Controllers/View/CreateController.php:76
-#: src/Controllers/View/CreateController.php:81
+#: src/Controllers/View/CreateController.php:77
+#: src/Controllers/View/CreateController.php:82
 msgid "No databases selected."
 msgstr "Nebyla vybrána žádná databáze."
 
@@ -15271,7 +15271,7 @@ msgstr ""
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Nemáte dostatečná práva na provedení této akce!"
 
-#: src/Controllers/View/CreateController.php:94
+#: src/Controllers/View/CreateController.php:95
 msgid "View name can not be empty!"
 msgstr "Název pohledu nemůže být prázdný!"
 
@@ -15429,7 +15429,7 @@ msgstr "Musíte zadat správný typ události."
 msgid "You must provide an event definition."
 msgstr "Musíte zadat definici události."
 
-#: src/DatabaseInterface.php:1129
+#: src/DatabaseInterface.php:1128
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -15440,11 +15440,11 @@ msgstr ""
 "nastavení konfigurace [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin aktuálně používá výchozí časové pásmo databázového serveru."
 
-#: src/DatabaseInterface.php:1171
+#: src/DatabaseInterface.php:1170
 msgid "Failed to set configured collation connection!"
 msgstr "Nepodařilo se nastavit nakonfigurované kódování pro připojení!"
 
-#: src/DatabaseInterface.php:1685
+#: src/DatabaseInterface.php:1684
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Nepodařilo se připojit jako controluser, který je nadefinován v nastaveních."
@@ -17273,19 +17273,19 @@ msgstr ""
 "Aktualizovat data při nalezení duplicitních klíčů při importu (přidat ON "
 "DUPLICATE KEY UPDATE)"
 
-#: src/Plugins/Import/ImportCsv.php:93
+#: src/Plugins/Import/ImportCsv.php:99
 msgid "Name of the new table (optional):"
 msgstr "Název nové tabulky (nepovinné):"
 
-#: src/Plugins/Import/ImportCsv.php:102
+#: src/Plugins/Import/ImportCsv.php:108
 msgid "Name of the new database (optional):"
 msgstr "Název nové databáze (nepovinné):"
 
-#: src/Plugins/Import/ImportCsv.php:111 src/Plugins/Import/ImportCsv.php:129
+#: src/Plugins/Import/ImportCsv.php:117 src/Plugins/Import/ImportCsv.php:135
 msgid "Import these many number of rows (optional):"
 msgstr "Importovat tento počet záznamů (nepovinné):"
 
-#: src/Plugins/Import/ImportCsv.php:119 src/Plugins/Import/ImportOds.php:67
+#: src/Plugins/Import/ImportCsv.php:125 src/Plugins/Import/ImportOds.php:72
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -17293,7 +17293,7 @@ msgstr ""
 "První řádek souboru obsahuje názvy sloupců <i>(pokud tuto volbu "
 "nezaškrtnete, první řádek bude součástí dat)</i>"
 
-#: src/Plugins/Import/ImportCsv.php:136
+#: src/Plugins/Import/ImportCsv.php:142
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -17303,27 +17303,27 @@ msgstr ""
 "zde odpovídající názvy sloupců. Názvy sloupců musí být odděleny čárkami a "
 "nesmí být uzavřeny do uvozovek."
 
-#: src/Plugins/Import/ImportCsv.php:144
+#: src/Plugins/Import/ImportCsv.php:150
 msgid "Column names:"
 msgstr "Názvy sloupců:"
 
-#: src/Plugins/Import/ImportCsv.php:291 src/Plugins/Import/ImportCsv.php:616
+#: src/Plugins/Import/ImportCsv.php:290 src/Plugins/Import/ImportCsv.php:614
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Chybný formát CSV dat na řádku %d."
 
-#: src/Plugins/Import/ImportCsv.php:498
+#: src/Plugins/Import/ImportCsv.php:497
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Chybný počet sloupců v CSV datech na řádku %d."
 
-#: src/Plugins/Import/ImportCsv.php:638 src/Plugins/Import/ImportCsv.php:653
-#: src/Plugins/Import/ImportCsv.php:664 src/Plugins/Import/ImportCsv.php:671
+#: src/Plugins/Import/ImportCsv.php:636 src/Plugins/Import/ImportCsv.php:651
+#: src/Plugins/Import/ImportCsv.php:662 src/Plugins/Import/ImportCsv.php:669
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Chybný parametr pro import CSV: %s"
 
-#: src/Plugins/Import/ImportCsv.php:769
+#: src/Plugins/Import/ImportCsv.php:767
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -17349,17 +17349,17 @@ msgstr "Tabulka MediaWiki"
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "Chybný formát mediawiki dat na řádku: <br>%s."
 
-#: src/Plugins/Import/ImportOds.php:81
+#: src/Plugins/Import/ImportOds.php:86
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
 "Importovat procenta jako desetinná čísla <i>např. (0.12 místo 12.00%)</i>"
 
-#: src/Plugins/Import/ImportOds.php:87
+#: src/Plugins/Import/ImportOds.php:92
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Importovat měny <i>(např. 5.00 místo $5.00)</i>"
 
-#: src/Plugins/Import/ImportOds.php:150 src/Plugins/Import/ImportXml.php:107
-#: src/Plugins/Import/ImportXml.php:145
+#: src/Plugins/Import/ImportOds.php:159 src/Plugins/Import/ImportXml.php:75
+#: src/Plugins/Import/ImportXml.php:113
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -17367,7 +17367,7 @@ msgstr ""
 "Zadaný XML soubor je buď poškozený nebo nekompletní. Prosím opravte ho a "
 "zkuste to znovu."
 
-#: src/Plugins/Import/ImportOds.php:158
+#: src/Plugins/Import/ImportOds.php:167
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Nepodařilo se otevřít Sešit OpenDocument!"
 
