@@ -77,8 +77,6 @@ class TableMover
             $this->copyData($sourceDb, $sourceTable, $targetDb, $targetTable);
         }
 
-        $relationParameters = $this->relation->getRelationParameters();
-
         if ($what === MoveScope::Move) {
             $this->dropOldStructure($sourceDb, $sourceTable);
 
@@ -93,6 +91,8 @@ class TableMover
         if ($what === MoveScope::DataOnly || isset($maintainRelations)) {
             return true;
         }
+
+        $relationParameters = $this->relation->getRelationParameters();
 
         if ($relationParameters->columnCommentsFeature !== null) {
             // Get all comments and MIME-Types for current table
