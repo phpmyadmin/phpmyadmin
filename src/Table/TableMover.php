@@ -66,107 +66,13 @@ class TableMover
         // databases, when moving table from replicated one to not replicated one.
         $this->dbi->selectDb($targetDb);
 
-        // No table is created when this is a data-only operation.
         if ($what !== MoveScope::DataOnly) {
-            /**
-             * Instance used for exporting the current structure of the table.
-             *
-             * @var ExportSql $exportSqlPlugin
-             */
-            $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
-                'export_type' => 'table',
-                'single_table' => false,
-            ]);
-            // It is better that all identifiers are quoted
-            $exportSqlPlugin->useSqlBackquotes(true);
-
-            $noConstraintsComments = true;
-            $GLOBALS['sql_constraints_query'] = '';
-            // set the value of global sql_auto_increment variable
-            if (isset($_POST['sql_auto_increment'])) {
-                $GLOBALS['sql_auto_increment'] = $_POST['sql_auto_increment'];
-            }
-
-            $isView = (new Table($sourceTable, $sourceDb, $this->dbi))->isView();
-            /**
-             * The old structure of the table.
-             */
-            $sqlStructure = $exportSqlPlugin->getTableDef($sourceDb, $sourceTable, false, false, $isView);
-
-            unset($noConstraintsComments);
-
-            // -----------------------------------------------------------------
-            // Phase 0: Preparing structures used.
-
-            /**
-             * The destination where the table is moved or copied to.
-             */
-            $destination = new Expression($targetDb, $targetTable, '');
-
-            // Find server's SQL mode so the builder can generate correct
-            // queries.
-            // One of the options that alters the behaviour is `ANSI_QUOTES`.
-            Context::setMode((string) $this->dbi->fetchValue('SELECT @@sql_mode'));
-
-            // -----------------------------------------------------------------
-            // Phase 1: Dropping existent element of the same name (if exists
-            // and required).
-
-            if ($addDropIfExists) {
-                $this->executeDropIfExists($targetTable, $targetDb, $destination);
-
-                // If an existing table gets deleted, maintain any entries for
-                // the PMA_* tables.
-                $maintainRelations = true;
-            }
-
-            // -----------------------------------------------------------------
-            // Phase 2: Generating the new query of this structure.
-
-            $this->createNewStructure($sqlStructure, $destination, $what, $targetDb);
-
-            // -----------------------------------------------------------------
-            // Phase 3: Adding constraints.
-            // All constraint names are removed because they must be unique.
-
-            if ($what === MoveScope::Move && ! empty($GLOBALS['sql_constraints_query'])) {
-                $GLOBALS['sql_constraints_query'] = $this->getConstraintsSqlWithoutNames(
-                    $GLOBALS['sql_constraints_query'],
-                    $destination,
-                );
-
-                $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query'];
-
-                // We can only execute it if both tables have been created.
-                // When performing the whole database move,
-                // the constraints can only be created after all tables have been created.
-                // Thus, we must keep the global so that the caller can execute these queries.
-                if ($mode === MoveMode::SingleTable) {
-                    $this->dbi->query($GLOBALS['sql_constraints_query']);
-                    unset($GLOBALS['sql_constraints_query']);
-                }
-            }
-
-            // -----------------------------------------------------------------
-            // Phase 4: Adding indexes.
-            // View phase 3.
-
-            if (! empty($GLOBALS['sql_indexes'])) {
-                $this->createIndexes($GLOBALS['sql_indexes'], $destination);
-            }
-
-            // -----------------------------------------------------------------
-            // Phase 5: Adding AUTO_INCREMENT.
-
-            if (! empty($GLOBALS['sql_auto_increments'])) {
-                $this->executeAlterAutoIncrement($GLOBALS['sql_auto_increments'], $destination);
-            }
+            $maintainRelations = $this->handleStructureCreation($sourceTable, $sourceDb, $targetDb, $targetTable, $addDropIfExists, $what, $mode);
         } else {
             $GLOBALS['sql_query'] = '';
         }
 
         $table = new Table($targetTable, $targetDb, $this->dbi);
-        // Copy the data unless this is a VIEW
         if ($what !== MoveScope::StructureOnly && ! $table->isView()) {
             $this->copyData($sourceDb, $sourceTable, $targetDb, $targetTable);
         }
@@ -527,5 +433,113 @@ class TableMover
 
         $this->dbi->query($sqlInsertData);
         $GLOBALS['sql_query'] .= "\n\n" . $sqlInsertData . ';';
+    }
+
+    private function handleStructureCreation(
+        string $sourceTable,
+        string $sourceDb,
+        string $targetDb,
+        string $targetTable,
+        bool $addDropIfExists,
+        MoveScope $what,
+        MoveMode $mode,
+    ): bool {
+        $maintainRelations = false;
+
+        /**
+         * Instance used for exporting the current structure of the table.
+         *
+         * @var ExportSql $exportSqlPlugin
+         */
+        $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
+            'export_type' => 'table',
+            'single_table' => false,
+        ]);
+        // It is better that all identifiers are quoted
+        $exportSqlPlugin->useSqlBackquotes(true);
+
+        $noConstraintsComments = true;
+        $GLOBALS['sql_constraints_query'] = '';
+        // set the value of global sql_auto_increment variable
+        if (isset($_POST['sql_auto_increment'])) {
+            $GLOBALS['sql_auto_increment'] = $_POST['sql_auto_increment'];
+        }
+
+        $isView = (new Table($sourceTable, $sourceDb, $this->dbi))->isView();
+        /**
+         * The old structure of the table.
+         */
+        $sqlStructure = $exportSqlPlugin->getTableDef($sourceDb, $sourceTable, false, false, $isView);
+
+        unset($noConstraintsComments);
+
+        // -----------------------------------------------------------------
+        // Phase 0: Preparing structures used.
+
+        /**
+         * The destination where the table is moved or copied to.
+         */
+        $destination = new Expression($targetDb, $targetTable, '');
+
+        // Find server's SQL mode so the builder can generate correct
+        // queries.
+        // One of the options that alters the behaviour is `ANSI_QUOTES`.
+        Context::setMode((string) $this->dbi->fetchValue('SELECT @@sql_mode'));
+
+        // -----------------------------------------------------------------
+        // Phase 1: Dropping existent element of the same name (if exists
+        // and required).
+
+        if ($addDropIfExists) {
+            $this->executeDropIfExists($targetTable, $targetDb, $destination);
+
+            // If an existing table gets deleted, maintain any entries for
+            // the PMA_* tables.
+            $maintainRelations = true;
+        }
+
+        // -----------------------------------------------------------------
+        // Phase 2: Generating the new query of this structure.
+
+        $this->createNewStructure($sqlStructure, $destination, $what, $targetDb);
+
+        // -----------------------------------------------------------------
+        // Phase 3: Adding constraints.
+        // All constraint names are removed because they must be unique.
+
+        if ($what === MoveScope::Move && ! empty($GLOBALS['sql_constraints_query'])) {
+            $GLOBALS['sql_constraints_query'] = $this->getConstraintsSqlWithoutNames(
+                $GLOBALS['sql_constraints_query'],
+                $destination,
+            );
+
+            $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query'];
+
+            // We can only execute it if both tables have been created.
+            // When performing the whole database move,
+            // the constraints can only be created after all tables have been created.
+            // Thus, we must keep the global so that the caller can execute these queries.
+            if ($mode === MoveMode::SingleTable) {
+                $this->dbi->query($GLOBALS['sql_constraints_query']);
+                unset($GLOBALS['sql_constraints_query']);
+            }
+        }
+
+        // -----------------------------------------------------------------
+        // Phase 4: Adding indexes.
+        // View phase 3.
+
+        if (! empty($GLOBALS['sql_indexes'])) {
+            $this->createIndexes($GLOBALS['sql_indexes'], $destination);
+        }
+
+        // -----------------------------------------------------------------
+        // Phase 5: Adding AUTO_INCREMENT.
+
+        if (! empty($GLOBALS['sql_auto_increments'])) {
+            $this->executeAlterAutoIncrement($GLOBALS['sql_auto_increments'], $destination);
+        }
+
+        return $maintainRelations;
     }
 }
