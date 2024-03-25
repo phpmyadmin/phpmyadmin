@@ -9,8 +9,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Twig\Extensions\Node\TransNode;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use ReflectionProperty;
 use Twig\Cache\CacheInterface;
 use Twig\Environment;
@@ -163,8 +161,6 @@ class TemplateTest extends AbstractTestCase
         ];
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testLoadingTwigEnvOnlyOnce(): void
     {
         $twigEnvCacheProperty = new ReflectionProperty(Template::class, 'twig');

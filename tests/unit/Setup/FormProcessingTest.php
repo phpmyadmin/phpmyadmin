@@ -14,8 +14,6 @@ use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use ReflectionProperty;
 use Throwable;
 
@@ -39,8 +37,6 @@ class FormProcessingTest extends AbstractTestCase
         Config::getInstance()->settings['ServerDefault'] = 1;
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testProcessFormSet(): void
     {
         DatabaseInterface::$instance = $this->createDatabaseInterface();

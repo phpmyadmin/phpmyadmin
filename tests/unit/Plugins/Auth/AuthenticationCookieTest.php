@@ -16,8 +16,6 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use ReflectionException;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -74,8 +72,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         unset($this->object);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthErrorAJAX(): void
     {
         $GLOBALS['conn_error'] = true;
@@ -113,8 +109,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         ErrorHandler::$instance = $mockErrorHandler;
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthError(): void
     {
         $_REQUEST = [];
@@ -189,8 +183,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertStringContainsString('<input type="hidden" name="table" value="testTable">', $result);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthCaptcha(): void
     {
         $_REQUEST['old_usr'] = '';
@@ -251,8 +243,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         );
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthCaptchaCheckbox(): void
     {
         $_REQUEST['old_usr'] = '';
@@ -315,8 +305,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         );
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthHeader(): void
     {
         $config = Config::getInstance();
@@ -336,8 +324,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame(302, $response->getStatusCode());
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthHeaderPartial(): void
     {
         $config = Config::getInstance();
@@ -377,8 +363,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame('Missing Captcha verification, maybe it has been blocked by adblock?', $GLOBALS['conn_error']);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testLogoutDelete(): void
     {
         $responseStub = new ResponseRendererStub();
@@ -406,8 +390,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertArrayNotHasKey('pmaAuth-0', $_COOKIE);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testLogout(): void
     {
         $responseStub = new ResponseRendererStub();
@@ -657,8 +639,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         $this->object->rememberCredentials();
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthFailsNoPass(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -727,8 +707,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame($GLOBALS['conn_error'], $connError);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthFailsDeny(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -759,8 +737,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame($GLOBALS['conn_error'], 'Access denied!');
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthFailsActivity(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -798,8 +774,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         );
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthFailsDBI(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -841,8 +815,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame($GLOBALS['conn_error'], '#42 Cannot log in to the MySQL server');
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthFailsErrno(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -1007,8 +979,6 @@ class AuthenticationCookieTest extends AbstractTestCase
      * @param mixed[] $rules    rules
      * @param string  $expected expected result
      */
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     #[DataProvider('checkRulesProvider')]
     public function testCheckRules(
         string $user,

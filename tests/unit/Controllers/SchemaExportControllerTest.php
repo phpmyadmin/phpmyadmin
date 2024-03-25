@@ -11,12 +11,10 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 
 #[CoversClass(SchemaExportController::class)]
 class SchemaExportControllerTest extends AbstractTestCase
 {
-    #[RunInSeparateProcess]
     public function testExport(): void
     {
         DatabaseInterface::$instance = $this->createDatabaseInterface();

@@ -15,8 +15,6 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use ReflectionProperty;
 use Throwable;
 
@@ -59,8 +57,6 @@ class AuthenticationHttpTest extends AbstractTestCase
         unset($this->object);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthLogoutUrl(): void
     {
         $config = Config::getInstance();
@@ -77,8 +73,6 @@ class AuthenticationHttpTest extends AbstractTestCase
         self::assertSame(302, $response->getStatusCode());
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthVerbose(): void
     {
         $config = Config::getInstance();
@@ -99,8 +93,6 @@ class AuthenticationHttpTest extends AbstractTestCase
         self::assertSame(401, $response->getStatusCode());
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthHost(): void
     {
         $config = Config::getInstance();
@@ -122,8 +114,6 @@ class AuthenticationHttpTest extends AbstractTestCase
         self::assertSame(401, $response->getStatusCode());
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthRealm(): void
     {
         $config = Config::getInstance();
@@ -276,8 +266,6 @@ class AuthenticationHttpTest extends AbstractTestCase
         self::assertSame(3, Current::$server);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testAuthFails(): void
     {
         $config = Config::getInstance();

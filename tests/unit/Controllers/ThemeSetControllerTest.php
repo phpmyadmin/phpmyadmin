@@ -15,8 +15,6 @@ use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\UserPreferences;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 
 #[CoversClass(ThemeSetController::class)]
 class ThemeSetControllerTest extends AbstractTestCase
@@ -28,8 +26,6 @@ class ThemeSetControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
     }
 
-    #[PreserveGlobalState(false)]
-    #[RunInSeparateProcess]
     public function testSetTheme(): void
     {
         Config::getInstance()->settings['ThemeManager'] = true;
@@ -52,8 +48,6 @@ class ThemeSetControllerTest extends AbstractTestCase
 
     /** @param string[]|string|null $themeName */
     #[DataProvider('providerForTestWithoutTheme')]
-    #[PreserveGlobalState(false)]
-    #[RunInSeparateProcess]
     public function testWithoutTheme(bool $hasThemes, array|string|null $themeName): void
     {
         Config::getInstance()->settings['ThemeManager'] = $hasThemes;
