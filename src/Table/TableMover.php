@@ -458,7 +458,7 @@ class TableMover
         // It is better that all identifiers are quoted
         $exportSqlPlugin->useSqlBackquotes(true);
 
-        $noConstraintsComments = true;
+        $GLOBALS['no_constraints_comments'] = true;
         $GLOBALS['sql_constraints_query'] = '';
         // set the value of global sql_auto_increment variable
         if (isset($_POST['sql_auto_increment'])) {
@@ -470,8 +470,6 @@ class TableMover
          * The old structure of the table.
          */
         $sqlStructure = $exportSqlPlugin->getTableDef($sourceDb, $sourceTable, false, false, $isView);
-
-        unset($noConstraintsComments);
 
         // -----------------------------------------------------------------
         // Phase 0: Preparing structures used.
