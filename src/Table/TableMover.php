@@ -66,15 +66,6 @@ class TableMover
         // databases, when moving table from replicated one to not replicated one.
         $this->dbi->selectDb($targetDb);
 
-        /**
-         * The full name of source table, quoted.
-         */
-        $source = Util::backquote($sourceDb) . '.' . Util::backquote($sourceTable);
-        /**
-         * The full name of target table, quoted.
-         */
-        $target = Util::backquote($targetDb) . '.' . Util::backquote($targetTable);
-
         // No table is created when this is a data-only operation.
         if ($what !== MoveScope::DataOnly) {
             /**
@@ -177,21 +168,7 @@ class TableMover
         $table = new Table($targetTable, $targetDb, $this->dbi);
         // Copy the data unless this is a VIEW
         if ($what !== MoveScope::StructureOnly && ! $table->isView()) {
-            $sqlSetMode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
-            $this->dbi->query($sqlSetMode);
-            $GLOBALS['sql_query'] .= "\n\n" . $sqlSetMode . ';';
-
-            $oldTable = new Table($sourceTable, $sourceDb, $this->dbi);
-            $nonGeneratedCols = $oldTable->getNonGeneratedColumns();
-            if ($nonGeneratedCols !== []) {
-                $sqlInsertData = 'INSERT INTO ' . $target . '('
-                    . implode(', ', $nonGeneratedCols)
-                    . ') SELECT ' . implode(', ', $nonGeneratedCols)
-                    . ' FROM ' . $source;
-
-                $this->dbi->query($sqlInsertData);
-                $GLOBALS['sql_query'] .= "\n\n" . $sqlInsertData . ';';
-            }
+            $this->copyData($sourceDb, $sourceTable, $targetDb, $targetTable);
         }
 
         $relationParameters = $this->relation->getRelationParameters();
@@ -529,5 +506,26 @@ class TableMover
         $this->dbi->query($sqlDropQuery);
 
         $GLOBALS['sql_query'] .= "\n\n" . $sqlDropQuery . ';';
+    }
+
+    private function copyData(string $sourceDb, string $sourceTable, string $targetDb, string $targetTable): void
+    {
+        $sqlSetMode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
+        $this->dbi->query($sqlSetMode);
+        $GLOBALS['sql_query'] .= "\n\n" . $sqlSetMode . ';';
+
+        $oldTable = new Table($sourceTable, $sourceDb, $this->dbi);
+        $nonGeneratedCols = $oldTable->getNonGeneratedColumns();
+        if ($nonGeneratedCols === []) {
+            return;
+        }
+
+        $sqlInsertData = 'INSERT INTO ' . Util::backquote($targetDb) . '.' . Util::backquote($targetTable) . '('
+            . implode(', ', $nonGeneratedCols)
+            . ') SELECT ' . implode(', ', $nonGeneratedCols)
+            . ' FROM ' . Util::backquote($sourceDb) . '.' . Util::backquote($sourceTable);
+
+        $this->dbi->query($sqlInsertData);
+        $GLOBALS['sql_query'] .= "\n\n" . $sqlInsertData . ';';
     }
 }
