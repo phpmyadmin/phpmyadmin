@@ -196,22 +196,11 @@ class TableMover
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        // Drops old table if the user has requested to move it
         if ($what === MoveScope::Move) {
-            // This could avoid some problems with replicated databases, when
-            // moving table from replicated one to not replicated one
-            $this->dbi->selectDb($sourceDb);
-
-            $sourceTableObj = new Table($sourceTable, $sourceDb, $this->dbi);
-            $sqlDropQuery = $sourceTableObj->isView() ? 'DROP VIEW' : 'DROP TABLE';
-
-            $sqlDropQuery .= ' ' . $source;
-            $this->dbi->query($sqlDropQuery);
+            $this->dropOldStructure($sourceDb, $sourceTable);
 
             // Rename table in configuration storage
             $this->relation->renameTable($sourceDb, $targetDb, $sourceTable, $targetTable);
-
-            $GLOBALS['sql_query'] .= "\n\n" . $sqlDropQuery . ';';
 
             return true;
         }
@@ -525,5 +514,20 @@ class TableMover
 
         $this->dbi->query($query);
         $GLOBALS['sql_query'] .= "\n" . $query;
+    }
+
+    private function dropOldStructure(string $sourceDb, string $sourceTable): void
+    {
+        // This could avoid some problems with replicated databases, when
+        // moving table from replicated one to not replicated one
+        $this->dbi->selectDb($sourceDb);
+
+        $sourceTableObj = new Table($sourceTable, $sourceDb, $this->dbi);
+        $sqlDropQuery = $sourceTableObj->isView() ? 'DROP VIEW ' : 'DROP TABLE ';
+
+        $sqlDropQuery .= Util::backquote($sourceDb) . '.' . Util::backquote($sourceTable);
+        $this->dbi->query($sqlDropQuery);
+
+        $GLOBALS['sql_query'] .= "\n\n" . $sqlDropQuery . ';';
     }
 }
