@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-12-12 04:04+0000\n"
+"PO-Revision-Date: 2024-03-26 11:09+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ru/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -692,16 +692,12 @@ msgid "Percentage of used open files limit"
 msgstr "Процентное соотношение использованного ограничения открытых файлов"
 
 #: libraries/advisory_rules_generic.php:436
-#, fuzzy
-#| msgid ""
-#| "The number of open files is approaching the max number of open files.  "
-#| "You may get a \"Too many open files\" error."
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
 msgstr ""
 "Количество открытых файлов приближается к максимальному. Возможно появление "
-"ошибки \"Слишком много открытых файлов\"."
+"ошибки «Слишком много открытых файлов»."
 
 #: libraries/advisory_rules_generic.php:440
 #: libraries/advisory_rules_generic.php:453
@@ -735,10 +731,9 @@ msgstr ""
 "Соотношение открытых файлов: %s, данное значение должно быть менее 5 в час"
 
 #: libraries/advisory_rules_generic.php:462
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "%% незамедлительной блокировки таблиц"
+msgstr "% незамедлительной блокировки таблиц"
 
 #: libraries/advisory_rules_generic.php:466
 #: libraries/advisory_rules_generic.php:476
@@ -794,10 +789,9 @@ msgid "The thread cache is set to 0"
 msgstr "Кеш потока установлен в 0"
 
 #: libraries/advisory_rules_generic.php:493
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "%% соотношение обращений в кеш потока"
+msgstr "% соотношения обращений в кеш потока"
 
 #: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
@@ -1164,10 +1158,9 @@ msgstr ""
 "установлена в 'OFF'"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "Эффективность кеширования запросов (%%)"
+msgstr "Эффективность кэша запросов (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1189,10 +1182,9 @@ msgid "Query Cache usage"
 msgstr "Использование кеширования запросов"
 
 #: libraries/advisory_rules_mysql_before80003.php:39
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "Использовано менее 80%% кеша запросов."
+msgstr "Использовано менее 80% кеша запросов."
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
@@ -2736,11 +2728,9 @@ msgid ""
 msgstr "Определяет выводить или нет SQL запросы, генерируемые phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:516
-#, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
-"Разрешить вывод статистики по базе данных и таблице (например, объем "
+"Разрешить вывод статистики по базе данных и таблице (например, объём "
 "занятого пространства)."
 
 #: libraries/classes/Config/Descriptions.php:518
@@ -5144,8 +5134,6 @@ msgstr ""
 #: libraries/classes/Controllers/Table/MaintenanceController.php:117
 #: libraries/classes/Controllers/Table/MaintenanceController.php:153
 #: libraries/classes/Controllers/Table/MaintenanceController.php:188
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
 msgstr "Ни одна таблица не выбрана."
 
@@ -7430,8 +7418,6 @@ msgstr "Сложный"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
-#, fuzzy
-#| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "Превышено время ожидания для активации ключа безопасности."
@@ -7446,25 +7432,21 @@ msgstr "Ошибочный тип экспорта"
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "Неизвестная ошибка"
+msgstr "Неизвестная ошибка ключа безопасности."
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "Клиент не поддерживает ключ безопасности."
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr "Ошибка активации ключа безопасности (%s)."
+msgstr "Ошибка активации ключа безопасности."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:726
@@ -8510,7 +8492,7 @@ msgstr "Имя первичного индекса должно быть \"PRIMA
 #: libraries/classes/Controllers/Table/MaintenanceController.php:160
 #: libraries/classes/Controllers/Table/MaintenanceController.php:195
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "Операции обслуживания нескольких таблиц отключены."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:113
 #: libraries/classes/Controllers/Table/OperationsController.php:303
@@ -8890,11 +8872,12 @@ msgid "Export of event %s"
 msgstr "Экспортировать событие %s"
 
 #: libraries/classes/Database/Events.php:584
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "В базе данных %2$s не найдено событие с именем %1$s."
+msgstr ""
+"Ошибка обработки запроса: В базе данных %2$s не найдено событие с именем "
+"%1$s."
 
 #: libraries/classes/DatabaseInterface.php:1111
 #, php-format
@@ -9294,17 +9277,15 @@ msgid "Export of routine %s"
 msgstr "Экспорт процедуры %s"
 
 #: libraries/classes/Database/Routines.php:1925
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine."
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
-"Процедура с именем %1$s не найдена в базе данных %2$s. Возможно, у вас "
-"отсутствуют привилегии, необходимые для просмотра/экспорта этой процедуры."
+"Ошибка обработки запроса: Процедура с именем %1$s не найдена в базе данных "
+"%2$s. Возможно, у вас отсутствуют привилегии, необходимые для просмотра/"
+"экспорта этой процедуры."
 
 #: libraries/classes/Database/Search.php:109
 #: templates/database/search/main.twig:19
@@ -9404,12 +9385,12 @@ msgid "Export of trigger %s"
 msgstr "Экспорт триггера %s"
 
 #: libraries/classes/Database/Triggers.php:636
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "В базе данных %2$s триггер с именем %1$s не найден."
+msgstr ""
+"Ошибка обработки запроса: Триггер с именем %1$s не найден в базе данных %2$s."
 
 #: libraries/classes/Dbal/DbiMysqli.php:207
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9917,6 +9898,7 @@ msgstr "Дамп был сохранен в файл %s."
 #: libraries/classes/Export.php:992
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
+"Экспорт необработанного запроса не поддерживается этим методом экспорта."
 
 #: libraries/classes/File.php:286
 msgid "File was not an uploaded file."
@@ -12028,6 +12010,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Вы используете поле параметров внешнего преобразования командной строки, "
+"которое было отключено из соображений безопасности. Добавьте все параметры "
+"командной строки непосредственно к определению в %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:27
 msgid ""
@@ -12487,6 +12472,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"Не удалось записать кэш маршрутизации, вам необходимо изменить права на "
+"папку/файл «%s»"
 
 #: libraries/classes/Routing.php:169
 #, php-format
@@ -13603,6 +13590,8 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"Предназначен для хранения адресов IPv6, а также адресов IPv4, предполагающих "
+"обычное отображение адресов IPv4 в адреса IPv6"
 
 #: libraries/classes/Types.php:723
 msgctxt "numeric types"
@@ -13632,11 +13621,9 @@ msgid "Could not save configuration"
 msgstr "Не получилось сохранить настройки"
 
 #: libraries/classes/UserPreferences.php:178
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "%sСоздать%s хранилище конфигурации phpMyAdmin в текущей базе данных."
+msgstr ""
+"Не удалось получить доступ к базе данных хранилища конфигурации phpMyAdmin."
 
 #: libraries/classes/Util.php:138
 #, php-format
@@ -14367,8 +14354,6 @@ msgid "Create version"
 msgstr "Создать версию"
 
 #: templates/database/central_columns/edit.twig:13
-#, fuzzy
-#| msgid "A_I"
 msgctxt "Auto Increment"
 msgid "A_I"
 msgstr "A_I"
@@ -17027,7 +17012,7 @@ msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Allows creating foreign key relations."
-msgstr "Позволяет создавать реляции внешних ключей."
+msgstr "Позволяет создавать отношения внешних ключей."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
@@ -17702,10 +17687,8 @@ msgstr "#"
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
-msgstr "в час"
+msgstr "ø в час"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -18215,10 +18198,8 @@ msgid "(singly)"
 msgstr "(столбец)"
 
 #: templates/table/operations/index.twig:50
-#, fuzzy
-#| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
-msgstr "Переместить таблицу в (таблицу базы данных <b>.</b>)"
+msgstr "Переместить таблицу в (база_данных.таблица)"
 
 #: templates/table/operations/index.twig:103
 msgid "Table options"
@@ -18237,10 +18218,8 @@ msgid "Change all column collations"
 msgstr "Изменить все сортировки столбцов"
 
 #: templates/table/operations/index.twig:227
-#, fuzzy
-#| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
-msgstr "Скопировать таблицу в (таблицу базы данных<b>.</b>)"
+msgstr "Скопировать таблицу в (база_данных.таблица)"
 
 #: templates/table/operations/index.twig:300
 msgid "Switch to copied table"
