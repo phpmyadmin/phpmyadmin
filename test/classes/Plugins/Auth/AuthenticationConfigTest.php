@@ -76,7 +76,6 @@ class AuthenticationConfigTest extends AbstractTestCase
     {
         $GLOBALS['errorHandler'] = new ErrorHandler();
         $GLOBALS['cfg']['Servers'] = [1];
-        $GLOBALS['allowDeny_forbidden'] = false;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
