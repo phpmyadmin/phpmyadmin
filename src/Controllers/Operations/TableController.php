@@ -258,7 +258,7 @@ class TableController extends AbstractController
                 $this->dbi->query($GLOBALS['sql_query']);
                 $result = true;
                 $rereadInfo = true;
-                $warningMessages = $this->operations->getWarningMessagesArray();
+                $warningMessages = $this->operations->getWarningMessagesArray($newTableStorageEngine);
             }
 
             /** @var mixed $tableCollationParam */

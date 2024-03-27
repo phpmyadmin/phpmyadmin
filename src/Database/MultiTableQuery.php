@@ -12,7 +12,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Operations;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
@@ -81,7 +80,6 @@ class MultiTableQuery
             $dbi,
             $relation,
             new RelationCleanup($dbi, $relation),
-            new Operations($dbi, $relation),
             new Transformations(),
             new Template(),
             $bookmarkRepository,

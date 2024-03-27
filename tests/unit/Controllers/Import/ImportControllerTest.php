@@ -13,7 +13,6 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Import;
-use PhpMyAdmin\Operations;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -90,7 +89,6 @@ class ImportControllerTest extends AbstractTestCase
             $this->dbi,
             $relation,
             self::createStub(RelationCleanup::class),
-            self::createStub(Operations::class),
             self::createStub(Transformations::class),
             $template,
             $bookmarkRepository,

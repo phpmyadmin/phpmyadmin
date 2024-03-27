@@ -15,7 +15,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Table;
@@ -34,7 +33,6 @@ final class EmptyTableController extends AbstractController
         private DatabaseInterface $dbi,
         private Relation $relation,
         private RelationCleanup $relationCleanup,
-        private Operations $operations,
         private FlashMessages $flash,
         private StructureController $structureController,
     ) {
@@ -77,7 +75,6 @@ final class EmptyTableController extends AbstractController
                 $this->dbi,
                 $this->relation,
                 $this->relationCleanup,
-                $this->operations,
                 new Transformations(),
                 $this->template,
                 new BookmarkRepository($this->dbi, $this->relation),

@@ -169,7 +169,6 @@ return [
                 '@dbi',
                 '@relation',
                 '@relation_cleanup',
-                '@operations',
                 '@transformations',
                 '@template',
                 '@bookmarkRepository',

@@ -14,14 +14,15 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_map;
 use function is_string;
+use function strval;
 
 /**
  * View manipulations
@@ -31,7 +32,6 @@ class ViewController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private Operations $operations,
         private DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {
@@ -105,7 +105,7 @@ class ViewController extends AbstractController
                 $result = false;
             }
 
-            $warningMessages = $this->operations->getWarningMessagesArray();
+            $warningMessages = array_map(strval(...), $this->dbi->getWarnings());
         }
 
         if (isset($result)) {

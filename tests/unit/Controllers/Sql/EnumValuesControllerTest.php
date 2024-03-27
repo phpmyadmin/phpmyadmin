@@ -12,7 +12,6 @@ use PhpMyAdmin\Controllers\Sql\EnumValuesController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Operations;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -61,7 +60,6 @@ class EnumValuesControllerTest extends AbstractTestCase
             $this->dbi,
             $relation,
             self::createStub(RelationCleanup::class),
-            self::createStub(Operations::class),
             self::createStub(Transformations::class),
             $template,
             $bookmarkRepository,
@@ -113,7 +111,6 @@ class EnumValuesControllerTest extends AbstractTestCase
             $this->dbi,
             $relation,
             self::createStub(RelationCleanup::class),
-            self::createStub(Operations::class),
             self::createStub(Transformations::class),
             $template,
             $bookmarkRepository,

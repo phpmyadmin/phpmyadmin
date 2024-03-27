@@ -16,7 +16,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Search;
@@ -240,7 +239,6 @@ class SearchController extends AbstractController
             $this->dbi,
             $this->relation,
             new RelationCleanup($this->dbi, $this->relation),
-            new Operations($this->dbi, $this->relation),
             new Transformations(),
             $this->template,
             new BookmarkRepository($this->dbi, $this->relation),
