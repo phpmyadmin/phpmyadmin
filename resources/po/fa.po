@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-03-24 00:19+0000\n"
-"PO-Revision-Date: 2023-05-04 20:50+0000\n"
-"Last-Translator: M <bafandehmajid@gmail.com>\n"
+"PO-Revision-Date: 2024-03-28 17:06+0000\n"
+"Last-Translator: Rasool-deldar <rasool.deldar.deve@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fa/>\n"
 "Language: fa\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:30
 #: resources/templates/database/central_columns/edit_table_row.twig:22
@@ -101,7 +101,7 @@ msgstr "فشرده‌سازي"
 
 #: resources/templates/columns_definitions/column_attributes.twig:184
 msgid "first"
-msgstr ""
+msgstr "اولین"
 
 #: resources/templates/columns_definitions/column_attributes.twig:190
 #: resources/templates/table/structure/display_structure.twig:450
@@ -132,7 +132,7 @@ msgstr "هیچ یک"
 #: resources/templates/database/create_table.twig:3
 #: resources/templates/database/operations/index.twig:28
 msgid "Table name"
-msgstr ""
+msgstr "نام جدول"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:27
 #: resources/templates/console/display.twig:126
@@ -242,7 +242,7 @@ msgstr "موتور ذخیره سازی"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:133
 msgid "PARTITION definition:"
-msgstr ""
+msgstr "تعریف پارتیشن"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:154
 #, fuzzy
@@ -19531,7 +19531,7 @@ msgstr "رمزگذاری پسورد"
 
 #: src/UserPreferences.php:162
 msgid "Could not save configuration"
-msgstr ""
+msgstr "پیکربندی ذخیره نشد"
 
 #: src/UserPreferences.php:173
 #, fuzzy
@@ -19556,7 +19556,7 @@ msgstr ""
 #: src/Util.php:547
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "ق.ظ"
 
 #: src/Util.php:619
 #, php-format
@@ -19575,7 +19575,7 @@ msgstr ""
 
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
-msgstr ""
+msgstr "هیچ فایلی در بایگانی ZIP پیدا نشد!"
 
 #, fuzzy, php-format
 #~| msgid "Error while moving uploaded file."
