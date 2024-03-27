@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-03-24 00:19+0000\n"
-"PO-Revision-Date: 2023-12-12 04:04+0000\n"
+"PO-Revision-Date: 2024-03-27 16:10+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:30
 #: resources/templates/database/central_columns/edit_table_row.twig:22
@@ -2812,16 +2812,16 @@ msgstr "Отслеживать таблицу"
 
 #: resources/templates/display/results/checkbox_and_links.twig:16
 #: resources/templates/display/results/checkbox_and_links.twig:78
-#, fuzzy
 msgid "You can also edit most values by clicking directly on them."
-msgstr "Возможно редактировать большинство значений<br>кликнув прямо на них."
+msgstr ""
+"Вы также можете править большинство значений непосредственно щелчком по ним."
 
 #: resources/templates/display/results/checkbox_and_links.twig:18
 #: resources/templates/display/results/checkbox_and_links.twig:80
-#, fuzzy
 msgid "You can also edit most values by double-clicking directly on them."
 msgstr ""
-"Большинство значений можно отредактировать<br>дважды кликнув прямо на них."
+"Вы также можете править большинство значений непосредственно двойным щелчком "
+"по ним."
 
 #: resources/templates/display/results/table.twig:18
 #: resources/templates/display/results/table.twig:21
@@ -3817,21 +3817,19 @@ msgid "Verify"
 msgstr "Подтверждение"
 
 #: resources/templates/login/twofactor/webauthn_creation.twig:1
-#, fuzzy
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
-"Подключите своё устройство FIDO U2F к компьютеру через USB-порт. Затем "
-"подтвердите регистрацию на устройстве."
+"Пожалуйста, подключите ваше устройство WebAuthn/FIDO2. Затем подтвердите "
+"регистрацию на устройстве."
 
 #: resources/templates/login/twofactor/webauthn_request.twig:1
-#, fuzzy
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
-"Подключите своё устройство FIDO U2F к компьютеру через USB-порт. Затем "
-"подтвердите авторизацию на устройстве."
+"Пожалуйста, подключите ваше устройство WebAuthn/FIDO2. Затем подтвердите "
+"авторизацию на устройстве."
 
 #: resources/templates/menu/main.twig:27
 msgid "View:"
@@ -6199,9 +6197,8 @@ msgid "ø Time"
 msgstr "ø время"
 
 #: resources/templates/sql/profiling_chart.twig:66
-#, fuzzy
 msgid "Pie chart with profiling results."
-msgstr "Профилирование результатов"
+msgstr "Круговая диаграмма с результатами профилирования."
 
 #: resources/templates/sql/query.twig:6
 #: src/Controllers/Operations/ViewController.php:117
@@ -12115,6 +12112,7 @@ msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
+"Поиск в базе данных отключён конфигурацией [code]$cfg['UseDbSearch'][/code]."
 
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:50
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:50
@@ -12396,11 +12394,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "База данных будет полностью УДАЛЕНА!"
 
 #: src/Controllers/JavaScriptMessagesController.php:55
-#, fuzzy
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
-"Невозможно переименовать базу данных с тем же именем. Измените имя и "
-"повторите попытку"
+"Нельзя сменить имя базы данных на то же самое. Укажите другое имя и "
+"повторите попытку."
 
 #: src/Controllers/JavaScriptMessagesController.php:57
 msgid "You are about to DESTROY a complete table!"
@@ -14294,13 +14291,9 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:809
-#, fuzzy
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
-msgstr ""
-"Вероятно, загружаемый файл имеет больший размер, чем максимально допустимо, "
-"либо ошибка связана с использованием веб-ориентированных браузеров (Safari, "
-"Google Chrome, Arora и др.)."
+msgstr "Вероятно, загружаемый файл превышает максимально допустимый размер."
 
 #: src/Controllers/JavaScriptMessagesController.php:811
 #, php-format
@@ -14417,14 +14410,14 @@ msgstr[1] "%1$d базы данных были успешно удалены."
 msgstr[2] "%1$d баз данных было успешно удалено."
 
 #: src/Controllers/Server/Privileges/AccountLockController.php:46
-#, fuzzy, php-format
+#, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "Поля были успешно перемещены."
+msgstr "Учётная запись %s@%s была успешно заблокирована."
 
 #: src/Controllers/Server/Privileges/AccountUnlockController.php:46
-#, fuzzy, php-format
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "Поля были успешно перемещены."
+msgstr "Учётная запись %s@%s была успешно разблокирована."
 
 #: src/Controllers/Server/PrivilegesController.php:130
 msgid ""
