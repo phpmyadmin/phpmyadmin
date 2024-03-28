@@ -875,11 +875,6 @@
       <code><![CDATA[$request]]></code>
     </UnusedParam>
   </file>
-  <file src="src/Controllers/Console/UpdateConfigController.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Database/CentralColumns/PopulateColumnsController.php">
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('selectedTable')]]></code>
@@ -12453,6 +12448,12 @@
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+  </file>
+  <file src="tests/unit/Controllers/Console/UpdateConfigControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[invalidParamsProvider]]></code>
+      <code><![CDATA[validParamsProvider]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/Controllers/Database/EventsControllerTest.php">
     <DeprecatedMethod>

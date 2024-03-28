@@ -123,19 +123,15 @@ export default class Config {
  * @param {boolean|string|number} value
  */
 function setConfigValue (key: string, value: boolean|number|string): void {
-    // Updating value in local storage.
-    const serialized = JSON.stringify(value);
-    localStorage.setItem('Console/' + key, serialized);
-
     $.ajax({
         url: 'index.php?route=/console/update-config',
         type: 'POST',
         dataType: 'json',
         data: {
             'ajax_request': true,
-            key: key,
             server: CommonParams.get('server'),
-            value: serialized,
+            key: key,
+            value: value,
         },
         success: function (data) {
             if (data.success !== true) {
