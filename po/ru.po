@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-12-12 04:06+0000\n"
+"PO-Revision-Date: 2024-03-26 11:09+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ru/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -697,7 +697,7 @@ msgid ""
 "may get a \"Too many open files\" error."
 msgstr ""
 "Количество открытых файлов приближается к максимальному. Возможно появление "
-"ошибки \"Слишком много открытых файлов\"."
+"ошибки «Слишком много открытых файлов»."
 
 #: libraries/advisory_rules_generic.php:437
 #: libraries/advisory_rules_generic.php:450
@@ -791,7 +791,7 @@ msgstr "Кеш потока установлен в 0"
 #: libraries/advisory_rules_generic.php:490
 #, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "% соотношение обращений в кеш потока"
+msgstr "% соотношения обращений в кеш потока"
 
 #: libraries/advisory_rules_generic.php:494
 msgid "Thread cache is not efficient."
@@ -1160,7 +1160,7 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.php:23
 #, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "Эффективность кеширования запросов (%)"
+msgstr "Эффективность кэша запросов (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -2767,7 +2767,7 @@ msgstr "Определяет выводить или нет SQL запросы, 
 #: libraries/classes/Config/Descriptions.php:504
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
-"Разрешить вывод статистики по базе данных и таблице (например, объем "
+"Разрешить вывод статистики по базе данных и таблице (например, объём "
 "занятого пространства)."
 
 #: libraries/classes/Config/Descriptions.php:506
@@ -8539,14 +8539,12 @@ msgid "No column selected."
 msgstr "Не выбран столбец."
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
-#, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "%1$d база данных была успешно удалена."
-msgstr[1] "%1$d базы данных были успешно удалены."
-msgstr[2] "%1$d баз данных было успешно удалено."
+msgstr[0] "%1$d столбец был успешно удалён."
+msgstr[1] "%1$d столбца были успешно удалены."
+msgstr[2] "%1$d столбцов было успешно удалено."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -8893,11 +8891,12 @@ msgid "Export of event %s"
 msgstr "Экспортировать событие %s"
 
 #: libraries/classes/Database/Events.php:589
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "В базе данных %2$s не найдено событие с именем %1$s."
+msgstr ""
+"Ошибка обработки запроса: В базе данных %2$s не найдено событие с именем "
+"%1$s."
 
 #: libraries/classes/DatabaseInterface.php:1132
 #, php-format
@@ -9068,17 +9067,15 @@ msgid "Export of routine %s"
 msgstr "Экспорт процедуры %s"
 
 #: libraries/classes/Database/Routines.php:1589
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine."
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
-"Процедура с именем %1$s не найдена в базе данных %2$s. Возможно, у вас "
-"отсутствуют привилегии, необходимые для просмотра/экспорта этой процедуры."
+"Ошибка обработки запроса: Процедура с именем %1$s не найдена в базе данных "
+"%2$s. Возможно, у вас отсутствуют привилегии, необходимые для просмотра/"
+"экспорта этой процедуры."
 
 #: libraries/classes/Database/Search.php:103
 #: templates/database/search/main.twig:19
@@ -9159,12 +9156,12 @@ msgid "Export of trigger %s"
 msgstr "Экспорт триггера %s"
 
 #: libraries/classes/Database/Triggers.php:520
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "В базе данных %2$s триггер с именем %1$s не найден."
+msgstr ""
+"Ошибка обработки запроса: Триггер с именем %1$s не найден в базе данных %2$s."
 
 #: libraries/classes/Dbal/DbiMysqli.php:152
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9679,7 +9676,8 @@ msgstr "Дамп был сохранен в файл %s."
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: libraries/classes/Export.php:992
 msgid "Exporting a raw query is not supported for this export method."
-msgstr "Экспорт raw запроса не поддерживается для этого метода экспорта."
+msgstr ""
+"Экспорт необработанного запроса не поддерживается этим методом экспорта."
 
 #: libraries/classes/File.php:231
 msgid "File was not an uploaded file."
@@ -10820,16 +10818,12 @@ msgid "Entered captcha is wrong, try again!"
 msgstr "Ошибка при введении captcha, попробуйте ещё раз!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:301
-#, fuzzy
-#| msgid ""
-#| "Your password is too long. To prevent denial-of-service attacks, "
-#| "phpMyAdmin restricts passwords to less than 1000 characters."
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
-"Ваш пароль слишком длинный. Для предотвращения атак типа \"отказ в "
-"обслуживании\" phpMyAdmin ограничивает пароли длиной менее 1000 символов."
+"Ваш пароль слишком длинный. Для предотвращения атак типа «отказ в "
+"обслуживании» phpMyAdmin ограничивает пароли длиной менее 2000 символов."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
 msgid "You are not allowed to log in to this MySQL server!"
@@ -11818,6 +11812,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Вы используете поле параметров внешнего преобразования командной строки, "
+"которое было отключено из соображений безопасности. Добавьте все параметры "
+"командной строки непосредственно к определению в %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:29
 msgid ""
@@ -11994,16 +11991,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Аппаратный ключ безопасности (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
 "Обеспечивает аутентификацию с помощью аппаратных токенов безопасности, "
-"поддерживающих FIDO U2F, таких, как Yubikey."
+"поддерживающих FIDO U2F, таких, как YubiKey."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -12035,16 +12028,12 @@ msgid "Hardware Security Key (WebAuthn/FIDO2)"
 msgstr "Аппаратный ключ безопасности (WebAuthn/FIDO2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:186
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
 "Обеспечивает аутентификацию с помощью аппаратных токенов безопасности, "
-"поддерживающих FIDO U2F, таких, как Yubikey."
+"поддерживающих протокол WebAuthn/FIDO2, таких, как YubiKey."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -12160,6 +12149,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"Не удалось записать кэш маршрутизации, вам необходимо изменить права на "
+"папку/файл «%s»"
 
 #: libraries/classes/Routing.php:162
 #, php-format
@@ -13293,6 +13284,8 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"Предназначен для хранения адресов IPv6, а также адресов IPv4, предполагающих "
+"обычное отображение адресов IPv4 в адреса IPv6"
 
 #: libraries/classes/Types.php:445
 msgid "128-bit UUID (Universally Unique Identifier)"
@@ -13330,11 +13323,9 @@ msgid "Could not save configuration"
 msgstr "Не получилось сохранить настройки"
 
 #: libraries/classes/UserPreferences.php:192
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "%sСоздать%s хранилище конфигурации phpMyAdmin в текущей базе данных."
+msgstr ""
+"Не удалось получить доступ к базе данных хранилища конфигурации phpMyAdmin."
 
 #: libraries/classes/Util.php:131
 #, php-format
@@ -14965,16 +14956,12 @@ msgid "Is deterministic"
 msgstr "Определяющий"
 
 #: templates/database/routines/editor_form.twig:135
-#, fuzzy
-#| msgid ""
-#| "You do not have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
 msgstr ""
-"У вас недостаточно прав для выполнения этой операции; Более подробную "
-"информацию смотри в документации"
+"У вас недостаточно прав для выполнения этой операции. Пожалуйста, обратитесь "
+"к документации за подробностями."
 
 #: templates/database/routines/editor_form.twig:148
 msgid "Security type"
@@ -16383,27 +16370,19 @@ msgid "Verify"
 msgstr "Подтверждение"
 
 #: templates/login/twofactor/webauthn_creation.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm registration on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
-"Подключите своё устройство FIDO U2F к компьютеру через USB-порт. Затем "
-"подтвердите регистрацию на устройстве."
+"Пожалуйста, подключите ваше устройство WebAuthn/FIDO2. Затем подтвердите "
+"регистрацию на устройстве."
 
 #: templates/login/twofactor/webauthn_request.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm login on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
-"Подключите своё устройство FIDO U2F к компьютеру через USB-порт. Затем "
-"подтвердите авторизацию на устройстве."
+"Пожалуйста, подключите ваше устройство WebAuthn/FIDO2. Затем подтвердите "
+"авторизацию на устройстве."
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
@@ -17312,10 +17291,8 @@ msgstr ""
 "привилегий."
 
 #: templates/server/privileges/privileges_table.twig:670
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "Разрешает создание хранимых процедур."
+msgstr "Позволяет создавать отношения внешних ключей."
 
 #: templates/server/privileges/privileges_table.twig:670
 msgid "Not used on MariaDB."
@@ -17508,13 +17485,6 @@ msgid "Primary configuration"
 msgstr "Основная конфигурация"
 
 #: templates/server/replication/primary_configuration.twig:4
-#, fuzzy
-#| msgid ""
-#| "This server is not configured as a master server in a replication "
-#| "process. You can choose from either replicating all databases and "
-#| "ignoring some of them (useful if you want to replicate a majority of the "
-#| "databases) or you can choose to ignore all databases by default and allow "
-#| "only certain databases to be replicated. Please select the mode:"
 msgid ""
 "This server is not configured as a primary server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -17523,10 +17493,10 @@ msgid ""
 "databases to be replicated. Please select the mode:"
 msgstr ""
 "Данный сервер не настроен в качестве головного для процесса репликации. Вы "
-"можете выбрать репликацию всех баз данных и игнорировать некоторые из них "
-"(используйте, если хотите провести репликацию большинства баз данных), либо "
+"можете выбрать репликацию всех баз данных и игнорировать некоторые из них ("
+"используйте, если хотите провести репликацию большинства баз данных), либо "
 "выбрать игнорирование всех баз данных по умолчанию и разрешение для "
-"репликации только определенных. Пожалуйста, выберите желаемый режим:"
+"репликации только определённых. Пожалуйста, выберите желаемый режим:"
 
 #: templates/server/replication/primary_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
@@ -18617,7 +18587,7 @@ msgstr "(столбец)"
 
 #: templates/table/operations/index.twig:50
 msgid "Move table to (database.table)"
-msgstr "Переместить таблицу в (таблицу базы данных)"
+msgstr "Переместить таблицу в (база_данных.таблица)"
 
 #: templates/table/operations/index.twig:101
 msgid "Table options"
@@ -18637,7 +18607,7 @@ msgstr "Изменить все сортировки столбцов"
 
 #: templates/table/operations/index.twig:251
 msgid "Copy table to (database.table)"
-msgstr "Скопировать таблицу в (таблицу базы данных)"
+msgstr "Скопировать таблицу в (база_данных.таблица)"
 
 #: templates/table/operations/index.twig:322
 msgid "Switch to copied table"

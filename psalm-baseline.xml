@@ -13265,9 +13265,6 @@
       <code>$_SESSION['tmpval']['possible_as_geometry']</code>
       <code>$statement-&gt;expr[0]</code>
     </MixedArrayAssignment>
-    <MixedArrayTypeCoercion occurrences="1">
-      <code>$columns[$indexColumnName]</code>
-    </MixedArrayTypeCoercion>
     <MixedAssignment occurrences="21">
       <code>$maxRows</code>
       <code>$oneFieldMeta</code>

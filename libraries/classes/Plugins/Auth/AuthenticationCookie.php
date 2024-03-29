@@ -252,7 +252,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
                 $captchaSiteVerifyURL = $GLOBALS['cfg']['CaptchaSiteVerifyURL'] ?? '';
                 $captchaSiteVerifyURL = empty($captchaSiteVerifyURL) ? null : $captchaSiteVerifyURL;
-                if (function_exists('curl_init')) {
+                if (function_exists('curl_init') && function_exists('curl_exec')) {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
                         $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
                         new ReCaptcha\RequestMethod\CurlPost(null, $captchaSiteVerifyURL)

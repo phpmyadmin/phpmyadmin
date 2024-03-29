@@ -823,7 +823,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
-        $GLOBALS['allowDeny_forbidden'] = '';
         $GLOBALS['cfg']['LoginCookieValidity'] = 10;
 
         $this->mockResponse(

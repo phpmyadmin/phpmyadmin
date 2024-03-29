@@ -21,6 +21,7 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
+use function array_key_exists;
 use function array_keys;
 use function array_map;
 use function bin2hex;
@@ -198,7 +199,7 @@ class Sql
             foreach (array_keys($indexColumns) as $indexColumnName) {
                 if (
                     ! in_array($indexColumnName, $resultSetColumnNames)
-                    && in_array($indexColumnName, $columns)
+                    && array_key_exists($indexColumnName, $columns)
                     && ! str_contains($columns[$indexColumnName]['Extra'], 'INVISIBLE')
                 ) {
                     continue;

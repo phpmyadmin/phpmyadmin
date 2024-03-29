@@ -669,7 +669,10 @@ class Generator
             $retval .= '</div>';
 
             $retval .= '<div class="tools d-print-none">';
-            $retval .= '<form action="' . Url::getFromRoute('/sql') . '" method="post" class="disableAjax">';
+            $retval .= '<form action="' . Url::getFromRoute(
+                '/sql',
+                ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']]
+            ) . '" method="post" class="disableAjax">';
             $retval .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
             $retval .= '<input type="hidden" name="sql_query" value="'
                 . htmlspecialchars($sqlQuery) . '">';

@@ -162,7 +162,7 @@ class HeaderTest extends AbstractTestCase
 
         $expected = [
             'X-Frame-Options' => $expectedFrameOptions,
-            'Referrer-Policy' => 'no-referrer',
+            'Referrer-Policy' => 'same-origin',
             'Content-Security-Policy' => $expectedCsp,
             'X-Content-Security-Policy' => $expectedXCsp,
             'X-WebKit-CSP' => $expectedWebKitCsp,

@@ -1470,6 +1470,7 @@ class Import
             'XTRADB',
             'SEQUENCE',
             'BDB',
+            'ROCKSDB',
         ];
 
         // Query to check if table is 'Transactional'.

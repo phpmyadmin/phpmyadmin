@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2022-02-17 10:35+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2024-03-07 04:09+0000\n"
+"Last-Translator: Saroj Dhakal <lotusnagarkot@gmail.com>\n"
 "Language-Team: Nepali <https://hosted.weblate.org/projects/phpmyadmin/5-2/ne/"
 ">\n"
 "Language: ne\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4580,7 +4580,8 @@ msgstr "तथ्याङ्क %1$s लाई %2$s मा प्रतिल�
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr "phpMyAdmin कन्फिगरेसन भण्डारण निष्क्रिय भएको छ। %s किन हो जान्नुहोस %s ।"
+msgstr ""
+"phpMyAdmin कन्फिगरेसन सङ्ग्रह निष्क्रिय भएको छ। %s किन हो जान्नुहोस %s ।"
 
 #: libraries/classes/Controllers/Database/SearchController.php:47
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:90
@@ -17778,7 +17779,7 @@ msgstr ""
 
 #: templates/table/tracking/main.twig:104
 msgid "Activate now"
-msgstr ""
+msgstr "सक्रिय गर्नुहोस्"
 
 #: templates/table/tracking/main.twig:106
 #, php-format
@@ -17787,7 +17788,7 @@ msgstr ""
 
 #: templates/table/tracking/main.twig:108
 msgid "Deactivate now"
-msgstr ""
+msgstr "निष्क्रिय गर्नुहोस्"
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
