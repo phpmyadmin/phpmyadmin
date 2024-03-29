@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2024-03-29 10:57+0000\n"
-"Last-Translator: Martin Šich <sich.martin64@gmail.com>\n"
+"Last-Translator: Vaniron CZ <vanironcz@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
 "Language: cs\n"
@@ -11582,7 +11582,7 @@ msgstr "Upravit oprávnění"
 
 #: libraries/classes/Server/Privileges.php:2858
 msgid "Revoke"
-msgstr "Zrušit"
+msgstr "Vrátit zpět"
 
 #: libraries/classes/Server/Privileges.php:2882
 msgid "Edit user group"
