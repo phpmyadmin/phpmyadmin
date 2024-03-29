@@ -802,7 +802,9 @@ class ExportSql extends ExportPlugin
 
         $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
 
-        if (isset($GLOBALS['sql_drop_database'])) {
+        $exportStructure = ! isset($GLOBALS['sql_structure_or_data'])
+            || in_array($GLOBALS['sql_structure_or_data'], ['structure', 'structure_and_data'], true);
+        if ($exportStructure && isset($GLOBALS['sql_drop_database'])) {
             if (
                 ! $this->export->outputHandler(
                     'DROP DATABASE IF EXISTS '

@@ -750,7 +750,6 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         $_COOKIE['pmaAuth-2'] = 'pass';
 
-        $GLOBALS['allowDeny_forbidden'] = '';
         Config::getInstance()->settings['LoginCookieValidity'] = 10;
 
         $responseStub = new ResponseRendererStub();

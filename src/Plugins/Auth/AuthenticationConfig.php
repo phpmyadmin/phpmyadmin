@@ -95,7 +95,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         <tr>
             <td>';
         $config = Config::getInstance();
-        if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
+        if ($failure === 'allow-denied') {
             trigger_error(__('Access denied!'), E_USER_NOTICE);
         } else {
             // Check whether user has configured something
