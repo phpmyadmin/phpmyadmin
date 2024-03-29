@@ -227,13 +227,16 @@ AJAX.registerOnload('database/central_columns.js', function () {
     $('#add_new').on('submit', function () {
         $('#add_new').toggle();
     });
-    $('#tableslistcontainer').find('select.default_type').on('change', function () {
-        if ($(this).val() === 'USER_DEFINED') {
-            $(this).siblings('.default_value').attr('name','col_default');
-            $(this).attr('name','col_default_sel');
-        } else {
-            $(this).attr('name','col_default');
-            $(this).siblings('.default_value').attr('name','col_default_val');
-        }
-    });
+    $('#add_col_div').find('select.default_type').on('change', handleDefaultTypeChange);
+    $('#tableslistcontainer').find('select.default_type').on('change', handleDefaultTypeChange);
 });
+
+function handleDefaultTypeChange () {
+    if ($(this).val() === 'USER_DEFINED') {
+        $(this).siblings('.default_value').attr('name','col_default');
+        $(this).attr('name','col_default_sel');
+    } else {
+        $(this).attr('name','col_default');
+        $(this).siblings('.default_value').attr('name','col_default_val');
+    }
+}
