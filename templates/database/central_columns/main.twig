@@ -355,7 +355,7 @@
                             <td class="text-nowrap" name="col_isNull">
                                 <span>{{ row['col_isNull'] ? 'Yes' | trans : 'No' | trans }}</span>
                                 <input name="field_null[{{ row_num }}]" id="field_{{ row_num }}_6" type="checkbox" value="YES" class="allow_null"
-                                  {{- row['col_isNull'] is not empty and row['col_isNull'] != 'NO' and row['col_isNull'] != 'NOT NULL' ? ' checked' }}>
+                                  {{- row['col_isNull'] is not empty and row['col_isNull'] != 'NO' and row['col_isNull'] != 'NOT NULL' and row['col_isNull'] != 0 ? ' checked' }}>
                             </td>
                             <td class="text-nowrap" name="col_extra">
                               <span>{{ row['col_extra'] }}</span>
