@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2021-09-06 21:34+0000\n"
-"Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-1/cs/"
-">\n"
+"PO-Revision-Date: 2024-03-29 08:32+0000\n"
+"Last-Translator: Vaniron CZ <vanironcz@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-1/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.8.1-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5017,7 +5017,7 @@ msgstr "Zobrazeny záznamy %1$s - %2$s."
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "Strana s názvem \"%s\" již existuje, zvolte prosím jiný název."
 
 #: libraries/classes/Controllers/Database/ExportController.php:78
 #: libraries/classes/Controllers/Database/TrackingController.php:128
@@ -7354,6 +7354,8 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Nemůžete otevírat, ukládat či mazat rozložení stránky, protože IndexedDB "
+"nefunguje ve vašem prohlížeči a phpMyAdmin není správně nastaven."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 #, php-format
@@ -9258,6 +9260,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Error 1045: Přístup zamítnut. Další podrobnosti jsou skryty administrátorem "
+"%s."
 
 #: libraries/classes/Display/Results.php:907
 #: libraries/classes/Html/Generator.php:1254
@@ -12604,7 +12608,7 @@ msgstr "Upravit oprávnění"
 
 #: libraries/classes/Server/Privileges.php:1620
 msgid "Revoke"
-msgstr "Zrušit"
+msgstr "Vrátit zpět"
 
 #: libraries/classes/Server/Privileges.php:1948
 #: templates/server/privileges/privileges_table.twig:240
@@ -13437,11 +13441,8 @@ msgid "Could not save configuration"
 msgstr "Nepodařilo se uložit nastavení"
 
 #: libraries/classes/UserPreferences.php:178
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "%sVytvořit%s úložiště nastavení phpMyAdmina v aktuální databázi."
+msgstr "Nastavení úložiště phpMyAdmina nelze načíst."
 
 #: libraries/classes/Util.php:138
 #, php-format
@@ -17679,7 +17680,7 @@ msgstr "Přidat nový server"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Něco se pokazilo."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
