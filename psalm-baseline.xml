@@ -12449,6 +12449,12 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
+  <file src="tests/unit/Controllers/Console/UpdateConfigControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[invalidParamsProvider]]></code>
+      <code><![CDATA[validParamsProvider]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="tests/unit/Controllers/Database/EventsControllerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -14482,6 +14488,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedAssignment>
+      <code><![CDATA[$json['error']]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <PossiblyUnusedMethod>

@@ -4,9 +4,10 @@ import { AJAX } from './ajax.ts';
 import { Functions } from './functions.ts';
 import { CommonParams } from './common.ts';
 import { Navigation } from './navigation.ts';
-import { Config } from './console/config.ts';
-import { getConfigValue } from './functions/config.ts';
+import Config from './console/config.ts';
 import { escapeHtml } from './functions/escape.ts';
+
+let config: Config;
 
 /**
  * Console object
@@ -58,18 +59,13 @@ var Console = {
      * Used for console initialize, reinit is ok, just some variable assignment
      */
     initialize: function (): void {
-        if ($('#pma_console').length === 0) {
+        const consoleElement = document.getElementById('pma_console');
+        if (consoleElement === null) {
             return;
         }
 
-        getConfigValue('Console', false, (data) => {
-            Config.init(data);
-            Console.setupAfterInit();
-        }, () => {
-            Config.init({});// Avoid null pointers in setupAfterInit()
-            // Fetching data failed, still perform the console init
-            Console.setupAfterInit();
-        });
+        config = Config.createFromDataset(consoleElement.dataset);
+        Console.setupAfterInit();
     },
 
     /**
@@ -101,28 +97,6 @@ var Console = {
 
         // Event binds shouldn't run again
         if (Console.isInitialized === false) {
-            // Load config first
-            if (Config.AlwaysExpand) {
-                (document.getElementById('consoleOptionsAlwaysExpandCheckbox') as HTMLInputElement).checked = true;
-            }
-
-            if (Config.StartHistory) {
-                (document.getElementById('consoleOptionsStartHistoryCheckbox') as HTMLInputElement).checked = true;
-            }
-
-            if (Config.CurrentQuery) {
-                (document.getElementById('consoleOptionsCurrentQueryCheckbox') as HTMLInputElement).checked = true;
-            }
-
-            if (Config.EnterExecutes) {
-                (document.getElementById('consoleOptionsEnterExecutesCheckbox') as HTMLInputElement).checked = true;
-            }
-
-            if (Config.DarkTheme) {
-                (document.getElementById('consoleOptionsDarkThemeCheckbox') as HTMLInputElement).checked = true;
-                $('#pma_console').find('>.content').addClass('console_dark_theme');
-            }
-
             ConsoleResizer.initialize();
             ConsoleInput.initialize();
             ConsoleMessages.initialize();
@@ -174,21 +148,65 @@ var Console = {
                 Console.hideCard($(this).closest('.card'));
             });
 
-            $('#pma_console_options').find('input[type=checkbox]').on('change', function () {
-                Config.update();
+            const consoleOptionsAlwaysExpandCheckbox = document.getElementById('consoleOptionsAlwaysExpandCheckbox') as HTMLInputElement;
+            consoleOptionsAlwaysExpandCheckbox?.addEventListener('change', function (): void {
+                config.setAlwaysExpand(consoleOptionsAlwaysExpandCheckbox.checked);
             });
 
-            $('#pma_console_options').find('.button.default').on('click', function () {
-                (document.getElementById('consoleOptionsAlwaysExpandCheckbox') as HTMLInputElement).checked = false;
-                (document.getElementById('consoleOptionsStartHistoryCheckbox') as HTMLInputElement).checked = false;
-                (document.getElementById('consoleOptionsCurrentQueryCheckbox') as HTMLInputElement).checked = true;
-                (document.getElementById('consoleOptionsEnterExecutesCheckbox') as HTMLInputElement).checked = false;
-                (document.getElementById('consoleOptionsDarkThemeCheckbox') as HTMLInputElement).checked = false;
-                Config.update();
+            const consoleOptionsStartHistoryCheckbox = document.getElementById('consoleOptionsStartHistoryCheckbox') as HTMLInputElement;
+            consoleOptionsStartHistoryCheckbox?.addEventListener('change', function (): void {
+                config.setStartHistory(consoleOptionsStartHistoryCheckbox.checked);
             });
 
-            $('#consoleOptionsEnterExecutesCheckbox').on('change', function () {
-                ConsoleMessages.showInstructions(Config.EnterExecutes);
+            const consoleOptionsCurrentQueryCheckbox = document.getElementById('consoleOptionsCurrentQueryCheckbox') as HTMLInputElement;
+            consoleOptionsCurrentQueryCheckbox?.addEventListener('change', function (): void {
+                config.setCurrentQuery(consoleOptionsCurrentQueryCheckbox.checked);
+            });
+
+            const consoleOptionsEnterExecutesCheckbox = document.getElementById('consoleOptionsEnterExecutesCheckbox') as HTMLInputElement;
+            consoleOptionsEnterExecutesCheckbox?.addEventListener('change', function (): void {
+                const isEnterExecutes = consoleOptionsEnterExecutesCheckbox.checked;
+                config.setEnterExecutes(isEnterExecutes);
+                ConsoleMessages.showInstructions(isEnterExecutes);
+            });
+
+            const consoleOptionsDarkThemeCheckbox = document.getElementById('consoleOptionsDarkThemeCheckbox') as HTMLInputElement;
+            consoleOptionsDarkThemeCheckbox?.addEventListener('change', function (): void {
+                const isDarkTheme = consoleOptionsDarkThemeCheckbox.checked;
+                config.setDarkTheme(isDarkTheme);
+                const consoleContent = document.getElementById('pma_console').querySelector('.content');
+                consoleContent.classList.toggle('console_dark_theme', isDarkTheme);
+            });
+
+            const restoreConsoleOptionsButton = document.getElementById('pma_console_options').querySelector('.button.default');
+            restoreConsoleOptionsButton?.addEventListener('click', function (): void {
+                if (consoleOptionsAlwaysExpandCheckbox.checked) {
+                    consoleOptionsAlwaysExpandCheckbox.checked = false;
+                    config.setAlwaysExpand(false);
+                }
+
+                if (consoleOptionsStartHistoryCheckbox.checked) {
+                    consoleOptionsStartHistoryCheckbox.checked = false;
+                    config.setStartHistory(false);
+                }
+
+                if (! consoleOptionsCurrentQueryCheckbox.checked) {
+                    consoleOptionsCurrentQueryCheckbox.checked = true;
+                    config.setCurrentQuery(true);
+                }
+
+                if (consoleOptionsEnterExecutesCheckbox.checked) {
+                    consoleOptionsEnterExecutesCheckbox.checked = false;
+                    config.setEnterExecutes(false);
+                    ConsoleMessages.showInstructions(false);
+                }
+
+                if (consoleOptionsDarkThemeCheckbox.checked) {
+                    consoleOptionsDarkThemeCheckbox.checked = false;
+                    config.setDarkTheme(false);
+                    const consoleContent = document.getElementById('pma_console').querySelector('.content');
+                    consoleContent.classList.remove('console_dark_theme');
+                }
             });
 
             $(document).on('ajaxComplete', function (event, xhr, ajaxOptions) {
@@ -215,7 +233,7 @@ var Console = {
         }
 
         // Change console mode from cookie
-        switch (Config.Mode) {
+        switch (config.mode) {
         case 'collapse':
             Console.collapse();
             break;
@@ -227,7 +245,7 @@ var Console = {
             Console.scrollBottom();
             break;
         default:
-            Config.set('Mode', 'info');
+            config.setMode('info');
             Console.info();
         }
     },
@@ -282,7 +300,7 @@ var Console = {
             if (data.reloadQuerywindow.sql_query.length > 0) {
                 ConsoleMessages.appendQuery(data.reloadQuerywindow, 'successed')
                     // @ts-ignore
-                    .$message.addClass(Config.CurrentQuery ? '' : 'hide');
+                    .$message.addClass(config.currentQuery ? '' : 'hide');
             }
         }
     },
@@ -290,8 +308,8 @@ var Console = {
      * Change console to collapse mode
      */
     collapse: function (): void {
-        Config.set('Mode', 'collapse');
-        var pmaConsoleHeight = Math.max(92, Config.Height);
+        config.setMode('collapse');
+        var pmaConsoleHeight = Math.max(92, config.height);
 
         Console.$consoleToolbar.addClass('collapsed');
         Console.$consoleAllContents.height(pmaConsoleHeight);
@@ -305,11 +323,11 @@ var Console = {
      * @param {boolean} inputFocus If true, focus the input line after show()
      */
     show: function (inputFocus = undefined): void {
-        Config.set('Mode', 'show');
+        config.setMode('show');
 
-        var pmaConsoleHeight = Math.max(92, Config.Height);
+        var pmaConsoleHeight = Math.max(92, config.height);
         // eslint-disable-next-line compat/compat
-        pmaConsoleHeight = Math.min(Config.Height, (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 25);
+        pmaConsoleHeight = Math.min(config.height, (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 25);
         Console.$consoleContent.css({ display: 'block' });
         if (Console.$consoleToolbar.hasClass('collapsed')) {
             Console.$consoleToolbar.removeClass('collapsed');
@@ -335,7 +353,7 @@ var Console = {
      * Used for toggle buttons and shortcuts
      */
     toggle: function (): void {
-        if (Config.Mode === 'show') {
+        if (config.mode === 'show') {
             Console.collapse();
         } else {
             Console.show(true);
@@ -413,7 +431,7 @@ var ConsoleResizer = {
      * @param {MouseEvent} event
      */
     mouseDown: function (event): void {
-        if (Config.Mode !== 'show') {
+        if (config.mode !== 'show') {
             return;
         }
 
@@ -456,7 +474,7 @@ var ConsoleResizer = {
      * Mouseup event handler for bind to resizer
      */
     mouseUp: function (): void {
-        Config.set('Height', Math.round(ConsoleResizer.resultHeight));
+        config.setHeight(Math.round(ConsoleResizer.resultHeight));
         Console.show();
         $(document).off('mousemove');
         $(document).off('mouseup');
@@ -638,7 +656,7 @@ var ConsoleInput = {
      */
     keyDown: function (event): void {
         // Execute command
-        if (Config.EnterExecutes) {
+        if (config.enterExecutes) {
             // Enter, but not in combination with Shift (which writes a new line).
             if (! event.shiftKey && event.keyCode === 13) {
                 ConsoleInput.execute();
@@ -810,7 +828,7 @@ var ConsoleMessages = {
         var now = new Date();
         var $newMessage =
             $('<div class="message ' +
-                (Config.AlwaysExpand ? 'expanded' : 'collapsed') +
+                (config.alwaysExpand ? 'expanded' : 'collapsed') +
                 '" msgid="' + msgId + '"><div class="action_content"></div></div>');
         switch (msgType) {
         case 'query':
@@ -1053,11 +1071,11 @@ var ConsoleMessages = {
      */
     initialize: function (): void {
         ConsoleMessages.messageEventBinds($('#pma_console').find('.message:not(.binded)'));
-        if (Config.StartHistory) {
+        if (config.startHistory) {
             ConsoleMessages.showHistory();
         }
 
-        ConsoleMessages.showInstructions(Config.EnterExecutes);
+        ConsoleMessages.showInstructions(config.enterExecutes);
     }
 };
 
@@ -1163,17 +1181,17 @@ var ConsoleDebug = {
             }
         });
 
-        if (Config.GroupQueries) {
+        if (config.groupQueries) {
             $('#debug_console').addClass('grouped');
         } else {
             $('#debug_console').addClass('ungrouped');
-            if (Config.OrderBy === 'count') {
+            if (config.orderBy === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').addClass('active');
             }
         }
 
-        var orderBy = Config.OrderBy;
-        var order = Config.Order;
+        var orderBy = config.orderBy;
+        var order = config.order;
         $('#debug_console').find('.button.order_by.sort_' + orderBy).addClass('active');
         $('#debug_console').find('.button.order.order_' + order).addClass('active');
 
@@ -1181,9 +1199,9 @@ var ConsoleDebug = {
         $('#debug_console').find('.button.group_queries').on('click', function () {
             $('#debug_console').addClass('grouped');
             $('#debug_console').removeClass('ungrouped');
-            Config.set('GroupQueries', true);
+            config.setGroupQueries(true);
             ConsoleDebug.refresh();
-            if (Config.OrderBy === 'count') {
+            if (config.orderBy === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').removeClass('active');
             }
         });
@@ -1191,9 +1209,9 @@ var ConsoleDebug = {
         $('#debug_console').find('.button.ungroup_queries').on('click', function () {
             $('#debug_console').addClass('ungrouped');
             $('#debug_console').removeClass('grouped');
-            Config.set('GroupQueries', false);
+            config.setGroupQueries(false);
             ConsoleDebug.refresh();
-            if (Config.OrderBy === 'count') {
+            if (config.orderBy === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').addClass('active');
             }
         });
@@ -1203,11 +1221,11 @@ var ConsoleDebug = {
             $('#debug_console').find('.button.order_by').removeClass('active');
             $this.addClass('active');
             if ($this.hasClass('sort_time')) {
-                Config.set('OrderBy', 'time');
+                config.setOrderBy('time');
             } else if ($this.hasClass('sort_exec')) {
-                Config.set('OrderBy', 'exec');
+                config.setOrderBy('exec');
             } else if ($this.hasClass('sort_count')) {
-                Config.set('OrderBy', 'count');
+                config.setOrderBy('count');
             }
 
             ConsoleDebug.refresh();
@@ -1218,9 +1236,9 @@ var ConsoleDebug = {
             $('#debug_console').find('.button.order').removeClass('active');
             $this.addClass('active');
             if ($this.hasClass('order_asc')) {
-                Config.set('Order', 'asc');
+                config.setOrder('asc');
             } else if ($this.hasClass('order_desc')) {
-                Config.set('Order', 'desc');
+                config.setOrder('desc');
             }
 
             ConsoleDebug.refresh();
@@ -1507,7 +1525,7 @@ var ConsoleDebug = {
 
         // For sorting queries
         function sortByTime (a, b) {
-            var order = Config.Order === 'asc' ? 1 : -1;
+            var order = config.order === 'asc' ? 1 : -1;
             if (Array.isArray(a) && Array.isArray(b)) {
                 // It is grouped
                 var timeA = 0;
@@ -1528,15 +1546,15 @@ var ConsoleDebug = {
         }
 
         function sortByCount (a, b) {
-            var order = Config.Order === 'asc' ? 1 : -1;
+            var order = config.order === 'asc' ? 1 : -1;
 
             return (a.length - b.length) * order;
         }
 
-        var orderBy = Config.OrderBy;
-        var order = Config.Order;
+        var orderBy = config.orderBy;
+        var order = config.order;
 
-        if (Config.GroupQueries) {
+        if (config.groupQueries) {
             // Sort queries
             if (orderBy === 'time') {
                 uniqueQueries.sort(sortByTime);

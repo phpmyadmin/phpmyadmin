@@ -25,6 +25,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 
 use function is_array;
+use function json_encode;
 
 class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
 {
@@ -184,6 +185,28 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
 
     public function getResponse(): Response
     {
+        return $this->response;
+    }
+
+    public function response(): Response
+    {
+        if ($this->isAjax()) {
+            $json = $this->getJSONResult();
+            if ($this->isSuccess) {
+                $json['success'] = true;
+            } else {
+                $json['success'] = false;
+                $json['error'] = $json['message'];
+                unset($json['message']);
+            }
+
+            $output = (string) json_encode($json);
+        } else {
+            $output = $this->getHTMLResult();
+        }
+
+        $this->response->getBody()->write($output);
+
         return $this->response;
     }
 }

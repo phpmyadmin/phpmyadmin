@@ -93,6 +93,10 @@ return [
             'class' => Console\Bookmark\RefreshController::class,
             'arguments' => ['$response' => '@response', '$template' => '@template', '$console' => '@console'],
         ],
+        Console\UpdateConfigController::class => [
+            'class' => Console\UpdateConfigController::class,
+            'arguments' => ['$response' => '@response', '$template' => '@template', '$config' => '@config'],
+        ],
         Database\CentralColumns\PopulateColumnsController::class => [
             'class' => Database\CentralColumns\PopulateColumnsController::class,
             'arguments' => [

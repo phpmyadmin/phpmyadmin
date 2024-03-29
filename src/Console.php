@@ -113,6 +113,7 @@ class Console
         $bookmarkContent = $this->getBookmarkContent();
 
         return $this->template->render('console/display', [
+            'settings' => $this->config->config->Console->asArray(),
             'has_bookmark_feature' => $bookmarkFeature !== null,
             'sql_history' => $sqlHistory,
             'bookmark_content' => $bookmarkContent,
