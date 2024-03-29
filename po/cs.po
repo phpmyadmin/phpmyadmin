@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
 "PO-Revision-Date: 2024-03-29 08:32+0000\n"
-"Last-Translator: Vaniron CZ <vanironcz@gmail.com>\n"
+"Last-Translator: mixeros <mixer@mixercz.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-1/cs/>"
 "\n"
 "Language: cs\n"
@@ -1508,7 +1508,7 @@ msgstr "Středoevropské jazyky"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation"
 msgid "Russian"
-msgstr "Ruština"
+msgstr "Rusky"
 
 #: libraries/classes/Charsets/Collation.php:365
 msgctxt "Collation"
@@ -10108,7 +10108,7 @@ msgstr "Sloupec"
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:33
 msgid "Null"
-msgstr "Nulový"
+msgstr "Prázdný"
 
 #: libraries/classes/InsertEdit.php:2407 libraries/classes/Sql.php:1042
 msgid "Showing SQL query"
