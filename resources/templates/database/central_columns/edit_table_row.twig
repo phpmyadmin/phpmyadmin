@@ -75,11 +75,11 @@
 
   <td class="text-nowrap" name="col_isNull">
     <input name="field_null[{{ row_num }}]" id="field_{{ row_num }}_6" type="checkbox" value="YES" class="allow_null"
-      {{- row['col_isNull'] is not empty and row['col_isNull'] != 'NO' and row['col_isNull'] != 'NOT NULL' ? ' checked' }}>
+      {{- row['col_isNull'] is not empty and row['col_isNull'] != 'NO' and row['col_isNull'] != 'NOT NULL' and row['col_isNull'] != 0 ? ' checked' }}>
   </td>
 
   <td class="text-nowrap" name="col_extra">
     <input name="col_extra[{{ row_num }}]" id="field_{{ row_num }}_7" type="checkbox" value="auto_increment"
-      {{- row['col_extra'] is not empty and row['col_extra'] == 'auto_increment' }}>
+      {{- row['col_extra'] is not empty and row['col_extra'] == 'auto_increment' ? ' checked' }}>
   </td>
 </tr>
