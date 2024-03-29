@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { ajaxShowMessage } from '../ajax-message.ts';
 import { CommonParams } from '../common.ts';
+import { escapeHtml } from '../functions/escape.ts';
 
 /**
  * @link https://docs.phpmyadmin.net/en/latest/config.html#console-settings
@@ -123,23 +124,16 @@ export default class Config {
  * @param {boolean|string|number} value
  */
 function setConfigValue (key: string, value: boolean|number|string): void {
-    $.ajax({
-        url: 'index.php?route=/console/update-config',
-        type: 'POST',
-        dataType: 'json',
-        data: {
+    $.post(
+        'index.php?route=/console/update-config',
+        {
             'ajax_request': true,
             server: CommonParams.get('server'),
             key: key,
             value: value,
         },
-        success: function (data) {
-            if (data.success !== true) {
-                // Try to find a message to display
-                if (data.error || data.message) {
-                    ajaxShowMessage(data.error || data.message);
-                }
-            }
-        }
+    ).fail(function (data) {
+        const message = '<div class="alert alert-danger" role="alert">' + escapeHtml(data.responseJSON.error) + '</div>';
+        ajaxShowMessage(message, false);
     });
 }

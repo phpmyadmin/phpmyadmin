@@ -939,7 +939,7 @@ const AJAX = {
                 console.log('AJAX error: status=' + request.status + ', text=' + request.statusText);
             }
 
-            if (settings.url.includes('/git-revision')) {
+            if (settings.url.includes('/git-revision') || settings.url.includes('/console/update-config')) {
                 return;
             }
 

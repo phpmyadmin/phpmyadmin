@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Console;
 
+use Fig\Http\Message\StatusCodeInterface;
 use InvalidArgumentException;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
@@ -23,25 +24,31 @@ final class UpdateConfigController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response
     {
         try {
             $key = $this->parseKeyParam($request->getParsedBodyParam('key'));
             $value = $this->parseValueParam($key, $request->getParsedBodyParam('value'));
         } catch (InvalidArgumentException $exception) {
+            $this->response->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
             $this->response->setRequestStatus(false);
-            $this->response->addJSON(['message' => Message::error($exception->getMessage())]);
+            $this->response->addJSON(['message' => $exception->getMessage()]);
 
-            return;
+            return $this->response->response();
         }
 
         $result = $this->config->setUserValue(null, 'Console/' . $key, $value);
-        if ($result === true) {
-            return;
+        if ($result !== true) {
+            $this->response->setStatusCode(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON(['message' => $result->getMessage()]);
+
+            return $this->response->response();
         }
 
-        $this->response->setRequestStatus(false);
-        $this->response->addJSON(['message' => $result]);
+        $this->response->addJSON('message', __('Console settings has been updated successfully.'));
+
+        return $this->response->response();
     }
 
     /** @psalm-return 'StartHistory'|'AlwaysExpand'|'CurrentQuery'|'EnterExecutes'|'DarkTheme'|'Mode'|'Height'|'GroupQueries'|'OrderBy'|'Order' */

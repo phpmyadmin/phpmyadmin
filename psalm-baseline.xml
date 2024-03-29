@@ -14488,6 +14488,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedAssignment>
+      <code><![CDATA[$json['error']]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <PossiblyUnusedMethod>

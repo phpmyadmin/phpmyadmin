@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Console;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Console\UpdateConfigController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
@@ -13,6 +14,8 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+
+use function json_decode;
 
 #[CoversClass(UpdateConfigController::class)]
 final class UpdateConfigControllerTest extends AbstractTestCase
@@ -23,14 +26,20 @@ final class UpdateConfigControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody(['key' => $key, 'value' => $value]);
 
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $config = new Config();
         $responseRenderer = new ResponseRenderer();
+        $responseRenderer->setAjax(true);
         $controller = new UpdateConfigController($responseRenderer, new Template($config), $config);
-        $controller($request);
+        $response = $controller($request);
 
+        $responseBody = (string) $response->getBody();
+        self::assertJson($responseBody);
+        self::assertSame(
+            ['message' => 'Console settings has been updated successfully.', 'success' => true],
+            json_decode($responseBody, true),
+        );
         self::assertSame($expected, $config->settings['Console'][$key]);
-        self::assertSame([], $responseRenderer->getJSONResult());
-        self::assertTrue($responseRenderer->hasSuccessState(), 'Should be a successful response.');
     }
 
     /** @return iterable<array{string, string, bool|int|string}> */
@@ -70,16 +79,19 @@ final class UpdateConfigControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody(['key' => $key, 'value' => $value]);
 
+        DatabaseInterface::$instance = $this->createDatabaseInterface();
         $config = new Config();
         $responseRenderer = new ResponseRenderer();
+        $responseRenderer->setAjax(true);
         $controller = new UpdateConfigController($responseRenderer, new Template($config), $config);
-        $controller($request);
+        $response = $controller($request);
 
+        $responseBody = (string) $response->getBody();
+        self::assertJson($responseBody);
         self::assertSame(
-            ['message' => Message::error('Unexpected parameter value.')->getDisplay()],
-            $responseRenderer->getJSONResult(),
+            ['success' => false, 'error' => 'Unexpected parameter value.'],
+            json_decode($responseBody, true),
         );
-        self::assertFalse($responseRenderer->hasSuccessState(), 'Should be a failed response.');
     }
 
     /** @return iterable<array{string|string[], string|string[]}> */
@@ -130,13 +142,18 @@ final class UpdateConfigControllerTest extends AbstractTestCase
         $config = self::createStub(Config::class);
         $config->method('setUserValue')->willReturn(Message::error('Could not save configuration'));
         $responseRenderer = new ResponseRenderer();
+        $responseRenderer->setAjax(true);
         $controller = new UpdateConfigController($responseRenderer, new Template($config), $config);
-        $controller($request);
+        $response = $controller($request);
 
+        $responseBody = (string) $response->getBody();
+        self::assertJson($responseBody);
         self::assertSame(
-            ['message' => Message::error('Could not save configuration')->getDisplay()],
-            $responseRenderer->getJSONResult(),
+            ['success' => false, 'error' => 'Could not save configuration'],
+            json_decode($responseBody, true),
         );
+
+        self::assertSame(['message' => 'Could not save configuration'], $responseRenderer->getJSONResult());
         self::assertFalse($responseRenderer->hasSuccessState(), 'Should be a failed response.');
     }
 }
