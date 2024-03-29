@@ -16,7 +16,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
@@ -175,11 +174,6 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     public function isDisabled(): bool
     {
         return $this->isDisabled;
-    }
-
-    public function callExit(string $message = ''): never
-    {
-        throw new ExitException($message);
     }
 
     public function getResponse(): Response
