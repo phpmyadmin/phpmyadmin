@@ -908,7 +908,7 @@ const ResizeHandler = function () {
      */
     this.mouseup = function (event): void {
         $('body').css('cursor', '');
-        setConfigValue('NavigationWidth', event.data.resize_handler.getPos(event));
+        setConfigValue(event.data.resize_handler.getPos(event));
         $('#topmenu').menuResizer('resize');
         $(document)
             .off('mousemove')
@@ -941,7 +941,7 @@ const ResizeHandler = function () {
             panelWidth = 240;
         }
 
-        setConfigValue('NavigationWidth', panelWidth);
+        setConfigValue(panelWidth);
         event.data.resize_handler.setWidth(panelWidth);
         event.data.resize_handler.panelWidth = width;
     };

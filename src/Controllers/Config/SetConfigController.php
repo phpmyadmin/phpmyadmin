@@ -11,7 +11,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
-use function json_decode;
+use function is_numeric;
 
 final class SetConfigController extends AbstractController
 {
@@ -22,19 +22,15 @@ final class SetConfigController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        /** @var string|null $key */
-        $key = $request->getParsedBodyParam('key');
-        /** @var string|null $value */
         $value = $request->getParsedBodyParam('value');
-
-        if (! isset($key, $value)) {
+        if (! is_numeric($value) || $value < 0) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
 
             return;
         }
 
-        $result = $this->config->setUserValue(null, $key, json_decode($value));
+        $result = $this->config->setUserValue(null, 'NavigationWidth', (int) $value);
 
         if ($result === true) {
             return;
