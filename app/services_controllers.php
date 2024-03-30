@@ -73,10 +73,6 @@ return [
             'class' => ColumnController::class,
             'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
         ],
-        Config\GetConfigController::class => [
-            'class' => Config\GetConfigController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$config' => '@config'],
-        ],
         Config\SetConfigController::class => [
             'class' => Config\SetConfigController::class,
             'arguments' => ['$response' => '@response', '$template' => '@template', '$config' => '@config'],

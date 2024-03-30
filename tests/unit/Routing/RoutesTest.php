@@ -162,7 +162,6 @@ final class RoutesTest extends TestCase
             '/check-relations' => CheckRelationsController::class,
             '/collation-connection' => CollationConnectionController::class,
             '/columns' => ColumnController::class,
-            '/config/get' => Config\GetConfigController::class,
             '/config/set' => Config\SetConfigController::class,
             '/console/bookmark/add' => Bookmark\AddController::class,
             '/console/update-config' => UpdateConfigController::class,

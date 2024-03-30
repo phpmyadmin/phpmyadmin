@@ -854,11 +854,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
-  <file src="src/Controllers/Config/GetConfigController.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Config/SetConfigController.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>

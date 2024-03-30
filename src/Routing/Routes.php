@@ -55,7 +55,6 @@ final class Routes
         $routes->post('/collation-connection', CollationConnectionController::class);
         $routes->post('/columns', ColumnController::class);
         $routes->addGroup('/config', static function (RouteCollector $routes): void {
-            $routes->post('/get', Config\GetConfigController::class);
             $routes->post('/set', Config\SetConfigController::class);
         });
         $routes->addGroup('/console', static function (RouteCollector $routes): void {
