@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-03-31 00:20+0000\n"
-"PO-Revision-Date: 2021-07-22 19:35+0000\n"
+"PO-Revision-Date: 2024-03-31 07:17+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -13,14 +13,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 4.7.2-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:30
 #: resources/templates/database/central_columns/edit_table_row.twig:22
 #: resources/templates/database/central_columns/main.twig:65
 #: resources/templates/database/central_columns/main.twig:303
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "עריכת ערכי ENUM/SET"
 
 #: resources/templates/columns_definitions/column_attributes.twig:37
 #: resources/templates/database/central_columns/edit_table_row.twig:29
@@ -37,7 +37,7 @@ msgstr "ללא"
 #: resources/templates/database/central_columns/main.twig:76
 #: resources/templates/database/central_columns/main.twig:317
 msgid "As defined:"
-msgstr ""
+msgstr "כפי שהוגדר:"
 
 #: resources/templates/columns_definitions/column_attributes.twig:102
 msgid ""
@@ -100,7 +100,7 @@ msgstr "ביטוי"
 
 #: resources/templates/columns_definitions/column_attributes.twig:184
 msgid "first"
-msgstr ""
+msgstr "ראשון"
 
 #: resources/templates/columns_definitions/column_attributes.twig:190
 #: resources/templates/table/structure/display_structure.twig:450
@@ -1232,14 +1232,12 @@ msgid "OK"
 msgstr "אישור"
 
 #: resources/templates/console/display.twig:178
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Restore default values"
-msgstr "אורך/ערכים*"
+msgstr "שחזור ערכי ברירת מחדל"
 
 #: resources/templates/console/display.twig:185 src/Config/Descriptions.php:958
 msgid "Always expand query messages"
-msgstr ""
+msgstr "תמיד להרחיב הודעות תשאול"
 
 #: resources/templates/console/display.twig:189 src/Config/Descriptions.php:957
 msgid "Show query history at start"
