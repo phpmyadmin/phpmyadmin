@@ -854,11 +854,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
-  <file src="src/Controllers/Config/SetConfigController.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Console/Bookmark/AddController.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -12564,6 +12559,12 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+  </file>
+  <file src="tests/unit/Controllers/Navigation/UpdateNavWidthConfigControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[invalidParamsProvider]]></code>
+      <code><![CDATA[validParamsProvider]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/Controllers/NavigationControllerTest.php">
     <DeprecatedMethod>

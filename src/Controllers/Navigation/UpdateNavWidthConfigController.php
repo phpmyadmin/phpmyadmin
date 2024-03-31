@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers\Config;
+namespace PhpMyAdmin\Controllers\Navigation;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -11,11 +11,12 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
+use function __;
 use function is_numeric;
 
-final class SetConfigController extends AbstractController
+final class UpdateNavWidthConfigController extends AbstractController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private Config $config)
+    public function __construct(ResponseRenderer $response, Template $template, private readonly Config $config)
     {
         parent::__construct($response, $template);
     }
@@ -25,13 +26,12 @@ final class SetConfigController extends AbstractController
         $value = $request->getParsedBodyParam('value');
         if (! is_numeric($value) || $value < 0) {
             $this->response->setRequestStatus(false);
-            $this->response->addJSON(['message' => Message::error()]);
+            $this->response->addJSON(['message' => Message::error(__('Unexpected parameter value.'))]);
 
             return;
         }
 
         $result = $this->config->setUserValue(null, 'NavigationWidth', (int) $value);
-
         if ($result === true) {
             return;
         }

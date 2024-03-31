@@ -8,7 +8,6 @@ use PhpMyAdmin\Controllers\ChangeLogController;
 use PhpMyAdmin\Controllers\CheckRelationsController;
 use PhpMyAdmin\Controllers\CollationConnectionController;
 use PhpMyAdmin\Controllers\ColumnController;
-use PhpMyAdmin\Controllers\Config;
 use PhpMyAdmin\Controllers\Console;
 use PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\DatabaseController;
@@ -22,6 +21,7 @@ use PhpMyAdmin\Controllers\JavaScriptMessagesController;
 use PhpMyAdmin\Controllers\LicenseController;
 use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\Controllers\LogoutController;
+use PhpMyAdmin\Controllers\Navigation\UpdateNavWidthConfigController;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Controllers\Normalization;
 use PhpMyAdmin\Controllers\Operations;
@@ -73,8 +73,8 @@ return [
             'class' => ColumnController::class,
             'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
         ],
-        Config\SetConfigController::class => [
-            'class' => Config\SetConfigController::class,
+        UpdateNavWidthConfigController::class => [
+            'class' => UpdateNavWidthConfigController::class,
             'arguments' => ['$response' => '@response', '$template' => '@template', '$config' => '@config'],
         ],
         Console\Bookmark\AddController::class => [

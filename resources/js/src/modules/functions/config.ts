@@ -4,7 +4,7 @@ import { CommonParams } from '../common.ts';
 
 export function setConfigValue (value: number): void {
     $.ajax({
-        url: 'index.php?route=/config/set',
+        url: 'index.php?route=/navigation/update-width',
         type: 'POST',
         dataType: 'json',
         data: {
