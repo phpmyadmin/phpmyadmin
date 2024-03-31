@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-03-31 00:20+0000\n"
-"PO-Revision-Date: 2024-03-31 13:54+0000\n"
-"Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
+"PO-Revision-Date: 2024-03-31 23:03+0000\n"
+"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
 "Language: tr\n"
@@ -11845,7 +11845,7 @@ msgstr "Konsol ayarları başarılı olarak güncellendi."
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
 msgid "Unexpected parameter value."
-msgstr "Beklenmedik parametre değeri."
+msgstr "Beklenmeyen parametre değeri."
 
 #: src/Controllers/Database/CentralColumnsController.php:152
 #, php-format
