@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-01-18 12:52+0000\n"
+"PO-Revision-Date: 2024-03-31 07:17+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/5-2/he/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4117,7 +4117,7 @@ msgstr "הצגת היסטוריית שאילתות בהתחלה"
 #: libraries/classes/Config/Descriptions.php:978
 #: templates/console/display.twig:149
 msgid "Always expand query messages"
-msgstr ""
+msgstr "תמיד להרחיב הודעות תשאול"
 
 #: libraries/classes/Config/Descriptions.php:979
 #: templates/console/display.twig:157
@@ -12815,7 +12815,7 @@ msgstr ""
 #: templates/database/central_columns/main.twig:71
 #: templates/database/central_columns/main.twig:298
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "עריכת ערכי ENUM/SET"
 
 #: templates/columns_definitions/column_attributes.twig:38
 #: templates/database/central_columns/edit_table_row.twig:30
@@ -12832,7 +12832,7 @@ msgstr "ללא"
 #: templates/database/central_columns/main.twig:77
 #: templates/database/central_columns/main.twig:312
 msgid "As defined:"
-msgstr ""
+msgstr "כפי שהוגדר:"
 
 #: templates/columns_definitions/column_attributes.twig:102
 msgid ""
@@ -12872,7 +12872,7 @@ msgstr "ביטוי"
 
 #: templates/columns_definitions/column_attributes.twig:186
 msgid "first"
-msgstr ""
+msgstr "ראשון"
 
 #: templates/columns_definitions/column_attributes.twig:191
 #: templates/table/structure/display_structure.twig:450
