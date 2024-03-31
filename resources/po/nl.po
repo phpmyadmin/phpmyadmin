@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-03-24 00:19+0000\n"
+"POT-Creation-Date: 2024-03-31 00:20+0000\n"
 "PO-Revision-Date: 2024-03-29 21:04+0000\n"
 "Last-Translator: Jorrit Schippers <jorrit@ncode.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -121,7 +121,7 @@ msgstr "na %s"
 #: resources/templates/table/zoom_search/index.twig:115
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:219
-#: src/Display/Results.php:938 src/Plugins/Export/ExportSql.php:2052
+#: src/Display/Results.php:938 src/Plugins/Export/ExportSql.php:2054
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Geen"
@@ -133,7 +133,7 @@ msgid "Table name"
 msgstr "Tabelnaam"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:27
-#: resources/templates/console/display.twig:126
+#: resources/templates/console/display.twig:136
 #: resources/templates/database/central_columns/main.twig:200
 #: resources/templates/export.twig:286 resources/templates/export.twig:302
 #: resources/templates/export.twig:318
@@ -797,9 +797,9 @@ msgstr "Uitgeschakeld"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:40
-#: src/Controllers/Database/Structure/EmptyTableController.php:50
+#: src/Controllers/Database/Structure/EmptyTableController.php:48
 #: src/Controllers/JavaScriptMessagesController.php:501
-#: src/Controllers/Table/DeleteRowsController.php:57
+#: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:46
 #: src/Controllers/Table/Structure/PrimaryController.php:109
 #: src/IndexColumn.php:148 src/Index.php:469
@@ -863,28 +863,28 @@ msgid "Allow users to customize this value"
 msgstr "Gebruikers toestaan deze waarde aan te passen"
 
 #: resources/templates/console/bookmark_content.twig:7
-#: resources/templates/console/display.twig:40
-#: resources/templates/console/display.twig:106
-#: resources/templates/console/display.twig:198
+#: resources/templates/console/display.twig:50
+#: resources/templates/console/display.twig:116
+#: resources/templates/console/display.twig:208
 msgid "Collapse"
 msgstr "Samenvouwen"
 
 #: resources/templates/console/bookmark_content.twig:8
-#: resources/templates/console/display.twig:41
-#: resources/templates/console/display.twig:107
-#: resources/templates/console/display.twig:199
+#: resources/templates/console/display.twig:51
+#: resources/templates/console/display.twig:117
+#: resources/templates/console/display.twig:209
 msgid "Expand"
 msgstr "Uitklappen"
 
 #: resources/templates/console/bookmark_content.twig:9
-#: resources/templates/console/display.twig:42
-#: resources/templates/console/display.twig:200
+#: resources/templates/console/display.twig:52
+#: resources/templates/console/display.twig:210
 msgid "Requery"
 msgstr "Query opnieuw uitvoeren"
 
 #: resources/templates/console/bookmark_content.twig:10
-#: resources/templates/console/display.twig:43
-#: resources/templates/console/display.twig:201
+#: resources/templates/console/display.twig:53
+#: resources/templates/console/display.twig:211
 #: resources/templates/database/central_columns/main.twig:271
 #: resources/templates/database/central_columns/main.twig:381
 #: resources/templates/database/central_columns/main.twig:383
@@ -930,8 +930,8 @@ msgid "Delete"
 msgstr "Verwijderen"
 
 #: resources/templates/console/bookmark_content.twig:12
-#: resources/templates/console/display.twig:50
-#: resources/templates/console/display.twig:208
+#: resources/templates/console/display.twig:60
+#: resources/templates/console/display.twig:218
 #: resources/templates/server/databases/index.twig:105
 #: resources/templates/server/privileges/edit_routine_privileges.twig:13
 #: resources/templates/server/privileges/privileges_table.twig:257
@@ -951,26 +951,26 @@ msgstr "Verwijderen"
 msgid "Database"
 msgstr "Database"
 
-#: resources/templates/console/display.twig:5
+#: resources/templates/console/display.twig:15
 msgid "SQL Query Console"
 msgstr "SQL Query Console"
 
-#: resources/templates/console/display.twig:6 src/Config/Descriptions.php:766
+#: resources/templates/console/display.twig:16 src/Config/Descriptions.php:766
 msgid "Console"
 msgstr "Console"
 
-#: resources/templates/console/display.twig:9
+#: resources/templates/console/display.twig:19
 #: resources/templates/setup/home/index.twig:168
 #: resources/templates/sql/query.twig:36
 msgid "Clear"
 msgstr "Leegmaken"
 
-#: resources/templates/console/display.twig:12
+#: resources/templates/console/display.twig:22
 msgid "History"
 msgstr "Geschiedenis"
 
-#: resources/templates/console/display.twig:15
-#: resources/templates/console/display.twig:165
+#: resources/templates/console/display.twig:25
+#: resources/templates/console/display.twig:175
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:57
 #: resources/templates/table/structure/display_table_stats.twig:96
@@ -992,110 +992,110 @@ msgstr "Geschiedenis"
 msgid "Options"
 msgstr "Opties"
 
-#: resources/templates/console/display.twig:19
-#: resources/templates/console/display.twig:120
+#: resources/templates/console/display.twig:29
+#: resources/templates/console/display.twig:130
 msgid "Bookmarks"
 msgstr "Bladwijzers"
 
-#: resources/templates/console/display.twig:24
-#: resources/templates/console/display.twig:78 src/Config/Descriptions.php:615
+#: resources/templates/console/display.twig:34
+#: resources/templates/console/display.twig:88 src/Config/Descriptions.php:615
 msgid "Debug SQL"
 msgstr "Debug SQL"
 
-#: resources/templates/console/display.twig:30
+#: resources/templates/console/display.twig:40
 msgid "Press Ctrl+Enter to execute query"
 msgstr "Druk op Ctrl+Enter om de query uit te voeren"
 
-#: resources/templates/console/display.twig:33
+#: resources/templates/console/display.twig:43
 msgid "Press Enter to execute query"
 msgstr "Druk op Enter om de query uit te voeren"
 
-#: resources/templates/console/display.twig:44
-#: resources/templates/console/display.twig:202
+#: resources/templates/console/display.twig:54
+#: resources/templates/console/display.twig:212
 msgid "Explain"
 msgstr "Verklaar"
 
-#: resources/templates/console/display.twig:45
-#: resources/templates/console/display.twig:203
+#: resources/templates/console/display.twig:55
+#: resources/templates/console/display.twig:213
 #: resources/templates/sql/profiling_chart.twig:1 src/Html/Generator.php:631
 msgid "Profiling"
 msgstr "Profiling"
 
-#: resources/templates/console/display.twig:47
-#: resources/templates/console/display.twig:205
+#: resources/templates/console/display.twig:57
+#: resources/templates/console/display.twig:215
 msgid "Bookmark"
 msgstr "Bladwijzer"
 
-#: resources/templates/console/display.twig:49
-#: resources/templates/console/display.twig:207
+#: resources/templates/console/display.twig:59
+#: resources/templates/console/display.twig:217
 msgid "Query failed"
 msgstr "Query mislukt"
 
-#: resources/templates/console/display.twig:51
-#: resources/templates/console/display.twig:209
+#: resources/templates/console/display.twig:61
+#: resources/templates/console/display.twig:219
 msgid "Queried time"
 msgstr "Query-uitvoertijd"
 
-#: resources/templates/console/display.twig:51
+#: resources/templates/console/display.twig:61
 msgid "During current session"
 msgstr "Tijdens de huidige sessie"
 
-#: resources/templates/console/display.twig:69
+#: resources/templates/console/display.twig:79
 msgid "ascending"
 msgstr "oplopend"
 
-#: resources/templates/console/display.twig:72
+#: resources/templates/console/display.twig:82
 msgid "descending"
 msgstr "aflopend"
 
-#: resources/templates/console/display.twig:75
+#: resources/templates/console/display.twig:85
 msgid "Order:"
 msgstr "Volgorde:"
 
-#: resources/templates/console/display.twig:81
+#: resources/templates/console/display.twig:91
 #: resources/templates/table/find_replace/replace_preview.twig:10
 msgid "Count"
 msgstr "Aantal"
 
-#: resources/templates/console/display.twig:84
+#: resources/templates/console/display.twig:94
 msgid "Execution order"
 msgstr "Uitvoerings volgorde"
 
-#: resources/templates/console/display.twig:87
+#: resources/templates/console/display.twig:97
 msgid "Time taken"
 msgstr "Gebruikte tijd"
 
-#: resources/templates/console/display.twig:90
+#: resources/templates/console/display.twig:100
 #: resources/templates/table/search/index.twig:143
 msgid "Order by:"
 msgstr "Volgorde:"
 
-#: resources/templates/console/display.twig:93 src/Config/Descriptions.php:964
+#: resources/templates/console/display.twig:103 src/Config/Descriptions.php:964
 msgid "Group queries"
 msgstr "Groep query's"
 
-#: resources/templates/console/display.twig:96
+#: resources/templates/console/display.twig:106
 msgid "Ungroup queries"
 msgstr "Niet gegroepeerde query's"
 
-#: resources/templates/console/display.twig:108
+#: resources/templates/console/display.twig:118
 msgid "Show trace"
 msgstr "Toon bewerkingen"
 
-#: resources/templates/console/display.twig:109
+#: resources/templates/console/display.twig:119
 msgid "Hide trace"
 msgstr "Verberg bewerkingen"
 
-#: resources/templates/console/display.twig:110
+#: resources/templates/console/display.twig:120
 msgid "Count:"
 msgstr "Aantal:"
 
-#: resources/templates/console/display.twig:111
+#: resources/templates/console/display.twig:121
 #: src/Controllers/JavaScriptMessagesController.php:664
 msgid "Time taken:"
 msgstr "Gebruikte tijd:"
 
-#: resources/templates/console/display.twig:123
+#: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:14
 #: resources/templates/server/status/variables/index.twig:37
 #: src/Config/Descriptions.php:928 src/Export/Export.php:1229
@@ -1103,23 +1103,23 @@ msgstr "Gebruikte tijd:"
 msgid "Refresh"
 msgstr "Ververs"
 
-#: resources/templates/console/display.twig:137
+#: resources/templates/console/display.twig:147
 msgid "Add bookmark"
 msgstr "Bladwijzer toevoegen"
 
-#: resources/templates/console/display.twig:137
+#: resources/templates/console/display.twig:147
 msgid "Label"
 msgstr "Label"
 
-#: resources/templates/console/display.twig:144
+#: resources/templates/console/display.twig:154
 msgid "Target database"
 msgstr "Doeldatabase"
 
-#: resources/templates/console/display.twig:147
+#: resources/templates/console/display.twig:157
 msgid "Share this bookmark"
 msgstr "Deze bladwijzer delen"
 
-#: resources/templates/console/display.twig:151
+#: resources/templates/console/display.twig:161
 #: resources/templates/database/designer/main.twig:270
 #: resources/templates/database/designer/main.twig:650
 #: resources/templates/database/designer/main.twig:718
@@ -1132,23 +1132,25 @@ msgstr "Deze bladwijzer delen"
 msgid "OK"
 msgstr "Correct"
 
-#: resources/templates/console/display.twig:168
-msgid "Set default"
-msgstr "Standaardwaarde instellen"
+#: resources/templates/console/display.twig:178
+#, fuzzy
+#| msgid "Restore default value"
+msgid "Restore default values"
+msgstr "Standaardwaarde herstellen"
 
-#: resources/templates/console/display.twig:175 src/Config/Descriptions.php:958
+#: resources/templates/console/display.twig:185 src/Config/Descriptions.php:958
 msgid "Always expand query messages"
 msgstr "Queryberichten altijd volledig weergeven"
 
-#: resources/templates/console/display.twig:179 src/Config/Descriptions.php:957
+#: resources/templates/console/display.twig:189 src/Config/Descriptions.php:957
 msgid "Show query history at start"
 msgstr "Querygeschiedenis aan begin weergeven"
 
-#: resources/templates/console/display.twig:183 src/Config/Descriptions.php:959
+#: resources/templates/console/display.twig:193 src/Config/Descriptions.php:959
 msgid "Show current browsing query"
 msgstr "Toon huidige blader query"
 
-#: resources/templates/console/display.twig:187
+#: resources/templates/console/display.twig:197
 msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."
@@ -1156,7 +1158,7 @@ msgstr ""
 "Voer queries uit met de Enter toets en voeg een nieuwe regel toe met "
 "Shift+Enter. Om dit permanent te maken, bekijk het instellingenmenu."
 
-#: resources/templates/console/display.twig:191 src/Config/Descriptions.php:961
+#: resources/templates/console/display.twig:201 src/Config/Descriptions.php:961
 msgid "Switch to dark theme"
 msgstr "Wissel naar donker thema"
 
@@ -1727,7 +1729,7 @@ msgstr "DEFINER"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:376
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:950 src/Plugins/Export/ExportXml.php:84
+#: src/Plugins/Export/ExportSql.php:952 src/Plugins/Export/ExportXml.php:84
 #: src/Util.php:1491
 msgid "Events"
 msgstr "Gebeurtenissen"
@@ -2570,7 +2572,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:2
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:241
-#: src/Plugins/Export/ExportSql.php:887 src/Plugins/Export/ExportXml.php:357
+#: src/Plugins/Export/ExportSql.php:889 src/Plugins/Export/ExportXml.php:357
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "Database:"
@@ -4153,7 +4155,7 @@ msgstr "U hebt tweeweg authentificatie geactiveerd."
 
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:41
-#: src/Controllers/Database/Structure/EmptyTableController.php:51
+#: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:348
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:284 src/Core.php:499
@@ -6240,7 +6242,7 @@ msgstr "Profiling-resultaten"
 
 #: resources/templates/sql/query.twig:6
 #: src/Controllers/Operations/ViewController.php:117
-#: src/Controllers/Table/DeleteRowsController.php:79
+#: src/Controllers/Table/DeleteRowsController.php:77
 #: src/Controllers/Table/FindReplaceController.php:119
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:74
 #: src/Controllers/Table/Maintenance/CheckController.php:74
@@ -7266,7 +7268,7 @@ msgstr "Export van trigger %s"
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Plugins/Export/ExportHtmlword.php:530
 #: src/Plugins/Export/ExportOdt.php:657 src/Plugins/Export/ExportPdf.php:251
-#: src/Plugins/Export/ExportSql.php:1924
+#: src/Plugins/Export/ExportSql.php:1926
 #: src/Plugins/Export/ExportTexytext.php:498
 #: src/Plugins/Export/ExportXml.php:104 src/Util.php:1492 src/Util.php:1508
 msgid "Triggers"
@@ -11941,6 +11943,19 @@ msgstr "Mislukt"
 msgid "Succeeded"
 msgstr "Geslaagd"
 
+#: src/Controllers/Console/UpdateConfigController.php:49
+#, fuzzy
+#| msgid "Table %1$s has been altered successfully."
+msgid "Console settings has been updated successfully."
+msgstr "Tabel %1$s is succesvol bijgewerkt."
+
+#: src/Controllers/Console/UpdateConfigController.php:71
+#: src/Controllers/Console/UpdateConfigController.php:110
+#, fuzzy
+#| msgid "Unexpected character."
+msgid "Unexpected parameter value."
+msgstr "Onverwachte letter."
+
 #: src/Controllers/Database/CentralColumnsController.php:152
 #, php-format
 msgid "Showing rows %1$s - %2$s."
@@ -12005,8 +12020,8 @@ msgstr ""
 #: src/Controllers/Table/IndexesController.php:73
 #: src/Controllers/Table/IndexRenameController.php:58
 #: src/Controllers/Table/IndexRenameController.php:63
-#: src/Controllers/Table/SearchController.php:175
-#: src/Controllers/Table/SearchController.php:180
+#: src/Controllers/Table/SearchController.php:174
+#: src/Controllers/Table/SearchController.php:179
 #: src/Controllers/Table/SqlController.php:67
 #: src/Controllers/Table/SqlController.php:72
 #: src/Controllers/Table/StructureController.php:96
@@ -12126,8 +12141,8 @@ msgstr "U heeft niet voldoende rechten om de gebruikers te administreren!"
 #: src/Controllers/Table/Maintenance/ChecksumController.php:45
 #: src/Controllers/Table/Maintenance/OptimizeController.php:45
 #: src/Controllers/Table/Maintenance/RepairController.php:45
-#: src/Controllers/Table/SearchController.php:189
-#: src/Controllers/Table/SearchController.php:194
+#: src/Controllers/Table/SearchController.php:188
+#: src/Controllers/Table/SearchController.php:193
 #: src/Controllers/Table/SqlController.php:81
 #: src/Controllers/Table/SqlController.php:86
 #: src/Controllers/Table/StructureController.php:110
@@ -15326,7 +15341,7 @@ msgstr "Verkeerde gegevens"
 msgid "Wrong data or no validation for %s"
 msgstr "Verkeerde gegevens of geen validatie voor %s"
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1048
+#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1047
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bladwijzer %s is aangemaakt."
@@ -15409,7 +15424,7 @@ msgstr "Er is een probleem met je vraag."
 
 #: src/Controllers/Table/GetFieldController.php:83
 #: src/Database/Routines.php:1012 src/Import/Import.php:130
-#: src/InsertEdit.php:199 src/Sql.php:858
+#: src/InsertEdit.php:199 src/Sql.php:857
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gaf een lege resultatenset terug (0 rijen)."
 
@@ -15800,7 +15815,7 @@ msgstr "%1$d in totaal, %2$d in de query"
 msgid "%s total"
 msgstr "%d totaal"
 
-#: src/Display/Results.php:3469 src/Sql.php:864
+#: src/Display/Results.php:3469 src/Sql.php:863
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Query duurde %01.4f seconden."
@@ -16425,7 +16440,7 @@ msgstr "De tabel naam kan niet langer zijn dan %d tekens."
 msgid "The trigger name cannot end with a space character."
 msgstr "De tabelnaam kan niet eindigen op een spatie."
 
-#: src/Import/Import.php:249 src/Sql.php:872
+#: src/Import/Import.php:249 src/Sql.php:871
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK is uitgevoerd]"
 
@@ -16493,11 +16508,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "uploadmap op webserver:"
 
-#: src/InsertEdit.php:930 src/Sql.php:855
+#: src/InsertEdit.php:930 src/Sql.php:854
 msgid "Showing SQL query"
 msgstr "Toont SQL-query"
 
-#: src/InsertEdit.php:954 src/Sql.php:835
+#: src/InsertEdit.php:954 src/Sql.php:834
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Toegevoegd rijnummer: %1$d"
@@ -16967,35 +16982,35 @@ msgstr "Geen gedeeltelijke afhankelijkheden gevonden!"
 msgid "Coalesce"
 msgstr "Samenvoegen"
 
-#: src/Operations.php:886
+#: src/Operations.php:885
 msgid "Can't move table to same one!"
 msgstr "Kan de tabel niet naar dezelfde verplaatsen!"
 
-#: src/Operations.php:888
+#: src/Operations.php:887
 msgid "Can't copy table to same one!"
 msgstr "Kan de tabel niet naar dezelfde kopiëren!"
 
-#: src/Operations.php:924
+#: src/Operations.php:923
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabel %s is verplaatst naar %s. Rechten zijn aangepast."
 
-#: src/Operations.php:930
+#: src/Operations.php:929
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabel %s is gekopieerd naar %s. Rechten zijn aangepast."
 
-#: src/Operations.php:936
+#: src/Operations.php:935
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabel %s is verplaatst naar %s."
 
-#: src/Operations.php:940
+#: src/Operations.php:939
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabel %s is gekopieerd naar %s."
 
-#: src/Operations.php:963
+#: src/Operations.php:962
 msgid "The table name is empty!"
 msgstr "De tabelnaam is leeg!"
 
@@ -17161,25 +17176,25 @@ msgid "Data dump options"
 msgstr "Dataexport-opties"
 
 #: src/Plugins/Export/ExportHtmlword.php:189
-#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2172
+#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2174
 #: src/Plugins/Export/ExportTexytext.php:173
 msgid "Dumping data for table"
 msgstr "Gegevens worden geëxporteerd voor tabel"
 
 #: src/Plugins/Export/ExportHtmlword.php:521
-#: src/Plugins/Export/ExportOdt.php:647 src/Plugins/Export/ExportSql.php:1910
+#: src/Plugins/Export/ExportOdt.php:647 src/Plugins/Export/ExportSql.php:1912
 #: src/Plugins/Export/ExportTexytext.php:491
 msgid "Table structure for table"
 msgstr "Tabelstructuur voor tabel"
 
 #: src/Plugins/Export/ExportHtmlword.php:538
-#: src/Plugins/Export/ExportOdt.php:667 src/Plugins/Export/ExportSql.php:1967
+#: src/Plugins/Export/ExportOdt.php:667 src/Plugins/Export/ExportSql.php:1969
 #: src/Plugins/Export/ExportTexytext.php:504
 msgid "Structure for view"
 msgstr "Structuur voor de view"
 
 #: src/Plugins/Export/ExportHtmlword.php:544
-#: src/Plugins/Export/ExportOdt.php:675 src/Plugins/Export/ExportSql.php:1999
+#: src/Plugins/Export/ExportOdt.php:675 src/Plugins/Export/ExportSql.php:2001
 #: src/Plugins/Export/ExportTexytext.php:508
 msgid "Stand-in structure for view"
 msgstr "Stand-in structuur voor view"
@@ -17253,7 +17268,7 @@ msgstr "Gegenereerd op:"
 msgid "PHP Version:"
 msgstr "PHP-versie:"
 
-#: src/Plugins/Export/ExportLatex.php:304 src/Plugins/Export/ExportSql.php:2052
+#: src/Plugins/Export/ExportLatex.php:304 src/Plugins/Export/ExportSql.php:2054
 msgid "Data:"
 msgstr "Gegevens:"
 
@@ -17358,7 +17373,7 @@ msgstr ""
 msgid "Data creation options"
 msgstr "Data-aanmaakopties"
 
-#: src/Plugins/Export/ExportSql.php:366 src/Plugins/Export/ExportSql.php:2130
+#: src/Plugins/Export/ExportSql.php:366 src/Plugins/Export/ExportSql.php:2132
 msgid "Truncate table before insert"
 msgstr "Tabel leegmaken voor invoegen"
 
@@ -17439,100 +17454,100 @@ msgstr ""
 msgid "It appears your database uses routines;"
 msgstr "Het lijkt erop dat uw database programmaroutines gebruikt;"
 
-#: src/Plugins/Export/ExportSql.php:542 src/Plugins/Export/ExportSql.php:1479
-#: src/Plugins/Export/ExportSql.php:1955
+#: src/Plugins/Export/ExportSql.php:542 src/Plugins/Export/ExportSql.php:1481
+#: src/Plugins/Export/ExportSql.php:1957
 msgid "alias export may not work reliably in all cases."
 msgstr "alias uitvoer mogelijk niet betrouwbaar in alle gevallen."
 
-#: src/Plugins/Export/ExportSql.php:1006
+#: src/Plugins/Export/ExportSql.php:1008
 msgid "Metadata"
 msgstr "Metadata"
 
-#: src/Plugins/Export/ExportSql.php:1067
+#: src/Plugins/Export/ExportSql.php:1069
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Metadata voor tabel %s"
 
-#: src/Plugins/Export/ExportSql.php:1074
+#: src/Plugins/Export/ExportSql.php:1076
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Metadata voor database %s"
 
-#: src/Plugins/Export/ExportSql.php:1391
+#: src/Plugins/Export/ExportSql.php:1393
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Fout bij lezen van tabelstructuur van tabel %s:"
 
-#: src/Plugins/Export/ExportSql.php:1476
+#: src/Plugins/Export/ExportSql.php:1478
 msgid "It appears your database uses views;"
 msgstr "Het lijkt erop dat uw databaseviews gebruikt;"
 
-#: src/Plugins/Export/ExportSql.php:1622
+#: src/Plugins/Export/ExportSql.php:1624
 msgid "Constraints for dumped tables"
 msgstr "Beperkingen voor geëxporteerde tabellen"
 
-#: src/Plugins/Export/ExportSql.php:1623
+#: src/Plugins/Export/ExportSql.php:1625
 msgid "Constraints for table"
 msgstr "Beperkingen voor tabel"
 
-#: src/Plugins/Export/ExportSql.php:1650
+#: src/Plugins/Export/ExportSql.php:1652
 msgid "Indexes for dumped tables"
 msgstr "Indexen voor geëxporteerde tabellen"
 
-#: src/Plugins/Export/ExportSql.php:1651
+#: src/Plugins/Export/ExportSql.php:1653
 msgid "Indexes for table"
 msgstr "Indexen voor tabel"
 
-#: src/Plugins/Export/ExportSql.php:1681
+#: src/Plugins/Export/ExportSql.php:1683
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT voor geëxporteerde tabellen"
 
-#: src/Plugins/Export/ExportSql.php:1682
+#: src/Plugins/Export/ExportSql.php:1684
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT voor een tabel"
 
-#: src/Plugins/Export/ExportSql.php:1753
+#: src/Plugins/Export/ExportSql.php:1755
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MEDIA TYPEN VOOR TABEL"
 
-#: src/Plugins/Export/ExportSql.php:1778
+#: src/Plugins/Export/ExportSql.php:1780
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELATIES VOOR TABEL"
 
-#: src/Plugins/Export/ExportSql.php:1952
+#: src/Plugins/Export/ExportSql.php:1954
 msgid "It appears your table uses triggers;"
 msgstr "Het lijkt erop dat uw tabel triggers gebruikt;"
 
-#: src/Plugins/Export/ExportSql.php:1982
+#: src/Plugins/Export/ExportSql.php:1984
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Structuur voor view %s geëxporteerd als tabel"
 
-#: src/Plugins/Export/ExportSql.php:2002
+#: src/Plugins/Export/ExportSql.php:2004
 msgid "(See below for the actual view)"
 msgstr "(Zie onder voor de actuele view)"
 
-#: src/Plugins/Export/ExportSql.php:2063
+#: src/Plugins/Export/ExportSql.php:2065
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Fout bij het lezen van gegevens voor tabel %s:"
 
-#: src/Plugins/Export/ExportSql.php:2658
+#: src/Plugins/Export/ExportSql.php:2660
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:584
 msgid "Creation:"
 msgstr "Aangemaakt:"
 
-#: src/Plugins/Export/ExportSql.php:2668
+#: src/Plugins/Export/ExportSql.php:2670
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:595
 msgid "Last update:"
 msgstr "Laatst bijgewerkt:"
 
-#: src/Plugins/Export/ExportSql.php:2678
+#: src/Plugins/Export/ExportSql.php:2680
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
 msgid "Last check:"
 msgstr "Laatst gecontroleerd:"
 
-#: src/Plugins/Export/ExportSql.php:2701
+#: src/Plugins/Export/ExportSql.php:2703
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -18405,16 +18420,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Er is geen recentere stabiele versie beschikbaar"
 
-#: src/Sql.php:432
+#: src/Sql.php:431
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Bladwijzer \"%s\" wordt gebruikt als standaard browsequery."
 
-#: src/Sql.php:852
+#: src/Sql.php:851
 msgid "Showing as PHP code"
 msgstr "Getoond als PHP-code"
 
-#: src/Sql.php:1216
+#: src/Sql.php:1215
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18424,7 +18439,7 @@ msgstr ""
 "rasterbewerkingen, checkboxen, Bewerken, Kopiëren en Verwijderen, zijn niet "
 "beschikbaar. %s"
 
-#: src/Sql.php:1230
+#: src/Sql.php:1229
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -19056,6 +19071,9 @@ msgstr "Fout in het ZIP-archief:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Geen bestanden gevonden in ZIP-archief!"
+
+#~ msgid "Set default"
+#~ msgstr "Standaardwaarde instellen"
 
 #, php-format
 #~ msgid "Error while working with template cache: %s"
@@ -19808,9 +19826,6 @@ msgstr "Geen bestanden gevonden in ZIP-archief!"
 
 #~ msgid "A rename operation was expected."
 #~ msgstr "Een hernoem bewerking werd verwacht."
-
-#~ msgid "Unexpected character."
-#~ msgstr "Onverwachte letter."
 
 #~ msgid "Expected whitespace(s) before delimiter."
 #~ msgstr "Spatie(s) werd(en) verwacht voor het scheidingsteken."
