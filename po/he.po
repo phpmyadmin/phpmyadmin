@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-01-19 03:17+0000\n"
+"PO-Revision-Date: 2024-03-31 07:17+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-9/he/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -5876,7 +5876,7 @@ msgstr "הצגת היסטוריית שאילתות בהתחלה"
 #: libraries/classes/Config/Descriptions.php:1468
 #: templates/console/display.twig:149
 msgid "Always expand query messages"
-msgstr ""
+msgstr "תמיד להרחיב הודעות תשאול"
 
 #: libraries/classes/Config/Descriptions.php:1470
 #: templates/console/display.twig:157
@@ -14150,7 +14150,7 @@ msgstr "הוספת %s תאים"
 
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "עריכת ערכי ENUM/SET"
 
 #: templates/privileges/delete_user_fieldset.twig:3
 msgid "Remove selected user accounts"
@@ -14561,7 +14561,7 @@ msgstr "עריכת הפרדת המחיצות"
 
 #: templates/columns_definitions/move_column.twig:7
 msgid "first"
-msgstr ""
+msgstr "ראשון"
 
 #: templates/privileges/resource_limits.twig:2
 msgid "Resource limits"
@@ -14667,7 +14667,7 @@ msgstr "ללא"
 
 #: templates/columns_definitions/column_default.twig:5
 msgid "As defined:"
-msgstr ""
+msgstr "כפי שהוגדר:"
 
 #: templates/server/databases/table_row.twig:13
 #, php-format
