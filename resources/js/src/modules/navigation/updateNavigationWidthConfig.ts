@@ -2,7 +2,7 @@ import $ from 'jquery';
 import { ajaxShowMessage } from '../ajax-message.ts';
 import { CommonParams } from '../common.ts';
 
-export function setConfigValue (value: number): void {
+export default function updateNavigationWidthConfig (value: number): void {
     $.ajax({
         url: 'index.php?route=/navigation/update-width',
         type: 'POST',

@@ -2,7 +2,7 @@ import $ from 'jquery';
 import { CommonParams } from './common.ts';
 import { Config } from './config.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.ts';
-import { setConfigValue } from './functions/config.ts';
+import updateNavigationWidthConfig from './navigation/updateNavigationWidthConfig.ts';
 import handleRedirectAndReload from './functions/handleRedirectAndReload.ts';
 import isStorageSupported from './functions/isStorageSupported.ts';
 
@@ -908,7 +908,7 @@ const ResizeHandler = function () {
      */
     this.mouseup = function (event): void {
         $('body').css('cursor', '');
-        setConfigValue(event.data.resize_handler.getPos(event));
+        updateNavigationWidthConfig(event.data.resize_handler.getPos(event));
         $('#topmenu').menuResizer('resize');
         $(document)
             .off('mousemove')
@@ -941,7 +941,7 @@ const ResizeHandler = function () {
             panelWidth = 240;
         }
 
-        setConfigValue(panelWidth);
+        updateNavigationWidthConfig(panelWidth);
         event.data.resize_handler.setWidth(panelWidth);
         event.data.resize_handler.panelWidth = width;
     };
