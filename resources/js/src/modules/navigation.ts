@@ -2,7 +2,7 @@ import $ from 'jquery';
 import { CommonParams } from './common.ts';
 import { Config } from './config.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.ts';
-import { getConfigValue, setConfigValue } from './functions/config.ts';
+import updateNavigationWidthConfig from './navigation/updateNavigationWidthConfig.ts';
 import handleRedirectAndReload from './functions/handleRedirectAndReload.ts';
 import isStorageSupported from './functions/isStorageSupported.ts';
 
@@ -908,7 +908,7 @@ const ResizeHandler = function () {
      */
     this.mouseup = function (event): void {
         $('body').css('cursor', '');
-        setConfigValue('NavigationWidth', event.data.resize_handler.getPos(event));
+        updateNavigationWidthConfig(event.data.resize_handler.getPos(event));
         $('#topmenu').menuResizer('resize');
         $(document)
             .off('mousemove')
@@ -941,7 +941,7 @@ const ResizeHandler = function () {
             panelWidth = 240;
         }
 
-        setConfigValue('NavigationWidth', panelWidth);
+        updateNavigationWidthConfig(panelWidth);
         event.data.resize_handler.setWidth(panelWidth);
         event.data.resize_handler.panelWidth = width;
     };
@@ -985,27 +985,19 @@ const ResizeHandler = function () {
         $(document).on('mousedown', '#pma_navigation_resizer', { 'resize_handler': this }, this.mousedown);
         $(document).on('click', '#pma_navigation_collapser', { 'resize_handler': this }, this.collapse);
 
+        const navigationDiv = $('#pma_navigation');
         // Add the correct arrow symbol to the collapser
-        $('#pma_navigation_collapser').html(this.getSymbol($('#pma_navigation').width()));
+        $('#pma_navigation_collapser').html(this.getSymbol(navigationDiv.width()));
         // Fix navigation tree height
         $(window).on('resize', this.treeResize);
         // need to call this now and then, browser might decide
         // to show/hide horizontal scrollbars depending on page content width
         setInterval(this.treeResize, 2000);
         this.treeResize();
-        const callbackSuccessGetConfigValue = (data) => {
-            this.setWidth(data);
-            $('#topmenu').menuResizer('resize');
-        };
 
-        // Skip mobile
-        if (isLoadedOnMobile === false) {
-            // Make an init using the default found value
-            const initialResizeValue = $('#pma_navigation').data('config-navigation-width');
-            callbackSuccessGetConfigValue(initialResizeValue);
-        }
-
-        getConfigValue('NavigationWidth', false, callbackSuccessGetConfigValue);
+        const initialResizeValue = Number(navigationDiv.data('config-navigation-width'));
+        this.setWidth(initialResizeValue);
+        $('#topmenu').menuResizer('resize');
     };
 
     this.treeInit();

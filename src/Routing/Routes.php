@@ -10,7 +10,6 @@ use PhpMyAdmin\Controllers\ChangeLogController;
 use PhpMyAdmin\Controllers\CheckRelationsController;
 use PhpMyAdmin\Controllers\CollationConnectionController;
 use PhpMyAdmin\Controllers\ColumnController;
-use PhpMyAdmin\Controllers\Config;
 use PhpMyAdmin\Controllers\Console\Bookmark;
 use PhpMyAdmin\Controllers\Console\UpdateConfigController;
 use PhpMyAdmin\Controllers\Database;
@@ -25,6 +24,7 @@ use PhpMyAdmin\Controllers\JavaScriptMessagesController;
 use PhpMyAdmin\Controllers\LicenseController;
 use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\Controllers\LogoutController;
+use PhpMyAdmin\Controllers\Navigation\UpdateNavWidthConfigController;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Controllers\Normalization;
 use PhpMyAdmin\Controllers\Operations;
@@ -54,10 +54,6 @@ final class Routes
         $routes->addRoute(['GET', 'POST'], '/check-relations', CheckRelationsController::class);
         $routes->post('/collation-connection', CollationConnectionController::class);
         $routes->post('/columns', ColumnController::class);
-        $routes->addGroup('/config', static function (RouteCollector $routes): void {
-            $routes->post('/get', Config\GetConfigController::class);
-            $routes->post('/set', Config\SetConfigController::class);
-        });
         $routes->addGroup('/console', static function (RouteCollector $routes): void {
             $routes->addGroup('/bookmark', static function (RouteCollector $routes): void {
                 $routes->post('/add', Bookmark\AddController::class);
@@ -143,7 +139,10 @@ final class Routes
         $routes->addRoute(['GET', 'POST'], '/lint', LintController::class);
         $routes->addRoute(['GET', 'POST'], '/logout', LogoutController::class);
         $routes->get('/messages', JavaScriptMessagesController::class);
-        $routes->addRoute(['GET', 'POST'], '/navigation', NavigationController::class);
+        $routes->addGroup('/navigation', static function (RouteCollector $routes): void {
+            $routes->addRoute(['GET', 'POST'], '', NavigationController::class);
+            $routes->post('/update-width', UpdateNavWidthConfigController::class);
+        });
         $routes->addGroup('/normalization', static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '', Normalization\MainController::class);
             $routes->post('/1nf/step1', Normalization\FirstNormalForm\FirstStepController::class);

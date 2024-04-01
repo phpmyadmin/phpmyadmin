@@ -12,7 +12,6 @@ use PhpMyAdmin\Controllers\ChangeLogController;
 use PhpMyAdmin\Controllers\CheckRelationsController;
 use PhpMyAdmin\Controllers\CollationConnectionController;
 use PhpMyAdmin\Controllers\ColumnController;
-use PhpMyAdmin\Controllers\Config;
 use PhpMyAdmin\Controllers\Console\Bookmark;
 use PhpMyAdmin\Controllers\Console\UpdateConfigController;
 use PhpMyAdmin\Controllers\Database;
@@ -28,6 +27,7 @@ use PhpMyAdmin\Controllers\JavaScriptMessagesController;
 use PhpMyAdmin\Controllers\LicenseController;
 use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\Controllers\LogoutController;
+use PhpMyAdmin\Controllers\Navigation\UpdateNavWidthConfigController;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Controllers\Normalization;
 use PhpMyAdmin\Controllers\Operations;
@@ -162,8 +162,6 @@ final class RoutesTest extends TestCase
             '/check-relations' => CheckRelationsController::class,
             '/collation-connection' => CollationConnectionController::class,
             '/columns' => ColumnController::class,
-            '/config/get' => Config\GetConfigController::class,
-            '/config/set' => Config\SetConfigController::class,
             '/console/bookmark/add' => Bookmark\AddController::class,
             '/console/update-config' => UpdateConfigController::class,
             '/database/central-columns' => Database\CentralColumnsController::class,
@@ -215,6 +213,7 @@ final class RoutesTest extends TestCase
             '/lint' => LintController::class,
             '/logout' => LogoutController::class,
             '/navigation' => NavigationController::class,
+            '/navigation/update-width' => UpdateNavWidthConfigController::class,
             '/normalization' => Normalization\MainController::class,
             '/normalization/1nf/step1' => Normalization\FirstNormalForm\FirstStepController::class,
             '/normalization/1nf/step2' => Normalization\FirstNormalForm\SecondStepController::class,
