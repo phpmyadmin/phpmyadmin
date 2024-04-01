@@ -1061,7 +1061,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->assertIsString($result);
         $this->assertStringContainsString('-- Triggers test_table', $result);
         $this->assertStringContainsString(
-            'CREATE TRIGGER `test_trigger` AFTER INSERT ON `test_table` FOR EACH ROW BEGIN END',
+            "CREATE TRIGGER `test_trigger` AFTER INSERT ON `test_table` FOR EACH ROW BEGIN END\n$$",
             $result
         );
 
