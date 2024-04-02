@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2017-12-31 18:48+0000\n"
-"Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
-"Language-Team: Kabyle <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"PO-Revision-Date: 2024-04-02 05:12+0000\n"
+"Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Kabyle <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "kab/>\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -6137,9 +6137,8 @@ msgid "OpenDocument Spreadsheet"
 msgstr "Ambellez OpenDocument"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:118
-#, fuzzy
 msgid "OpenDocument Text"
-msgstr "Aḍris OpenDocument "
+msgstr "Aḍris OpenDocument"
 
 #: libraries/classes/Config/Forms/User/FeaturesForm.php:82
 #, fuzzy
@@ -8338,9 +8337,8 @@ msgid "String"
 msgstr "AZrar"
 
 #: libraries/classes/Normalization.php:214
-#, fuzzy
 msgid "split into "
-msgstr "~Gzem..."
+msgstr "gzem ɣef "
 
 #: libraries/classes/Normalization.php:235
 msgid "Have a primary key"
