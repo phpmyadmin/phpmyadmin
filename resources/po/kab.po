@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-03-31 00:20+0000\n"
-"PO-Revision-Date: 2017-12-31 18:48+0000\n"
-"Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
+"PO-Revision-Date: 2024-04-02 05:12+0000\n"
+"Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "kab/>\n"
 "Language: kab\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:30
 #: resources/templates/database/central_columns/edit_table_row.twig:22
@@ -11323,9 +11323,8 @@ msgid "OpenDocument Spreadsheet"
 msgstr "Ambellez OpenDocument"
 
 #: src/Config/Forms/User/ExportForm.php:124
-#, fuzzy
 msgid "OpenDocument Text"
-msgstr "Aḍris OpenDocument "
+msgstr "Aḍris OpenDocument"
 
 #: src/Config/Forms/User/ImportForm.php:37
 msgid "CSV using LOAD DATA"
@@ -16042,9 +16041,8 @@ msgid ""
 msgstr ""
 
 #: src/Normalization.php:227
-#, fuzzy
 msgid "split into "
-msgstr "~Gzem..."
+msgstr "gzem ɣef "
 
 #: src/Normalization.php:248
 msgid "Have a primary key"
