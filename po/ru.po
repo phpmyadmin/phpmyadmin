@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-03-26 11:09+0000\n"
+"PO-Revision-Date: 2024-04-04 05:01+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ru/>\n"
@@ -1841,10 +1841,8 @@ msgid "Enter your private key for your domain reCaptcha service."
 msgstr "Введите ваш закрытый ключ для сервиса reCaptcha вашего домена."
 
 #: libraries/classes/Config/Descriptions.php:94
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCaptcha service."
-msgstr "Введите ваш закрытый ключ для сервиса reCaptcha вашего домена."
+msgstr "Введите ваш URL-адрес проверки сайта для вашей службы reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:96
 msgid ""
@@ -2203,16 +2201,12 @@ msgstr ""
 "выведены ссылки перелистывания страниц."
 
 #: libraries/classes/Config/Descriptions.php:282
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "Максимальное количество байт, которые могут быть выделены скрипту. Пример: "
-"[kbd]32M[/kbd] ([kbd]-1[/kbd] - без ограничений, [kbd]0[/kbd] - без "
+"[kbd]32M[/kbd] ([kbd]-1[/kbd] — без ограничений, [kbd]0[/kbd] — без "
 "изменения)."
 
 #: libraries/classes/Config/Descriptions.php:286
@@ -5100,7 +5094,7 @@ msgstr "Отображение строк %1$s - %2$s."
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "Страница с именем «%s» уже существует. Пожалуйста, переименуйте её."
 
 #: libraries/classes/Controllers/Database/ExportController.php:78
 #: libraries/classes/Controllers/Database/TrackingController.php:128
@@ -7021,6 +7015,8 @@ msgstr "Удалить страницу"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
+"Некоторые таблицы, сохранённые на этой странице, могли быть переименованы "
+"или удалены."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/database/designer/main.twig:10
@@ -7424,11 +7420,9 @@ msgstr "Превышено время ожидания для активации
 
 #. l10n: error code 2 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr "Ошибочный тип экспорта"
+msgstr "На ключ безопасности отправлен неверный запрос."
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
@@ -7460,6 +7454,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Вы не можете открыть, сохранить или удалить макет страницы, так как "
+"IndexedDB не работает в вашем браузере, а ваше хранилище конфигурации "
+"phpMyAdmin не настроено для этого."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 #, php-format
@@ -9402,6 +9399,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Ошибка 1045: пользователю отказано в доступе. Подробности об ошибке могут "
+"быть доступны, но скрыты директивой конфигурации %s."
 
 #: libraries/classes/Display/Results.php:907
 #: libraries/classes/Html/Generator.php:1254
@@ -11074,6 +11073,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
 msgstr ""
+"Ваш пароль слишком длинный. Для предотвращения атак типа «отказ в "
+"обслуживании» phpMyAdmin ограничивает пароли длиной менее 1000 символов."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -11098,6 +11099,9 @@ msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
+"Вы автоматически вышли из системы из-за бездействия в течение %s секунд. "
+"Когда вы снова войдёте в систему, вы сможете продолжить работу с того места, "
+"на котором остановились."
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:216
 #: libraries/classes/Plugins/AuthenticationPlugin.php:219
@@ -15599,16 +15603,16 @@ msgid "File name template:"
 msgstr "Шаблон имени файла:"
 
 #: templates/export.twig:324
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"Значение обрабатывается функцией %1$sstrftime%2$s, благодаря чему возможна "
-"вставка текущей даты и времени. Дополнительно могут быть использованы "
-"следующие подстановки: %3$s. Остальной текст останется без изменений. "
-"Подробности смотрите в %4$sFAQ%5$s."
+"Это значение обрабатывается функцией «strftime», так что вы можете "
+"использовать строки форматирования времени. Дополнительно следующие "
+"преобразования будут применены: %s. Остальной текст останется без изменений. "
+"Подробности смотрите в ЧаВо 6.27."
 
 #: templates/export.twig:329
 msgid "use this for future exports"
@@ -16220,6 +16224,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"Эти функции возвращают двоичный результат; чтобы избежать противоречивых "
+"результатов, его следует хранить в столбце BINARY, VARBINARY или BLOB."
 
 #: templates/login/form.twig:30
 msgid "Log in"
@@ -17237,7 +17243,7 @@ msgid ""
 "configured as master."
 msgstr ""
 "Сразу после перезапуска MySQL сервера, пожалуйста, нажмите кнопку OK, после "
-"чего вы должны увидеть сообщение указывающее, что данный сервер "
+"чего вы должны увидеть сообщение, указывающее, что этот сервер "
 "<strong>настроен</strong> как ведущий."
 
 #: templates/server/replication/master_replication.twig:5
