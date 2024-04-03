@@ -13,6 +13,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
@@ -44,7 +45,7 @@ final class ExportController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['export_type'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -97,7 +98,7 @@ final class ExportController extends AbstractController
         $GLOBALS['what'] = Core::securePath($whatParam);
 
         if (! $this->checkParameters(['what', 'export_type'])) {
-            return;
+            return null;
         }
 
         // export class instance, not array of properties, as before
@@ -111,7 +112,7 @@ final class ExportController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error(__('Bad type!'))->getDisplay());
 
-            return;
+            return null;
         }
 
         if ($request->hasBodyParam('sql_backquotes') && $exportPlugin instanceof ExportSql) {
@@ -194,7 +195,7 @@ final class ExportController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error(__('Bad parameters!'))->getDisplay());
 
-            return;
+            return null;
         }
 
         // Merge SQL Query aliases with Export aliases from
@@ -281,7 +282,7 @@ final class ExportController extends AbstractController
                 $location = $this->export->getPageLocationAndSaveMessage($GLOBALS['export_type'], $message);
                 $this->response->redirect($location);
 
-                return;
+                return null;
             }
         } elseif ($GLOBALS['asfile']) {
             /**
@@ -306,7 +307,7 @@ final class ExportController extends AbstractController
                     $controller = ContainerBuilder::getContainer()->get(DatabaseExportController::class);
                     $controller($request);
 
-                    return;
+                    return null;
                 }
             }
 
@@ -492,7 +493,7 @@ final class ExportController extends AbstractController
             $location = $this->export->getPageLocationAndSaveMessage($GLOBALS['export_type'], $GLOBALS['message']);
             $this->response->redirect($location);
 
-            return;
+            return null;
         }
 
         /**
@@ -505,7 +506,7 @@ final class ExportController extends AbstractController
                 Current::$table,
             );
 
-            return;
+            return null;
         }
 
         // Convert the charset if required.
@@ -544,10 +545,12 @@ final class ExportController extends AbstractController
             $location = $this->export->getPageLocationAndSaveMessage($GLOBALS['export_type'], $message);
             $this->response->redirect($location);
 
-            return;
+            return null;
         }
 
         echo $this->export->dumpBuffer;
+
+        return null;
     }
 
     /**

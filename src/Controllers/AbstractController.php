@@ -14,7 +14,7 @@ use PhpMyAdmin\Url;
 
 use function __;
 
-abstract class AbstractController
+abstract class AbstractController implements InvocableController
 {
     public function __construct(protected ResponseRenderer $response, protected Template $template)
     {

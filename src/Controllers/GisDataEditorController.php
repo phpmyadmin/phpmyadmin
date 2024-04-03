@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Gis\GisFactory;
 use PhpMyAdmin\Gis\GisVisualization;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 
 use function array_merge;
@@ -33,7 +34,7 @@ class GisDataEditorController extends AbstractController
         'GEOMETRYCOLLECTION',
     ];
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         /** @var string|null $field */
         $field = $request->getParsedBodyParam('field');
@@ -47,7 +48,7 @@ class GisDataEditorController extends AbstractController
         $inputName = $request->getParsedBodyParam('input_name');
 
         if (! isset($field)) {
-            return;
+            return null;
         }
 
         // Get data if any posted
@@ -59,7 +60,7 @@ class GisDataEditorController extends AbstractController
         // Generate parameters from value passed.
         $gisObj = GisFactory::fromType($geomType);
         if ($gisObj === null) {
-            return;
+            return null;
         }
 
         if (isset($value)) {
@@ -84,7 +85,7 @@ class GisDataEditorController extends AbstractController
         if ($request->hasBodyParam('generate')) {
             $this->response->addJSON(['result' => $result, 'visualization' => $svg, 'openLayers' => $openLayers]);
 
-            return;
+            return null;
         }
 
         $templateOutput = $this->template->render('gis_data_editor_form', [
@@ -103,6 +104,8 @@ class GisDataEditorController extends AbstractController
         ]);
 
         $this->response->addJSON(['gis_editor' => $templateOutput]);
+
+        return null;
     }
 
     /**

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
@@ -15,7 +16,7 @@ use function htmlspecialchars;
 
 final class EmptyFormController extends AbstractController
 {
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected_tbl', []);
@@ -24,7 +25,7 @@ final class EmptyFormController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return null;
         }
 
         $fullQuery = '';
@@ -41,5 +42,7 @@ final class EmptyFormController extends AbstractController
             'full_query' => $fullQuery,
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
         ]);
+
+        return null;
     }
 }

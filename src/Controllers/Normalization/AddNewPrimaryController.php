@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Normalization;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -26,7 +27,7 @@ final class AddNewPrimaryController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
@@ -47,5 +48,7 @@ final class AddNewPrimaryController extends AbstractController
         );
         $html .= Url::getHiddenInputs($dbName, $tableName);
         $this->response->addHTML($html);
+
+        return null;
     }
 }

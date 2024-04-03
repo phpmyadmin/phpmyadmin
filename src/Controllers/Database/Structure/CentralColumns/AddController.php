@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
@@ -29,7 +30,7 @@ final class AddController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['message'] ??= null;
 
@@ -39,7 +40,7 @@ final class AddController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return null;
         }
 
         Assert::allString($selected);
@@ -52,5 +53,7 @@ final class AddController extends AbstractController
         unset($_POST['submit_mult']);
 
         ($this->structureController)($request);
+
+        return null;
     }
 }

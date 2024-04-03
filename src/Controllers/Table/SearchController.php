@@ -12,6 +12,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -154,10 +155,10 @@ class SearchController extends AbstractController
     /**
      * Index action
      */
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         if (! $this->checkParameters(['db', 'table'])) {
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -173,12 +174,12 @@ class SearchController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -187,12 +188,12 @@ class SearchController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return;
+            return null;
         }
 
         $this->loadTableInfo();
@@ -209,7 +210,7 @@ class SearchController extends AbstractController
         if (isset($_POST['range_search'])) {
             $this->rangeSearchAction();
 
-            return;
+            return null;
         }
 
         /**
@@ -220,6 +221,8 @@ class SearchController extends AbstractController
         } else {
             $this->doSelectionAction();
         }
+
+        return null;
     }
 
     /**

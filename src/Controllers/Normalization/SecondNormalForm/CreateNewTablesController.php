@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Normalization\SecondNormalForm;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
@@ -20,7 +21,7 @@ final class CreateNewTablesController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $partialDependencies = json_decode($request->getParsedBodyParam('pd'), true);
         $tablesName = json_decode($request->getParsedBodyParam('newTablesName'));
@@ -31,5 +32,7 @@ final class CreateNewTablesController extends AbstractController
             Current::$database,
         );
         $this->response->addJSON($res);
+
+        return null;
     }
 }

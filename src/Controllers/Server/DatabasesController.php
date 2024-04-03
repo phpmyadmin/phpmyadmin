@@ -10,6 +10,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Query\Utilities;
@@ -68,7 +69,7 @@ class DatabasesController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] ??= null;
 
@@ -167,6 +168,8 @@ class DatabasesController extends AbstractController
             'is_drop_allowed' => $this->dbi->isSuperUser() || $config->settings['AllowUserDropDatabase'],
             'text_dir' => LanguageManager::$textDir,
         ]);
+
+        return null;
     }
 
     /**

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Server\Variables;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\ResponseRenderer;
@@ -23,10 +24,10 @@ final class GetVariableController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         if (! $request->isAjax()) {
-            return;
+            return null;
         }
 
         $name = $this->getName($request->getAttribute('routeVars'));
@@ -50,6 +51,8 @@ final class GetVariableController extends AbstractController
         }
 
         $this->response->addJSON($json);
+
+        return null;
     }
 
     private function getName(mixed $routeVars): string

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\CentralColumns;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\LanguageManager;
@@ -34,7 +35,7 @@ class CentralColumnsController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['message'] ??= null;
         $db = DatabaseName::from($request->getParam('db'));
@@ -54,7 +55,7 @@ class CentralColumnsController extends AbstractController
                 $db,
             ));
 
-            return;
+            return null;
         }
 
         if ($request->hasBodyParam('add_new_column')) {
@@ -78,7 +79,7 @@ class CentralColumnsController extends AbstractController
                 $request->getParsedBodyParam('cur_table', ''),
             ));
 
-            return;
+            return null;
         }
 
         if ($request->hasBodyParam('add_column')) {
@@ -102,7 +103,7 @@ class CentralColumnsController extends AbstractController
                 'db' => $request->getParsedBodyParam('db'),
             ]);
 
-            return;
+            return null;
         }
 
         if ($request->hasBodyParam('multi_edit_central_column_save')) {
@@ -152,10 +153,12 @@ class CentralColumnsController extends AbstractController
             sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $numberOfColumns),
         );
         if (! isset($tmpMsg) || $tmpMsg === true) {
-            return;
+            return null;
         }
 
         $GLOBALS['message'] = $tmpMsg;
+
+        return null;
     }
 
     public function main(string $totalRows, string $position, DatabaseName $db): void

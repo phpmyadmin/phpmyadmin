@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -29,7 +30,7 @@ class UserPasswordController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['hostname'] ??= null;
         $GLOBALS['username'] ??= null;
@@ -51,7 +52,7 @@ class UserPasswordController extends AbstractController
                 __('You don\'t have sufficient privileges to be here right now!'),
             )->getDisplay());
 
-            return;
+            return null;
         }
 
         $noPass = $request->getParsedBodyParam('nopass');
@@ -81,21 +82,21 @@ class UserPasswordController extends AbstractController
                     $sqlQuery = Generator::getMessage($GLOBALS['change_password_message']['msg'], $sqlQuery, 'success');
                     $this->response->addJSON('message', $sqlQuery);
 
-                    return;
+                    return null;
                 }
 
                 $this->response->addHTML('<h1>' . __('Change password') . '</h1>' . "\n\n");
                 $this->response->addHTML(Generator::getMessage($message, $sqlQuery, 'success'));
                 $this->render('user_password');
 
-                return;
+                return null;
             }
 
             if ($request->isAjax()) {
                 $this->response->addJSON('message', $GLOBALS['change_password_message']['msg']);
                 $this->response->setRequestStatus(false);
 
-                return;
+                return null;
             }
         }
 
@@ -114,5 +115,7 @@ class UserPasswordController extends AbstractController
             $GLOBALS['hostname'],
             $request->getRoute(),
         ));
+
+        return null;
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Setup;
 
 use PhpMyAdmin\Config\Validator;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
@@ -19,7 +20,7 @@ use function json_decode;
 use function json_encode;
 use function sprintf;
 
-final class ValidateController
+final class ValidateController implements InvocableController
 {
     public function __construct(private readonly ResponseFactory $responseFactory)
     {

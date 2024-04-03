@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Sql;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
@@ -26,7 +27,7 @@ final class RelationalValuesController extends AbstractController
      *
      * During grid edit, if we have a relational field, show the dropdown for it.
      */
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $column = $request->getParsedBodyParam('column');
         $relationKeyOrDisplayColumn = $request->getParsedBodyParam('relation_key_or_display_column');
@@ -44,5 +45,7 @@ final class RelationalValuesController extends AbstractController
             (string) $currValue,
         );
         $this->response->addJSON('dropdown', $dropdown);
+
+        return null;
     }
 }

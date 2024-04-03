@@ -11,6 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -43,18 +44,18 @@ class ChartController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] ??= null;
 
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $request->isAjax()) {
             if (Current::$table !== '' && Current::$database !== '' && ! $this->checkParameters(['db', 'table'])) {
-                return;
+                return null;
             }
 
             $this->ajax($request);
 
-            return;
+            return null;
         }
 
         // Throw error if no sql query is set
@@ -64,7 +65,7 @@ class ChartController extends AbstractController
                 Message::error(__('No SQL query was set to fetch data.'))->getDisplay(),
             );
 
-            return;
+            return null;
         }
 
         $this->addScriptFiles([
@@ -90,7 +91,7 @@ class ChartController extends AbstractController
          */
         if (Current::$table !== '') {
             if (! $this->checkParameters(['db', 'table'])) {
-                return;
+                return null;
             }
 
             $urlParams = ['db' => Current::$database, 'table' => Current::$table];
@@ -103,12 +104,12 @@ class ChartController extends AbstractController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                    return;
+                    return null;
                 }
 
                 $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-                return;
+                return null;
             }
 
             $tableName = TableName::tryFrom($request->getParam('table'));
@@ -117,12 +118,12 @@ class ChartController extends AbstractController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                    return;
+                    return null;
                 }
 
                 $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-                return;
+                return null;
             }
 
             $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
@@ -133,7 +134,7 @@ class ChartController extends AbstractController
             $urlParams['back'] = Url::getFromRoute('/sql');
 
             if (! $this->checkParameters(['db'])) {
-                return;
+                return null;
             }
 
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
@@ -145,12 +146,12 @@ class ChartController extends AbstractController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                    return;
+                    return null;
                 }
 
                 $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-                return;
+                return null;
             }
         } else {
             $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabServer'], 'server');
@@ -190,7 +191,7 @@ class ChartController extends AbstractController
                 __('No numeric columns present in the table to plot.'),
             );
 
-            return;
+            return null;
         }
 
         $urlParams['db'] = Current::$database;
@@ -208,6 +209,8 @@ class ChartController extends AbstractController
             'table_has_a_numeric_column' => true,
             'start_and_number_of_rows_fieldset' => $startAndNumberOfRowsFieldset,
         ]);
+
+        return null;
     }
 
     /**

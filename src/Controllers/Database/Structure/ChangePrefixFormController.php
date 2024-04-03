@@ -6,13 +6,14 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 
 use function __;
 
 final class ChangePrefixFormController extends AbstractController
 {
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected_tbl', []);
@@ -21,7 +22,7 @@ final class ChangePrefixFormController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return null;
         }
 
         $route = '/database/structure/replace-prefix';
@@ -36,5 +37,7 @@ final class ChangePrefixFormController extends AbstractController
 
         $this->response->disable();
         $this->render('database/structure/change_prefix_form', ['route' => $route, 'url_params' => $urlParams]);
+
+        return null;
     }
 }

@@ -7,13 +7,14 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 
 use function __;
 
 final class CopyFormController extends AbstractController
 {
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected_tbl', []);
@@ -22,7 +23,7 @@ final class CopyFormController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return null;
         }
 
         $urlParams = ['db' => Current::$database];
@@ -43,5 +44,7 @@ final class CopyFormController extends AbstractController
             'url_params' => $urlParams,
             'options' => $databasesList->getList(),
         ]);
+
+        return null;
     }
 }

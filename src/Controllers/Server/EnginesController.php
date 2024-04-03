@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
@@ -22,7 +23,7 @@ class EnginesController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -31,5 +32,7 @@ class EnginesController extends AbstractController
         }
 
         $this->render('server/engines/index', ['engines' => StorageEngine::getStorageEngines()]);
+
+        return null;
     }
 }

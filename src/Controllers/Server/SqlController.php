@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
@@ -28,7 +29,7 @@ class SqlController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] ??= null;
 
@@ -44,5 +45,7 @@ class SqlController extends AbstractController
         }
 
         $this->response->addHTML($this->sqlQueryForm->getHtml('', ''));
+
+        return null;
     }
 }

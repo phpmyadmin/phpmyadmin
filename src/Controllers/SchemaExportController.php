@@ -8,6 +8,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
@@ -20,13 +21,13 @@ use function mb_strlen;
 /**
  * Schema export handler
  */
-class SchemaExportController
+class SchemaExportController implements InvocableController
 {
     public function __construct(private Export $export, private ResponseRenderer $response)
     {
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $db = DatabaseName::tryFrom($request->getParsedBodyParam('db'));
         /** @var mixed $exportType */
@@ -38,7 +39,7 @@ class SchemaExportController
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error($errorMessage)->getDisplay());
 
-            return;
+            return null;
         }
 
         /**
@@ -50,7 +51,7 @@ class SchemaExportController
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error($exception->getMessage())->getDisplay());
 
-            return;
+            return null;
         }
 
         $this->response->disable();
@@ -60,5 +61,7 @@ class SchemaExportController
             mb_strlen($exportInfo['fileData'], '8bit'),
         );
         echo $exportInfo['fileData'];
+
+        return null;
     }
 }

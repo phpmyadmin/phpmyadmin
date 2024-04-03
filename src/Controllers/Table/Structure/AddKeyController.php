@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Sql\SqlController;
 use PhpMyAdmin\Controllers\Table\StructureController;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -22,12 +23,14 @@ final class AddKeyController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         ($this->sqlController)($request);
 
         $GLOBALS['reload'] = true;
 
         ($this->structureController)($request);
+
+        return null;
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -27,7 +28,7 @@ class VersionCheckController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $_GET['ajax_request'] = 'true';
 
@@ -44,7 +45,7 @@ class VersionCheckController extends AbstractController
         if ($versionDetails === null) {
             echo json_encode([]);
 
-            return;
+            return null;
         }
 
         $latestCompatible = $this->versionInformation->getLatestCompatibleVersion($versionDetails);
@@ -56,5 +57,7 @@ class VersionCheckController extends AbstractController
         }
 
         echo json_encode(['version' => $version, 'date' => $date]);
+
+        return null;
     }
 }

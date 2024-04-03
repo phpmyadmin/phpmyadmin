@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
@@ -36,7 +37,7 @@ class QueriesController extends AbstractController
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -99,5 +100,7 @@ class QueriesController extends AbstractController
             'queries' => $queries ?? [],
             'chart_data' => $chartData,
         ]);
+
+        return null;
     }
 }

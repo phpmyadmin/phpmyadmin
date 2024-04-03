@@ -12,6 +12,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Error\ErrorReport;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -39,7 +40,7 @@ class ErrorReportController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         /** @var string $exceptionType */
         $exceptionType = $request->getParsedBodyParam('exception_type', '');
@@ -49,7 +50,7 @@ class ErrorReportController extends AbstractController
         $alwaysSend = $request->getParsedBodyParam('always_send');
 
         if (! in_array($exceptionType, ['js', 'php'], true)) {
-            return;
+            return null;
         }
 
         $config = Config::getInstance();
@@ -145,5 +146,7 @@ class ErrorReportController extends AbstractController
             // clear previous errors & save new ones.
             $this->errorHandler->savePreviousErrors();
         }
+
+        return null;
     }
 }

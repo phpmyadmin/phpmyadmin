@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\MultiTableQuery;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
@@ -21,7 +22,7 @@ final class TablesController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         /** @var string[] $tables */
         $tables = $request->getQueryParam('tables', []);
@@ -37,5 +38,7 @@ final class TablesController extends AbstractController
             ),
         );
         $this->response->addJSON(['foreignKeyConstrains' => $constrains]);
+
+        return null;
     }
 }

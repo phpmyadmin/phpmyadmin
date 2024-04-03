@@ -11,6 +11,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -44,14 +45,14 @@ class IndexesController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
         if (! isset($_POST['create_edit_table'])) {
             if (! $this->checkParameters(['db', 'table'])) {
-                return;
+                return null;
             }
 
             $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -67,12 +68,12 @@ class IndexesController extends AbstractController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                    return;
+                    return null;
                 }
 
                 $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-                return;
+                return null;
             }
 
             $tableName = TableName::tryFrom($request->getParam('table'));
@@ -81,12 +82,12 @@ class IndexesController extends AbstractController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                    return;
+                    return null;
                 }
 
                 $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-                return;
+                return null;
             }
         }
 
@@ -123,7 +124,7 @@ class IndexesController extends AbstractController
                     $this->template->render('preview_sql', ['query_data' => $sqlQuery]),
                 );
 
-                return;
+                return null;
             }
 
             $logicError = $this->indexes->getError();
@@ -131,7 +132,7 @@ class IndexesController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $logicError);
 
-                return;
+                return null;
             }
 
             $this->dbi->query($sqlQuery);
@@ -158,17 +159,19 @@ class IndexesController extends AbstractController
                     ]),
                 );
 
-                return;
+                return null;
             }
 
             /** @var StructureController $controller */
             $controller = ContainerBuilder::getContainer()->get(StructureController::class);
             $controller($request);
 
-            return;
+            return null;
         }
 
         $this->displayForm($index);
+
+        return null;
     }
 
     /**

@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -36,7 +37,7 @@ final class BinlogController extends AbstractController
         $this->binaryLogs = $this->dbi->fetchResult('SHOW MASTER LOGS', 'Log_name');
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $log = $request->getParsedBodyParam('log');
         $position = (int) $request->getParsedBodyParam('pos', 0);
@@ -99,6 +100,8 @@ final class BinlogController extends AbstractController
             'has_icons' => Util::showIcons('TableNavigationLinksMode'),
             'is_full_query' => $isFullQuery,
         ]);
+
+        return null;
     }
 
     /**

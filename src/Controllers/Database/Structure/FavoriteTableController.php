@@ -12,6 +12,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -39,12 +40,12 @@ final class FavoriteTableController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] ??= null;
 
         if (Current::$database === '') {
-            return;
+            return null;
         }
 
         $config = Config::getInstance();
@@ -52,7 +53,7 @@ final class FavoriteTableController extends AbstractController
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         if (! $request->isAjax()) {
-            return;
+            return null;
         }
 
         $favoriteInstance = RecentFavoriteTables::getInstance(TableType::Favorite);
@@ -74,7 +75,7 @@ final class FavoriteTableController extends AbstractController
                 ));
             }
 
-            return;
+            return null;
         }
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -82,7 +83,7 @@ final class FavoriteTableController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-            return;
+            return null;
         }
 
         $changes = true;
@@ -120,7 +121,7 @@ final class FavoriteTableController extends AbstractController
             ]);
             $this->response->addJSON($json);
 
-            return;
+            return null;
         }
 
         // Check if current table is already in favorite list.
@@ -142,6 +143,8 @@ final class FavoriteTableController extends AbstractController
         ]);
 
         $this->response->addJSON($json);
+
+        return null;
     }
 
     /**

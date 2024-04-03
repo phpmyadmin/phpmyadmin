@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
@@ -20,7 +21,7 @@ use function __;
  */
 final class RecentFavoriteController extends AbstractController
 {
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         try {
             $db = DatabaseName::from($request->getParam('db'));
@@ -28,7 +29,7 @@ final class RecentFavoriteController extends AbstractController
         } catch (InvalidIdentifier) {
             $this->redirect('/', ['message' => __('Invalid database or table name.')]);
 
-            return;
+            return null;
         }
 
         $favoriteTable = new RecentFavoriteTable($db, $table);
@@ -36,5 +37,7 @@ final class RecentFavoriteController extends AbstractController
         RecentFavoriteTables::getInstance(TableType::Favorite)->removeIfInvalid($favoriteTable);
 
         $this->redirect('/sql', ['db' => $db->getName(), 'table' => $table->getName()]);
+
+        return null;
     }
 }

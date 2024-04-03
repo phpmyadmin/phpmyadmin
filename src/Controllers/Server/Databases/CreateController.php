@@ -10,6 +10,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -31,7 +32,7 @@ final class CreateController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $newDb = $request->getParsedBodyParam('new_db');
         $dbCollation = $request->getParsedBodyParam('db_collation');
@@ -39,7 +40,7 @@ final class CreateController extends AbstractController
         if (! is_string($newDb) || $newDb === '' || ! $request->isAjax()) {
             $this->response->addJSON(['message' => Message::error()]);
 
-            return;
+            return null;
         }
 
         if ($this->dbi->getLowerCaseNames() === 1) {
@@ -95,5 +96,7 @@ final class CreateController extends AbstractController
         }
 
         $this->response->addJSON($json);
+
+        return null;
     }
 }

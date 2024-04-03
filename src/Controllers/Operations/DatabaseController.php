@@ -13,6 +13,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidDatabaseName;
@@ -47,7 +48,7 @@ class DatabaseController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -212,7 +213,7 @@ class DatabaseController extends AbstractController
                 );
                 $this->response->addJSON('db', Current::$database);
 
-                return;
+                return null;
             }
         }
 
@@ -227,7 +228,7 @@ class DatabaseController extends AbstractController
         }
 
         if (! $this->checkParameters(['db'])) {
-            return;
+            return null;
         }
 
         $config = Config::getInstance();
@@ -240,12 +241,12 @@ class DatabaseController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/operations');
@@ -259,7 +260,7 @@ class DatabaseController extends AbstractController
         $dbCollation = $this->dbi->getDbCollation(Current::$database);
 
         if (Utilities::isSystemSchema(Current::$database)) {
-            return;
+            return null;
         }
 
         $databaseComment = '';
@@ -307,5 +308,7 @@ class DatabaseController extends AbstractController
             'charsets' => $charsets,
             'collations' => $collations,
         ]);
+
+        return null;
     }
 }

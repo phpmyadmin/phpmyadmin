@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\ResponseRenderer;
@@ -31,7 +32,7 @@ class StatusController extends AbstractController
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -89,6 +90,8 @@ class StatusController extends AbstractController
             'is_replica' => $replicaInfo['status'],
             'replication' => $replication,
         ]);
+
+        return null;
     }
 
     private function getStartTime(): int

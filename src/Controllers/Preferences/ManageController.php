@@ -11,6 +11,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -56,7 +57,7 @@ class ManageController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['cf'] ??= null;
         $GLOBALS['error'] ??= null;
@@ -77,7 +78,7 @@ class ManageController extends AbstractController
             $settings = $this->userPreferences->load();
             echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
 
-            return;
+            return null;
         }
 
         if ($request->hasBodyParam('submit_export') && $request->getParsedBodyParam('export_type') === 'php_file') {
@@ -93,7 +94,7 @@ class ManageController extends AbstractController
                 echo var_export($val, true) . ";\n";
             }
 
-            return;
+            return null;
         }
 
         if ($request->hasBodyParam('submit_get_json')) {
@@ -101,7 +102,7 @@ class ManageController extends AbstractController
             $this->response->addJSON('prefs', json_encode($settings['config_data']));
             $this->response->addJSON('mtime', $settings['mtime']);
 
-            return;
+            return null;
         }
 
         if ($request->hasBodyParam('submit_import')) {
@@ -181,7 +182,7 @@ class ManageController extends AbstractController
                         'return_url' => $returnUrl,
                     ]);
 
-                    return;
+                    return null;
                 }
 
                 // check for ThemeDefault
@@ -223,7 +224,7 @@ class ManageController extends AbstractController
                     $this->config->loadUserPreferences($this->themeManager);
                     $this->userPreferences->redirect($returnUrl ?? '', $redirectParams);
 
-                    return;
+                    return null;
                 }
 
                 $GLOBALS['error'] = $result;
@@ -234,12 +235,12 @@ class ManageController extends AbstractController
                 $this->config->removeCookie('pma_lang');
                 $this->userPreferences->redirect('index.php?route=/preferences/manage');
 
-                return;
+                return null;
             }
 
             $GLOBALS['error'] = $result;
 
-            return;
+            return null;
         }
 
         $relationParameters = $this->relation->getRelationParameters();
@@ -270,5 +271,7 @@ class ManageController extends AbstractController
         } else {
             define('PMA_DISABLE_NAVI_SETTINGS', true);
         }
+
+        return null;
     }
 }

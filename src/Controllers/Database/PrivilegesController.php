@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidDatabaseName;
@@ -37,7 +38,7 @@ class PrivilegesController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         try {
             $db = DatabaseName::from($request->getParam('db'));
@@ -47,7 +48,7 @@ class PrivilegesController extends AbstractController
         } catch (InvalidDatabaseName $exception) {
             $this->response->addHTML(Message::error($exception->getMessage())->getDisplay());
 
-            return;
+            return null;
         }
 
         $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
@@ -65,7 +66,7 @@ class PrivilegesController extends AbstractController
                     ->getDisplay(),
             );
 
-            return;
+            return null;
         }
 
         if (! $isGrantUser && ! $isCreateUser) {
@@ -91,5 +92,7 @@ class PrivilegesController extends AbstractController
             'privileges' => $privileges,
         ]);
         $this->render('export_modal');
+
+        return null;
     }
 }

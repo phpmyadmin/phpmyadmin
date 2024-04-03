@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -31,7 +32,7 @@ final class ChangeLogController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $this->response->disable();
         $this->response->getHeader()->sendHttpHeaders();
@@ -52,7 +53,7 @@ final class ChangeLogController extends AbstractController
                 . '" rel="noopener noreferrer" target="_blank">phpmyadmin.net</a>',
             );
 
-            return;
+            return null;
         }
 
         // Test if the file is in a compressed format
@@ -115,5 +116,7 @@ final class ChangeLogController extends AbstractController
         $this->render('changelog', [
             'changelog' => preg_replace(array_keys($replaces), $replaces, $changelog),
         ]);
+
+        return null;
     }
 }

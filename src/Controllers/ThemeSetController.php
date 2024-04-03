@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -25,19 +26,19 @@ final class ThemeSetController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $theme = $request->getParsedBodyParam('set_theme');
         if (! Config::getInstance()->settings['ThemeManager'] || ! is_string($theme) || $theme === '') {
             if ($request->isAjax()) {
                 $this->response->addJSON('themeColorMode', '');
 
-                return;
+                return null;
             }
 
             $this->response->redirect('index.php?route=/' . Url::getCommonRaw([], '&'));
 
-            return;
+            return null;
         }
 
         $this->themeManager->setActiveTheme($theme);
@@ -57,9 +58,11 @@ final class ThemeSetController extends AbstractController
         if ($request->isAjax()) {
             $this->response->addJSON('themeColorMode', $this->themeManager->theme->getColorMode());
 
-            return;
+            return null;
         }
 
         $this->response->redirect('index.php?route=/' . Url::getCommonRaw([], '&'));
+
+        return null;
     }
 }

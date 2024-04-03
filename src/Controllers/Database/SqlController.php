@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
@@ -36,7 +37,7 @@ class SqlController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['goto'] ??= null;
         $GLOBALS['back'] ??= null;
@@ -49,7 +50,7 @@ class SqlController extends AbstractController
         $this->response->addHTML($this->pageSettings->getHTML());
 
         if (! $this->checkParameters(['db'])) {
-            return;
+            return null;
         }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -64,12 +65,12 @@ class SqlController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         /**
@@ -87,5 +88,7 @@ class SqlController extends AbstractController
             false,
             htmlspecialchars($delimiter),
         ));
+
+        return null;
     }
 }

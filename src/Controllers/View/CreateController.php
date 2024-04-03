@@ -12,6 +12,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\LanguageManager;
@@ -55,10 +56,10 @@ class CreateController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         if (! $this->checkParameters(['db'])) {
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams'] ??= null;
@@ -76,12 +77,12 @@ class CreateController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/structure');
@@ -96,7 +97,7 @@ class CreateController extends AbstractController
             $this->response->addJSON('message', $GLOBALS['message']);
             $this->response->setRequestStatus(false);
 
-            return;
+            return null;
         }
 
         $createview = $request->hasBodyParam('createview');
@@ -110,7 +111,7 @@ class CreateController extends AbstractController
                 if (! $ajaxdialog) {
                     $GLOBALS['message'] = Message::rawError($this->dbi->getError());
 
-                    return;
+                    return null;
                 }
 
                 $this->response->addJSON(
@@ -122,12 +123,12 @@ class CreateController extends AbstractController
                 );
                 $this->response->setRequestStatus(false);
 
-                return;
+                return null;
             }
 
             $this->setSuccessResponse($view, $ajaxdialog, $request);
 
-            return;
+            return null;
         }
 
         $GLOBALS['sql_query'] = $request->getParsedBodyParam('sql_query', '');
@@ -200,6 +201,8 @@ class CreateController extends AbstractController
             'view_with_options' => self::VIEW_WITH_OPTIONS,
             'view_security_options' => self::VIEW_SECURITY_OPTIONS,
         ]);
+
+        return null;
     }
 
     /** @param mixed[] $view */

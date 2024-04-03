@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -25,7 +26,7 @@ final class AddPrefixTableController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected', []);
@@ -45,5 +46,7 @@ final class AddPrefixTableController extends AbstractController
         $GLOBALS['message'] = Message::success();
 
         ($this->structureController)($request);
+
+        return null;
     }
 }

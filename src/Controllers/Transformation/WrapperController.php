@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
@@ -47,7 +48,7 @@ class WrapperController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $this->response->getHeader()->setIsTransformationWrapper(true);
 
@@ -55,15 +56,15 @@ class WrapperController extends AbstractController
             $db = DatabaseName::from($request->getParam('db'));
             $table = TableName::from($request->getParam('table'));
         } catch (InvalidIdentifier) {
-            return;
+            return null;
         }
 
         if (! $this->dbi->selectDb($db)) {
-            return;
+            return null;
         }
 
         if (! $this->dbTableExists->hasTable($db, $table)) {
-            return;
+            return null;
         }
 
         $query = $this->getQuery($table, $request->getParam('where_clause'), $request->getParam('where_clause_sign'));
@@ -72,12 +73,12 @@ class WrapperController extends AbstractController
             /* l10n: In case a SQL query did not pass a security check  */
             $this->response->addHTML(Message::error(__('There is an issue with your request.'))->getDisplay());
 
-            return;
+            return null;
         }
 
         $row = $this->dbi->query($query)->fetchAssoc();
         if ($row === []) {
-            return;
+            return null;
         }
 
         $transformKey = $request->getParam('transform_key');
@@ -85,7 +86,7 @@ class WrapperController extends AbstractController
             ! is_string($transformKey) || $transformKey === ''
             || ! isset($row[$transformKey]) || $row[$transformKey] === ''
         ) {
-            return;
+            return null;
         }
 
         $mediaTypeMap = [];
@@ -135,17 +136,17 @@ class WrapperController extends AbstractController
             if (str_contains(strtolower($contentMediaType), 'html')) {
                 echo htmlspecialchars($row[$transformKey]);
 
-                return;
+                return null;
             }
 
             echo $row[$transformKey];
 
-            return;
+            return null;
         }
 
         $srcImage = ImageWrapper::fromString($row[$transformKey]);
         if ($srcImage === null) {
-            return;
+            return null;
         }
 
         $newHeight = $this->formatSize($request->getParam('newHeight'));
@@ -172,7 +173,7 @@ class WrapperController extends AbstractController
 
         $destImage = ImageWrapper::create($destWidth, $destHeight);
         if ($destImage === null) {
-            return;
+            return null;
         }
 
         $destImage->copyResampled($srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight);
@@ -182,6 +183,8 @@ class WrapperController extends AbstractController
         } else {
             $destImage->png();
         }
+
+        return null;
     }
 
     private function formatSize(mixed $size): int

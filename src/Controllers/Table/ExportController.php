@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Export\Options;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
@@ -36,7 +37,7 @@ class ExportController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -50,7 +51,7 @@ class ExportController extends AbstractController
         $this->addScriptFiles(['export.js']);
 
         if (! $this->checkParameters(['db', 'table'])) {
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -105,7 +106,7 @@ class ExportController extends AbstractController
                 __('Could not load export plugins, please check your installation!'),
             )->getDisplay());
 
-            return;
+            return null;
         }
 
         $exportType = 'table';
@@ -129,5 +130,7 @@ class ExportController extends AbstractController
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
         ]));
+
+        return null;
     }
 }

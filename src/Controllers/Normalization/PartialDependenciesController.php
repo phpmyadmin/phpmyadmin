@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Normalization;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
@@ -18,9 +19,11 @@ final class PartialDependenciesController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $html = $this->normalization->findPartialDependencies(Current::$table, Current::$database);
         $this->response->addHTML($html);
+
+        return null;
     }
 }

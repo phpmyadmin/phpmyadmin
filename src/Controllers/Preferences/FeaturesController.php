@@ -10,6 +10,7 @@ use PhpMyAdmin\Config\Forms\User\FeaturesForm;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -35,7 +36,7 @@ class FeaturesController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['cf'] ??= null;
         $GLOBALS['error'] ??= null;
@@ -52,7 +53,7 @@ class FeaturesController extends AbstractController
             $formDisplay->fixErrors();
             $this->redirect('/preferences/features');
 
-            return;
+            return null;
         }
 
         $GLOBALS['error'] = null;
@@ -70,7 +71,7 @@ class FeaturesController extends AbstractController
                 $GLOBALS['hash'] = ltrim($GLOBALS['tabHash'], '#');
                 $this->userPreferences->redirect('index.php?route=/preferences/features', null, $GLOBALS['hash']);
 
-                return;
+                return null;
             }
 
             $GLOBALS['error'] = $result;
@@ -102,5 +103,7 @@ class FeaturesController extends AbstractController
         } else {
             define('PMA_DISABLE_NAVI_SETTINGS', true);
         }
+
+        return null;
     }
 }

@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
@@ -32,12 +33,12 @@ final class CollationController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] ??= null;
 
         if (! $request->isAjax()) {
-            return;
+            return null;
         }
 
         $dbCollation = $request->getParsedBodyParam('db_collation') ?? '';
@@ -45,11 +46,11 @@ final class CollationController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No collation provided.')));
 
-            return;
+            return null;
         }
 
         if (! $this->checkParameters(['db'])) {
-            return;
+            return null;
         }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -63,7 +64,7 @@ final class CollationController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-            return;
+            return null;
         }
 
         $sqlQuery = 'ALTER DATABASE ' . Util::backquote(Current::$database)
@@ -103,5 +104,7 @@ final class CollationController extends AbstractController
 
         $this->response->setRequestStatus($message->isSuccess());
         $this->response->addJSON('message', $message);
+
+        return null;
     }
 }

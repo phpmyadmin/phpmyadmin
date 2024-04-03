@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Import;
 
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Message;
@@ -22,13 +24,13 @@ use function usleep;
 /**
  * Import progress bar backend
  */
-class StatusController
+class StatusController implements InvocableController
 {
     public function __construct(private Template $template)
     {
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['SESSION_KEY'] ??= null;
 
@@ -75,5 +77,7 @@ class StatusController
         } else {
             Ajax::status($request->getQueryParam('id'));
         }
+
+        return null;
     }
 }

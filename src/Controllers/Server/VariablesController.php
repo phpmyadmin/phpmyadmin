@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\ResponseRenderer;
@@ -31,7 +32,7 @@ class VariablesController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -89,6 +90,8 @@ class VariablesController extends AbstractController
             'is_superuser' => $this->dbi->isSuperUser(),
             'is_mariadb' => $this->dbi->isMariaDB(),
         ]);
+
+        return null;
     }
 
     /**

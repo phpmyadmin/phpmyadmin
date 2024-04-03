@@ -16,6 +16,7 @@ use PhpMyAdmin\Favorites\RecentFavoriteTable;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -122,14 +123,14 @@ final class StructureController extends AbstractController
         $this->dbIsSystemSchema = true;
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] ??= null;
 
         $parameters = ['sort' => $_REQUEST['sort'] ?? null, 'sort_order' => $_REQUEST['sort_order'] ?? null];
 
         if (! $this->checkParameters(['db'])) {
-            return;
+            return null;
         }
 
         $config = Config::getInstance();
@@ -142,12 +143,12 @@ final class StructureController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $this->addScriptFiles(['database/structure.js', 'table/change.js']);
@@ -208,6 +209,8 @@ final class StructureController extends AbstractController
             'is_system_schema' => $this->dbIsSystemSchema,
             'create_table_html' => $createTable,
         ]);
+
+        return null;
     }
 
     /** @param mixed[] $replicaInfo */

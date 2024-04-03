@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -31,7 +32,7 @@ final class DropColumnController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $selected = $_POST['selected'] ?? [];
 
@@ -39,7 +40,7 @@ final class DropColumnController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return;
+            return null;
         }
 
         $selectedCount = count($selected);
@@ -76,5 +77,7 @@ final class DropColumnController extends AbstractController
 
         $this->flash->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
         $this->redirect('/table/structure', ['db' => Current::$database, 'table' => Current::$table]);
+
+        return null;
     }
 }

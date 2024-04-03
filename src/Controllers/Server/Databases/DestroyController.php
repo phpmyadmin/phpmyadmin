@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -35,7 +36,7 @@ final class DestroyController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['selected'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -53,7 +54,7 @@ final class DestroyController extends AbstractController
             $this->response->setRequestStatus($message->isSuccess());
             $this->response->addJSON($json);
 
-            return;
+            return null;
         }
 
         if (
@@ -65,7 +66,7 @@ final class DestroyController extends AbstractController
             $this->response->setRequestStatus($message->isSuccess());
             $this->response->addJSON($json);
 
-            return;
+            return null;
         }
 
         $GLOBALS['errorUrl'] = Url::getFromRoute('/server/databases');
@@ -94,5 +95,7 @@ final class DestroyController extends AbstractController
         $json = ['message' => $message];
         $this->response->setRequestStatus($message->isSuccess());
         $this->response->addJSON($json);
+
+        return null;
     }
 }

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -24,7 +25,7 @@ class TwoFactorController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -40,7 +41,7 @@ class TwoFactorController extends AbstractController
             if (! $twoFactor->check($request, true)) {
                 $this->render('preferences/two_factor/confirm', ['form' => $twoFactor->render($request)]);
 
-                return;
+                return null;
             }
 
             $twoFactor->configure($request, '');
@@ -54,7 +55,7 @@ class TwoFactorController extends AbstractController
                     'configure' => $request->getParsedBodyParam('2fa_configure'),
                 ]);
 
-                return;
+                return null;
             }
 
             $this->response->addHTML(
@@ -78,5 +79,7 @@ class TwoFactorController extends AbstractController
         } else {
             define('PMA_DISABLE_NAVI_SETTINGS', true);
         }
+
+        return null;
     }
 }

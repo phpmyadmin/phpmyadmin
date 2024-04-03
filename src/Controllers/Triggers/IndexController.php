@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -44,7 +45,7 @@ final class IndexController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errors'] ??= null;
         $GLOBALS['urlParams'] ??= null;
@@ -59,7 +60,7 @@ final class IndexController extends AbstractController
              */
             if (Current::$table !== '' && in_array(Current::$table, $this->dbi->getTables(Current::$database), true)) {
                 if (! $this->checkParameters(['db', 'table'])) {
-                    return;
+                    return null;
                 }
 
                 $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -70,20 +71,20 @@ final class IndexController extends AbstractController
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                     $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-                    return;
+                    return null;
                 }
 
                 $tableName = TableName::tryFrom($request->getParam('table'));
                 if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
                     $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-                    return;
+                    return null;
                 }
             } else {
                 Current::$table = '';
 
                 if (! $this->checkParameters(['db'])) {
-                    return;
+                    return null;
                 }
 
                 $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -96,7 +97,7 @@ final class IndexController extends AbstractController
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                     $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-                    return;
+                    return null;
                 }
             }
         } elseif (Current::$database !== '') {
@@ -162,7 +163,7 @@ final class IndexController extends AbstractController
 
                 $this->response->addJSON('tableType', 'triggers');
 
-                return;
+                return null;
             }
         }
 
@@ -216,12 +217,12 @@ final class IndexController extends AbstractController
                     $this->response->addJSON('message', $editor);
                     $this->response->addJSON('title', $title);
 
-                    return;
+                    return null;
                 }
 
                 $this->response->addHTML("\n\n<h2>" . $title . "</h2>\n\n" . $editor);
 
-                return;
+                return null;
             }
 
             $message = __('Error in processing request:') . ' ';
@@ -235,7 +236,7 @@ final class IndexController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
-                return;
+                return null;
             }
 
             $this->response->addHTML($message->getDisplay());
@@ -254,13 +255,13 @@ final class IndexController extends AbstractController
                 $this->response->addJSON('title', $title);
                 $this->response->addJSON('message', htmlspecialchars(trim($exportData)));
 
-                return;
+                return null;
             }
 
             if ($exportData !== null) {
                 $this->render('triggers/export', ['data' => $exportData, 'item_name' => $triggerName->getName()]);
 
-                return;
+                return null;
             }
 
             $message = Message::error(sprintf(
@@ -272,7 +273,7 @@ final class IndexController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
-                return;
+                return null;
             }
         }
 
@@ -288,6 +289,8 @@ final class IndexController extends AbstractController
             'is_ajax' => $isAjax,
             'error_message' => $message?->getDisplay() ?? '',
         ]);
+
+        return null;
     }
 
     /**

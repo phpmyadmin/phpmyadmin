@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Transformation;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -25,7 +26,7 @@ class OverviewController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $header = $this->response->getHeader();
         $header->disableMenuAndConsole();
@@ -49,5 +50,7 @@ class OverviewController extends AbstractController
         }
 
         $this->render('transformation_overview', ['mime_types' => $mimeTypes, 'transformations' => $transformations]);
+
+        return null;
     }
 }

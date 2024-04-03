@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -23,7 +24,7 @@ final class ChangeRowsController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['where_clause'] ??= null;
 
@@ -36,7 +37,7 @@ final class ChangeRowsController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));
 
-            return;
+            return null;
         }
 
         // As we got the rows to be edited from the
@@ -49,5 +50,7 @@ final class ChangeRowsController extends AbstractController
         }
 
         ($this->changeController)($request);
+
+        return null;
     }
 }

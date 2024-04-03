@@ -12,6 +12,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -53,7 +54,7 @@ class TableController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['auto_increment'] ??= null;
@@ -71,7 +72,7 @@ class TableController extends AbstractController
         $this->addScriptFiles(['table/operations.js']);
 
         if (! $this->checkParameters(['db', 'table'])) {
-            return;
+            return null;
         }
 
         $isSystemSchema = Utilities::isSystemSchema(Current::$database);
@@ -86,12 +87,12 @@ class TableController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -100,12 +101,12 @@ class TableController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams']['goto'] = $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/operations');
@@ -155,7 +156,7 @@ class TableController extends AbstractController
             $message = $this->operations->moveOrCopyTable($userPrivileges, Current::$database, Current::$table);
 
             if (! $request->isAjax()) {
-                return;
+                return null;
             }
 
             $this->response->addJSON('message', $message);
@@ -169,12 +170,12 @@ class TableController extends AbstractController
 
                 $this->response->addJSON('db', Current::$database);
 
-                return;
+                return null;
             }
 
             $this->response->setRequestStatus(false);
 
-            return;
+            return null;
         }
 
         $newMessage = '';
@@ -278,7 +279,7 @@ class TableController extends AbstractController
                         Message::error(__('No collation provided.')),
                     );
 
-                    return;
+                    return null;
                 }
             }
         }
@@ -362,7 +363,7 @@ class TableController extends AbstractController
                         );
                     }
 
-                    return;
+                    return null;
                 }
             } else {
                 $newMessage = $result
@@ -384,7 +385,7 @@ class TableController extends AbstractController
                         );
                     }
 
-                    return;
+                    return null;
                 }
             }
 
@@ -521,5 +522,7 @@ class TableController extends AbstractController
             'partitions_choices' => $partitionsChoices,
             'foreigners' => $foreigners,
         ]);
+
+        return null;
     }
 }

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Console\Bookmark;
 
 use PhpMyAdmin\Console;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -20,8 +21,10 @@ final class RefreshController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $this->response->addJSON('console_message_bookmark', $this->console->getBookmarkContent());
+
+        return null;
     }
 }

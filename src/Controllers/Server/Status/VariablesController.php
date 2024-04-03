@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
@@ -31,7 +32,7 @@ class VariablesController extends AbstractController
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] ??= null;
 
@@ -127,6 +128,8 @@ class VariablesController extends AbstractController
             'links' => $links ?? [],
             'variables' => $variables ?? [],
         ]);
+
+        return null;
     }
 
     /**

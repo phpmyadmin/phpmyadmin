@@ -8,6 +8,7 @@ use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
@@ -34,16 +35,16 @@ final class ChangeController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         if (! $this->checkParameters(['server', 'db', 'table'])) {
-            return;
+            return null;
         }
 
         if ($request->getParam('change_column') !== null) {
             $this->displayHtmlForColumnChange([$request->getParam('field')]);
 
-            return;
+            return null;
         }
 
         $selected = $request->getParsedBodyParam('selected_fld', []);
@@ -52,10 +53,12 @@ final class ChangeController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return;
+            return null;
         }
 
         $this->displayHtmlForColumnChange($selected);
+
+        return null;
     }
 
     /**

@@ -10,6 +10,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -38,7 +39,7 @@ class ViewController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['urlParams'] ??= null;
         $tableObject = $this->dbi->getTable(Current::$database, Current::$table);
@@ -47,7 +48,7 @@ class ViewController extends AbstractController
         $this->addScriptFiles(['table/operations.js']);
 
         if (! $this->checkParameters(['db', 'table'])) {
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -63,12 +64,12 @@ class ViewController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -77,12 +78,12 @@ class ViewController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams']['goto'] = $GLOBALS['urlParams']['back'] = Url::getFromRoute('/view/operations');
@@ -140,5 +141,7 @@ class ViewController extends AbstractController
             'table' => Current::$table,
             'url_params' => $GLOBALS['urlParams'],
         ]);
+
+        return null;
     }
 }

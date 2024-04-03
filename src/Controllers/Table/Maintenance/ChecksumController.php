@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table\Maintenance;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
@@ -32,7 +33,7 @@ final class ChecksumController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $selectedTablesParam = $request->getParsedBodyParam('selected_tbl');
 
@@ -44,7 +45,7 @@ final class ChecksumController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return null;
         }
 
         try {
@@ -58,14 +59,14 @@ final class ChecksumController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $message->getDisplay());
 
-            return;
+            return null;
         }
 
         if ($this->config->get('DisableMultiTableMaintenance') && count($selectedTables) > 1) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('Maintenance operations on multiple tables are disabled.'));
 
-            return;
+            return null;
         }
 
         [$rows, $query, $warnings] = $this->model->getChecksumTableRows($database, $selectedTables);
@@ -77,5 +78,7 @@ final class ChecksumController extends AbstractController
         );
 
         $this->render('table/maintenance/checksum', ['message' => $message, 'rows' => $rows, 'warnings' => $warnings]);
+
+        return null;
     }
 }

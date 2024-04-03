@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Advisory\Advisor;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
@@ -20,7 +21,7 @@ class AdvisorController extends AbstractController
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $data = [];
         if ($this->data->dataLoaded) {
@@ -28,5 +29,7 @@ class AdvisorController extends AbstractController
         }
 
         $this->render('server/status/advisor/index', ['data' => $data]);
+
+        return null;
     }
 }

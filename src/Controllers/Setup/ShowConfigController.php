@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Setup;
 
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config\Forms\Setup\ConfigForm;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -15,7 +16,7 @@ use PhpMyAdmin\Url;
 
 use function is_string;
 
-final class ShowConfigController
+final class ShowConfigController implements InvocableController
 {
     public function __invoke(ServerRequest $request): Response
     {

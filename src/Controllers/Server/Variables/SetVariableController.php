@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Server\Variables;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\ResponseRenderer;
@@ -32,10 +33,10 @@ final class SetVariableController extends AbstractController
     /**
      * Handle the AJAX request for setting value for a single variable
      */
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         if (! $request->isAjax()) {
-            return;
+            return null;
         }
 
         $value = (string) $request->getParsedBodyParam('varValue');
@@ -79,6 +80,8 @@ final class SetVariableController extends AbstractController
         }
 
         $this->response->addJSON($json);
+
+        return null;
     }
 
     /**

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Server\Status\Monitor;
 
 use PhpMyAdmin\Controllers\Server\Status\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
@@ -25,7 +26,7 @@ final class LogVarsController extends AbstractController
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] ??= null;
 
@@ -36,7 +37,7 @@ final class LogVarsController extends AbstractController
         }
 
         if (! $request->isAjax()) {
-            return;
+            return null;
         }
 
         $this->response->addJSON([
@@ -45,5 +46,7 @@ final class LogVarsController extends AbstractController
                 $request->getParsedBodyParam('varValue'),
             ),
         ]);
+
+        return null;
     }
 }

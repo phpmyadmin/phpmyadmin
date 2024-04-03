@@ -10,6 +10,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\LanguageManager;
@@ -38,7 +39,7 @@ final class EventsController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errors'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -47,7 +48,7 @@ final class EventsController extends AbstractController
 
         if (! $request->isAjax()) {
             if (! $this->checkParameters(['db'])) {
-                return;
+                return null;
             }
 
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -60,7 +61,7 @@ final class EventsController extends AbstractController
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                 $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-                return;
+                return null;
             }
         } elseif (Current::$database !== '') {
             $this->dbi->selectDb(Current::$database);
@@ -111,7 +112,7 @@ final class EventsController extends AbstractController
 
                 $this->response->addJSON('tableType', 'events');
 
-                return;
+                return null;
             }
         }
 
@@ -184,12 +185,12 @@ final class EventsController extends AbstractController
                     $this->response->addJSON('message', $editor);
                     $this->response->addJSON('title', $title);
 
-                    return;
+                    return null;
                 }
 
                 $this->response->addHTML("\n\n<h2>" . $title . "</h2>\n\n" . $editor);
 
-                return;
+                return null;
             }
 
             $message = __('Error in processing request:') . ' ';
@@ -203,7 +204,7 @@ final class EventsController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
-                return;
+                return null;
             }
 
             $this->response->addHTML($message->getDisplay());
@@ -226,7 +227,7 @@ final class EventsController extends AbstractController
                     $this->response->addJSON('message', $exportData);
                     $this->response->addJSON('title', $title);
 
-                    return;
+                    return null;
                 }
 
                 $output = '<div class="container">';
@@ -248,7 +249,7 @@ final class EventsController extends AbstractController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $message);
 
-                    return;
+                    return null;
                 }
 
                 $this->response->addHTML($message->getDisplay());
@@ -265,5 +266,7 @@ final class EventsController extends AbstractController
             'text_dir' => LanguageManager::$textDir,
             'is_ajax' => $request->isAjax() && empty($_REQUEST['ajax_page_request']),
         ]);
+
+        return null;
     }
 }

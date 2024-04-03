@@ -10,6 +10,7 @@ use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -35,7 +36,7 @@ final class PrimaryController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['message'] ??= null;
         $GLOBALS['urlParams'] ??= null;
@@ -48,7 +49,7 @@ final class PrimaryController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return;
+            return null;
         }
 
         $this->dbi->selectDb(Current::$database);
@@ -59,7 +60,7 @@ final class PrimaryController extends AbstractController
 
         if ($hasPrimary && $deletionConfirmed === null) {
             if (! $this->checkParameters(['db', 'table'])) {
-                return;
+                return null;
             }
 
             $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -75,12 +76,12 @@ final class PrimaryController extends AbstractController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                    return;
+                    return null;
                 }
 
                 $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-                return;
+                return null;
             }
 
             $tableName = TableName::tryFrom($request->getParam('table'));
@@ -89,12 +90,12 @@ final class PrimaryController extends AbstractController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                    return;
+                    return null;
                 }
 
                 $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-                return;
+                return null;
             }
 
             $this->render('table/structure/primary', [
@@ -103,7 +104,7 @@ final class PrimaryController extends AbstractController
                 'selected' => $selected,
             ]);
 
-            return;
+            return null;
         }
 
         if ($deletionConfirmed === __('Yes') || ! $hasPrimary) {
@@ -134,6 +135,8 @@ final class PrimaryController extends AbstractController
         }
 
         ($this->structureController)($request);
+
+        return null;
     }
 
     private function hasPrimaryKey(): bool

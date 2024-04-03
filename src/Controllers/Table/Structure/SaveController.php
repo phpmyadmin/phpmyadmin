@@ -12,6 +12,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
@@ -51,7 +52,7 @@ final class SaveController extends AbstractController
         $this->tableObj = $this->dbi->getTable(Current::$database, Current::$table);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
@@ -62,6 +63,8 @@ final class SaveController extends AbstractController
         }
 
         ($this->structureController)($request);
+
+        return null;
     }
 
     /**

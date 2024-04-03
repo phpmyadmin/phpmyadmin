@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\JavaScriptMessagesController;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\ServerRequest;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
@@ -19,7 +20,8 @@ class JavaScriptMessagesControllerTest extends TestCase
 {
     public function testIndex(): void
     {
-        $response = (new JavaScriptMessagesController(ResponseFactory::create()))();
+        $controller = new JavaScriptMessagesController(ResponseFactory::create());
+        $response = $controller(self::createStub(ServerRequest::class));
         $actual = (string) $response->getBody();
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
 

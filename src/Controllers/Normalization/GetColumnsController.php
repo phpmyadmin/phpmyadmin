@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Normalization;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
@@ -21,7 +22,7 @@ final class GetColumnsController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $html = '<option selected disabled>' . __('Select one…') . '</option>'
             . '<option value="no_such_col">' . __('No such column') . '</option>';
@@ -32,5 +33,7 @@ final class GetColumnsController extends AbstractController
             _pgettext('string types', 'String'),
         );
         $this->response->addHTML($html);
+
+        return null;
     }
 }
