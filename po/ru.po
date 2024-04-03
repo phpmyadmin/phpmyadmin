@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2024-03-26 11:09+0000\n"
+"PO-Revision-Date: 2024-04-04 05:01+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ru/>\n"
@@ -2249,7 +2249,7 @@ msgid ""
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "Максимальное количество байт, которые могут быть выделены скрипту. Пример: "
-"[kbd]32M[/kbd] ([kbd]-1[/kbd] - без ограничений, [kbd]0[/kbd] - без "
+"[kbd]32M[/kbd] ([kbd]-1[/kbd] — без ограничений, [kbd]0[/kbd] — без "
 "изменения)."
 
 #: libraries/classes/Config/Descriptions.php:291
@@ -5052,7 +5052,7 @@ msgstr "Отображение строк %1$s - %2$s."
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr "Страница с именем \"%s\" уже существует. Пожалуйста, переименуйте её."
+msgstr "Страница с именем «%s» уже существует. Пожалуйста, переименуйте её."
 
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
@@ -5348,8 +5348,8 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
-"Для шифрования файлов cookie в конфигурационном файле необходим действующий "
-"ключ. Временный ключ был автоматически сгенерирован для вас. Обратитесь к "
+"Для шифрования куки в конфигурационном файле необходим действующий ключ. "
+"Временный ключ был автоматически создан для вас. Пожалуйста, обратитесь к "
 "[doc@cfg_blowfish_secret]документации[/doc] ."
 
 #: libraries/classes/Controllers/HomeController.php:334
@@ -5359,8 +5359,8 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
-"Ключ шифрования cookie в конфигурационном файле длиннее, чем необходимо. Его "
-"длина должна составлять всего %d байт. Обратитесь к "
+"Ключ шифрования куки в конфигурационном файле длиннее необходимого. Его "
+"длина должна быть всего %d байт. Пожалуйста, обратитесь к "
 "[doc@cfg_blowfish_secret]документации[/doc] ."
 
 #: libraries/classes/Controllers/HomeController.php:352
@@ -8300,34 +8300,24 @@ msgid "The number of joins that did a full scan of the first table."
 msgstr "Количество запросов-объединений с полным сканированием первой таблицы."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:479
-#, fuzzy
-#| msgid ""
-#| "The number of temporary tables currently open by the slave SQL thread."
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr ""
-"Количество открытых подчинённым SQL потоком в настоящий момент временных "
-"таблиц."
+"Количество временных таблиц, открытых в настоящее время потоком SQL реплики."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:481
-#, fuzzy
-#| msgid ""
-#| "Total (since startup) number of times the replication slave SQL thread "
-#| "has retried transactions."
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
 msgstr ""
-"Количество повторов транзакций репликации подчинённым потоком с момента "
-"запуска."
+"Общее (с момента запуска) количество повторных попыток транзакций потока SQL "
+"реплики репликации."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:483
-#, fuzzy
-#| msgid "This is ON if this server is a slave that is connected to a master."
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr ""
-"Присваивается значение ON, если данный сервер - подчинённый, подключенный к "
-"главному."
+"Этот параметр включён, если этот сервер является репликой, подключённой к "
+"первичному."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:485
 msgid ""
@@ -9173,8 +9163,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
-"Ошибка 1045: пользователю отказано в доступе. Дополнительная информация об "
-"ошибке может быть доступна, но скрыта директивой конфигурации %s."
+"Ошибка 1045: пользователю отказано в доступе. Подробности об ошибке могут "
+"быть доступны, но скрыты директивой конфигурации %s."
 
 #: libraries/classes/Display/Results.php:897 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -10848,6 +10838,9 @@ msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
+"Вы автоматически вышли из системы из-за бездействия в течение %s секунд. "
+"Когда вы снова войдёте в систему, вы сможете продолжить работу с того места, "
+"на котором остановились."
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:202
 #: libraries/classes/Plugins/AuthenticationPlugin.php:205
@@ -15568,10 +15561,10 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"Это значение обрабатывается функцией 'strftime', так что вы можете "
+"Это значение обрабатывается функцией «strftime», так что вы можете "
 "использовать строки форматирования времени. Дополнительно следующие "
 "преобразования будут применены: %s. Остальной текст останется без изменений. "
-"Подробности смотрите в FAQ 6.27."
+"Подробности смотрите в ЧаВо 6.27."
 
 #: templates/export.twig:398
 msgid "Use this for future exports"
@@ -16248,6 +16241,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"Эти функции возвращают двоичный результат; чтобы избежать противоречивых "
+"результатов, его следует хранить в столбце BINARY, VARBINARY или BLOB."
 
 #: templates/login/form.twig:58 templates/login/form.twig:117
 #: templates/login/form.twig:121 templates/login/form.twig:124
@@ -16330,7 +16325,7 @@ msgstr "Устарело!"
 msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
-msgstr ""
+msgstr "API FIDO U2F был упразднён в пользу API веб-аутентификации (WebAuthn)."
 
 #: templates/login/twofactor/key_configure.twig:6
 #: templates/login/twofactor/key.twig:6
@@ -16340,6 +16335,9 @@ msgid ""
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
+"Вы по-прежнему можете использовать Firefox для аутентификации своей учётной "
+"записи с помощью FIDO U2F API. Однако вместо этого рекомендуется "
+"использовать аутентификацию WebAuthn."
 
 #: templates/login/twofactor/key_configure.twig:10
 msgid ""
@@ -16618,15 +16616,11 @@ msgstr ""
 "записи."
 
 #: templates/preferences/two_factor/main.twig:26
-#, fuzzy
-#| msgid ""
-#| "Two-factor authentication is not available, please install optional "
-#| "dependencies to enable authentication backends."
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
-"Двухфакторная аутентификация недоступна, установите дополнительные "
-"зависимости, чтобы включить внутренние компоненты аутентификации."
+"Пожалуйста, установите дополнительные зависимости, чтобы включить больше "
+"внутренних компонентов аутентификации."
 
 #: templates/preferences/two_factor/main.twig:37
 msgid ""
@@ -17519,19 +17513,14 @@ msgstr ""
 "файла my.cnf, после чего перезапустите сервер MySQL."
 
 #: templates/server/replication/primary_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <strong>is</"
-#| "strong> configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
 msgstr ""
 "Сразу после перезапуска MySQL сервера, пожалуйста, нажмите кнопку OK, после "
-"чего вы должны увидеть сообщение указывающее, что данный сервер "
-"<strong>настроен</strong> как ведущий."
+"чего вы должны увидеть сообщение, указывающее, что этот сервер "
+"<strong>настроен</strong> как первичный."
 
 #: templates/server/replication/primary_replication.twig:5
 msgid "This server is configured as primary in a replication process."
