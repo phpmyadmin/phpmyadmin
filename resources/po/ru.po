@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-03-31 00:20+0000\n"
-"PO-Revision-Date: 2024-03-27 16:10+0000\n"
+"PO-Revision-Date: 2024-04-04 05:01+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -1131,10 +1131,8 @@ msgid "OK"
 msgstr "OK"
 
 #: resources/templates/console/display.twig:178
-#, fuzzy
-#| msgid "Restore default value"
 msgid "Restore default values"
-msgstr "Восстановить изначальное значение"
+msgstr "Восстановить значения по умолчанию"
 
 #: resources/templates/console/display.twig:185 src/Config/Descriptions.php:958
 msgid "Always expand query messages"
@@ -2276,13 +2274,12 @@ msgid "Is deterministic"
 msgstr "Определяющий"
 
 #: resources/templates/database/routines/editor_form.twig:141
-#, fuzzy
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
 msgstr ""
-"У вас недостаточно прав для выполнения этой операции; Более подробную "
-"информацию смотри в документации"
+"У вас недостаточно прав для выполнения этой операции. Пожалуйста, обратитесь "
+"к документации за подробностями."
 
 #: resources/templates/database/routines/editor_form.twig:150
 msgid "Security type"
@@ -3779,7 +3776,7 @@ msgstr "Устарело!"
 msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
-msgstr ""
+msgstr "API FIDO U2F был упразднён в пользу API веб-аутентификации (WebAuthn)."
 
 #: resources/templates/login/twofactor/key_configure.twig:6
 #: resources/templates/login/twofactor/key.twig:6
@@ -3789,6 +3786,9 @@ msgid ""
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
+"Вы по-прежнему можете использовать Firefox для аутентификации своей учётной "
+"записи с помощью FIDO U2F API. Однако вместо этого рекомендуется "
+"использовать аутентификацию WebAuthn."
 
 #: resources/templates/login/twofactor/key_configure.twig:6
 msgid ""
@@ -4118,12 +4118,11 @@ msgstr ""
 "записи."
 
 #: resources/templates/preferences/two_factor/main.twig:26
-#, fuzzy
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
-"Двухфакторная аутентификация недоступна, установите дополнительные "
-"зависимости, чтобы включить внутренние компоненты аутентификации."
+"Пожалуйста, установите дополнительные зависимости, чтобы включить больше "
+"внутренних компонентов аутентификации."
 
 #: resources/templates/preferences/two_factor/main.twig:37
 msgid ""
@@ -5259,9 +5258,8 @@ msgid "Save changes"
 msgstr "Сохранить изменения"
 
 #: resources/templates/server/replication/change_primary.twig:4
-#, fuzzy
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "Изменить, или перенастроить головной сервер"
+msgstr "Конфигурация реплики — изменить или перенастроить первичный сервер"
 
 #: resources/templates/server/replication/change_primary.twig:8
 msgid ""
@@ -5327,7 +5325,6 @@ msgid "Primary configuration"
 msgstr "Основная конфигурация"
 
 #: resources/templates/server/replication/primary_configuration.twig:2
-#, fuzzy
 msgid ""
 "This server is not configured as a primary server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -5335,11 +5332,11 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"Данный сервер не настроен в качестве головного для процесса репликации. Вы "
-"можете выбрать репликацию всех баз данных и игнорировать некоторые из них "
-"(используйте, если хотите провести репликацию большинства баз данных), либо "
+"Этот сервер не настроен в качестве первичного для процесса репликации. Вы "
+"можете выбрать репликацию всех баз данных и игнорировать некоторые из них ("
+"используйте, если хотите провести репликацию большинства баз данных), либо "
 "выбрать игнорирование всех баз данных по умолчанию и разрешение для "
-"репликации только определенных. Пожалуйста, выберите желаемый режим:"
+"репликации только определённых. Пожалуйста, выберите желаемый режим:"
 
 #: resources/templates/server/replication/primary_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
@@ -5362,15 +5359,14 @@ msgstr ""
 "файла my.cnf, после чего перезапустите сервер MySQL."
 
 #: resources/templates/server/replication/primary_configuration.twig:20
-#, fuzzy
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
 msgstr ""
 "Сразу после перезапуска MySQL сервера, пожалуйста, нажмите кнопку OK, после "
-"чего вы должны увидеть сообщение указывающее, что данный сервер "
-"<strong>настроен</strong> как ведущий."
+"чего вы должны увидеть сообщение, указывающее, что этот сервер "
+"<strong>настроен</strong> как первичный."
 
 #: resources/templates/server/replication/primary_replication.twig:3
 msgid "This server is configured as primary in a replication process."
@@ -7090,9 +7086,8 @@ msgid "Next autoindex"
 msgstr "Следующий автоматический индекс"
 
 #: resources/templates/table/structure/drop_confirm.twig:1
-#, fuzzy
 msgid "Dropping columns from the table"
-msgstr "DROP столбцов %s в таблице %s"
+msgstr "Удаление столбцов из таблицы"
 
 #: resources/templates/table/tracking/main.twig:64
 #: resources/templates/table/tracking/main.twig:91
@@ -11871,17 +11866,13 @@ msgid "Succeeded"
 msgstr "Удалось"
 
 #: src/Controllers/Console/UpdateConfigController.php:49
-#, fuzzy
-#| msgid "Table %1$s has been altered successfully."
 msgid "Console settings has been updated successfully."
-msgstr "Таблица %1$s была успешно изменена."
+msgstr "Настройки консоли успешно обновлены."
 
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
-#, fuzzy
-#| msgid "Unexpected character."
 msgid "Unexpected parameter value."
-msgstr "Неожиданный символ."
+msgstr "Неожиданное значение параметра."
 
 #: src/Controllers/Database/CentralColumnsController.php:152
 #, php-format
@@ -11993,10 +11984,12 @@ msgid "Export of event %s"
 msgstr "Экспортировать событие %s"
 
 #: src/Controllers/Database/EventsController.php:241
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "В базе данных %2$s не найдено событие с именем %1$s."
+msgstr ""
+"Ошибка обработки запроса: Событие с именем %1$s не найдено в базе данных "
+"%2$s."
 
 #: src/Controllers/Database/ExportController.php:152
 #: src/Controllers/Server/ExportController.php:72
@@ -12113,14 +12106,15 @@ msgid "Export of routine %s"
 msgstr "Экспорт процедуры %s"
 
 #: src/Controllers/Database/RoutinesController.php:449
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
-"Процедура с именем %1$s не найдена в базе данных %2$s. Возможно, у вас "
-"отсутствуют привилегии, необходимые для просмотра/экспорта этой процедуры."
+"Ошибка обработки запроса: Процедура с именем %1$s не найдена в базе данных "
+"%2$s. Возможно, у вас отсутствуют привилегии, необходимые для просмотра/"
+"экспорта этой процедуры."
 
 #: src/Controllers/Database/SearchController.php:66
 msgid ""
@@ -12268,6 +12262,9 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Для шифрования куки в конфигурационном файле необходим действующий ключ. "
+"Временный ключ был автоматически создан для вас. Пожалуйста, обратитесь к "
+"[doc@cfg_blowfish_secret]документации[/doc] ."
 
 #: src/Controllers/HomeController.php:335
 #, php-format
@@ -12276,6 +12273,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Ключ шифрования куки в конфигурационном файле длиннее необходимого. Его "
+"длина должна быть всего %d байт. Пожалуйста, обратитесь к "
+"[doc@cfg_blowfish_secret]документации[/doc] ."
 
 #: src/Controllers/HomeController.php:353
 msgid ""
@@ -12423,9 +12423,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Таблица будет полностью ОЧИЩЕНА от данных!"
 
 #: src/Controllers/JavaScriptMessagesController.php:59
-#, fuzzy
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "Таблица будет полностью УДАЛЕНА!"
+msgstr "Вы собираетесь УДАЛИТЬ все строки таблицы!"
 
 #: src/Controllers/JavaScriptMessagesController.php:60
 msgid "Delete tracking data for this table?"
@@ -13941,6 +13940,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuthn недоступен. Пожалуйста, используйте поддерживаемый браузер в "
+"безопасном контексте (HTTPS)."
 
 #: src/Controllers/JavaScriptMessagesController.php:705
 msgid ""
@@ -14304,6 +14305,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"Эти функции возвращают двоичный результат; чтобы избежать противоречивых "
+"результатов, его следует хранить в столбце BINARY, VARBINARY или BLOB."
 
 #: src/Controllers/JavaScriptMessagesController.php:809
 msgid ""
@@ -15070,28 +15073,24 @@ msgid "The number of joins that did a full scan of the first table."
 msgstr "Количество запросов-объединений с полным сканированием первой таблицы."
 
 #: src/Controllers/Server/Status/VariablesController.php:459
-#, fuzzy
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr ""
-"Количество открытых подчинённым SQL потоком в настоящий момент временных "
-"таблиц."
+"Количество временных таблиц, открытых в настоящее время потоком SQL реплики."
 
 #: src/Controllers/Server/Status/VariablesController.php:461
-#, fuzzy
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
 msgstr ""
-"Количество повторов транзакций репликации подчинённым потоком с момента "
-"запуска."
+"Общее (с момента запуска) количество повторных попыток транзакций потока SQL "
+"реплики репликации."
 
 #: src/Controllers/Server/Status/VariablesController.php:463
-#, fuzzy
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr ""
-"Присваивается значение ON, если данный сервер - подчинённый, подключенный к "
-"главному."
+"Этот параметр включён, если этот сервер является репликой, подключённой к "
+"первичному."
 
 #: src/Controllers/Server/Status/VariablesController.php:465
 msgid ""
@@ -15290,12 +15289,12 @@ msgid "No column selected."
 msgstr "Не выбран столбец."
 
 #: src/Controllers/Table/DropColumnController.php:69
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "%1$d база данных была успешно удалена."
-msgstr[1] "%1$d базы данных были успешно удалены."
-msgstr[2] "%1$d баз данных было успешно удалено."
+msgstr[0] "%1$d столбец был успешно удалён."
+msgstr[1] "%1$d столбца были успешно удалены."
+msgstr[2] "%1$d столбцов было успешно удалено."
 
 #: src/Controllers/Table/GetFieldController.php:57
 msgid "Invalid table name"
@@ -15314,9 +15313,8 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вернула пустой результат (т.е. ноль строк)."
 
 #: src/Controllers/Table/GisVisualizationController.php:98
-#, fuzzy
 msgid "No spatial column found for this SQL query."
-msgstr "Не доступно в данной версии MySQL."
+msgstr "Для этого SQL-запроса не найден пространственный столбец."
 
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:66
 #: src/Controllers/Table/Maintenance/CheckController.php:66
@@ -15333,14 +15331,12 @@ msgstr "Операции обслуживания нескольких табл�
 #: src/Controllers/Table/Partition/RebuildController.php:37
 #: src/Controllers/Table/Partition/RepairController.php:37
 #: src/Controllers/Table/Partition/TruncateController.php:37
-#, fuzzy
 msgid "The partition name must be a non-empty string."
-msgstr "Не задано имя таблицы!"
+msgstr "Имя раздела должно быть непустой строкой."
 
 #: src/Controllers/Table/RecentFavoriteController.php:29
-#, fuzzy
 msgid "Invalid database or table name."
-msgstr "Неправильное имя таблицы"
+msgstr "Неверное имя базы данных или таблицы."
 
 #: src/Controllers/Table/RelationController.php:323
 msgid "Display column was successfully updated."
@@ -15410,11 +15406,12 @@ msgid "No trigger with name %1$s found in database %2$s."
 msgstr "В базе данных %2$s триггер с именем %1$s не найден."
 
 #: src/Controllers/Triggers/IndexController.php:267
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "В базе данных %2$s триггер с именем %1$s не найден."
+msgstr ""
+"Ошибка обработки запроса: Триггер с именем %1$s не найден в базе данных %2$s."
 
 #: src/Controllers/UserPasswordController.php:51
 msgid "You don't have sufficient privileges to be here right now!"
@@ -15686,9 +15683,9 @@ msgid "Showing rows %1s - %2s"
 msgstr "Отображение строк %1s - %2s"
 
 #: src/Display/Results.php:3451
-#, fuzzy, php-format
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "%1$d всего, %2$d в запросе"
+msgstr "%1$s всего, %2$s в запросе"
 
 #: src/Display/Results.php:3456
 #, php-format
@@ -16276,44 +16273,39 @@ msgid "The database name must be a non-empty string."
 msgstr "Не указано имя базы данных!"
 
 #: src/Identifiers/InvalidDatabaseName.php:20
-#, fuzzy, php-format
+#, php-format
 msgid "The database name cannot be longer than %d characters."
-msgstr "Введите не более {0} символ(а/ов)"
+msgstr "Имя базы данных не может быть длиннее %d символов."
 
 #: src/Identifiers/InvalidDatabaseName.php:25
-#, fuzzy
 msgid "The database name cannot end with a space character."
-msgstr "Слова разделяются пробелом (\" \")."
+msgstr "Имя базы данных не может заканчиваться символом пробела."
 
 #: src/Identifiers/InvalidTableName.php:14
-#, fuzzy
 msgid "The table name must be a non-empty string."
-msgstr "Не задано имя таблицы!"
+msgstr "Имя таблицы должно быть непустой строкой."
 
 #: src/Identifiers/InvalidTableName.php:20
-#, fuzzy, php-format
+#, php-format
 msgid "The table name cannot be longer than %d characters."
-msgstr "Введите не более {0} символ(а/ов)"
+msgstr "Имя таблицы не может быть длиннее %d символов."
 
 #: src/Identifiers/InvalidTableName.php:25
-#, fuzzy
 msgid "The table name cannot end with a space character."
-msgstr "Слова разделяются пробелом (\" \")."
+msgstr "Имя таблицы не может заканчиваться символом пробела."
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
 msgid "The trigger name must not be empty."
-msgstr "Имя вида не может быть пустым!"
+msgstr "Имя триггера не должно быть пустым."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "Введите не более {0} символ(а/ов)"
+msgstr "Длина имени триггера не может превышать %d символов."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
 msgid "The trigger name cannot end with a space character."
-msgstr "Слова разделяются пробелом (\" \")."
+msgstr "Имя триггера не может заканчиваться символом пробела."
 
 #: src/Import/Import.php:249 src/Sql.php:871
 msgid "[ROLLBACK occurred.]"
@@ -16935,9 +16927,8 @@ msgid "Your session has expired. Please log in again."
 msgstr "Время сессии истекло. Пожалуйста, войдите заново."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:235
-#, fuzzy
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
-msgstr "Отсутствует проверка reCAPTCHA, возможно, она заблокирована adblock?"
+msgstr "Отсутствует проверка Captcha, возможно, сработал блокировщик рекламы?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:270
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -16952,6 +16943,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
+"Ваш пароль слишком длинный. Для предотвращения атак типа «отказ в "
+"обслуживании» phpMyAdmin ограничивает пароли длиной менее 2000 символов."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:303
 msgid "You are not allowed to log in to this MySQL server!"
@@ -16981,6 +16974,9 @@ msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
+"Вы автоматически вышли из системы из-за бездействия в течение %s секунд. "
+"Когда вы снова войдёте в систему, вы сможете продолжить работу с того места, "
+"на котором остановились."
 
 #: src/Plugins/AuthenticationPlugin.php:188
 #: src/Plugins/AuthenticationPlugin.php:191
@@ -17693,7 +17689,6 @@ msgstr ""
 "строки."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
-#, fuzzy
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -17706,16 +17701,17 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"ТОЛЬКО LINUX: Запускает внешнее приложение и подает ему на ввод данные поля. "
-"Возвращает обычный вывод приложения. По умолчанию используется Tidy "
-"(форматирование HTML-кода). По соображениям безопасности необходимо вручную "
-"отредактировать файл libraries/classes/Plugins/Transformations/Output/"
-"Text_Plain_External.php, вписав доступные программы. Первый параметр задает "
-"номер используемой программы, во втором параметре передаются параметры "
-"собственно программы. При установке третьего параметра в 1 данные вывода "
-"будут преобразованы функцией htmlspecialchars() (по умолчанию 1). При "
-"установке четвёртого параметра в 1 будут предотвращены переносы строк, и "
-"данные будут выведены в одну строку (по умолчанию 1)."
+"ТОЛЬКО LINUX: Запускает внешнее приложение и передаёт ему данные столбцов "
+"через стандартный ввод. Возвращает стандартный вывод приложения. По "
+"умолчанию используется Tidy для красивой печати HTML-кода. По соображениям "
+"безопасности вы должны вручную отредактировать файл src/Plugins/"
+"Transformations/Abs/ExternalTransformationsPlugin.php и перечислить "
+"инструменты, которые вы хотите сделать доступными. Первый параметр — это "
+"номер программы, которую вы хотите использовать. Второй параметр должен быть "
+"пустым по историческим причинам. Третий параметр, если он равен 1, "
+"преобразует вывод с помощью htmlspecialchars() (по умолчанию 1). Четвёртый "
+"параметр, если он установлен в 1, предотвратит обёртку и обеспечит вывод в "
+"одну строку (по умолчанию 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
@@ -17724,6 +17720,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Вы используете поле параметров внешнего преобразования командной строки, "
+"которое было отключено из соображений безопасности. Добавьте все параметры "
+"командной строки непосредственно к определению в %s."
 
 #: src/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:27
 msgid ""
@@ -17900,13 +17899,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Аппаратный ключ безопасности (FIDO U2F)"
 
 #: src/Plugins/TwoFactor/Key.php:211
-#, fuzzy
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
 "Обеспечивает аутентификацию с помощью аппаратных токенов безопасности, "
-"поддерживающих FIDO U2F, таких, как Yubikey."
+"поддерживающих FIDO U2F, таких, как YubiKey."
 
 #: src/Plugins/TwoFactorPlugin.php:57
 #, php-format
@@ -17938,13 +17936,12 @@ msgid "Hardware Security Key (WebAuthn/FIDO2)"
 msgstr "Аппаратный ключ безопасности (WebAuthn/FIDO2)"
 
 #: src/Plugins/TwoFactor/WebAuthn.php:182
-#, fuzzy
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
 "Обеспечивает аутентификацию с помощью аппаратных токенов безопасности, "
-"поддерживающих FIDO U2F, таких, как Yubikey."
+"поддерживающих протокол WebAuthn/FIDO2, таких, как YubiKey."
 
 #: src/Query/Utilities.php:93
 msgid ""
@@ -18036,6 +18033,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"Не удалось записать кэш маршрутизации, вам необходимо изменить права на "
+"папку/файл «%s»"
 
 #: src/Routing/Routing.php:154 src/Routing/Routing.php:214
 #, php-format
@@ -18827,6 +18826,8 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"Предназначен для хранения адресов IPv6, а также адресов IPv4, предполагающих "
+"обычное отображение адресов IPv4 в адреса IPv6"
 
 #: src/Types.php:326
 msgid "128-bit UUID (Universally Unique Identifier)"
@@ -18864,9 +18865,9 @@ msgid "Could not save configuration"
 msgstr "Не получилось сохранить настройки"
 
 #: src/UserPreferences.php:173
-#, fuzzy
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "%sСоздать%s хранилище конфигурации phpMyAdmin в текущей базе данных."
+msgstr ""
+"Не удалось получить доступ к базе данных хранилища конфигурации phpMyAdmin."
 
 #: src/Util.php:124
 #, php-format
