@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-03-31 00:20+0000\n"
-"PO-Revision-Date: 2024-04-04 05:01+0000\n"
+"PO-Revision-Date: 2024-04-05 19:01+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -1839,7 +1839,7 @@ msgstr "ВКЛЮЧИТЬ"
 
 #: resources/templates/database/events/index.twig:142
 msgid "OFF"
-msgstr "ВЫКЛЮЧИТЬ"
+msgstr "ОТКЛЮЧИТЬ"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
@@ -2744,7 +2744,7 @@ msgstr "Слежение включено."
 
 #: resources/templates/database/structure/tracking_icon.twig:5
 msgid "Tracking is not active."
-msgstr "Слежение выключено."
+msgstr "Слежение отключено."
 
 #: resources/templates/database/tracking/tables.twig:3
 msgid "Tracked tables"
@@ -2774,7 +2774,7 @@ msgstr "включено"
 #: resources/templates/table/tracking/main.twig:12
 #: resources/templates/table/tracking/main.twig:56
 msgid "not active"
-msgstr "выключено"
+msgstr "отключено"
 
 #: resources/templates/database/tracking/tables.twig:93
 #: resources/templates/database/tracking/tables.twig:137
@@ -4395,7 +4395,7 @@ msgstr "Позиция"
 #: resources/templates/server/binlog/index.twig:84
 #: resources/templates/server/replication/primary_replication.twig:17
 msgid "Server ID"
-msgstr "ID сервера"
+msgstr "ИД сервера"
 
 #: resources/templates/server/binlog/index.twig:85
 msgid "Original position"
@@ -5729,7 +5729,7 @@ msgstr ""
 "Включение директивы general_log может увеличить нагрузку на сервер на 5-15%. "
 "Имейте в виду, что генерирование статистики из журналов является интенсивной "
 "задачей для сервера, поэтому советуем выбирать небольшой промежуток времени "
-"и выключать general_log и очищать его таблицу после окончания мониторинга."
+"и отключать general_log и очищать его таблицу по окончании мониторинга."
 
 #: resources/templates/server/status/monitor/index.twig:101
 #: resources/templates/server/status/monitor/index.twig:110
@@ -7107,11 +7107,11 @@ msgstr "Включить"
 #: resources/templates/table/tracking/main.twig:104
 #, php-format
 msgid "Deactivate tracking for %s"
-msgstr "Выключить слежение за %s"
+msgstr "Отключить слежение за %s"
 
 #: resources/templates/table/tracking/main.twig:106
 msgid "Deactivate now"
-msgstr "Выключить"
+msgstr "Отключить сейчас"
 
 #: resources/templates/table/tracking/report_table.twig:1
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:1
@@ -8213,7 +8213,7 @@ msgstr "Отключен InnoDB?"
 
 #: src/Advisory/Rules.php:636
 msgid "You do not have InnoDB enabled."
-msgstr "У вас выключен InnoDB."
+msgstr "У вас отключён InnoDB."
 
 #: src/Advisory/Rules.php:637
 msgid "InnoDB is usually the better choice for table engines."
@@ -18229,7 +18229,7 @@ msgstr "Дефрагментировать кеш запросов"
 
 #: src/Server/Status/Processes.php:90
 msgid "ID"
-msgstr "ID"
+msgstr "ИД"
 
 #: src/Server/Status/Processes.php:94
 msgid "Command"
@@ -18497,7 +18497,7 @@ msgstr "Слежение за %1$s было включено на версии %
 #: src/Tracking/Tracking.php:913
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "Слежение за %1$s было выключено на версии %2$s."
+msgstr "Слежение за %1$s было отключено на версии %2$s."
 
 #: src/Tracking/Tracking.php:1008
 #, php-format
