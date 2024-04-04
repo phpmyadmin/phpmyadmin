@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-04-04 05:01+0000\n"
+"PO-Revision-Date: 2024-04-05 19:01+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ru/>\n"
@@ -965,7 +965,7 @@ msgstr "Отключен InnoDB?"
 
 #: libraries/advisory_rules_generic.php:608
 msgid "You do not have InnoDB enabled."
-msgstr "У вас выключен InnoDB."
+msgstr "У вас отключён InnoDB."
 
 #: libraries/advisory_rules_generic.php:609
 msgid "InnoDB is usually the better choice for table engines."
@@ -7602,7 +7602,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:147
 msgid "ID"
-msgstr "ID"
+msgstr "ИД"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
 #: libraries/classes/Server/Privileges.php:3002
@@ -8630,9 +8630,9 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
-"В конфигурации PHP включен несовместимый с phpMyAdmin параметр mbstring."
-"func_overload. Для предотвращения возможной потери данных данный параметр "
-"должен быть выключен!"
+"В конфигурации PHP включён несовместимый с phpMyAdmin параметр "
+"mbstring.func_overload. Для предотвращения возможной потери данных данный "
+"параметр должен быть отключён!"
 
 #: libraries/classes/Core.php:1263
 msgid ""
@@ -13299,7 +13299,7 @@ msgstr "Слежение за %1$s было включено на версии %
 #: libraries/classes/Tracking.php:892
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "Слежение за %1$s было выключено на версии %2$s."
+msgstr "Слежение за %1$s было отключено на версии %2$s."
 
 #: libraries/classes/Tracking.php:986
 #, php-format
@@ -14774,7 +14774,7 @@ msgstr "ВКЛЮЧИТЬ"
 
 #: templates/database/events/index.twig:149
 msgid "OFF"
-msgstr "ВЫКЛЮЧИТЬ"
+msgstr "ОТКЛЮЧИТЬ"
 
 #: templates/database/export/index.twig:62
 msgid ""
@@ -15331,7 +15331,7 @@ msgstr "Слежение включено."
 
 #: templates/database/structure/tracking_icon.twig:5
 msgid "Tracking is not active."
-msgstr "Слежение выключено."
+msgstr "Слежение отключено."
 
 #: templates/database/tracking/tables.twig:4
 msgid "Tracked tables"
@@ -15359,7 +15359,7 @@ msgstr "включено"
 #: templates/database/tracking/tables.twig:73
 #: templates/table/tracking/main.twig:12 templates/table/tracking/main.twig:56
 msgid "not active"
-msgstr "выключено"
+msgstr "отключено"
 
 #: templates/database/tracking/tables.twig:93
 #: templates/database/tracking/tables.twig:139
@@ -16601,7 +16601,7 @@ msgstr "Позиция"
 #: templates/server/binlog/index.twig:87
 #: templates/server/replication/master_replication.twig:24
 msgid "Server ID"
-msgstr "ID сервера"
+msgstr "ИД сервера"
 
 #: templates/server/binlog/index.twig:88
 msgid "Original position"
@@ -17574,7 +17574,7 @@ msgstr ""
 "Включение директивы general_log может увеличить нагрузку на сервер на 5-15%. "
 "Имейте в виду, что генерирование статистики из журналов является интенсивной "
 "задачей для сервера, поэтому советуем выбирать небольшой промежуток времени "
-"и выключать general_log и очищать его таблицу после окончания мониторинга."
+"и отключать general_log и очищать его таблицу по окончании мониторинга."
 
 #: templates/server/status/monitor/index.twig:127
 msgid "Chart Title"
@@ -18570,11 +18570,11 @@ msgstr "Включить"
 #: templates/table/tracking/main.twig:107
 #, php-format
 msgid "Deactivate tracking for %s"
-msgstr "Выключить слежение за %s"
+msgstr "Отключить слежение за %s"
 
 #: templates/table/tracking/main.twig:109
 msgid "Deactivate now"
-msgstr "Выключить"
+msgstr "Отключить сейчас"
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
