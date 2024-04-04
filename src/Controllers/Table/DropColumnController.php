@@ -76,7 +76,7 @@ final class DropColumnController extends AbstractController
         }
 
         $this->flash->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
-        $this->redirect('/table/structure', ['db' => Current::$database, 'table' => Current::$table]);
+        $this->response->redirectToRoute('/table/structure', ['db' => Current::$database, 'table' => Current::$table]);
 
         return null;
     }

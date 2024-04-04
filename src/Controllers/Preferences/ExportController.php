@@ -51,7 +51,7 @@ class ExportController extends AbstractController
         if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
-            $this->redirect('/preferences/export');
+            $this->response->redirectToRoute('/preferences/export', []);
 
             return null;
         }

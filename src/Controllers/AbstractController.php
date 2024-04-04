@@ -10,7 +10,6 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 
 use function __;
 
@@ -24,12 +23,6 @@ abstract class AbstractController implements InvocableController
     protected function render(string $templatePath, array $templateData = []): void
     {
         $this->response->addHTML($this->template->render($templatePath, $templateData));
-    }
-
-    /** @param array<string, mixed> $params */
-    protected function redirect(string $route, array $params = []): void
-    {
-        $this->response->redirect('./index.php?route=' . $route . Url::getCommonRaw($params, '&'));
     }
 
     /**

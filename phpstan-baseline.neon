@@ -1386,11 +1386,6 @@ parameters:
 			path: src/ConfigStorage/UserGroups.php
 
 		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/AbstractController.php
-
-		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getColumnsNotInCentralList\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/CentralColumns/PopulateColumnsController.php
@@ -12672,6 +12667,11 @@ parameters:
 
 		-
 			message: "#^Foreach overwrites \\$value with its value variable\\.$#"
+			count: 1
+			path: src/ResponseRenderer.php
+
+		-
+			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: src/ResponseRenderer.php
 

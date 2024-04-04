@@ -48,7 +48,7 @@ final class EmptyTableController extends AbstractController
 
         if ($multBtn !== __('Yes')) {
             $this->flash->addMessage('success', __('No change'));
-            $this->redirect('/database/structure', ['db' => Current::$database]);
+            $this->response->redirectToRoute('/database/structure', ['db' => Current::$database]);
 
             return null;
         }

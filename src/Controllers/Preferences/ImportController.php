@@ -51,7 +51,7 @@ class ImportController extends AbstractController
         if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
-            $this->redirect('/preferences/import');
+            $this->response->redirectToRoute('/preferences/import', []);
 
             return null;
         }

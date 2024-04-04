@@ -447,6 +447,12 @@ class ResponseRenderer
         $this->setStatusCode($statusCode);
     }
 
+    /** @param array<string, mixed> $params */
+    public function redirectToRoute(string $route, array $params = []): void
+    {
+        $this->redirect('./index.php?route=' . $route . Url::getCommonRaw($params, '&'));
+    }
+
     /** @psalm-param list<string> $files */
     public function addScriptFiles(array $files): void
     {

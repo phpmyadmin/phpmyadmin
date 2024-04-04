@@ -51,7 +51,7 @@ class FeaturesController extends AbstractController
         if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
-            $this->redirect('/preferences/features');
+            $this->response->redirectToRoute('/preferences/features', []);
 
             return null;
         }

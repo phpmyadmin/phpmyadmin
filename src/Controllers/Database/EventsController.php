@@ -59,7 +59,7 @@ final class EventsController extends AbstractController
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
                 return null;
             }

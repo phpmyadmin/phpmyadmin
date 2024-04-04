@@ -146,7 +146,7 @@ final class StructureController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -160,7 +160,7 @@ final class StructureController extends AbstractController
         // If there are no tables, the user is redirected to the last page
         // having any.
         if ($this->totalNumTables > 0 && $this->position > $this->totalNumTables) {
-            $this->redirect('/database/structure', [
+            $this->response->redirectToRoute('/database/structure', [
                 'db' => Current::$database,
                 'pos' => max(0, $this->totalNumTables - $config->settings['MaxTableList']),
                 'reload' => 1,

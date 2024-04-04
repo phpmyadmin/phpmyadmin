@@ -51,7 +51,7 @@ class MainPanelController extends AbstractController
         if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
-            $this->redirect('/preferences/main-panel');
+            $this->response->redirectToRoute('/preferences/main-panel', []);
 
             return null;
         }

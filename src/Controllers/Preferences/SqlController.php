@@ -51,7 +51,7 @@ class SqlController extends AbstractController
         if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
-            $this->redirect('/preferences/sql');
+            $this->response->redirectToRoute('/preferences/sql', []);
 
             return null;
         }

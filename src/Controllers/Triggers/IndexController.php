@@ -69,14 +69,17 @@ final class IndexController extends AbstractController
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                    $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+                    $this->response->redirectToRoute(
+                        '/',
+                        ['reload' => true, 'message' => __('No databases selected.')],
+                    );
 
                     return null;
                 }
 
                 $tableName = TableName::tryFrom($request->getParam('table'));
                 if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
-                    $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+                    $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
                     return null;
                 }
@@ -95,7 +98,10 @@ final class IndexController extends AbstractController
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                    $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+                    $this->response->redirectToRoute(
+                        '/',
+                        ['reload' => true, 'message' => __('No databases selected.')],
+                    );
 
                     return null;
                 }

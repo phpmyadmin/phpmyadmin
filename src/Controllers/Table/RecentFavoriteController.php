@@ -27,7 +27,7 @@ final class RecentFavoriteController extends AbstractController
             $db = DatabaseName::from($request->getParam('db'));
             $table = TableName::from($request->getParam('table'));
         } catch (InvalidIdentifier) {
-            $this->redirect('/', ['message' => __('Invalid database or table name.')]);
+            $this->response->redirectToRoute('/', ['message' => __('Invalid database or table name.')]);
 
             return null;
         }
@@ -36,7 +36,7 @@ final class RecentFavoriteController extends AbstractController
         RecentFavoriteTables::getInstance(TableType::Recent)->removeIfInvalid($favoriteTable);
         RecentFavoriteTables::getInstance(TableType::Favorite)->removeIfInvalid($favoriteTable);
 
-        $this->redirect('/sql', ['db' => $db->getName(), 'table' => $table->getName()]);
+        $this->response->redirectToRoute('/sql', ['db' => $db->getName(), 'table' => $table->getName()]);
 
         return null;
     }

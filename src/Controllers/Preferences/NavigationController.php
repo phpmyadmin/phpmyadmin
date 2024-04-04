@@ -51,7 +51,7 @@ class NavigationController extends AbstractController
         if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
-            $this->redirect('/preferences/navigation');
+            $this->response->redirectToRoute('/preferences/navigation', []);
 
             return null;
         }
