@@ -124,7 +124,7 @@ class ZoomSearchController extends AbstractController
 
         $this->loadTableInfo();
 
-        $this->addScriptFiles([
+        $this->response->addScriptFiles([
             'makegrid.js',
             'sql.js',
             'vendor/jqplot/jquery.jqplot.js',

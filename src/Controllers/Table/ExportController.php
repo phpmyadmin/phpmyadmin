@@ -48,7 +48,7 @@ class ExportController extends AbstractController
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
         $pageSettingsHtml = $this->pageSettings->getHTML();
 
-        $this->addScriptFiles(['export.js']);
+        $this->response->addScriptFiles(['export.js']);
 
         if (! $this->checkParameters(['db', 'table'])) {
             return null;

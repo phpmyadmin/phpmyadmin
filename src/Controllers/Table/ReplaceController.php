@@ -72,7 +72,7 @@ final class ReplaceController extends AbstractController
 
         $this->dbi->selectDb(Current::$database);
 
-        $this->addScriptFiles(['makegrid.js', 'sql.js', 'gis_data_editor.js']);
+        $this->response->addScriptFiles(['makegrid.js', 'sql.js', 'gis_data_editor.js']);
 
         $afterInsert = $request->getParsedBodyParam('after_insert');
         if (in_array($afterInsert, ['new_insert', 'same_insert', 'edit_next'], true)) {
@@ -366,7 +366,7 @@ final class ReplaceController extends AbstractController
             $GLOBALS['sql_query'] = $returnToSqlQuery;
         }
 
-        $this->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);
+        $this->response->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);
 
         /**
          * If user asked for "and then Insert another new row" we have to remove

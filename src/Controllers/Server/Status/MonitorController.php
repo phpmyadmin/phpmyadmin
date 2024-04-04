@@ -35,7 +35,7 @@ class MonitorController extends AbstractController
             $this->dbi->selectDb('mysql');
         }
 
-        $this->addScriptFiles([
+        $this->response->addScriptFiles([
             'vendor/jquery/jquery.tablesorter.js',
             'jquery.sortable-table.js',
             'vendor/jqplot/jquery.jqplot.js',

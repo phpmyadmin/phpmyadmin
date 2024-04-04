@@ -53,7 +53,7 @@ final class TrackingController extends AbstractController
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
+        $this->response->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
         if (! $this->checkParameters(['db', 'table'])) {
             return null;
@@ -153,7 +153,7 @@ final class TrackingController extends AbstractController
                     $this->tracking->exportAsSqlExecution($entries);
                     $message = Message::success(__('SQL statements executed.'))->getDisplay();
                 } elseif ($reportExportType === 'sqldump') {
-                    $this->addScriptFiles(['sql.js']);
+                    $this->response->addScriptFiles(['sql.js']);
                     $sqlDump = $this->tracking->exportAsSqlDump($entries);
                 }
             }

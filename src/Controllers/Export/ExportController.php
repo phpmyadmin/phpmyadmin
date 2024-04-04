@@ -90,7 +90,7 @@ final class ExportController extends AbstractController
         $tableStructure = $request->getParsedBodyParam('table_structure');
         $lockTables = $request->hasBodyParam('lock_tables');
 
-        $this->addScriptFiles(['export_output.js']);
+        $this->response->addScriptFiles(['export_output.js']);
 
         $this->setGlobalsFromRequest($postParams);
 

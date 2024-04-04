@@ -57,7 +57,7 @@ class DatabaseController extends AbstractController
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
-        $this->addScriptFiles(['database/operations.js']);
+        $this->response->addScriptFiles(['database/operations.js']);
 
         $GLOBALS['sql_query'] = '';
 

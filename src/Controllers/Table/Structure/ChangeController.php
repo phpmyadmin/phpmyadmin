@@ -91,7 +91,7 @@ final class ChangeController extends AbstractController
          */
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
-        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
+        $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
         $templateData = $this->columnsDefinition->displayForm(
             $userPrivileges,

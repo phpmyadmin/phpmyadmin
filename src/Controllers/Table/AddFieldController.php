@@ -57,7 +57,7 @@ class AddFieldController extends AbstractController
         /** @var string|null $numberOfFields */
         $numberOfFields = $request->getParsedBodyParam('num_fields');
 
-        $this->addScriptFiles(['table/structure.js']);
+        $this->response->addScriptFiles(['table/structure.js']);
 
         if (! $this->checkParameters(['db', 'table'])) {
             return null;
@@ -187,7 +187,7 @@ class AddFieldController extends AbstractController
             return null;
         }
 
-        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
+        $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
         if (! $this->checkParameters(['server', 'db', 'table'])) {
             return null;

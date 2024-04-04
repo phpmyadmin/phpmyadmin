@@ -45,7 +45,7 @@ class ViewController extends AbstractController
         $tableObject = $this->dbi->getTable(Current::$database, Current::$table);
 
         $GLOBALS['errorUrl'] ??= null;
-        $this->addScriptFiles(['table/operations.js']);
+        $this->response->addScriptFiles(['table/operations.js']);
 
         if (! $this->checkParameters(['db', 'table'])) {
             return null;

@@ -46,7 +46,7 @@ class VariablesController extends AbstractController
             $this->dbi->selectDb('mysql');
         }
 
-        $this->addScriptFiles([
+        $this->response->addScriptFiles([
             'server/status/variables.js',
             'vendor/jquery/jquery.tablesorter.js',
         ]);

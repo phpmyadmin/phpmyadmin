@@ -36,7 +36,7 @@ class UserPasswordController extends AbstractController
         $GLOBALS['username'] ??= null;
         $GLOBALS['change_password_message'] ??= null;
 
-        $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
+        $this->response->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 
         $config = Config::getInstance();
         /**

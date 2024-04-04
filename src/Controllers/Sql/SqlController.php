@@ -58,7 +58,7 @@ class SqlController extends AbstractController
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
 
-        $this->addScriptFiles([
+        $this->response->addScriptFiles([
             'vendor/jquery/jquery.uitablefilter.js',
             'table/change.js',
             'gis_data_editor.js',

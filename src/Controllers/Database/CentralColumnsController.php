@@ -91,7 +91,7 @@ class CentralColumnsController extends AbstractController
             );
         }
 
-        $this->addScriptFiles([
+        $this->response->addScriptFiles([
             'vendor/jquery/jquery.uitablefilter.js',
             'vendor/jquery/jquery.tablesorter.js',
             'database/central_columns.js',

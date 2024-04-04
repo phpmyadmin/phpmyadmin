@@ -46,7 +46,7 @@ class TrackingController extends AbstractController
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
+        $this->response->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
 
         if (! $this->checkParameters(['db'])) {
             return null;

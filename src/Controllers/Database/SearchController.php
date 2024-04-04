@@ -38,7 +38,7 @@ class SearchController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['urlParams'] ??= null;
 
-        $this->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
+        $this->response->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
 
         if (! $this->checkParameters(['db'])) {
             return null;

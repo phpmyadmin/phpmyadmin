@@ -43,7 +43,7 @@ class SqlController extends AbstractController
         $GLOBALS['back'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $this->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
+        $this->response->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
 
         $this->pageSettings->init('Sql');
         $this->response->addHTML($this->pageSettings->getErrorHTML());

@@ -75,7 +75,7 @@ class HomeController extends AbstractController
             return null;
         }
 
-        $this->addScriptFiles(['home.js']);
+        $this->response->addScriptFiles(['home.js']);
 
         // This is for $cfg['ShowDatabasesNavigationAsTree'] = false;
         // See: https://github.com/phpmyadmin/phpmyadmin/issues/16520

@@ -198,7 +198,7 @@ class SearchController extends AbstractController
 
         $this->loadTableInfo();
 
-        $this->addScriptFiles([
+        $this->response->addScriptFiles([
             'makegrid.js',
             'sql.js',
             'table/select.js',

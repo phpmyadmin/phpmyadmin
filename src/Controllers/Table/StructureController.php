@@ -74,7 +74,7 @@ class StructureController extends AbstractController
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
 
-        $this->addScriptFiles(['table/structure.js']);
+        $this->response->addScriptFiles(['table/structure.js']);
 
         $relationParameters = $this->relation->getRelationParameters();
 

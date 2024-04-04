@@ -223,7 +223,7 @@ class DesignerController extends AbstractController
         $header = $this->response->getHeader();
         $header->setBodyId('designer_body');
 
-        $this->addScriptFiles(['designer/init.js']);
+        $this->response->addScriptFiles(['designer/init.js']);
 
         $columnsType = $this->databaseDesigner->getColumnTypes($tableColumn, $tablesAllKeys);
 

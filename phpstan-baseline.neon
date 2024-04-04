@@ -4036,7 +4036,7 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: "#^Parameter \\#1 \\$files of method PhpMyAdmin\\\\Controllers\\\\AbstractController\\:\\:addScriptFiles\\(\\) expects array\\<string\\>, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$files of method PhpMyAdmin\\\\ResponseRenderer\\:\\:addScriptFiles\\(\\) expects array\\<int, string\\>, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
 

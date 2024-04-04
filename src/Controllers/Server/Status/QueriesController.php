@@ -45,7 +45,7 @@ class QueriesController extends AbstractController
             $this->dbi->selectDb('mysql');
         }
 
-        $this->addScriptFiles(['vendor/chart.umd.js', 'server/status/queries.js']);
+        $this->response->addScriptFiles(['vendor/chart.umd.js', 'server/status/queries.js']);
 
         $chart = [];
         if ($this->data->dataLoaded) {

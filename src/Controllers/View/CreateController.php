@@ -190,7 +190,7 @@ class CreateController extends AbstractController
         $GLOBALS['urlParams']['db'] = Current::$database;
         $GLOBALS['urlParams']['reload'] = 1;
 
-        $this->addScriptFiles(['sql.js']);
+        $this->response->addScriptFiles(['sql.js']);
 
         $this->render('view_create', [
             'ajax_dialog' => $ajaxdialog,

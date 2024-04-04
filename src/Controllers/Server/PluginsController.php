@@ -40,7 +40,7 @@ class PluginsController extends AbstractController
             $this->dbi->selectDb('mysql');
         }
 
-        $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'server/plugins.js']);
+        $this->response->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'server/plugins.js']);
 
         $plugins = [];
         $serverPlugins = $this->plugins->getAll();

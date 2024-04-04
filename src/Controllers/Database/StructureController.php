@@ -151,7 +151,7 @@ final class StructureController extends AbstractController
             return null;
         }
 
-        $this->addScriptFiles(['database/structure.js', 'table/change.js']);
+        $this->response->addScriptFiles(['database/structure.js', 'table/change.js']);
 
         // Gets the database structure
         $this->getDatabaseInfo($request);

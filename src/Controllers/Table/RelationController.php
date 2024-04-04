@@ -88,7 +88,7 @@ final class RelationController extends AbstractController
             return null;
         }
 
-        $this->addScriptFiles(['table/relation.js']);
+        $this->response->addScriptFiles(['table/relation.js']);
 
         // Set the database
         $this->dbi->selectDb(Current::$database);

@@ -44,7 +44,7 @@ final class EventsController extends AbstractController
         $GLOBALS['errors'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $this->addScriptFiles(['database/events.js', 'sql.js']);
+        $this->response->addScriptFiles(['database/events.js', 'sql.js']);
 
         if (! $request->isAjax()) {
             if (! $this->checkParameters(['db'])) {

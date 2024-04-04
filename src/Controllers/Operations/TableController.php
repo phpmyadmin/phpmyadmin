@@ -69,7 +69,7 @@ class TableController extends AbstractController
 
         $pmaTable = $this->dbi->getTable(Current::$database, Current::$table);
 
-        $this->addScriptFiles(['table/operations.js']);
+        $this->response->addScriptFiles(['table/operations.js']);
 
         if (! $this->checkParameters(['db', 'table'])) {
             return null;

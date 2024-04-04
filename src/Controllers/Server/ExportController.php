@@ -47,7 +47,7 @@ final class ExportController extends AbstractController
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
         $pageSettingsHtml = $this->pageSettings->getHTML();
 
-        $this->addScriptFiles(['export.js']);
+        $this->response->addScriptFiles(['export.js']);
 
         $GLOBALS['select_item'] = $GLOBALS['tmp_select'] ?? '';
         $databases = $this->export->getDatabasesForSelectOptions($GLOBALS['select_item']);

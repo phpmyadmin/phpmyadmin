@@ -146,7 +146,7 @@ class CreateController extends AbstractController
         // Do not display the table in the header since it hasn't been created yet
         $this->response->getHeader()->getMenu()->setTable('');
 
-        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
+        $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
         if (! $this->checkParameters(['server', 'db'])) {
             return null;

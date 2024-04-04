@@ -38,7 +38,7 @@ class ProcessesController extends AbstractController
             $this->dbi->selectDb('mysql');
         }
 
-        $this->addScriptFiles(['server/status/processes.js']);
+        $this->response->addScriptFiles(['server/status/processes.js']);
 
         $listHtml = $this->template->render('server/status/processes/list', $this->processes->getList(
             $showExecuting,

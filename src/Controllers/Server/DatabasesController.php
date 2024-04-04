@@ -86,7 +86,7 @@ class DatabasesController extends AbstractController
         Assert::string($sortOrder);
         $this->sortOrder = strtolower($sortOrder) !== 'desc' ? 'asc' : 'desc';
 
-        $this->addScriptFiles(['server/databases.js']);
+        $this->response->addScriptFiles(['server/databases.js']);
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {

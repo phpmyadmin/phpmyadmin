@@ -23,7 +23,7 @@ final class FirstStepController extends AbstractController
 
     public function __invoke(ServerRequest $request): Response|null
     {
-        $this->addScriptFiles(['normalization.js', 'vendor/jquery/jquery.uitablefilter.js']);
+        $this->response->addScriptFiles(['normalization.js', 'vendor/jquery/jquery.uitablefilter.js']);
 
         $normalForm = '1nf';
         $normalizeTo = $request->getParsedBodyParam('normalizeTo');

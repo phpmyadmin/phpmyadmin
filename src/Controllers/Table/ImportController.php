@@ -52,7 +52,7 @@ final class ImportController extends AbstractController
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
         $pageSettingsHtml = $this->pageSettings->getHTML();
 
-        $this->addScriptFiles(['import.js']);
+        $this->response->addScriptFiles(['import.js']);
 
         if (! $this->checkParameters(['db', 'table'])) {
             return null;

@@ -54,7 +54,7 @@ class PrivilegesController extends AbstractController
             return null;
         }
 
-        $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
+        $this->response->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 
         /**
          * Checks if the user is allowed to do what they try to...

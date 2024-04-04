@@ -110,7 +110,7 @@ class FindReplaceController extends AbstractController
             return null;
         }
 
-        $this->addScriptFiles(['table/find_replace.js']);
+        $this->response->addScriptFiles(['table/find_replace.js']);
 
         if ($request->hasBodyParam('replace')) {
             $findString = (string) $request->getParsedBodyParam('findString');

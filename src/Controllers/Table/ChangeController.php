@@ -155,7 +155,7 @@ class ChangeController extends AbstractController
          * START REGULAR OUTPUT
          */
 
-        $this->addScriptFiles([
+        $this->response->addScriptFiles([
             'makegrid.js',
             'sql.js',
             'table/change.js',
@@ -263,7 +263,7 @@ class ChangeController extends AbstractController
             );
         }
 
-        $this->addScriptFiles($GLOBALS['plugin_scripts']);
+        $this->response->addScriptFiles($GLOBALS['plugin_scripts']);
 
         unset($GLOBALS['unsaved_values'], $GLOBALS['plugin_scripts']);
 

@@ -26,14 +26,6 @@ abstract class AbstractController implements InvocableController
         $this->response->addHTML($this->template->render($templatePath, $templateData));
     }
 
-    /** @param string[] $files */
-    protected function addScriptFiles(array $files): void
-    {
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFiles($files);
-    }
-
     /** @param array<string, mixed> $params */
     protected function redirect(string $route, array $params = []): void
     {

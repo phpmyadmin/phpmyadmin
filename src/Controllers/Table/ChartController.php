@@ -68,7 +68,7 @@ class ChartController extends AbstractController
             return null;
         }
 
-        $this->addScriptFiles([
+        $this->response->addScriptFiles([
             'chart.js',
             'table/chart.js',
             'vendor/jqplot/jquery.jqplot.js',

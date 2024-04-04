@@ -446,4 +446,10 @@ class ResponseRenderer
         $this->addHeader('Location', $url);
         $this->setStatusCode($statusCode);
     }
+
+    /** @psalm-param list<string> $files */
+    public function addScriptFiles(array $files): void
+    {
+        $this->getHeader()->getScripts()->addFiles($files);
+    }
 }
