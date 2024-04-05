@@ -96,7 +96,7 @@ class VersionInformation
 
         $result = 0;
 
-        if (count($parts) >= 1 && is_numeric($parts[0])) {
+        if (is_numeric($parts[0])) {
             $result += 1000000 * (int) $parts[0];
         }
 
