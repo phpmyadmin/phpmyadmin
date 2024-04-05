@@ -150,7 +150,7 @@ class DatabasesController extends AbstractController
 
         $headerStatistics = $this->getStatisticsColumns();
 
-        $this->render('server/databases/index', [
+        $this->response->render('server/databases/index', [
             'is_create_database_shown' => $config->settings['ShowCreateDb'],
             'has_create_database_privileges' => $userPrivileges->isCreateDatabase,
             'has_statistics' => $this->hasStatistics,

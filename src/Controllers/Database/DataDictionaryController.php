@@ -107,7 +107,7 @@ class DataDictionaryController extends AbstractController
             ];
         }
 
-        $this->render('database/data_dictionary/index', [
+        $this->response->render('database/data_dictionary/index', [
             'database' => Current::$database,
             'comment' => $comment,
             'tables' => $tables,

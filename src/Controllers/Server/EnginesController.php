@@ -31,7 +31,7 @@ class EnginesController extends AbstractController
             $this->dbi->selectDb('mysql');
         }
 
-        $this->render('server/engines/index', ['engines' => StorageEngine::getStorageEngines()]);
+        $this->response->render('server/engines/index', ['engines' => StorageEngine::getStorageEngines()]);
 
         return null;
     }

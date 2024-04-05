@@ -87,7 +87,7 @@ class UserPasswordController extends AbstractController
 
                 $this->response->addHTML('<h1>' . __('Change password') . '</h1>' . "\n\n");
                 $this->response->addHTML(Generator::getMessage($message, $sqlQuery, 'success'));
-                $this->render('user_password');
+                $this->response->render('user_password', []);
 
                 return null;
             }

@@ -62,7 +62,7 @@ final class DropFormController extends AbstractController
             $urlParams['selected'][] = $selectedValue;
         }
 
-        $this->render('database/structure/drop_form', [
+        $this->response->render('database/structure/drop_form', [
             'url_params' => $urlParams,
             'full_query' => $fullQuery,
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),

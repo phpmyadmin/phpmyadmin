@@ -53,7 +53,7 @@ final class RepairController extends AbstractController
             'success',
         );
 
-        $this->render('table/partition/repair', [
+        $this->response->render('table/partition/repair', [
             'partition_name' => $partitionName,
             'message' => $message,
             'rows' => $rows,

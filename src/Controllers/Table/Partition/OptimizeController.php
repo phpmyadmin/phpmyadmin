@@ -53,7 +53,7 @@ final class OptimizeController extends AbstractController
             'success',
         );
 
-        $this->render('table/partition/optimize', [
+        $this->response->render('table/partition/optimize', [
             'partition_name' => $partitionName,
             'message' => $message,
             'rows' => $rows,

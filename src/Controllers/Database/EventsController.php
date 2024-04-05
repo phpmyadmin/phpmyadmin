@@ -258,7 +258,7 @@ final class EventsController extends AbstractController
 
         $items = $this->events->getDetails(Current::$database);
 
-        $this->render('database/events/index', [
+        $this->response->render('database/events/index', [
             'db' => Current::$database,
             'items' => $items,
             'has_privilege' => Util::currentUserHasPrivilege('EVENT', Current::$database),

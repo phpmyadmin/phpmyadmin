@@ -61,7 +61,10 @@ final class TruncateController extends AbstractController
             );
         }
 
-        $this->render('table/partition/truncate', ['partition_name' => $partitionName, 'message' => $message]);
+        $this->response->render('table/partition/truncate', [
+            'partition_name' => $partitionName,
+            'message' => $message,
+        ]);
 
         return null;
     }

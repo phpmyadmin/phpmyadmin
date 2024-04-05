@@ -79,7 +79,7 @@ class StatusController extends AbstractController
             }
         }
 
-        $this->render('server/status/status/index', [
+        $this->response->render('server/status/status/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'network_traffic' => $networkTraffic ?? null,
             'uptime' => $uptime ?? null,

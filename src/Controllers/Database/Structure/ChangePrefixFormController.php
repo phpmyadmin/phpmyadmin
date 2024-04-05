@@ -36,7 +36,10 @@ final class ChangePrefixFormController extends AbstractController
         }
 
         $this->response->disable();
-        $this->render('database/structure/change_prefix_form', ['route' => $route, 'url_params' => $urlParams]);
+        $this->response->render('database/structure/change_prefix_form', [
+            'route' => $route,
+            'url_params' => $urlParams,
+        ]);
 
         return null;
     }

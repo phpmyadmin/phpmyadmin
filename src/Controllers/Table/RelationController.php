@@ -293,7 +293,7 @@ final class RelationController extends AbstractController
         }
 
         // common form
-        $this->render('table/relation/common_form', [
+        $this->response->render('table/relation/common_form', [
             'is_foreign_key_supported' => ForeignKey::isSupported($storageEngine),
             'db' => Current::$database,
             'table' => Current::$table,

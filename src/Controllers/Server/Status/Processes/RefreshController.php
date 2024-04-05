@@ -29,7 +29,7 @@ final class RefreshController extends AbstractController
             return null;
         }
 
-        $this->render('server/status/processes/list', $this->processes->getList(
+        $this->response->render('server/status/processes/list', $this->processes->getList(
             $request->hasBodyParam('showExecuting'),
             $request->hasBodyParam('full'),
             (string) $request->getParsedBodyParam('order_by_field', ''),

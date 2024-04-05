@@ -73,7 +73,7 @@ final class DropColumnConfirmationController extends AbstractController
             return null;
         }
 
-        $this->render('table/structure/drop_confirm', [
+        $this->response->render('table/structure/drop_confirm', [
             'db' => $db->getName(),
             'table' => $table->getName(),
             'fields' => $fields,

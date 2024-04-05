@@ -257,7 +257,7 @@ final class TrackingController extends AbstractController
             LanguageManager::$textDir,
         );
 
-        $this->render('table/tracking/index', [
+        $this->response->render('table/tracking/index', [
             'active_message' => $activeMessage,
             'action_message' => $actionMessage,
             'delete_version' => $deleteVersion,

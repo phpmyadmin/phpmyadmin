@@ -94,7 +94,7 @@ class QueriesController extends AbstractController
 
         $chartData = ['labels' => array_keys($chart), 'data' => array_values($chart)];
 
-        $this->render('server/status/queries/index', [
+        $this->response->render('server/status/queries/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'stats' => $stats ?? null,
             'queries' => $queries ?? [],

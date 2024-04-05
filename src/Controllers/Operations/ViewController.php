@@ -136,7 +136,7 @@ class ViewController extends AbstractController
             ));
         }
 
-        $this->render('table/operations/view', [
+        $this->response->render('table/operations/view', [
             'db' => Current::$database,
             'table' => Current::$table,
             'url_params' => $GLOBALS['urlParams'],

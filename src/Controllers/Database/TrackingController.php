@@ -107,7 +107,7 @@ class TrackingController extends AbstractController
                         __('Tracking data deleted successfully.'),
                     )->getDisplay());
                 } elseif ($request->getParsedBodyParam('submit_mult') === 'track') {
-                    $this->render('create_tracking_version', [
+                    $this->response->render('create_tracking_version', [
                         'route' => '/database/tracking',
                         'url_params' => $GLOBALS['urlParams'],
                         'last_version' => 0,
@@ -134,7 +134,7 @@ class TrackingController extends AbstractController
             $this->response->addHTML('<p>' . __('No tables found in database.') . '</p>' . "\n");
 
             if (! $isSystemSchema) {
-                $this->render('database/create_table', ['db' => Current::$database]);
+                $this->response->render('database/create_table', ['db' => Current::$database]);
             }
 
             return null;

@@ -53,7 +53,7 @@ final class CheckController extends AbstractController
             'success',
         );
 
-        $this->render('table/partition/check', [
+        $this->response->render('table/partition/check', [
             'partition_name' => $partitionName,
             'message' => $message,
             'rows' => $rows,

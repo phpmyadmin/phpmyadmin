@@ -74,7 +74,10 @@ class SearchController extends AbstractController
                 return null;
             }
 
-            $this->render('error/simple', ['error_message' => $errorMessage, 'back_url' => $GLOBALS['errorUrl']]);
+            $this->response->render('error/simple', [
+                'error_message' => $errorMessage,
+                'back_url' => $GLOBALS['errorUrl'],
+            ]);
 
             return null;
         }

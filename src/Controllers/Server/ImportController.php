@@ -91,7 +91,7 @@ final class ImportController extends AbstractController
         $isAllowInterruptChecked = Plugins::checkboxCheck('Import', 'allow_interrupt');
         $maxUploadSize = (int) $config->get('max_upload_size');
 
-        $this->render('server/import/index', [
+        $this->response->render('server/import/index', [
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
             'upload_id' => $uploadId,

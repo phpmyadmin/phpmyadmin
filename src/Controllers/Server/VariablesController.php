@@ -84,7 +84,7 @@ class VariablesController extends AbstractController
             }
         }
 
-        $this->render('server/variables/index', [
+        $this->response->render('server/variables/index', [
             'variables' => $variables,
             'filter_value' => $filterValue,
             'is_superuser' => $this->dbi->isSuperUser(),

@@ -229,7 +229,7 @@ class IndexesController extends AbstractController
             $formParams['old_index'] = $_POST['index'];
         }
 
-        $this->render('table/index_form', [
+        $this->response->render('table/index_form', [
             'fields' => $fields,
             'index' => $index,
             'form_params' => $formParams,

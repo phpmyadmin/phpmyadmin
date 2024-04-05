@@ -86,7 +86,7 @@ final class ExportController extends AbstractController
             $exportList,
         );
 
-        $this->render('server/export/index', array_merge($options, [
+        $this->response->render('server/export/index', array_merge($options, [
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
             'databases' => $databases,

@@ -86,7 +86,7 @@ final class BinlogController extends AbstractController
 
         $values = $result->fetchAllAssoc();
 
-        $this->render('server/binlog/index', [
+        $this->response->render('server/binlog/index', [
             'url_params' => $urlParams,
             'binary_logs' => $this->binaryLogs,
             'log' => $log,

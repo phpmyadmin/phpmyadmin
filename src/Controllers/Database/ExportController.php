@@ -166,7 +166,7 @@ final class ExportController extends AbstractController
             $exportList,
         );
 
-        $this->render('database/export/index', array_merge($options, [
+        $this->response->render('database/export/index', array_merge($options, [
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
             'structure_or_data_forced' => $request->getParsedBodyParam('structure_or_data_forced', 0),

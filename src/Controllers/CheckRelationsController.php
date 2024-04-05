@@ -50,7 +50,7 @@ class CheckRelationsController extends AbstractController
         // Do not use any previous $relationParameters value as it could have changed after a successful fixPmaTables()
         $relationParameters = $this->relation->getRelationParameters();
 
-        $this->render('relation/check_relations', [
+        $this->response->render('relation/check_relations', [
             'db' => $db?->getName() ?? '',
             'zero_conf' => Config::getInstance()->settings['ZeroConf'],
             'relation_parameters' => $relationParameters->toArray(),

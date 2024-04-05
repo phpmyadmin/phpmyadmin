@@ -1451,7 +1451,7 @@ parameters:
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#2 \\$templateData of method PhpMyAdmin\\\\Controllers\\\\AbstractController\\:\\:render\\(\\) expects array\\<string, mixed\\>, array given\\.$#"
+			message: "#^Parameter \\#2 \\$templateData of method PhpMyAdmin\\\\ResponseRenderer\\:\\:render\\(\\) expects array\\<string, mixed\\>, array given\\.$#"
 			count: 1
 			path: src/Controllers/Database/CentralColumnsController.php
 

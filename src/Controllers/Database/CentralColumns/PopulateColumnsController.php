@@ -28,7 +28,7 @@ final class PopulateColumnsController extends AbstractController
             Current::$database,
             $request->getParsedBodyParam('selectedTable'),
         );
-        $this->render('database/central_columns/populate_columns', ['columns' => $columns]);
+        $this->response->render('database/central_columns/populate_columns', ['columns' => $columns]);
 
         return null;
     }

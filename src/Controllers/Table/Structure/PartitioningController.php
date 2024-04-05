@@ -70,7 +70,7 @@ final class PartitioningController extends AbstractController
             $partitionDetails = TablePartitionDefinition::getDetails();
         }
 
-        $this->render('table/structure/partition_definition_form', [
+        $this->response->render('table/structure/partition_definition_form', [
             'db' => Current::$database,
             'table' => Current::$table,
             'partition_details' => $partitionDetails,

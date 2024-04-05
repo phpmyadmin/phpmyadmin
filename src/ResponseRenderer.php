@@ -504,4 +504,10 @@ class ResponseRenderer
 
         return ! $foundError;
     }
+
+    /** @param array<string, mixed> $templateData */
+    public function render(string $templatePath, array $templateData = []): void
+    {
+        $this->addHTML($this->template->render($templatePath, $templateData));
+    }
 }

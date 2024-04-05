@@ -67,7 +67,7 @@ class MonitorController extends AbstractController
             $javascriptVariableNames[] = $name;
         }
 
-        $this->render('server/status/monitor/index', [
+        $this->response->render('server/status/monitor/index', [
             'javascript_variable_names' => $javascriptVariableNames,
             'form' => $form,
         ]);

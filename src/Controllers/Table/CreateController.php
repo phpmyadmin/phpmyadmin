@@ -154,7 +154,7 @@ class CreateController extends AbstractController
 
         $templateData = $this->columnsDefinition->displayForm($userPrivileges, '/table/create', $numFields);
 
-        $this->render('columns_definitions/column_definitions_form', $templateData);
+        $this->response->render('columns_definitions/column_definitions_form', $templateData);
 
         return null;
     }

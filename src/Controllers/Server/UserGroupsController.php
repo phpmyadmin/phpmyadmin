@@ -52,7 +52,7 @@ class UserGroupsController extends AbstractController
         }
 
         $this->response->addHTML('<div class="container-fluid">');
-        $this->render('server/privileges/subnav', [
+        $this->response->render('server/privileges/subnav', [
             'active' => 'user-groups',
             'is_super_user' => $this->dbi->isSuperUser(),
         ]);

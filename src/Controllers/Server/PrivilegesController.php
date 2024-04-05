@@ -69,7 +69,7 @@ class PrivilegesController extends AbstractController
         $this->response->addHTML('<div class="container-fluid">');
 
         if ($relationParameters->configurableMenusFeature !== null && ! $request->isAjax()) {
-            $this->render('server/privileges/subnav', [
+            $this->response->render('server/privileges/subnav', [
                 'active' => 'privileges',
                 'is_super_user' => $this->dbi->isSuperUser(),
             ]);
@@ -101,7 +101,7 @@ class PrivilegesController extends AbstractController
         $isCreateUser = $this->dbi->isCreateUser();
 
         if (! $this->dbi->isSuperUser() && ! $isGrantUser && ! $isCreateUser) {
-            $this->render('server/sub_page_header', ['type' => 'privileges', 'is_image' => false]);
+            $this->response->render('server/sub_page_header', ['type' => 'privileges', 'is_image' => false]);
             $this->response->addHTML(
                 Message::error(__('No Privileges'))
                     ->getDisplay(),

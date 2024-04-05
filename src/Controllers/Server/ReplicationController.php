@@ -122,7 +122,7 @@ class ReplicationController extends AbstractController
             }
         }
 
-        $this->render('server/replication/index', [
+        $this->response->render('server/replication/index', [
             'url_params' => $GLOBALS['urlParams'],
             'is_super_user' => $this->dbi->isSuperUser(),
             'error_messages' => $errorMessages,

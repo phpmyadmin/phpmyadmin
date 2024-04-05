@@ -37,7 +37,7 @@ final class EmptyFormController extends AbstractController
             $urlParams['selected'][] = $selectedValue;
         }
 
-        $this->render('database/structure/empty_form', [
+        $this->response->render('database/structure/empty_form', [
             'url_params' => $urlParams,
             'full_query' => $fullQuery,
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),

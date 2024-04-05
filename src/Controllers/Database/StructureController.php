@@ -201,7 +201,7 @@ final class StructureController extends AbstractController
             $createTable = $this->template->render('database/create_table', ['db' => Current::$database]);
         }
 
-        $this->render('database/structure/index', [
+        $this->response->render('database/structure/index', [
             'database' => Current::$database,
             'has_tables' => $this->numTables > 0,
             'list_navigator_html' => $listNavigator ?? '',

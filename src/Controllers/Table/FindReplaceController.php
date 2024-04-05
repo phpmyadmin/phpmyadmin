@@ -183,7 +183,7 @@ class FindReplaceController extends AbstractController
             $types[$columnName] = preg_replace('@\\(.*@s', '', $this->columnTypes[$i]);
         }
 
-        $this->render('table/find_replace/index', [
+        $this->response->render('table/find_replace/index', [
             'db' => Current::$database,
             'table' => Current::$table,
             'goto' => $GLOBALS['goto'],

@@ -296,7 +296,7 @@ class DatabaseController extends AbstractController
             }
         }
 
-        $this->render('database/operations/index', [
+        $this->response->render('database/operations/index', [
             'message' => $oldMessage,
             'db' => Current::$database,
             'has_comment' => $relationParameters->columnCommentsFeature !== null,

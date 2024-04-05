@@ -79,7 +79,7 @@ final class CheckController extends AbstractController
 
         $indexesProblems = $this->model->getIndexesProblems($database, $selectedTables);
 
-        $this->render('table/maintenance/check', [
+        $this->response->render('table/maintenance/check', [
             'message' => $message,
             'rows' => $rows,
             'indexes_problems' => $indexesProblems,

@@ -17,7 +17,10 @@ class MainController extends AbstractController
     public function __invoke(ServerRequest $request): Response|null
     {
         $this->response->addScriptFiles(['normalization.js', 'vendor/jquery/jquery.uitablefilter.js']);
-        $this->render('table/normalization/normalization', ['db' => Current::$database, 'table' => Current::$table]);
+        $this->response->render('table/normalization/normalization', [
+            'db' => Current::$database,
+            'table' => Current::$table,
+        ]);
 
         return null;
     }

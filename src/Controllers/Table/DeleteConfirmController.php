@@ -85,7 +85,7 @@ final class DeleteConfirmController extends AbstractController
             return null;
         }
 
-        $this->render('table/delete/confirm', [
+        $this->response->render('table/delete/confirm', [
             'db' => Current::$database,
             'table' => Current::$table,
             'selected' => $selected,

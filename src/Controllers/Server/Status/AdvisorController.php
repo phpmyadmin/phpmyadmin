@@ -28,7 +28,7 @@ class AdvisorController extends AbstractController
             $data = $this->advisor->run();
         }
 
-        $this->render('server/status/advisor/index', ['data' => $data]);
+        $this->response->render('server/status/advisor/index', ['data' => $data]);
 
         return null;
     }

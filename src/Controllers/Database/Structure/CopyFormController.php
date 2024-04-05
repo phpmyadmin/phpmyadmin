@@ -40,7 +40,7 @@ final class CopyFormController extends AbstractController
         }
 
         $this->response->disable();
-        $this->render('database/structure/copy_form', [
+        $this->response->render('database/structure/copy_form', [
             'url_params' => $urlParams,
             'options' => $databasesList->getList(),
         ]);

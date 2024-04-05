@@ -91,7 +91,7 @@ final class IndexRenameController extends AbstractController
                 'old_index' => $index->getName(),
             ];
 
-            $this->render('table/index_rename_form', ['index' => $index, 'form_params' => $formParams]);
+            $this->response->render('table/index_rename_form', ['index' => $index, 'form_params' => $formParams]);
 
             return null;
         }

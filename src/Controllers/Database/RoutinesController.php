@@ -487,7 +487,7 @@ class RoutinesController extends AbstractController
             );
         }
 
-        $this->render('database/routines/index', [
+        $this->response->render('database/routines/index', [
             'db' => Current::$database,
             'table' => Current::$table,
             'has_any_routines' => $items !== [],

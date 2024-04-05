@@ -488,7 +488,7 @@ class TableController extends AbstractController
             $relationParameters->relationFeature !== null,
         );
 
-        $this->render('table/operations/index', [
+        $this->response->render('table/operations/index', [
             'db' => Current::$database,
             'table' => Current::$table,
             'url_params' => $GLOBALS['urlParams'],

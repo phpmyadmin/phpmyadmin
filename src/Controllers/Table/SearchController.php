@@ -279,7 +279,7 @@ class SearchController extends AbstractController
             $properties[$columnIndex] = $this->getColumnProperties($columnIndex, $columnIndex);
         }
 
-        $this->render('table/search/index', [
+        $this->response->render('table/search/index', [
             'db' => Current::$database,
             'table' => Current::$table,
             'goto' => $GLOBALS['goto'],

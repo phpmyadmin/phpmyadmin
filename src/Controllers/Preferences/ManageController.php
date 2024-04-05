@@ -169,13 +169,13 @@ class ManageController extends AbstractController
                     // mimic original form and post json in a hidden field
                     $relationParameters = $this->relation->getRelationParameters();
 
-                    $this->render('preferences/header', [
+                    $this->response->render('preferences/header', [
                         'route' => $route,
                         'is_saved' => $request->hasQueryParam('saved'),
                         'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
                     ]);
 
-                    $this->render('preferences/manage/error', [
+                    $this->response->render('preferences/manage/error', [
                         'form_errors' => $formDisplay->displayErrors(),
                         'json' => $json,
                         'import_merge' => $request->getParsedBodyParam('import_merge'),
@@ -245,7 +245,7 @@ class ManageController extends AbstractController
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        $this->render('preferences/header', [
+        $this->response->render('preferences/header', [
             'route' => $route,
             'is_saved' => $request->hasQueryParam('saved'),
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
@@ -259,7 +259,7 @@ class ManageController extends AbstractController
             $GLOBALS['error']->getDisplay();
         }
 
-        $this->render('preferences/manage/main', [
+        $this->response->render('preferences/manage/main', [
             'error' => $GLOBALS['error'],
             'max_upload_size' => Config::getInstance()->get('max_upload_size'),
             'exists_setup_and_not_exists_config' => @file_exists(ROOT_PATH . 'setup/index.php')

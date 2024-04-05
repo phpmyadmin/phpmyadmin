@@ -195,7 +195,7 @@ class AddFieldController extends AbstractController
 
         $templateData = $this->columnsDefinition->displayForm($userPrivileges, '/table/add-field', $numFields);
 
-        $this->render('columns_definitions/column_definitions_form', $templateData);
+        $this->response->render('columns_definitions/column_definitions_form', $templateData);
 
         return null;
     }

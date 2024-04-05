@@ -113,7 +113,7 @@ final class ChangeLogController extends AbstractController
 
         $this->response->addHeader('Content-Type', 'text/html; charset=utf-8');
 
-        $this->render('changelog', [
+        $this->response->render('changelog', [
             'changelog' => preg_replace(array_keys($replaces), $replaces, $changelog),
         ]);
 

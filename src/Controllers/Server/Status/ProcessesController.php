@@ -55,7 +55,7 @@ class ProcessesController extends AbstractController
             'sort_order' => $sortOrder,
         ];
 
-        $this->render('server/status/processes/index', [
+        $this->response->render('server/status/processes/index', [
             'url_params' => $urlParams,
             'is_checked' => $showExecuting,
             'server_process_list' => $listHtml,

@@ -205,7 +205,7 @@ class ChartController extends AbstractController
         /**
          * Displays the page
          */
-        $this->render('table/chart/tbl_chart', [
+        $this->response->render('table/chart/tbl_chart', [
             'url_params' => $urlParams,
             'keys' => $keys,
             'fields_meta' => $fieldsMeta,

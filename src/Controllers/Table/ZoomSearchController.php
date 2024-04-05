@@ -271,7 +271,7 @@ class ZoomSearchController extends AbstractController
             );
         }
 
-        $this->render('table/zoom_search/index', [
+        $this->response->render('table/zoom_search/index', [
             'db' => Current::$database,
             'table' => Current::$table,
             'goto' => $GLOBALS['goto'],
@@ -416,7 +416,7 @@ class ZoomSearchController extends AbstractController
             );
         }
 
-        $this->render('table/zoom_search/result_form', [
+        $this->response->render('table/zoom_search/result_form', [
             'db' => Current::$database,
             'table' => Current::$table,
             'column_names' => $this->columnNames,

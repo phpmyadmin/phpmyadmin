@@ -79,7 +79,7 @@ class MainPanelController extends AbstractController
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        $this->render('preferences/header', [
+        $this->response->render('preferences/header', [
             'route' => $request->getRoute(),
             'is_saved' => $request->hasQueryParam('saved'),
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
@@ -87,7 +87,7 @@ class MainPanelController extends AbstractController
 
         $formErrors = $formDisplay->displayErrors();
 
-        $this->render('preferences/forms/main', [
+        $this->response->render('preferences/forms/main', [
             'error' => $GLOBALS['error'] instanceof Message ? $GLOBALS['error']->getDisplay() : '',
             'has_errors' => $formDisplay->hasErrors(),
             'errors' => $formErrors,

@@ -181,7 +181,7 @@ class CentralColumnsController extends AbstractController
             LanguageManager::$textDir,
         );
 
-        $this->render('database/central_columns/main', $variables);
+        $this->response->render('database/central_columns/main', $variables);
     }
 
     /** @return true|Message */
@@ -256,7 +256,7 @@ class CentralColumnsController extends AbstractController
         Assert::allString($params['selected_fld']);
         $rows = $this->centralColumns->getHtmlForEditingPage($params['selected_fld'], $params['db']);
 
-        $this->render('database/central_columns/edit', ['rows' => $rows]);
+        $this->response->render('database/central_columns/edit', ['rows' => $rows]);
     }
 
     /**

@@ -119,7 +119,7 @@ class VariablesController extends AbstractController
             }
         }
 
-        $this->render('server/status/variables/index', [
+        $this->response->render('server/status/variables/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'filter_text' => $filterText ?: '',
             'is_only_alerts' => (bool) $filterAlert,

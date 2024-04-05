@@ -53,7 +53,7 @@ final class AnalyzeController extends AbstractController
             'success',
         );
 
-        $this->render('table/partition/analyze', [
+        $this->response->render('table/partition/analyze', [
             'partition_name' => $partitionName,
             'message' => $message,
             'rows' => $rows,

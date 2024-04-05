@@ -98,7 +98,7 @@ final class PrimaryController extends AbstractController
                 return null;
             }
 
-            $this->render('table/structure/primary', [
+            $this->response->render('table/structure/primary', [
                 'db' => Current::$database,
                 'table' => Current::$table,
                 'selected' => $selected,

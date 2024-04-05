@@ -31,7 +31,7 @@ final class AddPrefixController extends AbstractController
         }
 
         $this->response->disable();
-        $this->render('database/structure/add_prefix', ['url_params' => $params]);
+        $this->response->render('database/structure/add_prefix', ['url_params' => $params]);
 
         return null;
     }

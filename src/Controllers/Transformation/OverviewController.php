@@ -49,7 +49,10 @@ class OverviewController extends AbstractController
             }
         }
 
-        $this->render('transformation_overview', ['mime_types' => $mimeTypes, 'transformations' => $transformations]);
+        $this->response->render('transformation_overview', [
+            'mime_types' => $mimeTypes,
+            'transformations' => $transformations,
+        ]);
 
         return null;
     }

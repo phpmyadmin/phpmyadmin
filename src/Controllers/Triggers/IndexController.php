@@ -265,7 +265,10 @@ final class IndexController extends AbstractController
             }
 
             if ($exportData !== null) {
-                $this->render('triggers/export', ['data' => $exportData, 'item_name' => $triggerName->getName()]);
+                $this->response->render('triggers/export', [
+                    'data' => $exportData,
+                    'item_name' => $triggerName->getName(),
+                ]);
 
                 return null;
             }
@@ -287,7 +290,7 @@ final class IndexController extends AbstractController
         $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', Current::$database, Current::$table);
         $isAjax = $request->isAjax() && empty($request->getParam('ajax_page_request'));
 
-        $this->render('triggers/list', [
+        $this->response->render('triggers/list', [
             'db' => Current::$database,
             'table' => Current::$table,
             'triggers' => $triggers,

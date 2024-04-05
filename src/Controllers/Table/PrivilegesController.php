@@ -63,7 +63,7 @@ class PrivilegesController extends AbstractController
         $isCreateUser = $this->dbi->isCreateUser();
 
         if (! $this->dbi->isSuperUser() && ! $isGrantUser && ! $isCreateUser) {
-            $this->render('server/sub_page_header', ['type' => 'privileges', 'is_image' => false]);
+            $this->response->render('server/sub_page_header', ['type' => 'privileges', 'is_image' => false]);
             $this->response->addHTML(
                 Message::error(__('No Privileges'))
                     ->getDisplay(),
@@ -85,7 +85,7 @@ class PrivilegesController extends AbstractController
             $privileges = $this->privileges->getAllPrivileges($db, $table);
         }
 
-        $this->render('table/privileges/index', [
+        $this->response->render('table/privileges/index', [
             'db' => $db->getName(),
             'table' => $table->getName(),
             'is_superuser' => $this->dbi->isSuperUser(),
@@ -95,7 +95,7 @@ class PrivilegesController extends AbstractController
             'is_grantuser' => $this->dbi->isGrantUser(),
             'privileges' => $privileges,
         ]);
-        $this->render('export_modal');
+        $this->response->render('export_modal', []);
 
         return null;
     }

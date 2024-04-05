@@ -125,7 +125,7 @@ class ExportController extends AbstractController
             $exportList,
         );
 
-        $this->render('table/export/index', array_merge($options, [
+        $this->response->render('table/export/index', array_merge($options, [
             'export_type' => $exportType,
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,

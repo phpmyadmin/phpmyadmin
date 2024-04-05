@@ -101,6 +101,6 @@ final class ChangeController extends AbstractController
             $fieldsMeta,
         );
 
-        $this->render('columns_definitions/column_definitions_form', $templateData);
+        $this->response->render('columns_definitions/column_definitions_form', $templateData);
     }
 }
