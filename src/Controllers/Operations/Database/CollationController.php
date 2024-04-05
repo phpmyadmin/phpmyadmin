@@ -49,7 +49,7 @@ final class CollationController extends AbstractController
             return null;
         }
 
-        if (! $this->checkParameters(['db'])) {
+        if (! $this->response->checkParameters(['db'])) {
             return null;
         }
 

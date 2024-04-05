@@ -43,7 +43,7 @@ final class RealRowCountController extends AbstractController
             'table' => $_REQUEST['table'] ?? null,
         ];
 
-        if (! $this->checkParameters(['db'])) {
+        if (! $this->response->checkParameters(['db'])) {
             return null;
         }
 

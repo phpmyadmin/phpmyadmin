@@ -128,7 +128,7 @@ class SqlController extends AbstractController
 
             // set $goto to what will be displayed if query returns 0 rows
             $GLOBALS['goto'] = '';
-        } elseif (! $this->checkParameters(['sql_query'])) {
+        } elseif (! $this->response->checkParameters(['sql_query'])) {
             return null;
         }
 

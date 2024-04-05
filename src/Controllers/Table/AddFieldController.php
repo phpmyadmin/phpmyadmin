@@ -59,7 +59,7 @@ class AddFieldController extends AbstractController
 
         $this->response->addScriptFiles(['table/structure.js']);
 
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 
@@ -189,7 +189,7 @@ class AddFieldController extends AbstractController
 
         $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
-        if (! $this->checkParameters(['server', 'db', 'table'])) {
+        if (! $this->response->checkParameters(['server', 'db', 'table'])) {
             return null;
         }
 

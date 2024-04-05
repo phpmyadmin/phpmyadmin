@@ -97,7 +97,7 @@ final class ExportController extends AbstractController
         // sanitize this parameter which will be used below in a file inclusion
         $GLOBALS['what'] = Core::securePath($whatParam);
 
-        if (! $this->checkParameters(['what', 'export_type'])) {
+        if (! $this->response->checkParameters(['what', 'export_type'])) {
             return null;
         }
 

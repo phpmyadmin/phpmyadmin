@@ -51,7 +51,7 @@ class IndexesController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
 
         if (! isset($_POST['create_edit_table'])) {
-            if (! $this->checkParameters(['db', 'table'])) {
+            if (! $this->response->checkParameters(['db', 'table'])) {
                 return null;
             }
 

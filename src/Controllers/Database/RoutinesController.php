@@ -66,7 +66,7 @@ class RoutinesController extends AbstractController
              * Displays the header and tabs
              */
             if (Current::$table !== '' && in_array(Current::$table, $this->dbi->getTables(Current::$database), true)) {
-                if (! $this->checkParameters(['db', 'table'])) {
+                if (! $this->response->checkParameters(['db', 'table'])) {
                     return null;
                 }
 
@@ -93,7 +93,7 @@ class RoutinesController extends AbstractController
             } else {
                 Current::$table = '';
 
-                if (! $this->checkParameters(['db'])) {
+                if (! $this->response->checkParameters(['db'])) {
                     return null;
                 }
 

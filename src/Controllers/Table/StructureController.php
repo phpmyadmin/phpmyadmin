@@ -78,7 +78,7 @@ class StructureController extends AbstractController
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 

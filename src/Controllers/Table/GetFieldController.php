@@ -40,7 +40,7 @@ class GetFieldController extends AbstractController
     {
         $this->response->disable();
 
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 

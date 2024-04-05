@@ -52,7 +52,7 @@ final class ImportController extends AbstractController
 
         $this->response->addScriptFiles(['import.js']);
 
-        if (! $this->checkParameters(['db'])) {
+        if (! $this->response->checkParameters(['db'])) {
             return null;
         }
 

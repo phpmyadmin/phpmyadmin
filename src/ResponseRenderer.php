@@ -1,7 +1,4 @@
 <?php
-/**
- * Manages the rendering of pages in PMA
- */
 
 declare(strict_types=1);
 
@@ -12,9 +9,11 @@ use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\ExitException;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 
+use function __;
 use function is_array;
 use function json_encode;
 use function json_last_error_msg;
@@ -457,5 +456,52 @@ class ResponseRenderer
     public function addScriptFiles(array $files): void
     {
         $this->getHeader()->getScripts()->addFiles($files);
+    }
+
+    /**
+     * Function added to avoid path disclosures.
+     * Called by each script that needs parameters.
+     *
+     * @param bool $request Check parameters in request
+     * @psalm-param non-empty-list<non-empty-string> $params The names of the parameters needed by the calling script
+     */
+    public function checkParameters(array $params, bool $request = false): bool
+    {
+        $foundError = false;
+        $errorMessage = '';
+        $array = $request ? $_REQUEST : $GLOBALS;
+
+        foreach ($params as $param) {
+            if (isset($array[$param]) && $array[$param] !== '') {
+                continue;
+            }
+
+            if (! $request && $param === 'server' && Current::$server > 0) {
+                continue;
+            }
+
+            if (! $request && $param === 'db' && Current::$database !== '') {
+                continue;
+            }
+
+            if (! $request && $param === 'table' && Current::$table !== '') {
+                continue;
+            }
+
+            $errorMessage .=
+                __('Missing parameter:') . ' '
+                . $param
+                . MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true)
+                . '[br]';
+            $foundError = true;
+        }
+
+        if ($foundError) {
+            $this->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
+            $this->setRequestStatus(false);
+            $this->addHTML(Message::error($errorMessage)->getDisplay());
+        }
+
+        return ! $foundError;
     }
 }

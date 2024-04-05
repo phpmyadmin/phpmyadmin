@@ -43,7 +43,7 @@ final class GisVisualizationController extends AbstractController
 
     public function __invoke(ServerRequest $request): Response|null
     {
-        if (! $this->checkParameters(['db'])) {
+        if (! $this->response->checkParameters(['db'])) {
             return null;
         }
 

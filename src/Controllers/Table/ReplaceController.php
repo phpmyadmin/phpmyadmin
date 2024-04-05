@@ -60,7 +60,7 @@ final class ReplaceController extends AbstractController
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['message'] ??= null;
-        if (! $this->checkParameters(['db', 'table', 'goto'])) {
+        if (! $this->response->checkParameters(['db', 'table', 'goto'])) {
             return null;
         }
 

@@ -40,7 +40,7 @@ class SearchController extends AbstractController
 
         $this->response->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
 
-        if (! $this->checkParameters(['db'])) {
+        if (! $this->response->checkParameters(['db'])) {
             return null;
         }
 

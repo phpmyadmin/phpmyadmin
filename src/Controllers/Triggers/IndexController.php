@@ -59,7 +59,7 @@ final class IndexController extends AbstractController
              * Displays the header and tabs
              */
             if (Current::$table !== '' && in_array(Current::$table, $this->dbi->getTables(Current::$database), true)) {
-                if (! $this->checkParameters(['db', 'table'])) {
+                if (! $this->response->checkParameters(['db', 'table'])) {
                     return null;
                 }
 
@@ -86,7 +86,7 @@ final class IndexController extends AbstractController
             } else {
                 Current::$table = '';
 
-                if (! $this->checkParameters(['db'])) {
+                if (! $this->response->checkParameters(['db'])) {
                     return null;
                 }
 

@@ -71,7 +71,7 @@ class TableController extends AbstractController
 
         $this->response->addScriptFiles(['table/operations.js']);
 
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 

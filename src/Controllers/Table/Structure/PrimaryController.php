@@ -59,7 +59,7 @@ final class PrimaryController extends AbstractController
         $deletionConfirmed = $request->getParsedBodyParam('mult_btn');
 
         if ($hasPrimary && $deletionConfirmed === null) {
-            if (! $this->checkParameters(['db', 'table'])) {
+            if (! $this->response->checkParameters(['db', 'table'])) {
                 return null;
             }
 

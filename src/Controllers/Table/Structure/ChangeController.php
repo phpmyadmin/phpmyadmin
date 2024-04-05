@@ -37,7 +37,7 @@ final class ChangeController extends AbstractController
 
     public function __invoke(ServerRequest $request): Response|null
     {
-        if (! $this->checkParameters(['server', 'db', 'table'])) {
+        if (! $this->response->checkParameters(['server', 'db', 'table'])) {
             return null;
         }
 

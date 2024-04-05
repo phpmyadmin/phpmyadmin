@@ -227,7 +227,7 @@ class DatabaseController extends AbstractController
             $this->relation->setDbComment(Current::$database, $request->getParsedBodyParam('comment'));
         }
 
-        if (! $this->checkParameters(['db'])) {
+        if (! $this->response->checkParameters(['db'])) {
             return null;
         }
 

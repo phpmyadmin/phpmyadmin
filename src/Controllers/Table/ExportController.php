@@ -50,7 +50,7 @@ class ExportController extends AbstractController
 
         $this->response->addScriptFiles(['export.js']);
 
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 

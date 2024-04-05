@@ -46,7 +46,7 @@ final class DeleteConfirmController extends AbstractController
             return null;
         }
 
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 

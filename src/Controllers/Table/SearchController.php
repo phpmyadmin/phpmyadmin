@@ -157,7 +157,7 @@ class SearchController extends AbstractController
      */
     public function __invoke(ServerRequest $request): Response|null
     {
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 

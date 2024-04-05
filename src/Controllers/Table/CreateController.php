@@ -47,7 +47,7 @@ class CreateController extends AbstractController
 
     public function __invoke(ServerRequest $request): Response|null
     {
-        if (! $this->checkParameters(['db'])) {
+        if (! $this->response->checkParameters(['db'])) {
             return null;
         }
 
@@ -148,7 +148,7 @@ class CreateController extends AbstractController
 
         $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
-        if (! $this->checkParameters(['server', 'db'])) {
+        if (! $this->response->checkParameters(['server', 'db'])) {
             return null;
         }
 

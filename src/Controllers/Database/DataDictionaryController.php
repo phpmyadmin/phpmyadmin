@@ -33,7 +33,7 @@ class DataDictionaryController extends AbstractController
 
     public function __invoke(ServerRequest $request): Response|null
     {
-        if (! $this->checkParameters(['db'], true)) {
+        if (! $this->response->checkParameters(['db'], true)) {
             return null;
         }
 

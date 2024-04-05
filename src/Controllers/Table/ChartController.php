@@ -49,7 +49,10 @@ class ChartController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
 
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $request->isAjax()) {
-            if (Current::$table !== '' && Current::$database !== '' && ! $this->checkParameters(['db', 'table'])) {
+            if (
+                Current::$table !== '' && Current::$database !== ''
+                && ! $this->response->checkParameters(['db', 'table'])
+            ) {
                 return null;
             }
 
@@ -90,7 +93,7 @@ class ChartController extends AbstractController
          * Runs common work
          */
         if (Current::$table !== '') {
-            if (! $this->checkParameters(['db', 'table'])) {
+            if (! $this->response->checkParameters(['db', 'table'])) {
                 return null;
             }
 
@@ -133,7 +136,7 @@ class ChartController extends AbstractController
             $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             $urlParams['back'] = Url::getFromRoute('/sql');
 
-            if (! $this->checkParameters(['db'])) {
+            if (! $this->response->checkParameters(['db'])) {
                 return null;
             }
 
