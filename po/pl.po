@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-03-24 21:26+0000\n"
-"Last-Translator: Maciej Gomoła <maciejg2008@gmail.com>\n"
+"PO-Revision-Date: 2024-04-05 19:01+0000\n"
+"Last-Translator: blender <m.modzelewski23@zsek.olsztyn.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-9/pl/"
 ">\n"
 "Language: pl\n"
@@ -34,7 +34,6 @@ msgid "The central list of columns for the current database is empty."
 msgstr "Centralna lista kolumn dla obecnej bazy danych jest pusta."
 
 #: db_central_columns.php:158
-#, fuzzy
 msgid "Click to sort."
 msgstr "Kliknij, aby posortować."
 
@@ -80,7 +79,6 @@ msgstr "Komentarze tabeli:"
 #: templates/table/relation/common_form.twig:19
 #: templates/table/relation/common_form.twig:34
 #: templates/table/relation/common_form.twig:109
-#, fuzzy
 msgid "Column"
 msgstr "Kolumna"
 
@@ -429,7 +427,7 @@ msgid "SRID:"
 msgstr "SRID:"
 
 #: gis_data_editor.php:199
-#, fuzzy, php-format
+#, php-format
 msgid "Geometry %d:"
 msgstr "Geometria %d:"
 
@@ -637,7 +635,6 @@ msgstr "Nie można wczytać postępu importu."
 #: libraries/classes/Export.php:509
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:303
 #: libraries/classes/UserPassword.php:250 libraries/classes/Util.php:665
-#, fuzzy
 msgid "Back"
 msgstr "Powrót"
 
@@ -673,7 +670,6 @@ msgstr "Ustawienia ogólne"
 #: libraries/classes/Display/ChangePassword.php:58
 #: libraries/classes/Display/ChangePassword.php:61
 #: libraries/classes/UserPassword.php:244
-#, fuzzy
 msgid "Change password"
 msgstr "Zmień hasło"
 
@@ -1906,7 +1902,6 @@ msgstr ""
 "Żadna procedura nie jest eksportowana. Może brakować wymaganych uprawnień."
 
 #: js/messages.php:408 libraries/classes/Rte/Routines.php:761
-#, fuzzy
 msgid "ENUM/SET editor"
 msgstr "Edytor ENUM/SET"
 
