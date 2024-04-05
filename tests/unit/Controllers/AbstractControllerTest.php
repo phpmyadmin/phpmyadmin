@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
-use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\MySQLDocumentation;
@@ -85,60 +84,5 @@ class AbstractControllerTest extends AbstractTestCase
 
         self::assertTrue($controller->testCheckParameters(['param1', 'param2']));
         self::assertSame(200, $response->getResponse()->getStatusCode());
-    }
-
-    public function testSendErrorResponseWithJson(): void
-    {
-        $response = new ResponseRenderer();
-        $response->setAjax(true);
-
-        $controller = new class ($response, new Template()) extends AbstractController {
-            public function __invoke(ServerRequest $request): Response|null
-            {
-                return null;
-            }
-
-            /** @psalm-param StatusCodeInterface::STATUS_* $statusCode */
-            public function testSendErrorResponse(string $message, int $statusCode = 400): void
-            {
-                $this->sendErrorResponse($message, $statusCode);
-            }
-        };
-
-        $controller->testSendErrorResponse('Error message.', 404);
-
-        self::assertSame(404, $response->getResponse()->getStatusCode());
-        self::assertFalse($response->hasSuccessState());
-        self::assertSame('', $response->getHTMLResult());
-        self::assertSame(['isErrorResponse' => true, 'message' => 'Error message.'], $response->getJSONResult());
-    }
-
-    public function testSendErrorResponseWithHtml(): void
-    {
-        $response = new ResponseRenderer();
-        $response->setAjax(false);
-
-        $controller = new class ($response, new Template()) extends AbstractController {
-            public function __invoke(ServerRequest $request): Response|null
-            {
-                return null;
-            }
-
-            /** @psalm-param StatusCodeInterface::STATUS_* $statusCode */
-            public function testSendErrorResponse(string $message, int $statusCode = 400): void
-            {
-                $this->sendErrorResponse($message, $statusCode);
-            }
-        };
-
-        $controller->testSendErrorResponse('Error message.', 404);
-
-        self::assertSame(404, $response->getResponse()->getStatusCode());
-        self::assertFalse($response->hasSuccessState());
-        self::assertSame(
-            Message::error('Error message.')->getDisplay(),
-            $response->getHTMLResult(),
-        );
-        self::assertSame([], $response->getJSONResult());
     }
 }

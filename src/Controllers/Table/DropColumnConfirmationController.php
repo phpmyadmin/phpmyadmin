@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Response;
@@ -79,5 +80,20 @@ final class DropColumnConfirmationController extends AbstractController
         ]);
 
         return null;
+    }
+
+    private function sendErrorResponse(string $message): void
+    {
+        $this->response->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
+        $this->response->setRequestStatus(false);
+
+        if ($this->response->isAjax()) {
+            $this->response->addJSON('isErrorResponse', true);
+            $this->response->addJSON('message', $message);
+
+            return;
+        }
+
+        $this->response->addHTML(Message::error($message)->getDisplay());
     }
 }

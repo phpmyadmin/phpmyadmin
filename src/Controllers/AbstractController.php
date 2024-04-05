@@ -71,20 +71,4 @@ abstract class AbstractController implements InvocableController
 
         return ! $foundError;
     }
-
-    /** @psalm-param StatusCodeInterface::STATUS_* $statusCode */
-    protected function sendErrorResponse(string $message, int $statusCode = 400): void
-    {
-        $this->response->setStatusCode($statusCode);
-        $this->response->setRequestStatus(false);
-
-        if ($this->response->isAjax()) {
-            $this->response->addJSON('isErrorResponse', true);
-            $this->response->addJSON('message', $message);
-
-            return;
-        }
-
-        $this->response->addHTML(Message::error($message)->getDisplay());
-    }
 }
