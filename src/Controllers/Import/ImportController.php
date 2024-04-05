@@ -15,6 +15,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
@@ -60,7 +61,7 @@ final class ImportController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['goto'] ??= null;
         $GLOBALS['display_query'] ??= null;
@@ -177,7 +178,7 @@ final class ImportController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $GLOBALS['message']);
 
-            return; // the footer is displayed automatically
+            return null; // the footer is displayed automatically
         }
 
         // Add console message id to response output
@@ -192,7 +193,7 @@ final class ImportController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error(__('Incorrect format parameter'))->getDisplay());
 
-            return;
+            return null;
         }
 
         if (Current::$table !== '' && Current::$database !== '') {
@@ -305,7 +306,7 @@ final class ImportController extends AbstractController
                         $this->response->addJSON('sql_query', $GLOBALS['import_text']);
                         $this->response->addJSON('action_bookmark', $actionBookmark);
 
-                        return;
+                        return null;
                     }
 
                     ImportSettings::$runQuery = false;
@@ -326,7 +327,7 @@ final class ImportController extends AbstractController
                         $this->response->addJSON('action_bookmark', $actionBookmark);
                         $this->response->addJSON('id_bookmark', $idBookmark);
 
-                        return;
+                        return null;
                     }
 
                     ImportSettings::$runQuery = false;
@@ -409,7 +410,7 @@ final class ImportController extends AbstractController
                 $this->response->addJSON('message', $errorMessage->getDisplay());
                 $this->response->addHTML($errorMessage->getDisplay());
 
-                return;
+                return null;
             }
 
             $importHandle->setDecompressContent(true);
@@ -426,7 +427,7 @@ final class ImportController extends AbstractController
                 $this->response->addJSON('message', $errorMessage->getDisplay());
                 $this->response->addHTML($errorMessage->getDisplay());
 
-                return;
+                return null;
             }
         } elseif (! $GLOBALS['error'] && empty($GLOBALS['import_text'])) {
             $GLOBALS['message'] = Message::error(
@@ -443,7 +444,7 @@ final class ImportController extends AbstractController
             $this->response->addJSON('message', $GLOBALS['message']->getDisplay());
             $this->response->addHTML($GLOBALS['message']->getDisplay());
 
-            return;
+            return null;
         }
 
         // Convert the file's charset if necessary
@@ -636,7 +637,7 @@ final class ImportController extends AbstractController
                         $_SESSION['Import_message']['go_back_url'],
                     );
 
-                    return;
+                    return null;
                 }
 
                 if (Current::$table != $tableFromSql && $tableFromSql !== '') {
@@ -678,7 +679,7 @@ final class ImportController extends AbstractController
             $this->response->addJSON('ajax_reload', $GLOBALS['ajax_reload']);
             $this->response->addHTML($htmlOutput);
 
-            return;
+            return null;
         }
 
         if ($GLOBALS['result']) {
@@ -712,9 +713,11 @@ final class ImportController extends AbstractController
 
         // If there is request for ROLLBACK in the end.
         if (! $request->hasBodyParam('rollback_query')) {
-            return;
+            return null;
         }
 
         $this->dbi->query('ROLLBACK');
+
+        return null;
     }
 }

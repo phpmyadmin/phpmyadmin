@@ -10,6 +10,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -35,13 +36,13 @@ final class IndexRenameController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
         if (! $this->checkParameters(['db', 'table'])) {
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -57,12 +58,12 @@ final class IndexRenameController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -71,12 +72,12 @@ final class IndexRenameController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return;
+            return null;
         }
 
         $oldIndexName = $request->getParsedBodyParam('old_index');
@@ -92,7 +93,7 @@ final class IndexRenameController extends AbstractController
 
             $this->render('table/index_rename_form', ['index' => $index, 'form_params' => $formParams]);
 
-            return;
+            return null;
         }
 
         // coming already from form
@@ -114,7 +115,7 @@ final class IndexRenameController extends AbstractController
                 $this->template->render('preview_sql', ['query_data' => $sqlQuery]),
             );
 
-            return;
+            return null;
         }
 
         $logicError = $this->indexes->getError();
@@ -122,7 +123,7 @@ final class IndexRenameController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $logicError);
 
-            return;
+            return null;
         }
 
         $this->dbi->query($sqlQuery);
@@ -145,5 +146,7 @@ final class IndexRenameController extends AbstractController
                 'indexes_duplicates' => $indexesDuplicates,
             ]),
         );
+
+        return null;
     }
 }

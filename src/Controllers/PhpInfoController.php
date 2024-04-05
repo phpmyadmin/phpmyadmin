@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 
 use function phpinfo;
@@ -21,15 +22,17 @@ use const INFO_MODULES;
  */
 class PhpInfoController extends AbstractController
 {
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $this->response->disable();
         $this->response->getHeader()->sendHttpHeaders();
 
         if (! Config::getInstance()->settings['ShowPhpInfo']) {
-            return;
+            return null;
         }
 
         phpinfo(INFO_GENERAL | INFO_CONFIGURATION | INFO_MODULES);
+
+        return null;
     }
 }

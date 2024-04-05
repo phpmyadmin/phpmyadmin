@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -23,7 +24,7 @@ final class ExportRowsController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['single_table'] ??= null;
         $GLOBALS['where_clause'] ??= null;
@@ -32,7 +33,7 @@ final class ExportRowsController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));
 
-            return;
+            return null;
         }
 
         // Needed to allow SQL export
@@ -48,5 +49,7 @@ final class ExportRowsController extends AbstractController
         }
 
         ($this->exportController)($request);
+
+        return null;
     }
 }

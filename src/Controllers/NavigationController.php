@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
@@ -32,7 +33,7 @@ class NavigationController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         if (! $request->isAjax()) {
             $this->response->addHTML(
@@ -41,7 +42,7 @@ class NavigationController extends AbstractController
                 )->getDisplay(),
             );
 
-            return;
+            return null;
         }
 
         if ($request->hasBodyParam('getNaviSettings')) {
@@ -49,7 +50,7 @@ class NavigationController extends AbstractController
             $this->response->addHTML($this->pageSettings->getErrorHTML());
             $this->response->addJSON('message', $this->pageSettings->getHTML());
 
-            return;
+            return null;
         }
 
         if ($request->hasBodyParam('reload')) {
@@ -67,7 +68,7 @@ class NavigationController extends AbstractController
                     $this->navigation->hideNavigationItem($itemName, $itemType, $dbName);
                 }
 
-                return;
+                return null;
             }
 
             if ($request->hasBodyParam('unhideNavItem')) {
@@ -75,7 +76,7 @@ class NavigationController extends AbstractController
                     $this->navigation->unhideNavigationItem($itemName, $itemType, $dbName);
                 }
 
-                return;
+                return null;
             }
 
             if ($request->hasBodyParam('showUnhideDialog')) {
@@ -86,10 +87,12 @@ class NavigationController extends AbstractController
                     );
                 }
 
-                return;
+                return null;
             }
         }
 
         $this->response->addJSON('message', $this->navigation->getDisplay());
+
+        return null;
     }
 }

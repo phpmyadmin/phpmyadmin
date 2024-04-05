@@ -12,6 +12,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -41,7 +42,7 @@ final class ImportController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['SESSION_KEY'] ??= null;
@@ -54,7 +55,7 @@ final class ImportController extends AbstractController
         $this->addScriptFiles(['import.js']);
 
         if (! $this->checkParameters(['db', 'table'])) {
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -68,12 +69,12 @@ final class ImportController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -82,12 +83,12 @@ final class ImportController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/import');
@@ -103,7 +104,7 @@ final class ImportController extends AbstractController
                 'Could not load import plugins, please check your installation!',
             ))->getDisplay());
 
-            return;
+            return null;
         }
 
         $offset = null;
@@ -164,5 +165,7 @@ final class ImportController extends AbstractController
             'user_upload_dir' => Util::userDir($config->settings['UploadDir'] ?? ''),
             'local_files' => Import::getLocalFiles($importList),
         ]);
+
+        return null;
     }
 }

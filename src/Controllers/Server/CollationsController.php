@@ -10,6 +10,7 @@ use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -44,7 +45,7 @@ class CollationsController extends AbstractController
         $this->collations = $collations ?? Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -71,5 +72,7 @@ class CollationsController extends AbstractController
         }
 
         $this->render('server/collations/index', ['charsets' => $charsets]);
+
+        return null;
     }
 }

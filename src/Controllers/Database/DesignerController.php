@@ -10,6 +10,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common as DesignerCommon;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\LanguageManager;
@@ -37,7 +38,7 @@ class DesignerController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -83,7 +84,7 @@ class DesignerController extends AbstractController
                 $this->response->addHTML($html);
             }
 
-            return;
+            return null;
         }
 
         if ($request->hasBodyParam('operation')) {
@@ -105,7 +106,7 @@ class DesignerController extends AbstractController
                     );
                     $this->response->setRequestStatus(false);
 
-                    return;
+                    return null;
                 } else {
                     $page = $this->designerCommon->createNewPage($request->getParsedBodyParam('selected_value'), $db);
                     $this->response->addJSON('id', $page);
@@ -150,11 +151,11 @@ class DesignerController extends AbstractController
                 $this->response->setRequestStatus($success);
             }
 
-            return;
+            return null;
         }
 
         if (! $this->checkParameters(['db'])) {
-            return;
+            return null;
         }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -169,12 +170,12 @@ class DesignerController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $scriptDisplayField = $this->designerCommon->getTablesInfo();
@@ -256,5 +257,7 @@ class DesignerController extends AbstractController
         $this->response->addHTML($mainHtml);
 
         $this->response->addHTML('<div id="PMA_disable_floating_menubar"></div>');
+
+        return null;
     }
 }

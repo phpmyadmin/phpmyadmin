@@ -13,6 +13,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
@@ -40,10 +41,10 @@ final class GisVisualizationController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         if (! $this->checkParameters(['db'])) {
-            return;
+            return null;
         }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -58,12 +59,12 @@ final class GisVisualizationController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         // SQL query for retrieving GIS data
@@ -76,7 +77,7 @@ final class GisVisualizationController extends AbstractController
                 Message::error(__('No SQL query was set to fetch data.'))->getDisplay(),
             );
 
-            return;
+            return null;
         }
 
         $meta = $this->getColumnMeta($sqlQuery);
@@ -98,7 +99,7 @@ final class GisVisualizationController extends AbstractController
                 Message::error(__('No spatial column found for this SQL query.'))->getDisplay(),
             );
 
-            return;
+            return null;
         }
 
         // Get settings if any posted
@@ -116,7 +117,7 @@ final class GisVisualizationController extends AbstractController
             $filename = $visualization->getSpatialColumn();
             $visualization->toFile($filename, $_GET['fileFormat']);
 
-            return;
+            return null;
         }
 
         $this->addScriptFiles(['vendor/openlayers/OpenLayers.js', 'table/gis_visualization.js']);
@@ -162,6 +163,8 @@ final class GisVisualizationController extends AbstractController
         ]);
 
         $this->response->addHTML($html);
+
+        return null;
     }
 
     /**

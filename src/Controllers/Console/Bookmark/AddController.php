@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Console\Bookmark;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -24,7 +25,7 @@ final class AddController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $db = $request->getParsedBodyParam('db');
         $label = $request->getParsedBodyParam('label');
@@ -34,7 +35,7 @@ final class AddController extends AbstractController
         if (! is_string($label) || ! is_string($db) || ! is_string($bookmarkQuery) || ! is_string($shared)) {
             $this->response->addJSON('message', __('Incomplete params'));
 
-            return;
+            return null;
         }
 
         $bookmark = $this->bookmarkRepository->createBookmark(
@@ -47,7 +48,7 @@ final class AddController extends AbstractController
         if ($bookmark === false || ! $bookmark->save()) {
             $this->response->addJSON('message', __('Failed'));
 
-            return;
+            return null;
         }
 
         $bookmarkFields = [
@@ -60,5 +61,7 @@ final class AddController extends AbstractController
         $this->response->addJSON('message', __('Succeeded'));
         $this->response->addJSON('data', $bookmarkFields);
         $this->response->addJSON('isShared', $shared === 'true');
+
+        return null;
     }
 }

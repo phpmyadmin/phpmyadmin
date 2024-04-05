@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Git;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -20,16 +21,16 @@ final class GitInfoController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         if (! $request->isAjax()) {
-            return;
+            return null;
         }
 
         $git = new Git($this->config->get('ShowGitRevision') ?? true);
 
         if (! $git->isGitRevision()) {
-            return;
+            return null;
         }
 
         $commit = $git->checkGitRevision();
@@ -37,12 +38,14 @@ final class GitInfoController extends AbstractController
         if (! $git->hasGitInformation() || $commit === null) {
             $this->response->setRequestStatus(false);
 
-            return;
+            return null;
         }
 
         $commit['author']['date'] = Util::localisedDate(strtotime($commit['author']['date']));
         $commit['committer']['date'] = Util::localisedDate(strtotime($commit['committer']['date']));
 
         $this->render('home/git_info', $commit);
+
+        return null;
     }
 }

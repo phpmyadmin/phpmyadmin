@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Linter;
 
@@ -21,10 +22,10 @@ use function sprintf;
  */
 class LintController extends AbstractController
 {
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         if (! $request->isAjax()) {
-            return;
+            return null;
         }
 
         /**
@@ -59,5 +60,7 @@ class LintController extends AbstractController
         }
 
         echo json_encode(Linter::lint("DELIMITER $$\n" . $sqlQuery . "$$\nDELIMITER ;\n"));
+
+        return null;
     }
 }

@@ -12,6 +12,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -48,7 +49,7 @@ class AddFieldController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['message'] ??= null;
@@ -59,7 +60,7 @@ class AddFieldController extends AbstractController
         $this->addScriptFiles(['table/structure.js']);
 
         if (! $this->checkParameters(['db', 'table'])) {
-            return;
+            return null;
         }
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
@@ -94,7 +95,7 @@ class AddFieldController extends AbstractController
             if (isset($_POST['preview_sql'])) {
                 Core::previewSQL($GLOBALS['sql_query']);
 
-                return;
+                return null;
             }
 
             $result = $createAddField->tryColumnCreationQuery(
@@ -108,7 +109,7 @@ class AddFieldController extends AbstractController
                 $this->response->addHTML($errorMessageHtml ?? '');
                 $this->response->setRequestStatus(false);
 
-                return;
+                return null;
             }
 
             // Update comment table for mime types [MIME]
@@ -151,7 +152,7 @@ class AddFieldController extends AbstractController
                 ]),
             );
 
-            return;
+            return null;
         }
 
         $urlParams = ['db' => Current::$database, 'table' => Current::$table];
@@ -164,12 +165,12 @@ class AddFieldController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -178,22 +179,24 @@ class AddFieldController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return;
+            return null;
         }
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
         if (! $this->checkParameters(['server', 'db', 'table'])) {
-            return;
+            return null;
         }
 
         $templateData = $this->columnsDefinition->displayForm($userPrivileges, '/table/add-field', $numFields);
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
+
+        return null;
     }
 }

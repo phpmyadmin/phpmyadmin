@@ -11,6 +11,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
@@ -38,7 +39,7 @@ final class ExportController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['table_select'] ??= null;
@@ -52,7 +53,7 @@ final class ExportController extends AbstractController
         $this->addScriptFiles(['export.js']);
 
         if (! $this->checkParameters(['db'])) {
-            return;
+            return null;
         }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -67,12 +68,12 @@ final class ExportController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/export');
@@ -86,7 +87,7 @@ final class ExportController extends AbstractController
                 Message::error(__('No tables found in database.'))->getDisplay(),
             );
 
-            return;
+            return null;
         }
 
         $selectedTable = $request->getParsedBodyParam('selected_tbl');
@@ -152,7 +153,7 @@ final class ExportController extends AbstractController
                 __('Could not load export plugins, please check your installation!'),
             )->getDisplay());
 
-            return;
+            return null;
         }
 
         $options = $this->exportOptions->getOptions(
@@ -171,5 +172,7 @@ final class ExportController extends AbstractController
             'structure_or_data_forced' => $request->getParsedBodyParam('structure_or_data_forced', 0),
             'tables' => $tablesForMultiValues,
         ]));
+
+        return null;
     }
 }

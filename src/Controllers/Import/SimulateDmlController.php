@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Import;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\Message;
@@ -29,7 +30,7 @@ final class SimulateDmlController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $error = '';
         $errorMsg = __('Only single-table UPDATE and DELETE queries can be simulated.');
@@ -81,9 +82,11 @@ final class SimulateDmlController extends AbstractController
             $this->response->addJSON('message', $message);
             $this->response->addJSON('sql_data', false);
 
-            return;
+            return null;
         }
 
         $this->response->addJSON('sql_data', $sqlData);
+
+        return null;
     }
 }

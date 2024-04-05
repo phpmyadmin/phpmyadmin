@@ -10,6 +10,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -29,10 +30,10 @@ final class UserGroupsFormController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         if (! $request->isAjax()) {
-            return;
+            return null;
         }
 
         /** @var string $username */
@@ -43,7 +44,7 @@ final class UserGroupsFormController extends AbstractController
             $this->response->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
             $this->response->addJSON('message', __('Missing parameter:') . ' username');
 
-            return;
+            return null;
         }
 
         $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
@@ -52,12 +53,14 @@ final class UserGroupsFormController extends AbstractController
             $this->response->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
             $this->response->addJSON('message', __('User groups management is not enabled.'));
 
-            return;
+            return null;
         }
 
         $form = $this->getHtmlToChooseUserGroup($username, $configurableMenusFeature);
 
         $this->response->addJSON('message', $form);
+
+        return null;
     }
 
     /**

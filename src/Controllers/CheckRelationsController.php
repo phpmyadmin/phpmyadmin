@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\ResponseRenderer;
@@ -24,7 +25,7 @@ class CheckRelationsController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $cfgStorageDbName = $this->relation->getConfigurationStorageDbName();
 
@@ -57,5 +58,7 @@ class CheckRelationsController extends AbstractController
             'config_storage_database_name' => $cfgStorageDbName,
             'are_config_storage_tables_defined' => $this->relation->arePmadbTablesDefined(),
         ]);
+
+        return null;
     }
 }

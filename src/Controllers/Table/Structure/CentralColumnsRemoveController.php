@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\CentralColumns;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -28,7 +29,7 @@ final class CentralColumnsRemoveController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['message'] ??= null;
 
@@ -38,7 +39,7 @@ final class CentralColumnsRemoveController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return;
+            return null;
         }
 
         Assert::allString($selected);
@@ -54,5 +55,7 @@ final class CentralColumnsRemoveController extends AbstractController
         }
 
         ($this->structureController)($request);
+
+        return null;
     }
 }

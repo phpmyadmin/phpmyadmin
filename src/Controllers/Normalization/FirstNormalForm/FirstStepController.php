@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Normalization\FirstNormalForm;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
@@ -20,7 +21,7 @@ final class FirstStepController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $this->addScriptFiles(['normalization.js', 'vendor/jquery/jquery.uitablefilter.js']);
 
@@ -32,5 +33,7 @@ final class FirstStepController extends AbstractController
 
         $html = $this->normalization->getHtmlFor1NFStep1(Current::$database, Current::$table, $normalForm);
         $this->response->addHTML($html);
+
+        return null;
     }
 }

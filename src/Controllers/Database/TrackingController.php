@@ -10,6 +10,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\LanguageManager;
@@ -40,7 +41,7 @@ class TrackingController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -48,7 +49,7 @@ class TrackingController extends AbstractController
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
 
         if (! $this->checkParameters(['db'])) {
-            return;
+            return null;
         }
 
         $config = Config::getInstance();
@@ -61,12 +62,12 @@ class TrackingController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
@@ -116,7 +117,7 @@ class TrackingController extends AbstractController
                         'default_statements' => $config->selectedServer['tracking_default_statements'],
                     ]);
 
-                    return;
+                    return null;
                 }
             } else {
                 $this->response->addHTML(Message::notice(
@@ -136,7 +137,7 @@ class TrackingController extends AbstractController
                 $this->render('database/create_table', ['db' => Current::$database]);
             }
 
-            return;
+            return null;
         }
 
         $this->response->addHTML($this->tracking->getHtmlForDbTrackingTables(
@@ -147,7 +148,7 @@ class TrackingController extends AbstractController
 
         // If available print out database log
         if ($trackedData->ddlog === []) {
-            return;
+            return null;
         }
 
         $log = '';
@@ -157,5 +158,7 @@ class TrackingController extends AbstractController
         }
 
         $this->response->addHTML(Generator::getMessage(__('Database Log'), $log));
+
+        return null;
     }
 }

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Server\Status\Processes;
 
 use PhpMyAdmin\Controllers\Server\Status\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -27,10 +28,10 @@ final class KillController extends AbstractController
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         if (! $request->isAjax()) {
-            return;
+            return null;
         }
 
         $processId = $this->getProcessId($request->getAttribute('routeVars'));
@@ -53,6 +54,8 @@ final class KillController extends AbstractController
         $message->addParam($processId);
 
         $this->response->addJSON(['message' => $message]);
+
+        return null;
     }
 
     private function getProcessId(mixed $routeVars): int

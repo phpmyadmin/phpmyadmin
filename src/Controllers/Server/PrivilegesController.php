@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
@@ -42,7 +43,7 @@ class PrivilegesController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['message'] ??= null;
@@ -106,7 +107,7 @@ class PrivilegesController extends AbstractController
                     ->getDisplay(),
             );
 
-            return;
+            return null;
         }
 
         if (! $isGrantUser && ! $isCreateUser) {
@@ -135,7 +136,7 @@ class PrivilegesController extends AbstractController
             );
             $this->response->setRequestStatus(false);
 
-            return;
+            return null;
         }
 
         /**
@@ -300,7 +301,7 @@ class PrivilegesController extends AbstractController
                 $this->response->addJSON('message', $GLOBALS['message']);
                 $this->response->addJSON($extraData);
 
-                return;
+                return null;
             }
         }
 
@@ -331,7 +332,7 @@ class PrivilegesController extends AbstractController
                 $this->response->addJSON('message', $export);
                 $this->response->addJSON('title', $title);
 
-                return;
+                return null;
             }
 
             $this->response->addHTML('<h2>' . $title . '</h2>' . $export);
@@ -395,10 +396,12 @@ class PrivilegesController extends AbstractController
         }
 
         if ($relationParameters->configurableMenusFeature === null) {
-            return;
+            return null;
         }
 
         $this->response->addHTML('</div>');
+
+        return null;
     }
 
     private function getExportPageTitle(string $username, string $hostname, array|null $selectedUsers): string

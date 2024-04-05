@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\UserGroups;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -30,11 +31,11 @@ class UserGroupsController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
         if ($configurableMenusFeature === null) {
-            return;
+            return null;
         }
 
         $this->addScriptFiles(['server/user_groups.js']);
@@ -47,7 +48,7 @@ class UserGroupsController extends AbstractController
                 Message::error(__('No Privileges'))->getDisplay(),
             );
 
-            return;
+            return null;
         }
 
         $this->response->addHTML('<div class="container-fluid">');
@@ -99,5 +100,7 @@ class UserGroupsController extends AbstractController
         }
 
         $this->response->addHTML('</div>');
+
+        return null;
     }
 }

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Sql;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
@@ -26,7 +27,7 @@ final class EnumValuesController extends AbstractController
     /**
      * Get possible values for enum fields during grid edit.
      */
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $column = $request->getParsedBodyParam('column');
         $currValue = $request->getParsedBodyParam('curr_value');
@@ -36,7 +37,7 @@ final class EnumValuesController extends AbstractController
             $this->response->addJSON('message', __('Error in processing request'));
             $this->response->setRequestStatus(false);
 
-            return;
+            return null;
         }
 
         $dropdown = $this->template->render('sql/enum_column_dropdown', [
@@ -45,5 +46,7 @@ final class EnumValuesController extends AbstractController
         ]);
 
         $this->response->addJSON('dropdown', $dropdown);
+
+        return null;
     }
 }

@@ -11,6 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -79,13 +80,13 @@ class ZoomSearchController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['goto'] ??= null;
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         if (! $this->checkParameters(['db', 'table'])) {
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -99,12 +100,12 @@ class ZoomSearchController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -113,12 +114,12 @@ class ZoomSearchController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return;
+            return null;
         }
 
         $this->loadTableInfo();
@@ -144,7 +145,7 @@ class ZoomSearchController extends AbstractController
         if (isset($_POST['get_data_row']) && $_POST['get_data_row'] == true) {
             $this->getDataRowAction();
 
-            return;
+            return null;
         }
 
         /**
@@ -154,7 +155,7 @@ class ZoomSearchController extends AbstractController
         if ($request->hasBodyParam('change_tbl_info')) {
             $this->changeTableInfoAction();
 
-            return;
+            return null;
         }
 
         //Set default datalabel if not selected
@@ -177,7 +178,7 @@ class ZoomSearchController extends AbstractController
             || $_POST['criteriaColumnNames'][1] === 'pma_null'
             || $_POST['criteriaColumnNames'][0] == $_POST['criteriaColumnNames'][1]
         ) {
-            return;
+            return null;
         }
 
         if (! isset($GLOBALS['goto'])) {
@@ -185,6 +186,8 @@ class ZoomSearchController extends AbstractController
         }
 
         $this->zoomSubmitAction($dataLabel, $GLOBALS['goto']);
+
+        return null;
     }
 
     /**

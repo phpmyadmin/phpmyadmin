@@ -15,6 +15,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\EditField;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Message;
@@ -55,12 +56,12 @@ final class ReplaceController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['message'] ??= null;
         if (! $this->checkParameters(['db', 'table', 'goto'])) {
-            return;
+            return null;
         }
 
         $GLOBALS['errorUrl'] ??= null;
@@ -289,14 +290,14 @@ final class ReplaceController extends AbstractController
 
             $this->moveBackToCallingScript($gotoInclude, $request);
 
-            return;
+            return null;
         }
 
         // If there is a request for SQL previewing.
         if ($request->hasBodyParam('preview_sql')) {
             Core::previewSQL($GLOBALS['query']);
 
-            return;
+            return null;
         }
 
         $returnToSqlQuery = '';
@@ -355,7 +356,7 @@ final class ReplaceController extends AbstractController
              */
             $this->doTransformations($mimeMap, $request);
 
-            return;
+            return null;
         }
 
         if (! empty($returnToSqlQuery)) {
@@ -377,6 +378,8 @@ final class ReplaceController extends AbstractController
         }
 
         $this->moveBackToCallingScript($gotoInclude, $request);
+
+        return null;
     }
 
     /** @param string[][] $mimeMap */

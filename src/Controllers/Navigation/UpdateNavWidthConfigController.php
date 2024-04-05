@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Navigation;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -21,22 +22,24 @@ final class UpdateNavWidthConfigController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $value = $request->getParsedBodyParam('value');
         if (! is_numeric($value) || $value < 0) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error(__('Unexpected parameter value.'))]);
 
-            return;
+            return null;
         }
 
         $result = $this->config->setUserValue(null, 'NavigationWidth', (int) $value);
         if ($result === true) {
-            return;
+            return null;
         }
 
         $this->response->setRequestStatus(false);
         $this->response->addJSON(['message' => $result]);
+
+        return null;
     }
 }

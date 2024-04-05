@@ -11,6 +11,7 @@ use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
@@ -32,7 +33,7 @@ class SearchController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['urlParams'] ??= null;
@@ -40,7 +41,7 @@ class SearchController extends AbstractController
         $this->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
 
         if (! $this->checkParameters(['db'])) {
-            return;
+            return null;
         }
 
         $config = Config::getInstance();
@@ -53,12 +54,12 @@ class SearchController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         if (! $config->settings['UseDbSearch']) {
@@ -70,12 +71,12 @@ class SearchController extends AbstractController
             if ($request->isAjax()) {
                 $this->response->addJSON('message', Message::error($errorMessage)->getDisplay());
 
-                return;
+                return null;
             }
 
             $this->render('error/simple', ['error_message' => $errorMessage, 'back_url' => $GLOBALS['errorUrl']]);
 
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/search');
@@ -90,10 +91,12 @@ class SearchController extends AbstractController
 
         // If we are in an Ajax request, we need to exit after displaying all the HTML
         if ($request->isAjax() && empty($_REQUEST['ajax_page_request'])) {
-            return;
+            return null;
         }
 
         // Display the search form
         $this->response->addHTML($databaseSearch->getMainHtml());
+
+        return null;
     }
 }

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table\Partition;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
@@ -29,7 +30,7 @@ final class RepairController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $partitionName = $request->getParsedBodyParam('partition_name');
 
@@ -41,7 +42,7 @@ final class RepairController extends AbstractController
             $message = Message::error($exception->getMessage());
             $this->response->addHTML($message->getDisplay());
 
-            return;
+            return null;
         }
 
         [$rows, $query] = $this->model->repair($database, $table, $partitionName);
@@ -57,5 +58,7 @@ final class RepairController extends AbstractController
             'message' => $message,
             'rows' => $rows,
         ]);
+
+        return null;
     }
 }

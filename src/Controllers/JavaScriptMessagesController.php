@@ -8,6 +8,7 @@ use Fig\Http\Message\StatusCodeInterface;
 use JsonException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
+use PhpMyAdmin\Http\ServerRequest;
 
 use function __;
 use function _pgettext;
@@ -21,13 +22,13 @@ use const JSON_THROW_ON_ERROR;
 /**
  * Exporting of translated messages from PHP to JavaScript.
  */
-final class JavaScriptMessagesController
+final class JavaScriptMessagesController implements InvocableController
 {
     public function __construct(private readonly ResponseFactory $responseFactory)
     {
     }
 
-    public function __invoke(): Response
+    public function __invoke(ServerRequest $request): Response
     {
         $response = $this->responseFactory->createResponse()
             ->withHeader('Content-Type', 'text/javascript; charset=UTF-8')

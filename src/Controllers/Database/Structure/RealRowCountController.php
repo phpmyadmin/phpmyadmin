@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
@@ -33,7 +34,7 @@ final class RealRowCountController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] ??= null;
 
@@ -43,7 +44,7 @@ final class RealRowCountController extends AbstractController
         ];
 
         if (! $this->checkParameters(['db'])) {
-            return;
+            return null;
         }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -53,7 +54,7 @@ final class RealRowCountController extends AbstractController
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         if (! $request->isAjax()) {
-            return;
+            return null;
         }
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -61,7 +62,7 @@ final class RealRowCountController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-            return;
+            return null;
         }
 
         // If there is a request to update all table's row count.
@@ -75,7 +76,7 @@ final class RealRowCountController extends AbstractController
 
             $this->response->addJSON(['real_row_count' => $realRowCount]);
 
-            return;
+            return null;
         }
 
         // Array to store the results.
@@ -89,5 +90,7 @@ final class RealRowCountController extends AbstractController
         }
 
         $this->response->addJSON(['real_row_count_all' => $realRowCountAll]);
+
+        return null;
     }
 }

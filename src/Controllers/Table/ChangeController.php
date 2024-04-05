@@ -12,6 +12,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -49,7 +50,7 @@ class ChangeController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['disp_message'] ??= null;
         $GLOBALS['urlParams'] ??= null;
@@ -68,12 +69,12 @@ class ChangeController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -82,12 +83,12 @@ class ChangeController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return;
+            return null;
         }
 
         $this->setInsertRowsParam($request->getParsedBodyParam('insert_rows'));
@@ -290,6 +291,8 @@ class ChangeController extends AbstractController
         }
 
         $this->response->addHTML($htmlOutput);
+
+        return null;
     }
 
     /**

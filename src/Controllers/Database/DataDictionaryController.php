@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\ResponseRenderer;
@@ -30,10 +31,10 @@ class DataDictionaryController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         if (! $this->checkParameters(['db'], true)) {
-            return;
+            return null;
         }
 
         $relationParameters = $this->relation->getRelationParameters();
@@ -111,5 +112,7 @@ class DataDictionaryController extends AbstractController
             'comment' => $comment,
             'tables' => $tables,
         ]);
+
+        return null;
     }
 }

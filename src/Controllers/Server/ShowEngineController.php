@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
@@ -28,7 +29,7 @@ final class ShowEngineController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $this->setEngineAndPageProperties($request->getAttribute('routeVars'));
 
@@ -54,6 +55,8 @@ final class ShowEngineController extends AbstractController
         }
 
         $this->render('server/engines/show', ['engine' => $engine, 'page' => $this->page]);
+
+        return null;
     }
 
     private function setEngineAndPageProperties(mixed $routeVars): void

@@ -17,6 +17,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -63,7 +64,7 @@ class StructureController extends AbstractController
         $this->tableObj = $this->dbi->getTable(Current::$database, Current::$table);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errorUrl'] ??= null;
 
@@ -78,7 +79,7 @@ class StructureController extends AbstractController
         $relationParameters = $this->relation->getRelationParameters();
 
         if (! $this->checkParameters(['db', 'table'])) {
-            return;
+            return null;
         }
 
         $isSystemSchema = Utilities::isSystemSchema(Current::$database);
@@ -95,12 +96,12 @@ class StructureController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -109,12 +110,12 @@ class StructureController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return;
+            return null;
         }
 
         $primary = Index::getPrimary($this->dbi, Current::$table, Current::$database);
@@ -132,6 +133,8 @@ class StructureController extends AbstractController
             $isSystemSchema,
             $request->getRoute(),
         ));
+
+        return null;
     }
 
     /**

@@ -11,6 +11,7 @@ use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
@@ -44,10 +45,10 @@ class CreateController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         if (! $this->checkParameters(['db'])) {
-            return;
+            return null;
         }
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
@@ -105,7 +106,7 @@ class CreateController extends AbstractController
             if (isset($_POST['preview_sql'])) {
                 Core::previewSQL($GLOBALS['sql_query']);
 
-                return;
+                return null;
             }
 
             // Executes the query
@@ -139,7 +140,7 @@ class CreateController extends AbstractController
                 $this->response->addJSON('message', $this->dbi->getError());
             }
 
-            return;
+            return null;
         }
 
         // Do not display the table in the header since it hasn't been created yet
@@ -148,12 +149,14 @@ class CreateController extends AbstractController
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
         if (! $this->checkParameters(['server', 'db'])) {
-            return;
+            return null;
         }
 
         $templateData = $this->columnsDefinition->displayForm($userPrivileges, '/table/create', $numFields);
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
+
+        return null;
     }
 
     /**

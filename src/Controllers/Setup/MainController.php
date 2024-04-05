@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Setup;
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Console;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
@@ -21,7 +22,7 @@ use function in_array;
 
 use const CONFIG_FILE;
 
-final class MainController
+final class MainController implements InvocableController
 {
     public function __construct(
         private readonly ResponseFactory $responseFactory,

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Sql;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -28,7 +29,7 @@ final class ColumnPreferencesController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $tableObject = $this->dbi->getTable(Current::$database, Current::$table);
         $status = false;
@@ -54,9 +55,11 @@ final class ColumnPreferencesController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $status->getString());
 
-            return;
+            return null;
         }
 
         $this->response->setRequestStatus($status);
+
+        return null;
     }
 }

@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Export\Template as ExportTemplate;
 use PhpMyAdmin\Export\TemplateModel;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -26,7 +27,7 @@ final class CreateController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         /** @var string $exportType */
         $exportType = $request->getParsedBodyParam('exportType', '');
@@ -39,7 +40,7 @@ final class CreateController extends AbstractController
 
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
         if ($exportTemplatesFeature === null) {
-            return;
+            return null;
         }
 
         $template = ExportTemplate::fromArray([
@@ -58,7 +59,7 @@ final class CreateController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $result);
 
-            return;
+            return null;
         }
 
         $templates = $this->model->getAll(
@@ -76,5 +77,7 @@ final class CreateController extends AbstractController
                 'selected_template' => $templateId,
             ]),
         );
+
+        return null;
     }
 }

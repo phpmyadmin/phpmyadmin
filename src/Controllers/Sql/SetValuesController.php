@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Sql;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
@@ -27,7 +28,7 @@ final class SetValuesController extends AbstractController
     /**
      * Get possible values for SET fields during grid edit.
      */
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $column = $request->getParsedBodyParam('column');
         $currentValue = $request->getParsedBodyParam('curr_value');
@@ -39,7 +40,7 @@ final class SetValuesController extends AbstractController
             $this->response->addJSON('message', __('Error in processing request'));
             $this->response->setRequestStatus(false);
 
-            return;
+            return null;
         }
 
         // If the $currentValue was truncated, we should fetch the correct full values from the table.
@@ -58,5 +59,7 @@ final class SetValuesController extends AbstractController
         ]);
 
         $this->response->addJSON('select', $select);
+
+        return null;
     }
 }

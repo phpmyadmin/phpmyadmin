@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\Replication\ReplicationInfo;
@@ -32,7 +33,7 @@ class ReplicationController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -134,5 +135,7 @@ class ReplicationController extends AbstractController
             'replica_configuration_html' => $replicaConfigurationHtml ?? '',
             'change_primary_html' => $changePrimaryHtml ?? '',
         ]);
+
+        return null;
     }
 }

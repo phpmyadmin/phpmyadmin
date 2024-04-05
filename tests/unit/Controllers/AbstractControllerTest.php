@@ -8,6 +8,8 @@ use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Http\Response;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -31,6 +33,11 @@ class AbstractControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $template = new Template();
         $controller = new class ($response, $template) extends AbstractController {
+            public function __invoke(ServerRequest $request): Response|null
+            {
+                return null;
+            }
+
             /** @psalm-param non-empty-list<non-empty-string> $params */
             public function testCheckParameters(array $params): bool
             {
@@ -59,6 +66,11 @@ class AbstractControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
         $controller = new class ($response, new Template()) extends AbstractController {
+            public function __invoke(ServerRequest $request): Response|null
+            {
+                return null;
+            }
+
             /** @psalm-param non-empty-list<non-empty-string> $params */
             public function testCheckParameters(array $params): bool
             {
@@ -81,6 +93,11 @@ class AbstractControllerTest extends AbstractTestCase
         $response->setAjax(true);
 
         $controller = new class ($response, new Template()) extends AbstractController {
+            public function __invoke(ServerRequest $request): Response|null
+            {
+                return null;
+            }
+
             /** @psalm-param StatusCodeInterface::STATUS_* $statusCode */
             public function testSendErrorResponse(string $message, int $statusCode = 400): void
             {
@@ -102,6 +119,11 @@ class AbstractControllerTest extends AbstractTestCase
         $response->setAjax(false);
 
         $controller = new class ($response, new Template()) extends AbstractController {
+            public function __invoke(ServerRequest $request): Response|null
+            {
+                return null;
+            }
+
             /** @psalm-param StatusCodeInterface::STATUS_* $statusCode */
             public function testSendErrorResponse(string $message, int $statusCode = 400): void
             {

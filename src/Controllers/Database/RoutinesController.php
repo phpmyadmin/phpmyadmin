@@ -11,6 +11,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -47,7 +48,7 @@ class RoutinesController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['errors'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -66,7 +67,7 @@ class RoutinesController extends AbstractController
              */
             if (Current::$table !== '' && in_array(Current::$table, $this->dbi->getTables(Current::$database), true)) {
                 if (! $this->checkParameters(['db', 'table'])) {
-                    return;
+                    return null;
                 }
 
                 $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -77,20 +78,20 @@ class RoutinesController extends AbstractController
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                     $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-                    return;
+                    return null;
                 }
 
                 $tableName = TableName::tryFrom($request->getParam('table'));
                 if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
                     $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-                    return;
+                    return null;
                 }
             } else {
                 Current::$table = '';
 
                 if (! $this->checkParameters(['db'])) {
-                    return;
+                    return null;
                 }
 
                 $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -103,7 +104,7 @@ class RoutinesController extends AbstractController
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                     $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-                    return;
+                    return null;
                 }
             }
         } elseif (Current::$database !== '') {
@@ -124,7 +125,7 @@ class RoutinesController extends AbstractController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $output);
 
-                    return;
+                    return null;
                 }
 
                 $routines = Routines::getDetails(
@@ -148,7 +149,7 @@ class RoutinesController extends AbstractController
                 $this->response->addJSON('message', $output);
                 $this->response->addJSON('tableType', 'routines');
 
-                return;
+                return null;
             }
         }
 
@@ -276,12 +277,12 @@ class RoutinesController extends AbstractController
                     );
                     $this->response->addJSON('type', $routine['item_type']);
 
-                    return;
+                    return null;
                 }
 
                 $this->response->addHTML("\n\n<h2>" . $title . "</h2>\n\n" . $editor);
 
-                return;
+                return null;
             }
 
             $message = __('Error in processing request:') . ' ';
@@ -301,7 +302,7 @@ class RoutinesController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
-                return;
+                return null;
             }
 
             $this->response->addHTML($message->getDisplay());
@@ -325,12 +326,12 @@ class RoutinesController extends AbstractController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $message);
 
-                    return;
+                    return null;
                 }
 
                 $this->response->addHTML($message->getDisplay());
 
-                return;
+                return null;
             }
 
             [$output, $message] = $this->routines->handleExecuteRoutine($routine);
@@ -341,14 +342,14 @@ class RoutinesController extends AbstractController
                 $this->response->addJSON('message', $message->getDisplay() . $output);
                 $this->response->addJSON('dialog', false);
 
-                return;
+                return null;
             }
 
             $this->response->addHTML($message->getDisplay() . $output);
             if ($message->isError()) {
                 // At least one query has failed, so shouldn't
                 // execute any more queries, so we quit.
-                return;
+                return null;
             }
         } elseif (! empty($_GET['execute_dialog']) && ! empty($_GET['item_name'])) {
             /**
@@ -372,13 +373,13 @@ class RoutinesController extends AbstractController
                     $this->response->addJSON('title', $title);
                     $this->response->addJSON('dialog', true);
 
-                    return;
+                    return null;
                 }
 
                 $this->response->addHTML("\n\n<h2>" . __('Execute routine') . "</h2>\n\n");
                 $this->response->addHTML($form);
 
-                return;
+                return null;
             }
 
             if ($request->isAjax()) {
@@ -393,7 +394,7 @@ class RoutinesController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
-                return;
+                return null;
             }
         }
 
@@ -433,7 +434,7 @@ class RoutinesController extends AbstractController
                     $this->response->addJSON('message', $exportData);
                     $this->response->addJSON('title', $title);
 
-                    return;
+                    return null;
                 }
 
                 $output = '<div class="container">';
@@ -458,7 +459,7 @@ class RoutinesController extends AbstractController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $message);
 
-                    return;
+                    return null;
                 }
 
                 $this->response->addHTML($message->getDisplay());
@@ -487,5 +488,7 @@ class RoutinesController extends AbstractController
             'rows' => $rows,
             'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', Current::$database, Current::$table),
         ]);
+
+        return null;
     }
 }

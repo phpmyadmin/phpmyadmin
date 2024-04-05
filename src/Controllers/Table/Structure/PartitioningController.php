@@ -11,6 +11,7 @@ use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Partitioning\TablePartitionDefinition;
@@ -42,14 +43,14 @@ final class PartitioningController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         if (isset($_POST['save_partitioning'])) {
             $this->dbi->selectDb(Current::$database);
             $this->updatePartitioning();
             ($this->structureController)($request);
 
-            return;
+            return null;
         }
 
         $this->pageSettings->init('TableStructure');
@@ -75,6 +76,8 @@ final class PartitioningController extends AbstractController
             'partition_details' => $partitionDetails,
             'storage_engines' => $storageEngines,
         ]);
+
+        return null;
     }
 
     /**

@@ -13,6 +13,7 @@ use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -39,7 +40,7 @@ final class EmptyTableController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $multBtn = $_POST['mult_btn'] ?? '';
         /** @var string[] $selected */
@@ -49,7 +50,7 @@ final class EmptyTableController extends AbstractController
             $this->flash->addMessage('success', __('No change'));
             $this->redirect('/database/structure', ['db' => Current::$database]);
 
-            return;
+            return null;
         }
 
         $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
@@ -91,5 +92,7 @@ final class EmptyTableController extends AbstractController
         unset($_POST['mult_btn']);
 
         ($this->structureController)($request);
+
+        return null;
     }
 }

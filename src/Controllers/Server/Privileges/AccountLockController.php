@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Server\Privileges;
 
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -22,10 +23,10 @@ final class AccountLockController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         if (! $request->isAjax()) {
-            return;
+            return null;
         }
 
         /** @var string $userName */
@@ -40,12 +41,14 @@ final class AccountLockController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error($exception->getMessage())]);
 
-            return;
+            return null;
         }
 
         $message = Message::success(__('The account %s@%s has been successfully locked.'));
         $message->addParam($userName);
         $message->addParam($hostName);
         $this->response->addJSON(['message' => $message]);
+
+        return null;
     }
 }

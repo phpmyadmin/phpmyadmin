@@ -10,6 +10,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -51,12 +52,12 @@ class FindReplaceController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         if (! $this->checkParameters(['db', 'table'])) {
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -72,12 +73,12 @@ class FindReplaceController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -86,12 +87,12 @@ class FindReplaceController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return;
+            return null;
         }
 
         $this->loadTableInfo();
@@ -106,7 +107,7 @@ class FindReplaceController extends AbstractController
             $preview = $this->getReplacePreview($columnIndex, $find, $replaceWith, $useRegex, $connectionCharSet);
             $this->response->addJSON('preview', $preview);
 
-            return;
+            return null;
         }
 
         $this->addScriptFiles(['table/find_replace.js']);
@@ -125,6 +126,8 @@ class FindReplaceController extends AbstractController
 
         // Displays the find and replace form
         $this->displaySelectionFormAction();
+
+        return null;
     }
 
     /**

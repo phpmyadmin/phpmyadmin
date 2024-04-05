@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Export\Template as ExportTemplate;
 use PhpMyAdmin\Export\TemplateModel;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -24,7 +25,7 @@ final class UpdateController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $templateId = (int) $request->getParsedBodyParam('templateId');
         /** @var string $templateData */
@@ -32,7 +33,7 @@ final class UpdateController extends AbstractController
 
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
         if ($exportTemplatesFeature === null) {
-            return;
+            return null;
         }
 
         $template = ExportTemplate::fromArray([
@@ -50,9 +51,11 @@ final class UpdateController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $result);
 
-            return;
+            return null;
         }
 
         $this->response->setRequestStatus(true);
+
+        return null;
     }
 }

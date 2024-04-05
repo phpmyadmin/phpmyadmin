@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\SqlParser\Context;
 
@@ -18,12 +19,12 @@ use function trim;
 
 final class ReservedWordCheckController extends AbstractController
 {
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         if (Config::getInstance()->settings['ReservedWordDisableWarning'] !== false) {
             $this->response->setRequestStatus(false);
 
-            return;
+            return null;
         }
 
         $columnsNames = $request->getParsedBodyParam('field_name');
@@ -55,5 +56,7 @@ final class ReservedWordCheckController extends AbstractController
                 implode(',', $reservedKeywordsNames),
             ),
         );
+
+        return null;
     }
 }

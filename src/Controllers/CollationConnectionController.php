@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -17,7 +18,7 @@ final class CollationConnectionController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $this->config->setUserValue(
             null,
@@ -27,5 +28,7 @@ final class CollationConnectionController extends AbstractController
         );
 
         $this->response->redirect('index.php?route=/' . Url::getCommonRaw([], '&'));
+
+        return null;
     }
 }

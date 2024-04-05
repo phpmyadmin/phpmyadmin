@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -21,7 +22,7 @@ final class ShowCreateController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected_tbl', []);
@@ -30,7 +31,7 @@ final class ShowCreateController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return null;
         }
 
         $tables = $this->getShowCreateTables($selected);
@@ -38,6 +39,8 @@ final class ShowCreateController extends AbstractController
         $showCreate = $this->template->render('database/structure/show_create', ['tables' => $tables]);
 
         $this->response->addJSON('message', $showCreate);
+
+        return null;
     }
 
     /**

@@ -12,6 +12,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
@@ -39,7 +40,7 @@ class SqlController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['display_query'] ??= null;
         $GLOBALS['ajax_reload'] ??= null;
@@ -128,7 +129,7 @@ class SqlController extends AbstractController
             // set $goto to what will be displayed if query returns 0 rows
             $GLOBALS['goto'] = '';
         } elseif (! $this->checkParameters(['sql_query'])) {
-            return;
+            return null;
         }
 
         /**
@@ -173,7 +174,7 @@ class SqlController extends AbstractController
         if ($storeBkm && $bkmFields !== null) {
             $this->addBookmark($GLOBALS['goto'], $bkmFields, (bool) $bkmAllUsers);
 
-            return;
+            return null;
         }
 
         /**
@@ -202,6 +203,8 @@ class SqlController extends AbstractController
             $GLOBALS['sql_query'],
             $GLOBALS['complete_query'] ?? null,
         ));
+
+        return null;
     }
 
     /** @param array<string> $bkmFields */

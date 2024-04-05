@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Import\Import;
@@ -37,7 +38,7 @@ final class ImportController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['SESSION_KEY'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -63,7 +64,7 @@ final class ImportController extends AbstractController
                 'Could not load import plugins, please check your installation!',
             ))->getDisplay());
 
-            return;
+            return null;
         }
 
         $offset = null;
@@ -120,5 +121,7 @@ final class ImportController extends AbstractController
             'user_upload_dir' => Util::userDir($config->settings['UploadDir'] ?? ''),
             'local_files' => Import::getLocalFiles($importList),
         ]);
+
+        return null;
     }
 }

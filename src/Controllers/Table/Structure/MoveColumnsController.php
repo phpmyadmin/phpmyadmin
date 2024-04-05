@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -40,11 +41,11 @@ final class MoveColumnsController extends AbstractController
         $this->tableObj = $this->dbi->getTable(Current::$database, Current::$table);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $moveColumns = $request->getParsedBodyParam('move_columns');
         if (! is_array($moveColumns) || ! $request->isAjax()) {
-            return;
+            return null;
         }
 
         $this->dbi->selectDb(Current::$database);
@@ -131,7 +132,7 @@ final class MoveColumnsController extends AbstractController
         if ($changes === [] && ! isset($_REQUEST['preview_sql'])) { // should never happen
             $this->response->setRequestStatus(false);
 
-            return;
+            return null;
         }
 
         // query for moving the columns
@@ -147,7 +148,7 @@ final class MoveColumnsController extends AbstractController
                 $this->template->render('preview_sql', ['query_data' => $sqlQuery]),
             );
 
-            return;
+            return null;
         }
 
         $this->dbi->tryQuery($sqlQuery);
@@ -156,7 +157,7 @@ final class MoveColumnsController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error($tmpError));
 
-            return;
+            return null;
         }
 
         $message = Message::success(
@@ -164,5 +165,7 @@ final class MoveColumnsController extends AbstractController
         );
         $this->response->addJSON('message', $message);
         $this->response->addJSON('columns', $columnNames);
+
+        return null;
     }
 }

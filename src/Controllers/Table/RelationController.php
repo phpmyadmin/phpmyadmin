@@ -13,6 +13,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\ResponseRenderer;
@@ -50,7 +51,7 @@ final class RelationController extends AbstractController
     /**
      * Index
      */
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $options = [
             'CASCADE' => 'CASCADE',
@@ -84,7 +85,7 @@ final class RelationController extends AbstractController
                 $this->getDropdownValueForDatabase($storageEngine);
             }
 
-            return;
+            return null;
         }
 
         $this->addScriptFiles(['table/relation.js']);
@@ -130,7 +131,7 @@ final class RelationController extends AbstractController
         if (isset($_POST['preview_sql'])) {
             Core::previewSQL($previewSqlData);
 
-            return;
+            return null;
         }
 
         if ($displayQuery !== '' && ! $seenError) {
@@ -309,6 +310,8 @@ final class RelationController extends AbstractController
             'display_field' => $this->relation->getDisplayField(Current::$database, Current::$table),
             'foreign_key_row' => $foreignKeyRow,
         ]);
+
+        return null;
     }
 
     /**

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Normalization\SecondNormalForm;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
@@ -20,10 +21,12 @@ final class NewTablesController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $partialDependencies = json_decode($request->getParsedBodyParam('pd'), true);
         $html = $this->normalization->getHtmlForNewTables2NF($partialDependencies, Current::$table);
         $this->response->addHTML($html);
+
+        return null;
     }
 }

@@ -10,6 +10,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\LanguageManager;
@@ -47,7 +48,7 @@ final class TrackingController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -55,7 +56,7 @@ final class TrackingController extends AbstractController
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
         if (! $this->checkParameters(['db', 'table'])) {
-            return;
+            return null;
         }
 
         $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -71,12 +72,12 @@ final class TrackingController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         $activeMessage = '';
@@ -144,7 +145,7 @@ final class TrackingController extends AbstractController
                     Core::downloadHeader($downloadInfo['filename'], 'text/x-sql', mb_strlen($downloadInfo['dump']));
                     echo $downloadInfo['dump'];
 
-                    return;
+                    return null;
                 }
 
                 // Export as SQL execution
@@ -270,6 +271,8 @@ final class TrackingController extends AbstractController
             'tracking_report' => $trackingReport,
             'main' => $main,
         ]);
+
+        return null;
     }
 
     /** @psalm-return 'schema'|'data'|'schema_and_data' */

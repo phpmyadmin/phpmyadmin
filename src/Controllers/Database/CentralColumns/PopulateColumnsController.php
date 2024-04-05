@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Database\CentralColumns;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\CentralColumns;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -21,12 +22,14 @@ final class PopulateColumnsController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $columns = $this->centralColumns->getColumnsNotInCentralList(
             Current::$database,
             $request->getParsedBodyParam('selectedTable'),
         );
         $this->render('database/central_columns/populate_columns', ['columns' => $columns]);
+
+        return null;
     }
 }

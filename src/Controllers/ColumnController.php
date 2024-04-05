@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -17,7 +18,7 @@ final class ColumnController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         /** @var string|null $db */
         $db = $request->getParsedBodyParam('db');
@@ -28,9 +29,11 @@ final class ColumnController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
 
-            return;
+            return null;
         }
 
         $this->response->addJSON(['columns' => $this->dbi->getColumnNames($db, $table)]);
+
+        return null;
     }
 }

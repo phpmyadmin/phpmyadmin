@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -24,7 +25,7 @@ class BrowseForeignersController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         /** @var string|null $database */
         $database = $request->getParsedBodyParam('db');
@@ -42,7 +43,7 @@ class BrowseForeignersController extends AbstractController
         $foreignFilter = $request->getParsedBodyParam('foreign_filter', '');
 
         if (! isset($database, $table, $field)) {
-            return;
+            return null;
         }
 
         $this->response->setMinimalFooter();
@@ -69,5 +70,7 @@ class BrowseForeignersController extends AbstractController
             $fieldKey,
             $data,
         ));
+
+        return null;
     }
 }

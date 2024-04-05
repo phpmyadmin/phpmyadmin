@@ -15,6 +15,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console;
 use PhpMyAdmin\Controllers\HomeController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Setup\MainController;
 use PhpMyAdmin\Controllers\Setup\ShowConfigController;
 use PhpMyAdmin\Controllers\Setup\ValidateController;
@@ -31,6 +32,7 @@ use Psr\Container\ContainerInterface;
 
 use function __;
 use function array_pop;
+use function assert;
 use function explode;
 use function file_exists;
 use function file_put_contents;
@@ -166,11 +168,11 @@ class Routing
             return $responseFactory->createResponse(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
 
-        /** @psalm-var class-string $controllerName */
+        /** @psalm-var class-string<InvocableController> $controllerName */
         $controllerName = $routeInfo[1];
 
-        /** @psalm-var callable(ServerRequest): (Response|null) $controller */
         $controller = $container->get($controllerName);
+        assert($controller instanceof InvocableController);
 
         return $controller($request->withAttribute('routeVars', $routeInfo[2]));
     }

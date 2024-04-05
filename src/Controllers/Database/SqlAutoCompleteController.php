@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\ResponseRenderer;
@@ -28,7 +29,7 @@ class SqlAutoCompleteController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $sqlAutocomplete = [];
         if ($this->config->settings['EnableAutocompleteForTablesAndColumns']) {
@@ -39,6 +40,8 @@ class SqlAutoCompleteController extends AbstractController
         }
 
         $this->response->addJSON(['tables' => $sqlAutocomplete]);
+
+        return null;
     }
 
     /** @return string[][][] */

@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Options;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
@@ -31,7 +32,7 @@ final class ExportController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['unlim_num_rows'] ??= null;
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
@@ -72,7 +73,7 @@ final class ExportController extends AbstractController
                 __('Could not load export plugins, please check your installation!'),
             )->getDisplay());
 
-            return;
+            return null;
         }
 
         $options = $this->export->getOptions(
@@ -90,5 +91,7 @@ final class ExportController extends AbstractController
             'page_settings_html' => $pageSettingsHtml,
             'databases' => $databases,
         ]));
+
+        return null;
     }
 }

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
@@ -28,7 +29,7 @@ final class DropColumnConfirmationController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $fields = $request->getParsedBodyParam('selected_fld');
         try {
@@ -38,11 +39,11 @@ final class DropColumnConfirmationController extends AbstractController
         } catch (InvalidIdentifier $exception) {
             $this->sendErrorResponse($exception->getMessage());
 
-            return;
+            return null;
         } catch (InvalidArgumentException) {
             $this->sendErrorResponse(__('No column selected.'));
 
-            return;
+            return null;
         }
 
         if (! $this->dbTableExists->selectDatabase($db)) {
@@ -50,12 +51,12 @@ final class DropColumnConfirmationController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return;
+            return null;
         }
 
         if (! $this->dbTableExists->hasTable($db, $table)) {
@@ -63,12 +64,12 @@ final class DropColumnConfirmationController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return;
+                return null;
             }
 
             $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return;
+            return null;
         }
 
         $this->render('table/structure/drop_confirm', [
@@ -76,5 +77,7 @@ final class DropColumnConfirmationController extends AbstractController
             'table' => $table->getName(),
             'fields' => $fields,
         ]);
+
+        return null;
     }
 }

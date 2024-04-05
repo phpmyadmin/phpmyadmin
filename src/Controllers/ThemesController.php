@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -16,16 +17,18 @@ class ThemesController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $themes = $this->themeManager->getThemesArray();
         $themesList = $this->template->render('home/themes', ['themes' => $themes]);
         if ($request->isAjax()) {
             $this->response->addJSON('themes', $themesList);
 
-            return;
+            return null;
         }
 
         $this->response->addHTML($themesList);
+
+        return null;
     }
 }

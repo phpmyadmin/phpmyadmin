@@ -9,6 +9,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Mime;
@@ -35,12 +36,12 @@ class GetFieldController extends AbstractController
         parent::__construct($response, $template);
     }
 
-    public function __invoke(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): Response|null
     {
         $this->response->disable();
 
         if (! $this->checkParameters(['db', 'table'])) {
-            return;
+            return null;
         }
 
         /* Select database */
@@ -67,7 +68,7 @@ class GetFieldController extends AbstractController
             /* l10n: In case a SQL query did not pass a security check  */
             $this->response->addHTML(Message::error(__('There is an issue with your request.'))->getDisplay());
 
-            return;
+            return null;
         }
 
         $transformKey = (string) $request->getQueryParam('transform_key', '');
@@ -84,7 +85,7 @@ class GetFieldController extends AbstractController
                 $sql,
             );
 
-            return;
+            return null;
         }
 
         /* Avoid corrupting data */
@@ -96,5 +97,7 @@ class GetFieldController extends AbstractController
             mb_strlen($result, '8bit'),
         );
         echo $result;
+
+        return null;
     }
 }
