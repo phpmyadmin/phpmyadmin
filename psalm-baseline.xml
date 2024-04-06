@@ -6680,7 +6680,6 @@
       <code><![CDATA[$GLOBALS['result'] == false]]></code>
     </RedundantCondition>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$error]]></code>
       <code><![CDATA[ImportSettings::$runQuery]]></code>
     </RiskyTruthyFalsyComparison>
   </file>

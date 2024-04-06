@@ -712,11 +712,9 @@ final class ImportController extends AbstractController
         }
 
         // If there is request for ROLLBACK in the end.
-        if (! $request->hasBodyParam('rollback_query')) {
-            return null;
+        if ($request->hasBodyParam('rollback_query')) {
+            $this->dbi->query('ROLLBACK');
         }
-
-        $this->dbi->query('ROLLBACK');
 
         return null;
     }

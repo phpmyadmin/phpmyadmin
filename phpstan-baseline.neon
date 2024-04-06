@@ -8546,11 +8546,6 @@ parameters:
 			path: src/Import/Import.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
 			message: "#^Parameter \\#1 \\$precision of static method PhpMyAdmin\\\\Import\\\\DecimalSize\\:\\:fromPrecisionAndScale\\(\\) expects int, int\\|PhpMyAdmin\\\\Import\\\\DecimalSize given\\.$#"
 			count: 1
 			path: src/Import/Import.php
