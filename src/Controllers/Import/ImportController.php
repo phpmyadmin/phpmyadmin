@@ -682,6 +682,13 @@ final class ImportController extends AbstractController
             return null;
         }
 
+        if ($request->hasBodyParam('rollback_query')) {
+            // We rollback because there might be other queries that need to be executed after this,
+            // e.g. creation of a bookmark.
+            $this->dbi->query('ROLLBACK');
+            ImportSettings::$message .= __('[ROLLBACK occurred.]');
+        }
+
         if ($GLOBALS['result']) {
             // Save a Bookmark with more than one queries (if Bookmark label given).
             if (! empty($request->getParsedBodyParam('bkm_label')) && ! empty($GLOBALS['import_text'])) {
@@ -709,11 +716,6 @@ final class ImportController extends AbstractController
         } else {
             /** @psalm-suppress UnresolvableInclude */
             include ROOT_PATH . $GLOBALS['goto'];
-        }
-
-        // If there is request for ROLLBACK in the end.
-        if ($request->hasBodyParam('rollback_query')) {
-            $this->dbi->query('ROLLBACK');
         }
 
         return null;

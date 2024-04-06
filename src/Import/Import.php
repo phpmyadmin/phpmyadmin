@@ -240,13 +240,6 @@ class Import
 
         // Do we have something to push into buffer?
         $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
-
-        // In case of ROLLBACK, notify the user.
-        if (! isset($_POST['rollback_query'])) {
-            return;
-        }
-
-        ImportSettings::$message .= __('[ROLLBACK occurred.]');
     }
 
     /**
