@@ -455,34 +455,19 @@ class Generator
         $retval .= '  ' . $message->getMessage() . "\n";
         $retval .= '</div>' . "\n";
 
-        $queryTooBig = false;
-
-        $queryLength = mb_strlen($sqlQuery);
-        if ($queryLength > $config->settings['MaxCharactersInDisplayedSQL']) {
-            // when the query is large (for example an INSERT of binary
-            // data), the parser chokes; so avoid parsing the query
-            $queryTooBig = true;
-            $queryBase = mb_substr($sqlQuery, 0, $config->settings['MaxCharactersInDisplayedSQL']) . '[...]';
-        } else {
-            $queryBase = $sqlQuery;
-        }
-
         // Html format the query to be displayed
         // If we want to show some sql code it is easiest to create it here
         /* SQL-Parser-Analyzer */
 
         if (! empty($GLOBALS['show_as_php'])) {
             $newLine = '\\n"<br>' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
-            $queryBase = htmlspecialchars(addslashes($queryBase));
+            $queryBase = htmlspecialchars(addslashes($sqlQuery));
             $queryBase = preg_replace('/((\015\012)|(\015)|(\012))/', $newLine, $queryBase);
             $queryBase = '<code class="php" dir="ltr"><pre>' . "\n"
                 . '$sql = "' . $queryBase . '";' . "\n"
                 . '</pre></code>';
-        } elseif ($queryTooBig) {
-            $queryBase = '<code class="sql" dir="ltr"><pre>' . "\n"
-                . htmlspecialchars($queryBase, ENT_COMPAT) . '</pre></code>';
         } else {
-            $queryBase = self::formatSql($queryBase);
+            $queryBase = self::formatSql($sqlQuery, true);
         }
 
         // Prepares links that may be displayed to edit/explain the query
@@ -507,6 +492,7 @@ class Generator
         // but only explain a SELECT (that has not been explained)
         /* SQL-Parser-Analyzer */
         $explainLink = '';
+        $queryTooBig = mb_strlen($sqlQuery) > $config->settings['MaxCharactersInDisplayedSQL'];
         $isSelect = preg_match('@^SELECT[[:space:]]+@i', $sqlQuery);
         if (! empty($config->settings['SQLQuery']['Explain']) && ! $queryTooBig) {
             $explainParams = $urlParams;
@@ -1085,8 +1071,6 @@ class Generator
      * @param bool   $truncate truncate the query if it is too long
      *
      * @return string the formatted sql
-     *
-     * @global array  $cfg the configuration array
      */
     public static function formatSql(string $sqlQuery, bool $truncate = false): string
     {
