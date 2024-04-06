@@ -407,18 +407,18 @@ class Generator
 
         if ($sqlQuery === null) {
             if (! empty($GLOBALS['display_query'])) {
-                $sqlQuery = $GLOBALS['display_query'];
+                $sqlQuery = (string) $GLOBALS['display_query'];
             } elseif (! empty($GLOBALS['unparsed_sql'])) {
-                $sqlQuery = $GLOBALS['unparsed_sql'];
+                $sqlQuery = (string) $GLOBALS['unparsed_sql'];
             } elseif (! empty($GLOBALS['sql_query'])) {
-                $sqlQuery = $GLOBALS['sql_query'];
+                $sqlQuery = (string) $GLOBALS['sql_query'];
             } else {
                 $sqlQuery = '';
             }
         }
 
         $config = Config::getInstance();
-        $renderSql = $config->settings['ShowSQL'] == true && ! empty($sqlQuery) && $sqlQuery !== ';';
+        $renderSql = $config->settings['ShowSQL'] == true && $sqlQuery !== '' && $sqlQuery !== ';';
 
         if (isset($GLOBALS['using_bookmark_message'])) {
             $retval .= $GLOBALS['using_bookmark_message']->getDisplay();

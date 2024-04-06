@@ -6551,6 +6551,11 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$parts[1]]]></code>
     </PossiblyUndefinedArrayOffset>
+    <RedundantCast>
+      <code><![CDATA[(string) $GLOBALS['display_query']]]></code>
+      <code><![CDATA[(string) $GLOBALS['sql_query']]]></code>
+      <code><![CDATA[(string) $GLOBALS['unparsed_sql']]]></code>
+    </RedundantCast>
     <RiskyCast>
       <code><![CDATA[$_REQUEST['pos']]]></code>
       <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
