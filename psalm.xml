@@ -111,7 +111,6 @@
             tbl_storage_engine: string,
             token_mismatch: bool,
             token_provided: bool,
-            unparsed_sql?: string,
             urlParams: array,
             username: string,
             xml_export_triggers: bool,

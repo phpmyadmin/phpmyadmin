@@ -8282,12 +8282,12 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 3
+			count: 2
 			path: src/Html/Generator.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 15
+			count: 14
 			path: src/Html/Generator.php
 
 		-

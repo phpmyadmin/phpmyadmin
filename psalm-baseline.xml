@@ -6554,7 +6554,6 @@
     <RedundantCast>
       <code><![CDATA[(string) $GLOBALS['display_query']]]></code>
       <code><![CDATA[(string) $GLOBALS['sql_query']]]></code>
-      <code><![CDATA[(string) $GLOBALS['unparsed_sql']]]></code>
     </RedundantCast>
     <RiskyCast>
       <code><![CDATA[$_REQUEST['pos']]]></code>
@@ -6566,7 +6565,6 @@
       <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
       <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
       <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
-      <code><![CDATA[empty($GLOBALS['unparsed_sql'])]]></code>
       <code><![CDATA[empty($server['ssl_ca'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>

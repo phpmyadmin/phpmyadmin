@@ -408,8 +408,6 @@ class Generator
         if ($sqlQuery === null) {
             if (! empty($GLOBALS['display_query'])) {
                 $sqlQuery = (string) $GLOBALS['display_query'];
-            } elseif (! empty($GLOBALS['unparsed_sql'])) {
-                $sqlQuery = (string) $GLOBALS['unparsed_sql'];
             } elseif (! empty($GLOBALS['sql_query'])) {
                 $sqlQuery = (string) $GLOBALS['sql_query'];
             } else {
