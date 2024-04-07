@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -17,16 +17,15 @@ use PhpMyAdmin\Url;
 /**
  * Server SQL executor
  */
-class SqlController extends AbstractController
+final class SqlController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private SqlQueryForm $sqlQueryForm,
-        private DatabaseInterface $dbi,
-        private PageSettings $pageSettings,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly SqlQueryForm $sqlQueryForm,
+        private readonly DatabaseInterface $dbi,
+        private readonly PageSettings $pageSettings,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -35,7 +35,7 @@ use function strncasecmp;
  *
  * Displays find and replace form, allows previewing and do the replacing.
  */
-class FindReplaceController extends AbstractController
+final class FindReplaceController implements InvocableController
 {
     /** @var mixed[] */
     private array $columnNames = [];
@@ -44,12 +44,11 @@ class FindReplaceController extends AbstractController
     private array $columnTypes = [];
 
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

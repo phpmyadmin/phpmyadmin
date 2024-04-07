@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Import;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\SimulateDml;
@@ -20,14 +20,13 @@ use function __;
 use function count;
 use function explode;
 
-final class SimulateDmlController extends AbstractController
+final class SimulateDmlController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private SimulateDml $simulateDml,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly SimulateDml $simulateDml,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

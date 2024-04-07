@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
@@ -13,14 +13,20 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Template;
 
 use function __;
 
 /**
  * Browse recent and favorite tables chosen from navigation.
  */
-final class RecentFavoriteController extends AbstractController
+final class RecentFavoriteController implements InvocableController
 {
+    public function __construct(private readonly ResponseRenderer $response, private readonly Template $template)
+    {
+    }
+
     public function __invoke(ServerRequest $request): Response|null
     {
         try {

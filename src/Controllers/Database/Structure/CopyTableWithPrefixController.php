@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -17,14 +17,13 @@ use PhpMyAdmin\Template;
 use function mb_strlen;
 use function mb_substr;
 
-final class CopyTableWithPrefixController extends AbstractController
+final class CopyTableWithPrefixController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private StructureController $structureController,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly StructureController $structureController,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

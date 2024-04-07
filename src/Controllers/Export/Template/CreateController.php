@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Export\Template;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Export\Template as ExportTemplate;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Http\Response;
@@ -16,15 +16,14 @@ use PhpMyAdmin\Template;
 
 use function is_array;
 
-final class CreateController extends AbstractController
+final class CreateController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private TemplateModel $model,
-        private Relation $relation,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly TemplateModel $model,
+        private readonly Relation $relation,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

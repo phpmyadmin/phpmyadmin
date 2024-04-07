@@ -19,15 +19,14 @@ use function __;
 /**
  * Displays and handles the form where the user can change their password.
  */
-class UserPasswordController extends AbstractController
+final class UserPasswordController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private UserPassword $userPassword,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly UserPassword $userPassword,
+        private readonly DatabaseInterface $dbi,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

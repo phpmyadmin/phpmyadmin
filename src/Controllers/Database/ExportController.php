@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Export\Export;
@@ -26,17 +26,16 @@ use function array_merge;
 use function count;
 use function is_array;
 
-final class ExportController extends AbstractController
+final class ExportController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Export $export,
-        private Options $exportOptions,
-        private PageSettings $pageSettings,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Export $export,
+        private readonly Options $exportOptions,
+        private readonly PageSettings $pageSettings,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

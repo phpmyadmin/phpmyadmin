@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Normalization;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -15,11 +15,13 @@ use PhpMyAdmin\Template;
 use function __;
 use function _pgettext;
 
-final class GetColumnsController extends AbstractController
+final class GetColumnsController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private Normalization $normalization)
-    {
-        parent::__construct($response, $template);
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Normalization $normalization,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null

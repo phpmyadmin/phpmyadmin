@@ -11,11 +11,13 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
-final class CollationConnectionController extends AbstractController
+final class CollationConnectionController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private Config $config)
-    {
-        parent::__construct($response, $template);
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Config $config,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null

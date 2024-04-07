@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
@@ -36,18 +36,17 @@ use function trim;
 /**
  * Displays form for editing and inserting new table rows.
  */
-class ChangeController extends AbstractController
+class ChangeController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private InsertEdit $insertEdit,
-        private Relation $relation,
-        private PageSettings $pageSettings,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly InsertEdit $insertEdit,
+        private readonly Relation $relation,
+        private readonly PageSettings $pageSettings,
         private readonly DbTableExists $dbTableExists,
         private readonly Config $config,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

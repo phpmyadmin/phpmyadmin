@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\View;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
@@ -38,7 +38,7 @@ use function substr;
 /**
  * Handles creation of VIEWs.
  */
-class CreateController extends AbstractController
+final class CreateController implements InvocableController
 {
     /** @todo Move the whole view rebuilding logic to SQL parser */
     private const VIEW_SECURITY_OPTIONS = ['DEFINER', 'INVOKER'];
@@ -48,12 +48,11 @@ class CreateController extends AbstractController
     private const VIEW_WITH_OPTIONS = ['CASCADED', 'LOCAL'];
 
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

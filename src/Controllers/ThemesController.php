@@ -10,11 +10,13 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 
-class ThemesController extends AbstractController
+final class ThemesController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private ThemeManager $themeManager)
-    {
-        parent::__construct($response, $template);
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly ThemeManager $themeManager,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null

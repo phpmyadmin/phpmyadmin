@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
@@ -17,11 +17,13 @@ use PhpMyAdmin\Utils\ForeignKey;
 use function __;
 use function htmlspecialchars;
 
-final class DropFormController extends AbstractController
+final class DropFormController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
-    {
-        parent::__construct($response, $template);
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly DatabaseInterface $dbi,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null

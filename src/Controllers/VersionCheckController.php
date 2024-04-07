@@ -18,14 +18,13 @@ use function sprintf;
 /**
  * A caching proxy for retrieving version information from https://www.phpmyadmin.net/.
  */
-class VersionCheckController extends AbstractController
+final class VersionCheckController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private VersionInformation $versionInformation,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly VersionInformation $versionInformation,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

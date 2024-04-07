@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
@@ -21,7 +21,7 @@ use function array_key_exists;
 /**
  * Handles viewing binary logs
  */
-final class BinlogController extends AbstractController
+final class BinlogController implements InvocableController
 {
     /**
      * binary log files
@@ -30,10 +30,11 @@ final class BinlogController extends AbstractController
      */
     private array $binaryLogs;
 
-    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
-    {
-        parent::__construct($response, $template);
-
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly DatabaseInterface $dbi,
+    ) {
         $this->binaryLogs = $this->dbi->fetchResult('SHOW MASTER LOGS', 'Log_name');
     }
 

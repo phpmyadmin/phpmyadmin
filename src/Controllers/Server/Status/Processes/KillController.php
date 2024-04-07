@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status\Processes;
 
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Server\Status\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
@@ -17,13 +18,13 @@ use function __;
 use function is_array;
 use function is_numeric;
 
-final class KillController extends AbstractController
+final class KillController extends AbstractController implements InvocableController
 {
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Data $data,
-        private DatabaseInterface $dbi,
+        private readonly DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template, $data);
     }

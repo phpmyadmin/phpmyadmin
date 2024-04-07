@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Console;
 use Fig\Http\Message\StatusCodeInterface;
 use InvalidArgumentException;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
@@ -17,11 +17,13 @@ use function __;
 use function in_array;
 use function is_numeric;
 
-final class UpdateConfigController extends AbstractController
+final class UpdateConfigController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private Config $config)
-    {
-        parent::__construct($response, $template);
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Config $config,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response

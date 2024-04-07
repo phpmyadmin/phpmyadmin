@@ -14,11 +14,13 @@ use PhpMyAdmin\Util;
 
 use function strtotime;
 
-final class GitInfoController extends AbstractController
+final class GitInfoController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private Config $config)
-    {
-        parent::__construct($response, $template);
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Config $config,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null

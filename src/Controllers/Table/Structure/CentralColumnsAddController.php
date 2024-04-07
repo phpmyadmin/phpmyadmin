@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Http\Response;
@@ -18,15 +18,14 @@ use Webmozart\Assert\Assert;
 use function __;
 use function is_array;
 
-final class CentralColumnsAddController extends AbstractController
+final class CentralColumnsAddController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private CentralColumns $centralColumns,
-        private StructureController $structureController,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly CentralColumns $centralColumns,
+        private readonly StructureController $structureController,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

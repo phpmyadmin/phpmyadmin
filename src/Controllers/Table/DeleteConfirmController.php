@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Response;
@@ -22,14 +22,13 @@ use PhpMyAdmin\Utils\ForeignKey;
 use function __;
 use function is_array;
 
-final class DeleteConfirmController extends AbstractController
+final class DeleteConfirmController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

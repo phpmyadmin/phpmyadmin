@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status\Processes;
 
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Server\Status\AbstractController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -12,13 +13,13 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
 use PhpMyAdmin\Template;
 
-final class RefreshController extends AbstractController
+final class RefreshController extends AbstractController implements InvocableController
 {
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Data $data,
-        private Processes $processes,
+        private readonly Processes $processes,
     ) {
         parent::__construct($response, $template, $data);
     }

@@ -9,9 +9,9 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\ResponseRenderer;
 
-class LogoutController implements InvocableController
+final class LogoutController implements InvocableController
 {
-    public function __construct(private AuthenticationPluginFactory $authPluginFactory)
+    public function __construct(private readonly AuthenticationPluginFactory $authPluginFactory)
     {
     }
 

@@ -8,7 +8,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -33,19 +33,18 @@ use function mb_strtolower;
 /**
  * Handles miscellaneous database operations.
  */
-class DatabaseController extends AbstractController
+final class DatabaseController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Operations $operations,
-        private UserPrivilegesFactory $userPrivilegesFactory,
-        private Relation $relation,
-        private RelationCleanup $relationCleanup,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Operations $operations,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
+        private readonly Relation $relation,
+        private readonly RelationCleanup $relationCleanup,
+        private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

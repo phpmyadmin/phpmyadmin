@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use Fig\Http\Message\StatusCodeInterface;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -20,14 +20,13 @@ use Webmozart\Assert\InvalidArgumentException;
 
 use function __;
 
-final class DropColumnConfirmationController extends AbstractController
+final class DropColumnConfirmationController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

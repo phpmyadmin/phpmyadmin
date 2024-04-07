@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Transformation;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -35,17 +35,16 @@ use function strtolower;
 /**
  * Wrapper script for rendering transformations
  */
-class WrapperController extends AbstractController
+final class WrapperController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Transformations $transformations,
-        private Relation $relation,
-        private DatabaseInterface $dbi,
-        private DbTableExists $dbTableExists,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Transformations $transformations,
+        private readonly Relation $relation,
+        private readonly DatabaseInterface $dbi,
+        private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

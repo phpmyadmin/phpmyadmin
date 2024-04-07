@@ -25,11 +25,13 @@ use function printf;
 use function readgzfile;
 use function str_ends_with;
 
-final class ChangeLogController extends AbstractController
+final class ChangeLogController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private readonly Config $config)
-    {
-        parent::__construct($response, $template);
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Config $config,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null

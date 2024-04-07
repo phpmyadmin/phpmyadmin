@@ -8,7 +8,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -19,7 +19,7 @@ use PhpMyAdmin\Url;
 /**
  * Handles viewing character sets and collations
  */
-class CollationsController extends AbstractController
+final class CollationsController implements InvocableController
 {
     /** @var array<string, Charset> */
     private array $charsets;
@@ -32,14 +32,12 @@ class CollationsController extends AbstractController
      * @param array<string, array<string, Collation>>|null $collations
      */
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly DatabaseInterface $dbi,
         array|null $charsets = null,
         array|null $collations = null,
     ) {
-        parent::__construct($response, $template);
-
         $config = Config::getInstance();
         $this->charsets = $charsets ?? Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
         $this->collations = $collations ?? Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);

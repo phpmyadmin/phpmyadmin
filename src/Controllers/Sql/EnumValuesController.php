@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Sql;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -14,14 +14,13 @@ use PhpMyAdmin\Template;
 
 use function __;
 
-final class EnumValuesController extends AbstractController
+final class EnumValuesController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Sql $sql,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Sql $sql,
     ) {
-        parent::__construct($response, $template);
     }
 
     /**

@@ -26,7 +26,7 @@ use function usleep;
  */
 class StatusController implements InvocableController
 {
-    public function __construct(private Template $template)
+    public function __construct(private readonly Template $template)
     {
     }
 

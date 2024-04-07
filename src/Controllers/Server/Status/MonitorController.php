@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -16,13 +17,13 @@ use PhpMyAdmin\Url;
 use function is_numeric;
 use function microtime;
 
-class MonitorController extends AbstractController
+final class MonitorController extends AbstractController implements InvocableController
 {
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Data $data,
-        private DatabaseInterface $dbi,
+        private readonly DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template, $data);
     }

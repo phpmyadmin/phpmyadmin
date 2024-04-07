@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Normalization\FirstNormalForm;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -12,11 +12,13 @@ use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
-final class FourthStepController extends AbstractController
+final class FourthStepController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private Normalization $normalization)
-    {
-        parent::__construct($response, $template);
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Normalization $normalization,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null

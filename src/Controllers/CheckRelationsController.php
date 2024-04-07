@@ -18,11 +18,13 @@ use const SQL_DIR;
 /**
  * Displays status of phpMyAdmin configuration storage
  */
-class CheckRelationsController extends AbstractController
+final class CheckRelationsController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private Relation $relation)
-    {
-        parent::__construct($response, $template);
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Relation $relation,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null

@@ -21,9 +21,9 @@ use function mb_strlen;
 /**
  * Schema export handler
  */
-class SchemaExportController implements InvocableController
+final class SchemaExportController implements InvocableController
 {
-    public function __construct(private Export $export, private ResponseRenderer $response)
+    public function __construct(private readonly Export $export, private readonly ResponseRenderer $response)
     {
     }
 

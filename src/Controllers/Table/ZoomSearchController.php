@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
@@ -46,7 +46,7 @@ use function strtoupper;
  *
  * Display table zoom search form, create SQL queries from form data.
  */
-class ZoomSearchController extends AbstractController
+final class ZoomSearchController implements InvocableController
 {
     /** @var list<string> */
     private array $columnNames = [];
@@ -70,14 +70,13 @@ class ZoomSearchController extends AbstractController
     private array $foreigners = [];
 
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Search $search,
-        private Relation $relation,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Search $search,
+        private readonly Relation $relation,
+        private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

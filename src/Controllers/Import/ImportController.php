@@ -8,7 +8,7 @@ use PhpMyAdmin\Bookmarks\Bookmark;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
@@ -48,17 +48,16 @@ use function preg_quote;
 use function preg_replace;
 use function time;
 
-final class ImportController extends AbstractController
+final class ImportController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Import $import,
-        private Sql $sql,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Import $import,
+        private readonly Sql $sql,
+        private readonly DatabaseInterface $dbi,
         private readonly BookmarkRepository $bookmarkRepository,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

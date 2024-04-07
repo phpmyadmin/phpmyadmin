@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Current;
@@ -34,19 +34,18 @@ use function strlen;
 /**
  * Displays add field form and handles it.
  */
-class AddFieldController extends AbstractController
+final class AddFieldController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Transformations $transformations,
-        private Config $config,
-        private DatabaseInterface $dbi,
-        private ColumnsDefinition $columnsDefinition,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Transformations $transformations,
+        private readonly Config $config,
+        private readonly DatabaseInterface $dbi,
+        private readonly ColumnsDefinition $columnsDefinition,
         private readonly DbTableExists $dbTableExists,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

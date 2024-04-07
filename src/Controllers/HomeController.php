@@ -42,7 +42,7 @@ use function sprintf;
 use const PHP_VERSION;
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
-class HomeController extends AbstractController
+final class HomeController implements InvocableController
 {
     /**
      * @var array<int, array<string, string>>
@@ -51,14 +51,13 @@ class HomeController extends AbstractController
     private array $errors = [];
 
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Config $config,
-        private ThemeManager $themeManager,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Config $config,
+        private readonly ThemeManager $themeManager,
+        private readonly DatabaseInterface $dbi,
         private readonly ResponseFactory $responseFactory,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

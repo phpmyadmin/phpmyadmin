@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use DateTimeImmutable;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
@@ -36,16 +36,15 @@ use function mb_strlen;
 use function sprintf;
 use function trim;
 
-final class TrackingController extends AbstractController
+final class TrackingController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Tracking $tracking,
-        private TrackingChecker $trackingChecker,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Tracking $tracking,
+        private readonly TrackingChecker $trackingChecker,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

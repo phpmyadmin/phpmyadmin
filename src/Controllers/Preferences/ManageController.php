@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\Response;
@@ -44,17 +44,16 @@ use const UPLOAD_ERR_OK;
 /**
  * User preferences management page.
  */
-class ManageController extends AbstractController
+final class ManageController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private UserPreferences $userPreferences,
-        private Relation $relation,
-        private Config $config,
-        private ThemeManager $themeManager,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly UserPreferences $userPreferences,
+        private readonly Relation $relation,
+        private readonly Config $config,
+        private readonly ThemeManager $themeManager,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

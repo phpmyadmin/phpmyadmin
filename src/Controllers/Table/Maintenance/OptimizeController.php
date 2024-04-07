@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table\Maintenance;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -22,15 +22,14 @@ use Webmozart\Assert\InvalidArgumentException;
 use function __;
 use function count;
 
-final class OptimizeController extends AbstractController
+final class OptimizeController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Maintenance $model,
-        private Config $config,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Maintenance $model,
+        private readonly Config $config,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

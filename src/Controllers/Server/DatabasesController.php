@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
@@ -32,7 +32,7 @@ use function strtolower;
 /**
  * Handles viewing and creating and deleting databases
  */
-class DatabasesController extends AbstractController
+final class DatabasesController implements InvocableController
 {
     /** @var mixed[] array of database details */
     private array $databases = [];
@@ -61,12 +61,11 @@ class DatabasesController extends AbstractController
     ];
 
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly DatabaseInterface $dbi,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

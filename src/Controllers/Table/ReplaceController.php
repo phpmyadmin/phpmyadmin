@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\SqlController as DatabaseSqlController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Sql\SqlController;
 use PhpMyAdmin\Controllers\Table\SqlController as TableSqlController;
 use PhpMyAdmin\Core;
@@ -39,21 +39,20 @@ use function sprintf;
 /**
  * Manipulation of table data like inserting, replacing and updating.
  */
-final class ReplaceController extends AbstractController
+final class ReplaceController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private InsertEdit $insertEdit,
-        private Transformations $transformations,
-        private Relation $relation,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly InsertEdit $insertEdit,
+        private readonly Transformations $transformations,
+        private readonly Relation $relation,
+        private readonly DatabaseInterface $dbi,
         private readonly SqlController $sqlController,
         private readonly DatabaseSqlController $databaseSqlController,
         private readonly ChangeController $changeController,
         private readonly TableSqlController $tableSqlController,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

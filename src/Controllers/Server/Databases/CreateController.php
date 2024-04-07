@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Server\Databases;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -25,11 +25,13 @@ use function is_string;
 use function mb_strtolower;
 use function str_contains;
 
-final class CreateController extends AbstractController
+final class CreateController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
-    {
-        parent::__construct($response, $template);
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly DatabaseInterface $dbi,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common as DesignerCommon;
@@ -26,16 +26,15 @@ use function in_array;
 use function json_encode;
 use function sprintf;
 
-class DesignerController extends AbstractController
+final class DesignerController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Designer $databaseDesigner,
-        private DesignerCommon $designerCommon,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Designer $databaseDesigner,
+        private readonly DesignerCommon $designerCommon,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

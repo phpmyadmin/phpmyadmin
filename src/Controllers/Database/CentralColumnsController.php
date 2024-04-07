@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -25,14 +25,13 @@ use function is_numeric;
 use function parse_str;
 use function sprintf;
 
-class CentralColumnsController extends AbstractController
+final class CentralColumnsController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private CentralColumns $centralColumns,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly CentralColumns $centralColumns,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

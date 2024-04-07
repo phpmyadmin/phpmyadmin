@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Preferences;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -18,11 +18,13 @@ use function __;
 use function count;
 use function define;
 
-class TwoFactorController extends AbstractController
+final class TwoFactorController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private Relation $relation)
-    {
-        parent::__construct($response, $template);
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Relation $relation,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null

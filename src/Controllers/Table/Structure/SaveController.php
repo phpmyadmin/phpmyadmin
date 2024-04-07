@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
@@ -34,21 +34,19 @@ use function sprintf;
 use function str_contains;
 use function strlen;
 
-final class SaveController extends AbstractController
+final class SaveController implements InvocableController
 {
     private Table $tableObj;
 
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Relation $relation,
-        private Transformations $transformations,
-        private DatabaseInterface $dbi,
-        private StructureController $structureController,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Relation $relation,
+        private readonly Transformations $transformations,
+        private readonly DatabaseInterface $dbi,
+        private readonly StructureController $structureController,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
-        parent::__construct($response, $template);
-
         $this->tableObj = $this->dbi->getTable(Current::$database, Current::$table);
     }
 

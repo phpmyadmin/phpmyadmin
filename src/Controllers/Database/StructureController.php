@@ -8,7 +8,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -56,7 +56,7 @@ use function urlencode;
 /**
  * Handles database structure logic
  */
-final class StructureController extends AbstractController
+final class StructureController implements InvocableController
 {
     /** @var int Number of tables */
     private int $numTables = 0;
@@ -79,17 +79,15 @@ final class StructureController extends AbstractController
     private ReplicationInfo $replicationInfo;
 
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Relation $relation,
-        private Replication $replication,
-        private DatabaseInterface $dbi,
-        private TrackingChecker $trackingChecker,
-        private PageSettings $pageSettings,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Relation $relation,
+        private readonly Replication $replication,
+        private readonly DatabaseInterface $dbi,
+        private readonly TrackingChecker $trackingChecker,
+        private readonly PageSettings $pageSettings,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
-
         $this->replicationInfo = new ReplicationInfo($this->dbi);
     }
 

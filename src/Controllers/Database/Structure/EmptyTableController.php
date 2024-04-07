@@ -8,8 +8,8 @@ use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
-use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
@@ -26,18 +26,17 @@ use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 
-final class EmptyTableController extends AbstractController
+final class EmptyTableController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
-        private Relation $relation,
-        private RelationCleanup $relationCleanup,
-        private FlashMessages $flash,
-        private StructureController $structureController,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly DatabaseInterface $dbi,
+        private readonly Relation $relation,
+        private readonly RelationCleanup $relationCleanup,
+        private readonly FlashMessages $flash,
+        private readonly StructureController $structureController,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

@@ -6,8 +6,8 @@ namespace PhpMyAdmin\Controllers\Export;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Encoding;
@@ -38,11 +38,13 @@ use function is_array;
 use function register_shutdown_function;
 use function time;
 
-final class ExportController extends AbstractController
+final class ExportController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private Export $export)
-    {
-        parent::__construct($response, $template);
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Export $export,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null

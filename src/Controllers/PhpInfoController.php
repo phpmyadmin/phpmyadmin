@@ -10,6 +10,8 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Template;
 
 use function phpinfo;
 
@@ -20,8 +22,12 @@ use const INFO_MODULES;
 /**
  * phpinfo() wrapper to allow displaying only when configured to do so.
  */
-class PhpInfoController extends AbstractController
+final class PhpInfoController implements InvocableController
 {
+    public function __construct(private readonly ResponseRenderer $response, private readonly Template $template)
+    {
+    }
+
     public function __invoke(ServerRequest $request): Response|null
     {
         $this->response->disable();

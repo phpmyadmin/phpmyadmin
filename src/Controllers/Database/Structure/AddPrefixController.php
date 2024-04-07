@@ -4,15 +4,21 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Template;
 
 use function __;
 
-final class AddPrefixController extends AbstractController
+final class AddPrefixController implements InvocableController
 {
+    public function __construct(private readonly ResponseRenderer $response, private readonly Template $template)
+    {
+    }
+
     public function __invoke(ServerRequest $request): Response|null
     {
         /** @var string[] $selected */

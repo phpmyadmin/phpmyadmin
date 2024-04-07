@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
@@ -35,17 +35,16 @@ use const ENT_QUOTES;
 /**
  * Routines management.
  */
-class RoutinesController extends AbstractController
+final class RoutinesController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private UserPrivilegesFactory $userPrivilegesFactory,
-        private DatabaseInterface $dbi,
-        private Routines $routines,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
+        private readonly DatabaseInterface $dbi,
+        private readonly Routines $routines,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
