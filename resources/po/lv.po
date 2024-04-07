@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-03-31 00:20+0000\n"
+"POT-Creation-Date: 2024-04-07 00:20+0000\n"
 "PO-Revision-Date: 2022-11-12 14:50+0000\n"
 "Last-Translator: Maris Ozo <dators.mans@gmail.com>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -53,7 +53,7 @@ msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
 #: resources/templates/table/structure/display_structure.twig:145
 #: resources/templates/table/structure/display_structure.twig:295
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:221
+#: src/Controllers/Table/StructureController.php:224
 msgid "Primary"
 msgstr "Primārā"
 
@@ -75,7 +75,7 @@ msgstr "Unikālais"
 #: resources/templates/table/structure/display_structure.twig:301
 #: resources/templates/table/structure/display_table_stats.twig:23
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:225
+#: src/Controllers/Table/StructureController.php:228
 #: src/Navigation/Nodes/NodeIndex.php:24
 msgid "Index"
 msgstr "Indekss"
@@ -124,7 +124,7 @@ msgstr "Pēc %s"
 #: resources/templates/table/zoom_search/index.twig:60
 #: resources/templates/table/zoom_search/index.twig:115
 #: src/Config/ConfigFile.php:553
-#: src/Controllers/JavaScriptMessagesController.php:219
+#: src/Controllers/JavaScriptMessagesController.php:220
 #: src/Display/Results.php:938 src/Plugins/Export/ExportSql.php:2054
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
@@ -202,8 +202,8 @@ msgstr "Kolonnu nosaukumi"
 #: resources/templates/table/zoom_search/index.twig:143
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:122 src/BrowseForeigners.php:179
-#: src/Controllers/JavaScriptMessagesController.php:335
-#: src/Controllers/Server/PrivilegesController.php:288
+#: src/Controllers/JavaScriptMessagesController.php:336
+#: src/Controllers/Server/PrivilegesController.php:289
 #: src/Normalization.php:229 src/Tracking/Tracking.php:306
 #: src/Tracking/Tracking.php:448
 msgid "Go"
@@ -258,7 +258,7 @@ msgstr "Iekļaut eksportu transakcijā"
 #: resources/templates/table/relation/common_form.twig:139
 #: resources/templates/table/structure/display_structure.twig:343
 #: resources/templates/table/structure/display_structure.twig:345
-#: src/Controllers/JavaScriptMessagesController.php:127
+#: src/Controllers/JavaScriptMessagesController.php:128
 msgid "Preview SQL"
 msgstr ""
 
@@ -272,7 +272,7 @@ msgstr ""
 #: resources/templates/table/relation/common_form.twig:141
 #: resources/templates/table/structure/partition_definition_form.twig:10
 #: resources/templates/table/zoom_search/result_form.twig:74
-#: src/Controllers/JavaScriptMessagesController.php:452
+#: src/Controllers/JavaScriptMessagesController.php:453
 msgid "Save"
 msgstr "Saglabāt"
 
@@ -350,7 +350,7 @@ msgstr "Ielādē…"
 #: resources/templates/table/zoom_search/result_form.twig:26
 #: resources/templates/table/zoom_search/result_form.twig:79
 #: resources/templates/table/zoom_search/result_form.twig:95
-#: src/Controllers/JavaScriptMessagesController.php:146
+#: src/Controllers/JavaScriptMessagesController.php:147
 #: src/Tracking/Tracking.php:207 src/Tracking/Tracking.php:587
 msgid "Close"
 msgstr "Aizvērt"
@@ -522,7 +522,7 @@ msgstr "Lietotājs"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:714
+#: src/Controllers/JavaScriptMessagesController.php:715
 #: src/Import/Import.php:1173 src/Menu.php:213 src/Menu.php:317
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
@@ -792,7 +792,7 @@ msgstr "Transformācijas opcijas"
 
 #: resources/templates/config/form_display/display.twig:45
 #: resources/templates/modals/page_settings.twig:6
-#: src/Controllers/JavaScriptMessagesController.php:340
+#: src/Controllers/JavaScriptMessagesController.php:341
 msgid "Apply"
 msgstr ""
 
@@ -800,7 +800,7 @@ msgstr ""
 #: resources/templates/preferences/manage/main.twig:107
 #: resources/templates/preferences/manage/main.twig:120
 #: resources/templates/table/insert/actions_panel.twig:36
-#: src/Controllers/JavaScriptMessagesController.php:108
+#: src/Controllers/JavaScriptMessagesController.php:109
 msgid "Reset"
 msgstr "Atcelt"
 
@@ -869,12 +869,12 @@ msgstr "Izslēgts"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/Database/Structure/DropTableController.php:40
-#: src/Controllers/Database/Structure/EmptyTableController.php:48
-#: src/Controllers/JavaScriptMessagesController.php:501
-#: src/Controllers/Table/DeleteRowsController.php:55
-#: src/Controllers/Table/DropColumnController.php:46
-#: src/Controllers/Table/Structure/PrimaryController.php:109
+#: src/Controllers/Database/Structure/DropTableController.php:41
+#: src/Controllers/Database/Structure/EmptyTableController.php:49
+#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/Table/DeleteRowsController.php:56
+#: src/Controllers/Table/DropColumnController.php:47
+#: src/Controllers/Table/Structure/PrimaryController.php:110
 #: src/IndexColumn.php:148 src/Index.php:469
 #: src/Plugins/Export/ExportHtmlword.php:597
 #: src/Plugins/Export/ExportLatex.php:573 src/Plugins/Export/ExportOdt.php:716
@@ -910,7 +910,7 @@ msgstr "Jā"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/JavaScriptMessagesController.php:366 src/IndexColumn.php:145
+#: src/Controllers/JavaScriptMessagesController.php:367 src/IndexColumn.php:145
 #: src/Index.php:443 src/Index.php:469
 #: src/Plugins/Export/ExportHtmlword.php:597
 #: src/Plugins/Export/ExportLatex.php:573 src/Plugins/Export/ExportOdt.php:716
@@ -980,7 +980,7 @@ msgstr "vaicājumā"
 #: resources/templates/triggers/row.twig:28
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
-#: src/Controllers/JavaScriptMessagesController.php:399
+#: src/Controllers/JavaScriptMessagesController.php:400
 #: src/Display/Results.php:2486 src/Html/Generator.php:544
 #: src/Html/Generator.php:810
 msgid "Edit"
@@ -999,7 +999,7 @@ msgstr "Labot"
 #: resources/templates/server/user_groups/user_groups.twig:55
 #: resources/templates/setup/home/index.twig:68
 #: resources/templates/sql/query.twig:184
-#: src/Controllers/JavaScriptMessagesController.php:400
+#: src/Controllers/JavaScriptMessagesController.php:401
 #: src/Display/Results.php:2545 src/Tracking/Tracking.php:231
 msgid "Delete"
 msgstr "Dzēst"
@@ -1202,7 +1202,7 @@ msgid "Count:"
 msgstr "Lauks"
 
 #: resources/templates/console/display.twig:121
-#: src/Controllers/JavaScriptMessagesController.php:664
+#: src/Controllers/JavaScriptMessagesController.php:665
 msgid "Time taken:"
 msgstr ""
 
@@ -1246,7 +1246,7 @@ msgstr "Meklēt"
 #: resources/templates/database/designer/main.twig:1049
 #: resources/templates/modals/preview_sql_confirmation.twig:6
 #: resources/templates/table/structure/display_structure.twig:373
-#: src/Controllers/JavaScriptMessagesController.php:359
+#: src/Controllers/JavaScriptMessagesController.php:360
 msgid "OK"
 msgstr "Labi"
 
@@ -1423,7 +1423,7 @@ msgstr "Darbība"
 #: resources/templates/server/databases/index.twig:316
 #: resources/templates/server/variables/index.twig:15
 #: resources/templates/table/search/index.twig:195
-#: src/Controllers/JavaScriptMessagesController.php:336
+#: src/Controllers/JavaScriptMessagesController.php:337
 msgid "Cancel"
 msgstr "Atcelt"
 
@@ -1475,7 +1475,7 @@ msgstr "Linki uz"
 #: resources/templates/indexes.twig:1
 #: resources/templates/table/structure/display_structure.twig:459
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
-#: src/Controllers/Server/DatabasesController.php:266
+#: src/Controllers/Server/DatabasesController.php:269
 #: src/Navigation/Nodes/NodeIndexContainer.php:23
 #: src/Navigation/Nodes/NodeIndexContainer.php:25
 msgid "Indexes"
@@ -1558,7 +1558,7 @@ msgid "Page to delete"
 msgstr "Relāciju pārskats"
 
 #: resources/templates/database/designer/main.twig:10
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:546
 #, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
@@ -1583,7 +1583,7 @@ msgstr ""
 
 #: resources/templates/database/designer/main.twig:37
 #: resources/templates/database/designer/main.twig:41
-#: src/Controllers/JavaScriptMessagesController.php:537
+#: src/Controllers/JavaScriptMessagesController.php:538
 #, fuzzy
 #| msgid "No tables found in database."
 msgid "Add tables from other databases"
@@ -1598,7 +1598,7 @@ msgstr "Lietotājvārds"
 
 #: resources/templates/database/designer/main.twig:53
 #: resources/templates/database/designer/main.twig:57
-#: src/Controllers/JavaScriptMessagesController.php:541
+#: src/Controllers/JavaScriptMessagesController.php:542
 #, fuzzy
 #| msgctxt "PDF"
 #| msgid "page"
@@ -1607,7 +1607,7 @@ msgstr "Aizņem"
 
 #: resources/templates/database/designer/main.twig:60
 #: resources/templates/database/designer/main.twig:64
-#: src/Controllers/JavaScriptMessagesController.php:539
+#: src/Controllers/JavaScriptMessagesController.php:540
 #, fuzzy
 #| msgid "Select All"
 msgid "Save page"
@@ -1615,7 +1615,7 @@ msgstr "Iezīmēt visu"
 
 #: resources/templates/database/designer/main.twig:67
 #: resources/templates/database/designer/main.twig:71
-#: src/Controllers/JavaScriptMessagesController.php:540
+#: src/Controllers/JavaScriptMessagesController.php:541
 #, fuzzy
 #| msgid "Select All"
 msgid "Save page as"
@@ -1644,7 +1644,7 @@ msgstr "Servera versija"
 
 #: resources/templates/database/designer/main.twig:95
 #: resources/templates/database/designer/main.twig:99
-#: src/Controllers/JavaScriptMessagesController.php:531
+#: src/Controllers/JavaScriptMessagesController.php:532
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
@@ -1819,7 +1819,7 @@ msgstr "Tabulas opcijas"
 
 #: resources/templates/database/designer/main.twig:1138
 #: resources/templates/sql/query.twig:175
-#: src/Controllers/JavaScriptMessagesController.php:556
+#: src/Controllers/JavaScriptMessagesController.php:557
 msgid "Submit"
 msgstr "Nosūtīt"
 
@@ -1871,7 +1871,7 @@ msgstr "Notikuma tips"
 #: resources/templates/database/tracking/tables.twig:16
 #: resources/templates/table/tracking/main.twig:30
 #: src/Config/ConfigFile.php:577
-#: src/Controllers/JavaScriptMessagesController.php:286 src/Menu.php:445
+#: src/Controllers/JavaScriptMessagesController.php:287 src/Menu.php:445
 #: src/Server/Status/Processes.php:96 src/Util.php:1469
 msgid "Status"
 msgstr "Statuss"
@@ -2011,7 +2011,7 @@ msgstr "Iezīmēt visu"
 #: resources/templates/triggers/list.twig:18
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
-#: src/Controllers/JavaScriptMessagesController.php:384 src/Menu.php:240
+#: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:240
 #: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1283
 #: src/Util.php:1471 src/Util.php:1486 src/Util.php:1503
 msgid "Export"
@@ -2100,7 +2100,7 @@ msgstr "Tabulas"
 #: resources/templates/database/export/index.twig:16
 #: resources/templates/database/structure/show_create.twig:5
 #: src/Config/Descriptions.php:743
-#: src/Controllers/Server/DatabasesController.php:263
+#: src/Controllers/Server/DatabasesController.php:266
 #: src/Navigation/Nodes/NodeTableContainer.php:22
 #: src/Navigation/Nodes/NodeTableContainer.php:24
 #: src/Plugins/Export/ExportXml.php:99 src/Server/Status/Data.php:133
@@ -2114,7 +2114,7 @@ msgstr "Tabulas"
 #: src/Config/Forms/User/ExportForm.php:106
 #: src/Config/Forms/User/ExportForm.php:131
 #: src/Config/Forms/User/ExportForm.php:137
-#: src/Controllers/Server/DatabasesController.php:265
+#: src/Controllers/Server/DatabasesController.php:268
 msgid "Data"
 msgstr "Dati"
 
@@ -2156,8 +2156,8 @@ msgstr "Izvēlies 2 kolonnas"
 #: resources/templates/database/multi_table_query/form.twig:34
 #: resources/templates/database/tracking/tables.twig:18
 #: resources/templates/table/tracking/main.twig:32
-#: src/Controllers/JavaScriptMessagesController.php:713
-#: src/Controllers/Table/ChangeController.php:220
+#: src/Controllers/JavaScriptMessagesController.php:714
+#: src/Controllers/Table/ChangeController.php:221
 msgid "Show"
 msgstr "Rādīt"
 
@@ -2425,7 +2425,7 @@ msgstr "Log-faila nosaukums"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:21
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:407 src/Menu.php:256
+#: src/Controllers/Server/PrivilegesController.php:410 src/Menu.php:256
 #: src/Menu.php:364 src/Util.php:1489 src/Util.php:1505
 msgid "Privileges"
 msgstr "Privilēģijas"
@@ -2870,7 +2870,7 @@ msgid "Replace table prefix"
 msgstr "Aizvietot tabulas datus ar datiem no faila"
 
 #: resources/templates/database/structure/check_all_tables.twig:27
-#: src/Controllers/JavaScriptMessagesController.php:676
+#: src/Controllers/JavaScriptMessagesController.php:677
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
@@ -2948,7 +2948,7 @@ msgstr "Vai Jūs tiešām gribat "
 #: resources/templates/database/structure/empty_form.twig:14
 #: resources/templates/import.twig:153 resources/templates/sql/query.twig:143
 #: resources/templates/table/delete/confirm.twig:24
-#: src/Controllers/JavaScriptMessagesController.php:369
+#: src/Controllers/JavaScriptMessagesController.php:370
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
@@ -2975,9 +2975,9 @@ msgstr "Datu vārdnīca"
 
 #: resources/templates/database/structure/index.twig:25
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:86
-#: src/Controllers/Database/TrackingController.php:133
-#: src/Controllers/Export/ExportController.php:303
+#: src/Controllers/Database/ExportController.php:87
+#: src/Controllers/Database/TrackingController.php:134
+#: src/Controllers/Export/ExportController.php:304
 msgid "No tables found in database."
 msgstr "Šajā datubāzē tabulas nav atrastas."
 
@@ -3017,9 +3017,9 @@ msgstr ""
 #: resources/templates/database/structure/show_create.twig:30
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:184
-#: src/Controllers/Operations/TableController.php:123
-#: src/Controllers/Operations/TableController.php:332
-#: src/Controllers/Table/StructureController.php:154
+#: src/Controllers/Operations/TableController.php:124
+#: src/Controllers/Operations/TableController.php:333
+#: src/Controllers/Table/StructureController.php:157
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr ""
@@ -3061,7 +3061,7 @@ msgstr "lietošanā"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:230
 #: resources/templates/table/structure/display_table_stats.twig:118
-#: src/Controllers/Server/DatabasesController.php:264 src/Import/Import.php:125
+#: src/Controllers/Server/DatabasesController.php:267 src/Import/Import.php:125
 msgid "Rows"
 msgstr "Rindas"
 
@@ -3080,7 +3080,7 @@ msgstr "Izmērs"
 
 #: resources/templates/database/structure/table_header.twig:38
 #: resources/templates/table/structure/display_table_stats.twig:31
-#: src/Controllers/Server/DatabasesController.php:268
+#: src/Controllers/Server/DatabasesController.php:271
 msgid "Overhead"
 msgstr "Pārtēriņš"
 
@@ -3230,7 +3230,7 @@ msgstr "Beigas"
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:3
 #: src/BrowseForeigners.php:299
-#: src/Controllers/JavaScriptMessagesController.php:574
+#: src/Controllers/JavaScriptMessagesController.php:575
 msgid "Show all"
 msgstr "Rādīt visu"
 
@@ -3309,7 +3309,7 @@ msgid "Hide browser transformation"
 msgstr "Pārlūkprogrammas transformācija"
 
 #: resources/templates/display/results/table.twig:260
-#: src/Controllers/JavaScriptMessagesController.php:493
+#: src/Controllers/JavaScriptMessagesController.php:494
 msgid "Geometry"
 msgstr "Ģeometrija"
 
@@ -3324,7 +3324,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:317
 #: resources/templates/display/results/table.twig:321
 #: resources/templates/gis_data_editor_form.twig:62
-#: src/Controllers/JavaScriptMessagesController.php:487
+#: src/Controllers/JavaScriptMessagesController.php:488
 #: src/Display/Results.php:2490 src/Html/Generator.php:77
 msgid "Copy"
 msgstr "Kopēt"
@@ -3362,10 +3362,10 @@ msgstr ""
 
 #: resources/templates/error/generic.twig:2
 #: resources/templates/table/structure/display_structure.twig:363
-#: src/Controllers/Operations/ViewController.php:120
-#: src/Controllers/Table/Partition/DropController.php:57
-#: src/Controllers/Table/Partition/RebuildController.php:57
-#: src/Controllers/Table/Partition/TruncateController.php:57
+#: src/Controllers/Operations/ViewController.php:121
+#: src/Controllers/Table/Partition/DropController.php:58
+#: src/Controllers/Table/Partition/RebuildController.php:58
+#: src/Controllers/Table/Partition/TruncateController.php:58
 #: src/Html/Generator.php:761 src/Import/Import.php:114 src/InsertEdit.php:490
 #: src/Message.php:145
 msgid "Error"
@@ -3457,7 +3457,7 @@ msgid "Update"
 msgstr "Atjaunot vaicājumu"
 
 #: resources/templates/export.twig:75
-#: src/Controllers/JavaScriptMessagesController.php:131
+#: src/Controllers/JavaScriptMessagesController.php:132
 #: src/Html/Generator.php:785
 #, fuzzy
 #| msgid "SQL query"
@@ -3537,7 +3537,7 @@ msgid "Defined aliases"
 msgstr ""
 
 #: resources/templates/export.twig:213
-#: src/Controllers/JavaScriptMessagesController.php:293
+#: src/Controllers/JavaScriptMessagesController.php:294
 #, fuzzy
 #| msgid "Database"
 msgctxt "Alias"
@@ -3550,7 +3550,7 @@ msgid "Remove"
 msgstr ""
 
 #: resources/templates/export.twig:227
-#: src/Controllers/JavaScriptMessagesController.php:294
+#: src/Controllers/JavaScriptMessagesController.php:295
 #, fuzzy
 #| msgid "Table"
 msgctxt "Alias"
@@ -3558,7 +3558,7 @@ msgid "Table"
 msgstr "Tabula"
 
 #: resources/templates/export.twig:240
-#: src/Controllers/JavaScriptMessagesController.php:295
+#: src/Controllers/JavaScriptMessagesController.php:296
 #, fuzzy
 #| msgid "Column"
 msgctxt "Alias"
@@ -3600,7 +3600,7 @@ msgid "New column name"
 msgstr "Kolonnu nosaukumi"
 
 #: resources/templates/export.twig:321
-#: src/Controllers/JavaScriptMessagesController.php:107
+#: src/Controllers/JavaScriptMessagesController.php:108
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save & close"
@@ -3800,7 +3800,7 @@ msgstr ""
 
 #: resources/templates/header.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:216 src/Menu.php:474
+#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:474
 #: src/Util.php:1473
 msgid "Settings"
 msgstr "Iestatījumi"
@@ -3813,7 +3813,7 @@ msgstr "Iziet"
 
 #: resources/templates/header.twig:108
 #: resources/templates/modals/page_settings.twig:1
-#: src/Controllers/JavaScriptMessagesController.php:339
+#: src/Controllers/JavaScriptMessagesController.php:340
 #, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
@@ -3865,7 +3865,7 @@ msgstr "Galvenie iestatījumi"
 #: resources/templates/modals/change_password.twig:1
 #: resources/templates/server/privileges/change_password.twig:8
 #: resources/templates/server/privileges/change_password.twig:10
-#: src/Controllers/UserPasswordController.php:87
+#: src/Controllers/UserPasswordController.php:88
 msgid "Change password"
 msgstr "Mainīt paroli"
 
@@ -4004,7 +4004,7 @@ msgstr "phpMyAdmin dokumentācija"
 #: resources/templates/server/privileges/users_overview.twig:168
 #: resources/templates/server/status/monitor/index.twig:76
 #: resources/templates/table/structure/display_structure.twig:355
-#: src/Controllers/JavaScriptMessagesController.php:343
+#: src/Controllers/JavaScriptMessagesController.php:344
 msgid "Loading…"
 msgstr "Ielādē…"
 
@@ -4026,7 +4026,7 @@ msgstr "izmantot šo stilu"
 
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:1
-#: src/Controllers/JavaScriptMessagesController.php:434
+#: src/Controllers/JavaScriptMessagesController.php:435
 #: src/Export/Export.php:1265 src/Html/Generator.php:876
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
@@ -4037,7 +4037,7 @@ msgstr "Atpakaļ"
 #: resources/templates/preferences/manage/main.twig:3
 #: resources/templates/server/status/monitor/index.twig:61
 #: src/Config/Forms/User/ImportForm.php:58
-#: src/Controllers/JavaScriptMessagesController.php:321 src/Menu.php:249
+#: src/Controllers/JavaScriptMessagesController.php:322 src/Menu.php:249
 #: src/Menu.php:352 src/Menu.php:469 src/Util.php:1472 src/Util.php:1487
 #: src/Util.php:1504
 msgid "Import"
@@ -4374,7 +4374,7 @@ msgid "An error has occurred while loading the navigation display"
 msgstr ""
 
 #: resources/templates/navigation/main.twig:83
-#: src/Controllers/JavaScriptMessagesController.php:591
+#: src/Controllers/JavaScriptMessagesController.php:592
 msgid "Drop files here"
 msgstr ""
 
@@ -4616,11 +4616,11 @@ msgid "You have enabled two factor authentication."
 msgstr ""
 
 #: resources/templates/preview_sql.twig:3
-#: src/Controllers/Database/Structure/DropTableController.php:41
-#: src/Controllers/Database/Structure/EmptyTableController.php:49
-#: src/Controllers/Operations/TableController.php:348
-#: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:284 src/Core.php:499
+#: src/Controllers/Database/Structure/DropTableController.php:42
+#: src/Controllers/Database/Structure/EmptyTableController.php:50
+#: src/Controllers/Operations/TableController.php:349
+#: src/Controllers/Table/DropColumnController.php:64
+#: src/Controllers/Table/ReplaceController.php:285 src/Core.php:499
 msgid "No change"
 msgstr "Netika labots"
 
@@ -4985,7 +4985,7 @@ msgid "Check privileges"
 msgstr "Pārbaudīt privilēģijas"
 
 #: resources/templates/server/databases/index.twig:249
-#: src/Controllers/JavaScriptMessagesController.php:304
+#: src/Controllers/JavaScriptMessagesController.php:305
 #: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "Kopā:"
@@ -5820,27 +5820,27 @@ msgid "User group"
 msgstr ""
 
 #: resources/templates/server/privileges/users_overview.twig:100
-#: src/Controllers/JavaScriptMessagesController.php:150
+#: src/Controllers/JavaScriptMessagesController.php:151
 #, fuzzy
 #| msgid "User"
 msgid "Unlock this account."
 msgstr "Lietotājs"
 
 #: resources/templates/server/privileges/users_overview.twig:100
-#: src/Controllers/JavaScriptMessagesController.php:149
+#: src/Controllers/JavaScriptMessagesController.php:150
 #, fuzzy
 #| msgid "Remove chart"
 msgid "Lock this account."
 msgstr "Noņemt diagrammu"
 
 #: resources/templates/server/privileges/users_overview.twig:102
-#: src/Controllers/JavaScriptMessagesController.php:148
+#: src/Controllers/JavaScriptMessagesController.php:149
 msgctxt "Unlock the account."
 msgid "Unlock"
 msgstr ""
 
 #: resources/templates/server/privileges/users_overview.twig:105
-#: src/Controllers/JavaScriptMessagesController.php:147
+#: src/Controllers/JavaScriptMessagesController.php:148
 msgctxt "Lock the account."
 msgid "Lock"
 msgstr ""
@@ -5937,7 +5937,7 @@ msgid "Generate password:"
 msgstr "Mainīt paroli"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:71
-#: src/Controllers/JavaScriptMessagesController.php:598
+#: src/Controllers/JavaScriptMessagesController.php:599
 #, fuzzy
 msgid "Generate"
 msgstr "Uzģenerēja"
@@ -6202,7 +6202,7 @@ msgstr "Serveris"
 
 #: resources/templates/server/status/base.twig:10
 #: resources/templates/server/status/processes/list.twig:1
-#: src/Controllers/JavaScriptMessagesController.php:201
+#: src/Controllers/JavaScriptMessagesController.php:202
 msgid "Processes"
 msgstr "Procesi"
 
@@ -6389,13 +6389,13 @@ msgstr ""
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:163
-#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:300
+#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:300
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:167
-#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:302
+#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:302
 msgid "MiB"
 msgstr "MiB"
 
@@ -6418,7 +6418,7 @@ msgid "Series in chart:"
 msgstr "SQL vaicājums"
 
 #: resources/templates/server/status/monitor/index.twig:192
-#: src/Controllers/JavaScriptMessagesController.php:217
+#: src/Controllers/JavaScriptMessagesController.php:218
 msgid "Add chart to grid"
 msgstr ""
 
@@ -6473,7 +6473,7 @@ msgstr ""
 "apmaiņu starp webserveri un MySQL serveri."
 
 #: resources/templates/server/status/processes/index.twig:56
-#: src/Controllers/JavaScriptMessagesController.php:224
+#: src/Controllers/JavaScriptMessagesController.php:225
 msgid "Start auto refresh"
 msgstr ""
 
@@ -6542,7 +6542,7 @@ msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "Šis MySQL serveris strādā %s. Tas tika palaists %s."
 
 #: resources/templates/server/status/status/index.twig:7
-#: src/Controllers/JavaScriptMessagesController.php:215
+#: src/Controllers/JavaScriptMessagesController.php:216
 msgid "Traffic"
 msgstr "Datu plūsma"
 
@@ -6553,7 +6553,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/status/status/index.twig:30
-#: src/Controllers/JavaScriptMessagesController.php:200
+#: src/Controllers/JavaScriptMessagesController.php:201
 msgid "Connections"
 msgstr "Savienojumi"
 
@@ -6665,7 +6665,7 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: resources/templates/server/user_groups/user_listings.twig:5
-#: src/Controllers/Server/PrivilegesController.php:410
+#: src/Controllers/Server/PrivilegesController.php:413
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "Lietotājs"
@@ -6835,7 +6835,7 @@ msgstr "Statuss"
 
 #: resources/templates/sql/profiling_chart.twig:12
 #: resources/templates/triggers/list.twig:51
-#: src/Controllers/JavaScriptMessagesController.php:287
+#: src/Controllers/JavaScriptMessagesController.php:288
 #: src/Plugins/Export/ExportHtmlword.php:456
 #: src/Plugins/Export/ExportOdt.php:572
 #: src/Plugins/Export/ExportTexytext.php:439
@@ -6878,22 +6878,22 @@ msgid "Pie chart with profiling results."
 msgstr "SQL rezultāts"
 
 #: resources/templates/sql/query.twig:6
-#: src/Controllers/Operations/ViewController.php:117
-#: src/Controllers/Table/DeleteRowsController.php:77
-#: src/Controllers/Table/FindReplaceController.php:119
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:74
-#: src/Controllers/Table/Maintenance/CheckController.php:74
-#: src/Controllers/Table/Maintenance/ChecksumController.php:74
-#: src/Controllers/Table/Maintenance/OptimizeController.php:74
-#: src/Controllers/Table/Maintenance/RepairController.php:74
-#: src/Controllers/Table/Partition/AnalyzeController.php:50
-#: src/Controllers/Table/Partition/CheckController.php:50
-#: src/Controllers/Table/Partition/DropController.php:51
-#: src/Controllers/Table/Partition/OptimizeController.php:50
-#: src/Controllers/Table/Partition/RebuildController.php:51
-#: src/Controllers/Table/Partition/RepairController.php:50
-#: src/Controllers/Table/Partition/TruncateController.php:51
-#: src/Controllers/Table/RelationController.php:140
+#: src/Controllers/Operations/ViewController.php:118
+#: src/Controllers/Table/DeleteRowsController.php:78
+#: src/Controllers/Table/FindReplaceController.php:120
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:75
+#: src/Controllers/Table/Maintenance/CheckController.php:75
+#: src/Controllers/Table/Maintenance/ChecksumController.php:75
+#: src/Controllers/Table/Maintenance/OptimizeController.php:75
+#: src/Controllers/Table/Maintenance/RepairController.php:75
+#: src/Controllers/Table/Partition/AnalyzeController.php:51
+#: src/Controllers/Table/Partition/CheckController.php:51
+#: src/Controllers/Table/Partition/DropController.php:52
+#: src/Controllers/Table/Partition/OptimizeController.php:51
+#: src/Controllers/Table/Partition/RebuildController.php:52
+#: src/Controllers/Table/Partition/RepairController.php:51
+#: src/Controllers/Table/Partition/TruncateController.php:52
+#: src/Controllers/Table/RelationController.php:141
 #: src/Database/Routines.php:995 src/Display/Results.php:3148
 #: src/Message.php:129
 #, fuzzy
@@ -6972,7 +6972,7 @@ msgid "View only"
 msgstr "Tikai apskatīt"
 
 #: resources/templates/sql/query.twig:212
-#: src/Controllers/JavaScriptMessagesController.php:130
+#: src/Controllers/JavaScriptMessagesController.php:131
 #, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
@@ -6981,7 +6981,7 @@ msgstr "vaicājumā"
 #: resources/templates/sql/relational_column_dropdown.twig:2
 #: resources/templates/table/insert/column_row.twig:48
 #: resources/templates/table/search/input_box.twig:21
-#: src/Controllers/JavaScriptMessagesController.php:402
+#: src/Controllers/JavaScriptMessagesController.php:403
 msgid "Browse foreign values"
 msgstr "Pārlūkot ārējās vērtības"
 
@@ -7254,14 +7254,14 @@ msgstr ""
 
 #: resources/templates/table/index_form.twig:162
 #: resources/templates/table/index_form.twig:199
-#: src/Controllers/JavaScriptMessagesController.php:486
-#: src/Controllers/JavaScriptMessagesController.php:637
+#: src/Controllers/JavaScriptMessagesController.php:487
+#: src/Controllers/JavaScriptMessagesController.php:638
 #: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1529
 msgid "Ignore"
 msgstr "Ignorēt"
 
 #: resources/templates/table/index_form.twig:237
-#: src/Controllers/JavaScriptMessagesController.php:120
+#: src/Controllers/JavaScriptMessagesController.php:121
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "Pievienot %s lauku(s) indeksam"
@@ -7437,7 +7437,7 @@ msgstr "Atsvaidzināt tabulu (FLUSH)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:405
+#: src/Controllers/Database/StructureController.php:408
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabula %s tika iztukšota."
@@ -7453,13 +7453,13 @@ msgstr "Nav datubāzu"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:357
+#: src/Controllers/Database/StructureController.php:360
 #, fuzzy, php-format
 msgid "View %s has been dropped."
 msgstr "Lauks %s tika izdzēsts"
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:358
+#: src/Controllers/Database/StructureController.php:361
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
@@ -7789,7 +7789,7 @@ msgid "Column %s has been dropped."
 msgstr "Tabula %s tika izdzēsta"
 
 #: resources/templates/table/structure/display_structure.twig:129
-#: src/Controllers/JavaScriptMessagesController.php:601
+#: src/Controllers/JavaScriptMessagesController.php:602
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
@@ -7884,9 +7884,9 @@ msgid "Effective"
 msgstr "Efektīvs"
 
 #: resources/templates/table/structure/display_table_stats.twig:44
-#: src/Controllers/Server/DatabasesController.php:267
-#: src/Controllers/Server/Status/StatusController.php:137
-#: src/Controllers/Server/Status/StatusController.php:187
+#: src/Controllers/Server/DatabasesController.php:270
+#: src/Controllers/Server/Status/StatusController.php:140
+#: src/Controllers/Server/Status/StatusController.php:190
 msgid "Total"
 msgstr "Kopā"
 
@@ -8066,7 +8066,7 @@ msgid "Event"
 msgstr "Nosūtīts"
 
 #: resources/templates/triggers/export.twig:2
-#: src/Controllers/Triggers/IndexController.php:253
+#: src/Controllers/Triggers/IndexController.php:254
 #, php-format
 msgid "Export of trigger %s"
 msgstr ""
@@ -9718,7 +9718,7 @@ msgid "Closed"
 msgstr "Neaizvērtas pēdiņas"
 
 #: src/Config/ConfigFile.php:607
-#: src/Controllers/JavaScriptMessagesController.php:741
+#: src/Controllers/JavaScriptMessagesController.php:742
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Week day name"
@@ -9726,7 +9726,7 @@ msgid "Monday"
 msgstr "P"
 
 #: src/Config/ConfigFile.php:608
-#: src/Controllers/JavaScriptMessagesController.php:742
+#: src/Controllers/JavaScriptMessagesController.php:743
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Week day name"
@@ -9734,7 +9734,7 @@ msgid "Tuesday"
 msgstr "O"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:743
+#: src/Controllers/JavaScriptMessagesController.php:744
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Week day name"
@@ -9742,7 +9742,7 @@ msgid "Wednesday"
 msgstr "O"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:744
+#: src/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Week day name"
@@ -9750,7 +9750,7 @@ msgid "Thursday"
 msgstr "O"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:745
+#: src/Controllers/JavaScriptMessagesController.php:746
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Week day name"
@@ -9758,13 +9758,13 @@ msgid "Friday"
 msgstr "Pk"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:746
+#: src/Controllers/JavaScriptMessagesController.php:747
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr ""
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:740
+#: src/Controllers/JavaScriptMessagesController.php:741
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Week day name"
@@ -11644,7 +11644,7 @@ msgid "Navigation panel width"
 msgstr "Datubāzu eksporta opcijas"
 
 #: src/Config/Descriptions.php:811
-#: src/Controllers/JavaScriptMessagesController.php:606
+#: src/Controllers/JavaScriptMessagesController.php:607
 #: src/Navigation/NavigationTree.php:1310
 #, fuzzy
 msgid "Link with main panel"
@@ -12295,7 +12295,7 @@ msgid "Missing data for %s"
 msgstr ""
 
 #: src/Config/FormDisplay.php:620 src/Config/Validator.php:587
-#: src/Controllers/JavaScriptMessagesController.php:824
+#: src/Controllers/JavaScriptMessagesController.php:825
 msgid "Incorrect value!"
 msgstr ""
 
@@ -12583,24 +12583,24 @@ msgid "Incorrect IP address: %s"
 msgstr ""
 
 #: src/Config/Validator.php:522
-#: src/Controllers/JavaScriptMessagesController.php:823
+#: src/Controllers/JavaScriptMessagesController.php:824
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Not a valid port number!"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
 #: src/Config/Validator.php:544
-#: src/Controllers/JavaScriptMessagesController.php:821
+#: src/Controllers/JavaScriptMessagesController.php:822
 msgid "Not a positive number!"
 msgstr ""
 
 #: src/Config/Validator.php:566
-#: src/Controllers/JavaScriptMessagesController.php:822
+#: src/Controllers/JavaScriptMessagesController.php:823
 msgid "Not a non-negative number!"
 msgstr ""
 
 #: src/Config/Validator.php:605
-#: src/Controllers/JavaScriptMessagesController.php:825
+#: src/Controllers/JavaScriptMessagesController.php:826
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr ""
@@ -12620,31 +12620,31 @@ msgid "No bookmarks"
 msgstr "Meklēt"
 
 #: src/Controllers/AbstractController.php:74
-#: src/Controllers/SchemaExportController.php:35
-#: src/Controllers/Server/UserGroupsFormController.php:44
+#: src/Controllers/SchemaExportController.php:36
+#: src/Controllers/Server/UserGroupsFormController.php:45
 #, fuzzy
 #| msgid "Add new field"
 msgid "Missing parameter:"
 msgstr "Pievienot jaunu lauku"
 
-#: src/Controllers/ChangeLogController.php:48
-#: src/Controllers/LicenseController.php:38
+#: src/Controllers/ChangeLogController.php:49
+#: src/Controllers/LicenseController.php:39
 #, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr "Fails %s nav pieejams šajā sistēmā, vairāk informācijas %s."
 
-#: src/Controllers/Console/Bookmark/AddController.php:35
+#: src/Controllers/Console/Bookmark/AddController.php:36
 msgid "Incomplete params"
 msgstr "Nepabeigti parametri"
 
-#: src/Controllers/Console/Bookmark/AddController.php:48
-#: src/Controllers/JavaScriptMessagesController.php:588
+#: src/Controllers/Console/Bookmark/AddController.php:49
+#: src/Controllers/JavaScriptMessagesController.php:589
 msgid "Failed"
 msgstr "Kļūda"
 
-#: src/Controllers/Console/Bookmark/AddController.php:60
+#: src/Controllers/Console/Bookmark/AddController.php:61
 msgid "Succeeded"
 msgstr "Izdevās"
 
@@ -12655,250 +12655,251 @@ msgstr "Izvēlētie lietotāji tika veiksmīgi dzēsti."
 
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
+#: src/Controllers/Navigation/UpdateNavWidthConfigController.php:30
 #, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Unexpected parameter value."
 msgstr "Tabulas sākumā"
 
-#: src/Controllers/Database/CentralColumnsController.php:152
+#: src/Controllers/Database/CentralColumnsController.php:153
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Tiek rādītas rindas no %1$s līdz %2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: src/Controllers/Database/DesignerController.php:102
+#: src/Controllers/Database/DesignerController.php:103
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 
-#: src/Controllers/Database/DesignerController.php:170
-#: src/Controllers/Database/DesignerController.php:175
-#: src/Controllers/Database/EventsController.php:61
-#: src/Controllers/Database/ExportController.php:68
-#: src/Controllers/Database/ExportController.php:73
-#: src/Controllers/Database/ImportController.php:66
-#: src/Controllers/Database/ImportController.php:71
-#: src/Controllers/Database/RoutinesController.php:78
-#: src/Controllers/Database/RoutinesController.php:104
-#: src/Controllers/Database/SearchController.php:54
-#: src/Controllers/Database/SearchController.php:59
-#: src/Controllers/Database/SqlController.php:65
-#: src/Controllers/Database/SqlController.php:70
-#: src/Controllers/Database/StructureController.php:143
-#: src/Controllers/Database/StructureController.php:148
-#: src/Controllers/Database/Structure/FavoriteTableController.php:83
-#: src/Controllers/Database/Structure/RealRowCountController.php:62
-#: src/Controllers/Database/TrackingController.php:62
-#: src/Controllers/Database/TrackingController.php:67
-#: src/Controllers/JavaScriptMessagesController.php:354
-#: src/Controllers/Operations/Database/CollationController.php:64
-#: src/Controllers/Operations/DatabaseController.php:241
-#: src/Controllers/Operations/DatabaseController.php:246
-#: src/Controllers/Operations/TableController.php:87
-#: src/Controllers/Operations/TableController.php:92
-#: src/Controllers/Operations/ViewController.php:64
-#: src/Controllers/Operations/ViewController.php:69
-#: src/Controllers/Server/Databases/DestroyController.php:63
-#: src/Controllers/Table/AddFieldController.php:165
-#: src/Controllers/Table/AddFieldController.php:170
-#: src/Controllers/Table/ChangeController.php:69
-#: src/Controllers/Table/ChangeController.php:74
-#: src/Controllers/Table/ChartController.php:104
-#: src/Controllers/Table/ChartController.php:109
-#: src/Controllers/Table/ChartController.php:146
-#: src/Controllers/Table/ChartController.php:151
-#: src/Controllers/Table/ChartController.php:231
-#: src/Controllers/Table/DeleteConfirmController.php:63
-#: src/Controllers/Table/DeleteConfirmController.php:68
-#: src/Controllers/Table/DropColumnConfirmationController.php:51
-#: src/Controllers/Table/DropColumnConfirmationController.php:56
-#: src/Controllers/Table/FindReplaceController.php:73
-#: src/Controllers/Table/FindReplaceController.php:78
-#: src/Controllers/Table/GisVisualizationController.php:59
-#: src/Controllers/Table/GisVisualizationController.php:64
-#: src/Controllers/Table/ImportController.php:69
-#: src/Controllers/Table/ImportController.php:74
-#: src/Controllers/Table/IndexesController.php:68
-#: src/Controllers/Table/IndexesController.php:73
-#: src/Controllers/Table/IndexRenameController.php:58
-#: src/Controllers/Table/IndexRenameController.php:63
-#: src/Controllers/Table/SearchController.php:174
-#: src/Controllers/Table/SearchController.php:179
-#: src/Controllers/Table/SqlController.php:67
-#: src/Controllers/Table/SqlController.php:72
-#: src/Controllers/Table/StructureController.php:96
-#: src/Controllers/Table/StructureController.php:101
-#: src/Controllers/Table/Structure/PrimaryController.php:76
-#: src/Controllers/Table/Structure/PrimaryController.php:81
-#: src/Controllers/Table/TrackingController.php:72
-#: src/Controllers/Table/TrackingController.php:77
-#: src/Controllers/Table/ZoomSearchController.php:100
-#: src/Controllers/Table/ZoomSearchController.php:105
-#: src/Controllers/Triggers/IndexController.php:71
-#: src/Controllers/Triggers/IndexController.php:97
-#: src/Controllers/View/CreateController.php:77
-#: src/Controllers/View/CreateController.php:82
+#: src/Controllers/Database/DesignerController.php:171
+#: src/Controllers/Database/DesignerController.php:176
+#: src/Controllers/Database/EventsController.php:62
+#: src/Controllers/Database/ExportController.php:69
+#: src/Controllers/Database/ExportController.php:74
+#: src/Controllers/Database/ImportController.php:67
+#: src/Controllers/Database/ImportController.php:72
+#: src/Controllers/Database/RoutinesController.php:79
+#: src/Controllers/Database/RoutinesController.php:105
+#: src/Controllers/Database/SearchController.php:55
+#: src/Controllers/Database/SearchController.php:60
+#: src/Controllers/Database/SqlController.php:66
+#: src/Controllers/Database/SqlController.php:71
+#: src/Controllers/Database/StructureController.php:144
+#: src/Controllers/Database/StructureController.php:149
+#: src/Controllers/Database/Structure/FavoriteTableController.php:84
+#: src/Controllers/Database/Structure/RealRowCountController.php:63
+#: src/Controllers/Database/TrackingController.php:63
+#: src/Controllers/Database/TrackingController.php:68
+#: src/Controllers/JavaScriptMessagesController.php:355
+#: src/Controllers/Operations/Database/CollationController.php:65
+#: src/Controllers/Operations/DatabaseController.php:242
+#: src/Controllers/Operations/DatabaseController.php:247
+#: src/Controllers/Operations/TableController.php:88
+#: src/Controllers/Operations/TableController.php:93
+#: src/Controllers/Operations/ViewController.php:65
+#: src/Controllers/Operations/ViewController.php:70
+#: src/Controllers/Server/Databases/DestroyController.php:64
+#: src/Controllers/Table/AddFieldController.php:166
+#: src/Controllers/Table/AddFieldController.php:171
+#: src/Controllers/Table/ChangeController.php:70
+#: src/Controllers/Table/ChangeController.php:75
+#: src/Controllers/Table/ChartController.php:105
+#: src/Controllers/Table/ChartController.php:110
+#: src/Controllers/Table/ChartController.php:147
+#: src/Controllers/Table/ChartController.php:152
+#: src/Controllers/Table/ChartController.php:234
+#: src/Controllers/Table/DeleteConfirmController.php:64
+#: src/Controllers/Table/DeleteConfirmController.php:69
+#: src/Controllers/Table/DropColumnConfirmationController.php:52
+#: src/Controllers/Table/DropColumnConfirmationController.php:57
+#: src/Controllers/Table/FindReplaceController.php:74
+#: src/Controllers/Table/FindReplaceController.php:79
+#: src/Controllers/Table/GisVisualizationController.php:60
+#: src/Controllers/Table/GisVisualizationController.php:65
+#: src/Controllers/Table/ImportController.php:70
+#: src/Controllers/Table/ImportController.php:75
+#: src/Controllers/Table/IndexesController.php:69
+#: src/Controllers/Table/IndexesController.php:74
+#: src/Controllers/Table/IndexRenameController.php:59
+#: src/Controllers/Table/IndexRenameController.php:64
+#: src/Controllers/Table/SearchController.php:175
+#: src/Controllers/Table/SearchController.php:180
+#: src/Controllers/Table/SqlController.php:68
+#: src/Controllers/Table/SqlController.php:73
+#: src/Controllers/Table/StructureController.php:97
+#: src/Controllers/Table/StructureController.php:102
+#: src/Controllers/Table/Structure/PrimaryController.php:77
+#: src/Controllers/Table/Structure/PrimaryController.php:82
+#: src/Controllers/Table/TrackingController.php:73
+#: src/Controllers/Table/TrackingController.php:78
+#: src/Controllers/Table/ZoomSearchController.php:101
+#: src/Controllers/Table/ZoomSearchController.php:106
+#: src/Controllers/Triggers/IndexController.php:72
+#: src/Controllers/Triggers/IndexController.php:98
+#: src/Controllers/View/CreateController.php:78
+#: src/Controllers/View/CreateController.php:83
 msgid "No databases selected."
 msgstr "Datubāze nav izvēlēta."
 
-#: src/Controllers/Database/EventsController.php:142
+#: src/Controllers/Database/EventsController.php:143
 #, fuzzy
 msgid "Add event"
 msgstr "Pievienot jaunu lietotāju"
 
-#: src/Controllers/Database/EventsController.php:146
+#: src/Controllers/Database/EventsController.php:147
 #, fuzzy
 msgid "Edit event"
 msgstr "Nosūtīts"
 
-#: src/Controllers/Database/EventsController.php:195
-#: src/Controllers/Database/RoutinesController.php:287
-#: src/Controllers/Database/RoutinesController.php:317
-#: src/Controllers/Database/RoutinesController.php:385
-#: src/Controllers/Triggers/IndexController.php:227
+#: src/Controllers/Database/EventsController.php:196
+#: src/Controllers/Database/RoutinesController.php:288
+#: src/Controllers/Database/RoutinesController.php:318
+#: src/Controllers/Database/RoutinesController.php:386
+#: src/Controllers/Triggers/IndexController.php:228
 #, fuzzy
 #| msgid "Processes"
 msgid "Error in processing request:"
 msgstr "Procesi"
 
-#: src/Controllers/Database/EventsController.php:197
+#: src/Controllers/Database/EventsController.php:198
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s."
 msgstr "Tabulas nav atrastas šajā datubāzē."
 
-#: src/Controllers/Database/EventsController.php:223
+#: src/Controllers/Database/EventsController.php:224
 #, fuzzy, php-format
 #| msgid "No rows selected"
 msgid "Export of event %s"
 msgstr "Rindas nav iezīmētas"
 
-#: src/Controllers/Database/EventsController.php:241
+#: src/Controllers/Database/EventsController.php:242
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Tabulas nav atrastas šajā datubāzē."
 
-#: src/Controllers/Database/ExportController.php:152
-#: src/Controllers/Server/ExportController.php:72
-#: src/Controllers/Table/ExportController.php:105
+#: src/Controllers/Database/ExportController.php:153
+#: src/Controllers/Server/ExportController.php:73
+#: src/Controllers/Table/ExportController.php:106
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
-#: src/Controllers/Database/ImportController.php:83
-#: src/Controllers/Server/ImportController.php:63
-#: src/Controllers/Table/ImportController.php:103
+#: src/Controllers/Database/ImportController.php:84
+#: src/Controllers/Server/ImportController.php:64
+#: src/Controllers/Table/ImportController.php:104
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nevar ielādēt importētos spraudņus, lūdzu pārbaudiet savu instalāciju!"
 
-#: src/Controllers/Database/PrivilegesController.php:64
-#: src/Controllers/Server/PrivilegesController.php:105
-#: src/Controllers/Server/UserGroupsController.php:47
-#: src/Controllers/Table/PrivilegesController.php:67
+#: src/Controllers/Database/PrivilegesController.php:65
+#: src/Controllers/Server/PrivilegesController.php:106
+#: src/Controllers/Server/UserGroupsController.php:48
+#: src/Controllers/Table/PrivilegesController.php:68
 msgid "No Privileges"
 msgstr "Nav privilēģiju"
 
-#: src/Controllers/Database/PrivilegesController.php:73
-#: src/Controllers/Server/PrivilegesController.php:114
-#: src/Controllers/Table/PrivilegesController.php:76
+#: src/Controllers/Database/PrivilegesController.php:74
+#: src/Controllers/Server/PrivilegesController.php:115
+#: src/Controllers/Table/PrivilegesController.php:77
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
 
-#: src/Controllers/Database/RoutinesController.php:85
-#: src/Controllers/Database/Structure/AddPrefixController.php:22
-#: src/Controllers/Database/Structure/CentralColumns/AddController.php:40
-#: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:40
-#: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:39
-#: src/Controllers/Database/Structure/ChangePrefixFormController.php:22
-#: src/Controllers/Database/Structure/CopyFormController.php:23
-#: src/Controllers/Database/Structure/DropFormController.php:33
-#: src/Controllers/Database/Structure/EmptyFormController.php:25
-#: src/Controllers/Database/Structure/ShowCreateController.php:31
-#: src/Controllers/Export/TablesController.php:29
-#: src/Controllers/JavaScriptMessagesController.php:355
-#: src/Controllers/Operations/TableController.php:101
-#: src/Controllers/Operations/TableController.php:106
-#: src/Controllers/Operations/ViewController.php:78
-#: src/Controllers/Operations/ViewController.php:83
-#: src/Controllers/Table/AddFieldController.php:179
-#: src/Controllers/Table/AddFieldController.php:184
-#: src/Controllers/Table/ChangeController.php:83
-#: src/Controllers/Table/ChangeController.php:88
-#: src/Controllers/Table/ChartController.php:118
-#: src/Controllers/Table/ChartController.php:123
-#: src/Controllers/Table/ChartController.php:239
-#: src/Controllers/Table/DeleteConfirmController.php:77
-#: src/Controllers/Table/DeleteConfirmController.php:82
-#: src/Controllers/Table/DropColumnConfirmationController.php:64
-#: src/Controllers/Table/DropColumnConfirmationController.php:69
-#: src/Controllers/Table/FindReplaceController.php:87
-#: src/Controllers/Table/FindReplaceController.php:92
-#: src/Controllers/Table/ImportController.php:83
-#: src/Controllers/Table/ImportController.php:88
-#: src/Controllers/Table/IndexesController.php:82
-#: src/Controllers/Table/IndexesController.php:87
-#: src/Controllers/Table/IndexRenameController.php:72
-#: src/Controllers/Table/IndexRenameController.php:77
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:45
-#: src/Controllers/Table/Maintenance/CheckController.php:45
-#: src/Controllers/Table/Maintenance/ChecksumController.php:45
-#: src/Controllers/Table/Maintenance/OptimizeController.php:45
-#: src/Controllers/Table/Maintenance/RepairController.php:45
-#: src/Controllers/Table/SearchController.php:188
-#: src/Controllers/Table/SearchController.php:193
-#: src/Controllers/Table/SqlController.php:81
-#: src/Controllers/Table/SqlController.php:86
-#: src/Controllers/Table/StructureController.php:110
-#: src/Controllers/Table/StructureController.php:115
-#: src/Controllers/Table/Structure/PrimaryController.php:90
-#: src/Controllers/Table/Structure/PrimaryController.php:95
-#: src/Controllers/Table/ZoomSearchController.php:114
-#: src/Controllers/Table/ZoomSearchController.php:119
-#: src/Controllers/Triggers/IndexController.php:78
+#: src/Controllers/Database/RoutinesController.php:86
+#: src/Controllers/Database/Structure/AddPrefixController.php:23
+#: src/Controllers/Database/Structure/CentralColumns/AddController.php:41
+#: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:41
+#: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:40
+#: src/Controllers/Database/Structure/ChangePrefixFormController.php:23
+#: src/Controllers/Database/Structure/CopyFormController.php:24
+#: src/Controllers/Database/Structure/DropFormController.php:34
+#: src/Controllers/Database/Structure/EmptyFormController.php:26
+#: src/Controllers/Database/Structure/ShowCreateController.php:32
+#: src/Controllers/Export/TablesController.php:30
+#: src/Controllers/JavaScriptMessagesController.php:356
+#: src/Controllers/Operations/TableController.php:102
+#: src/Controllers/Operations/TableController.php:107
+#: src/Controllers/Operations/ViewController.php:79
+#: src/Controllers/Operations/ViewController.php:84
+#: src/Controllers/Table/AddFieldController.php:180
+#: src/Controllers/Table/AddFieldController.php:185
+#: src/Controllers/Table/ChangeController.php:84
+#: src/Controllers/Table/ChangeController.php:89
+#: src/Controllers/Table/ChartController.php:119
+#: src/Controllers/Table/ChartController.php:124
+#: src/Controllers/Table/ChartController.php:242
+#: src/Controllers/Table/DeleteConfirmController.php:78
+#: src/Controllers/Table/DeleteConfirmController.php:83
+#: src/Controllers/Table/DropColumnConfirmationController.php:65
+#: src/Controllers/Table/DropColumnConfirmationController.php:70
+#: src/Controllers/Table/FindReplaceController.php:88
+#: src/Controllers/Table/FindReplaceController.php:93
+#: src/Controllers/Table/ImportController.php:84
+#: src/Controllers/Table/ImportController.php:89
+#: src/Controllers/Table/IndexesController.php:83
+#: src/Controllers/Table/IndexesController.php:88
+#: src/Controllers/Table/IndexRenameController.php:73
+#: src/Controllers/Table/IndexRenameController.php:78
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:46
+#: src/Controllers/Table/Maintenance/CheckController.php:46
+#: src/Controllers/Table/Maintenance/ChecksumController.php:46
+#: src/Controllers/Table/Maintenance/OptimizeController.php:46
+#: src/Controllers/Table/Maintenance/RepairController.php:46
+#: src/Controllers/Table/SearchController.php:189
+#: src/Controllers/Table/SearchController.php:194
+#: src/Controllers/Table/SqlController.php:82
+#: src/Controllers/Table/SqlController.php:87
+#: src/Controllers/Table/StructureController.php:111
+#: src/Controllers/Table/StructureController.php:116
+#: src/Controllers/Table/Structure/PrimaryController.php:91
+#: src/Controllers/Table/Structure/PrimaryController.php:96
+#: src/Controllers/Table/ZoomSearchController.php:115
+#: src/Controllers/Table/ZoomSearchController.php:120
+#: src/Controllers/Triggers/IndexController.php:79
 #, fuzzy
 #| msgid "No tables selected."
 msgid "No table selected."
 msgstr "Nav izvēlēta tabula."
 
-#: src/Controllers/Database/RoutinesController.php:187
+#: src/Controllers/Database/RoutinesController.php:188
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add routine"
 msgstr "Pievienot jaunu lauku"
 
-#: src/Controllers/Database/RoutinesController.php:191
+#: src/Controllers/Database/RoutinesController.php:192
 msgid "Edit routine"
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:290
+#: src/Controllers/Database/RoutinesController.php:291
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:319
-#: src/Controllers/Database/RoutinesController.php:387
+#: src/Controllers/Database/RoutinesController.php:320
+#: src/Controllers/Database/RoutinesController.php:388
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Tabulas nav atrastas šajā datubāzē."
 
-#: src/Controllers/Database/RoutinesController.php:368
-#: src/Controllers/Database/RoutinesController.php:378
+#: src/Controllers/Database/RoutinesController.php:369
+#: src/Controllers/Database/RoutinesController.php:379
 msgid "Execute routine"
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:430
+#: src/Controllers/Database/RoutinesController.php:431
 #, php-format
 msgid "Export of routine %s"
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:449
+#: src/Controllers/Database/RoutinesController.php:450
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12906,19 +12907,19 @@ msgid ""
 "routine."
 msgstr ""
 
-#: src/Controllers/Database/SearchController.php:66
+#: src/Controllers/Database/SearchController.php:67
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
 
-#: src/Controllers/Database/Structure/CentralColumns/AddController.php:50
-#: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:50
-#: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:49
+#: src/Controllers/Database/Structure/CentralColumns/AddController.php:51
+#: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:51
+#: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:50
 msgid "Success!"
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:575
+#: src/Controllers/Database/StructureController.php:578
 #: src/Display/Results.php:3428
 #, php-format
 msgid ""
@@ -12926,35 +12927,35 @@ msgid ""
 "%sdocumentation%s."
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:739
+#: src/Controllers/Database/StructureController.php:742
 msgid "unknown"
 msgstr "nazināma"
 
-#: src/Controllers/Database/Structure/FavoriteTableController.php:119
+#: src/Controllers/Database/Structure/FavoriteTableController.php:120
 msgid "Favorite List is full!"
 msgstr ""
 
-#: src/Controllers/Database/TrackingController.php:80
-#: src/Controllers/Database/TrackingController.php:106
+#: src/Controllers/Database/TrackingController.php:81
+#: src/Controllers/Database/TrackingController.php:107
 msgid "Tracking data deleted successfully."
 msgstr "Atsekošanas dati veiksmīgi dzēsti."
 
-#: src/Controllers/Database/TrackingController.php:91
+#: src/Controllers/Database/TrackingController.php:92
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
 "Versija %1$s iezīmētajām tabulām tika izveidota, to atsekošana ir aktīva."
 
-#: src/Controllers/Database/TrackingController.php:123
+#: src/Controllers/Database/TrackingController.php:124
 msgid "No tables selected."
 msgstr "Nav izvēlēta tabula."
 
-#: src/Controllers/Database/TrackingController.php:159
+#: src/Controllers/Database/TrackingController.php:160
 msgid "Database Log"
 msgstr "Datubāzes žurnāls"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:96
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -12962,11 +12963,11 @@ msgstr ""
 "Atrasta kļūda un balstoties uz Jūsu iestatījumiem, kļūdu atskaite tika "
 "automātiski nosūtīta."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:100
 msgid "Thank you for submitting this report."
 msgstr "Paldies, ka iesniedzāt kļūdu atskaiti."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:104
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -12974,19 +12975,19 @@ msgstr ""
 "Kļūda tika atrasta un kļūdu atskaite tika izveidota, taču to neizdevās "
 "nosūtīt."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:107
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "Ja Jums rodas problēmas, lūdzu manuāli iesniedziet kļūdu atskaiti."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "Varētu būt derīgi pārlādēt lapu."
 
-#: src/Controllers/Export/ExportController.php:112 src/Export/Export.php:1209
+#: src/Controllers/Export/ExportController.php:113 src/Export/Export.php:1209
 msgid "Bad type!"
 msgstr "Nepareizs tips!"
 
-#: src/Controllers/Export/ExportController.php:195
+#: src/Controllers/Export/ExportController.php:196
 msgid "Bad parameters!"
 msgstr "Nepareizi parametri!"
 
@@ -13097,7 +13098,7 @@ msgstr ""
 "iemeslu dēļ dažas iespējas, kā, piemēram, kļūdu ziņošana un versiju "
 "salīdzināšana ir atspējotas."
 
-#: src/Controllers/Import/ImportController.php:166
+#: src/Controllers/Import/ImportController.php:167
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -13106,23 +13107,23 @@ msgstr ""
 "Visticamāk jūs mēģinājāt augšupielādēt failu, kas ir par lielu. Risinājumu "
 "droši vien var atrast %sdokumentācijā%s."
 
-#: src/Controllers/Import/ImportController.php:193
+#: src/Controllers/Import/ImportController.php:194
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Incorrect format parameter"
 msgstr "Pārsaukt datubāzi par"
 
-#: src/Controllers/Import/ImportController.php:302
-#: src/Controllers/Import/ImportController.php:515
+#: src/Controllers/Import/ImportController.php:303
+#: src/Controllers/Import/ImportController.php:516
 msgid "Showing bookmark"
 msgstr "Rāda grāmatzīmi"
 
-#: src/Controllers/Import/ImportController.php:322
-#: src/Controllers/Import/ImportController.php:511
+#: src/Controllers/Import/ImportController.php:323
+#: src/Controllers/Import/ImportController.php:512
 msgid "The bookmark has been deleted."
 msgstr "Ieraksts tika dzēsts."
 
-#: src/Controllers/Import/ImportController.php:434
+#: src/Controllers/Import/ImportController.php:435
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -13132,7 +13133,7 @@ msgstr ""
 "vai arī faila izmērs pārsniedza maksimālo izmēru, ko pieļauj jūsu PHP "
 "configurācija. Skatīt [doc@faq1-16]BUJ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:523
+#: src/Controllers/Import/ImportController.php:524
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -13140,7 +13141,7 @@ msgstr[0] "Importēšana pabeigta veiksmīgi, izpildīts %d vaicājums."
 msgstr[1] "Importēšana pabeigta veiksmīgi, izpildīti %d vaicājumi."
 msgstr[2] "Importēšana pabeigta veiksmīgi, izpildīti %d vaicājumi."
 
-#: src/Controllers/Import/ImportController.php:560
+#: src/Controllers/Import/ImportController.php:561
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -13149,7 +13150,7 @@ msgstr ""
 "Ir iestājies skripta noilgums, ja vēlaties pabeigt importu līdz galam, tad "
 "%sizvēlieties vēlreiz to pašu failu%s un importēšana turpināsies."
 
-#: src/Controllers/Import/ImportController.php:570
+#: src/Controllers/Import/ImportController.php:571
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -13158,29 +13159,29 @@ msgstr ""
 "ka phpMyAdmin nebūs spējīgs pabeigt importu, ja vien nepalielināsiet php "
 "izpildes laika ierobežojumus."
 
-#: src/Controllers/Import/ImportController.php:633
-#: src/Controllers/Sql/SqlController.php:161
+#: src/Controllers/Import/ImportController.php:634
+#: src/Controllers/Sql/SqlController.php:162
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" komanda ir aizliegta."
 
-#: src/Controllers/Import/SimulateDmlController.php:35
+#: src/Controllers/Import/SimulateDmlController.php:36
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: src/Controllers/Import/StatusController.php:62
+#: src/Controllers/Import/StatusController.php:64
 msgid "Could not load the progress of the import."
 msgstr "Neizdevās ielādēt importa progresu."
 
-#: src/Controllers/JavaScriptMessagesController.php:52
+#: src/Controllers/JavaScriptMessagesController.php:53
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Vai tiešām vēlaties izpildīt vaicājumu \"%s\"?"
 
-#: src/Controllers/JavaScriptMessagesController.php:53
+#: src/Controllers/JavaScriptMessagesController.php:54
 msgid "You are about to DESTROY a complete database!"
 msgstr "Jūs taisaties LIKVIDĒT veselu datubāzi!"
 
-#: src/Controllers/JavaScriptMessagesController.php:55
+#: src/Controllers/JavaScriptMessagesController.php:56
 #, fuzzy
 #| msgid ""
 #| "Cannot rename database to the same name. Change the name and try again"
@@ -13189,64 +13190,64 @@ msgstr ""
 "Nevar pārsaukt datubāzi uz to pašu nosaukumu. Nomainiet nosaukumu un "
 "mēģiniet vēlreiz"
 
-#: src/Controllers/JavaScriptMessagesController.php:57
+#: src/Controllers/JavaScriptMessagesController.php:58
 msgid "You are about to DESTROY a complete table!"
 msgstr "Jūs taisaties LIKVIDĒT veselu tabulu!"
 
-#: src/Controllers/JavaScriptMessagesController.php:58
+#: src/Controllers/JavaScriptMessagesController.php:59
 msgid "You are about to TRUNCATE a complete table!"
 msgstr "Jūs taisaties LIKVIDĒT veselu tabulu!"
 
-#: src/Controllers/JavaScriptMessagesController.php:59
+#: src/Controllers/JavaScriptMessagesController.php:60
 #, fuzzy
 #| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
 msgstr "Jūs taisaties LIKVIDĒT veselu tabulu!"
 
-#: src/Controllers/JavaScriptMessagesController.php:60
+#: src/Controllers/JavaScriptMessagesController.php:61
 msgid "Delete tracking data for this table?"
 msgstr "Vai izdzēst izsekošanas datus šai tabulai?"
 
-#: src/Controllers/JavaScriptMessagesController.php:61
+#: src/Controllers/JavaScriptMessagesController.php:62
 msgid "Delete tracking data for these tables?"
 msgstr "Vai izdzēst izsekošanas datus šīm tabulām?"
 
-#: src/Controllers/JavaScriptMessagesController.php:62
+#: src/Controllers/JavaScriptMessagesController.php:63
 msgid "Delete tracking data for this version?"
 msgstr "Vai izdzēst izsekošanas datus no šīs versijas?"
 
-#: src/Controllers/JavaScriptMessagesController.php:63
+#: src/Controllers/JavaScriptMessagesController.php:64
 msgid "Delete tracking data for these versions?"
 msgstr "Vai izdzēst izsekošanas datus no šīm versijām?"
 
-#: src/Controllers/JavaScriptMessagesController.php:64
+#: src/Controllers/JavaScriptMessagesController.php:65
 msgid "Delete entry from tracking report?"
 msgstr "Vai izdzēst ierakstu no izsekošanas ziņojuma?"
 
-#: src/Controllers/JavaScriptMessagesController.php:65
+#: src/Controllers/JavaScriptMessagesController.php:66
 msgid "Deleting tracking data"
 msgstr "Atsekošanas datu dzēšana"
 
-#: src/Controllers/JavaScriptMessagesController.php:66
+#: src/Controllers/JavaScriptMessagesController.php:67
 msgid "Dropping Primary Key/Index"
 msgstr "Noņem primāro Atslēgu/Indeksu"
 
-#: src/Controllers/JavaScriptMessagesController.php:67
+#: src/Controllers/JavaScriptMessagesController.php:68
 msgid "Dropping Foreign key."
 msgstr "Noņemu ārējo atslēgu."
 
-#: src/Controllers/JavaScriptMessagesController.php:68
+#: src/Controllers/JavaScriptMessagesController.php:69
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
 
-#: src/Controllers/JavaScriptMessagesController.php:69
+#: src/Controllers/JavaScriptMessagesController.php:70
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
 "Jums ir nesaglabātas izmaiņas; vai Jūs esat pārliecināts, ka vēlaties pamest "
 "šo lapu?"
 
-#: src/Controllers/JavaScriptMessagesController.php:71
+#: src/Controllers/JavaScriptMessagesController.php:72
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
@@ -13254,19 +13255,19 @@ msgstr ""
 "Jūs mēģinat samazināt ierakstu skaitu, bet jau esat ievadījis datus šajos "
 "ierakstos, kas tiks zaudēti. Vai vēlaties turpināt?"
 
-#: src/Controllers/JavaScriptMessagesController.php:74
+#: src/Controllers/JavaScriptMessagesController.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Vai Jūs tiešām vēlaties atsaukt izvēlēto(s) lietotāju(s)?"
 
-#: src/Controllers/JavaScriptMessagesController.php:75
+#: src/Controllers/JavaScriptMessagesController.php:76
 msgid "Do you really want to delete this central column?"
 msgstr "Vai Jūs tiešām vēlaties dzēst šo centrālo kolonnu?"
 
-#: src/Controllers/JavaScriptMessagesController.php:76
+#: src/Controllers/JavaScriptMessagesController.php:77
 msgid "Do you really want to delete the selected items?"
 msgstr "Vai Jūs tiešām vēlaties dzēst izvēlētos elementus?"
 
-#: src/Controllers/JavaScriptMessagesController.php:78
+#: src/Controllers/JavaScriptMessagesController.php:79
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
@@ -13274,21 +13275,21 @@ msgstr ""
 "Vai jūs patiešām vēlaties NOMEST izvēlēto(ās) sadaļu(as)? Tas arī IZDZĒSĪS "
 "datus, kas attiecas ar izvēlēto(ajām) sadaļu(ām)!"
 
-#: src/Controllers/JavaScriptMessagesController.php:81
+#: src/Controllers/JavaScriptMessagesController.php:82
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Vai Jūs tiešām vēlaties APGRIEZT izvēlēto(ās) sadaļu(as)?"
 
-#: src/Controllers/JavaScriptMessagesController.php:82
+#: src/Controllers/JavaScriptMessagesController.php:83
 msgid "Do you really want to remove partitioning?"
 msgstr "Vai Jūs tiešām vēlaties dzēst izvēlēto(ās) sadaļu(as)?"
 
-#: src/Controllers/JavaScriptMessagesController.php:83
+#: src/Controllers/JavaScriptMessagesController.php:84
 #, fuzzy
 #| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
 msgstr "Vai Jūs tiešām vēlaties atsaukt izvēlēto(s) lietotāju(s)?"
 
-#: src/Controllers/JavaScriptMessagesController.php:85
+#: src/Controllers/JavaScriptMessagesController.php:86
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -13302,15 +13303,15 @@ msgstr ""
 "iesakām atgriezties uz veco sakārtojuma sistēmu un atsaukties uz padomiem, "
 "kas ir atrodami "
 
-#: src/Controllers/JavaScriptMessagesController.php:91
+#: src/Controllers/JavaScriptMessagesController.php:92
 msgid "Garbled Data"
 msgstr "Sakropļoti Dati"
 
-#: src/Controllers/JavaScriptMessagesController.php:93
+#: src/Controllers/JavaScriptMessagesController.php:94
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:96
+#: src/Controllers/JavaScriptMessagesController.php:97
 msgid ""
 "Through this operation, MySQL attempts to map the data values between "
 "collations. If the character sets are incompatible, there may be data loss "
@@ -13320,171 +13321,171 @@ msgid ""
 "</b>"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:104
+#: src/Controllers/JavaScriptMessagesController.php:105
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:109
+#: src/Controllers/JavaScriptMessagesController.php:110
 #, fuzzy
 #| msgid "Select All"
 msgid "Reset all"
 msgstr "Iezīmēt visu"
 
-#: src/Controllers/JavaScriptMessagesController.php:112
+#: src/Controllers/JavaScriptMessagesController.php:113
 msgid "Missing value in the form!"
 msgstr "Formā trūkst vērtību!"
 
-#: src/Controllers/JavaScriptMessagesController.php:113
+#: src/Controllers/JavaScriptMessagesController.php:114
 #, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
 msgstr "kaut viens no vārdiem"
 
-#: src/Controllers/JavaScriptMessagesController.php:114
+#: src/Controllers/JavaScriptMessagesController.php:115
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid number!"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: src/Controllers/JavaScriptMessagesController.php:115
+#: src/Controllers/JavaScriptMessagesController.php:116
 #, fuzzy
 #| msgid "Please enter a valid length"
 msgid "Please enter a valid length!"
 msgstr "Lūdzu ievadiet derīgu garumu"
 
-#: src/Controllers/JavaScriptMessagesController.php:116
+#: src/Controllers/JavaScriptMessagesController.php:117
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add index"
 msgstr "Pievienot jaunu lauku"
 
-#: src/Controllers/JavaScriptMessagesController.php:117
+#: src/Controllers/JavaScriptMessagesController.php:118
 #, fuzzy
 #| msgid "Edit Index"
 msgid "Edit index"
 msgstr "Labot indeksu"
 
 #. l10n: Rename a table Index
-#: src/Controllers/JavaScriptMessagesController.php:119
+#: src/Controllers/JavaScriptMessagesController.php:120
 #, fuzzy
 msgid "Rename index"
 msgstr "Pārsaukt tabulu uz"
 
-#: src/Controllers/JavaScriptMessagesController.php:121
+#: src/Controllers/JavaScriptMessagesController.php:122
 #, fuzzy
 #| msgid "Create routine"
 msgid "Create single-column index"
 msgstr "Servera versija"
 
-#: src/Controllers/JavaScriptMessagesController.php:122
+#: src/Controllers/JavaScriptMessagesController.php:123
 #, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
 msgstr "Servera versija"
 
-#: src/Controllers/JavaScriptMessagesController.php:123
+#: src/Controllers/JavaScriptMessagesController.php:124
 #, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Composite with:"
 msgstr "Lauki iekļauti iekš"
 
-#: src/Controllers/JavaScriptMessagesController.php:124
+#: src/Controllers/JavaScriptMessagesController.php:125
 #, fuzzy
 #| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
 msgstr "Pievienot %s lauku(s) indeksam"
 
 #. l10n: Default label for the y-Axis of Charts
-#: src/Controllers/JavaScriptMessagesController.php:135
+#: src/Controllers/JavaScriptMessagesController.php:136
 #, fuzzy
 #| msgid "Y Values"
 msgid "Y values"
 msgstr "Y Vērtība"
 
-#: src/Controllers/JavaScriptMessagesController.php:138
+#: src/Controllers/JavaScriptMessagesController.php:139
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter the SQL query first."
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: src/Controllers/JavaScriptMessagesController.php:141
+#: src/Controllers/JavaScriptMessagesController.php:142
 msgid "The host name is empty!"
 msgstr "Nav norādīts servera vārds!"
 
-#: src/Controllers/JavaScriptMessagesController.php:142
+#: src/Controllers/JavaScriptMessagesController.php:143
 msgid "The user name is empty!"
 msgstr "Nav norādīts lietotāja vārds!"
 
-#: src/Controllers/JavaScriptMessagesController.php:143
+#: src/Controllers/JavaScriptMessagesController.php:144
 #: src/Server/Privileges.php:766 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Nav norādīta parole!"
 
-#: src/Controllers/JavaScriptMessagesController.php:144
+#: src/Controllers/JavaScriptMessagesController.php:145
 #: src/Server/Privileges.php:764 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Paroles nesakrīt!"
 
-#: src/Controllers/JavaScriptMessagesController.php:145
+#: src/Controllers/JavaScriptMessagesController.php:146
 msgid "Removing Selected Users"
 msgstr "Dzēš izvēlētos lietotājus"
 
-#: src/Controllers/JavaScriptMessagesController.php:153
+#: src/Controllers/JavaScriptMessagesController.php:154
 #, fuzzy
 msgid "Template was created."
 msgstr "Tabula %s tika izdzēsta"
 
-#: src/Controllers/JavaScriptMessagesController.php:154
+#: src/Controllers/JavaScriptMessagesController.php:155
 msgid "Template was loaded."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:155
+#: src/Controllers/JavaScriptMessagesController.php:156
 #, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
 msgstr "Profils tika modificēts."
 
-#: src/Controllers/JavaScriptMessagesController.php:156
+#: src/Controllers/JavaScriptMessagesController.php:157
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
 msgstr "Ieraksts tika dzēsts"
 
 #. l10n: Other, small valued, queries
-#: src/Controllers/JavaScriptMessagesController.php:159
+#: src/Controllers/JavaScriptMessagesController.php:160
 #: src/Server/Status/Data.php:137
 msgid "Other"
 msgstr "Cits"
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:161 src/Util.php:388
+#: src/Controllers/JavaScriptMessagesController.php:162 src/Util.php:388
 #: src/Util.php:420
 msgid ","
 msgstr " "
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:163 src/Util.php:386
+#: src/Controllers/JavaScriptMessagesController.php:164 src/Util.php:386
 #: src/Util.php:418
 msgid "."
 msgstr "."
 
-#: src/Controllers/JavaScriptMessagesController.php:165
+#: src/Controllers/JavaScriptMessagesController.php:166
 msgid "Connections / Processes"
 msgstr "Savienojumi / Procesi"
 
-#: src/Controllers/JavaScriptMessagesController.php:167
+#: src/Controllers/JavaScriptMessagesController.php:168
 #, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of statements"
 msgstr "Rindu skaits vienā lapā"
 
-#: src/Controllers/JavaScriptMessagesController.php:170
+#: src/Controllers/JavaScriptMessagesController.php:171
 msgid "Local monitor configuration incompatible!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:172
+#: src/Controllers/JavaScriptMessagesController.php:173
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -13492,167 +13493,167 @@ msgid ""
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:178
+#: src/Controllers/JavaScriptMessagesController.php:179
 msgid "Query cache efficiency"
 msgstr "Vaicājumu kešatmiņas efektivitāte"
 
-#: src/Controllers/JavaScriptMessagesController.php:179
+#: src/Controllers/JavaScriptMessagesController.php:180
 msgid "Query cache usage"
 msgstr "Vaicājumu kešatmiņas lietojums"
 
-#: src/Controllers/JavaScriptMessagesController.php:180
+#: src/Controllers/JavaScriptMessagesController.php:181
 msgid "Query cache used"
 msgstr "Izmantotā vaicājumu kešatmiņa"
 
-#: src/Controllers/JavaScriptMessagesController.php:182
+#: src/Controllers/JavaScriptMessagesController.php:183
 #, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "Sistēmas CPU noslodze"
 
-#: src/Controllers/JavaScriptMessagesController.php:183
+#: src/Controllers/JavaScriptMessagesController.php:184
 msgid "System memory"
 msgstr "Sistēmas atmiņa"
 
-#: src/Controllers/JavaScriptMessagesController.php:184
+#: src/Controllers/JavaScriptMessagesController.php:185
 msgid "System swap"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:186
+#: src/Controllers/JavaScriptMessagesController.php:187
 msgid "Average load"
 msgstr "Vidējā noslodze"
 
-#: src/Controllers/JavaScriptMessagesController.php:187
+#: src/Controllers/JavaScriptMessagesController.php:188
 msgid "Total memory"
 msgstr "Kopējā atmiņa"
 
-#: src/Controllers/JavaScriptMessagesController.php:188
+#: src/Controllers/JavaScriptMessagesController.php:189
 msgid "Cached memory"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:189
+#: src/Controllers/JavaScriptMessagesController.php:190
 msgid "Buffered memory"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:190
+#: src/Controllers/JavaScriptMessagesController.php:191
 msgid "Free memory"
 msgstr "Brīvā atmiņa"
 
-#: src/Controllers/JavaScriptMessagesController.php:191
+#: src/Controllers/JavaScriptMessagesController.php:192
 msgid "Used memory"
 msgstr "Izmantotā atmiņa"
 
-#: src/Controllers/JavaScriptMessagesController.php:193
+#: src/Controllers/JavaScriptMessagesController.php:194
 #, fuzzy
 #| msgid "Total"
 msgid "Total swap"
 msgstr "Kopā"
 
-#: src/Controllers/JavaScriptMessagesController.php:194
+#: src/Controllers/JavaScriptMessagesController.php:195
 #, fuzzy
 #| msgid "memcached usage"
 msgid "Cached swap"
 msgstr "Diska vietas lietošana"
 
-#: src/Controllers/JavaScriptMessagesController.php:195
+#: src/Controllers/JavaScriptMessagesController.php:196
 msgid "Used swap"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:196
+#: src/Controllers/JavaScriptMessagesController.php:197
 msgid "Free swap"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:198
+#: src/Controllers/JavaScriptMessagesController.php:199
 msgid "Bytes sent"
 msgstr "Nosūtītie baiti"
 
-#: src/Controllers/JavaScriptMessagesController.php:199
+#: src/Controllers/JavaScriptMessagesController.php:200
 msgid "Bytes received"
 msgstr "Saņemtie baiti"
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:298
+#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:298
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:304
+#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:304
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:306
+#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:306
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:308
+#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:308
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:310
+#: src/Controllers/JavaScriptMessagesController.php:211 src/Util.php:310
 msgid "EiB"
 msgstr "EiB"
 
-#: src/Controllers/JavaScriptMessagesController.php:211
+#: src/Controllers/JavaScriptMessagesController.php:212
 #, php-format
 msgid "%d table(s)"
 msgstr "%d tabula(s)"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: src/Controllers/JavaScriptMessagesController.php:214
+#: src/Controllers/JavaScriptMessagesController.php:215
 msgid "Questions"
 msgstr "Jautājumi"
 
-#: src/Controllers/JavaScriptMessagesController.php:218
+#: src/Controllers/JavaScriptMessagesController.php:219
 msgid "Please add at least one variable to the series!"
 msgstr ""
 
 #. l10n: SQL Query on modal to show exported query
-#: src/Controllers/JavaScriptMessagesController.php:221
+#: src/Controllers/JavaScriptMessagesController.php:222
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL Query"
 msgstr "SQL vaicājums"
 
-#: src/Controllers/JavaScriptMessagesController.php:222
+#: src/Controllers/JavaScriptMessagesController.php:223
 msgid "Resume monitor"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:223
+#: src/Controllers/JavaScriptMessagesController.php:224
 msgid "Pause monitor"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:225
+#: src/Controllers/JavaScriptMessagesController.php:226
 msgid "Stop auto refresh"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:227
+#: src/Controllers/JavaScriptMessagesController.php:228
 msgid "general_log and slow_query_log are enabled."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:228
+#: src/Controllers/JavaScriptMessagesController.php:229
 msgid "general_log is enabled."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:229
+#: src/Controllers/JavaScriptMessagesController.php:230
 msgid "slow_query_log is enabled."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:230
+#: src/Controllers/JavaScriptMessagesController.php:231
 msgid "slow_query_log and general_log are disabled."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:231
+#: src/Controllers/JavaScriptMessagesController.php:232
 msgid "log_output is not set to TABLE."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:232
+#: src/Controllers/JavaScriptMessagesController.php:233
 msgid "log_output is set to TABLE."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:234
+#: src/Controllers/JavaScriptMessagesController.php:235
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -13660,479 +13661,479 @@ msgid ""
 "depending on your system."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:238
+#: src/Controllers/JavaScriptMessagesController.php:239
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:240
+#: src/Controllers/JavaScriptMessagesController.php:241
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
 
 #. l10n: %s is FILE or TABLE
-#: src/Controllers/JavaScriptMessagesController.php:243
+#: src/Controllers/JavaScriptMessagesController.php:244
 #, php-format
 msgid "Set log_output to %s"
 msgstr "Saglabāt log_output kā %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: src/Controllers/JavaScriptMessagesController.php:245
+#: src/Controllers/JavaScriptMessagesController.php:246
 #, php-format
 msgid "Enable %s"
 msgstr "Ieslēgt %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: src/Controllers/JavaScriptMessagesController.php:247
+#: src/Controllers/JavaScriptMessagesController.php:248
 #, php-format
 msgid "Disable %s"
 msgstr "Izslēgt %s"
 
 #. l10n: %d seconds
-#: src/Controllers/JavaScriptMessagesController.php:249
+#: src/Controllers/JavaScriptMessagesController.php:250
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Set long_query_time to %d seconds."
 msgstr "Vaicājums ilga %01.4f s"
 
-#: src/Controllers/JavaScriptMessagesController.php:251
+#: src/Controllers/JavaScriptMessagesController.php:252
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:253
+#: src/Controllers/JavaScriptMessagesController.php:254
 msgid "Change settings"
 msgstr "Mainīt iestatījumus"
 
-#: src/Controllers/JavaScriptMessagesController.php:254
+#: src/Controllers/JavaScriptMessagesController.php:255
 msgid "Current settings"
 msgstr "Pašreizējie iestatījumi"
 
-#: src/Controllers/JavaScriptMessagesController.php:256
+#: src/Controllers/JavaScriptMessagesController.php:257
 #, fuzzy
 #| msgid "Import files"
 msgid "Chart title"
 msgstr "Importēt failus"
 
 #. l10n: As in differential values
-#: src/Controllers/JavaScriptMessagesController.php:258
+#: src/Controllers/JavaScriptMessagesController.php:259
 msgid "Differential"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:259
+#: src/Controllers/JavaScriptMessagesController.php:260
 #, php-format
 msgid "Divided by %s"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:260
+#: src/Controllers/JavaScriptMessagesController.php:261
 msgid "Unit"
 msgstr "Vienība"
 
-#: src/Controllers/JavaScriptMessagesController.php:262
+#: src/Controllers/JavaScriptMessagesController.php:263
 msgid "From slow log"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:263
+#: src/Controllers/JavaScriptMessagesController.php:264
 msgid "From general log"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:264
+#: src/Controllers/JavaScriptMessagesController.php:265
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:265
+#: src/Controllers/JavaScriptMessagesController.php:266
 msgid "Analysing logs"
 msgstr "Analizē žurnālus"
 
-#: src/Controllers/JavaScriptMessagesController.php:266
+#: src/Controllers/JavaScriptMessagesController.php:267
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:267
+#: src/Controllers/JavaScriptMessagesController.php:268
 msgid "Cancel request"
 msgstr "Atcelt pieprasījumu"
 
-#: src/Controllers/JavaScriptMessagesController.php:269
+#: src/Controllers/JavaScriptMessagesController.php:270
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:274
+#: src/Controllers/JavaScriptMessagesController.php:275
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:278
+#: src/Controllers/JavaScriptMessagesController.php:279
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:280
+#: src/Controllers/JavaScriptMessagesController.php:281
 msgid "Jump to Log table"
 msgstr "Pāriet uz žurnālu tabulu"
 
-#: src/Controllers/JavaScriptMessagesController.php:281
+#: src/Controllers/JavaScriptMessagesController.php:282
 msgid "No data found"
 msgstr "Dati netika atrasti"
 
-#: src/Controllers/JavaScriptMessagesController.php:282
+#: src/Controllers/JavaScriptMessagesController.php:283
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:284
+#: src/Controllers/JavaScriptMessagesController.php:285
 msgid "Analyzing…"
 msgstr "Analizē…"
 
-#: src/Controllers/JavaScriptMessagesController.php:285
+#: src/Controllers/JavaScriptMessagesController.php:286
 msgid "Explain output"
 msgstr "Izskaidrot izvadu"
 
-#: src/Controllers/JavaScriptMessagesController.php:288
+#: src/Controllers/JavaScriptMessagesController.php:289
 msgid "Total time:"
 msgstr "Kopējais laiks:"
 
-#: src/Controllers/JavaScriptMessagesController.php:289
+#: src/Controllers/JavaScriptMessagesController.php:290
 #, fuzzy
 #| msgid "SQL result"
 msgid "Profiling results"
 msgstr "SQL rezultāts"
 
-#: src/Controllers/JavaScriptMessagesController.php:290
+#: src/Controllers/JavaScriptMessagesController.php:291
 #, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabula"
 
-#: src/Controllers/JavaScriptMessagesController.php:291
+#: src/Controllers/JavaScriptMessagesController.php:292
 msgid "Chart"
 msgstr "Diagramma"
 
 #. l10n: A collection of available filters
-#: src/Controllers/JavaScriptMessagesController.php:298
+#: src/Controllers/JavaScriptMessagesController.php:299
 msgid "Log table filter options"
 msgstr "Žurnālu tabulas filtrēšanas opcijas"
 
 #. l10n: Filter as in "Start Filtering"
-#: src/Controllers/JavaScriptMessagesController.php:300
+#: src/Controllers/JavaScriptMessagesController.php:301
 msgid "Filter"
 msgstr "Filtrēt"
 
-#: src/Controllers/JavaScriptMessagesController.php:301
+#: src/Controllers/JavaScriptMessagesController.php:302
 msgid "Filter queries by word/regexp:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:302
+#: src/Controllers/JavaScriptMessagesController.php:303
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:303
+#: src/Controllers/JavaScriptMessagesController.php:304
 #, fuzzy
 #| msgid "Number of rows per page"
 msgid "Sum of grouped rows:"
 msgstr "Rindu skaits vienā lapā"
 
-#: src/Controllers/JavaScriptMessagesController.php:306
+#: src/Controllers/JavaScriptMessagesController.php:307
 msgid "Loading logs"
 msgstr "Ielādē žurnālus"
 
-#: src/Controllers/JavaScriptMessagesController.php:307
+#: src/Controllers/JavaScriptMessagesController.php:308
 msgid "Monitor refresh failed"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:309
+#: src/Controllers/JavaScriptMessagesController.php:310
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:313
+#: src/Controllers/JavaScriptMessagesController.php:314
 msgid "Reload page"
 msgstr "Pārlādēt lapu"
 
-#: src/Controllers/JavaScriptMessagesController.php:315
+#: src/Controllers/JavaScriptMessagesController.php:316
 msgid "Affected rows:"
 msgstr "Ietekmētās rindas:"
 
-#: src/Controllers/JavaScriptMessagesController.php:317
+#: src/Controllers/JavaScriptMessagesController.php:318
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:319
+#: src/Controllers/JavaScriptMessagesController.php:320
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:322
+#: src/Controllers/JavaScriptMessagesController.php:323
 msgid "Import monitor configuration"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:323
+#: src/Controllers/JavaScriptMessagesController.php:324
 #, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import:"
 msgstr "Lūdzu izvēlies importējamo failu"
 
-#: src/Controllers/JavaScriptMessagesController.php:324
+#: src/Controllers/JavaScriptMessagesController.php:325
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid table name."
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: src/Controllers/JavaScriptMessagesController.php:325
+#: src/Controllers/JavaScriptMessagesController.php:326
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid database name."
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: src/Controllers/JavaScriptMessagesController.php:326
+#: src/Controllers/JavaScriptMessagesController.php:327
 msgid "No files available on server for import!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:328
+#: src/Controllers/JavaScriptMessagesController.php:329
 #, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "Analizēt pieprasījumu"
 
-#: src/Controllers/JavaScriptMessagesController.php:331
+#: src/Controllers/JavaScriptMessagesController.php:332
 msgid "Formatting SQL…"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:332
+#: src/Controllers/JavaScriptMessagesController.php:333
 #, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
 msgstr "Nepareizi parametri!"
 
-#: src/Controllers/JavaScriptMessagesController.php:344
+#: src/Controllers/JavaScriptMessagesController.php:345
 msgid "Request aborted!!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:345
+#: src/Controllers/JavaScriptMessagesController.php:346
 #, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
 msgstr "Apstrādā pieprasījumu"
 
-#: src/Controllers/JavaScriptMessagesController.php:346
+#: src/Controllers/JavaScriptMessagesController.php:347
 #, fuzzy
 msgid "Request failed!!"
 msgstr "Vaicājuma tips"
 
-#: src/Controllers/JavaScriptMessagesController.php:347
-#: src/Controllers/Sql/EnumValuesController.php:36
-#: src/Controllers/Sql/SetValuesController.php:39
+#: src/Controllers/JavaScriptMessagesController.php:348
+#: src/Controllers/Sql/EnumValuesController.php:37
+#: src/Controllers/Sql/SetValuesController.php:40
 #, fuzzy
 #| msgid "Processes"
 msgid "Error in processing request"
 msgstr "Procesi"
 
-#: src/Controllers/JavaScriptMessagesController.php:348
+#: src/Controllers/JavaScriptMessagesController.php:349
 #, php-format
 msgid "Error code: %s"
 msgstr "Kļūdas kods: %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:349
+#: src/Controllers/JavaScriptMessagesController.php:350
 #, php-format
 msgid "Error text: %s"
 msgstr "Kļūdas teksts: %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:351
+#: src/Controllers/JavaScriptMessagesController.php:352
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:356
+#: src/Controllers/JavaScriptMessagesController.php:357
 #, fuzzy
 #| msgid "No column selected."
 msgid "No accounts selected."
 msgstr "Nav izvēlēta kolonna."
 
-#: src/Controllers/JavaScriptMessagesController.php:357
+#: src/Controllers/JavaScriptMessagesController.php:358
 #, fuzzy
 #| msgid "Dropping Procedure"
 msgid "Dropping column"
 msgstr "Procesi"
 
-#: src/Controllers/JavaScriptMessagesController.php:358
+#: src/Controllers/JavaScriptMessagesController.php:359
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Adding primary key"
 msgstr "Pievienot %s lauku(s)"
 
-#: src/Controllers/JavaScriptMessagesController.php:360
+#: src/Controllers/JavaScriptMessagesController.php:361
 msgid "Click to dismiss this notification"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:363
+#: src/Controllers/JavaScriptMessagesController.php:364
 #, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Pārsauc datubāzes"
 
-#: src/Controllers/JavaScriptMessagesController.php:364
+#: src/Controllers/JavaScriptMessagesController.php:365
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Kopē datubāzi"
 
-#: src/Controllers/JavaScriptMessagesController.php:365
+#: src/Controllers/JavaScriptMessagesController.php:366
 #, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Maina kodējumu"
 
-#: src/Controllers/JavaScriptMessagesController.php:372
+#: src/Controllers/JavaScriptMessagesController.php:373
 msgid "Failed to get real row count."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:375
+#: src/Controllers/JavaScriptMessagesController.php:376
 msgid "Searching"
 msgstr "Meklē"
 
-#: src/Controllers/JavaScriptMessagesController.php:376
+#: src/Controllers/JavaScriptMessagesController.php:377
 msgid "Hide search results"
 msgstr "Slēpt meklēšanas rezultātus"
 
-#: src/Controllers/JavaScriptMessagesController.php:377
+#: src/Controllers/JavaScriptMessagesController.php:378
 msgid "Show search results"
 msgstr "Rādīt meklēšanas rezultātus"
 
-#: src/Controllers/JavaScriptMessagesController.php:378
+#: src/Controllers/JavaScriptMessagesController.php:379
 msgid "Browsing"
 msgstr "Apskata"
 
-#: src/Controllers/JavaScriptMessagesController.php:379
+#: src/Controllers/JavaScriptMessagesController.php:380
 msgid "Deleting"
 msgstr "Dzēš"
 
-#: src/Controllers/JavaScriptMessagesController.php:380
+#: src/Controllers/JavaScriptMessagesController.php:381
 #, fuzzy, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
 msgstr "Dati tabulai"
 
-#: src/Controllers/JavaScriptMessagesController.php:383
+#: src/Controllers/JavaScriptMessagesController.php:384
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:385
+#: src/Controllers/JavaScriptMessagesController.php:386
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:388
+#: src/Controllers/JavaScriptMessagesController.php:389
 #, php-format
 msgid "Values for column %s"
 msgstr "Lauka %s vērtības"
 
-#: src/Controllers/JavaScriptMessagesController.php:389
+#: src/Controllers/JavaScriptMessagesController.php:390
 msgid "Values for a new column"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:390
+#: src/Controllers/JavaScriptMessagesController.php:391
 msgid "Enter each value in a separate field."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:391
+#: src/Controllers/JavaScriptMessagesController.php:392
 #, fuzzy, php-format
 msgid "Add %d value(s)"
 msgstr "Pievienot jaunu lietotāju"
 
-#: src/Controllers/JavaScriptMessagesController.php:394
+#: src/Controllers/JavaScriptMessagesController.php:395
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:397
+#: src/Controllers/JavaScriptMessagesController.php:398
 msgid "Hide query box"
 msgstr "Slēpt vaicājuma logu"
 
-#: src/Controllers/JavaScriptMessagesController.php:398
+#: src/Controllers/JavaScriptMessagesController.php:399
 msgid "Show query box"
 msgstr "Rādīt vaicājumu logu"
 
-#: src/Controllers/JavaScriptMessagesController.php:401
+#: src/Controllers/JavaScriptMessagesController.php:402
 #, php-format
 msgid "%d is not valid row number."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:403
+#: src/Controllers/JavaScriptMessagesController.php:404
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:405
+#: src/Controllers/JavaScriptMessagesController.php:406
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:407
+#: src/Controllers/JavaScriptMessagesController.php:408
 #, fuzzy, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
 msgstr "Mainīgais"
 
-#: src/Controllers/JavaScriptMessagesController.php:410
+#: src/Controllers/JavaScriptMessagesController.php:411
 #: src/Normalization.php:949
 msgid "Pick"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:411
+#: src/Controllers/JavaScriptMessagesController.php:412
 #, fuzzy
 #| msgid "No column selected."
 msgid "Column selector"
 msgstr "Nav izvēlēta kolonna."
 
-#: src/Controllers/JavaScriptMessagesController.php:412
+#: src/Controllers/JavaScriptMessagesController.php:413
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
 msgstr "Meklēt datubāzē"
 
-#: src/Controllers/JavaScriptMessagesController.php:414
+#: src/Controllers/JavaScriptMessagesController.php:415
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:417
+#: src/Controllers/JavaScriptMessagesController.php:418
 #, fuzzy
 #| msgid "Free memory"
 msgid "See more"
 msgstr "Brīvā atmiņa"
 
-#: src/Controllers/JavaScriptMessagesController.php:420
+#: src/Controllers/JavaScriptMessagesController.php:421
 msgid "Add primary key"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:421
+#: src/Controllers/JavaScriptMessagesController.php:422
 #, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
 msgstr "Primārā atslēga pievienota uz lauka %s."
 
-#: src/Controllers/JavaScriptMessagesController.php:422
+#: src/Controllers/JavaScriptMessagesController.php:423
 #: src/Normalization.php:255
 #, fuzzy
 #| msgid "Change"
 msgid "Taking you to next step…"
 msgstr "Labot"
 
-#: src/Controllers/JavaScriptMessagesController.php:423
+#: src/Controllers/JavaScriptMessagesController.php:424
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:424
+#: src/Controllers/JavaScriptMessagesController.php:425
 #: src/Normalization.php:511 src/Normalization.php:570
 #: src/Normalization.php:657 src/Normalization.php:730
 #, fuzzy
@@ -14140,441 +14141,441 @@ msgstr ""
 msgid "End of step"
 msgstr "Tabulas beigās"
 
-#: src/Controllers/JavaScriptMessagesController.php:425
+#: src/Controllers/JavaScriptMessagesController.php:426
 msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: src/Controllers/JavaScriptMessagesController.php:426
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:427
+#: src/Controllers/JavaScriptMessagesController.php:774
 #: src/Normalization.php:343
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "Nav"
 
-#: src/Controllers/JavaScriptMessagesController.php:427
+#: src/Controllers/JavaScriptMessagesController.php:428
 msgid "Confirm partial dependencies"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:428
+#: src/Controllers/JavaScriptMessagesController.php:429
 msgid "Selected partial dependencies are as follows:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:430
+#: src/Controllers/JavaScriptMessagesController.php:431
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:433
+#: src/Controllers/JavaScriptMessagesController.php:434
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
 msgstr "Datubāze nav izvēlēta."
 
-#: src/Controllers/JavaScriptMessagesController.php:435
+#: src/Controllers/JavaScriptMessagesController.php:436
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:436
+#: src/Controllers/JavaScriptMessagesController.php:437
 msgid "Hide partial dependencies list"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:438
+#: src/Controllers/JavaScriptMessagesController.php:439
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:440
+#: src/Controllers/JavaScriptMessagesController.php:441
 msgid "Step"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:441
+#: src/Controllers/JavaScriptMessagesController.php:442
 msgid "The following actions will be performed:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:442
+#: src/Controllers/JavaScriptMessagesController.php:443
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:443
+#: src/Controllers/JavaScriptMessagesController.php:444
 #, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Create the following table"
 msgstr "Pievienot privilēģijas uz sekojošo tabulu"
 
-#: src/Controllers/JavaScriptMessagesController.php:446
+#: src/Controllers/JavaScriptMessagesController.php:447
 msgid "Third step of normalization (3NF)"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:447
+#: src/Controllers/JavaScriptMessagesController.php:448
 msgid "Confirm transitive dependencies"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:448
+#: src/Controllers/JavaScriptMessagesController.php:449
 msgid "Selected dependencies are as follows:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:449
+#: src/Controllers/JavaScriptMessagesController.php:450
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
 msgstr "Datubāze nav izvēlēta."
 
-#: src/Controllers/JavaScriptMessagesController.php:455
+#: src/Controllers/JavaScriptMessagesController.php:456
 msgid "Hide search criteria"
 msgstr "Slēpt meklēšanas kritērijus"
 
-#: src/Controllers/JavaScriptMessagesController.php:456
+#: src/Controllers/JavaScriptMessagesController.php:457
 msgid "Show search criteria"
 msgstr "Rādīt meklēšanas kritērijus"
 
-#: src/Controllers/JavaScriptMessagesController.php:457
+#: src/Controllers/JavaScriptMessagesController.php:458
 #, fuzzy
 #| msgid "Column names"
 msgid "Column maximum:"
 msgstr "Kolonnu nosaukumi"
 
-#: src/Controllers/JavaScriptMessagesController.php:458
+#: src/Controllers/JavaScriptMessagesController.php:459
 #, fuzzy
 #| msgid "Column names"
 msgid "Column minimum:"
 msgstr "Kolonnu nosaukumi"
 
-#: src/Controllers/JavaScriptMessagesController.php:461
+#: src/Controllers/JavaScriptMessagesController.php:462
 #, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
 msgstr "Slēpt meklēšanas kritērijus"
 
-#: src/Controllers/JavaScriptMessagesController.php:462
+#: src/Controllers/JavaScriptMessagesController.php:463
 #, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
 msgstr "Rādīt meklēšanas kritērijus"
 
-#: src/Controllers/JavaScriptMessagesController.php:466
+#: src/Controllers/JavaScriptMessagesController.php:467
 msgid "Each point represents a data row."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:468
+#: src/Controllers/JavaScriptMessagesController.php:469
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:470
+#: src/Controllers/JavaScriptMessagesController.php:471
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:472
+#: src/Controllers/JavaScriptMessagesController.php:473
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:474
+#: src/Controllers/JavaScriptMessagesController.php:475
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:476
+#: src/Controllers/JavaScriptMessagesController.php:477
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:479
+#: src/Controllers/JavaScriptMessagesController.php:480
 msgid "Select two columns"
 msgstr "Izvēlies 2 kolonnas"
 
-#: src/Controllers/JavaScriptMessagesController.php:481
+#: src/Controllers/JavaScriptMessagesController.php:482
 msgid "Select two different columns"
 msgstr "Izvēlies 2 dažādas kolonnas"
 
-#: src/Controllers/JavaScriptMessagesController.php:483
+#: src/Controllers/JavaScriptMessagesController.php:484
 #, fuzzy
 #| msgid "Table of contents"
 msgid "Data point content"
 msgstr "Satura rādītājs"
 
-#: src/Controllers/JavaScriptMessagesController.php:488
+#: src/Controllers/JavaScriptMessagesController.php:489
 msgid "X"
 msgstr "X"
 
-#: src/Controllers/JavaScriptMessagesController.php:489
+#: src/Controllers/JavaScriptMessagesController.php:490
 msgid "Y"
 msgstr "Y"
 
-#: src/Controllers/JavaScriptMessagesController.php:490
+#: src/Controllers/JavaScriptMessagesController.php:491
 msgid "Point"
 msgstr "Punkts"
 
-#: src/Controllers/JavaScriptMessagesController.php:491
+#: src/Controllers/JavaScriptMessagesController.php:492
 msgid "Linestring"
 msgstr "Līnija"
 
-#: src/Controllers/JavaScriptMessagesController.php:492
+#: src/Controllers/JavaScriptMessagesController.php:493
 msgid "Polygon"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:494
+#: src/Controllers/JavaScriptMessagesController.php:495
 #, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Iekšējais aplis"
 
-#: src/Controllers/JavaScriptMessagesController.php:495
+#: src/Controllers/JavaScriptMessagesController.php:496
 #, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "Ārējais aplis:"
 
-#: src/Controllers/JavaScriptMessagesController.php:496
+#: src/Controllers/JavaScriptMessagesController.php:497
 msgid "Add a point"
 msgstr "Pievienot punktu"
 
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:498
 msgid "Add a linestring"
 msgstr "Pievienot līniju"
 
-#: src/Controllers/JavaScriptMessagesController.php:498
+#: src/Controllers/JavaScriptMessagesController.php:499
 msgid "Add an inner ring"
 msgstr "Pievienot iekšējo loku"
 
-#: src/Controllers/JavaScriptMessagesController.php:499
+#: src/Controllers/JavaScriptMessagesController.php:500
 msgid "Add a polygon"
 msgstr "Pievienot poligonu"
 
-#: src/Controllers/JavaScriptMessagesController.php:500
+#: src/Controllers/JavaScriptMessagesController.php:501
 msgid "Add geometry"
 msgstr "Pievienot jaunu ģeometriju"
 
-#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/JavaScriptMessagesController.php:503
 msgid "Do you want to copy encryption key?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:503
+#: src/Controllers/JavaScriptMessagesController.php:504
 msgid "Encryption key"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:506
+#: src/Controllers/JavaScriptMessagesController.php:507
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:511
+#: src/Controllers/JavaScriptMessagesController.php:512
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:517
+#: src/Controllers/JavaScriptMessagesController.php:518
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:523
+#: src/Controllers/JavaScriptMessagesController.php:524
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:528
+#: src/Controllers/JavaScriptMessagesController.php:529
 msgid "Select referenced key"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:529
+#: src/Controllers/JavaScriptMessagesController.php:530
 msgid "Select Foreign Key"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:530
+#: src/Controllers/JavaScriptMessagesController.php:531
 msgid "Please select the primary key or a unique key!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:533
+#: src/Controllers/JavaScriptMessagesController.php:534
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:536
+#: src/Controllers/JavaScriptMessagesController.php:537
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:538
+#: src/Controllers/JavaScriptMessagesController.php:539
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
 msgstr "Lapas numurs:"
 
-#: src/Controllers/JavaScriptMessagesController.php:542
+#: src/Controllers/JavaScriptMessagesController.php:543
 #, fuzzy
 #| msgid "Select All"
 msgid "Delete page"
 msgstr "Iezīmēt visu"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:544
+#: src/Controllers/JavaScriptMessagesController.php:545
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:546
+#: src/Controllers/JavaScriptMessagesController.php:547
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Izvēlieties lapu redigēšanai"
 
-#: src/Controllers/JavaScriptMessagesController.php:547
+#: src/Controllers/JavaScriptMessagesController.php:548
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid page name"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: src/Controllers/JavaScriptMessagesController.php:548
+#: src/Controllers/JavaScriptMessagesController.php:549
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:549
+#: src/Controllers/JavaScriptMessagesController.php:550
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:550
+#: src/Controllers/JavaScriptMessagesController.php:551
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Export relational schema"
 msgstr "Relāciju shēma"
 
-#: src/Controllers/JavaScriptMessagesController.php:551
+#: src/Controllers/JavaScriptMessagesController.php:552
 msgid "Modifications have been saved"
 msgstr "Labojumi tika saglabāti"
 
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:555
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:555
+#: src/Controllers/JavaScriptMessagesController.php:556
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "Kolonnu nosaukumi"
 
-#: src/Controllers/JavaScriptMessagesController.php:559
+#: src/Controllers/JavaScriptMessagesController.php:560
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:561
+#: src/Controllers/JavaScriptMessagesController.php:562
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:564
+#: src/Controllers/JavaScriptMessagesController.php:565
 msgid "Drag to reorder."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:565
+#: src/Controllers/JavaScriptMessagesController.php:566
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:567
+#: src/Controllers/JavaScriptMessagesController.php:568
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:571
+#: src/Controllers/JavaScriptMessagesController.php:572
 msgid "Click to mark/unmark."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:572
+#: src/Controllers/JavaScriptMessagesController.php:573
 #, fuzzy
 #| msgid "Column names"
 msgid "Double-click to copy column name."
 msgstr "Kolonnu nosaukumi"
 
-#: src/Controllers/JavaScriptMessagesController.php:573
+#: src/Controllers/JavaScriptMessagesController.php:574
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:576
+#: src/Controllers/JavaScriptMessagesController.php:577
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:579
+#: src/Controllers/JavaScriptMessagesController.php:580
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:581
+#: src/Controllers/JavaScriptMessagesController.php:582
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:583
+#: src/Controllers/JavaScriptMessagesController.php:584
 #, fuzzy
 #| msgid "Original position"
 msgid "Original length"
 msgstr "Oriģinālā pozīcija"
 
-#: src/Controllers/JavaScriptMessagesController.php:586
+#: src/Controllers/JavaScriptMessagesController.php:587
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "Atcelt"
 
-#: src/Controllers/JavaScriptMessagesController.php:587
-#: src/Controllers/Server/Status/StatusController.php:181
+#: src/Controllers/JavaScriptMessagesController.php:588
+#: src/Controllers/Server/Status/StatusController.php:184
 msgid "Aborted"
 msgstr "Pārtraukts"
 
-#: src/Controllers/JavaScriptMessagesController.php:589
+#: src/Controllers/JavaScriptMessagesController.php:590
 msgid "Success"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:590
+#: src/Controllers/JavaScriptMessagesController.php:591
 #, fuzzy
 msgid "Import status"
 msgstr "Importēt failus"
 
-#: src/Controllers/JavaScriptMessagesController.php:592
+#: src/Controllers/JavaScriptMessagesController.php:593
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "Izvēlieties tabulas"
 
-#: src/Controllers/JavaScriptMessagesController.php:594
+#: src/Controllers/JavaScriptMessagesController.php:595
 #, fuzzy
 msgid "Go to link:"
 msgstr "Nav datubāzu"
 
-#: src/Controllers/JavaScriptMessagesController.php:597
+#: src/Controllers/JavaScriptMessagesController.php:598
 #, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
 msgstr "Mainīt paroli"
 
-#: src/Controllers/JavaScriptMessagesController.php:604
+#: src/Controllers/JavaScriptMessagesController.php:605
 #, fuzzy
 #| msgid "Show all"
 msgid "Show panel"
 msgstr "Rādīt visu"
 
-#: src/Controllers/JavaScriptMessagesController.php:605
+#: src/Controllers/JavaScriptMessagesController.php:606
 #, fuzzy
 #| msgid "Add new field"
 msgid "Hide panel"
 msgstr "Pievienot jaunu lauku"
 
-#: src/Controllers/JavaScriptMessagesController.php:607
+#: src/Controllers/JavaScriptMessagesController.php:608
 #: src/Navigation/NavigationTree.php:1313
 #, fuzzy
 msgid "Unlink from main panel"
 msgstr "Datubāzu eksporta opcijas"
 
-#: src/Controllers/JavaScriptMessagesController.php:611 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:612 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -14582,127 +14583,127 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:615
+#: src/Controllers/JavaScriptMessagesController.php:616
 msgid ", latest stable version:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:616
+#: src/Controllers/JavaScriptMessagesController.php:617
 #, fuzzy
 msgid "up to date"
 msgstr "Nav datubāzu"
 
-#: src/Controllers/JavaScriptMessagesController.php:617
+#: src/Controllers/JavaScriptMessagesController.php:618
 msgid "There was an error in loading the Git information."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:620
+#: src/Controllers/JavaScriptMessagesController.php:621
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:621
+#: src/Controllers/JavaScriptMessagesController.php:622
 #, fuzzy
 #| msgid "Change settings"
 msgid "Change report settings"
 msgstr "Mainīt uzstādījumus"
 
-#: src/Controllers/JavaScriptMessagesController.php:622
+#: src/Controllers/JavaScriptMessagesController.php:623
 #, fuzzy
 msgid "Show report details"
 msgstr "Rādīt tabulas"
 
-#: src/Controllers/JavaScriptMessagesController.php:623
+#: src/Controllers/JavaScriptMessagesController.php:624
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:626
+#: src/Controllers/JavaScriptMessagesController.php:627
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:632
-#: src/Controllers/JavaScriptMessagesController.php:645
+#: src/Controllers/JavaScriptMessagesController.php:633
+#: src/Controllers/JavaScriptMessagesController.php:646
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:634
+#: src/Controllers/JavaScriptMessagesController.php:635
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:640
+#: src/Controllers/JavaScriptMessagesController.php:641
 #: src/Error/ErrorHandler.php:415
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "Ignorēt"
 
-#: src/Controllers/JavaScriptMessagesController.php:647
+#: src/Controllers/JavaScriptMessagesController.php:648
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:651
+#: src/Controllers/JavaScriptMessagesController.php:652
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:652
+#: src/Controllers/JavaScriptMessagesController.php:653
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:653
+#: src/Controllers/JavaScriptMessagesController.php:654
 msgid "Successfully copied!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:654
+#: src/Controllers/JavaScriptMessagesController.php:655
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Copying failed!"
 msgstr "Kopē datubāzi"
 
-#: src/Controllers/JavaScriptMessagesController.php:657
+#: src/Controllers/JavaScriptMessagesController.php:658
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "Rādīt šo vaicājumu šeit atkal"
 
-#: src/Controllers/JavaScriptMessagesController.php:658
+#: src/Controllers/JavaScriptMessagesController.php:659
 #, fuzzy
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
 msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
 
-#: src/Controllers/JavaScriptMessagesController.php:659
+#: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:661
 #, fuzzy, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "SQL vaicājums"
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:662
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:662
+#: src/Controllers/JavaScriptMessagesController.php:663
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "Komentārs tabulai"
 
-#: src/Controllers/JavaScriptMessagesController.php:663
+#: src/Controllers/JavaScriptMessagesController.php:664
 #, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "Slēpt meklēšanas rezultātus"
 
-#: src/Controllers/JavaScriptMessagesController.php:666
+#: src/Controllers/JavaScriptMessagesController.php:667
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -14711,266 +14712,266 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:673
+#: src/Controllers/JavaScriptMessagesController.php:674
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "Kopēt datubāzi uz"
 
-#: src/Controllers/JavaScriptMessagesController.php:674
+#: src/Controllers/JavaScriptMessagesController.php:675
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add table prefix"
 msgstr "Pievienot jaunu lauku"
 
-#: src/Controllers/JavaScriptMessagesController.php:675
+#: src/Controllers/JavaScriptMessagesController.php:676
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table with prefix"
 msgstr "Aizvietot tabulas datus ar datiem no faila"
 
-#: src/Controllers/JavaScriptMessagesController.php:679
+#: src/Controllers/JavaScriptMessagesController.php:680
 msgid "Extremely weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:680
+#: src/Controllers/JavaScriptMessagesController.php:681
 msgid "Very weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:681
+#: src/Controllers/JavaScriptMessagesController.php:682
 msgid "Weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:682
+#: src/Controllers/JavaScriptMessagesController.php:683
 msgid "Good"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:683
+#: src/Controllers/JavaScriptMessagesController.php:684
 msgid "Strong"
 msgstr ""
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:687
+#: src/Controllers/JavaScriptMessagesController.php:688
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:689
+#: src/Controllers/JavaScriptMessagesController.php:690
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:691
+#: src/Controllers/JavaScriptMessagesController.php:692
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr ""
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:693
+#: src/Controllers/JavaScriptMessagesController.php:694
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:695
+#: src/Controllers/JavaScriptMessagesController.php:696
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:697
+#: src/Controllers/JavaScriptMessagesController.php:698
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:700
+#: src/Controllers/JavaScriptMessagesController.php:701
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:705
+#: src/Controllers/JavaScriptMessagesController.php:706
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:710
+#: src/Controllers/JavaScriptMessagesController.php:711
 #, fuzzy, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "Lietotājs %s jau eksistē!"
 
-#: src/Controllers/JavaScriptMessagesController.php:712 src/InsertEdit.php:272
+#: src/Controllers/JavaScriptMessagesController.php:713 src/InsertEdit.php:272
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:716
+#: src/Controllers/JavaScriptMessagesController.php:717
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Month name"
 msgid "January"
 msgstr "Binārais"
 
-#: src/Controllers/JavaScriptMessagesController.php:717
+#: src/Controllers/JavaScriptMessagesController.php:718
 msgctxt "Month name"
 msgid "February"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:718
+#: src/Controllers/JavaScriptMessagesController.php:719
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Month name"
 msgid "March"
 msgstr "Mar"
 
-#: src/Controllers/JavaScriptMessagesController.php:719
+#: src/Controllers/JavaScriptMessagesController.php:720
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Month name"
 msgid "April"
 msgstr "Apr"
 
-#: src/Controllers/JavaScriptMessagesController.php:720
+#: src/Controllers/JavaScriptMessagesController.php:721
 #, fuzzy
 #| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Mai"
 
-#: src/Controllers/JavaScriptMessagesController.php:721
+#: src/Controllers/JavaScriptMessagesController.php:722
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Month name"
 msgid "June"
 msgstr "Jūn"
 
-#: src/Controllers/JavaScriptMessagesController.php:722
+#: src/Controllers/JavaScriptMessagesController.php:723
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Month name"
 msgid "July"
 msgstr "Jūl"
 
-#: src/Controllers/JavaScriptMessagesController.php:723
+#: src/Controllers/JavaScriptMessagesController.php:724
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Month name"
 msgid "August"
 msgstr "Aug"
 
-#: src/Controllers/JavaScriptMessagesController.php:724
+#: src/Controllers/JavaScriptMessagesController.php:725
 msgctxt "Month name"
 msgid "September"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Month name"
 msgid "October"
 msgstr "Okt"
 
-#: src/Controllers/JavaScriptMessagesController.php:726
+#: src/Controllers/JavaScriptMessagesController.php:727
 msgctxt "Month name"
 msgid "November"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:727
+#: src/Controllers/JavaScriptMessagesController.php:728
 msgctxt "Month name"
 msgid "December"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:497
+#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:497
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Jan"
 
-#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:498
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Feb"
 
-#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:499
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Mar"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:500
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Apr"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:501
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Mai"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:502
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Jūn"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:503
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Jūl"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:504
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Aug"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:505
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Sep"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:506
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Okt"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:507
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Nov"
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:508
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Dec"
 
-#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:511
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -14978,98 +14979,98 @@ msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Sv"
 
-#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:512
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "P"
 
-#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:513
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "O"
 
-#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:514
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "T"
 
-#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:515
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "C"
 
-#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:516
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Pk"
 
-#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:517
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "S"
 
-#: src/Controllers/JavaScriptMessagesController.php:754
+#: src/Controllers/JavaScriptMessagesController.php:755
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Sv"
 
-#: src/Controllers/JavaScriptMessagesController.php:755
+#: src/Controllers/JavaScriptMessagesController.php:756
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "P"
 
-#: src/Controllers/JavaScriptMessagesController.php:756
+#: src/Controllers/JavaScriptMessagesController.php:757
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "O"
 
-#: src/Controllers/JavaScriptMessagesController.php:757
+#: src/Controllers/JavaScriptMessagesController.php:758
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "T"
 
-#: src/Controllers/JavaScriptMessagesController.php:758
+#: src/Controllers/JavaScriptMessagesController.php:759
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "C"
 
-#: src/Controllers/JavaScriptMessagesController.php:759
+#: src/Controllers/JavaScriptMessagesController.php:760
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Pk"
 
-#: src/Controllers/JavaScriptMessagesController.php:760
+#: src/Controllers/JavaScriptMessagesController.php:761
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "S"
 
-#: src/Controllers/JavaScriptMessagesController.php:761
+#: src/Controllers/JavaScriptMessagesController.php:762
 #, fuzzy
 #| msgid "Wiki"
 msgctxt "Column header for week of the year in calendar"
@@ -15077,60 +15078,60 @@ msgid "Wk"
 msgstr "Wiki"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:763
+#: src/Controllers/JavaScriptMessagesController.php:764
 #, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
-#: src/Controllers/JavaScriptMessagesController.php:764
+#: src/Controllers/JavaScriptMessagesController.php:765
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "Nav"
 
-#: src/Controllers/JavaScriptMessagesController.php:765
+#: src/Controllers/JavaScriptMessagesController.php:766
 #, fuzzy
 #| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Laiks"
 
-#: src/Controllers/JavaScriptMessagesController.php:766
+#: src/Controllers/JavaScriptMessagesController.php:767
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:768
 #, fuzzy
 #| msgid "in use"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "lietošanā"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:769
 #, fuzzy
 #| msgid "per second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "sekundē"
 
-#: src/Controllers/JavaScriptMessagesController.php:769
+#: src/Controllers/JavaScriptMessagesController.php:770
 #, fuzzy
 #| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "sekundē"
 
-#: src/Controllers/JavaScriptMessagesController.php:770
+#: src/Controllers/JavaScriptMessagesController.php:771
 #, fuzzy
 #| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "sekundē"
 
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:772
 #, fuzzy
 #| msgid "Time"
 msgctxt "The time zone for a time of day"
@@ -15138,7 +15139,7 @@ msgid "Time zone"
 msgstr "Laiks"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:775
+#: src/Controllers/JavaScriptMessagesController.php:776
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
@@ -15146,7 +15147,7 @@ msgid "Prev"
 msgstr "Iepriekšējie"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:777
+#: src/Controllers/JavaScriptMessagesController.php:778
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -15154,181 +15155,181 @@ msgid "Next"
 msgstr "Nākamie"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:779
+#: src/Controllers/JavaScriptMessagesController.php:780
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Kopā"
 
-#: src/Controllers/JavaScriptMessagesController.php:782
+#: src/Controllers/JavaScriptMessagesController.php:783
 msgid "This field is required"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:783
+#: src/Controllers/JavaScriptMessagesController.php:784
 #, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
 msgstr "Lietot teksta lauku"
 
-#: src/Controllers/JavaScriptMessagesController.php:784
+#: src/Controllers/JavaScriptMessagesController.php:785
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid email address"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: src/Controllers/JavaScriptMessagesController.php:785
+#: src/Controllers/JavaScriptMessagesController.php:786
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid URL"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: src/Controllers/JavaScriptMessagesController.php:786
+#: src/Controllers/JavaScriptMessagesController.php:787
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid date"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: src/Controllers/JavaScriptMessagesController.php:787
+#: src/Controllers/JavaScriptMessagesController.php:788
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid date ( ISO )"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: src/Controllers/JavaScriptMessagesController.php:788
+#: src/Controllers/JavaScriptMessagesController.php:789
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid number"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: src/Controllers/JavaScriptMessagesController.php:789
+#: src/Controllers/JavaScriptMessagesController.php:790
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid credit card number"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: src/Controllers/JavaScriptMessagesController.php:790
+#: src/Controllers/JavaScriptMessagesController.php:791
 #, fuzzy
 #| msgid "Please enter a valid length"
 msgid "Please enter only digits"
 msgstr "Lūdzu ievadiet derīgu garumu"
 
-#: src/Controllers/JavaScriptMessagesController.php:791
+#: src/Controllers/JavaScriptMessagesController.php:792
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter the same value again"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: src/Controllers/JavaScriptMessagesController.php:792
+#: src/Controllers/JavaScriptMessagesController.php:793
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:794
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter at least {0} characters"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: src/Controllers/JavaScriptMessagesController.php:794
+#: src/Controllers/JavaScriptMessagesController.php:795
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:796
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a value between {0} and {1}"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:797
 #, fuzzy
 #| msgid "Please enter a valid length"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Lūdzu ievadiet derīgu garumu"
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:798
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: src/Controllers/JavaScriptMessagesController.php:798
+#: src/Controllers/JavaScriptMessagesController.php:799
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid date or time"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:800
 #, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid HEX input"
 msgstr "Lūdzu ievadiet derīgu numuru"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:801
+#: src/Controllers/JavaScriptMessagesController.php:802
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:804
+#: src/Controllers/JavaScriptMessagesController.php:805
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:809
+#: src/Controllers/JavaScriptMessagesController.php:810
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:811
+#: src/Controllers/JavaScriptMessagesController.php:812
 #, php-format
 msgid "%s of %s"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:812
+#: src/Controllers/JavaScriptMessagesController.php:813
 #, php-format
 msgid "%s/sec."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:813
+#: src/Controllers/JavaScriptMessagesController.php:814
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:814
+#: src/Controllers/JavaScriptMessagesController.php:815
 msgid "About %SEC sec. remaining."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:815
+#: src/Controllers/JavaScriptMessagesController.php:816
 msgid "The file is being processed, please be patient."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:816
+#: src/Controllers/JavaScriptMessagesController.php:817
 msgid "Uploading your import file…"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:818
+#: src/Controllers/JavaScriptMessagesController.php:819
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
 
-#: src/Controllers/NavigationController.php:40
+#: src/Controllers/NavigationController.php:41
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
-#: src/Controllers/Normalization/GetColumnsController.php:26
+#: src/Controllers/Normalization/GetColumnsController.php:27
 #: src/Normalization.php:219
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select one…"
 msgstr "Izvēlies 2 kolonnas"
 
-#: src/Controllers/Normalization/GetColumnsController.php:27
+#: src/Controllers/Normalization/GetColumnsController.php:28
 #: src/Normalization.php:220
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "No such column"
 msgstr "Pievienot/Dzēst laukus (kolonnas)"
 
-#: src/Controllers/Normalization/GetColumnsController.php:32
+#: src/Controllers/Normalization/GetColumnsController.php:33
 #: src/Normalization.php:224 src/Types.php:696
 #, fuzzy
 #| msgid "Lines terminated by"
@@ -15336,28 +15337,28 @@ msgctxt "string types"
 msgid "String"
 msgstr "Rindas atdalītas ar"
 
-#: src/Controllers/Operations/Database/CollationController.php:46
-#: src/Controllers/Operations/TableController.php:278
+#: src/Controllers/Operations/Database/CollationController.php:47
+#: src/Controllers/Operations/TableController.php:279
 msgid "No collation provided."
 msgstr ""
 
-#: src/Controllers/Operations/DatabaseController.php:84
+#: src/Controllers/Operations/DatabaseController.php:85
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Nevar izveidot datubāzes kopiju ar tādu pašu nosaukumu. Nomainiet nosaukumu "
 "un mēģiniet vēlreiz."
 
-#: src/Controllers/Operations/DatabaseController.php:167
+#: src/Controllers/Operations/DatabaseController.php:168
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Datubāze %1$s tika pārsaukta par %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:181
+#: src/Controllers/Operations/DatabaseController.php:182
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Datubāze %1$s tika pārkopēta uz %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:284
+#: src/Controllers/Operations/DatabaseController.php:285
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -15365,35 +15366,35 @@ msgstr ""
 "Papildiespējas darbam ar saistītām tabulām ir izslēgtas. %sNoskaidrot "
 "kāpēc%s."
 
-#: src/Controllers/Preferences/ManageController.php:89
+#: src/Controllers/Preferences/ManageController.php:90
 #, fuzzy
 #| msgid "phpMyAdmin documentation"
 msgid "phpMyAdmin configuration snippet"
 msgstr "phpMyAdmin dokumentācija"
 
-#: src/Controllers/Preferences/ManageController.php:90
+#: src/Controllers/Preferences/ManageController.php:91
 msgid "Paste it to your config.inc.php"
 msgstr ""
 
-#: src/Controllers/Preferences/ManageController.php:140
+#: src/Controllers/Preferences/ManageController.php:141
 msgid "Could not import configuration"
 msgstr ""
 
-#: src/Controllers/Preferences/TwoFactorController.php:48
+#: src/Controllers/Preferences/TwoFactorController.php:49
 #, fuzzy
 msgid "Two-factor authentication has been removed."
 msgstr "Iekšējās relācijas"
 
-#: src/Controllers/Preferences/TwoFactorController.php:61
+#: src/Controllers/Preferences/TwoFactorController.php:62
 msgid "Two-factor authentication has been configured."
 msgstr ""
 
-#: src/Controllers/Server/Databases/CreateController.php:82
+#: src/Controllers/Server/Databases/CreateController.php:83
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "Datubāze %1$s tika izveidota."
 
-#: src/Controllers/Server/Databases/DestroyController.php:88
+#: src/Controllers/Server/Databases/DestroyController.php:89
 #, fuzzy, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
@@ -15401,30 +15402,30 @@ msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "%s datubāzes tika veiksmīgi dzēstas."
 msgstr[1] "%s datubāzes tika veiksmīgi dzēstas."
 
-#: src/Controllers/Server/Privileges/AccountLockController.php:46
+#: src/Controllers/Server/Privileges/AccountLockController.php:47
 #, fuzzy, php-format
 #| msgid "The selected users have been deleted successfully."
 msgid "The account %s@%s has been successfully locked."
 msgstr "Izvēlētie lietotāji tika veiksmīgi dzēsti."
 
-#: src/Controllers/Server/Privileges/AccountUnlockController.php:46
+#: src/Controllers/Server/Privileges/AccountUnlockController.php:47
 #, fuzzy, php-format
 #| msgid "The selected users have been deleted successfully."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Izvēlētie lietotāji tika veiksmīgi dzēsti."
 
-#: src/Controllers/Server/PrivilegesController.php:130
+#: src/Controllers/Server/PrivilegesController.php:131
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
 
-#: src/Controllers/Server/Status/Processes/KillController.php:41
+#: src/Controllers/Server/Status/Processes/KillController.php:42
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Process %s tika veiksmīgi nogalināts."
 
-#: src/Controllers/Server/Status/Processes/KillController.php:47
+#: src/Controllers/Server/Status/Processes/KillController.php:48
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
@@ -15432,59 +15433,59 @@ msgstr ""
 "phpMyAdmin nevarēja nogalināt procesu %s. Iespējams, ka tas jau agrāk tika "
 "izbeigts."
 
-#: src/Controllers/Server/Status/QueriesController.php:90
+#: src/Controllers/Server/Status/QueriesController.php:91
 #, fuzzy
 #| msgid "Statements"
 msgid "Other statements"
 msgstr "Parametrs"
 
-#: src/Controllers/Server/Status/StatusController.php:127
+#: src/Controllers/Server/Status/StatusController.php:130
 msgid "Received"
 msgstr "Saņemts"
 
-#: src/Controllers/Server/Status/StatusController.php:132
+#: src/Controllers/Server/Status/StatusController.php:135
 msgid "Sent"
 msgstr "Nosūtīts"
 
-#: src/Controllers/Server/Status/StatusController.php:169
+#: src/Controllers/Server/Status/StatusController.php:172
 #, fuzzy
 #| msgid "Connections"
 msgid "Max. concurrent connections"
 msgstr "Konekcijas"
 
-#: src/Controllers/Server/Status/StatusController.php:175
+#: src/Controllers/Server/Status/StatusController.php:178
 msgid "Failed attempts"
 msgstr "Neveiksmīgi mēģinājumi"
 
-#: src/Controllers/Server/Status/VariablesController.php:218
+#: src/Controllers/Server/Status/VariablesController.php:221
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:221
+#: src/Controllers/Server/Status/VariablesController.php:224
 #, fuzzy
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr ""
 "Ierobežo jauno konekciju skaitu, ko lietotājs var atvērt stundas laikā."
 
-#: src/Controllers/Server/Status/VariablesController.php:223
+#: src/Controllers/Server/Status/VariablesController.php:226
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:227
+#: src/Controllers/Server/Status/VariablesController.php:230
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:228
+#: src/Controllers/Server/Status/VariablesController.php:231
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:230
+#: src/Controllers/Server/Status/VariablesController.php:233
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -15492,78 +15493,78 @@ msgid ""
 "based instead of disk-based."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:236
+#: src/Controllers/Server/Status/VariablesController.php:239
 msgid "How many temporary files mysqld has created."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:238
+#: src/Controllers/Server/Status/VariablesController.php:241
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:242
+#: src/Controllers/Server/Status/VariablesController.php:245
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:246
+#: src/Controllers/Server/Status/VariablesController.php:249
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:250
+#: src/Controllers/Server/Status/VariablesController.php:253
 msgid "The number of INSERT DELAYED rows written."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:251
+#: src/Controllers/Server/Status/VariablesController.php:254
 msgid "The number of executed FLUSH statements."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:252
+#: src/Controllers/Server/Status/VariablesController.php:255
 msgid "The number of internal COMMIT statements."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:253
+#: src/Controllers/Server/Status/VariablesController.php:256
 msgid "The number of times a row was deleted from a table."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:255
+#: src/Controllers/Server/Status/VariablesController.php:258
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:261
+#: src/Controllers/Server/Status/VariablesController.php:264
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:267
+#: src/Controllers/Server/Status/VariablesController.php:270
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:272
+#: src/Controllers/Server/Status/VariablesController.php:275
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:277
+#: src/Controllers/Server/Status/VariablesController.php:280
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:281
+#: src/Controllers/Server/Status/VariablesController.php:284
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -15571,7 +15572,7 @@ msgid ""
 "you have joins that don't use keys properly."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:288
+#: src/Controllers/Server/Status/VariablesController.php:291
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -15579,42 +15580,42 @@ msgid ""
 "advantage of the indexes you have."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:294
+#: src/Controllers/Server/Status/VariablesController.php:297
 msgid "The number of internal ROLLBACK statements."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:295
+#: src/Controllers/Server/Status/VariablesController.php:298
 msgid "The number of requests to update a row in a table."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:296
+#: src/Controllers/Server/Status/VariablesController.php:299
 msgid "The number of requests to insert a row in a table."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:297
+#: src/Controllers/Server/Status/VariablesController.php:300
 msgid "The number of pages containing data (dirty or clean)."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:298
+#: src/Controllers/Server/Status/VariablesController.php:301
 msgid "The number of pages currently dirty."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:300
+#: src/Controllers/Server/Status/VariablesController.php:303
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:302
+#: src/Controllers/Server/Status/VariablesController.php:305
 msgid "The number of free pages."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:304
+#: src/Controllers/Server/Status/VariablesController.php:307
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:309
+#: src/Controllers/Server/Status/VariablesController.php:312
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -15622,33 +15623,33 @@ msgid ""
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:315
+#: src/Controllers/Server/Status/VariablesController.php:318
 msgid "Total size of buffer pool, in pages."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:317
+#: src/Controllers/Server/Status/VariablesController.php:320
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:322
+#: src/Controllers/Server/Status/VariablesController.php:325
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:325
+#: src/Controllers/Server/Status/VariablesController.php:328
 msgid "The number of logical read requests InnoDB has done."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:327
+#: src/Controllers/Server/Status/VariablesController.php:330
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:331
+#: src/Controllers/Server/Status/VariablesController.php:334
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -15657,243 +15658,243 @@ msgid ""
 "properly, this value should be small."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:338
+#: src/Controllers/Server/Status/VariablesController.php:341
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:339
+#: src/Controllers/Server/Status/VariablesController.php:342
 msgid "The number of fsync() operations so far."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:340
+#: src/Controllers/Server/Status/VariablesController.php:343
 msgid "The current number of pending fsync() operations."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:341
+#: src/Controllers/Server/Status/VariablesController.php:344
 msgid "The current number of pending reads."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:342
+#: src/Controllers/Server/Status/VariablesController.php:345
 msgid "The current number of pending writes."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:343
+#: src/Controllers/Server/Status/VariablesController.php:346
 msgid "The amount of data read so far, in bytes."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:344
+#: src/Controllers/Server/Status/VariablesController.php:347
 msgid "The total number of data reads."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:345
+#: src/Controllers/Server/Status/VariablesController.php:348
 msgid "The total number of data writes."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:346
+#: src/Controllers/Server/Status/VariablesController.php:349
 msgid "The amount of data written so far, in bytes."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:348
+#: src/Controllers/Server/Status/VariablesController.php:351
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:350
+#: src/Controllers/Server/Status/VariablesController.php:353
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:352
+#: src/Controllers/Server/Status/VariablesController.php:355
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:355
+#: src/Controllers/Server/Status/VariablesController.php:358
 msgid "The number of log write requests."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:356
+#: src/Controllers/Server/Status/VariablesController.php:359
 msgid "The number of physical writes to the log file."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:357
+#: src/Controllers/Server/Status/VariablesController.php:360
 msgid "The number of fsync() writes done to the log file."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:358
+#: src/Controllers/Server/Status/VariablesController.php:361
 msgid "The number of pending log file fsyncs."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:359
+#: src/Controllers/Server/Status/VariablesController.php:362
 msgid "Pending log file writes."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:360
+#: src/Controllers/Server/Status/VariablesController.php:363
 msgid "The number of bytes written to the log file."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:361
+#: src/Controllers/Server/Status/VariablesController.php:364
 msgid "The number of pages created."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:363
+#: src/Controllers/Server/Status/VariablesController.php:366
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:367
+#: src/Controllers/Server/Status/VariablesController.php:370
 msgid "The number of pages read."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:368
+#: src/Controllers/Server/Status/VariablesController.php:371
 msgid "The number of pages written."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:369
+#: src/Controllers/Server/Status/VariablesController.php:372
 msgid "The number of row locks currently being waited for."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:370
+#: src/Controllers/Server/Status/VariablesController.php:373
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:371
+#: src/Controllers/Server/Status/VariablesController.php:374
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:372
+#: src/Controllers/Server/Status/VariablesController.php:375
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:373
+#: src/Controllers/Server/Status/VariablesController.php:376
 msgid "The number of times a row lock had to be waited for."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:374
+#: src/Controllers/Server/Status/VariablesController.php:377
 msgid "The number of rows deleted from InnoDB tables."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:375
+#: src/Controllers/Server/Status/VariablesController.php:378
 msgid "The number of rows inserted in InnoDB tables."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:376
+#: src/Controllers/Server/Status/VariablesController.php:379
 msgid "The number of rows read from InnoDB tables."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:377
+#: src/Controllers/Server/Status/VariablesController.php:380
 msgid "The number of rows updated in InnoDB tables."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:379
+#: src/Controllers/Server/Status/VariablesController.php:382
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:384
+#: src/Controllers/Server/Status/VariablesController.php:387
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:388
+#: src/Controllers/Server/Status/VariablesController.php:391
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:392
+#: src/Controllers/Server/Status/VariablesController.php:395
 #, fuzzy
 msgid "Percentage of used key cache (calculated value)"
 msgstr "Tabulas kodējums:"
 
-#: src/Controllers/Server/Status/VariablesController.php:393
+#: src/Controllers/Server/Status/VariablesController.php:396
 msgid "The number of requests to read a key block from the cache."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:395
+#: src/Controllers/Server/Status/VariablesController.php:398
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:401
+#: src/Controllers/Server/Status/VariablesController.php:404
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:403
+#: src/Controllers/Server/Status/VariablesController.php:406
 msgid "The number of requests to write a key block to the cache."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:404
+#: src/Controllers/Server/Status/VariablesController.php:407
 msgid "The number of physical writes of a key block to disk."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:405
+#: src/Controllers/Server/Status/VariablesController.php:408
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:407
+#: src/Controllers/Server/Status/VariablesController.php:410
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:413
+#: src/Controllers/Server/Status/VariablesController.php:416
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:415
+#: src/Controllers/Server/Status/VariablesController.php:418
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:417
+#: src/Controllers/Server/Status/VariablesController.php:420
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:420
+#: src/Controllers/Server/Status/VariablesController.php:423
 msgid "The number of files that are open."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:421
+#: src/Controllers/Server/Status/VariablesController.php:424
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:422
+#: src/Controllers/Server/Status/VariablesController.php:425
 msgid "The number of tables that are open."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:424
+#: src/Controllers/Server/Status/VariablesController.php:427
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:428
+#: src/Controllers/Server/Status/VariablesController.php:431
 msgid "The amount of free memory for query cache."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:429
+#: src/Controllers/Server/Status/VariablesController.php:432
 msgid "The number of cache hits."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:430
+#: src/Controllers/Server/Status/VariablesController.php:433
 msgid "The number of queries added to the cache."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:432
+#: src/Controllers/Server/Status/VariablesController.php:435
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -15901,100 +15902,100 @@ msgid ""
 "decide which queries to remove from the cache."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:439
+#: src/Controllers/Server/Status/VariablesController.php:442
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:441
+#: src/Controllers/Server/Status/VariablesController.php:444
 msgid "The number of queries registered in the cache."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:442
+#: src/Controllers/Server/Status/VariablesController.php:445
 msgid "The total number of blocks in the query cache."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:443
+#: src/Controllers/Server/Status/VariablesController.php:446
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:445
+#: src/Controllers/Server/Status/VariablesController.php:448
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:448
+#: src/Controllers/Server/Status/VariablesController.php:451
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:450
+#: src/Controllers/Server/Status/VariablesController.php:453
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:455
+#: src/Controllers/Server/Status/VariablesController.php:458
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:458
+#: src/Controllers/Server/Status/VariablesController.php:461
 msgid "The number of joins that did a full scan of the first table."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:459
+#: src/Controllers/Server/Status/VariablesController.php:462
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:461
+#: src/Controllers/Server/Status/VariablesController.php:464
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:463
+#: src/Controllers/Server/Status/VariablesController.php:466
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:465
+#: src/Controllers/Server/Status/VariablesController.php:468
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:467
+#: src/Controllers/Server/Status/VariablesController.php:470
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:469
+#: src/Controllers/Server/Status/VariablesController.php:472
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:473
+#: src/Controllers/Server/Status/VariablesController.php:476
 msgid "The number of sorts that were done with ranges."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:474
+#: src/Controllers/Server/Status/VariablesController.php:477
 msgid "The number of sorted rows."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:475
+#: src/Controllers/Server/Status/VariablesController.php:478
 msgid "The number of sorts that were done by scanning the table."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:476
+#: src/Controllers/Server/Status/VariablesController.php:479
 msgid "The number of times that a table lock was acquired immediately."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:478
+#: src/Controllers/Server/Status/VariablesController.php:481
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -16002,18 +16003,18 @@ msgid ""
 "tables or use replication."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:484
+#: src/Controllers/Server/Status/VariablesController.php:487
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:488
+#: src/Controllers/Server/Status/VariablesController.php:491
 msgid "The number of currently open connections."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:490
+#: src/Controllers/Server/Status/VariablesController.php:493
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -16021,22 +16022,22 @@ msgid ""
 "implementation.)"
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:496
+#: src/Controllers/Server/Status/VariablesController.php:499
 #, fuzzy
 msgid "Thread cache hit rate (calculated value)"
 msgstr "Vaicājuma tips"
 
-#: src/Controllers/Server/Status/VariablesController.php:497
+#: src/Controllers/Server/Status/VariablesController.php:500
 msgid "The number of threads that are not sleeping."
 msgstr ""
 
-#: src/Controllers/Server/UserGroupsFormController.php:53
+#: src/Controllers/Server/UserGroupsFormController.php:54
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "User groups management is not enabled."
 msgstr "Serveris neatbild"
 
-#: src/Controllers/Server/Variables/SetVariableController.php:78
+#: src/Controllers/Server/Variables/SetVariableController.php:79
 msgid "Setting variable failed"
 msgstr ""
 
@@ -16060,91 +16061,91 @@ msgstr ""
 msgid "Insecure connection"
 msgstr ""
 
-#: src/Controllers/Setup/MainController.php:42
+#: src/Controllers/Setup/MainController.php:43
 msgid "Configuration already exists, setup is disabled!"
 msgstr ""
 
-#: src/Controllers/Setup/ValidateController.php:43
+#: src/Controllers/Setup/ValidateController.php:44
 #, fuzzy
 #| msgid "No databases"
 msgid "Wrong data"
 msgstr "Nav datubāzu"
 
-#: src/Controllers/Setup/ValidateController.php:50
+#: src/Controllers/Setup/ValidateController.php:51
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1047
+#: src/Controllers/Sql/SqlController.php:233 src/Sql.php:1047
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Grāmatzīme %s ir izveidota."
 
-#: src/Controllers/Sql/SqlController.php:237
+#: src/Controllers/Sql/SqlController.php:240
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
 msgstr "Grāmatzīme %s izveidota"
 
-#: src/Controllers/Table/AddFieldController.php:136
-#: src/Controllers/Table/IndexesController.php:141
-#: src/Controllers/Table/IndexRenameController.php:130
-#: src/Controllers/Table/Structure/PartitioningController.php:265
-#: src/Controllers/Table/Structure/SaveController.php:215
+#: src/Controllers/Table/AddFieldController.php:137
+#: src/Controllers/Table/IndexesController.php:142
+#: src/Controllers/Table/IndexRenameController.php:131
+#: src/Controllers/Table/Structure/PartitioningController.php:268
+#: src/Controllers/Table/Structure/SaveController.php:218
 #, fuzzy, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Izvēlētie lietotāji tika veiksmīgi dzēsti."
 
-#: src/Controllers/Table/ChangeRowsController.php:37
-#: src/Controllers/Table/DeleteConfirmController.php:43
-#: src/Controllers/Table/ExportRowsController.php:33
+#: src/Controllers/Table/ChangeRowsController.php:38
+#: src/Controllers/Table/DeleteConfirmController.php:44
+#: src/Controllers/Table/ExportRowsController.php:34
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No row selected."
 msgstr "Rindas nav iezīmētas"
 
-#: src/Controllers/Table/ChartController.php:64
-#: src/Controllers/Table/GisVisualizationController.php:76
+#: src/Controllers/Table/ChartController.php:65
+#: src/Controllers/Table/GisVisualizationController.php:77
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: src/Controllers/Table/ChartController.php:190
+#: src/Controllers/Table/ChartController.php:191
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
-#: src/Controllers/Table/ChartController.php:266
+#: src/Controllers/Table/ChartController.php:269
 #, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
 msgstr "Dati netika atrasti"
 
-#: src/Controllers/Table/CreateController.php:60
+#: src/Controllers/Table/CreateController.php:61
 msgid "The database name is empty!"
 msgstr "Nav norādīts datu bāzes nosaukums!"
 
-#: src/Controllers/Table/CreateController.php:72
-#: src/Controllers/Table/GetFieldController.php:49
+#: src/Controllers/Table/CreateController.php:73
+#: src/Controllers/Table/GetFieldController.php:50
 #, php-format
 msgid "'%s' database does not exist."
 msgstr ""
 
-#: src/Controllers/Table/CreateController.php:82
+#: src/Controllers/Table/CreateController.php:83
 #, fuzzy, php-format
 msgid "Table %s already exists!"
 msgstr "Lietotājs %s jau eksistē!"
 
-#: src/Controllers/Table/DropColumnConfirmationController.php:43
-#: src/Controllers/Table/DropColumnController.php:40
+#: src/Controllers/Table/DropColumnConfirmationController.php:44
+#: src/Controllers/Table/DropColumnController.php:41
 #: src/Controllers/Table/Structure/AbstractIndexController.php:38
-#: src/Controllers/Table/Structure/BrowseController.php:31
-#: src/Controllers/Table/Structure/CentralColumnsAddController.php:39
-#: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:39
-#: src/Controllers/Table/Structure/ChangeController.php:53
-#: src/Controllers/Table/Structure/PrimaryController.php:49
+#: src/Controllers/Table/Structure/BrowseController.php:32
+#: src/Controllers/Table/Structure/CentralColumnsAddController.php:40
+#: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:40
+#: src/Controllers/Table/Structure/ChangeController.php:54
+#: src/Controllers/Table/Structure/PrimaryController.php:50
 msgid "No column selected."
 msgstr "Nav izvēlēta kolonna."
 
-#: src/Controllers/Table/DropColumnController.php:69
+#: src/Controllers/Table/DropColumnController.php:70
 #, fuzzy, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d column has been dropped successfully."
@@ -16152,85 +16153,85 @@ msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] "%s datubāzes tika veiksmīgi dzēstas."
 msgstr[1] "%s datubāzes tika veiksmīgi dzēstas."
 
-#: src/Controllers/Table/GetFieldController.php:57
+#: src/Controllers/Table/GetFieldController.php:58
 msgid "Invalid table name"
 msgstr ""
 
 #. l10n: In case a SQL query did not pass a security check
-#: src/Controllers/Table/GetFieldController.php:68
-#: src/Controllers/Transformation/WrapperController.php:73
+#: src/Controllers/Table/GetFieldController.php:69
+#: src/Controllers/Transformation/WrapperController.php:74
 msgid "There is an issue with your request."
 msgstr ""
 
-#: src/Controllers/Table/GetFieldController.php:83
+#: src/Controllers/Table/GetFieldController.php:84
 #: src/Database/Routines.php:1012 src/Import/Import.php:130
 #: src/InsertEdit.php:199 src/Sql.php:857
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL atgrieza tukšo rezultātu (0 rindas)."
 
-#: src/Controllers/Table/GisVisualizationController.php:98
+#: src/Controllers/Table/GisVisualizationController.php:99
 #, fuzzy
 #| msgid "Has no effect in this MySQL version."
 msgid "No spatial column found for this SQL query."
 msgstr "Nedarbojas šajā MySQL versijā."
 
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:66
-#: src/Controllers/Table/Maintenance/CheckController.php:66
-#: src/Controllers/Table/Maintenance/ChecksumController.php:66
-#: src/Controllers/Table/Maintenance/OptimizeController.php:66
-#: src/Controllers/Table/Maintenance/RepairController.php:66
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:67
+#: src/Controllers/Table/Maintenance/CheckController.php:67
+#: src/Controllers/Table/Maintenance/ChecksumController.php:67
+#: src/Controllers/Table/Maintenance/OptimizeController.php:67
+#: src/Controllers/Table/Maintenance/RepairController.php:67
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr ""
 
-#: src/Controllers/Table/Partition/AnalyzeController.php:37
-#: src/Controllers/Table/Partition/CheckController.php:37
-#: src/Controllers/Table/Partition/DropController.php:37
-#: src/Controllers/Table/Partition/OptimizeController.php:37
-#: src/Controllers/Table/Partition/RebuildController.php:37
-#: src/Controllers/Table/Partition/RepairController.php:37
-#: src/Controllers/Table/Partition/TruncateController.php:37
+#: src/Controllers/Table/Partition/AnalyzeController.php:38
+#: src/Controllers/Table/Partition/CheckController.php:38
+#: src/Controllers/Table/Partition/DropController.php:38
+#: src/Controllers/Table/Partition/OptimizeController.php:38
+#: src/Controllers/Table/Partition/RebuildController.php:38
+#: src/Controllers/Table/Partition/RepairController.php:38
+#: src/Controllers/Table/Partition/TruncateController.php:38
 #, fuzzy
 #| msgid "The table name is empty!"
 msgid "The partition name must be a non-empty string."
 msgstr "Tabulas nosaukums nav norādīts!"
 
-#: src/Controllers/Table/RecentFavoriteController.php:29
+#: src/Controllers/Table/RecentFavoriteController.php:30
 #, fuzzy
 #| msgid "Inside table(s):"
 msgid "Invalid database or table name."
 msgstr "Tabulā(s):"
 
-#: src/Controllers/Table/RelationController.php:323
+#: src/Controllers/Table/RelationController.php:326
 #, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
 msgstr "Process %s tika veiksmīgi nogalināts."
 
-#: src/Controllers/Table/RelationController.php:357
+#: src/Controllers/Table/RelationController.php:360
 #, fuzzy
 msgid "Internal relationships were successfully updated."
 msgstr "Iekšējās relācijas"
 
-#: src/Controllers/Table/ReplaceController.php:184
+#: src/Controllers/Table/ReplaceController.php:185
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
-#: src/Controllers/Table/Structure/MoveColumnsController.php:163
+#: src/Controllers/Table/Structure/MoveColumnsController.php:164
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
 msgstr "Izvēlētie lietotāji tika veiksmīgi dzēsti."
 
-#: src/Controllers/Table/Structure/PartitioningController.php:257
-#: src/Controllers/Table/Structure/SaveController.php:265
+#: src/Controllers/Table/Structure/PartitioningController.php:260
+#: src/Controllers/Table/Structure/SaveController.php:268
 #: src/Tracking/Tracking.php:779
 #, fuzzy
 #| msgid "Query type"
 msgid "Query error"
 msgstr "Vaicājuma tips"
 
-#: src/Controllers/Table/Structure/ReservedWordCheckController.php:51
+#: src/Controllers/Table/Structure/ReservedWordCheckController.php:52
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -16238,50 +16239,50 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/Controllers/Table/Structure/SaveController.php:210
+#: src/Controllers/Table/Structure/SaveController.php:213
 #, fuzzy, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Izvēlētie lietotāji tika veiksmīgi dzēsti."
 
-#: src/Controllers/Table/TrackingController.php:96
+#: src/Controllers/Table/TrackingController.php:97
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr ""
 
-#: src/Controllers/Table/TrackingController.php:153
+#: src/Controllers/Table/TrackingController.php:154
 msgid "SQL statements executed."
 msgstr ""
 
-#: src/Controllers/Table/TrackingController.php:207
+#: src/Controllers/Table/TrackingController.php:208
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
 msgstr "Izvēlētie lietotāji tika veiksmīgi dzēsti."
 
-#: src/Controllers/Table/TrackingController.php:212
+#: src/Controllers/Table/TrackingController.php:213
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
 msgstr "Rindas nav iezīmētas"
 
-#: src/Controllers/Triggers/IndexController.php:183
+#: src/Controllers/Triggers/IndexController.php:184
 #, fuzzy
 msgid "Add trigger"
 msgstr "Pievienot jaunu lietotāju"
 
-#: src/Controllers/Triggers/IndexController.php:187
+#: src/Controllers/Triggers/IndexController.php:188
 #, fuzzy
 msgid "Edit trigger"
 msgstr "Pievienot jaunu lietotāju"
 
-#: src/Controllers/Triggers/IndexController.php:229
+#: src/Controllers/Triggers/IndexController.php:230
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "Tabulas nav atrastas šajā datubāzē."
 
-#: src/Controllers/Triggers/IndexController.php:267
+#: src/Controllers/Triggers/IndexController.php:268
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid ""
@@ -16289,11 +16290,11 @@ msgid ""
 "%2$s."
 msgstr "Tabulas nav atrastas šajā datubāzē."
 
-#: src/Controllers/UserPasswordController.php:51
+#: src/Controllers/UserPasswordController.php:52
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
 
-#: src/Controllers/View/CreateController.php:95
+#: src/Controllers/View/CreateController.php:96
 msgid "View name can not be empty!"
 msgstr ""
 
@@ -18943,19 +18944,19 @@ msgstr ""
 msgid "Primary server changed successfully to %s."
 msgstr "Privilēģijas tika veiksmīgi pārlādētas."
 
-#: src/Routing/Routing.php:120
+#: src/Routing/Routing.php:122
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: src/Routing/Routing.php:154 src/Routing/Routing.php:214
+#: src/Routing/Routing.php:156 src/Routing/Routing.php:216
 #, fuzzy, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Meklēt datubāzē"
 
-#: src/Routing/Routing.php:162
+#: src/Routing/Routing.php:164
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
