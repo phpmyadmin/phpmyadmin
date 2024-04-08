@@ -9,11 +9,10 @@ use PhpMyAdmin\Database\MultiTableQuery;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 final class QueryController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly Template $template)
+    public function __construct(private readonly ResponseRenderer $response)
     {
     }
 

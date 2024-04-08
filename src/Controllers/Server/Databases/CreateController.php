@@ -14,7 +14,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -27,11 +26,8 @@ use function str_contains;
 
 final class CreateController implements InvocableController
 {
-    public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DatabaseInterface $dbi,
-    ) {
+    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response|null

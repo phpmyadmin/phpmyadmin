@@ -23,7 +23,6 @@ use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
@@ -43,7 +42,6 @@ final class ReplaceController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly InsertEdit $insertEdit,
         private readonly Transformations $transformations,
         private readonly Relation $relation,

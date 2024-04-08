@@ -17,7 +17,6 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -33,7 +32,6 @@ final class TrackingController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Tracking $tracking,
         private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,

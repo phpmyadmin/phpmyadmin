@@ -12,7 +12,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
-use PhpMyAdmin\Template;
 
 use function array_map;
 use function explode;
@@ -21,11 +20,8 @@ use function is_string;
 
 final class ColumnPreferencesController implements InvocableController
 {
-    public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DatabaseInterface $dbi,
-    ) {
+    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response|null

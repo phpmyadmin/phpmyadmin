@@ -11,7 +11,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPassword;
 
 use function __;
@@ -23,7 +22,6 @@ final class UserPasswordController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly UserPassword $userPassword,
         private readonly DatabaseInterface $dbi,
     ) {

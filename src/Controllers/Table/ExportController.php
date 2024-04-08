@@ -17,7 +17,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -30,7 +29,6 @@ class ExportController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Options $export,
         private readonly PageSettings $pageSettings,
     ) {

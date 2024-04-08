@@ -10,7 +10,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function is_array;
@@ -24,11 +23,8 @@ final class ShowEngineController implements InvocableController
     private string $engine = '';
     private string $page = '';
 
-    public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DatabaseInterface $dbi,
-    ) {
+    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response|null

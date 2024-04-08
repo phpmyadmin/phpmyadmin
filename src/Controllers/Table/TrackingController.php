@@ -16,7 +16,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking\LogTypeEnum;
 use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Tracking\Tracking;
@@ -40,7 +39,6 @@ final class TrackingController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Tracking $tracking,
         private readonly TrackingChecker $trackingChecker,
         private readonly DbTableExists $dbTableExists,

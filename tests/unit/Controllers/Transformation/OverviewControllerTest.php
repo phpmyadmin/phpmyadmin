@@ -8,7 +8,6 @@ use PhpMyAdmin\Controllers\Transformation\OverviewController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
@@ -38,7 +37,7 @@ class OverviewControllerTest extends AbstractTestCase
     {
         $response = new ResponseRenderer();
 
-        $controller = new OverviewController($response, new Template(), new Transformations());
+        $controller = new OverviewController($response, new Transformations());
 
         $controller(self::createStub(ServerRequest::class));
         $actual = $response->getHTMLResult();

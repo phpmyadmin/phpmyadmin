@@ -12,7 +12,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use Webmozart\Assert\Assert;
 
 use function __;
@@ -22,7 +21,6 @@ final class CentralColumnsAddController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly CentralColumns $centralColumns,
         private readonly StructureController $structureController,
     ) {

@@ -10,7 +10,6 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Server\Databases\DestroyController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
@@ -41,7 +40,6 @@ class DestroyControllerTest extends AbstractTestCase
 
         $controller = new DestroyController(
             $response,
-            new Template(),
             $dbi,
             new Transformations(),
             new RelationCleanup($dbi, new Relation($dbi)),

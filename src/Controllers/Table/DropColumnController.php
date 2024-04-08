@@ -13,7 +13,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -24,7 +23,6 @@ final class DropColumnController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly DatabaseInterface $dbi,
         private readonly FlashMessages $flash,
         private readonly RelationCleanup $relationCleanup,

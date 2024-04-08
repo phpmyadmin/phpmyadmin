@@ -16,7 +16,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -32,7 +31,6 @@ final class ViewController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {

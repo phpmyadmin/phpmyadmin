@@ -9,7 +9,6 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 use function __;
 
@@ -17,7 +16,6 @@ final class TablesController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly ExportController $exportController,
     ) {
     }

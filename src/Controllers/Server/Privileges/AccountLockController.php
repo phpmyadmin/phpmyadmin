@@ -11,7 +11,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Privileges\AccountLocking;
-use PhpMyAdmin\Template;
 use Throwable;
 
 use function __;
@@ -20,7 +19,6 @@ final class AccountLockController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly AccountLocking $accountLocking,
     ) {
     }

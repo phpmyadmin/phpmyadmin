@@ -11,7 +11,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Table\Indexes;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -37,7 +36,7 @@ class SpatialControllerTest extends AbstractTestCase
         $controllerStub->expects(self::once())->method('__invoke')->with($request);
 
         $indexes = new Indexes(DatabaseInterface::getInstance());
-        $controller = new SpatialController(new ResponseRenderer(), new Template(), $controllerStub, $indexes);
+        $controller = new SpatialController(new ResponseRenderer(), $controllerStub, $indexes);
         $controller($request);
 
         self::assertEquals(Message::success(), $GLOBALS['message']);
@@ -65,7 +64,7 @@ class SpatialControllerTest extends AbstractTestCase
         $controllerStub->expects(self::once())->method('__invoke')->with($request);
 
         $indexes = new Indexes(DatabaseInterface::getInstance());
-        $controller = new SpatialController(new ResponseRenderer(), new Template(), $controllerStub, $indexes);
+        $controller = new SpatialController(new ResponseRenderer(), $controllerStub, $indexes);
         $controller($request);
 
         self::assertEquals(Message::success(), $GLOBALS['message']);
@@ -91,7 +90,7 @@ class SpatialControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
 
         $indexes = new Indexes(DatabaseInterface::getInstance());
-        $controller = new SpatialController($response, new Template(), $controllerStub, $indexes);
+        $controller = new SpatialController($response, $controllerStub, $indexes);
         $controller($request);
 
         self::assertFalse($response->hasSuccessState());
@@ -121,7 +120,7 @@ class SpatialControllerTest extends AbstractTestCase
         $controllerStub->expects(self::once())->method('__invoke')->with($request);
 
         $indexes = new Indexes(DatabaseInterface::getInstance());
-        $controller = new SpatialController(new ResponseRenderer(), new Template(), $controllerStub, $indexes);
+        $controller = new SpatialController(new ResponseRenderer(), $controllerStub, $indexes);
         $controller($request);
 
         self::assertEquals(

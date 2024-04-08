@@ -11,7 +11,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 /**
@@ -21,7 +20,6 @@ final class SqlController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly SqlQueryForm $sqlQueryForm,
         private readonly DatabaseInterface $dbi,
         private readonly PageSettings $pageSettings,

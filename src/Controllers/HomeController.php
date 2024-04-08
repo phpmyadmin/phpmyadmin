@@ -24,7 +24,6 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Select;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -52,7 +51,6 @@ final class HomeController implements InvocableController
 
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Config $config,
         private readonly ThemeManager $themeManager,
         private readonly DatabaseInterface $dbi,

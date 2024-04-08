@@ -9,7 +9,6 @@ use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -44,11 +43,10 @@ class DatabasesControllerTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->selectedServer['only_db'] = '';
-        $template = new Template();
 
         $response = new ResponseRenderer();
 
-        $controller = new DatabasesController($response, $template, $this->dbi, new UserPrivilegesFactory($this->dbi));
+        $controller = new DatabasesController($response, $this->dbi, new UserPrivilegesFactory($this->dbi));
 
         $this->dummyDbi->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
@@ -86,7 +84,7 @@ class DatabasesControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
 
         $dbi = DatabaseInterface::getInstance();
-        $controller = new DatabasesController($response, $template, $dbi, new UserPrivilegesFactory($dbi));
+        $controller = new DatabasesController($response, $dbi, new UserPrivilegesFactory($dbi));
 
         $config->settings['ShowCreateDb'] = true;
 

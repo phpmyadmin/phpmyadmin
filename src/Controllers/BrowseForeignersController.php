@@ -9,7 +9,6 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 /**
  * Display selection for relational field values
@@ -18,7 +17,6 @@ final class BrowseForeignersController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly BrowseForeigners $browseForeigners,
         private readonly Relation $relation,
     ) {

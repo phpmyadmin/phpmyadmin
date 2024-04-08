@@ -9,7 +9,6 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
@@ -18,7 +17,7 @@ use function htmlspecialchars;
 
 final class EmptyFormController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly Template $template)
+    public function __construct(private readonly ResponseRenderer $response)
     {
     }
 

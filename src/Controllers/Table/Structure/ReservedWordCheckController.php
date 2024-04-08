@@ -11,7 +11,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Context;
-use PhpMyAdmin\Template;
 
 use function _ngettext;
 use function count;
@@ -21,7 +20,7 @@ use function trim;
 
 final class ReservedWordCheckController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly Template $template)
+    public function __construct(private readonly ResponseRenderer $response)
     {
     }
 

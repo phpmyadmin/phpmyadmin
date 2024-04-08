@@ -8,7 +8,6 @@ use PhpMyAdmin\Controllers\Normalization\MainController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -43,7 +42,7 @@ class MainControllerTest extends AbstractTestCase
         Current::$table = 'test_table';
         $response = new ResponseRenderer();
 
-        $controller = new MainController($response, new Template());
+        $controller = new MainController($response);
         $controller(self::createStub(ServerRequest::class));
 
         $files = $response->getHeader()->getScripts()->getFiles();

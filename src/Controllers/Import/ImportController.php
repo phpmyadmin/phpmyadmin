@@ -24,7 +24,6 @@ use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Plugins\Import\ImportFormat;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
@@ -52,7 +51,6 @@ final class ImportController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Import $import,
         private readonly Sql $sql,
         private readonly DatabaseInterface $dbi,

@@ -12,7 +12,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -30,11 +29,8 @@ final class BinlogController implements InvocableController
      */
     private array $binaryLogs;
 
-    public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DatabaseInterface $dbi,
-    ) {
+    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
+    {
         $this->binaryLogs = $this->dbi->fetchResult('SHOW MASTER LOGS', 'Log_name');
     }
 

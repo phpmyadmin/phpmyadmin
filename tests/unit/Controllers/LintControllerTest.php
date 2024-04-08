@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Tests\Controllers;
 use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -109,6 +108,6 @@ class LintControllerTest extends AbstractTestCase
 
     private function getLintController(): LintController
     {
-        return new LintController(new ResponseRenderer(), new Template());
+        return new LintController(new ResponseRenderer());
     }
 }

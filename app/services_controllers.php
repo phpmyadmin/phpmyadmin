@@ -52,68 +52,54 @@ return [
             'class' => BrowseForeignersController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$browseForeigners' => '@browse_foreigners',
                 '$relation' => '@relation',
             ],
         ],
         ChangeLogController::class => [
             'class' => ChangeLogController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$config' => '@config'],
+            'arguments' => ['$response' => '@response', '$config' => '@config'],
         ],
         CheckRelationsController::class => [
             'class' => CheckRelationsController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$relation' => '@relation'],
+            'arguments' => ['$response' => '@response', '$relation' => '@relation'],
         ],
         CollationConnectionController::class => [
             'class' => CollationConnectionController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$config' => '@config'],
+            'arguments' => ['$response' => '@response', '$config' => '@config'],
         ],
         ColumnController::class => [
             'class' => ColumnController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
         ],
         UpdateNavWidthConfigController::class => [
             'class' => UpdateNavWidthConfigController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$config' => '@config'],
+            'arguments' => ['$response' => '@response', '$config' => '@config'],
         ],
         Console\Bookmark\AddController::class => [
             'class' => Console\Bookmark\AddController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$bookmarkRepository' => '@bookmarkRepository',
-            ],
+            'arguments' => ['$response' => '@response', '$bookmarkRepository' => '@bookmarkRepository'],
         ],
         Console\Bookmark\RefreshController::class => [
             'class' => Console\Bookmark\RefreshController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$console' => '@console'],
+            'arguments' => ['$response' => '@response', '$console' => '@console'],
         ],
         Console\UpdateConfigController::class => [
             'class' => Console\UpdateConfigController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$config' => '@config'],
+            'arguments' => ['$response' => '@response', '$config' => '@config'],
         ],
         Database\CentralColumns\PopulateColumnsController::class => [
             'class' => Database\CentralColumns\PopulateColumnsController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$centralColumns' => '@central_columns',
-            ],
+            'arguments' => ['$response' => '@response', '$centralColumns' => '@central_columns'],
         ],
         Database\CentralColumnsController::class => [
             'class' => Database\CentralColumnsController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$centralColumns' => '@central_columns',
-            ],
+            'arguments' => ['$response' => '@response', '$centralColumns' => '@central_columns'],
         ],
         Database\DataDictionaryController::class => [
             'class' => Database\DataDictionaryController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$relation' => '@relation',
                 '$transformations' => '@transformations',
                 '$dbi' => '@dbi',
@@ -143,7 +129,6 @@ return [
             'class' => Database\ExportController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$export' => '@export',
                 '$exportOptions' => '@export_options',
                 '$pageSettings' => '@' . PageSettings::class,
@@ -154,7 +139,6 @@ return [
             'class' => Database\ImportController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$pageSettings' => '@' . PageSettings::class,
                 '$dbTableExists' => '@' . DbTableExists::class,
@@ -162,11 +146,11 @@ return [
         ],
         Database\MultiTableQuery\QueryController::class => [
             'class' => Database\MultiTableQuery\QueryController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response'],
         ],
         Database\MultiTableQuery\TablesController::class => [
             'class' => Database\MultiTableQuery\TablesController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
         ],
         Database\MultiTableQueryController::class => [
             'class' => Database\MultiTableQueryController::class,
@@ -176,7 +160,6 @@ return [
             'class' => Operations\Database\CollationController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$operations' => '@operations',
                 '$dbi' => '@dbi',
                 '$dbTableExists' => '@' . DbTableExists::class,
@@ -186,7 +169,6 @@ return [
             'class' => Operations\DatabaseController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$operations' => '@operations',
                 '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
                 '$relation' => '@relation',
@@ -197,12 +179,7 @@ return [
         ],
         Database\PrivilegesController::class => [
             'class' => Database\PrivilegesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$privileges' => '@server_privileges',
-                '$dbi' => '@dbi',
-            ],
+            'arguments' => ['$response' => '@response', '$privileges' => '@server_privileges', '$dbi' => '@dbi'],
         ],
         Database\RoutinesController::class => [
             'class' => Database\RoutinesController::class,
@@ -226,18 +203,12 @@ return [
         ],
         Database\SqlAutoCompleteController::class => [
             'class' => Database\SqlAutoCompleteController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$dbi' => '@dbi',
-                '$config' => '@config',
-            ],
+            'arguments' => ['$response' => '@response', '$dbi' => '@dbi', '$config' => '@config'],
         ],
         Database\SqlController::class => [
             'class' => Database\SqlController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$sqlQueryForm' => '@sql_query_form',
                 '$pageSettings' => '@' . PageSettings::class,
                 '$dbTableExists' => '@' . DbTableExists::class,
@@ -245,26 +216,20 @@ return [
         ],
         Database\SqlFormatController::class => [
             'class' => Database\SqlFormatController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response'],
         ],
         Database\Structure\AddPrefixController::class => [
             'class' => Database\Structure\AddPrefixController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response'],
         ],
         Database\Structure\AddPrefixTableController::class => [
             'class' => Database\Structure\AddPrefixTableController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$dbi' => '@dbi',
-                '$structureController' => '@' . Database\StructureController::class,
-            ],
+            'arguments' => ['$dbi' => '@dbi', '$structureController' => '@' . Database\StructureController::class],
         ],
         Database\Structure\CentralColumns\AddController::class => [
             'class' => Database\Structure\CentralColumns\AddController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$structureController' => '@' . Database\StructureController::class,
             ],
@@ -273,7 +238,6 @@ return [
             'class' => Database\Structure\CentralColumns\MakeConsistentController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$structureController' => '@' . Database\StructureController::class,
             ],
@@ -282,24 +246,21 @@ return [
             'class' => Database\Structure\CentralColumns\RemoveController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$structureController' => '@' . Database\StructureController::class,
             ],
         ],
         Database\Structure\ChangePrefixFormController::class => [
             'class' => Database\Structure\ChangePrefixFormController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response'],
         ],
         Database\Structure\CopyFormController::class => [
             'class' => Database\Structure\CopyFormController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response'],
         ],
         Database\Structure\CopyTableController::class => [
             'class' => Database\Structure\CopyTableController::class,
             'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
                 '$operations' => '@operations',
                 '$structureController' => '@' . Database\StructureController::class,
                 '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
@@ -307,21 +268,15 @@ return [
         ],
         Database\Structure\CopyTableWithPrefixController::class => [
             'class' => Database\Structure\CopyTableWithPrefixController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$structureController' => '@' . Database\StructureController::class,
-            ],
+            'arguments' => ['$structureController' => '@' . Database\StructureController::class],
         ],
         Database\Structure\DropFormController::class => [
             'class' => Database\Structure\DropFormController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
         ],
         Database\Structure\DropTableController::class => [
             'class' => Database\Structure\DropTableController::class,
             'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$relationCleanup' => '@relation_cleanup',
                 '$structureController' => '@' . Database\StructureController::class,
@@ -329,7 +284,7 @@ return [
         ],
         Database\Structure\EmptyFormController::class => [
             'class' => Database\Structure\EmptyFormController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response'],
         ],
         Database\Structure\EmptyTableController::class => [
             'class' => Database\Structure\EmptyTableController::class,
@@ -356,19 +311,13 @@ return [
             'class' => Database\Structure\RealRowCountController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
         Database\Structure\ReplacePrefixController::class => [
             'class' => Database\Structure\ReplacePrefixController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$dbi' => '@dbi',
-                '$structureController' => '@' . Database\StructureController::class,
-            ],
+            'arguments' => ['$dbi' => '@dbi', '$structureController' => '@' . Database\StructureController::class],
         ],
         Database\Structure\ShowCreateController::class => [
             'class' => Database\Structure\ShowCreateController::class,
@@ -391,7 +340,6 @@ return [
             'class' => Database\TrackingController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$tracking' => '@tracking',
                 '$dbi' => '@dbi',
                 '$dbTableExists' => '@' . DbTableExists::class,
@@ -399,7 +347,7 @@ return [
         ],
         DatabaseController::class => [
             'class' => DatabaseController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
         ],
         ErrorReportController::class => [
             'class' => ErrorReportController::class,
@@ -413,17 +361,16 @@ return [
         ],
         Export\CheckTimeOutController::class => [
             'class' => Export\CheckTimeOutController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response'],
         ],
         Export\ExportController::class => [
             'class' => Export\ExportController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$export' => '@export'],
+            'arguments' => ['$response' => '@response', '$export' => '@export'],
         ],
         Export\TablesController::class => [
             'class' => Export\TablesController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$exportController' => '@' . Database\ExportController::class,
             ],
         ],
@@ -440,7 +387,6 @@ return [
             'class' => Export\Template\DeleteController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$model' => '@export_template_model',
                 '$relation' => '@relation',
             ],
@@ -449,7 +395,6 @@ return [
             'class' => Export\Template\LoadController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$model' => '@export_template_model',
                 '$relation' => '@relation',
             ],
@@ -458,7 +403,6 @@ return [
             'class' => Export\Template\UpdateController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$model' => '@export_template_model',
                 '$relation' => '@relation',
             ],
@@ -469,13 +413,12 @@ return [
         ],
         GitInfoController::class => [
             'class' => GitInfoController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$config' => '@config'],
+            'arguments' => ['$response' => '@response', '$config' => '@config'],
         ],
         HomeController::class => [
             'class' => HomeController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$config' => '@config',
                 '$themeManager' => '@' . ThemeManager::class,
                 '$dbi' => '@dbi',
@@ -486,7 +429,6 @@ return [
             'class' => Import\ImportController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$import' => '@import',
                 '$sql' => '@sql',
                 '$dbi' => '@dbi',
@@ -495,11 +437,7 @@ return [
         ],
         Import\SimulateDmlController::class => [
             'class' => Import\SimulateDmlController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$simulateDml' => '@import_simulate_dml',
-            ],
+            'arguments' => ['$response' => '@response', '$simulateDml' => '@import_simulate_dml'],
         ],
         Import\StatusController::class => [
             'class' => Import\StatusController::class,
@@ -511,11 +449,11 @@ return [
         ],
         LicenseController::class => [
             'class' => LicenseController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response'],
         ],
         LintController::class => [
             'class' => LintController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response'],
         ],
         LogoutController::class => [
             'class' => LogoutController::class,
@@ -525,7 +463,6 @@ return [
             'class' => NavigationController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$navigation' => '@navigation',
                 '$relation' => '@relation',
                 '$pageSettings' => '@' . PageSettings::class,
@@ -533,89 +470,48 @@ return [
         ],
         Normalization\FirstNormalForm\FirstStepController::class => [
             'class' => Normalization\FirstNormalForm\FirstStepController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$normalization' => '@normalization',
-            ],
+            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
         ],
         Normalization\FirstNormalForm\FourthStepController::class => [
             'class' => Normalization\FirstNormalForm\FourthStepController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$normalization' => '@normalization',
-            ],
+            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
         ],
         Normalization\FirstNormalForm\SecondStepController::class => [
             'class' => Normalization\FirstNormalForm\SecondStepController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$normalization' => '@normalization',
-            ],
+            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
         ],
         Normalization\FirstNormalForm\ThirdStepController::class => [
             'class' => Normalization\FirstNormalForm\ThirdStepController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$normalization' => '@normalization',
-            ],
+            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
         ],
         Normalization\SecondNormalForm\CreateNewTablesController::class => [
             'class' => Normalization\SecondNormalForm\CreateNewTablesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$normalization' => '@normalization',
-            ],
+            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
         ],
         Normalization\SecondNormalForm\FirstStepController::class => [
             'class' => Normalization\SecondNormalForm\FirstStepController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$normalization' => '@normalization',
-            ],
+            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
         ],
         Normalization\SecondNormalForm\NewTablesController::class => [
             'class' => Normalization\SecondNormalForm\NewTablesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$normalization' => '@normalization',
-            ],
+            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
         ],
         Normalization\ThirdNormalForm\CreateNewTablesController::class => [
             'class' => Normalization\ThirdNormalForm\CreateNewTablesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$normalization' => '@normalization',
-            ],
+            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
         ],
         Normalization\ThirdNormalForm\FirstStepController::class => [
             'class' => Normalization\ThirdNormalForm\FirstStepController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$normalization' => '@normalization',
-            ],
+            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
         ],
         Normalization\ThirdNormalForm\NewTablesController::class => [
             'class' => Normalization\ThirdNormalForm\NewTablesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$normalization' => '@normalization',
-            ],
+            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
         ],
         Normalization\AddNewPrimaryController::class => [
             'class' => Normalization\AddNewPrimaryController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$normalization' => '@normalization',
                 '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
             ],
@@ -624,52 +520,38 @@ return [
             'class' => Normalization\CreateNewColumnController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$normalization' => '@normalization',
                 '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
             ],
         ],
         Normalization\GetColumnsController::class => [
             'class' => Normalization\GetColumnsController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$normalization' => '@normalization',
-            ],
+            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
         ],
         Normalization\MainController::class => [
             'class' => Normalization\MainController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response'],
         ],
         Normalization\MoveRepeatingGroup::class => [
             'class' => Normalization\MoveRepeatingGroup::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$normalization' => '@normalization',
-            ],
+            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
         ],
         Normalization\PartialDependenciesController::class => [
             'class' => Normalization\PartialDependenciesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$normalization' => '@normalization',
-            ],
+            'arguments' => ['$response' => '@response', '$normalization' => '@normalization'],
         ],
         PhpInfoController::class => [
             'class' => PhpInfoController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response'],
         ],
         RecentTablesListController::class => [
             'class' => RecentTablesListController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response'],
         ],
         Preferences\ExportController::class => [
             'class' => Preferences\ExportController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
                 '$config' => '@config',
@@ -680,7 +562,6 @@ return [
             'class' => Preferences\FeaturesController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
                 '$config' => '@config',
@@ -691,7 +572,6 @@ return [
             'class' => Preferences\ImportController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
                 '$config' => '@config',
@@ -702,7 +582,6 @@ return [
             'class' => Preferences\MainPanelController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
                 '$config' => '@config',
@@ -713,7 +592,6 @@ return [
             'class' => Preferences\ManageController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
                 '$config' => '@config',
@@ -724,7 +602,6 @@ return [
             'class' => Preferences\NavigationController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
                 '$config' => '@config',
@@ -735,7 +612,6 @@ return [
             'class' => Preferences\SqlController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
                 '$config' => '@config',
@@ -744,7 +620,7 @@ return [
         ],
         Preferences\TwoFactorController::class => [
             'class' => Preferences\TwoFactorController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$relation' => '@relation'],
+            'arguments' => ['$response' => '@response', '$relation' => '@relation'],
         ],
         SchemaExportController::class => [
             'class' => SchemaExportController::class,
@@ -752,21 +628,20 @@ return [
         ],
         Server\BinlogController::class => [
             'class' => Server\BinlogController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
         ],
         Server\CollationsController::class => [
             'class' => Server\CollationsController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
         ],
         Server\Databases\CreateController::class => [
             'class' => Server\Databases\CreateController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
         ],
         Server\Databases\DestroyController::class => [
             'class' => Server\Databases\DestroyController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$transformations' => '@transformations',
                 '$relationCleanup' => '@relation_cleanup',
@@ -777,20 +652,18 @@ return [
             'class' => Server\DatabasesController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
             ],
         ],
         Server\EnginesController::class => [
             'class' => Server\EnginesController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
         ],
         Server\ExportController::class => [
             'class' => Server\ExportController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$export' => '@export_options',
                 '$dbi' => '@dbi',
                 '$pageSettings' => '@' . PageSettings::class,
@@ -800,7 +673,6 @@ return [
             'class' => Server\ImportController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$pageSettings' => '@' . PageSettings::class,
             ],
@@ -809,26 +681,17 @@ return [
             'class' => Server\PluginsController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$plugins' => '@server_plugins',
                 '$dbi' => '@dbi',
             ],
         ],
         Server\Privileges\AccountLockController::class => [
             'class' => Server\Privileges\AccountLockController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$accountLocking' => '@server_privileges_account_locking',
-            ],
+            'arguments' => ['$response' => '@response', '$accountLocking' => '@server_privileges_account_locking'],
         ],
         Server\Privileges\AccountUnlockController::class => [
             'class' => Server\Privileges\AccountUnlockController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$accountLocking' => '@server_privileges_account_locking',
-            ],
+            'arguments' => ['$response' => '@response', '$accountLocking' => '@server_privileges_account_locking'],
         ],
         Server\PrivilegesController::class => [
             'class' => Server\PrivilegesController::class,
@@ -842,22 +705,16 @@ return [
         ],
         Server\ReplicationController::class => [
             'class' => Server\ReplicationController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$replicationGui' => '@replication_gui',
-                '$dbi' => '@dbi',
-            ],
+            'arguments' => ['$response' => '@response', '$replicationGui' => '@replication_gui', '$dbi' => '@dbi'],
         ],
         Server\ShowEngineController::class => [
             'class' => Server\ShowEngineController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
         ],
         Server\SqlController::class => [
             'class' => Server\SqlController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$sqlQueryForm' => '@sql_query_form',
                 '$dbi' => '@dbi',
                 '$pageSettings' => '@' . PageSettings::class,
@@ -865,12 +722,7 @@ return [
         ],
         Server\UserGroupsController::class => [
             'class' => Server\UserGroupsController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$relation' => '@relation',
-                '$dbi' => '@dbi',
-            ],
+            'arguments' => ['$response' => '@response', '$relation' => '@relation', '$dbi' => '@dbi'],
         ],
         Server\UserGroupsFormController::class => [
             'class' => Server\UserGroupsFormController::class,
@@ -1007,7 +859,7 @@ return [
         ],
         Server\Variables\GetVariableController::class => [
             'class' => Server\Variables\GetVariableController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
         ],
         Server\Variables\SetVariableController::class => [
             'class' => Server\Variables\SetVariableController::class,
@@ -1019,11 +871,11 @@ return [
         ],
         Sql\ColumnPreferencesController::class => [
             'class' => Sql\ColumnPreferencesController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
         ],
         Sql\DefaultForeignKeyCheckValueController::class => [
             'class' => Sql\DefaultForeignKeyCheckValueController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response'],
         ],
         Sql\EnumValuesController::class => [
             'class' => Sql\EnumValuesController::class,
@@ -1031,7 +883,7 @@ return [
         ],
         Sql\RelationalValuesController::class => [
             'class' => Sql\RelationalValuesController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$sql' => '@sql'],
+            'arguments' => ['$response' => '@response', '$sql' => '@sql'],
         ],
         Sql\SetValuesController::class => [
             'class' => Sql\SetValuesController::class,
@@ -1041,7 +893,6 @@ return [
             'class' => Sql\SqlController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$sql' => '@sql',
                 '$dbi' => '@dbi',
                 '$pageSettings' => '@' . PageSettings::class,
@@ -1052,7 +903,6 @@ return [
             'class' => Table\AddFieldController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$transformations' => '@transformations',
                 '$config' => '@config',
                 '$dbi' => '@dbi',
@@ -1077,7 +927,6 @@ return [
             'class' => Table\ChangeRowsController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$changeController' => '@' . Table\ChangeController::class,
             ],
         ],
@@ -1085,7 +934,6 @@ return [
             'class' => Table\ChartController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$dbTableExists' => '@' . DbTableExists::class,
             ],
@@ -1094,7 +942,6 @@ return [
             'class' => Table\CreateController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$transformations' => '@transformations',
                 '$config' => '@config',
                 '$dbi' => '@dbi',
@@ -1104,11 +951,7 @@ return [
         ],
         Table\DeleteConfirmController::class => [
             'class' => Table\DeleteConfirmController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$dbTableExists' => '@' . DbTableExists::class,
-            ],
+            'arguments' => ['$response' => '@response', '$dbTableExists' => '@' . DbTableExists::class],
         ],
         Table\DeleteRowsController::class => [
             'class' => Table\DeleteRowsController::class,
@@ -1116,17 +959,12 @@ return [
         ],
         Table\DropColumnConfirmationController::class => [
             'class' => Table\DropColumnConfirmationController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$dbTableExists' => '@' . DbTableExists::class,
-            ],
+            'arguments' => ['$response' => '@response', '$dbTableExists' => '@' . DbTableExists::class],
         ],
         Table\DropColumnController::class => [
             'class' => Table\DropColumnController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$flash' => '@flash',
                 '$relationCleanup' => '@relation_cleanup',
@@ -1136,18 +974,13 @@ return [
             'class' => Table\ExportController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$export' => '@export_options',
                 '$pageSettings' => '@' . PageSettings::class,
             ],
         ],
         Table\ExportRowsController::class => [
             'class' => Table\ExportRowsController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$exportController' => '@' . Table\ExportController::class,
-            ],
+            'arguments' => ['$response' => '@response', '$exportController' => '@' . Table\ExportController::class],
         ],
         Table\FindReplaceController::class => [
             'class' => Table\FindReplaceController::class,
@@ -1160,7 +993,7 @@ return [
         ],
         Table\GetFieldController::class => [
             'class' => Table\GetFieldController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
         ],
         Table\GisVisualizationController::class => [
             'class' => Table\GisVisualizationController::class,
@@ -1175,7 +1008,6 @@ return [
             'class' => Table\ImportController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$pageSettings' => '@' . PageSettings::class,
                 '$dbTableExists' => '@' . DbTableExists::class,
@@ -1203,110 +1035,56 @@ return [
         ],
         Table\Maintenance\AnalyzeController::class => [
             'class' => Table\Maintenance\AnalyzeController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$model' => '@table_maintenance',
-                '$config' => '@config',
-            ],
+            'arguments' => ['$response' => '@response', '$model' => '@table_maintenance', '$config' => '@config'],
         ],
         Table\Maintenance\CheckController::class => [
             'class' => Table\Maintenance\CheckController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$model' => '@table_maintenance',
-                '$config' => '@config',
-            ],
+            'arguments' => ['$response' => '@response', '$model' => '@table_maintenance', '$config' => '@config'],
         ],
         Table\Maintenance\ChecksumController::class => [
             'class' => Table\Maintenance\ChecksumController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$model' => '@table_maintenance',
-                '$config' => '@config',
-            ],
+            'arguments' => ['$response' => '@response', '$model' => '@table_maintenance', '$config' => '@config'],
         ],
         Table\Maintenance\OptimizeController::class => [
             'class' => Table\Maintenance\OptimizeController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$model' => '@table_maintenance',
-                '$config' => '@config',
-            ],
+            'arguments' => ['$response' => '@response', '$model' => '@table_maintenance', '$config' => '@config'],
         ],
         Table\Maintenance\RepairController::class => [
             'class' => Table\Maintenance\RepairController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$model' => '@table_maintenance',
-                '$config' => '@config',
-            ],
+            'arguments' => ['$response' => '@response', '$model' => '@table_maintenance', '$config' => '@config'],
         ],
         Table\Partition\AnalyzeController::class => [
             'class' => Table\Partition\AnalyzeController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$model' => '@partitioning_maintenance',
-            ],
+            'arguments' => ['$response' => '@response', '$model' => '@partitioning_maintenance'],
         ],
         Table\Partition\CheckController::class => [
             'class' => Table\Partition\CheckController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$model' => '@partitioning_maintenance',
-            ],
+            'arguments' => ['$response' => '@response', '$model' => '@partitioning_maintenance'],
         ],
         Table\Partition\DropController::class => [
             'class' => Table\Partition\DropController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$model' => '@partitioning_maintenance',
-            ],
+            'arguments' => ['$response' => '@response', '$model' => '@partitioning_maintenance'],
         ],
         Table\Partition\OptimizeController::class => [
             'class' => Table\Partition\OptimizeController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$model' => '@partitioning_maintenance',
-            ],
+            'arguments' => ['$response' => '@response', '$model' => '@partitioning_maintenance'],
         ],
         Table\Partition\RebuildController::class => [
             'class' => Table\Partition\RebuildController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$model' => '@partitioning_maintenance',
-            ],
+            'arguments' => ['$response' => '@response', '$model' => '@partitioning_maintenance'],
         ],
         Table\Partition\RepairController::class => [
             'class' => Table\Partition\RepairController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$model' => '@partitioning_maintenance',
-            ],
+            'arguments' => ['$response' => '@response', '$model' => '@partitioning_maintenance'],
         ],
         Table\Partition\TruncateController::class => [
             'class' => Table\Partition\TruncateController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$model' => '@partitioning_maintenance',
-            ],
+            'arguments' => ['$response' => '@response', '$model' => '@partitioning_maintenance'],
         ],
         Operations\TableController::class => [
             'class' => Operations\TableController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$operations' => '@operations',
                 '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
                 '$relation' => '@relation',
@@ -1316,16 +1094,11 @@ return [
         ],
         Table\PrivilegesController::class => [
             'class' => Table\PrivilegesController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$privileges' => '@server_privileges',
-                '$dbi' => '@dbi',
-            ],
+            'arguments' => ['$response' => '@response', '$privileges' => '@server_privileges', '$dbi' => '@dbi'],
         ],
         Table\RecentFavoriteController::class => [
             'class' => Table\RecentFavoriteController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response'],
         ],
         Table\RelationController::class => [
             'class' => Table\RelationController::class,
@@ -1340,7 +1113,6 @@ return [
             'class' => Table\ReplaceController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$insertEdit' => '@insert_edit',
                 '$transformations' => '@transformations',
                 '$relation' => '@relation',
@@ -1366,7 +1138,6 @@ return [
             'class' => Table\SqlController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$sqlQueryForm' => '@sql_query_form',
                 '$pageSettings' => '@' . PageSettings::class,
                 '$dbTableExists' => '@' . DbTableExists::class,
@@ -1376,7 +1147,6 @@ return [
             'class' => Table\Structure\AddIndexController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$structureController' => '@' . Table\StructureController::class,
                 '$indexes' => '@table_indexes',
             ],
@@ -1384,21 +1154,18 @@ return [
         Table\Structure\AddKeyController::class => [
             'class' => Table\Structure\AddKeyController::class,
             'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
                 '$sqlController' => '@' . Sql\SqlController::class,
                 '$structureController' => '@' . Table\StructureController::class,
             ],
         ],
         Table\Structure\BrowseController::class => [
             'class' => Table\Structure\BrowseController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$sql' => '@sql'],
+            'arguments' => ['$response' => '@response', '$sql' => '@sql'],
         ],
         Table\Structure\CentralColumnsAddController::class => [
             'class' => Table\Structure\CentralColumnsAddController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$centralColumns' => '@central_columns',
                 '$structureController' => '@' . Table\StructureController::class,
             ],
@@ -1407,7 +1174,6 @@ return [
             'class' => Table\Structure\CentralColumnsRemoveController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$centralColumns' => '@central_columns',
                 '$structureController' => '@' . Table\StructureController::class,
             ],
@@ -1416,7 +1182,6 @@ return [
             'class' => Table\Structure\ChangeController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$columnsDefinition' => '@table_columns_definition',
                 '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
@@ -1426,7 +1191,6 @@ return [
             'class' => Table\Structure\FulltextController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$structureController' => '@' . Table\StructureController::class,
                 '$indexes' => '@table_indexes',
             ],
@@ -1439,7 +1203,6 @@ return [
             'class' => Table\Structure\PartitioningController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$createAddField' => '@create_add_field',
                 '$structureController' => '@' . Table\StructureController::class,
@@ -1450,7 +1213,6 @@ return [
             'class' => Table\Structure\PrimaryController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$structureController' => '@' . Table\StructureController::class,
                 '$dbTableExists' => '@' . DbTableExists::class,
@@ -1458,13 +1220,12 @@ return [
         ],
         Table\Structure\ReservedWordCheckController::class => [
             'class' => Table\Structure\ReservedWordCheckController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template'],
+            'arguments' => ['$response' => '@response'],
         ],
         Table\Structure\SaveController::class => [
             'class' => Table\Structure\SaveController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$relation' => '@relation',
                 '$transformations' => '@transformations',
                 '$dbi' => '@dbi',
@@ -1476,7 +1237,6 @@ return [
             'class' => Table\Structure\SpatialController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$structureController' => '@' . Table\StructureController::class,
                 '$indexes' => '@table_indexes',
             ],
@@ -1485,7 +1245,6 @@ return [
             'class' => Table\Structure\UniqueController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$structureController' => '@' . Table\StructureController::class,
                 '$indexes' => '@table_indexes',
             ],
@@ -1506,7 +1265,6 @@ return [
             'class' => Table\TrackingController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$tracking' => '@tracking',
                 '$trackingChecker' => '@tracking_checker',
                 '$dbTableExists' => '@' . DbTableExists::class,
@@ -1535,7 +1293,7 @@ return [
         ],
         TableController::class => [
             'class' => TableController::class,
-            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
         ],
         ThemesController::class => [
             'class' => ThemesController::class,
@@ -1549,24 +1307,18 @@ return [
             'class' => ThemeSetController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
                 '$userPreferences' => '@user_preferences',
             ],
         ],
         Transformation\OverviewController::class => [
             'class' => Transformation\OverviewController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$transformations' => '@transformations',
-            ],
+            'arguments' => ['$response' => '@response', '$transformations' => '@transformations'],
         ],
         Transformation\WrapperController::class => [
             'class' => Transformation\WrapperController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$transformations' => '@transformations',
                 '$relation' => '@relation',
                 '$dbi' => '@dbi',
@@ -1575,26 +1327,16 @@ return [
         ],
         UserPasswordController::class => [
             'class' => UserPasswordController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$userPassword' => '@user_password',
-                '$dbi' => '@dbi',
-            ],
+            'arguments' => ['$response' => '@response', '$userPassword' => '@user_password', '$dbi' => '@dbi'],
         ],
         VersionCheckController::class => [
             'class' => VersionCheckController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$versionInformation' => '@version_information',
-            ],
+            'arguments' => ['$response' => '@response', '$versionInformation' => '@version_information'],
         ],
         View\CreateController::class => [
             'class' => View\CreateController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$dbTableExists' => '@' . DbTableExists::class,
             ],
@@ -1603,7 +1345,6 @@ return [
             'class' => Operations\ViewController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$dbTableExists' => '@' . DbTableExists::class,
             ],

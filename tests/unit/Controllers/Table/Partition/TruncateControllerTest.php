@@ -9,7 +9,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Partitioning\Maintenance;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -32,7 +31,7 @@ class TruncateControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
 
-        $controller = new TruncateController($response, new Template(), new Maintenance($dbi));
+        $controller = new TruncateController($response, new Maintenance($dbi));
         $controller($request);
 
         self::assertSame(Message::error($message)->getDisplay(), $response->getHTMLResult());

@@ -16,7 +16,6 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -30,7 +29,6 @@ class SqlController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly SqlQueryForm $sqlQueryForm,
         private readonly PageSettings $pageSettings,
         private readonly DbTableExists $dbTableExists,

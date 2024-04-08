@@ -19,7 +19,6 @@ use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
@@ -31,7 +30,6 @@ final class ImportController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly DatabaseInterface $dbi,
         private readonly PageSettings $pageSettings,
     ) {

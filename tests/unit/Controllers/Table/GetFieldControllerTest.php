@@ -9,7 +9,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -52,7 +51,7 @@ class GetFieldControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dummyDbi);
         DatabaseInterface::$instance = $dbi;
 
-        (new GetFieldController(new ResponseRenderer(), new Template(), $dbi))($request);
+        (new GetFieldController(new ResponseRenderer(), $dbi))($request);
         $this->expectOutputString('46494c45');
     }
 }

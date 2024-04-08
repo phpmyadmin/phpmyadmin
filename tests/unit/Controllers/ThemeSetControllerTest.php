@@ -8,7 +8,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\ThemeSetController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -43,7 +42,7 @@ class ThemeSetControllerTest extends AbstractTestCase
         $userPreferences->expects(self::once())->method('save')
             ->with(self::equalTo(['ThemeDefault' => 'theme_name']));
 
-        (new ThemeSetController(new ResponseRenderer(), new Template(), $themeManager, $userPreferences))($request);
+        (new ThemeSetController(new ResponseRenderer(), $themeManager, $userPreferences))($request);
     }
 
     /** @param string[]|string|null $themeName */
@@ -63,7 +62,7 @@ class ThemeSetControllerTest extends AbstractTestCase
         $userPreferences->expects(self::never())->method('load');
         $userPreferences->expects(self::never())->method('save');
 
-        (new ThemeSetController(new ResponseRenderer(), new Template(), $themeManager, $userPreferences))($request);
+        (new ThemeSetController(new ResponseRenderer(), $themeManager, $userPreferences))($request);
     }
 
     /**

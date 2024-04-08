@@ -15,7 +15,6 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Maintenance;
-use PhpMyAdmin\Template;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
@@ -26,7 +25,6 @@ final class ChecksumController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Maintenance $model,
         private readonly Config $config,
     ) {

@@ -8,7 +8,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\CollationConnectionController;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -29,10 +28,6 @@ class CollationConnectionControllerTest extends AbstractTestCase
         $config->expects(self::once())->method('setUserValue')
             ->with(null, 'DefaultConnectionCollation', 'utf8mb4_general_ci', 'utf8mb4_unicode_ci');
 
-        (new CollationConnectionController(
-            $response,
-            new Template(),
-            $config,
-        ))($request);
+        (new CollationConnectionController($response, $config))($request);
     }
 }

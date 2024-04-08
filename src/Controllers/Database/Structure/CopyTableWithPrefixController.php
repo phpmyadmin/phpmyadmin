@@ -10,20 +10,15 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
-use PhpMyAdmin\Template;
 
 use function mb_strlen;
 use function mb_substr;
 
 final class CopyTableWithPrefixController implements InvocableController
 {
-    public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly StructureController $structureController,
-    ) {
+    public function __construct(private readonly StructureController $structureController)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response|null

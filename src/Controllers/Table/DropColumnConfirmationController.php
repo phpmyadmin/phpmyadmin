@@ -14,7 +14,6 @@ use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
@@ -24,7 +23,6 @@ final class DropColumnConfirmationController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly DbTableExists $dbTableExists,
     ) {
     }

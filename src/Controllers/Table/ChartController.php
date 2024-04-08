@@ -20,7 +20,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -37,7 +36,6 @@ final class ChartController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {

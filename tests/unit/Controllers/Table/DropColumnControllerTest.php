@@ -11,7 +11,6 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -47,7 +46,6 @@ class DropColumnControllerTest extends AbstractTestCase
 
         (new DropColumnController(
             new ResponseRenderer(),
-            new Template(),
             $dbi,
             new FlashMessages(),
             new RelationCleanup($dbi, new Relation($dbi)),

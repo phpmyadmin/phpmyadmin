@@ -58,7 +58,6 @@ class TrackingControllerTest extends AbstractTestCase
         $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
         (new TrackingController(
             $response,
-            $template,
             new Tracking(
                 new SqlQueryForm($template, $this->dbi, $bookmarkRepository),
                 $template,

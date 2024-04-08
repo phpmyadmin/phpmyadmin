@@ -11,7 +11,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 use function phpinfo;
 
@@ -24,7 +23,7 @@ use const INFO_MODULES;
  */
 final class PhpInfoController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly Template $template)
+    public function __construct(private readonly ResponseRenderer $response)
     {
     }
 

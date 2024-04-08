@@ -8,16 +8,12 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 final class CollationConnectionController implements InvocableController
 {
-    public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly Config $config,
-    ) {
+    public function __construct(private readonly ResponseRenderer $response, private readonly Config $config)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response|null

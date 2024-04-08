@@ -13,7 +13,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 /**
@@ -33,7 +32,6 @@ final class CollationsController implements InvocableController
      */
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly DatabaseInterface $dbi,
         array|null $charsets = null,
         array|null $collations = null,

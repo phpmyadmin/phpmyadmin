@@ -10,7 +10,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Plugins;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function array_keys;
@@ -25,7 +24,6 @@ final class PluginsController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Plugins $plugins,
         private readonly DatabaseInterface $dbi,
     ) {

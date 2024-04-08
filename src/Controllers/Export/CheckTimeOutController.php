@@ -8,11 +8,10 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 final class CheckTimeOutController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly Template $template)
+    public function __construct(private readonly ResponseRenderer $response)
     {
     }
 

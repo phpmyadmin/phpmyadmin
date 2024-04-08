@@ -10,7 +10,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 use function __;
 use function _pgettext;
@@ -19,7 +18,6 @@ final class GetColumnsController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Normalization $normalization,
     ) {
     }

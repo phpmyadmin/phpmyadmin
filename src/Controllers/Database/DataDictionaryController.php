@@ -12,7 +12,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
@@ -23,7 +22,6 @@ final class DataDictionaryController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Relation $relation,
         private readonly Transformations $transformations,
         private readonly DatabaseInterface $dbi,

@@ -14,7 +14,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
@@ -27,7 +26,6 @@ final class ImportController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly UserPreferences $userPreferences,
         private readonly Relation $relation,
         private readonly Config $config,

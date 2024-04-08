@@ -16,7 +16,6 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
@@ -62,7 +61,6 @@ final class DatabasesController implements InvocableController
 
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly DatabaseInterface $dbi,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {

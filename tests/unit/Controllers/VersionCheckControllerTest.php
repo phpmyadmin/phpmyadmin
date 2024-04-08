@@ -8,7 +8,6 @@ use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Release;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\VersionInformation;
@@ -42,7 +41,6 @@ class VersionCheckControllerTest extends AbstractTestCase
 
         (new VersionCheckController(
             new ResponseRenderer(),
-            new Template(),
             $versionInformation,
         ))(self::createStub(ServerRequest::class));
 
@@ -67,7 +65,6 @@ class VersionCheckControllerTest extends AbstractTestCase
 
         (new VersionCheckController(
             new ResponseRenderer(),
-            new Template(),
             $versionInformation,
         ))(self::createStub(ServerRequest::class));
 
@@ -86,7 +83,6 @@ class VersionCheckControllerTest extends AbstractTestCase
 
         (new VersionCheckController(
             new ResponseRenderer(),
-            new Template(),
             $versionInformation,
         ))(self::createStub(ServerRequest::class));
 

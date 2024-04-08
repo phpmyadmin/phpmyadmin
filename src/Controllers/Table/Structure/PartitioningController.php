@@ -20,7 +20,6 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table\Table;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -34,7 +33,6 @@ final class PartitioningController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly DatabaseInterface $dbi,
         private readonly CreateAddField $createAddField,
         private readonly StructureController $structureController,

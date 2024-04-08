@@ -14,7 +14,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 use function __;
 
@@ -23,7 +22,7 @@ use function __;
  */
 final class RecentFavoriteController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly Template $template)
+    public function __construct(private readonly ResponseRenderer $response)
     {
     }
 

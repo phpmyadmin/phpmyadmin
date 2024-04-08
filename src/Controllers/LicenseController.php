@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 use function __;
 use function is_readable;
@@ -22,7 +21,7 @@ use function readfile;
  */
 final class LicenseController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly Template $template)
+    public function __construct(private readonly ResponseRenderer $response)
     {
     }
 

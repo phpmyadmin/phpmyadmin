@@ -27,7 +27,7 @@ final class ChangeLogControllerTest extends AbstractTestCase
 
         $responseRenderer = new ResponseRenderer();
         $template = new Template();
-        $controller = new ChangeLogController($responseRenderer, $template, $config);
+        $controller = new ChangeLogController($responseRenderer, $config);
         $controller($request);
 
         self::assertTrue($responseRenderer->isDisabled());
@@ -66,7 +66,7 @@ HTML;
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/');
 
         $responseRenderer = new ResponseRenderer();
-        $controller = new ChangeLogController($responseRenderer, new Template(), $config);
+        $controller = new ChangeLogController($responseRenderer, $config);
         $controller($request);
 
         self::assertStringContainsString(
@@ -87,7 +87,7 @@ HTML;
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/');
 
         $responseRenderer = new ResponseRenderer();
-        $controller = new ChangeLogController($responseRenderer, new Template(), $config);
+        $controller = new ChangeLogController($responseRenderer, $config);
         $controller($request);
 
         self::assertSame('', $responseRenderer->getHTMLResult());

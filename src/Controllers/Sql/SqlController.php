@@ -18,7 +18,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -31,7 +30,6 @@ class SqlController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Sql $sql,
         private readonly DatabaseInterface $dbi,
         private readonly PageSettings $pageSettings,

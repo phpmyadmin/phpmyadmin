@@ -15,7 +15,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
@@ -35,7 +34,6 @@ final class CreateController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Transformations $transformations,
         private readonly Config $config,
         private readonly DatabaseInterface $dbi,

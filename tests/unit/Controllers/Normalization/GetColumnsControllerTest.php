@@ -34,7 +34,6 @@ class GetColumnsControllerTest extends AbstractTestCase
 
         $controller = new GetColumnsController(
             $response,
-            $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
         $controller(self::createStub(ServerRequest::class));

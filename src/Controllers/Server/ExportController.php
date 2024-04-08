@@ -14,7 +14,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function __;
@@ -24,7 +23,6 @@ final class ExportController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Options $export,
         private readonly DatabaseInterface $dbi,
         private readonly PageSettings $pageSettings,

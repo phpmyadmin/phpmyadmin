@@ -10,7 +10,6 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 use function __;
 use function is_string;
@@ -19,7 +18,6 @@ final class AddController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly BookmarkRepository $bookmarkRepository,
     ) {
     }

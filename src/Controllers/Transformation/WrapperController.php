@@ -17,7 +17,6 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
@@ -39,7 +38,6 @@ final class WrapperController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Transformations $transformations,
         private readonly Relation $relation,
         private readonly DatabaseInterface $dbi,

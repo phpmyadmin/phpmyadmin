@@ -14,7 +14,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Mime;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -28,11 +27,8 @@ use function sprintf;
  */
 final class GetFieldController implements InvocableController
 {
-    public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DatabaseInterface $dbi,
-    ) {
+    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response|null

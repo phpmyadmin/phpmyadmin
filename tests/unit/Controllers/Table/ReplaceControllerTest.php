@@ -103,7 +103,6 @@ class ReplaceControllerTest extends AbstractTestCase
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
         $sqlController = new SqlController(
             $response,
-            $template,
             new Sql(
                 $dbi,
                 $relation,
@@ -120,7 +119,6 @@ class ReplaceControllerTest extends AbstractTestCase
 
         $replaceController = new ReplaceController(
             $response,
-            $template,
             new InsertEdit($dbi, $relation, $transformations, new FileListing(), $template, Config::getInstance()),
             $transformations,
             $relation,
@@ -157,7 +155,6 @@ class ReplaceControllerTest extends AbstractTestCase
 
         $replaceController = new ReplaceController(
             self::createStub(ResponseRenderer::class),
-            self::createStub(Template::class),
             self::createStub(InsertEdit::class),
             self::createStub(Transformations::class),
             self::createStub(Relation::class),

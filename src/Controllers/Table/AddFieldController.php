@@ -19,7 +19,6 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
@@ -38,7 +37,6 @@ final class AddFieldController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Transformations $transformations,
         private readonly Config $config,
         private readonly DatabaseInterface $dbi,

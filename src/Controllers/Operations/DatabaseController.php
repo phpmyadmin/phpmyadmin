@@ -22,7 +22,6 @@ use PhpMyAdmin\Operations;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
@@ -37,7 +36,6 @@ final class DatabaseController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Operations $operations,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,
         private readonly Relation $relation,

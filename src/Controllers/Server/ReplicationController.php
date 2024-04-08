@@ -14,7 +14,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function is_array;
@@ -26,7 +25,6 @@ final class ReplicationController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly ReplicationGui $replicationGui,
         private readonly DatabaseInterface $dbi,
     ) {

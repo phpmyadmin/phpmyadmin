@@ -17,7 +17,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -30,7 +29,6 @@ final class ExportController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Export $export,
         private readonly Options $exportOptions,
         private readonly PageSettings $pageSettings,

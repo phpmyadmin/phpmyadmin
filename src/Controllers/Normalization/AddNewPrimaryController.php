@@ -12,7 +12,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
 
@@ -20,7 +19,6 @@ final class AddNewPrimaryController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Normalization $normalization,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {

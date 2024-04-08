@@ -10,7 +10,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Generator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Indexes;
-use PhpMyAdmin\Template;
 
 use function __;
 use function is_array;
@@ -19,7 +18,6 @@ abstract class AbstractIndexController
 {
     public function __construct(
         protected readonly ResponseRenderer $response,
-        protected readonly Template $template,
         protected readonly StructureController $structureController,
         protected readonly Indexes $indexes,
     ) {

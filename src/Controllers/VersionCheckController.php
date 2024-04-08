@@ -8,7 +8,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\VersionInformation;
 
 use function header;
@@ -22,7 +21,6 @@ final class VersionCheckController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly VersionInformation $versionInformation,
     ) {
     }

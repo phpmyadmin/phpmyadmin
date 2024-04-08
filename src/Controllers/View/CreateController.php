@@ -22,7 +22,6 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SystemDatabase;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -49,7 +48,6 @@ final class CreateController implements InvocableController
 
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {

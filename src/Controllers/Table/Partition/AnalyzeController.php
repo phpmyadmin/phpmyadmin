@@ -14,7 +14,6 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Partitioning\Maintenance;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
@@ -22,11 +21,8 @@ use function __;
 
 final class AnalyzeController implements InvocableController
 {
-    public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly Maintenance $model,
-    ) {
+    public function __construct(private readonly ResponseRenderer $response, private readonly Maintenance $model)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response|null

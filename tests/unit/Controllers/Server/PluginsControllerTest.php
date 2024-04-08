@@ -10,7 +10,6 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Plugins;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
@@ -74,7 +73,7 @@ class PluginsControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
 
-        $controller = new PluginsController($response, new Template(), new Plugins($dbi), $this->dbi);
+        $controller = new PluginsController($response, new Plugins($dbi), $this->dbi);
         $this->dummyDbi->addSelectDb('mysql');
         $controller(self::createStub(ServerRequest::class));
         $this->dummyDbi->assertAllSelectsConsumed();

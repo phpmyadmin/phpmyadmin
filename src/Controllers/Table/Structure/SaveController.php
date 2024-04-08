@@ -18,7 +18,6 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivileges;
@@ -40,7 +39,6 @@ final class SaveController implements InvocableController
 
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Relation $relation,
         private readonly Transformations $transformations,
         private readonly DatabaseInterface $dbi,

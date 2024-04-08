@@ -8,7 +8,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
@@ -19,7 +18,6 @@ final class ThemeSetController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly ThemeManager $themeManager,
         private readonly UserPreferences $userPreferences,
     ) {

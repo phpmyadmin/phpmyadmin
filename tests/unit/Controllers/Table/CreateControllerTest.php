@@ -255,7 +255,6 @@ class CreateControllerTest extends AbstractTestCase
         $transformations = new Transformations();
         (new CreateController(
             $response,
-            $template,
             $transformations,
             $this->createConfig(),
             $dbi,

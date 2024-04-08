@@ -11,7 +11,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\SessionCache;
 
 use function __;
@@ -25,7 +24,6 @@ final class NavigationController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Navigation $navigation,
         private readonly Relation $relation,
         private readonly PageSettings $pageSettings,

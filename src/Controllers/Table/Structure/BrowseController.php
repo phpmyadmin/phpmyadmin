@@ -11,7 +11,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -20,11 +19,8 @@ use function sprintf;
 
 final class BrowseController implements InvocableController
 {
-    public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly Sql $sql,
-    ) {
+    public function __construct(private readonly ResponseRenderer $response, private readonly Sql $sql)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response|null

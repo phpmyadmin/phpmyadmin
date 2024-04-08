@@ -11,7 +11,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\StorageEngine;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -49,7 +48,7 @@ class ShowEngineControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withAttribute('routeVars', ['engine' => 'Pbxt', 'page' => 'page']);
 
-        (new ShowEngineController($response, new Template(), DatabaseInterface::getInstance()))($request);
+        (new ShowEngineController($response, DatabaseInterface::getInstance()))($request);
 
         $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();

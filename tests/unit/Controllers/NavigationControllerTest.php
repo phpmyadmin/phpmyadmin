@@ -122,7 +122,6 @@ class NavigationControllerTest extends AbstractTestCase
         $relation = new Relation($this->dbi);
         $navigationController = new NavigationController(
             $responseRenderer,
-            $template,
             new Navigation($template, $relation, $this->dbi, $config),
             $relation,
             new PageSettings(new UserPreferences($this->dbi, $relation, $template)),
@@ -272,7 +271,6 @@ class NavigationControllerTest extends AbstractTestCase
         $relation = new Relation($this->dbi);
         $navigationController = new NavigationController(
             $responseRenderer,
-            $template,
             new Navigation($template, $relation, $this->dbi, $config),
             $relation,
             new PageSettings(new UserPreferences($this->dbi, $relation, $template)),

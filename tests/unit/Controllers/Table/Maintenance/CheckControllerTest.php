@@ -8,7 +8,6 @@ use PhpMyAdmin\Controllers\Table\Maintenance\CheckController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Table\Maintenance;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -26,7 +25,7 @@ class CheckControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
-        $controller = new CheckController($response, new Template(), new Maintenance($dbi), $this->createConfig());
+        $controller = new CheckController($response, new Maintenance($dbi), $this->createConfig());
         $controller($request);
         self::assertFalse($response->hasSuccessState());
         self::assertSame(['message' => 'No table selected.'], $response->getJSONResult());

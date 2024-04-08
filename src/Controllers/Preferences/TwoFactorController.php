@@ -11,7 +11,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 
 use function __;
@@ -20,11 +19,8 @@ use function define;
 
 final class TwoFactorController implements InvocableController
 {
-    public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly Relation $relation,
-    ) {
+    public function __construct(private readonly ResponseRenderer $response, private readonly Relation $relation)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response|null

@@ -24,7 +24,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Webmozart\Assert\Assert;
@@ -40,11 +39,8 @@ use function time;
 
 final class ExportController implements InvocableController
 {
-    public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly Export $export,
-    ) {
+    public function __construct(private readonly ResponseRenderer $response, private readonly Export $export)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response|null

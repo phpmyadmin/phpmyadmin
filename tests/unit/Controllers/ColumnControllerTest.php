@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\ColumnController;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -23,7 +21,7 @@ final class ColumnControllerTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         $responseRenderer = new ResponseRenderer();
-        $controller = new ColumnController($responseRenderer, new Template(new Config()), $dbi);
+        $controller = new ColumnController($responseRenderer, $dbi);
         $controller($request);
 
         self::assertTrue($responseRenderer->hasSuccessState());
@@ -37,7 +35,7 @@ final class ColumnControllerTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         $responseRenderer = new ResponseRenderer();
-        $controller = new ColumnController($responseRenderer, new Template(new Config()), $dbi);
+        $controller = new ColumnController($responseRenderer, $dbi);
         $controller($request);
 
         self::assertFalse($responseRenderer->hasSuccessState());

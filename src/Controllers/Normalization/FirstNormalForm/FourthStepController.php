@@ -10,13 +10,11 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 final class FourthStepController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Normalization $normalization,
     ) {
     }

@@ -12,13 +12,11 @@ use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 final class UpdateController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly TemplateModel $model,
         private readonly Relation $relation,
     ) {

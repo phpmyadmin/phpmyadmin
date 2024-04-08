@@ -14,7 +14,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
@@ -26,7 +25,6 @@ final class DeleteConfirmController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly DbTableExists $dbTableExists,
     ) {
     }

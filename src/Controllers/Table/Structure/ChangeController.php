@@ -12,7 +12,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPrivilegesFactory;
 
 use function __;
@@ -27,7 +26,6 @@ final class ChangeController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly DatabaseInterface $dbi,
         private readonly ColumnsDefinition $columnsDefinition,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,

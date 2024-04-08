@@ -12,7 +12,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 use function __;
 use function is_string;
@@ -24,7 +23,6 @@ final class UserGroupsController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Relation $relation,
         private readonly DatabaseInterface $dbi,
     ) {

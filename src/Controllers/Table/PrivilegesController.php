@@ -19,7 +19,6 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Privileges;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -32,7 +31,6 @@ final class PrivilegesController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Privileges $privileges,
         private readonly DatabaseInterface $dbi,
     ) {

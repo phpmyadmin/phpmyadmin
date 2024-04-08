@@ -36,7 +36,6 @@ class AddNewPrimaryControllerTest extends AbstractTestCase
 
         $controller = new AddNewPrimaryController(
             $response,
-            $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
             new UserPrivilegesFactory($dbi),
         );

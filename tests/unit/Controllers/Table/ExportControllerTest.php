@@ -114,7 +114,6 @@ class ExportControllerTest extends AbstractTestCase
 
         (new ExportController(
             $response,
-            $template,
             new Options(new Relation($dbi), new TemplateModel($dbi)),
             $pageSettings,
         ))(self::createStub(ServerRequest::class));

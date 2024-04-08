@@ -11,16 +11,12 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
-use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPrivilegesFactory;
 
 final class CopyTableController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Operations $operations,
         private readonly StructureController $structureController,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,

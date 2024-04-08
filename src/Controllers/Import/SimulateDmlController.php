@@ -14,7 +14,6 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
-use PhpMyAdmin\Template;
 
 use function __;
 use function count;
@@ -22,11 +21,8 @@ use function explode;
 
 final class SimulateDmlController implements InvocableController
 {
-    public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly SimulateDml $simulateDml,
-    ) {
+    public function __construct(private readonly ResponseRenderer $response, private readonly SimulateDml $simulateDml)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response|null

@@ -42,7 +42,6 @@ class PartialDependenciesControllerTest extends AbstractTestCase
 
         $controller = new PartialDependenciesController(
             $response,
-            $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
         $controller(self::createStub(ServerRequest::class));

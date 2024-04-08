@@ -9,7 +9,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function __;
@@ -27,11 +26,8 @@ use function str_ends_with;
 
 final class ChangeLogController implements InvocableController
 {
-    public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly Config $config,
-    ) {
+    public function __construct(private readonly ResponseRenderer $response, private readonly Config $config)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response|null

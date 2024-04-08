@@ -11,7 +11,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -25,7 +24,6 @@ final class HomeControllerTest extends AbstractTestCase
             ->withQueryParams(['db' => 'test_db']);
         $controller = new HomeController(
             self::createStub(ResponseRenderer::class),
-            self::createStub(Template::class),
             self::createStub(Config::class),
             self::createStub(ThemeManager::class),
             self::createStub(DatabaseInterface::class),
@@ -44,7 +42,6 @@ final class HomeControllerTest extends AbstractTestCase
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
         $controller = new HomeController(
             self::createStub(ResponseRenderer::class),
-            self::createStub(Template::class),
             self::createStub(Config::class),
             self::createStub(ThemeManager::class),
             self::createStub(DatabaseInterface::class),
