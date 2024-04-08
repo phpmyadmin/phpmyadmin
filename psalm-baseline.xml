@@ -3814,57 +3814,9 @@
     </PossiblyInvalidIterator>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/MoveColumnsController.php">
-    <MixedArgument occurrences="12">
-      <code>$current_timestamp ? '' : $data['Default']</code>
-      <code>$data['Collation'] ?? ''</code>
-      <code>$data['Expression']</code>
-      <code>$data['Extra']</code>
-      <code>$data['Type']</code>
-      <code>$data['Virtuality']</code>
-      <code>$extracted_columnspec['attribute']</code>
-      <code>$extracted_columnspec['spec_in_brackets']</code>
-      <code>$extracted_columnspec['type']</code>
-      <code>$i === 0 ? '-first' : $column_names[$i - 1]</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="9">
-      <code>$data['Collation']</code>
-      <code>$data['Default']</code>
-      <code>$data['Default']</code>
-      <code>$data['Expression']</code>
-      <code>$data['Null']</code>
-      <code>$data['Null']</code>
-      <code>$data['Type']</code>
-      <code>$data['Type']</code>
-      <code>$data['Virtuality']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$data['Expression']</code>
-      <code>$data['Virtuality']</code>
-    </MixedArrayAssignment>
-    <MixedAssignment occurrences="2">
-      <code>$data</code>
-      <code>$data['Expression']</code>
-    </MixedAssignment>
-    <PossiblyFalseArgument occurrences="2"/>
-    <PossiblyInvalidArgument occurrences="3">
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayOffset occurrences="2">
-      <code>$columns[$column]</code>
-      <code>$expressions[$column]</code>
-    </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast occurrences="2">
-      <code>$column</code>
-      <code>$column</code>
-    </PossiblyInvalidCast>
-    <PossiblyNullArgument occurrences="4">
-      <code>$current_timestamp ? '' : $data['Default']</code>
-      <code>$data['Collation'] ?? ''</code>
-      <code>$data['Expression']</code>
-      <code>$data['Virtuality']</code>
-    </PossiblyNullArgument>
+    <InvalidScalarArgument occurrences="1">
+      <code>$moveColumns</code>
+    </InvalidScalarArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/PartitioningController.php">
     <PossiblyNullArgument occurrences="2">
