@@ -10,7 +10,6 @@ use PhpMyAdmin\Controllers\Table\Structure\ChangeController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Table\ColumnsDefinition;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
@@ -49,7 +48,6 @@ class ChangeControllerTest extends AbstractTestCase
 
         $ctrl = new ChangeController(
             $response,
-            new Template(),
             $this->dbi,
             new ColumnsDefinition($this->dbi, new Relation($this->dbi), new Transformations()),
             new UserPrivilegesFactory($this->dbi),

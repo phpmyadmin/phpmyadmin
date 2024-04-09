@@ -8,13 +8,12 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\ImportForm;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
@@ -23,17 +22,15 @@ use PhpMyAdmin\UserPreferences;
 use function define;
 use function ltrim;
 
-class ImportController extends AbstractController
+final class ImportController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private UserPreferences $userPreferences,
-        private Relation $relation,
-        private Config $config,
-        private ThemeManager $themeManager,
+        private readonly ResponseRenderer $response,
+        private readonly UserPreferences $userPreferences,
+        private readonly Relation $relation,
+        private readonly Config $config,
+        private readonly ThemeManager $themeManager,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -51,7 +48,7 @@ class ImportController extends AbstractController
         if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
-            $this->redirect('/preferences/import');
+            $this->response->redirectToRoute('/preferences/import', []);
 
             return null;
         }
@@ -79,7 +76,7 @@ class ImportController extends AbstractController
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        $this->render('preferences/header', [
+        $this->response->render('preferences/header', [
             'route' => $request->getRoute(),
             'is_saved' => $request->hasQueryParam('saved'),
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
@@ -87,7 +84,7 @@ class ImportController extends AbstractController
 
         $formErrors = $formDisplay->displayErrors();
 
-        $this->render('preferences/forms/main', [
+        $this->response->render('preferences/forms/main', [
             'error' => $GLOBALS['error'] instanceof Message ? $GLOBALS['error']->getDisplay() : '',
             'has_errors' => $formDisplay->hasErrors(),
             'errors' => $formErrors,

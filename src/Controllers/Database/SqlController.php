@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Response;
@@ -15,7 +15,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -25,16 +24,14 @@ use function htmlspecialchars;
 /**
  * Database SQL executor
  */
-class SqlController extends AbstractController
+class SqlController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private SqlQueryForm $sqlQueryForm,
-        private PageSettings $pageSettings,
+        private readonly ResponseRenderer $response,
+        private readonly SqlQueryForm $sqlQueryForm,
+        private readonly PageSettings $pageSettings,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -43,13 +40,13 @@ class SqlController extends AbstractController
         $GLOBALS['back'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $this->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
+        $this->response->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
 
         $this->pageSettings->init('Sql');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
 
-        if (! $this->checkParameters(['db'])) {
+        if (! $this->response->checkParameters(['db'])) {
             return null;
         }
 
@@ -68,7 +65,7 @@ class SqlController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }

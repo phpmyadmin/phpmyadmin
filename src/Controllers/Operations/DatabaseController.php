@@ -8,7 +8,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -22,7 +22,6 @@ use PhpMyAdmin\Operations;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
@@ -33,19 +32,17 @@ use function mb_strtolower;
 /**
  * Handles miscellaneous database operations.
  */
-class DatabaseController extends AbstractController
+final class DatabaseController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Operations $operations,
-        private UserPrivilegesFactory $userPrivilegesFactory,
-        private Relation $relation,
-        private RelationCleanup $relationCleanup,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Operations $operations,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
+        private readonly Relation $relation,
+        private readonly RelationCleanup $relationCleanup,
+        private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -57,7 +54,7 @@ class DatabaseController extends AbstractController
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
-        $this->addScriptFiles(['database/operations.js']);
+        $this->response->addScriptFiles(['database/operations.js']);
 
         $GLOBALS['sql_query'] = '';
 
@@ -227,7 +224,7 @@ class DatabaseController extends AbstractController
             $this->relation->setDbComment(Current::$database, $request->getParsedBodyParam('comment'));
         }
 
-        if (! $this->checkParameters(['db'])) {
+        if (! $this->response->checkParameters(['db'])) {
             return null;
         }
 
@@ -244,7 +241,7 @@ class DatabaseController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -296,7 +293,7 @@ class DatabaseController extends AbstractController
             }
         }
 
-        $this->render('database/operations/index', [
+        $this->response->render('database/operations/index', [
             'message' => $oldMessage,
             'db' => Current::$database,
             'has_comment' => $relationParameters->columnCommentsFeature !== null,

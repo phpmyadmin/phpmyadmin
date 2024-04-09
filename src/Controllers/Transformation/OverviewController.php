@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Transformation;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 
 use function array_keys;
@@ -16,14 +15,12 @@ use function array_keys;
 /**
  * Lists available transformation plugins
  */
-class OverviewController extends AbstractController
+final class OverviewController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Transformations $transformations,
+        private readonly ResponseRenderer $response,
+        private readonly Transformations $transformations,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -49,7 +46,10 @@ class OverviewController extends AbstractController
             }
         }
 
-        $this->render('transformation_overview', ['mime_types' => $mimeTypes, 'transformations' => $transformations]);
+        $this->response->render('transformation_overview', [
+            'mime_types' => $mimeTypes,
+            'transformations' => $transformations,
+        ]);
 
         return null;
     }

@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\ResponseRenderer;
 
 use function __;
 use function is_readable;
@@ -18,8 +19,12 @@ use function readfile;
 /**
  * Simple script to set correct charset for the license
  */
-class LicenseController extends AbstractController
+final class LicenseController implements InvocableController
 {
+    public function __construct(private readonly ResponseRenderer $response)
+    {
+    }
+
     public function __invoke(ServerRequest $request): Response|null
     {
         $this->response->disable();

@@ -11,7 +11,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPassword;
 
 use function __;
@@ -19,15 +18,13 @@ use function __;
 /**
  * Displays and handles the form where the user can change their password.
  */
-class UserPasswordController extends AbstractController
+final class UserPasswordController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private UserPassword $userPassword,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly UserPassword $userPassword,
+        private readonly DatabaseInterface $dbi,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -36,7 +33,7 @@ class UserPasswordController extends AbstractController
         $GLOBALS['username'] ??= null;
         $GLOBALS['change_password_message'] ??= null;
 
-        $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
+        $this->response->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 
         $config = Config::getInstance();
         /**
@@ -87,7 +84,7 @@ class UserPasswordController extends AbstractController
 
                 $this->response->addHTML('<h1>' . __('Change password') . '</h1>' . "\n\n");
                 $this->response->addHTML(Generator::getMessage($message, $sqlQuery, 'success'));
-                $this->render('user_password');
+                $this->response->render('user_password', []);
 
                 return null;
             }

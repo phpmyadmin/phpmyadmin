@@ -10,7 +10,6 @@ use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
@@ -94,7 +93,6 @@ class SaveControllerTest extends AbstractTestCase
 
         (new SaveController(
             new ResponseRenderer(),
-            new Template(),
             new Relation($dbi),
             new Transformations(),
             $dbi,
@@ -117,7 +115,6 @@ class SaveControllerTest extends AbstractTestCase
 
         $ctrl = new SaveController(
             new ResponseRenderer(),
-            new Template(),
             new Relation($dbi),
             new Transformations(),
             $dbi,

@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\ListDatabase;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -31,7 +29,7 @@ class DatabaseControllerTest extends AbstractTestCase
         );
 
         $responseRenderer = new ResponseRenderer();
-        $controller = new DatabaseController($responseRenderer, new Template(new Config()), $dbi);
+        $controller = new DatabaseController($responseRenderer, $dbi);
         $controller($request);
 
         $output = $responseRenderer->getJSONResult();

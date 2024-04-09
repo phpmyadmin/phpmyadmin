@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Plugins;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function array_keys;
@@ -21,15 +20,13 @@ use function preg_replace;
 /**
  * Handles viewing server plugin details
  */
-class PluginsController extends AbstractController
+final class PluginsController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Plugins $plugins,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Plugins $plugins,
+        private readonly DatabaseInterface $dbi,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -40,7 +37,7 @@ class PluginsController extends AbstractController
             $this->dbi->selectDb('mysql');
         }
 
-        $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'server/plugins.js']);
+        $this->response->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'server/plugins.js']);
 
         $plugins = [];
         $serverPlugins = $this->plugins->getAll();
@@ -59,7 +56,7 @@ class PluginsController extends AbstractController
             );
         }
 
-        $this->render('server/plugins/index', ['plugins' => $plugins, 'clean_types' => $cleanTypes]);
+        $this->response->render('server/plugins/index', ['plugins' => $plugins, 'clean_types' => $cleanTypes]);
 
         return null;
     }

@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Context;
 
 use function _ngettext;
@@ -17,8 +18,12 @@ use function implode;
 use function sprintf;
 use function trim;
 
-final class ReservedWordCheckController extends AbstractController
+final class ReservedWordCheckController implements InvocableController
 {
+    public function __construct(private readonly ResponseRenderer $response)
+    {
+    }
+
     public function __invoke(ServerRequest $request): Response|null
     {
         if (Config::getInstance()->settings['ReservedWordDisableWarning'] !== false) {

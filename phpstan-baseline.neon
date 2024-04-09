@@ -1386,11 +1386,6 @@ parameters:
 			path: src/ConfigStorage/UserGroups.php
 
 		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Controllers/AbstractController.php
-
-		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getColumnsNotInCentralList\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/CentralColumns/PopulateColumnsController.php
@@ -1456,7 +1451,7 @@ parameters:
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#2 \\$templateData of method PhpMyAdmin\\\\Controllers\\\\AbstractController\\:\\:render\\(\\) expects array\\<string, mixed\\>, array given\\.$#"
+			message: "#^Parameter \\#2 \\$templateData of method PhpMyAdmin\\\\ResponseRenderer\\:\\:render\\(\\) expects array\\<string, mixed\\>, array given\\.$#"
 			count: 1
 			path: src/Controllers/Database/CentralColumnsController.php
 
@@ -4036,7 +4031,7 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: "#^Parameter \\#1 \\$files of method PhpMyAdmin\\\\Controllers\\\\AbstractController\\:\\:addScriptFiles\\(\\) expects array\\<string\\>, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$files of method PhpMyAdmin\\\\ResponseRenderer\\:\\:addScriptFiles\\(\\) expects array\\<int, string\\>, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
 
@@ -12672,6 +12667,11 @@ parameters:
 
 		-
 			message: "#^Foreach overwrites \\$value with its value variable\\.$#"
+			count: 1
+			path: src/ResponseRenderer.php
+
+		-
+			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: src/ResponseRenderer.php
 

@@ -8,9 +8,14 @@ use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\ResponseRenderer;
 
-final class RecentTablesListController extends AbstractController
+final class RecentTablesListController implements InvocableController
 {
+    public function __construct(private readonly ResponseRenderer $response)
+    {
+    }
+
     public function __invoke(ServerRequest $request): Response|null
     {
         if (! $request->isAjax()) {

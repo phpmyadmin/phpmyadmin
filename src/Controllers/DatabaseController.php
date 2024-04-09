@@ -8,13 +8,11 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
-final class DatabaseController extends AbstractController
+final class DatabaseController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private readonly DatabaseInterface $dbi)
+    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
     {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

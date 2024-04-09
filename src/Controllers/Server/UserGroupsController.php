@@ -6,13 +6,12 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\UserGroups;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 use function __;
 use function is_string;
@@ -20,15 +19,13 @@ use function is_string;
 /**
  * Displays the 'User groups' sub page under 'Users' page.
  */
-class UserGroupsController extends AbstractController
+final class UserGroupsController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Relation $relation,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Relation $relation,
+        private readonly DatabaseInterface $dbi,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -38,7 +35,7 @@ class UserGroupsController extends AbstractController
             return null;
         }
 
-        $this->addScriptFiles(['server/user_groups.js']);
+        $this->response->addScriptFiles(['server/user_groups.js']);
 
         /**
          * Only allowed to superuser
@@ -52,7 +49,7 @@ class UserGroupsController extends AbstractController
         }
 
         $this->response->addHTML('<div class="container-fluid">');
-        $this->render('server/privileges/subnav', [
+        $this->response->render('server/privileges/subnav', [
             'active' => 'user-groups',
             'is_super_user' => $this->dbi->isSuperUser(),
         ]);

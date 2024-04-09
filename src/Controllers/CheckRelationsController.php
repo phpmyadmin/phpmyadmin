@@ -11,18 +11,16 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 use const SQL_DIR;
 
 /**
  * Displays status of phpMyAdmin configuration storage
  */
-class CheckRelationsController extends AbstractController
+final class CheckRelationsController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private Relation $relation)
+    public function __construct(private readonly ResponseRenderer $response, private readonly Relation $relation)
     {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -50,7 +48,7 @@ class CheckRelationsController extends AbstractController
         // Do not use any previous $relationParameters value as it could have changed after a successful fixPmaTables()
         $relationParameters = $this->relation->getRelationParameters();
 
-        $this->render('relation/check_relations', [
+        $this->response->render('relation/check_relations', [
             'db' => $db?->getName() ?? '',
             'zero_conf' => Config::getInstance()->settings['ZeroConf'],
             'relation_parameters' => $relationParameters->toArray(),

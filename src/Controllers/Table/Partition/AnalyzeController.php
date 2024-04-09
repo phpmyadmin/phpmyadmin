@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Partition;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -14,20 +14,15 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Partitioning\Maintenance;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
 use function __;
 
-final class AnalyzeController extends AbstractController
+final class AnalyzeController implements InvocableController
 {
-    public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Maintenance $model,
-    ) {
-        parent::__construct($response, $template);
+    public function __construct(private readonly ResponseRenderer $response, private readonly Maintenance $model)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -53,7 +48,7 @@ final class AnalyzeController extends AbstractController
             'success',
         );
 
-        $this->render('table/partition/analyze', [
+        $this->response->render('table/partition/analyze', [
             'partition_name' => $partitionName,
             'message' => $message,
             'rows' => $rows,

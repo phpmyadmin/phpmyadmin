@@ -31,7 +31,6 @@ class SecondStepControllerTest extends AbstractTestCase
 
         $controller = new SecondStepController(
             $response,
-            $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
         $controller(self::createStub(ServerRequest::class));

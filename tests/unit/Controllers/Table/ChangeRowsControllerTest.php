@@ -9,7 +9,6 @@ use PhpMyAdmin\Controllers\Table\ChangeRowsController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -35,7 +34,7 @@ class ChangeRowsControllerTest extends AbstractTestCase
         $mock = self::createMock(ChangeController::class);
         $mock->expects(self::once())->method('__invoke')->with($request);
 
-        (new ChangeRowsController(new ResponseRenderer(), new Template(), $mock))($request);
+        (new ChangeRowsController(new ResponseRenderer(), $mock))($request);
 
         /** @psalm-suppress InvalidArrayOffset */
         self::assertSame([], $GLOBALS['where_clause']);
@@ -50,7 +49,7 @@ class ChangeRowsControllerTest extends AbstractTestCase
         $mock->expects(self::never())->method('__invoke')->with($request);
 
         $response = new ResponseRenderer();
-        (new ChangeRowsController($response, new Template(), $mock))($request);
+        (new ChangeRowsController($response, $mock))($request);
 
         self::assertSame(['message' => 'No row selected.'], $response->getJSONResult());
         self::assertFalse($response->hasSuccessState());
@@ -66,7 +65,7 @@ class ChangeRowsControllerTest extends AbstractTestCase
         $mock = self::createMock(ChangeController::class);
         $mock->expects(self::once())->method('__invoke')->with($request);
 
-        (new ChangeRowsController(new ResponseRenderer(), new Template(), $mock))($request);
+        (new ChangeRowsController(new ResponseRenderer(), $mock))($request);
 
         /** @psalm-suppress InvalidArrayOffset */
         self::assertSame(['row1', 'row2'], $GLOBALS['where_clause']);

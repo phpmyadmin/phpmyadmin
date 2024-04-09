@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
@@ -14,7 +14,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Mime;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -26,21 +25,17 @@ use function sprintf;
 /**
  * Provides download to a given field defined in parameters.
  */
-class GetFieldController extends AbstractController
+final class GetFieldController implements InvocableController
 {
-    public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
-    ) {
-        parent::__construct($response, $template);
+    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response|null
     {
         $this->response->disable();
 
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 

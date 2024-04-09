@@ -5,20 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Console\Bookmark;
 
 use PhpMyAdmin\Console;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
-final class RefreshController extends AbstractController
+final class RefreshController implements InvocableController
 {
-    public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Console $console,
-    ) {
-        parent::__construct($response, $template);
+    public function __construct(private readonly ResponseRenderer $response, private readonly Console $console)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response|null

@@ -9,7 +9,6 @@ use PhpMyAdmin\Controllers\Export\ExportController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -195,7 +194,7 @@ ALTER TABLE `test_table`
 COMMIT;
 SQL;
 
-        $exportController = new ExportController(new ResponseRenderer(), new Template(), new Export($this->dbi));
+        $exportController = new ExportController(new ResponseRenderer(), new Export($this->dbi));
         $exportController($request);
         $output = $this->getActualOutputForAssertion();
 

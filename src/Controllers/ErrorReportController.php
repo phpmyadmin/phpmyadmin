@@ -28,16 +28,15 @@ use function time;
 /**
  * Handle error report submission
  */
-class ErrorReportController extends AbstractController
+final class ErrorReportController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private ErrorReport $errorReport,
-        private ErrorHandler $errorHandler,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly ErrorReport $errorReport,
+        private readonly ErrorHandler $errorHandler,
+        private readonly DatabaseInterface $dbi,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

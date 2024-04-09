@@ -4,15 +4,20 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\ResponseRenderer;
 
 use function __;
 
-final class ChangePrefixFormController extends AbstractController
+final class ChangePrefixFormController implements InvocableController
 {
+    public function __construct(private readonly ResponseRenderer $response)
+    {
+    }
+
     public function __invoke(ServerRequest $request): Response|null
     {
         /** @var string[] $selected */
@@ -36,7 +41,10 @@ final class ChangePrefixFormController extends AbstractController
         }
 
         $this->response->disable();
-        $this->render('database/structure/change_prefix_form', ['route' => $route, 'url_params' => $urlParams]);
+        $this->response->render('database/structure/change_prefix_form', [
+            'route' => $route,
+            'url_params' => $urlParams,
+        ]);
 
         return null;
     }

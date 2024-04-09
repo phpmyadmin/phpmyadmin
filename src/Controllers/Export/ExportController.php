@@ -6,8 +6,8 @@ namespace PhpMyAdmin\Controllers\Export;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Encoding;
@@ -24,7 +24,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Webmozart\Assert\Assert;
@@ -38,11 +37,10 @@ use function is_array;
 use function register_shutdown_function;
 use function time;
 
-final class ExportController extends AbstractController
+final class ExportController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private Export $export)
+    public function __construct(private readonly ResponseRenderer $response, private readonly Export $export)
     {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -90,14 +88,14 @@ final class ExportController extends AbstractController
         $tableStructure = $request->getParsedBodyParam('table_structure');
         $lockTables = $request->hasBodyParam('lock_tables');
 
-        $this->addScriptFiles(['export_output.js']);
+        $this->response->addScriptFiles(['export_output.js']);
 
         $this->setGlobalsFromRequest($postParams);
 
         // sanitize this parameter which will be used below in a file inclusion
         $GLOBALS['what'] = Core::securePath($whatParam);
 
-        if (! $this->checkParameters(['what', 'export_type'])) {
+        if (! $this->response->checkParameters(['what', 'export_type'])) {
             return null;
         }
 

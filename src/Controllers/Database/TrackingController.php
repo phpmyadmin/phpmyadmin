@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -17,7 +17,6 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -29,16 +28,14 @@ use function sprintf;
 /**
  * Tracking configuration for database.
  */
-class TrackingController extends AbstractController
+final class TrackingController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Tracking $tracking,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Tracking $tracking,
+        private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -46,9 +43,9 @@ class TrackingController extends AbstractController
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
+        $this->response->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
 
-        if (! $this->checkParameters(['db'])) {
+        if (! $this->response->checkParameters(['db'])) {
             return null;
         }
 
@@ -65,7 +62,7 @@ class TrackingController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -107,7 +104,7 @@ class TrackingController extends AbstractController
                         __('Tracking data deleted successfully.'),
                     )->getDisplay());
                 } elseif ($request->getParsedBodyParam('submit_mult') === 'track') {
-                    $this->render('create_tracking_version', [
+                    $this->response->render('create_tracking_version', [
                         'route' => '/database/tracking',
                         'url_params' => $GLOBALS['urlParams'],
                         'last_version' => 0,
@@ -134,7 +131,7 @@ class TrackingController extends AbstractController
             $this->response->addHTML('<p>' . __('No tables found in database.') . '</p>' . "\n");
 
             if (! $isSystemSchema) {
-                $this->render('database/create_table', ['db' => Current::$database]);
+                $this->response->render('database/create_table', ['db' => Current::$database]);
             }
 
             return null;

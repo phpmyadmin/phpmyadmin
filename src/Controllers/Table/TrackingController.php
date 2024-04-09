@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use DateTimeImmutable;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
@@ -16,7 +16,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking\LogTypeEnum;
 use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Tracking\Tracking;
@@ -36,16 +35,14 @@ use function mb_strlen;
 use function sprintf;
 use function trim;
 
-final class TrackingController extends AbstractController
+final class TrackingController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Tracking $tracking,
-        private TrackingChecker $trackingChecker,
+        private readonly ResponseRenderer $response,
+        private readonly Tracking $tracking,
+        private readonly TrackingChecker $trackingChecker,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -53,9 +50,9 @@ final class TrackingController extends AbstractController
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
+        $this->response->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 
@@ -75,7 +72,7 @@ final class TrackingController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -153,7 +150,7 @@ final class TrackingController extends AbstractController
                     $this->tracking->exportAsSqlExecution($entries);
                     $message = Message::success(__('SQL statements executed.'))->getDisplay();
                 } elseif ($reportExportType === 'sqldump') {
-                    $this->addScriptFiles(['sql.js']);
+                    $this->response->addScriptFiles(['sql.js']);
                     $sqlDump = $this->tracking->exportAsSqlDump($entries);
                 }
             }
@@ -257,7 +254,7 @@ final class TrackingController extends AbstractController
             LanguageManager::$textDir,
         );
 
-        $this->render('table/tracking/index', [
+        $this->response->render('table/tracking/index', [
             'active_message' => $activeMessage,
             'action_message' => $actionMessage,
             'delete_version' => $deleteVersion,

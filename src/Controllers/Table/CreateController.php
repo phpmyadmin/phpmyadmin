@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Current;
@@ -15,7 +15,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
@@ -31,23 +30,21 @@ use function strlen;
 /**
  * Displays table create form and handles it.
  */
-class CreateController extends AbstractController
+final class CreateController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Transformations $transformations,
-        private Config $config,
-        private DatabaseInterface $dbi,
-        private ColumnsDefinition $columnsDefinition,
+        private readonly ResponseRenderer $response,
+        private readonly Transformations $transformations,
+        private readonly Config $config,
+        private readonly DatabaseInterface $dbi,
+        private readonly ColumnsDefinition $columnsDefinition,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
     {
-        if (! $this->checkParameters(['db'])) {
+        if (! $this->response->checkParameters(['db'])) {
             return null;
         }
 
@@ -146,15 +143,15 @@ class CreateController extends AbstractController
         // Do not display the table in the header since it hasn't been created yet
         $this->response->getHeader()->getMenu()->setTable('');
 
-        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
+        $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
-        if (! $this->checkParameters(['server', 'db'])) {
+        if (! $this->response->checkParameters(['server', 'db'])) {
             return null;
         }
 
         $templateData = $this->columnsDefinition->displayForm($userPrivileges, '/table/create', $numFields);
 
-        $this->render('columns_definitions/column_definitions_form', $templateData);
+        $this->response->render('columns_definitions/column_definitions_form', $templateData);
 
         return null;
     }

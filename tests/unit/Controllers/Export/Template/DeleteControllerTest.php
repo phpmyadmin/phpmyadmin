@@ -10,7 +10,6 @@ use PhpMyAdmin\Controllers\Export\Template\DeleteController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -42,7 +41,6 @@ class DeleteControllerTest extends AbstractTestCase
 
         (new DeleteController(
             $response,
-            new Template(),
             new TemplateModel($this->dbi),
             new Relation($this->dbi),
         ))($request);

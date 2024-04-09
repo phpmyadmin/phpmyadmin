@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Tests\Controllers\Database\MultiTableQuery;
 use PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -37,7 +36,7 @@ class TablesControllerTest extends AbstractTestCase
         $_GET['db'] = 'test';
 
         $responseRenderer = new ResponseRenderer();
-        $multiTableQueryController = new TablesController($responseRenderer, new Template(), $this->dbi);
+        $multiTableQueryController = new TablesController($responseRenderer, $this->dbi);
 
         $request = self::createStub(ServerRequest::class);
         $request->method('getQueryParam')->willReturn($_GET['tables'], $_GET['db']);

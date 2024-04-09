@@ -8,22 +8,19 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 
 use function is_string;
 
-final class ThemeSetController extends AbstractController
+final class ThemeSetController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private ThemeManager $themeManager,
-        private UserPreferences $userPreferences,
+        private readonly ResponseRenderer $response,
+        private readonly ThemeManager $themeManager,
+        private readonly UserPreferences $userPreferences,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

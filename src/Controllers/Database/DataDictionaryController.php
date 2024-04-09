@@ -5,35 +5,32 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
 use function is_array;
 use function str_replace;
 
-class DataDictionaryController extends AbstractController
+final class DataDictionaryController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Relation $relation,
-        private Transformations $transformations,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Relation $relation,
+        private readonly Transformations $transformations,
+        private readonly DatabaseInterface $dbi,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
     {
-        if (! $this->checkParameters(['db'], true)) {
+        if (! $this->response->checkParameters(['db'], true)) {
             return null;
         }
 
@@ -107,7 +104,7 @@ class DataDictionaryController extends AbstractController
             ];
         }
 
-        $this->render('database/data_dictionary/index', [
+        $this->response->render('database/data_dictionary/index', [
             'database' => Current::$database,
             'comment' => $comment,
             'tables' => $tables,

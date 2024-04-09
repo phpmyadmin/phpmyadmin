@@ -9,7 +9,6 @@ use PhpMyAdmin\Controllers\Table\ExportRowsController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -37,7 +36,6 @@ class ExportRowsControllerTest extends AbstractTestCase
 
         (new ExportRowsController(
             new ResponseRenderer(),
-            new Template(),
             $controller,
         ))(self::createStub(ServerRequest::class));
 
@@ -55,11 +53,7 @@ class ExportRowsControllerTest extends AbstractTestCase
         $controller->expects(self::never())->method('__invoke');
 
         $response = new ResponseRenderer();
-        (new ExportRowsController(
-            $response,
-            new Template(),
-            $controller,
-        ))(self::createStub(ServerRequest::class));
+        (new ExportRowsController($response, $controller))(self::createStub(ServerRequest::class));
 
         self::assertSame(['message' => 'No row selected.'], $response->getJSONResult());
         self::assertFalse($response->hasSuccessState());
@@ -79,7 +73,6 @@ class ExportRowsControllerTest extends AbstractTestCase
 
         (new ExportRowsController(
             new ResponseRenderer(),
-            new Template(),
             $controller,
         ))(self::createStub(ServerRequest::class));
 

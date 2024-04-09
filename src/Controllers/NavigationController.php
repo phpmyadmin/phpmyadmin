@@ -11,7 +11,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\SessionCache;
 
 use function __;
@@ -21,16 +20,14 @@ use function __;
  *
  * Displays server, database and table selection tree.
  */
-class NavigationController extends AbstractController
+final class NavigationController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Navigation $navigation,
-        private Relation $relation,
-        private PageSettings $pageSettings,
+        private readonly ResponseRenderer $response,
+        private readonly Navigation $navigation,
+        private readonly Relation $relation,
+        private readonly PageSettings $pageSettings,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

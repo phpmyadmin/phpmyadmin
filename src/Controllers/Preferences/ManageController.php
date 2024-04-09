@@ -8,14 +8,13 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
@@ -44,17 +43,15 @@ use const UPLOAD_ERR_OK;
 /**
  * User preferences management page.
  */
-class ManageController extends AbstractController
+final class ManageController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private UserPreferences $userPreferences,
-        private Relation $relation,
-        private Config $config,
-        private ThemeManager $themeManager,
+        private readonly ResponseRenderer $response,
+        private readonly UserPreferences $userPreferences,
+        private readonly Relation $relation,
+        private readonly Config $config,
+        private readonly ThemeManager $themeManager,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -169,13 +166,13 @@ class ManageController extends AbstractController
                     // mimic original form and post json in a hidden field
                     $relationParameters = $this->relation->getRelationParameters();
 
-                    $this->render('preferences/header', [
+                    $this->response->render('preferences/header', [
                         'route' => $route,
                         'is_saved' => $request->hasQueryParam('saved'),
                         'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
                     ]);
 
-                    $this->render('preferences/manage/error', [
+                    $this->response->render('preferences/manage/error', [
                         'form_errors' => $formDisplay->displayErrors(),
                         'json' => $json,
                         'import_merge' => $request->getParsedBodyParam('import_merge'),
@@ -245,7 +242,7 @@ class ManageController extends AbstractController
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        $this->render('preferences/header', [
+        $this->response->render('preferences/header', [
             'route' => $route,
             'is_saved' => $request->hasQueryParam('saved'),
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
@@ -259,7 +256,7 @@ class ManageController extends AbstractController
             $GLOBALS['error']->getDisplay();
         }
 
-        $this->render('preferences/manage/main', [
+        $this->response->render('preferences/manage/main', [
             'error' => $GLOBALS['error'],
             'max_upload_size' => Config::getInstance()->get('max_upload_size'),
             'exists_setup_and_not_exists_config' => @file_exists(ROOT_PATH . 'setup/index.php')

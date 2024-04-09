@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Advisory\Advisor;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
@@ -14,10 +15,14 @@ use PhpMyAdmin\Template;
 /**
  * Displays the advisor feature
  */
-class AdvisorController extends AbstractController
+final class AdvisorController extends AbstractController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, Data $data, private Advisor $advisor)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        Data $data,
+        private readonly Advisor $advisor,
+    ) {
         parent::__construct($response, $template, $data);
     }
 
@@ -28,7 +33,7 @@ class AdvisorController extends AbstractController
             $data = $this->advisor->run();
         }
 
-        $this->render('server/status/advisor/index', ['data' => $data]);
+        $this->response->render('server/status/advisor/index', ['data' => $data]);
 
         return null;
     }

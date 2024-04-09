@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\View;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
@@ -22,7 +22,6 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SystemDatabase;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -38,7 +37,7 @@ use function substr;
 /**
  * Handles creation of VIEWs.
  */
-class CreateController extends AbstractController
+final class CreateController implements InvocableController
 {
     /** @todo Move the whole view rebuilding logic to SQL parser */
     private const VIEW_SECURITY_OPTIONS = ['DEFINER', 'INVOKER'];
@@ -48,17 +47,15 @@ class CreateController extends AbstractController
     private const VIEW_WITH_OPTIONS = ['CASCADED', 'LOCAL'];
 
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
     {
-        if (! $this->checkParameters(['db'])) {
+        if (! $this->response->checkParameters(['db'])) {
             return null;
         }
 
@@ -80,7 +77,7 @@ class CreateController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -190,9 +187,9 @@ class CreateController extends AbstractController
         $GLOBALS['urlParams']['db'] = Current::$database;
         $GLOBALS['urlParams']['reload'] = 1;
 
-        $this->addScriptFiles(['sql.js']);
+        $this->response->addScriptFiles(['sql.js']);
 
-        $this->render('view_create', [
+        $this->response->render('view_create', [
             'ajax_dialog' => $ajaxdialog,
             'text_dir' => LanguageManager::$textDir,
             'url_params' => $GLOBALS['urlParams'],

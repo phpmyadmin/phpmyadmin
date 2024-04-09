@@ -6,13 +6,12 @@ namespace PhpMyAdmin\Controllers\Server\Databases;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
@@ -23,17 +22,15 @@ use function _ngettext;
 use function count;
 use function is_array;
 
-final class DestroyController extends AbstractController
+final class DestroyController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
-        private Transformations $transformations,
-        private RelationCleanup $relationCleanup,
+        private readonly ResponseRenderer $response,
+        private readonly DatabaseInterface $dbi,
+        private readonly Transformations $transformations,
+        private readonly RelationCleanup $relationCleanup,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

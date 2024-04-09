@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Response;
@@ -14,7 +14,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
@@ -22,14 +21,12 @@ use PhpMyAdmin\Utils\ForeignKey;
 use function __;
 use function is_array;
 
-final class DeleteConfirmController extends AbstractController
+final class DeleteConfirmController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
+        private readonly ResponseRenderer $response,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -46,7 +43,7 @@ final class DeleteConfirmController extends AbstractController
             return null;
         }
 
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 
@@ -66,7 +63,7 @@ final class DeleteConfirmController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -80,12 +77,12 @@ final class DeleteConfirmController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
             return null;
         }
 
-        $this->render('table/delete/confirm', [
+        $this->response->render('table/delete/confirm', [
             'db' => Current::$database,
             'table' => Current::$table,
             'selected' => $selected,

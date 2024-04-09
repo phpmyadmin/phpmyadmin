@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
@@ -16,7 +16,6 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
@@ -32,7 +31,7 @@ use function strtolower;
 /**
  * Handles viewing and creating and deleting databases
  */
-class DatabasesController extends AbstractController
+final class DatabasesController implements InvocableController
 {
     /** @var mixed[] array of database details */
     private array $databases = [];
@@ -61,12 +60,10 @@ class DatabasesController extends AbstractController
     ];
 
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly DatabaseInterface $dbi,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -86,7 +83,7 @@ class DatabasesController extends AbstractController
         Assert::string($sortOrder);
         $this->sortOrder = strtolower($sortOrder) !== 'desc' ? 'asc' : 'desc';
 
-        $this->addScriptFiles(['server/databases.js']);
+        $this->response->addScriptFiles(['server/databases.js']);
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
@@ -150,7 +147,7 @@ class DatabasesController extends AbstractController
 
         $headerStatistics = $this->getStatisticsColumns();
 
-        $this->render('server/databases/index', [
+        $this->response->render('server/databases/index', [
             'is_create_database_shown' => $config->settings['ShowCreateDb'],
             'has_create_database_privileges' => $userPrivileges->isCreateDatabase,
             'has_statistics' => $this->hasStatistics,

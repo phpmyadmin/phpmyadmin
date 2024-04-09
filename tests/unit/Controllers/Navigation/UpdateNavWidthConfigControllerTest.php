@@ -8,7 +8,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Navigation\UpdateNavWidthConfigController;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -25,7 +24,7 @@ final class UpdateNavWidthConfigControllerTest extends AbstractTestCase
 
         $config = new Config();
         $responseRenderer = new ResponseRenderer();
-        $controller = new UpdateNavWidthConfigController($responseRenderer, new Template($config), $config);
+        $controller = new UpdateNavWidthConfigController($responseRenderer, $config);
         $controller($request);
 
         self::assertSame($expected, $config->settings['NavigationWidth']);
@@ -50,7 +49,7 @@ final class UpdateNavWidthConfigControllerTest extends AbstractTestCase
 
         $config = new Config();
         $responseRenderer = new ResponseRenderer();
-        $controller = new UpdateNavWidthConfigController($responseRenderer, new Template($config), $config);
+        $controller = new UpdateNavWidthConfigController($responseRenderer, $config);
         $controller($request);
 
         self::assertSame(
@@ -77,7 +76,7 @@ final class UpdateNavWidthConfigControllerTest extends AbstractTestCase
         $config = self::createStub(Config::class);
         $config->method('setUserValue')->willReturn(Message::error('Could not save configuration'));
         $responseRenderer = new ResponseRenderer();
-        $controller = new UpdateNavWidthConfigController($responseRenderer, new Template($config), $config);
+        $controller = new UpdateNavWidthConfigController($responseRenderer, $config);
         $controller($request);
 
         self::assertSame(

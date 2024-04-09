@@ -49,7 +49,6 @@ class MoveRepeatingGroupTest extends AbstractTestCase
 
         $controller = new MoveRepeatingGroup(
             $response,
-            $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
         $controller($request);

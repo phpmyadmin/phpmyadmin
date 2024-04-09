@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Export\Export;
@@ -17,7 +17,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -26,17 +25,15 @@ use function array_merge;
 use function count;
 use function is_array;
 
-final class ExportController extends AbstractController
+final class ExportController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Export $export,
-        private Options $exportOptions,
-        private PageSettings $pageSettings,
+        private readonly ResponseRenderer $response,
+        private readonly Export $export,
+        private readonly Options $exportOptions,
+        private readonly PageSettings $pageSettings,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -50,9 +47,9 @@ final class ExportController extends AbstractController
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
         $pageSettingsHtml = $this->pageSettings->getHTML();
 
-        $this->addScriptFiles(['export.js']);
+        $this->response->addScriptFiles(['export.js']);
 
-        if (! $this->checkParameters(['db'])) {
+        if (! $this->response->checkParameters(['db'])) {
             return null;
         }
 
@@ -71,7 +68,7 @@ final class ExportController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -166,7 +163,7 @@ final class ExportController extends AbstractController
             $exportList,
         );
 
-        $this->render('database/export/index', array_merge($options, [
+        $this->response->render('database/export/index', array_merge($options, [
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
             'structure_or_data_forced' => $request->getParsedBodyParam('structure_or_data_forced', 0),

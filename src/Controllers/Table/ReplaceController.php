@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\SqlController as DatabaseSqlController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Sql\SqlController;
 use PhpMyAdmin\Controllers\Table\SqlController as TableSqlController;
 use PhpMyAdmin\Core;
@@ -23,7 +23,6 @@ use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
@@ -39,28 +38,26 @@ use function sprintf;
 /**
  * Manipulation of table data like inserting, replacing and updating.
  */
-final class ReplaceController extends AbstractController
+final class ReplaceController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private InsertEdit $insertEdit,
-        private Transformations $transformations,
-        private Relation $relation,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly InsertEdit $insertEdit,
+        private readonly Transformations $transformations,
+        private readonly Relation $relation,
+        private readonly DatabaseInterface $dbi,
         private readonly SqlController $sqlController,
         private readonly DatabaseSqlController $databaseSqlController,
         private readonly ChangeController $changeController,
         private readonly TableSqlController $tableSqlController,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['message'] ??= null;
-        if (! $this->checkParameters(['db', 'table', 'goto'])) {
+        if (! $this->response->checkParameters(['db', 'table', 'goto'])) {
             return null;
         }
 
@@ -72,7 +69,7 @@ final class ReplaceController extends AbstractController
 
         $this->dbi->selectDb(Current::$database);
 
-        $this->addScriptFiles(['makegrid.js', 'sql.js', 'gis_data_editor.js']);
+        $this->response->addScriptFiles(['makegrid.js', 'sql.js', 'gis_data_editor.js']);
 
         $afterInsert = $request->getParsedBodyParam('after_insert');
         if (in_array($afterInsert, ['new_insert', 'same_insert', 'edit_next'], true)) {
@@ -366,7 +363,7 @@ final class ReplaceController extends AbstractController
             $GLOBALS['sql_query'] = $returnToSqlQuery;
         }
 
-        $this->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);
+        $this->response->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);
 
         /**
          * If user asked for "and then Insert another new row" we have to remove

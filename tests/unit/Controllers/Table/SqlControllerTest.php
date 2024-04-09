@@ -94,7 +94,6 @@ class SqlControllerTest extends AbstractTestCase
         $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
         (new SqlController(
             $response,
-            $template,
             new SqlQueryForm($template, $this->dbi, $bookmarkRepository),
             $pageSettings,
             new DbTableExists($this->dbi),

@@ -10,7 +10,6 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Privileges;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -68,7 +67,6 @@ class PrivilegesControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         (new PrivilegesController(
             $response,
-            new Template(),
             $serverPrivileges,
             DatabaseInterface::getInstance(),
         ))($request);
@@ -115,7 +113,6 @@ class PrivilegesControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         (new PrivilegesController(
             $response,
-            new Template(),
             self::createStub(Privileges::class),
             $this->createDatabaseInterface(),
         ))($request);

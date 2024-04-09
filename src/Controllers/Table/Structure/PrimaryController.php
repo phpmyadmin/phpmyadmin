@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
@@ -16,7 +16,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -24,16 +23,14 @@ use function __;
 use function count;
 use function is_array;
 
-final class PrimaryController extends AbstractController
+final class PrimaryController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
-        private StructureController $structureController,
+        private readonly ResponseRenderer $response,
+        private readonly DatabaseInterface $dbi,
+        private readonly StructureController $structureController,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -59,7 +56,7 @@ final class PrimaryController extends AbstractController
         $deletionConfirmed = $request->getParsedBodyParam('mult_btn');
 
         if ($hasPrimary && $deletionConfirmed === null) {
-            if (! $this->checkParameters(['db', 'table'])) {
+            if (! $this->response->checkParameters(['db', 'table'])) {
                 return null;
             }
 
@@ -79,7 +76,7 @@ final class PrimaryController extends AbstractController
                     return null;
                 }
 
-                $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
                 return null;
             }
@@ -93,12 +90,12 @@ final class PrimaryController extends AbstractController
                     return null;
                 }
 
-                $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
                 return null;
             }
 
-            $this->render('table/structure/primary', [
+            $this->response->render('table/structure/primary', [
                 'db' => Current::$database,
                 'table' => Current::$table,
                 'selected' => $selected,

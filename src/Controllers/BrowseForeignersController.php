@@ -9,20 +9,17 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 /**
  * Display selection for relational field values
  */
-class BrowseForeignersController extends AbstractController
+final class BrowseForeignersController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private BrowseForeigners $browseForeigners,
-        private Relation $relation,
+        private readonly ResponseRenderer $response,
+        private readonly BrowseForeigners $browseForeigners,
+        private readonly Relation $relation,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

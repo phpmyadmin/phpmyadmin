@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function is_array;
@@ -19,14 +18,13 @@ use function is_string;
 /**
  * Displays details about a given Storage Engine.
  */
-final class ShowEngineController extends AbstractController
+final class ShowEngineController implements InvocableController
 {
     private string $engine = '';
     private string $page = '';
 
-    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
+    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
     {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -54,7 +52,7 @@ final class ShowEngineController extends AbstractController
             ];
         }
 
-        $this->render('server/engines/show', ['engine' => $engine, 'page' => $this->page]);
+        $this->response->render('server/engines/show', ['engine' => $engine, 'page' => $this->page]);
 
         return null;
     }

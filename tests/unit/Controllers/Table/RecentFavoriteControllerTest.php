@@ -14,7 +14,6 @@ use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -53,7 +52,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
 
         $responseRenderer = new ResponseRenderer();
-        (new RecentFavoriteController($responseRenderer, new Template()))($request);
+        (new RecentFavoriteController($responseRenderer))($request);
 
         $response = $responseRenderer->getResponse();
         self::assertSame(302, $response->getStatusCode());
@@ -92,7 +91,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
             ->withQueryParams(['db' => 'invalid_db', 'table' => 'invalid_table']);
 
         $responseRenderer = new ResponseRenderer();
-        (new RecentFavoriteController($responseRenderer, new Template()))($request);
+        (new RecentFavoriteController($responseRenderer))($request);
 
         $response = $responseRenderer->getResponse();
         self::assertSame(302, $response->getStatusCode());
@@ -114,7 +113,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
             ->withQueryParams(['db' => '', 'table' => '']);
 
         $responseRenderer = new ResponseRenderer();
-        (new RecentFavoriteController($responseRenderer, new Template()))($request);
+        (new RecentFavoriteController($responseRenderer))($request);
 
         $response = $responseRenderer->getResponse();
         self::assertSame(302, $response->getStatusCode());

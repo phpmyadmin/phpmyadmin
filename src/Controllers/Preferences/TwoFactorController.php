@@ -6,30 +6,28 @@ namespace PhpMyAdmin\Controllers\Preferences;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 
 use function __;
 use function count;
 use function define;
 
-class TwoFactorController extends AbstractController
+final class TwoFactorController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private Relation $relation)
+    public function __construct(private readonly ResponseRenderer $response, private readonly Relation $relation)
     {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
     {
         $relationParameters = $this->relation->getRelationParameters();
 
-        $this->render('preferences/header', [
+        $this->response->render('preferences/header', [
             'route' => $request->getRoute(),
             'is_saved' => $request->hasQueryParam('saved'),
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
@@ -39,7 +37,7 @@ class TwoFactorController extends AbstractController
 
         if ($request->hasBodyParam('2fa_remove')) {
             if (! $twoFactor->check($request, true)) {
-                $this->render('preferences/two_factor/confirm', ['form' => $twoFactor->render($request)]);
+                $this->response->render('preferences/two_factor/confirm', ['form' => $twoFactor->render($request)]);
 
                 return null;
             }
@@ -50,7 +48,7 @@ class TwoFactorController extends AbstractController
             );
         } elseif ($request->hasBodyParam('2fa_configure')) {
             if (! $twoFactor->configure($request, $request->getParsedBodyParam('2fa_configure'))) {
-                $this->render('preferences/two_factor/configure', [
+                $this->response->render('preferences/two_factor/configure', [
                     'form' => $twoFactor->setup($request),
                     'configure' => $request->getParsedBodyParam('2fa_configure'),
                 ]);
@@ -64,7 +62,7 @@ class TwoFactorController extends AbstractController
         }
 
         $backend = $twoFactor->getBackend();
-        $this->render('preferences/two_factor/main', [
+        $this->response->render('preferences/two_factor/main', [
             'enabled' => $twoFactor->isWritable(),
             'num_backends' => count($twoFactor->getAvailable()),
             'backend_id' => $backend::$id,

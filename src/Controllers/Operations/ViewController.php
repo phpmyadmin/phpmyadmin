@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Operations;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -16,7 +16,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -28,15 +27,13 @@ use function strval;
 /**
  * View manipulations
  */
-class ViewController extends AbstractController
+final class ViewController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -45,9 +42,9 @@ class ViewController extends AbstractController
         $tableObject = $this->dbi->getTable(Current::$database, Current::$table);
 
         $GLOBALS['errorUrl'] ??= null;
-        $this->addScriptFiles(['table/operations.js']);
+        $this->response->addScriptFiles(['table/operations.js']);
 
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 
@@ -67,7 +64,7 @@ class ViewController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -81,7 +78,7 @@ class ViewController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
             return null;
         }
@@ -136,7 +133,7 @@ class ViewController extends AbstractController
             ));
         }
 
-        $this->render('table/operations/view', [
+        $this->response->render('table/operations/view', [
             'db' => Current::$database,
             'table' => Current::$table,
             'url_params' => $GLOBALS['urlParams'],

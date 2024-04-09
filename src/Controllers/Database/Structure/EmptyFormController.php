@@ -4,18 +4,23 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 use function htmlspecialchars;
 
-final class EmptyFormController extends AbstractController
+final class EmptyFormController implements InvocableController
 {
+    public function __construct(private readonly ResponseRenderer $response)
+    {
+    }
+
     public function __invoke(ServerRequest $request): Response|null
     {
         /** @var string[] $selected */
@@ -37,7 +42,7 @@ final class EmptyFormController extends AbstractController
             $urlParams['selected'][] = $selectedValue;
         }
 
-        $this->render('database/structure/empty_form', [
+        $this->response->render('database/structure/empty_form', [
             'url_params' => $urlParams,
             'full_query' => $fullQuery,
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),

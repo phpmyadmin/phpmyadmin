@@ -104,7 +104,7 @@ class ChartControllerTest extends AbstractTestCase
                 'unlim_num_rows' => '4',
             ]);
 
-        (new ChartController($response, $template, $dbi, new DbTableExists($dbi)))($request);
+        (new ChartController($response, $dbi, new DbTableExists($dbi)))($request);
         self::assertSame($expected, $response->getHTMLResult());
     }
 }

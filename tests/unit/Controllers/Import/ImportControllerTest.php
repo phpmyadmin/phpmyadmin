@@ -97,7 +97,6 @@ class ImportControllerTest extends AbstractTestCase
 
         $importController = new ImportController(
             $responseRenderer,
-            $template,
             new Import(),
             $sql,
             $this->dbi,

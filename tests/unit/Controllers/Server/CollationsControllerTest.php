@@ -9,7 +9,6 @@ use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -44,7 +43,7 @@ class CollationsControllerTest extends AbstractTestCase
     {
         $response = new ResponseRenderer();
 
-        $controller = new CollationsController($response, new Template(), DatabaseInterface::getInstance());
+        $controller = new CollationsController($response, DatabaseInterface::getInstance());
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller(self::createStub(ServerRequest::class));

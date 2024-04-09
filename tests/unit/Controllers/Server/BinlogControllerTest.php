@@ -9,7 +9,6 @@ use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -49,7 +48,7 @@ class BinlogControllerTest extends AbstractTestCase
     {
         $response = new ResponseRenderer();
 
-        $controller = new BinlogController($response, new Template(), DatabaseInterface::getInstance());
+        $controller = new BinlogController($response, DatabaseInterface::getInstance());
 
         $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['log', null, 'index1'], ['pos', 0, '3']]);

@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
@@ -19,7 +19,6 @@ use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
@@ -27,15 +26,13 @@ use PhpMyAdmin\Utils\ForeignKey;
 use function __;
 use function is_numeric;
 
-final class ImportController extends AbstractController
+final class ImportController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
-        private PageSettings $pageSettings,
+        private readonly ResponseRenderer $response,
+        private readonly DatabaseInterface $dbi,
+        private readonly PageSettings $pageSettings,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -47,7 +44,7 @@ final class ImportController extends AbstractController
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
         $pageSettingsHtml = $this->pageSettings->getHTML();
 
-        $this->addScriptFiles(['import.js']);
+        $this->response->addScriptFiles(['import.js']);
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
@@ -91,7 +88,7 @@ final class ImportController extends AbstractController
         $isAllowInterruptChecked = Plugins::checkboxCheck('Import', 'allow_interrupt');
         $maxUploadSize = (int) $config->get('max_upload_size');
 
-        $this->render('server/import/index', [
+        $this->response->render('server/import/index', [
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
             'upload_id' => $uploadId,

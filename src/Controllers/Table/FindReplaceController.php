@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -35,7 +35,7 @@ use function strncasecmp;
  *
  * Displays find and replace form, allows previewing and do the replacing.
  */
-class FindReplaceController extends AbstractController
+final class FindReplaceController implements InvocableController
 {
     /** @var mixed[] */
     private array $columnNames = [];
@@ -44,19 +44,18 @@ class FindReplaceController extends AbstractController
     private array $columnTypes = [];
 
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 
@@ -76,7 +75,7 @@ class FindReplaceController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -90,7 +89,7 @@ class FindReplaceController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
             return null;
         }
@@ -110,7 +109,7 @@ class FindReplaceController extends AbstractController
             return null;
         }
 
-        $this->addScriptFiles(['table/find_replace.js']);
+        $this->response->addScriptFiles(['table/find_replace.js']);
 
         if ($request->hasBodyParam('replace')) {
             $findString = (string) $request->getParsedBodyParam('findString');
@@ -183,7 +182,7 @@ class FindReplaceController extends AbstractController
             $types[$columnName] = preg_replace('@\\(.*@s', '', $this->columnTypes[$i]);
         }
 
-        $this->render('table/find_replace/index', [
+        $this->response->render('table/find_replace/index', [
             'db' => Current::$database,
             'table' => Current::$table,
             'goto' => $GLOBALS['goto'],

@@ -52,7 +52,7 @@ class DeleteConfirmControllerTest extends AbstractTestCase
                 'sql_query' => 'SELECT * FROM `test_db`.`test_table`',
             ]);
 
-        (new DeleteConfirmController($response, $template, new DbTableExists($dbi)))($request);
+        (new DeleteConfirmController($response, new DbTableExists($dbi)))($request);
         self::assertSame($expected, $response->getHTMLResult());
     }
 }

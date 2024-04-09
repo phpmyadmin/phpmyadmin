@@ -28,7 +28,6 @@ class RefreshControllerTest extends AbstractTestCase
         $template = new Template();
         $controller = new RefreshController(
             $response,
-            $template,
             new Console($relation, $template, $bookmarkRepository),
         );
         $controller(self::createStub(ServerRequest::class));

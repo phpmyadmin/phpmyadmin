@@ -8,7 +8,7 @@ use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -45,7 +45,7 @@ use function strtoupper;
  * Display table search form, create SQL query from form data
  * and call Sql::executeQueryAndSendQueryResponse() to execute it.
  */
-class SearchController extends AbstractController
+final class SearchController implements InvocableController
 {
     /**
      * Names of columns
@@ -89,14 +89,13 @@ class SearchController extends AbstractController
     private array $foreigners = [];
 
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Search $search,
-        private Relation $relation,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Search $search,
+        private readonly Relation $relation,
+        private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     /**
@@ -157,7 +156,7 @@ class SearchController extends AbstractController
      */
     public function __invoke(ServerRequest $request): Response|null
     {
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 
@@ -177,7 +176,7 @@ class SearchController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -191,14 +190,14 @@ class SearchController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
             return null;
         }
 
         $this->loadTableInfo();
 
-        $this->addScriptFiles([
+        $this->response->addScriptFiles([
             'makegrid.js',
             'sql.js',
             'table/select.js',
@@ -279,7 +278,7 @@ class SearchController extends AbstractController
             $properties[$columnIndex] = $this->getColumnProperties($columnIndex, $columnIndex);
         }
 
-        $this->render('table/search/index', [
+        $this->response->render('table/search/index', [
             'db' => Current::$database,
             'table' => Current::$table,
             'goto' => $GLOBALS['goto'],

@@ -41,7 +41,6 @@ class FirstStepControllerTest extends AbstractTestCase
 
         $controller = new FirstStepController(
             $response,
-            $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
         $controller($request);

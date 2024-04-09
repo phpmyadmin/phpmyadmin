@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Http\Response;
@@ -17,7 +17,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -26,15 +25,13 @@ use function array_merge;
 use function implode;
 use function is_array;
 
-class ExportController extends AbstractController
+class ExportController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Options $export,
-        private PageSettings $pageSettings,
+        private readonly ResponseRenderer $response,
+        private readonly Options $export,
+        private readonly PageSettings $pageSettings,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -48,9 +45,9 @@ class ExportController extends AbstractController
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
         $pageSettingsHtml = $this->pageSettings->getHTML();
 
-        $this->addScriptFiles(['export.js']);
+        $this->response->addScriptFiles(['export.js']);
 
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 
@@ -125,7 +122,7 @@ class ExportController extends AbstractController
             $exportList,
         );
 
-        $this->render('table/export/index', array_merge($options, [
+        $this->response->render('table/export/index', array_merge($options, [
             'export_type' => $exportType,
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,

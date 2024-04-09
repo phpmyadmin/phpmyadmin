@@ -4,24 +4,22 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Variables;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function implode;
 use function is_array;
 use function is_string;
 
-final class GetVariableController extends AbstractController
+final class GetVariableController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
+    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
     {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
@@ -30,20 +30,19 @@ use function is_string;
 /**
  * Handles creation of the GIS visualizations.
  */
-final class GisVisualizationController extends AbstractController
+final class GisVisualizationController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
     {
-        if (! $this->checkParameters(['db'])) {
+        if (! $this->response->checkParameters(['db'])) {
             return null;
         }
 
@@ -62,7 +61,7 @@ final class GisVisualizationController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -120,7 +119,7 @@ final class GisVisualizationController extends AbstractController
             return null;
         }
 
-        $this->addScriptFiles(['vendor/openlayers/OpenLayers.js', 'table/gis_visualization.js']);
+        $this->response->addScriptFiles(['vendor/openlayers/OpenLayers.js', 'table/gis_visualization.js']);
 
         // If all the rows contain SRID, use OpenStreetMaps on the initial loading.
         $useBaseLayer = isset($_POST['redraw']) ? isset($_POST['useBaseLayer']) : $visualization->hasSrid();

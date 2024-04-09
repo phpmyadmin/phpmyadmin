@@ -9,7 +9,6 @@ use PhpMyAdmin\Controllers\Server\Databases\CreateController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -42,8 +41,7 @@ final class CreateControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
 
-        $template = new Template();
-        $controller = new CreateController($response, $template, $this->dbi);
+        $controller = new CreateController($response, $this->dbi);
 
         $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
@@ -59,7 +57,7 @@ final class CreateControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
 
-        $controller = new CreateController($response, $template, $this->dbi);
+        $controller = new CreateController($response, $this->dbi);
 
         $request = self::createStub(ServerRequest::class);
         $request->method('isAjax')->willReturn(true);

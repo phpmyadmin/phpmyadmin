@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\DatabaseInterface;
@@ -27,16 +27,15 @@ use function mb_strtoupper;
 use function sprintf;
 use function trim;
 
-final class EventsController extends AbstractController
+final class EventsController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Events $events,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Events $events,
+        private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -44,10 +43,10 @@ final class EventsController extends AbstractController
         $GLOBALS['errors'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $this->addScriptFiles(['database/events.js', 'sql.js']);
+        $this->response->addScriptFiles(['database/events.js', 'sql.js']);
 
         if (! $request->isAjax()) {
-            if (! $this->checkParameters(['db'])) {
+            if (! $this->response->checkParameters(['db'])) {
                 return null;
             }
 
@@ -59,7 +58,7 @@ final class EventsController extends AbstractController
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
                 return null;
             }
@@ -258,7 +257,7 @@ final class EventsController extends AbstractController
 
         $items = $this->events->getDetails(Current::$database);
 
-        $this->render('database/events/index', [
+        $this->response->render('database/events/index', [
             'db' => Current::$database,
             'items' => $items,
             'has_privilege' => Util::currentUserHasPrivilege('EVENT', Current::$database),

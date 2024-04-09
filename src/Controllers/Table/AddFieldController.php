@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Current;
@@ -19,7 +19,6 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
@@ -34,19 +33,17 @@ use function strlen;
 /**
  * Displays add field form and handles it.
  */
-class AddFieldController extends AbstractController
+final class AddFieldController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Transformations $transformations,
-        private Config $config,
-        private DatabaseInterface $dbi,
-        private ColumnsDefinition $columnsDefinition,
+        private readonly ResponseRenderer $response,
+        private readonly Transformations $transformations,
+        private readonly Config $config,
+        private readonly DatabaseInterface $dbi,
+        private readonly ColumnsDefinition $columnsDefinition,
         private readonly DbTableExists $dbTableExists,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -57,9 +54,9 @@ class AddFieldController extends AbstractController
         /** @var string|null $numberOfFields */
         $numberOfFields = $request->getParsedBodyParam('num_fields');
 
-        $this->addScriptFiles(['table/structure.js']);
+        $this->response->addScriptFiles(['table/structure.js']);
 
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 
@@ -168,7 +165,7 @@ class AddFieldController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -182,20 +179,20 @@ class AddFieldController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
             return null;
         }
 
-        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
+        $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
-        if (! $this->checkParameters(['server', 'db', 'table'])) {
+        if (! $this->response->checkParameters(['server', 'db', 'table'])) {
             return null;
         }
 
         $templateData = $this->columnsDefinition->displayForm($userPrivileges, '/table/add-field', $numFields);
 
-        $this->render('columns_definitions/column_definitions_form', $templateData);
+        $this->response->render('columns_definitions/column_definitions_form', $templateData);
 
         return null;
     }

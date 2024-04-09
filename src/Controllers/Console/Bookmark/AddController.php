@@ -6,23 +6,20 @@ namespace PhpMyAdmin\Controllers\Console\Bookmark;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 use function __;
 use function is_string;
 
-final class AddController extends AbstractController
+final class AddController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
+        private readonly ResponseRenderer $response,
         private readonly BookmarkRepository $bookmarkRepository,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -22,7 +22,6 @@ use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
@@ -30,16 +29,14 @@ use PhpMyAdmin\Utils\ForeignKey;
 use function __;
 use function is_numeric;
 
-final class ImportController extends AbstractController
+final class ImportController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
-        private PageSettings $pageSettings,
+        private readonly ResponseRenderer $response,
+        private readonly DatabaseInterface $dbi,
+        private readonly PageSettings $pageSettings,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -52,9 +49,9 @@ final class ImportController extends AbstractController
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
         $pageSettingsHtml = $this->pageSettings->getHTML();
 
-        $this->addScriptFiles(['import.js']);
+        $this->response->addScriptFiles(['import.js']);
 
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 
@@ -72,7 +69,7 @@ final class ImportController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -86,7 +83,7 @@ final class ImportController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
             return null;
         }
@@ -135,7 +132,7 @@ final class ImportController extends AbstractController
         $isAllowInterruptChecked = Plugins::checkboxCheck('Import', 'allow_interrupt');
         $maxUploadSize = (int) $config->get('max_upload_size');
 
-        $this->render('table/import/index', [
+        $this->response->render('table/import/index', [
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
             'upload_id' => $uploadId,

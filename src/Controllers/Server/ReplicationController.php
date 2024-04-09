@@ -7,14 +7,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function is_array;
@@ -22,15 +21,13 @@ use function is_array;
 /**
  * Server replications
  */
-class ReplicationController extends AbstractController
+final class ReplicationController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private ReplicationGui $replicationGui,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly ReplicationGui $replicationGui,
+        private readonly DatabaseInterface $dbi,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -56,7 +53,7 @@ class ReplicationController extends AbstractController
         $primaryInfo = $replicationInfo->getPrimaryInfo();
         $replicaInfo = $replicationInfo->getReplicaInfo();
 
-        $this->addScriptFiles(['server/privileges.js', 'replication.js', 'vendor/zxcvbn-ts.js']);
+        $this->response->addScriptFiles(['server/privileges.js', 'replication.js', 'vendor/zxcvbn-ts.js']);
 
         $urlParams = $request->getParsedBodyParam('url_params');
         if (is_array($urlParams)) {
@@ -122,7 +119,7 @@ class ReplicationController extends AbstractController
             }
         }
 
-        $this->render('server/replication/index', [
+        $this->response->render('server/replication/index', [
             'url_params' => $GLOBALS['urlParams'],
             'is_super_user' => $this->dbi->isSuperUser(),
             'error_messages' => $errorMessages,

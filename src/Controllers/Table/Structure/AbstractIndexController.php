@@ -4,27 +4,23 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
-use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Generator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Indexes;
-use PhpMyAdmin\Template;
 
 use function __;
 use function is_array;
 
-abstract class AbstractIndexController extends AbstractController
+abstract class AbstractIndexController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        protected StructureController $structureController,
-        protected Indexes $indexes,
+        protected readonly ResponseRenderer $response,
+        protected readonly StructureController $structureController,
+        protected readonly Indexes $indexes,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function handleIndexCreation(ServerRequest $request, string $indexType): void

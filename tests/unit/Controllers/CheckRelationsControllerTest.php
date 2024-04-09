@@ -10,7 +10,6 @@ use PhpMyAdmin\Controllers\CheckRelationsController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -48,7 +47,7 @@ class CheckRelationsControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         Config::getInstance()->selectedServer['pmadb'] = '';
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
-        $controller = new CheckRelationsController($response, new Template(), new Relation($this->dbi));
+        $controller = new CheckRelationsController($response, new Relation($this->dbi));
         $controller($request);
 
         $actual = $response->getHTMLResult();

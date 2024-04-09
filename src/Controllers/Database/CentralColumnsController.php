@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -16,7 +16,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use Webmozart\Assert\Assert;
 
 use function __;
@@ -25,14 +24,12 @@ use function is_numeric;
 use function parse_str;
 use function sprintf;
 
-class CentralColumnsController extends AbstractController
+final class CentralColumnsController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private CentralColumns $centralColumns,
+        private readonly ResponseRenderer $response,
+        private readonly CentralColumns $centralColumns,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -91,7 +88,7 @@ class CentralColumnsController extends AbstractController
             );
         }
 
-        $this->addScriptFiles([
+        $this->response->addScriptFiles([
             'vendor/jquery/jquery.uitablefilter.js',
             'vendor/jquery/jquery.tablesorter.js',
             'database/central_columns.js',
@@ -181,7 +178,7 @@ class CentralColumnsController extends AbstractController
             LanguageManager::$textDir,
         );
 
-        $this->render('database/central_columns/main', $variables);
+        $this->response->render('database/central_columns/main', $variables);
     }
 
     /** @return true|Message */
@@ -256,7 +253,7 @@ class CentralColumnsController extends AbstractController
         Assert::allString($params['selected_fld']);
         $rows = $this->centralColumns->getHtmlForEditingPage($params['selected_fld'], $params['db']);
 
-        $this->render('database/central_columns/edit', ['rows' => $rows]);
+        $this->response->render('database/central_columns/edit', ['rows' => $rows]);
     }
 
     /**

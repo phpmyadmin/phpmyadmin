@@ -839,11 +839,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
-  <file src="src/Controllers/AbstractController.php">
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$params]]></code>
-    </MixedArgumentTypeCoercion>
-  </file>
   <file src="src/Controllers/BrowseForeignersController.php">
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response|null]]></code>
@@ -1140,6 +1135,9 @@
       <code><![CDATA[$request->getParam('db')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('sql_query')]]></code>
     </MixedArgument>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/MultiTableQuery/TablesController.php">
     <PossiblyUnusedReturnValue>
@@ -1335,6 +1333,16 @@
       <code><![CDATA[Response|null]]></code>
     </PossiblyUnusedReturnValue>
   </file>
+  <file src="src/Controllers/Database/SqlFormatController.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Controllers/Database/Structure/AddPrefixController.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="src/Controllers/Database/Structure/AddPrefixTableController.php">
     <MixedOperand>
       <code><![CDATA[$request->getParsedBodyParam('add_prefix', '')]]></code>
@@ -1364,10 +1372,18 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="src/Controllers/Database/Structure/ChangePrefixFormController.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="src/Controllers/Database/Structure/CopyFormController.php">
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/Structure/CopyTableController.php">
     <MixedArgument>
@@ -1405,6 +1421,11 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['reload']]]></code>
     </MixedAssignment>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Controllers/Database/Structure/EmptyFormController.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -1641,6 +1662,11 @@
       <code><![CDATA[$_SESSION['error_subm_count']]]></code>
       <code><![CDATA[$_SESSION['prev_error_subm_time']]]></code>
     </MixedOperand>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Controllers/Export/CheckTimeOutController.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -2047,6 +2073,11 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="src/Controllers/LicenseController.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="src/Controllers/LintController.php">
     <MixedAssignment>
       <code><![CDATA[$options]]></code>
@@ -2317,6 +2348,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Preferences/ExportController.php">
     <DeprecatedMethod>
@@ -2516,6 +2550,11 @@
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('2fa_configure')]]></code>
     </MixedArgument>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Controllers/RecentTablesListController.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -3057,6 +3096,11 @@
       <code><![CDATA[$colorder]]></code>
       <code><![CDATA[$colvisib]]></code>
     </MixedAssignment>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Controllers/Sql/DefaultForeignKeyCheckValueController.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -4056,6 +4100,9 @@
       <code><![CDATA[$column]]></code>
       <code><![CDATA[$columnsNames]]></code>
     </MixedAssignment>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! Context::isKeyword(trim($column), true)]]></code>
       <code><![CDATA[Context::isKeyword(trim(Current::$table), true)]]></code>
@@ -10249,6 +10296,9 @@
       <code><![CDATA[$GLOBALS['focus_querywindow']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
     </InvalidArrayOffset>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$params]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>

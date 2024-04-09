@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
@@ -35,17 +35,16 @@ use const ENT_QUOTES;
 /**
  * Routines management.
  */
-class RoutinesController extends AbstractController
+final class RoutinesController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private UserPrivilegesFactory $userPrivilegesFactory,
-        private DatabaseInterface $dbi,
-        private Routines $routines,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly UserPrivilegesFactory $userPrivilegesFactory,
+        private readonly DatabaseInterface $dbi,
+        private readonly Routines $routines,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -54,7 +53,7 @@ class RoutinesController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['urlParams'] ??= null;
 
-        $this->addScriptFiles(['database/routines.js', 'sql.js']);
+        $this->response->addScriptFiles(['database/routines.js', 'sql.js']);
 
         $type = $_REQUEST['type'] ?? null;
 
@@ -66,7 +65,7 @@ class RoutinesController extends AbstractController
              * Displays the header and tabs
              */
             if (Current::$table !== '' && in_array(Current::$table, $this->dbi->getTables(Current::$database), true)) {
-                if (! $this->checkParameters(['db', 'table'])) {
+                if (! $this->response->checkParameters(['db', 'table'])) {
                     return null;
                 }
 
@@ -76,21 +75,24 @@ class RoutinesController extends AbstractController
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                    $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+                    $this->response->redirectToRoute(
+                        '/',
+                        ['reload' => true, 'message' => __('No databases selected.')],
+                    );
 
                     return null;
                 }
 
                 $tableName = TableName::tryFrom($request->getParam('table'));
                 if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
-                    $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+                    $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
                     return null;
                 }
             } else {
                 Current::$table = '';
 
-                if (! $this->checkParameters(['db'])) {
+                if (! $this->response->checkParameters(['db'])) {
                     return null;
                 }
 
@@ -102,7 +104,10 @@ class RoutinesController extends AbstractController
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                    $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+                    $this->response->redirectToRoute(
+                        '/',
+                        ['reload' => true, 'message' => __('No databases selected.')],
+                    );
 
                     return null;
                 }
@@ -481,7 +486,7 @@ class RoutinesController extends AbstractController
             );
         }
 
-        $this->render('database/routines/index', [
+        $this->response->render('database/routines/index', [
             'db' => Current::$database,
             'table' => Current::$table,
             'has_any_routines' => $items !== [],

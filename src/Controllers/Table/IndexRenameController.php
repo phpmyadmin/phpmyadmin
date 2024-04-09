@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -24,16 +24,15 @@ use PhpMyAdmin\Util;
 
 use function __;
 
-final class IndexRenameController extends AbstractController
+final class IndexRenameController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
-        private Indexes $indexes,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly DatabaseInterface $dbi,
+        private readonly Indexes $indexes,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -41,7 +40,7 @@ final class IndexRenameController extends AbstractController
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 
@@ -61,7 +60,7 @@ final class IndexRenameController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -75,7 +74,7 @@ final class IndexRenameController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
             return null;
         }
@@ -91,7 +90,7 @@ final class IndexRenameController extends AbstractController
                 'old_index' => $index->getName(),
             ];
 
-            $this->render('table/index_rename_form', ['index' => $index, 'form_params' => $formParams]);
+            $this->response->render('table/index_rename_form', ['index' => $index, 'form_params' => $formParams]);
 
             return null;
         }

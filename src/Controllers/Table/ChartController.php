@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -20,7 +20,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -33,15 +32,13 @@ use function min;
 /**
  * Handles creation of the chart.
  */
-class ChartController extends AbstractController
+final class ChartController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -49,7 +46,10 @@ class ChartController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
 
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $request->isAjax()) {
-            if (Current::$table !== '' && Current::$database !== '' && ! $this->checkParameters(['db', 'table'])) {
+            if (
+                Current::$table !== '' && Current::$database !== ''
+                && ! $this->response->checkParameters(['db', 'table'])
+            ) {
                 return null;
             }
 
@@ -68,7 +68,7 @@ class ChartController extends AbstractController
             return null;
         }
 
-        $this->addScriptFiles([
+        $this->response->addScriptFiles([
             'chart.js',
             'table/chart.js',
             'vendor/jqplot/jquery.jqplot.js',
@@ -90,7 +90,7 @@ class ChartController extends AbstractController
          * Runs common work
          */
         if (Current::$table !== '') {
-            if (! $this->checkParameters(['db', 'table'])) {
+            if (! $this->response->checkParameters(['db', 'table'])) {
                 return null;
             }
 
@@ -107,7 +107,7 @@ class ChartController extends AbstractController
                     return null;
                 }
 
-                $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
                 return null;
             }
@@ -121,7 +121,7 @@ class ChartController extends AbstractController
                     return null;
                 }
 
-                $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
                 return null;
             }
@@ -133,7 +133,7 @@ class ChartController extends AbstractController
             $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             $urlParams['back'] = Url::getFromRoute('/sql');
 
-            if (! $this->checkParameters(['db'])) {
+            if (! $this->response->checkParameters(['db'])) {
                 return null;
             }
 
@@ -149,7 +149,7 @@ class ChartController extends AbstractController
                     return null;
                 }
 
-                $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
                 return null;
             }
@@ -202,7 +202,7 @@ class ChartController extends AbstractController
         /**
          * Displays the page
          */
-        $this->render('table/chart/tbl_chart', [
+        $this->response->render('table/chart/tbl_chart', [
             'url_params' => $urlParams,
             'keys' => $keys,
             'fields_meta' => $fieldsMeta,

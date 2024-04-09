@@ -260,7 +260,6 @@ class AddFieldControllerTest extends AbstractTestCase
         $transformations = new Transformations();
         (new AddFieldController(
             $response,
-            $template,
             $transformations,
             $this->createConfig(),
             $dbi,

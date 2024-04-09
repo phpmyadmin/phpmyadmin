@@ -5,14 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
 use PhpMyAdmin\ColumnFull;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPrivilegesFactory;
 
 use function __;
@@ -23,21 +22,19 @@ use function count;
 use function in_array;
 use function is_array;
 
-final class ChangeController extends AbstractController
+final class ChangeController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
-        private ColumnsDefinition $columnsDefinition,
+        private readonly ResponseRenderer $response,
+        private readonly DatabaseInterface $dbi,
+        private readonly ColumnsDefinition $columnsDefinition,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
     {
-        if (! $this->checkParameters(['server', 'db', 'table'])) {
+        if (! $this->response->checkParameters(['server', 'db', 'table'])) {
             return null;
         }
 
@@ -91,7 +88,7 @@ final class ChangeController extends AbstractController
          */
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
-        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
+        $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
         $templateData = $this->columnsDefinition->displayForm(
             $userPrivileges,
@@ -101,6 +98,6 @@ final class ChangeController extends AbstractController
             $fieldsMeta,
         );
 
-        $this->render('columns_definitions/column_definitions_form', $templateData);
+        $this->response->render('columns_definitions/column_definitions_form', $templateData);
     }
 }

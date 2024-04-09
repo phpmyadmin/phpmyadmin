@@ -4,23 +4,21 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 /**
  * Handles viewing storage engine details
  */
-class EnginesController extends AbstractController
+final class EnginesController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
+    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
     {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -31,7 +29,7 @@ class EnginesController extends AbstractController
             $this->dbi->selectDb('mysql');
         }
 
-        $this->render('server/engines/index', ['engines' => StorageEngine::getStorageEngines()]);
+        $this->response->render('server/engines/index', ['engines' => StorageEngine::getStorageEngines()]);
 
         return null;
     }

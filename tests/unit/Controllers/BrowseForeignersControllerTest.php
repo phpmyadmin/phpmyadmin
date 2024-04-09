@@ -160,7 +160,6 @@ HTML;
 
         (new BrowseForeignersController(
             $response,
-            $template,
             new BrowseForeigners($template, $config, new ThemeManager()),
             new Relation($dbi),
         ))($request);

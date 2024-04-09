@@ -10,7 +10,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
@@ -46,21 +46,19 @@ use function strtotime;
  * Displays table structure infos like columns, indexes, size, rows
  * and allows manipulation of indexes and columns.
  */
-class StructureController extends AbstractController
+class StructureController implements InvocableController
 {
     private readonly Table $tableObj;
 
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Relation $relation,
-        private Transformations $transformations,
-        private DatabaseInterface $dbi,
-        private PageSettings $pageSettings,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Relation $relation,
+        private readonly Transformations $transformations,
+        private readonly DatabaseInterface $dbi,
+        private readonly PageSettings $pageSettings,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
-
         $this->tableObj = $this->dbi->getTable(Current::$database, Current::$table);
     }
 
@@ -74,11 +72,11 @@ class StructureController extends AbstractController
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
 
-        $this->addScriptFiles(['table/structure.js']);
+        $this->response->addScriptFiles(['table/structure.js']);
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        if (! $this->checkParameters(['db', 'table'])) {
+        if (! $this->response->checkParameters(['db', 'table'])) {
             return null;
         }
 
@@ -99,7 +97,7 @@ class StructureController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -113,7 +111,7 @@ class StructureController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
             return null;
         }

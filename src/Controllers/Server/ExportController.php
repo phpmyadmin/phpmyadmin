@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Options;
@@ -14,22 +14,19 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function __;
 use function array_merge;
 
-final class ExportController extends AbstractController
+final class ExportController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Options $export,
-        private DatabaseInterface $dbi,
-        private PageSettings $pageSettings,
+        private readonly ResponseRenderer $response,
+        private readonly Options $export,
+        private readonly DatabaseInterface $dbi,
+        private readonly PageSettings $pageSettings,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -47,7 +44,7 @@ final class ExportController extends AbstractController
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
         $pageSettingsHtml = $this->pageSettings->getHTML();
 
-        $this->addScriptFiles(['export.js']);
+        $this->response->addScriptFiles(['export.js']);
 
         $GLOBALS['select_item'] = $GLOBALS['tmp_select'] ?? '';
         $databases = $this->export->getDatabasesForSelectOptions($GLOBALS['select_item']);
@@ -86,7 +83,7 @@ final class ExportController extends AbstractController
             $exportList,
         );
 
-        $this->render('server/export/index', array_merge($options, [
+        $this->response->render('server/export/index', array_merge($options, [
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
             'databases' => $databases,

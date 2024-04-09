@@ -48,7 +48,7 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
             'fields' => ['name', 'datetimefield'],
         ]);
 
-        (new DropColumnConfirmationController($response, $template, new DbTableExists($dbi)))($request);
+        (new DropColumnConfirmationController($response, new DbTableExists($dbi)))($request);
 
         self::assertSame(200, $response->getResponse()->getStatusCode());
         self::assertTrue($response->hasSuccessState());
@@ -70,7 +70,6 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
 
         (new DropColumnConfirmationController(
             $response,
-            new Template(),
             new DbTableExists(DatabaseInterface::getInstance()),
         ))($request);
 
@@ -94,7 +93,6 @@ class DropColumnConfirmationControllerTest extends AbstractTestCase
 
         (new DropColumnConfirmationController(
             $response,
-            new Template(),
             new DbTableExists(DatabaseInterface::getInstance()),
         ))($request);
 

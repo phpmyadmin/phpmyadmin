@@ -4,24 +4,22 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 use function htmlspecialchars;
 
-final class DropFormController extends AbstractController
+final class DropFormController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
+    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
     {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -62,7 +60,7 @@ final class DropFormController extends AbstractController
             $urlParams['selected'][] = $selectedValue;
         }
 
-        $this->render('database/structure/drop_form', [
+        $this->response->render('database/structure/drop_form', [
             'url_params' => $urlParams,
             'full_query' => $fullQuery,
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),

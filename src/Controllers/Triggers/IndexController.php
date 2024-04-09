@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Triggers;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -33,16 +33,15 @@ use function trim;
 /**
  * Triggers management.
  */
-final class IndexController extends AbstractController
+final class IndexController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
-        private Triggers $triggers,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly DatabaseInterface $dbi,
+        private readonly Triggers $triggers,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -51,7 +50,7 @@ final class IndexController extends AbstractController
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $this->addScriptFiles(['triggers.js', 'sql.js']);
+        $this->response->addScriptFiles(['triggers.js', 'sql.js']);
 
         if (! $request->isAjax()) {
             $config = Config::getInstance();
@@ -59,7 +58,7 @@ final class IndexController extends AbstractController
              * Displays the header and tabs
              */
             if (Current::$table !== '' && in_array(Current::$table, $this->dbi->getTables(Current::$database), true)) {
-                if (! $this->checkParameters(['db', 'table'])) {
+                if (! $this->response->checkParameters(['db', 'table'])) {
                     return null;
                 }
 
@@ -69,21 +68,24 @@ final class IndexController extends AbstractController
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                    $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+                    $this->response->redirectToRoute(
+                        '/',
+                        ['reload' => true, 'message' => __('No databases selected.')],
+                    );
 
                     return null;
                 }
 
                 $tableName = TableName::tryFrom($request->getParam('table'));
                 if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
-                    $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+                    $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
                     return null;
                 }
             } else {
                 Current::$table = '';
 
-                if (! $this->checkParameters(['db'])) {
+                if (! $this->response->checkParameters(['db'])) {
                     return null;
                 }
 
@@ -95,7 +97,10 @@ final class IndexController extends AbstractController
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                    $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+                    $this->response->redirectToRoute(
+                        '/',
+                        ['reload' => true, 'message' => __('No databases selected.')],
+                    );
 
                     return null;
                 }
@@ -259,7 +264,10 @@ final class IndexController extends AbstractController
             }
 
             if ($exportData !== null) {
-                $this->render('triggers/export', ['data' => $exportData, 'item_name' => $triggerName->getName()]);
+                $this->response->render('triggers/export', [
+                    'data' => $exportData,
+                    'item_name' => $triggerName->getName(),
+                ]);
 
                 return null;
             }
@@ -281,7 +289,7 @@ final class IndexController extends AbstractController
         $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', Current::$database, Current::$table);
         $isAjax = $request->isAjax() && empty($request->getParam('ajax_page_request'));
 
-        $this->render('triggers/list', [
+        $this->response->render('triggers/list', [
             'db' => Current::$database,
             'table' => Current::$table,
             'triggers' => $triggers,

@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use Fig\Http\Message\StatusCodeInterface;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -13,20 +14,17 @@ use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
 use function __;
 
-final class DropColumnConfirmationController extends AbstractController
+final class DropColumnConfirmationController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
+        private readonly ResponseRenderer $response,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -54,7 +52,7 @@ final class DropColumnConfirmationController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -67,17 +65,32 @@ final class DropColumnConfirmationController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
             return null;
         }
 
-        $this->render('table/structure/drop_confirm', [
+        $this->response->render('table/structure/drop_confirm', [
             'db' => $db->getName(),
             'table' => $table->getName(),
             'fields' => $fields,
         ]);
 
         return null;
+    }
+
+    private function sendErrorResponse(string $message): void
+    {
+        $this->response->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
+        $this->response->setRequestStatus(false);
+
+        if ($this->response->isAjax()) {
+            $this->response->addJSON('isErrorResponse', true);
+            $this->response->addJSON('message', $message);
+
+            return;
+        }
+
+        $this->response->addHTML(Message::error($message)->getDisplay());
     }
 }

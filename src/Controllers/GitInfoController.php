@@ -9,16 +9,14 @@ use PhpMyAdmin\Git;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function strtotime;
 
-final class GitInfoController extends AbstractController
+final class GitInfoController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private Config $config)
+    public function __construct(private readonly ResponseRenderer $response, private readonly Config $config)
     {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -44,7 +42,7 @@ final class GitInfoController extends AbstractController
         $commit['author']['date'] = Util::localisedDate(strtotime($commit['author']['date']));
         $commit['committer']['date'] = Util::localisedDate(strtotime($commit['committer']['date']));
 
-        $this->render('home/git_info', $commit);
+        $this->response->render('home/git_info', $commit);
 
         return null;
     }

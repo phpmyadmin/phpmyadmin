@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
@@ -25,11 +25,13 @@ use function trim;
 /**
  * Handles viewing and editing server variables
  */
-class VariablesController extends AbstractController
+final class VariablesController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
-    {
-        parent::__construct($response, $template);
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly DatabaseInterface $dbi,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -42,7 +44,7 @@ class VariablesController extends AbstractController
 
         $filterValue = $request->getQueryParam('filter', '');
 
-        $this->addScriptFiles(['server/variables.js']);
+        $this->response->addScriptFiles(['server/variables.js']);
 
         $variables = [];
         $serverVarsResult = $this->dbi->tryQuery('SHOW SESSION VARIABLES;');
@@ -84,7 +86,7 @@ class VariablesController extends AbstractController
             }
         }
 
-        $this->render('server/variables/index', [
+        $this->response->render('server/variables/index', [
             'variables' => $variables,
             'filter_value' => $filterValue,
             'is_superuser' => $this->dbi->isSuperUser(),

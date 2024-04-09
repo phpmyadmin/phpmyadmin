@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
@@ -27,17 +27,15 @@ use function mb_strtoupper;
 use function sprintf;
 use function str_replace;
 
-final class MoveColumnsController extends AbstractController
+final class MoveColumnsController implements InvocableController
 {
     private Table $tableObj;
 
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly DatabaseInterface $dbi,
     ) {
-        parent::__construct($response, $template);
-
         $this->tableObj = $this->dbi->getTable(Current::$database, Current::$table);
     }
 

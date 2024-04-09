@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Server;
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Http\Response;
@@ -19,15 +19,14 @@ use PhpMyAdmin\Util;
 use function __;
 use function sprintf;
 
-final class UserGroupsFormController extends AbstractController
+final class UserGroupsFormController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Relation $relation,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Relation $relation,
+        private readonly DatabaseInterface $dbi,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

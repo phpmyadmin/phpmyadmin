@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
@@ -22,15 +22,14 @@ use PhpMyAdmin\Util;
 
 use function __;
 
-class SearchController extends AbstractController
+final class SearchController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -38,9 +37,9 @@ class SearchController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['urlParams'] ??= null;
 
-        $this->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
+        $this->response->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
 
-        if (! $this->checkParameters(['db'])) {
+        if (! $this->response->checkParameters(['db'])) {
             return null;
         }
 
@@ -57,7 +56,7 @@ class SearchController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
@@ -74,7 +73,10 @@ class SearchController extends AbstractController
                 return null;
             }
 
-            $this->render('error/simple', ['error_message' => $errorMessage, 'back_url' => $GLOBALS['errorUrl']]);
+            $this->response->render('error/simple', [
+                'error_message' => $errorMessage,
+                'back_url' => $GLOBALS['errorUrl'],
+            ]);
 
             return null;
         }

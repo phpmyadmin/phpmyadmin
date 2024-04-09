@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
@@ -31,16 +31,15 @@ use function urlencode;
 /**
  * Server privileges and users manipulations.
  */
-class PrivilegesController extends AbstractController
+final class PrivilegesController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Relation $relation,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Relation $relation,
+        private readonly DatabaseInterface $dbi,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -55,7 +54,7 @@ class PrivilegesController extends AbstractController
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
+        $this->response->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 
         $relationCleanup = new RelationCleanup($this->dbi, $this->relation);
         $serverPrivileges = new Privileges(
@@ -69,7 +68,7 @@ class PrivilegesController extends AbstractController
         $this->response->addHTML('<div class="container-fluid">');
 
         if ($relationParameters->configurableMenusFeature !== null && ! $request->isAjax()) {
-            $this->render('server/privileges/subnav', [
+            $this->response->render('server/privileges/subnav', [
                 'active' => 'privileges',
                 'is_super_user' => $this->dbi->isSuperUser(),
             ]);
@@ -101,7 +100,7 @@ class PrivilegesController extends AbstractController
         $isCreateUser = $this->dbi->isCreateUser();
 
         if (! $this->dbi->isSuperUser() && ! $isGrantUser && ! $isCreateUser) {
-            $this->render('server/sub_page_header', ['type' => 'privileges', 'is_image' => false]);
+            $this->response->render('server/sub_page_header', ['type' => 'privileges', 'is_image' => false]);
             $this->response->addHTML(
                 Message::error(__('No Privileges'))
                     ->getDisplay(),

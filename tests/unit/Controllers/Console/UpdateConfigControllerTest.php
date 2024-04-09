@@ -9,7 +9,6 @@ use PhpMyAdmin\Controllers\Console\UpdateConfigController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -30,7 +29,7 @@ final class UpdateConfigControllerTest extends AbstractTestCase
         $config = new Config();
         $responseRenderer = new ResponseRenderer();
         $responseRenderer->setAjax(true);
-        $controller = new UpdateConfigController($responseRenderer, new Template($config), $config);
+        $controller = new UpdateConfigController($responseRenderer, $config);
         $response = $controller($request);
 
         $responseBody = (string) $response->getBody();
@@ -83,7 +82,7 @@ final class UpdateConfigControllerTest extends AbstractTestCase
         $config = new Config();
         $responseRenderer = new ResponseRenderer();
         $responseRenderer->setAjax(true);
-        $controller = new UpdateConfigController($responseRenderer, new Template($config), $config);
+        $controller = new UpdateConfigController($responseRenderer, $config);
         $response = $controller($request);
 
         $responseBody = (string) $response->getBody();
@@ -143,7 +142,7 @@ final class UpdateConfigControllerTest extends AbstractTestCase
         $config->method('setUserValue')->willReturn(Message::error('Could not save configuration'));
         $responseRenderer = new ResponseRenderer();
         $responseRenderer->setAjax(true);
-        $controller = new UpdateConfigController($responseRenderer, new Template($config), $config);
+        $controller = new UpdateConfigController($responseRenderer, $config);
         $response = $controller($request);
 
         $responseBody = (string) $response->getBody();

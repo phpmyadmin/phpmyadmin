@@ -5,21 +5,19 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Navigation;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Template;
 
 use function __;
 use function is_numeric;
 
-final class UpdateNavWidthConfigController extends AbstractController
+final class UpdateNavWidthConfigController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private readonly Config $config)
+    public function __construct(private readonly ResponseRenderer $response, private readonly Config $config)
     {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null

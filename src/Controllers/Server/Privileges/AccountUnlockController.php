@@ -5,22 +5,22 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Privileges;
 
 use Fig\Http\Message\StatusCodeInterface;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Privileges\AccountLocking;
-use PhpMyAdmin\Template;
 use Throwable;
 
 use function __;
 
-final class AccountUnlockController extends AbstractController
+final class AccountUnlockController implements InvocableController
 {
-    public function __construct(ResponseRenderer $response, Template $template, private AccountLocking $accountLocking)
-    {
-        parent::__construct($response, $template);
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly AccountLocking $accountLocking,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -20,14 +21,14 @@ use function implode;
 /**
  * Object the server status page: processes, connections and traffic.
  */
-class StatusController extends AbstractController
+final class StatusController extends AbstractController implements InvocableController
 {
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Data $data,
-        private ReplicationGui $replicationGui,
-        private DatabaseInterface $dbi,
+        private readonly ReplicationGui $replicationGui,
+        private readonly DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template, $data);
     }
@@ -79,7 +80,7 @@ class StatusController extends AbstractController
             }
         }
 
-        $this->render('server/status/status/index', [
+        $this->response->render('server/status/status/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'network_traffic' => $networkTraffic ?? null,
             'uptime' => $uptime ?? null,

@@ -11,6 +11,8 @@ use PhpMyAdmin\Gis\GisFactory;
 use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Template;
 
 use function array_merge;
 use function in_array;
@@ -22,8 +24,12 @@ use function trim;
 /**
  * Editor for Geometry data types.
  */
-class GisDataEditorController extends AbstractController
+final class GisDataEditorController implements InvocableController
 {
+    public function __construct(private readonly ResponseRenderer $response, private readonly Template $template)
+    {
+    }
+
     private const GIS_TYPES = [
         'POINT',
         'MULTIPOINT',

@@ -36,7 +36,6 @@ class NewTablesControllerTest extends AbstractTestCase
         ]);
         $controller = new NewTablesController(
             $response,
-            $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
         $controller($request);

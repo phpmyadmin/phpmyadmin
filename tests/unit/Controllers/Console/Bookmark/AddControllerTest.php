@@ -11,7 +11,6 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\Console\Bookmark\AddController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -34,7 +33,7 @@ class AddControllerTest extends AbstractTestCase
         ]);
         $relation = new Relation($dbi);
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
-        $controller = new AddController($response, new Template(), $bookmarkRepository);
+        $controller = new AddController($response, $bookmarkRepository);
         $controller($request);
         self::assertSame(['message' => 'Incomplete params'], $response->getJSONResult());
     }
@@ -55,7 +54,7 @@ class AddControllerTest extends AbstractTestCase
         ]);
         $relation = new Relation($dbi);
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
-        $controller = new AddController($response, new Template(), $bookmarkRepository);
+        $controller = new AddController($response, $bookmarkRepository);
         $controller($request);
         self::assertSame(['message' => 'Failed'], $response->getJSONResult());
     }
@@ -89,7 +88,7 @@ class AddControllerTest extends AbstractTestCase
         ]);
         $relation = new Relation($dbi);
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
-        $controller = new AddController($response, new Template(), $bookmarkRepository);
+        $controller = new AddController($response, $bookmarkRepository);
         $controller($request);
         self::assertSame(
             [

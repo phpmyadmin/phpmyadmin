@@ -8,7 +8,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -56,7 +56,7 @@ use function urlencode;
 /**
  * Handles database structure logic
  */
-final class StructureController extends AbstractController
+final class StructureController implements InvocableController
 {
     /** @var int Number of tables */
     private int $numTables = 0;
@@ -79,17 +79,15 @@ final class StructureController extends AbstractController
     private ReplicationInfo $replicationInfo;
 
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Relation $relation,
-        private Replication $replication,
-        private DatabaseInterface $dbi,
-        private TrackingChecker $trackingChecker,
-        private PageSettings $pageSettings,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly Relation $relation,
+        private readonly Replication $replication,
+        private readonly DatabaseInterface $dbi,
+        private readonly TrackingChecker $trackingChecker,
+        private readonly PageSettings $pageSettings,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
-
         $this->replicationInfo = new ReplicationInfo($this->dbi);
     }
 
@@ -129,7 +127,7 @@ final class StructureController extends AbstractController
 
         $parameters = ['sort' => $_REQUEST['sort'] ?? null, 'sort_order' => $_REQUEST['sort_order'] ?? null];
 
-        if (! $this->checkParameters(['db'])) {
+        if (! $this->response->checkParameters(['db'])) {
             return null;
         }
 
@@ -146,12 +144,12 @@ final class StructureController extends AbstractController
                 return null;
             }
 
-            $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
             return null;
         }
 
-        $this->addScriptFiles(['database/structure.js', 'table/change.js']);
+        $this->response->addScriptFiles(['database/structure.js', 'table/change.js']);
 
         // Gets the database structure
         $this->getDatabaseInfo($request);
@@ -160,7 +158,7 @@ final class StructureController extends AbstractController
         // If there are no tables, the user is redirected to the last page
         // having any.
         if ($this->totalNumTables > 0 && $this->position > $this->totalNumTables) {
-            $this->redirect('/database/structure', [
+            $this->response->redirectToRoute('/database/structure', [
                 'db' => Current::$database,
                 'pos' => max(0, $this->totalNumTables - $config->settings['MaxTableList']),
                 'reload' => 1,
@@ -201,7 +199,7 @@ final class StructureController extends AbstractController
             $createTable = $this->template->render('database/create_table', ['db' => Current::$database]);
         }
 
-        $this->render('database/structure/index', [
+        $this->response->render('database/structure/index', [
             'database' => Current::$database,
             'has_tables' => $this->numTables > 0,
             'list_navigator_html' => $listNavigator ?? '',

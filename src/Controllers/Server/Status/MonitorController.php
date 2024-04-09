@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -16,13 +17,13 @@ use PhpMyAdmin\Url;
 use function is_numeric;
 use function microtime;
 
-class MonitorController extends AbstractController
+final class MonitorController extends AbstractController implements InvocableController
 {
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Data $data,
-        private DatabaseInterface $dbi,
+        private readonly DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template, $data);
     }
@@ -35,7 +36,7 @@ class MonitorController extends AbstractController
             $this->dbi->selectDb('mysql');
         }
 
-        $this->addScriptFiles([
+        $this->response->addScriptFiles([
             'vendor/jquery/jquery.tablesorter.js',
             'jquery.sortable-table.js',
             'vendor/jqplot/jquery.jqplot.js',
@@ -67,7 +68,7 @@ class MonitorController extends AbstractController
             $javascriptVariableNames[] = $name;
         }
 
-        $this->render('server/status/monitor/index', [
+        $this->response->render('server/status/monitor/index', [
             'javascript_variable_names' => $javascriptVariableNames,
             'form' => $form,
         ]);

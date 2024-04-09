@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Sql;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
@@ -18,7 +18,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -27,17 +26,15 @@ use function mb_strpos;
 use function str_contains;
 use function urlencode;
 
-class SqlController extends AbstractController
+class SqlController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Sql $sql,
-        private DatabaseInterface $dbi,
-        private PageSettings $pageSettings,
+        private readonly ResponseRenderer $response,
+        private readonly Sql $sql,
+        private readonly DatabaseInterface $dbi,
+        private readonly PageSettings $pageSettings,
         private readonly BookmarkRepository $bookmarkRepository,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -58,7 +55,7 @@ class SqlController extends AbstractController
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
 
-        $this->addScriptFiles([
+        $this->response->addScriptFiles([
             'vendor/jquery/jquery.uitablefilter.js',
             'table/change.js',
             'gis_data_editor.js',
@@ -128,7 +125,7 @@ class SqlController extends AbstractController
 
             // set $goto to what will be displayed if query returns 0 rows
             $GLOBALS['goto'] = '';
-        } elseif (! $this->checkParameters(['sql_query'])) {
+        } elseif (! $this->response->checkParameters(['sql_query'])) {
             return null;
         }
 

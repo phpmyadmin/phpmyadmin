@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -26,13 +27,13 @@ use function str_replace;
 
 use const MB_CASE_TITLE;
 
-class QueriesController extends AbstractController
+final class QueriesController extends AbstractController implements InvocableController
 {
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Data $data,
-        private DatabaseInterface $dbi,
+        private readonly DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template, $data);
     }
@@ -45,7 +46,7 @@ class QueriesController extends AbstractController
             $this->dbi->selectDb('mysql');
         }
 
-        $this->addScriptFiles(['vendor/chart.umd.js', 'server/status/queries.js']);
+        $this->response->addScriptFiles(['vendor/chart.umd.js', 'server/status/queries.js']);
 
         $chart = [];
         if ($this->data->dataLoaded) {
@@ -94,7 +95,7 @@ class QueriesController extends AbstractController
 
         $chartData = ['labels' => array_keys($chart), 'data' => array_values($chart)];
 
-        $this->render('server/status/queries/index', [
+        $this->response->render('server/status/queries/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'stats' => $stats ?? null,
             'queries' => $queries ?? [],

@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -19,7 +19,6 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Privileges;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -28,15 +27,13 @@ use function mb_strtolower;
 /**
  * Controller for table privileges
  */
-class PrivilegesController extends AbstractController
+final class PrivilegesController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private Privileges $privileges,
-        private DatabaseInterface $dbi,
+        private readonly ResponseRenderer $response,
+        private readonly Privileges $privileges,
+        private readonly DatabaseInterface $dbi,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -54,7 +51,7 @@ class PrivilegesController extends AbstractController
             return null;
         }
 
-        $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
+        $this->response->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 
         /**
          * Checks if the user is allowed to do what they try to...
@@ -63,7 +60,7 @@ class PrivilegesController extends AbstractController
         $isCreateUser = $this->dbi->isCreateUser();
 
         if (! $this->dbi->isSuperUser() && ! $isGrantUser && ! $isCreateUser) {
-            $this->render('server/sub_page_header', ['type' => 'privileges', 'is_image' => false]);
+            $this->response->render('server/sub_page_header', ['type' => 'privileges', 'is_image' => false]);
             $this->response->addHTML(
                 Message::error(__('No Privileges'))
                     ->getDisplay(),
@@ -85,7 +82,7 @@ class PrivilegesController extends AbstractController
             $privileges = $this->privileges->getAllPrivileges($db, $table);
         }
 
-        $this->render('table/privileges/index', [
+        $this->response->render('table/privileges/index', [
             'db' => $db->getName(),
             'table' => $table->getName(),
             'is_superuser' => $this->dbi->isSuperUser(),
@@ -95,7 +92,7 @@ class PrivilegesController extends AbstractController
             'is_grantuser' => $this->dbi->isGrantUser(),
             'privileges' => $privileges,
         ]);
-        $this->render('export_modal');
+        $this->response->render('export_modal', []);
 
         return null;
     }

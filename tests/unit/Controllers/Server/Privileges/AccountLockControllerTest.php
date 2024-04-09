@@ -9,7 +9,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Server\Privileges\AccountLocking;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -44,7 +43,6 @@ class AccountLockControllerTest extends AbstractTestCase
 
         $this->controller = new AccountLockController(
             $this->responseRendererStub,
-            new Template(),
             new AccountLocking($this->dbiStub),
         );
     }

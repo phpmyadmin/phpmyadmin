@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -33,16 +33,15 @@ use function min;
 /**
  * Displays index edit/creation form and handles it.
  */
-class IndexesController extends AbstractController
+final class IndexesController implements InvocableController
 {
     public function __construct(
-        ResponseRenderer $response,
-        Template $template,
-        private DatabaseInterface $dbi,
-        private Indexes $indexes,
+        private readonly ResponseRenderer $response,
+        private readonly Template $template,
+        private readonly DatabaseInterface $dbi,
+        private readonly Indexes $indexes,
         private readonly DbTableExists $dbTableExists,
     ) {
-        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -51,7 +50,7 @@ class IndexesController extends AbstractController
         $GLOBALS['errorUrl'] ??= null;
 
         if (! isset($_POST['create_edit_table'])) {
-            if (! $this->checkParameters(['db', 'table'])) {
+            if (! $this->response->checkParameters(['db', 'table'])) {
                 return null;
             }
 
@@ -71,7 +70,7 @@ class IndexesController extends AbstractController
                     return null;
                 }
 
-                $this->redirect('/', ['reload' => true, 'message' => __('No databases selected.')]);
+                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
                 return null;
             }
@@ -85,7 +84,7 @@ class IndexesController extends AbstractController
                     return null;
                 }
 
-                $this->redirect('/', ['reload' => true, 'message' => __('No table selected.')]);
+                $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
                 return null;
             }
@@ -229,7 +228,7 @@ class IndexesController extends AbstractController
             $formParams['old_index'] = $_POST['index'];
         }
 
-        $this->render('table/index_form', [
+        $this->response->render('table/index_form', [
             'fields' => $fields,
             'index' => $index,
             'form_params' => $formParams,
