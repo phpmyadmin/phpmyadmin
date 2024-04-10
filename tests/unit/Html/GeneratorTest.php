@@ -476,7 +476,6 @@ class GeneratorTest extends AbstractTestCase
     {
         Config::getInstance()->settings['ShowSQL'] = true;
         $GLOBALS['display_query'] = null;
-        $GLOBALS['unparsed_sql'] = null;
         $GLOBALS['sql_query'] = 'SELECT 1;';
         $usingBookmarkMessage = Message::notice('Bookmark message');
         $GLOBALS['using_bookmark_message'] = $usingBookmarkMessage;
@@ -533,7 +532,6 @@ HTML;
         $config->settings['SQLQuery']['Edit'] = false;
         $config->settings['SQLQuery']['Refresh'] = true;
         $GLOBALS['display_query'] = 'EXPLAIN SELECT 1;';
-        $GLOBALS['unparsed_sql'] = null;
         $GLOBALS['sql_query'] = null;
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$database = 'test_db';

@@ -24,12 +24,8 @@ class ParseAnalyzeTest extends AbstractTestCase
         $GLOBALS['lang'] = 'en';
         ResponseRenderer::getInstance()->setAjax(false);
 
-        $GLOBALS['unparsed_sql'] = '';
-
         $actual = ParseAnalyze::sqlQuery('SELECT * FROM `sakila`.`actor`', 'sakila_test');
 
-        /** @psalm-suppress TypeDoesNotContainType */
-        self::assertSame('SELECT * FROM `sakila`.`actor`', $GLOBALS['unparsed_sql']);
         self::assertSame('sakila', $actual[1]);
         self::assertSame('actor', $actual[2]);
         self::assertTrue($actual[0]->flags->reload);
@@ -44,12 +40,8 @@ class ParseAnalyzeTest extends AbstractTestCase
         $GLOBALS['lang'] = 'en';
         ResponseRenderer::getInstance()->setAjax(false);
 
-        $GLOBALS['unparsed_sql'] = '';
-
         $actual = ParseAnalyze::sqlQuery('SELECT `first_name`, `title` FROM `actor`, `film`', 'sakila');
 
-        /** @psalm-suppress TypeDoesNotContainType */
-        self::assertSame('SELECT `first_name`, `title` FROM `actor`, `film`', $GLOBALS['unparsed_sql']);
         self::assertSame('sakila', $actual[1]);
         self::assertSame('', $actual[2]);
         self::assertFalse($actual[0]->flags->reload);

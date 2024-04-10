@@ -240,13 +240,6 @@ class Import
 
         // Do we have something to push into buffer?
         $this->importRunBuffer = $sql !== '' ? $sql . ';' : null;
-
-        // In case of ROLLBACK, notify the user.
-        if (! isset($_POST['rollback_query'])) {
-            return;
-        }
-
-        ImportSettings::$message .= __('[ROLLBACK occurred.]');
     }
 
     /**
@@ -928,20 +921,10 @@ class Import
         ImportSettings::$importNotice = $message;
     }
 
-    /**
-     * Handles request for ROLLBACK.
-     *
-     * @param string $sqlQuery SQL query(s)
-     */
     public function handleRollbackRequest(string $sqlQuery): void
     {
         $sqlDelimiter = $_POST['sql_delimiter'];
         $queries = explode($sqlDelimiter, $sqlQuery);
-        $error = false;
-        $errorMsg = __(
-            'Only INSERT, UPDATE, DELETE and REPLACE '
-            . 'SQL queries containing transactional engine tables can be rolled back.',
-        );
         $dbi = DatabaseInterface::getInstance();
         foreach ($queries as $sqlQuery) {
             if ($sqlQuery === '') {
@@ -953,17 +936,14 @@ class Import
                 continue;
             }
 
-            $globalError = $dbi->getError();
-            $error = $globalError !== '' ? $globalError : $errorMsg;
+            $sqlError = $dbi->getError();
+            $error = $sqlError !== '' ? $sqlError : __(
+                'Only INSERT, UPDATE, DELETE and REPLACE '
+                . 'SQL queries containing transactional engine tables can be rolled back.',
+            );
 
-            break;
-        }
-
-        if ($error) {
-            unset($_POST['rollback_query']);
             $response = ResponseRenderer::getInstance();
-            $message = Message::rawError($error);
-            $response->addJSON('message', $message);
+            $response->addJSON('message', Message::rawError($error));
             $response->callExit();
         }
 

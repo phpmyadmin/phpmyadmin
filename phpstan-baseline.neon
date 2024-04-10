@@ -8276,8 +8276,13 @@ parameters:
 			path: src/Html/Generator.php
 
 		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 2
+			path: src/Html/Generator.php
+
+		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 16
+			count: 14
 			path: src/Html/Generator.php
 
 		-
@@ -8311,43 +8316,13 @@ parameters:
 			path: src/Html/Generator.php
 
 		-
-			message: "#^Parameter \\#1 \\$sqlQuery of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:formatSql\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Html/Generator.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function addslashes expects string, mixed given\\.$#"
-			count: 1
-			path: src/Html/Generator.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: src/Html/Generator.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
-			count: 1
-			path: src/Html/Generator.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, mixed given\\.$#"
-			count: 1
-			path: src/Html/Generator.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, mixed given\\.$#"
-			count: 2
-			path: src/Html/Generator.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
 			count: 1
-			path: src/Html/Generator.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, mixed given\\.$#"
-			count: 3
 			path: src/Html/Generator.php
 
 		-
@@ -8537,11 +8512,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
 			count: 1
 			path: src/Import/Import.php
 

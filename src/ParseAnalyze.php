@@ -26,9 +26,6 @@ class ParseAnalyze
      */
     public static function sqlQuery(string $sqlQuery, string $db): array
     {
-        // @todo: move to returned results (also in all the calling chain)
-        $GLOBALS['unparsed_sql'] = $sqlQuery;
-
         $info = Query::getAll($sqlQuery);
 
         $table = '';

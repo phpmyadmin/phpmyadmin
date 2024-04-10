@@ -6598,6 +6598,10 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$parts[1]]]></code>
     </PossiblyUndefinedArrayOffset>
+    <RedundantCast>
+      <code><![CDATA[(string) $GLOBALS['display_query']]]></code>
+      <code><![CDATA[(string) $GLOBALS['sql_query']]]></code>
+    </RedundantCast>
     <RiskyCast>
       <code><![CDATA[$_REQUEST['pos']]]></code>
       <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
@@ -6608,7 +6612,6 @@
       <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
       <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
       <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
-      <code><![CDATA[empty($GLOBALS['unparsed_sql'])]]></code>
       <code><![CDATA[empty($server['ssl_ca'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -6727,7 +6730,6 @@
       <code><![CDATA[$GLOBALS['result'] == false]]></code>
     </RedundantCondition>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$error]]></code>
       <code><![CDATA[ImportSettings::$runQuery]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
