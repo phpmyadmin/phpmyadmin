@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-04-07 00:20+0000\n"
-"PO-Revision-Date: 2024-04-05 19:01+0000\n"
+"PO-Revision-Date: 2024-04-11 13:02+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -124,7 +124,7 @@ msgstr "после %s"
 #: src/Display/Results.php:938 src/Plugins/Export/ExportSql.php:2054
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
-msgstr "Ни одного"
+msgstr "Нет"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:19
 #: resources/templates/database/create_table.twig:3
@@ -2956,7 +2956,7 @@ msgstr "В буфер обмена"
 #: resources/templates/display/results/table.twig:369
 #: resources/templates/table/chart/tbl_chart.twig:1
 msgid "Display chart"
-msgstr "Отобразить график"
+msgstr "Показать график"
 
 #: resources/templates/display/results/table.twig:377
 msgid "Visualize GIS data"
@@ -6242,7 +6242,7 @@ msgstr "Столбцы"
 
 #: resources/templates/sql/query.twig:82
 msgid "Bookmark this SQL query:"
-msgstr "Создание закладки SQL запроса:"
+msgstr "Создание закладки SQL-запроса:"
 
 #: resources/templates/sql/query.twig:98
 msgid "Replace existing bookmark of same name"
@@ -6255,7 +6255,7 @@ msgstr "Разделитель"
 
 #: resources/templates/sql/query.twig:114
 msgid "Show this query here again"
-msgstr "Показать данный запрос снова"
+msgstr "Показать этот запрос снова"
 
 #: resources/templates/sql/query.twig:128 src/Config/Descriptions.php:923
 msgid "Retain query box"
