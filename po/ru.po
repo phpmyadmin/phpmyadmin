@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-04-05 19:01+0000\n"
+"PO-Revision-Date: 2024-04-11 13:01+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ru/>\n"
@@ -15447,7 +15447,7 @@ msgstr "В буфер обмена"
 #: templates/display/results/table.twig:268
 #: templates/table/chart/tbl_chart.twig:7
 msgid "Display chart"
-msgstr "Отобразить график"
+msgstr "Показать график"
 
 #: templates/display/results/table.twig:276
 msgid "Visualize GIS data"
@@ -17946,7 +17946,7 @@ msgstr "Связать параметры"
 
 #: templates/sql/query.twig:85
 msgid "Bookmark this SQL query:"
-msgstr "Создание закладки SQL запроса:"
+msgstr "Создание закладки SQL-запроса:"
 
 #: templates/sql/query.twig:96
 msgid "Replace existing bookmark of same name"
@@ -17958,7 +17958,7 @@ msgstr "Разделитель"
 
 #: templates/sql/query.twig:114
 msgid "Show this query here again"
-msgstr "Показать данный запрос снова"
+msgstr "Показать этот запрос снова"
 
 #: templates/sql/query.twig:125
 msgid "Rollback when finished"
