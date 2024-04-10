@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-04-05 19:01+0000\n"
+"PO-Revision-Date: 2024-04-11 13:01+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ru/>\n"
@@ -1353,7 +1353,7 @@ msgstr "Пожалуйста, добавьте в серию хотя бы од�
 #: templates/database/designer/options_panel.twig:177
 #: templates/privileges/privileges_summary.twig:30
 msgid "None"
-msgstr "Ни одного"
+msgstr "Нет"
 
 #: js/messages.php:221
 msgid "Resume monitor"
@@ -7371,7 +7371,7 @@ msgstr "Использование результатов запроса"
 #: libraries/classes/Display/Results.php:5006
 #: templates/table/chart/tbl_chart.twig:10
 msgid "Display chart"
-msgstr "Отобразить график"
+msgstr "Показать график"
 
 #: libraries/classes/Display/Results.php:5028
 msgid "Visualize GIS data"
@@ -13155,7 +13155,7 @@ msgstr "Связать параметры"
 
 #: libraries/classes/SqlQueryForm.php:308
 msgid "Bookmark this SQL query:"
-msgstr "Создание закладки SQL запроса:"
+msgstr "Создание закладки SQL-запроса:"
 
 #: libraries/classes/SqlQueryForm.php:322
 msgid "Replace existing bookmark of same name"
@@ -13167,7 +13167,7 @@ msgstr "Разделитель"
 
 #: libraries/classes/SqlQueryForm.php:346
 msgid "Show this query here again"
-msgstr "Показать данный запрос снова"
+msgstr "Показать этот запрос снова"
 
 #: libraries/classes/SqlQueryForm.php:363
 msgid "Rollback when finished"
