@@ -224,25 +224,6 @@ class RecentFavoriteTables
         ]);
     }
 
-    public function getHtml(): string
-    {
-        $html = '<div class="drop_list">';
-        if ($this->tableType === TableType::Recent) {
-            $html .= '<button title="' . __('Recent tables')
-                . '" class="drop_button btn btn-sm btn-outline-secondary">'
-                . __('Recent') . '</button><ul id="pma_recent_list">';
-        } else {
-            $html .= '<button title="' . __('Favorite tables')
-                . '" class="drop_button btn btn-sm btn-outline-secondary">'
-                . __('Favorites') . '</button><ul id="pma_favorite_list">';
-        }
-
-        $html .= $this->getHtmlList();
-        $html .= '</ul></div>';
-
-        return $html;
-    }
-
     /**
      * Add recently used or favorite tables.
      *

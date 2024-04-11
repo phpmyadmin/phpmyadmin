@@ -1,5 +1,21 @@
 <div class="pma_quick_warp">
-    {% if recent %}{{ recent|raw }}{% endif %}
-    {% if favorite %}{{ favorite|raw }}{% endif %}
-    <div class="clearfloat"></div>
+  {% if recent is not empty %}
+    <div class="drop_list">
+      <button title="{{ 'Recent tables'|trans }}" class="drop_button btn btn-sm btn-outline-secondary">{{ 'Recent'|trans }}</button>
+      <ul id="pma_recent_list">
+        {{ recent|raw }}
+      </ul>
+    </div>
+  {% endif %}
+
+  {% if favorite is not empty %}
+    <div class="drop_list">
+      <button title="{{ 'Favorite tables'|trans }}" class="drop_button btn btn-sm btn-outline-secondary">{{ 'Favorites'|trans }}</button>
+      <ul id="pma_favorite_list">
+        {{ favorite|raw }}
+      </ul>
+    </div>
+  {% endif %}
+
+  <div class="clearfloat"></div>
 </div>
