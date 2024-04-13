@@ -90,15 +90,6 @@
     display: none;
   }
 
-  #recentTableList {
-    text-align: center;
-    padding: 10px;
-
-    select {
-      min-width: 100%;
-    }
-  }
-
   #databaseList {
     text-align: center;
     margin: 10px;
@@ -456,78 +447,6 @@ li.fast_filter {
   text-align: center;
   cursor: pointer;
   z-index: 801;
-}
-
-/* Quick warp links */
-.pma_quick_warp {
-  margin-top: 5px;
-  margin-left: 10px;
-  position: relative;
-
-  .drop_list {
-    float: left;
-    margin-left: 3px;
-    padding: 2px 0;
-  }
-
-  .drop_button {
-    padding: 0.2em 0.5em;
-    border: 1px solid #ddd;
-    background: #f2f2f2;
-    cursor: pointer;
-    color: #333;
-  }
-
-  .drop_list {
-    &:hover .drop_button {
-      background: #fff;
-      color: #333;
-    }
-
-    ul {
-      position: absolute;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      overflow-y: auto;
-      list-style: none;
-      background: #fff;
-      border: 1px solid #ddd;
-      top: 100%;
-      left: 3px;
-      right: 0;
-      display: none;
-      z-index: 802;
-    }
-
-    &:hover ul {
-      display: block;
-    }
-
-    li {
-      white-space: nowrap;
-      padding: 0;
-
-      img {
-        vertical-align: sub;
-      }
-
-      &:hover {
-        background: #f2f2f2;
-      }
-    }
-
-    a {
-      display: block;
-      padding: 0.2em 0.3em;
-
-      &.favorite_table_anchor {
-        clear: left;
-        float: left;
-        padding: 0.1em 0.3em 0;
-      }
-    }
-  }
 }
 
 #floating_menubar {

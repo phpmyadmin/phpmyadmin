@@ -51,24 +51,11 @@
       background-color: $navi-background;
       padding: 0.3em;
     }
-
-    &#recentTableList,
-    &#FavoriteTableList {
-      text-align: center;
-      margin-bottom: 0.5em;
-    }
-  }
-
-  #recentTable,
-  #FavoriteTable {
-    width: 200px;
   }
 
   #pmalogo,
   #serverChoice,
   #navipanellinks,
-  #recentTableList,
-  #FavoriteTableList,
   #databaseList,
   div.pageselector.dbselector {
     text-align: center;
@@ -81,16 +68,8 @@
     margin: 0;
   }
 
-  #recentTableList select,
-  #FavoriteTableList select,
   #serverChoice select {
     width: 80%;
-  }
-
-  #recentTableList,
-  #FavoriteTableList {
-    margin-bottom: 0;
-    padding-bottom: 0;
   }
 }
 
@@ -385,76 +364,6 @@ li.fast_filter {
 #navigation_controls {
   float: right;
   padding-right: 23px;
-}
-
-.pma_quick_warp {
-  margin-top: 5px;
-  margin-left: 2px;
-  position: relative;
-
-  .drop_list {
-    float: left;
-    margin-left: 3px;
-    padding: 2px 0;
-  }
-
-  .drop_button {
-    padding: 0 0.3em;
-    border: 1px solid #ddd;
-    background: #f2f2f2;
-    cursor: pointer;
-  }
-
-  .drop_list {
-    &:hover .drop_button {
-      background: #fff;
-    }
-
-    ul {
-      position: absolute;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      overflow-y: auto;
-      list-style: none;
-      background: #fff;
-      border: 1px solid #ddd;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      top: 100%;
-      left: 3px;
-      right: 0;
-      display: none;
-      z-index: 802;
-    }
-
-    &:hover ul {
-      display: block;
-    }
-
-    li {
-      white-space: nowrap;
-
-      img {
-        vertical-align: sub;
-      }
-
-      &:hover {
-        background: #f2f2f2;
-      }
-    }
-
-    a {
-      display: block;
-      padding: 0.1em 0.3em;
-
-      &.favorite_table_anchor {
-        clear: left;
-        float: left;
-        padding: 0.1em 0.3em 0;
-      }
-    }
-  }
 }
 
 #floating_menubar {

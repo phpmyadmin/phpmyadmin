@@ -282,7 +282,7 @@ export default function onloadNavigation () {
                 },
                 success: function (data) {
                     if (data.changes) {
-                        $('#pma_favorite_list').html(data.list);
+                        $('#favoriteTableList').html(data.list);
                         $('#' + anchorId).parent().html(data.anchor);
                         tooltip($('#' + anchorId), 'a', $('#' + anchorId).attr('title'));
                         // Update localStorage.

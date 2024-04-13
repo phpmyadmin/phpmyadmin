@@ -3133,7 +3133,7 @@ function onloadRecentFavoriteTables (): void {
             { 'no_debug': true },
             function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    $('#pma_recent_list').html(data.list);
+                    $('#recentTableList').html(data.list);
                 }
             }
         );
@@ -3170,7 +3170,7 @@ function onloadRecentFavoriteTables (): void {
                 window.localStorage.favoriteTables = data.favoriteTables;
             }
 
-            $('#pma_favorite_list').html(data.list);
+            $('#favoriteTableList').html(data.list);
         }
     });
 }

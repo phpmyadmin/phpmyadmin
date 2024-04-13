@@ -1,21 +1,25 @@
-<div class="pma_quick_warp">
-  {% if recent is not empty %}
-    <div class="drop_list">
-      <button title="{{ 'Recent tables'|trans }}" class="drop_button btn btn-sm btn-outline-secondary">{{ 'Recent'|trans }}</button>
-      <ul id="pma_recent_list">
-        {{ recent|raw }}
-      </ul>
-    </div>
-  {% endif %}
+{% if recent is not empty or favorite is not empty %}
+  <div class="row g-1 my-3 mx-1" id="recentFavoriteTablesWrapper">
+    {% if recent is not empty %}
+      <div class="col-auto dropdown">
+        <button title="{{ 'Recently visited tables'|trans }}" class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{- 'Recent'|trans -}}
+        </button>
+        <ul class="dropdown-menu" id="recentTableList">
+          {{ recent|raw }}
+        </ul>
+      </div>
+    {% endif %}
 
-  {% if favorite is not empty %}
-    <div class="drop_list">
-      <button title="{{ 'Favorite tables'|trans }}" class="drop_button btn btn-sm btn-outline-secondary">{{ 'Favorites'|trans }}</button>
-      <ul id="pma_favorite_list">
-        {{ favorite|raw }}
-      </ul>
-    </div>
-  {% endif %}
-
-  <div class="clearfloat"></div>
-</div>
+    {% if favorite is not empty %}
+      <div class="col-auto dropdown">
+        <button title="{{ 'Favorite tables'|trans }}" class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{- 'Favorites'|trans -}}
+        </button>
+        <ul class="dropdown-menu" id="favoriteTableList">
+          {{ favorite|raw }}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
