@@ -62,7 +62,7 @@ class NavigationTreeTest extends AbstractTestCase
     public function testRenderState(): void
     {
         $result = $this->object->renderState(new UserPrivileges());
-        self::assertStringContainsString('pma_quick_warp', $result);
+        self::assertStringContainsString('recentFavoriteTablesWrapper', $result);
     }
 
     /**

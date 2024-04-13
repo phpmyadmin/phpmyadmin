@@ -37,8 +37,6 @@
   #pmalogo,
   #serverChoice,
   #navipanellinks,
-  #recentTableList,
-  #favoriteTableList,
   #databaseList,
   div.pageselector.dbselector {
     text-align: center;
@@ -63,15 +61,6 @@
 
   #navipanellinks .icon {
     margin: 0;
-  }
-
-  #recentTable,
-  #favoriteTable {
-    width: 200px;
-  }
-
-  #favoriteTableList select {
-    width: 80%;
   }
 }
 
@@ -405,70 +394,6 @@ li.fast_filter {
   }
 }
 
-// Quick warp links
-.pma_quick_warp {
-  margin-top: 5px;
-  margin-left: 2px;
-  position: relative;
-
-  .drop_list {
-    float: left;
-    margin-left: 3px;
-    padding: 2px 0;
-
-    &:hover {
-      ul {
-        display: block;
-      }
-    }
-
-    ul {
-      position: absolute;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      overflow-y: auto;
-      list-style: none;
-      background: $white;
-      border: 1px solid #ddd;
-      border-radius: 0.3em;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      box-shadow: 0 0 5px #ccc;
-      top: 100%;
-      left: 3px;
-      right: 0;
-      display: none;
-      z-index: 802;
-    }
-
-    li {
-      white-space: nowrap;
-      padding: 0;
-      border-radius: 0;
-
-      img {
-        vertical-align: sub;
-      }
-
-      &:hover {
-        background: #f2f2f2;
-      }
-    }
-
-    a {
-      display: block;
-      padding: 0.2em 0.3em;
-
-      &.favorite_table_anchor {
-        clear: left;
-        float: left;
-        padding: 0.1em 0.3em 0;
-      }
-    }
-  }
-}
-
 @include color-mode(dark) {
   #pma_navigation_tree {
     li {
@@ -476,18 +401,6 @@ li.fast_filter {
       &.selected {
         color: var(--#{$prefix}body-color);
         background-color: rgba(var(--#{$prefix}body-color-rgb), 0.03);
-      }
-    }
-  }
-
-  .pma_quick_warp {
-    ul {
-      background-color: var(--#{$prefix}body-bg);
-    }
-
-    li {
-      &:hover {
-        background: $gray-800;
       }
     }
   }

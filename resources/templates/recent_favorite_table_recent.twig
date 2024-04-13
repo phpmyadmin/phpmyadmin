@@ -1,7 +1,13 @@
-{% for table in tables %}
-<li class="warp_link">
-  <a class="disableAjax" href="{{ url('/table/recent-favorite', table) }}">
-    `{{ table.db }}`.`{{ table.table }}`
-  </a>
-</li>
-{% endfor %}
+{% if tables is empty %}
+  <li>
+    <span class="dropdown-item-text">{{ 'There are no recent tables.'|trans }}</span>
+  </li>
+{% else %}
+  {% for table in tables %}
+  <li>
+    <a class="dropdown-item disableAjax" href="{{ url('/table/recent-favorite', table) }}">
+      `{{ table.db }}`.`{{ table.table }}`
+    </a>
+  </li>
+  {% endfor %}
+{% endif %}

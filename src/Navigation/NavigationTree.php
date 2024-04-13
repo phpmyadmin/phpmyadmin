@@ -1408,15 +1408,19 @@ class NavigationTree
      */
     private function quickWarp(): string
     {
-        $renderDetails = [];
+        $recent = '';
         if ($this->config->settings['NumRecentTables'] > 0) {
-            $renderDetails['recent'] = RecentFavoriteTables::getInstance(TableType::Recent)->getHtml();
+            $recent = RecentFavoriteTables::getInstance(TableType::Recent)->getHtmlList();
         }
 
+        $favorite = '';
         if ($this->config->settings['NumFavoriteTables'] > 0) {
-            $renderDetails['favorite'] = RecentFavoriteTables::getInstance(TableType::Favorite)->getHtml();
+            $favorite = RecentFavoriteTables::getInstance(TableType::Favorite)->getHtmlList();
         }
 
-        return $this->template->render('navigation/tree/quick_warp', $renderDetails);
+        return $this->template->render('navigation/tree/quick_warp', [
+            'recent' => $recent,
+            'favorite' => $favorite,
+        ]);
     }
 }

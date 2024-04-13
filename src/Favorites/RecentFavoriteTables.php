@@ -189,58 +189,33 @@ class RecentFavoriteTables
      */
     public function getHtmlList(): string
     {
-        if ($this->tables !== []) {
-            if ($this->tableType === TableType::Recent) {
-                $tables = [];
-                foreach ($this->tables as $table) {
-                    $tables[] = $table->toArray();
-                }
-
-                return $this->template->render('recent_favorite_table_recent', ['tables' => $tables]);
-            }
-
+        if ($this->tableType === TableType::Recent) {
             $tables = [];
             foreach ($this->tables as $table) {
-                $removeParameters = [
-                    'db' => $table->db->getName(),
-                    'favorite_table' => $table->table->getName(),
-                    'ajax_request' => true,
-                    'remove_favorite' => true,
-                ];
-                $tableParameters = [
-                    'db' => $table->db->getName(),
-                    'table' => $table->table->getName(),
-                    'md5' => md5($table->db . '.' . $table->table),
-                ];
-
-                $tables[] = ['remove_parameters' => $removeParameters, 'table_parameters' => $tableParameters];
+                $tables[] = $table->toArray();
             }
 
-            return $this->template->render('recent_favorite_table_favorite', ['tables' => $tables]);
+            return $this->template->render('recent_favorite_table_recent', ['tables' => $tables]);
         }
 
-        return $this->template->render('recent_favorite_table_no_tables', [
-            'is_recent' => $this->tableType === TableType::Recent,
-        ]);
-    }
+        $tables = [];
+        foreach ($this->tables as $table) {
+            $removeParameters = [
+                'db' => $table->db->getName(),
+                'favorite_table' => $table->table->getName(),
+                'ajax_request' => true,
+                'remove_favorite' => true,
+            ];
+            $tableParameters = [
+                'db' => $table->db->getName(),
+                'table' => $table->table->getName(),
+                'md5' => md5($table->db . '.' . $table->table),
+            ];
 
-    public function getHtml(): string
-    {
-        $html = '<div class="drop_list">';
-        if ($this->tableType === TableType::Recent) {
-            $html .= '<button title="' . __('Recent tables')
-                . '" class="drop_button btn btn-sm btn-outline-secondary">'
-                . __('Recent') . '</button><ul id="pma_recent_list">';
-        } else {
-            $html .= '<button title="' . __('Favorite tables')
-                . '" class="drop_button btn btn-sm btn-outline-secondary">'
-                . __('Favorites') . '</button><ul id="pma_favorite_list">';
+            $tables[] = ['remove_parameters' => $removeParameters, 'table_parameters' => $tableParameters];
         }
 
-        $html .= $this->getHtmlList();
-        $html .= '</ul></div>';
-
-        return $html;
+        return $this->template->render('recent_favorite_table_favorite', ['tables' => $tables]);
     }
 
     /**
