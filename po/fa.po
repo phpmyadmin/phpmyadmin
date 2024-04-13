@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-02-17 10:36+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2024-04-14 08:20+0000\n"
+"Last-Translator: BahmanMD <bahman.mehrdad@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "fa/>\n"
 "Language: fa\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -340,16 +340,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "شما حذاقل بايد يك ستون را براي نمايش انتخاب نماييد!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "in query"
 msgid "Multi-table query"
-msgstr "کوئری چند جدول"
+msgstr "پرس و جوی چند جدولی"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query"
 msgid "Query by example"
-msgstr "نمونه پرس و جو"
+msgstr "پرس و جو با مثال"
 
 #: db_qbe.php:168
 #, php-format
@@ -16951,7 +16947,7 @@ msgstr "No databases"
 
 #: libraries/advisory_rules_generic.txt:49
 msgid "Uptime below one day"
-msgstr ""
+msgstr "آپتایم زیر یک روز"
 
 #: libraries/advisory_rules_generic.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
@@ -17013,9 +17009,8 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "نرخ پرس و جو کُند باید کمتر از%% باشد، مقدار شما %s%% می‌باشد."
 
 #: libraries/advisory_rules_generic.txt:70
-#, fuzzy
 msgid "Slow query rate"
-msgstr "پرس و جوي SQL"
+msgstr "نرخ پرس و جوی کُند"
 
 #: libraries/advisory_rules_generic.txt:73
 msgid ""
