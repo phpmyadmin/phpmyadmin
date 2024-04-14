@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-04-07 00:20+0000\n"
+"POT-Creation-Date: 2024-04-14 00:21+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -51,7 +51,7 @@ msgstr "Non ten dereitos suficientes para estar aquí agora!"
 #: resources/templates/table/structure/display_structure.twig:145
 #: resources/templates/table/structure/display_structure.twig:295
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:224
+#: src/Controllers/Table/StructureController.php:222
 msgid "Primary"
 msgstr "Primaria"
 
@@ -73,7 +73,7 @@ msgstr "Único"
 #: resources/templates/table/structure/display_structure.twig:301
 #: resources/templates/table/structure/display_table_stats.twig:23
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:228
+#: src/Controllers/Table/StructureController.php:226
 #: src/Navigation/Nodes/NodeIndex.php:24
 msgid "Index"
 msgstr "Índice"
@@ -198,7 +198,7 @@ msgstr "Engadir columna(s)"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:122 src/BrowseForeigners.php:179
 #: src/Controllers/JavaScriptMessagesController.php:336
-#: src/Controllers/Server/PrivilegesController.php:289
+#: src/Controllers/Server/PrivilegesController.php:288
 #: src/Normalization.php:229 src/Tracking/Tracking.php:306
 #: src/Tracking/Tracking.php:448
 msgid "Go"
@@ -520,7 +520,7 @@ msgstr "Usuarios"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:715
-#: src/Import/Import.php:1173 src/Menu.php:213 src/Menu.php:317
+#: src/Import/Import.php:1153 src/Menu.php:213 src/Menu.php:317
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1057 src/Util.php:1482
@@ -792,7 +792,7 @@ msgstr "Reiniciar"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:695 src/Html/MySQLDocumentation.php:49
+#: src/Html/Generator.php:679 src/Html/MySQLDocumentation.php:49
 #: src/Sanitize.php:188
 msgid "Documentation"
 msgstr "Documentación"
@@ -853,12 +853,12 @@ msgstr "Desactivado"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/Database/Structure/DropTableController.php:41
-#: src/Controllers/Database/Structure/EmptyTableController.php:49
+#: src/Controllers/Database/Structure/DropTableController.php:36
+#: src/Controllers/Database/Structure/EmptyTableController.php:48
 #: src/Controllers/JavaScriptMessagesController.php:502
-#: src/Controllers/Table/DeleteRowsController.php:56
-#: src/Controllers/Table/DropColumnController.php:47
-#: src/Controllers/Table/Structure/PrimaryController.php:110
+#: src/Controllers/Table/DeleteRowsController.php:55
+#: src/Controllers/Table/DropColumnController.php:44
+#: src/Controllers/Table/Structure/PrimaryController.php:107
 #: src/IndexColumn.php:148 src/Index.php:469
 #: src/Plugins/Export/ExportHtmlword.php:597
 #: src/Plugins/Export/ExportLatex.php:573 src/Plugins/Export/ExportOdt.php:716
@@ -965,8 +965,8 @@ msgstr "subconsulta"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:400
-#: src/Display/Results.php:2486 src/Html/Generator.php:544
-#: src/Html/Generator.php:810
+#: src/Display/Results.php:2486 src/Html/Generator.php:528
+#: src/Html/Generator.php:794
 msgid "Edit"
 msgstr "Editar"
 
@@ -1033,7 +1033,7 @@ msgstr "Historial"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:57
 #: resources/templates/table/structure/display_table_stats.twig:96
-#: src/Import/Import.php:1174 src/Import/Import.php:1232
+#: src/Import/Import.php:1154 src/Import/Import.php:1212
 #: src/Plugins/Export/ExportCodegen.php:52 src/Plugins/Export/ExportCsv.php:43
 #: src/Plugins/Export/ExportExcel.php:37
 #: src/Plugins/Export/ExportHtmlword.php:47
@@ -1076,7 +1076,7 @@ msgstr "Explicar"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
-#: resources/templates/sql/profiling_chart.twig:1 src/Html/Generator.php:631
+#: resources/templates/sql/profiling_chart.twig:1 src/Html/Generator.php:615
 msgid "Profiling"
 msgstr "Análise do desempeño"
 
@@ -1160,7 +1160,7 @@ msgstr "Tempo que levou:"
 #: resources/templates/server/status/processes/index.twig:14
 #: resources/templates/server/status/variables/index.twig:37
 #: src/Config/Descriptions.php:928 src/Export/Export.php:1229
-#: src/Html/Generator.php:600
+#: src/Html/Generator.php:584
 msgid "Refresh"
 msgstr "Anovar"
 
@@ -1410,7 +1410,7 @@ msgstr "Liga a"
 #: resources/templates/indexes.twig:1
 #: resources/templates/table/structure/display_structure.twig:459
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
-#: src/Controllers/Server/DatabasesController.php:269
+#: src/Controllers/Server/DatabasesController.php:266
 #: src/Navigation/Nodes/NodeIndexContainer.php:23
 #: src/Navigation/Nodes/NodeIndexContainer.php:25
 msgid "Indexes"
@@ -1993,7 +1993,7 @@ msgstr "Táboas:"
 #: resources/templates/database/export/index.twig:16
 #: resources/templates/database/structure/show_create.twig:5
 #: src/Config/Descriptions.php:743
-#: src/Controllers/Server/DatabasesController.php:266
+#: src/Controllers/Server/DatabasesController.php:263
 #: src/Navigation/Nodes/NodeTableContainer.php:22
 #: src/Navigation/Nodes/NodeTableContainer.php:24
 #: src/Plugins/Export/ExportXml.php:99 src/Server/Status/Data.php:133
@@ -2007,7 +2007,7 @@ msgstr "Táboas"
 #: src/Config/Forms/User/ExportForm.php:106
 #: src/Config/Forms/User/ExportForm.php:131
 #: src/Config/Forms/User/ExportForm.php:137
-#: src/Controllers/Server/DatabasesController.php:268
+#: src/Controllers/Server/DatabasesController.php:265
 msgid "Data"
 msgstr "Datos"
 
@@ -2050,7 +2050,7 @@ msgstr "Seleccionar unha columna."
 #: resources/templates/database/tracking/tables.twig:18
 #: resources/templates/table/tracking/main.twig:32
 #: src/Controllers/JavaScriptMessagesController.php:714
-#: src/Controllers/Table/ChangeController.php:221
+#: src/Controllers/Table/ChangeController.php:220
 msgid "Show"
 msgstr "Mostrar"
 
@@ -2151,7 +2151,7 @@ msgid "Update query"
 msgstr "Actualizar a consulta"
 
 #: resources/templates/database/multi_table_query/form.twig:165
-#: src/Html/Generator.php:569
+#: src/Html/Generator.php:553
 msgid "Submit query"
 msgstr "Enviar esta consulta"
 
@@ -2307,7 +2307,7 @@ msgstr "Nome do ficheiro de rexistro"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:21
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:410 src/Menu.php:256
+#: src/Controllers/Server/PrivilegesController.php:409 src/Menu.php:256
 #: src/Menu.php:364 src/Util.php:1489 src/Util.php:1505
 msgid "Privileges"
 msgstr "Privilexios"
@@ -2791,7 +2791,7 @@ msgid "Enable foreign key checks"
 msgstr "Desactivar as comprobacións de chaves externas"
 
 #: resources/templates/database/structure/favorite_anchor.twig:4
-#: resources/templates/recent_favorite_table_favorite.twig:5
+#: resources/templates/recent_favorite_table_favorite.twig:11
 msgid "Remove from Favorites"
 msgstr "Retirar dos favoritos"
 
@@ -2810,9 +2810,9 @@ msgstr "Dicionario de datos"
 
 #: resources/templates/database/structure/index.twig:25
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:87
-#: src/Controllers/Database/TrackingController.php:134
-#: src/Controllers/Export/ExportController.php:304
+#: src/Controllers/Database/ExportController.php:84
+#: src/Controllers/Database/TrackingController.php:131
+#: src/Controllers/Export/ExportController.php:302
 msgid "No tables found in database."
 msgstr "Non foi posíbel atopar ningunha táboa na base de datos."
 
@@ -2853,9 +2853,9 @@ msgstr "Vistas"
 #: resources/templates/database/structure/show_create.twig:30
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:184
-#: src/Controllers/Operations/TableController.php:124
-#: src/Controllers/Operations/TableController.php:333
-#: src/Controllers/Table/StructureController.php:157
+#: src/Controllers/Operations/TableController.php:121
+#: src/Controllers/Operations/TableController.php:330
+#: src/Controllers/Table/StructureController.php:155
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "Vista"
@@ -2895,7 +2895,7 @@ msgstr "en uso"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:230
 #: resources/templates/table/structure/display_table_stats.twig:118
-#: src/Controllers/Server/DatabasesController.php:267 src/Import/Import.php:125
+#: src/Controllers/Server/DatabasesController.php:264 src/Import/Import.php:125
 msgid "Rows"
 msgstr "Filas"
 
@@ -2915,7 +2915,7 @@ msgstr "Tamaño"
 
 #: resources/templates/database/structure/table_header.twig:38
 #: resources/templates/table/structure/display_table_stats.twig:31
-#: src/Controllers/Server/DatabasesController.php:271
+#: src/Controllers/Server/DatabasesController.php:268
 msgid "Overhead"
 msgstr "De máis (Overhead)"
 
@@ -3183,11 +3183,11 @@ msgstr "Converter a Kana"
 
 #: resources/templates/error/generic.twig:2
 #: resources/templates/table/structure/display_structure.twig:363
-#: src/Controllers/Operations/ViewController.php:121
-#: src/Controllers/Table/Partition/DropController.php:58
-#: src/Controllers/Table/Partition/RebuildController.php:58
-#: src/Controllers/Table/Partition/TruncateController.php:58
-#: src/Html/Generator.php:761 src/Import/Import.php:114 src/InsertEdit.php:490
+#: src/Controllers/Operations/ViewController.php:118
+#: src/Controllers/Table/Partition/DropController.php:53
+#: src/Controllers/Table/Partition/RebuildController.php:53
+#: src/Controllers/Table/Partition/TruncateController.php:53
+#: src/Html/Generator.php:745 src/Import/Import.php:114 src/InsertEdit.php:490
 #: src/Message.php:145
 msgid "Error"
 msgstr "Produciuse un erro"
@@ -3266,7 +3266,7 @@ msgstr "Actualizada"
 
 #: resources/templates/export.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:785
+#: src/Html/Generator.php:769
 msgid "SQL query:"
 msgstr "Consulta de SQL:"
 
@@ -3657,7 +3657,7 @@ msgstr "Configuración xeral"
 #: resources/templates/modals/change_password.twig:1
 #: resources/templates/server/privileges/change_password.twig:8
 #: resources/templates/server/privileges/change_password.twig:10
-#: src/Controllers/UserPasswordController.php:88
+#: src/Controllers/UserPasswordController.php:85
 msgid "Change password"
 msgstr "Trocar o contrasinal"
 
@@ -3823,7 +3823,7 @@ msgstr "cóllao"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:1
 #: src/Controllers/JavaScriptMessagesController.php:435
-#: src/Export/Export.php:1265 src/Html/Generator.php:876
+#: src/Export/Export.php:1265 src/Html/Generator.php:860
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Recuar"
@@ -4230,6 +4230,25 @@ msgstr ""
 msgid "Clear fast filter"
 msgstr "Limpar o filtro rápido"
 
+#: resources/templates/navigation/tree/quick_warp.twig:5
+#, fuzzy
+#| msgid "Recently used tables"
+msgid "Recently visited tables"
+msgstr "Táboas usadas recentemente"
+
+#: resources/templates/navigation/tree/quick_warp.twig:6
+msgid "Recent"
+msgstr "Recentes"
+
+#: resources/templates/navigation/tree/quick_warp.twig:16
+#: src/Config/Descriptions.php:835
+msgid "Favorite tables"
+msgstr "Táboas favoritas"
+
+#: resources/templates/navigation/tree/quick_warp.twig:17
+msgid "Favorites"
+msgstr "Favoritos"
+
 #: resources/templates/preferences/autoload.twig:6
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
@@ -4447,21 +4466,21 @@ msgid "You have enabled two factor authentication."
 msgstr ""
 
 #: resources/templates/preview_sql.twig:3
-#: src/Controllers/Database/Structure/DropTableController.php:42
-#: src/Controllers/Database/Structure/EmptyTableController.php:50
-#: src/Controllers/Operations/TableController.php:349
-#: src/Controllers/Table/DropColumnController.php:64
-#: src/Controllers/Table/ReplaceController.php:285 src/Core.php:499
+#: src/Controllers/Database/Structure/DropTableController.php:37
+#: src/Controllers/Database/Structure/EmptyTableController.php:49
+#: src/Controllers/Operations/TableController.php:346
+#: src/Controllers/Table/DropColumnController.php:61
+#: src/Controllers/Table/ReplaceController.php:282 src/Core.php:499
 msgid "No change"
 msgstr "Sen cambios"
 
-#: resources/templates/recent_favorite_table_no_tables.twig:3
-msgid "There are no recent tables."
-msgstr "Non hai táboas recentes."
-
-#: resources/templates/recent_favorite_table_no_tables.twig:5
+#: resources/templates/recent_favorite_table_favorite.twig:3
 msgid "There are no favorite tables."
 msgstr "Non hai táboas favoritas."
+
+#: resources/templates/recent_favorite_table_recent.twig:3
+msgid "There are no recent tables."
+msgstr "Non hai táboas recentes."
 
 #: resources/templates/relation/check_relations.twig:1
 #, fuzzy
@@ -6578,7 +6597,7 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: resources/templates/server/user_groups/user_listings.twig:5
-#: src/Controllers/Server/PrivilegesController.php:413
+#: src/Controllers/Server/PrivilegesController.php:412
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "Usuario"
@@ -6776,22 +6795,22 @@ msgid "Pie chart with profiling results."
 msgstr "Perfilando os resultados"
 
 #: resources/templates/sql/query.twig:6
-#: src/Controllers/Operations/ViewController.php:118
-#: src/Controllers/Table/DeleteRowsController.php:78
-#: src/Controllers/Table/FindReplaceController.php:120
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:75
-#: src/Controllers/Table/Maintenance/CheckController.php:75
-#: src/Controllers/Table/Maintenance/ChecksumController.php:75
-#: src/Controllers/Table/Maintenance/OptimizeController.php:75
-#: src/Controllers/Table/Maintenance/RepairController.php:75
-#: src/Controllers/Table/Partition/AnalyzeController.php:51
-#: src/Controllers/Table/Partition/CheckController.php:51
-#: src/Controllers/Table/Partition/DropController.php:52
-#: src/Controllers/Table/Partition/OptimizeController.php:51
-#: src/Controllers/Table/Partition/RebuildController.php:52
-#: src/Controllers/Table/Partition/RepairController.php:51
-#: src/Controllers/Table/Partition/TruncateController.php:52
-#: src/Controllers/Table/RelationController.php:141
+#: src/Controllers/Operations/ViewController.php:115
+#: src/Controllers/Table/DeleteRowsController.php:77
+#: src/Controllers/Table/FindReplaceController.php:119
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:72
+#: src/Controllers/Table/Maintenance/CheckController.php:72
+#: src/Controllers/Table/Maintenance/ChecksumController.php:72
+#: src/Controllers/Table/Maintenance/OptimizeController.php:72
+#: src/Controllers/Table/Maintenance/RepairController.php:72
+#: src/Controllers/Table/Partition/AnalyzeController.php:46
+#: src/Controllers/Table/Partition/CheckController.php:46
+#: src/Controllers/Table/Partition/DropController.php:47
+#: src/Controllers/Table/Partition/OptimizeController.php:46
+#: src/Controllers/Table/Partition/RebuildController.php:47
+#: src/Controllers/Table/Partition/RepairController.php:46
+#: src/Controllers/Table/Partition/TruncateController.php:47
+#: src/Controllers/Table/RelationController.php:140
 #: src/Database/Routines.php:995 src/Display/Results.php:3148
 #: src/Message.php:129
 msgid "Your SQL query has been executed successfully."
@@ -7298,7 +7317,7 @@ msgstr "Borrar a táboa («FLUSH»)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:408
+#: src/Controllers/Database/StructureController.php:406
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Baleirouse a táboa %s."
@@ -7315,14 +7334,14 @@ msgstr "Baleirar a táboa (TRUNCATE)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:360
+#: src/Controllers/Database/StructureController.php:358
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Deixouse a vista %s"
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:361
+#: src/Controllers/Database/StructureController.php:359
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Eliminouse a táboa %s."
@@ -7728,9 +7747,9 @@ msgid "Effective"
 msgstr "Efectivo"
 
 #: resources/templates/table/structure/display_table_stats.twig:44
-#: src/Controllers/Server/DatabasesController.php:270
-#: src/Controllers/Server/Status/StatusController.php:140
-#: src/Controllers/Server/Status/StatusController.php:190
+#: src/Controllers/Server/DatabasesController.php:267
+#: src/Controllers/Server/Status/StatusController.php:141
+#: src/Controllers/Server/Status/StatusController.php:191
 msgid "Total"
 msgstr "Total"
 
@@ -7903,7 +7922,7 @@ msgid "Event"
 msgstr "Acontecemento"
 
 #: resources/templates/triggers/export.twig:2
-#: src/Controllers/Triggers/IndexController.php:254
+#: src/Controllers/Triggers/IndexController.php:259
 #, php-format
 msgid "Export of trigger %s"
 msgstr "Exportar o disparador %s"
@@ -12096,10 +12115,6 @@ msgstr "A copiar a base de datos"
 msgid "Recently used tables"
 msgstr "Táboas usadas recentemente"
 
-#: src/Config/Descriptions.php:835 src/Favorites/RecentFavoriteTables.php:235
-msgid "Favorite tables"
-msgstr "Táboas favoritas"
-
 #: src/Config/Descriptions.php:836
 msgid "Where to show the table row links"
 msgstr "Onde mostrar as ligazóns das fileiras das táboas"
@@ -12450,11 +12465,11 @@ msgstr "Mostrar as estatísticas"
 msgid "Skip locked tables"
 msgstr "Ignorar as táboas bloqueadas"
 
-#: src/Config/Descriptions.php:927 src/Html/Generator.php:519
+#: src/Config/Descriptions.php:927 src/Html/Generator.php:503
 msgid "Explain SQL"
 msgstr "Explicar o SQL"
 
-#: src/Config/Descriptions.php:929 src/Html/Generator.php:580
+#: src/Config/Descriptions.php:929 src/Html/Generator.php:564
 msgid "Create PHP code"
 msgstr "Crear código PHP"
 
@@ -12996,14 +13011,8 @@ msgstr[1] ""
 msgid "No bookmarks"
 msgstr "Non hai marcadores"
 
-#: src/Controllers/AbstractController.php:74
-#: src/Controllers/SchemaExportController.php:36
-#: src/Controllers/Server/UserGroupsFormController.php:45
-msgid "Missing parameter:"
-msgstr "Parámetro que falta:"
-
-#: src/Controllers/ChangeLogController.php:49
-#: src/Controllers/LicenseController.php:39
+#: src/Controllers/ChangeLogController.php:47
+#: src/Controllers/LicenseController.php:44
 #, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
@@ -13012,16 +13021,16 @@ msgstr ""
 "O ficheiro %s non está dispoñíbel neste sistema; visite %s para obter máis "
 "información."
 
-#: src/Controllers/Console/Bookmark/AddController.php:36
+#: src/Controllers/Console/Bookmark/AddController.php:33
 msgid "Incomplete params"
 msgstr "Hai parámetros incompletos"
 
-#: src/Controllers/Console/Bookmark/AddController.php:49
+#: src/Controllers/Console/Bookmark/AddController.php:46
 #: src/Controllers/JavaScriptMessagesController.php:589
 msgid "Failed"
 msgstr "Fallou"
 
-#: src/Controllers/Console/Bookmark/AddController.php:61
+#: src/Controllers/Console/Bookmark/AddController.php:58
 msgid "Succeeded"
 msgstr "Todo foi correcto"
 
@@ -13033,245 +13042,245 @@ msgstr "Alterouse a táboa %1$s sen problemas."
 
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
-#: src/Controllers/Navigation/UpdateNavWidthConfigController.php:30
+#: src/Controllers/Navigation/UpdateNavWidthConfigController.php:28
 #, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected parameter value."
 msgstr "Hai caracteres inesperados na liña %s."
 
-#: src/Controllers/Database/CentralColumnsController.php:153
+#: src/Controllers/Database/CentralColumnsController.php:150
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "A mostrar as filas %1$s - %2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: src/Controllers/Database/DesignerController.php:103
+#: src/Controllers/Database/DesignerController.php:102
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 
-#: src/Controllers/Database/DesignerController.php:171
-#: src/Controllers/Database/DesignerController.php:176
-#: src/Controllers/Database/EventsController.php:62
-#: src/Controllers/Database/ExportController.php:69
-#: src/Controllers/Database/ExportController.php:74
-#: src/Controllers/Database/ImportController.php:67
-#: src/Controllers/Database/ImportController.php:72
-#: src/Controllers/Database/RoutinesController.php:79
-#: src/Controllers/Database/RoutinesController.php:105
-#: src/Controllers/Database/SearchController.php:55
-#: src/Controllers/Database/SearchController.php:60
-#: src/Controllers/Database/SqlController.php:66
-#: src/Controllers/Database/SqlController.php:71
-#: src/Controllers/Database/StructureController.php:144
-#: src/Controllers/Database/StructureController.php:149
-#: src/Controllers/Database/Structure/FavoriteTableController.php:84
-#: src/Controllers/Database/Structure/RealRowCountController.php:63
-#: src/Controllers/Database/TrackingController.php:63
-#: src/Controllers/Database/TrackingController.php:68
+#: src/Controllers/Database/DesignerController.php:170
+#: src/Controllers/Database/DesignerController.php:175
+#: src/Controllers/Database/EventsController.php:61
+#: src/Controllers/Database/ExportController.php:66
+#: src/Controllers/Database/ExportController.php:71
+#: src/Controllers/Database/ImportController.php:64
+#: src/Controllers/Database/ImportController.php:69
+#: src/Controllers/Database/RoutinesController.php:80
+#: src/Controllers/Database/RoutinesController.php:109
+#: src/Controllers/Database/SearchController.php:54
+#: src/Controllers/Database/SearchController.php:59
+#: src/Controllers/Database/SqlController.php:63
+#: src/Controllers/Database/SqlController.php:68
+#: src/Controllers/Database/StructureController.php:142
+#: src/Controllers/Database/StructureController.php:147
+#: src/Controllers/Database/Structure/FavoriteTableController.php:83
+#: src/Controllers/Database/Structure/RealRowCountController.php:60
+#: src/Controllers/Database/TrackingController.php:60
+#: src/Controllers/Database/TrackingController.php:65
 #: src/Controllers/JavaScriptMessagesController.php:355
-#: src/Controllers/Operations/Database/CollationController.php:65
-#: src/Controllers/Operations/DatabaseController.php:242
-#: src/Controllers/Operations/DatabaseController.php:247
-#: src/Controllers/Operations/TableController.php:88
-#: src/Controllers/Operations/TableController.php:93
-#: src/Controllers/Operations/ViewController.php:65
-#: src/Controllers/Operations/ViewController.php:70
-#: src/Controllers/Server/Databases/DestroyController.php:64
-#: src/Controllers/Table/AddFieldController.php:166
-#: src/Controllers/Table/AddFieldController.php:171
-#: src/Controllers/Table/ChangeController.php:70
-#: src/Controllers/Table/ChangeController.php:75
+#: src/Controllers/Operations/Database/CollationController.php:62
+#: src/Controllers/Operations/DatabaseController.php:239
+#: src/Controllers/Operations/DatabaseController.php:244
+#: src/Controllers/Operations/TableController.php:85
+#: src/Controllers/Operations/TableController.php:90
+#: src/Controllers/Operations/ViewController.php:62
+#: src/Controllers/Operations/ViewController.php:67
+#: src/Controllers/Server/Databases/DestroyController.php:61
+#: src/Controllers/Table/AddFieldController.php:163
+#: src/Controllers/Table/AddFieldController.php:168
+#: src/Controllers/Table/ChangeController.php:69
+#: src/Controllers/Table/ChangeController.php:74
 #: src/Controllers/Table/ChartController.php:105
 #: src/Controllers/Table/ChartController.php:110
 #: src/Controllers/Table/ChartController.php:147
 #: src/Controllers/Table/ChartController.php:152
 #: src/Controllers/Table/ChartController.php:234
-#: src/Controllers/Table/DeleteConfirmController.php:64
-#: src/Controllers/Table/DeleteConfirmController.php:69
-#: src/Controllers/Table/DropColumnConfirmationController.php:52
-#: src/Controllers/Table/DropColumnConfirmationController.php:57
-#: src/Controllers/Table/FindReplaceController.php:74
-#: src/Controllers/Table/FindReplaceController.php:79
-#: src/Controllers/Table/GisVisualizationController.php:60
-#: src/Controllers/Table/GisVisualizationController.php:65
-#: src/Controllers/Table/ImportController.php:70
-#: src/Controllers/Table/ImportController.php:75
-#: src/Controllers/Table/IndexesController.php:69
-#: src/Controllers/Table/IndexesController.php:74
-#: src/Controllers/Table/IndexRenameController.php:59
-#: src/Controllers/Table/IndexRenameController.php:64
-#: src/Controllers/Table/SearchController.php:175
-#: src/Controllers/Table/SearchController.php:180
-#: src/Controllers/Table/SqlController.php:68
-#: src/Controllers/Table/SqlController.php:73
-#: src/Controllers/Table/StructureController.php:97
-#: src/Controllers/Table/StructureController.php:102
-#: src/Controllers/Table/Structure/PrimaryController.php:77
-#: src/Controllers/Table/Structure/PrimaryController.php:82
-#: src/Controllers/Table/TrackingController.php:73
-#: src/Controllers/Table/TrackingController.php:78
-#: src/Controllers/Table/ZoomSearchController.php:101
-#: src/Controllers/Table/ZoomSearchController.php:106
-#: src/Controllers/Triggers/IndexController.php:72
-#: src/Controllers/Triggers/IndexController.php:98
-#: src/Controllers/View/CreateController.php:78
-#: src/Controllers/View/CreateController.php:83
+#: src/Controllers/Table/DeleteConfirmController.php:61
+#: src/Controllers/Table/DeleteConfirmController.php:66
+#: src/Controllers/Table/DropColumnConfirmationController.php:50
+#: src/Controllers/Table/DropColumnConfirmationController.php:55
+#: src/Controllers/Table/FindReplaceController.php:73
+#: src/Controllers/Table/FindReplaceController.php:78
+#: src/Controllers/Table/GisVisualizationController.php:59
+#: src/Controllers/Table/GisVisualizationController.php:64
+#: src/Controllers/Table/ImportController.php:67
+#: src/Controllers/Table/ImportController.php:72
+#: src/Controllers/Table/IndexesController.php:68
+#: src/Controllers/Table/IndexesController.php:73
+#: src/Controllers/Table/IndexRenameController.php:58
+#: src/Controllers/Table/IndexRenameController.php:63
+#: src/Controllers/Table/SearchController.php:174
+#: src/Controllers/Table/SearchController.php:179
+#: src/Controllers/Table/SqlController.php:65
+#: src/Controllers/Table/SqlController.php:70
+#: src/Controllers/Table/StructureController.php:95
+#: src/Controllers/Table/StructureController.php:100
+#: src/Controllers/Table/Structure/PrimaryController.php:74
+#: src/Controllers/Table/Structure/PrimaryController.php:79
+#: src/Controllers/Table/TrackingController.php:70
+#: src/Controllers/Table/TrackingController.php:75
+#: src/Controllers/Table/ZoomSearchController.php:100
+#: src/Controllers/Table/ZoomSearchController.php:105
+#: src/Controllers/Triggers/IndexController.php:73
+#: src/Controllers/Triggers/IndexController.php:102
+#: src/Controllers/View/CreateController.php:75
+#: src/Controllers/View/CreateController.php:80
 msgid "No databases selected."
 msgstr "Non hai ningunha base de datos escollida."
 
-#: src/Controllers/Database/EventsController.php:143
+#: src/Controllers/Database/EventsController.php:142
 msgid "Add event"
 msgstr "Engadir un acontecemento"
 
-#: src/Controllers/Database/EventsController.php:147
+#: src/Controllers/Database/EventsController.php:146
 msgid "Edit event"
 msgstr "Editar o acontecemento"
 
-#: src/Controllers/Database/EventsController.php:196
-#: src/Controllers/Database/RoutinesController.php:288
-#: src/Controllers/Database/RoutinesController.php:318
-#: src/Controllers/Database/RoutinesController.php:386
-#: src/Controllers/Triggers/IndexController.php:228
+#: src/Controllers/Database/EventsController.php:195
+#: src/Controllers/Database/RoutinesController.php:293
+#: src/Controllers/Database/RoutinesController.php:323
+#: src/Controllers/Database/RoutinesController.php:391
+#: src/Controllers/Triggers/IndexController.php:233
 msgid "Error in processing request:"
 msgstr "Produciuse un erro ao procesar a petición:"
 
-#: src/Controllers/Database/EventsController.php:198
+#: src/Controllers/Database/EventsController.php:197
 #, fuzzy, php-format
 #| msgid "No event with name %1$s found in database %2$s"
 msgid "No event with name %1$s found in database %2$s."
 msgstr "Non se atopou ningún acontecemento co nome %1$s na base de datos %2$s"
 
-#: src/Controllers/Database/EventsController.php:224
+#: src/Controllers/Database/EventsController.php:223
 #, php-format
 msgid "Export of event %s"
 msgstr "Exportación do acontecemento %s"
 
-#: src/Controllers/Database/EventsController.php:242
+#: src/Controllers/Database/EventsController.php:241
 #, fuzzy, php-format
 #| msgid "No event with name %1$s found in database %2$s"
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Non se atopou ningún acontecemento co nome %1$s na base de datos %2$s"
 
-#: src/Controllers/Database/ExportController.php:153
-#: src/Controllers/Server/ExportController.php:73
-#: src/Controllers/Table/ExportController.php:106
+#: src/Controllers/Database/ExportController.php:150
+#: src/Controllers/Server/ExportController.php:70
+#: src/Controllers/Table/ExportController.php:103
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Non foi posíbel cargar os engadidos de exportación. Comprobe a instalación!"
 
-#: src/Controllers/Database/ImportController.php:84
-#: src/Controllers/Server/ImportController.php:64
-#: src/Controllers/Table/ImportController.php:104
+#: src/Controllers/Database/ImportController.php:81
+#: src/Controllers/Server/ImportController.php:61
+#: src/Controllers/Table/ImportController.php:101
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Non foi posíbel importar os engadidos - Comprobe a instalación!"
 
-#: src/Controllers/Database/PrivilegesController.php:65
-#: src/Controllers/Server/PrivilegesController.php:106
-#: src/Controllers/Server/UserGroupsController.php:48
-#: src/Controllers/Table/PrivilegesController.php:68
+#: src/Controllers/Database/PrivilegesController.php:62
+#: src/Controllers/Server/PrivilegesController.php:105
+#: src/Controllers/Server/UserGroupsController.php:45
+#: src/Controllers/Table/PrivilegesController.php:65
 msgid "No Privileges"
 msgstr "Sen privilexios"
 
-#: src/Controllers/Database/PrivilegesController.php:74
-#: src/Controllers/Server/PrivilegesController.php:115
-#: src/Controllers/Table/PrivilegesController.php:77
+#: src/Controllers/Database/PrivilegesController.php:71
+#: src/Controllers/Server/PrivilegesController.php:114
+#: src/Controllers/Table/PrivilegesController.php:74
 #, fuzzy
 #| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Non ten privilexios suficientes para crear un disparador"
 
-#: src/Controllers/Database/RoutinesController.php:86
-#: src/Controllers/Database/Structure/AddPrefixController.php:23
-#: src/Controllers/Database/Structure/CentralColumns/AddController.php:41
-#: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:41
-#: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:40
-#: src/Controllers/Database/Structure/ChangePrefixFormController.php:23
-#: src/Controllers/Database/Structure/CopyFormController.php:24
-#: src/Controllers/Database/Structure/DropFormController.php:34
-#: src/Controllers/Database/Structure/EmptyFormController.php:26
-#: src/Controllers/Database/Structure/ShowCreateController.php:32
-#: src/Controllers/Export/TablesController.php:30
+#: src/Controllers/Database/RoutinesController.php:88
+#: src/Controllers/Database/Structure/AddPrefixController.php:28
+#: src/Controllers/Database/Structure/CentralColumns/AddController.php:38
+#: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:38
+#: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:37
+#: src/Controllers/Database/Structure/ChangePrefixFormController.php:28
+#: src/Controllers/Database/Structure/CopyFormController.php:29
+#: src/Controllers/Database/Structure/DropFormController.php:32
+#: src/Controllers/Database/Structure/EmptyFormController.php:31
+#: src/Controllers/Database/Structure/ShowCreateController.php:34
+#: src/Controllers/Export/TablesController.php:27
 #: src/Controllers/JavaScriptMessagesController.php:356
-#: src/Controllers/Operations/TableController.php:102
-#: src/Controllers/Operations/TableController.php:107
-#: src/Controllers/Operations/ViewController.php:79
-#: src/Controllers/Operations/ViewController.php:84
-#: src/Controllers/Table/AddFieldController.php:180
-#: src/Controllers/Table/AddFieldController.php:185
-#: src/Controllers/Table/ChangeController.php:84
-#: src/Controllers/Table/ChangeController.php:89
+#: src/Controllers/Operations/TableController.php:99
+#: src/Controllers/Operations/TableController.php:104
+#: src/Controllers/Operations/ViewController.php:76
+#: src/Controllers/Operations/ViewController.php:81
+#: src/Controllers/Table/AddFieldController.php:177
+#: src/Controllers/Table/AddFieldController.php:182
+#: src/Controllers/Table/ChangeController.php:83
+#: src/Controllers/Table/ChangeController.php:88
 #: src/Controllers/Table/ChartController.php:119
 #: src/Controllers/Table/ChartController.php:124
 #: src/Controllers/Table/ChartController.php:242
-#: src/Controllers/Table/DeleteConfirmController.php:78
-#: src/Controllers/Table/DeleteConfirmController.php:83
-#: src/Controllers/Table/DropColumnConfirmationController.php:65
-#: src/Controllers/Table/DropColumnConfirmationController.php:70
-#: src/Controllers/Table/FindReplaceController.php:88
-#: src/Controllers/Table/FindReplaceController.php:93
-#: src/Controllers/Table/ImportController.php:84
-#: src/Controllers/Table/ImportController.php:89
-#: src/Controllers/Table/IndexesController.php:83
-#: src/Controllers/Table/IndexesController.php:88
-#: src/Controllers/Table/IndexRenameController.php:73
-#: src/Controllers/Table/IndexRenameController.php:78
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:46
-#: src/Controllers/Table/Maintenance/CheckController.php:46
-#: src/Controllers/Table/Maintenance/ChecksumController.php:46
-#: src/Controllers/Table/Maintenance/OptimizeController.php:46
-#: src/Controllers/Table/Maintenance/RepairController.php:46
-#: src/Controllers/Table/SearchController.php:189
-#: src/Controllers/Table/SearchController.php:194
-#: src/Controllers/Table/SqlController.php:82
-#: src/Controllers/Table/SqlController.php:87
-#: src/Controllers/Table/StructureController.php:111
-#: src/Controllers/Table/StructureController.php:116
-#: src/Controllers/Table/Structure/PrimaryController.php:91
-#: src/Controllers/Table/Structure/PrimaryController.php:96
-#: src/Controllers/Table/ZoomSearchController.php:115
-#: src/Controllers/Table/ZoomSearchController.php:120
-#: src/Controllers/Triggers/IndexController.php:79
+#: src/Controllers/Table/DeleteConfirmController.php:75
+#: src/Controllers/Table/DeleteConfirmController.php:80
+#: src/Controllers/Table/DropColumnConfirmationController.php:63
+#: src/Controllers/Table/DropColumnConfirmationController.php:68
+#: src/Controllers/Table/FindReplaceController.php:87
+#: src/Controllers/Table/FindReplaceController.php:92
+#: src/Controllers/Table/ImportController.php:81
+#: src/Controllers/Table/ImportController.php:86
+#: src/Controllers/Table/IndexesController.php:82
+#: src/Controllers/Table/IndexesController.php:87
+#: src/Controllers/Table/IndexRenameController.php:72
+#: src/Controllers/Table/IndexRenameController.php:77
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:43
+#: src/Controllers/Table/Maintenance/CheckController.php:43
+#: src/Controllers/Table/Maintenance/ChecksumController.php:43
+#: src/Controllers/Table/Maintenance/OptimizeController.php:43
+#: src/Controllers/Table/Maintenance/RepairController.php:43
+#: src/Controllers/Table/SearchController.php:188
+#: src/Controllers/Table/SearchController.php:193
+#: src/Controllers/Table/SqlController.php:79
+#: src/Controllers/Table/SqlController.php:84
+#: src/Controllers/Table/StructureController.php:109
+#: src/Controllers/Table/StructureController.php:114
+#: src/Controllers/Table/Structure/PrimaryController.php:88
+#: src/Controllers/Table/Structure/PrimaryController.php:93
+#: src/Controllers/Table/ZoomSearchController.php:114
+#: src/Controllers/Table/ZoomSearchController.php:119
+#: src/Controllers/Triggers/IndexController.php:81
 #, fuzzy
 #| msgid "No tables selected."
 msgid "No table selected."
 msgstr "Non hai ningunha base de datos seleccionada."
 
-#: src/Controllers/Database/RoutinesController.php:188
+#: src/Controllers/Database/RoutinesController.php:193
 msgid "Add routine"
 msgstr "Engadir unha rutina"
 
-#: src/Controllers/Database/RoutinesController.php:192
+#: src/Controllers/Database/RoutinesController.php:197
 msgid "Edit routine"
 msgstr "Editar a rutina"
 
-#: src/Controllers/Database/RoutinesController.php:291
+#: src/Controllers/Database/RoutinesController.php:296
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:320
-#: src/Controllers/Database/RoutinesController.php:388
+#: src/Controllers/Database/RoutinesController.php:325
+#: src/Controllers/Database/RoutinesController.php:393
 #, fuzzy, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Non se atopou ningunha rutina co nome %1$s na base de datos %2$s"
 
-#: src/Controllers/Database/RoutinesController.php:369
-#: src/Controllers/Database/RoutinesController.php:379
+#: src/Controllers/Database/RoutinesController.php:374
+#: src/Controllers/Database/RoutinesController.php:384
 msgid "Execute routine"
 msgstr "Executar a rutina"
 
-#: src/Controllers/Database/RoutinesController.php:431
+#: src/Controllers/Database/RoutinesController.php:436
 #, php-format
 msgid "Export of routine %s"
 msgstr "Exportar a rutina %s"
 
-#: src/Controllers/Database/RoutinesController.php:450
+#: src/Controllers/Database/RoutinesController.php:455
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -13279,19 +13288,19 @@ msgid ""
 "routine."
 msgstr ""
 
-#: src/Controllers/Database/SearchController.php:67
+#: src/Controllers/Database/SearchController.php:66
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
 
-#: src/Controllers/Database/Structure/CentralColumns/AddController.php:51
-#: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:51
-#: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:50
+#: src/Controllers/Database/Structure/CentralColumns/AddController.php:48
+#: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:48
+#: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:47
 msgid "Success!"
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:578
+#: src/Controllers/Database/StructureController.php:576
 #: src/Display/Results.php:3428
 #, php-format
 msgid ""
@@ -13301,20 +13310,20 @@ msgstr ""
 "Esta vista ten, cando menos, este número de fileiras. Vexa a "
 "%sdocumentation%s."
 
-#: src/Controllers/Database/StructureController.php:742
+#: src/Controllers/Database/StructureController.php:740
 msgid "unknown"
 msgstr "descoñecido"
 
-#: src/Controllers/Database/Structure/FavoriteTableController.php:120
+#: src/Controllers/Database/Structure/FavoriteTableController.php:119
 msgid "Favorite List is full!"
 msgstr "A lista de favoritos está chea!"
 
-#: src/Controllers/Database/TrackingController.php:81
-#: src/Controllers/Database/TrackingController.php:107
+#: src/Controllers/Database/TrackingController.php:78
+#: src/Controllers/Database/TrackingController.php:104
 msgid "Tracking data deleted successfully."
 msgstr "A definición dos datos de seguimento foi eliminada con éxito."
 
-#: src/Controllers/Database/TrackingController.php:92
+#: src/Controllers/Database/TrackingController.php:89
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
@@ -13322,55 +13331,55 @@ msgstr ""
 "Creouse a versión %1$s para as táboas seleccionadas; o seguimento está "
 "activo para elas."
 
-#: src/Controllers/Database/TrackingController.php:124
+#: src/Controllers/Database/TrackingController.php:121
 msgid "No tables selected."
 msgstr "Non hai ningunha base de datos seleccionada."
 
-#: src/Controllers/Database/TrackingController.php:160
+#: src/Controllers/Database/TrackingController.php:157
 msgid "Database Log"
 msgstr "Rexistro de actividade da base de datos"
 
-#: src/Controllers/ErrorReportController.php:96
+#: src/Controllers/ErrorReportController.php:95
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
 "Detectouse un erro. Enviouse un informe de fallo baseado na configuración."
 
-#: src/Controllers/ErrorReportController.php:100
+#: src/Controllers/ErrorReportController.php:99
 msgid "Thank you for submitting this report."
 msgstr "Grazas por enviar este informe."
 
-#: src/Controllers/ErrorReportController.php:104
+#: src/Controllers/ErrorReportController.php:103
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
 "Produciuse un erro e xerouse un erro de fallo que foi imposíbel enviar."
 
-#: src/Controllers/ErrorReportController.php:107
+#: src/Controllers/ErrorReportController.php:106
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "Se percibe problemas envíe un informe de fallo manualmente."
 
-#: src/Controllers/ErrorReportController.php:110
+#: src/Controllers/ErrorReportController.php:109
 msgid "You may want to refresh the page."
 msgstr "Pode ser útil cargar de novo a páxina."
 
-#: src/Controllers/Export/ExportController.php:113 src/Export/Export.php:1209
+#: src/Controllers/Export/ExportController.php:111 src/Export/Export.php:1209
 msgid "Bad type!"
 msgstr "Ese tipo é incorrecto!"
 
-#: src/Controllers/Export/ExportController.php:196
+#: src/Controllers/Export/ExportController.php:194
 msgid "Bad parameters!"
 msgstr "Os parámetros son incorrectos!"
 
-#: src/Controllers/HomeController.php:101
+#: src/Controllers/HomeController.php:98
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
 
-#: src/Controllers/HomeController.php:195
+#: src/Controllers/HomeController.php:192
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -13379,14 +13388,14 @@ msgstr ""
 "O almacenamento da configuración do phpMyAdmin non está configurado de todo; "
 "desactiváronse algunhas funcionalidades estendidas. %sSaiba o por que%s. "
 
-#: src/Controllers/HomeController.php:201
+#: src/Controllers/HomeController.php:198
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Tamén pode ir á lapela «Operacións» de calquera base de datos para "
 "configuralo alí."
 
-#: src/Controllers/HomeController.php:267
+#: src/Controllers/HomeController.php:264
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -13398,7 +13407,7 @@ msgstr ""
 "que a validez das cookies que se configurou en phpMyAdmin; por causa disto, "
 "o rexistro podería caducar antes do que está configurado en phpMyAdmin."
 
-#: src/Controllers/HomeController.php:287
+#: src/Controllers/HomeController.php:284
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -13407,21 +13416,21 @@ msgstr ""
 "que se configurou en phpMyAdmin; por causa disto, a identificación caduca "
 "antes do que está configurado no phpMyAdmin."
 
-#: src/Controllers/HomeController.php:306
+#: src/Controllers/HomeController.php:303
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: src/Controllers/HomeController.php:325
+#: src/Controllers/HomeController.php:322
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:335
+#: src/Controllers/HomeController.php:332
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -13429,7 +13438,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:353
+#: src/Controllers/HomeController.php:350
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -13442,7 +13451,7 @@ msgstr ""
 "servidor poderíase ver comprometida por persoas non autorizadas que "
 "descargasen a configuración."
 
-#: src/Controllers/HomeController.php:374
+#: src/Controllers/HomeController.php:371
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -13451,14 +13460,14 @@ msgstr ""
 "O servidor estáse a executar con Suhosin. Consulte os posíbeis problemas na "
 "%sdocumentación%s."
 
-#: src/Controllers/HomeController.php:388
+#: src/Controllers/HomeController.php:385
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
 
-#: src/Controllers/HomeController.php:445
+#: src/Controllers/HomeController.php:442
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -13469,13 +13478,13 @@ msgstr ""
 "incapaz de partir cadeas correctamente e pode provocar resultados "
 "inesperados."
 
-#: src/Controllers/HomeController.php:463
+#: src/Controllers/HomeController.php:460
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:167
+#: src/Controllers/Import/ImportController.php:164
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -13484,23 +13493,23 @@ msgstr ""
 "Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a "
 "%sdocumentación%s para averiguar como evitar este límite."
 
-#: src/Controllers/Import/ImportController.php:194
+#: src/Controllers/Import/ImportController.php:191
 #, fuzzy
 #| msgid "Remove last parameter"
 msgid "Incorrect format parameter"
 msgstr "Eliminar o último parámetro"
 
-#: src/Controllers/Import/ImportController.php:303
-#: src/Controllers/Import/ImportController.php:516
+#: src/Controllers/Import/ImportController.php:300
+#: src/Controllers/Import/ImportController.php:513
 msgid "Showing bookmark"
 msgstr "A mostrar o marcador"
 
-#: src/Controllers/Import/ImportController.php:323
-#: src/Controllers/Import/ImportController.php:512
+#: src/Controllers/Import/ImportController.php:320
+#: src/Controllers/Import/ImportController.php:509
 msgid "The bookmark has been deleted."
 msgstr "Eliminouse o marcador."
 
-#: src/Controllers/Import/ImportController.php:435
+#: src/Controllers/Import/ImportController.php:432
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -13510,7 +13519,7 @@ msgstr ""
 "o seu tamaño excede o máximo permitido pola súa configuración de PHP. "
 "Consulte a [doc@faq1-16]Pregunta frecuente 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:524
+#: src/Controllers/Import/ImportController.php:521
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
@@ -13518,7 +13527,7 @@ msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "A importación rematou sen problemas. Executáronse %d consultas."
 msgstr[1] "A importación rematou sen problemas. Executáronse %d consultas."
 
-#: src/Controllers/Import/ImportController.php:561
+#: src/Controllers/Import/ImportController.php:558
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -13527,7 +13536,7 @@ msgstr ""
 "Excedeuse o tempo de espera do  script. Se quere rematar a importación, "
 "%senvíe de novo o mesmo ficheiro%s e a importación continuará."
 
-#: src/Controllers/Import/ImportController.php:571
+#: src/Controllers/Import/ImportController.php:568
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -13536,12 +13545,16 @@ msgstr ""
 "significa que o phpMyAdmin non poderá rematar esta importación a non ser que "
 "se lle incrementen os límites de tempo de php."
 
-#: src/Controllers/Import/ImportController.php:634
-#: src/Controllers/Sql/SqlController.php:162
+#: src/Controllers/Import/ImportController.php:631
+#: src/Controllers/Sql/SqlController.php:159
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Non se permiten as ordes «DROP DATABASE»."
 
-#: src/Controllers/Import/SimulateDmlController.php:36
+#: src/Controllers/Import/ImportController.php:686 src/Sql.php:871
+msgid "[ROLLBACK occurred.]"
+msgstr ""
+
+#: src/Controllers/Import/SimulateDmlController.php:31
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
@@ -14287,8 +14300,8 @@ msgid "Request failed!!"
 msgstr "Fallou a petición!"
 
 #: src/Controllers/JavaScriptMessagesController.php:348
-#: src/Controllers/Sql/EnumValuesController.php:37
-#: src/Controllers/Sql/SetValuesController.php:40
+#: src/Controllers/Sql/EnumValuesController.php:36
+#: src/Controllers/Sql/SetValuesController.php:39
 msgid "Error in processing request"
 msgstr "Produciuse un erro ao procesar a petición"
 
@@ -14849,7 +14862,7 @@ msgid "cancel"
 msgstr "cancelar"
 
 #: src/Controllers/JavaScriptMessagesController.php:588
-#: src/Controllers/Server/Status/StatusController.php:184
+#: src/Controllers/Server/Status/StatusController.php:185
 msgid "Aborted"
 msgstr "Interrompido"
 
@@ -15617,7 +15630,7 @@ msgstr ""
 "Teña paciencia, estase a enviar o ficheiro. Os detalles sobre o envío non "
 "están dispoñíbeis."
 
-#: src/Controllers/NavigationController.php:41
+#: src/Controllers/NavigationController.php:38
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 "Produciuse un erro fatal: Só é posíbel acceder á navegación mediante AJAX"
@@ -15642,26 +15655,26 @@ msgctxt "string types"
 msgid "String"
 msgstr "Cadea"
 
-#: src/Controllers/Operations/Database/CollationController.php:47
-#: src/Controllers/Operations/TableController.php:279
+#: src/Controllers/Operations/Database/CollationController.php:44
+#: src/Controllers/Operations/TableController.php:276
 msgid "No collation provided."
 msgstr ""
 
-#: src/Controllers/Operations/DatabaseController.php:85
+#: src/Controllers/Operations/DatabaseController.php:82
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 
-#: src/Controllers/Operations/DatabaseController.php:168
+#: src/Controllers/Operations/DatabaseController.php:165
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "A base de datos %1$s foi renomeada como %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:182
+#: src/Controllers/Operations/DatabaseController.php:179
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "A base de datos %1$s foi copiada en %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:285
+#: src/Controllers/Operations/DatabaseController.php:282
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -15669,39 +15682,45 @@ msgstr ""
 "Desactivouse a configuración de almacenamento de phpMyAdmin. Para saber por "
 "que prema %saquí%s."
 
-#: src/Controllers/Preferences/ManageController.php:90
+#: src/Controllers/Preferences/ManageController.php:87
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
 msgstr "Faltan as táboas de almacenamento da configuración do phpMyAdmin"
 
-#: src/Controllers/Preferences/ManageController.php:91
+#: src/Controllers/Preferences/ManageController.php:88
 msgid "Paste it to your config.inc.php"
 msgstr ""
 
-#: src/Controllers/Preferences/ManageController.php:141
+#: src/Controllers/Preferences/ManageController.php:138
 msgid "Could not import configuration"
 msgstr "Non foi posíbel importar a configuración"
 
-#: src/Controllers/Preferences/TwoFactorController.php:49
+#: src/Controllers/Preferences/TwoFactorController.php:47
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Two-factor authentication has been removed."
 msgstr "Engadiuse a relación interna"
 
-#: src/Controllers/Preferences/TwoFactorController.php:62
+#: src/Controllers/Preferences/TwoFactorController.php:60
 #, fuzzy
 #| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
 msgstr ""
 "Na configuración indicouse un método de autenticación que non é válido:"
 
-#: src/Controllers/Server/Databases/CreateController.php:83
+#: src/Controllers/SchemaExportController.php:36
+#: src/Controllers/Server/UserGroupsFormController.php:44
+#: src/ResponseRenderer.php:492
+msgid "Missing parameter:"
+msgstr "Parámetro que falta:"
+
+#: src/Controllers/Server/Databases/CreateController.php:81
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "Creouse a base de datos %1$s."
 
-#: src/Controllers/Server/Databases/DestroyController.php:89
+#: src/Controllers/Server/Databases/DestroyController.php:86
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -15720,18 +15739,18 @@ msgstr "Movéronse as columnas satisfactoriamente."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Movéronse as columnas satisfactoriamente."
 
-#: src/Controllers/Server/PrivilegesController.php:131
+#: src/Controllers/Server/PrivilegesController.php:130
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
 
-#: src/Controllers/Server/Status/Processes/KillController.php:42
+#: src/Controllers/Server/Status/Processes/KillController.php:43
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Finalizouse o fío %s."
 
-#: src/Controllers/Server/Status/Processes/KillController.php:48
+#: src/Controllers/Server/Status/Processes/KillController.php:49
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
@@ -15739,31 +15758,31 @@ msgstr ""
 "O phpMyAdmin foi incapaz de finalizar o fío %s. Probablemente xa estea "
 "fechado."
 
-#: src/Controllers/Server/Status/QueriesController.php:91
+#: src/Controllers/Server/Status/QueriesController.php:92
 #, fuzzy
 #| msgid "Add statements:"
 msgid "Other statements"
 msgstr "Engadir instrucións:"
 
-#: src/Controllers/Server/Status/StatusController.php:130
+#: src/Controllers/Server/Status/StatusController.php:131
 msgid "Received"
 msgstr "Recibido"
 
-#: src/Controllers/Server/Status/StatusController.php:135
+#: src/Controllers/Server/Status/StatusController.php:136
 msgid "Sent"
 msgstr "Enviado"
 
-#: src/Controllers/Server/Status/StatusController.php:172
+#: src/Controllers/Server/Status/StatusController.php:173
 #, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Max. concurrent connections"
 msgstr "conexións simultáneas máximas"
 
-#: src/Controllers/Server/Status/StatusController.php:178
+#: src/Controllers/Server/Status/StatusController.php:179
 msgid "Failed attempts"
 msgstr "Tentativas falidas"
 
-#: src/Controllers/Server/Status/VariablesController.php:221
+#: src/Controllers/Server/Status/VariablesController.php:222
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
@@ -15771,11 +15790,11 @@ msgstr ""
 "O número de conexións que se interromperon porque o cliente morreu sen "
 "fechar axeitadamente a conexión."
 
-#: src/Controllers/Server/Status/VariablesController.php:224
+#: src/Controllers/Server/Status/VariablesController.php:225
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "O número de intentos de conexión co servidor de MySQL falidos."
 
-#: src/Controllers/Server/Status/VariablesController.php:226
+#: src/Controllers/Server/Status/VariablesController.php:227
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -15785,18 +15804,18 @@ msgstr ""
 "excederon o valor de binlog_cache_size e utilizaron un ficheiro temporal "
 "para almacenar instrucións para a transacción."
 
-#: src/Controllers/Server/Status/VariablesController.php:230
+#: src/Controllers/Server/Status/VariablesController.php:231
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "Número de transaccións que utilizaron a caché do rexistro binario."
 
-#: src/Controllers/Server/Status/VariablesController.php:231
+#: src/Controllers/Server/Status/VariablesController.php:232
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
 "O número de tentativas de conexión (satisfactorias ou non) co servidor de "
 "MySQL."
 
-#: src/Controllers/Server/Status/VariablesController.php:233
+#: src/Controllers/Server/Status/VariablesController.php:234
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -15808,11 +15827,11 @@ msgstr ""
 "que incremente o valor de tmp_table_size para que as táboas temporais se "
 "baseen na memoria no canto de no disco."
 
-#: src/Controllers/Server/Status/VariablesController.php:239
+#: src/Controllers/Server/Status/VariablesController.php:240
 msgid "How many temporary files mysqld has created."
 msgstr "Número de ficheiros temporais creados por mysqld."
 
-#: src/Controllers/Server/Status/VariablesController.php:241
+#: src/Controllers/Server/Status/VariablesController.php:242
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -15820,7 +15839,7 @@ msgstr ""
 "Número de táboas temporais na memoria creadas automaticamente polo servidor "
 "ao executar instrucións."
 
-#: src/Controllers/Server/Status/VariablesController.php:245
+#: src/Controllers/Server/Status/VariablesController.php:246
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -15828,7 +15847,7 @@ msgstr ""
 "Número de fileiras escritas con INSERT DELAYED que sufriron algún erro "
 "(probabelmente unha chave duplicada)."
 
-#: src/Controllers/Server/Status/VariablesController.php:249
+#: src/Controllers/Server/Status/VariablesController.php:250
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -15836,23 +15855,23 @@ msgstr ""
 "Número de fíos de manipulación INSERT DELAYED en uso. Cada táboa diferente "
 "na que se utiliza INSERT DELAYED recibe o seu propio fío."
 
-#: src/Controllers/Server/Status/VariablesController.php:253
+#: src/Controllers/Server/Status/VariablesController.php:254
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Número de fileiras INSERT DELAYED escritas."
 
-#: src/Controllers/Server/Status/VariablesController.php:254
+#: src/Controllers/Server/Status/VariablesController.php:255
 msgid "The number of executed FLUSH statements."
 msgstr "Número de instrucións FLUSH executadas."
 
-#: src/Controllers/Server/Status/VariablesController.php:255
+#: src/Controllers/Server/Status/VariablesController.php:256
 msgid "The number of internal COMMIT statements."
 msgstr "Número de instrucións COMMIT internas."
 
-#: src/Controllers/Server/Status/VariablesController.php:256
+#: src/Controllers/Server/Status/VariablesController.php:257
 msgid "The number of times a row was deleted from a table."
 msgstr "Número de veces que se eliminou unha fileira dunha táboa."
 
-#: src/Controllers/Server/Status/VariablesController.php:258
+#: src/Controllers/Server/Status/VariablesController.php:259
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -15862,7 +15881,7 @@ msgstr ""
 "se sabe dunha táboa cun nome dado. Isto chámase descuberta. "
 "Handler_discovery indica o número de veces que se descubriron táboas."
 
-#: src/Controllers/Server/Status/VariablesController.php:264
+#: src/Controllers/Server/Status/VariablesController.php:265
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -15873,7 +15892,7 @@ msgstr ""
 "completos; por exemplo, SELECT col FROM algo, supoñendo que col estea "
 "indexada."
 
-#: src/Controllers/Server/Status/VariablesController.php:270
+#: src/Controllers/Server/Status/VariablesController.php:271
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -15881,7 +15900,7 @@ msgstr ""
 "Número de peticións para ler unha fileira baseadas nunha chave. Se for alto, "
 "é unha boa indicación de que as consultas e táboas están ben indexadas."
 
-#: src/Controllers/Server/Status/VariablesController.php:275
+#: src/Controllers/Server/Status/VariablesController.php:276
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -15891,7 +15910,7 @@ msgstr ""
 "increméntase se está a procurar unha columna de índice cunha limitación de "
 "intervalo ou se está a examinar un índice."
 
-#: src/Controllers/Server/Status/VariablesController.php:280
+#: src/Controllers/Server/Status/VariablesController.php:281
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
@@ -15899,7 +15918,7 @@ msgstr ""
 "Número de peticións para ler a fileira anterior na orde da chave. Este "
 "método de lectura utilízase sobre todo para optimizar ORDER BY … DESC."
 
-#: src/Controllers/Server/Status/VariablesController.php:284
+#: src/Controllers/Server/Status/VariablesController.php:285
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -15911,7 +15930,7 @@ msgstr ""
 "Posibelmente terá un monte de consultas que esixan que MySQL examine táboas "
 "completas ou ten unións que non usan as chaves axeitadamente."
 
-#: src/Controllers/Server/Status/VariablesController.php:291
+#: src/Controllers/Server/Status/VariablesController.php:292
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -15923,35 +15942,35 @@ msgstr ""
 "táboas non están indexadas axeitadamente ou que as súas consultas non están "
 "escritas para aproveitar os índices de que dispón."
 
-#: src/Controllers/Server/Status/VariablesController.php:297
+#: src/Controllers/Server/Status/VariablesController.php:298
 msgid "The number of internal ROLLBACK statements."
 msgstr "Número de instrucións de ROLLBACK («desfacer») interno."
 
-#: src/Controllers/Server/Status/VariablesController.php:298
+#: src/Controllers/Server/Status/VariablesController.php:299
 msgid "The number of requests to update a row in a table."
 msgstr "Número de peticións para actualizar unha fileira nunha táboa."
 
-#: src/Controllers/Server/Status/VariablesController.php:299
+#: src/Controllers/Server/Status/VariablesController.php:300
 msgid "The number of requests to insert a row in a table."
 msgstr "Número de peticións para inserir un ficheiro nunha táboa."
 
-#: src/Controllers/Server/Status/VariablesController.php:300
+#: src/Controllers/Server/Status/VariablesController.php:301
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Número de páxinas que conteñen datos (suxos ou limpos)."
 
-#: src/Controllers/Server/Status/VariablesController.php:301
+#: src/Controllers/Server/Status/VariablesController.php:302
 msgid "The number of pages currently dirty."
 msgstr "Número de páxinas actualmente suxas."
 
-#: src/Controllers/Server/Status/VariablesController.php:303
+#: src/Controllers/Server/Status/VariablesController.php:304
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Número de páxinas do buffer que se pediu que se limpasen."
 
-#: src/Controllers/Server/Status/VariablesController.php:305
+#: src/Controllers/Server/Status/VariablesController.php:306
 msgid "The number of free pages."
 msgstr "Número de páxinas libres."
 
-#: src/Controllers/Server/Status/VariablesController.php:307
+#: src/Controllers/Server/Status/VariablesController.php:308
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -15961,7 +15980,7 @@ msgstr ""
 "actualmente a ser lidas ou escritas ou non se poden limpar ou eliminar por "
 "algunha outra razón."
 
-#: src/Controllers/Server/Status/VariablesController.php:312
+#: src/Controllers/Server/Status/VariablesController.php:313
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -15973,11 +15992,11 @@ msgstr ""
 "tamén se pode calcular así: Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
-#: src/Controllers/Server/Status/VariablesController.php:318
+#: src/Controllers/Server/Status/VariablesController.php:319
 msgid "Total size of buffer pool, in pages."
 msgstr "Tamaño total do buffer, en páxinas."
 
-#: src/Controllers/Server/Status/VariablesController.php:320
+#: src/Controllers/Server/Status/VariablesController.php:321
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -15986,7 +16005,7 @@ msgstr ""
 "cando unha consulta vai examinar unha porción grande dunha táboa mais en "
 "orde aleatoria."
 
-#: src/Controllers/Server/Status/VariablesController.php:325
+#: src/Controllers/Server/Status/VariablesController.php:326
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -15994,11 +16013,11 @@ msgstr ""
 "Número de pre-lecturas secuenciais iniciadas por InnoDB. Isto acontece cando "
 "InnoDB realiza un exame secuencial completo dunha táboa."
 
-#: src/Controllers/Server/Status/VariablesController.php:328
+#: src/Controllers/Server/Status/VariablesController.php:329
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Número de peticións de lectura lóxicas feitas por InnoDB."
 
-#: src/Controllers/Server/Status/VariablesController.php:330
+#: src/Controllers/Server/Status/VariablesController.php:331
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -16006,7 +16025,7 @@ msgstr ""
 "Número de lecturas lóxicas que InnoDB non puido satisfacer do buffer e tivo "
 "que efectuar por medio de lecturas dunha única páxina."
 
-#: src/Controllers/Server/Status/VariablesController.php:334
+#: src/Controllers/Server/Status/VariablesController.php:335
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -16020,55 +16039,55 @@ msgstr ""
 "que esperar. Se o tamaño do buffer é o axeitado, este valor debería ser "
 "pequeno."
 
-#: src/Controllers/Server/Status/VariablesController.php:341
+#: src/Controllers/Server/Status/VariablesController.php:342
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Número de veces que se escribiu no buffer de InnoDB."
 
-#: src/Controllers/Server/Status/VariablesController.php:342
+#: src/Controllers/Server/Status/VariablesController.php:343
 msgid "The number of fsync() operations so far."
 msgstr "Número de operacións fsync() até o momento."
 
-#: src/Controllers/Server/Status/VariablesController.php:343
+#: src/Controllers/Server/Status/VariablesController.php:344
 msgid "The current number of pending fsync() operations."
 msgstr "Número actual de operacións fsync() pendentes."
 
-#: src/Controllers/Server/Status/VariablesController.php:344
+#: src/Controllers/Server/Status/VariablesController.php:345
 msgid "The current number of pending reads."
 msgstr "Número actual de lecturas pendentes."
 
-#: src/Controllers/Server/Status/VariablesController.php:345
+#: src/Controllers/Server/Status/VariablesController.php:346
 msgid "The current number of pending writes."
 msgstr "Número actual de escritas pendentes."
 
-#: src/Controllers/Server/Status/VariablesController.php:346
+#: src/Controllers/Server/Status/VariablesController.php:347
 msgid "The amount of data read so far, in bytes."
 msgstr "Cantidade de datos lida até o momento, en bytes."
 
-#: src/Controllers/Server/Status/VariablesController.php:347
+#: src/Controllers/Server/Status/VariablesController.php:348
 msgid "The total number of data reads."
 msgstr "Número total de lecturas de datos."
 
-#: src/Controllers/Server/Status/VariablesController.php:348
+#: src/Controllers/Server/Status/VariablesController.php:349
 msgid "The total number of data writes."
 msgstr "Número total de escritas de datos."
 
-#: src/Controllers/Server/Status/VariablesController.php:349
+#: src/Controllers/Server/Status/VariablesController.php:350
 msgid "The amount of data written so far, in bytes."
 msgstr "Cantidade de datos escrita até o momento, en bytes."
 
-#: src/Controllers/Server/Status/VariablesController.php:351
+#: src/Controllers/Server/Status/VariablesController.php:352
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "Número de escritas duplas realizadas e número de páxinas escritas con este "
 "propósito."
 
-#: src/Controllers/Server/Status/VariablesController.php:353
+#: src/Controllers/Server/Status/VariablesController.php:354
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "Número de escritas duplas realizadas e número de páxinas escritas con este "
 "propósito."
 
-#: src/Controllers/Server/Status/VariablesController.php:355
+#: src/Controllers/Server/Status/VariablesController.php:356
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -16076,35 +16095,35 @@ msgstr ""
 "Número de esperas debidas a que o buffer do rexistro é demasiado pequeno e "
 "houbo que agardar até que se limpase para continuar."
 
-#: src/Controllers/Server/Status/VariablesController.php:358
+#: src/Controllers/Server/Status/VariablesController.php:359
 msgid "The number of log write requests."
 msgstr "Número de peticións de escrita no rexistro."
 
-#: src/Controllers/Server/Status/VariablesController.php:359
+#: src/Controllers/Server/Status/VariablesController.php:360
 msgid "The number of physical writes to the log file."
 msgstr "Número de escritas físicas no ficheiro de rexistro."
 
-#: src/Controllers/Server/Status/VariablesController.php:360
+#: src/Controllers/Server/Status/VariablesController.php:361
 msgid "The number of fsync() writes done to the log file."
 msgstr "Número de escritas de fsync() feitas no ficheiro de rexistro."
 
-#: src/Controllers/Server/Status/VariablesController.php:361
+#: src/Controllers/Server/Status/VariablesController.php:362
 msgid "The number of pending log file fsyncs."
 msgstr "Número de fsyncs do ficheiro de rexistro pendentes."
 
-#: src/Controllers/Server/Status/VariablesController.php:362
+#: src/Controllers/Server/Status/VariablesController.php:363
 msgid "Pending log file writes."
 msgstr "Escritas no ficheiro de rexistro pendentes."
 
-#: src/Controllers/Server/Status/VariablesController.php:363
+#: src/Controllers/Server/Status/VariablesController.php:364
 msgid "The number of bytes written to the log file."
 msgstr "Número de bytes escritos no ficheiro de rexistro."
 
-#: src/Controllers/Server/Status/VariablesController.php:364
+#: src/Controllers/Server/Status/VariablesController.php:365
 msgid "The number of pages created."
 msgstr "Número de páxinas creadas."
 
-#: src/Controllers/Server/Status/VariablesController.php:366
+#: src/Controllers/Server/Status/VariablesController.php:367
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -16113,55 +16132,55 @@ msgstr ""
 "cóntanse en páxinas: o tamaño da páxina permite que se convertan doadamente "
 "en bytes."
 
-#: src/Controllers/Server/Status/VariablesController.php:370
+#: src/Controllers/Server/Status/VariablesController.php:371
 msgid "The number of pages read."
 msgstr "Número de páxinas lidas."
 
-#: src/Controllers/Server/Status/VariablesController.php:371
+#: src/Controllers/Server/Status/VariablesController.php:372
 msgid "The number of pages written."
 msgstr "Número de páxinas escritas."
 
-#: src/Controllers/Server/Status/VariablesController.php:372
+#: src/Controllers/Server/Status/VariablesController.php:373
 msgid "The number of row locks currently being waited for."
 msgstr "Número de bloqueo de fileiras polos que se está a agardar agora mesmo."
 
-#: src/Controllers/Server/Status/VariablesController.php:373
+#: src/Controllers/Server/Status/VariablesController.php:374
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr ""
 "Tempo que, de media, leva adquirir un bloqueo sobre unha fileira, en "
 "milisegundos."
 
-#: src/Controllers/Server/Status/VariablesController.php:374
+#: src/Controllers/Server/Status/VariablesController.php:375
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr ""
 "Tempo total empregado na adquisición de bloqueos sobre as fileiras, en "
 "milisegundos."
 
-#: src/Controllers/Server/Status/VariablesController.php:375
+#: src/Controllers/Server/Status/VariablesController.php:376
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Tempo máximo en adquirir un bloqueo de fileira, en milisegundos."
 
-#: src/Controllers/Server/Status/VariablesController.php:376
+#: src/Controllers/Server/Status/VariablesController.php:377
 msgid "The number of times a row lock had to be waited for."
 msgstr "Número de veces que houbo que agardar polo bloqueo dunha fileira."
 
-#: src/Controllers/Server/Status/VariablesController.php:377
+#: src/Controllers/Server/Status/VariablesController.php:378
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Número de fileiras eliminadas das táboas InnoDB."
 
-#: src/Controllers/Server/Status/VariablesController.php:378
+#: src/Controllers/Server/Status/VariablesController.php:379
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Número de fileiras inseridas nas táboas InnoDB."
 
-#: src/Controllers/Server/Status/VariablesController.php:379
+#: src/Controllers/Server/Status/VariablesController.php:380
 msgid "The number of rows read from InnoDB tables."
 msgstr "Número de fileiras lidas das táboas InnoDB."
 
-#: src/Controllers/Server/Status/VariablesController.php:380
+#: src/Controllers/Server/Status/VariablesController.php:381
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Número de fileiras actualizadas en táboas InnoDB."
 
-#: src/Controllers/Server/Status/VariablesController.php:382
+#: src/Controllers/Server/Status/VariablesController.php:383
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -16169,7 +16188,7 @@ msgstr ""
 "Número de bloques chave na caché de chaves que se mudaron mais que aínda non "
 "se limparon para o disco. Antes era Not_flushed_key_blocks."
 
-#: src/Controllers/Server/Status/VariablesController.php:387
+#: src/Controllers/Server/Status/VariablesController.php:388
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -16177,7 +16196,7 @@ msgstr ""
 "Número de bloques sen utilizar na caché de chaves. Pode utilizar este valor "
 "para determinar canta caché de chave está en uso."
 
-#: src/Controllers/Server/Status/VariablesController.php:391
+#: src/Controllers/Server/Status/VariablesController.php:392
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -16187,15 +16206,15 @@ msgstr ""
 "referencia superior que indica o número máximo de bloques que se teñen "
 "empregado."
 
-#: src/Controllers/Server/Status/VariablesController.php:395
+#: src/Controllers/Server/Status/VariablesController.php:396
 msgid "Percentage of used key cache (calculated value)"
 msgstr "Porcentaxe de caché chave empregada (valor calculado)"
 
-#: src/Controllers/Server/Status/VariablesController.php:396
+#: src/Controllers/Server/Status/VariablesController.php:397
 msgid "The number of requests to read a key block from the cache."
 msgstr "Número de peticións para ler un bloque chave da caché."
 
-#: src/Controllers/Server/Status/VariablesController.php:398
+#: src/Controllers/Server/Status/VariablesController.php:399
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -16205,7 +16224,7 @@ msgstr ""
 "grande, é que, posiblemente, o valor de key_fuffer_size é demasiado baixo. A "
 "relación de perdas da caché pódese calcular así: Key_reads/Key_read_requests."
 
-#: src/Controllers/Server/Status/VariablesController.php:404
+#: src/Controllers/Server/Status/VariablesController.php:405
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
@@ -16213,22 +16232,22 @@ msgstr ""
 "A caché chave calculouse erroneamente como a proporción de lecturas físicas "
 "comparada coas solicitudes de lectura (valor calculado)"
 
-#: src/Controllers/Server/Status/VariablesController.php:406
+#: src/Controllers/Server/Status/VariablesController.php:407
 msgid "The number of requests to write a key block to the cache."
 msgstr "Número de peticións para escribir un bloque chave na caché."
 
-#: src/Controllers/Server/Status/VariablesController.php:407
+#: src/Controllers/Server/Status/VariablesController.php:408
 msgid "The number of physical writes of a key block to disk."
 msgstr "Número de escritas físicas dun bloque chave no disco."
 
-#: src/Controllers/Server/Status/VariablesController.php:408
+#: src/Controllers/Server/Status/VariablesController.php:409
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
 "Porcentaxe de escritas físicas comparada coas solicitudes de escrita (valor "
 "calculado)"
 
-#: src/Controllers/Server/Status/VariablesController.php:410
+#: src/Controllers/Server/Status/VariablesController.php:411
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -16239,7 +16258,7 @@ msgstr ""
 "procura diferentes para a mesma consulta. O valor por omisión é 0, que "
 "significa que aínda non se compilou ningunha procura."
 
-#: src/Controllers/Server/Status/VariablesController.php:416
+#: src/Controllers/Server/Status/VariablesController.php:417
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
@@ -16247,13 +16266,13 @@ msgstr ""
 "O número máximo de conexións que teñen estado en uso simultaneamente desde "
 "que se iniciou o servidor."
 
-#: src/Controllers/Server/Status/VariablesController.php:418
+#: src/Controllers/Server/Status/VariablesController.php:419
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 "O número de consultas que están a agardar para seren escritas nas fileiras "
 "INSERT DELAYED."
 
-#: src/Controllers/Server/Status/VariablesController.php:420
+#: src/Controllers/Server/Status/VariablesController.php:421
 #, fuzzy
 #| msgid ""
 #| "The number of tables that have been opened. If opened tables is big, your "
@@ -16265,19 +16284,19 @@ msgstr ""
 "O número de táboas abertas en total. Se a cantidade é grande, o valor da "
 "caché de táboas posibelmente é demasiado pequeno."
 
-#: src/Controllers/Server/Status/VariablesController.php:423
+#: src/Controllers/Server/Status/VariablesController.php:424
 msgid "The number of files that are open."
 msgstr "O número de ficheiros abertos."
 
-#: src/Controllers/Server/Status/VariablesController.php:424
+#: src/Controllers/Server/Status/VariablesController.php:425
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "O número de fluxos abertos (utilizado principalmente para o rexistro)."
 
-#: src/Controllers/Server/Status/VariablesController.php:425
+#: src/Controllers/Server/Status/VariablesController.php:426
 msgid "The number of tables that are open."
 msgstr "O número de táboas abertas."
 
-#: src/Controllers/Server/Status/VariablesController.php:427
+#: src/Controllers/Server/Status/VariablesController.php:428
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -16287,19 +16306,19 @@ msgstr ""
 "altos poden indicar problemas de fragmentación, que se poden resolver "
 "enviando unha instrución FLUSH QUERY CACHE."
 
-#: src/Controllers/Server/Status/VariablesController.php:431
+#: src/Controllers/Server/Status/VariablesController.php:432
 msgid "The amount of free memory for query cache."
 msgstr "A cantidade de memoria libre para a caché de consultas."
 
-#: src/Controllers/Server/Status/VariablesController.php:432
+#: src/Controllers/Server/Status/VariablesController.php:433
 msgid "The number of cache hits."
 msgstr "O número de impactos na caché."
 
-#: src/Controllers/Server/Status/VariablesController.php:433
+#: src/Controllers/Server/Status/VariablesController.php:434
 msgid "The number of queries added to the cache."
 msgstr "O número de consultas engadidas á caché."
 
-#: src/Controllers/Server/Status/VariablesController.php:435
+#: src/Controllers/Server/Status/VariablesController.php:436
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -16312,7 +16331,7 @@ msgstr ""
 "utilizado menos recentemente (LRU) para decidir que consultas debe eliminar "
 "da caché."
 
-#: src/Controllers/Server/Status/VariablesController.php:442
+#: src/Controllers/Server/Status/VariablesController.php:443
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -16320,19 +16339,19 @@ msgstr ""
 "O número de consultas non enviadas á caché (que non se poden enviar debido á "
 "configuración de query_cache_type)."
 
-#: src/Controllers/Server/Status/VariablesController.php:444
+#: src/Controllers/Server/Status/VariablesController.php:445
 msgid "The number of queries registered in the cache."
 msgstr "O número de consultas rexistradas na caché."
 
-#: src/Controllers/Server/Status/VariablesController.php:445
+#: src/Controllers/Server/Status/VariablesController.php:446
 msgid "The total number of blocks in the query cache."
 msgstr "O número total de bloques na caché de consultas."
 
-#: src/Controllers/Server/Status/VariablesController.php:446
+#: src/Controllers/Server/Status/VariablesController.php:447
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "O estado da replicación en modo seguro (aínda non realizado)."
 
-#: src/Controllers/Server/Status/VariablesController.php:448
+#: src/Controllers/Server/Status/VariablesController.php:449
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -16340,13 +16359,13 @@ msgstr ""
 "O número de unións que non utilizan índices. Se este valor non for 0, "
 "debería comprobar con atención os índices das táboas."
 
-#: src/Controllers/Server/Status/VariablesController.php:451
+#: src/Controllers/Server/Status/VariablesController.php:452
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 "O número de unións que utilizaron un intervalo de procura nunha táboa de "
 "referencia."
 
-#: src/Controllers/Server/Status/VariablesController.php:453
+#: src/Controllers/Server/Status/VariablesController.php:454
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -16355,7 +16374,7 @@ msgstr ""
 "de cada fila (se non é 0, debería comprobar con atención os índices das "
 "táboas)"
 
-#: src/Controllers/Server/Status/VariablesController.php:458
+#: src/Controllers/Server/Status/VariablesController.php:459
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -16363,11 +16382,11 @@ msgstr ""
 "O número de unións que utilizaron intervalos na primeira táboa (Normalmente "
 "non é grave, mesmo de ser grande)"
 
-#: src/Controllers/Server/Status/VariablesController.php:461
+#: src/Controllers/Server/Status/VariablesController.php:462
 msgid "The number of joins that did a full scan of the first table."
 msgstr "O número de unións que realizaron un exame completo da primeira táboa."
 
-#: src/Controllers/Server/Status/VariablesController.php:462
+#: src/Controllers/Server/Status/VariablesController.php:463
 #, fuzzy
 #| msgid ""
 #| "The number of temporary tables currently open by the slave SQL thread."
@@ -16375,7 +16394,7 @@ msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr "O número de táboas temporais abertas actualmente polo fío SQL escravo."
 
-#: src/Controllers/Server/Status/VariablesController.php:464
+#: src/Controllers/Server/Status/VariablesController.php:465
 #, fuzzy
 #| msgid ""
 #| "Total (since startup) number of times the replication slave SQL thread "
@@ -16387,13 +16406,13 @@ msgstr ""
 "O número total de veces (desde o inicio) que o fío de replicación SQL "
 "escravo reintentou as transaccións."
 
-#: src/Controllers/Server/Status/VariablesController.php:466
+#: src/Controllers/Server/Status/VariablesController.php:467
 #, fuzzy
 #| msgid "This is ON if this server is a slave that is connected to a master."
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr "Isto está ON se este servidor é un escravo conectado a un máster."
 
-#: src/Controllers/Server/Status/VariablesController.php:468
+#: src/Controllers/Server/Status/VariablesController.php:469
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -16401,14 +16420,14 @@ msgstr ""
 "O número de fíos aos que lles levou crearse máis segundos dos indicados en "
 "slow_launch_time."
 
-#: src/Controllers/Server/Status/VariablesController.php:470
+#: src/Controllers/Server/Status/VariablesController.php:471
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "O número de consultas ás que lles levou máis segundos dos indicados en "
 "long_query_time."
 
-#: src/Controllers/Server/Status/VariablesController.php:472
+#: src/Controllers/Server/Status/VariablesController.php:473
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -16418,23 +16437,23 @@ msgstr ""
 "Se este valor for grande, sería ben que considerase incrementar o valor da "
 "variábel de sistema sort_buffer_size."
 
-#: src/Controllers/Server/Status/VariablesController.php:476
+#: src/Controllers/Server/Status/VariablesController.php:477
 msgid "The number of sorts that were done with ranges."
 msgstr "O número de ordenacións feitas con intervalos."
 
-#: src/Controllers/Server/Status/VariablesController.php:477
+#: src/Controllers/Server/Status/VariablesController.php:478
 msgid "The number of sorted rows."
 msgstr "O número de fileiras ordenadas."
 
-#: src/Controllers/Server/Status/VariablesController.php:478
+#: src/Controllers/Server/Status/VariablesController.php:479
 msgid "The number of sorts that were done by scanning the table."
 msgstr "O número de ordenacións realizadas examinando a táboa."
 
-#: src/Controllers/Server/Status/VariablesController.php:479
+#: src/Controllers/Server/Status/VariablesController.php:480
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "O número de veces que se adquiriu inmediatamente un bloqueo de táboa."
 
-#: src/Controllers/Server/Status/VariablesController.php:481
+#: src/Controllers/Server/Status/VariablesController.php:482
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -16446,7 +16465,7 @@ msgstr ""
 "desempeño, debería en primeiro lugar mellorar as consultas e despois, ora "
 "partir a táboa ou táboas, ora utilizar a replicación."
 
-#: src/Controllers/Server/Status/VariablesController.php:487
+#: src/Controllers/Server/Status/VariablesController.php:488
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -16456,11 +16475,11 @@ msgstr ""
 "calcular como Threads_created/Connections. Se este valor for vermello, "
 "debería aumentar a thread_cache_size."
 
-#: src/Controllers/Server/Status/VariablesController.php:491
+#: src/Controllers/Server/Status/VariablesController.php:492
 msgid "The number of currently open connections."
 msgstr "O número de conexións abertas neste momento."
 
-#: src/Controllers/Server/Status/VariablesController.php:493
+#: src/Controllers/Server/Status/VariablesController.php:494
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -16472,21 +16491,21 @@ msgstr ""
 "non fornece unha mellora notábel no desempeño se ten unha boa implementación "
 "de fíos.)"
 
-#: src/Controllers/Server/Status/VariablesController.php:499
+#: src/Controllers/Server/Status/VariablesController.php:500
 msgid "Thread cache hit rate (calculated value)"
 msgstr "Porcentaxe de impactos na caché de fíos (valor calculado)"
 
-#: src/Controllers/Server/Status/VariablesController.php:500
+#: src/Controllers/Server/Status/VariablesController.php:501
 msgid "The number of threads that are not sleeping."
 msgstr "O número de fíos que non están a durmir."
 
-#: src/Controllers/Server/UserGroupsFormController.php:54
+#: src/Controllers/Server/UserGroupsFormController.php:53
 #, fuzzy
 #| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
 msgstr "A caché de consultas está desactivada."
 
-#: src/Controllers/Server/Variables/SetVariableController.php:79
+#: src/Controllers/Server/Variables/SetVariableController.php:81
 msgid "Setting variable failed"
 msgstr "Fallou a configuración da variábel"
 
@@ -16532,36 +16551,36 @@ msgstr "Os datos son incorrectos"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:233 src/Sql.php:1047
+#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1047
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Creouse o marcador %s."
 
-#: src/Controllers/Sql/SqlController.php:240
+#: src/Controllers/Sql/SqlController.php:237
 #, fuzzy
 #| msgid "Bookmark not created"
 msgid "Bookmark not created!"
 msgstr "Non se creou o marcador"
 
-#: src/Controllers/Table/AddFieldController.php:137
-#: src/Controllers/Table/IndexesController.php:142
-#: src/Controllers/Table/IndexRenameController.php:131
-#: src/Controllers/Table/Structure/PartitioningController.php:268
-#: src/Controllers/Table/Structure/SaveController.php:218
+#: src/Controllers/Table/AddFieldController.php:134
+#: src/Controllers/Table/IndexesController.php:141
+#: src/Controllers/Table/IndexRenameController.php:130
+#: src/Controllers/Table/Structure/PartitioningController.php:265
+#: src/Controllers/Table/Structure/SaveController.php:214
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Alterouse a táboa %1$s sen problemas."
 
-#: src/Controllers/Table/ChangeRowsController.php:38
-#: src/Controllers/Table/DeleteConfirmController.php:44
-#: src/Controllers/Table/ExportRowsController.php:34
+#: src/Controllers/Table/ChangeRowsController.php:35
+#: src/Controllers/Table/DeleteConfirmController.php:41
+#: src/Controllers/Table/ExportRowsController.php:31
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No row selected."
 msgstr "Non hai ningunha fileira seleccionada"
 
 #: src/Controllers/Table/ChartController.php:65
-#: src/Controllers/Table/GisVisualizationController.php:77
+#: src/Controllers/Table/GisVisualizationController.php:76
 msgid "No SQL query was set to fetch data."
 msgstr "Non se indicou unha consulta de SQL para obter os datos."
 
@@ -16573,33 +16592,33 @@ msgstr "Na táboa que se quere debuxar non existe ningunha columna numérica."
 msgid "No data to display"
 msgstr "Non hai datos que mostrar"
 
-#: src/Controllers/Table/CreateController.php:61
+#: src/Controllers/Table/CreateController.php:58
 msgid "The database name is empty!"
 msgstr "O nome da base de datos está baleiro!"
 
-#: src/Controllers/Table/CreateController.php:73
-#: src/Controllers/Table/GetFieldController.php:50
+#: src/Controllers/Table/CreateController.php:70
+#: src/Controllers/Table/GetFieldController.php:45
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "Non existe a base de datos «%s»."
 
-#: src/Controllers/Table/CreateController.php:83
+#: src/Controllers/Table/CreateController.php:80
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Xa existe a táboa %s!!"
 
-#: src/Controllers/Table/DropColumnConfirmationController.php:44
-#: src/Controllers/Table/DropColumnController.php:41
-#: src/Controllers/Table/Structure/AbstractIndexController.php:38
-#: src/Controllers/Table/Structure/BrowseController.php:32
-#: src/Controllers/Table/Structure/CentralColumnsAddController.php:40
-#: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:40
-#: src/Controllers/Table/Structure/ChangeController.php:54
-#: src/Controllers/Table/Structure/PrimaryController.php:50
+#: src/Controllers/Table/DropColumnConfirmationController.php:42
+#: src/Controllers/Table/DropColumnController.php:38
+#: src/Controllers/Table/Structure/AbstractIndexController.php:34
+#: src/Controllers/Table/Structure/BrowseController.php:30
+#: src/Controllers/Table/Structure/CentralColumnsAddController.php:37
+#: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:37
+#: src/Controllers/Table/Structure/ChangeController.php:51
+#: src/Controllers/Table/Structure/PrimaryController.php:47
 msgid "No column selected."
 msgstr "Non seleccionou ningunha columna."
 
-#: src/Controllers/Table/DropColumnController.php:70
+#: src/Controllers/Table/DropColumnController.php:67
 #, fuzzy, php-format
 #| msgid "%1$d database has been dropped successfully."
 #| msgid_plural "%1$d databases have been dropped successfully."
@@ -16608,132 +16627,132 @@ msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] "Eliminouse %1$d base de datos sen problemas."
 msgstr[1] "Elimináronse %1$d bases de datos sen problemas."
 
-#: src/Controllers/Table/GetFieldController.php:58
+#: src/Controllers/Table/GetFieldController.php:53
 msgid "Invalid table name"
 msgstr "O nome de táboa non é correcto"
 
 #. l10n: In case a SQL query did not pass a security check
-#: src/Controllers/Table/GetFieldController.php:69
-#: src/Controllers/Transformation/WrapperController.php:74
+#: src/Controllers/Table/GetFieldController.php:64
+#: src/Controllers/Transformation/WrapperController.php:71
 #, fuzzy
 #| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
 msgstr "Hai demasiadas unións sen índices."
 
-#: src/Controllers/Table/GetFieldController.php:84
+#: src/Controllers/Table/GetFieldController.php:79
 #: src/Database/Routines.php:1012 src/Import/Import.php:130
 #: src/InsertEdit.php:199 src/Sql.php:857
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "O MySQL retornou un conxunto baleiro (isto é, cero fileiras)."
 
-#: src/Controllers/Table/GisVisualizationController.php:99
+#: src/Controllers/Table/GisVisualizationController.php:98
 #, fuzzy
 #| msgid "Has no effect in this MySQL version."
 msgid "No spatial column found for this SQL query."
 msgstr "Non funciona nesta versión do MySQL."
 
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:67
-#: src/Controllers/Table/Maintenance/CheckController.php:67
-#: src/Controllers/Table/Maintenance/ChecksumController.php:67
-#: src/Controllers/Table/Maintenance/OptimizeController.php:67
-#: src/Controllers/Table/Maintenance/RepairController.php:67
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:64
+#: src/Controllers/Table/Maintenance/CheckController.php:64
+#: src/Controllers/Table/Maintenance/ChecksumController.php:64
+#: src/Controllers/Table/Maintenance/OptimizeController.php:64
+#: src/Controllers/Table/Maintenance/RepairController.php:64
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr ""
 
-#: src/Controllers/Table/Partition/AnalyzeController.php:38
-#: src/Controllers/Table/Partition/CheckController.php:38
-#: src/Controllers/Table/Partition/DropController.php:38
-#: src/Controllers/Table/Partition/OptimizeController.php:38
-#: src/Controllers/Table/Partition/RebuildController.php:38
-#: src/Controllers/Table/Partition/RepairController.php:38
-#: src/Controllers/Table/Partition/TruncateController.php:38
+#: src/Controllers/Table/Partition/AnalyzeController.php:33
+#: src/Controllers/Table/Partition/CheckController.php:33
+#: src/Controllers/Table/Partition/DropController.php:33
+#: src/Controllers/Table/Partition/OptimizeController.php:33
+#: src/Controllers/Table/Partition/RebuildController.php:33
+#: src/Controllers/Table/Partition/RepairController.php:33
+#: src/Controllers/Table/Partition/TruncateController.php:33
 #, fuzzy
 #| msgid "The table name is empty!"
 msgid "The partition name must be a non-empty string."
 msgstr "O nome da táboa está baleiro!"
 
-#: src/Controllers/Table/RecentFavoriteController.php:30
+#: src/Controllers/Table/RecentFavoriteController.php:35
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid database or table name."
 msgstr "O nome de táboa non é correcto"
 
-#: src/Controllers/Table/RelationController.php:326
+#: src/Controllers/Table/RelationController.php:325
 #, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
 msgstr "Finalizouse o fío %s."
 
-#: src/Controllers/Table/RelationController.php:360
+#: src/Controllers/Table/RelationController.php:359
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationships were successfully updated."
 msgstr "Engadiuse a relación interna"
 
-#: src/Controllers/Table/ReplaceController.php:185
+#: src/Controllers/Table/ReplaceController.php:182
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
-#: src/Controllers/Table/Structure/MoveColumnsController.php:164
+#: src/Controllers/Table/Structure/MoveColumnsController.php:162
 msgid "The columns have been moved successfully."
 msgstr "Movéronse as columnas satisfactoriamente."
 
-#: src/Controllers/Table/Structure/PartitioningController.php:260
-#: src/Controllers/Table/Structure/SaveController.php:268
+#: src/Controllers/Table/Structure/PartitioningController.php:257
+#: src/Controllers/Table/Structure/SaveController.php:264
 #: src/Tracking/Tracking.php:779
 msgid "Query error"
 msgstr "Hai un erro na consulta"
 
-#: src/Controllers/Table/Structure/ReservedWordCheckController.php:52
+#: src/Controllers/Table/Structure/ReservedWordCheckController.php:57
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "O nome «%s» é unha palabra chave reservada do MySQL."
 msgstr[1] "Os nomes «%s» son palabras chaves reservadas do MySQL."
 
-#: src/Controllers/Table/Structure/SaveController.php:213
+#: src/Controllers/Table/Structure/SaveController.php:209
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Alterouse a táboa %1$s sen problemas. Axustáronse os privilexios."
 
-#: src/Controllers/Table/TrackingController.php:97
+#: src/Controllers/Table/TrackingController.php:94
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr "O seguimento de %s está activado."
 
-#: src/Controllers/Table/TrackingController.php:154
+#: src/Controllers/Table/TrackingController.php:151
 msgid "SQL statements executed."
 msgstr "Instrucións SQL executadas."
 
-#: src/Controllers/Table/TrackingController.php:208
+#: src/Controllers/Table/TrackingController.php:205
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
 msgstr "Elimináronse sen problemas os usuarios seleccionados."
 
-#: src/Controllers/Table/TrackingController.php:213
+#: src/Controllers/Table/TrackingController.php:210
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
 msgstr "Non hai ningunha fileira seleccionada"
 
-#: src/Controllers/Triggers/IndexController.php:184
+#: src/Controllers/Triggers/IndexController.php:189
 msgid "Add trigger"
 msgstr "Engadir un disparador"
 
-#: src/Controllers/Triggers/IndexController.php:188
+#: src/Controllers/Triggers/IndexController.php:193
 msgid "Edit trigger"
 msgstr "Editar o disparador"
 
-#: src/Controllers/Triggers/IndexController.php:230
+#: src/Controllers/Triggers/IndexController.php:235
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "Non se atopou ningún disparador co nome %1$s na base de datos %2$s"
 
-#: src/Controllers/Triggers/IndexController.php:268
+#: src/Controllers/Triggers/IndexController.php:276
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid ""
@@ -16741,11 +16760,11 @@ msgid ""
 "%2$s."
 msgstr "Non se atopou ningún disparador co nome %1$s na base de datos %2$s"
 
-#: src/Controllers/UserPasswordController.php:52
+#: src/Controllers/UserPasswordController.php:49
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Non ten dereitos suficientes para estar aquí agora!"
 
-#: src/Controllers/View/CreateController.php:96
+#: src/Controllers/View/CreateController.php:93
 msgid "View name can not be empty!"
 msgstr ""
 
@@ -16872,7 +16891,7 @@ msgstr "Fallou a procura seguinte: «%s»"
 #: src/Database/Events.php:115 src/Database/Events.php:136
 #: src/Database/Routines.php:105 src/Database/Routines.php:131
 #: src/Database/Routines.php:209 src/Database/Routines.php:223
-#: src/Database/Routines.php:976 src/Html/Generator.php:826
+#: src/Database/Routines.php:976 src/Html/Generator.php:810
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:109 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
@@ -17456,18 +17475,6 @@ msgstr "Non foi posíbel gravar a táboa recente!"
 msgid "Could not save favorite table!"
 msgstr "Non foi posíbel gravar a táboa favorita!"
 
-#: src/Favorites/RecentFavoriteTables.php:231
-msgid "Recent tables"
-msgstr "Táboas recentes"
-
-#: src/Favorites/RecentFavoriteTables.php:233
-msgid "Recent"
-msgstr "Recentes"
-
-#: src/Favorites/RecentFavoriteTables.php:237
-msgid "Favorites"
-msgstr "Favoritos"
-
 #: src/File.php:227
 msgid "File was not an uploaded file."
 msgstr "O ficheiro non foi subido como un ficheiro."
@@ -17573,24 +17580,24 @@ msgstr ""
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: src/Html/Generator.php:528
+#: src/Html/Generator.php:512
 msgid "Skip Explain SQL"
 msgstr "Omitir a explicación de SQL"
 
-#: src/Html/Generator.php:560
+#: src/Html/Generator.php:544
 msgid "Without PHP code"
 msgstr "Sen código PHP"
 
-#: src/Html/Generator.php:645
+#: src/Html/Generator.php:629
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Editar na liña"
 
-#: src/Html/Generator.php:768
+#: src/Html/Generator.php:752
 msgid "Static analysis:"
 msgstr "Análise estática:"
 
-#: src/Html/Generator.php:771
+#: src/Html/Generator.php:755
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Atopáronse %d erros durante a análise."
@@ -17683,46 +17690,42 @@ msgstr "Non introduza máis de {0} caracteres"
 msgid "The trigger name cannot end with a space character."
 msgstr "As palabras divídense cun carácter de espazo (« »)."
 
-#: src/Import/Import.php:249 src/Sql.php:871
-msgid "[ROLLBACK occurred.]"
-msgstr ""
-
-#: src/Import/Import.php:942
+#: src/Import/Import.php:941
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
 
-#: src/Import/Import.php:1177
+#: src/Import/Import.php:1157
 #, php-format
 msgid "Go to table: %s"
 msgstr "Ir á táboa: %s"
 
-#: src/Import/Import.php:1185
+#: src/Import/Import.php:1165
 #, php-format
 msgid "Structure of %s"
 msgstr "Estrutura de %s"
 
-#: src/Import/Import.php:1192 src/Import/Import.php:1241
+#: src/Import/Import.php:1172 src/Import/Import.php:1221
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Editar a configuración de %s"
 
-#: src/Import/Import.php:1203
+#: src/Import/Import.php:1183
 #, php-format
 msgid "Go to view: %s"
 msgstr "Ir á vista: %s"
 
-#: src/Import/Import.php:1224
+#: src/Import/Import.php:1204
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "As estruturas seguintes foron creadas ou alteradas. Aquí pode:"
 
-#: src/Import/Import.php:1226
+#: src/Import/Import.php:1206
 msgid "View a structure's contents by clicking on its name."
 msgstr "Ver o contido dunha estrutura premendo no seu nome."
 
-#: src/Import/Import.php:1227
+#: src/Import/Import.php:1207
 #, fuzzy
 #| msgid ""
 #| "Change any of its settings by clicking the corresponding \"Options\" link"
@@ -17731,13 +17734,13 @@ msgid ""
 msgstr ""
 "Mudar calquera destas opcións premendo a ligazón «Opcións» correspondente"
 
-#: src/Import/Import.php:1228
+#: src/Import/Import.php:1208
 #, fuzzy
 #| msgid "Edit structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Editar a estrutura seguindo a ligazón «Estrutura»"
 
-#: src/Import/Import.php:1235
+#: src/Import/Import.php:1215
 #, php-format
 msgid "Go to database: %s"
 msgstr "Ir á base de datos: %s"
@@ -20404,6 +20407,9 @@ msgstr "Produciuse un erro no ficheiro ZIP:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Non se atoparon ficheiros dentro do arquivo ZIP!"
+
+#~ msgid "Recent tables"
+#~ msgstr "Táboas recentes"
 
 #~ msgid "Set default"
 #~ msgstr "Estabelecer o predeterminado"
