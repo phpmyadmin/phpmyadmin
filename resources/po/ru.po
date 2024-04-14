@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-04-14 00:21+0000\n"
-"PO-Revision-Date: 2024-04-11 13:02+0000\n"
+"PO-Revision-Date: 2024-04-14 18:56+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -3931,10 +3931,8 @@ msgid "Clear fast filter"
 msgstr "Очистить быстрый фильтр"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
-#, fuzzy
-#| msgid "Recently used tables"
 msgid "Recently visited tables"
-msgstr "Недавно использованные таблицы"
+msgstr "Последние посещённые таблицы"
 
 #: resources/templates/navigation/tree/quick_warp.twig:6
 msgid "Recent"
