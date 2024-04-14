@@ -3121,24 +3121,10 @@ function getPageSelectorEventHandler () {
 }
 
 function teardownRecentFavoriteTables (): void {
-    $('#update_recent_tables').off('ready');
     $('#sync_favorite_tables').off('ready');
 }
 
 function onloadRecentFavoriteTables (): void {
-    var $updateRecentTables = $('#update_recent_tables');
-    if ($updateRecentTables.length) {
-        $.get(
-            $updateRecentTables.attr('href'),
-            { 'no_debug': true },
-            function (data) {
-                if (typeof data !== 'undefined' && data.success === true) {
-                    $('#recentTableList').html(data.list);
-                }
-            }
-        );
-    }
-
     // Sync favorite tables from localStorage to pmadb.
     if (! $('#sync_favorite_tables').length) {
         return;

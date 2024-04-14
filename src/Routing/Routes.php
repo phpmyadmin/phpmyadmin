@@ -30,7 +30,6 @@ use PhpMyAdmin\Controllers\Normalization;
 use PhpMyAdmin\Controllers\Operations;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
-use PhpMyAdmin\Controllers\RecentTablesListController;
 use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\Sql;
@@ -172,7 +171,6 @@ final class Routes
             $routes->addRoute(['GET', 'POST'], '/sql', Preferences\SqlController::class);
             $routes->addRoute(['GET', 'POST'], '/two-factor', Preferences\TwoFactorController::class);
         });
-        $routes->addRoute(['GET', 'POST'], '/recent-table', RecentTablesListController::class);
         $routes->addRoute(['GET', 'POST'], '/schema-export', SchemaExportController::class);
         $routes->addGroup('/server', static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '/binlog', Server\BinlogController::class);
