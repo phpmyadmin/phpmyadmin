@@ -29,6 +29,7 @@ use PhpMyAdmin\Http\Middleware\OutputBuffering;
 use PhpMyAdmin\Http\Middleware\PhpExtensionsChecking;
 use PhpMyAdmin\Http\Middleware\PhpSettingsConfiguration;
 use PhpMyAdmin\Http\Middleware\ProfilingChecking;
+use PhpMyAdmin\Http\Middleware\RecentTableHandling;
 use PhpMyAdmin\Http\Middleware\RequestProblemChecking;
 use PhpMyAdmin\Http\Middleware\ResponseRendererLoading;
 use PhpMyAdmin\Http\Middleware\RouteParsing;
@@ -114,6 +115,7 @@ class Application
         $requestHandler->add(new TokenMismatchChecking());
         $requestHandler->add(new ProfilingChecking());
         $requestHandler->add(new UserPreferencesLoading($this->config));
+        $requestHandler->add(new RecentTableHandling($this->config));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,

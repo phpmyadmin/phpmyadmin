@@ -33,7 +33,6 @@ use PhpMyAdmin\Controllers\Normalization;
 use PhpMyAdmin\Controllers\Operations;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
-use PhpMyAdmin\Controllers\RecentTablesListController;
 use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\Sql;
@@ -100,7 +99,6 @@ final class RoutesTest extends TestCase
             '/preferences/navigation' => Preferences\NavigationController::class,
             '/preferences/sql' => Preferences\SqlController::class,
             '/preferences/two-factor' => Preferences\TwoFactorController::class,
-            '/recent-table' => RecentTablesListController::class,
             '/schema-export' => SchemaExportController::class,
             '/server/binlog' => Server\BinlogController::class,
             '/server/collations' => Server\CollationsController::class,
@@ -238,7 +236,6 @@ final class RoutesTest extends TestCase
             '/preferences/navigation' => Preferences\NavigationController::class,
             '/preferences/sql' => Preferences\SqlController::class,
             '/preferences/two-factor' => Preferences\TwoFactorController::class,
-            '/recent-table' => RecentTablesListController::class,
             '/schema-export' => SchemaExportController::class,
             '/server/binlog' => Server\BinlogController::class,
             '/server/databases' => Server\DatabasesController::class,

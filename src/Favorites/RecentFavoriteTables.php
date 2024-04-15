@@ -330,16 +330,6 @@ class RecentFavoriteTables
     }
 
     /**
-     * Generate Html to update recent tables.
-     */
-    public static function getHtmlUpdateRecentTables(): string
-    {
-        return '<a class="hide" id="update_recent_tables" href="'
-                    . Url::getFromRoute('/recent-table', ['ajax_request' => true, 'recent_table' => true])
-                . '"></a>';
-    }
-
-    /**
      * Return the name of the configuration storage table
      *
      * @return string|null pma table name

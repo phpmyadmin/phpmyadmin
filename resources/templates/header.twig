@@ -117,7 +117,6 @@
   <div id="page_content">
     {{ messages|raw }}
 
-    {{ recent_table|raw }}
     {%- if is_logged_in -%}
     {{ include('modals/preview_sql_modal.twig') }}
     {{ include('modals/enum_set_editor.twig') }}

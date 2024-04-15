@@ -27,7 +27,6 @@ use PhpMyAdmin\Controllers\Normalization;
 use PhpMyAdmin\Controllers\Operations;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
-use PhpMyAdmin\Controllers\RecentTablesListController;
 use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\Sql;
@@ -542,10 +541,6 @@ return [
         ],
         PhpInfoController::class => [
             'class' => PhpInfoController::class,
-            'arguments' => ['$response' => '@response'],
-        ],
-        RecentTablesListController::class => [
-            'class' => RecentTablesListController::class,
             'arguments' => ['$response' => '@response'],
         ],
         Preferences\ExportController::class => [

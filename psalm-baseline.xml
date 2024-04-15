@@ -2554,11 +2554,6 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/RecentTablesListController.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/SchemaExportController.php">
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response|null]]></code>
@@ -6533,7 +6528,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $this->config->get('DisableShortcutKeys')]]></code>
       <code><![CDATA[empty($_REQUEST['message'])]]></code>
-      <code><![CDATA[empty($_REQUEST['recent_table'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Html/Generator.php">

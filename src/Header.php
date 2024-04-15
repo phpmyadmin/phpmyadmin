@@ -9,12 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\Favorites\RecentFavoriteTable;
-use PhpMyAdmin\Favorites\RecentFavoriteTables;
-use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Identifiers\DatabaseName;
-use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Theme\ThemeManager;
 
@@ -252,20 +247,8 @@ class Header
      */
     public function getDisplay(): string
     {
-        if ($this->headerIsSent || ! $this->isEnabled) {
+        if ($this->headerIsSent || ! $this->isEnabled || $this->isAjax) {
             return '';
-        }
-
-        $recentTable = '';
-        if (empty($_REQUEST['recent_table']) && Current::$table !== '') {
-            $recentTable = $this->addRecentTable(
-                DatabaseName::from(Current::$database),
-                TableName::from(Current::$table),
-            );
-        }
-
-        if ($this->isAjax) {
-            return $recentTable;
         }
 
         $this->sendHttpHeaders();
@@ -359,7 +342,6 @@ class Header
             'menu' => $menu ?? '',
             'console' => $console,
             'messages' => $messages,
-            'recent_table' => $recentTable,
             'theme_color_mode' => $theme->getColorMode(),
             'theme_color_modes' => $theme->getColorModes(),
             'theme_id' => $theme->getId(),
@@ -578,24 +560,6 @@ class Header
         );
 
         return $headers;
-    }
-
-    /**
-     * Add recently used table and reload the navigation.
-     */
-    private function addRecentTable(DatabaseName $db, TableName $table): string
-    {
-        if ($this->menuEnabled && $this->config->settings['NumRecentTables'] > 0) {
-            $favoriteTable = new RecentFavoriteTable($db, $table);
-            $error = RecentFavoriteTables::getInstance(TableType::Recent)->add($favoriteTable);
-            if ($error === true) {
-                return RecentFavoriteTables::getHtmlUpdateRecentTables();
-            }
-
-            return $error->getDisplay();
-        }
-
-        return '';
     }
 
     /**
