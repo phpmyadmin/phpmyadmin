@@ -2127,7 +2127,7 @@ class ExportSql extends ExportPlugin
                             $usedAlias = true;
                         }
 
-                        $triggerQuery .= 'DELIMITER ;' . $crlf;
+                        $triggerQuery .= $delimiter . $crlf . 'DELIMITER ;' . $crlf;
                     }
 
                     // One warning per table.
