@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-04-05 19:01+0000\n"
-"Last-Translator: blender <m.modzelewski23@zsek.olsztyn.pl>\n"
+"PO-Revision-Date: 2024-04-18 20:03+0000\n"
+"Last-Translator: Sebastian <stomczyk145@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-9/pl/"
 ">\n"
 "Language: pl\n"
@@ -2069,7 +2069,7 @@ msgstr "Drugi etap dostosowywania (2NF)"
 #: libraries/classes/Normalization.php:340
 #, fuzzy
 msgid "Done"
-msgstr "Zakończ"
+msgstr "Zrobione"
 
 #: js/messages.php:454
 #, fuzzy
@@ -2560,7 +2560,6 @@ msgid "Show panel"
 msgstr "Pokaż panel"
 
 #: js/messages.php:659
-#, fuzzy
 msgid "Hide panel"
 msgstr "Ukryj panel"
 
@@ -2613,7 +2612,6 @@ msgid "Submit error report"
 msgstr "Wyślij zgłoszenie błędu"
 
 #: js/messages.php:683
-#, fuzzy
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
