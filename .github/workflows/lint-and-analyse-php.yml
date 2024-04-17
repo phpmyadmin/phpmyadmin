@@ -91,7 +91,7 @@ jobs:
       - name: Check Twig templates
         # Allow the previous check to fail but not abort
         if: always()
-        run: composer run twig-lint
+        run: php scripts/console lint:twig --ansi
 
   analyse-php:
     runs-on: ubuntu-latest

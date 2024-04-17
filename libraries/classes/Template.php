@@ -72,7 +72,16 @@ class Template
         }
 
         $loader = new FilesystemLoader(self::TEMPLATES_FOLDER);
+
+        /**
+         * Disables text nodes optimization added in Twig 3.9.0 as it breaks the i18n extension.
+         *
+         * @see https://github.com/phpmyadmin/phpmyadmin/issues/19112
+         */
+        $optimizations = -1 & ~8;
+
         $twig = new Environment($loader, [
+            'optimizations' => $optimizations,
             'auto_reload' => true,
             'cache' => $cacheDir,
         ]);
