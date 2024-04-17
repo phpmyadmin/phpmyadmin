@@ -134,18 +134,6 @@ const CreateDatabase = {
     }
 };
 
-function checkPrivilegesForDatabase () {
-    var tableRows = $('.server_databases');
-    $.each(tableRows, function () {
-        $(this).on('click', function () {
-            const db = $(this).attr('data');
-            if (db !== CommonParams.get('db')) {
-                Navigation.update(CommonParams.setAll({ 'db': db, 'table': '' }));
-            }
-        });
-    });
-}
-
 AJAX.registerTeardown('server/databases.js', function () {
     $(document).off('submit', '#dbStatsForm');
     $(document).off('submit', '#create_database_form.ajax');
@@ -154,5 +142,4 @@ AJAX.registerTeardown('server/databases.js', function () {
 AJAX.registerOnload('server/databases.js', function () {
     $(document).on('submit', '#dbStatsForm', DropDatabases.handleEvent);
     $(document).on('submit', '#create_database_form.ajax', CreateDatabase.handleEvent);
-    checkPrivilegesForDatabase();
 });

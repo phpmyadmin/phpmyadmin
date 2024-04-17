@@ -177,7 +177,7 @@
                 {% endif %}
 
                 <td class="name">
-                  <a href="{{ database.url }}" title="
+                  <a class="disableAjax" href="{{ database.url }}" title="
                     {{- "Jump to database '%s'"|trans|format(database.name) }}">
                     {{ database.name }}
                   </a>
@@ -234,8 +234,7 @@
                 {% endif %}
 
                 <td class="tool">
-                  <a class="server_databases" data="
-                    {{- database.name }}" href="{{ url('/database/privileges', {'db': database.name}) }}" title="
+                  <a class="disableAjax" href="{{ url('/database/privileges', {'db': database.name}) }}" title="
                     {{- 'Check privileges for database "%s".'|trans|format(database.name) }}">
                     {{ get_icon('s_rights', 'Check privileges'|trans) }}
                   </a>
