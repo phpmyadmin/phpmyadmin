@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-04-14 00:21+0000\n"
-"PO-Revision-Date: 2024-03-18 04:01+0000\n"
+"PO-Revision-Date: 2024-04-18 08:29+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ka/>\n"
@@ -1120,10 +1120,8 @@ msgid "OK"
 msgstr "OK"
 
 #: resources/templates/console/display.twig:178
-#, fuzzy
-#| msgid "Reset to default"
 msgid "Restore default values"
-msgstr "ნაგულისხმებ მნიშვნელობაზე დაბრუნება"
+msgstr "ნაგულისხმევი მნიშვნელობების აღდგენა"
 
 #: resources/templates/console/display.twig:185 src/Config/Descriptions.php:958
 msgid "Always expand query messages"
@@ -3867,10 +3865,8 @@ msgid "Clear fast filter"
 msgstr "სწრაფი ფილტრის გასუფთავება"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
-#, fuzzy
-#| msgid "Recently used tables"
 msgid "Recently visited tables"
-msgstr "ახლახანს გამოყენებული ცხრილები"
+msgstr "ახლახან ნანახი ცხრილები"
 
 #: resources/templates/navigation/tree/quick_warp.twig:6
 msgid "Recent"
@@ -11212,18 +11208,14 @@ msgid "Succeeded"
 msgstr "წარმატებულია"
 
 #: src/Controllers/Console/UpdateConfigController.php:49
-#, fuzzy
-#| msgid "%1$d column has been dropped successfully."
-#| msgid_plural "%1$d columns have been dropped successfully."
 msgid "Console settings has been updated successfully."
-msgstr "%1$d სვეტი წარმატებით წაიშალა."
+msgstr "კონსოლის პარამეტრები წარმატებით განახლდა."
 
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:28
-#, fuzzy
 msgid "Unexpected parameter value."
-msgstr "ცხრილის დასაწყისში"
+msgstr "მოულოდნელი პარამეტრის მნიშვნელობა."
 
 #: src/Controllers/Database/CentralColumnsController.php:150
 #, php-format
