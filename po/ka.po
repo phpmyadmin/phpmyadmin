@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-03-18 04:01+0000\n"
+"PO-Revision-Date: 2024-04-19 09:03+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ka/>\n"
@@ -3813,10 +3813,8 @@ msgid "Minimum number of items to display the filter box"
 msgstr "Maximum number of tables displayed in table list"
 
 #: libraries/classes/Config/Descriptions.php:849
-#, fuzzy
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Maximum number of tables displayed in table list"
+msgstr "ბაზის ფილტრის ფანჯარაში ნაჩვენები ბაზების მინიმალური რაოდენობა"
 
 #: libraries/classes/Config/Descriptions.php:851
 msgid "Group items in the tree"
@@ -5313,10 +5311,9 @@ msgstr "Field %s has been dropped"
 
 #: libraries/classes/Controllers/Database/StructureController.php:571
 #: templates/table/operations/index.twig:410
-#, fuzzy, php-format
-#| msgid "Field %s has been dropped."
+#, php-format
 msgid "Table %s has been dropped."
-msgstr "Field %s has been dropped"
+msgstr "ცხრილი %s წაშლილია."
 
 #: libraries/classes/Controllers/Database/StructureController.php:626
 #: templates/table/operations/index.twig:388
@@ -5866,10 +5863,8 @@ msgid "Preview SQL"
 msgstr "SQL-ის გადახედვა"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:117
-#, fuzzy
-#| msgid "in query"
 msgid "Simulate query"
-msgstr "მოთხოვნაში"
+msgstr "მოთხოვნის სიმულაცია"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:118
 #, fuzzy
@@ -9434,10 +9429,9 @@ msgstr ""
 
 #: libraries/classes/Database/Routines.php:1409
 #: libraries/classes/Database/Routines.php:1587
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "No tables found in database."
+msgstr "რუტინა %1$s ბაზაში %2$s აღმოჩენილი არაა."
 
 #: libraries/classes/Database/Routines.php:1448
 #, fuzzy, php-format
@@ -12162,10 +12156,8 @@ msgid "Data dictionary"
 msgstr "მონაცემების ლექსიკონი"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:92
-#, fuzzy
-#| msgid "Number of tables"
 msgid "Order of the tables"
-msgstr "ცხრილების რაოდენობა"
+msgstr "ცხრილების მიმდევრობა"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:97
 #, fuzzy
@@ -12714,9 +12706,8 @@ msgid "Replication resetting successfully."
 msgstr "რეპლიკაცია"
 
 #: libraries/classes/ReplicationGui.php:469
-#, fuzzy
 msgid "Error resetting replication."
-msgstr "სერვერის კონფიგურაცია"
+msgstr "რეპლიკაციის თავიდან გაშვების შეცდომა."
 
 #: libraries/classes/ReplicationGui.php:472
 msgid "Success."
@@ -13274,16 +13265,13 @@ msgid "Unparsable version string"
 msgstr ""
 
 #: libraries/classes/Setup/Index.php:193
-#, fuzzy, php-format
-#| msgid ""
-#| " are using subversion version, run [kbd]svn update[/kbd] :-)[br]The est "
-#| "stable version is %s, released on %s."
+#, php-format
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
-"latest stable version is %s, released on %s."
+"იყენებთ Git ვერსიას, გაუშვით [kbd]git pull[/kbd] :-)[br]უახლესი სტაბილური "
+"ვერსიაა %s, რელიზის თარიღი %s."
 
 #: libraries/classes/Setup/Index.php:201
 msgid "No newer stable version is available"
@@ -14336,10 +14324,8 @@ msgid "Partitions:"
 msgstr "დანაყოფები"
 
 #: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartition by:"
-msgstr "დაყოფილი"
+msgstr "ქვედაყოფის პირობა:"
 
 #: templates/columns_definitions/partitions.twig:65
 msgid "Subpartitions:"
@@ -14816,10 +14802,8 @@ msgid "Show/hide columns"
 msgstr "%s ველის დამატება"
 
 #: templates/database/designer/database_tables.twig:46
-#, fuzzy
-#| msgid "Database for user"
 msgid "See table structure"
-msgstr "მონაცემთა ბაზა მომხმარებლისთვის"
+msgstr "იხილეთ ცხრილის სტრუქტურა"
 
 #: templates/database/designer/database_tables.twig:91
 #, fuzzy, php-format
@@ -14841,10 +14825,8 @@ msgid "Page to open"
 msgstr "გვერდის ნომერი:"
 
 #: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page to delete"
-msgstr "გვერდის ნომერი:"
+msgstr "წასაშლელი გვერდი"
 
 #: templates/database/designer/main.twig:19
 #: templates/database/designer/main.twig:25
@@ -14919,10 +14901,8 @@ msgstr ""
 
 #: templates/database/designer/main.twig:150
 #: templates/database/designer/main.twig:153
-#, fuzzy
-#| msgid "To select relation, click :"
 msgid "Toggle relationship lines"
-msgstr "To select relation, click :"
+msgstr "ურთიერთობის ხაზების გადართვა"
 
 #: templates/database/designer/main.twig:158
 #: templates/database/designer/main.twig:161
