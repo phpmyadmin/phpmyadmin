@@ -1566,6 +1566,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
+			message: "#^Variable \\$extra_data might not be defined\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:getColumnMinMax\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
