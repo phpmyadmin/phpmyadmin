@@ -4926,6 +4926,11 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
+			message: "#^Variable \\$extraData might not be defined\\.$#"
+			count: 1
+			path: src/Controllers/Table/ReplaceController.php
+
+		-
 			message: "#^Cannot access offset int on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Table/SearchController.php
@@ -6776,12 +6781,12 @@ parameters:
 			path: src/Dbal/MysqliResult.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:getFieldNames\\(\\) should return array\\<int, non\\-empty\\-string\\> but returns array\\<int, mixed\\>\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:getFieldNames\\(\\) should return array\\<int, non\\-empty\\-string\\> but returns array\\<int, string\\>\\.$#"
 			count: 1
 			path: src/Dbal/MysqliResult.php
 
 		-
-			message: "#^Parameter \\#1 \\$field of class PhpMyAdmin\\\\FieldMetadata constructor expects object\\{name\\: non\\-empty\\-string, orgname\\: string, table\\: string, orgtable\\: string, max_length\\: int, length\\: int, charsetnr\\: int, flags\\: int, type\\: int, decimals\\: int, db\\: string, def\\: string, catalog\\: string\\}, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$field of class PhpMyAdmin\\\\FieldMetadata constructor expects object\\{name\\: non\\-empty\\-string, orgname\\: string, table\\: string, orgtable\\: string, max_length\\: int, length\\: int, charsetnr\\: int, flags\\: int, type\\: int, decimals\\: int, db\\: string, def\\: string, catalog\\: string\\}, object\\{name\\: string, orgname\\: string, table\\: string, orgtable\\: string, def\\: string, db\\: string, catalog\\: 'def', max_length\\: 0, length\\: int, charsetnr\\: string, flags\\: int, type\\: int, decimals\\: int\\}&stdClass given\\.$#"
 			count: 1
 			path: src/Dbal/MysqliResult.php
 

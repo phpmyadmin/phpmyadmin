@@ -1945,7 +1945,7 @@ class ExportSql extends ExportPlugin
                             $usedAlias = true;
                         }
 
-                        $triggerQuery .= $delimiter . $crlf . 'DELIMITER ;' . "\n";
+                        $triggerQuery .= $delimiter . "\n" . 'DELIMITER ;' . "\n";
                     }
 
                     // One warning per table.
