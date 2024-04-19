@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
 "PO-Revision-Date: 2024-04-19 15:55+0000\n"
-"Last-Translator: Petri Salo <petri.salo@gmail.com>\n"
+"Last-Translator: Niilo Poutanen <Niilo.poutanen@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "fi/>\n"
 "Language: fi\n"
@@ -10386,7 +10386,7 @@ msgstr "Sarakkeet"
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:33
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "Uusi"
 
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:272
@@ -10441,7 +10441,7 @@ msgstr "Näytä vihje"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:33
 msgctxt "Create new event"
 msgid "New"
-msgstr ""
+msgstr "Uusi"
 
 #: libraries/classes/Navigation/Nodes/NodeEvent.php:28
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:475
@@ -10463,12 +10463,12 @@ msgstr "Funktiot"
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:33
 msgctxt "Create new function"
 msgid "New"
-msgstr ""
+msgstr "Uusi"
 
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:33
 msgctxt "Create new index"
 msgid "New"
-msgstr ""
+msgstr "Uusi"
 
 #: libraries/classes/Navigation/Nodes/Node.php:630
 msgid "Expand/Collapse"
@@ -10500,7 +10500,7 @@ msgstr "Uusi"
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:33
 msgctxt "Create new trigger"
 msgid "New"
-msgstr ""
+msgstr "Uusi"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
 #, fuzzy
@@ -10518,7 +10518,7 @@ msgstr "Näkymät"
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:34
 msgctxt "Create new view"
 msgid "New"
-msgstr ""
+msgstr "Uusi"
 
 #: libraries/classes/Normalization.php:223
 msgid "Make all columns atomic"
@@ -12350,7 +12350,7 @@ msgstr "Isäntäpalvelimen kahdennus"
 
 #: libraries/classes/ReplicationGui.php:461
 msgid "Success."
-msgstr ""
+msgstr "Onnistui."
 
 #: libraries/classes/ReplicationGui.php:462
 #, fuzzy
@@ -14028,7 +14028,7 @@ msgstr "Pakkaus"
 
 #: templates/columns_definitions/column_attributes.twig:186
 msgid "first"
-msgstr ""
+msgstr "ensimmäinen"
 
 #: templates/columns_definitions/column_attributes.twig:191
 #: templates/table/structure/display_structure.twig:450
@@ -15351,7 +15351,7 @@ msgstr "Valitut:"
 #: templates/table/privileges/index.twig:134
 msgctxt "Create new user"
 msgid "New"
-msgstr ""
+msgstr "Uusi"
 
 #: templates/database/privileges/index.twig:136
 #: templates/server/privileges/add_user_fieldset.twig:9
@@ -17045,7 +17045,7 @@ msgstr ""
 
 #: templates/login/twofactor.twig:10
 msgid "Verify"
-msgstr ""
+msgstr "Todenna"
 
 #: templates/login/twofactor/webauthn_creation.twig:1
 msgid ""
@@ -17741,7 +17741,7 @@ msgstr "Tuonti nykyiselle palvalimelle"
 
 #: templates/server/plugins/index.twig:26
 msgid "Plugin"
-msgstr ""
+msgstr "Lisäosa"
 
 #: templates/server/plugins/index.twig:28 templates/table/tracking/main.twig:28
 msgid "Version"
@@ -19307,7 +19307,7 @@ msgstr "Muokkaus"
 #: templates/table/chart/tbl_chart.twig:29
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Alue"
 
 #: templates/table/chart/tbl_chart.twig:33
 #, fuzzy
@@ -20006,7 +20006,7 @@ msgstr "Esitä taulun rakenne"
 
 #: templates/table/structure/display_structure.twig:420
 msgid "Normalize"
-msgstr ""
+msgstr "Normalisoi"
 
 #: templates/table/structure/display_structure.twig:426
 #, fuzzy
