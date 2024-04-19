@@ -944,7 +944,7 @@ SQL;
         self::assertIsString($result);
         self::assertStringContainsString('-- Triggers test_table', $result);
         self::assertStringContainsString(
-            'CREATE TRIGGER `test_trigger` AFTER INSERT ON `test_table` FOR EACH ROW BEGIN END',
+            "CREATE TRIGGER `test_trigger` AFTER INSERT ON `test_table` FOR EACH ROW BEGIN END\n$$",
             $result,
         );
 
