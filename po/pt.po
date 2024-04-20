@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-04-20 16:47+0000\n"
+"PO-Revision-Date: 2024-04-21 11:30+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/pt/>\n"
@@ -14621,7 +14621,7 @@ msgstr "Tudo pequeno/grande"
 #: templates/database/designer/main.twig:143
 #: templates/database/designer/main.twig:146
 msgid "Toggle small/big"
-msgstr "Mudar para pequeno/grande"
+msgstr "Alternar entre pequeno/grande"
 
 #: templates/database/designer/main.twig:150
 #: templates/database/designer/main.twig:153
@@ -14975,7 +14975,7 @@ msgstr "Adicionar restrições (constraints)"
 
 #: templates/database/operations/index.twig:186
 msgid "Switch to copied database"
-msgstr "Mudar para a Base de Dados copiada"
+msgstr "Mudar para a base de dados copiada"
 
 #: templates/database/operations/index.twig:222
 msgid "Change all tables collations"
@@ -17162,7 +17162,7 @@ msgstr "O utilizador selecionado não se encontra na tabela de privilégios."
 
 #: templates/server/privileges/user_properties.twig:107
 msgid "Change login information / Copy user account"
-msgstr "Mudar informações de login / Copiar conta de utilizador"
+msgstr "Alterar informações de início de sessão / Copiar conta de utilizador"
 
 #: templates/server/privileges/user_properties.twig:114
 msgid "Create a new user account with the same privileges and …"
