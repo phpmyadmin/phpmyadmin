@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-03-13 18:01+0000\n"
+"PO-Revision-Date: 2024-04-20 16:47+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/pt/>\n"
@@ -11068,7 +11068,7 @@ msgstr "Não é possível realizar a ligação: definições inválidas."
 #: templates/login/header.twig:10
 #, php-format
 msgid "Welcome to %s"
-msgstr "Bemvindo ao %s"
+msgstr "Bem-vindo ao %s"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:110
 #, php-format
@@ -16281,7 +16281,7 @@ msgstr ""
 
 #: templates/login/form.twig:30
 msgid "Log in"
-msgstr "Entrada"
+msgstr "Iniciar sessão"
 
 #: templates/login/form.twig:36 templates/login/form.twig:41
 msgid "You can enter hostname/IP address and port separated by space."
