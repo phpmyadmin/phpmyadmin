@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-04-14 00:21+0000\n"
-"PO-Revision-Date: 2024-04-20 16:47+0000\n"
+"PO-Revision-Date: 2024-04-21 00:20+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -1509,7 +1509,7 @@ msgstr "Tudo pequeno/grande"
 #: resources/templates/database/designer/main.twig:140
 #: resources/templates/database/designer/main.twig:144
 msgid "Toggle small/big"
-msgstr "Mudar para pequeno/grande"
+msgstr "Alternar entre pequeno/grande"
 
 #: resources/templates/database/designer/main.twig:149
 #: resources/templates/database/designer/main.twig:151
@@ -2115,7 +2115,7 @@ msgstr "Adicionar restrições (constraints)"
 
 #: resources/templates/database/operations/index.twig:180
 msgid "Switch to copied database"
-msgstr "Mudar para a Base de Dados copiada"
+msgstr "Mudar para a base de dados copiada"
 
 #: resources/templates/database/operations/index.twig:211
 msgid "Change all tables collations"
@@ -5259,7 +5259,7 @@ msgstr "O utilizador selecionado não se encontra na tabela de privilégios."
 
 #: resources/templates/server/privileges/user_properties.twig:105
 msgid "Change login information / Copy user account"
-msgstr "Mudar informações de login / Copiar conta de utilizador"
+msgstr "Alterar informações de início de sessão / Copiar conta de utilizador"
 
 #: resources/templates/server/privileges/user_properties.twig:110
 msgid "Create a new user account with the same privileges and …"
@@ -18273,14 +18273,13 @@ msgstr ""
 "permissões no master."
 
 #: src/Replication/ReplicationGui.php:514
-#, fuzzy
 msgid "Unable to change primary!"
-msgstr "Não foi possível mudar de master!"
+msgstr "Não foi possível alterar de primário!"
 
 #: src/Replication/ReplicationGui.php:518
-#, fuzzy, php-format
+#, php-format
 msgid "Primary server changed successfully to %s."
-msgstr "Servidor master mudado com sucesso para %s."
+msgstr "Servidor primário alterado com sucesso para %s."
 
 #: src/Routing/Routing.php:122
 #, php-format
