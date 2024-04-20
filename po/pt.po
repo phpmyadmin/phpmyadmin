@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2024-04-20 16:47+0000\n"
+"PO-Revision-Date: 2024-04-21 11:30+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/pt/>\n"
@@ -12205,16 +12205,13 @@ msgstr ""
 "permissões no master."
 
 #: libraries/classes/ReplicationGui.php:548
-#, fuzzy
-#| msgid "Unable to change master!"
 msgid "Unable to change primary!"
-msgstr "Não foi possível mudar de master!"
+msgstr "Não foi possível alterar de primário!"
 
 #: libraries/classes/ReplicationGui.php:552
-#, fuzzy, php-format
-#| msgid "Master server changed successfully to %s."
+#, php-format
 msgid "Primary server changed successfully to %s."
-msgstr "Servidor master mudado com sucesso para %s."
+msgstr "Servidor primário alterado com sucesso para %s."
 
 #: libraries/classes/Routing.php:103
 #, php-format
@@ -14458,7 +14455,7 @@ msgstr "Tudo pequeno/grande"
 #: templates/database/designer/main.twig:143
 #: templates/database/designer/main.twig:146
 msgid "Toggle small/big"
-msgstr "Mudar para pequeno/grande"
+msgstr "Alternar entre pequeno/grande"
 
 #: templates/database/designer/main.twig:150
 #: templates/database/designer/main.twig:153
@@ -14839,7 +14836,7 @@ msgstr "Adicionar restrições (constraints)"
 
 #: templates/database/operations/index.twig:180
 msgid "Switch to copied database"
-msgstr "Mudar para a Base de Dados copiada"
+msgstr "Mudar para a base de dados copiada"
 
 #: templates/database/operations/index.twig:216
 msgid "Change all tables collations"
@@ -17555,7 +17552,7 @@ msgstr "O utilizador selecionado não se encontra na tabela de privilégios."
 
 #: templates/server/privileges/user_properties.twig:106
 msgid "Change login information / Copy user account"
-msgstr "Mudar informações de login / Copiar conta de utilizador"
+msgstr "Alterar informações de início de sessão / Copiar conta de utilizador"
 
 #: templates/server/privileges/user_properties.twig:113
 msgid "Create a new user account with the same privileges and …"
