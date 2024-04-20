@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-03-13 18:01+0000\n"
+"PO-Revision-Date: 2024-04-20 16:46+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/pt/>\n"
@@ -9153,7 +9153,7 @@ msgstr "Não é possível realizar a ligação: definições inválidas."
 #: templates/login/header.twig:5
 #, php-format
 msgid "Welcome to %s"
-msgstr "Bemvindo ao %s"
+msgstr "Bem-vindo ao %s"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:105
 #, php-format
@@ -9186,7 +9186,7 @@ msgstr "Sua sessão expirou. Por favor, faça login novamente."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:154
 msgid "Log in"
-msgstr "Entrada"
+msgstr "Iniciar sessão"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:162
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:172
