@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-04-14 00:21+0000\n"
-"PO-Revision-Date: 2024-03-13 18:01+0000\n"
+"PO-Revision-Date: 2024-04-20 16:47+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -3715,7 +3715,7 @@ msgstr "Número da página:"
 #: resources/templates/login/form.twig:121
 #: resources/templates/login/form.twig:124
 msgid "Log in"
-msgstr "Entrada"
+msgstr "Iniciar sessão"
 
 #: resources/templates/login/form.twig:63
 #: resources/templates/login/form.twig:68
@@ -3743,7 +3743,7 @@ msgstr "Escolha de servidor:"
 #: src/Plugins/Auth/AuthenticationHttp.php:83
 #, php-format
 msgid "Welcome to %s"
-msgstr "Bemvindo ao %s"
+msgstr "Bem-vindo ao %s"
 
 #: resources/templates/login/header.twig:17
 msgid ""
