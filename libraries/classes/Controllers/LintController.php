@@ -48,14 +48,14 @@ class LintController extends AbstractController
             $options = $params['options'];
 
             if (! empty($options['routineEditor'])) {
-                $sqlQuery = 'CREATE PROCEDURE `a`() ' . $sqlQuery;
+                $sqlQuery = "DELIMITER $$\nCREATE PROCEDURE `a`() " . $sqlQuery;
             } elseif (! empty($options['triggerEditor'])) {
-                $sqlQuery = 'CREATE TRIGGER `a` AFTER INSERT ON `b` FOR EACH ROW ' . $sqlQuery;
+                $sqlQuery = "DELIMITER $$\nCREATE TRIGGER `a` AFTER INSERT ON `b` FOR EACH ROW " . $sqlQuery;
             } elseif (! empty($options['eventEditor'])) {
-                $sqlQuery = 'CREATE EVENT `a` ON SCHEDULE EVERY MINUTE DO ' . $sqlQuery;
+                $sqlQuery = "DELIMITER $$\nCREATE EVENT `a` ON SCHEDULE EVERY MINUTE DO " . $sqlQuery;
             }
         }
 
-        echo json_encode(Linter::lint("DELIMITER $$\n" . $sqlQuery . "$$\nDELIMITER ;\n"));
+        echo json_encode(Linter::lint($sqlQuery));
     }
 }
