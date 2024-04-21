@@ -8355,12 +8355,6 @@
     <InvalidScalarArgument occurrences="1">
       <code>$error[3]</code>
     </InvalidScalarArgument>
-    <MixedAssignment occurrences="1">
-      <code>$lineStart</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$lines[$line]</code>
-    </MixedOperand>
     <PossiblyInvalidOperand occurrences="1">
       <code>$error[3]</code>
     </PossiblyInvalidOperand>
