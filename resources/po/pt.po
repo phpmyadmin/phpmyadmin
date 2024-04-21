@@ -1133,7 +1133,6 @@ msgstr "OK"
 
 #: resources/templates/console/display.twig:178
 #, fuzzy
-#| msgid "Restore default value"
 msgid "Restore default values"
 msgstr "Restaurar valor predefinido"
 
@@ -1286,6 +1285,7 @@ msgstr "Ação"
 #: resources/templates/server/variables/index.twig:15
 #: resources/templates/table/search/index.twig:195
 #: src/Controllers/JavaScriptMessagesController.php:337
+#: resources/templates/server/databases/index.twig:316
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -1509,7 +1509,7 @@ msgstr "Tudo pequeno/grande"
 #: resources/templates/database/designer/main.twig:140
 #: resources/templates/database/designer/main.twig:144
 msgid "Toggle small/big"
-msgstr "Mudar para pequeno/grande"
+msgstr "Alternar entre pequeno/grande"
 
 #: resources/templates/database/designer/main.twig:149
 #: resources/templates/database/designer/main.twig:151
@@ -1640,7 +1640,6 @@ msgstr "Selecionar página"
 
 #: resources/templates/database/designer/schema_export.twig:3
 #, fuzzy
-#| msgid "Select Export Relational Type"
 msgid "Select export relational type:"
 msgstr "Selecione o tipo de exportação relacional"
 
@@ -1819,6 +1818,7 @@ msgstr "Exportar"
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
 #: resources/templates/triggers/row.twig:58 src/Operations.php:529
+#: resources/templates/server/databases/index.twig:320
 msgid "Drop"
 msgstr "Eliminar"
 
@@ -2115,7 +2115,7 @@ msgstr "Adicionar restrições (constraints)"
 
 #: resources/templates/database/operations/index.twig:180
 msgid "Switch to copied database"
-msgstr "Mudar para a Base de Dados copiada"
+msgstr "Mudar para a base de dados copiada"
 
 #: resources/templates/database/operations/index.twig:211
 msgid "Change all tables collations"
@@ -3313,7 +3313,6 @@ msgstr "O Javascript tem de estar activo a partir deste ponto!"
 
 #: resources/templates/header.twig:46
 #, fuzzy
-#| msgid "Add user account"
 msgid "Open user account menu"
 msgstr "Adicionar conta de utilizador"
 
@@ -3325,13 +3324,11 @@ msgstr "Documentação do phpMyAdmin"
 
 #: resources/templates/header.twig:62
 #, fuzzy
-#| msgid "MariaDB Documentation"
 msgid "MariaDB documentation"
 msgstr "Documentação MariaDB"
 
 #: resources/templates/header.twig:62
 #, fuzzy
-#| msgid "MySQL Documentation"
 msgid "MySQL documentation"
 msgstr "Documentação MySQL"
 
@@ -3345,7 +3342,6 @@ msgstr ""
 
 #: resources/templates/header.twig:79 resources/templates/home/index.twig:155
 #, fuzzy
-#| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
 msgstr "Direita"
@@ -3883,6 +3879,7 @@ msgstr "(atual)"
 
 #: resources/templates/modals/function_confirm.twig:1
 #: resources/templates/server/databases/index.twig:310
+#: resources/templates/server/databases/index.twig:311
 msgid "Confirm"
 msgstr "Confirmar"
 
@@ -3962,7 +3959,6 @@ msgstr "Limpar o filtro rápido"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
 #, fuzzy
-#| msgid "Recently used tables"
 msgid "Recently visited tables"
 msgstr "Tabelas utilizadas recentemente"
 
@@ -4519,21 +4515,25 @@ msgid "Jump to database '%s'"
 msgstr "Ir para a base de dados '%s'"
 
 #: resources/templates/server/databases/index.twig:238
+#: resources/templates/server/databases/index.twig:239
 #, php-format
 msgid "Check privileges for database \"%s\"."
 msgstr "Verificar Privilégios para a Base de Dados \"%s\"."
 
 #: resources/templates/server/databases/index.twig:239
+#: resources/templates/server/databases/index.twig:240
 msgid "Check privileges"
 msgstr "Verificar Privilégios"
 
 #: resources/templates/server/databases/index.twig:248
 #: src/Controllers/JavaScriptMessagesController.php:305
 #: src/Engines/Innodb.php:133
+#: resources/templates/server/databases/index.twig:249
 msgid "Total:"
 msgstr "Total:"
 
 #: resources/templates/server/databases/index.twig:294
+#: resources/templates/server/databases/index.twig:295
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -4542,10 +4542,12 @@ msgstr ""
 "entre os servidores web e MySQL."
 
 #: resources/templates/server/databases/index.twig:296
+#: resources/templates/server/databases/index.twig:297
 msgid "Enable statistics"
 msgstr "Activar estatísticas"
 
 #: resources/templates/server/databases/index.twig:304
+#: resources/templates/server/databases/index.twig:305
 msgid "No databases"
 msgstr "Sem bases de dados"
 
@@ -5259,7 +5261,7 @@ msgstr "O utilizador selecionado não se encontra na tabela de privilégios."
 
 #: resources/templates/server/privileges/user_properties.twig:105
 msgid "Change login information / Copy user account"
-msgstr "Mudar informações de login / Copiar conta de utilizador"
+msgstr "Alterar informações de início de sessão / Copiar conta de utilizador"
 
 #: resources/templates/server/privileges/user_properties.twig:110
 msgid "Create a new user account with the same privileges and …"
@@ -5691,13 +5693,11 @@ msgstr "Conselheiro"
 
 #: resources/templates/server/status/monitor/index.twig:4
 #, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
 msgstr "Memória do sistema"
 
 #: resources/templates/server/status/monitor/index.twig:7
 #, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "Iniciar monitor"
 
@@ -6300,7 +6300,6 @@ msgstr "ø Tempo"
 
 #: resources/templates/sql/profiling_chart.twig:66
 #, fuzzy
-#| msgid "Profiling results"
 msgid "Pie chart with profiling results."
 msgstr "Resultado(s) da(s) consulta(s)"
 
@@ -6731,7 +6730,6 @@ msgstr "Terceiro passo de normalização (1NF+2NF+3NF)"
 
 #: resources/templates/table/operations/index.twig:2
 #, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
 msgstr "Opções da tabela"
 
@@ -7278,7 +7276,6 @@ msgstr "Texto"
 #: resources/templates/test/gettext/plural_notes.twig:0
 #: resources/templates/test/gettext/plural.twig:0
 #, fuzzy
-#| msgid "Use tables"
 msgid "One table"
 msgid_plural "%count% tables"
 msgstr[0] "Usar tabelas"
@@ -11712,9 +11709,6 @@ msgstr "Falha ao ler ficheiro de configuração!"
 
 #: src/Config.php:661
 #, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
 msgid "This usually means there is a syntax error in it."
 msgstr ""
 "Isto geralmente significa que há um erro de sintaxe, por favor verifique "
@@ -12003,7 +11997,6 @@ msgstr "Sucesso"
 
 #: src/Controllers/Console/UpdateConfigController.php:49
 #, fuzzy
-#| msgid "Table %1$s has been altered successfully."
 msgid "Console settings has been updated successfully."
 msgstr "A tabela %1$s foi alterada com sucesso."
 
@@ -12829,7 +12822,6 @@ msgstr "Ligações / Processos"
 
 #: src/Controllers/JavaScriptMessagesController.php:168
 #, fuzzy
-#| msgid "Number of tables:"
 msgid "Number of statements"
 msgstr "Número de tabelas:"
 
@@ -13911,7 +13903,6 @@ msgstr "atualizada"
 
 #: src/Controllers/JavaScriptMessagesController.php:618
 #, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
 msgstr "Um erro ocorreu ao importar o ficheiro do tipo shape ESRI: \"%s\"."
 
@@ -14680,7 +14671,6 @@ msgstr ""
 
 #: src/Controllers/Server/Status/QueriesController.php:92
 #, fuzzy
-#| msgid "Add statements:"
 msgid "Other statements"
 msgstr "Adicionar declarações:"
 
@@ -15546,7 +15536,6 @@ msgstr "MySQL não retornou nenhum registo."
 
 #: src/Controllers/Table/GisVisualizationController.php:98
 #, fuzzy
-#| msgid "Not used for this MySQL version."
 msgid "No spatial column found for this SQL query."
 msgstr "Não utilizado para esta versão do MySQL."
 
@@ -15571,7 +15560,6 @@ msgstr "O nome da tabela está vazio!"
 
 #: src/Controllers/Table/RecentFavoriteController.php:35
 #, fuzzy
-#| msgid "Invalid table name"
 msgid "Invalid database or table name."
 msgstr "Nome de tabela inválido"
 
@@ -15925,13 +15913,11 @@ msgstr "A mostrar registos de %1s - %2s"
 
 #: src/Display/Results.php:3451
 #, fuzzy, php-format
-#| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "%1$d no total, %2$d na consulta"
 
 #: src/Display/Results.php:3456
 #, fuzzy, php-format
-#| msgid "%d total"
 msgid "%s total"
 msgstr "%d total"
 
@@ -17109,7 +17095,6 @@ msgstr "O nome da tabela está vazio!"
 
 #: src/Partitioning/Maintenance.php:142
 #, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
 msgstr "Esta é uma variável somente leitura e não pode ser editada"
 
@@ -17159,8 +17144,6 @@ msgstr "Sua sessão expirou. Por favor, faça login novamente."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:235
 #, fuzzy
-#| msgid ""
-#| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr ""
 "Faltando verificação do reCAPTCHA, talvez tenha sido bloqueada pelo adblock?"
@@ -17928,17 +17911,6 @@ msgstr ""
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
 #, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Abs/ExternalTransformationsPlugin.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use. The second option should be blank for historical reasons. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -18273,14 +18245,13 @@ msgstr ""
 "permissões no master."
 
 #: src/Replication/ReplicationGui.php:514
-#, fuzzy
 msgid "Unable to change primary!"
-msgstr "Não foi possível mudar de master!"
+msgstr "Não foi possível alterar de primário!"
 
 #: src/Replication/ReplicationGui.php:518
-#, fuzzy, php-format
+#, php-format
 msgid "Primary server changed successfully to %s."
-msgstr "Servidor master mudado com sucesso para %s."
+msgstr "Servidor primário alterado com sucesso para %s."
 
 #: src/Routing/Routing.php:122
 #, php-format
