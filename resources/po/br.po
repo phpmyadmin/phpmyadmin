@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-04-14 00:21+0000\n"
+"POT-Creation-Date: 2024-04-21 00:19+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1393,8 +1393,8 @@ msgstr "Oberiadenn"
 #: resources/templates/modals/add_index.twig:10
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/page_settings.twig:10
+#: resources/templates/server/databases/index.twig:314
 #: resources/templates/server/databases/index.twig:315
-#: resources/templates/server/databases/index.twig:316
 #: resources/templates/server/variables/index.twig:15
 #: resources/templates/table/search/index.twig:195
 #: src/Controllers/JavaScriptMessagesController.php:337
@@ -1982,7 +1982,7 @@ msgstr "Ezporzhiañ"
 #: resources/templates/indexes.twig:59
 #: resources/templates/server/databases/index.twig:64
 #: resources/templates/server/databases/index.twig:68
-#: resources/templates/server/databases/index.twig:320
+#: resources/templates/server/databases/index.twig:319
 #: resources/templates/table/relation/foreign_key_row.twig:25
 #: resources/templates/table/structure/display_partitions.twig:146
 #: resources/templates/table/structure/display_structure.twig:120
@@ -4236,7 +4236,7 @@ msgid "(current)"
 msgstr ""
 
 #: resources/templates/modals/function_confirm.twig:1
-#: resources/templates/server/databases/index.twig:311
+#: resources/templates/server/databases/index.twig:310
 msgid "Confirm"
 msgstr "Kadarnaat"
 
@@ -4924,36 +4924,36 @@ msgstr "Eilañ"
 msgid "Jump to database '%s'"
 msgstr "Mont d'an diaz roadennoù"
 
-#: resources/templates/server/databases/index.twig:239
+#: resources/templates/server/databases/index.twig:238
 #, php-format
 msgid "Check privileges for database \"%s\"."
 msgstr "Gwiriañ ar gwirioù evit an diaz roadennoù \"%s\"."
 
-#: resources/templates/server/databases/index.twig:240
+#: resources/templates/server/databases/index.twig:239
 #, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Gwiriañ ar gwirioù"
 
-#: resources/templates/server/databases/index.twig:249
+#: resources/templates/server/databases/index.twig:248
 #: src/Controllers/JavaScriptMessagesController.php:305
 #: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "Hollad :"
 
-#: resources/templates/server/databases/index.twig:295
+#: resources/templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
 
-#: resources/templates/server/databases/index.twig:297
+#: resources/templates/server/databases/index.twig:296
 #, fuzzy
 #| msgid "Query statistics"
 msgid "Enable statistics"
 msgstr "Stadegoù war ar rekedoù"
 
-#: resources/templates/server/databases/index.twig:305
+#: resources/templates/server/databases/index.twig:304
 msgid "No databases"
 msgstr ""
 
