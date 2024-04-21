@@ -353,6 +353,7 @@ final class SaveController extends AbstractController
             'field_length',
             'field_null',
             'field_type',
+            'field_virtuality',
         ];
         foreach ($fields as $field) {
             if ($_POST[$field][$i] != $_POST[$field . '_orig'][$i]) {
