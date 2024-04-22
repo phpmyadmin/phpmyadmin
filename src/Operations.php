@@ -225,12 +225,12 @@ class Operations
             }
 
             // this does not apply to a rename operation
-            if (! isset($_POST['add_constraints']) || empty($GLOBALS['sql_constraints_query'])) {
+            if (! isset($_POST['add_constraints']) || $this->tableMover->sqlConstraintsQuery === '') {
                 continue;
             }
 
-            $sqlContraints[] = $GLOBALS['sql_constraints_query'];
-            unset($GLOBALS['sql_constraints_query']);
+            $sqlContraints[] = $this->tableMover->sqlConstraintsQuery;
+            $this->tableMover->sqlConstraintsQuery = '';
         }
 
         return $sqlContraints;

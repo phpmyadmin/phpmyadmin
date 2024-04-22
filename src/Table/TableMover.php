@@ -27,6 +27,11 @@ use function sprintf;
 
 class TableMover
 {
+    /**
+     * A string containing the SQL query for constraints to be execute after all tables have been created.
+     */
+    public string $sqlConstraintsQuery = '';
+
     public function __construct(private readonly DatabaseInterface $dbi, private readonly Relation $relation)
     {
     }
@@ -459,7 +464,6 @@ class TableMover
         $exportSqlPlugin->useSqlBackquotes(true);
 
         $GLOBALS['no_constraints_comments'] = true;
-        $GLOBALS['sql_constraints_query'] = '';
         // set the value of global sql_auto_increment variable
         if (isset($_POST['sql_auto_increment'])) {
             $GLOBALS['sql_auto_increment'] = $_POST['sql_auto_increment'];
@@ -504,22 +508,22 @@ class TableMover
         // -----------------------------------------------------------------
         // Phase 3: Adding constraints.
         // All constraint names are removed because they must be unique.
-
-        if ($what === MoveScope::Move && ! empty($GLOBALS['sql_constraints_query'])) {
-            $GLOBALS['sql_constraints_query'] = $this->getConstraintsSqlWithoutNames(
-                $GLOBALS['sql_constraints_query'],
+        $this->sqlConstraintsQuery = $exportSqlPlugin->sqlConstraintsQuery; // This line is probably not needed.
+        if ($what === MoveScope::Move && $exportSqlPlugin->sqlConstraintsQuery !== '') {
+            $this->sqlConstraintsQuery = $this->getConstraintsSqlWithoutNames(
+                $exportSqlPlugin->sqlConstraintsQuery,
                 $destination,
             );
 
-            $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query'];
+            $GLOBALS['sql_query'] .= "\n" . $this->sqlConstraintsQuery;
 
             // We can only execute it if both tables have been created.
             // When performing the whole database move,
             // the constraints can only be created after all tables have been created.
             // Thus, we must keep the global so that the caller can execute these queries.
             if ($mode === MoveMode::SingleTable) {
-                $this->dbi->query($GLOBALS['sql_constraints_query']);
-                unset($GLOBALS['sql_constraints_query']);
+                $this->dbi->query($this->sqlConstraintsQuery);
+                $this->sqlConstraintsQuery = '';
             }
         }
 

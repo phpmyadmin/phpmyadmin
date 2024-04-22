@@ -9632,7 +9632,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 9
+			count: 8
 			path: src/Operations.php
 
 		-
@@ -14222,7 +14222,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
+			count: 1
 			path: src/Table/TableMover.php
 
 		-
@@ -14233,16 +14233,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
 			count: 2
-			path: src/Table/TableMover.php
-
-		-
-			message: "#^Parameter \\#1 \\$constraintsSql of method PhpMyAdmin\\\\Table\\\\TableMover\\:\\:getConstraintsSqlWithoutNames\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/TableMover.php
-
-		-
-			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: src/Table/TableMover.php
 
 		-
@@ -16262,7 +16252,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
-			count: 6
+			count: 4
 			path: tests/unit/Plugins/Export/ExportSqlTest.php
 
 		-

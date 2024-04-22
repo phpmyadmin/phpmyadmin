@@ -77,6 +77,8 @@ class ExportSql extends ExportPlugin
     public string|null $sqlIndexes = null;
     public string|null $sqlConstraints = null;
 
+    public string $sqlConstraintsQuery = '';
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -1339,7 +1341,6 @@ class ExportSql extends ExportPlugin
         array $aliases = [],
     ): string {
         $GLOBALS['sql_drop_table'] ??= null;
-        $GLOBALS['sql_constraints_query'] ??= null;
         $GLOBALS['sql_indexes_query'] ??= null;
         $GLOBALS['sql_drop_foreign_keys'] ??= null;
 
@@ -1616,7 +1617,7 @@ class ExportSql extends ExportPlugin
 
                 // Generating constraints-related query.
                 if ($constraints !== []) {
-                    $GLOBALS['sql_constraints_query'] = $alterHeader . "\n" . '  ADD '
+                    $this->sqlConstraintsQuery = $alterHeader . "\n" . '  ADD '
                         . implode(',' . "\n" . '  ADD ', $constraints)
                         . $alterFooter;
 
@@ -1626,7 +1627,7 @@ class ExportSql extends ExportPlugin
                         __('Constraints for table'),
                         $tableAlias,
                         $compat,
-                    ) . $GLOBALS['sql_constraints_query'];
+                    ) . $this->sqlConstraintsQuery;
                 }
 
                 // Generating indexes-related query.
@@ -2011,7 +2012,7 @@ class ExportSql extends ExportPlugin
 
         // this one is built by getTableDef() to use in table copy/move
         // but not in the case of export
-        unset($GLOBALS['sql_constraints_query']);
+        $this->sqlConstraintsQuery = '';
 
         return $this->export->outputHandler($dump);
     }

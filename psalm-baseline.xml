@@ -11449,9 +11449,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $relationParams[$work]]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainType>
-      <code><![CDATA[! empty($GLOBALS['sql_constraints_query'])]]></code>
-    </TypeDoesNotContainType>
     <UnusedVariable>
       <code><![CDATA[$maintainRelations]]></code>
     </UnusedVariable>

@@ -806,8 +806,8 @@ SQL;
         self::assertStringContainsString('-- Constraints for table "table"', $this->object->sqlConstraints);
         self::assertStringContainsString('ALTER TABLE "table"', $this->object->sqlConstraints);
         self::assertStringContainsString('ADD CONSTRAINT', $this->object->sqlConstraints);
-        self::assertStringContainsString('ALTER TABLE "table"', $GLOBALS['sql_constraints_query']);
-        self::assertStringContainsString('ADD CONSTRAINT', $GLOBALS['sql_constraints_query']);
+        self::assertStringContainsString('ALTER TABLE "table"', $this->object->sqlConstraintsQuery);
+        self::assertStringContainsString('ADD CONSTRAINT', $this->object->sqlConstraintsQuery);
         self::assertStringContainsString('ALTER TABLE "table"', $GLOBALS['sql_drop_foreign_keys']);
         self::assertStringContainsString('DROP FOREIGN KEY', $GLOBALS['sql_drop_foreign_keys']);
     }
