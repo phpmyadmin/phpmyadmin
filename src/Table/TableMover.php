@@ -91,12 +91,11 @@ class TableMover
             return true;
         }
 
-        // we are copying
-        // Create new entries as duplicates from old PMA DBs
         if ($what === MoveScope::DataOnly || isset($maintainRelations)) {
             return true;
         }
 
+        // We are copying so create new entries as duplicates from old PMA DBs
         $relationParameters = $this->relation->getRelationParameters();
 
         if ($relationParameters->columnCommentsFeature !== null) {
