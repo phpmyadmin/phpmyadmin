@@ -73,6 +73,10 @@ class ExportSql extends ExportPlugin
 
     private bool $useSqlBackquotes = false;
 
+    public string|null $sqlAutoIncrements = null;
+    public string|null $sqlIndexes = null;
+    public string|null $sqlConstraints = null;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -908,21 +912,21 @@ class ExportSql extends ExportPlugin
         $result = true;
 
         //add indexes to the sql dump file
-        if (isset($GLOBALS['sql_indexes'])) {
-            $result = $this->export->outputHandler($GLOBALS['sql_indexes']);
-            unset($GLOBALS['sql_indexes']);
+        if ($this->sqlIndexes !== null) {
+            $result = $this->export->outputHandler($this->sqlIndexes);
+            $this->sqlIndexes = null;
         }
 
         //add auto increments to the sql dump file
-        if (isset($GLOBALS['sql_auto_increments'])) {
-            $result = $this->export->outputHandler($GLOBALS['sql_auto_increments']);
-            unset($GLOBALS['sql_auto_increments']);
+        if ($this->sqlAutoIncrements !== null) {
+            $result = $this->export->outputHandler($this->sqlAutoIncrements);
+            $this->sqlAutoIncrements = null;
         }
 
         //add constraints to the sql dump file
-        if (isset($GLOBALS['sql_constraints'])) {
-            $result = $this->export->outputHandler($GLOBALS['sql_constraints']);
-            unset($GLOBALS['sql_constraints']);
+        if ($this->sqlConstraints !== null) {
+            $result = $this->export->outputHandler($this->sqlConstraints);
+            $this->sqlConstraints = null;
         }
 
         return $result;
@@ -1335,11 +1339,8 @@ class ExportSql extends ExportPlugin
         array $aliases = [],
     ): string {
         $GLOBALS['sql_drop_table'] ??= null;
-        $GLOBALS['sql_constraints'] ??= null;
         $GLOBALS['sql_constraints_query'] ??= null;
-        $GLOBALS['sql_indexes'] ??= null;
         $GLOBALS['sql_indexes_query'] ??= null;
-        $GLOBALS['sql_auto_increments'] ??= null;
         $GLOBALS['sql_drop_foreign_keys'] ??= null;
 
         $dbAlias = $db;
@@ -1619,8 +1620,8 @@ class ExportSql extends ExportPlugin
                         . implode(',' . "\n" . '  ADD ', $constraints)
                         . $alterFooter;
 
-                    $GLOBALS['sql_constraints'] = $this->generateComment(
-                        $GLOBALS['sql_constraints'],
+                    $this->sqlConstraints = $this->generateComment(
+                        $this->sqlConstraints,
                         __('Constraints for dumped tables'),
                         __('Constraints for table'),
                         $tableAlias,
@@ -1647,8 +1648,8 @@ class ExportSql extends ExportPlugin
                 }
 
                 if ($indexes !== [] || $indexesFulltext !== []) {
-                    $GLOBALS['sql_indexes'] = $this->generateComment(
-                        $GLOBALS['sql_indexes'],
+                    $this->sqlIndexes = $this->generateComment(
+                        $this->sqlIndexes,
                         __('Indexes for dumped tables'),
                         __('Indexes for table'),
                         $tableAlias,
@@ -1678,8 +1679,8 @@ class ExportSql extends ExportPlugin
 
                     $sqlAutoIncrementsQuery .= ';' . "\n";
 
-                    $GLOBALS['sql_auto_increments'] = $this->generateComment(
-                        $GLOBALS['sql_auto_increments'],
+                    $this->sqlAutoIncrements = $this->generateComment(
+                        $this->sqlAutoIncrements,
                         __('AUTO_INCREMENT for dumped tables'),
                         __('AUTO_INCREMENT for table'),
                         $tableAlias,

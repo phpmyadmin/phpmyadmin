@@ -10781,16 +10781,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#1 \\$line of method PhpMyAdmin\\\\Export\\\\Export\\:\\:outputHandler\\(\\) expects string, mixed given\\.$#"
-			count: 3
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Parameter \\#1 \\$sqlStatement of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:generateComment\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 3
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function strtoupper expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Export/ExportSql.php
@@ -14232,7 +14222,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 4
+			count: 2
 			path: src/Table/TableMover.php
 
 		-
@@ -14252,16 +14242,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/TableMover.php
-
-		-
-			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Table\\\\TableMover\\:\\:createIndexes\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Table/TableMover.php
-
-		-
-			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Table\\\\TableMover\\:\\:executeAlterAutoIncrement\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Table/TableMover.php
 
@@ -16282,7 +16262,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
-			count: 10
+			count: 6
 			path: tests/unit/Plugins/Export/ExportSqlTest.php
 
 		-

@@ -8271,8 +8271,6 @@
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
       <code><![CDATA[$GLOBALS['sql_auto_increment']]]></code>
-      <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
       <code><![CDATA[$GLOBALS['sql_create_database']]]></code>
       <code><![CDATA[$GLOBALS['sql_delayed']]]></code>
       <code><![CDATA[$GLOBALS['sql_disable_fk']]]></code>
@@ -8285,8 +8283,6 @@
       <code><![CDATA[$GLOBALS['sql_header_comment']]]></code>
       <code><![CDATA[$GLOBALS['sql_include_comments']]]></code>
       <code><![CDATA[$GLOBALS['sql_include_comments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
       <code><![CDATA[$GLOBALS['sql_indexes_query']]]></code>
       <code><![CDATA[$GLOBALS['sql_or_replace_view']]]></code>
       <code><![CDATA[$GLOBALS['sql_simple_view_export']]]></code>
@@ -8301,11 +8297,7 @@
       <code><![CDATA[$GLOBALS['table_data']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
       <code><![CDATA[$GLOBALS['sql_header_comment']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$colAlias]]></code>
       <code><![CDATA[$colAlias]]></code>
@@ -8341,9 +8333,7 @@
       <code><![CDATA[$row[$j]]]></code>
     </MixedArrayTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
       <code><![CDATA[$GLOBALS['sql_drop_table']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
       <code><![CDATA[$GLOBALS['sql_indexes_query']]]></code>
       <code><![CDATA[$colAlias]]></code>
       <code><![CDATA[$colAlias]]></code>
@@ -11424,13 +11414,7 @@
     </DocblockTypeContradiction>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
-    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$altered]]></code>
@@ -14537,15 +14521,6 @@
       <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
     </MixedAssignment>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
-      <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
-      <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
-      <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
-    </PossiblyNullArgument>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
-    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="tests/unit/Plugins/Export/ExportTexytextTest.php">
     <DeprecatedMethod>

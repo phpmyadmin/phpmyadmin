@@ -50,8 +50,6 @@ class ExportControllerTest extends AbstractTestCase
     public function testExportController(): void
     {
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['sql_indexes'] = null;
-        $GLOBALS['sql_auto_increments'] = null;
         $config = Config::getInstance();
         $config->selectServer('1');
 

@@ -527,15 +527,15 @@ class TableMover
         // Phase 4: Adding indexes.
         // View phase 3.
 
-        if (! empty($GLOBALS['sql_indexes'])) {
-            $this->createIndexes($GLOBALS['sql_indexes'], $destination);
+        if ($exportSqlPlugin->sqlIndexes !== null) {
+            $this->createIndexes($exportSqlPlugin->sqlIndexes, $destination);
         }
 
         // -----------------------------------------------------------------
         // Phase 5: Adding AUTO_INCREMENT.
 
-        if (! empty($GLOBALS['sql_auto_increments'])) {
-            $this->executeAlterAutoIncrement($GLOBALS['sql_auto_increments'], $destination);
+        if ($exportSqlPlugin->sqlAutoIncrements !== null) {
+            $this->executeAlterAutoIncrement($exportSqlPlugin->sqlAutoIncrements, $destination);
         }
 
         return $maintainRelations;
