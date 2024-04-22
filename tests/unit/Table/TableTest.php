@@ -203,6 +203,37 @@ class TableTest extends AbstractTestCase
                     ],
                 ],
             ],
+            [
+                'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, '
+                    . 'ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM '
+                    . "information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA COLLATE utf8_bin= 'PMA' "
+                    . "AND EVENT_OBJECT_TABLE COLLATE utf8_bin = 'PMA_BookMark';",
+                null,
+                null,
+                ConnectionType::User,
+                [
+                    [],
+                ],
+            ],
+            [
+                'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, '
+                    . 'ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM '
+                    . "information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA COLLATE utf8_bin= 'aa' "
+                    . "AND EVENT_OBJECT_TABLE COLLATE utf8_bin = 'ad';",
+                null,
+                null,
+                ConnectionType::User,
+                [
+                    [],
+                ],
+            ],
+            [
+                'SHOW COLUMNS FROM `aa`.`ad`',
+                null,
+                null,
+                ConnectionType::User,
+                [],
+            ],
         ];
 
         $fetchValue = [
@@ -1382,6 +1413,20 @@ class TableTest extends AbstractTestCase
                     $resultStub,
                 ],
                 ['USE `aa`', ConnectionType::User, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
+                [
+                    'RENAME TABLE `PMA`.`PMA_BookMark` TO `PMA`.`PMA_.BookMark`;',
+                    ConnectionType::User,
+                    DatabaseInterface::QUERY_BUFFERED,
+                    true,
+                    false,
+                ],
+                [
+                    'RENAME TABLE `aa`.`ad` TO `bb`.`ad`;',
+                    ConnectionType::User,
+                    DatabaseInterface::QUERY_BUFFERED,
+                    true,
+                    false,
+                ],
             ]);
         $resultStub->expects(self::any())
             ->method('fetchRow')
