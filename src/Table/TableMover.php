@@ -72,7 +72,15 @@ class TableMover
         $this->dbi->selectDb($targetDb);
 
         if ($what !== MoveScope::DataOnly) {
-            $maintainRelations = $this->handleStructureCreation($sourceTable, $sourceDb, $targetDb, $targetTable, $addDropIfExists, $what, $mode);
+            $maintainRelations = $this->handleStructureCreation(
+                $sourceTable,
+                $sourceDb,
+                $targetDb,
+                $targetTable,
+                $addDropIfExists,
+                $what,
+                $mode,
+            );
         } else {
             $GLOBALS['sql_query'] = '';
         }
