@@ -14959,6 +14959,12 @@
       <code><![CDATA[providerGetQueryFromRequest]]></code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="tests/unit/Twig/Node/Expression/TransExpressionTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[transExpressionsProvider]]></code>
+      <code><![CDATA[transExpressionsWithErrorProvider]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="tests/unit/TwoFactorTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>

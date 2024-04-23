@@ -1,0 +1,6 @@
+{{ t('One apple', '%d apples', number_of_apples)|format(number_of_apples) }}
+{{ t('One apple', '%d apples', count = number_of_apples)|format(number_of_apples) }}
+{{ t('One apple', plural = '%d apples', count = number_of_apples)|format(number_of_apples) }}
+{{ t(singular = 'One apple', plural = '%d apples', count = number_of_apples)|format(number_of_apples) }}
+{{ t('One apple', '%d apples', number_of_apples, notes = 'Localization comments')|format(number_of_apples) }}
+{{ t(singular = 'One apple', plural = '%d apples', count = number_of_apples, notes = 'Localization comments')|format(number_of_apples) }}

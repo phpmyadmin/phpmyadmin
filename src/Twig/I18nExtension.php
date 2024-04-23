@@ -6,7 +6,11 @@ namespace PhpMyAdmin\Twig;
 
 use PhpMyAdmin\Twig\Extensions\I18nExtension as TwigI18nExtension;
 use PhpMyAdmin\Twig\Extensions\Node\TransNode;
+use PhpMyAdmin\Twig\Node\Expression\TransExpression;
 use Twig\TwigFilter;
+use Twig\TwigFunction;
+
+use function _gettext;
 
 class I18nExtension extends TwigI18nExtension
 {
@@ -25,7 +29,13 @@ class I18nExtension extends TwigI18nExtension
     {
         return [
             // This is just a performance override
-            new TwigFilter('trans', '_gettext'),
+            new TwigFilter('trans', _gettext(...)),
         ];
+    }
+
+    /** @inheritdoc */
+    public function getFunctions(): array
+    {
+        return [new TwigFunction('t', null, ['node_class' => TransExpression::class])];
     }
 }
