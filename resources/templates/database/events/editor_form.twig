@@ -50,7 +50,7 @@
               <div class="fw-bold text-center w-50">
                 {{ event.item_type }}
               </div>
-              <input type="submit" name="item_changetype" class="w-50" value="{{ 'Change to %s'|trans|format(event.item_type_toggle) }}">
+              <input type="submit" name="item_changetype" class="w-50" value="{{ t('Change to %s')|format(event.item_type_toggle) }}">
             {% endif %}
           </td>
         </tr>
@@ -89,7 +89,7 @@
             <textarea name="item_definition" rows="15" cols="40">
               {{- event.item_definition -}}
             </textarea><br>
-            <input type="button" value="{{ 'Format'|trans }}" id="format" class="btn btn-secondary button sqlbutton">
+            <input type="button" value="{{ t('Format') }}" id="format" class="btn btn-secondary button sqlbutton">
           </td>
         </tr>
         <tr>

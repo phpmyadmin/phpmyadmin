@@ -6,7 +6,7 @@
 
     <div class="card-body">
         {% if partitions is not defined or partitions is empty %}
-            {{ 'No partitioning defined!'|trans|notice }}
+            {{ t('No partitioning defined!')|notice }}
         {% else %}
             <p>
                 {% trans 'Partitioned by:' %}
@@ -82,7 +82,7 @@
                             'table': table,
                             'partition_name': partition.getName(),
                           }, '', false) }}">
-                            {{ get_icon('b_search', 'Analyze'|trans) }}
+                            {{ get_icon('b_search', t('Analyze')) }}
                           </a>
                         </td>
 
@@ -92,7 +92,7 @@
                             'table': table,
                             'partition_name': partition.getName(),
                           }, '', false) }}">
-                            {{ get_icon('eye', 'Check'|trans) }}
+                            {{ get_icon('eye', t('Check')) }}
                           </a>
                         </td>
 
@@ -102,7 +102,7 @@
                             'table': table,
                             'partition_name': partition.getName(),
                           }, '', false) }}">
-                            {{ get_icon('normalize', 'Optimize'|trans) }}
+                            {{ get_icon('normalize', t('Optimize')) }}
                           </a>
                         </td>
 
@@ -112,7 +112,7 @@
                             'table': table,
                             'partition_name': partition.getName(),
                           }, '', false) }}">
-                            {{ get_icon('s_tbl', 'Rebuild'|trans) }}
+                            {{ get_icon('s_tbl', t('Rebuild')) }}
                           </a>
                         </td>
 
@@ -122,7 +122,7 @@
                             'table': table,
                             'partition_name': partition.getName(),
                           }, '', false) }}">
-                            {{ get_icon('b_tblops', 'Repair'|trans) }}
+                            {{ get_icon('b_tblops', t('Repair')) }}
                           </a>
                         </td>
 
@@ -132,7 +132,7 @@
                             'table': table,
                             'partition_name': partition.getName(),
                           }, '', false) }}">
-                            {{ get_icon('b_empty', 'Truncate'|trans) }}
+                            {{ get_icon('b_empty', t('Truncate')) }}
                           </a>
                         </td>
 
@@ -143,7 +143,7 @@
                               'table': table,
                               'partition_name': partition.getName(),
                             }, '', false) }}">
-                              {{ get_icon('b_drop', 'Drop'|trans) }}
+                              {{ get_icon('b_drop', t('Drop')) }}
                             </a>
                           </td>
                         {% endif %}
@@ -201,7 +201,7 @@
                     'table': table,
                     'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' REMOVE PARTITIONING'
                   },
-                  'Remove partitioning'|trans, {
+                  t('Remove partitioning'), {
                     'class': 'btn btn-secondary ajax',
                     'id': 'remove_partitioning'
                 }) }}

@@ -45,7 +45,7 @@
         {{ backup_field|raw }}
         <input type="hidden" name="fields_type[multi_edit][{{ row_id }}][{{ column.md5 }}]" value="foreign">
         <input type="text" name="fields[multi_edit][{{ row_id }}][{{ column.md5 }}]" class="textfield" tabindex="{{ id_index }}" onchange="return verificationsAfterFieldChange('{{ column.md5|escape('js') }}', '{{ row_id|escape('js') }}', '{{ column.pmaType }}')" id="field_{{ id_index }}_3" value="{{ data }}">
-        <a class="ajax browse_foreign" href="{{ url('/browse-foreigners') }}" data-post="{{ get_common({'db': db, 'table': table, 'field': column.field, 'rownumber': row_id, 'data': data}) }}">{{ get_icon('b_browse', 'Browse foreign values'|trans) }}</a>
+        <a class="ajax browse_foreign" href="{{ url('/browse-foreigners') }}" data-post="{{ get_common({'db': db, 'table': table, 'field': column.field, 'rownumber': row_id, 'data': data}) }}">{{ get_icon('b_browse', t('Browse foreign values')) }}</a>
       {% elseif foreign_dropdown is not empty %}
         {{ backup_field|raw }}
         <input type="hidden" name="fields_type[multi_edit][{{ row_id }}][{{ column.md5 }}]" value="{{ column.isBinary ? 'hex' : 'foreign' }}">
@@ -120,7 +120,7 @@
 
       {% if column.pmaType in gis_data_types %}
         <span class="open_gis_editor" data-row-id="{{ row_id }}">
-          {{ link_or_button('#', null, get_icon('b_edit', 'Edit/Insert'|trans)) }}
+          {{ link_or_button('#', null, get_icon('b_edit', t('Edit/Insert'))) }}
         </span>
       {% endif %}
     {% endif %}

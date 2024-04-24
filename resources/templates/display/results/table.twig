@@ -308,26 +308,26 @@
 
 {% if has_bulk_links is defined and has_bulk_links %}
     <div class="d-print-none">
-      {{ get_image('select_all_arrow', 'With selected:'|trans, {'dir': text_dir, 'width': '38', 'height': '22'}) }}
+      {{ get_image('select_all_arrow', t('With selected:'), {'dir': text_dir, 'width': '38', 'height': '22'}) }}
       <input type="checkbox" id="resultsForm_{{ unique_id }}_checkall" class="checkall_box" title="{% trans 'Check all' %}">
       <label for="resultsForm_{{ unique_id }}_checkall">{% trans 'Check all' %}</label>
       <em class="with-selected">{% trans 'With selected:' %}</em>
 
       <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="edit" title="{% trans 'Edit' %}">
-        {{ get_icon('b_edit', 'Edit'|trans) }}
+        {{ get_icon('b_edit', t('Edit')) }}
       </button>
 
       <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="copy" title="{% trans 'Copy' %}">
-        {{ get_icon('b_insrow', 'Copy'|trans) }}
+        {{ get_icon('b_insrow', t('Copy')) }}
       </button>
 
       <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="delete" title="{% trans 'Delete' %}">
-        {{ get_icon('b_drop', 'Delete'|trans) }}
+        {{ get_icon('b_drop', t('Delete')) }}
       </button>
 
       {% if has_export_button %}
         <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="export" title="{% trans 'Export' %}">
-          {{ get_icon('b_tblexport', 'Export'|trans) }}
+          {{ get_icon('b_tblexport', t('Export')) }}
         </button>
       {% endif %}
     </div>
@@ -345,12 +345,12 @@
 
     <div class="card-body">
       {% if operations.has_print_link %}
-        <button type="button" class="btn btn-link jsPrintButton">{{ get_icon('b_print', 'Print'|trans, true) }}</button>
+        <button type="button" class="btn btn-link jsPrintButton">{{ get_icon('b_print', t('Print'), true) }}</button>
 
         {{ link_or_button(
           '#',
           null,
-          get_icon('b_insrow', 'Copy to clipboard'|trans, true),
+          get_icon('b_insrow', t('Copy to clipboard'), true),
           {'id': 'copyToClipBoard', 'class': 'btn'}
         ) }}
       {% endif %}
@@ -360,14 +360,14 @@
           {{ link_or_button(
             url('/table/export'),
             operations.url_params,
-            get_icon('b_tblexport', 'Export'|trans, true),
+            get_icon('b_tblexport', t('Export'), true),
             {'class': 'btn'}
           ) }}
 
           {{ link_or_button(
             url('/table/chart'),
             operations.url_params,
-            get_icon('b_chart', 'Display chart'|trans, true),
+            get_icon('b_chart', t('Display chart'), true),
             {'class': 'btn'}
           ) }}
 
@@ -375,7 +375,7 @@
             {{ link_or_button(
               url('/table/gis-visualization'),
               operations.url_params,
-              get_icon('b_globe', 'Visualize GIS data'|trans, true),
+              get_icon('b_globe', t('Visualize GIS data'), true),
               {'class': 'btn'}
             ) }}
           {% endif %}
@@ -385,7 +385,7 @@
           {{ link_or_button(
             url('/view/create'),
             {'db': db, 'table': table, 'sql_query': sql_query, 'printview': true},
-            get_icon('b_view_add', 'Create view'|trans, true),
+            get_icon('b_view_add', t('Create view'), true),
             {'class': 'btn create_view ajax'}
           ) }}
         </span>

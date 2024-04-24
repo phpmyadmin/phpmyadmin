@@ -16,7 +16,7 @@
                     <strong>
                         <label for="input_index_name">
                             {% trans 'Index name:' %}
-                            {{ show_hint('"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!'|trans) }}
+                            {{ show_hint(t('"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!')) }}
                         </label>
                     </strong>
                 </div>
@@ -234,7 +234,7 @@
             <div class="add_fields hide">
                 <input class="btn btn-secondary" type="submit"
                     id="add_fields"
-                    value="{{ 'Add %s column(s) to index'|trans|format(1) }}">
+                    value="{{ t('Add %s column(s) to index')|format(1) }}">
             </div>
         </div>
         </div>

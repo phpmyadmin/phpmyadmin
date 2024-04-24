@@ -14,7 +14,7 @@
         {{- pred_username is null or pred_username == 'userdefined' ? ' required' }}>
 
       <div id="user_exists_warning" class="hide">
-        {{ 'An account already exists with the same username but possibly a different hostname.'|trans|notice }}
+        {{ t('An account already exists with the same username but possibly a different hostname.')|notice }}
       </div>
     </div>
 
@@ -37,7 +37,7 @@
       <input type="text" name="hostname" id="pma_hostname" maxlength="{{ hostname_length }}" value="{{ hostname|default('%') }}" title="
         {%- trans 'Host name' %}"{{ pred_hostname == 'userdefined' ? ' required' }}>
 
-      {{ show_hint('When Host table is used, this field is ignored and values stored in Host table are used instead.'|trans) }}
+      {{ show_hint(t('When Host table is used, this field is ignored and values stored in Host table are used instead.')) }}
     </div>
 
     <div class="item">

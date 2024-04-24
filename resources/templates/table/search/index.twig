@@ -1,19 +1,19 @@
 <ul class="nav nav-pills m-2">
   <li class="nav-item">
     <a class="nav-link active disableAjax" href="{{ url('/table/search', {'db': db, 'table': table, 'pos': 0}) }}">
-      {{ get_icon('b_search', 'Table search'|trans, false, false, 'TabsMode') }}
+      {{ get_icon('b_search', t('Table search'), false, false, 'TabsMode') }}
     </a>
   </li>
 
   <li class="nav-item">
     <a class="nav-link disableAjax" href="{{ url('/table/zoom-search', {'db': db, 'table': table}) }}">
-      {{ get_icon('b_select', 'Zoom search'|trans, false, false, 'TabsMode') }}
+      {{ get_icon('b_select', t('Zoom search'), false, false, 'TabsMode') }}
     </a>
   </li>
 
   <li class="nav-item">
     <a class="nav-link disableAjax" href="{{ url('/table/find-replace', {'db': db, 'table': table}) }}">
-      {{ get_icon('b_find_replace', 'Find and replace'|trans, false, false, 'TabsMode') }}
+      {{ get_icon('b_find_replace', t('Find and replace'), false, false, 'TabsMode') }}
     </a>
   </li>
 </ul>

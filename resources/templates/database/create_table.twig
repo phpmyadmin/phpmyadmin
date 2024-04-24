@@ -1,6 +1,6 @@
 <form id="createTableMinimalForm" method="post" action="{{ url('/table/create') }}" class="card d-print-none lock-page">
   {{ get_hidden_inputs(db) }}
-  <div class="card-header">{{ get_icon('b_table_add', 'Create new table'|trans, true) }}</div>
+  <div class="card-header">{{ get_icon('b_table_add', t('Create new table'), true) }}</div>
   <div class="card-body row row-cols-lg-auto g-3">
     <div class="col-12">
       <label for="createTableNameInput" class="form-label">{% trans 'Table name' %}</label>

@@ -14,11 +14,11 @@
         </th>
         <th>
             {% trans 'Length/Values' %}
-            {{ show_hint('If column type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'…<br>If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'|trans) }}
+            {{ show_hint(t('If column type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'…<br>If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').')) }}
         </th>
         <th>
             {% trans 'Default' %}
-            {{ show_hint('For default values, please enter just a single value, without backslash escaping or quotes, using this format: a'|trans) }}
+            {{ show_hint(t('For default values, please enter just a single value, without backslash escaping or quotes, using this format: a')) }}
         </th>
         <th>
             {% trans 'Collation' %}
@@ -79,7 +79,7 @@
             </th>
             <th>
                 {% trans 'Browser display transformation options' %}
-                {{ show_hint('Please enter the values for transformation options using this format: \'a\', 100, b,\'c\'…<br>If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'|trans) }}
+                {{ show_hint(t('Please enter the values for transformation options using this format: \'a\', 100, b,\'c\'…<br>If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').')) }}
             </th>
             <th>
                 <a href="{{ url('/transformation/overview') }}#input_transformation"
@@ -90,7 +90,7 @@
             </th>
             <th>
                 {% trans 'Input transformation options' %}
-                {{ show_hint('Please enter the values for transformation options using this format: \'a\', 100, b,\'c\'…<br>If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'|trans) }}
+                {{ show_hint(t('Please enter the values for transformation options using this format: \'a\', 100, b,\'c\'…<br>If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').')) }}
             </th>
         {% endif %}
     </tr>

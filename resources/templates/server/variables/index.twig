@@ -9,12 +9,12 @@
 
 {% if variables is not empty %}
   <a href="#" class="ajax saveLink hide">
-    {{ get_icon('b_save', 'Save'|trans) }}
+    {{ get_icon('b_save', t('Save')) }}
   </a>
   <a href="#" class="cancelLink hide">
-    {{ get_icon('b_close', 'Cancel'|trans) }}
+    {{ get_icon('b_close', t('Cancel')) }}
   </a>
-  {{ get_image('b_help', 'Documentation'|trans, {
+  {{ get_image('b_help', t('Documentation'), {
     'class': 'hide',
     'id': 'docImage'
   }) }}
@@ -38,10 +38,10 @@
           <tr class="var-row" data-filter-row="{{ variable.name|upper }}">
             <td>
               {% if variable.is_editable %}
-                <a href="#" data-variable="{{ variable.name }}" class="editLink">{{ get_icon('b_edit', 'Edit'|trans) }}</a>
+                <a href="#" data-variable="{{ variable.name }}" class="editLink">{{ get_icon('b_edit', t('Edit')) }}</a>
               {% else %}
                 <span title="{% trans 'This is a read-only variable and can not be edited' %}" class="read_only_var">
-                  {{ get_icon('bd_edit', 'Edit'|trans) }}
+                  {{ get_icon('bd_edit', t('Edit')) }}
                 </span>
               {% endif %}
             </td>
@@ -77,7 +77,7 @@
 </div>
 
 {% else %}
-  {{ 'Not enough privilege to view server variables and settings. %s'|trans|format(
+  {{ t('Not enough privilege to view server variables and settings. %s')|format(
     link_to_var_documentation('show_compatibility_56', is_mariadb)
   )|error }}
 {% endif %}

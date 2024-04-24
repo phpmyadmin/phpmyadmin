@@ -4,7 +4,7 @@
   {% if export_type == 'raw' %}
     {% trans %}Exporting a raw query{% notes %}A query that the user has written freely{% endtrans %}
   {% else %}
-    {{ 'Exporting rows from "%s" table'|trans|format(table) }}
+    {{ t('Exporting rows from "%s" table')|format(table) }}
   {% endif %}
 {% endblock %}
 

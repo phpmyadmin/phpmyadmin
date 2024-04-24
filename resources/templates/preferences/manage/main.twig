@@ -1,6 +1,6 @@
 {{ error|raw }}
 <script>
-    {{ get_js_value("window.Messages.strSavedOn", 'Saved on: @DATE@'|trans) }}
+    {{ get_js_value("window.Messages.strSavedOn", t('Saved on: @DATE@')) }}
 </script>
 <div class="row">
 <div id="maincontainer" class="container-fluid">
@@ -32,17 +32,17 @@
                             {% trans 'Saved on: @DATE@' %}
                         </div>
                         <div class="localStorage-empty">
-                            {{ 'You have no saved settings!'|trans|notice }}
+                            {{ t('You have no saved settings!')|notice }}
                         </div>
                     </div>
                     <div class="localStorage-unsupported">
-                        {{ 'This feature is not supported by your web browser'|trans|notice }}
+                        {{ t('This feature is not supported by your web browser')|notice }}
                     </div>
                 </div>
                 <input type="checkbox" id="import_merge" name="import_merge">
                 <label for="import_merge"> {% trans 'Merge with current configuration' %} </label>
                 <br><br>
-                <input class="btn btn-primary" type="submit" name="submit_import" value="{{ 'Go'|trans }}">
+                <input class="btn btn-primary" type="submit" name="submit_import" value="{{ t('Go') }}">
             </form>
           </div>
         </div>
@@ -55,7 +55,7 @@
                 {% trans 'More settings' %}
               </div>
               <div class="card-body">
-                {{ 'You can set more settings by modifying config.inc.php, eg. by using %sSetup script%s.'|trans|format('<a href="setup/index.php" target="_blank">', '</a>')|raw }}
+                {{ t('You can set more settings by modifying config.inc.php, eg. by using %sSetup script%s.')|format('<a href="setup/index.php" target="_blank">', '</a>')|raw }}
                 {{ show_docu('setup', 'setup-script') }}
               </div>
             </div>
@@ -68,7 +68,7 @@
           </div>
           <div class="card-body">
             <div class="click-hide-message hide">
-                {{ 'Configuration has been saved.'|trans|raw_success }}
+                {{ t('Configuration has been saved.')|raw_success }}
             </div>
             <form class="prefs-form disableAjax" name="prefs_export"
                   action="{{ url('/preferences/manage') }}" method="post">
@@ -100,7 +100,7 @@
                         </div>
                     </span>
                     <div class="localStorage-unsupported">
-                        {{ 'This feature is not supported by your web browser'|trans|notice }}
+                        {{ t('This feature is not supported by your web browser')|notice }}
                     </div>
                 </div>
                 <br>

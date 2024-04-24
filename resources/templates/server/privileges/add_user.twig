@@ -22,7 +22,7 @@
 
       {% if database is not empty %}
         <input type="checkbox" name="createdb-3" id="createdb-3" checked>
-        <label for="createdb-3">{{ 'Grant all privileges on database %s.'|trans|format(database) }}</label>
+        <label for="createdb-3">{{ t('Grant all privileges on database %s.')|format(database) }}</label>
         <input type="hidden" name="dbname" value="{{ database }}">
         <br>
       {% endif %}

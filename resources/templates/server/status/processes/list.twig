@@ -19,13 +19,13 @@
                 {% if column.is_full %}
                   {{ get_image(
                     's_partialtext',
-                    'Truncate shown queries'|trans,
+                    t('Truncate shown queries'),
                     {'class': 'icon_fulltext'}
                   ) }}
                 {% else %}
                   {{ get_image(
                     's_fulltext',
-                    'Show full queries'|trans,
+                    t('Show full queries'),
                     {'class': 'icon_fulltext'}
                   ) }}
                 {% endif %}

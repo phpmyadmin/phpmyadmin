@@ -42,5 +42,5 @@
     {{ engine.variables|raw }}
   {% endif %}
 {% else %}
-  <p>{{ 'Unknown storage engine.'|trans|error }}</p>
+  <p>{{ t('Unknown storage engine.')|error }}</p>
 {% endif %}

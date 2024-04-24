@@ -20,7 +20,7 @@
     <div class="card-header">{% trans %}New{% context %}Create new user{% endtrans %}</div>
     <div class="card-body" id="fieldset_add_user">
       <a id="add_user_anchor" href="{{ url('/server/privileges', {'adduser': true}) }}">
-        {{- get_icon('b_usradd', 'Add user account'|trans) -}}
+        {{- get_icon('b_usradd', t('Add user account')) -}}
       </a>
     </div>
   </div>

@@ -7,7 +7,7 @@ window.designerConfig = {{ designer_config|raw }};
 {% if not has_query %}
     <div id="name-panel">
         <span id="page_name">
-            {{ selected_page == null ? 'Untitled'|trans : selected_page }}
+            {{ selected_page == null ? t('Untitled') : selected_page }}
         </span>
         <span id="saved_state">
             {{ selected_page == null ? '*' : '' }}

@@ -1,5 +1,5 @@
 <div class="container my-3">
-  <h2>{{ 'Database operations'|trans }}</h2>
+  <h2>{{ t('Database operations') }}</h2>
 
   {{ message|raw }}
 
@@ -7,7 +7,7 @@
     <form method="post" action="{{ url('/database/operations') }}" id="formDatabaseComment">
       {{ get_hidden_inputs(db) }}
       <div class="card mb-2">
-        <div class="card-header">{{ get_icon('b_comment', 'Database comment'|trans, true) }}</div>
+        <div class="card-header">{{ get_icon('b_comment', t('Database comment'), true) }}</div>
         <div class="card-body">
           <div class="row g-3">
             <div class="col-auto">
@@ -25,7 +25,7 @@
 
   <form id="createTableMinimalForm" method="post" action="{{ url('/table/create') }}" class="card mb-2 lock-page">
     {{ get_hidden_inputs(db) }}
-    <div class="card-header">{{ get_icon('b_table_add', 'Create new table'|trans, true) }}</div>
+    <div class="card-header">{{ get_icon('b_table_add', t('Create new table'), true) }}</div>
     <div class="card-body row row-cols-lg-auto g-3">
       <div class="col-md-6">
         <label for="createTableNameInput" class="form-label">{% trans 'Table name' %}</label>
@@ -52,7 +52,7 @@
       {% endif %}
 
       <div class="card mb-2">
-        <div class="card-header">{{ get_icon('b_edit', 'Rename database to'|trans, true) }}</div>
+        <div class="card-header">{{ get_icon('b_edit', t('Rename database to'), true) }}</div>
         <div class="card-body">
           <div class="mb-3 row g-3">
             <div class="col-auto">
@@ -81,7 +81,7 @@
 
   {% if is_drop_database_allowed %}
     <div class="card mb-2">
-      <div class="card-header">{{ get_icon('b_deltbl', 'Remove database'|trans, true) }}</div>
+      <div class="card-header">{{ get_icon('b_deltbl', t('Remove database'), true) }}</div>
       <div class="card-body">
         <div class="card-text">
           {{ link_or_button(
@@ -92,10 +92,10 @@
               'goto': url('/'),
               'reload': true,
               'purge': true,
-              'message_to_show': 'Database %s has been dropped.'|trans|format(backquote(db))|e,
+              'message_to_show': t('Database %s has been dropped.')|format(backquote(db))|e,
               'db': null
             },
-            'Drop the database (DROP)'|trans,
+            t('Drop the database (DROP)'),
             {
               'id': 'drop_db_anchor',
               'class': 'ajax text-danger'
@@ -116,7 +116,7 @@
     {% endif %}
 
     <div class="card mb-2">
-      <div class="card-header">{{ get_icon('b_edit', 'Copy database to'|trans, true) }}</div>
+      <div class="card-header">{{ get_icon('b_edit', t('Copy database to'), true) }}</div>
       <div class="card-body">
         <div class="mb-3 row g-3">
           <div class="col-auto">
@@ -153,7 +153,7 @@
 
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="drop_if_exists" value="true" id="checkbox_drop">
-          <label class="form-check-label" for="checkbox_drop">{{ 'Add %s'|trans|format('DROP TABLE / DROP VIEW') }}</label>
+          <label class="form-check-label" for="checkbox_drop">{{ t('Add %s')|format('DROP TABLE / DROP VIEW') }}</label>
         </div>
 
         <div class="form-check">
@@ -192,7 +192,7 @@
     {{ get_hidden_inputs(db) }}
 
     <div class="card mb-2">
-      <div class="card-header">{{ get_icon('s_asci', 'Collation'|trans, true) }}</div>
+      <div class="card-header">{{ get_icon('s_asci', t('Collation'), true) }}</div>
       <div class="card-body">
         <div class="mb-3 row g-3">
           <div class="col-auto">

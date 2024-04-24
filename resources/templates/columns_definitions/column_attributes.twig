@@ -187,7 +187,7 @@
         {% for move_column in move_columns %}
           <option value="{{ move_column.name }}"
             {{- current_index == loop.index0 or current_index == loop.index0 + 1 ? ' disabled' }}>
-            {{ 'after %s'|trans|format(backquote(move_column.name|e)) }}
+            {{ t('after %s')|format(backquote(move_column.name|e)) }}
           </option>
         {% endfor %}
       </select>

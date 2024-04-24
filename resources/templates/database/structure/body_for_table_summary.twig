@@ -37,7 +37,7 @@
     <th class="value tbl_rows font-monospace text-end">{{ cell_text }}</th>
     {% if not (properties_num_columns > 1) %}
         <th class="text-center">
-            <dfn title="{{ '%s is the default storage engine on this MySQL server.'|trans|format(default_storage_engine) }}">
+            <dfn title="{{ t('%s is the default storage engine on this MySQL server.')|format(default_storage_engine) }}">
                 {{ default_storage_engine }}
             </dfn>
         </th>

@@ -5,7 +5,7 @@
   {% endif %}
 
   <p class="d-print-none">
-    <button type="button" class="btn btn-secondary jsPrintButton">{{ get_icon('b_print', 'Print'|trans, true) }}</button>
+    <button type="button" class="btn btn-secondary jsPrintButton">{{ get_icon('b_print', t('Print'), true) }}</button>
   </p>
 
   <div>
@@ -44,7 +44,7 @@
                 <td lang="en" dir="ltr"{{ 'set' != column.type and 'enum' != column.type ? ' class="text-nowrap"' }}>
                   {{ column.print_type }}
                 </td>
-                <td>{{ column.is_nullable ? 'Yes'|trans : 'No'|trans }}</td>
+                <td>{{ column.is_nullable ? t('Yes') : t('No') }}</td>
                 <td class="text-nowrap">
                   {% if column.default is null and column.is_nullable %}
                     <em>NULL</em>
@@ -88,7 +88,7 @@
                 <tr>
                 <td rowspan="{{ columns_count }}">{{ index.getName() }}</td>
                 <td rowspan="{{ columns_count }}">{{ index.getType()|default(index.getChoice()) }}</td>
-                <td rowspan="{{ columns_count }}">{{ index.isUnique() ? 'Yes'|trans : 'No'|trans }}</td>
+                <td rowspan="{{ columns_count }}">{{ index.isUnique() ? t('Yes') : t('No') }}</td>
                 <td rowspan="{{ columns_count }}">{{ index.isPacked()|raw }}</td>
 
                 {% for column in index.getColumns() %}
@@ -121,6 +121,6 @@
   </div>
 
   <p class="d-print-none">
-    <button type="button" class="btn btn-secondary jsPrintButton">{{ get_icon('b_print', 'Print'|trans, true) }}</button>
+    <button type="button" class="btn btn-secondary jsPrintButton">{{ get_icon('b_print', t('Print'), true) }}</button>
   </p>
 </div>

@@ -1,5 +1,5 @@
 <div class="clearfloat d-print-none">
-    {{ get_image('select_all_arrow', 'With selected:'|trans, {'dir': text_dir, 'width': '38', 'height': '22'}) }}
+    {{ get_image('select_all_arrow', t('With selected:'), {'dir': text_dir, 'width': '38', 'height': '22'}) }}
     <input type="checkbox" id="tablesForm_checkall" class="checkall_box" title="{% trans 'Check all' %}">
     <label for="tablesForm_checkall">{% trans 'Check all' %}</label>
     {% if overhead_check != '' %}
@@ -49,7 +49,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Cancel' %}"></button>
         </div>
         <div class="modal-body">
-          {{ 'This action may change some of the columns definition.[br]Are you sure you want to continue?'|trans|sanitize }}
+          {{ t('This action may change some of the columns definition.[br]Are you sure you want to continue?')|sanitize }}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Cancel' %}</button>

@@ -1,6 +1,6 @@
 <div class="container">
   <h2 class="my-3">
-    {{ get_image('b_export', 'Export'|trans) }}
+    {{ get_image('b_export', t('Export')) }}
     {% block title %}{% endblock %}
   </h2>
 
@@ -176,7 +176,7 @@
           <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" role="switch" name="quick_export_onserver" value="saveit" id="checkbox_quick_dump_onserver"{{ export_is_checked ? ' checked' }}>
             <label class="form-check-label" for="checkbox_quick_dump_onserver">
-              {{ 'Save on server in the directory <strong>%s</strong>'|trans|format(save_dir|e)|raw }}
+              {{ t('Save on server in the directory <strong>%s</strong>')|format(save_dir|e)|raw }}
             </label>
           </div>
           <div class="form-check form-switch">
@@ -348,7 +348,7 @@
               <input class="form-check-input" type="checkbox" role="switch" name="lock_tables" value="something" id="checkbox_lock_tables"
                 {{- (not repopulate and is_checked_lock_tables) or lock_tables ? ' checked' }}>
               <label class="form-check-label" for="checkbox_lock_tables">
-                {{ 'Use %s statement'|trans|format('<code>LOCK TABLES</code>')|raw }}
+                {{ t('Use %s statement')|format('<code>LOCK TABLES</code>')|raw }}
               </label>
             </div>
           </li>
@@ -371,7 +371,7 @@
                   <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" name="onserver" value="saveit" id="checkbox_dump_onserver"{{ is_checked_export ? ' checked' }}>
                     <label class="form-check-label" for="checkbox_dump_onserver">
-                      {{ 'Save on server in the directory <strong>%s</strong>'|trans|format(save_dir|e)|raw }}
+                      {{ t('Save on server in the directory <strong>%s</strong>')|format(save_dir|e)|raw }}
                     </label>
                   </div>
                   <div class="form-check form-switch">
@@ -389,7 +389,7 @@
                   <div class="col-auto">
                     <label for="filename_template" class="col-form-label">
                       {% trans 'File name template:' %}
-                      {{ show_hint('This value is interpreted using the \'strftime\' function, so you can use time formatting strings. Additionally the following transformations will happen: %s Other text will be kept as is. See the FAQ 6.27 for details.'|trans|format(filename_hint)) }}
+                      {{ show_hint(t('This value is interpreted using the \'strftime\' function, so you can use time formatting strings. Additionally the following transformations will happen: %s Other text will be kept as is. See the FAQ 6.27 for details.')|format(filename_hint)) }}
                     </label>
                   </div>
                   <div class="col-auto">

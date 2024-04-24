@@ -6,7 +6,7 @@
       </div>
       <div class="card-body">
         <form method="post" action="{{ url('/preferences/two-factor') }}">
-          {{ "By disabling two factor authentication you will be again able to login using password only."|trans|notice }}
+          {{ t('By disabling two factor authentication you will be again able to login using password only.')|notice }}
           {{ get_hidden_inputs() }}
           {{ form|raw }}
           <input type="hidden" name="2fa_remove" value="1">

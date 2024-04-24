@@ -2,7 +2,7 @@
   {{ get_hidden_inputs(db) }}
   <input type="hidden" name="operation" value="{{ operation }}">
   <label for="selected_page">
-    {{ operation == 'editPage' ? 'Page to open'|trans : 'Page to delete'|trans }}:
+    {{ operation == 'editPage' ? t('Page to open') : t('Page to delete') }}:
   </label>
   {% include 'database/designer/page_selector.twig' with {
     'pdfwork': pdfwork,

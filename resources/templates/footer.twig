@@ -9,7 +9,7 @@
     <div id="selflink" class="d-print-none">
       <a href="{{ self_url }}" title="{% trans 'Open new phpMyAdmin window' %}" target="_blank" rel="noopener noreferrer">
         {% if show_icons('TabsMode') %}
-          {{ get_image('window-new', 'Open new phpMyAdmin window'|trans) }}
+          {{ get_image('window-new', t('Open new phpMyAdmin window')) }}
         {% else %}
           {% trans 'Open new phpMyAdmin window' %}
         {% endif %}
@@ -34,7 +34,7 @@
           {% set branch_info -%}
             <a target="_blank" rel="noopener noreferrer" href="{{ git_revision_info.branchUrl|link }}">{{ git_revision_info.branch }}</a>
           {%- endset %}
-          {{ 'Currently running Git revision %1$s from the %2$s branch.'|trans|format(revision_info, branch_info)|raw }}
+          {{ t('Currently running Git revision %1$s from the %2$s branch.')|format(revision_info, branch_info)|raw }}
         {% else %}
           {% trans 'Git information missing!' %}
         {% endif %}

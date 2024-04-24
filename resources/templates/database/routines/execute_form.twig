@@ -4,7 +4,7 @@
   {{ get_hidden_inputs(db) }}
 
   <div class="card">
-    <div class="card-header">{{ ajax ? 'Routine parameters'|trans : routine['item_name'] }}</div>
+    <div class="card-header">{{ ajax ? t('Routine parameters') : routine['item_name'] }}</div>
 
     <div class="card-body">
       <table class="table w-auto rte_table{{ not ajax ? ' caption-top' }}">

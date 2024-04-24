@@ -3,7 +3,7 @@
 {% block content %}
   <div class="container">
     {% if not is_data_loaded %}
-      {{ 'Not enough privilege to view query statistics.'|trans|error }}
+      {{ t('Not enough privilege to view query statistics.')|error }}
     {% else %}
       <h3>
         {% trans %}Questions since startup:{% notes %}Questions is the name of a MySQL Status variable{% endtrans %} {{ format_number(stats.total, 0) }}
@@ -49,7 +49,7 @@
         </table>
 
         <div class="col">
-          <canvas id="query-statistics-chart" data-chart-data="{{ chart_data|json_encode|e('html_attr') }}" aria-label="{{ 'Pie chart with the most frequent statements.'|trans }}" role="img"></canvas>
+          <canvas id="query-statistics-chart" data-chart-data="{{ chart_data|json_encode|e('html_attr') }}" aria-label="{{ t('Pie chart with the most frequent statements.') }}" role="img"></canvas>
         </div>
       </div>
     {% endif %}

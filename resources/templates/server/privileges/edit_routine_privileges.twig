@@ -31,7 +31,7 @@
   </h2>
 
   {% if current_user == username ~ '@' ~ hostname %}
-    {{ 'Note: You are attempting to edit privileges of the user with which you are currently logged in.'|trans|notice }}
+    {{ t('Note: You are attempting to edit privileges of the user with which you are currently logged in.')|notice }}
   {% endif %}
 
   <form class="submenu-item" name="usersForm" id="addUsersForm" action="{{ url('/server/privileges') }}" method="post">

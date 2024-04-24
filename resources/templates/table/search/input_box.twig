@@ -18,7 +18,7 @@
             {{- get_common({'db': db, 'table': table}, '', false) -}}
             &amp;field={{ column_name|url_encode }}&amp;fieldkey=
             {{- column_index }}&amp;fromsearch=1">
-            {{ get_icon('b_browse', 'Browse foreign values'|trans) }}
+            {{ get_icon('b_browse', t('Browse foreign values')) }}
         </a>
     {% endif %}
 {% elseif column_type in get_gis_datatypes() %}
@@ -29,7 +29,7 @@
         id="field_{{ column_index }}">
     {% if in_fbs %}
         <span class="open_search_gis_editor">
-            {{ link_or_button('#', null, get_icon('b_edit', 'Edit/Insert'|trans)) }}
+            {{ link_or_button('#', null, get_icon('b_edit', t('Edit/Insert'))) }}
         </span>
     {% endif %}
 {% elseif column_type starts with 'enum'

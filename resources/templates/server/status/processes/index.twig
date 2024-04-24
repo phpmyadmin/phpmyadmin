@@ -25,7 +25,7 @@
 {{ server_process_list|raw }}
 
 <div class="row">
-{{ 'Note: Enabling the auto refresh here might cause heavy traffic between the web server and the MySQL server.'|trans|notice }}
+{{ t('Note: Enabling the auto refresh here might cause heavy traffic between the web server and the MySQL server.')|notice }}
 </div>
 
 <div class="tabLinks row">
@@ -36,17 +36,9 @@
       {% for rate in [2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200] %}
         <option value="{{ rate }}"{{ rate == 5 ? ' selected' }}>
           {% if rate < 60 %}
-            {% if rate == 1 %}
-              {{ '%d second'|trans|format(rate) }}
-            {% else %}
-              {{ '%d seconds'|trans|format(rate) }}
-            {% endif %}
+            {{- t('%d second', '%d seconds', rate)|format(rate) -}}
           {% else %}
-            {% if rate / 60 == 1 %}
-              {{ '%d minute'|trans|format(rate / 60) }}
-            {% else %}
-              {{ '%d minutes'|trans|format(rate / 60) }}
-            {% endif %}
+            {{- t('%d minute', '%d minutes', rate / 60)|format(rate / 60) -}}
           {% endif %}
         </option>
       {% endfor %}

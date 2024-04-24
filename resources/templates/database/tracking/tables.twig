@@ -90,7 +90,7 @@
                                         'table': version.table_name,
                                         'delete_tracking': true
                                     }, '', false) }}">
-                                    {{ get_icon('b_drop', 'Delete tracking'|trans) }}
+                                    {{ get_icon('b_drop', t('Delete tracking')) }}
                                 </a>
                             </td>
                             <td>
@@ -101,7 +101,7 @@
                                         'back': url('/database/tracking'),
                                         'table': version.table_name
                                     }, '', false) }}">
-                                    {{ get_icon('b_versions', 'Versions'|trans) }}
+                                    {{ get_icon('b_versions', t('Versions')) }}
                                 </a>
                                 <a href="{{ url('/table/tracking') }}" data-post="
                                     {{- get_common({
@@ -112,7 +112,7 @@
                                         'report': true,
                                         'version': version.version
                                     }, '', false) }}">
-                                    {{ get_icon('b_report', 'Tracking report'|trans) }}
+                                    {{ get_icon('b_report', t('Tracking report')) }}
                                 </a>
                                 <a href="{{ url('/table/tracking') }}" data-post="
                                     {{- get_common({
@@ -123,7 +123,7 @@
                                         'snapshot': true,
                                         'version': version.version
                                     }, '', false) }}">
-                                    {{ get_icon('b_props', 'Structure snapshot'|trans) }}
+                                    {{ get_icon('b_props', t('Structure snapshot')) }}
                                 </a>
                             </td>
                         </tr>
@@ -136,7 +136,7 @@
             } only %}
             <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="delete_tracking"
                     title="{% trans 'Delete tracking' %}">
-                {{ get_icon('b_drop', 'Delete tracking'|trans) }}
+                {{ get_icon('b_drop', t('Delete tracking')) }}
             </button>
         </form>
     </div>
@@ -172,7 +172,7 @@
                             'db': db,
                             'table': table_name
                           })) }}">
-                              {{ get_icon('eye', 'Track table'|trans) }}
+                              {{ get_icon('eye', t('Track table')) }}
                           </a>
                       </td>
                   </tr>
@@ -184,7 +184,7 @@
             'form_name': 'untrackedForm'
         } only %}
         <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="track" title="{% trans 'Track table' %}">
-            {{ get_icon('eye', 'Track table'|trans) }}
+            {{ get_icon('eye', t('Track table')) }}
         </button>
     </form>
 {% endif %}

@@ -1,7 +1,7 @@
 <form id="gis_data_editor_form" action="{{ url('/gis-data-editor') }}" method="post">
     <div id="gis_data_editor">
         <button type="button" class="ui-dialog-titlebar-close btn-close cancel_gis_editor close_gis_editor"></button>
-        <h3>{{ 'Value for the column "%s"'|trans|format(field) }}</h3>
+        <h3>{{ t('Value for the column "%s"')|format(field) }}</h3>
 
         <input type="hidden" name="field" value="{{ field }}">
         <input type="hidden" name="type" value="{{ column_type }}">
@@ -59,8 +59,8 @@
             <h3>{% trans 'Output' %}</h3>
             <textarea id="gis_data_textarea" class="mb-3" rows="5">{{ result }}</textarea>
 
-            <button type="button" class="btn btn-primary gis-copy-data">{{ 'Copy'|trans }}</button>
-            <button type="button" class="btn btn-secondary cancel_gis_editor"> {{ 'Cancel'|trans }}</button>
+            <button type="button" class="btn btn-primary gis-copy-data">{{ t('Copy') }}</button>
+            <button type="button" class="btn btn-secondary cancel_gis_editor"> {{ t('Cancel') }}</button>
         </div>
     </div>
 </form>

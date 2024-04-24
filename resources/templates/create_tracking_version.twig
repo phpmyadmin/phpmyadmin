@@ -7,12 +7,12 @@
 
         <div class="card-header">
                 {% if selected|length == 1 %}
-                    {{ 'Create version %1$s of %2$s'|trans|format(
+                    {{ t('Create version %1$s of %2$s')|format(
                         last_version + 1,
                         db ~ '.' ~ selected[0]
                     ) }}
                 {% else %}
-                    {{ 'Create version %1$s'|trans|format(last_version + 1) }}
+                    {{ t('Create version %1$s')|format(last_version + 1) }}
                 {% endif %}
         </div>
 

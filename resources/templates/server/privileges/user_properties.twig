@@ -50,11 +50,11 @@
   </h2>
 
   {% if current_user == username ~ '@' ~ hostname %}
-    {{ 'Note: You are attempting to edit privileges of the user with which you are currently logged in.'|trans|notice }}
+    {{ t('Note: You are attempting to edit privileges of the user with which you are currently logged in.')|notice }}
   {% endif %}
 
   {% if user_does_not_exists %}
-    {{ 'The selected user was not found in the privilege table.'|trans|error }}
+    {{ t('The selected user was not found in the privilege table.')|error }}
   {% endif %}
 
   <form class="submenu-item" name="usersForm" id="addUsersForm" action="{{ url('/server/privileges') }}" method="post">

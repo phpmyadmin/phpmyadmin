@@ -15,11 +15,11 @@
 
         <div class="form-check">
           <input class="form-check-input" type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio1" value="1"{{ criteria_search_type == '1' ? ' checked' }}>
-          <label class="form-check-label" for="criteriaSearchTypeRadio1">{% trans 'at least one of the words' %} {{ show_hint('Words are separated by a space character (" ").'|trans) }}</label>
+          <label class="form-check-label" for="criteriaSearchTypeRadio1">{% trans 'at least one of the words' %} {{ show_hint(t('Words are separated by a space character (" ").')) }}</label>
         </div>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio2" value="2"{{ criteria_search_type == '2' ? ' checked' }}>
-          <label class="form-check-label" for="criteriaSearchTypeRadio2">{% trans 'all of the words' %} {{ show_hint('Words are separated by a space character (" ").'|trans) }}</label>
+          <label class="form-check-label" for="criteriaSearchTypeRadio2">{% trans 'all of the words' %} {{ show_hint(t('Words are separated by a space character (" ").')) }}</label>
         </div>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio3" value="3"{{ criteria_search_type == '3' ? ' checked' }}>

@@ -22,10 +22,10 @@
   {% if server_replica_status %}
     <div id="replica_configuration_gui">
       {% if not replica_sql_running %}
-        {{ 'Replica SQL Thread not running!'|trans|error }}
+        {{ t('Replica SQL Thread not running!')|error }}
       {% endif %}
       {% if not replica_io_running %}
-        {{ 'Replica IO Thread not running!'|trans|error }}
+        {{ t('Replica IO Thread not running!')|error }}
       {% endif %}
 
       <p>{% trans 'Server is configured as replica in a replication process. Would you like to:' %}</p>
@@ -74,7 +74,7 @@
             {% trans 'Error management:' %}
           </a>
           <div id="replica_errormanagement_gui" class="hide">
-            {{ 'Skipping errors might lead into unsynchronized primary and replica!'|trans|error }}
+            {{ t('Skipping errors might lead into unsynchronized primary and replica!')|error }}
             <ul>
               <li>
                 <a href="{{ url('/server/replication') }}" data-post="{{ replica_skip_error_link|raw }}">
@@ -84,7 +84,7 @@
               <li>
                 <form method="post" action="{{ url('/server/replication') }}">
                   {{ get_hidden_inputs('', '') }}
-                  {{ 'Skip next %s errors.'|trans|format('<input type="text" name="sr_skip_errors_count" value="1" class="repl_gui_skip_err_cnt">')|raw }}
+                  {{ t('Skip next %s errors.')|format('<input type="text" name="sr_skip_errors_count" value="1" class="repl_gui_skip_err_cnt">')|raw }}
                   <input class="btn btn-primary" type="submit" name="sr_replica_skip_error" value="{% trans 'Go' %}">
                   <input type="hidden" name="sr_take_action" value="1">
                 </form>

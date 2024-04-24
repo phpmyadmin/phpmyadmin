@@ -1,5 +1,5 @@
 <div class="container my-3">
-  <h2>{{ 'Table operations'|trans }}</h2>
+  <h2>{{ t('Table operations') }}</h2>
 
 {% if not hide_order_table %}
   <form method="post" id="alterTableOrderby" action="{{ url('/table/operations') }}">
@@ -293,7 +293,7 @@
       <div class="mb-3">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="drop_if_exists" value="true" id="checkbox_drop">
-          <label class="form-check-label" for="checkbox_drop">{{ 'Add %s'|trans|format('DROP TABLE') }}</label>
+          <label class="form-check-label" for="checkbox_drop">{{ t('Add %s')|format('DROP TABLE') }}</label>
         </div>
 
         <div class="form-check">
@@ -371,7 +371,7 @@
     <li class="list-group-item">
       <a class="maintain_action ajax" href="{{ url('/sql') }}" data-post="{{ get_common(url_params|merge({
         'sql_query': 'FLUSH TABLE ' ~ backquote(table),
-        'message_to_show': 'Table %s has been flushed.'|trans|format(table|e),
+        'message_to_show': t('Table %s has been flushed.')|format(table|e),
         'reload': true
       }), '', false) }}">
         {% trans 'Flush the table (FLUSH)' %}
@@ -411,9 +411,9 @@
               'sql_query': 'TRUNCATE TABLE ' ~ backquote(db) ~ '.' ~ backquote(table),
               'goto': url('/table/structure'),
               'reload': true,
-              'message_to_show': 'Table %s has been emptied.'|trans|format(table)|e
+              'message_to_show': t('Table %s has been emptied.')|format(table)|e
             }),
-            'Empty the table (TRUNCATE)'|trans,
+            t('Empty the table (TRUNCATE)'),
             {
               'id': 'truncate_tbl_anchor',
               'class': 'text-danger ajax',
@@ -429,9 +429,9 @@
               'sql_query': 'DELETE FROM ' ~ backquote(db) ~ '.' ~ backquote(table),
               'goto': url('/table/structure'),
               'reload': true,
-              'message_to_show': 'Table %s has been emptied.'|trans|format(table)|e
+              'message_to_show': t('Table %s has been emptied.')|format(table)|e
             }),
-            'Empty the table (DELETE FROM)'|trans,
+            t('Empty the table (DELETE FROM)'),
             {
               'id': 'delete_tbl_anchor',
               'class': 'text-danger ajax',
@@ -449,10 +449,10 @@
             'goto': url('/database/operations'),
             'reload': true,
             'purge': true,
-            'message_to_show': is_view ? 'View %s has been dropped.'|trans|format(table)|e : 'Table %s has been dropped.'|trans|format(table)|e,
+            'message_to_show': is_view ? t('View %s has been dropped.')|format(table)|e : t('Table %s has been dropped.')|format(table)|e,
             'table': table
           }),
-          'Delete the table (DROP)'|trans,
+          t('Delete the table (DROP)'),
           {
             'id': 'drop_tbl_anchor',
             'class': 'text-danger ajax',

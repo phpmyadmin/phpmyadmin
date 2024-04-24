@@ -136,7 +136,7 @@
     </table>
   </div>
 {% else %}
-  {{ 'Not enough privilege to view status variables.'|trans|error }}
+  {{ t('Not enough privilege to view status variables.')|error }}
 {% endif %}
 
 {% endblock %}

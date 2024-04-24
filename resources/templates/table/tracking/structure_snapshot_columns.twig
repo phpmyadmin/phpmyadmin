@@ -22,15 +22,15 @@
                     <strong>
                         {{ field['Field'] }}
                         {% if field['Key'] == 'PRI' %}
-                            {{ get_image('b_primary', 'Primary'|trans) }}
+                            {{ get_image('b_primary', t('Primary')) }}
                         {% elseif field['Key'] is not empty %}
-                            {{ get_image('bd_primary', 'Index'|trans) }}
+                            {{ get_image('bd_primary', t('Index')) }}
                         {% endif %}
                     </strong>
                 </td>
                 <td>{{ field['Type'] }}</td>
                 <td>{{ field['Collation'] }}</td>
-                <td>{{ field['Null'] == 'YES' ? 'Yes'|trans : 'No'|trans }}</td>
+                <td>{{ field['Null'] == 'YES' ? t('Yes') : t('No') }}</td>
                 <td>
                     {% if field['Default'] is defined %}
                         {% set extracted_columnspec = extract_column_spec(field['Type']) %}

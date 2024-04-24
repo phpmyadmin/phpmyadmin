@@ -90,7 +90,7 @@
                                 type="checkbox"
                                 id="select_{{ t_n_url }}._{{ tab_column[t_n][j].name|url_encode }}"
                                 style="margin: 0;"
-                                title="{{ 'Select "%s"'|trans|format(col_name) }}"
+                                title="{{ t('Select "%s"')|format(col_name) }}"
                                 id_check_all="select_all_{{ i }}"
                                 db_name="{{ db }}"
                                 table_name="{{ table_name }}"
@@ -108,7 +108,7 @@
                     {% if has_query %}
                         <td class="small_tab_pref small_tab_pref_click_opt"
                             {# Escaped 2 times to be able to use it in innerHtml #}
-                            option_col_name_modal="<strong>{{ 'Add an option for column "%s".'|trans|format(col_name)|escape('html')|escape('html') }}</strong>"
+                            option_col_name_modal="<strong>{{ t('Add an option for column "%s".')|format(col_name)|escape('html')|escape('html') }}</strong>"
                             db_name="{{ db }}"
                             table_name="{{ table_name }}"
                             col_name="{{ col_name }}"

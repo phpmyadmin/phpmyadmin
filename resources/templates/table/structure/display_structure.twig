@@ -77,7 +77,7 @@
             {% endif %}
             </td>
             <td class="column_attribute text-nowrap">{{ attributes[rownum] }}</td>
-            <td>{{ row.isNull ? 'Yes'|trans : 'No'|trans }}</td>
+            <td>{{ row.isNull ? t('Yes') : t('No') }}</td>
             <td class="text-nowrap">
                 {%- if row.default is not null -%}
                     {%- if extracted_columnspec['type'] == 'bit' -%}
@@ -105,7 +105,7 @@
                       'field': row.field,
                       'change_column': 1
                     }) }}">
-                      {{ get_icon('b_edit', 'Change'|trans) }}
+                      {{ get_icon('b_edit', t('Change')) }}
                     </a>
                 </td>
                 <td class="drop text-center d-print-none">
@@ -115,9 +115,9 @@
                       'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP ' ~ backquote(row.field) ~ ';',
                       'dropped_column': row.field,
                       'purge': true,
-                      'message_to_show': 'Column %s has been dropped.'|trans|format(row.field|e)
+                      'message_to_show': t('Column %s has been dropped.')|format(row.field|e)
                     }, '', false) }}">
-                      {{ get_icon('b_drop', 'Drop'|trans) }}
+                      {{ get_icon('b_drop', t('Drop')) }}
                     </a>
                 </td>
             {% endif %}
@@ -134,45 +134,45 @@
                   {% endif %}
                         <li class="{{ not hide_structure_actions ? 'nav-item ' }}primary text-nowrap">
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or (primary and primary.hasColumn(field_name)) %}
-                            <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_primary', 'Primary'|trans) }}</span>
+                            <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_primary', t('Primary')) }}</span>
                           {% else %}
                             <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_primary_key_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ (primary ? ' DROP PRIMARY KEY,') ~ ' ADD PRIMARY KEY(' ~ backquote(row.field) ~ ');',
-                              'message_to_show': 'A primary key has been added on %s.'|trans|format(row.field|e)
+                              'message_to_show': t('A primary key has been added on %s.')|format(row.field|e)
                             }, '', false) }}">
-                              {{ get_icon('b_primary', 'Primary'|trans) }}
+                              {{ get_icon('b_primary', t('Primary')) }}
                             </a>
                           {% endif %}
                         </li>
 
                         <li class="{{ not hide_structure_actions ? 'nav-item ' }}add_unique unique text-nowrap">
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' %}
-                            <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_unique', 'Unique'|trans) }}</span>
+                            <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_unique', t('Unique')) }}</span>
                           {% else %}
                             <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_unique_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD UNIQUE(' ~ backquote(row.field) ~ ');',
-                              'message_to_show': 'An index has been added on %s.'|trans|format(row.field|e)
+                              'message_to_show': t('An index has been added on %s.')|format(row.field|e)
                             }, '', false) }}">
-                              {{ get_icon('b_unique', 'Unique'|trans) }}
+                              {{ get_icon('b_unique', t('Unique')) }}
                             </a>
                           {% endif %}
                         </li>
 
                         <li class="{{ not hide_structure_actions ? 'nav-item ' }}add_index text-nowrap">
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' %}
-                            <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_index', 'Index'|trans) }}</span>
+                            <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_index', t('Index')) }}</span>
                           {% else %}
                             <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_index_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD INDEX(' ~ backquote(row.field) ~ ');',
-                              'message_to_show': 'An index has been added on %s.'|trans|format(row.field|e)
+                              'message_to_show': t('An index has been added on %s.')|format(row.field|e)
                             }, '', false) }}">
-                              {{ get_icon('b_index', 'Index'|trans) }}
+                              {{ get_icon('b_index', t('Index')) }}
                             </a>
                           {% endif %}
                         </li>
@@ -189,15 +189,15 @@
                         ] %}
                         <li class="{{ not hide_structure_actions ? 'nav-item ' }}spatial text-nowrap">
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or (type not in spatial_types and (tbl_storage_engine == 'MYISAM' or mysql_int_version >= 50705)) %}
-                            <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_spatial', 'Spatial'|trans) }}</span>
+                            <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_spatial', t('Spatial')) }}</span>
                           {% else %}
                             <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_spatial_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD SPATIAL(' ~ backquote(row.field) ~ ');',
-                              'message_to_show': 'An index has been added on %s.'|trans|format(row.field|e)
+                              'message_to_show': t('An index has been added on %s.')|format(row.field|e)
                             }, '', false) }}">
-                              {{ get_icon('b_spatial', 'Spatial'|trans) }}
+                              {{ get_icon('b_spatial', t('Spatial')) }}
                             </a>
                           {% endif %}
                         </li>
@@ -214,12 +214,12 @@
                               'db': db,
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD FULLTEXT(' ~ backquote(row.field) ~ ');',
-                              'message_to_show': 'An index has been added on %s.'|trans|format(row.field|e)
+                              'message_to_show': t('An index has been added on %s.')|format(row.field|e)
                             }, '', false) }}">
-                              {{ get_icon('b_ftext', 'Fulltext'|trans) }}
+                              {{ get_icon('b_ftext', t('Fulltext')) }}
                             </a>
                         {% else %}
-                            <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_ftext', 'Fulltext'|trans) }}</span>
+                            <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_ftext', t('Fulltext')) }}</span>
                         {% endif %}
                         </li>
 
@@ -228,14 +228,14 @@
                             <a class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }}" href="{{ url('/sql') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
-                              'sql_query': 'SELECT COUNT(*) AS ' ~ backquote('Rows'|trans)
+                              'sql_query': 'SELECT COUNT(*) AS ' ~ backquote(t('Rows'))
                                 ~ ', ' ~ backquote(row.field)
                                 ~ ' FROM ' ~ backquote(table)
                                 ~ ' GROUP BY ' ~ backquote(row.field)
                                 ~ ' ORDER BY ' ~ backquote(row.field),
                               'is_browse_distinct': true
                             }, '', false) }}">
-                              {{ get_icon('b_browse', 'Distinct values'|trans) }}
+                              {{ get_icon('b_browse', t('Distinct values')) }}
                             </a>
                         </li>
                         {% if relation_parameters.centralColumnsFeature is not null %}
@@ -246,7 +246,7 @@
                                   'table': table,
                                   'selected_fld': [row.field],
                                 }) }}">
-                                    {{ get_icon('centralColumns_delete', 'Remove from central columns'|trans) }}
+                                    {{ get_icon('centralColumns_delete', t('Remove from central columns')) }}
                                 </a>
                             {% else %}
                                 <a class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }}" href="{{ url('/table/structure/central-columns-add') }}" data-post="{{ get_common({
@@ -254,7 +254,7 @@
                                   'table': table,
                                   'selected_fld': [row.field],
                                 }) }}">
-                                    {{ get_icon('centralColumns_add', 'Add to central columns'|trans) }}
+                                    {{ get_icon('centralColumns_add', t('Add to central columns')) }}
                                 </a>
                             {% endif %}
                             </li>
@@ -279,40 +279,40 @@
         } only %}
 
         <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/browse') }}">
-          {{ get_icon('b_browse', 'Browse'|trans) }}
+          {{ get_icon('b_browse', t('Browse')) }}
         </button>
 
         {% if not tbl_is_view and not db_is_system_schema %}
           <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/change') }}">
-            {{ get_icon('b_edit', 'Change'|trans) }}
+            {{ get_icon('b_edit', t('Change')) }}
           </button>
           <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/drop-confirm') }}">
-            {{ get_icon('b_drop', 'Drop'|trans) }}
+            {{ get_icon('b_drop', t('Drop')) }}
           </button>
 
           {% if tbl_storage_engine != 'ARCHIVE' %}
             <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/primary') }}">
-              {{ get_icon('b_primary', 'Primary'|trans) }}
+              {{ get_icon('b_primary', t('Primary')) }}
             </button>
             <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/unique') }}">
-              {{ get_icon('b_unique', 'Unique'|trans) }}
+              {{ get_icon('b_unique', t('Unique')) }}
             </button>
             <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/index') }}">
-              {{ get_icon('b_index', 'Index'|trans) }}
+              {{ get_icon('b_index', t('Index')) }}
             </button>
             <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/spatial') }}">
-              {{ get_icon('b_spatial', 'Spatial'|trans) }}
+              {{ get_icon('b_spatial', t('Spatial')) }}
             </button>
             <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/fulltext') }}">
-              {{ get_icon('b_ftext', 'Fulltext'|trans) }}
+              {{ get_icon('b_ftext', t('Fulltext')) }}
             </button>
 
             {% if relation_parameters.centralColumnsFeature is not null %}
               <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/central-columns-add') }}">
-                {{ get_icon('centralColumns_add', 'Add to central columns'|trans) }}
+                {{ get_icon('centralColumns_add', t('Add to central columns')) }}
               </button>
               <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/central-columns-remove') }}">
-                {{ get_icon('centralColumns_delete', 'Remove from central columns'|trans) }}
+                {{ get_icon('centralColumns_delete', t('Remove from central columns')) }}
               </button>
             {% endif %}
           {% endif %}
@@ -387,10 +387,10 @@
         {{ link_or_button(
             url('/view/create'),
             {'db': db, 'table': table},
-            get_icon('b_edit', 'Edit view'|trans, true)
+            get_icon('b_edit', t('Edit view'), true)
         ) }}
     {% endif %}
-    <button type="button" class="btn btn-link p-0 jsPrintButton">{{ get_icon('b_print', 'Print'|trans, true) }}</button>
+    <button type="button" class="btn btn-link p-0 jsPrintButton">{{ get_icon('b_print', t('Print'), true) }}</button>
     {% if not tbl_is_view and not db_is_system_schema %}
         {# Only display propose table structure for MySQL < 8.0 #}
         {% if mysql_int_version < 80000 or is_mariadb %}
@@ -402,7 +402,7 @@
           }, '', false) }}">
             {{ get_icon(
               'b_tblanalyse',
-              'Propose table structure'|trans,
+              t('Propose table structure'),
               true
             ) }}
           </a>
@@ -410,20 +410,20 @@
         {% endif %}
         {% if is_active %}
             <a href="{{ url('/table/tracking', {'db': db, 'table': table}) }}">
-                {{ get_icon('eye', 'Track table'|trans, true) }}
+                {{ get_icon('eye', t('Track table'), true) }}
             </a>
         {% endif %}
         <a href="#" id="move_columns_anchor">
-            {{ get_icon('b_move', 'Move columns'|trans, true) }}
+            {{ get_icon('b_move', t('Move columns'), true) }}
         </a>
         <a href="{{ url('/normalization', {'db': db, 'table': table}) }}">
-            {{ get_icon('normalize', 'Normalize'|trans, true) }}
+            {{ get_icon('normalize', t('Normalize'), true) }}
         </a>
     {% endif %}
     {% if tbl_is_view and not db_is_system_schema %}
         {% if is_active %}
             <a href="{{ url('/table/tracking', {'db': db, 'table': table}) }}">
-                {{ get_icon('eye', 'Track view'|trans, true) }}
+                {{ get_icon('eye', t('Track view'), true) }}
             </a>
         {% endif %}
     {% endif %}
@@ -432,12 +432,12 @@
     <form method="post" action="{{ url('/table/add-field') }}" id="addColumns" name="addColumns" class="d-print-none">
         {{ get_hidden_inputs(db, table) }}
         {% if show_icons('ActionLinksMode') %}
-            {{ get_image('b_insrow', 'Add column'|trans) }}&nbsp;
+            {{ get_image('b_insrow', t('Add column')) }}&nbsp;
         {% endif %}
         {% set num_fields -%}
             <input type="number" name="num_fields" value="1" onfocus="this.select()" min="1" required>
         {%- endset %}
-        {{ 'Add %s column(s)'|trans|format(num_fields)|raw }}
+        {{ t('Add %s column(s)')|format(num_fields)|raw }}
         <input type="hidden" name="field_where" value="after">&nbsp;
         {# I tried displaying the drop-down inside the label but with Firefox the drop-down was blinking #}
         <select name="after_field">
@@ -447,7 +447,7 @@
             {% for one_column_name in columns_list %}
                 <option value="{{ one_column_name }}"
                     {{- loop.revindex0 == 0 ? ' selected="selected"' }}>
-                    {{ 'after %s'|trans|format(one_column_name) }}
+                    {{ t('after %s')|format(one_column_name) }}
                 </option>
             {% endfor %}
         </select>
@@ -494,7 +494,7 @@
                     'table': table,
                     'index': index.getName()
                   }, '', false) }}">
-                    {{ get_icon('b_edit', 'Edit'|trans) }}
+                    {{ get_icon('b_edit', t('Edit')) }}
                   </a>
                 </td>
                 <td rowspan="{{ columns_count }}" class="rename_index d-print-none ajax" >
@@ -503,19 +503,19 @@
                     'table': table,
                     'index': index.getName()
                   }, '', false) }}">
-                    {{ get_icon('b_rename', 'Rename'|trans) }}
+                    {{ get_icon('b_rename', t('Rename')) }}
                   </a>
                 </td>
                 <td rowspan="{{ columns_count }}" class="d-print-none">
                   {% if index.getName() == 'PRIMARY' %}
                     {% set index_params = {
                       'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP PRIMARY KEY;',
-                      'message_to_show': 'The primary key has been dropped.'|trans
+                      'message_to_show': t('The primary key has been dropped.')
                     } %}
                   {% else %}
                     {% set index_params = {
                       'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP INDEX ' ~ backquote(index.getName()) ~ ';',
-                      'message_to_show': 'Index %s has been dropped.'|trans|format(index.getName())
+                      'message_to_show': t('Index %s has been dropped.')|format(index.getName())
                     } %}
                   {% endif %}
 
@@ -523,13 +523,13 @@
                   {{ link_or_button(
                     url('/sql'),
                     index_params|merge({'db': db, 'table': table}),
-                    get_icon('b_drop', 'Drop'|trans),
+                    get_icon('b_drop', t('Drop')),
                     {'class': 'drop_primary_key_index_anchor ajax'}
                   ) }}
                 </td>
                 <th rowspan="{{ columns_count }}">{{ index.getName() }}</th>
                 <td rowspan="{{ columns_count }}">{{ index.getType()|default(index.getChoice()) }}</td>
-                <td rowspan="{{ columns_count }}">{{ index.isUnique() ? 'Yes'|trans : 'No'|trans }}</td>
+                <td rowspan="{{ columns_count }}">{{ index.isUnique() ? t('Yes') : t('No') }}</td>
                 <td rowspan="{{ columns_count }}">{{ index.isPacked()|raw }}</td>
 
                 {% for column in index.getColumns() %}
@@ -556,7 +556,7 @@
           </table>
         </div>
       {% else %}
-        <div class="no_indexes_defined">{{ 'No index defined!'|trans|notice }}</div>
+        <div class="no_indexes_defined">{{ t('No index defined!')|notice }}</div>
       {% endif %}
     </div>
 

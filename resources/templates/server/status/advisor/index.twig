@@ -6,10 +6,10 @@
   <h2>{% trans 'Advisor system' %}</h2>
 
   {% if data is empty %}
-    {{ 'Not enough privilege to view the advisor.'|trans|error }}
+    {{ t('Not enough privilege to view the advisor.')|error }}
   {% else %}
     <button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#advisorInstructionsModal">
-      {{ get_icon('b_help', 'Instructions'|trans) }}
+      {{ get_icon('b_help', t('Instructions')) }}
     </button>
 
     <div class="modal fade" id="advisorInstructionsModal" tabindex="-1" role="dialog" aria-labelledby="advisorInstructionsModalLabel" aria-hidden="true">

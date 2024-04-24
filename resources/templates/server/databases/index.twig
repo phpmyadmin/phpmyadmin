@@ -1,12 +1,12 @@
 <div class="container-fluid my-3">
   <h2>
-    {{ get_icon('s_db', has_statistics ? 'Databases statistics'|trans : 'Databases'|trans) }}
+    {{ get_icon('s_db', has_statistics ? t('Databases statistics') : t('Databases')) }}
   </h2>
 
   {% if is_create_database_shown %}
     <div class="card">
       <div class="card-header">
-        {{ get_icon('b_newdb', 'Create database'|trans) }}
+        {{ get_icon('b_newdb', t('Create database')) }}
         {{ show_mysql_docu('CREATE_DATABASE') }}
       </div>
       <div class="card-body">
@@ -47,7 +47,7 @@
             </div>
           </form>
         {% else %}
-          <span class="text-danger">{{ get_icon('s_error', 'No privileges to create databases'|trans) }}</span>
+          <span class="text-danger">{{ get_icon('s_error', t('No privileges to create databases')) }}</span>
         {% endif %}
       </div>
     </div>
@@ -65,7 +65,7 @@
               </div>
             </div>
             <button class="btn btn-outline-secondary" id="bulkActionDropButton" type="submit" name="submit_mult" value="Drop" form="dbStatsForm" title="{% trans 'Drop' %}">
-              {{ get_icon('db_drop', 'Drop'|trans) }}
+              {{ get_icon('db_drop', t('Drop')) }}
             </button>
           </div>
         </div>
@@ -73,7 +73,7 @@
 
       <div class="ms-auto">
         <div class="input-group">
-          <span class="input-group-text">{{ get_image('b_search', 'Search'|trans) }}</span>
+          <span class="input-group-text">{{ get_image('b_search', t('Search')) }}</span>
           <input class="form-control" name="filterText" type="text" id="filterText" value="" placeholder="{% trans 'Search' %}" aria-label="{% trans 'Search' %}">
         </div>
       </div>
@@ -106,9 +106,9 @@
                   {% trans 'Database' %}
                   {% if url_params.sort_by == 'SCHEMA_NAME' %}
                     {% if url_params.sort_order == 'asc' %}
-                      {{ get_image('s_asc', 'Ascending'|trans) }}
+                      {{ get_image('s_asc', t('Ascending')) }}
                     {% else %}
-                      {{ get_image('s_desc', 'Descending'|trans) }}
+                      {{ get_image('s_desc', t('Descending')) }}
                     {% endif %}
                   {% endif %}
                 </a>
@@ -123,9 +123,9 @@
                   {% trans 'Collation' %}
                   {% if url_params.sort_by == 'DEFAULT_COLLATION_NAME' %}
                     {% if url_params.sort_order == 'asc' %}
-                      {{ get_image('s_asc', 'Ascending'|trans) }}
+                      {{ get_image('s_asc', t('Ascending')) }}
                     {% else %}
-                      {{ get_image('s_desc', 'Descending'|trans) }}
+                      {{ get_image('s_desc', t('Descending')) }}
                     {% endif %}
                   {% endif %}
                 </a>
@@ -142,9 +142,9 @@
                       {{ statistic.title }}
                       {% if url_params.sort_by == name %}
                         {% if url_params.sort_order == 'asc' %}
-                          {{ get_image('s_asc', 'Ascending'|trans) }}
+                          {{ get_image('s_asc', t('Ascending')) }}
                         {% else %}
-                          {{ get_image('s_desc', 'Descending'|trans) }}
+                          {{ get_image('s_desc', t('Descending')) }}
                         {% endif %}
                       {% endif %}
                     </a>
@@ -178,7 +178,7 @@
 
                 <td class="name">
                   <a class="disableAjax" href="{{ database.url }}" title="
-                    {{- "Jump to database '%s'"|trans|format(database.name) }}">
+                    {{- t("Jump to database '%s'")|format(database.name) }}">
                     {{ database.name }}
                   </a>
                 </td>
@@ -212,11 +212,11 @@
                 {% if database.replication.primary.status %}
                   {% if database.replication.primary.is_replicated %}
                     <td class="tool text-center">
-                      {{ get_icon('s_success', 'Replicated'|trans) }}
+                      {{ get_icon('s_success', t('Replicated')) }}
                     </td>
                   {% else %}
                     <td class="tool text-center">
-                      {{ get_icon('s_cancel', 'Not replicated'|trans) }}
+                      {{ get_icon('s_cancel', t('Not replicated')) }}
                     </td>
                   {% endif %}
                 {% endif %}
@@ -224,19 +224,19 @@
                 {% if database.replication.replica.status %}
                   {% if database.replication.replica.is_replicated %}
                     <td class="tool text-center">
-                      {{ get_icon('s_success', 'Replicated'|trans) }}
+                      {{ get_icon('s_success', t('Replicated')) }}
                     </td>
                   {% else %}
                     <td class="tool text-center">
-                      {{ get_icon('s_cancel', 'Not replicated'|trans) }}
+                      {{ get_icon('s_cancel', t('Not replicated')) }}
                     </td>
                   {% endif %}
                 {% endif %}
 
                 <td class="tool">
                   <a class="disableAjax" href="{{ url('/database/privileges', {'db': database.name}) }}" title="
-                    {{- 'Check privileges for database "%s".'|trans|format(database.name) }}">
-                    {{ get_icon('s_rights', 'Check privileges'|trans) }}
+                    {{- t('Check privileges for database "%s".')|format(database.name) }}">
+                    {{ get_icon('s_rights', t('Check privileges')) }}
                   </a>
                 </td>
               </tr>
@@ -291,7 +291,7 @@
       <div class="card">
         <div class="card-body">
           <div class="alert alert-info" role="alert">
-            {{ get_icon('s_notice', 'Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'|trans) }}
+            {{ get_icon('s_notice', t('Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.')) }}
           </div>
           <a class="card-link" href="{{ url('/server/databases') }}" data-post="{{ get_common({'statistics': '1'}, '', false) }}" title="{% trans 'Enable statistics' %}">
             {% trans 'Enable statistics' %}
@@ -301,7 +301,7 @@
     {% endif %}
   {% else %}
     <div class="alert alert-primary my-3" role="alert">
-      {{ get_icon('s_notice', 'No databases'|trans) }}
+      {{ get_icon('s_notice', t('No databases')) }}
     </div>
   {% endif %}
 </div>

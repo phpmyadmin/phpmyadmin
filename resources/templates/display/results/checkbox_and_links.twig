@@ -13,9 +13,9 @@
         {% if grid_edit_config == 'disabled' %}
           {% set grid_edit_tooltip = {} %}
         {% elseif grid_edit_config == 'click' %}
-          {% set grid_edit_tooltip = {'data-bs-toggle': 'tooltip', 'data-bs-placement': 'right', 'title': 'You can also edit most values by clicking directly on them.'|trans} %}
+          {% set grid_edit_tooltip = {'data-bs-toggle': 'tooltip', 'data-bs-placement': 'right', 'title': t('You can also edit most values by clicking directly on them.')} %}
         {% else %}
-          {% set grid_edit_tooltip = {'data-bs-toggle': 'tooltip', 'data-bs-placement': 'right', 'title': 'You can also edit most values by double-clicking directly on them.'|trans} %}
+          {% set grid_edit_tooltip = {'data-bs-toggle': 'tooltip', 'data-bs-placement': 'right', 'title': t('You can also edit most values by double-clicking directly on them.')} %}
         {% endif %}
         {{ link_or_button(edit.url, edit.params, edit.string, grid_edit_tooltip) }}
         {% if where_clause is not empty %}
@@ -75,9 +75,9 @@
         {% if grid_edit_config == 'disabled' %}
           {% set grid_edit_tooltip = {} %}
         {% elseif grid_edit_config == 'click' %}
-          {% set grid_edit_tooltip = {'data-bs-toggle': 'tooltip', 'data-bs-placement': 'left', 'title': 'You can also edit most values by clicking directly on them.'|trans} %}
+          {% set grid_edit_tooltip = {'data-bs-toggle': 'tooltip', 'data-bs-placement': 'left', 'title': t('You can also edit most values by clicking directly on them.')} %}
         {% else %}
-          {% set grid_edit_tooltip = {'data-bs-toggle': 'tooltip', 'data-bs-placement': 'left', 'title': 'You can also edit most values by double-clicking directly on them.'|trans} %}
+          {% set grid_edit_tooltip = {'data-bs-toggle': 'tooltip', 'data-bs-placement': 'left', 'title': t('You can also edit most values by double-clicking directly on them.')} %}
         {% endif %}
         {{ link_or_button(edit.url, edit.params, edit.string, grid_edit_tooltip) }}
         {% if where_clause is not empty %}

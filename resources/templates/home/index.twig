@@ -43,7 +43,7 @@
                   {% if has_change_password_link %}
                     <li id="li_change_password" class="list-group-item">
                       <a href="{{ url('/user-password') }}" id="change_password_anchor" class="ajax">
-                        {{ get_icon('s_passwd', 'Change password'|trans, true) }}
+                        {{ get_icon('s_passwd', t('Change password'), true) }}
                       </a>
                       {{ include('modals/change_password.twig') }}
                     </li>
@@ -81,7 +81,7 @@
 
                   <li id="li_user_preferences" class="list-group-item">
                     <a href="{{ url('/preferences/manage') }}">
-                      {{ get_icon('b_tblops', 'More settings'|trans, true) }}
+                      {{ get_icon('b_tblops', t('More settings'), true) }}
                     </a>
                   </li>
                 {% endif %}
@@ -103,7 +103,7 @@
                         <label for="languageSelect" class="col-form-label text-nowrap">
                           {{ get_image('s_lang') }}
                           {% trans 'Language' %}
-                          {% if 'Language'|trans != 'Language' %}
+                          {% if t('Language') != 'Language' %}
                             {# For non-English, display "Language" with emphasis because it's not a proper word
                                in the current language; we show it to help people recognize the dialog #}
                             <i lang="en" dir="ltr">(Language)</i>
@@ -130,7 +130,7 @@
                       {{ get_hidden_inputs() }}
                       <div class="col-12">
                         <label for="themeSelect" class="col-form-label">
-                          {{ get_icon('s_theme', 'Theme'|trans) }}
+                          {{ get_icon('s_theme', t('Theme')) }}
                         </label>
                       </div>
                       <div class="col-12">
@@ -149,7 +149,7 @@
                       {% for theme in themes %}
                         {% if theme.is_active and theme.color_modes|length > 1 %}
                           <div class="col-12">
-                            <select class="form-select autosubmit" name="themeColorMode" aria-label="{{ 'Color mode for the theme'|trans }}">
+                            <select class="form-select autosubmit" name="themeColorMode" aria-label="{{ t('Color mode for the theme') }}">
                               {% for color_mode in theme.color_modes %}
                                 <option value="{{ color_mode }}"{{ theme.color_mode == color_mode ? ' selected' }}>
                                   {%- if color_mode == 'light' -%}
@@ -300,9 +300,9 @@
       {% for error in errors %}
         <div class="alert {{ error.severity == 'warning' ? 'alert-warning' : 'alert-info' }}" role="alert">
           {% if error.severity == 'warning' %}
-            {{ get_image('s_attention', 'Warning'|trans) }}
+            {{ get_image('s_attention', t('Warning')) }}
           {% else %}
-            {{ get_image('s_notice', 'Notice'|trans) }}
+            {{ get_image('s_notice', t('Notice')) }}
           {% endif %}
           {{ error.message|sanitize }}
         </div>

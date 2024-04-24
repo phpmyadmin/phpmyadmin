@@ -6,7 +6,7 @@
   <bdo lang="en" dir="ltr">
     <label for="lang">
       {% trans 'Language' %}
-      {{ 'Language'|trans != 'Language' ? ' - Language' }}
+      {{ t('Language') != 'Language' ? ' - Language' }}
     </label>
   </bdo>
   <br>
@@ -113,7 +113,7 @@
         <label for="DefaultLang">{% trans 'Default language' %}</label>
         <span class="doc">
           <a href="{{ get_docu_link('config', 'cfg_DefaultLang', '../') }}" target="_blank" rel="noreferrer noopener">
-            {{- get_image('b_help', 'Documentation'|trans) -}}
+            {{- get_image('b_help', t('Documentation')) -}}
           </a>
         </span>
       </th>
@@ -131,7 +131,7 @@
         <label for="ServerDefault">{% trans 'Default server' %}</label>
         <span class="doc">
           <a href="{{ get_docu_link('config', 'cfg_ServerDefault', '../') }}" target="_blank" rel="noreferrer noopener">
-            {{- get_image('b_help', 'Documentation'|trans) -}}
+            {{- get_image('b_help', t('Documentation')) -}}
           </a>
         </span>
       </th>

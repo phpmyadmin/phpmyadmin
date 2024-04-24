@@ -1,6 +1,6 @@
 <div class="container">
   <h2 class="my-3">
-    {{ get_image('b_import', 'Import'|trans) }}
+    {{ get_image('b_import', t('Import')) }}
     {% block title %}{% endblock %}
   </h2>
 
@@ -25,7 +25,7 @@
           {# We don't have show anything about compression, when no supported #}
           {% if compressions is not empty %}
             <p class="card-text">
-              {{ 'File may be compressed (%s) or uncompressed.'|trans|format(compressions|join(', ')) }}<br>
+              {{ t('File may be compressed (%s) or uncompressed.')|format(compressions|join(', ')) }}<br>
               {% trans 'A compressed file\'s name must end in <strong>.[format].[compression]</strong>. Example: <strong>.sql.zip</strong>' %}
             </p>
           {% endif %}
@@ -53,9 +53,9 @@
 
               <div class="tab-pane fade{{ use_local_file_import ? ' show active' }}" id="localFile" role="tabpanel" aria-labelledby="localFileTab">
                 {% if local_files is same as(false) %}
-                  {{ 'The directory you set for upload work cannot be reached.'|trans|error }}
+                  {{ t('The directory you set for upload work cannot be reached.')|error }}
                 {% elseif local_files is not empty %}
-                  <label class="form-label" for="select_local_import_file">{{ 'Select from the web server upload directory [strong]%s[/strong]:'|trans|format(user_upload_dir)|sanitize }}</label>
+                  <label class="form-label" for="select_local_import_file">{{ t('Select from the web server upload directory [strong]%s[/strong]:')|format(user_upload_dir)|sanitize }}</label>
                   <select class="form-select" size="1" name="local_import_file" id="select_local_import_file">
                     <option value=""></option>
                     {{ local_files|raw }}
@@ -77,10 +77,10 @@
             <p class="card-text">{% trans 'You may also drag and drop a file on any page.' %}</p>
           {% elseif upload_dir is not empty %}
             {% if local_files is same as(false) %}
-              {{ 'The directory you set for upload work cannot be reached.'|trans|error }}
+              {{ t('The directory you set for upload work cannot be reached.')|error }}
             {% elseif local_files is not empty %}
               <div class="mb-3">
-                <label class="form-label" for="select_local_import_file">{{ 'Select from the web server upload directory [strong]%s[/strong]:'|trans|format(user_upload_dir)|sanitize }}</label>
+                <label class="form-label" for="select_local_import_file">{{ t('Select from the web server upload directory [strong]%s[/strong]:')|format(user_upload_dir)|sanitize }}</label>
                 <select class="form-select" size="1" name="local_import_file" id="select_local_import_file">
                   <option value=""></option>
                   {{ local_files|raw }}
@@ -92,7 +92,7 @@
               </div>
             {% endif %}
           {% else %}
-            {{ 'File uploads are not allowed on this server.'|trans|notice }}
+            {{ t('File uploads are not allowed on this server.')|notice }}
           {% endif %}
 
           <label class="form-label" for="charset_of_file">{% trans 'Character set of the file:' %}</label>
@@ -123,7 +123,7 @@
           {% if timeout_passed is defined and timeout_passed %}
             <input type="hidden" name="skip" value="{{ offset }}">
             <div class="alert alert-info" role="alert">
-              {{ 'Previous import timed out, after resubmitting will continue from position %d.'|trans|format(offset) }}
+              {{ t('Previous import timed out, after resubmitting will continue from position %d.')|format(offset) }}
             </div>
           {% endif %}
 
