@@ -8,12 +8,12 @@
 
     <div class="card-header">
       {% if ajax_dialog %}
-        {% trans 'Details' %}
+        {{ t('Details') }}
       {% else %}
         {% if view['operation'] == 'create' %}
-          {% trans 'Create view' %}
+          {{ t('Create view') }}
         {% else %}
-          {% trans 'Edit view' %}
+          {{ t('Edit view') }}
         {% endif %}
       {% endif %}
     </div>
@@ -52,7 +52,7 @@
         </tr>
 
         <tr>
-          <td class="text-nowrap">{% trans 'Definer' %}</td>
+          <td class="text-nowrap">{{ t('Definer') }}</td>
           <td><input type="text" maxlength="100" size="50" name="view[definer]" value="{{ view['definer'] }}"></td>
         </tr>
 
@@ -72,7 +72,7 @@
 
         {% if view['operation'] == 'create' %}
           <tr>
-            <td class="text-nowrap">{% trans 'VIEW name' %}</td>
+            <td class="text-nowrap">{{ t('VIEW name') }}</td>
             <td>
               <input type="text" size="20" name="view[name]" onfocus="this.select()" maxlength="64" value="{{ view['name'] }}">
             </td>
@@ -86,7 +86,7 @@
         {% endif %}
 
         <tr>
-          <td class="text-nowrap">{% trans 'Column names' %}</td>
+          <td class="text-nowrap">{{ t('Column names') }}</td>
           <td>
             <input type="text" maxlength="100" size="50" name="view[column_names]" onfocus="this.select()" value="{{ view['column_names'] }}">
           </td>
@@ -120,7 +120,7 @@
 
     {% if ajax_dialog == false %}
       <div class="card-footer">
-        <input type="submit" class="btn btn-primary" name="" value="{% trans 'Go' %}">
+        <input type="submit" class="btn btn-primary" name="" value="{{ t('Go') }}">
       </div>
     {% endif %}
   </form>

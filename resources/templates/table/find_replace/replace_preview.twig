@@ -7,15 +7,15 @@
   <input type="hidden" name="useRegex" value="{{ use_regex }}">
 
   <div class="card">
-    <div class="card-header">{% trans 'Find and replace - preview' %}</div>
+    <div class="card-header">{{ t('Find and replace - preview') }}</div>
 
     <div class="card-body">
       <table class="table table-striped w-auto">
         <thead>
           <tr>
-            <th>{% trans 'Count' %}</th>
-            <th>{% trans 'Original string' %}</th>
-            <th>{% trans 'Replaced string' %}</th>
+            <th>{{ t('Count') }}</th>
+            <th>{{ t('Original string') }}</th>
+            <th>{{ t('Replaced string') }}</th>
           </tr>
         </thead>
         <tbody>
@@ -33,7 +33,7 @@
     </div>
 
     <div class="card-footer">
-      <input class="btn btn-secondary" type="submit" name="replace" value="{% trans 'Replace' %}">
+      <input class="btn btn-secondary" type="submit" name="replace" value="{{ t('Replace') }}">
     </div>
   </div>
 </form>

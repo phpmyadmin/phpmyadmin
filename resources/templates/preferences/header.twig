@@ -3,13 +3,13 @@
     <ul id="user_prefs_tabs" class="nav nav-pills m-2">
       <li class="nav-item my-1">
         <a href="{{ url('/preferences/manage') }}" class="nav-link{{ route == '/preferences/manage' ? ' active' }} disableAjax">
-          {% trans 'Manage your settings' %}
+          {{ t('Manage your settings') }}
         </a>
       </li>
 
       <li class="nav-item my-1">
         <a href="{{ url('/preferences/two-factor') }}" class="nav-link{{ route == '/preferences/two-factor' ? ' active' }} disableAjax">
-          {% trans 'Two-factor authentication' %}
+          {{ t('Two-factor authentication') }}
         </a>
       </li>
 
@@ -57,6 +57,6 @@
 
   {% if not has_config_storage %}
     {% apply format('<a href="' ~ get_docu_link('setup', 'linked-tables') ~ '" target="_blank" rel="noopener noreferrer">', '</a>')|notice %}
-      {% trans 'Your preferences will be saved for current session only. Storing them permanently requires %sphpMyAdmin configuration storage%s.' %}
+      {{ t('Your preferences will be saved for current session only. Storing them permanently requires %sphpMyAdmin configuration storage%s.') }}
     {% endapply %}
   {% endif %}

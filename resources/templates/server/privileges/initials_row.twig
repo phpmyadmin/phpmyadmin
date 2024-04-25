@@ -1,4 +1,4 @@
-<nav aria-label="{% trans 'Pagination of user accounts' %}">
+<nav aria-label="{{ t('Pagination of user accounts') }}">
   <ul id="userAccountsPagination" class="pagination">
     {% for initial, user_available in array_initials %}
       {% if user_available %}
@@ -18,7 +18,7 @@
       {% endif %}
     {% endfor %}
     <li class="page-item">
-      <a class="page-link text-nowrap" href="{{ url('/server/privileges', {'showall': true}) }}">{% trans 'Show all' %}</a>
+      <a class="page-link text-nowrap" href="{{ url('/server/privileges', {'showall': true}) }}">{{ t('Show all') }}</a>
     </li>
   </ul>
 </nav>

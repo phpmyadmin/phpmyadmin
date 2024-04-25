@@ -2,14 +2,14 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="indexDialogModalLabel">{% trans 'Loading' %}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+        <h5 class="modal-title" id="indexDialogModalLabel">{{ t('Loading') }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
       </div>
       <div class="modal-body"></div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="indexDialogModalGoButton">{% trans 'Go' %}</button>
-        <button type="button" class="btn btn-secondary" data-bs-target="#indexDialogPreviewModal" data-bs-toggle="modal">{% trans 'Preview SQL' %}</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+        <button type="button" class="btn btn-primary" id="indexDialogModalGoButton">{{ t('Go') }}</button>
+        <button type="button" class="btn btn-secondary" data-bs-target="#indexDialogPreviewModal" data-bs-toggle="modal">{{ t('Preview SQL') }}</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
       </div>
     </div>
   </div>
@@ -18,16 +18,16 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="indexDialogPreviewModalLabel">{% trans 'Preview SQL' %}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+        <h5 class="modal-title" id="indexDialogPreviewModalLabel">{{ t('Preview SQL') }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
       </div>
       <div class="modal-body">
         <div class="spinner-border" role="status">
-          <span class="visually-hidden">{% trans 'Loading…' %}</span>
+          <span class="visually-hidden">{{ t('Loading…') }}</span>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#indexDialogModal" data-bs-toggle="modal">{% trans 'Go back' %}</button>
+        <button class="btn btn-primary" data-bs-target="#indexDialogModal" data-bs-toggle="modal">{{ t('Go back') }}</button>
       </div>
     </div>
   </div>

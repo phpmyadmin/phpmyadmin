@@ -4,12 +4,10 @@
         <input type="hidden" name="json" value="">
         <input type="hidden" name="submit_import" value="1">
         <input type="hidden" name="return_url" value="{{ return_url }}">
-        {% trans %}
-            Your browser has phpMyAdmin configuration for this domain. Would you like to import it for current session?
-        {% endtrans %}
+        {{ t('Your browser has phpMyAdmin configuration for this domain. Would you like to import it for current session?') }}
         <br>
-        <a href="#yes">{% trans "Yes" %}</a>
-        / <a href="#no">{% trans "No" %}</a>
-        / <a href="#delete">{% trans "Delete settings" %}</a>
+        <a href="#yes">{{ t('Yes') }}</a>
+        / <a href="#no">{{ t('No') }}</a>
+        / <a href="#delete">{{ t('Delete settings') }}</a>
     </form>
 </div>

@@ -20,17 +20,17 @@
   <td class="text-nowrap" name="col_length">
     <input id="field_{{ row_num }}_2" type="text" name="field_length[{{ row_num }}]" size="8" value="{{ row['col_length'] }}" class="textfield">
     <p class="enum_notice" id="enum_notice_{{ row_num }}_2">
-      <a href="#" class="open_enum_editor">{% trans 'Edit ENUM/SET values' %}</a>
+      <a href="#" class="open_enum_editor">{{ t('Edit ENUM/SET values') }}</a>
     </p>
   </td>
 
   <td class="text-nowrap" name="col_default">
     <select name="field_default_type[{{ row_num }}]" id="field_{{ row_num }}_3" class="default_type">
       <option value="NONE"{{ meta['DefaultType'] is defined and meta['DefaultType'] == 'NONE' ? ' selected' }}>
-        {% trans %}None{% context %}for default{% endtrans %}
+        {{ t('None', context = 'for default') }}
       </option>
       <option value="USER_DEFINED"{{ meta['DefaultType'] is defined and meta['DefaultType'] == 'USER_DEFINED' ? ' selected' }}>
-        {% trans 'As defined:' %}
+        {{ t('As defined:') }}
       </option>
       <option value="NULL"{{ meta['DefaultType'] is defined and meta['DefaultType'] == 'NULL' ? ' selected' }}>
         NULL

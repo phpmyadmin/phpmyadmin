@@ -77,9 +77,9 @@
                       {% for color_mode in theme_color_modes %}
                         <option value="{{ color_mode }}"{{ theme_color_mode == color_mode ? ' selected' }}>
                           {%- if color_mode == 'light' -%}
-                            {% trans %}Light{% context %}Light color mode of the theme{% endtrans %}
+                            {{ t('Light', context = 'Light color mode of the theme') }}
                           {%- elseif color_mode == 'dark' -%}
-                            {% trans %}Dark{% context %}Dark color mode of the theme{% endtrans %}
+                            {{ t('Dark', context = 'Dark color mode of the theme') }}
                           {%- else -%}
                             {{ color_mode|title }}
                           {%- endif -%}

@@ -1,6 +1,6 @@
 <form action="{{ url('/table/structure/partitioning') }}" method="post" class="card">
   {{ get_hidden_inputs(db, table) }}
-  <div class="card-header">{% trans 'Edit partitioning' %}</div>
+  <div class="card-header">{{ t('Edit partitioning') }}</div>
 
   <div class="card-body">
     {% include 'columns_definitions/partitions.twig' with {
@@ -10,6 +10,6 @@
   </div>
 
   <div class="card-footer">
-    <input class="btn btn-primary" type="submit" name="save_partitioning" value="{% trans 'Save' %}">
+    <input class="btn btn-primary" type="submit" name="save_partitioning" value="{{ t('Save') }}">
   </div>
 </form>

@@ -16,12 +16,12 @@
             <thead>
               <tr>
                 <th></th>
-                <th>{% trans 'User name' %}</th>
-                <th>{% trans 'Host name' %}</th>
-                <th>{% trans 'Type' %}</th>
-                <th>{% trans 'Privileges' %}</th>
-                <th>{% trans 'Grant' %}</th>
-                <th colspan="2">{% trans 'Action' %}</th>
+                <th>{{ t('User name') }}</th>
+                <th>{{ t('Host name') }}</th>
+                <th>{{ t('Type') }}</th>
+                <th>{{ t('Privileges') }}</th>
+                <th>{{ t('Grant') }}</th>
+                <th colspan="2">{{ t('Action') }}</th>
               </tr>
             </thead>
 
@@ -35,7 +35,7 @@
                   </td>
                   <td{% if privileges_amount > 1 %} class="align-middle" rowspan="{{ privileges_amount }}"{% endif %}>
                     {% if privilege.user is empty %}
-                      <span class="text-danger">{% trans 'Any' %}</span>
+                      <span class="text-danger">{{ t('Any') }}</span>
                     {% else %}
                       {{ privilege.user }}
                     {% endif %}
@@ -46,17 +46,17 @@
                   {% for priv in privilege.privileges %}
                     <td>
                       {% if priv.type == 'g' %}
-                        {% trans 'global' %}
+                        {{ t('global') }}
                       {% elseif priv.type == 'd' %}
                         {% if priv.database == db|replace({'_': '\\_', '%': '\\%'}) %}
-                          {% trans 'database-specific' %}
+                          {{ t('database-specific') }}
                         {% else %}
-                          {% trans 'wildcard' %}: <code>{{ priv.database }}</code>
+                          {{ t('wildcard') }}: <code>{{ priv.database }}</code>
                         {% endif %}
                       {% elseif priv.type == 't' %}
-                        {% trans 'table-specific' %}
+                        {{ t('table-specific') }}
                       {% elseif priv.type == 'r' %}
-                        {% trans 'routine' %}
+                        {{ t('routine') }}
                       {% endif %}
                     </td>
                     <td>
@@ -103,7 +103,7 @@
               {% else %}
                 <tr>
                   <td colspan="7">
-                    {% trans 'No user found.' %}
+                    {{ t('No user found.') }}
                   </td>
                 </tr>
               {% endfor %}
@@ -113,10 +113,10 @@
 
         <div>
           {{ get_image('select_all_arrow', t('With selected:'), {'dir': text_dir, 'width': '38', 'height': '22'}) }}
-          <input type="checkbox" id="usersForm_checkall" class="checkall_box" title="{% trans 'Check all' %}">
-          <label for="usersForm_checkall">{% trans 'Check all' %}</label>
-          <em class="with-selected">{% trans 'With selected:' %}</em>
-          <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="export" title="{% trans 'Export' %}">
+          <input type="checkbox" id="usersForm_checkall" class="checkall_box" title="{{ t('Check all') }}">
+          <label for="usersForm_checkall">{{ t('Check all') }}</label>
+          <em class="with-selected">{{ t('With selected:') }}</em>
+          <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="export" title="{{ t('Export') }}">
             {{ get_icon('b_tblexport', t('Export')) }}
           </button>
         </div>

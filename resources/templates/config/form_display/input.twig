@@ -12,8 +12,8 @@
     {% endif %}
 
     {% if option_is_disabled %}
-      <span class="disabled-notice" title="{% trans 'This setting is disabled, it will not be applied to your configuration.' %}">
-        {% trans 'Disabled' %}
+      <span class="disabled-notice" title="{{ t('This setting is disabled, it will not be applied to your configuration.') }}">
+        {{ t('Disabled') }}
       </span>
     {% endif %}
 
@@ -60,7 +60,7 @@
     {% endif %}
 
     {% if show_restore_default %}
-      <a class="restore-default hide" href="#{{ path }}" title="{% trans 'Restore default value' %}">
+      <a class="restore-default hide" href="#{{ path }}" title="{{ t('Restore default value') }}">
         {{- get_image('s_reload', t('Restore default value')) -}}
       </a>
     {% endif %}
@@ -76,8 +76,8 @@
   </td>
 
   {% if is_setup and allows_customization is not null %}
-    <td class="userprefs-allow" title="{% trans 'Allow users to customize this value' %}">
-      <input type="checkbox" name="{{ path }}-userprefs-allow"{{ allows_customization ? ' checked' }} aria-label="{% trans 'Allow users to customize this value' %}">
+    <td class="userprefs-allow" title="{{ t('Allow users to customize this value') }}">
+      <input type="checkbox" name="{{ path }}-userprefs-allow"{{ allows_customization ? ' checked' }} aria-label="{{ t('Allow users to customize this value') }}">
     </td>
   {% elseif is_setup %}
     <td>&nbsp;</td>

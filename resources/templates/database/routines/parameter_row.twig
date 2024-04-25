@@ -28,7 +28,7 @@
   <td class="hide no_len">---</td>
   <td class="routine_param_opts_text">
     <select lang="en" dir="ltr" name="item_param_opts_text[{{ index }}]">
-      <option value="">{% trans 'Charset' %}</option>
+      <option value="">{{ t('Charset') }}</option>
       <option value=""></option>
       {% for charset in charsets %}
         <option value="{{ charset.name }}" title="{{ charset.description }}"{{ charset.is_selected ? ' selected' }}>

@@ -1,4 +1,4 @@
-<option value="">-- {% trans 'Select a template' %} --</option>
+<option value="">-- {{ t('Select a template') }} --</option>
 
 {% for template in templates %}
     <option value="{{ template.getId() }}"{{ template.getId() == selected_template ? ' selected' }}>

@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <h2>
-    {% trans 'Checksum table' %}
+    {{ t('Checksum table') }}
     {{ show_mysql_docu('CHECKSUM_TABLE') }}
   </h2>
 
@@ -9,8 +9,8 @@
   <table class="table table-striped w-auto my-3">
     <thead>
       <tr>
-        <th>{% trans 'Table' %}</th>
-        <th>{% trans 'Checksum' %}</th>
+        <th>{{ t('Table') }}</th>
+        <th>{{ t('Checksum') }}</th>
       </tr>
     </thead>
     <tbody>

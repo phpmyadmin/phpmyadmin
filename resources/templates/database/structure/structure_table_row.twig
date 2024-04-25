@@ -119,7 +119,7 @@
                 {% if current_table['ENGINE'] is not empty %}
                     {{ current_table['ENGINE'] }}
                 {% elseif table_is_view %}
-                    {% trans 'View' %}
+                    {{ t('View') }}
                 {% endif %}
             </td>
             {% if collation|length > 0 %}
@@ -183,7 +183,7 @@
     {% elseif table_is_view %}
         <td class="value tbl_rows font-monospace text-end">-</td>
         <td class="text-nowrap">
-            {% trans 'View' %}
+            {{ t('View') }}
         </td>
         <td class="text-nowrap">---</td>
         {% if is_show_stats %}
@@ -234,7 +234,7 @@
 
         <td colspan="{{ action_colspan }}"
             class="text-center">
-            {% trans 'in use' %}
+            {{ t('in use') }}
         </td>
     {% endif %}
 </tr>

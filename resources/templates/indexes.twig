@@ -1,6 +1,6 @@
 <div class="card index_info">
   <div class="card-header" id="index_header">
-    {% trans 'Indexes' %}
+    {{ t('Indexes') }}
     {{ show_mysql_docu('optimizing-database-structure') }}
   </div>
 
@@ -13,16 +13,16 @@
       <table class="table table-striped table-hover table-sm w-auto align-middle" id="table_index">
         <thead>
         <tr>
-            <th colspan="3" class="d-print-none">{% trans 'Action' %}</th>
-            <th>{% trans 'Keyname' %}</th>
-            <th>{% trans 'Type' %}</th>
-            <th>{% trans 'Unique' %}</th>
-            <th>{% trans 'Packed' %}</th>
-            <th>{% trans 'Column' %}</th>
-            <th>{% trans 'Cardinality' %}</th>
-            <th>{% trans 'Collation' %}</th>
-            <th>{% trans 'Null' %}</th>
-            <th>{% trans 'Comment' %}</th>
+            <th colspan="3" class="d-print-none">{{ t('Action') }}</th>
+            <th>{{ t('Keyname') }}</th>
+            <th>{{ t('Type') }}</th>
+            <th>{{ t('Unique') }}</th>
+            <th>{{ t('Packed') }}</th>
+            <th>{{ t('Column') }}</th>
+            <th>{{ t('Cardinality') }}</th>
+            <th>{{ t('Collation') }}</th>
+            <th>{{ t('Null') }}</th>
+            <th>{{ t('Comment') }}</th>
           </tr>
         </thead>
 

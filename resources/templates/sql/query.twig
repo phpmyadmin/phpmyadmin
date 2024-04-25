@@ -4,7 +4,7 @@
   <input type="hidden" name="is_js_confirmed" value="0">
   <input type="hidden" name="pos" value="0">
   <input type="hidden" name="goto" value="{{ goto }}">
-  <input type="hidden" name="message_to_show" value="{% trans 'Your SQL query has been executed successfully.' %}">
+  <input type="hidden" name="message_to_show" value="{{ t('Your SQL query has been executed successfully.') }}">
   <input type="hidden" name="prev_sql_query" value="{{ query }}">
 
   {% if display_tab == 'full' or display_tab == 'sql' %}
@@ -17,7 +17,7 @@
           <div class="row">
             <div class="col">
               <div class="mb-3">
-                <textarea class="form-control" tabindex="100" name="sql_query" id="sqlquery" cols="{{ textarea_cols }}" rows="{{ textarea_rows }}" data-textarea-auto-select="{{ textarea_auto_select ? "true" : "false" }}" aria-label="{% trans 'SQL query' %}">
+                <textarea class="form-control" tabindex="100" name="sql_query" id="sqlquery" cols="{{ textarea_cols }}" rows="{{ textarea_rows }}" data-textarea-auto-select="{{ textarea_auto_select ? "true" : "false" }}" aria-label="{{ t('SQL query') }}">
                   {{- query -}}
                 </textarea>
               </div>
@@ -35,20 +35,20 @@
                 {% endif %}
 
                 <div class="btn-group me-2" role="group">
-                  <input type="button" value="{% trans 'Clear' %}" id="clear" class="btn btn-secondary button sqlbutton">
+                  <input type="button" value="{{ t('Clear') }}" id="clear" class="btn btn-secondary button sqlbutton">
                   {% if codemirror_enable %}
-                    <input type="button" value="{% trans 'Format' %}" id="format" class="btn btn-secondary button sqlbutton">
+                    <input type="button" value="{{ t('Format') }}" id="format" class="btn btn-secondary button sqlbutton">
                   {% endif %}
                 </div>
 
-                <input type="button" value="{% trans 'Get auto-saved query' %}" id="saved" class="btn btn-secondary button sqlbutton">
+                <input type="button" value="{{ t('Get auto-saved query') }}" id="saved" class="btn btn-secondary button sqlbutton">
               </div>
 
               <div class="my-3">
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" name="parameterized" id="parameterized">
                   <label class="form-check-label" for="parameterized">
-                    {% trans %}Bind parameters{% notes %}Bind parameters in the SQL query using :parameterName format{% endtrans %}
+                    {{ t('Bind parameters', notes = 'Bind parameters in the SQL query using :parameterName format') }}
                     {{ show_docu('faq', 'faq6-40') }}
                   </label>
                 </div>
@@ -59,7 +59,7 @@
             {% if columns_list is not empty %}
               <div class="col-xl-2 col-lg-3">
                 <div class="mb-3">
-                  <label class="visually-hidden" for="fieldsSelect">{% trans 'Columns' %}</label>
+                  <label class="visually-hidden" for="fieldsSelect">{{ t('Columns') }}</label>
                   <select class="form-select resize-vertical" id="fieldsSelect" name="dummy" size="{{ textarea_rows }}" multiple>
                     {% for field in columns_list %}
                       <option value="{{ backquote(field.field) }}"
@@ -72,7 +72,7 @@
 
                 <input type="button" class="btn btn-secondary button" id="insertBtn" name="insert" value="
                     {%- if show_icons('ActionLinksMode') %}{{ '<<' }}" title="{% endif -%}
-                    {%- trans 'Insert' %}">
+                    {{- t('Insert') }}">
               </div>
             {% endif %}
           </div>
@@ -81,7 +81,7 @@
         {% if has_bookmark %}
           <div class="row row-cols-lg-auto g-3 align-items-center">
             <div class="col-6">
-              <label class="form-label" for="bkm_label">{% trans 'Bookmark this SQL query:' %}</label>
+              <label class="form-label" for="bkm_label">{{ t('Bookmark this SQL query:') }}</label>
             </div>
             <div class="col-6">
               <input class="form-control" type="text" name="bkm_label" id="bkm_label" tabindex="110" value="">
@@ -91,7 +91,7 @@
               <div class="col-12">
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="checkbox" name="bkm_all_users" tabindex="111" id="id_bkm_all_users" value="true">
-                  <label class="form-check-label" for="id_bkm_all_users">{% trans 'Let every user access this bookmark' %}</label>
+                  <label class="form-check-label" for="id_bkm_all_users">{{ t('Let every user access this bookmark') }}</label>
                 </div>
               </div>
             {% endif %}
@@ -99,7 +99,7 @@
             <div class="col-12">
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" name="bkm_replace" tabindex="112" id="id_bkm_replace" value="true">
-                <label class="form-check-label" for="id_bkm_replace">{% trans 'Replace existing bookmark of same name' %}</label>
+                <label class="form-check-label" for="id_bkm_replace">{{ t('Replace existing bookmark of same name') }}</label>
               </div>
             </div>
           </div>
@@ -109,8 +109,8 @@
         <div class="row row-cols-lg-auto g-3 align-items-center">
           <div class="col-12">
             <div class="input-group me-2">
-              <span class="input-group-text">{% trans 'Delimiter' %}</span>
-              <label class="visually-hidden" for="id_sql_delimiter">{% trans 'Delimiter' %}</label>
+              <span class="input-group-text">{{ t('Delimiter') }}</span>
+              <label class="visually-hidden" for="id_sql_delimiter">{{ t('Delimiter') }}</label>
               <input class="form-control" type="text" name="sql_delimiter" tabindex="131" size="3" value="{{ delimiter }}" id="id_sql_delimiter">
             </div>
           </div>
@@ -118,7 +118,7 @@
           <div class="col-12">
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" name="show_query" value="1" id="checkbox_show_query" tabindex="132">
-              <label class="form-check-label" for="checkbox_show_query">{% trans 'Show this query here again' %}</label>
+              <label class="form-check-label" for="checkbox_show_query">{{ t('Show this query here again') }}</label>
             </div>
           </div>
 
@@ -126,14 +126,14 @@
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" name="retain_query_box" value="1" id="retain_query_box" tabindex="133"
                 {{- retain_query_box ? ' checked' }}>
-              <label class="form-check-label" for="retain_query_box">{% trans 'Retain query box' %}</label>
+              <label class="form-check-label" for="retain_query_box">{{ t('Retain query box') }}</label>
             </div>
           </div>
 
           <div class="col-12">
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" name="rollback_query" value="1" id="rollback_query" tabindex="134">
-              <label class="form-check-label" for="rollback_query">{% trans 'Rollback when finished' %}</label>
+              <label class="form-check-label" for="rollback_query">{{ t('Rollback when finished') }}</label>
             </div>
           </div>
 
@@ -141,12 +141,12 @@
             <div class="form-check">
               <input type="hidden" name="fk_checks" value="0">
               <input class="form-check-input" type="checkbox" name="fk_checks" id="fk_checks" value="1"{{ is_foreign_key_check ? ' checked' }}>
-              <label class="form-check-label" for="fk_checks">{% trans 'Enable foreign key checks' %}</label>
+              <label class="form-check-label" for="fk_checks">{{ t('Enable foreign key checks') }}</label>
             </div>
           </div>
 
           <div class="col-12">
-            <input class="btn btn-primary ms-1" type="submit" id="button_submit_query" name="SQL" tabindex="200" value="{% trans 'Go' %}">
+            <input class="btn btn-primary ms-1" type="submit" id="button_submit_query" name="SQL" tabindex="200" value="{{ t('Go') }}">
           </div>
         </div>
       </div>
@@ -155,11 +155,11 @@
 
   {% if display_tab == 'full' and bookmarks is not empty %}
     <div class="card mb-3">
-      <div class="card-header">{% trans 'Bookmarked SQL query' %}</div>
+      <div class="card-header">{{ t('Bookmarked SQL query') }}</div>
       <div class="card-body">
         <div class="row row-cols-lg-auto g-3 align-items-center">
           <div class="col-6">
-            <label class="form-label" for="id_bookmark">{% trans 'Bookmark:' %}</label>
+            <label class="form-label" for="id_bookmark">{{ t('Bookmark:') }}</label>
           </div>
           <div class="col-6">
             <select class="form-select" name="id_bookmark" id="id_bookmark">
@@ -168,7 +168,7 @@
                 <option value="{{ bookmark.id }}" data-varcount="{{ bookmark.variable_count }}">
                   {{ bookmark.label }}
                   {% if bookmark.is_shared %}
-                    ({% trans 'shared' %})
+                    ({{ t('shared') }})
                   {% endif %}
                 </option>
               {% endfor %}
@@ -177,27 +177,27 @@
 
           <div class="form-check form-check-inline col-12">
             <input class="form-check-input" type="radio" name="action_bookmark" value="0" id="radio_bookmark_exe" checked>
-            <label class="form-check-label" for="radio_bookmark_exe">{% trans 'Submit' %}</label>
+            <label class="form-check-label" for="radio_bookmark_exe">{{ t('Submit') }}</label>
           </div>
           <div class="form-check form-check-inline col-12">
             <input class="form-check-input" type="radio" name="action_bookmark" value="1" id="radio_bookmark_view">
-            <label class="form-check-label" for="radio_bookmark_view">{% trans 'View only' %}</label>
+            <label class="form-check-label" for="radio_bookmark_view">{{ t('View only') }}</label>
           </div>
           <div class="form-check form-check-inline col-12">
             <input class="form-check-input" type="radio" name="action_bookmark" value="2" id="radio_bookmark_del">
-            <label class="form-check-label" for="radio_bookmark_del">{% trans 'Delete' %}</label>
+            <label class="form-check-label" for="radio_bookmark_del">{{ t('Delete') }}</label>
           </div>
         </div>
 
         <div class="hide">
-          {% trans 'Variables' %}
+          {{ t('Variables') }}
           {{ show_docu('faq', 'faqbookmark') }}
           <div class="row row-cols-auto" id="bookmarkVariables"></div>
         </div>
       </div>
 
       <div class="card-footer text-end">
-        <input class="btn btn-secondary" type="submit" name="SQL" id="button_submit_bookmark" value="{% trans 'Go' %}">
+        <input class="btn btn-secondary" type="submit" name="SQL" id="button_submit_bookmark" value="{{ t('Go') }}">
       </div>
     </div>
   {% endif %}
@@ -217,13 +217,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="simulateDmlModalLabel">{% trans 'Simulate query' %}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+        <h5 class="modal-title" id="simulateDmlModalLabel">{{ t('Simulate query') }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
       </div>
       <div class="modal-body">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
       </div>
     </div>
   </div>

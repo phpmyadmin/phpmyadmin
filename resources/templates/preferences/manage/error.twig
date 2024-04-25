@@ -13,7 +13,7 @@
         <input type="hidden" name="return_url" value="{{ return_url }}">
     {% endif %}
     <p>
-        {% trans 'Do you want to import remaining settings?' %}
+        {{ t('Do you want to import remaining settings?') }}
     </p>
     <input class="btn btn-secondary" type="submit" name="submit_import" value="{{ t('Yes') }}">
     <input class="btn btn-secondary" type="submit" name="submit_ignore" value="{{ t('No') }}">

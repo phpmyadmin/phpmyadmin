@@ -22,7 +22,7 @@
         {% endif %}
 
         <div id="navipanellinks">
-          <a href="{{ url('/') }}" class="disableAjax" title="{% trans 'Home' %}">
+          <a href="{{ url('/') }}" class="disableAjax" title="{{ t('Home') }}">
             {{- get_image('b_home', t('Home')) -}}
           </a>
 
@@ -32,7 +32,7 @@
             </a>
           {% endif %}
 
-          <a href="{{ get_docu_link('index') }}" class="disableAjax" title="{% trans 'phpMyAdmin documentation' %}" target="_blank" rel="noopener noreferrer">
+          <a href="{{ get_docu_link('index') }}" class="disableAjax" title="{{ t('phpMyAdmin documentation') }}" target="_blank" rel="noopener noreferrer">
             {{- get_image('b_docs', t('phpMyAdmin documentation')) -}}
           </a>
 
@@ -40,11 +40,11 @@
             {{- get_image('b_sqlhelp', is_mariadb ? t('MariaDB Documentation') : t('MySQL Documentation')) -}}
           </a>
 
-          <a id="pma_navigation_settings_icon"{{ not is_navigation_settings_enabled ? ' class="hide"' }} href="#" title="{% trans 'Navigation panel settings' %}">
+          <a id="pma_navigation_settings_icon"{{ not is_navigation_settings_enabled ? ' class="hide"' }} href="#" title="{{ t('Navigation panel settings') }}">
             {{- get_image('s_cog', t('Navigation panel settings')) -}}
           </a>
 
-          <a id="pma_navigation_reload" href="#" title="{% trans 'Reload navigation panel' %}">
+          <a id="pma_navigation_reload" href="#" title="{{ t('Reload navigation panel') }}">
             {{- get_image('s_reload', t('Reload navigation panel')) -}}
           </a>
         </div>
@@ -81,11 +81,11 @@
 
     {% if is_drag_drop_import_enabled %}
       <div class="pma_drop_handler">
-        {% trans 'Drop files here' %}
+        {{ t('Drop files here') }}
       </div>
       <div class="pma_sql_import_status">
         <h2>
-          {% trans 'SQL upload' %}
+          {{ t('SQL upload') }}
           ( <span class="pma_import_count">0</span> )
           <span class="close">x</span>
           <span class="minimize">-</span>

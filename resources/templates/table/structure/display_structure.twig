@@ -18,20 +18,20 @@
             <tr>
                 <th class="d-print-none"></th>
                 <th>#</th>
-                <th>{% trans 'Name' %}</th>
-                <th>{% trans 'Type' %}</th>
-                <th>{% trans 'Collation' %}</th>
-                <th>{% trans 'Attributes' %}</th>
-                <th>{% trans 'Null' %}</th>
-                <th>{% trans 'Default' %}</th>
+                <th>{{ t('Name') }}</th>
+                <th>{{ t('Type') }}</th>
+                <th>{{ t('Collation') }}</th>
+                <th>{{ t('Attributes') }}</th>
+                <th>{{ t('Null') }}</th>
+                <th>{{ t('Default') }}</th>
                 {% if show_column_comments -%}
-                    <th>{% trans 'Comments' %}</th>
+                    <th>{{ t('Comments') }}</th>
                 {%- endif %}
-                <th>{% trans 'Extra' %}</th>
+                <th>{{ t('Extra') }}</th>
                 {# @see table/structure.js, function moreOptsMenuResize() #}
                 {% if not db_is_system_schema and not tbl_is_view %}
                     <th colspan="{{ show_icons('ActionLinksMode') ? '8' : '9' -}}
-                        " class="action d-print-none">{% trans 'Action' %}</th>
+                        " class="action d-print-none">{{ t('Action') }}</th>
                 {% endif %}
             </tr>
         </thead>
@@ -67,7 +67,7 @@
                     {{ extracted_columnspec['displayed_type']|raw }}
                     {% if relation_parameters.columnCommentsFeature is not null and relation_parameters.browserTransformationFeature is not null and browse_mime
                         and mime_map[row.field]['mimetype'] is defined %}
-                        <br>{% trans 'Media type:' %} {{ mime_map[row.field]['mimetype']|replace({'_': '/'})|lower }}
+                        <br>{{ t('Media type:') }} {{ mime_map[row.field]['mimetype']|replace({'_': '/'})|lower }}
                     {% endif %}
                 </bdo>
             </td>
@@ -88,7 +88,7 @@
                 {%- elseif row.isNull -%}
                     <em>NULL</em>
                 {%- else -%}
-                    <em>{% trans %}None{% context %}None for default{% endtrans %}</em>
+                    <em>{{ t('None', context = 'None for default') }}</em>
                 {%- endif -%}
             </td>
             {% if show_column_comments %}
@@ -127,7 +127,7 @@
                 <td class="d-print-none">
                   {% if hide_structure_actions %}
                   <div class="dropdown">
-                    <button class="btn btn-link p-0 dropdown-toggle" type="button" id="moreActionsButton" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'More' %}</button>
+                    <button class="btn btn-link p-0 dropdown-toggle" type="button" id="moreActionsButton" data-bs-toggle="dropdown" aria-expanded="false">{{ t('More') }}</button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="moreActionsButton">
                   {% else %}
                     <ul class="nav">
@@ -325,12 +325,12 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="moveColumnsModalLabel">{% trans 'Move columns' %}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+        <h5 class="modal-title" id="moveColumnsModalLabel">{{ t('Move columns') }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
       </div>
       <div class="modal-body">
-        <div id="move_columns_dialog" title="{% trans 'Move columns' %}">
-          <p>{% trans 'Move the columns by dragging them up and down.' %}</p>
+        <div id="move_columns_dialog" title="{{ t('Move columns') }}">
+          <p>{{ t('Move the columns by dragging them up and down.') }}</p>
           <form action="{{ url('/table/structure/move-columns') }}" name="move_column_form" id="move_column_form">
             <div>
               {{ get_hidden_inputs(db, table) }}
@@ -340,9 +340,9 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="designerModalGoButton">{% trans 'Go' %}</button>
-        <button type="button" class="btn btn-secondary" id="designerModalPreviewButton" data-bs-target="#designerModalPreviewModal" data-bs-toggle="modal">{% trans 'Preview SQL' %}</button>
-        <button type="button" class="btn btn-secondary" id="designerModalCloseButton" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+        <button type="button" class="btn btn-primary" id="designerModalGoButton">{{ t('Go') }}</button>
+        <button type="button" class="btn btn-secondary" id="designerModalPreviewButton" data-bs-target="#designerModalPreviewModal" data-bs-toggle="modal">{{ t('Preview SQL') }}</button>
+        <button type="button" class="btn btn-secondary" id="designerModalCloseButton" data-bs-dismiss="modal">{{ t('Close') }}</button>
       </div>
     </div>
   </div>
@@ -351,16 +351,16 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="designerModalPreviewModalLabel">{% trans 'Preview SQL' %}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+        <h5 class="modal-title" id="designerModalPreviewModalLabel">{{ t('Preview SQL') }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
       </div>
       <div class="modal-body">
         <div class="spinner-border" role="status">
-          <span class="visually-hidden">{% trans 'Loading…' %}</span>
+          <span class="visually-hidden">{{ t('Loading…') }}</span>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#moveColumnsModal" data-bs-toggle="modal">{% trans 'Go back' %}</button>
+        <button class="btn btn-primary" data-bs-target="#moveColumnsModal" data-bs-toggle="modal">{{ t('Go back') }}</button>
       </div>
     </div>
   </div>
@@ -369,13 +369,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="moveColumnsErrorModalLabel">{% trans 'Error' %}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+        <h5 class="modal-title" id="moveColumnsErrorModalLabel">{{ t('Error') }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
       </div>
       <div class="modal-body">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'OK' %}</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('OK') }}</button>
       </div>
     </div>
   </div>
@@ -442,7 +442,7 @@
         {# I tried displaying the drop-down inside the label but with Firefox the drop-down was blinking #}
         <select name="after_field">
             <option value="first" data-pos="first">
-                {% trans 'at beginning of table' %}
+                {{ t('at beginning of table') }}
             </option>
             {% for one_column_name in columns_list %}
                 <option value="{{ one_column_name }}"
@@ -451,14 +451,14 @@
                 </option>
             {% endfor %}
         </select>
-        <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
+        <input class="btn btn-primary" type="submit" value="{{ t('Go') }}">
     </form>
 {% endif %}
 
 {% if not tbl_is_view and not db_is_system_schema and tbl_storage_engine != 'ARCHIVE' %}
   <div id="index_div" class="card mb-3 ajax">
     <div class="card-header">
-      {% trans 'Indexes' %}
+      {{ t('Indexes') }}
       {{ show_mysql_docu('optimizing-database-structure') }}
     </div>
 
@@ -471,16 +471,16 @@
           <table class="table table-striped table-hover table-sm w-auto align-middle" id="table_index">
             <thead>
               <tr>
-                <th colspan="3" class="d-print-none">{% trans 'Action' %}</th>
-                <th>{% trans 'Keyname' %}</th>
-                <th>{% trans 'Type' %}</th>
-                <th>{% trans 'Unique' %}</th>
-                <th>{% trans 'Packed' %}</th>
-                <th>{% trans 'Column' %}</th>
-                <th>{% trans 'Cardinality' %}</th>
-                <th>{% trans 'Collation' %}</th>
-                <th>{% trans 'Null' %}</th>
-                <th>{% trans 'Comment' %}</th>
+                <th colspan="3" class="d-print-none">{{ t('Action') }}</th>
+                <th>{{ t('Keyname') }}</th>
+                <th>{{ t('Type') }}</th>
+                <th>{{ t('Unique') }}</th>
+                <th>{{ t('Packed') }}</th>
+                <th>{{ t('Column') }}</th>
+                <th>{{ t('Cardinality') }}</th>
+                <th>{{ t('Collation') }}</th>
+                <th>{{ t('Null') }}</th>
+                <th>{{ t('Comment') }}</th>
               </tr>
             </thead>
 
@@ -566,10 +566,10 @@
         <input type="hidden" name="create_index" value="1">
 
         {% apply format('<input class="mx-2" type="number" name="added_fields" value="1" min="1" max="16" required>')|raw %}
-          {% trans %}Create an index on %s columns{% endtrans %}
+          {{ t('Create an index on %s columns') }}
         {% endapply %}
 
-        <input class="btn btn-primary add_index ajax" type="submit" value="{% trans 'Go' %}">
+        <input class="btn btn-primary add_index ajax" type="submit" value="{{ t('Go') }}">
       </form>
     </div>
   </div>
@@ -594,7 +594,7 @@
         {% if default_sliders_state != 'disabled' %}
         <div class="mb-3">
           <button class="btn btn-sm btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#partitionsCollapse" aria-expanded="{{ default_sliders_state == 'open' ? 'true' : 'false' }}" aria-controls="partitionsCollapse">
-            {% trans 'Partitions' %}
+            {{ t('Partitions') }}
           </button>
         </div>
         <div class="collapse mb-3{{ default_sliders_state == 'open' ? ' show' }}" id="partitionsCollapse">

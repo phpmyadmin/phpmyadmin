@@ -1,6 +1,6 @@
 <div class="mb-3">
   <button class="btn btn-sm btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#queryWindow" aria-expanded="true" aria-controls="queryWindow">
-    {% trans 'Query window' %}
+    {{ t('Query window') }}
   </button>
 </div>
 <div class="collapse show mb-3" id="queryWindow">
@@ -24,28 +24,28 @@
               <div class="card">
                 <fieldset class="card-body">
                   <select class="tableNameSelect">
-                    <option value="">{% trans 'select table' %}</option>
+                    <option value="">{{ t('select table') }}</option>
                     {% for keyTableName, table in tables %}
                       <option data-hash="{{ table.hash }}" value="{{ keyTableName }}">{{ keyTableName }}</option>
                     {% endfor %}
                   </select>
                   <span>.</span>
                   <select class="columnNameSelect">
-                    <option value="">{% trans 'select column' %}</option>
+                    <option value="">{{ t('select column') }}</option>
                   </select>
                   <br>
                   <input type="checkbox" checked="checked" class="show_col">
-                  <span>{% trans 'Show' %}</span>
+                  <span>{{ t('Show') }}</span>
                   <br>
-                  <input type="text" placeholder="{% trans 'Table alias' %}" class="table_alias">
-                  <input type="text" placeholder="{% trans 'Column alias' %}" class="col_alias">
+                  <input type="text" placeholder="{{ t('Table alias') }}" class="table_alias">
+                  <input type="text" placeholder="{{ t('Column alias') }}" class="col_alias">
                   <br>
                   <input type="checkbox"
-                         title="{% trans 'Use this column in criteria' %}"
+                         title="{{ t('Use this column in criteria') }}"
                          class="criteria_col">
 
                   <button class="btn btn-link p-0 jsCriteriaButton" type="button" data-bs-toggle="collapse" data-bs-target="#criteriaOptions{{ id }}" aria-expanded="false" aria-controls="criteriaOptions{{ id }}">
-                    {% trans 'criteria' %}
+                    {{ t('criteria') }}
                   </button>
                   <div class="collapse jsCriteriaOptions" id="criteriaOptions{{ id }}">
 
@@ -53,13 +53,13 @@
                       <table class="table table-sm table-borderless align-middle w-auto">
 
                         <tr class="sort_order">
-                          <td>{% trans 'Sort' %}</td>
-                          <td><input type="radio" name="sort[{{ id }}]">{% trans 'Ascending' %}</td>
-                          <td><input type="radio" name="sort[{{ id }}]">{% trans 'Descending' %}</td>
+                          <td>{{ t('Sort') }}</td>
+                          <td><input type="radio" name="sort[{{ id }}]">{{ t('Ascending') }}</td>
+                          <td><input type="radio" name="sort[{{ id }}]">{{ t('Descending') }}</td>
                         </tr>
 
                         <tr class="logical_operator">
-                          <td>{% trans 'Add as' %}</td>
+                          <td>{{ t('Add as') }}</td>
                           <td>
                             <input type="radio"
                                    name="logical_op[{{ id }}]"
@@ -104,8 +104,8 @@
                           </td>
                           <td>
                             <select class="criteria_rhs">
-                              <option value="text">{% trans 'Text' %}</option>
-                              <option value="anotherColumn">{% trans 'Another column' %}</option>
+                              <option value="text">{{ t('Text') }}</option>
+                              <option value="anotherColumn">{{ t('Another column') }}</option>
                             </select>
                           </td>
                         </tr>
@@ -114,7 +114,7 @@
                           <td></td>
                           <td>
                             <select class="tableNameSelect">
-                              <option value="">{% trans 'select table' %}</option>
+                              <option value="">{{ t('select table') }}</option>
                               {% for keyTableName, table in tables %}
                                 <option data-hash="{{ table.hash }}" value="{{ keyTableName }}">{{ keyTableName }}</option>
                               {% endfor %}
@@ -122,7 +122,7 @@
                           </td>
                           <td>
                             <select class="columnNameSelect">
-                              <option value="">{% trans 'select column' %}</option>
+                              <option value="">{{ t('select column') }}</option>
                             </select>
                           </td>
                         </tr>
@@ -132,14 +132,14 @@
                           <td colspan="2">
                             <input type="text"
                                    class="rhs_text_val"
-                                   placeholder="{% trans 'Enter criteria as free text' %}">
+                                   placeholder="{{ t('Enter criteria as free text') }}">
                           </td>
                         </tr>
 
                       </table>
                     </div>
                   </div>
-                  <button type="button" class="btn-close position-absolute top-0 end-0 jsRemoveColumn" aria-label="{% trans 'Remove this column' %}"></button>
+                  <button type="button" class="btn-close position-absolute top-0 end-0 jsRemoveColumn" aria-label="{{ t('Remove this column') }}"></button>
                 </fieldset>
               </div>
             </div>
@@ -147,7 +147,7 @@
         </div>
 
         <div class="mb-3">
-          <input class="btn btn-secondary" type="button" value="{% trans '+ Add column' %}" id="add_column_button">
+          <input class="btn btn-secondary" type="button" value="{{ t('+ Add column') }}" id="add_column_button">
         </div>
 
         <div>
@@ -162,8 +162,8 @@
       </div>
 
       <div class="card-footer">
-        <input class="btn btn-secondary" type="button" id="update_query_button" value="{% trans 'Update query' %}">
-        <input class="btn btn-primary" type="button" id="submit_query" value="{% trans 'Submit query' %}">
+        <input class="btn btn-secondary" type="button" id="update_query_button" value="{{ t('Update query') }}">
+        <input class="btn btn-primary" type="button" id="submit_query" value="{{ t('Submit query') }}">
       </div>
     </div>
   </form>

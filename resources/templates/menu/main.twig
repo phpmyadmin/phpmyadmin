@@ -4,7 +4,7 @@
     <li class="breadcrumb-item">
       {{ show_icons('TabsMode') ? get_image('s_host') }}
       <a href="{{ url(server.url) }}" data-raw-text="{{ server.name }}" draggable="false">
-        {% if show_text('TabsMode') %}{% trans 'Server:' %}{% endif %}
+        {% if show_text('TabsMode') %}{{ t('Server:') }}{% endif %}
         {{ server.name }}
       </a>
     </li>
@@ -13,7 +13,7 @@
       <li class="breadcrumb-item">
         {{ show_icons('TabsMode') ? get_image('s_db') }}
         <a href="{{ url(database.url, {'db': database.name}) }}" data-raw-text="{{ database.name }}" draggable="false">
-          {% if show_text('TabsMode') %}{% trans 'Database:' %}{% endif %}
+          {% if show_text('TabsMode') %}{{ t('Database:') }}{% endif %}
           {{ database.name }}
         </a>
       </li>
@@ -24,9 +24,9 @@
           <a href="{{ url(table.url, {'db': database.name, 'table': table.name}) }}" data-raw-text="{{ table.name }}" draggable="false">
             {% if show_text('TabsMode') %}
               {% if table.is_view %}
-                {% trans 'View:' %}
+                {{ t('View:') }}
               {% else %}
-                {% trans 'Table:' %}
+                {{ t('Table:') }}
               {% endif %}
             {% endif %}
             {{ table.name }}
@@ -46,7 +46,7 @@
 <div id="topmenucontainer" class="menucontainer">
   <nav class="navbar navbar-expand-lg">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="
-      {%- trans %}Toggle navigation{% notes %}Show or hide the menu using the hamburger style button{% endtrans %}" aria-controls="navbarNav" aria-expanded="false">
+      {{- t('Toggle navigation', notes = 'Show or hide the menu using the hamburger style button') }}" aria-controls="navbarNav" aria-expanded="false">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -56,7 +56,7 @@
             <a class="nav-link text-nowrap disableAjax" href="{{ url(tab.route, url_params|merge(tab.args ?? [])) }}">
               {{ get_icon(tab.icon, tab.text, false, true, 'TabsMode') }}
               {% if tab.active %}
-                <span class="visually-hidden">{% trans %}(current){% notes %}Current page{% endtrans %}</span>
+                <span class="visually-hidden">{{ t('(current)', notes = 'Current page') }}</span>
               {% endif %}
             </a>
           </li>

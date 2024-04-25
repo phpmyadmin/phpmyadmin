@@ -7,7 +7,7 @@
             <th class="d-print-none"></th>
             <th>{{ sortable_table_header(t('Table'), 'table') }}</th>
             {% if replication %}
-                <th>{% trans 'Replication' %}</th>
+                <th>{{ t('Replication') }}</th>
             {% endif %}
 
             {% if db_is_system_schema %}
@@ -19,7 +19,7 @@
                 {% set action_colspan = action_colspan + 1 %}
             {% endif %}
             <th colspan="{{ action_colspan }}" class="d-print-none">
-                {% trans 'Action' %}
+                {{ t('Action') }}
             </th>
             {# larger values are more interesting so default sort order is DESC #}
             <th>

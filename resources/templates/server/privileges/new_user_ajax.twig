@@ -6,7 +6,7 @@
   <td>
     <label for="checkbox_sel_users_">
       {% if user.name is empty %}
-        <span class="text-danger">{% trans 'Any' %}</span>
+        <span class="text-danger">{{ t('Any') }}</span>
       {% else %}
         {{ user.name }}
       {% endif %}
@@ -17,9 +17,9 @@
   </td>
   <td>
     {% if user.has_password %}
-      {% trans 'Yes' %}
+      {{ t('Yes') }}
     {% else %}
-      <span class="text-danger">{% trans 'No' %}</span>
+      <span class="text-danger">{{ t('No') }}</span>
     {% endif %}
   </td>
   <td>

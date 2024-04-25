@@ -30,7 +30,7 @@
         <span class="clearfloat">
             <input type="text" name="constraint_name[{{ i }}]" value="
                 {{- one_key['constraint'] is defined ? one_key['constraint'] -}}
-                " placeholder="{% trans 'Constraint name' %}" maxlength="64">
+                " placeholder="{{ t('Constraint name') }}" maxlength="64">
         </span>
         <div class="float-start">
             {# For ON DELETE and ON UPDATE, the default action
@@ -82,7 +82,7 @@
         {% endif %}
         <a class="clearfloat add_foreign_key_field" data-index="
             {{- i }}" href="">
-            {% trans '+ Add column' %}
+            {{ t('+ Add column') }}
         </a>
     </td>
     <td>

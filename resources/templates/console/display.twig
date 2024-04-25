@@ -40,8 +40,8 @@
     <div class="content{{ settings.DarkTheme ? ' console_dark_theme' }}">
       <div class="console_message_container">
         <div class="message welcome">
-          <span id="instructions-0">{% trans 'Press Ctrl+Enter to execute query' %}</span>
-          <span class="hide" id="instructions-1">{% trans 'Press Enter to execute query' %}</span>
+          <span id="instructions-0">{{ t('Press Ctrl+Enter to execute query') }}</span>
+          <span class="hide" id="instructions-1">{{ t('Press Enter to execute query') }}</span>
         </div>
         {% if sql_history is not empty %}
           {% for record in sql_history|reverse %}
@@ -151,15 +151,15 @@
           <div class="content add_bookmark">
             <div class="options">
               <label>
-                {% trans 'Label' %}: <input type="text" name="label">
+                {{ t('Label') }}: <input type="text" name="label">
               </label>
               <label>
-                {% trans 'Target database' %}: <input type="text" name="targetdb">
+                {{ t('Target database') }}: <input type="text" name="targetdb">
               </label>
               <label>
-                <input type="checkbox" name="shared">{% trans 'Share this bookmark' %}
+                <input type="checkbox" name="shared">{{ t('Share this bookmark') }}
               </label>
-              <button class="btn btn-primary" type="submit" name="submit">{% trans 'OK' %}</button>
+              <button class="btn btn-primary" type="submit" name="submit">{{ t('OK') }}</button>
             </div> <!-- options -->
             <div class="query_input">
               <span class="bookmark_add_input"></span>

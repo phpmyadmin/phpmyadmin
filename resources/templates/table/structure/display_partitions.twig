@@ -1,6 +1,6 @@
 <div id="partitions" class="card mb-3">
     <div class="card-header">
-      {% trans 'Partitions' %}
+      {{ t('Partitions') }}
       {{ show_mysql_docu('partitioning') }}
     </div>
 
@@ -9,12 +9,12 @@
             {{ t('No partitioning defined!')|notice }}
         {% else %}
             <p>
-                {% trans 'Partitioned by:' %}
+                {{ t('Partitioned by:') }}
                 <code>{{ partition_method }}({{ partition_expression }})</code>
             </p>
             {% if has_sub_partitions %}
                 <p>
-                    {% trans 'Sub partitioned by:' %}
+                    {{ t('Sub partitioned by:') }}
                     <code>{{ sub_partition_method }}({{ sub_partition_expression }})</code>
                 <p>
             {% endif %}
@@ -22,16 +22,16 @@
                 <thead>
                     <tr>
                         <th colspan="2">#</th>
-                        <th>{% trans 'Partition' %}</th>
+                        <th>{{ t('Partition') }}</th>
                         {% if has_description %}
-                            <th>{% trans 'Expression' %}</th>
+                            <th>{{ t('Expression') }}</th>
                         {% endif %}
-                        <th>{% trans 'Rows' %}</th>
-                        <th>{% trans 'Data length' %}</th>
-                        <th>{% trans 'Index length' %}</th>
-                        <th>{% trans 'Comment' %}</th>
+                        <th>{{ t('Rows') }}</th>
+                        <th>{{ t('Data length') }}</th>
+                        <th>{{ t('Index length') }}</th>
+                        <th>{{ t('Comment') }}</th>
                         <th colspan="{{ range_or_list ? '7' : '6' }}">
-                            {% trans 'Action' %}
+                            {{ t('Action') }}
                         </th>
                     </tr>
                 </thead>
@@ -192,7 +192,7 @@
             {{ get_hidden_inputs(db, table) }}
 
             {% if partitions is not defined or partitions is empty %}
-                <input class="btn btn-secondary" type="submit" value="{% trans 'Partition table' %}">
+                <input class="btn btn-secondary" type="submit" value="{{ t('Partition table') }}">
             {% else %}
                 {{ link_or_button(
                   url('/sql'),
@@ -205,7 +205,7 @@
                     'class': 'btn btn-secondary ajax',
                     'id': 'remove_partitioning'
                 }) }}
-                <input class="btn btn-secondary" type="submit" value="{% trans 'Edit partitioning' %}">
+                <input class="btn btn-secondary" type="submit" value="{{ t('Edit partitioning') }}">
             {% endif %}
         </form>
     </div>

@@ -2,7 +2,7 @@
 <div class="row">
   <h2>
     {{ get_image('s_vars') }}
-    {% trans 'Server variables and settings' %}
+    {{ t('Server variables and settings') }}
     {{ show_mysql_docu('server_system_variables') }}
   </h2>
 </div>
@@ -27,9 +27,9 @@
     <table id="serverVariables" class="table table-striped table-hover table-sm">
       <thead>
         <tr>
-          <th scope="col">{% trans 'Action' %}</th>
-          <th scope="col">{% trans 'Variable' %}</th>
-          <th scope="col" class="text-end">{% trans 'Value' %}</th>
+          <th scope="col">{{ t('Action') }}</th>
+          <th scope="col">{{ t('Variable') }}</th>
+          <th scope="col" class="text-end">{{ t('Value') }}</th>
         </tr>
       </thead>
 
@@ -40,7 +40,7 @@
               {% if variable.is_editable %}
                 <a href="#" data-variable="{{ variable.name }}" class="editLink">{{ get_icon('b_edit', t('Edit')) }}</a>
               {% else %}
-                <span title="{% trans 'This is a read-only variable and can not be edited' %}" class="read_only_var">
+                <span title="{{ t('This is a read-only variable and can not be edited') }}" class="read_only_var">
                   {{ get_icon('bd_edit', t('Edit')) }}
                 </span>
               {% endif %}
@@ -66,7 +66,7 @@
           {% if variable.has_session_value %}
             <tr class="var-row" data-filter-row="{{ variable.name|upper }}">
               <td></td>
-              <td class="var-name font-italic">{{ variable.name|replace({'_': ' '}) }} ({% trans 'Session value' %})</td>
+              <td class="var-name font-italic">{{ variable.name|replace({'_': ' '}) }} ({{ t('Session value') }})</td>
               <td class="var-value text-end font-monospace">{{ variable.session_value }}</td>
             </tr>
           {% endif %}

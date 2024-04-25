@@ -3,9 +3,9 @@
     <h4>
       <a id="replication_{{ type }}"></a>
       {% if type == 'primary' %}
-        {% trans 'Primary status' %}
+        {{ t('Primary status') }}
       {% else %}
-        {% trans 'Replica status' %}
+        {{ t('Replica status') }}
       {% endif %}
     </h4>
   {% endif %}
@@ -13,8 +13,8 @@
   <table id="server{{ type }}replicationsummary" class="table w-auto">
     <thead>
       <tr>
-        <th>{% trans 'Variable' %}</th>
-        <th>{% trans 'Value' %}</th>
+        <th>{{ t('Variable') }}</th>
+        <th>{{ t('Value') }}</th>
       </tr>
     </thead>
 

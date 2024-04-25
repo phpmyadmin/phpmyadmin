@@ -20,7 +20,7 @@
 
             <div class="choice form-switch mt-1">
                 <input type="checkbox" id="choice" class="form-check-input" value="useBaseLayer"{{ srid != 0 ? ' checked="checked"' }}>
-                <label for="choice">{% trans "Use OpenStreetMaps as Base Layer" %}</label>
+                <label for="choice">{{ t('Use OpenStreetMaps as Base Layer') }}</label>
             </div>
         </div>
 
@@ -47,7 +47,7 @@
                     {% endfor %}
                 </select>
 
-                <label for="srid">{% trans %}SRID:{% context %}Spatial Reference System Identifier{% endtrans %}</label>
+                <label for="srid">{{ t('SRID:', context = 'Spatial Reference System Identifier') }}</label>
                 <input id="srid" name="gis_data[srid]" type="text" value="{{ srid }}">
             </div>
             {# End of header section #}
@@ -56,7 +56,7 @@
         {# End of data section #}
 
         <div class="gis_data_output">
-            <h3>{% trans 'Output' %}</h3>
+            <h3>{{ t('Output') }}</h3>
             <textarea id="gis_data_textarea" class="mb-3" rows="5">{{ result }}</textarea>
 
             <button type="button" class="btn btn-primary gis-copy-data">{{ t('Copy') }}</button>

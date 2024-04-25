@@ -2,17 +2,17 @@
   <table class="table table-striped align-middle my-3 insertRowTable w-auto">
     <thead>
     <tr>
-      <th>{% trans 'Column' %}</th>
+      <th>{{ t('Column') }}</th>
       {{ type|raw }}
       {{ function|raw }}
-      <th>{% trans 'Null' %}</th>
-      <th class="w-50">{% trans 'Value' %}</th>
+      <th>{{ t('Null') }}</th>
+      <th class="w-50">{{ t('Value') }}</th>
     </tr>
     </thead>
      <tfoot>
     <tr>
       <th colspan="5" class="text-end">
-        <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
+        <input class="btn btn-primary" type="submit" value="{{ t('Go') }}">
         </th>
       </tr>
     </tfoot>
