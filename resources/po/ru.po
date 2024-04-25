@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-04-21 00:19+0000\n"
-"PO-Revision-Date: 2024-04-14 18:56+0000\n"
+"PO-Revision-Date: 2024-04-25 17:18+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.1-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:30
 #: resources/templates/database/central_columns/edit_table_row.twig:22
@@ -7076,7 +7076,7 @@ msgstr "Всего"
 
 #: resources/templates/table/structure/display_table_stats.twig:79
 msgid "Row statistics"
-msgstr "Статистика строки"
+msgstr "Статистика строк"
 
 #: resources/templates/table/structure/display_table_stats.twig:86
 msgid "static"
@@ -16225,7 +16225,7 @@ msgstr "Без кода PHP"
 #: src/Html/Generator.php:629
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Построчное редактирование"
+msgstr "Построчная правка"
 
 #: src/Html/Generator.php:752
 msgid "Static analysis:"
@@ -18293,7 +18293,7 @@ msgstr ""
 #: src/SqlQueryForm.php:143
 #, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Выполнить SQL-запрос(ы) на сервере “%s”"
+msgstr "Выполнить SQL-запрос(ы) на сервере «%s»"
 
 #: src/SqlQueryForm.php:159
 #, php-format
