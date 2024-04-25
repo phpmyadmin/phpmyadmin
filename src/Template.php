@@ -7,7 +7,6 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Twig\AssetExtension;
 use PhpMyAdmin\Twig\CoreExtension;
-use PhpMyAdmin\Twig\Extensions\Node\TransNode;
 use PhpMyAdmin\Twig\FlashMessagesExtension;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
@@ -61,13 +60,9 @@ class Template
             $twig->enableDebug();
             $twig->enableStrictVariables();
             $twig->addExtension(new DebugExtension());
-            // This will enable debug for the extension to print lines
-            // It is used in po file lines re-mapping
-            TransNode::$enableAddDebugInfo = true;
         } else {
             $twig->disableDebug();
             $twig->disableStrictVariables();
-            TransNode::$enableAddDebugInfo = false;
         }
 
         $twig->addExtension(new AssetExtension());

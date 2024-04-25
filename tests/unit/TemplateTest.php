@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Twig\Extensions\Node\TransNode;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionProperty;
@@ -37,11 +36,9 @@ class TemplateTest extends AbstractTestCase
     {
         $twig = Template::getTwigEnvironment(null, false);
         self::assertFalse($twig->isDebug());
-        self::assertFalse(TransNode::$enableAddDebugInfo);
 
         $twig = Template::getTwigEnvironment(null, true);
         self::assertTrue($twig->isDebug());
-        self::assertTrue(TransNode::$enableAddDebugInfo);
     }
 
     /**
@@ -125,40 +122,6 @@ class TemplateTest extends AbstractTestCase
     public static function providerTestRender(): array
     {
         return [['test/static', "static content\n"]];
-    }
-
-    /**
-     * Test for render
-     *
-     * @param string  $templateFile   Template name
-     * @param mixed[] $renderParams   Render params
-     * @param string  $expectedResult Expected result
-     */
-    #[DataProvider('providerTestRenderGettext')]
-    public function testRenderGettext(string $templateFile, array $renderParams, string $expectedResult): void
-    {
-        self::assertSame(
-            $expectedResult,
-            $this->template->render($templateFile, $renderParams),
-        );
-    }
-
-    /**
-     * Data provider for testRenderGettext
-     *
-     * @return mixed[]
-     */
-    public static function providerTestRenderGettext(): array
-    {
-        return [
-            ['test/gettext/gettext', [], 'Text'],
-            ['test/gettext/pgettext', [], 'Text'],
-            ['test/gettext/notes', [], 'Text'],
-            ['test/gettext/plural', ['table_count' => 1], 'One table'],
-            ['test/gettext/plural', ['table_count' => 2], '2 tables'],
-            ['test/gettext/plural_notes', ['table_count' => 1], 'One table'],
-            ['test/gettext/plural_notes', ['table_count' => 2], '2 tables'],
-        ];
     }
 
     public function testLoadingTwigEnvOnlyOnce(): void
