@@ -119,56 +119,56 @@ class QueryByExampleTest extends TestBase
         $submitButton->click();
         $this->waitAjax();
 
-        $this->waitForElement('cssSelector', 'table.table_results');
+        $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
 
         /* Assert Row 1 */
         $this->assertEquals(
             4,
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 1)
         );
         $this->assertEquals(
             3,
-            $this->getCellByTableClass('table_results', 1, 6)
+            $this->getCellByTableClass('table_results', 1, 2)
         );
 
         /* Assert Row 2 */
         $this->assertEquals(
             6,
-            $this->getCellByTableClass('table_results', 2, 5)
+            $this->getCellByTableClass('table_results', 2, 1)
         );
         $this->assertEquals(
             4,
-            $this->getCellByTableClass('table_results', 2, 6)
+            $this->getCellByTableClass('table_results', 2, 2)
         );
 
         /* Assert Row 3 */
         $this->assertEquals(
             5,
-            $this->getCellByTableClass('table_results', 3, 5)
+            $this->getCellByTableClass('table_results', 3, 1)
         );
         $this->assertEquals(
             4,
-            $this->getCellByTableClass('table_results', 3, 6)
+            $this->getCellByTableClass('table_results', 3, 2)
         );
 
         /* Assert Row 4 */
         $this->assertEquals(
             7,
-            $this->getCellByTableClass('table_results', 4, 5)
+            $this->getCellByTableClass('table_results', 4, 1)
         );
         $this->assertEquals(
             5,
-            $this->getCellByTableClass('table_results', 4, 6)
+            $this->getCellByTableClass('table_results', 4, 2)
         );
 
         /* Assert Row 5 */
         $this->assertEquals(
             3,
-            $this->getCellByTableClass('table_results', 5, 5)
+            $this->getCellByTableClass('table_results', 5, 1)
         );
         $this->assertEquals(
             5,
-            $this->getCellByTableClass('table_results', 5, 6)
+            $this->getCellByTableClass('table_results', 5, 2)
         );
     }
 }
