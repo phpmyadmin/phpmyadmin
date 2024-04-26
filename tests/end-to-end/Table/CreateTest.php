@@ -137,13 +137,10 @@ class CreateTest extends TestBase
             $this->getCellByTableId('tablestructure', 1, 10),
         );
 
-        self::assertFalse(
-            $this->isElementPresent(
-                'cssSelector',
-                'table#tablestructure tbody tr:nth-child(1) "
-                . "ul.table-structure-actions li.primary a',
-            ),
-        );
+        self::assertFalse($this->isElementPresent(
+            'cssSelector',
+            'table#tablestructure tbody tr:nth-child(1) ul li.primary a',
+        ));
 
         // make assertions for second row
         self::assertStringContainsString(
@@ -171,11 +168,9 @@ class CreateTest extends TestBase
             $this->getCellByTableId('tablestructure', 2, 8),
         );
 
-        self::assertFalse(
-            $this->isElementPresent(
-                'cssSelector',
-                'css=ul.table-structure-actions:nth-child(2) li.primary a',
-            ),
-        );
+        self::assertTrue($this->isElementPresent(
+            'cssSelector',
+            'table#tablestructure tbody tr:nth-child(2) ul li.primary a',
+        ));
     }
 }

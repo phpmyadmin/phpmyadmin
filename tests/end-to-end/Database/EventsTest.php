@@ -147,7 +147,7 @@ class EventsTest extends TestBase
         $this->dbQuery(
             'SELECT * FROM `' . $this->databaseName . '`.`test_table`',
             function (): void {
-                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
                 // [ ] | Edit | Copy | Delete | 1 | <number>
                 self::assertGreaterThan(2, (int) $this->getCellByTableClass('table_results', 1, 6));
             },
@@ -181,7 +181,7 @@ class EventsTest extends TestBase
         $this->dbQuery(
             'SELECT * FROM `' . $this->databaseName . '`.`test_table`',
             function (): void {
-                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
                 // [ ] | Edit | Copy | Delete | 4
                 self::assertGreaterThan(3, (int) $this->getCellByTableClass('table_results', 1, 6));
             },

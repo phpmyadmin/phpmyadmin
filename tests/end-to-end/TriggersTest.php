@@ -116,7 +116,7 @@ class TriggersTest extends TestBase
         $this->dbQuery(
             'SELECT * FROM `' . $this->databaseName . '`.`test_table2`;',
             function (): void {
-                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
                 // [ ] | Edit | Copy | Delete | 1 | 3
                 self::assertEquals('3', $this->getCellByTableClass('table_results', 1, 6));
             },
@@ -152,7 +152,7 @@ class TriggersTest extends TestBase
         $this->dbQuery(
             'SELECT * FROM `' . $this->databaseName . '`.`test_table2`;',
             function (): void {
-                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
                 // [ ] | Edit | Copy | Delete | 1 | 12
                 self::assertEquals('12', $this->getCellByTableClass('table_results', 1, 6));
             },
@@ -182,7 +182,7 @@ class TriggersTest extends TestBase
         $this->dbQuery(
             'SELECT * FROM `' . $this->databaseName . '`.`test_table2`;',
             function (): void {
-                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
                 // [ ] | Edit | Copy | Delete | 1 | 2
                 self::assertEquals('2', $this->getCellByTableClass('table_results', 1, 6));
             },
