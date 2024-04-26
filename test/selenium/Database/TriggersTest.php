@@ -117,11 +117,11 @@ class TriggersTest extends TestBase
         // test trigger
         $this->dbQuery('USE `' . $this->databaseName . '`;INSERT INTO `test_table` (val) VALUES (1);');
         $this->dbQuery(
-            'SELECT val FROM `' . $this->databaseName . '`.`test_table2`;',
+            'SELECT * FROM `' . $this->databaseName . '`.`test_table2`;',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
                 // [ ] | Edit | Copy | Delete | 1 | 3
-                $this->assertEquals('3', $this->getCellByTableClass('table_results', 1, 5));
+                $this->assertEquals('3', $this->getCellByTableClass('table_results', 1, 6));
             }
         );
     }
@@ -157,11 +157,11 @@ class TriggersTest extends TestBase
         // test trigger
         $this->dbQuery('USE `' . $this->databaseName . '`;INSERT INTO `test_table` (val) VALUES (1);');
         $this->dbQuery(
-            'SELECT val FROM `' . $this->databaseName . '`.`test_table2`;',
+            'SELECT * FROM `' . $this->databaseName . '`.`test_table2`;',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
                 // [ ] | Edit | Copy | Delete | 1 | 12
-                $this->assertEquals('12', $this->getCellByTableClass('table_results', 1, 5));
+                $this->assertEquals('12', $this->getCellByTableClass('table_results', 1, 6));
             }
         );
     }
@@ -189,11 +189,11 @@ class TriggersTest extends TestBase
         // test trigger
         $this->dbQuery('USE `' . $this->databaseName . '`;INSERT INTO `test_table` (val) VALUES (1);');
         $this->dbQuery(
-            'SELECT val FROM `' . $this->databaseName . '`.`test_table2`;',
+            'SELECT * FROM `' . $this->databaseName . '`.`test_table2`;',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
                 // [ ] | Edit | Copy | Delete | 1 | 2
-                $this->assertEquals('2', $this->getCellByTableClass('table_results', 1, 5));
+                $this->assertEquals('2', $this->getCellByTableClass('table_results', 1, 6));
             }
         );
 
