@@ -1,0 +1,24 @@
+name: "Manage stale PRs/issues"
+
+permissions:
+  issues: write
+
+on:
+  schedule:
+    - cron: "30 1 * * *"
+
+jobs:
+  run-stale-check:
+    name: Check for stale PRs/issues
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/stale@v9
+        with:
+          days-before-stale: 15
+          days-before-close: -1
+          only-issue-labels: "Awaiting Author Updates"
+          close-issue-message: >
+            The phpMyAdmin team is awaiting an update on this issue.
+            Please check that all the questions have been answered.
