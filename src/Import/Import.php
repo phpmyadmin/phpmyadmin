@@ -17,6 +17,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
 use PhpMyAdmin\SqlParser\Statements\InsertStatement;
 use PhpMyAdmin\SqlParser\Statements\ReplaceStatement;
+use PhpMyAdmin\SqlParser\Statements\SetStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Table\Table;
@@ -938,7 +939,7 @@ class Import
 
             $sqlError = $dbi->getError();
             $error = $sqlError !== '' ? $sqlError : __(
-                'Only INSERT, UPDATE, DELETE and REPLACE '
+                'Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) '
                 . 'SQL queries containing transactional engine tables can be rolled back.',
             );
 
@@ -971,7 +972,13 @@ class Import
             ! ($statement instanceof InsertStatement
             || $statement instanceof UpdateStatement
             || $statement instanceof DeleteStatement
-            || $statement instanceof ReplaceStatement)
+            || $statement instanceof ReplaceStatement
+            || (
+                $statement instanceof SetStatement
+                && $statement->options !== null
+                && $statement->options->isEmpty()
+                )
+            )
         ) {
             return false;
         }

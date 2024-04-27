@@ -220,14 +220,73 @@ class ImportTest extends AbstractTestCase
 
     /**
      * Test for checkIfRollbackPossible
+     *
+     * @param string $sqlQuery SQL Query for which rollback is possible
+     *
+     * @dataProvider provPMACheckIfRollbackPossiblePositive
      */
-    public function testPMACheckIfRollbackPossible(): void
+    public function testCheckIfRollbackPossiblePositive(string $sqlQuery): void
     {
         Current::$database = 'PMA';
 
-        $sqlQuery = 'UPDATE `table_1` AS t1, `table_2` t2 SET `table_1`.`id` = `table_2`.`id` WHERE 1';
+        self::assertTrue(
+            $this->import->checkIfRollbackPossible($sqlQuery),
+            'Test case for ' . $sqlQuery . ' is failed',
+        );
+    }
 
-        self::assertTrue($this->import->checkIfRollbackPossible($sqlQuery));
+    /**
+     * Data provider for testPMACheckIfRollbackPossiblePositive
+     *
+     * @return array<int, array<int, string>>
+     */
+    public static function provPMACheckIfRollbackPossiblePositive(): array
+    {
+        return [
+            ['UPDATE `table_1` AS t1, `table_2` t2 SET `table_1`.`id` = `table_2`.`id` WHERE 1'],
+            ['INSERT INTO `table_1` (id) VALUES (123)'],
+            ['REPLACE INTO `table_1` (id) VALUES (123)'],
+            ['DELETE FROM `table_1` WHERE TRUE'],
+            ['SET @foo = 1'],
+            ['SET @@max_connections = 1'],
+            ['SET max_connections = 1'],
+            ['SET @foo = 1, max_connections = 1'],
+        ];
+    }
+
+    /**
+     * Negative test for checkIfRollbackPossible
+     *
+     * @param string $sqlQuery SQL Query for which rollback is possible
+     *
+     * @dataProvider provPMACheckIfRollbackPossibleNegative
+     */
+    public function testCheckIfRollbackPossibleNegative(string $sqlQuery): void
+    {
+        Current::$database = 'PMA';
+
+        self::assertFalse(
+            $this->import->checkIfRollbackPossible($sqlQuery),
+            'Test case for ' . $sqlQuery . ' is failed',
+        );
+    }
+
+    /**
+     * Data provider for testPMACheckIfRollbackPossibleNegative
+     *
+     * @return array<int, array<int, string>>
+     */
+    public static function provPMACheckIfRollbackPossibleNegative(): array
+    {
+        return [
+            ['ALTER TABLE `table_1` DROP COLUMN id'],
+            ['SELECT * FROM `test_db`.`test_table_complex`;'],
+            ['SET GLOBAL max_connections = 1'],
+            ['SET @@GLOBAL.max_connections = 1'],
+            ['SET CHARACTER SET utf8mb4'],
+            ['SET SESSION max_connections = 1'],
+            ['SET @@SESSION.max_connections = 1'],
+        ];
     }
 
     /**
