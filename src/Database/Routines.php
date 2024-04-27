@@ -1084,7 +1084,7 @@ class Routines
                         '',
                         false,
                     );
-                    $params[$i]['generator'] = Generator::getFunctionsForField($defaultFunction, []);
+                    $params[$i]['generator'] = Generator::getFunctionsForField($defaultFunction);
                 }
             }
 

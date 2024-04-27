@@ -885,15 +885,6 @@ class Relation
      * @param bool         $getTotal      optional, whether to get total num of rows
      *                                    in $foreignData['the_total;]
      *                                    (has an effect of performance)
-     *
-     * @return array<string, mixed>    data about the foreign keys
-     * @psalm-return array{
-     *     foreign_link: bool,
-     *     the_total: int|string|null,
-     *     foreign_display: string,
-     *     disp_row: list<non-empty-array>|null,
-     *     foreign_field: mixed
-     * }
      */
     public function getForeignData(
         array|bool $foreigners,
@@ -902,7 +893,7 @@ class Relation
         string $foreignFilter,
         string $foreignLimit,
         bool $getTotal = false,
-    ): array {
+    ): ForeignData {
         // we always show the foreign field in the drop-down; if a display
         // field is defined, we show it besides the foreign field
         $foreignLink = false;
@@ -966,17 +957,10 @@ class Relation
 
                 if ($foreignFilter !== '') {
                     $theTotal = $this->dbi->fetchValue('SELECT COUNT(*)' . $fQueryFrom . $fQueryFilter);
-                    if ($theTotal === false) {
-                        $theTotal = 0;
-                    }
                 }
 
                 $disp = $this->dbi->tryQuery($fQueryMain . $fQueryFrom . $fQueryFilter . $fQueryOrder . $fQueryLimit);
                 if ($disp && $disp->numRows() > 0) {
-                    // If a resultset has been created, pre-cache it in the $disp_row
-                    // array. This helps us from not needing to use mysql_data_seek by
-                    // accessing a pre-cached PHP array. Usually those resultsets are
-                    // not that big, so a performance hit should not be expected.
                     $dispRow = $disp->fetchAllAssoc();
                 } else {
                     // Either no data in the foreign table or
@@ -996,13 +980,13 @@ class Relation
                 ->countRecords(true);
         }
 
-        return [
-            'foreign_link' => $foreignLink,
-            'the_total' => $theTotal,
-            'foreign_display' => is_string($foreignDisplay) ? $foreignDisplay : '',
-            'disp_row' => $dispRow,
-            'foreign_field' => $foreignField,
-        ];
+        return new ForeignData(
+            $foreignLink,
+            (int) $theTotal,
+            is_string($foreignDisplay) ? $foreignDisplay : '',
+            $dispRow,
+            $foreignField,
+        );
     }
 
     /**

@@ -302,11 +302,9 @@ class Generator
     /**
      * Creates a dropdown box with MySQL functions for a particular column.
      *
-     * @param mixed[] $foreignData Foreign data
-     *
      * @return string An HTML snippet of a dropdown list with function names appropriate for the requested column.
      */
-    public static function getFunctionsForField(string $defaultFunction, array $foreignData): string
+    public static function getFunctionsForField(string $defaultFunction, mixed $foreignField = null): string
     {
         // Create the output
         $retval = '<option></option>' . "\n";
@@ -315,7 +313,7 @@ class Generator
         $functions = DatabaseInterface::getInstance()->types->getAllFunctions();
         foreach ($functions as $function) {
             $retval .= '<option';
-            if ($function === $defaultFunction && ! isset($foreignData['foreign_field'])) {
+            if ($function === $defaultFunction && $foreignField === null) {
                 $retval .= ' selected="selected"';
             }
 

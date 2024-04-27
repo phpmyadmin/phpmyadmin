@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\Settings;
+use PhpMyAdmin\ConfigStorage\ForeignData;
 use PhpMyAdmin\Theme\ThemeManager;
 
 use function __;
@@ -16,7 +17,6 @@ use function asort;
 use function ceil;
 use function floor;
 use function htmlspecialchars;
-use function is_array;
 use function mb_strlen;
 use function mb_substr;
 
@@ -133,7 +133,6 @@ class BrowseForeigners
      * @param string      $db           current database
      * @param string      $table        current table
      * @param string      $field        field
-     * @param mixed[]     $foreignData  foreign column data
      * @param string|null $fieldKey     field key
      * @param string      $currentValue current columns's value
      */
@@ -141,16 +140,18 @@ class BrowseForeigners
         string $db,
         string $table,
         string $field,
-        array $foreignData,
+        ForeignData $foreignData,
         string|null $fieldKey,
         string $currentValue,
     ): string {
         $gotoPage = $this->getHtmlForGotoPage($foreignData);
-        $foreignShowAll = $this->template->render('table/browse_foreigners/show_all', [
-            'foreign_data' => $foreignData,
-            'show_all' => $this->settings->showAll,
-            'max_rows' => $this->settings->maxRows,
-        ]);
+        $foreignShowAll = '';
+        if (
+            $foreignData->dispRow !== null &&
+            $this->settings->showAll && $foreignData->theTotal > $this->settings->maxRows
+        ) {
+            $foreignShowAll = $this->template->render('table/browse_foreigners/show_all');
+        }
 
         $output = '<form class="ajax" '
             . 'id="browse_foreign_form" name="browse_foreign_from" action="'
@@ -185,7 +186,7 @@ class BrowseForeigners
 
         $output .= '<table class="table table-striped table-hover" id="browse_foreign_table">' . "\n";
 
-        if (! is_array($foreignData['disp_row'])) {
+        if ($foreignData->dispRow === null) {
             return $output . '</tbody>'
                 . '</table>';
         }
@@ -204,14 +205,9 @@ class BrowseForeigners
 
         $descriptions = [];
         $keys = [];
-        foreach ($foreignData['disp_row'] as $relrow) {
-            if ($foreignData['foreign_display'] != false) {
-                $descriptions[] = $relrow[$foreignData['foreign_display']] ?? '';
-            } else {
-                $descriptions[] = '';
-            }
-
-            $keys[] = $relrow[$foreignData['foreign_field']];
+        foreach ($foreignData->dispRow as $relrow) {
+            $descriptions[] = $relrow[$foreignData->foreignDisplay] ?? '';
+            $keys[] = $relrow[$foreignData->foreignField];
         }
 
         asort($keys);
@@ -258,20 +254,18 @@ class BrowseForeigners
 
     /**
      * Function to get html for the goto page option
-     *
-     * @param mixed[]|null $foreignData foreign data
      */
-    private function getHtmlForGotoPage(array|null $foreignData): string
+    private function getHtmlForGotoPage(ForeignData $foreignData): string
     {
         isset($_POST['pos']) ? $pos = $_POST['pos'] : $pos = 0;
-        if ($foreignData === null || ! is_array($foreignData['disp_row'])) {
+        if ($foreignData->dispRow === null) {
             return '';
         }
 
         $pageNow = (int) floor($pos / $this->settings->maxRows) + 1;
-        $nbTotalPage = (int) ceil($foreignData['the_total'] / $this->settings->maxRows);
+        $nbTotalPage = (int) ceil($foreignData->theTotal / $this->settings->maxRows);
 
-        if ($foreignData['the_total'] > $this->settings->maxRows) {
+        if ($foreignData->theTotal > $this->settings->maxRows) {
             return Util::pageselector(
                 'pos',
                 $this->settings->maxRows,

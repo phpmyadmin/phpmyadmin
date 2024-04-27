@@ -29,7 +29,6 @@ use PhpMyAdmin\Utils\Gis;
 use function __;
 use function array_keys;
 use function in_array;
-use function is_array;
 use function mb_strtolower;
 use function md5;
 use function preg_match;
@@ -377,12 +376,12 @@ final class SearchController implements InvocableController
         if (
             $this->foreigners
             && $searchColumnInForeigners
-            && is_array($foreignData['disp_row'])
+            && $foreignData->dispRow !== null
         ) {
             $foreignDropdown = $this->relation->foreignDropdown(
-                $foreignData['disp_row'],
-                $foreignData['foreign_field'],
-                $foreignData['foreign_display'],
+                $foreignData->dispRow,
+                $foreignData->foreignField,
+                $foreignData->foreignDisplay,
                 '',
                 Config::getInstance()->settings['ForeignKeyMaxLimit'],
             );
