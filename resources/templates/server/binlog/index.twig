@@ -1,11 +1,11 @@
 <h2>
   {{ get_image('s_tbl') }}
-  {% trans 'Binary log' %}
+  {{ t('Binary log') }}
 </h2>
 
 <form action="{{ url('/server/binlog') }}" method="post" class="card">
   {{ get_hidden_inputs(url_params) }}
-  <div class="card-header">{% trans 'Select binary log to view' %}</div>
+  <div class="card-header">{{ t('Select binary log to view') }}</div>
 
   <div class="card-body">
     {% set full_size = 0 %}
@@ -22,14 +22,14 @@
       {% endfor %}
     </select>
     {{ binary_logs|length }}
-    {% trans 'Files' %},
+    {{ t('Files') }},
     {% if full_size > 0 %}
       {{ format_byte_down(full_size)|join(' ') }}
     {% endif %}
   </div>
 
   <div class="card-footer">
-    <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
+    <input class="btn btn-primary" type="submit" value="{{ t('Go') }}">
   </div>
 </form>
 
@@ -42,24 +42,24 @@
         {% if has_previous %}
           {% if has_icons %}
             <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(previous_params, '', false) }}" title="
-                {%- trans %}Previous{% context %}Previous page{% endtrans %}">
+                {{- t('Previous', context = 'Previous page') }}">
               &laquo;
             </a>
           {% else %}
             <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(previous_params, '', false) }}">
-              {% trans %}Previous{% context %}Previous page{% endtrans %} &laquo;
+              {{ t('Previous', context = 'Previous page') }} &laquo;
             </a>
           {% endif %}
           -
         {% endif %}
 
         {% if is_full_query %}
-          <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(full_queries_params, '', false) }}" title="{% trans 'Truncate shown queries' %}">
-            <img src="{{ image('s_partialtext.png') }}" alt="{% trans 'Truncate shown queries' %}">
+          <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(full_queries_params, '', false) }}" title="{{ t('Truncate shown queries') }}">
+            <img src="{{ image('s_partialtext.png') }}" alt="{{ t('Truncate shown queries') }}">
           </a>
         {% else %}
-          <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(full_queries_params, '', false) }}" title="{% trans 'Show full queries' %}">
-            <img src="{{ image('s_fulltext.png') }}" alt="{% trans 'Show full queries' %}">
+          <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(full_queries_params, '', false) }}" title="{{ t('Show full queries') }}">
+            <img src="{{ image('s_fulltext.png') }}" alt="{{ t('Show full queries') }}">
           </a>
         {% endif %}
 
@@ -67,24 +67,24 @@
           -
           {% if has_icons %}
             <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(next_params, '', false) }}" title="
-                {%- trans %}Next{% context %}Next page{% endtrans %}">
+                {{- t('Next', context = 'Next page') }}">
               &raquo;
             </a>
           {% else %}
             <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(next_params, '', false) }}">
-              {% trans %}Next{% context %}Next page{% endtrans %} &raquo;
+              {{ t('Next', context = 'Next page') }} &raquo;
             </a>
           {% endif %}
         {% endif %}
       </td>
     </tr>
     <tr class="text-nowrap">
-      <th>{% trans 'Log name' %}</th>
-      <th>{% trans 'Position' %}</th>
-      <th>{% trans 'Event type' %}</th>
-      <th>{% trans 'Server ID' %}</th>
-      <th>{% trans 'Original position' %}</th>
-      <th>{% trans 'Information' %}</th>
+      <th>{{ t('Log name') }}</th>
+      <th>{{ t('Position') }}</th>
+      <th>{{ t('Event type') }}</th>
+      <th>{{ t('Server ID') }}</th>
+      <th>{{ t('Original position') }}</th>
+      <th>{{ t('Information') }}</th>
     </tr>
   </thead>
 

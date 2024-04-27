@@ -1,7 +1,7 @@
 {% extends 'setup/base.twig' %}
 {% block content %}
 
-<h2>{% trans 'Configuration file' %}</h2>
+<h2>{{ t('Configuration file') }}</h2>
 
 <div class="card">
   <h5 class="card-header">config.inc.php</h5>
@@ -13,13 +13,13 @@
       {{ get_hidden_inputs('', '', 'server') }}
       <input type="hidden" name="eol" value="{{ eol }}">
 
-      <textarea class="form-control font-monospace" rows="20" name="textconfig" spellcheck="false" aria-label="{% trans 'Generated configuration file' %}">
+      <textarea class="form-control font-monospace" rows="20" name="textconfig" spellcheck="false" aria-label="{{ t('Generated configuration file') }}">
         {{- config -}}
       </textarea>
     </form>
   </div>
   <div class="card-footer">
-    <input class="btn btn-primary" type="submit" form="configFileForm" name="submit_download" value="{% trans 'Download' %}">
+    <input class="btn btn-primary" type="submit" form="configFileForm" name="submit_download" value="{{ t('Download') }}">
   </div>
 </div>
 

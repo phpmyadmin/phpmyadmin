@@ -1,3 +1,3 @@
-<p class="card-text">{{ 'Please connect your WebAuthn/FIDO2 device. Then confirm login on the device.'|trans }}</p>
+<p class="card-text">{{ t('Please connect your WebAuthn/FIDO2 device. Then confirm login on the device.') }}</p>
 
 <input type="hidden" id="webauthn_request_response" name="webauthn_request_response" value="" data-request-options="{{ request_options|e('html_attr') }}">

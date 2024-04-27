@@ -1,7 +1,7 @@
 <div class=container-fluid>
   <h2>
     {{ get_image('s_asci') }}
-    {% trans 'Character sets and collations' %}
+    {{ t('Character sets and collations') }}
   </h2>
 
   {% for charset in charsets %}
@@ -20,7 +20,7 @@
               </div>
               <div class="col align-self-center text-end">
                 {% if collation.is_default %}
-                  <span class="badge bg-secondary text-dark">{% trans %}default{% context %}The collation is the default one{% endtrans %}</span>
+                  <span class="badge bg-secondary text-dark">{{ t('default', context = 'The collation is the default one') }}</span>
                 {% endif %}
               </div>
             </div>

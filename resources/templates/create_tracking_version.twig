@@ -7,18 +7,18 @@
 
         <div class="card-header">
                 {% if selected|length == 1 %}
-                    {{ 'Create version %1$s of %2$s'|trans|format(
+                    {{ t('Create version %1$s of %2$s')|format(
                         last_version + 1,
                         db ~ '.' ~ selected[0]
                     ) }}
                 {% else %}
-                    {{ 'Create version %1$s'|trans|format(last_version + 1) }}
+                    {{ t('Create version %1$s')|format(last_version + 1) }}
                 {% endif %}
         </div>
 
         <div class="card-body">
             <input type="hidden" name="version" value="{{ last_version + 1 }}">
-            <p>{% trans 'Track these data definition statements:' %}</p>
+            <p>{{ t('Track these data definition statements:') }}</p>
 
             {% if type == 'both' or type == 'table' %}
                 <input type="checkbox" name="alter_table" value="true"
@@ -57,7 +57,7 @@
                 {{- 'DROP INDEX' in default_statements ? ' checked="checked"' }}>
             DROP INDEX<br>
 
-            <p>{% trans 'Track these data manipulation statements:' %}</p>
+            <p>{{ t('Track these data manipulation statements:') }}</p>
             <input type="checkbox" name="insert" value="true"
                 {{- 'INSERT' in default_statements ? ' checked="checked"' }}>
             INSERT<br>
@@ -74,7 +74,7 @@
 
         <div class="card-footer">
             <input type="hidden" name="submit_create_version" value="1">
-            <input class="btn btn-primary" type="submit" value="{% trans 'Create version' %}">
+            <input class="btn btn-primary" type="submit" value="{{ t('Create version') }}">
         </div>
     </form>
 </div>

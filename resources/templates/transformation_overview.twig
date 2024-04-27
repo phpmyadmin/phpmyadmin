@@ -1,4 +1,4 @@
-<h2>{% trans 'Available media types' %}</h2>
+<h2>{{ t('Available media types') }}</h2>
 
 <ul>
   {% for mime_type in mime_types %}
@@ -10,13 +10,13 @@
   {% endfor %}
 </ul>
 
-<h2 id="transformation">{% trans 'Available browser display transformations' %}</h2>
+<h2 id="transformation">{{ t('Available browser display transformations') }}</h2>
 
 <table class="table table-striped align-middle">
   <thead>
     <tr>
-      <th>{% trans 'Browser display transformation' %}</th>
-      <th>{% trans %}Description{% context %}for media type transformation{% endtrans %}</th>
+      <th>{{ t('Browser display transformation') }}</th>
+      <th>{{ t('Description', context = 'for media type transformation') }}</th>
     </tr>
   </thead>
   <tbody>
@@ -29,13 +29,13 @@
   </tbody>
 </table>
 
-<h2 id="input_transformation">{% trans 'Available input transformations' %}</h2>
+<h2 id="input_transformation">{{ t('Available input transformations') }}</h2>
 
 <table class="table table-striped align-middle">
   <thead>
     <tr>
-      <th>{% trans 'Input transformation' %}</th>
-      <th>{% trans %}Description{% context %}for media type transformation{% endtrans %}</th>
+      <th>{{ t('Input transformation') }}</th>
+      <th>{{ t('Description', context = 'for media type transformation') }}</th>
     </tr>
   </thead>
   <tbody>

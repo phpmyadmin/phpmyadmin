@@ -4,20 +4,20 @@
   {{ get_hidden_inputs(db) }}
 
   <div class="card">
-    <div class="card-header">{{ ajax ? 'Routine parameters'|trans : routine['item_name'] }}</div>
+    <div class="card-header">{{ ajax ? t('Routine parameters') : routine['item_name'] }}</div>
 
     <div class="card-body">
       <table class="table w-auto rte_table{{ not ajax ? ' caption-top' }}">
         {% if not ajax %}
-          <caption>{% trans 'Routine parameters' %}</caption>
+          <caption>{{ t('Routine parameters') }}</caption>
         {% endif %}
         <tr>
-          <th>{% trans 'Name' %}</th>
-          <th>{% trans 'Type' %}</th>
+          <th>{{ t('Name') }}</th>
+          <th>{{ t('Type') }}</th>
           {% if show_function_fields %}
-            <th>{% trans 'Function' %}</th>
+            <th>{{ t('Function') }}</th>
           {% endif %}
-          <th>{% trans 'Value' %}</th>
+          <th>{{ t('Value') }}</th>
         </tr>
         {% for i in 0..routine['item_num_params'] - 1 %}
           <tr>
@@ -52,7 +52,7 @@
 
     {% if not ajax %}
       <div class="card-footer">
-        <input class="btn btn-primary" type="submit" name="execute_routine" value="{% trans 'Go' %}">
+        <input class="btn btn-primary" type="submit" name="execute_routine" value="{{ t('Go') }}">
       </div>
     {% else %}
       <input type="hidden" name="execute_routine" value="true">

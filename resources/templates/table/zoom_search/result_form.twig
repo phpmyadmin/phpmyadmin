@@ -4,17 +4,17 @@
   <input type="hidden" name="back" value="{{ url('/table/zoom-search') }}">
 
   <div class="card">
-    <div class="card-header">{% trans 'Browse/Edit the points' %}</div>
+    <div class="card-header">{{ t('Browse/Edit the points') }}</div>
 
     <div class="card-body">
       {# JSON encode the data(query result) #}
       <div class="text-center">
         {% if zoom_submit and data is not empty %}
           <div id="resizer">
-            <a class="text-center" id="help_dialog" href="#">{% trans 'How to use' %}</a>
+            <a class="text-center" id="help_dialog" href="#">{{ t('How to use') }}</a>
             <div id="querydata" class="hide">{{ data_json }}</div>
             <div id="querychart"></div>
-            <button class="btn btn-primary button-reset">{% trans 'Reset zoom' %}</button>
+            <button class="btn btn-primary button-reset">{{ t('Reset zoom') }}</button>
           </div>
         {% endif %}
       </div>
@@ -23,8 +23,8 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="dataPointModalLabel">{% trans 'Loading' %}</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+              <h5 class="modal-title" id="dataPointModalLabel">{{ t('Loading') }}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
             </div>
             <div class="modal-body" style="overflow: auto;">
               {# Displays rows in point edit form #}
@@ -32,9 +32,9 @@
                 <table class="table align-middle">
                   <thead>
                   <tr>
-                    <th>{% trans 'Column' %}</th>
-                    <th>{% trans 'Null' %}</th>
-                    <th>{% trans 'Value' %}</th>
+                    <th>{{ t('Column') }}</th>
+                    <th>{{ t('Null') }}</th>
+                    <th>{{ t('Value') }}</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -76,8 +76,8 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" id="dataPointSaveButton" data-bs-dismiss="modal">{% trans 'Save' %}</button>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+              <button type="button" class="btn btn-secondary" id="dataPointSaveButton" data-bs-dismiss="modal">{{ t('Save') }}</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
             </div>
           </div>
         </div>
@@ -92,8 +92,8 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="helpModalLabel">{% trans 'Loading' %}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+        <h5 class="modal-title" id="helpModalLabel">{{ t('Loading') }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
       </div>
       <div class="modal-body">
       </div>

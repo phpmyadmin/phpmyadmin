@@ -38,12 +38,12 @@ final class I18nExtensionTest extends AbstractTestCase
     public function testMessage(): void
     {
         $expected = <<<'HTML'
-Message
-Message
-Message
-Message
+            Message
+            Message
+            Message
+            Message
 
-HTML;
+            HTML;
 
         self::assertSame($expected, (new Template(new Config()))->render('i18n_extension/message', []));
     }
@@ -51,12 +51,12 @@ HTML;
     public function testContext(): void
     {
         $expected = <<<'HTML'
-Message
-Message
-Message
-Message
+            Message
+            Message
+            Message
+            Message
 
-HTML;
+            HTML;
 
         self::assertSame($expected, (new Template(new Config()))->render('i18n_extension/context', []));
     }
@@ -64,14 +64,14 @@ HTML;
     public function testPlural(): void
     {
         $expected = <<<'HTML'
-One apple
-One apple
-One apple
-One apple
-One apple
-One apple
+            One apple
+            One apple
+            One apple
+            One apple
+            One apple
+            One apple
 
-HTML;
+            HTML;
 
         self::assertSame(
             $expected,
@@ -82,14 +82,14 @@ HTML;
     public function testPlural2(): void
     {
         $expected = <<<'HTML'
-2 apples
-2 apples
-2 apples
-2 apples
-2 apples
-2 apples
+            2 apples
+            2 apples
+            2 apples
+            2 apples
+            2 apples
+            2 apples
 
-HTML;
+            HTML;
 
         self::assertSame(
             $expected,

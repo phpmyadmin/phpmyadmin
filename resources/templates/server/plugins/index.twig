@@ -1,7 +1,7 @@
 <div class="container-fluid">
 <h2>
   {{ get_image('b_plugin') }}
-  {% trans 'Plugins' %}
+  {{ t('Plugins') }}
 </h2>
 
 <div id="plugins_plugins">
@@ -23,11 +23,11 @@
           </caption>
           <thead>
             <tr>
-              <th scope="col">{% trans 'Plugin' %}</th>
-              <th scope="col">{% trans 'Description' %}</th>
-              <th scope="col">{% trans 'Version' %}</th>
-              <th scope="col">{% trans 'Author' %}</th>
-              <th scope="col">{% trans 'License' %}</th>
+              <th scope="col">{{ t('Plugin') }}</th>
+              <th scope="col">{{ t('Description') }}</th>
+              <th scope="col">{{ t('Version') }}</th>
+              <th scope="col">{{ t('Author') }}</th>
+              <th scope="col">{{ t('License') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -38,13 +38,13 @@
                   {% if plugin.status != 'ACTIVE' %}
                     <span class="badge bg-danger">
                       {% if plugin.status == 'INACTIVE' %}
-                        {% trans 'inactive' %}
+                        {{ t('inactive') }}
                       {% elseif plugin.status == 'DISABLED' %}
-                        {% trans 'disabled' %}
+                        {{ t('disabled') }}
                       {% elseif plugin.status == 'DELETING' %}
-                        {% trans 'deleting' %}
+                        {{ t('deleting') }}
                       {% elseif plugin.status == 'DELETED' %}
-                        {% trans 'deleted' %}
+                        {{ t('deleted') }}
                       {% endif %}
                     </span>
                   {% endif %}

@@ -1,11 +1,11 @@
 <div class="container-fluid">
   <h1>{{ database }}</h1>
   {% if comment is not empty %}
-    <p>{% trans 'Database comment:' %} <em>{{ comment }}</em></p>
+    <p>{{ t('Database comment:') }} <em>{{ comment }}</em></p>
   {% endif %}
 
   <p class="d-print-none">
-    <button type="button" class="btn btn-secondary jsPrintButton">{{ get_icon('b_print', 'Print'|trans, true) }}</button>
+    <button type="button" class="btn btn-secondary jsPrintButton">{{ get_icon('b_print', t('Print'), true) }}</button>
   </p>
 
   <div>
@@ -13,22 +13,22 @@
       <div>
         <h2>{{ table.name }}</h2>
         {% if table.comment is not empty %}
-          <p>{% trans 'Table comments:' %} <em>{{ table.comment }}</em></p>
+          <p>{{ t('Table comments:') }} <em>{{ table.comment }}</em></p>
         {% endif %}
 
         <table class="table table-striped align-middle">
           <thead>
             <tr>
-              <th>{% trans 'Column' %}</th>
-              <th>{% trans 'Type' %}</th>
-              <th>{% trans 'Null' %}</th>
-              <th>{% trans 'Default' %}</th>
+              <th>{{ t('Column') }}</th>
+              <th>{{ t('Type') }}</th>
+              <th>{{ t('Null') }}</th>
+              <th>{{ t('Default') }}</th>
               {% if table.has_relation %}
-                <th>{% trans 'Links to' %}</th>
+                <th>{{ t('Links to') }}</th>
               {% endif %}
-              <th>{% trans 'Comments' %}</th>
+              <th>{{ t('Comments') }}</th>
               {% if table.has_mime %}
-                <th>{% trans 'Media type' %}</th>
+                <th>{{ t('Media type') }}</th>
               {% endif %}
             </tr>
           </thead>
@@ -38,13 +38,13 @@
                 <td class="text-nowrap">
                   {{ column.name }}
                   {% if column.has_primary_key %}
-                    <em>({% trans 'Primary' %})</em>
+                    <em>({{ t('Primary') }})</em>
                   {% endif %}
                 </td>
                 <td lang="en" dir="ltr"{{ 'set' != column.type and 'enum' != column.type ? ' class="text-nowrap"' }}>
                   {{ column.print_type }}
                 </td>
-                <td>{{ column.is_nullable ? 'Yes'|trans : 'No'|trans }}</td>
+                <td>{{ column.is_nullable ? t('Yes') : t('No') }}</td>
                 <td class="text-nowrap">
                   {% if column.default is null and column.is_nullable %}
                     <em>NULL</em>
@@ -65,20 +65,20 @@
         </table>
 
         {% if table.indexes is not empty %}
-          <h3>{% trans 'Indexes' %}</h3>
+          <h3>{{ t('Indexes') }}</h3>
 
           <table class="table table-striped align-middle">
             <thead>
               <tr>
-                <th>{% trans 'Keyname' %}</th>
-                <th>{% trans 'Type' %}</th>
-                <th>{% trans 'Unique' %}</th>
-                <th>{% trans 'Packed' %}</th>
-                <th>{% trans 'Column' %}</th>
-                <th>{% trans 'Cardinality' %}</th>
-                <th>{% trans 'Collation' %}</th>
-                <th>{% trans 'Null' %}</th>
-                <th>{% trans 'Comment' %}</th>
+                <th>{{ t('Keyname') }}</th>
+                <th>{{ t('Type') }}</th>
+                <th>{{ t('Unique') }}</th>
+                <th>{{ t('Packed') }}</th>
+                <th>{{ t('Column') }}</th>
+                <th>{{ t('Cardinality') }}</th>
+                <th>{{ t('Collation') }}</th>
+                <th>{{ t('Null') }}</th>
+                <th>{{ t('Comment') }}</th>
               </tr>
             </thead>
 
@@ -88,7 +88,7 @@
                 <tr>
                 <td rowspan="{{ columns_count }}">{{ index.getName() }}</td>
                 <td rowspan="{{ columns_count }}">{{ index.getType()|default(index.getChoice()) }}</td>
-                <td rowspan="{{ columns_count }}">{{ index.isUnique() ? 'Yes'|trans : 'No'|trans }}</td>
+                <td rowspan="{{ columns_count }}">{{ index.isUnique() ? t('Yes') : t('No') }}</td>
                 <td rowspan="{{ columns_count }}">{{ index.isPacked()|raw }}</td>
 
                 {% for column in index.getColumns() %}
@@ -114,13 +114,13 @@
             </tbody>
           </table>
         {% else %}
-          <p>{% trans 'No index defined!' %}</p>
+          <p>{{ t('No index defined!') }}</p>
         {% endif %}
       </div>
     {% endfor %}
   </div>
 
   <p class="d-print-none">
-    <button type="button" class="btn btn-secondary jsPrintButton">{{ get_icon('b_print', 'Print'|trans, true) }}</button>
+    <button type="button" class="btn btn-secondary jsPrintButton">{{ get_icon('b_print', t('Print'), true) }}</button>
   </p>
 </div>

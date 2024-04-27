@@ -6,7 +6,7 @@
   {% if not is_tree %}
     <span class='hide loaded_db'>{{ parent_name|url_encode }}</span>
     {% if list_content is empty %}
-      <div>{% trans 'No tables found in database.' %}</div>
+      <div>{{ t('No tables found in database.') }}</div>
     {% endif %}
   {% endif %}
 </div>

@@ -1,6 +1,6 @@
 <form action="{{ url('/table/structure/primary') }}" method="post" class="card">
   {{ get_hidden_inputs({'db': db, 'table': table, 'selected': selected}) }}
-  <div class="card-header">{% trans 'Do you really want to execute the following query?' %}</div>
+  <div class="card-header">{{ t('Do you really want to execute the following query?') }}</div>
 
   <div class="card-body">
     <code class="text-danger">
@@ -16,7 +16,7 @@
   </div>
 
   <div class="card-footer">
-    <input id="buttonYes" class="btn btn-secondary" type="submit" name="mult_btn" value="{% trans 'Yes' %}">
-    <input id="buttonNo" class="btn btn-secondary" type="submit" name="mult_btn" value="{% trans 'No' %}">
+    <input id="buttonYes" class="btn btn-secondary" type="submit" name="mult_btn" value="{{ t('Yes') }}">
+    <input id="buttonNo" class="btn btn-secondary" type="submit" name="mult_btn" value="{{ t('No') }}">
   </div>
 </form>

@@ -1,17 +1,17 @@
 {% extends 'export.twig' %}
 
-{% block title %}{% trans 'Exporting databases from the current server' %}{% endblock %}
+{% block title %}{{ t('Exporting databases from the current server') }}{% endblock %}
 
 {% block selection_options %}
   <div class="card mb-3 d-none" id="databases_and_tables">
-    <div class="card-header">{% trans 'Databases' %}</div>
+    <div class="card-header">{{ t('Databases') }}</div>
     <div class="card-body">
       <div class="mb-3">
-        <button type="button" class="btn btn-secondary" id="db_select_all">{% trans 'Select all' %}</button>
-        <button type="button" class="btn btn-secondary" id="db_unselect_all">{% trans 'Unselect all' %}</button>
+        <button type="button" class="btn btn-secondary" id="db_select_all">{{ t('Select all') }}</button>
+        <button type="button" class="btn btn-secondary" id="db_unselect_all">{{ t('Unselect all') }}</button>
       </div>
 
-      <select class="form-select" name="db_select[]" id="db_select" size="10" multiple aria-label="{% trans 'Databases' %}">
+      <select class="form-select" name="db_select[]" id="db_select" size="10" multiple aria-label="{{ t('Databases') }}">
         {% for database in databases %}
           <option value="{{ database.name }}"{{ database.is_selected ? ' selected' }}>
             {{ database.name }}
@@ -23,5 +23,5 @@
 {% endblock %}
 
 {% set filename_hint %}
-  {% trans '@SERVER@ will become the server name.' %}
+  {{ t('@SERVER@ will become the server name.') }}
 {% endset %}

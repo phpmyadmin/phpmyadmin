@@ -7,7 +7,7 @@
     <form action="{{ database_url }}" method="get">
       {{ get_hidden_fields({'server': server}) }}
 
-      <select name="db" class="hide" id="navi_db_select" aria-label="{% trans 'Databases' %}">
+      <select name="db" class="hide" id="navi_db_select" aria-label="{{ t('Databases') }}">
         {% for option in options %}
           <option value="{{ option.name }}" title="{{ option.title }}"
             data-apath="{{ option.data.apath }}"

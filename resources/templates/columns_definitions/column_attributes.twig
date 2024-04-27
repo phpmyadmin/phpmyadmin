@@ -28,17 +28,17 @@
   <input id="field_{{ column_number }}_{{ ci - ci_offset }}" type="text" name="field_length[{{ column_number }}]" size="
     {{- length_values_input_size }}" value="{{ length }}" class="textfield">
   <p class="enum_notice" id="enum_notice_{{ column_number }}_{{ ci - ci_offset }}">
-    <a href="#" class="open_enum_editor">{% trans 'Edit ENUM/SET values' %}</a>
+    <a href="#" class="open_enum_editor">{{ t('Edit ENUM/SET values') }}</a>
   </p>
   {% set ci = ci + 1 %}
 </td>
 <td class="text-center">
   <select name="field_default_type[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" class="default_type">
     <option value="NONE"{{ column_meta['DefaultType'] is defined and column_meta['DefaultType'] == 'NONE' ? ' selected' }}>
-      {% trans %}None{% context %}for default{% endtrans %}
+      {{ t('None', context = 'for default') }}
     </option>
     <option value="USER_DEFINED"{{ column_meta['DefaultType'] is defined and column_meta['DefaultType'] == 'USER_DEFINED' ? ' selected' }}>
-      {% trans 'As defined:' %}
+      {{ t('As defined:') }}
     </option>
     <option value="NULL"{{ column_meta['DefaultType'] is defined and column_meta['DefaultType'] == 'NULL' ? ' selected' }}>
       NULL
@@ -99,7 +99,7 @@
     <td class="text-center">
       <input name="field_adjust_privileges[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" type="checkbox" value="NULL" class="allow_null"
         {%- if privs_available %} checked>
-        {%- else %} title="{% trans "You don't have sufficient privileges to perform this operation; Please refer to the documentation for more details" %}" disabled>
+        {%- else %} title="{{ t("You don't have sufficient privileges to perform this operation; Please refer to the documentation for more details") }}" disabled>
         {%- endif %}
       {% set ci = ci + 1 %}
     </td>
@@ -109,23 +109,23 @@
     <td class="text-center">
       <select name="field_key[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" data-index="">
         <option value="none_{{ column_number }}">---</option>
-        <option value="primary_{{ column_number }}" title="{% trans "Primary" %}"
+        <option value="primary_{{ column_number }}" title="{{ t('Primary') }}"
           {{- column_meta['Key'] is defined and column_meta['Key'] == 'PRI' ? ' selected' }}>
           PRIMARY
         </option>
-        <option value="unique_{{ column_number }}" title="{% trans "Unique" %}"
+        <option value="unique_{{ column_number }}" title="{{ t('Unique') }}"
           {{- column_meta['Key'] is defined and column_meta['Key'] == 'UNI' ? ' selected' }}>
           UNIQUE
         </option>
-        <option value="index_{{ column_number }}" title="{% trans "Index" %}"
+        <option value="index_{{ column_number }}" title="{{ t('Index') }}"
           {{- column_meta['Key'] is defined and column_meta['Key'] == 'MUL' ? ' selected' }}>
           INDEX
         </option>
-        <option value="fulltext_{{ column_number }}" title="{% trans "Fulltext" %}"
+        <option value="fulltext_{{ column_number }}" title="{{ t('Fulltext') }}"
           {{- column_meta['Key'] is defined and column_meta['Key'] == 'FULLTEXT' ? ' selected' }}>
           FULLTEXT
         </option>
-        <option value="spatial_{{ column_number }}" title="{% trans "Spatial" %}"
+        <option value="spatial_{{ column_number }}" title="{{ t('Spatial') }}"
           {{- column_meta['Key'] is defined and column_meta['Key'] == 'SPATIAL' ? ' selected' }}>
           SPATIAL
         </option>
@@ -162,7 +162,7 @@
       {% if char_editing == 'textarea' %}
         <textarea name="field_expression[{{ column_number }}]" cols="15" class="textfield expression">{{ column_meta['Expression'] is defined ? column_meta['Expression'] }}</textarea>
       {% else %}
-        <input type="text" name="field_expression[{{ column_number }}]" size="12" value="{{ column_meta['Expression'] is defined ? column_meta['Expression'] }}" placeholder="{% trans 'Expression' %}" class="textfield expression">
+        <input type="text" name="field_expression[{{ column_number }}]" size="12" value="{{ column_meta['Expression'] is defined ? column_meta['Expression'] }}" placeholder="{{ t('Expression') }}" class="textfield expression">
       {% endif %}
       {% set ci = ci + 1 %}
     </td>
@@ -182,12 +182,12 @@
       <select id="field_{{ column_number }}_{{ ci - ci_offset }}" name="field_move_to[{{ column_number }}]" size="1" width="5em">
         <option value="" selected="selected">&nbsp;</option>
         <option value="-first"{{ current_index == 0 ? ' disabled="disabled"' }}>
-          {% trans 'first' %}
+          {{ t('first') }}
         </option>
         {% for move_column in move_columns %}
           <option value="{{ move_column.name }}"
             {{- current_index == loop.index0 or current_index == loop.index0 + 1 ? ' disabled' }}>
-            {{ 'after %s'|trans|format(backquote(move_column.name|e)) }}
+            {{ t('after %s')|format(backquote(move_column.name|e)) }}
           </option>
         {% endfor %}
       </select>
@@ -213,7 +213,7 @@
     </td>
     <td class="text-center">
       <select id="field_{{ column_number }}_{{ ci - ci_offset }}" size="1" name="field_transformation[{{ column_number }}]">
-        <option value="" title="{% trans 'None' %}"></option>
+        <option value="" title="{{ t('None') }}"></option>
         {% if available_mime['transformation'] is defined and available_mime['transformation'] is iterable %}
           {% for mimekey, transform in available_mime['transformation'] %}
             {% set parts = transform|split(':') %}
@@ -236,7 +236,7 @@
     </td>
     <td class="text-center">
       <select id="field_{{ column_number }}_{{ ci - ci_offset }}" size="1" name="field_input_transformation[{{ column_number }}]">
-        <option value="" title="{% trans 'None' %}"></option>
+        <option value="" title="{{ t('None') }}"></option>
         {% if available_mime['input_transformation'] is defined and available_mime['input_transformation'] is iterable %}
           {% for mimekey, transform in available_mime['input_transformation'] %}
             {% set parts = transform|split(':') %}

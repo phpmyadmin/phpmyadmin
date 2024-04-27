@@ -1,6 +1,6 @@
 {% if tables is empty %}
   <li>
-    <span class="dropdown-item-text">{{ 'There are no favorite tables.'|trans }}</span>
+    <span class="dropdown-item-text">{{ t('There are no favorite tables.') }}</span>
   </li>
 {% else %}
   {% for table in tables %}
@@ -9,7 +9,7 @@
       <a
         class="ajax favorite_table_anchor me-2"
         href="{{ url('/database/structure/favorite-table', table.remove_parameters) }}"
-        title="{% trans 'Remove from Favorites' %}"
+        title="{{ t('Remove from Favorites') }}"
         data-favtargetn="{{ table.table_parameters.md5 }}"
       >
         {{ get_icon('b_favorite') }}

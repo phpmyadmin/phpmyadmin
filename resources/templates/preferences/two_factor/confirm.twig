@@ -2,15 +2,15 @@
   <div class="col">
     <div class="card mt-4">
       <div class="card-header">
-        {% trans "Confirm disabling two-factor authentication" %}
+        {{ t('Confirm disabling two-factor authentication') }}
       </div>
       <div class="card-body">
         <form method="post" action="{{ url('/preferences/two-factor') }}">
-          {{ "By disabling two factor authentication you will be again able to login using password only."|trans|notice }}
+          {{ t('By disabling two factor authentication you will be again able to login using password only.')|notice }}
           {{ get_hidden_inputs() }}
           {{ form|raw }}
           <input type="hidden" name="2fa_remove" value="1">
-          <input class="btn btn-secondary" type="submit" value="{% trans "Disable two-factor authentication" %}">
+          <input class="btn btn-secondary" type="submit" value="{{ t('Disable two-factor authentication') }}">
         </form>
       </div>
     </div>

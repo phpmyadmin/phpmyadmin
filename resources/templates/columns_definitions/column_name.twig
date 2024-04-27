@@ -1,7 +1,7 @@
 {% set title = '' %}
 {% if column_meta['column_status'] is defined %}
     {% if column_meta['column_status']['isReferenced'] %}
-        {% set title = title ~ 'Referenced by %s.'|trans|format(
+        {% set title = title ~ t('Referenced by %s.')|format(
             column_meta['column_status']['references']|join(',')
         ) %}
     {% endif %}
@@ -9,11 +9,11 @@
         {% if title is not empty %}
             {% set title = title ~ '\n'|raw %}
         {% endif %}
-        {% set title = title ~ 'Is a foreign key.'|trans %}
+        {% set title = title ~ t('Is a foreign key.') %}
     {% endif %}
 {% endif %}
 {% if title is empty %}
-    {% set title = 'Column'|trans %}
+    {% set title = t('Column') %}
 {% endif %}
 
 <input id="field_{{ column_number }}_{{ ci - ci_offset }}"
@@ -36,7 +36,7 @@
         <a data-maxrows="{{ max_rows }}"
             href="#"
             class="central_columns_dialog">
-            {% trans 'Pick from Central Columns' %}
+            {{ t('Pick from Central Columns') }}
         </a>
     </p>
 {% endif %}

@@ -12,26 +12,26 @@
        data-order="{{ settings.Order }}">
     <div class="toolbar collapsed">
       <div class="switch_button console_switch">
-        {{ get_image('console', 'SQL Query Console'|trans) }}
-        <span>{{ 'Console'|trans }}</span>
+        {{ get_image('console', t('SQL Query Console')) }}
+        <span>{{ t('Console') }}</span>
       </div>
       <div class="button clear">
-        <span>{{ 'Clear'|trans }}</span>
+        <span>{{ t('Clear') }}</span>
       </div>
       <div class="button history">
-        <span>{{ 'History'|trans }}</span>
+        <span>{{ t('History') }}</span>
       </div>
       <div class="button options">
-        <span>{{ 'Options'|trans }}</span>
+        <span>{{ t('Options') }}</span>
       </div>
       {% if has_bookmark_feature %}
         <div class="button bookmarks">
-          <span>{{ 'Bookmarks'|trans }}</span>
+          <span>{{ t('Bookmarks') }}</span>
         </div>
       {% endif %}
       {% if debug %}
         <div class="button debug hide">
-          <span>{{ 'Debug SQL'|trans }}</span>
+          <span>{{ t('Debug SQL') }}</span>
         </div>
       {% endif %}
     </div>
@@ -40,25 +40,25 @@
     <div class="content{{ settings.DarkTheme ? ' console_dark_theme' }}">
       <div class="console_message_container">
         <div class="message welcome">
-          <span id="instructions-0">{% trans 'Press Ctrl+Enter to execute query' %}</span>
-          <span class="hide" id="instructions-1">{% trans 'Press Enter to execute query' %}</span>
+          <span id="instructions-0">{{ t('Press Ctrl+Enter to execute query') }}</span>
+          <span class="hide" id="instructions-1">{{ t('Press Enter to execute query') }}</span>
         </div>
         {% if sql_history is not empty %}
           {% for record in sql_history|reverse %}
             <div class="message history collapsed hide{{ record['sqlquery'] matches '@^SELECT[[:space:]]+@i' ? ' select' }}" targetdb="{{ record['db'] }}" targettable="{{ record['table'] }}">
               <div class="action_content">
-                <span class="action collapse">{{ 'Collapse'|trans }}</span>
-                <span class="action expand">{{ 'Expand'|trans }}</span>
-                <span class="action requery">{{ 'Requery'|trans }}</span>
-                <span class="action edit">{{ 'Edit'|trans }}</span>
-                <span class="action explain">{{ 'Explain'|trans }}</span>
-                <span class="action profiling">{{ 'Profiling'|trans }}</span>
+                <span class="action collapse">{{ t('Collapse') }}</span>
+                <span class="action expand">{{ t('Expand') }}</span>
+                <span class="action requery">{{ t('Requery') }}</span>
+                <span class="action edit">{{ t('Edit') }}</span>
+                <span class="action explain">{{ t('Explain') }}</span>
+                <span class="action profiling">{{ t('Profiling') }}</span>
                 {% if has_bookmark_feature %}
-                  <span class="action bookmark">{{ 'Bookmark'|trans }}</span>
+                  <span class="action bookmark">{{ t('Bookmark') }}</span>
                 {% endif %}
-                <span class="text failed">{{ 'Query failed'|trans }}</span>
-                <span class="text targetdb">{{ 'Database'|trans }}: <span>{{ record['db'] }}</span></span>
-                <span class="text query_time">{{ 'Queried time'|trans }}: <span>{{ record['timevalue'] is defined ? record['timevalue'] : 'During current session'|trans }}</span></span>
+                <span class="text failed">{{ t('Query failed') }}</span>
+                <span class="text targetdb">{{ t('Database') }}: <span>{{ record['db'] }}</span></span>
+                <span class="text query_time">{{ t('Queried time') }}: <span>{{ record['timevalue'] is defined ? record['timevalue'] : t('During current session') }}</span></span>
               </div>
 
               <span class="query">{{ record['sqlquery'] }}</span>
@@ -76,34 +76,34 @@
     <div class="card" id="debug_console">
       <div class="toolbar">
         <div class="button order order_asc">
-          <span>{{ 'ascending'|trans }}</span>
+          <span>{{ t('ascending') }}</span>
         </div>
         <div class="button order order_desc">
-          <span>{{ 'descending'|trans }}</span>
+          <span>{{ t('descending') }}</span>
         </div>
         <div class="text">
-          <span>{{ 'Order:'|trans }}</span>
+          <span>{{ t('Order:') }}</span>
         </div>
         <div class="switch_button">
-          <span>{{ 'Debug SQL'|trans }}</span>
+          <span>{{ t('Debug SQL') }}</span>
         </div>
         <div class="button order_by sort_count">
-          <span>{{ 'Count'|trans }}</span>
+          <span>{{ t('Count') }}</span>
         </div>
         <div class="button order_by sort_exec">
-          <span>{{ 'Execution order'|trans }}</span>
+          <span>{{ t('Execution order') }}</span>
         </div>
         <div class="button order_by sort_time">
-          <span>{{ 'Time taken'|trans }}</span>
+          <span>{{ t('Time taken') }}</span>
         </div>
         <div class="text">
-          <span>{{ 'Order by:'|trans }}</span>
+          <span>{{ t('Order by:') }}</span>
         </div>
         <div class="button group_queries">
-          <span>{{ 'Group queries'|trans }}</span>
+          <span>{{ t('Group queries') }}</span>
         </div>
         <div class="button ungroup_queries">
-          <span>{{ 'Ungroup queries'|trans }}</span>
+          <span>{{ t('Ungroup queries') }}</span>
         </div>
       </div>
 
@@ -113,12 +113,12 @@
       </div> <!-- Content -->
       <div class="templates">
         <div class="debug_query action_content">
-          <span class="action collapse">{{ 'Collapse'|trans }}</span>
-          <span class="action expand">{{ 'Expand'|trans }}</span>
-          <span class="action dbg_show_trace">{{ 'Show trace'|trans }}</span>
-          <span class="action dbg_hide_trace">{{ 'Hide trace'|trans }}</span>
-          <span class="text count hide">{{ 'Count:'|trans }} <span></span></span>
-          <span class="text time">{{ 'Time taken:'|trans }} <span></span></span>
+          <span class="action collapse">{{ t('Collapse') }}</span>
+          <span class="action expand">{{ t('Expand') }}</span>
+          <span class="action dbg_show_trace">{{ t('Show trace') }}</span>
+          <span class="action dbg_hide_trace">{{ t('Hide trace') }}</span>
+          <span class="text count hide">{{ t('Count:') }} <span></span></span>
+          <span class="text time">{{ t('Time taken:') }} <span></span></span>
         </div>
 
       </div> <!-- Template -->
@@ -127,13 +127,13 @@
       <div class="card" id="pma_bookmarks">
         <div class="toolbar">
           <div class="switch_button">
-            <span>{{ 'Bookmarks'|trans }}</span>
+            <span>{{ t('Bookmarks') }}</span>
           </div>
           <div class="button refresh">
-            <span>{{ 'Refresh'|trans }}</span>
+            <span>{{ t('Refresh') }}</span>
           </div>
           <div class="button add">
-            <span>{{ 'Add'|trans }}</span>
+            <span>{{ t('Add') }}</span>
           </div>
         </div>
 
@@ -144,22 +144,22 @@
         <div class="card add">
           <div class="toolbar">
             <div class="switch_button">
-              <span>{{ 'Add bookmark'|trans }}</span>
+              <span>{{ t('Add bookmark') }}</span>
             </div>
           </div>
 
           <div class="content add_bookmark">
             <div class="options">
               <label>
-                {% trans 'Label' %}: <input type="text" name="label">
+                {{ t('Label') }}: <input type="text" name="label">
               </label>
               <label>
-                {% trans 'Target database' %}: <input type="text" name="targetdb">
+                {{ t('Target database') }}: <input type="text" name="targetdb">
               </label>
               <label>
-                <input type="checkbox" name="shared">{% trans 'Share this bookmark' %}
+                <input type="checkbox" name="shared">{{ t('Share this bookmark') }}
               </label>
-              <button class="btn btn-primary" type="submit" name="submit">{% trans 'OK' %}</button>
+              <button class="btn btn-primary" type="submit" name="submit">{{ t('OK') }}</button>
             </div> <!-- options -->
             <div class="query_input">
               <span class="bookmark_add_input"></span>
@@ -172,51 +172,51 @@
     <div class="card" id="pma_console_options">
       <div class="toolbar">
         <div class="switch_button">
-          <span>{{ 'Options'|trans }}</span>
+          <span>{{ t('Options') }}</span>
         </div>
         <div class="button default">
-          <span>{{ 'Restore default values'|trans }}</span>
+          <span>{{ t('Restore default values') }}</span>
         </div>
       </div>
 
       <div class="content">
         <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsAlwaysExpandCheckbox" name="always_expand"{{ settings.AlwaysExpand ? ' checked' }}>
-          <label class="form-check-label" for="consoleOptionsAlwaysExpandCheckbox">{{ 'Always expand query messages'|trans }}</label>
+          <label class="form-check-label" for="consoleOptionsAlwaysExpandCheckbox">{{ t('Always expand query messages') }}</label>
         </div>
         <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsStartHistoryCheckbox" name="start_history"{{ settings.StartHistory ? ' checked' }}>
-          <label class="form-check-label" for="consoleOptionsStartHistoryCheckbox">{{ 'Show query history at start'|trans }}</label>
+          <label class="form-check-label" for="consoleOptionsStartHistoryCheckbox">{{ t('Show query history at start') }}</label>
         </div>
         <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsCurrentQueryCheckbox" name="current_query"{{ settings.CurrentQuery ? ' checked' }}>
-          <label class="form-check-label" for="consoleOptionsCurrentQueryCheckbox">{{ 'Show current browsing query'|trans }}</label>
+          <label class="form-check-label" for="consoleOptionsCurrentQueryCheckbox">{{ t('Show current browsing query') }}</label>
         </div>
         <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsEnterExecutesCheckbox" name="enter_executes"{{ settings.EnterExecutes ? ' checked' }}>
-          <label class="form-check-label" for="consoleOptionsEnterExecutesCheckbox">{{ 'Execute queries on Enter and insert new line with Shift+Enter. To make this permanent, view settings.'|trans }}</label>
+          <label class="form-check-label" for="consoleOptionsEnterExecutesCheckbox">{{ t('Execute queries on Enter and insert new line with Shift+Enter. To make this permanent, view settings.') }}</label>
         </div>
         <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" role="switch" id="consoleOptionsDarkThemeCheckbox" name="dark_theme"{{ settings.DarkTheme ? ' checked' }}>
-          <label class="form-check-label" for="consoleOptionsDarkThemeCheckbox">{{ 'Switch to dark theme'|trans }}</label>
+          <label class="form-check-label" for="consoleOptionsDarkThemeCheckbox">{{ t('Switch to dark theme') }}</label>
         </div>
       </div>
     </div> <!-- Options card -->
     <div class="templates">
       {# Templates for console message actions #}
       <div class="query_actions">
-        <span class="action collapse">{{ 'Collapse'|trans }}</span>
-        <span class="action expand">{{ 'Expand'|trans }}</span>
-        <span class="action requery">{{ 'Requery'|trans }}</span>
-        <span class="action edit">{{ 'Edit'|trans }}</span>
-        <span class="action explain">{{ 'Explain'|trans }}</span>
-        <span class="action profiling">{{ 'Profiling'|trans }}</span>
+        <span class="action collapse">{{ t('Collapse') }}</span>
+        <span class="action expand">{{ t('Expand') }}</span>
+        <span class="action requery">{{ t('Requery') }}</span>
+        <span class="action edit">{{ t('Edit') }}</span>
+        <span class="action explain">{{ t('Explain') }}</span>
+        <span class="action profiling">{{ t('Profiling') }}</span>
         {% if has_bookmark_feature %}
-          <span class="action bookmark">{{ 'Bookmark'|trans }}</span>
+          <span class="action bookmark">{{ t('Bookmark') }}</span>
         {% endif %}
-        <span class="text failed">{{ 'Query failed'|trans }}</span>
-        <span class="text targetdb">{{ 'Database'|trans }}: <span></span></span>
-        <span class="text query_time">{{ 'Queried time'|trans }}: <span></span></span>
+        <span class="text failed">{{ t('Query failed') }}</span>
+        <span class="text targetdb">{{ t('Database') }}: <span></span></span>
+        <span class="text query_time">{{ t('Queried time') }}: <span></span></span>
       </div>
     </div>
   </div> <!-- #console end -->

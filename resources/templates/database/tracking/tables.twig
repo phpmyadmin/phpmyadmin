@@ -1,7 +1,7 @@
 {# Tracked tables exists #}
 {% if head_version_exists %}
     <div id="tracked_tables">
-        <h3>{% trans 'Tracked tables' %}</h3>
+        <h3>{{ t('Tracked tables') }}</h3>
 
         <form method="post" action="{{ url('/database/tracking') }}" name="trackedForm"
             id="trackedForm" class="ajax">
@@ -10,13 +10,13 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th>{% trans 'Table' %}</th>
-                        <th>{% trans 'Last version' %}</th>
-                        <th>{% trans 'Created' %}</th>
-                        <th>{% trans 'Updated' %}</th>
-                        <th>{% trans 'Status' %}</th>
-                        <th>{% trans 'Action' %}</th>
-                        <th>{% trans 'Show' %}</th>
+                        <th>{{ t('Table') }}</th>
+                        <th>{{ t('Last version') }}</th>
+                        <th>{{ t('Created') }}</th>
+                        <th>{{ t('Updated') }}</th>
+                        <th>{{ t('Status') }}</th>
+                        <th>{{ t('Action') }}</th>
+                        <th>{{ t('Show') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,7 +44,7 @@
                             <td>
                               <div class="wrapper toggleAjax hide">
                                 <div class="toggleButton">
-                                  <div title="{% trans 'Click to toggle' %}" class="toggle-container {{ version.tracking_active == 1 ? 'on' : 'off' }}">
+                                  <div title="{{ t('Click to toggle') }}" class="toggle-container {{ version.tracking_active == 1 ? 'on' : 'off' }}">
                                     <img src="{{ image('toggle-' ~ text_dir ~ '.png') }}">
                                     <table>
                                       <tbody>
@@ -58,7 +58,7 @@
                                               'toggle_activation': 'activate_now',
                                             }) -}}
                                           </span>
-                                          <div>{% trans 'active' %}</div>
+                                          <div>{{ t('active') }}</div>
                                         </td>
                                         <td><div>&nbsp;</div></td>
                                         <td class="toggleOff">
@@ -70,7 +70,7 @@
                                               'toggle_activation': 'deactivate_now',
                                             }) -}}
                                           </span>
-                                          <div>{% trans 'not active' %}</div>
+                                          <div>{{ t('not active') }}</div>
                                         </td>
                                       </tr>
                                       </tbody>
@@ -90,7 +90,7 @@
                                         'table': version.table_name,
                                         'delete_tracking': true
                                     }, '', false) }}">
-                                    {{ get_icon('b_drop', 'Delete tracking'|trans) }}
+                                    {{ get_icon('b_drop', t('Delete tracking')) }}
                                 </a>
                             </td>
                             <td>
@@ -101,7 +101,7 @@
                                         'back': url('/database/tracking'),
                                         'table': version.table_name
                                     }, '', false) }}">
-                                    {{ get_icon('b_versions', 'Versions'|trans) }}
+                                    {{ get_icon('b_versions', t('Versions')) }}
                                 </a>
                                 <a href="{{ url('/table/tracking') }}" data-post="
                                     {{- get_common({
@@ -112,7 +112,7 @@
                                         'report': true,
                                         'version': version.version
                                     }, '', false) }}">
-                                    {{ get_icon('b_report', 'Tracking report'|trans) }}
+                                    {{ get_icon('b_report', t('Tracking report')) }}
                                 </a>
                                 <a href="{{ url('/table/tracking') }}" data-post="
                                     {{- get_common({
@@ -123,7 +123,7 @@
                                         'snapshot': true,
                                         'version': version.version
                                     }, '', false) }}">
-                                    {{ get_icon('b_props', 'Structure snapshot'|trans) }}
+                                    {{ get_icon('b_props', t('Structure snapshot')) }}
                                 </a>
                             </td>
                         </tr>
@@ -135,14 +135,14 @@
                 'form_name': 'trackedForm'
             } only %}
             <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="delete_tracking"
-                    title="{% trans 'Delete tracking' %}">
-                {{ get_icon('b_drop', 'Delete tracking'|trans) }}
+                    title="{{ t('Delete tracking') }}">
+                {{ get_icon('b_drop', t('Delete tracking')) }}
             </button>
         </form>
     </div>
 {% endif %}
 {% if untracked_tables_exists %}
-    <h3>{% trans 'Untracked tables' %}</h3>
+    <h3>{{ t('Untracked tables') }}</h3>
     <form method="post" action="{{ url('/database/tracking') }}" name="untrackedForm"
         id="untrackedForm" class="ajax">
         {{ get_hidden_inputs(db) }}
@@ -150,8 +150,8 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>{% trans 'Table' %}</th>
-                    <th>{% trans 'Action' %}</th>
+                    <th>{{ t('Table') }}</th>
+                    <th>{{ t('Action') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -172,7 +172,7 @@
                             'db': db,
                             'table': table_name
                           })) }}">
-                              {{ get_icon('eye', 'Track table'|trans) }}
+                              {{ get_icon('eye', t('Track table')) }}
                           </a>
                       </td>
                   </tr>
@@ -183,8 +183,8 @@
             'text_dir': text_dir,
             'form_name': 'untrackedForm'
         } only %}
-        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="track" title="{% trans 'Track table' %}">
-            {{ get_icon('eye', 'Track table'|trans) }}
+        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="track" title="{{ t('Track table') }}">
+            {{ get_icon('eye', t('Track table')) }}
         </button>
     </form>
 {% endif %}

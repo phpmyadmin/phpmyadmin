@@ -1,5 +1,5 @@
 <div class="container my-3">
-  <h2>{{ 'Table operations'|trans }}</h2>
+  <h2>{{ t('Table operations') }}</h2>
 
 {% if not hide_order_table %}
   <form method="post" id="alterTableOrderby" action="{{ url('/table/operations') }}">
@@ -7,36 +7,36 @@
     <input type="hidden" name="submitorderby" value="1">
 
     <div class="card mb-2">
-      <div class="card-header">{% trans 'Alter table order by' %}</div>
+      <div class="card-header">{{ t('Alter table order by') }}</div>
       <div class="card-body">
         <div class="row g-3">
           <div class="col-auto">
-            <label class="visually-hidden" for="tableOrderFieldSelect">{% trans 'Column' %}</label>
+            <label class="visually-hidden" for="tableOrderFieldSelect">{{ t('Column') }}</label>
             <select id="tableOrderFieldSelect" class="form-select" name="order_field" aria-describedby="tableOrderFieldSelectHelp">
               {% for column in columns %}
                 <option value="{{ column.field }}">{{ column.field }}</option>
               {% endfor %}
             </select>
             <small id="tableOrderFieldSelectHelp" class="form-text text-body-secondary">
-              {% trans %}(singly){% context %}Alter table order by a single field.{% endtrans %}
+              {{ t('(singly)', context = 'Alter table order by a single field.') }}
             </small>
           </div>
 
           <div class="col-auto">
             <div class="form-check">
               <input class="form-check-input" id="tableOrderAscRadio" name="order_order" type="radio" value="asc" checked>
-              <label class="form-check-label" for="tableOrderAscRadio">{% trans 'Ascending' %}</label>
+              <label class="form-check-label" for="tableOrderAscRadio">{{ t('Ascending') }}</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" id="tableOrderDescRadio" name="order_order" type="radio" value="desc">
-              <label class="form-check-label" for="tableOrderDescRadio">{% trans 'Descending' %}</label>
+              <label class="form-check-label" for="tableOrderDescRadio">{{ t('Descending') }}</label>
             </div>
           </div>
         </div>
       </div>
 
       <div class="card-footer text-end">
-        <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
+        <input class="btn btn-primary" type="submit" value="{{ t('Go') }}">
       </div>
     </div>
   </form>
@@ -48,43 +48,43 @@
   <input type="hidden" name="what" value="data">
 
   <div class="card mb-2">
-    <div class="card-header">{% trans 'Move table to (database.table)' %}</div>
+    <div class="card-header">{{ t('Move table to (database.table)') }}</div>
     <div class="card-body">
       <div class="mb-3 row g-3">
         <div class="col-auto">
           <div class="input-group">
             {% if database_list is not empty %}
-              <select id="moveTableDatabaseInput" class="form-select" name="target_db" aria-label="{% trans 'Database' %}">
+              <select id="moveTableDatabaseInput" class="form-select" name="target_db" aria-label="{{ t('Database') }}">
                 {% for each_db in database_list %}
                   <option value="{{ each_db.name }}"{{ each_db.is_selected ? ' selected' }}>{{ each_db.name }}</option>
                 {% endfor %}
               </select>
             {% else %}
-              <input id="moveTableDatabaseInput" class="form-control" type="text" maxlength="100" name="target_db" value="{{ db }}" aria-label="{% trans 'Database' %}">
+              <input id="moveTableDatabaseInput" class="form-control" type="text" maxlength="100" name="target_db" value="{{ db }}" aria-label="{{ t('Database') }}">
             {% endif %}
             <span class="input-group-text">.</span>
-            <input class="form-control" type="text" required="required" name="new_name" maxlength="64" value="{{ table }}" aria-label="{% trans 'Table' %}">
+            <input class="form-control" type="text" required="required" name="new_name" maxlength="64" value="{{ table }}" aria-label="{{ t('Table') }}">
           </div>
         </div>
       </div>
 
       <div class="form-check">
         <input class="form-check-input" type="checkbox" name="sql_auto_increment" value="1" id="checkbox_auto_increment_mv">
-        <label class="form-check-label" for="checkbox_auto_increment_mv">{% trans 'Add AUTO_INCREMENT value' %}</label>
+        <label class="form-check-label" for="checkbox_auto_increment_mv">{{ t('Add AUTO_INCREMENT value') }}</label>
       </div>
       <div class="form-check">
         <input class="form-check-input" type="checkbox" name="adjust_privileges" value="1" id="checkbox_privileges_tables_move"
           {%- if has_privileges %} checked{% else %} title="
-          {%- trans 'You don\'t have sufficient privileges to perform this operation; Please refer to the documentation for more details.' %}" disabled{% endif %}>
+          {{- t("You don't have sufficient privileges to perform this operation; Please refer to the documentation for more details.") }}" disabled{% endif %}>
         <label class="form-check-label" for="checkbox_privileges_tables_move">
-          {% trans 'Adjust privileges' %}
+          {{ t('Adjust privileges') }}
           {{ show_docu('faq', 'faq6-39') }}
         </label>
       </div>
     </div>
 
     <div class="card-footer text-end">
-      <input class="btn btn-primary" type="submit" name="submit_move" value="{% trans 'Go' %}">
+      <input class="btn btn-primary" type="submit" name="submit_move" value="{{ t('Go') }}">
     </div>
   </div>
 </form>
@@ -99,11 +99,11 @@
   {% endif %}
 
   <div class="card mb-2">
-    <div class="card-header">{% trans 'Table options' %}</div>
+    <div class="card-header">{{ t('Table options') }}</div>
     <div class="card-body">
       <div class="mb-3 row row-cols-lg-auto g-3 align-items-center">
         <div class="col-6">
-          <label for="renameTableInput">{% trans 'Rename table to' %}</label>
+          <label for="renameTableInput">{{ t('Rename table to') }}</label>
         </div>
         <div class="col-6">
           <input class="form-control" id="renameTableInput" type="text" name="new_name" maxlength="64" value="{{ table }}" required>
@@ -111,9 +111,9 @@
         <div class="form-check col-12">
           <input class="form-check-input" type="checkbox" name="adjust_privileges" value="1" id="checkbox_privileges_table_options"
             {%- if has_privileges %} checked{% else %} title="
-            {%- trans 'You don\'t have sufficient privileges to perform this operation; Please refer to the documentation for more details.' %}" disabled{% endif %}>
+            {{- t("You don't have sufficient privileges to perform this operation; Please refer to the documentation for more details.") }}" disabled{% endif %}>
           <label class="form-check-label" for="checkbox_privileges_table_options">
-            {% trans 'Adjust privileges' %}
+            {{ t('Adjust privileges') }}
             {{ show_docu('faq', 'faq6-39') }}
           </label>
         </div>
@@ -121,7 +121,7 @@
 
       <div class="mb-3 row row-cols-lg-auto g-3 align-items-center">
         <div class="col-6">
-          <label for="tableCommentsInput">{% trans 'Table comments' %}</label>
+          <label for="tableCommentsInput">{{ t('Table comments') }}</label>
         </div>
         <div class="col-6">
           <input class="form-control" id="tableCommentsInput" type="text" name="comment" maxlength="2048" value="{{ table_comment }}">
@@ -131,7 +131,7 @@
       <div class="mb-3 row row-cols-lg-auto g-3 align-items-center">
         <div class="col-6">
           <label class="text-nowrap" for="newTableStorageEngineSelect">
-            {% trans 'Storage engine' %}
+            {{ t('Storage engine') }}
             {{ show_mysql_docu('Storage_engines') }}
           </label>
         </div>
@@ -149,7 +149,7 @@
 
       <div class="mb-3 row row-cols-lg-auto g-3 align-items-center">
         <div class="col-6">
-          <label for="collationSelect">{% trans 'Collation' %}</label>
+          <label for="collationSelect">{{ t('Collation') }}</label>
         </div>
         <div class="col-6">
           <select class="form-select" id="collationSelect" lang="en" dir="ltr" name="tbl_collation">
@@ -168,7 +168,7 @@
 
         <div class="form-check col-12 ms-3">
           <input class="form-check-input" type="checkbox" name="change_all_collations" value="1" id="checkbox_change_all_collations">
-          <label class="form-check-label" for="checkbox_change_all_collations">{% trans 'Change all column collations' %}</label>
+          <label class="form-check-label" for="checkbox_change_all_collations">{{ t('Change all column collations') }}</label>
         </div>
       </div>
 
@@ -239,7 +239,7 @@
     </div>
 
     <div class="card-footer text-end">
-      <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
+      <input class="btn btn-primary" type="submit" value="{{ t('Go') }}">
     </div>
   </div>
 </form>
@@ -249,22 +249,22 @@
   <input type="hidden" name="reload" value="1">
 
   <div class="card mb-2">
-    <div class="card-header">{% trans 'Copy table to (database.table)' %}</div>
+    <div class="card-header">{{ t('Copy table to (database.table)') }}</div>
     <div class="card-body">
       <div class="mb-3 row g-3">
         <div class="col-auto">
           <div class="input-group">
             {% if database_list is not empty %}
-              <select class="form-select" name="target_db" aria-label="{% trans 'Database' %}">
+              <select class="form-select" name="target_db" aria-label="{{ t('Database') }}">
                 {% for each_db in database_list %}
                   <option value="{{ each_db.name }}"{{ each_db.is_selected ? ' selected' }}>{{ each_db.name }}</option>
                 {% endfor %}
               </select>
             {% else %}
-              <input class="form-control" type="text" maxlength="100" name="target_db" value="{{ db }}" aria-label="{% trans 'Database' %}">
+              <input class="form-control" type="text" maxlength="100" name="target_db" value="{{ db }}" aria-label="{{ t('Database') }}">
             {% endif %}
             <span class="input-group-text">.</span>
-            <input class="form-control" type="text" name="new_name" maxlength="64" value="{{ table }}" aria-label="{% trans 'Table' %}" required>
+            <input class="form-control" type="text" name="new_name" maxlength="64" value="{{ table }}" aria-label="{{ t('Table') }}" required>
           </div>
         </div>
       </div>
@@ -273,19 +273,19 @@
         <div class="form-check">
           <input class="form-check-input" type="radio" name="what" id="whatRadio1" value="structure">
           <label class="form-check-label" for="whatRadio1">
-            {% trans 'Structure only' %}
+            {{ t('Structure only') }}
           </label>
         </div>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="what" id="whatRadio2" value="data" checked>
           <label class="form-check-label" for="whatRadio2">
-            {% trans 'Structure and data' %}
+            {{ t('Structure and data') }}
           </label>
         </div>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="what" id="whatRadio3" value="dataonly">
           <label class="form-check-label" for="whatRadio3">
-            {% trans 'Data only' %}
+            {{ t('Data only') }}
           </label>
         </div>
       </div>
@@ -293,51 +293,51 @@
       <div class="mb-3">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="drop_if_exists" value="true" id="checkbox_drop">
-          <label class="form-check-label" for="checkbox_drop">{{ 'Add %s'|trans|format('DROP TABLE') }}</label>
+          <label class="form-check-label" for="checkbox_drop">{{ t('Add %s')|format('DROP TABLE') }}</label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="sql_auto_increment" value="1" id="checkbox_auto_increment_cp">
-          <label class="form-check-label" for="checkbox_auto_increment_cp">{% trans 'Add AUTO_INCREMENT value' %}</label>
+          <label class="form-check-label" for="checkbox_auto_increment_cp">{{ t('Add AUTO_INCREMENT value') }}</label>
         </div>
 
         {% if has_foreign_keys %}
           <div class="form-check">
             <input class="form-check-input" type="checkbox" name="add_constraints" value="1" id="checkbox_constraints" checked>
-            <label class="form-check-label" for="checkbox_constraints">{% trans 'Add constraints' %}</label>
+            <label class="form-check-label" for="checkbox_constraints">{{ t('Add constraints') }}</label>
           </div>
         {% endif %}
 
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="adjust_privileges" value="1" id="checkbox_adjust_privileges"
             {%- if has_privileges %} checked{% else %} title="
-          {%- trans 'You don\'t have sufficient privileges to perform this operation; Please refer to the documentation for more details.' %}" disabled{% endif %}>
+          {{- t("You don't have sufficient privileges to perform this operation; Please refer to the documentation for more details.") }}" disabled{% endif %}>
           <label class="form-check-label" for="checkbox_adjust_privileges">
-            {% trans 'Adjust privileges' %}
+            {{ t('Adjust privileges') }}
             {{ show_docu('faq', 'faq6-39') }}
           </label>
         </div>
 
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="switch_to_new" value="true" id="checkbox_switch"{{ switch_to_new ? ' checked' }}>
-          <label class="form-check-label" for="checkbox_switch">{% trans 'Switch to copied table' %}</label>
+          <label class="form-check-label" for="checkbox_switch">{{ t('Switch to copied table') }}</label>
         </div>
       </div>
     </div>
 
     <div class="card-footer text-end">
-      <input class="btn btn-primary" type="submit" name="submit_copy" value="{% trans 'Go' %}">
+      <input class="btn btn-primary" type="submit" name="submit_copy" value="{{ t('Go') }}">
     </div>
   </div>
 </form>
 
 <div class="card mb-2">
-  <div class="card-header">{% trans 'Table maintenance' %}</div>
+  <div class="card-header">{{ t('Table maintenance') }}</div>
   <ul class="list-group list-group-flush" id="tbl_maintenance">
     {% if storage_engine in ['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'] %}
       <li class="list-group-item">
         <a href="{{ url('/table/maintenance/analyze') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}, '', false) }}">
-          {% trans 'Analyze table' %}
+          {{ t('Analyze table') }}
         </a>
         {{ show_mysql_docu('ANALYZE_TABLE') }}
       </li>
@@ -346,7 +346,7 @@
     {% if storage_engine in ['MYISAM', 'ARIA', 'INNODB', 'TOKUDB'] %}
       <li class="list-group-item">
         <a href="{{ url('/table/maintenance/check') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}, '', false) }}">
-          {% trans 'Check table' %}
+          {{ t('Check table') }}
         </a>
         {{ show_mysql_docu('CHECK_TABLE') }}
       </li>
@@ -354,7 +354,7 @@
 
     <li class="list-group-item">
       <a href="{{ url('/table/maintenance/checksum') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}, '', false) }}">
-        {% trans 'Checksum table' %}
+        {{ t('Checksum table') }}
       </a>
       {{ show_mysql_docu('CHECKSUM_TABLE') }}
     </li>
@@ -362,7 +362,7 @@
     {% if storage_engine == 'INNODB' %}
       <li class="list-group-item">
         <a class="maintain_action ajax" href="{{ url('/sql') }}" data-post="{{ get_common(url_params|merge({'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ENGINE = InnoDB;'}), '', false) }}">
-          {% trans 'Defragment table' %}
+          {{ t('Defragment table') }}
         </a>
         {{ show_mysql_docu('InnoDB_File_Defragmenting') }}
       </li>
@@ -371,10 +371,10 @@
     <li class="list-group-item">
       <a class="maintain_action ajax" href="{{ url('/sql') }}" data-post="{{ get_common(url_params|merge({
         'sql_query': 'FLUSH TABLE ' ~ backquote(table),
-        'message_to_show': 'Table %s has been flushed.'|trans|format(table|e),
+        'message_to_show': t('Table %s has been flushed.')|format(table|e),
         'reload': true
       }), '', false) }}">
-        {% trans 'Flush the table (FLUSH)' %}
+        {{ t('Flush the table (FLUSH)') }}
       </a>
       {{ show_mysql_docu('FLUSH') }}
     </li>
@@ -382,7 +382,7 @@
     {% if storage_engine in ['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'] %}
       <li class="list-group-item">
         <a href="{{ url('/table/maintenance/optimize') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}, '', false) }}">
-          {% trans 'Optimize table' %}
+          {{ t('Optimize table') }}
         </a>
         {{ show_mysql_docu('OPTIMIZE_TABLE') }}
       </li>
@@ -391,7 +391,7 @@
     {% if storage_engine in ['MYISAM', 'ARIA'] %}
       <li class="list-group-item">
         <a href="{{ url('/table/maintenance/repair') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}, '', false) }}">
-          {% trans 'Repair table' %}
+          {{ t('Repair table') }}
         </a>
         {{ show_mysql_docu('REPAIR_TABLE') }}
       </li>
@@ -401,7 +401,7 @@
 
 {% if not is_system_schema %}
   <div class="card mb-2">
-    <div class="card-header">{% trans 'Delete data or table' %}</div>
+    <div class="card-header">{{ t('Delete data or table') }}</div>
     <ul class="list-group list-group-flush">
       {% if not is_view %}
         <li class="list-group-item">
@@ -411,9 +411,9 @@
               'sql_query': 'TRUNCATE TABLE ' ~ backquote(db) ~ '.' ~ backquote(table),
               'goto': url('/table/structure'),
               'reload': true,
-              'message_to_show': 'Table %s has been emptied.'|trans|format(table)|e
+              'message_to_show': t('Table %s has been emptied.')|format(table)|e
             }),
-            'Empty the table (TRUNCATE)'|trans,
+            t('Empty the table (TRUNCATE)'),
             {
               'id': 'truncate_tbl_anchor',
               'class': 'text-danger ajax',
@@ -429,9 +429,9 @@
               'sql_query': 'DELETE FROM ' ~ backquote(db) ~ '.' ~ backquote(table),
               'goto': url('/table/structure'),
               'reload': true,
-              'message_to_show': 'Table %s has been emptied.'|trans|format(table)|e
+              'message_to_show': t('Table %s has been emptied.')|format(table)|e
             }),
-            'Empty the table (DELETE FROM)'|trans,
+            t('Empty the table (DELETE FROM)'),
             {
               'id': 'delete_tbl_anchor',
               'class': 'text-danger ajax',
@@ -449,10 +449,10 @@
             'goto': url('/database/operations'),
             'reload': true,
             'purge': true,
-            'message_to_show': is_view ? 'View %s has been dropped.'|trans|format(table)|e : 'Table %s has been dropped.'|trans|format(table)|e,
+            'message_to_show': is_view ? t('View %s has been dropped.')|format(table)|e : t('Table %s has been dropped.')|format(table)|e,
             'table': table
           }),
-          'Delete the table (DROP)'|trans,
+          t('Delete the table (DROP)'),
           {
             'id': 'drop_tbl_anchor',
             'class': 'text-danger ajax',
@@ -472,13 +472,13 @@
 
     <div class="card mb-2">
       <div class="card-header">
-        {% trans 'Partition maintenance' %}
+        {{ t('Partition maintenance') }}
         {{ show_mysql_docu('partitioning_maintenance') }}
       </div>
 
       <div class="card-body">
         <div class="mb-3">
-          <label for="partition_name">{% trans 'Partition' %}</label>
+          <label for="partition_name">{{ t('Partition') }}</label>
           <select class="form-select resize-vertical" id="partition_name" name="partition_name[]" multiple required>
             {% for partition in partitions %}
               <option value="{{ partition }}"{{ loop.first ? ' selected' }}>{{ partition }}</option>
@@ -498,12 +498,12 @@
         <div class="form-text">
           <a href="{{ url('/sql', url_params|merge({
             'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' REMOVE PARTITIONING;'
-          })) }}">{% trans 'Remove partitioning' %}</a>
+          })) }}">{{ t('Remove partitioning') }}</a>
         </div>
       </div>
 
       <div class="card-footer text-end">
-        <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
+        <input class="btn btn-primary" type="submit" value="{{ t('Go') }}">
       </div>
     </div>
   </form>
@@ -511,7 +511,7 @@
 
 {% if foreigners is not empty %}
   <div class="card mb-2">
-    <div class="card-header">{% trans 'Check referential integrity' %}</div>
+    <div class="card-header">{{ t('Check referential integrity') }}</div>
     <ul class="list-group list-group-flush">
       {% for foreign in foreigners %}
         <li class="list-group-item">

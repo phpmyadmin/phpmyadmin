@@ -1,6 +1,6 @@
 <div class="preview_sql">
     {% if query_data is empty %}
-        {% trans 'No change' %}
+        {{ t('No change') }}
     {% elseif query_data is iterable %}
         {% for query in query_data %}
             {{ format_sql(query) }}

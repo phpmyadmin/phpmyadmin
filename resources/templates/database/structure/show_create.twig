@@ -1,15 +1,15 @@
 <div class="container">
-  <h2>{% trans 'Showing create queries' %}</h2>
+  <h2>{{ t('Showing create queries') }}</h2>
 
   {% if tables.tables is not empty %}
     <div class="card mb-3">
-      <div class="card-header">{% trans 'Tables' %}</div>
+      <div class="card-header">{{ t('Tables') }}</div>
       <div class="card-body">
         <table class="table">
           <thead>
             <tr>
-              <th>{% trans 'Table' %}</th>
-              <th>{% trans 'Create table' %}</th>
+              <th>{{ t('Table') }}</th>
+              <th>{{ t('Create table') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -27,13 +27,13 @@
 
   {% if tables.views is not empty %}
     <div class="card">
-      <div class="card-header">{% trans 'Views' %}</div>
+      <div class="card-header">{{ t('Views') }}</div>
       <div class="card-body">
         <table class="table">
           <thead>
             <tr>
-              <th>{% trans 'View' %}</th>
-              <th>{% trans 'Create view' %}</th>
+              <th>{{ t('View') }}</th>
+              <th>{{ t('Create view') }}</th>
             </tr>
           </thead>
           <tbody>

@@ -13,7 +13,7 @@
                 'goto': url('/table/relation'),
                 'back': url('/table/relation'),
                 'sql_query': drop_fk_query,
-                'message_to_show': 'Foreign key constraint %s has been dropped'|trans|format(
+                'message_to_show': t('Foreign key constraint %s has been dropped')|format(
                     one_key['constraint']
                 )
             } %}
@@ -22,7 +22,7 @@
         {% if one_key['constraint'] is defined %}
             <input type="hidden" class="drop_foreign_key_msg" value="
                 {{- js_msg }}">
-            {% set drop_str = get_icon('b_drop', 'Drop'|trans) %}
+            {% set drop_str = get_icon('b_drop', t('Drop')) %}
             {{ link_or_button(url('/sql'), this_params, drop_str, {'class': 'drop_foreign_key_anchor ajax'}) }}
         {% endif %}
     </td>
@@ -30,7 +30,7 @@
         <span class="clearfloat">
             <input type="text" name="constraint_name[{{ i }}]" value="
                 {{- one_key['constraint'] is defined ? one_key['constraint'] -}}
-                " placeholder="{% trans 'Constraint name' %}" maxlength="64">
+                " placeholder="{{ t('Constraint name') }}" maxlength="64">
         </span>
         <div class="float-start">
             {# For ON DELETE and ON UPDATE, the default action
@@ -82,14 +82,14 @@
         {% endif %}
         <a class="clearfloat add_foreign_key_field" data-index="
             {{- i }}" href="">
-            {% trans '+ Add column' %}
+            {{ t('+ Add column') }}
         </a>
     </td>
     <td>
         <span class="clearfloat">
             {% include 'table/relation/relational_dropdown.twig' with {
                 'name': 'destination_foreign_db[' ~ i ~ ']',
-                'title': 'Database'|trans,
+                'title': t('Database'),
                 'values': databases,
                 'foreign': foreign_db,
                 'db': db
@@ -100,7 +100,7 @@
         <span class="clearfloat">
             {% include 'table/relation/relational_dropdown.twig' with {
                 'name': 'destination_foreign_table[' ~ i ~ ']',
-                'title': 'Table'|trans,
+                'title': t('Table'),
                 'values': tables,
                 'foreign': foreign_table
             } only %}
@@ -112,7 +112,7 @@
                 <span class="clearfloat">
                     {% include 'table/relation/relational_dropdown.twig' with {
                         'name': 'destination_foreign_column[' ~ i ~ '][]',
-                        'title': 'Column'|trans,
+                        'title': t('Column'),
                         'values': unique_columns,
                         'foreign': foreign_column
                     } only %}
@@ -122,7 +122,7 @@
             <span class="clearfloat">
                 {% include 'table/relation/relational_dropdown.twig' with {
                     'name': 'destination_foreign_column[' ~ i ~ '][]',
-                    'title': 'Column'|trans,
+                    'title': t('Column'),
                     'values': [],
                     'foreign': ''
                 } only %}

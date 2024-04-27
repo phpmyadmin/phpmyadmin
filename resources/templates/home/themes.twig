@@ -5,13 +5,13 @@
       <div class="col">
         <div class="card h-100 mt-0">
           <div class="card-img-container">
-            <img src="./themes/{{ theme.id }}/screen.png" class="card-img-top h-100" alt="{{ 'Screenshot of the %s theme.'|trans|format(theme.name) }}">
+            <img src="./themes/{{ theme.id }}/screen.png" class="card-img-top h-100" alt="{{ t('Screenshot of the %s theme.')|format(theme.name) }}">
           </div>
           <div class="card-body">
             <h5 class="card-title">{{ theme.name }} <small>({{ theme.version }})</small></h5>
           </div>
           <div class="card-footer">
-            <button type="submit" class="btn btn-primary" name="set_theme" value="{{ theme.id }}">{% trans %}Take it{% notes %}Choose the theme button in the themes list modal{% endtrans %}</button>
+            <button type="submit" class="btn btn-primary" name="set_theme" value="{{ theme.id }}">{{ t('Take it', notes = 'Choose the theme button in the themes list modal') }}</button>
           </div>
         </div>
       </div>

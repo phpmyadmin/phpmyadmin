@@ -3,19 +3,19 @@
 {% block content %}
   <div class="container">
     {% if not is_data_loaded %}
-      {{ 'Not enough privilege to view query statistics.'|trans|error }}
+      {{ t('Not enough privilege to view query statistics.')|error }}
     {% else %}
       <h3>
-        {% trans %}Questions since startup:{% notes %}Questions is the name of a MySQL Status variable{% endtrans %} {{ format_number(stats.total, 0) }}
+        {{ t('Questions since startup:', notes = 'Questions is the name of a MySQL Status variable') }} {{ format_number(stats.total, 0) }}
         {{ show_mysql_docu('server-status-variables', false, null, null, 'statvar_Questions') }}
       </h3>
 
       <div class="row">
         <ul>
-          <li>ø {% trans 'per hour:' %} {{ format_number(stats.per_hour, 0) }}</li>
-          <li>ø {% trans 'per minute:' %} {{ format_number(stats.per_minute, 0) }}</li>
+          <li>{{ t('ø per hour: %s', notes = 'Average per hour')|format(format_number(stats.per_hour, 0)) }}</li>
+          <li>{{ t('ø per minute: %s', notes = 'Average per minute')|format(format_number(stats.per_minute, 0)) }}</li>
           {% if stats.per_second >= 1 %}
-            <li>ø {% trans 'per second:' %} {{ format_number(stats.per_second, 0) }}</li>
+            <li>{{ t('ø per second: %s', notes = 'Average per second')|format(format_number(stats.per_second, 0)) }}</li>
           {% endif %}
         </ul>
       </div>
@@ -29,9 +29,9 @@
 
           <thead>
             <tr>
-              <th scope="col">{% trans 'Statements' %}</th>
-              <th class="text-end" scope="col">{% trans %}#{% notes %}# = Amount of queries{% endtrans %}</th>
-              <th class="text-end" scope="col">{% trans 'ø per hour' %}</th>
+              <th scope="col">{{ t('Statements') }}</th>
+              <th class="text-end" scope="col">{{ t('#', notes = '# = Amount of queries') }}</th>
+              <th class="text-end" scope="col">{{ t('ø per hour', notes = 'Average per hour') }}</th>
               <th class="text-end" scope="col">%</th>
             </tr>
           </thead>
@@ -49,7 +49,7 @@
         </table>
 
         <div class="col">
-          <canvas id="query-statistics-chart" data-chart-data="{{ chart_data|json_encode|e('html_attr') }}" aria-label="{{ 'Pie chart with the most frequent statements.'|trans }}" role="img"></canvas>
+          <canvas id="query-statistics-chart" data-chart-data="{{ chart_data|json_encode|e('html_attr') }}" aria-label="{{ t('Pie chart with the most frequent statements.') }}" role="img"></canvas>
         </div>
       </div>
     {% endif %}

@@ -8,8 +8,8 @@
           <div class="label">
               <strong>
                   <label for="input_index_name">
-                      {% trans 'Index name:' %}
-                      {{ show_hint('"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!'|trans) }}
+                      {{ t('Index name:') }}
+                      {{ show_hint(t('"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!')) }}
                   </label>
               </strong>
           </div>
@@ -25,6 +25,6 @@
     </div>
   </div>
   <div class="card-footer">
-    <button class="btn btn-secondary" type="submit" id="preview_index_frm">{% trans 'Preview SQL' %}</button>
+    <button class="btn btn-secondary" type="submit" id="preview_index_frm">{{ t('Preview SQL') }}</button>
   </div>
 </form>

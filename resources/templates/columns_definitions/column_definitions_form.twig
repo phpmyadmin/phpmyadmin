@@ -19,7 +19,7 @@
         <div id="table_name_col_no_outer">
             <table id="table_name_col_no" class="table table-borderless tdblock">
                 <tr class="align-middle float-start">
-                    <td>{% trans 'Table name' %}:
+                    <td>{{ t('Table name') }}:
                     <input type="text"
                         name="table"
                         size="40"
@@ -28,7 +28,7 @@
                         class="textfield" autofocus required>
                     </td>
                     <td>
-                        {% trans 'Add' %}
+                        {{ t('Add') }}
                         <input type="number"
                             id="added_fields"
                             name="added_fields"
@@ -36,10 +36,10 @@
                             value="1"
                             min="1"
                             onfocus="this.select()">
-                        {% trans 'column(s)' %}
+                        {{ t('column(s)') }}
                         <input class="btn btn-secondary" type="button"
                             name="submit_num_fields"
-                            value="{% trans 'Go' %}">
+                            value="{{ t('Go') }}">
                     </td>
                 </tr>
             </table>
@@ -68,17 +68,17 @@
         <div class="responsivetable">
         <table class="table table-borderless w-auto align-middle mb-0">
             <tr class="align-top">
-                <th>{% trans 'Table comments:' %}</th>
+                <th>{{ t('Table comments:') }}</th>
                 <td width="25">&nbsp;</td>
-                <th>{% trans 'Collation:' %}</th>
+                <th>{{ t('Collation:') }}</th>
                 <td width="25">&nbsp;</td>
                 <th>
-                    {% trans 'Storage Engine:' %}
+                    {{ t('Storage Engine:') }}
                     {{ show_mysql_docu('Storage_engines') }}
                 </th>
                 <td width="25">&nbsp;</td>
                 <th id="storage-engine-connection">
-                    {% trans 'Connection:' %}
+                    {{ t('Connection:') }}
                     {{ show_mysql_docu('federated-create-connection') }}
                 </th>
             </tr>
@@ -109,7 +109,7 @@
                 </td>
                 <td width="25">&nbsp;</td>
                 <td>
-                  <select class="form-select" name="tbl_storage_engine" aria-label="{% trans 'Storage engine' %}">
+                  <select class="form-select" name="tbl_storage_engine" aria-label="{{ t('Storage engine') }}">
                     {% for engine in storage_engines %}
                       <option value="{{ engine.name }}"{% if engine.comment is not empty %} title="{{ engine.comment }}"{% endif %}
                         {{- engine.name|lower == tbl_storage_engine|lower or (tbl_storage_engine is empty and engine.is_default) ? ' selected' }}>
@@ -132,7 +132,7 @@
             {% if have_partitioning %}
                 <tr class="align-top">
                     <th colspan="5">
-                        {% trans 'PARTITION definition:' %}
+                        {{ t('PARTITION definition:') }}
                         {{ show_mysql_docu('Partitioning') }}
                     </th>
                 </tr>
@@ -151,20 +151,20 @@
     <div class="card mt-3">
       <div class="card-body">
         {% if action == '/table/add-field' or action == '/table/structure/save' %}
-            <input type="checkbox" name="online_transaction" value="ONLINE_TRANSACTION_ENABLED" />{% trans %}Online transaction{% context %}Online transaction part of the SQL DDL for InnoDB{% endtrans %}{{ show_mysql_docu('innodb-online-ddl') }}
+            <input type="checkbox" name="online_transaction" value="ONLINE_TRANSACTION_ENABLED" />{{ t('Online transaction', context = 'Online transaction part of the SQL DDL for InnoDB') }}{{ show_mysql_docu('innodb-online-ddl') }}
         {% endif %}
         <input class="btn btn-secondary preview_sql" type="button"
-            value="{% trans 'Preview SQL' %}">
+            value="{{ t('Preview SQL') }}">
         <input class="btn btn-primary" type="submit"
             name="do_save_data"
-            value="{% trans 'Save' %}">
+            value="{{ t('Save') }}">
       </div>
     </div>
     <div id="properties_message"></div>
      {% if is_integers_length_restricted %}
         <div class="alert alert-primary" id="length_not_allowed" role="alert">
             {{ get_image('s_notice') }}
-            {% trans %}The column width of integer types is ignored in your MySQL version unless defining a TINYINT(1) column{% endtrans %}
+            {{ t('The column width of integer types is ignored in your MySQL version unless defining a TINYINT(1) column') }}
             {{ show_mysql_docu('', false, 'https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-19.html') }}
         </div>
      {% endif %}
@@ -173,13 +173,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="previewSqlModalLabel">{% trans 'Loading' %}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+        <h5 class="modal-title" id="previewSqlModalLabel">{{ t('Loading') }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
       </div>
       <div class="modal-body">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="previewSQLCloseButton" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+        <button type="button" class="btn btn-secondary" id="previewSQLCloseButton" data-bs-dismiss="modal">{{ t('Close') }}</button>
       </div>
     </div>
   </div>

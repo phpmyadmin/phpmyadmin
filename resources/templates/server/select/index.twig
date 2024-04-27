@@ -1,16 +1,16 @@
 {% if not_only_options %}
     <form class="disableAjax" method="post" action="{{ form_action|raw }}">
         {{ get_hidden_fields([]) }}
-        <label for="select_server" class="form-label">{% trans 'Current server:' %}</label>
+        <label for="select_server" class="form-label">{{ t('Current server:') }}</label>
         <select id="select_server" class="form-select autosubmit" name="server">
-            <option value="">({% trans 'Servers' %}) ...</option>
+            <option value="">({{ t('Servers') }}) ...</option>
             {% for server in servers.select %}
               <option value="{{ server.value }}"{{ server.selected ? ' selected' }}>{{ server.label }}</option>
             {% endfor %}
         </select>
     </form>
 {% elseif servers.list is not empty %}
-    {% trans 'Current server:' %}<br>
+    {{ t('Current server:') }}<br>
     <ul id="list_server">
         <li>
             {% for server in servers.list %}

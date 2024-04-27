@@ -16,13 +16,13 @@
   </div>
   <hr>
   <p class="d-print-none">
-    <button type="button" class="btn btn-link p-0 jsPrintButton">{{ get_icon('b_print', 'Print'|trans, true) }}</button>
+    <button type="button" class="btn btn-link p-0 jsPrintButton">{{ get_icon('b_print', t('Print'), true) }}</button>
     <a href="{{ url('/database/data-dictionary', {'db': database, 'goto': url('/database/structure')}) }}">
-      {{ get_icon('b_tblanalyse', 'Data dictionary'|trans, true) }}
+      {{ get_icon('b_tblanalyse', t('Data dictionary'), true) }}
     </a>
   </p>
 {% else %}
-  {{ 'No tables found in database.'|trans|notice }}
+  {{ t('No tables found in database.')|notice }}
 {% endif %}
 
 {% if not is_system_schema %}

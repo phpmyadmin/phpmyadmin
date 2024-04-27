@@ -1,39 +1,39 @@
 <div class="responsivetable">
 <table id="table_columns" class="table table-striped caption-top align-middle mb-0 noclick">
     <caption>
-        {% trans 'Structure' %}
+        {{ t('Structure') }}
         {{ show_mysql_docu('CREATE_TABLE') }}
     </caption>
     <tr>
         <th>
-            {% trans 'Name' %}
+            {{ t('Name') }}
         </th>
         <th>
-            {% trans 'Type' %}
+            {{ t('Type') }}
             {{ show_mysql_docu('data-types') }}
         </th>
         <th>
-            {% trans 'Length/Values' %}
-            {{ show_hint('If column type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'…<br>If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'|trans) }}
+            {{ t('Length/Values') }}
+            {{ show_hint(t('If column type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'…<br>If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').')) }}
         </th>
         <th>
-            {% trans 'Default' %}
-            {{ show_hint('For default values, please enter just a single value, without backslash escaping or quotes, using this format: a'|trans) }}
+            {{ t('Default') }}
+            {{ show_hint(t('For default values, please enter just a single value, without backslash escaping or quotes, using this format: a')) }}
         </th>
         <th>
-            {% trans 'Collation' %}
+            {{ t('Collation') }}
         </th>
         <th>
-            {% trans 'Attributes' %}
+            {{ t('Attributes') }}
         </th>
         <th>
-            {% trans 'Null' %}
+            {{ t('Null') }}
         </th>
 
         {# Only for 'Edit' Column(s) #}
         {% if change_column is defined and change_column is not empty %}
             <th>
-                {% trans 'Adjust privileges' %}
+                {{ t('Adjust privileges') }}
                 {{ show_docu('faq', 'faq6-39') }}
             </th>
         {% endif %}
@@ -43,7 +43,7 @@
            modified to use the key fields, as tbl_addfield does. #}
         {% if not is_backup %}
             <th>
-                {% trans 'Index' %}
+                {{ t('Index') }}
             </th>
         {% endif %}
 
@@ -51,46 +51,46 @@
             <abbr title="AUTO_INCREMENT">A_I</abbr>
         </th>
         <th>
-            {% trans 'Comments' %}
+            {{ t('Comments') }}
         </th>
 
         {% if is_virtual_columns_supported %}
             <th>
-                {% trans 'Virtuality' %}
+                {{ t('Virtuality') }}
             </th>
         {% endif %}
 
         {% if fields_meta is defined %}
             <th>
-                {% trans 'Move column' %}
+                {{ t('Move column') }}
             </th>
         {% endif %}
 
         {% if relation_parameters.browserTransformationFeature is not null and browse_mime %}
             <th>
-                {% trans 'Media type' %}
+                {{ t('Media type') }}
             </th>
             <th>
                 <a href="{{ url('/transformation/overview') }}#transformation" title="
-                    {%- trans 'List of available transformations and their options' -%}
+                    {{- t('List of available transformations and their options') -}}
                     " target="_blank">
-                    {% trans 'Browser display transformation' %}
+                    {{ t('Browser display transformation') }}
                 </a>
             </th>
             <th>
-                {% trans 'Browser display transformation options' %}
-                {{ show_hint('Please enter the values for transformation options using this format: \'a\', 100, b,\'c\'…<br>If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'|trans) }}
+                {{ t('Browser display transformation options') }}
+                {{ show_hint(t('Please enter the values for transformation options using this format: \'a\', 100, b,\'c\'…<br>If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').')) }}
             </th>
             <th>
                 <a href="{{ url('/transformation/overview') }}#input_transformation"
-                   title="{% trans 'List of available transformations and their options' %}"
+                   title="{{ t('List of available transformations and their options') }}"
                    target="_blank">
-                    {% trans 'Input transformation' %}
+                    {{ t('Input transformation') }}
                 </a>
             </th>
             <th>
-                {% trans 'Input transformation options' %}
-                {{ show_hint('Please enter the values for transformation options using this format: \'a\', 100, b,\'c\'…<br>If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'|trans) }}
+                {{ t('Input transformation options') }}
+                {{ show_hint(t('Please enter the values for transformation options using this format: \'a\', 100, b,\'c\'…<br>If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').')) }}
             </th>
         {% endif %}
     </tr>

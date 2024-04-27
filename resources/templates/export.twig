@@ -1,6 +1,6 @@
 <div class="container">
   <h2 class="my-3">
-    {{ get_image('b_export', 'Export'|trans) }}
+    {{ get_image('b_export', t('Export')) }}
     {% block title %}{% endblock %}
   </h2>
 
@@ -19,20 +19,20 @@
 
   {% if templates.is_enabled %}
     <div class="card mb-3">
-      <div class="card-header">{% trans 'Export templates:' %}</div>
+      <div class="card-header">{{ t('Export templates:') }}</div>
       <div class="card-body row gy-3">
         <form method="post" action="{{ url('/export/template/create') }}" class="col-12 col-md ajax">
           <fieldset>
-            <legend>{% trans 'New template:' %}</legend>
+            <legend>{{ t('New template:') }}</legend>
             <div class="row g-3 align-items-center">
               <div class="col-auto">
-                <label for="templateName" class="col-form-label">{% trans 'Template name' %}</label>
+                <label for="templateName" class="col-form-label">{{ t('Template name') }}</label>
               </div>
               <div class="col-auto">
-                <input class="form-control" type="text" name="templateName" id="templateName" maxlength="64" placeholder="{% trans 'Template name' %}" required>
+                <input class="form-control" type="text" name="templateName" id="templateName" maxlength="64" placeholder="{{ t('Template name') }}" required>
               </div>
               <div class="col-auto">
-                <input class="btn btn-secondary" type="submit" name="createTemplate" id="createTemplate" value="{% trans 'Create' %}">
+                <input class="btn btn-secondary" type="submit" name="createTemplate" id="createTemplate" value="{{ t('Create') }}">
               </div>
             </div>
           </fieldset>
@@ -40,14 +40,14 @@
 
         <form method="post" id="existingTemplatesForm" class="col-12 col-md ajax">
           <fieldset>
-            <legend>{% trans 'Existing templates:' %}</legend>
+            <legend>{{ t('Existing templates:') }}</legend>
             <div class="row g-3 align-items-center">
               <div class="col-auto">
-                <label for="template" class="col-form-label">{% trans 'Template:' %}</label>
+                <label for="template" class="col-form-label">{{ t('Template:') }}</label>
               </div>
               <div class="col-auto">
                 <select class="form-select" name="template" id="template" required>
-                  <option value="">-- {% trans 'Select a template' %} --</option>
+                  <option value="">-- {{ t('Select a template') }} --</option>
                   {% for template in templates.templates %}
                     <option value="{{ template.getId() }}"{{ template.getId() == templates.selected ? ' selected' }}>
                       {{ template.getName() }}
@@ -56,10 +56,10 @@
                 </select>
               </div>
               <div class="col-auto">
-                <input class="btn btn-secondary" type="submit" formaction="{{ url('/export/template/update') }}" name="updateTemplate" id="updateTemplate" value="{% trans 'Update' %}">
+                <input class="btn btn-secondary" type="submit" formaction="{{ url('/export/template/update') }}" name="updateTemplate" id="updateTemplate" value="{{ t('Update') }}">
               </div>
               <div class="col-auto">
-                <input class="btn btn-secondary" type="submit" formaction="{{ url('/export/template/delete') }}" name="deleteTemplate" id="deleteTemplate" value="{% trans 'Delete' %}">
+                <input class="btn btn-secondary" type="submit" formaction="{{ url('/export/template/delete') }}" name="deleteTemplate" id="deleteTemplate" value="{{ t('Delete') }}">
               </div>
             </div>
           </fieldset>
@@ -71,13 +71,11 @@
   {% if sql_query is not empty %}
     <div class="card mb-3">
       <div class="card-header">
-        {# l10n: Title of the option on the Export page #}
-        {% trans 'SQL query:' %}
+        {{ t('SQL query:', notes = 'Title of the option on the Export page') }}
       </div>
       <div class="card-body">
         <div id="sqlqueryform">
-          {# l10n: Button to show the SQL query on the export page #}
-          <input class="btn btn-secondary" type="submit" id="showsqlquery" value="{% trans 'Show SQL query' %}">
+          <input class="btn btn-secondary" type="submit" id="showsqlquery" value="{{ t('Show SQL query', notes = 'Button to show the SQL query on the export page') }}">
         </div>
         <div class="d-none"></div>
       </div>
@@ -86,8 +84,8 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="showSqlQueryModalLabel">{% trans 'Loading' %}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+            <h5 class="modal-title" id="showSqlQueryModalLabel">{{ t('Loading') }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
           </div>
           <div class="modal-body">
             <div id="export_sql_modal_content">
@@ -97,7 +95,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
           </div>
         </div>
       </div>
@@ -109,24 +107,24 @@
 
     {% if export_method != 'custom-no-form' %}
       <div class="card mb-3" id="quick_or_custom">
-        <div class="card-header">{% trans 'Export method:' %}</div>
+        <div class="card-header">{{ t('Export method:') }}</div>
         <div class="card-body">
           <div class="form-check">
             <input class="form-check-input" type="radio" name="quick_or_custom" value="quick" id="radio_quick_export"{{ export_method == 'quick' ? ' checked' }}>
-            <label class="form-check-label" for="radio_quick_export">{% trans 'Quick - display only the minimal options' %}</label>
+            <label class="form-check-label" for="radio_quick_export">{{ t('Quick - display only the minimal options') }}</label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="quick_or_custom" value="custom" id="radio_custom_export"{{ export_method == 'custom' ? ' checked' }}>
-            <label class="form-check-label" for="radio_custom_export">{% trans 'Custom - display all possible options' %}</label>
+            <label class="form-check-label" for="radio_custom_export">{{ t('Custom - display all possible options') }}</label>
           </div>
         </div>
       </div>
     {% endif %}
 
     <div class="card mb-3" id="format">
-      <div class="card-header">{% trans 'Format:' %}</div>
+      <div class="card-header">{{ t('Format:') }}</div>
       <div class="card-body">
-        <select class="form-select" id="plugins" name="what" aria-label="{% trans 'File format to export' %}">
+        <select class="form-select" id="plugins" name="what" aria-label="{{ t('File format to export') }}">
           {% for option in plugins_choice %}
             <option value="{{ option.name }}"{{ option.is_selected ? ' selected' }} data-is-binary="{{ option.is_binary ? 'true' : 'false' }}">{{ option.text }}</option>
           {% endfor %}
@@ -138,19 +136,19 @@
 
     {% if rows is not empty %}
       <div class="card mb-3 d-none" id="rows">
-        <div class="card-header">{% trans 'Rows:' %}</div>
+        <div class="card-header">{{ t('Rows:') }}</div>
         <div class="card-body">
           <div class="form-check">
             <input class="form-check-input" type="radio" name="allrows" value="1" id="radio_allrows_1"{{ rows.allrows is null or rows.allrows == 1 ? ' checked' }}>
-            <label class="form-check-label" for="radio_allrows_1">{% trans 'Dump all rows' %}</label>
+            <label class="form-check-label" for="radio_allrows_1">{{ t('Dump all rows') }}</label>
           </div>
           <div class="form-check mb-2">
             <input class="form-check-input" type="radio" name="allrows" value="0" id="radio_allrows_0"{{ rows.allrows is not null and rows.allrows == 0 ? ' checked' }}>
-            <label class="form-check-label" for="radio_allrows_0">{% trans 'Dump some row(s)' %}</label>
+            <label class="form-check-label" for="radio_allrows_0">{{ t('Dump some row(s)') }}</label>
           </div>
           <ul class="list-group">
             <li class="list-group-item">
-              <label class="form-label" for="limit_to">{% trans 'Number of rows:' %}</label>
+              <label class="form-label" for="limit_to">{{ t('Number of rows:') }}</label>
               <input class="form-control" type="text" id="limit_to" name="limit_to" size="5" value="
                   {%- if rows.limit_to is not null -%}
                     {{- rows.limit_to -}}
@@ -161,7 +159,7 @@
                   {%- endif -%}" onfocus="this.select()">
             </li>
             <li class="list-group-item">
-              <label class="form-label" for="limit_from">{% trans 'Row to begin at:' %}</label>
+              <label class="form-label" for="limit_from">{{ t('Row to begin at:') }}</label>
               <input class="form-control" type="text" id="limit_from" name="limit_from" size="5" value="{{ rows.limit_from is not null ? rows.limit_from : 0 }}" onfocus="this.select()">
             </li>
           </ul>
@@ -171,19 +169,19 @@
 
     {% if has_save_dir %}
       <div class="card mb-3 d-none" id="output_quick_export">
-        <div class="card-header">{% trans 'Output:' %}</div>
+        <div class="card-header">{{ t('Output:') }}</div>
         <div class="card-body">
           <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" role="switch" name="quick_export_onserver" value="saveit" id="checkbox_quick_dump_onserver"{{ export_is_checked ? ' checked' }}>
             <label class="form-check-label" for="checkbox_quick_dump_onserver">
-              {{ 'Save on server in the directory <strong>%s</strong>'|trans|format(save_dir|e)|raw }}
+              {{ t('Save on server in the directory <strong>%s</strong>')|format(save_dir|e)|raw }}
             </label>
           </div>
           <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" role="switch" name="quick_export_onserver_overwrite" value="saveitover" id="checkbox_quick_dump_onserver_overwrite"
               {{- export_overwrite_is_checked ? ' checked' }}>
             <label class="form-check-label" for="checkbox_quick_dump_onserver_overwrite">
-              {% trans 'Overwrite existing file(s)' %}
+              {{ t('Overwrite existing file(s)') }}
             </label>
           </div>
         </div>
@@ -194,15 +192,15 @@
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="renameExportModalLabel">{% trans 'Rename exported databases/tables/columns' %}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+            <h5 class="modal-title" id="renameExportModalLabel">{{ t('Rename exported databases/tables/columns') }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
           </div>
           <div class="modal-body overflow-auto">
             <table class="table align-middle mb-3" id="alias_data">
               <thead>
                 <tr>
                   <th colspan="4">
-                    {% trans 'Defined aliases' %}
+                    {{ t('Defined aliases') }}
                   </th>
                 </tr>
               </thead>
@@ -211,13 +209,13 @@
                 {% for db, db_data in aliases %}
                   {% if db_data.alias is defined and db_data.alias is not null %}
                     <tr>
-                      <th>{% trans %}Database{% context %}Alias{% endtrans %}</th>
+                      <th>{{ t('Database', context = 'Alias') }}</th>
                       <td>{{ db }}</td>
                       <td>
                         <input name="aliases[{{ db }}][alias]" value="{{ db_data.alias }}" type="text">
                       </td>
                       <td>
-                        <button class="alias_remove btn btn-secondary">{% trans 'Remove' %}</button>
+                        <button class="alias_remove btn btn-secondary">{{ t('Remove') }}</button>
                       </td>
                     </tr>
                   {% endif %}
@@ -225,26 +223,26 @@
                   {% for table, table_data in db_data.tables ?? [] %}
                     {% if table_data.alias is defined and table_data.alias is not null %}
                       <tr>
-                        <th>{% trans %}Table{% context %}Alias{% endtrans %}</th>
+                        <th>{{ t('Table', context = 'Alias') }}</th>
                         <td>{{ db }}.{{ table }}</td>
                         <td>
                           <input name="aliases[{{ db }}][tables][{{ table }}][alias]" value="{{ table_data.alias }}" type="text">
                         </td>
                         <td>
-                          <button class="alias_remove btn btn-secondary">{% trans 'Remove' %}</button>
+                          <button class="alias_remove btn btn-secondary">{{ t('Remove') }}</button>
                         </td>
                       </tr>
                     {% endif %}
 
                     {% for column, column_name in table_data.columns ?? [] %}
                       <tr>
-                        <th>{% trans %}Column{% context %}Alias{% endtrans %}</th>
+                        <th>{{ t('Column', context = 'Alias') }}</th>
                         <td>{{ db }}.{{ table }}.{{ column }}</td>
                         <td>
                           <input name="aliases[{{ db }}][tables][{{ table }}][colums][{{ column }}]" value="{{ column_name }}" type="text">
                         </td>
                         <td>
-                          <button class="alias_remove btn btn-secondary">{% trans 'Remove' %}</button>
+                          <button class="alias_remove btn btn-secondary">{{ t('Remove') }}</button>
                         </td>
                       </tr>
                     {% endfor %}
@@ -261,7 +259,7 @@
                     <input name="aliases_new" value="" type="text">
                   </td>
                   <td>
-                    <button class="alias_remove btn btn-secondary">{% trans 'Remove' %}</button>
+                    <button class="alias_remove btn btn-secondary">{{ t('Remove') }}</button>
                   </td>
                 </tr>
               </tfoot>
@@ -270,12 +268,12 @@
             <table class="table align-middle">
               <thead>
                 <tr>
-                  <th colspan="4">{% trans 'Define new aliases' %}</th>
+                  <th colspan="4">{{ t('Define new aliases') }}</th>
                 </tr>
               </thead>
               <tr>
                 <td>
-                  <label>{% trans 'Select database:' %}</label>
+                  <label>{{ t('Select database:') }}</label>
                 </td>
                 <td>
                   <select id="db_alias_select">
@@ -283,15 +281,15 @@
                   </select>
                 </td>
                 <td>
-                  <input id="db_alias_name" placeholder="{% trans 'New database name' %}" disabled="1">
+                  <input id="db_alias_name" placeholder="{{ t('New database name') }}" disabled="1">
                 </td>
                 <td>
-                  <button id="db_alias_button" class="btn btn-secondary" disabled="1">{% trans 'Add' %}</button>
+                  <button id="db_alias_button" class="btn btn-secondary" disabled="1">{{ t('Add') }}</button>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <label>{% trans 'Select table:' %}</label>
+                  <label>{{ t('Select table:') }}</label>
                 </td>
                 <td>
                   <select id="table_alias_select">
@@ -299,15 +297,15 @@
                   </select>
                 </td>
                 <td>
-                  <input id="table_alias_name" placeholder="{% trans 'New table name' %}" disabled="1">
+                  <input id="table_alias_name" placeholder="{{ t('New table name') }}" disabled="1">
                 </td>
                 <td>
-                  <button id="table_alias_button" class="btn btn-secondary" disabled="1">{% trans 'Add' %}</button>
+                  <button id="table_alias_button" class="btn btn-secondary" disabled="1">{{ t('Add') }}</button>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <label>{% trans 'Select column:' %}</label>
+                  <label>{{ t('Select column:') }}</label>
                 </td>
                 <td>
                   <select id="column_alias_select">
@@ -315,17 +313,17 @@
                   </select>
                 </td>
                 <td>
-                  <input id="column_alias_name" placeholder="{% trans 'New column name' %}" disabled="1">
+                  <input id="column_alias_name" placeholder="{{ t('New column name') }}" disabled="1">
                 </td>
                 <td>
-                  <button id="column_alias_button" class="btn btn-secondary" disabled="1">{% trans 'Add' %}</button>
+                  <button id="column_alias_button" class="btn btn-secondary" disabled="1">{{ t('Add') }}</button>
                 </td>
               </tr>
             </table>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" id="saveAndCloseBtn" data-bs-dismiss="modal">
-              {% trans 'Save & close' %}
+              {{ t('Save & close') }}
             </button>
           </div>
         </div>
@@ -333,12 +331,12 @@
     </div>
 
     <div class="card mb-3 d-none" id="output">
-      <div class="card-header">{% trans 'Output:' %}</div>
+      <div class="card-header">{{ t('Output:') }}</div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
           <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" role="switch" id="btn_alias_config"{{ has_aliases ? ' checked' }}>
-            <label class="form-check-label" for="btn_alias_config">{% trans 'Rename exported databases/tables/columns' %}</label>
+            <label class="form-check-label" for="btn_alias_config">{{ t('Rename exported databases/tables/columns') }}</label>
           </div>
         </li>
 
@@ -348,7 +346,7 @@
               <input class="form-check-input" type="checkbox" role="switch" name="lock_tables" value="something" id="checkbox_lock_tables"
                 {{- (not repopulate and is_checked_lock_tables) or lock_tables ? ' checked' }}>
               <label class="form-check-label" for="checkbox_lock_tables">
-                {{ 'Use %s statement'|trans|format('<code>LOCK TABLES</code>')|raw }}
+                {{ t('Use %s statement')|format('<code>LOCK TABLES</code>')|raw }}
               </label>
             </div>
           </li>
@@ -357,11 +355,11 @@
         <li class="list-group-item">
           <div class="form-check">
             <input class="form-check-input" type="radio" id="radio_view_as_text" name="output_format" value="astext"{{ repopulate or export_asfile == false ? ' checked' }}>
-            <label class="form-check-label" for="radio_view_as_text">{% trans 'View output as text' %}</label>
+            <label class="form-check-label" for="radio_view_as_text">{{ t('View output as text') }}</label>
           </div>
           <div class="form-check mb-2">
             <input class="form-check-input" type="radio" name="output_format" value="sendit" id="radio_dump_asfile"{{ not repopulate and is_checked_asfile ? ' checked' }}>
-            <label class="form-check-label" for="radio_dump_asfile">{% trans 'Save output to a file' %}</label>
+            <label class="form-check-label" for="radio_dump_asfile">{{ t('Save output to a file') }}</label>
           </div>
           <div class="hstack gap-3">
             <div class="vr"></div>
@@ -371,14 +369,14 @@
                   <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" name="onserver" value="saveit" id="checkbox_dump_onserver"{{ is_checked_export ? ' checked' }}>
                     <label class="form-check-label" for="checkbox_dump_onserver">
-                      {{ 'Save on server in the directory <strong>%s</strong>'|trans|format(save_dir|e)|raw }}
+                      {{ t('Save on server in the directory <strong>%s</strong>')|format(save_dir|e)|raw }}
                     </label>
                   </div>
                   <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" name="onserver_overwrite" value="saveitover" id="checkbox_dump_onserver_overwrite"
                       {{- is_checked_export_overwrite ? ' checked' }}>
                     <label class="form-check-label" for="checkbox_dump_onserver_overwrite">
-                      {% trans 'Overwrite existing file(s)' %}
+                      {{ t('Overwrite existing file(s)') }}
                     </label>
                   </div>
                 </li>
@@ -388,8 +386,8 @@
                 <div class="row g-3 align-items-center">
                   <div class="col-auto">
                     <label for="filename_template" class="col-form-label">
-                      {% trans 'File name template:' %}
-                      {{ show_hint('This value is interpreted using the \'strftime\' function, so you can use time formatting strings. Additionally the following transformations will happen: %s Other text will be kept as is. See the FAQ 6.27 for details.'|trans|format(filename_hint)) }}
+                      {{ t('File name template:') }}
+                      {{ show_hint(t('This value is interpreted using the \'strftime\' function, so you can use time formatting strings. Additionally the following transformations will happen: %s Other text will be kept as is. See the FAQ 6.27 for details.')|format(filename_hint)) }}
                     </label>
                   </div>
                   <div class="col-auto">
@@ -399,7 +397,7 @@
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" role="switch" name="remember_template" id="checkbox_remember_template"{{ is_checked_remember_file_template ? ' checked' }}>
                       <label class="form-check-label" for="checkbox_remember_template">
-                        {% trans 'Use this for future exports' %}
+                        {{ t('Use this for future exports') }}
                       </label>
                     </div>
                   </div>
@@ -410,7 +408,7 @@
                 <li class="list-group-item">
                   <div class="row">
                     <div class="col-auto">
-                      <label for="select_charset" class="col-form-label">{% trans 'Character set of the file:' %}</label>
+                      <label for="select_charset" class="col-form-label">{{ t('Character set of the file:') }}</label>
                     </div>
                     <div class="col-auto">
                       <select class="form-select" id="select_charset" name="charset">
@@ -430,21 +428,21 @@
                 <li class="list-group-item">
                   <div class="row">
                     <div class="col-auto">
-                      <label for="compression" class="col-form-label">{% trans 'Compression:' %}</label>
+                      <label for="compression" class="col-form-label">{{ t('Compression:') }}</label>
                     </div>
                     <div class="col-auto">
                       <select class="form-select" id="compression" name="compression">
-                        <option value="none">{% trans 'None' %}</option>
+                        <option value="none">{{ t('None') }}</option>
                         {% if has_zip %}
                           <option value="zip"
                             {{- selected_compression == 'zip' ? ' selected' }}>
-                            {% trans 'zipped' %}
+                            {{ t('zipped') }}
                           </option>
                         {% endif %}
                         {% if has_gzip %}
                           <option value="gzip"
                             {{- selected_compression == 'gzip' ? ' selected' }}>
-                            {% trans 'gzipped' %}
+                            {{ t('gzipped') }}
                           </option>
                         {% endif %}
                       </select>
@@ -462,9 +460,9 @@
                       {{- is_checked_as_separate_files ? ' checked' }}>
                     <label class="form-check-label" for="checkbox_as_separate_files">
                       {% if export_type == 'server' %}
-                        {% trans 'Export databases as separate files' %}
+                        {{ t('Export databases as separate files') }}
                       {% elseif export_type == 'database' %}
-                        {% trans 'Export tables as separate files' %}
+                        {{ t('Export tables as separate files') }}
                       {% endif %}
                     </label>
                   </div>
@@ -475,15 +473,15 @@
         </li>
 
         <li class="list-group-item">
-          <label for="maxsize" class="form-label">{% trans 'Skip tables larger than:' %}</label>
+          <label for="maxsize" class="form-label">{{ t('Skip tables larger than:') }}</label>
           <input class="form-control" type="number" id="maxsize" name="maxsize" aria-describedby="maxsizeHelp">
-          <div id="maxsizeHelp" class="form-text">{% trans 'The size is measured in MiB.' %}</div>
+          <div id="maxsizeHelp" class="form-text">{{ t('The size is measured in MiB.') }}</div>
         </li>
       </ul>
     </div>
 
     <div class="card mb-3 d-none" id="format_specific_opts">
-      <div class="card-header">{% trans 'Format-specific options:' %}</div>
+      <div class="card-header">{{ t('Format-specific options:') }}</div>
       <div class="card-body">
         {{ options|raw }}
       </div>
@@ -492,7 +490,7 @@
     {% if can_convert_kanji %}
       {# Japanese encoding setting #}
       <div class="card mb-3" id="kanji_encoding">
-        <div class="card-header">{% trans 'Encoding Conversion:' %}</div>
+        <div class="card-header">{{ t('Encoding Conversion:') }}</div>
         <div class="card-body">
           {% include 'encoding/kanji_encoding_form.twig' %}
         </div>
@@ -500,7 +498,7 @@
     {% endif %}
 
     <div id="submit">
-      <input id="buttonGo" class="btn btn-primary" type="submit" value="{% trans 'Export' %}" data-exec-time-limit="{{ exec_time_limit }}">
+      <input id="buttonGo" class="btn btn-primary" type="submit" value="{{ t('Export') }}" data-exec-time-limit="{{ exec_time_limit }}">
     </div>
   </form>
 </div>

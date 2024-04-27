@@ -15,13 +15,11 @@
           {% if is_demo %}
             <div class="card mt-4">
               <div class="card-header">
-                {% trans 'phpMyAdmin Demo Server' %}
+                {{ t('phpMyAdmin Demo Server') }}
               </div>
               <div class="card-body">
                 {% apply format('<a href="' ~ url('/url', {'url': 'https://demo.phpmyadmin.net/'}) ~ '" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>')|raw %}
-                  {% trans %}
-                    You are using the demo server. You can do anything here, but please do not change root, debian-sys-maint and pma users. More information is available at %s.
-                  {% endtrans %}
+                  {{ t('You are using the demo server. You can do anything here, but please do not change root, debian-sys-maint and pma users. More information is available at %s.') }}
                 {% endapply %}
               </div>
             </div>
@@ -29,7 +27,7 @@
 
             <div class="card mt-4">
               <div class="card-header">
-                {% trans 'General settings' %}
+                {{ t('General settings') }}
               </div>
               <ul class="list-group list-group-flush">
                 {% if has_server_selection %}
@@ -43,7 +41,7 @@
                   {% if has_change_password_link %}
                     <li id="li_change_password" class="list-group-item">
                       <a href="{{ url('/user-password') }}" id="change_password_anchor" class="ajax">
-                        {{ get_icon('s_passwd', 'Change password'|trans, true) }}
+                        {{ get_icon('s_passwd', t('Change password'), true) }}
                       </a>
                       {{ include('modals/change_password.twig') }}
                     </li>
@@ -55,14 +53,14 @@
                       <div class="col-12">
                         <label for="collationConnectionSelect" class="col-form-label">
                           {{ get_image('s_asci') }}
-                          {% trans 'Server connection collation:' %}
+                          {{ t('Server connection collation:') }}
                           {{ show_mysql_docu('charset-connection') }}
                         </label>
                       </div>
                       {% if charsets is not empty %}
                       <div class="col-12">
                         <select lang="en" dir="ltr" name="collation_connection" id="collationConnectionSelect" class="form-select autosubmit">
-                          <option value="">{% trans 'Collation' %}</option>
+                          <option value="">{{ t('Collation') }}</option>
                           <option value=""></option>
                           {% for charset in charsets %}
                             <optgroup label="{{ charset.name }}" title="{{ charset.description }}">
@@ -81,7 +79,7 @@
 
                   <li id="li_user_preferences" class="list-group-item">
                     <a href="{{ url('/preferences/manage') }}">
-                      {{ get_icon('b_tblops', 'More settings'|trans, true) }}
+                      {{ get_icon('b_tblops', t('More settings'), true) }}
                     </a>
                   </li>
                 {% endif %}
@@ -92,7 +90,7 @@
             {% if available_languages is not empty or has_theme_manager %}
             <div class="card mt-4">
               <div class="card-header">
-                {% trans 'Appearance settings' %}
+                {{ t('Appearance settings') }}
               </div>
               <ul class="list-group list-group-flush">
                 {% if available_languages is not empty %}
@@ -102,8 +100,8 @@
                       <div class="col-12">
                         <label for="languageSelect" class="col-form-label text-nowrap">
                           {{ get_image('s_lang') }}
-                          {% trans 'Language' %}
-                          {% if 'Language'|trans != 'Language' %}
+                          {{ t('Language') }}
+                          {% if t('Language') != 'Language' %}
                             {# For non-English, display "Language" with emphasis because it's not a proper word
                                in the current language; we show it to help people recognize the dialog #}
                             <i lang="en" dir="ltr">(Language)</i>
@@ -130,7 +128,7 @@
                       {{ get_hidden_inputs() }}
                       <div class="col-12">
                         <label for="themeSelect" class="col-form-label">
-                          {{ get_icon('s_theme', 'Theme'|trans) }}
+                          {{ get_icon('s_theme', t('Theme')) }}
                         </label>
                       </div>
                       <div class="col-12">
@@ -141,7 +139,7 @@
                             {% endfor %}
                           </select>
                           <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#themesModal">
-                            {% trans %}View all{% context %}View all themes{% endtrans %}
+                            {{ t('View all', context = 'View all themes') }}
                           </button>
                         </div>
                       </div>
@@ -149,13 +147,13 @@
                       {% for theme in themes %}
                         {% if theme.is_active and theme.color_modes|length > 1 %}
                           <div class="col-12">
-                            <select class="form-select autosubmit" name="themeColorMode" aria-label="{{ 'Color mode for the theme'|trans }}">
+                            <select class="form-select autosubmit" name="themeColorMode" aria-label="{{ t('Color mode for the theme') }}">
                               {% for color_mode in theme.color_modes %}
                                 <option value="{{ color_mode }}"{{ theme.color_mode == color_mode ? ' selected' }}>
                                   {%- if color_mode == 'light' -%}
-                                    {% trans %}Light{% context %}Light color mode of the theme{% endtrans %}
+                                    {{ t('Light', context = 'Light color mode of the theme') }}
                                   {%- elseif color_mode == 'dark' -%}
-                                    {% trans %}Dark{% context %}Dark color mode of the theme{% endtrans %}
+                                    {{ t('Dark', context = 'Dark color mode of the theme') }}
                                   {%- else -%}
                                     {{ color_mode|title }}
                                   {%- endif -%}
@@ -177,35 +175,35 @@
         {% if database_server is not empty %}
           <div class="card mt-4">
             <div class="card-header">
-              {% trans 'Database server' %}
+              {{ t('Database server') }}
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
-                {% trans 'Server:' %}
+                {{ t('Server:') }}
                 {{ database_server.host }}
               </li>
               <li class="list-group-item">
-                {% trans 'Server type:' %}
+                {{ t('Server type:') }}
                 {{ database_server.type }}
               </li>
               <li class="list-group-item">
-                {% trans 'Server connection:' %}
+                {{ t('Server connection:') }}
                 {{ database_server.connection|raw }}
               </li>
               <li class="list-group-item">
-                {% trans 'Server version:' %}
+                {{ t('Server version:') }}
                 {{ database_server.version }}
               </li>
               <li class="list-group-item">
-                {% trans 'Protocol version:' %}
+                {{ t('Protocol version:') }}
                 {{ database_server.protocol }}
               </li>
               <li class="list-group-item">
-                {% trans 'User:' %}
+                {{ t('User:') }}
                 {{ database_server.user }}
               </li>
               <li class="list-group-item">
-                {% trans 'Server charset:' %}
+                {{ t('Server charset:') }}
                 <span lang="en" dir="ltr">
                   {{ database_server.charset }}
                 </span>
@@ -217,7 +215,7 @@
         {% if web_server is not empty or show_php_info %}
           <div class="card mt-4">
             <div class="card-header">
-              {% trans 'Web server' %}
+              {{ t('Web server') }}
             </div>
             <ul class="list-group list-group-flush">
               {% if web_server is not empty %}
@@ -227,25 +225,25 @@
                 </li>
                 {% endif %}
                 <li class="list-group-item" id="li_mysql_client_version">
-                  {% trans 'Database client version:' %}
+                  {{ t('Database client version:') }}
                   {{ web_server.database }}
                 </li>
                 <li class="list-group-item">
-                  {% trans 'PHP extension:' %}
+                  {{ t('PHP extension:') }}
                   {% for extension in web_server.php_extensions %}
                     {{ extension }}
                     {{ show_php_docu('book.' ~ extension ~ '.php') }}
                   {% endfor %}
                 </li>
                 <li class="list-group-item">
-                  {% trans 'PHP version:' %}
+                  {{ t('PHP version:') }}
                   {{ web_server.php_version }}
                 </li>
               {% endif %}
               {% if show_php_info %}
                 <li class="list-group-item">
                   <a href="{{ url('/phpinfo') }}" target="_blank" rel="noopener noreferrer">
-                    {% trans 'Show PHP information' %}
+                    {{ t('Show PHP information') }}
                   </a>
                 </li>
               {% endif %}
@@ -259,37 +257,37 @@
             </div>
             <ul class="list-group list-group-flush">
               <li id="li_pma_version" class="list-group-item{{ is_version_checked ? ' jsversioncheck' }}">
-                {% trans 'Version information:' %}
+                {{ t('Version information:') }}
                 <span class="version">{{ phpmyadmin_version }}</span>
               </li>
               <li class="list-group-item">
                 <a href="{{ get_docu_link('index') }}" target="_blank" rel="noopener noreferrer">
-                  {% trans 'Documentation' %}
+                  {{ t('Documentation') }}
                 </a>
               </li>
               <li class="list-group-item">
                 <a href="{{ 'https://www.phpmyadmin.net/'|link }}" target="_blank" rel="noopener noreferrer">
-                  {% trans 'Official Homepage' %}
+                  {{ t('Official Homepage') }}
                 </a>
               </li>
               <li class="list-group-item">
                 <a href="{{ 'https://www.phpmyadmin.net/contribute/'|link }}" target="_blank" rel="noopener noreferrer">
-                  {% trans 'Contribute' %}
+                  {{ t('Contribute') }}
                 </a>
               </li>
               <li class="list-group-item">
                 <a href="{{ 'https://www.phpmyadmin.net/support/'|link }}" target="_blank" rel="noopener noreferrer">
-                  {% trans 'Get support' %}
+                  {{ t('Get support') }}
                 </a>
               </li>
               <li class="list-group-item">
                 <a href="{{ url('/changelog') }}" target="_blank">
-                  {% trans 'List of changes' %}
+                  {{ t('List of changes') }}
                 </a>
               </li>
               <li class="list-group-item">
                 <a href="{{ url('/license') }}" target="_blank">
-                  {% trans 'License' %}
+                  {{ t('License') }}
                 </a>
               </li>
             </ul>
@@ -300,9 +298,9 @@
       {% for error in errors %}
         <div class="alert {{ error.severity == 'warning' ? 'alert-warning' : 'alert-info' }}" role="alert">
           {% if error.severity == 'warning' %}
-            {{ get_image('s_attention', 'Warning'|trans) }}
+            {{ get_image('s_attention', t('Warning')) }}
           {% else %}
-            {{ get_image('s_notice', 'Notice'|trans) }}
+            {{ get_image('s_notice', t('Notice')) }}
           {% endif %}
           {{ error.message|sanitize }}
         </div>
@@ -315,18 +313,18 @@
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="themesModalLabel">{% trans 'phpMyAdmin Themes' %}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+          <h5 class="modal-title" id="themesModalLabel">{{ t('phpMyAdmin Themes') }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
         </div>
         <div class="modal-body">
           <div class="spinner-border" role="status">
-            <span class="visually-hidden">{% trans 'Loading…' %}</span>
+            <span class="visually-hidden">{{ t('Loading…') }}</span>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
           <a href="{{ 'https://www.phpmyadmin.net/themes/'|link }}#pma_{{ phpmyadmin_major_version|replace({'.': '_'}) }}" class="btn btn-primary" rel="noopener noreferrer" target="_blank">
-            {% trans 'Get more themes!' %}
+            {{ t('Get more themes!') }}
           </a>
         </div>
       </div>

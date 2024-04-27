@@ -1,6 +1,6 @@
 <div class="card index_info">
   <div class="card-header" id="index_header">
-    {% trans 'Indexes' %}
+    {{ t('Indexes') }}
     {{ show_mysql_docu('optimizing-database-structure') }}
   </div>
 
@@ -13,16 +13,16 @@
       <table class="table table-striped table-hover table-sm w-auto align-middle" id="table_index">
         <thead>
         <tr>
-            <th colspan="3" class="d-print-none">{% trans 'Action' %}</th>
-            <th>{% trans 'Keyname' %}</th>
-            <th>{% trans 'Type' %}</th>
-            <th>{% trans 'Unique' %}</th>
-            <th>{% trans 'Packed' %}</th>
-            <th>{% trans 'Column' %}</th>
-            <th>{% trans 'Cardinality' %}</th>
-            <th>{% trans 'Collation' %}</th>
-            <th>{% trans 'Null' %}</th>
-            <th>{% trans 'Comment' %}</th>
+            <th colspan="3" class="d-print-none">{{ t('Action') }}</th>
+            <th>{{ t('Keyname') }}</th>
+            <th>{{ t('Type') }}</th>
+            <th>{{ t('Unique') }}</th>
+            <th>{{ t('Packed') }}</th>
+            <th>{{ t('Column') }}</th>
+            <th>{{ t('Cardinality') }}</th>
+            <th>{{ t('Collation') }}</th>
+            <th>{{ t('Null') }}</th>
+            <th>{{ t('Comment') }}</th>
           </tr>
         </thead>
 
@@ -32,24 +32,24 @@
             <tr class="noclick">
               <td rowspan="{{ columns_count }}" class="edit_index d-print-none ajax">
                 <a class="ajax" href="{{ url('/table/indexes') }}" data-post="{{ get_common(url_params|merge({'index': index.getName()}), '', false) }}">
-                  {{ get_icon('b_edit', 'Edit'|trans) }}
+                  {{ get_icon('b_edit', t('Edit')) }}
                 </a>
               </td>
               <td rowspan="{{ columns_count }}" class="rename_index d-print-none ajax" >
                 <a class="ajax" href="{{ url('/table/indexes/rename') }}" data-post="{{ get_common(url_params|merge({'index': index.getName()}), '', false) }}">
-                  {{ get_icon('b_rename', 'Rename'|trans) }}
+                  {{ get_icon('b_rename', t('Rename')) }}
                 </a>
               </td>
               <td rowspan="{{ columns_count }}" class="d-print-none">
                 {% if index.getName() == 'PRIMARY' %}
                   {% set index_params = {
                     'sql_query': 'ALTER TABLE ' ~ backquote(url_params.table) ~ ' DROP PRIMARY KEY;',
-                    'message_to_show': 'The primary key has been dropped.'|trans
+                    'message_to_show': t('The primary key has been dropped.')
                   } %}
                 {% else %}
                   {% set index_params = {
                     'sql_query': 'ALTER TABLE ' ~ backquote(url_params.table) ~ ' DROP INDEX ' ~ backquote(index.getName()) ~ ';',
-                    'message_to_show': 'Index %s has been dropped.'|trans|format(index.getName())
+                    'message_to_show': t('Index %s has been dropped.')|format(index.getName())
                   } %}
                 {% endif %}
 
@@ -57,13 +57,13 @@
                 {{ link_or_button(
                   url('/sql'),
                   url_params|merge(index_params),
-                  get_icon('b_drop', 'Drop'|trans),
+                  get_icon('b_drop', t('Drop')),
                   {'class': 'drop_primary_key_index_anchor ajax'}
                 ) }}
               </td>
               <th rowspan="{{ columns_count }}">{{ index.getName() }}</th>
               <td rowspan="{{ columns_count }}">{{ index.getType()|default(index.getChoice()) }}</td>
-              <td rowspan="{{ columns_count }}">{{ index.isUnique() ? 'Yes'|trans : 'No'|trans }}</td>
+              <td rowspan="{{ columns_count }}">{{ index.isUnique() ? t('Yes') : t('No') }}</td>
               <td rowspan="{{ columns_count }}">{{ index.isPacked()|raw }}</td>
 
               {% for column in index.getColumns() %}
@@ -90,7 +90,7 @@
       </table>
     </div>
   {% else %}
-    <div class="no_indexes_defined">{{ 'No index defined!'|trans|notice }}</div>
+    <div class="no_indexes_defined">{{ t('No index defined!')|notice }}</div>
   {% endif %}
   </div>
 </div>

@@ -1,12 +1,12 @@
-<h2>{{ 'Users of \'%s\' user group'|trans|format(user_group_special_chars)|raw }}</h2>
+<h2>{{ t('Users of \'%s\' user group')|format(user_group_special_chars)|raw }}</h2>
 {% if users|length == 0 %}
-    <p>{% trans 'No users were found belonging to this user group.' %}</p>
+    <p>{{ t('No users were found belonging to this user group.') }}</p>
 {% else %}
 <table class="table table-striped w-auto">
     <thead>
         <tr>
             <th>#</th>
-            <th>{% trans 'User' %}</th>
+            <th>{{ t('User') }}</th>
         </tr>
     </thead>
     <tbody>

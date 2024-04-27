@@ -2,7 +2,7 @@
 <div class="row">
 <h2>
   {{ get_image('s_replication') }}
-  {% trans 'Replication' %}
+  {{ t('Replication') }}
 </h2>
 </div>
 
@@ -15,12 +15,10 @@
       {{ primary_replication_html|raw }}
     {% elseif primary_configure is null and not clear_screen %}
       <div class="card mb-2">
-        <div class="card-header">{% trans 'Primary replication' %}</div>
+        <div class="card-header">{{ t('Primary replication') }}</div>
         <div class="card-body">
         {% apply format('<a href="' ~ url('/server/replication') ~ '" data-post="' ~ get_common(url_params|merge({'primary_configure': true}), '', false) ~ '">', '</a>')|raw %}
-          {% trans %}
-            This server is not configured as primary in a replication process. Would you like to %sconfigure%s it?
-          {% endtrans %}
+          {{ t('This server is not configured as primary in a replication process. Would you like to %sconfigure%s it?') }}
         {% endapply %}
         </div>
       </div>
@@ -40,5 +38,5 @@
 </div>
 </div>
 {% else %}
-  {{ 'No privileges'|trans|error }}
+  {{ t('No privileges')|error }}
 {% endif %}

@@ -21,14 +21,14 @@
     <input id="item_param_length_{{ index }}" name="item_param_length[{{ index }}]" type="text" value="{{ item_param_length|raw }}">
     <div class="enum_hint">
       <a href="#" class="open_enum_editor">
-        {{ get_image('b_edit', '', {'title': 'ENUM/SET editor'|trans}) }}
+        {{ get_image('b_edit', '', {'title': t('ENUM/SET editor')}) }}
       </a>
     </div>
   </td>
   <td class="hide no_len">---</td>
   <td class="routine_param_opts_text">
     <select lang="en" dir="ltr" name="item_param_opts_text[{{ index }}]">
-      <option value="">{% trans 'Charset' %}</option>
+      <option value="">{{ t('Charset') }}</option>
       <option value=""></option>
       {% for charset in charsets %}
         <option value="{{ charset.name }}" title="{{ charset.description }}"{{ charset.is_selected ? ' selected' }}>
@@ -48,7 +48,7 @@
   </td>
   <td class="routine_param_remove{{ drop_class }}">
     <a href="#" class="routine_param_remove_anchor">
-      {{ get_icon('b_drop', 'Drop'|trans) }}
+      {{ get_icon('b_drop', t('Drop')) }}
     </a>
   </td>
 </tr>

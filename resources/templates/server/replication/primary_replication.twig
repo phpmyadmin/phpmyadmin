@@ -1,19 +1,19 @@
 {% if not clear_screen %}
   <div class="card mb-2">
-    <div class="card-header">{% trans 'Primary replication' %}</div>
+    <div class="card-header">{{ t('Primary replication') }}</div>
     <div class="card-body">
-    {% trans 'This server is configured as primary in a replication process.' %}
+    {{ t('This server is configured as primary in a replication process.') }}
     <ul>
       <li>
         <a href="#primary_status_href" id="primary_status_href">
-          {% trans 'Show primary status' %}
+          {{ t('Show primary status') }}
         </a>
         {{ primary_status_table|raw }}
       </li>
       <li>
         <p>
           <a href="#primary_replicas_href" id="primary_replicas_href">
-            {% trans 'Show connected replicas' %}
+            {{ t('Show connected replicas') }}
           </a>
         </p>
 
@@ -21,8 +21,8 @@
           <table class="table w-auto">
             <thead>
               <tr>
-                <th>{% trans 'Server ID' %}</th>
-                <th>{% trans 'Host' %}</th>
+                <th>{{ t('Server ID') }}</th>
+                <th>{{ t('Host') }}</th>
               </tr>
             </thead>
             <tbody>
@@ -35,13 +35,13 @@
             </tbody>
           </table>
           <br>
-          {{ 'Only replicas started with the --report-host=host_name option are visible in this list.'|trans|notice }}
+          {{ t('Only replicas started with the --report-host=host_name option are visible in this list.')|notice }}
           <br>
         </div>
       </li>
       <li>
         <a href="{{ url('/server/replication') }}" data-post="{{ get_common(url_params, '') }}" id="primary_addreplicauser_href">
-          {% trans 'Add replica replication user' %}
+          {{ t('Add replica replication user') }}
         </a>
       </li>
 {% endif %}

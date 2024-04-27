@@ -25,10 +25,10 @@
         'edit_item': true,
         'item_name': trigger.name.getName()
       }) }}">
-        {{ get_icon('b_edit', 'Edit'|trans) }}
+        {{ get_icon('b_edit', t('Edit')) }}
       </a>
     {% else %}
-      {{ get_icon('bd_edit', 'Edit'|trans) }}
+      {{ get_icon('bd_edit', t('Edit')) }}
     {% endif %}
   </td>
   <td>
@@ -38,7 +38,7 @@
       'export_item': true,
       'item_name': trigger.name.getName()
     }) }}">
-      {{ get_icon('b_export', 'Export'|trans) }}
+      {{ get_icon('b_export', t('Export')) }}
     </a>
   </td>
   <td>
@@ -51,11 +51,11 @@
           'sql_query': trigger.getDropSql(),
           'goto': url('/triggers', {'db': db})
         },
-        get_icon('b_drop', 'Drop'|trans),
+        get_icon('b_drop', t('Drop')),
         {'class': 'ajax drop_anchor'}
       ) }}
     {% else %}
-      {{ get_icon('bd_drop', 'Drop'|trans) }}
+      {{ get_icon('bd_drop', t('Drop')) }}
     {% endif %}
   </td>
 </tr>

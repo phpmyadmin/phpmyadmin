@@ -1,10 +1,10 @@
 <div class="container">
-  <h2>{{ 'Something went wrong'|trans }}</h2>
+  <h2>{{ t('Something went wrong') }}</h2>
   <div class="card">
     <div class="card-body">
       {{ error_message|error }}
       {% if back_url != '' %}
-        <a class="card-link" href="{{ back_url }}">{{ 'Go back'|trans }}</a>
+        <a class="card-link" href="{{ back_url }}">{{ t('Go back') }}</a>
       {% endif %}
     </div>
   </div>

@@ -6,7 +6,7 @@
   <td>
     <label for="checkbox_sel_users_">
       {% if user.name is empty %}
-        <span class="text-danger">{% trans 'Any' %}</span>
+        <span class="text-danger">{{ t('Any') }}</span>
       {% else %}
         {{ user.name }}
       {% endif %}
@@ -17,9 +17,9 @@
   </td>
   <td>
     {% if user.has_password %}
-      {% trans 'Yes' %}
+      {{ t('Yes') }}
     {% else %}
-      <span class="text-danger">{% trans 'No' %}</span>
+      <span class="text-danger">{{ t('No') }}</span>
     {% endif %}
   </td>
   <td>
@@ -31,7 +31,7 @@
     <td class="usrGroup"></td>
   {% endif %}
   <td>
-    {{ user.has_grant ? 'Yes'|trans : 'No'|trans }}
+    {{ user.has_grant ? t('Yes') : t('No') }}
   </td>
   {% if is_grantuser %}
     <td>
@@ -42,14 +42,14 @@
         'tablename': '',
         'routinename': ''
       }) }}">
-        {{ get_icon('b_usredit', 'Edit privileges'|trans) }}
+        {{ get_icon('b_usredit', t('Edit privileges')) }}
       </a>
     </td>
   {% endif %}
   {% if user.has_group_edit %}
     <td>
       <button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#editUserGroupModal" data-username="{{ user.name }}">
-        {{ get_icon('b_usrlist', 'Edit user group'|trans) }}
+        {{ get_icon('b_usrlist', t('Edit user group')) }}
       </button>
     </td>
   {% endif %}
@@ -60,7 +60,7 @@
       'export': true,
       'initial': initial
     }) }}">
-      {{ get_icon('b_tblexport', 'Export'|trans) }}
+      {{ get_icon('b_tblexport', t('Export')) }}
     </a>
   </td>
 </tr>

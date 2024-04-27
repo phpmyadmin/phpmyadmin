@@ -7,7 +7,7 @@ window.designerConfig = {{ designer_config|raw }};
 {% if not has_query %}
     <div id="name-panel">
         <span id="page_name">
-            {{ selected_page == null ? 'Untitled'|trans : selected_page }}
+            {{ selected_page == null ? t('Untitled') : selected_page }}
         </span>
         <span id="saved_state">
             {{ selected_page == null ? '*' : '' }}
@@ -16,149 +16,149 @@ window.designerConfig = {{ designer_config|raw }};
 {% endif %}
 <div class="designer_header side-menu" id="side_menu">
     <a class="M_butt" id="key_Show_left_menu" href="#">
-        <img title="{% trans 'Show/Hide tables list' %}"
+        <img title="{{ t('Show/Hide tables list') }}"
              alt="v"
              src="{{ image('designer/downarrow2_m.png') }}"
              data-down="{{ image('designer/downarrow2_m.png') }}"
              data-up="{{ image('designer/uparrow2_m.png') }}">
         <span class="hide hidable">
-            {% trans 'Show/Hide tables list' %}
+            {{ t('Show/Hide tables list') }}
         </span>
     </a>
     <a href="#" id="toggleFullscreen" class="M_butt">
-        <img title="{% trans 'View in fullscreen' %}"
+        <img title="{{ t('View in fullscreen') }}"
              src="{{ image('designer/viewInFullscreen.png') }}"
              data-enter="{{ image('designer/viewInFullscreen.png') }}"
              data-exit="{{ image('designer/exitFullscreen.png') }}">
         <span class="hide hidable"
-              data-exit="{% trans 'Exit fullscreen' %}"
-              data-enter="{% trans 'View in fullscreen' %}">
-            {% trans 'View in fullscreen' %}
+              data-exit="{{ t('Exit fullscreen') }}"
+              data-enter="{{ t('View in fullscreen') }}">
+            {{ t('View in fullscreen') }}
         </span>
     </a>
     <a href="#" id="addOtherDbTables" class="M_butt">
-        <img title="{% trans 'Add tables from other databases' %}"
+        <img title="{{ t('Add tables from other databases') }}"
              src="{{ image('designer/other_table.png') }}">
         <span class="hide hidable">
-            {% trans 'Add tables from other databases' %}
+            {{ t('Add tables from other databases') }}
         </span>
     </a>
     {% if not has_query %}
         <a id="newPage" href="#" class="M_butt">
-            <img title="{% trans 'New page' %}"
+            <img title="{{ t('New page') }}"
                  alt=""
                  src="{{ image('designer/page_add.png') }}">
             <span class="hide hidable">
-                {% trans 'New page' %}
+                {{ t('New page') }}
             </span>
         </a>
         <a href="#" id="editPage" class="M_butt ajax">
-            <img title="{% trans 'Open page' %}"
+            <img title="{{ t('Open page') }}"
                  src="{{ image('designer/page_edit.png') }}">
             <span class="hide hidable">
-                {% trans 'Open page' %}
+                {{ t('Open page') }}
             </span>
         </a>
         <a href="#" id="savePos" class="M_butt">
-            <img title="{% trans 'Save page' %}"
+            <img title="{{ t('Save page') }}"
                  src="{{ image('designer/save.png') }}">
             <span class="hide hidable">
-                {% trans 'Save page' %}
+                {{ t('Save page') }}
             </span>
         </a>
         <a href="#" id="SaveAs" class="M_butt ajax">
-            <img title="{% trans 'Save page as' %}"
+            <img title="{{ t('Save page as') }}"
                  src="{{ image('designer/save_as.png') }}">
             <span class="hide hidable">
-                {% trans 'Save page as' %}
+                {{ t('Save page as') }}
             </span>
         </a>
         <a href="#" id="delPages" class="M_butt ajax">
-            <img title="{% trans 'Delete pages' %}"
+            <img title="{{ t('Delete pages') }}"
                  src="{{ image('designer/page_delete.png') }}">
             <span class="hide hidable">
-                {% trans 'Delete pages' %}
+                {{ t('Delete pages') }}
             </span>
         </a>
         <a href="#" id="StartTableNew" class="M_butt">
-            <img title="{% trans 'Create table' %}"
+            <img title="{{ t('Create table') }}"
                  src="{{ image('designer/table.png') }}">
             <span class="hide hidable">
-                {% trans 'Create table' %}
+                {{ t('Create table') }}
             </span>
         </a>
         <a href="#" class="M_butt" id="rel_button">
-            <img title="{% trans 'Create relationship' %}"
+            <img title="{{ t('Create relationship') }}"
                  src="{{ image('designer/relation.png') }}">
             <span class="hide hidable">
-                {% trans 'Create relationship' %}
+                {{ t('Create relationship') }}
             </span>
         </a>
         <a href="#" class="M_butt" id="display_field_button">
-            <img title="{% trans 'Choose column to display' %}"
+            <img title="{{ t('Choose column to display') }}"
                  src="{{ image('designer/display_field.png') }}">
             <span class="hide hidable">
-                {% trans 'Choose column to display' %}
+                {{ t('Choose column to display') }}
             </span>
         </a>
         <a href="#" id="reloadPage" class="M_butt">
-            <img title="{% trans 'Reload' %}"
+            <img title="{{ t('Reload') }}"
                  src="{{ image('designer/reload.png') }}">
             <span class="hide hidable">
-                {% trans 'Reload' %}
+                {{ t('Reload') }}
             </span>
         </a>
         <a href="{{ get_docu_link('faq', 'faq6-31') }}" target="_blank" rel="noopener noreferrer" class="M_butt">
-            <img title="{% trans 'Help' %}"
+            <img title="{{ t('Help') }}"
                  src="{{ image('designer/help.png') }}">
             <span class="hide hidable">
-                {% trans 'Help' %}
+                {{ t('Help') }}
             </span>
         </a>
     {% endif %}
     <a href="#" class="{{ params_array['angular_direct'] }}" id="angular_direct_button">
-        <img title="{% trans 'Angular links' %} / {% trans 'Direct links' %}"
+        <img title="{{ t('Angular links') }} / {{ t('Direct links') }}"
              src="{{ image('designer/ang_direct.png') }}">
         <span class="hide hidable">
-            {% trans 'Angular links' %} / {% trans 'Direct links' %}
+            {{ t('Angular links') }} / {{ t('Direct links') }}
         </span>
     </a>
     <a href="#" class="{{ params_array['snap_to_grid'] }}" id="grid_button">
-        <img title="{% trans 'Snap to grid' %}" src="{{ image('designer/grid.png') }}">
+        <img title="{{ t('Snap to grid') }}" src="{{ image('designer/grid.png') }}">
         <span class="hide hidable">
-            {% trans 'Snap to grid' %}
+            {{ t('Snap to grid') }}
         </span>
     </a>
     <a href="#" class="{{ params_array['small_big_all'] }}" id="key_SB_all">
-        <img title="{% trans 'Small/Big All' %}"
+        <img title="{{ t('Small/Big All') }}"
              alt="v"
              src="{{ image('designer/downarrow1.png') }}"
              data-down="{{ image('designer/downarrow1.png') }}"
              data-right="{{ image('designer/rightarrow1.png') }}">
         <span class="hide hidable">
-            {% trans 'Small/Big All' %}
+            {{ t('Small/Big All') }}
         </span>
     </a>
     <a href="#" id="SmallTabInvert" class="M_butt">
-        <img title="{% trans 'Toggle small/big' %}"
+        <img title="{{ t('Toggle small/big') }}"
              src="{{ image('designer/bottom.png') }}">
         <span class="hide hidable">
-            {% trans 'Toggle small/big' %}
+            {{ t('Toggle small/big') }}
         </span>
     </a>
     <a href="#" id="relLineInvert" class="{{ params_array['relation_lines'] }}" >
-        <img title="{% trans 'Toggle relationship lines' %}"
+        <img title="{{ t('Toggle relationship lines') }}"
              src="{{ image('designer/toggle_lines.png') }}">
         <span class="hide hidable">
-            {% trans 'Toggle relationship lines' %}
+            {{ t('Toggle relationship lines') }}
         </span>
     </a>
     {% if not visual_builder %}
         <a href="#" id="exportPages" class="M_butt" >
-            <img title="{% trans 'Export schema' %}"
+            <img title="{{ t('Export schema') }}"
                  src="{{ image('designer/export.png') }}">
             <span class="hide hidable">
-                {% trans 'Export schema' %}
+                {{ t('Export schema') }}
             </span>
         </a>
     {% else %}
@@ -166,28 +166,28 @@ window.designerConfig = {{ designer_config|raw }};
            class="M_butt"
            href="#"
            class="M_butt">
-            <img title="{% trans 'Build Query' %}"
+            <img title="{{ t('Build Query') }}"
                  src="{{ image('designer/query_builder.png') }}">
             <span class="hide hidable">
-                {% trans 'Build Query' %}
+                {{ t('Build Query') }}
             </span>
         </a>
     {% endif %}
     <a href="#" class="{{ params_array['side_menu'] }}" id="key_Left_Right">
-        <img title="{% trans 'Move Menu' %}" alt=">"
+        <img title="{{ t('Move Menu') }}" alt=">"
              data-right="{{ image('designer/2leftarrow_m.png') }}"
              src="{{ image('designer/2rightarrow_m.png') }}">
         <span class="hide hidable">
-            {% trans 'Move Menu' %}
+            {{ t('Move Menu') }}
         </span>
     </a>
     <a href="#" class="{{ params_array['pin_text'] }}" id="pin_Text">
-        <img title="{% trans 'Pin text' %}"
+        <img title="{{ t('Pin text') }}"
              alt=">"
              data-right="{{ image('designer/anchor.png') }}"
              src="{{ image('designer/anchor.png') }}">
         <span class="hide hidable">
-            {% trans 'Pin text' %}
+            {{ t('Pin text') }}
         </span>
     </a>
 </div>
@@ -199,7 +199,7 @@ window.designerConfig = {{ designer_config|raw }};
         <div id="layer_menu" class="hide">
             <div class="text-center">
                 <a href="#" class="M_butt" target="_self" >
-                    <img title="{% trans 'Hide/Show all' %}"
+                    <img title="{{ t('Hide/Show all') }}"
                         alt="v"
                         id="key_HS_all"
                         src="{{ image('designer/downarrow1.png') }}"
@@ -209,7 +209,7 @@ window.designerConfig = {{ designer_config|raw }};
                 <a href="#" class="M_butt" target="_self" >
                     <img alt="v"
                         id="key_HS"
-                        title="{% trans 'Hide/Show tables with no relationship' %}"
+                        title="{{ t('Hide/Show tables with no relationship') }}"
                         src="{{ image('designer/downarrow2.png') }}"
                         data-down="{{ image('designer/downarrow2.png') }}"
                         data-right="{{ image('designer/rightarrow2.png') }}">
@@ -220,7 +220,7 @@ window.designerConfig = {{ designer_config|raw }};
             </div>
             {# end id_scroll_tab #}
             <div class="text-center">
-                {% trans 'Number of tables:' %} <span id="tables_counter">0</span>
+                {{ t('Number of tables:') }} <span id="tables_counter">0</span>
             </div>
             <div id="layer_menu_sizer">
                   <img class="icon float-start"
@@ -266,7 +266,7 @@ window.designerConfig = {{ designer_config|raw }};
                         <tr>
                             <td colspan="2" class="text-center text-nowrap">
                                 <strong>
-                                    {% trans 'Create relationship' %}
+                                    {{ t('Create relationship') }}
                                 </strong>
                             </td>
                         </tr>
@@ -332,9 +332,9 @@ window.designerConfig = {{ designer_config|raw }};
                         <tr>
                             <td colspan="2" class="text-center text-nowrap">
                                 <input type="button" id="ok_new_rel_panel" class="btn btn-secondary butt"
-                                    name="Button" value="{% trans 'OK' %}">
+                                    name="Button" value="{{ t('OK') }}">
                                 <input type="button" id="cancel_new_rel_panel"
-                                    class="btn btn-secondary butt" name="Button" value="{% trans 'Cancel' %}">
+                                    class="btn btn-secondary butt" name="Button" value="{{ t('Cancel') }}">
                             </td>
                         </tr>
                     </tbody>
@@ -376,16 +376,16 @@ window.designerConfig = {{ designer_config|raw }};
                     <tr>
                         <td colspan="3" class="text-center text-nowrap">
                             <strong>
-                                {% trans 'Delete relationship' %}
+                                {{ t('Delete relationship') }}
                             </strong>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="3" class="text-center text-nowrap">
                             <input id="del_button" name="Button" type="button"
-                                class="btn btn-secondary butt" value="{% trans 'Delete' %}">
+                                class="btn btn-secondary butt" value="{{ t('Delete') }}">
                             <input id="cancel_button" type="button" class="btn btn-secondary butt"
-                                name="Button" value="{% trans 'Cancel' %}">
+                                name="Button" value="{{ t('Cancel') }}">
                         </td>
                     </tr>
                 </table>
@@ -440,7 +440,7 @@ window.designerConfig = {{ designer_config|raw }};
                             </tr>
                             <tr>
                                 <td width="58" class="text-nowrap">
-                                    {% trans 'Relationship operator' %}
+                                    {{ t('Relationship operator') }}
                                 </td>
                                 <td width="102">
                                     <select name="rel_opt" id="rel_opt">
@@ -469,7 +469,7 @@ window.designerConfig = {{ designer_config|raw }};
                                             IN
                                         </option>
                                         <option value="EXCEPT">
-                                            {% trans 'Except' %}
+                                            {{ t('Except') }}
                                         </option>
                                         <option value="NOT IN">
                                             NOT IN
@@ -479,9 +479,9 @@ window.designerConfig = {{ designer_config|raw }};
                             </tr>
                             <tr>
                                 <td class="text-nowrap">
-                                    {% trans 'Value' %}
+                                    {{ t('Value') }}
                                     <br>
-                                    {% trans 'subquery' %}
+                                    {{ t('subquery') }}
                                 </td>
                                 <td>
                                     <textarea id="Query" cols="18"></textarea>
@@ -490,13 +490,13 @@ window.designerConfig = {{ designer_config|raw }};
                             <tr>
                                 <td class="text-center text-nowrap">
                                     <b>
-                                        {% trans 'Rename to' %}
+                                        {{ t('Rename to') }}
                                     </b>
                                 </td>
                             </tr>
                             <tr>
                                 <td width="58" class="text-nowrap">
-                                    {% trans 'New name' %}
+                                    {{ t('New name') }}
                                 </td>
                                 <td width="102">
                                     <input type="text" id="new_name">
@@ -505,13 +505,13 @@ window.designerConfig = {{ designer_config|raw }};
                             <tr>
                                 <td class="text-center text-nowrap">
                                     <b>
-                                        {% trans 'Aggregate' %}
+                                        {{ t('Aggregate') }}
                                     </b>
                                 </td>
                             </tr>
                             <tr>
                                 <td width="58" class="text-nowrap">
-                                    {% trans 'Operator' %}
+                                    {{ t('Operator') }}
                                 </td>
                                 <td width="102">
                                     <select name="operator" id="operator">
@@ -575,7 +575,7 @@ window.designerConfig = {{ designer_config|raw }};
                             </tr>
                             <tr>
                                 <td width="58" class="text-nowrap">
-                                    {% trans 'Operator' %}
+                                    {{ t('Operator') }}
                                 </td>
                                 <td width="102">
                                     <select name="h_operator" id="h_operator">
@@ -583,7 +583,7 @@ window.designerConfig = {{ designer_config|raw }};
                                             ---
                                         </option>
                                         <option value="None" >
-                                            {% trans 'None' %}
+                                            {{ t('None') }}
                                         </option>
                                         <option value="sum" >
                                             SUM
@@ -605,7 +605,7 @@ window.designerConfig = {{ designer_config|raw }};
                             </tr>
                             <tr>
                                 <td width="58" class="text-nowrap">
-                                    {% trans 'Relationship operator' %}
+                                    {{ t('Relationship operator') }}
                                 </td>
                                 <td width="102">
                                     <select name="h_rel_opt" id="h_rel_opt">
@@ -634,7 +634,7 @@ window.designerConfig = {{ designer_config|raw }};
                                             IN
                                         </option>
                                         <option value="EXCEPT">
-                                            {% trans 'Except' %}
+                                            {{ t('Except') }}
                                         </option>
                                         <option value="NOT IN">
                                             NOT IN
@@ -644,9 +644,9 @@ window.designerConfig = {{ designer_config|raw }};
                             </tr>
                             <tr>
                                 <td width="58" class="text-nowrap">
-                                    {% trans 'Value' %}
+                                    {{ t('Value') }}
                                     <br>
-                                    {% trans 'subquery' %}
+                                    {{ t('subquery') }}
                                 </td>
                                 <td width="102">
                                     <textarea id="having" cols="18"></textarea>
@@ -661,9 +661,9 @@ window.designerConfig = {{ designer_config|raw }};
                                     <input type="hidden" id="ok_add_object_table_name" />
                                     <input type="hidden" id="ok_add_object_col_name" />
                                     <input type="button" id="ok_add_object" class="btn btn-secondary butt"
-                                        name="Button" value="{% trans 'OK' %}">
+                                        name="Button" value="{{ t('OK') }}">
                                     <input type="button" id="cancel_close_option" class="btn btn-secondary butt"
-                                        name="Button" value="{% trans 'Cancel' %}">
+                                        name="Button" value="{{ t('Cancel') }}">
                                 </td>
                             </tr>
                         </tbody>
@@ -706,7 +706,7 @@ window.designerConfig = {{ designer_config|raw }};
                             <tr>
                                 <td colspan="2" class="text-center text-nowrap">
                                     <strong>
-                                        {% trans 'Rename to' %}
+                                        {{ t('Rename to') }}
                                     </strong>
                                 </td>
                             </tr>
@@ -714,7 +714,7 @@ window.designerConfig = {{ designer_config|raw }};
                         <tbody id="rename_to">
                             <tr>
                                 <td width="58" class="text-nowrap">
-                                    {% trans 'New name' %}
+                                    {{ t('New name') }}
                                 </td>
                                 <td width="102">
                                     <input type="text" id="e_rename">
@@ -725,11 +725,11 @@ window.designerConfig = {{ designer_config|raw }};
                             <tr>
                                 <td colspan="2" class="text-center text-nowrap">
                                     <input type="button" id="ok_edit_rename" class="btn btn-secondary butt"
-                                        name="Button" value="{% trans 'OK' %}">
+                                        name="Button" value="{{ t('OK') }}">
                                     <input id="query_rename_to_button" type="button"
                                         class="btn btn-secondary butt"
                                         name="Button"
-                                        value="{% trans 'Cancel' %}">
+                                        value="{{ t('Cancel') }}">
                                 </td>
                             </tr>
                         </tbody>
@@ -780,7 +780,7 @@ window.designerConfig = {{ designer_config|raw }};
                         <tbody id="rename_to">
                             <tr>
                                 <td width="58" class="text-nowrap">
-                                    {% trans 'Operator' %}
+                                    {{ t('Operator') }}
                                 </td>
                                 <td width="102">
                                     <select name="hoperator" id="hoperator">
@@ -811,7 +811,7 @@ window.designerConfig = {{ designer_config|raw }};
                             <tr>
                                 <tr>
                                     <td width="58" class="text-nowrap">
-                                        {% trans 'Operator' %}
+                                        {{ t('Operator') }}
                                     </td>
                                     <td width="102">
                                         <select name="hrel_opt" id="hrel_opt">
@@ -840,7 +840,7 @@ window.designerConfig = {{ designer_config|raw }};
                                                 IN
                                             </option>
                                             <option value="EXCEPT">
-                                                {% trans 'Except' %}
+                                                {{ t('Except') }}
                                             </option>
                                             <option value="NOT IN">
                                                 NOT IN
@@ -850,9 +850,9 @@ window.designerConfig = {{ designer_config|raw }};
                             </tr>
                             <tr>
                                 <td class="text-nowrap">
-                                    {% trans 'Value' %}
+                                    {{ t('Value') }}
                                     <br>
-                                    {% trans 'subquery' %}
+                                    {{ t('subquery') }}
                                 </td>
                                 <td>
                                     <textarea id="hQuery" cols="18">
@@ -864,11 +864,11 @@ window.designerConfig = {{ designer_config|raw }};
                             <tr>
                                 <td colspan="2" class="text-center text-nowrap">
                                     <input type="button" id="ok_edit_having" class="btn btn-secondary butt"
-                                        name="Button" value="{% trans 'OK' %}">
+                                        name="Button" value="{{ t('OK') }}">
                                     <input id="query_having_button" type="button"
                                         class="btn btn-secondary butt"
                                         name="Button"
-                                        value="{% trans 'Cancel' %}">
+                                        value="{{ t('Cancel') }}">
                                 </td>
                             </tr>
                         </tbody>
@@ -911,7 +911,7 @@ window.designerConfig = {{ designer_config|raw }};
                             <tr>
                                 <td colspan="2" class="text-center text-nowrap">
                                     <strong>
-                                        {% trans 'Aggregate' %}
+                                        {{ t('Aggregate') }}
                                     </strong>
                                 </td>
                             </tr>
@@ -919,7 +919,7 @@ window.designerConfig = {{ designer_config|raw }};
                         <tbody>
                             <tr>
                                 <td width="58" class="text-nowrap">
-                                    {% trans 'Operator' %}
+                                    {{ t('Operator') }}
                                 </td>
                                 <td width="102">
                                     <select name="operator" id="e_operator">
@@ -949,11 +949,11 @@ window.designerConfig = {{ designer_config|raw }};
                             <tr>
                                 <td colspan="2" class="text-center text-nowrap">
                                     <input type="button" id="ok_edit_Aggr" class="btn btn-secondary butt"
-                                        name="Button" value="{% trans 'OK' %}">
+                                        name="Button" value="{{ t('OK') }}">
                                     <input id="query_Aggregate_Button" type="button"
                                         class="btn btn-secondary butt"
                                         name="Button"
-                                        value="{% trans 'Cancel' %}">
+                                        value="{{ t('Cancel') }}">
                                 </td>
                             </tr>
                         </tbody>
@@ -1004,7 +1004,7 @@ window.designerConfig = {{ designer_config|raw }};
                         <tbody id="rename_to">
                             <tr>
                                 <td width="58" class="text-nowrap">
-                                    {% trans 'Operator' %}
+                                    {{ t('Operator') }}
                                 </td>
                                 <td width="102">
                                     <select name="erel_opt" id="erel_opt">
@@ -1033,7 +1033,7 @@ window.designerConfig = {{ designer_config|raw }};
                                             IN
                                         </option>
                                         <option value="EXCEPT">
-                                            {% trans 'Except' %}
+                                            {{ t('Except') }}
                                         </option>
                                         <option value="NOT IN">
                                             NOT IN
@@ -1043,9 +1043,9 @@ window.designerConfig = {{ designer_config|raw }};
                             </tr>
                             <tr>
                                 <td class="text-nowrap">
-                                    {% trans 'Value' %}
+                                    {{ t('Value') }}
                                     <br>
-                                    {% trans 'subquery' %}
+                                    {{ t('subquery') }}
                                 </td>
                                 <td>
                                     <textarea id="eQuery" cols="18"></textarea>
@@ -1056,9 +1056,9 @@ window.designerConfig = {{ designer_config|raw }};
                             <tr>
                                 <td colspan="2" class="text-center text-nowrap">
                                     <input type="button" id="ok_edit_where" class="btn btn-secondary butt"
-                                        name="Button" value="{% trans 'OK' %}">
+                                        name="Button" value="{{ t('OK') }}">
                                     <input id="query_where_button" type="button" class="btn btn-secondary butt" name="Button"
-                                           value="{% trans 'Cancel' %}">
+                                           value="{{ t('Cancel') }}">
                                 </td>
                             </tr>
                         </tbody>
@@ -1085,20 +1085,20 @@ window.designerConfig = {{ designer_config|raw }};
         <div id="ab"></div>
         <div class="clearfloat"></div>
     </div>
-    <a class="trigger" href="#">{% trans 'Active options' %}</a>
+    <a class="trigger" href="#">{{ t('Active options') }}</a>
 {% endif %}
 <div id="PMA_disable_floating_menubar"></div>
 <div class="modal fade" id="designerGoModal" tabindex="-1" aria-labelledby="designerGoModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="designerGoModalLabel">{% trans 'Loading' %}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Cancel' %}"></button>
+        <h5 class="modal-title" id="designerGoModalLabel">{{ t('Loading') }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Cancel') }}"></button>
       </div>
       <div class="modal-body"></div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="designerModalGoButton">{% trans 'Go' %}</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Cancel' %}</button>
+        <button type="button" class="btn btn-secondary" id="designerModalGoButton">{{ t('Go') }}</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Cancel') }}</button>
       </div>
     </div>
   </div>
@@ -1107,14 +1107,14 @@ window.designerConfig = {{ designer_config|raw }};
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="designerPromptModalLabel">{% trans 'Loading' %}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Cancel' %}"></button>
+        <h5 class="modal-title" id="designerPromptModalLabel">{{ t('Loading') }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Cancel') }}"></button>
       </div>
       <div class="modal-body"></div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="designerModalYesButton">{% trans 'Yes' %}</button>
-        <button type="button" class="btn btn-secondary" id="designerModalNoButton">{% trans 'No' %}</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Cancel' %}</button>
+        <button type="button" class="btn btn-secondary" id="designerModalYesButton">{{ t('Yes') }}</button>
+        <button type="button" class="btn btn-secondary" id="designerModalNoButton">{{ t('No') }}</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Cancel') }}</button>
       </div>
     </div>
   </div>
@@ -1124,8 +1124,8 @@ window.designerConfig = {{ designer_config|raw }};
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="buildQueryModalLabel">{% trans 'Loading' %}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+        <h5 class="modal-title" id="buildQueryModalLabel">{{ t('Loading') }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
       </div>
       <div id="box" class="modal-body">
         <form method="post" action="{{ url('/database/qbe') }}" id="vqb_form">
@@ -1135,8 +1135,8 @@ window.designerConfig = {{ designer_config|raw }};
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
-        <button type="button" class="btn btn-secondary" id="buildQuerySubmitButton">{% trans 'Submit' %}</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+        <button type="button" class="btn btn-secondary" id="buildQuerySubmitButton">{{ t('Submit') }}</button>
       </div>
     </div>
   </div>

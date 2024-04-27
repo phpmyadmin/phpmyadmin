@@ -1,9 +1,9 @@
 <div class="error">
-  <h4>{% trans 'Warning' %}</h4>
-  <p>{% trans 'Submitted form contains errors' %}</p>
+  <h4>{{ t('Warning') }}</h4>
+  <p>{{ t('Submitted form contains errors') }}</p>
   <p>
     <a href="../setup/{{ url('/setup', url_params|merge({'mode': 'revert'})) }}">
-      {% trans 'Try to revert erroneous fields to their default values' %}
+      {{ t('Try to revert erroneous fields to their default values') }}
     </a>
   </p>
 </div>
@@ -11,9 +11,9 @@
 {{ errors|raw }}
 
 <a class="btn" href="../setup/{{ url('/setup') }}">
-  {% trans 'Ignore errors' %}
+  {{ t('Ignore errors') }}
 </a>
 
 <a class="btn" href="../setup/{{ url('/setup', url_params|merge({'mode': 'edit'})) }}">
-  {% trans 'Show form' %}
+  {{ t('Show form') }}
 </a>

@@ -1,4 +1,4 @@
-<div class="row"><h2>{% trans 'User groups' %}</h2></div>
+<div class="row"><h2>{{ t('User groups') }}</h2></div>
 {% if  has_rows %}
     <form name="userGroupsForm" id="userGroupsForm" action="{{ action|raw }}" method="post">
         {{ hidden_inputs|raw }}
@@ -6,19 +6,19 @@
             <thead>
                 <tr class="text-nowrap">
                     <th scope="col">
-                        {% trans 'User groups' %}
+                        {{ t('User groups') }}
                     </th>
                     <th scope="col">
-                        {% trans 'Server level tabs' %}
+                        {{ t('Server level tabs') }}
                     </th>
                     <th scope="col">
-                        {% trans 'Database level tabs' %}
+                        {{ t('Database level tabs') }}
                     </th>
                     <th scope="col">
-                        {% trans 'Table level tabs' %}
+                        {{ t('Table level tabs') }}
                     </th>
                     <th scope="col">
-                        {% trans 'Action' %}
+                        {{ t('Action') }}
                     </th>
                 </tr>
             </thead>
@@ -34,7 +34,7 @@
                             &nbsp;&nbsp;
                             <a class="" href="{{ groupName.userGroupUrl|raw }}" data-post="{{ groupName.editUsersUrl|raw }}">{{ groupName.editUsersIcon|raw }}</a>
                           <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#deleteUserGroupModal" data-user-group="{{ groupName.name }}">
-                            {{ get_icon('b_drop', 'Delete'|trans) }}
+                            {{ get_icon('b_drop', t('Delete')) }}
                           </button>
                         </td>
                     </tr>
@@ -47,18 +47,18 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="deleteUserGroupModalLabel">{% trans 'Delete user group' %}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+          <h5 class="modal-title" id="deleteUserGroupModalLabel">{{ t('Delete user group') }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
         </div>
         <div class="modal-body"></div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
-          <button type="button" class="btn btn-danger" id="deleteUserGroupConfirm">{% trans 'Delete' %}</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+          <button type="button" class="btn btn-danger" id="deleteUserGroupConfirm">{{ t('Delete') }}</button>
         </div>
       </div>
     </div>
   </div>
 {% endif %}
 <div>
-  <a class="btn btn-primary" href="{{ add_user_url|raw }}">{{ add_user_icon|raw }}{% trans 'Add user group' %}</a>
+  <a class="btn btn-primary" href="{{ add_user_url|raw }}">{{ add_user_icon|raw }}{{ t('Add user group') }}</a>
 </div>

@@ -2,7 +2,7 @@
   {% if is_superuser %}
     <h2>
       {{ get_icon('b_usrcheck') }}
-      {{ 'Users having access to "%s"'|trans|format('<a href="' ~ table_url ~ get_common({
+      {{ t('Users having access to "%s"')|format('<a href="' ~ table_url ~ get_common({
         'db': db,
         'table': table
       }, '&') ~ '">' ~ db|escape('html') ~ '.' ~ table|escape('html') ~ '</a>')|raw }}
@@ -16,12 +16,12 @@
             <thead>
               <tr>
                 <th></th>
-                <th>{% trans 'User name' %}</th>
-                <th>{% trans 'Host name' %}</th>
-                <th>{% trans 'Type' %}</th>
-                <th>{% trans 'Privileges' %}</th>
-                <th>{% trans 'Grant' %}</th>
-                <th colspan="2">{% trans 'Action' %}</th>
+                <th>{{ t('User name') }}</th>
+                <th>{{ t('Host name') }}</th>
+                <th>{{ t('Type') }}</th>
+                <th>{{ t('Privileges') }}</th>
+                <th>{{ t('Grant') }}</th>
+                <th colspan="2">{{ t('Action') }}</th>
               </tr>
             </thead>
 
@@ -35,7 +35,7 @@
                   </td>
                   <td{% if privileges_amount > 1 %} class="align-middle" rowspan="{{ privileges_amount }}"{% endif %}>
                     {% if privilege.user is empty %}
-                      <span class="text-danger">{% trans 'Any' %}</span>
+                      <span class="text-danger">{{ t('Any') }}</span>
                     {% else %}
                       {{ privilege.user }}
                     {% endif %}
@@ -46,17 +46,17 @@
                   {% for priv in privilege.privileges %}
                     <td>
                       {% if priv.type == 'g' %}
-                        {% trans 'global' %}
+                        {{ t('global') }}
                       {% elseif priv.type == 'd' %}
                         {% if priv.database == db|replace({'_': '\\_', '%': '\\%'}) %}
-                          {% trans 'database-specific' %}
+                          {{ t('database-specific') }}
                         {% else %}
-                          {% trans 'wildcard' %}: <code>{{ priv.database }}</code>
+                          {{ t('wildcard') }}: <code>{{ priv.database }}</code>
                         {% endif %}
                       {% elseif priv.type == 't' %}
-                        {% trans 'table-specific' %}
+                        {{ t('table-specific') }}
                       {% elseif priv.type == 'r' %}
-                        {% trans 'routine' %}
+                        {{ t('routine') }}
                       {% endif %}
                     </td>
                     <td>
@@ -70,7 +70,7 @@
                       </code>
                     </td>
                     <td>
-                      {{ priv.has_grant ? 'Yes'|trans : 'No'|trans }}
+                      {{ priv.has_grant ? t('Yes') : t('No') }}
                     </td>
                     <td>
                       {% if is_grantuser %}
@@ -81,7 +81,7 @@
                           'tablename': priv.table is defined and priv.table != '*' ? priv.table,
                           'routinename': priv.routine ?? ''
                         }) }}">
-                          {{ get_icon('b_usredit', 'Edit privileges'|trans) }}
+                          {{ get_icon('b_usredit', t('Edit privileges')) }}
                         </a>
                       {% endif %}
                     </td>
@@ -92,7 +92,7 @@
                         'export': true,
                         'initial': ''
                       }) }}">
-                        {{ get_icon('b_tblexport', 'Export'|trans) }}
+                        {{ get_icon('b_tblexport', t('Export')) }}
                       </a>
                     </td>
                   </tr>
@@ -103,7 +103,7 @@
               {% else %}
                 <tr>
                   <td colspan="7">
-                    {% trans 'No user found.' %}
+                    {{ t('No user found.') }}
                   </td>
                 </tr>
               {% endfor %}
@@ -112,18 +112,18 @@
         </div>
 
         <div>
-          {{ get_image('select_all_arrow', 'With selected:'|trans, {'dir': text_dir, 'width': '38', 'height': '22'}) }}
-          <input type="checkbox" id="usersForm_checkall" class="checkall_box" title="{% trans 'Check all' %}">
-          <label for="usersForm_checkall">{% trans 'Check all' %}</label>
-          <em class="with-selected">{% trans 'With selected:' %}</em>
-          <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="export" title="{% trans 'Export' %}">
-            {{ get_icon('b_tblexport', 'Export'|trans) }}
+          {{ get_image('select_all_arrow', t('With selected:'), {'dir': text_dir, 'width': '38', 'height': '22'}) }}
+          <input type="checkbox" id="usersForm_checkall" class="checkall_box" title="{{ t('Check all') }}">
+          <label for="usersForm_checkall">{{ t('Check all') }}</label>
+          <em class="with-selected">{{ t('With selected:') }}</em>
+          <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="export" title="{{ t('Export') }}">
+            {{ get_icon('b_tblexport', t('Export')) }}
           </button>
         </div>
       </div>
     </form>
   {% else %}
-    {{ 'Not enough privilege to view users.'|trans|error }}
+    {{ t('Not enough privilege to view users.')|error }}
   {% endif %}
 
   {% if is_createuser %}
@@ -133,7 +133,7 @@
         'dbname': db,
         'tablename': table
       }) }}">
-        {{ get_icon('b_usradd', 'Add user account'|trans) }}
+        {{ get_icon('b_usradd', t('Add user account')) }}
       </a>
     </div>
   {% endif %}

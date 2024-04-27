@@ -2,7 +2,7 @@
   <div class="col-12">
     <h2>
       {{- get_icon('b_usrlist') -}}
-      {% trans 'User accounts overview' %}
+      {{ t('User accounts overview') }}
     </h2>
   </div>
 </div>
@@ -17,10 +17,10 @@
   {{- users_overview|raw -}}
 {% elseif is_createuser %}
   <div class="card">
-    <div class="card-header">{% trans %}New{% context %}Create new user{% endtrans %}</div>
+    <div class="card-header">{{ t('New', context = 'Create new user') }}</div>
     <div class="card-body" id="fieldset_add_user">
       <a id="add_user_anchor" href="{{ url('/server/privileges', {'adduser': true}) }}">
-        {{- get_icon('b_usradd', 'Add user account'|trans) -}}
+        {{- get_icon('b_usradd', t('Add user account')) -}}
       </a>
     </div>
   </div>

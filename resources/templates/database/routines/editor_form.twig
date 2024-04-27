@@ -8,7 +8,7 @@
 
   <div class="card">
     <div class="card-header">
-      {% trans 'Details' %}
+      {{ t('Details') }}
       {% if not is_edit_mode %}
         {{ show_mysql_docu('CREATE_PROCEDURE') }}
       {% endif %}
@@ -22,13 +22,13 @@
         </colgroup>
 
         <tr>
-          <td class="text-nowrap">{% trans 'Routine name' %}</td>
+          <td class="text-nowrap">{{ t('Routine name') }}</td>
           <td>
             <input type="text" name="item_name" maxlength="64" value="{{ routine.item_name }}">
           </td>
         </tr>
         <tr>
-          <td class="text-nowrap">{% trans 'Type' %}</td>
+          <td class="text-nowrap">{{ t('Type') }}</td>
           <td>
             {% if is_ajax %}
               <select name="item_type">
@@ -40,22 +40,22 @@
               <div class="fw-bold text-center w-50">
                 {{ routine['item_type'] }}
               </div>
-              <input type="submit" class="btn btn-secondary" name="routine_changetype" value="{{ 'Change to %s'|trans|format(routine.item_type_toggle) }}">
+              <input type="submit" class="btn btn-secondary" name="routine_changetype" value="{{ t('Change to %s')|format(routine.item_type_toggle) }}">
             {% endif %}
           </td>
         </tr>
         <tr>
-          <td class="text-nowrap">{% trans 'Parameters' %}</td>
+          <td class="text-nowrap">{{ t('Parameters') }}</td>
           <td>
             <table class="routine_params_table table table-borderless table-sm">
               <thead>
                 <tr>
                   <td></td>
-                  <th class="routine_direction_cell{{ routine.item_type == 'FUNCTION' ? ' hide' }}">{% trans 'Direction' %}</th>
-                  <th>{% trans 'Name' %}</th>
-                  <th>{% trans 'Type' %}</th>
-                  <th>{% trans 'Length/Values' %}</th>
-                  <th colspan="2">{% trans 'Options' %}</th>
+                  <th class="routine_direction_cell{{ routine.item_type == 'FUNCTION' ? ' hide' }}">{{ t('Direction') }}</th>
+                  <th>{{ t('Name') }}</th>
+                  <th>{{ t('Type') }}</th>
+                  <th>{{ t('Length/Values') }}</th>
+                  <th colspan="2">{{ t('Options') }}</th>
                   <th class="routine_param_remove hide"></th>
                 </tr>
               </thead>
@@ -69,15 +69,15 @@
           <td></td>
           <td>
             {% if is_ajax %}
-              <button type="button" class="btn btn-primary" id="addRoutineParameterButton">{% trans 'Add parameter' %}</button>
+              <button type="button" class="btn btn-primary" id="addRoutineParameterButton">{{ t('Add parameter') }}</button>
             {% else %}
-              <input type="submit" class="btn btn-primary" name="routine_addparameter" value="{% trans 'Add parameter' %}">
-              <input type="submit" class="btn btn-secondary"  name="routine_removeparameter" value="{% trans 'Remove last parameter' %}"{{ not routine.item_num_params ? ' disabled' }}>
+              <input type="submit" class="btn btn-primary" name="routine_addparameter" value="{{ t('Add parameter') }}">
+              <input type="submit" class="btn btn-secondary"  name="routine_removeparameter" value="{{ t('Remove last parameter') }}"{{ not routine.item_num_params ? ' disabled' }}>
             {% endif %}
           </td>
         </tr>
         <tr class="routine_return_row{{ routine.item_type == 'PROCEDURE' ? ' hide' }}">
-          <td class="text-nowrap">{% trans 'Return type' %}</td>
+          <td class="text-nowrap">{{ t('Return type') }}</td>
           <td>
             <select name="item_returntype">
               {{ get_supported_datatypes(routine.item_returntype) }}
@@ -85,18 +85,18 @@
           </td>
         </tr>
         <tr class="routine_return_row{{ routine.item_type == 'PROCEDURE' ? ' hide' }}">
-          <td class="text-nowrap">{% trans 'Return length/values' %}</td>
+          <td class="text-nowrap">{{ t('Return length/values') }}</td>
           <td>
             <input type="text" name="item_returnlength" value="{{ routine.item_returnlength }}">
           </td>
           <td class="hide no_len">---</td>
         </tr>
         <tr class="routine_return_row{{ routine.item_type == 'PROCEDURE' ? ' hide' }}">
-          <td class="text-nowrap">{% trans 'Return options' %}</td>
+          <td class="text-nowrap">{{ t('Return options') }}</td>
           <td>
             <div>
               <select lang="en" dir="ltr" name="item_returnopts_text">
-                <option value="">{% trans 'Charset' %}</option>
+                <option value="">{{ t('Charset') }}</option>
                 <option value=""></option>
                 {% for charset in charsets %}
                   <option value="{{ charset.getName() }}" title="{{ charset.getDescription() }}"{{ routine.item_returnopts_text == charset.getName() ? ' selected' }}>{{ charset.getName() }}</option>
@@ -115,14 +115,14 @@
           </td>
         </tr>
         <tr>
-          <td class="text-nowrap">{% trans 'Definition' %}</td>
+          <td class="text-nowrap">{{ t('Definition') }}</td>
           <td>
             <textarea name="item_definition" rows="15" cols="40">{{ routine.item_definition }}</textarea><br>
-            <input type="button" value="{{ 'Format'|trans }}" id="format" class="btn btn-secondary button sqlbutton">
+            <input type="button" value="{{ t('Format') }}" id="format" class="btn btn-secondary button sqlbutton">
           </td>
         </tr>
         <tr>
-          <td class="text-nowrap">{% trans 'Is deterministic' %}</td>
+          <td class="text-nowrap">{{ t('Is deterministic') }}</td>
           <td>
             <input type="checkbox" name="item_isdeterministic"{{ routine.item_isdeterministic|raw }}>
           </td>
@@ -131,27 +131,27 @@
         {% if is_edit_mode %}
           <tr>
             <td class="text-nowrap">
-              {% trans 'Adjust privileges' %}
+              {{ t('Adjust privileges') }}
               {{ show_docu('faq', 'faq6-39') }}
             </td>
             <td>
               {% if has_privileges %}
                 <input type="checkbox" name="item_adjust_privileges" value="1" checked>
               {% else %}
-                <input type="checkbox" name="item_adjust_privileges" value="1" title="{% trans 'You do not have sufficient privileges to perform this operation; Please refer to the documentation for more details.' %}" disabled>
+                <input type="checkbox" name="item_adjust_privileges" value="1" title="{{ t('You do not have sufficient privileges to perform this operation; Please refer to the documentation for more details.') }}" disabled>
               {% endif %}
             </td>
           </tr>
         {% endif %}
 
         <tr>
-          <td class="text-nowrap">{% trans 'Definer' %}</td>
+          <td class="text-nowrap">{{ t('Definer') }}</td>
           <td>
             <input type="text" name="item_definer" value="{{ routine.item_definer }}">
           </td>
         </tr>
         <tr>
-          <td class="text-nowrap">{% trans 'Security type' %}</td>
+          <td class="text-nowrap">{{ t('Security type') }}</td>
           <td>
             <select name="item_securitytype">
               <option value="DEFINER"{{ routine.item_securitytype_definer|raw }}>DEFINER</option>
@@ -160,7 +160,7 @@
           </td>
         </tr>
         <tr>
-          <td class="text-nowrap">{% trans 'SQL data access' %}</td>
+          <td class="text-nowrap">{{ t('SQL data access') }}</td>
           <td>
             <select name="item_sqldataaccess">
               {% for value in sql_data_access %}
@@ -170,7 +170,7 @@
           </td>
         </tr>
         <tr>
-          <td class="text-nowrap">{% trans 'Comment' %}</td>
+          <td class="text-nowrap">{{ t('Comment') }}</td>
           <td>
             <input type="text" name="item_comment" maxlength="64" value="{{ routine.item_comment }}">
           </td>
@@ -183,7 +183,7 @@
       <input type="hidden" name="ajax_request" value="true">
     {% else %}
       <div class="card-footer">
-        <input class="btn btn-primary" type="submit" name="{{ is_edit_mode ? 'editor_process_edit' : 'editor_process_add' }}" value="{% trans 'Go' %}">
+        <input class="btn btn-primary" type="submit" name="{{ is_edit_mode ? 'editor_process_edit' : 'editor_process_add' }}" value="{{ t('Go') }}">
       </div>
     {% endif %}
   </div>

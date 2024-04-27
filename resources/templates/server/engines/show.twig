@@ -1,6 +1,6 @@
 <h2>
   {{ get_image('b_engine') }}
-  {% trans 'Storage engines' %}
+  {{ t('Storage engines') }}
 </h2>
 
 {% if engine is not empty %}
@@ -15,10 +15,10 @@
     <p>
       <strong>[</strong>
       {% if page is empty %}
-        <strong>{% trans 'Variables' %}</strong>
+        <strong>{{ t('Variables') }}</strong>
       {% else %}
         <a href="{{ url('/server/engines/' ~ engine.engine) }}">
-          {% trans 'Variables' %}
+          {{ t('Variables') }}
         </a>
       {% endif %}
       {% for current, label in engine.info_pages %}
@@ -42,5 +42,5 @@
     {{ engine.variables|raw }}
   {% endif %}
 {% else %}
-  <p>{{ 'Unknown storage engine.'|trans|error }}</p>
+  <p>{{ t('Unknown storage engine.')|error }}</p>
 {% endif %}

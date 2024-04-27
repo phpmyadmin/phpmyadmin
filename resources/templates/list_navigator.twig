@@ -1,24 +1,24 @@
 {% if max_count < count %}
 <div class="{{ classes|join(' ') }}">
   {% if frame != 'frame_navigation' %}
-    {% trans 'Page number:' %}
+    {{ t('Page number:') }}
   {% endif %}
 
   {% if position > 0 %}
-    <a href="{{ script|raw }}" data-post="{{ get_common(url_params|merge({(param_name): 0}), '', false) }}"{{ frame == 'frame_navigation' ? ' class="ajax"' }} title="{% trans %}Begin{% context %}First page{% endtrans %}">
+    <a href="{{ script|raw }}" data-post="{{ get_common(url_params|merge({(param_name): 0}), '', false) }}"{{ frame == 'frame_navigation' ? ' class="ajax"' }} title="{{ t('Begin', context = 'First page') }}">
       {% if show_icons('TableNavigationLinksMode') %}
         &lt;&lt;
       {% endif %}
       {% if show_text('TableNavigationLinksMode') %}
-        {% trans %}Begin{% context %}First page{% endtrans %}
+        {{ t('Begin', context = 'First page') }}
       {% endif %}
     </a>
-    <a href="{{ script|raw }}" data-post="{{ get_common(url_params|merge({(param_name): position - max_count}), '', false) }}"{{ frame == 'frame_navigation' ? ' class="ajax"' }} title="{% trans %}Previous{% context %}Previous page{% endtrans %}">
+    <a href="{{ script|raw }}" data-post="{{ get_common(url_params|merge({(param_name): position - max_count}), '', false) }}"{{ frame == 'frame_navigation' ? ' class="ajax"' }} title="{{ t('Previous', context = 'Previous page') }}">
       {% if show_icons('TableNavigationLinksMode') %}
         &lt;
       {% endif %}
       {% if show_text('TableNavigationLinksMode') %}
-        {% trans %}Previous{% context %}Previous page{% endtrans %}
+        {{ t('Previous', context = 'Previous page') }}
       {% endif %}
     </a>
   {% endif %}
@@ -30,18 +30,18 @@
   </form>
 
   {% if position + max_count < count %}
-    <a href="{{ script|raw }}" data-post="{{ get_common(url_params|merge({(param_name): position + max_count}), '', false) }}"{{ frame == 'frame_navigation' ? ' class="ajax"' }} title="{% trans %}Next{% context %}Next page{% endtrans %}">
+    <a href="{{ script|raw }}" data-post="{{ get_common(url_params|merge({(param_name): position + max_count}), '', false) }}"{{ frame == 'frame_navigation' ? ' class="ajax"' }} title="{{ t('Next', context = 'Next page') }}">
       {% if show_text('TableNavigationLinksMode') %}
-        {% trans %}Next{% context %}Next page{% endtrans %}
+        {{ t('Next', context = 'Next page') }}
       {% endif %}
       {% if show_icons('TableNavigationLinksMode') %}
         &gt;
       {% endif %}
     </a>
     {% set last_pos = (count // max_count) * max_count %}
-    <a href="{{ script|raw }}" data-post="{{ get_common(url_params|merge({(param_name): (last_pos == count ? count - max_count : last_pos)}), '', false) }}"{{ frame == 'frame_navigation' ? ' class="ajax"' }} title="{% trans %}End{% context %}Last page{% endtrans %}">
+    <a href="{{ script|raw }}" data-post="{{ get_common(url_params|merge({(param_name): (last_pos == count ? count - max_count : last_pos)}), '', false) }}"{{ frame == 'frame_navigation' ? ' class="ajax"' }} title="{{ t('End', context = 'Last page') }}">
       {% if show_text('TableNavigationLinksMode') %}
-        {% trans %}End{% context %}Last page{% endtrans %}
+        {{ t('End', context = 'Last page') }}
       {% endif %}
       {% if show_icons('TableNavigationLinksMode') %}
         &gt;&gt;

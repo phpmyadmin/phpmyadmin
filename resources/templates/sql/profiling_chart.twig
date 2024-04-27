@@ -1,16 +1,16 @@
 <div class="container">
   <div class="card mb-3">
-    <div class="card-header">{% trans 'Profiling' %}</div>
+    <div class="card-header">{{ t('Profiling') }}</div>
     <div class="card-body">
       <div class="row">
         <div class="col">
-          <h3>{% trans 'Detailed profile' %}</h3>
+          <h3>{{ t('Detailed profile') }}</h3>
           <table class="table table-sm table-striped" id="profiletable">
             <thead>
               <tr>
-                <th>{% trans 'Order' %} <div class="sorticon"></div></th>
-                <th>{% trans 'State' %} <div class="sorticon"></div></th>
-                <th>{% trans 'Time' %} <div class="sorticon"></div></th>
+                <th>{{ t('Order') }} <div class="sorticon"></div></th>
+                <th>{{ t('State') }} <div class="sorticon"></div></th>
+                <th>{{ t('Time') }} <div class="sorticon"></div></th>
               </tr>
             </thead>
             <tbody>
@@ -29,15 +29,15 @@
         </div>
 
         <div class="col">
-          <h3>{% trans 'Summary by state' %}{{ show_mysql_docu('general-thread-states') }}</h3>
+          <h3>{{ t('Summary by state') }}{{ show_mysql_docu('general-thread-states') }}</h3>
           <table class="table table-sm table-striped" id="profilesummarytable">
             <thead>
               <tr>
-                <th>{% trans 'State' %} <div class="sorticon"></div></th>
-                <th>{% trans 'Total Time' %} <div class="sorticon"></div></th>
-                <th>{% trans '% Time' %} <div class="sorticon"></div></th>
-                <th>{% trans 'Calls' %} <div class="sorticon"></div></th>
-                <th>{% trans 'ø Time' %} <div class="sorticon"></div></th>
+                <th>{{ t('State') }} <div class="sorticon"></div></th>
+                <th>{{ t('Total Time') }} <div class="sorticon"></div></th>
+                <th>{{ t('% Time') }} <div class="sorticon"></div></th>
+                <th>{{ t('Calls') }} <div class="sorticon"></div></th>
+                <th>{{ t('ø Time', notes = 'Average time') }} <div class="sorticon"></div></th>
               </tr>
             </thead>
             <tbody>
@@ -63,7 +63,7 @@
         </div>
 
         <div class="col">
-          <canvas id="profilingChartCanvas" data-chart-data="{{ profiling.chart|json_encode|e('html_attr') }}" aria-label="{{ 'Pie chart with profiling results.'|trans }}" role="img"></canvas>
+          <canvas id="profilingChartCanvas" data-chart-data="{{ profiling.chart|json_encode|e('html_attr') }}" aria-label="{{ t('Pie chart with profiling results.') }}" role="img"></canvas>
         </div>
       </div>
     </div>

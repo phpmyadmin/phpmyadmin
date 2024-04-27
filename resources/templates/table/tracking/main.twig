@@ -7,9 +7,9 @@
                     {{- entry.name == selected_table ? ' selected' }}>
                     {{ db }}.{{ entry.name }}
                     {% if entry.active %}
-                        ({% trans 'active' %})
+                        ({{ t('active') }})
                     {% else %}
-                        ({% trans 'not active' %})
+                        ({{ t('not active') }})
                     {% endif %}
                 </option>
             {% endfor %}
@@ -25,12 +25,12 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>{% trans 'Version' %}</th>
-                    <th>{% trans 'Created' %}</th>
-                    <th>{% trans 'Updated' %}</th>
-                    <th>{% trans 'Status' %}</th>
-                    <th>{% trans 'Action' %}</th>
-                    <th>{% trans 'Show' %}</th>
+                    <th>{{ t('Version') }}</th>
+                    <th>{{ t('Created') }}</th>
+                    <th>{{ t('Updated') }}</th>
+                    <th>{{ t('Status') }}</th>
+                    <th>{{ t('Action') }}</th>
+                    <th>{{ t('Show') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,10 +50,10 @@
                         <td>{{ version['date_updated']|escape }}</td>
                         {% if version['tracking_active'] == 1 %}
                             {% set last_version_status = 1 %}
-                            <td>{% trans 'active' %}</td>
+                            <td>{{ t('active') }}</td>
                         {% else %}
                             {% set last_version_status = 0 %}
-                            <td>{% trans 'not active' %}</td>
+                            <td>{{ t('not active') }}</td>
                         {% endif %}
                         <td>
                             <a class="delete_version_anchor ajax" href="{{ url('/table/tracking') }}" data-post="
@@ -61,7 +61,7 @@
                                     'version': version['version'],
                                     'submit_delete_version': true
                                 }), '', false) }}">
-                                {{ get_icon('b_drop', 'Delete version'|trans) }}
+                                {{ get_icon('b_drop', t('Delete version')) }}
                             </a>
                         </td>
                         <td>
@@ -70,14 +70,14 @@
                                     'version': version['version'],
                                     'report': 'true'
                                 }), '', false) }}">
-                                {{ get_icon('b_report', 'Tracking report'|trans) }}
+                                {{ get_icon('b_report', t('Tracking report')) }}
                             </a>
                             <a href="{{ url('/table/tracking') }}" data-post="
                                 {{- get_common(url_params|merge({
                                     'version': version['version'],
                                     'snapshot': 'true'
                                 }), '', false) }}">
-                                {{ get_icon('b_props', 'Structure snapshot'|trans) }}
+                                {{ get_icon('b_props', t('Structure snapshot')) }}
                             </a>
                         </td>
                     </tr>
@@ -88,8 +88,8 @@
             'text_dir': text_dir,
             'form_name': 'versionsForm',
         } only %}
-        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="delete_version" title="{% trans 'Delete version' %}">
-            {{ get_icon('b_drop', 'Delete version'|trans) }}
+        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="delete_version" title="{{ t('Delete version') }}">
+            {{ get_icon('b_drop', t('Delete version')) }}
         </button>
     </form>
     {% set last_version_element = versions|first %}
@@ -97,13 +97,13 @@
       {{ get_hidden_inputs(db, table) }}
       <div class="card-header">
         {% if last_version_element['tracking_active'] == 0 %}
-          {% set legend = 'Activate tracking for %s'|trans %}
+          {% set legend = t('Activate tracking for %s') %}
           {% set value = 'activate_now' %}
-          {% set button = 'Activate now'|trans %}
+          {% set button = t('Activate now') %}
         {% else %}
-          {% set legend = 'Deactivate tracking for %s'|trans %}
+          {% set legend = t('Deactivate tracking for %s') %}
           {% set value = 'deactivate_now' %}
-          {% set button = 'Deactivate now'|trans %}
+          {% set button = t('Deactivate now') %}
         {% endif %}
 
         {{ legend|format(db ~ '.' ~ table) }}

@@ -8,12 +8,12 @@
                   type="text"
                   name="{{ is_root_node ? 'searchClause' : 'searchClause2' }}"
                   accesskey="q"
-                  aria-label="{% trans 'Type to filter these, Enter to search all' %}"
-                  placeholder="{% trans 'Type to filter these, Enter to search all' %}"
+                  aria-label="{{ t('Type to filter these, Enter to search all') }}"
+                  placeholder="{{ t('Type to filter these, Enter to search all') }}"
               >
               <button
                 class="btn btn-outline-secondary searchClauseClear"
-                type="button" aria-label="{% trans 'Clear fast filter' %}">X</button>
+                type="button" aria-label="{{ t('Clear fast filter') }}">X</button>
             </div>
         </form>
     </li>

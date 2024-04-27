@@ -12,7 +12,7 @@
 
   {% if show_function_fields %}
     {% if is_column_binary %}
-      <td class="text-center">{% trans 'Binary' %}</td>
+      <td class="text-center">{{ t('Binary') }}</td>
     {% elseif 'enum' in column.trueType or 'set' in column.trueType %}
       <td class="text-center">--</td>
     {% else %}
@@ -27,7 +27,7 @@
   <td>
     {% if column.isNull %}
       <input type="hidden" name="fields_null_prev[multi_edit][{{ row_id }}][{{ column.md5 }}]"{{ real_null_value and not column.firstTimestamp ? ' value="on"' }}>
-      <input type="checkbox" class="checkbox_null" name="fields_null[multi_edit][{{ row_id }}][{{ column.md5 }}]" id="field_{{ id_index }}_2" aria-label="{% trans 'Use the NULL value for this column.' %}"{{ real_null_value ? ' checked' }}>
+      <input type="checkbox" class="checkbox_null" name="fields_null[multi_edit][{{ row_id }}][{{ column.md5 }}]" id="field_{{ id_index }}_2" aria-label="{{ t('Use the NULL value for this column.') }}"{{ real_null_value ? ' checked' }}>
       <input type="hidden" class="nullify_code" name="nullify_code[multi_edit][{{ row_id }}][{{ column.md5 }}]" value="{{ nullify_code }}">
       <input type="hidden" class="hashed_field" name="hashed_field[multi_edit][{{ row_id }}][{{ column.md5 }}]" value="{{ column.md5 }}">
       <input type="hidden" class="multi_edit" name="multi_edit[multi_edit][{{ row_id }}][{{ column.md5 }}]" value="{{ ('[multi_edit][' ~ row_id ~ ']') }}">
@@ -45,7 +45,7 @@
         {{ backup_field|raw }}
         <input type="hidden" name="fields_type[multi_edit][{{ row_id }}][{{ column.md5 }}]" value="foreign">
         <input type="text" name="fields[multi_edit][{{ row_id }}][{{ column.md5 }}]" class="textfield" tabindex="{{ id_index }}" onchange="return verificationsAfterFieldChange('{{ column.md5|escape('js') }}', '{{ row_id|escape('js') }}', '{{ column.pmaType }}')" id="field_{{ id_index }}_3" value="{{ data }}">
-        <a class="ajax browse_foreign" href="{{ url('/browse-foreigners') }}" data-post="{{ get_common({'db': db, 'table': table, 'field': column.field, 'rownumber': row_id, 'data': data}) }}">{{ get_icon('b_browse', 'Browse foreign values'|trans) }}</a>
+        <a class="ajax browse_foreign" href="{{ url('/browse-foreigners') }}" data-post="{{ get_common({'db': db, 'table': table, 'field': column.field, 'rownumber': row_id, 'data': data}) }}">{{ get_icon('b_browse', t('Browse foreign values')) }}</a>
       {% elseif foreign_dropdown is not empty %}
         {{ backup_field|raw }}
         <input type="hidden" name="fields_type[multi_edit][{{ row_id }}][{{ column.md5 }}]" value="{{ column.isBinary ? 'hex' : 'foreign' }}">
@@ -62,7 +62,7 @@
         {% if 'text' in column.pmaType and special_chars|length > 32000 %}
           </td>
           <td>
-          {% trans 'Because of its length,<br> this column might not be editable.' %}
+          {{ t('Because of its length,<br> this column might not be editable.')|raw }}
         {% endif %}
       {% elseif column.pmaType == 'enum' %}
         {{ backup_field|raw }}
@@ -90,7 +90,7 @@
         </select>
       {% elseif column.isBinary or column.isBlob %}
         {% if is_column_protected_blob %}
-          {% trans 'Binary - do not edit' %}
+          {{ t('Binary - do not edit') }}
           ({{ blob_value }} {{ blob_value_unit }})
           <input type="hidden" name="fields[multi_edit][{{ row_id }}][{{ column.md5 }}]" value="">
           <input type="hidden" name="fields_type[multi_edit][{{ row_id }}][{{ column.md5 }}]" value="protected">
@@ -120,7 +120,7 @@
 
       {% if column.pmaType in gis_data_types %}
         <span class="open_gis_editor" data-row-id="{{ row_id }}">
-          {{ link_or_button('#', null, get_icon('b_edit', 'Edit/Insert'|trans)) }}
+          {{ link_or_button('#', null, get_icon('b_edit', t('Edit/Insert'))) }}
         </span>
       {% endif %}
     {% endif %}

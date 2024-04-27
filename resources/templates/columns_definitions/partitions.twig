@@ -14,7 +14,7 @@
 
 <table class="table table-borderless w-auto align-middle mb-0" id="partition_table">
     <tr class="align-middle">
-        <td><label for="partition_by">{% trans 'Partition by:' %}</label></td>
+        <td><label for="partition_by">{{ t('Partition by:') }}</label></td>
         <td>
             <select name="partition_by" id="partition_by">
                 {% for option in partition_options %}
@@ -29,12 +29,12 @@
         </td>
         <td>
             (<input name="partition_expr" type="text"
-                placeholder="{% trans 'Expression or column list' %}"
+                placeholder="{{ t('Expression or column list') }}"
                 value="{{ partition_details['partition_expr'] }}">)
         </td>
     </tr>
     <tr class="align-middle">
-        <td><label for="partition_count">{% trans 'Partitions:' %}</label></td>
+        <td><label for="partition_count">{{ t('Partitions:') }}</label></td>
         <td colspan="2">
             <input name="partition_count" type="number" min="2"
                 value="{{ partition_details['partition_count'] ?: '' }}">
@@ -42,7 +42,7 @@
     </tr>
     {% if partition_details['can_have_subpartitions'] %}
         <tr class="align-middle">
-            <td><label for="subpartition_by">{% trans 'Subpartition by:' %}</label></td>
+            <td><label for="subpartition_by">{{ t('Subpartition by:') }}</label></td>
             <td>
                 <select name="subpartition_by" id="subpartition_by">
                     {% for option in sub_partition_options %}
@@ -57,12 +57,12 @@
             </td>
             <td>
                 (<input name="subpartition_expr" type="text"
-                    placeholder="{% trans 'Expression or column list' %}"
+                    placeholder="{{ t('Expression or column list') }}"
                     value="{{ partition_details['subpartition_expr'] }}">)
             </td>
         </tr>
         <tr class="align-middle">
-            <td><label for="subpartition_count">{% trans 'Subpartitions:' %}</label></td>
+            <td><label for="subpartition_count">{{ t('Subpartitions:') }}</label></td>
             <td colspan="2">
                 <input name="subpartition_count" type="number" min="2"
                     value="{{ partition_details['subpartition_count'] ?: '' }}">
@@ -73,22 +73,22 @@
 {% if partition_details['partition_count'] > 1 %}
     <table class="table align-middle" id="partition_definition_table">
         <thead><tr>
-            <th>{% trans 'Partition' %}</th>
+            <th>{{ t('Partition') }}</th>
             {% if partition_details['value_enabled'] %}
-                <th>{% trans 'Values' %}</th>
+                <th>{{ t('Values') }}</th>
             {% endif %}
             {% if partition_details['can_have_subpartitions']
                 and partition_details['subpartition_count'] > 1 %}
-                <th>{% trans 'Subpartition' %}</th>
+                <th>{{ t('Subpartition') }}</th>
             {% endif %}
-            <th>{% trans 'Engine' %}</th>
-            <th>{% trans 'Comment' %}</th>
-            <th>{% trans 'Data directory' %}</th>
-            <th>{% trans 'Index directory' %}</th>
-            <th>{% trans 'Max rows' %}</th>
-            <th>{% trans 'Min rows' %}</th>
-            <th>{% trans 'Table space' %}</th>
-            <th>{% trans 'Node group' %}</th>
+            <th>{{ t('Engine') }}</th>
+            <th>{{ t('Comment') }}</th>
+            <th>{{ t('Data directory') }}</th>
+            <th>{{ t('Index directory') }}</th>
+            <th>{{ t('Max rows') }}</th>
+            <th>{{ t('Min rows') }}</th>
+            <th>{{ t('Table space') }}</th>
+            <th>{{ t('Node group') }}</th>
         </tr></thead>
         {% for partition in partition_details['partitions'] %}
             {% set rowspan = partition['subpartition_count'] is not empty
@@ -134,7 +134,7 @@
                         </td>
                     {% endif %}
                     <td>
-                      <select name="{{ subpartition['prefix'] }}[engine]" aria-label="{% trans 'Storage engine' %}">
+                      <select name="{{ subpartition['prefix'] }}[engine]" aria-label="{{ t('Storage engine') }}">
                         <option value=""></option>
                         {% for engine in storage_engines %}
                           <option value="{{ engine.name }}"{% if engine.comment is not empty %} title="{{ engine.comment }}"{% endif %}

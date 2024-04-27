@@ -2,8 +2,8 @@
   <div class="row g-1 my-3 mx-1" id="recentFavoriteTablesWrapper">
     {% if recent is not empty %}
       <div class="col-auto dropdown">
-        <button title="{{ 'Recently visited tables'|trans }}" class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          {{- 'Recent'|trans -}}
+        <button title="{{ t('Recently visited tables') }}" class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{- t('Recent') -}}
         </button>
         <ul class="dropdown-menu" id="recentTableList">
           {{ recent|raw }}
@@ -13,8 +13,8 @@
 
     {% if favorite is not empty %}
       <div class="col-auto dropdown">
-        <button title="{{ 'Favorite tables'|trans }}" class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          {{- 'Favorites'|trans -}}
+        <button title="{{ t('Favorite tables') }}" class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{- t('Favorites') -}}
         </button>
         <ul class="dropdown-menu" id="favoriteTableList">
           {{ favorite|raw }}

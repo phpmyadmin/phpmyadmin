@@ -5,11 +5,11 @@
     <input type="hidden" name="submitoptions" value="1">
 
     <div class="card mb-2">
-      <div class="card-header">{% trans 'Operations' %}</div>
+      <div class="card-header">{{ t('Operations') }}</div>
       <div class="card-body">
         <div class="row row-cols-lg-auto g-3 align-items-center">
           <div class="col-12">
-            <label for="newNameInput">{% trans 'Rename view to' %}</label>
+            <label for="newNameInput">{{ t('Rename view to') }}</label>
           </div>
           <div class="col-12">
             <input id="newNameInput" class="form-control" type="text" name="new_name" onfocus="this.select()" value="{{ table }}" required>
@@ -17,13 +17,13 @@
         </div>
       </div>
       <div class="card-footer text-end">
-        <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
+        <input class="btn btn-primary" type="submit" value="{{ t('Go') }}">
       </div>
     </div>
   </form>
 
   <div class="card mb-2">
-    <div class="card-header">{% trans 'Delete data or table' %}</div>
+    <div class="card-header">{{ t('Delete data or table') }}</div>
     <div class="card-body">
       <div class="card-text">
         {{ link_or_button(
@@ -33,10 +33,10 @@
             'goto': url('/table/structure'),
             'reload': true,
             'purge': true,
-            'message_to_show': 'View %s has been dropped.'|trans|format(table)|e,
+            'message_to_show': t('View %s has been dropped.')|format(table)|e,
             'table': table
           }),
-          'Delete the view (DROP)'|trans,
+          t('Delete the view (DROP)'),
           {
             'id': 'drop_view_anchor',
             'class': 'text-danger ajax'

@@ -14872,7 +14872,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[providerTestDynamicRender]]></code>
       <code><![CDATA[providerTestRender]]></code>
-      <code><![CDATA[providerTestRenderGettext]]></code>
       <code><![CDATA[providerTestSet]]></code>
     </PossiblyUnusedMethod>
   </file>

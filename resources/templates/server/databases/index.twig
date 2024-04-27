@@ -1,12 +1,12 @@
 <div class="container-fluid my-3">
   <h2>
-    {{ get_icon('s_db', has_statistics ? 'Databases statistics'|trans : 'Databases'|trans) }}
+    {{ get_icon('s_db', has_statistics ? t('Databases statistics') : t('Databases')) }}
   </h2>
 
   {% if is_create_database_shown %}
     <div class="card">
       <div class="card-header">
-        {{ get_icon('b_newdb', 'Create database'|trans) }}
+        {{ get_icon('b_newdb', t('Create database')) }}
         {{ show_mysql_docu('CREATE_DATABASE') }}
       </div>
       <div class="card-body">
@@ -21,13 +21,13 @@
             <div class="col-12">
               <input type="text" name="new_db" maxlength="64" class="form-control" value="
                 {{- database_to_create }}" id="text_create_db" placeholder="
-                {%- trans 'Database name' %}" aria-label="{% trans 'Database name' %}" required>
+                {{- t('Database name') }}" aria-label="{{ t('Database name') }}" required>
             </div>
 
             {% if charsets is not empty %}
               <div class="col-12">
-                <select lang="en" dir="ltr" name="db_collation" class="form-select" aria-label="{% trans 'Collation' %}">
-                  <option value="">{% trans 'Collation' %}</option>
+                <select lang="en" dir="ltr" name="db_collation" class="form-select" aria-label="{{ t('Collation') }}">
+                  <option value="">{{ t('Collation') }}</option>
                   <option value=""></option>
                   {% for charset in charsets %}
                     <optgroup label="{{ charset.name }}" title="{{ charset.description }}">
@@ -43,11 +43,11 @@
             {% endif %}
 
             <div class="col-12">
-              <input id="buttonGo" class="btn btn-primary" type="submit" value="{% trans 'Create' %}">
+              <input id="buttonGo" class="btn btn-primary" type="submit" value="{{ t('Create') }}">
             </div>
           </form>
         {% else %}
-          <span class="text-danger">{{ get_icon('s_error', 'No privileges to create databases'|trans) }}</span>
+          <span class="text-danger">{{ get_icon('s_error', t('No privileges to create databases')) }}</span>
         {% endif %}
       </div>
     </div>
@@ -61,11 +61,11 @@
             <div class="input-group-text">
               <div class="form-check mb-0">
                 <input class="form-check-input checkall_box" type="checkbox" value="" id="checkAllCheckbox" form="dbStatsForm">
-                <label class="form-check-label" for="checkAllCheckbox">{% trans 'Check all' %}</label>
+                <label class="form-check-label" for="checkAllCheckbox">{{ t('Check all') }}</label>
               </div>
             </div>
-            <button class="btn btn-outline-secondary" id="bulkActionDropButton" type="submit" name="submit_mult" value="Drop" form="dbStatsForm" title="{% trans 'Drop' %}">
-              {{ get_icon('db_drop', 'Drop'|trans) }}
+            <button class="btn btn-outline-secondary" id="bulkActionDropButton" type="submit" name="submit_mult" value="Drop" form="dbStatsForm" title="{{ t('Drop') }}">
+              {{ get_icon('db_drop', t('Drop')) }}
             </button>
           </div>
         </div>
@@ -73,8 +73,8 @@
 
       <div class="ms-auto">
         <div class="input-group">
-          <span class="input-group-text">{{ get_image('b_search', 'Search'|trans) }}</span>
-          <input class="form-control" name="filterText" type="text" id="filterText" value="" placeholder="{% trans 'Search' %}" aria-label="{% trans 'Search' %}">
+          <span class="input-group-text">{{ get_image('b_search', t('Search')) }}</span>
+          <input class="form-control" name="filterText" type="text" id="filterText" value="" placeholder="{{ t('Search') }}" aria-label="{{ t('Search') }}">
         </div>
       </div>
     </div>
@@ -103,12 +103,12 @@
                   'sort_order': url_params.sort_by == 'SCHEMA_NAME'
                   and url_params.sort_order == 'asc' ? 'desc' : 'asc'
                 })) }}">
-                  {% trans 'Database' %}
+                  {{ t('Database') }}
                   {% if url_params.sort_by == 'SCHEMA_NAME' %}
                     {% if url_params.sort_order == 'asc' %}
-                      {{ get_image('s_asc', 'Ascending'|trans) }}
+                      {{ get_image('s_asc', t('Ascending')) }}
                     {% else %}
-                      {{ get_image('s_desc', 'Descending'|trans) }}
+                      {{ get_image('s_desc', t('Descending')) }}
                     {% endif %}
                   {% endif %}
                 </a>
@@ -120,12 +120,12 @@
                   'sort_order': url_params.sort_by == 'DEFAULT_COLLATION_NAME'
                     and url_params.sort_order == 'asc' ? 'desc' : 'asc'
                 })) }}">
-                  {% trans 'Collation' %}
+                  {{ t('Collation') }}
                   {% if url_params.sort_by == 'DEFAULT_COLLATION_NAME' %}
                     {% if url_params.sort_order == 'asc' %}
-                      {{ get_image('s_asc', 'Ascending'|trans) }}
+                      {{ get_image('s_asc', t('Ascending')) }}
                     {% else %}
-                      {{ get_image('s_desc', 'Descending'|trans) }}
+                      {{ get_image('s_desc', t('Descending')) }}
                     {% endif %}
                   {% endif %}
                 </a>
@@ -142,9 +142,9 @@
                       {{ statistic.title }}
                       {% if url_params.sort_by == name %}
                         {% if url_params.sort_order == 'asc' %}
-                          {{ get_image('s_asc', 'Ascending'|trans) }}
+                          {{ get_image('s_asc', t('Ascending')) }}
                         {% else %}
-                          {{ get_image('s_desc', 'Descending'|trans) }}
+                          {{ get_image('s_desc', t('Descending')) }}
                         {% endif %}
                       {% endif %}
                     </a>
@@ -153,14 +153,14 @@
               {% endif %}
 
               {% if has_primary_replication %}
-                <th>{% trans 'Primary replication' %}</th>
+                <th>{{ t('Primary replication') }}</th>
               {% endif %}
 
               {% if has_replica_replication %}
-                <th>{% trans 'Replica replication' %}</th>
+                <th>{{ t('Replica replication') }}</th>
               {% endif %}
 
-              <th>{% trans 'Action' %}</th>
+              <th>{{ t('Action') }}</th>
             </tr>
           </thead>
 
@@ -178,7 +178,7 @@
 
                 <td class="name">
                   <a class="disableAjax" href="{{ database.url }}" title="
-                    {{- "Jump to database '%s'"|trans|format(database.name) }}">
+                    {{- t("Jump to database '%s'")|format(database.name) }}">
                     {{ database.name }}
                   </a>
                 </td>
@@ -212,11 +212,11 @@
                 {% if database.replication.primary.status %}
                   {% if database.replication.primary.is_replicated %}
                     <td class="tool text-center">
-                      {{ get_icon('s_success', 'Replicated'|trans) }}
+                      {{ get_icon('s_success', t('Replicated')) }}
                     </td>
                   {% else %}
                     <td class="tool text-center">
-                      {{ get_icon('s_cancel', 'Not replicated'|trans) }}
+                      {{ get_icon('s_cancel', t('Not replicated')) }}
                     </td>
                   {% endif %}
                 {% endif %}
@@ -224,19 +224,19 @@
                 {% if database.replication.replica.status %}
                   {% if database.replication.replica.is_replicated %}
                     <td class="tool text-center">
-                      {{ get_icon('s_success', 'Replicated'|trans) }}
+                      {{ get_icon('s_success', t('Replicated')) }}
                     </td>
                   {% else %}
                     <td class="tool text-center">
-                      {{ get_icon('s_cancel', 'Not replicated'|trans) }}
+                      {{ get_icon('s_cancel', t('Not replicated')) }}
                     </td>
                   {% endif %}
                 {% endif %}
 
                 <td class="tool">
                   <a class="disableAjax" href="{{ url('/database/privileges', {'db': database.name}) }}" title="
-                    {{- 'Check privileges for database "%s".'|trans|format(database.name) }}">
-                    {{ get_icon('s_rights', 'Check privileges'|trans) }}
+                    {{- t('Check privileges for database "%s".')|format(database.name) }}">
+                    {{ get_icon('s_rights', t('Check privileges')) }}
                   </a>
                 </td>
               </tr>
@@ -246,7 +246,7 @@
           <tfoot>
             <tr>
               <th colspan="{{ is_drop_allowed ? '3' : '2' }}">
-                {% trans 'Total:' %}
+                {{ t('Total:') }}
                 <span id="filter-rows-count">
                   {{- database_count -}}
                 </span>
@@ -291,17 +291,17 @@
       <div class="card">
         <div class="card-body">
           <div class="alert alert-info" role="alert">
-            {{ get_icon('s_notice', 'Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'|trans) }}
+            {{ get_icon('s_notice', t('Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.')) }}
           </div>
-          <a class="card-link" href="{{ url('/server/databases') }}" data-post="{{ get_common({'statistics': '1'}, '', false) }}" title="{% trans 'Enable statistics' %}">
-            {% trans 'Enable statistics' %}
+          <a class="card-link" href="{{ url('/server/databases') }}" data-post="{{ get_common({'statistics': '1'}, '', false) }}" title="{{ t('Enable statistics') }}">
+            {{ t('Enable statistics') }}
           </a>
         </div>
       </div>
     {% endif %}
   {% else %}
     <div class="alert alert-primary my-3" role="alert">
-      {{ get_icon('s_notice', 'No databases'|trans) }}
+      {{ get_icon('s_notice', t('No databases')) }}
     </div>
   {% endif %}
 </div>
@@ -311,13 +311,13 @@
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="dropDatabaseModalLabel">{% trans 'Confirm' %}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Cancel' %}"></button>
+          <h5 class="modal-title" id="dropDatabaseModalLabel">{{ t('Confirm') }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Cancel') }}"></button>
         </div>
         <div class="modal-body"></div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Cancel' %}</button>
-          <button type="button" class="btn btn-danger" id="dropDatabaseModalDropButton">{% trans 'Drop' %}</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Cancel') }}</button>
+          <button type="button" class="btn btn-danger" id="dropDatabaseModalDropButton">{{ t('Drop') }}</button>
         </div>
       </div>
     </div>

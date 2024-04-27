@@ -25,7 +25,7 @@
   <ul>
     <li>
       <a href="../setup/{{ url('/setup') }}"{{ formset is empty ? ' class="active"' }}>
-        {% trans 'Overview' %}
+        {{ t('Overview') }}
       </a>
     </li>
     {% for page in pages %}

@@ -33,7 +33,7 @@
 
   {% if is_warnings_enabled %}
     <noscript>
-      {{ 'Javascript must be enabled past this point!'|trans|error }}
+      {{ t('Javascript must be enabled past this point!')|error }}
     </noscript>
   {% endif %}
 
@@ -43,7 +43,7 @@
       <div class="col-12">
         <div id="userAccountDropdown" class="dropdown">
           <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {{- get_image('user', 'Open user account menu'|trans) -}}
+            {{- get_image('user', t('Open user account menu')) -}}
           </button>
           <ul class="dropdown-menu">
             <li>
@@ -54,12 +54,12 @@
             <li><hr class="dropdown-divider"></li>
             <li>
               <a class="dropdown-item disableAjax" href="{{ get_docu_link('index') }}" target="_blank" rel="noopener noreferrer">
-                {{ get_icon('b_docs', 'phpMyAdmin documentation'|trans) }}
+                {{ get_icon('b_docs', t('phpMyAdmin documentation')) }}
               </a>
             </li>
             <li>
               <a class="dropdown-item disableAjax" href="{{ get_docu_url(is_mariadb) }}" target="_blank" rel="noopener noreferrer">
-                {{ get_icon('b_sqlhelp', is_mariadb ? 'MariaDB documentation'|trans : 'MySQL documentation'|trans) }}
+                {{ get_icon('b_sqlhelp', is_mariadb ? t('MariaDB documentation') : t('MySQL documentation')) }}
               </a>
             </li>
             <li><hr class="dropdown-divider"></li>
@@ -70,16 +70,16 @@
                   <input type="hidden" name="set_theme" value="{{ theme_id }}">
                   <div class="row row-cols-lg-auto align-items-center flex-nowrap">
                   <div class="col-12">
-                    <label class="col-form-label" for="themeColorModeToggle">{{ get_icon('s_theme', 'Appearance:'|trans) }}</label>
+                    <label class="col-form-label" for="themeColorModeToggle">{{ get_icon('s_theme', t('Appearance:')) }}</label>
                   </div>
                   <div class="col-12">
-                    <select class="form-select form-select-sm" name="themeColorMode" id="themeColorModeToggle" aria-label="{{ 'Color mode for the theme'|trans }}">
+                    <select class="form-select form-select-sm" name="themeColorMode" id="themeColorModeToggle" aria-label="{{ t('Color mode for the theme') }}">
                       {% for color_mode in theme_color_modes %}
                         <option value="{{ color_mode }}"{{ theme_color_mode == color_mode ? ' selected' }}>
                           {%- if color_mode == 'light' -%}
-                            {% trans %}Light{% context %}Light color mode of the theme{% endtrans %}
+                            {{ t('Light', context = 'Light color mode of the theme') }}
                           {%- elseif color_mode == 'dark' -%}
-                            {% trans %}Dark{% context %}Dark color mode of the theme{% endtrans %}
+                            {{ t('Dark', context = 'Dark color mode of the theme') }}
                           {%- else -%}
                             {{ color_mode|title }}
                           {%- endif -%}
@@ -92,11 +92,11 @@
               </li>
             {% endif %}
             <li>
-              <a class="dropdown-item disableAjax" href="{{ url('/preferences/manage') }}">{{ get_icon('s_cog', 'Settings'|trans) }}</a>
+              <a class="dropdown-item disableAjax" href="{{ url('/preferences/manage') }}">{{ get_icon('s_cog', t('Settings')) }}</a>
             </li>
             <li><hr class="dropdown-divider"></li>
             <li>
-              <a class="dropdown-item logout disableAjax" href="{{ url('/logout') }}">{{ get_icon('s_loggoff', 'Log out'|trans) }}</a>
+              <a class="dropdown-item logout disableAjax" href="{{ url('/logout') }}">{{ get_icon('s_loggoff', t('Log out')) }}</a>
             </li>
           </ul>
         </div>
@@ -105,9 +105,9 @@
       <div class="col-12">
         <span id="lock_page_icon"></span>
         <span id="page_settings_icon">
-          {{ get_image('s_cog', 'Page-related settings'|trans) }}
+          {{ get_image('s_cog', t('Page-related settings')) }}
         </span>
-        <a id="goto_pagetop" href="#">{{ get_image('s_top', 'Click on the bar to scroll to top of page'|trans) }}</a>
+        <a id="goto_pagetop" href="#">{{ get_image('s_top', t('Click on the bar to scroll to top of page')) }}</a>
       </div>
     </div>
   {% endif %}

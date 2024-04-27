@@ -1,8 +1,8 @@
 <div class="container" id="edit_user_dialog">
   <h2>
     {{ get_icon('b_usredit') }}
-    {% trans 'Edit privileges:' %}
-    {% trans 'User account' %}
+    {{ t('Edit privileges:') }}
+    {{ t('User account') }}
 
     {% if database is not empty %}
       <em>
@@ -17,9 +17,9 @@
       </em>
       -
       {% if is_databases %}
-        {% trans 'Databases' %}
+        {{ t('Databases') }}
       {% else %}
-        {% trans 'Database' %}
+        {{ t('Database') }}
       {% endif %}
 
       {% if table is not empty %}
@@ -34,7 +34,7 @@
           </a>
         </em>
         -
-        {% trans 'Table' %}
+        {{ t('Table') }}
         <em>{{ table }}</em>
       {% else %}
         {% if database is not iterable %}
@@ -50,11 +50,11 @@
   </h2>
 
   {% if current_user == username ~ '@' ~ hostname %}
-    {{ 'Note: You are attempting to edit privileges of the user with which you are currently logged in.'|trans|notice }}
+    {{ t('Note: You are attempting to edit privileges of the user with which you are currently logged in.')|notice }}
   {% endif %}
 
   {% if user_does_not_exists %}
-    {{ 'The selected user was not found in the privilege table.'|trans|error }}
+    {{ t('The selected user was not found in the privilege table.')|error }}
   {% endif %}
 
   <form class="submenu-item" name="usersForm" id="addUsersForm" action="{{ url('/server/privileges') }}" method="post">
@@ -67,7 +67,7 @@
 
   {% if database is not iterable and database|length > 0 and not is_wildcard %}
     [
-    {% trans 'Database' %}
+    {{ t('Database') }}
     <a href="{{ database_url|raw }}{{ get_common({
       'db': database|replace({'\\_': '_', '\\%': '%'}),
       'reload': true
@@ -78,7 +78,7 @@
     ]
     {% if table|length > 0 %}
       [
-      {% trans 'Table' %}
+      {{ t('Table') }}
       <a href="{{ table_url|raw }}{{ get_common({
         'db': database|replace({'\\_': '_', '\\%': '%'}),
         'table': table,
@@ -102,8 +102,8 @@
     {% endif %}
 
     <div class="card mb-3">
-      <div class="card-header js-submenu-label" data-submenu-label="{% trans 'Login Information' %}">
-        {% trans 'Change login information / Copy user account' %}
+      <div class="card-header js-submenu-label" data-submenu-label="{{ t('Login Information') }}">
+        {{ t('Change login information / Copy user account') }}
       </div>
 
       <div class="card-body">
@@ -111,7 +111,7 @@
 
         <div class="card">
           <div class="card-header">
-            {% trans 'Create a new user account with the same privileges and …' %}
+            {{ t('Create a new user account with the same privileges and …') }}
           </div>
 
           <div class="card-body">
@@ -119,28 +119,28 @@
             <div class="mb-3 form-check">
               <input class="form-check-input" type="radio" name="mode" id="mode_4" value="4" checked>
               <label class="form-check-label" for="mode_4">
-                {% trans '… keep the old one.' %}
+                {{ t('… keep the old one.') }}
               </label>
             </div>
 
             <div class="mb-3 form-check">
               <input class="form-check-input" type="radio" name="mode" id="mode_1" value="1">
               <label class="form-check-label" for="mode_1">
-                {% trans '… delete the old one from the user tables.' %}
+                {{ t('… delete the old one from the user tables.') }}
               </label>
             </div>
 
             <div class="mb-3 form-check">
               <input class="form-check-input" type="radio" name="mode" id="mode_2" value="2">
               <label class="form-check-label" for="mode_2">
-                {% trans '… revoke all active privileges from the old one and delete it afterwards.' %}
+                {{ t('… revoke all active privileges from the old one and delete it afterwards.') }}
               </label>
             </div>
 
             <div class="mb-3 form-check">
               <input class="form-check-input" type="radio" name="mode" id="mode_3" value="3">
               <label class="form-check-label" for="mode_3">
-                {% trans '… delete the old one from the user tables and reload the privileges afterwards.' %}
+                {{ t('… delete the old one from the user tables and reload the privileges afterwards.') }}
               </label>
             </div>
           </div>
@@ -150,7 +150,7 @@
 
     <div>
       <input type="hidden" name="change_copy" value="1">
-      <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
+      <input class="btn btn-primary" type="submit" value="{{ t('Go') }}">
     </div>
   </form>
 </div>

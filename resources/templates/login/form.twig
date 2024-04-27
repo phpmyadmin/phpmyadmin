@@ -2,12 +2,10 @@
 
 {% if is_demo %}
   <div class="card mb-4">
-    <div class="card-header">{% trans 'phpMyAdmin Demo Server' %}</div>
+    <div class="card-header">{{ t('phpMyAdmin Demo Server') }}</div>
     <div class="card-body">
       {% apply format('<a href="' ~ url('/url', {'url': 'https://demo.phpmyadmin.net/'}) ~ '" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>')|raw %}
-        {% trans %}
-          You are using the demo server. You can do anything here, but please do not change root, debian-sys-maint and pma users. More information is available at %s.
-        {% endtrans %}
+        {{ t('You are using the demo server. You can do anything here, but please do not change root, debian-sys-maint and pma users. More information is available at %s.') }}
       {% endapply %}
     </div>
   </div>
@@ -20,8 +18,8 @@
     <div class="card mb-4">
       <div class="card-header">
         <span id="languageSelectLabel">
-          {% trans 'Language' %}
-          {% if 'Language'|trans != 'Language' %}
+          {{ t('Language') }}
+          {% if t('Language') != 'Language' %}
             {# For non-English, display "Language" with emphasis because it's not a proper word
                in the current language; we show it to help people recognize the dialog #}
             <i lang="en" dir="ltr">(Language)</i>
@@ -55,25 +53,25 @@
 
   <div class="card mb-4">
     <div class="card-header">
-      {% trans 'Log in' %}
+      {{ t('Log in') }}
       {{ show_docu('index', '', false, true) }}
     </div>
     <div class="card-body">
       {% if is_arbitrary_server_allowed %}
         <div class="row mb-3">
-          <label for="serverNameInput" class="col-sm-4 col-form-label" title="{% trans 'You can enter hostname/IP address and port separated by space.' %}">
-            {% trans 'Server:' %}
+          <label for="serverNameInput" class="col-sm-4 col-form-label" title="{{ t('You can enter hostname/IP address and port separated by space.') }}">
+            {{ t('Server:') }}
           </label>
           <div class="col-sm-8">
             <input type="text" name="pma_servername" id="serverNameInput" value="{{ default_server }}" class="form-control" title="
-              {%- trans 'You can enter hostname/IP address and port separated by space.' %}">
+              {{- t('You can enter hostname/IP address and port separated by space.') }}">
           </div>
         </div>
       {% endif %}
 
       <div class="row mb-3">
         <label for="input_username" class="col-sm-4 col-form-label">
-          {% trans 'Username:' %}
+          {{ t('Username:') }}
         </label>
         <div class="col-sm-8">
           <input type="text" name="pma_username" id="input_username" value="{{ default_user }}" class="form-control" autocomplete="username" spellcheck="false" autofocus>
@@ -82,7 +80,7 @@
 
       <div class="row">
         <label for="input_password" class="col-sm-4 col-form-label">
-          {% trans 'Password:' %}
+          {{ t('Password:') }}
         </label>
         <div class="col-sm-8">
           <input type="password" name="pma_password" id="input_password" value="" class="form-control" autocomplete="current-password" spellcheck="false">
@@ -92,7 +90,7 @@
       {% if has_servers %}
         <div class="row mt-3">
           <label for="select_server" class="col-sm-4 col-form-label">
-            {% trans 'Server choice:' %}
+            {{ t('Server choice:') }}
           </label>
           <div class="col-sm-8">
             <select name="server" id="select_server" class="form-select"
@@ -114,14 +112,14 @@
               <div class="{{ captcha_req }}" data-sitekey="{{ captcha_key }}"></div>
             </div>
             <div class="col align-self-center text-end">
-              <input class="btn btn-primary" value="{% trans 'Log in' %}" type="submit" id="input_go">
+              <input class="btn btn-primary" value="{{ t('Log in') }}" type="submit" id="input_go">
             </div>
           </div>
         {% else %}
-          <input class="btn btn-primary {{ captcha_req }}" data-sitekey="{{ captcha_key }}" data-callback="recaptchaCallback" value="{% trans 'Log in' %}" type="submit" id="input_go">
+          <input class="btn btn-primary {{ captcha_req }}" data-sitekey="{{ captcha_key }}" data-callback="recaptchaCallback" value="{{ t('Log in') }}" type="submit" id="input_go">
         {% endif %}
       {% else %}
-        <input class="btn btn-primary" value="{% trans 'Log in' %}" type="submit" id="input_go">
+        <input class="btn btn-primary" value="{{ t('Log in') }}" type="submit" id="input_go">
       {% endif %}
     </div>
   </div>

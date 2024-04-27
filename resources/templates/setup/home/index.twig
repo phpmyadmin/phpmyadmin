@@ -5,8 +5,8 @@
   {{ get_hidden_inputs() }}
   <bdo lang="en" dir="ltr">
     <label for="lang">
-      {% trans 'Language' %}
-      {{ 'Language'|trans != 'Language' ? ' - Language' }}
+      {{ t('Language') }}
+      {{ t('Language') != 'Language' ? ' - Language' }}
     </label>
   </bdo>
   <br>
@@ -17,10 +17,10 @@
   </select>
 </form>
 
-<h2>{% trans 'Overview' %}</h2>
+<h2>{{ t('Overview') }}</h2>
 
 <a href="#" id="show_hidden_messages" class="hide">
-  {% trans 'Show hidden messages' %} (#MSG_COUNT)
+  {{ t('Show hidden messages') }} (#MSG_COUNT)
 </a>
 
 {% for message in messages %}
@@ -31,7 +31,7 @@
 {% endfor %}
 
 <div class="card mb-3">
-  <div class="card-header">{% trans 'Servers' %}</div>
+  <div class="card-header">{{ t('Servers') }}</div>
 
   <div class="card-body">
   <form method="get" action="../setup/{{ url('/setup') }}" class="config-form disableAjax">
@@ -47,8 +47,8 @@
       <table class="table w-auto datatable">
         <tr>
           <th>#</th>
-          <th>{% trans 'Name' %}</th>
-          <th>{% trans 'Authentication type' %}</th>
+          <th>{{ t('Name') }}</th>
+          <th>{{ t('Authentication type') }}</th>
           <th colspan="2">DSN</th>
         </tr>
 
@@ -61,12 +61,12 @@
             <td class="text-nowrap">
               <small>
                 <a href="../setup/{{ url('/setup', server.params.edit) }}">
-                  {% trans 'Edit' %}
+                  {{ t('Edit') }}
                 </a>
                 |
                 <a class="delete-server" href="../setup/{{ url('/setup', server.params.remove) }}" data-post="
                   {{- get_common({token: server.params.token}, '', false) }}">
-                  {% trans 'Delete' %}
+                  {{ t('Delete') }}
                 </a>
               </small>
             </td>
@@ -77,7 +77,7 @@
       <table class="table mb-0">
         <tr>
           <td>
-            <em>{% trans 'There are no configured servers' %}</em>
+            <em>{{ t('There are no configured servers') }}</em>
           </td>
         </tr>
       </table>
@@ -86,7 +86,7 @@
     <table class="table mb-0">
       <tr>
         <td class="lastrow text-start">
-          <input type="submit" name="submit" value="{% trans 'New server' %}">
+          <input type="submit" name="submit" value="{{ t('New server') }}">
         </td>
       </tr>
     </table>
@@ -97,7 +97,7 @@
 </div>
 
 <div class="card">
-  <div class="card-header">{% trans 'Configuration file' %}</div>
+  <div class="card-header">{{ t('Configuration file') }}</div>
 
   <div class="card-body">
   <form method="post" action="../setup/{{ url('/setup/show-config') }}" class="config-form disableAjax">
@@ -110,10 +110,10 @@
   <table class="table table-borderless">
     <tr>
       <th>
-        <label for="DefaultLang">{% trans 'Default language' %}</label>
+        <label for="DefaultLang">{{ t('Default language') }}</label>
         <span class="doc">
           <a href="{{ get_docu_link('config', 'cfg_DefaultLang', '../') }}" target="_blank" rel="noreferrer noopener">
-            {{- get_image('b_help', 'Documentation'|trans) -}}
+            {{- get_image('b_help', t('Documentation')) -}}
           </a>
         </span>
       </th>
@@ -128,10 +128,10 @@
 
     <tr>
       <th>
-        <label for="ServerDefault">{% trans 'Default server' %}</label>
+        <label for="ServerDefault">{{ t('Default server') }}</label>
         <span class="doc">
           <a href="{{ get_docu_link('config', 'cfg_ServerDefault', '../') }}" target="_blank" rel="noreferrer noopener">
-            {{- get_image('b_help', 'Documentation'|trans) -}}
+            {{- get_image('b_help', t('Documentation')) -}}
           </a>
         </span>
       </th>
@@ -139,21 +139,21 @@
         <select name="ServerDefault" id="ServerDefault" class="w-75">
           {% if server_count > 0 %}
             {% if server_count > 1 %}
-              <option value="0">{% trans 'let the user choose' %}</option>
+              <option value="0">{{ t('let the user choose') }}</option>
               <option value="" disabled>------------------------------</option>
             {% endif %}
             {% for server in servers %}
               <option value="{{ server.id }}"{{ server.id == 1 ? ' selected' }}>{{ server.name }} [{{ server.id }}]</option>
             {% endfor %}
           {% else %}
-            <option value="1">{% trans '- none -' %}</option>
+            <option value="1">{{ t('- none -') }}</option>
           {% endif %}
         </select>
       </td>
     </tr>
 
     <tr>
-      <th><label for="eol">{% trans 'End of line' %}</label></th>
+      <th><label for="eol">{{ t('End of line') }}</label></th>
       <td>
         <select name="eol" id="eol" class="w-75">
           <option value="unix"{{ eol == 'unix' ? ' selected' }}>UNIX / Linux (\n)</option>
@@ -164,9 +164,9 @@
 
     <tr>
       <td colspan="2" class="lastrow text-start">
-        <input type="submit" name="submit_display" value="{% trans 'Display' %}">
-        <input type="submit" name="submit_download" value="{% trans 'Download' %}">
-        <input class="red" type="submit" name="submit_clear" value="{% trans 'Clear' %}">
+        <input type="submit" name="submit_display" value="{{ t('Display') }}">
+        <input type="submit" name="submit_download" value="{{ t('Download') }}">
+        <input class="red" type="submit" name="submit_clear" value="{{ t('Clear') }}">
       </td>
     </tr>
   </table>
@@ -176,9 +176,9 @@
 </div>
 
 <div id="footer">
-  <a href="../{{ url('/url', {'url': 'https://www.phpmyadmin.net/'}) }}">{% trans 'phpMyAdmin homepage' %}</a>
-  <a href="../{{ url('/url', {'url': 'https://www.phpmyadmin.net/donate/'}) }}">{% trans 'Donate' %}</a>
-  <a href="../setup/{{ url('/setup', {'version_check': true}) }}">{% trans 'Check for latest version' %}</a>
+  <a href="../{{ url('/url', {'url': 'https://www.phpmyadmin.net/'}) }}">{{ t('phpMyAdmin homepage') }}</a>
+  <a href="../{{ url('/url', {'url': 'https://www.phpmyadmin.net/donate/'}) }}">{{ t('Donate') }}</a>
+  <a href="../setup/{{ url('/setup', {'version_check': true}) }}">{{ t('Check for latest version') }}</a>
 </div>
 
 {% endblock %}

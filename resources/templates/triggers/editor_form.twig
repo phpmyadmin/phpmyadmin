@@ -11,7 +11,7 @@
 
   <div class="card">
     <div class="card-header">
-      {% trans 'Details' %}
+      {{ t('Details') }}
       {% if not is_edit %}
         {{ show_mysql_docu('CREATE_TRIGGER') }}
       {% endif %}
@@ -25,11 +25,11 @@
         </colgroup>
 
         <tr>
-          <td class="text-nowrap">{% trans 'Trigger name' %}</td>
+          <td class="text-nowrap">{{ t('Trigger name') }}</td>
           <td><input type="text" name="item_name" maxlength="64" value="{{ item.item_name }}"></td>
         </tr>
         <tr>
-          <td class="text-nowrap">{% trans 'Table' %}</td>
+          <td class="text-nowrap">{{ t('Table') }}</td>
           <td>
             <select name="item_table">
               {% for item_table in tables %}
@@ -39,7 +39,7 @@
           </td>
         </tr>
         <tr>
-          <td class="text-nowrap">{% trans %}Time{% context %}Trigger action time{% endtrans %}</td>
+          <td class="text-nowrap">{{ t('Time', context = 'Trigger action time') }}</td>
           <td>
             <select name="item_timing">
               {% for item_time in time %}
@@ -49,7 +49,7 @@
           </td>
         </tr>
         <tr>
-          <td class="text-nowrap">{% trans 'Event' %}</td>
+          <td class="text-nowrap">{{ t('Event') }}</td>
           <td>
             <select name="item_event">
               {% for event in events %}
@@ -59,12 +59,12 @@
           </td>
         </tr>
         <tr>
-          <td class="text-nowrap">{% trans 'Definition' %}</td>
+          <td class="text-nowrap">{{ t('Definition') }}</td>
           <td><textarea name="item_definition" rows="15" cols="40">{{ item.item_definition }}</textarea><br>
-            <input type="button" value="{{ 'Format'|trans }}" id="format" class="btn btn-secondary button sqlbutton"></td>
+            <input type="button" value="{{ t('Format') }}" id="format" class="btn btn-secondary button sqlbutton"></td>
         </tr>
         <tr>
-          <td class="text-nowrap">{% trans 'Definer' %}</td>
+          <td class="text-nowrap">{{ t('Definer') }}</td>
           <td><input type="text" name="item_definer" value="{{ item.item_definer }}"></td>
         </tr>
       </table>
@@ -72,7 +72,7 @@
 
   {% if not is_ajax %}
     <div class="card-footer">
-      <input class="btn btn-primary" type="submit" name="{{ is_edit ? 'editor_process_edit' : 'editor_process_add' }}" value="{% trans 'Go' %}">
+      <input class="btn btn-primary" type="submit" name="{{ is_edit ? 'editor_process_edit' : 'editor_process_add' }}" value="{{ t('Go') }}">
     </div>
   {% endif %}
   </div>

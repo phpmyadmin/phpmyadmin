@@ -1,5 +1,5 @@
 <li id="li_pma_version_git" class="list-group-item">
-  {% trans 'Git revision:' %}
+  {{ t('Git revision:') }}
 
   {% if is_remote_commit %}
     <a href="{{ 'https://github.com/phpmyadmin/phpmyadmin/commit/%s'|format(hash|e)|link }}" rel="noopener noreferrer" target="_blank">
@@ -10,26 +10,26 @@
   {% endif %}
 
   {% if branch is same as(false) %}
-    ({% trans 'no branch' %})
+    ({{ t('no branch') }})
   {% elseif is_remote_branch %}
-    {{ 'from %s branch'|trans|format(
+    {{ t('from %s branch')|format(
       '<a href="%s" rel="noopener noreferrer" target="_blank">%s</a>'|format(
         'https://github.com/phpmyadmin/phpmyadmin/tree/%s'|format(branch|e)|link,
         branch|e
       )
     )|raw }},<br>
   {% else %}
-    {{ 'from %s branch'|trans|format(branch) }},<br>
+    {{ t('from %s branch')|format(branch) }},<br>
   {% endif %}
 
-  {{ 'committed on %s by %s'|trans|format(
+  {{ t('committed on %s by %s')|format(
     committer.date,
     '<a href="mailto:%s">%s</a>'|format(committer.email|e, committer.name|e)
   )|raw }}
 
   {%- if committer is not same as(author) -%}
     ,<br>
-    {{ 'authored on %s by %s'|trans|format(
+    {{ t('authored on %s by %s')|format(
       author.date,
       '<a href="mailto:%s">%s</a>'|format(author.email|e, author.name|e)
     )|raw }}

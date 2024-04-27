@@ -28,13 +28,13 @@
                             style="margin: 0;"
                             value="select_all_{{ t_n_url }}"
                             id="select_all_{{ i }}"
-                            title="{% trans 'Select all' %}"
+                            title="{{ t('Select all') }}"
                             table_name="{{ table_name }}"
                             db_name="{{ db }}">
                     </td>
                 {% endif %}
                 <td class="small_tab"
-                    title="{% trans 'Show/hide columns' %}"
+                    title="{{ t('Show/hide columns') }}"
                     id="id_hide_tbody_{{ t_n_url }}"
                     table_name="{{ t_n_url }}">{{ tab_pos[t_n] is not defined or tab_pos[t_n]['V'] is not empty ? 'v' : '&gt;' }}</td>
                 <td class="small_tab_pref small_tab_pref_1"
@@ -43,7 +43,7 @@
                     table_name="{{ designerTable.getTableName() }}"
                     table_name_url="{{ designerTable.getTableName()|escape('url') }}">
                     <img src="{{ image('designer/exec_small.png') }}"
-                        title="{% trans 'See table structure' %}">
+                        title="{{ t('See table structure') }}">
                 </td>
                 <td id="id_zag_{{ t_n_url }}"
                     class="tab_zag text-nowrap tab_zag_noquery"
@@ -90,7 +90,7 @@
                                 type="checkbox"
                                 id="select_{{ t_n_url }}._{{ tab_column[t_n][j].name|url_encode }}"
                                 style="margin: 0;"
-                                title="{{ 'Select "%s"'|trans|format(col_name) }}"
+                                title="{{ t('Select "%s"')|format(col_name) }}"
                                 id_check_all="select_all_{{ i }}"
                                 db_name="{{ db }}"
                                 table_name="{{ table_name }}"
@@ -108,12 +108,12 @@
                     {% if has_query %}
                         <td class="small_tab_pref small_tab_pref_click_opt"
                             {# Escaped 2 times to be able to use it in innerHtml #}
-                            option_col_name_modal="<strong>{{ 'Add an option for column "%s".'|trans|format(col_name)|escape('html')|escape('html') }}</strong>"
+                            option_col_name_modal="<strong>{{ t('Add an option for column "%s".')|format(col_name)|escape('html')|escape('html') }}</strong>"
                             db_name="{{ db }}"
                             table_name="{{ table_name }}"
                             col_name="{{ col_name }}"
                             db_table_name_url="{{ t_n_url }}">
-                            <img src="{{ image('designer/exec_small.png') }}" title="{% trans 'Options' %}" />
+                            <img src="{{ image('designer/exec_small.png') }}" title="{{ t('Options') }}" />
                         </td>
                     {% endif %}
                 </tr>

@@ -2,19 +2,16 @@
 <tr>
     <th class="d-print-none"></th>
     <th class="tbl_num text-nowrap">
-        {% set num_tables_trans -%}
-            {% trans %}%s table{% plural num_tables %}%s tables{% endtrans %}
-        {%- endset %}
-        {{ num_tables_trans|format(format_number(num_tables, 0)) }}
+        {{ t('%s table', '%s tables', num_tables)|format(format_number(num_tables, 0)) }}
     </th>
     {% if server_replica_status %}
-        <th>{% trans 'Replication' %}</th>
+        <th>{{ t('Replication') }}</th>
     {% endif %}
     {% set sum_colspan = db_is_system_schema ? 4 : 7 %}
     {% if num_favorite_tables == 0 %}
         {% set sum_colspan = sum_colspan - 1 %}
     {% endif %}
-    <th colspan="{{ sum_colspan }}" class="d-print-none">{% trans 'Sum' %}</th>
+    <th colspan="{{ sum_colspan }}" class="d-print-none">{{ t('Sum') }}</th>
     {% set row_count_sum = format_number(sum_entries, 0) %}
     {# If a table shows approximate rows count, display update-all-real-count anchor. #}
     {% set row_sum_url = [] %}
@@ -37,13 +34,13 @@
     <th class="value tbl_rows font-monospace text-end">{{ cell_text }}</th>
     {% if not (properties_num_columns > 1) %}
         <th class="text-center">
-            <dfn title="{{ '%s is the default storage engine on this MySQL server.'|trans|format(default_storage_engine) }}">
+            <dfn title="{{ t('%s is the default storage engine on this MySQL server.')|format(default_storage_engine) }}">
                 {{ default_storage_engine }}
             </dfn>
         </th>
         <th>
             {% if database_collation is not empty %}
-                <dfn title="{{ database_collation.description }} ({% trans 'Default' %})">
+                <dfn title="{{ database_collation.description }} ({{ t('Default') }})">
                     {{ database_collation.name }}
                 </dfn>
             {% endif %}

@@ -1,5 +1,5 @@
 <div id="div_view_options" class="container-fluid">
-  <h2>{% trans 'Display chart' %}</h2>
+  <h2>{{ t('Display chart') }}</h2>
 
   <div class="card">
     <div class="card-body">
@@ -7,54 +7,54 @@
         {{ get_hidden_inputs(url_params) }}
 
         <fieldset class="mb-3" role="radiogroup">
-          <legend class="visually-hidden">{% trans 'Chart type' %}</legend>
+          <legend class="visually-hidden">{{ t('Chart type') }}</legend>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="chartType" value="bar" id="barChartTypeRadio">
-            <label class="form-check-label" for="barChartTypeRadio">{% trans %}Bar{% context %}Chart type{% endtrans %}</label>
+            <label class="form-check-label" for="barChartTypeRadio">{{ t('Bar', context = 'Chart type') }}</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="chartType" value="column" id="columnChartTypeRadio">
-            <label class="form-check-label" for="columnChartTypeRadio">{% trans %}Column{% context %}Chart type{% endtrans %}</label>
+            <label class="form-check-label" for="columnChartTypeRadio">{{ t('Column', context = 'Chart type') }}</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="chartType" value="line" id="lineChartTypeRadio" checked>
-            <label class="form-check-label" for="lineChartTypeRadio">{% trans %}Line{% context %}Chart type{% endtrans %}</label>
+            <label class="form-check-label" for="lineChartTypeRadio">{{ t('Line', context = 'Chart type') }}</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="chartType" value="spline" id="splineChartTypeRadio">
-            <label class="form-check-label" for="splineChartTypeRadio">{% trans %}Spline{% context %}Chart type{% endtrans %}</label>
+            <label class="form-check-label" for="splineChartTypeRadio">{{ t('Spline', context = 'Chart type') }}</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="chartType" value="area" id="areaChartTypeRadio">
-            <label class="form-check-label" for="areaChartTypeRadio">{% trans %}Area{% context %}Chart type{% endtrans %}</label>
+            <label class="form-check-label" for="areaChartTypeRadio">{{ t('Area', context = 'Chart type') }}</label>
           </div>
           <div class="form-check form-check-inline d-none" id="pieChartType">
             <input class="form-check-input" type="radio" name="chartType" value="pie" id="pieChartTypeRadio">
-            <label class="form-check-label" for="pieChartTypeRadio">{% trans %}Pie{% context %}Chart type{% endtrans %}</label>
+            <label class="form-check-label" for="pieChartTypeRadio">{{ t('Pie', context = 'Chart type') }}</label>
           </div>
           <div class="form-check form-check-inline d-none" id="timelineChartType">
             <input class="form-check-input" type="radio" name="chartType" value="timeline" id="timelineChartTypeRadio">
-            <label class="form-check-label" for="timelineChartTypeRadio">{% trans %}Timeline{% context %}Chart type{% endtrans %}</label>
+            <label class="form-check-label" for="timelineChartTypeRadio">{{ t('Timeline', context = 'Chart type') }}</label>
           </div>
           <div class="form-check form-check-inline d-none" id="scatterChartType">
             <input class="form-check-input" type="radio" name="chartType" value="scatter" id="scatterChartTypeRadio">
-            <label class="form-check-label" for="scatterChartTypeRadio">{% trans %}Scatter{% context %}Chart type{% endtrans %}</label>
+            <label class="form-check-label" for="scatterChartTypeRadio">{{ t('Scatter', context = 'Chart type') }}</label>
           </div>
         </fieldset>
 
         <div class="form-check mb-3 d-none" id="barStacked">
           <input class="form-check-input" type="checkbox" name="barStackedCheckbox" value="1" id="barStackedCheckbox">
-          <label class="form-check-label" for="barStackedCheckbox">{% trans 'Stacked' %}</label>
+          <label class="form-check-label" for="barStackedCheckbox">{{ t('Stacked') }}</label>
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="chartTitleInput">{% trans 'Chart title:' %}</label>
+          <label class="form-label" for="chartTitleInput">{{ t('Chart title:') }}</label>
           <input class="form-control" type="text" name="chartTitleInput" id="chartTitleInput">
         </div>
 
         {% set xaxis = null %}
         <div class="mb-3">
-          <label class="form-label" for="chartXAxisSelect">{% trans 'X-Axis:' %}</label>
+          <label class="form-label" for="chartXAxisSelect">{{ t('X-Axis:') }}</label>
           <select class="form-select" name="chartXAxisSelect" id="chartXAxisSelect">
             {% for idx, key in keys %}
               {% if xaxis is same as(null) %}
@@ -70,7 +70,7 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="chartSeriesSelect">{% trans 'Series:' %}</label>
+          <label class="form-label" for="chartSeriesSelect">{{ t('Series:') }}</label>
           <select class="form-select resize-vertical" name="chartSeriesSelect" id="chartSeriesSelect" multiple>
             {% for idx, key in keys %}
               {% if fields_meta[idx].isNumeric %}
@@ -98,22 +98,22 @@
           {%- endfor %}">
 
         <div class="mb-3">
-          <label class="form-label" for="xAxisLabelInput">{% trans 'X-Axis label:' %}</label>
-          <input class="form-control" type="text" name="xAxisLabelInput" id="xAxisLabelInput" value="{{ xaxis == -1 ? 'X Values'|trans : keys[xaxis] }}">
+          <label class="form-label" for="xAxisLabelInput">{{ t('X-Axis label:') }}</label>
+          <input class="form-control" type="text" name="xAxisLabelInput" id="xAxisLabelInput" value="{{ xaxis == -1 ? t('X Values') : keys[xaxis] }}">
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="yAxisLabelInput">{% trans 'Y-Axis label:' %}</label>
-          <input class="form-control" type="text" name="yAxisLabelInput" id="yAxisLabelInput" value="{% trans 'Y Values' %}">
+          <label class="form-label" for="yAxisLabelInput">{{ t('Y-Axis label:') }}</label>
+          <input class="form-control" type="text" name="yAxisLabelInput" id="yAxisLabelInput" value="{{ t('Y Values') }}">
         </div>
 
         <div class="form-check mb-3">
           <input class="form-check-input" type="checkbox" id="seriesColumnCheckbox" name="seriesColumnCheckbox" value="1">
-          <label class="form-check-label" for="seriesColumnCheckbox">{% trans 'Series names are in a column' %}</label>
+          <label class="form-check-label" for="seriesColumnCheckbox">{{ t('Series names are in a column') }}</label>
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="chartSeriesColumnSelect">{% trans 'Series column:' %}</label>
+          <label class="form-label" for="chartSeriesColumnSelect">{{ t('Series column:') }}</label>
           <select class="form-select" name="chartSeriesColumnSelect" id="chartSeriesColumnSelect" disabled>
             {% for idx, key in keys %}
               <option value="{{ idx }}"{{ idx == 1 ? ' selected' }}>{{ key }}</option>
@@ -123,7 +123,7 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="chartValueColumnSelect">{% trans 'Value Column:' %}</label>
+          <label class="form-label" for="chartValueColumnSelect">{{ t('Value Column:') }}</label>
           <select class="form-select" name="chartValueColumnSelect" id="chartValueColumnSelect" disabled>
             {% set selected = false %}
             {% for idx, key in keys %}
@@ -144,7 +144,7 @@
         <div id="resizer" class="mt-3">
           <div class="position-absolute top-0 end-0 mt-1 me-1">
             <a class="disableAjax" id="saveChart" href="#" download="chart.png">
-              {{ get_image('b_saveimage', 'Save chart as image'|trans) }}
+              {{ get_image('b_saveimage', t('Save chart as image')) }}
             </a>
           </div>
           <div id="querychart" dir="ltr"></div>

@@ -7,13 +7,13 @@
 
     {% if doc is not empty %}
       <span class="doc">
-        <a href="{{ doc }}" target="documentation">{{- get_image('b_help', 'Documentation'|trans) -}}</a>
+        <a href="{{ doc }}" target="documentation">{{- get_image('b_help', t('Documentation')) -}}</a>
       </span>
     {% endif %}
 
     {% if option_is_disabled %}
-      <span class="disabled-notice" title="{% trans 'This setting is disabled, it will not be applied to your configuration.' %}">
-        {% trans 'Disabled' %}
+      <span class="disabled-notice" title="{{ t('This setting is disabled, it will not be applied to your configuration.') }}">
+        {{ t('Disabled') }}
       </span>
     {% endif %}
 
@@ -39,8 +39,8 @@
     {% elseif type == 'select' %}
       <select name="{{ path }}" id="{{ path }}" class="w-75{{ not value_is_default ? (has_errors ? ' custom field-error' : ' custom') }}">
         {% for key, val in select_values %}
-          {% if val is same as(true) %}{% set val = 'Yes'|trans %}{% elseif val is same as(false) %}{% set val = 'No'|trans %}{% endif %}
-          <option value="{{ key }}"{{ val is empty ? ' label="' ~ 'None'|trans ~ '"' }}{{ key is same as(value) or (value is same as(true) and key is same as(1)) or (value is same as(false) and key is same as(0)) ? ' selected' }}{{ key in select_values_disabled ? ' disabled' }}>{{ val }}</option>
+          {% if val is same as(true) %}{% set val = t('Yes') %}{% elseif val is same as(false) %}{% set val = t('No') %}{% endif %}
+          <option value="{{ key }}"{{ val is empty ? ' label="' ~ t('None') ~ '"' }}{{ key is same as(value) or (value is same as(true) and key is same as(1)) or (value is same as(false) and key is same as(0)) ? ' selected' }}{{ key in select_values_disabled ? ' disabled' }}>{{ val }}</option>
         {% endfor %}
       </select>
     {% elseif type == 'list' %}
@@ -50,18 +50,18 @@
     {% endif %}
 
     {% if is_setup and comment %}
-      <a class="userprefs-comment" title="{{ comment }}">{{ get_image('b_tblops', 'Comment'|trans) }}</a>
+      <a class="userprefs-comment" title="{{ comment }}">{{ get_image('b_tblops', t('Comment')) }}</a>
     {% endif %}
 
     {% if set_value %}
-      <a class="set-value hide" href="#{{ path }}={{ set_value }}" title="{{ 'Set value: %s'|trans|format(set_value) }}">
-        {{- get_image('b_edit', 'Set value: %s'|trans|format(set_value)) -}}
+      <a class="set-value hide" href="#{{ path }}={{ set_value }}" title="{{ t('Set value: %s')|format(set_value) }}">
+        {{- get_image('b_edit', t('Set value: %s')|format(set_value)) -}}
       </a>
     {% endif %}
 
     {% if show_restore_default %}
-      <a class="restore-default hide" href="#{{ path }}" title="{% trans 'Restore default value' %}">
-        {{- get_image('s_reload', 'Restore default value'|trans) -}}
+      <a class="restore-default hide" href="#{{ path }}" title="{{ t('Restore default value') }}">
+        {{- get_image('s_reload', t('Restore default value')) -}}
       </a>
     {% endif %}
 
@@ -76,8 +76,8 @@
   </td>
 
   {% if is_setup and allows_customization is not null %}
-    <td class="userprefs-allow" title="{% trans 'Allow users to customize this value' %}">
-      <input type="checkbox" name="{{ path }}-userprefs-allow"{{ allows_customization ? ' checked' }} aria-label="{% trans 'Allow users to customize this value' %}">
+    <td class="userprefs-allow" title="{{ t('Allow users to customize this value') }}">
+      <input type="checkbox" name="{{ path }}-userprefs-allow"{{ allows_customization ? ' checked' }} aria-label="{{ t('Allow users to customize this value') }}">
     </td>
   {% elseif is_setup %}
     <td>&nbsp;</td>

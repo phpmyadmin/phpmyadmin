@@ -1,25 +1,25 @@
 <div class="container">
   {% if user_group == null %}
-    <h2>{{ 'Add user group'|trans }}</h2>
+    <h2>{{ t('Add user group') }}</h2>
   {% else %}
-    <h2>{{ 'Edit user group: \'%s\''|trans|format(edit_user_group_special_chars)|raw }}</h2>
+    <h2>{{ t('Edit user group: \'%s\'')|format(edit_user_group_special_chars)|raw }}</h2>
   {% endif %}
 
   <form action="{{ user_group_url|raw }}" method="post" class="card disableAjax">
     {{ hidden_inputs|raw }}
-    <div class="card-header">{{ 'User group menu assignments'|trans }}</div>
+    <div class="card-header">{{ t('User group menu assignments') }}</div>
 
     <div class="card-body">
       {% if user_group == null %}
         <div class="mb-3">
-          <label class="form-label" for="userGroup">{{ 'Group name:'|trans }}</label>
+          <label class="form-label" for="userGroup">{{ t('Group name:') }}</label>
           <input class="form-control" type="text" name="userGroup" id="userGroup" maxlength="64" autocomplete="off" required>
         </div>
       {% endif %}
 
       <div class="form-check mb-3">
-        <input class="form-check-input checkall_box" type="checkbox" id="addUsersForm_checkall" title="{{ 'Check all'|trans }}">
-        <label class="form-check-label" for="addUsersForm_checkall">{{ 'Check all'|trans }}</label>
+        <input class="form-check-input checkall_box" type="checkbox" id="addUsersForm_checkall" title="{{ t('Check all') }}">
+        <label class="form-check-label" for="addUsersForm_checkall">{{ t('Check all') }}</label>
       </div>
 
       <div class="row">
@@ -28,7 +28,7 @@
     </div>
 
     <div class="card-footer">
-      <input class="btn btn-primary" type="submit" value="{{ user_group == null ? 'Add user group'|trans : 'Edit user group'|trans }}">
+      <input class="btn btn-primary" type="submit" value="{{ user_group == null ? t('Add user group') : t('Edit user group') }}">
     </div>
   </form>
 </div>

@@ -1,6 +1,6 @@
 <div class="container-fluid my-3">
   <h2>
-    {{ get_icon('b_triggers', 'Triggers'|trans) }}
+    {{ get_icon('b_triggers', t('Triggers')) }}
     {{ show_mysql_docu('TRIGGERS') }}
   </h2>
 
@@ -11,14 +11,14 @@
         <div class="input-group-text">
           <div class="form-check mb-0">
             <input class="form-check-input checkall_box" type="checkbox" value="" id="checkAllCheckbox" form="rteListForm">
-            <label class="form-check-label" for="checkAllCheckbox">{% trans 'Check all' %}</label>
+            <label class="form-check-label" for="checkAllCheckbox">{{ t('Check all') }}</label>
           </div>
         </div>
-        <button class="btn btn-outline-secondary" id="bulkActionExportButton" type="submit" name="submit_mult" value="export" form="rteListForm" title="{% trans 'Export' %}">
-          {{ get_icon('b_export', 'Export'|trans) }}
+        <button class="btn btn-outline-secondary" id="bulkActionExportButton" type="submit" name="submit_mult" value="export" form="rteListForm" title="{{ t('Export') }}">
+          {{ get_icon('b_export', t('Export')) }}
         </button>
-        <button class="btn btn-outline-secondary" id="bulkActionDropButton" type="submit" name="submit_mult" value="drop" form="rteListForm" title="{% trans 'Drop' %}">
-          {{ get_icon('b_drop', 'Drop'|trans) }}
+        <button class="btn btn-outline-secondary" id="bulkActionDropButton" type="submit" name="submit_mult" value="drop" form="rteListForm" title="{{ t('Drop') }}">
+          {{ get_icon('b_drop', t('Drop')) }}
         </button>
       </div>
     </div>
@@ -26,7 +26,7 @@
 
     <div{{ triggers is not empty ? ' class="ms-auto"' }}>
       <a class="ajax add_anchor btn btn-primary{{ not has_privilege ? ' disabled' }}" href="{{ url('/triggers', {'db': db, 'table': table, 'add_item': true}) }}" role="button"{{ not has_privilege ? ' tabindex="-1" aria-disabled="true"' }}>
-        {{ get_icon('b_trigger_add', 'Create new trigger'|trans) }}
+        {{ get_icon('b_trigger_add', t('Create new trigger')) }}
       </a>
     </div>
   </div>
@@ -37,19 +37,19 @@
     {{ get_hidden_inputs(db, table) }}
 
     <div id="nothing2display"{{ triggers is not empty ? ' class="hide"' }}>
-      {{ 'There are no triggers to display.'|trans|notice }}
+      {{ t('There are no triggers to display.')|notice }}
     </div>
 
     <table id="triggersTable" class="table table-striped table-hover{{ triggers is empty ? ' hide' }} w-auto data">
       <thead>
         <tr>
           <th></th>
-          <th>{% trans 'Name' %}</th>
+          <th>{{ t('Name') }}</th>
           {% if table is empty %}
-            <th>{% trans 'Table' %}</th>
+            <th>{{ t('Table') }}</th>
           {% endif %}
-          <th>{% trans 'Time' %}</th>
-          <th>{% trans 'Event' %}</th>
+          <th>{{ t('Time') }}</th>
+          <th>{{ t('Event') }}</th>
           <th colspan="3"></th>
         </tr>
       </thead>

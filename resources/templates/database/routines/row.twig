@@ -17,10 +17,10 @@
         'item_name': routine.name,
         'item_type': routine.type
       }) }}">
-        {{ get_icon('b_edit', 'Edit'|trans) }}
+        {{ get_icon('b_edit', t('Edit')) }}
       </a>
     {% else %}
-      {{ get_icon('bd_edit', 'Edit'|trans) }}
+      {{ get_icon('bd_edit', t('Edit')) }}
     {% endif %}
   </td>
   <td>
@@ -31,7 +31,7 @@
           'item_name': routine.name,
           'item_type': routine.type
         }, '') }}">
-          {{ get_icon('b_nextpage', 'Execute'|trans) }}
+          {{ get_icon('b_nextpage', t('Execute')) }}
         </a>
       {% else %}
         <a class="ajax exec_anchor" href="{{ url('/database/routines', {
@@ -41,11 +41,11 @@
           'item_name': routine.name,
           'item_type': routine.type
         }) }}">
-          {{ get_icon('b_nextpage', 'Execute'|trans) }}
+          {{ get_icon('b_nextpage', t('Execute')) }}
         </a>
       {% endif %}
     {% else %}
-      {{ get_icon('bd_nextpage', 'Execute'|trans) }}
+      {{ get_icon('bd_nextpage', t('Execute')) }}
     {% endif %}
   </td>
   <td>
@@ -57,10 +57,10 @@
         'item_name': routine.name,
         'item_type': routine.type
       }) }}">
-        {{ get_icon('b_export', 'Export'|trans) }}
+        {{ get_icon('b_export', t('Export')) }}
       </a>
     {% else %}
-      {{ get_icon('bd_export', 'Export'|trans) }}
+      {{ get_icon('bd_export', t('Export')) }}
     {% endif %}
   </td>
   <td>
@@ -72,7 +72,7 @@
         'sql_query': sql_drop,
         'goto': url('/database/routines', {'db': db})
       },
-      get_icon('b_drop', 'Drop'|trans),
+      get_icon('b_drop', t('Drop')),
       {'class': 'ajax drop_anchor'}
     ) }}
   </td>

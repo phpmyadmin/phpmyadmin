@@ -14,8 +14,8 @@
     </th>
     {% if server_replica_status %}
         <td class="text-center">
-            {{ ignored ? get_image('s_cancel', 'Not replicated'|trans) }}
-            {{ do ? get_image('s_success', 'Replicated'|trans) }}
+            {{ ignored ? get_image('s_cancel', t('Not replicated')) }}
+            {{ do ? get_image('s_success', t('Replicated')) }}
         </td>
     {% endif %}
 
@@ -40,30 +40,30 @@
 
     <td class="text-center d-print-none">
         <a class="disableAjax" href="{{ url('/sql', table_url_params|merge({'pos': 0})) }}">
-          {{ may_have_rows ? get_icon('b_browse', 'Browse'|trans) : get_icon('bd_browse', 'Browse'|trans) }}
+          {{ may_have_rows ? get_icon('b_browse', t('Browse')) : get_icon('bd_browse', t('Browse')) }}
         </a>
     </td>
     <td class="text-center d-print-none">
         <a class="disableAjax" href="{{ url('/table/structure', table_url_params) }}">
-          {{ get_icon('b_props', 'Structure'|trans) }}
+          {{ get_icon('b_props', t('Structure')) }}
         </a>
     </td>
     <td class="text-center d-print-none">
         <a class="disableAjax" href="{{ url('/table/search', table_url_params) }}">
-          {{ may_have_rows ? get_icon('b_select', 'Search'|trans) : get_icon('bd_select', 'Search'|trans) }}
+          {{ may_have_rows ? get_icon('b_select', t('Search')) : get_icon('bd_select', t('Search')) }}
         </a>
     </td>
 
     {% if not db_is_system_schema %}
         <td class="text-center d-print-none">
-            <a class="disableAjax" href="{{ url('/table/change', table_url_params) }}">{{ get_icon('b_insrow', 'Insert'|trans) }}</a>
+            <a class="disableAjax" href="{{ url('/table/change', table_url_params) }}">{{ get_icon('b_insrow', t('Insert')) }}</a>
         </td>
         {% if table_is_view %}
             <td class="text-center d-print-none">
                 <a href="{{ url('/view/create', {
                     'db': db,
                     'table': current_table['TABLE_NAME']
-                }) }}">{{ get_icon('b_edit', 'Edit'|trans) }}</a>
+                }) }}">{{ get_icon('b_edit', t('Edit')) }}</a>
             </td>
         {% else %}
           <td class="text-center d-print-none">
@@ -71,7 +71,7 @@
                   'sql_query': empty_table_sql_query,
                   'message_to_show': empty_table_message_to_show
                 }), '') }}">
-                  {{ may_have_rows ? get_icon('b_empty', 'Empty'|trans) : get_icon('bd_empty', 'Empty'|trans) }}
+                  {{ may_have_rows ? get_icon('b_empty', t('Empty')) : get_icon('bd_empty', t('Empty')) }}
                 </a>
           </td>
         {% endif %}
@@ -84,7 +84,7 @@
                   'sql_query': drop_query,
                   'message_to_show': drop_message
                 }), '') }}">
-                {{ get_icon('b_drop', 'Drop'|trans) }}
+                {{ get_icon('b_drop', t('Drop')) }}
             </a>
         </td>
     {% endif %}
@@ -119,7 +119,7 @@
                 {% if current_table['ENGINE'] is not empty %}
                     {{ current_table['ENGINE'] }}
                 {% elseif table_is_view %}
-                    {% trans 'View' %}
+                    {{ t('View') }}
                 {% endif %}
             </td>
             {% if collation|length > 0 %}
@@ -183,7 +183,7 @@
     {% elseif table_is_view %}
         <td class="value tbl_rows font-monospace text-end">-</td>
         <td class="text-nowrap">
-            {% trans 'View' %}
+            {{ t('View') }}
         </td>
         <td class="text-nowrap">---</td>
         {% if is_show_stats %}
@@ -234,7 +234,7 @@
 
         <td colspan="{{ action_colspan }}"
             class="text-center">
-            {% trans 'in use' %}
+            {{ t('in use') }}
         </td>
     {% endif %}
 </tr>
