@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-04-28 00:20+0000\n"
-"PO-Revision-Date: 2024-03-31 07:17+0000\n"
+"PO-Revision-Date: 2024-04-29 05:07+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.1\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -2600,13 +2600,11 @@ msgid "Browse"
 msgstr "עיון"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<strong>Total:</strong> <em>%count%</em> match"
-#| msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<strong>סך־הכול:</strong> <em>%count%</em> תוצאות"
-msgstr[1] "<strong>סך־הכול:</strong> <em>%count%</em> תוצאות"
+msgstr[0] "<strong>סך־הכול:</strong> <em>%s</em> תוצאות"
+msgstr[1] "<strong>סך־הכול:</strong> <em>%s</em> תוצאות"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
@@ -5978,31 +5976,27 @@ msgstr "רענון"
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
-#, fuzzy, php-format
-#| msgid "per second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "לשנייה"
-msgstr[1] "לשנייה"
+msgstr[0] "שנייה"
+msgstr[1] "%d שניות"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "לדקה"
-msgstr[1] "לדקה"
+msgstr[0] "דקה"
+msgstr[1] "%d דקות"
 
 #: resources/templates/server/status/monitor/index.twig:38
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Chart columns"
-msgstr "הוספת/מחיקת עמודות שדה"
+msgstr "עמודות תרשים"
 
 #: resources/templates/server/status/monitor/index.twig:49
 msgid "Chart arrangement"
-msgstr ""
+msgstr "סידור תרשים"
 
 #: resources/templates/server/status/monitor/index.twig:50
 msgid ""
@@ -6205,24 +6199,21 @@ msgstr "שאלות מאז הרענון האחרון"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
-#| msgid "per hour"
+#, php-format
 msgid "ø per hour: %s"
-msgstr "לשעה"
+msgstr "ממוצע לשעה: %s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "ø per minute: %s"
-msgstr "לדקה"
+msgstr "ממוצע לדקה: %s"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
-#| msgid "per second"
+#, php-format
 msgid "ø per second: %s"
-msgstr "לשנייה"
+msgstr "ממוצע לשנייה: %s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
