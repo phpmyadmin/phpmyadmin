@@ -74,6 +74,9 @@ phpMyAdmin - ChangeLog
 - issue #18451 Fix when editing inline central column, Null is always preselected
 - issue #19117 Allow changing the virtuality of a column without any other changes
 - issue #18566 Fixed error when importing exported view with USE INDEX hint
+- issue #17920 Fixed moving column with empty default value will replace it with ''
+- issue #18006 Fixed moving columns causes the default uuid() value to get quotes around it
+- issue #18962 Fixed move columns with ENUM() & DEFAULT causes invalid SQL
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
