@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-03-31 07:17+0000\n"
+"PO-Revision-Date: 2024-04-29 05:07+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-9/he/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -11549,20 +11549,18 @@ msgid "Advisor"
 msgstr ""
 
 #: libraries/classes/Server/Status/Data.php:491
-#, fuzzy, php-format
-#| msgid "per second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "לשנייה"
-msgstr[1] "לשנייה"
+msgstr[0] "שנייה"
+msgstr[1] "%d שניות"
 
 #: libraries/classes/Server/Status/Data.php:496
-#, fuzzy, php-format
-#| msgid "in use"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "בשימוש"
-msgstr[1] "בשימוש"
+msgstr[0] "דקה"
+msgstr[1] "%d דקות"
 
 #: libraries/classes/Server/Status/Monitor.php:73
 #, fuzzy
@@ -11729,14 +11727,12 @@ msgid "Refresh rate"
 msgstr "רענון"
 
 #: libraries/classes/Server/Status/Monitor.php:303
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Chart columns"
-msgstr "הוספת/מחיקת עמודות שדה"
+msgstr "עמודות תרשים"
 
 #: libraries/classes/Server/Status/Monitor.php:315
 msgid "Chart arrangement"
-msgstr ""
+msgstr "סידור תרשים"
 
 #: libraries/classes/Server/Status/Monitor.php:318
 msgid ""
