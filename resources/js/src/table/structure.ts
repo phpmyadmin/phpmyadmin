@@ -341,6 +341,7 @@ AJAX.registerOnload('table/structure.js', function () {
             const serialized = $form.serialize();
             if (serialized === $form.data('serialized-unmoved')) {
                 modalBody.innerHTML = '';
+
                 return;
             }
 
