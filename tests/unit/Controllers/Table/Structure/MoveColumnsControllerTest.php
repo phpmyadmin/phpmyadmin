@@ -53,6 +53,7 @@ class MoveColumnsControllerTest extends AbstractTestCase
      */
     public static function providerForTestGenerateAlterTableSql(): array
     {
+        // phpcs:disable Generic.Files.LineLength.TooLong
         return [
             // MariaDB / column CHECK constraint
             [
@@ -116,5 +117,6 @@ class MoveColumnsControllerTest extends AbstractTestCase
                     SQL,
             ],
         ];
+        // phpcs:enable
     }
 }
