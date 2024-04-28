@@ -1467,6 +1467,24 @@ function copyToClipboard (text) {
 }
 
 /**
+ * displaying status of copy to clipboard action next to the copy button
+ *
+ * @param {JQuery<HTMLInputElement>} copyButton jQuery the clicked button object
+ * @param {boolean} copyStatus status of copyToClipboard
+ */
+function displayCopyStatus (copyButton: JQuery<HTMLInputElement>, copyStatus: boolean) {
+    if (copyStatus) {
+        $(copyButton).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonSuccess + ')</span>');
+    } else {
+        $(copyButton).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonFailure + ')</span>');
+    }
+
+    setTimeout(function () {
+        $('#copyStatus').remove();
+    }, 2000);
+}
+
+/**
  * @return {function}
  */
 function dismissNotifications () {
@@ -1507,16 +1525,8 @@ function dismissNotifications () {
 
         $(document).on('click', 'a.copyQueryBtn', function (event) {
             event.preventDefault();
-            var res = Functions.copyToClipboard($(this).attr('data-text'));
-            if (res) {
-                $(this).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonSuccess + ')</span>');
-            } else {
-                $(this).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonFailure + ')</span>');
-            }
-
-            setTimeout(function () {
-                $('#copyStatus').remove();
-            }, 2000);
+            var copyStatus = Functions.copyToClipboard($(this).attr('data-text'));
+            displayCopyStatus(this, copyStatus);
         });
     };
 }
