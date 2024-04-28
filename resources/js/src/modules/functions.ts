@@ -1437,11 +1437,12 @@ function checkReservedWordColumns ($form) {
  * Copy text to clipboard
  *
  * @param {string | number | string[]} text to copy to clipboard
+ * @param {string} inputType input type like: <input>,<textarea>, etc...
  *
  * @return {boolean}
  */
-function copyToClipboard (text) {
-    var $temp = $('<input>');
+function copyToClipboard (text: string | number | string[], inputType: string = '<input>') {
+    var $temp = $(inputType);
     $temp.css({
         'position': 'fixed',
         'width': '2em',
@@ -1469,10 +1470,10 @@ function copyToClipboard (text) {
 /**
  * displaying status of copy to clipboard action next to the copy button
  *
- * @param {JQuery<HTMLInputElement>} copyButton jQuery the clicked button object
+ * @param {JQuery<HTMLInputElement> | HTMLElement} copyButton jQuery the clicked button object
  * @param {boolean} copyStatus status of copyToClipboard
  */
-function displayCopyStatus (copyButton: JQuery<HTMLInputElement>, copyStatus: boolean) {
+function displayCopyStatus (copyButton: JQuery<HTMLInputElement>|HTMLElement, copyStatus: boolean) {
     if (copyStatus) {
         $(copyButton).after('<span id=\'copyStatus\'> (' + window.Messages.strCopyQueryButtonSuccess + ')</span>');
     } else {
@@ -3794,6 +3795,7 @@ const Functions = {
     confirmPreviewSql: confirmPreviewSql,
     checkReservedWordColumns: checkReservedWordColumns,
     copyToClipboard: copyToClipboard,
+    displayCopyStatus: displayCopyStatus,
     dismissNotifications: dismissNotifications,
     showNoticeForEnum: showNoticeForEnum,
     showWarningForIntTypes: showWarningForIntTypes,
