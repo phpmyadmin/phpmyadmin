@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-04-28 00:20+0000\n"
-"PO-Revision-Date: 2024-04-14 08:20+0000\n"
+"PO-Revision-Date: 2024-04-29 05:07+0000\n"
 "Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.1\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -2409,13 +2409,11 @@ msgid "Browse"
 msgstr "Gözat"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<strong>Total:</strong> <em>%count%</em> match"
-#| msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<strong>Toplam:</strong> <em>%count%</em> eşleşme"
-msgstr[1] "<strong>Toplam:</strong> <em>%count%</em> eşleşme"
+msgstr[0] "<strong>Toplam:</strong> <em>%s</em> eşleşme"
+msgstr[1] "<strong>Toplam:</strong> <em>%s</em> eşleşme"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
@@ -5639,8 +5637,7 @@ msgstr "Yenileme oranı"
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
-#, fuzzy, php-format
-#| msgid "%d second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d saniye"
@@ -5648,8 +5645,7 @@ msgstr[1] "%d saniye"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
-#, fuzzy, php-format
-#| msgid "%d minute"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d dakika"
@@ -5866,24 +5862,21 @@ msgstr "Başlangıçtan bu yana sorular:"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
-#| msgid "ø per hour"
+#, php-format
 msgid "ø per hour: %s"
-msgstr "ø saat başına"
+msgstr "ø saat başına: %s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
-#| msgid "per minute:"
+#, php-format
 msgid "ø per minute: %s"
-msgstr "dakika başına:"
+msgstr "ø dakika başına: %s"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
-#| msgid "per second:"
+#, php-format
 msgid "ø per second: %s"
-msgstr "saniye başına:"
+msgstr "ø saniye başına: %s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -16256,16 +16249,12 @@ msgid "The trigger name cannot end with a space character."
 msgstr "Tetikleyici adı bir boşluk karakteriyle bitemez."
 
 #: src/Import/Import.php:942
-#, fuzzy
-#| msgid ""
-#| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
-#| "transactional engine tables can be rolled back."
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
-"Sadece işlem motoru tablolarını içeren INSERT, UPDATE, DELETE ve REPLACE SQL "
-"sorguları geri döndürülebilir."
+"Sadece işlem motoru tablolarını içeren INSERT, UPDATE, DELETE, REPLACE ve "
+"SET (GLOBAL gibi seçenekler olmadan) SQL sorguları geri döndürülebilir."
 
 #: src/Import/Import.php:1164
 #, php-format
