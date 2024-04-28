@@ -107,6 +107,8 @@ final class WrapperController implements InvocableController
             }
         }
 
+        // Disabling standard response, we are sending binary here
+        $this->response->disable();
         $this->response->getHeader()->sendHttpHeaders();
 
         /** @psalm-suppress MixedAssignment */
