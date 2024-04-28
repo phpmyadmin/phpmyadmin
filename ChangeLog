@@ -83,6 +83,7 @@ phpMyAdmin - ChangeLog
 - issue #18593 Fix drop db line included in server export if exporting only data
 - issue #18049 Also check that curl_exec is enabled for the new version check
 - issue #18451 Fix when editing inline central column, Null is always preselected
+- issue #19117 Allow changing the virtuality of a column without any other changes
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
