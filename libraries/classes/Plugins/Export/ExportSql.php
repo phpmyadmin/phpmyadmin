@@ -67,6 +67,9 @@ class ExportSql extends ExportPlugin
      */
     private $sentCharset = false;
 
+    /** @var string */
+    private $sqlViews = '';
+
     protected function init(): void
     {
         // Avoids undefined variables, use NULL so isset() returns false
@@ -980,6 +983,12 @@ class ExportSql extends ExportPlugin
         if (isset($GLOBALS['sql_auto_increments'])) {
             $result = $this->export->outputHandler($GLOBALS['sql_auto_increments']);
             unset($GLOBALS['sql_auto_increments']);
+        }
+
+        //add views to the sql dump file
+        if ($this->sqlViews !== '') {
+            $result = $this->export->outputHandler($this->sqlViews);
+            $this->sqlViews = '';
         }
 
         //add constraints to the sql dump file
@@ -2175,6 +2184,13 @@ class ExportSql extends ExportPlugin
                     }
 
                     $dump .= $this->getTableDefForView($db, $table, $crlf, true, $aliases);
+                }
+
+                if (empty($GLOBALS['sql_views_as_tables'])) {
+                    // Save views, to be inserted after indexes
+                    // in case the view uses USE INDEX syntax
+                    $this->sqlViews .= $dump;
+                    $dump = '';
                 }
 
                 break;

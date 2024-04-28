@@ -22,6 +22,7 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use ReflectionMethod;
+use ReflectionProperty;
 use stdClass;
 
 use function array_shift;
@@ -1083,11 +1084,15 @@ class ExportSqlTest extends AbstractTestCase
             )
         );
         $result = ob_get_clean();
+        $sqlViewsProp = new ReflectionProperty(ExportSql::class, 'sqlViews');
+        $sqlViewsProp->setAccessible(true);
+        $sqlViews = $sqlViewsProp->getValue($this->object);
 
-        $this->assertIsString($result);
-        $this->assertStringContainsString('-- Structure for view test_table', $result);
-        $this->assertStringContainsString('DROP TABLE IF EXISTS `test_table`;', $result);
-        $this->assertStringContainsString('CREATE TABLE `test_table`', $result);
+        $this->assertEquals('', $result);
+        $this->assertIsString($sqlViews);
+        $this->assertStringContainsString('-- Structure for view test_table', $sqlViews);
+        $this->assertStringContainsString('DROP TABLE IF EXISTS `test_table`;', $sqlViews);
+        $this->assertStringContainsString('CREATE TABLE `test_table`', $sqlViews);
 
         // case 4
         $GLOBALS['sql_views_as_tables'] = true;
