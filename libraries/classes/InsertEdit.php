@@ -1614,7 +1614,7 @@ class InsertEdit
 
         if (
             ! in_array($multiEditFuncs[$key], $funcNoParam)
-            || ($currentValue != "''"
+            || ($currentValue !== ''
                 && in_array($multiEditFuncs[$key], $funcOptionalParam))
         ) {
             if (
