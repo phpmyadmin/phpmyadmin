@@ -78,6 +78,8 @@ phpMyAdmin - ChangeLog
 - issue #18006 Fixed moving columns causes the default uuid() value to get quotes around it
 - issue #18962 Fixed move columns with ENUM() & DEFAULT causes invalid SQL
 - issue #18276 Fix on update CURRENT_TIMESTAMP doesn't show as default in attributes
+- issue #18240 Fix inserting value with UNIX_TIMESTAMP() without a parameter
+- issue #19125 Fixed CodeMirror tooltip is below modals
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
