@@ -92,6 +92,8 @@ phpMyAdmin - ChangeLog
 - issue #18276 Fix on update CURRENT_TIMESTAMP doesn't show as default in attributes
 - issue #18240 Fix inserting value with UNIX_TIMESTAMP() without a parameter
 - issue #19125 Fixed CodeMirror tooltip is below modals
+- issue #18674 Fix formatted sql in browse table result has a linebreak after each token
+- issue #18210 Fixed add replica replication user on MariaDB doesn't work (SQL syntax)
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
