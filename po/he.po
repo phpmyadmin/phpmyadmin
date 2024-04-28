@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-03-31 07:17+0000\n"
+"PO-Revision-Date: 2024-04-29 05:07+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/5-1/he/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -16877,14 +16877,12 @@ msgid "%d minutes"
 msgstr "לדקה"
 
 #: templates/server/status/monitor/index.twig:61
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Chart columns"
-msgstr "הוספת/מחיקת עמודות שדה"
+msgstr "עמודות תרשים"
 
 #: templates/server/status/monitor/index.twig:74
 msgid "Chart arrangement"
-msgstr ""
+msgstr "סידור תרשים"
 
 #: templates/server/status/monitor/index.twig:75
 msgid ""
