@@ -2188,7 +2188,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
     // wrap all truncated data cells with span indicating the original length
     // todo update the original length after a grid edit
-    $(t).find('td.data.truncated:not(:has(span))')
+    $(t).find('td.data.truncated:not(:has(>span))')
         .filter(function () {
             return $(this).data('originallength') !== undefined;
         })
@@ -2198,7 +2198,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         });
 
     // wrap remaining cells, except actions cell, with span
-    $(t).find('th, td:not(:has(span))')
+    $(t).find('th, td:not(:has(>span))')
         .wrapInner('<span></span>');
 
     // create grid elements
