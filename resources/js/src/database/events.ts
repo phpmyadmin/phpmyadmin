@@ -381,7 +381,7 @@ const DatabaseEvents = {
              */
             var $elm = $('textarea[name=item_definition]').last();
             var linterOptions = {
-                eventEditor: true,
+                editorType: 'event',
             };
             that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'vertical', linterOptions);
             window.codeMirrorEditor = that.syntaxHiglighter;

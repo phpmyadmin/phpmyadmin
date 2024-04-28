@@ -397,7 +397,7 @@ const DatabaseRoutines = {
              */
             var $elm = $('textarea[name=item_definition]').last();
             var linterOptions = {
-                routineEditor: true,
+                editorType: 'routine',
             };
             that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'vertical', linterOptions);
             window.codeMirrorEditor = that.syntaxHiglighter;

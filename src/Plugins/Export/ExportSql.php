@@ -73,6 +73,8 @@ class ExportSql extends ExportPlugin
 
     private bool $useSqlBackquotes = false;
 
+    private string $sqlViews = '';
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -917,6 +919,12 @@ class ExportSql extends ExportPlugin
         if (isset($GLOBALS['sql_auto_increments'])) {
             $result = $this->export->outputHandler($GLOBALS['sql_auto_increments']);
             unset($GLOBALS['sql_auto_increments']);
+        }
+
+        //add views to the sql dump file
+        if ($this->sqlViews !== '') {
+            $result = $this->export->outputHandler($this->sqlViews);
+            $this->sqlViews = '';
         }
 
         //add constraints to the sql dump file
@@ -1993,6 +2001,13 @@ class ExportSql extends ExportPlugin
                     }
 
                     $dump .= $this->getTableDefForView($db, $table, $aliases);
+                }
+
+                if (empty($GLOBALS['sql_views_as_tables'])) {
+                    // Save views, to be inserted after indexes
+                    // in case the view uses USE INDEX syntax
+                    $this->sqlViews .= $dump;
+                    $dump = '';
                 }
 
                 break;

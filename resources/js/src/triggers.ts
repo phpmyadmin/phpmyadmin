@@ -389,7 +389,7 @@ const DatabaseTriggers = {
              */
             var $elm = $('textarea[name=item_definition]').last();
             var linterOptions = {
-                triggerEditor: true,
+                editorType: 'trigger',
             };
             that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'vertical', linterOptions);
             window.codeMirrorEditor = that.syntaxHiglighter;

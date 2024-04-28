@@ -15,6 +15,7 @@ use PhpMyAdmin\ResponseRenderer;
 
 use function header;
 use function is_array;
+use function is_string;
 use function json_encode;
 use function sprintf;
 
@@ -23,6 +24,12 @@ use function sprintf;
  */
 final class LintController implements InvocableController
 {
+    public const EDITOR_SQL_PREFIX = [
+        'event' => "DELIMITER $$ CREATE EVENT `a` ON SCHEDULE EVERY MINUTE DO\n",
+        'routine' => "DELIMITER $$ CREATE PROCEDURE `a`()\n",
+        'trigger' => "DELIMITER $$ CREATE TRIGGER `a` AFTER INSERT ON `b` FOR EACH ROW\n",
+    ];
+
     public function __construct(private readonly ResponseRenderer $response)
     {
     }
@@ -36,7 +43,7 @@ final class LintController implements InvocableController
         /**
          * The SQL query to be analyzed.
          *
-         * This does not need to be checked again XSS or MySQL injections because it is
+         * This does not need to be checked against XSS or MySQL injections because it is
          * never executed, just parsed.
          *
          * The client, which will receive the JSON response will decode the message and
@@ -45,6 +52,23 @@ final class LintController implements InvocableController
          * @var string $sqlQuery
          */
         $sqlQuery = $request->getParsedBodyParam('sql_query', '');
+        $options = $request->getParsedBodyParam('options', []);
+
+        $editorType = is_array($options) ? ($options['editorType'] ?? null) : null;
+        $prefix = is_string($editorType) ? self::EDITOR_SQL_PREFIX[$editorType] ?? '' : '';
+
+        $lints = Linter::lint($prefix . $sqlQuery);
+        if ($prefix !== '') {
+            // Adjust positions to account for prefix
+            foreach ($lints as $i => $lint) {
+                if ($lint['fromLine'] === 0) {
+                    continue;
+                }
+
+                $lints[$i]['fromLine'] -= 1;
+                $lints[$i]['toLine'] -= 1;
+            }
+        }
 
         // Disabling standard response.
         $this->response->disable();
@@ -53,18 +77,7 @@ final class LintController implements InvocableController
             header(sprintf('%s: %s', $name, $value));
         }
 
-        $options = $request->getParsedBodyParam('options');
-        if (is_array($options)) {
-            if (! empty($options['routineEditor'])) {
-                $sqlQuery = 'CREATE PROCEDURE `a`() ' . $sqlQuery;
-            } elseif (! empty($options['triggerEditor'])) {
-                $sqlQuery = 'CREATE TRIGGER `a` AFTER INSERT ON `b` FOR EACH ROW ' . $sqlQuery;
-            } elseif (! empty($options['eventEditor'])) {
-                $sqlQuery = 'CREATE EVENT `a` ON SCHEDULE EVERY MINUTE DO ' . $sqlQuery;
-            }
-        }
-
-        echo json_encode(Linter::lint("DELIMITER $$\n" . $sqlQuery . "$$\nDELIMITER ;\n"));
+        echo json_encode($lints);
 
         return null;
     }

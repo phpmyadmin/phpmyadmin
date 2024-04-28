@@ -2806,11 +2806,6 @@ parameters:
 			path: src/Controllers/LicenseController.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
-			path: src/Controllers/LintController.php
-
-		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:getItemUnhideDialog\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/NavigationController.php
@@ -5064,121 +5059,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$selected of method PhpMyAdmin\\\\Controllers\\\\Table\\\\Structure\\\\ChangeController\\:\\:displayHtmlForColumnChange\\(\\) expects array\\<string\\>, array\\<int, mixed\\> given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/ChangeController.php
-
-		-
-			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Cannot access offset 'COLUMN_COMMENT' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Cannot access offset 'Collation' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Cannot access offset 'Default' on mixed\\.$#"
-			count: 5
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Cannot access offset 'Expression' on mixed\\.$#"
-			count: 3
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Cannot access offset 'Extra' on mixed\\.$#"
-			count: 3
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Cannot access offset 'Null' on mixed\\.$#"
-			count: 2
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Cannot access offset 'Type' on mixed\\.$#"
-			count: 3
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Cannot access offset 'Virtuality' on mixed\\.$#"
-			count: 3
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$column of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getColumnGenerationExpression\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$columnSpecification of static method PhpMyAdmin\\\\Util\\:\\:extractColumnSpec\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$oldcol of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function mb_strtoupper expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#10 \\$extra of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#11 \\$comment of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#12 \\$virtuality of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#13 \\$expression of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#14 \\$moveTo of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#2 \\$newcol of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#4 \\$length of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#5 \\$attribute of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#6 \\$collation of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
-			message: "#^Parameter \\#9 \\$defaultValue of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:generateAlter\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
 			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
@@ -9021,11 +8901,6 @@ parameters:
 			path: src/Linter.php
 
 		-
-			message: "#^Parameter \\#1 \\$lines of static method PhpMyAdmin\\\\Linter\\:\\:findLineNumberAndColumn\\(\\) expects array\\<int, int\\>, array\\<int\\> given\\.$#"
-			count: 2
-			path: src/Linter.php
-
-		-
 			message: "#^Parameter \\#2 \\$pos of static method PhpMyAdmin\\\\Linter\\:\\:findLineNumberAndColumn\\(\\) expects int, mixed given\\.$#"
 			count: 1
 			path: src/Linter.php
@@ -10712,7 +10587,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 41
+			count: 42
 			path: src/Plugins/Export/ExportSql.php
 
 		-

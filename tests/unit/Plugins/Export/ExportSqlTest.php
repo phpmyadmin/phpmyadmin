@@ -967,10 +967,15 @@ SQL;
         );
         $result = ob_get_clean();
 
-        self::assertIsString($result);
-        self::assertStringContainsString('-- Structure for view test_table', $result);
-        self::assertStringContainsString('DROP TABLE IF EXISTS `test_table`;', $result);
-        self::assertStringContainsString('CREATE TABLE `test_table`', $result);
+        $sqlViewsProp = new ReflectionProperty(ExportSql::class, 'sqlViews');
+        $sqlViewsProp->setAccessible(true);
+        $sqlViews = $sqlViewsProp->getValue($this->object);
+
+        self::assertEquals('', $result);
+        self::assertIsString($sqlViews);
+        self::assertStringContainsString('-- Structure for view test_table', $sqlViews);
+        self::assertStringContainsString('DROP TABLE IF EXISTS `test_table`;', $sqlViews);
+        self::assertStringContainsString('CREATE TABLE `test_table`', $sqlViews);
 
         // case 4
         $GLOBALS['sql_views_as_tables'] = true;
