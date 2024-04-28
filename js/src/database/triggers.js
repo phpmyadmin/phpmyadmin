@@ -339,8 +339,7 @@ const DatabaseTriggers = {
                  *                 the Definition textarea.
                  */
                 var $elm = $('textarea[name=item_definition]').last();
-                var linterOptions = {};
-                linterOptions.triggerEditor = true;
+                var linterOptions = { editorType: 'trigger' };
                 that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'both', linterOptions);
             } else {
                 Functions.ajaxShowMessage(data.error, false);

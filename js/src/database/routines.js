@@ -347,8 +347,7 @@ const DatabaseRoutines = {
                  *                 the Definition textarea.
                  */
                 var $elm = $('textarea[name=item_definition]').last();
-                var linterOptions = {};
-                linterOptions.routineEditor = true;
+                var linterOptions = { editorType: 'routine' };
                 that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'both', linterOptions);
 
                 // Execute item-specific code

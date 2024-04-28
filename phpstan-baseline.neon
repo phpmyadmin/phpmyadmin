@@ -5186,31 +5186,6 @@ parameters:
 			path: libraries/classes/Linter.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Linter\\:\\:findLineNumberAndColumn\\(\\) has parameter \\$lines with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Linter.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Linter\\:\\:findLineNumberAndColumn\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Linter.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Linter\\:\\:getLines\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Linter.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Linter\\:\\:lint\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Linter.php
-
-		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Linter.php
-
-		-
 			message: "#^Parameter \\#2 \\$pos of static method PhpMyAdmin\\\\Linter\\:\\:findLineNumberAndColumn\\(\\) expects int, int\\|string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Linter.php
