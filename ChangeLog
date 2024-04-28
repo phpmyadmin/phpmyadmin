@@ -77,6 +77,7 @@ phpMyAdmin - ChangeLog
 - issue #17920 Fixed moving column with empty default value will replace it with ''
 - issue #18006 Fixed moving columns causes the default uuid() value to get quotes around it
 - issue #18962 Fixed move columns with ENUM() & DEFAULT causes invalid SQL
+- issue #18276 Fix on update CURRENT_TIMESTAMP doesn't show as default in attributes
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
