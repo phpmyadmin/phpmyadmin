@@ -1529,6 +1529,24 @@ function dismissNotifications () {
             var copyStatus = Functions.copyToClipboard($(this).attr('data-text'));
             displayCopyStatus(this, copyStatus);
         });
+
+        $(document).on('mouseover mouseleave', '.ajax_notification a', function (event) {
+            let message = window.Messages.strDismiss;
+
+            if (event.type === 'mouseover') {
+                message = $(this).hasClass('copyQueryBtn') ? window.Messages.strCopyToClipboard : window.Messages.strEditQuery;
+            }
+
+            tooltip(
+                $('.ajax_notification'),
+                'span',
+                message
+            );
+        });
+
+        $(document).on('mouseup', '.ajax_notification a', function (event) {
+            event.stopPropagation();
+        });
     };
 }
 
