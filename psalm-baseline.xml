@@ -14460,9 +14460,6 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
     </PossiblyUndefinedArrayOffset>
-    <UnusedMethodCall>
-      <code><![CDATA[setAccessible]]></code>
-    </UnusedMethodCall>
   </file>
   <file src="tests/unit/Plugins/Export/ExportTexytextTest.php">
     <DeprecatedMethod>

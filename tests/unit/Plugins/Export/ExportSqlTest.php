@@ -967,9 +967,7 @@ SQL;
         );
         $result = ob_get_clean();
 
-        $sqlViewsProp = new ReflectionProperty(ExportSql::class, 'sqlViews');
-        $sqlViewsProp->setAccessible(true);
-        $sqlViews = $sqlViewsProp->getValue($this->object);
+        $sqlViews = (new ReflectionProperty(ExportSql::class, 'sqlViews'))->getValue($this->object);
 
         self::assertEquals('', $result);
         self::assertIsString($sqlViews);
