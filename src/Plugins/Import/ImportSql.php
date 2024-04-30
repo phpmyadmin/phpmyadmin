@@ -157,6 +157,10 @@ class ImportSql extends ImportPlugin
             $this->import->runQuery($statement, $sqlStatements);
         }
 
+        if ($GLOBALS['error']) {
+            return $sqlStatements;
+        }
+
         // Finishing.
         $this->import->runQuery('', $sqlStatements);
 

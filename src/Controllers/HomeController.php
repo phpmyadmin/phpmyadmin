@@ -108,9 +108,13 @@ final class HomeController implements InvocableController
         $hasServer = Current::$server > 0 || count($config->settings['Servers']) > 1;
         if ($hasServer) {
             $hasServerSelection = $config->settings['ServerDefault'] == 0
-                || (! $config->settings['NavigationDisplayServers']
-                && (count($config->settings['Servers']) > 1
-                || (Current::$server === 0 && count($config->settings['Servers']) === 1)));
+                || (
+                    $config->settings['NavigationDisplayServers']
+                    && (
+                        count($config->settings['Servers']) > 1
+                        || (Current::$server === 0 && count($config->settings['Servers']) === 1)
+                    )
+                );
             if ($hasServerSelection) {
                 $serverSelection = Select::render(true);
             }

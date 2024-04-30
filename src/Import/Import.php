@@ -219,10 +219,15 @@ class Import
 
                 foreach ($queries as $query) {
                     $this->executeQuery($query, $sqlData);
+                    if ($GLOBALS['error']) {
+                        break;
+                    }
                 }
             }
 
-            $this->executeQuery($this->importRunBuffer, $sqlData);
+            if (! $GLOBALS['error']) {
+                $this->executeQuery($this->importRunBuffer, $sqlData);
+            }
         }
 
         // check length of query unless we decided to pass it to /sql
