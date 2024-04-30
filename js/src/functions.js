@@ -2081,6 +2081,7 @@ $(function () {
 
     $(document).on('click', 'a.copyQueryBtn', function (event) {
         event.preventDefault();
+
         var res = Functions.copyToClipboard($(this).attr('data-text'));
         if (res) {
             $(this).after('<span id=\'copyStatus\'> (' + Messages.strCopyQueryButtonSuccess + ')</span>');
@@ -2090,6 +2091,24 @@ $(function () {
         setTimeout(function () {
             $('#copyStatus').remove();
         }, 2000);
+    });
+
+    $(document).on('mouseover mouseleave', '.ajax_notification a', function (event) {
+        let message = Messages.strDismiss;
+
+        if (event.type === 'mouseover') {
+            message = $(this).hasClass('copyQueryBtn') ? Messages.strCopyToClipboard : Messages.strEditQuery;
+        }
+
+        Functions.tooltip(
+            $('.ajax_notification'),
+            'span',
+            message
+        );
+    });
+
+    $(document).on('mouseup', '.ajax_notification a', function (event) {
+        event.stopPropagation();
     });
 });
 
