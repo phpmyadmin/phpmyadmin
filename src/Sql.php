@@ -226,7 +226,7 @@ class Sql
 
         $foreignData = $this->relation->getForeignData($foreigners, $column, false, '', '');
 
-        if ($foreignData['disp_row'] == null) {
+        if ($foreignData->dispRow === null) {
             //Handle the case when number of values
             //is more than $cfg['ForeignKeyMaxLimit']
             $urlParams = ['db' => $db, 'table' => $table, 'field' => $column];
@@ -238,9 +238,9 @@ class Sql
         }
 
         $dropdown = $this->relation->foreignDropdown(
-            $foreignData['disp_row'],
-            $foreignData['foreign_field'],
-            $foreignData['foreign_display'],
+            $foreignData->dispRow,
+            $foreignData->foreignField,
+            $foreignData->foreignDisplay,
             $currentValue,
             $this->config->settings['ForeignKeyMaxLimit'],
         );

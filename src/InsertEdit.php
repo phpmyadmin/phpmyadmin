@@ -331,24 +331,23 @@ class InsertEdit
     /**
      * Retrieve the nullify code for the null column
      *
-     * @param InsertEditColumn $column      description of column in given table
-     * @param mixed[]          $foreigners  keys into foreign fields
-     * @param mixed[]          $foreignData data about the foreign keys
+     * @param InsertEditColumn $column     description of column in given table
+     * @param mixed[]          $foreigners keys into foreign fields
      */
     private function getNullifyCodeForNullColumn(
         InsertEditColumn $column,
         array $foreigners,
-        array $foreignData,
+        bool $foreignLink,
     ): string {
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, $column->field);
         if (str_contains($column->trueType, 'enum')) {
             $nullifyCode = mb_strlen($column->type) > 20 ? '1' : '2';
         } elseif (str_contains($column->trueType, 'set')) {
             $nullifyCode = '3';
-        } elseif ($foreigner && $foreignData['foreign_link'] == false) {
+        } elseif ($foreigner !== false && ! $foreignLink) {
             // foreign key in a drop-down
             $nullifyCode = '4';
-        } elseif ($foreigner && $foreignData['foreign_link'] == true) {
+        } elseif ($foreigner !== false) {
             // foreign key with a browsing icon
             $nullifyCode = '6';
         } else {
@@ -1666,11 +1665,11 @@ class InsertEdit
                 $column->type,
                 $insertMode,
             );
-            $functionOptions = Generator::getFunctionsForField($defaultFunction, $foreignData);
+            $functionOptions = Generator::getFunctionsForField($defaultFunction, $foreignData->foreignField);
         }
 
         // nullify code is needed by the js nullify() function to be able to generate calls to nullify() in jQuery
-        $nullifyCode = $this->getNullifyCodeForNullColumn($column, $foreigners, $foreignData);
+        $nullifyCode = $this->getNullifyCodeForNullColumn($column, $foreigners, $foreignData->foreignLink);
 
         // The value column (depends on type)
         // ----------------
@@ -1736,11 +1735,11 @@ class InsertEdit
         $selectOptionForUpload = '';
         $inputFieldHtml = '';
         if ($transformedHtml === '') {
-            if (is_array($foreignData['disp_row'])) {
+            if ($foreignData->dispRow !== null) {
                 $foreignDropdown = $this->relation->foreignDropdown(
-                    $foreignData['disp_row'],
-                    $foreignData['foreign_field'],
-                    $foreignData['foreign_display'],
+                    $foreignData->dispRow,
+                    $foreignData->foreignField,
+                    $foreignData->foreignDisplay,
                     $data,
                     $this->config->settings['ForeignKeyMaxLimit'],
                 );
@@ -1835,7 +1834,7 @@ class InsertEdit
             'special_chars' => $specialChars,
             'transformed_value' => $transformedHtml,
             'value' => $columnValue,
-            'is_value_foreign_link' => $foreignData['foreign_link'] === true,
+            'is_value_foreign_link' => $foreignData->foreignLink,
             'backup_field' => $backupField,
             'data' => $data,
             'gis_data_types' => Gis::getDataTypes(),

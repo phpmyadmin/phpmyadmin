@@ -1,11 +1,11 @@
 {# Get inputbox based on different column types (Foreign key, geometrical, enum) #}
 {% if foreigners and search_column_in_foreigners %}
-    {% if foreign_data['disp_row'] is iterable %}
+    {% if foreign_data.dispRow is iterable %}
         <select name="criteriaValues[{{ column_index }}]"
             id="{{ column_id }}{{ column_index }}">
             {{ foreign_dropdown|raw }}
         </select>
-    {% elseif foreign_data['foreign_link'] == true %}
+    {% elseif foreign_data.foreignLink %}
         <input type="text"
             id="{{ column_id }}{{ column_index }}"
             name="criteriaValues[{{ column_index }}]"

@@ -503,7 +503,6 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetNullifyCodeForNullColumn(): void
     {
-        $foreignData = [];
         $foreigners = ['foreign_keys_data' => []];
         $column = new InsertEditColumn(
             'f',
@@ -524,7 +523,7 @@ class InsertEditTest extends AbstractTestCase
                 $this->insertEdit,
                 InsertEdit::class,
                 'getNullifyCodeForNullColumn',
-                [$column, $foreigners, []],
+                [$column, $foreigners, false],
             ),
         );
 
@@ -547,7 +546,7 @@ class InsertEditTest extends AbstractTestCase
                 $this->insertEdit,
                 InsertEdit::class,
                 'getNullifyCodeForNullColumn',
-                [$column, $foreigners, []],
+                [$column, $foreigners, false],
             ),
         );
 
@@ -558,20 +557,19 @@ class InsertEditTest extends AbstractTestCase
                 $this->insertEdit,
                 InsertEdit::class,
                 'getNullifyCodeForNullColumn',
-                [$column, $foreigners, []],
+                [$column, $foreigners, false],
             ),
         );
 
         $column = new InsertEditColumn('f', '', false, '', null, '', -1, false, false, false, false);
         $foreigners['f'] = ['something'/* What should the mocked value actually be? */];
-        $foreignData['foreign_link'] = '';
         self::assertSame(
             '4',
             $this->callFunction(
                 $this->insertEdit,
                 InsertEdit::class,
                 'getNullifyCodeForNullColumn',
-                [$column, $foreigners, $foreignData],
+                [$column, $foreigners, false],
             ),
         );
     }

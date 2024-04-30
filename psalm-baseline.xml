@@ -79,26 +79,14 @@
     <MixedArgument>
       <code><![CDATA[$descriptions[$indexByDescription]]]></code>
       <code><![CDATA[$descriptions[$indexByKeyname]]]></code>
-      <code><![CDATA[$foreignData['the_total'] / $this->settings->maxRows]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$relrow[$foreignData['foreign_display']]]]></code>
-      <code><![CDATA[$relrow[$foreignData['foreign_field']]]]></code>
-    </MixedArrayAccess>
     <MixedArrayOffset>
-      <code><![CDATA[$relrow[$foreignData['foreign_display']]]]></code>
-      <code><![CDATA[$relrow[$foreignData['foreign_field']]]]></code>
+      <code><![CDATA[$relrow[$foreignData->foreignField]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$descriptions[]]]></code>
-      <code><![CDATA[$keys[]]]></code>
       <code><![CDATA[$leftKeyname]]></code>
-      <code><![CDATA[$relrow]]></code>
       <code><![CDATA[$rightKeyname]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$foreignData['the_total']]]></code>
-    </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['foreign_filter']]]></code>
     </PossiblyInvalidArgument>
@@ -109,9 +97,6 @@
       <code><![CDATA[$pos]]></code>
       <code><![CDATA[$this->settings->maxRows]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$foreignData['foreign_display']]]></code>
-    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="src/Cache.php">
     <MixedAssignment>
@@ -694,15 +679,6 @@
     <InvalidReturnType>
       <code><![CDATA[array<string, string>]]></code>
     </InvalidReturnType>
-    <LessSpecificReturnStatement>
-      <code><![CDATA[[
-            'foreign_link' => $foreignLink,
-            'the_total' => $theTotal,
-            'foreign_display' => is_string($foreignDisplay) ? $foreignDisplay : '',
-            'disp_row' => $dispRow,
-            'foreign_field' => $foreignField,
-        ]]]></code>
-    </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$_SESSION['sql_history']]]></code>
       <code><![CDATA[$_SESSION['sql_history']]]></code>
@@ -772,15 +748,6 @@
       <code><![CDATA[$column['COLUMN_NAME']]]></code>
       <code><![CDATA[$foreigners[$column]]]></code>
     </MixedReturnStatement>
-    <MoreSpecificReturnType>
-      <code><![CDATA[array{
-     *     foreign_link: bool,
-     *     the_total: int|string|null,
-     *     foreign_display: string,
-     *     disp_row: list<non-empty-array>|null,
-     *     foreign_field: mixed
-     * }]]></code>
-    </MoreSpecificReturnType>
     <PossiblyFalseArgument>
       <code><![CDATA[$this->config->selectedServer['column_info']]]></code>
       <code><![CDATA[$this->config->selectedServer['column_info']]]></code>
@@ -3901,7 +3868,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
-      <code><![CDATA[$foreignData['foreign_field']]]></code>
+      <code><![CDATA[$foreignData->foreignField]]></code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$isUnsigned]]></code>
@@ -4236,7 +4203,7 @@
       <code><![CDATA[$row[$_POST['criteriaColumnNames'][1]]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$foreignData['foreign_field']]]></code>
+      <code><![CDATA[$foreignData->foreignField]]></code>
       <code><![CDATA[$properties['type']]]></code>
     </MixedArgument>
     <MixedAssignment>
@@ -6767,7 +6734,7 @@
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$extractedColumnspec['enum_set_values']]]></code>
       <code><![CDATA[$extractedColumnspec['spec_in_brackets']]]></code>
-      <code><![CDATA[$foreignData['foreign_field']]]></code>
+      <code><![CDATA[$foreignData->foreignField]]></code>
       <code><![CDATA[$foreigner['foreign_db']]]></code>
       <code><![CDATA[$foreigner['foreign_db']]]></code>
       <code><![CDATA[$foreigner['foreign_db']]]></code>
@@ -6852,8 +6819,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $gotoInclude]]></code>
       <code><![CDATA[$editField->salt]]></code>
-      <code><![CDATA[$foreigner]]></code>
-      <code><![CDATA[$foreigner]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/IpAllowDeny.php">
@@ -10801,7 +10766,7 @@
       <code><![CDATA[string]]></code>
     </InvalidNullableReturnType>
     <MixedArgument>
-      <code><![CDATA[$foreignData['foreign_field']]]></code>
+      <code><![CDATA[$foreignData->foreignField]]></code>
       <code><![CDATA[$numberOfLine / $maxRows]]></code>
       <code><![CDATA[$sortCol]]></code>
       <code><![CDATA[$statement->expr]]></code>

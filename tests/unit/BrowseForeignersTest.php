@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\ForeignData;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -66,20 +67,19 @@ class BrowseForeignersTest extends AbstractTestCase
      */
     public function testGetHtmlForGotoPage(): void
     {
+        $foreignData = new ForeignData(false, 5, '', null, '');
         self::assertSame(
             '',
             $this->callFunction(
                 $this->browseForeigners,
                 BrowseForeigners::class,
                 'getHtmlForGotoPage',
-                [null],
+                [$foreignData],
             ),
         );
 
         $_POST['pos'] = 15;
-        $foreignData = [];
-        $foreignData['disp_row'] = [];
-        $foreignData['the_total'] = 5;
+        $foreignData = new ForeignData(false, 5, '', [], '');
 
         self::assertSame(
             '',
@@ -91,7 +91,7 @@ class BrowseForeignersTest extends AbstractTestCase
             ),
         );
 
-        $foreignData['the_total'] = 30;
+        $foreignData = new ForeignData(false, 30, '', [], '');
         $result = $this->callFunction(
             $this->browseForeigners,
             BrowseForeigners::class,
@@ -150,8 +150,7 @@ class BrowseForeignersTest extends AbstractTestCase
         $db = '';
         $table = '';
         $field = 'foo';
-        $foreignData = [];
-        $foreignData['disp_row'] = '';
+        $foreignData = new ForeignData(false, 0, '', null, '');
         $fieldkey = 'bar';
         $currentValue = '';
         $_POST['rownumber'] = 1;
@@ -199,8 +198,7 @@ class BrowseForeignersTest extends AbstractTestCase
             $result,
         );
 
-        $foreignData['disp_row'] = [];
-        $foreignData['the_total'] = 5;
+        $foreignData = new ForeignData(false, 5, '', [], '');
         $result = $this->browseForeigners->getHtmlForRelationalFieldSelection(
             $db,
             $table,

@@ -29,7 +29,6 @@ use function array_search;
 use function array_values;
 use function htmlspecialchars;
 use function in_array;
-use function is_array;
 use function is_numeric;
 use function json_encode;
 use function mb_strtolower;
@@ -401,15 +400,15 @@ final class ZoomSearchController implements InvocableController
                 $this->foreigners === []
                 || $searchColumnInForeigners[$columnIndex] === []
                 || $searchColumnInForeigners[$columnIndex] === false
-                || ! is_array($foreignData[$columnIndex]['disp_row'])
+                || $foreignData[$columnIndex]->dispRow === null
             ) {
                 continue;
             }
 
             $foreignDropdown[$columnIndex] = $this->relation->foreignDropdown(
-                $foreignData[$columnIndex]['disp_row'],
-                (string) $foreignData[$columnIndex]['foreign_field'],
-                $foreignData[$columnIndex]['foreign_display'],
+                $foreignData[$columnIndex]->dispRow,
+                (string) $foreignData[$columnIndex]->foreignField,
+                $foreignData[$columnIndex]->foreignDisplay,
                 '',
                 Config::getInstance()->settings['ForeignKeyMaxLimit'],
             );
@@ -489,11 +488,11 @@ final class ZoomSearchController implements InvocableController
                 $this->foreigners,
                 $this->columnNames[$columnIndex],
             );
-            if ($searchColumnInForeigners && is_array($foreignData['disp_row'])) {
+            if ($searchColumnInForeigners && $foreignData->dispRow !== null) {
                 $foreignDropdown = $this->relation->foreignDropdown(
-                    $foreignData['disp_row'],
-                    $foreignData['foreign_field'],
-                    $foreignData['foreign_display'],
+                    $foreignData->dispRow,
+                    $foreignData->foreignField,
+                    $foreignData->foreignDisplay,
                     '',
                     Config::getInstance()->settings['ForeignKeyMaxLimit'],
                 );
