@@ -1874,13 +1874,11 @@ class Results
 
                 // 1.2.1 Modify link(s) - update row case
                 if ($displayParts->hasEditLink) {
-                    [
-                        $editUrl,
-                        $copyUrl,
-                        $editString,
-                        $copyString,
-                        $editCopyUrlParams,
-                    ] = $this->getModifiedLinks($whereClause, $clauseIsUnique, $urlSqlQuery);
+                    $editCopyUrlParams = $this->getUrlParams($whereClause, $clauseIsUnique, $urlSqlQuery);
+                    $editUrl = Url::getFromRoute('/table/change');
+                    $copyUrl = Url::getFromRoute('/table/change');
+                    $editString = $this->getActionLinkContent('b_edit', __('Edit'));
+                    $copyString = $this->getActionLinkContent('b_insrow', __('Copy'));
                 }
 
                 // 1.2.2 Delete/Kill link(s)
@@ -2439,23 +2437,10 @@ class Results
         return $headerHtml;
     }
 
-    /**
-     * Get modified links
-     *
-     * @see     getTableBody()
-     *
-     * @param string $whereClause    the where clause of the sql
-     * @param bool   $clauseIsUnique the unique condition of clause
-     * @param string $urlSqlQuery    the analyzed sql query
-     *
-     * @return array{string, string, string, string, (string|bool)[]}
-     */
-    private function getModifiedLinks(
-        string $whereClause,
-        bool $clauseIsUnique,
-        string $urlSqlQuery,
-    ): array {
-        $urlParams = [
+    /** @return (string|bool)[] */
+    private function getUrlParams(string $whereClause, bool $clauseIsUnique, string $urlSqlQuery): array
+    {
+        return [
             'db' => $this->db,
             'table' => $this->table,
             'where_clause' => $whereClause,
@@ -2465,21 +2450,6 @@ class Results
             'sql_signature' => Core::signSqlQuery($urlSqlQuery),
             'goto' => Url::getFromRoute('/sql'),
         ];
-
-        $editUrl = Url::getFromRoute('/table/change');
-
-        $copyUrl = Url::getFromRoute('/table/change');
-
-        $editStr = $this->getActionLinkContent(
-            'b_edit',
-            __('Edit'),
-        );
-        $copyStr = $this->getActionLinkContent(
-            'b_insrow',
-            __('Copy'),
-        );
-
-        return [$editUrl, $copyUrl, $editStr, $copyStr, $urlParams];
     }
 
     /**
@@ -2561,7 +2531,7 @@ class Results
     /**
      * Get content inside the table row action links (Edit/Copy/Delete)
      *
-     * @see     getModifiedLinks(), getDeleteAndKillLinks()
+     * @see     getDeleteAndKillLinks()
      *
      * @param string $icon        The name of the file to get
      * @param string $displayText The text displaying after the image icon
