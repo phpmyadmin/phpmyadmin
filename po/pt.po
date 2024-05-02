@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-04-22 18:07+0000\n"
+"PO-Revision-Date: 2024-05-02 18:18+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.3-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2112,9 +2112,9 @@ msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"Permitir interromper a importação caso se detectar que o script está perto "
-"do tempo limite. Esta pode ser uma boa maneira para importar ficheiros "
-"grandes, contudo pode interromper as transações."
+"Permitir a interrupção da importação caso o script detete que está perto do "
+"limite de tempo. Esta pode ser uma boa maneira de importar ficheiros "
+"grandes, mas pode quebrar as transações."
 
 #: libraries/classes/Config/Descriptions.php:245
 msgid ""
@@ -7234,7 +7234,7 @@ msgstr "Gerar"
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
-msgstr "Alterar a palavra-passe"
+msgstr "Alterar palavra-passe"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 #: templates/table/structure/display_structure.twig:132
@@ -7613,8 +7613,9 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
-"O nome de utilizador e o hostname não foram modificados. Se quiser apenas "
-"alterar a palavra-passe, utilize a aba \"Alterar palavra-passe\"."
+"O nome de utilizador e o nome de anfitrião não foram alterados. Se apenas "
+"pretender alterar a palavra-passe, deve utilizar o separador \"Alterar "
+"palavra-passe\"."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:418
 msgid "User has been added."
@@ -11858,7 +11859,7 @@ msgstr "Modo de compatibilidade SQL:"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:81
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr "Não use <code>AUTO_INCREMENT</code> para valores zerados"
+msgstr "Não utilizar <code>AUTO_INCREMENT</code> para valores nulos"
 
 #: libraries/classes/Plugins/Import/ImportXml.php:49
 msgid "XML"
@@ -15998,7 +15999,7 @@ msgstr "Procurar no seu computador"
 
 #: templates/import.twig:68 templates/import.twig:101
 msgid "You may also drag and drop a file on any page."
-msgstr "Você também pode arrastar um ficheiro em qualquer página."
+msgstr "Também pode arrastar e largar um ficheiro em qualquer página."
 
 #: templates/import.twig:74 templates/import.twig:104
 #, php-format
@@ -16809,7 +16810,7 @@ msgstr "Sem palavra-passe"
 
 #: templates/server/privileges/change_password.twig:24
 msgid "Enter:"
-msgstr "Introduza:"
+msgstr "Introduzir:"
 
 #: templates/server/privileges/change_password.twig:28
 #: templates/server/privileges/login_information_fields.twig:54
@@ -16821,7 +16822,7 @@ msgstr "Força:"
 #: templates/server/privileges/login_information_fields.twig:60
 #: templates/server/replication/master_add_slave_user.twig:62
 msgid "Re-type:"
-msgstr "Confirma:"
+msgstr "Reintroduzir:"
 
 #: templates/server/privileges/change_password.twig:40
 msgid "Password Hashing:"
@@ -16965,7 +16966,7 @@ msgstr "Palavra-passe"
 
 #: templates/server/privileges/login_information_fields.twig:47
 msgid "Do not change the password"
-msgstr "Mantendo a palavra-passe"
+msgstr "Não alterar palavra-passe"
 
 #: templates/server/privileges/login_information_fields.twig:49
 #: templates/server/replication/master_add_slave_user.twig:53
@@ -16975,7 +16976,7 @@ msgstr "Sem palavra-passe"
 #: templates/server/privileges/login_information_fields.twig:62
 #: templates/server/replication/master_add_slave_user.twig:65
 msgid "Re-type"
-msgstr "Confirma"
+msgstr "Reintroduzir"
 
 #: templates/server/privileges/login_information_fields.twig:68
 msgid "Authentication plugin"
