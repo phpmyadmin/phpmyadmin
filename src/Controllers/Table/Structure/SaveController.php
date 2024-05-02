@@ -18,6 +18,7 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
+use PhpMyAdmin\Table\UiProperty;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivileges;
@@ -102,11 +103,11 @@ final class SaveController implements InvocableController
             );
 
             // find the remembered sort expression
-            $sortedCol = $this->tableObj->getUiProp(Table::PROP_SORTED_COLUMN);
+            $sortedCol = $this->tableObj->getUiProp(UiProperty::SortedColumn);
             // if the old column name is part of the remembered sort expression
             if (str_contains((string) $sortedCol, Util::backquote($_POST['field_orig'][$i]))) {
                 // delete the whole remembered sort expression
-                $this->tableObj->removeUiProp(Table::PROP_SORTED_COLUMN);
+                $this->tableObj->removeUiProp(UiProperty::SortedColumn);
             }
 
             if (

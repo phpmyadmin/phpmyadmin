@@ -13,6 +13,7 @@ use PhpMyAdmin\ListDatabase;
 use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\Table\Table;
+use PhpMyAdmin\Table\UiProperty;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -1281,17 +1282,17 @@ class TableTest extends AbstractTestCase
 
         $table = new Table($tableName, $db, $this->mockedDbi);
 
-        $property = Table::PROP_COLUMN_ORDER;
+        $property = UiProperty::ColumnOrder;
         $value = 'UiProp_value';
         $tableCreateTime = null;
         $table->setUiProp($property, $value, $tableCreateTime);
 
         //set UI prop successfully
-        self::assertSame($value, $table->uiprefs[$property]);
+        self::assertSame($value, $table->uiprefs[$property->value]);
 
         //removeUiProp
         $table->removeUiProp($property);
-        $isDefineProperty = isset($table->uiprefs[$property]);
+        $isDefineProperty = isset($table->uiprefs[$property->value]);
         self::assertFalse($isDefineProperty);
 
         //getUiProp after removeUiProp

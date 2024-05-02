@@ -24,6 +24,7 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\SqlParser\Utils\StatementInfo;
 use PhpMyAdmin\SqlParser\Utils\StatementType;
 use PhpMyAdmin\Table\Table;
+use PhpMyAdmin\Table\UiProperty;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
@@ -82,7 +83,7 @@ class Sql
 
         if (! $statementInfo->flags->order) {
             // Retrieving the name of the column we should sort after.
-            $sortCol = $tableObject->getUiProp(Table::PROP_SORTED_COLUMN);
+            $sortCol = $tableObject->getUiProp(UiProperty::SortedColumn);
             if (empty($sortCol)) {
                 return $statementInfo;
             }
@@ -106,7 +107,7 @@ class Sql
         } else {
             // Store the remembered table into session.
             $tableObject->setUiProp(
-                Table::PROP_SORTED_COLUMN,
+                UiProperty::SortedColumn,
                 Query::getClause(
                     $statementInfo->statement,
                     $statementInfo->parser->list,

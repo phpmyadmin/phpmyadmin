@@ -11,7 +11,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Table\Table;
+use PhpMyAdmin\Table\UiProperty;
 
 use function array_map;
 use function explode;
@@ -36,14 +36,14 @@ final class ColumnPreferencesController implements InvocableController
         $colorder = $request->getParsedBodyParam('col_order');
         if (is_string($colorder)) {
             $propertyValue = array_map(intval(...), explode(',', $colorder));
-            $status = $tableObject->setUiProp(Table::PROP_COLUMN_ORDER, $propertyValue, $tableCreateTime);
+            $status = $tableObject->setUiProp(UiProperty::ColumnOrder, $propertyValue, $tableCreateTime);
         }
 
         // set column visibility
         $colvisib = $request->getParsedBodyParam('col_visib');
         if ($status === true && is_string($colvisib)) {
             $propertyValue = array_map(intval(...), explode(',', $colvisib));
-            $status = $tableObject->setUiProp(Table::PROP_COLUMN_ORDER, $propertyValue, $tableCreateTime);
+            $status = $tableObject->setUiProp(UiProperty::ColumnVisibility, $propertyValue, $tableCreateTime);
         }
 
         if ($status instanceof Message) {
