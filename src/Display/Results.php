@@ -2448,7 +2448,7 @@ class Results
      * @param bool   $clauseIsUnique the unique condition of clause
      * @param string $urlSqlQuery    the analyzed sql query
      *
-     * @return array<int,string|array<string, bool|string>>
+     * @return array{string, string, string, string, (string|bool)[]}
      */
     private function getModifiedLinks(
         string $whereClause,
@@ -2492,8 +2492,7 @@ class Results
      * @param string $urlSqlQuery    the analyzed sql query
      * @param int    $processId      Process ID
      *
-     * @return mixed[]  $del_url, $del_str, $js_conf
-     * @psalm-return array{?string, ?string, ?string}
+     * @return array{?string, ?string, ?string, string[]|null}
      */
     private function getDeleteAndKillLinks(
         string $whereClause,
