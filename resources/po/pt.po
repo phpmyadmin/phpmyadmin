@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-04-28 00:20+0000\n"
-"PO-Revision-Date: 2024-04-22 18:07+0000\n"
+"PO-Revision-Date: 2024-05-02 18:18+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.3-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -3423,7 +3423,7 @@ msgstr "Definições gerais"
 #: resources/templates/server/privileges/change_password.twig:11
 #: src/Controllers/UserPasswordController.php:85
 msgid "Change password"
-msgstr "Alterar a palavra-passe"
+msgstr "Alterar palavra-passe"
 
 #: resources/templates/home/index.twig:56
 msgid "Server connection collation:"
@@ -3625,7 +3625,7 @@ msgstr "Procurar no seu computador:"
 
 #: resources/templates/import.twig:51 resources/templates/import.twig:77
 msgid "You may also drag and drop a file on any page."
-msgstr "Você também pode arrastar um ficheiro em qualquer página."
+msgstr "Também pode arrastar e largar um ficheiro em qualquer página."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
 #: src/InsertEdit.php:491
@@ -3659,24 +3659,20 @@ msgstr ""
 "continuar da posição %d."
 
 #: resources/templates/import.twig:133
-#, fuzzy
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
 msgstr ""
-"Permite a interrupção da importação caso o script detecte que está perto do "
-"tempo limite do PHP. <em>(Isso pode ser uma boa forma de importar ficheiros "
-"grandes, mas pode interromper as transações.)</em>"
+"Permitir a interrupção de uma importação caso o script detete que está perto "
+"do limite de tempo limite do PHP."
 
 #: resources/templates/import.twig:135
-#, fuzzy
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"Permitir interromper a importação caso se detectar que o script está perto "
-"do tempo limite. Esta pode ser uma boa maneira para importar ficheiros "
-"grandes, contudo pode interromper as transações."
+"Esta pode ser uma boa maneira de importar ficheiros grandes, mas pode "
+"quebrar as transações."
 
 #: resources/templates/import.twig:139
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -4659,13 +4655,13 @@ msgstr "Sem palavra-passe"
 
 #: resources/templates/server/privileges/change_password.twig:28
 msgid "Enter:"
-msgstr "Introduza:"
+msgstr "Introduzir:"
 
 #: resources/templates/server/privileges/change_password.twig:32
 #: resources/templates/server/privileges/login_information_fields.twig:61
 #: resources/templates/server/replication/primary_add_replica_user.twig:62
 msgid "Re-type:"
-msgstr "Confirma:"
+msgstr "Reintroduzir:"
 
 #: resources/templates/server/privileges/change_password.twig:38
 #: resources/templates/server/privileges/login_information_fields.twig:55
@@ -4827,7 +4823,7 @@ msgstr "Palavra-passe"
 
 #: resources/templates/server/privileges/login_information_fields.twig:48
 msgid "Do not change the password"
-msgstr "Mantendo a palavra-passe"
+msgstr "Não alterar palavra-passe"
 
 #: resources/templates/server/privileges/login_information_fields.twig:50
 #: resources/templates/server/replication/primary_add_replica_user.twig:53
@@ -4837,7 +4833,7 @@ msgstr "Sem palavra-passe"
 #: resources/templates/server/privileges/login_information_fields.twig:63
 #: resources/templates/server/replication/primary_add_replica_user.twig:65
 msgid "Re-type"
-msgstr "Confirma"
+msgstr "Reintroduzir"
 
 #: resources/templates/server/privileges/login_information_fields.twig:69
 msgid "Authentication plugin"
@@ -9484,9 +9480,9 @@ msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"Permitir interromper a importação caso se detectar que o script está perto "
-"do tempo limite. Esta pode ser uma boa maneira para importar ficheiros "
-"grandes, contudo pode interromper as transações."
+"Permitir a interrupção da importação caso o script detete que está perto do "
+"limite de tempo. Esta pode ser uma boa maneira de importar ficheiros "
+"grandes, mas pode quebrar as transações."
 
 #: src/Config/Descriptions.php:235
 msgid ""
@@ -14632,8 +14628,9 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
-"O nome de utilizador e o hostname não foram modificados. Se quiser apenas "
-"alterar a palavra-passe, utilize a aba \"Alterar palavra-passe\"."
+"O nome de utilizador e o nome de anfitrião não foram alterados. Se apenas "
+"pretender alterar a palavra-passe, deve utilizar o separador \"Alterar "
+"palavra-passe\"."
 
 #: src/Controllers/Server/Status/Processes/KillController.php:43
 #, php-format
@@ -17756,7 +17753,7 @@ msgstr "Modo de compatibilidade SQL:"
 
 #: src/Plugins/Import/ImportSql.php:71
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr "Não use <code>AUTO_INCREMENT</code> para valores zerados"
+msgstr "Não utilizar <code>AUTO_INCREMENT</code> para valores nulos"
 
 #: src/Plugins/Import/ImportXml.php:47
 msgid "XML"
