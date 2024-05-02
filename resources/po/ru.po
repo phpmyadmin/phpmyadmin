@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-04-28 00:20+0000\n"
-"PO-Revision-Date: 2024-04-25 17:18+0000\n"
+"PO-Revision-Date: 2024-05-03 20:07+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.5.1-dev\n"
+"X-Generator: Weblate 5.5.3\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -2411,14 +2411,12 @@ msgid "Browse"
 msgstr "Обзор"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<strong>Total:</strong> <em>%count%</em> match"
-#| msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<strong>Итого:</strong> <em>%count%</em> соответствие"
-msgstr[1] "<strong>Итого:</strong> <em>%count%</em> соответствия"
-msgstr[2] "<strong>Итого:</strong> <em>%count%</em> соответствий"
+msgstr[0] "<strong>Всего:</strong> <em>%s</em> соответствие"
+msgstr[1] "<strong>Всего:</strong> <em>%s</em> соответствия"
+msgstr[2] "<strong>Всего:</strong> <em>%s</em> соответствий"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
@@ -5643,23 +5641,21 @@ msgstr "Интервал обновления"
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
-#, fuzzy, php-format
-#| msgid "%d second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d секунда"
-msgstr[1] "%d секунда"
-msgstr[2] "%d секунда"
+msgstr[1] "%d секунды"
+msgstr[2] "%d секунд"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
-#, fuzzy, php-format
-#| msgid "%d minute"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d минута"
-msgstr[1] "%d минута"
-msgstr[2] "%d минута"
+msgstr[1] "%d минуты"
+msgstr[2] "%d минут"
 
 #: resources/templates/server/status/monitor/index.twig:38
 msgid "Chart columns"
@@ -5869,24 +5865,21 @@ msgstr "Вопросов с момента запуска:"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
-#| msgid "ø per hour"
+#, php-format
 msgid "ø per hour: %s"
-msgstr "ø в час"
+msgstr "ø в час: %s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
-#| msgid "per minute:"
+#, php-format
 msgid "ø per minute: %s"
-msgstr "за минуту:"
+msgstr "ø в минуту: %s"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
-#| msgid "per second:"
+#, php-format
 msgid "ø per second: %s"
-msgstr "в секунду:"
+msgstr "ø в секунду: %s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -9277,7 +9270,7 @@ msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
-"Слежение за изменениями произведенными в базе данных. Для работы требуется "
+"Слежение за изменениями произведёнными в базе данных. Для работы требуется "
 "настройка хранения конфигурации phpMyAdmin."
 
 #: src/Config/Descriptions.php:193
@@ -16305,16 +16298,13 @@ msgid "The trigger name cannot end with a space character."
 msgstr "Имя триггера не может заканчиваться символом пробела."
 
 #: src/Import/Import.php:942
-#, fuzzy
-#| msgid ""
-#| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
-#| "transactional engine tables can be rolled back."
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
-"Только для INSERT, UPDATE, DELETE и REPLACE SQL запросов, содержащих "
-"транзакционные таблицы движка, может быть произведен откат."
+"Только для запросов INSERT, UPDATE, DELETE, REPLACE и SET (без параметров "
+"вроде GLOBAL) , содержащих транзакционные таблицы движка, может быть "
+"произведён откат."
 
 #: src/Import/Import.php:1164
 #, php-format
