@@ -484,12 +484,11 @@ class Results
      *
      * @see     getTable()
      *
-     * @return array<int, DisplayParts|int|mixed> the first element is a {@see DisplayParts} object
+     * @return array{DisplayParts, int} the first element is a {@see DisplayParts} object
      *               the second element is the total number of rows returned
      *               by the SQL query without any programmatically appended
      *               LIMIT clause (just a copy of $unlim_num_rows if it exists,
      *               else computed inside this function)
-     * @psalm-return array{DisplayParts, int}
      */
     private function setDisplayPartsAndTotal(DisplayParts $displayParts): array
     {
