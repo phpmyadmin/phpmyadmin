@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.23.1@8471a896ccea3526b26d082f4461eeea467f10a4">
+<files psalm-version="5.24.0@462c80e31c34e58cc4f750c656be3927e80e550e">
   <file src="app/services_loader.php">
     <MixedArgument>
       <code><![CDATA[$argumentName]]></code>
@@ -1391,6 +1391,9 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Database/Structure/EmptyFormController.php">
     <PossiblyUnusedMethod>
@@ -1866,13 +1869,12 @@
       <code><![CDATA[! $GLOBALS['save_on_server']]]></code>
       <code><![CDATA[$outputFormat === 'sendit' && ! $GLOBALS['save_on_server']]]></code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($parser->statements[0])]]></code>
-    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$asSeparateFiles]]></code>
       <code><![CDATA[$onServerParam]]></code>
       <code><![CDATA[$quickExportOnServer]]></code>
+      <code><![CDATA[empty($config->settings['MemoryLimit'])]]></code>
+      <code><![CDATA[empty($config->settings['SaveDir'])]]></code>
     </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>
       <code><![CDATA[$GLOBALS['compression'] === 'gzip']]></code>
@@ -1961,6 +1963,10 @@
     </PossiblyNullArrayOffset>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_REQUEST['access_time'])]]></code>
+      <code><![CDATA[empty($config->selectedServer['verbose'])]]></code>
+      <code><![CDATA[empty($config->selectedServer['verbose'])]]></code>
+      <code><![CDATA[empty($config->settings['Lang'])]]></code>
+      <code><![CDATA[empty($config->settings['Servers'][Current::$server]['pmadb'])]]></code>
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
       <code><![CDATA[ini_get('suhosin.request.max_value_length')]]></code>
     </RiskyTruthyFalsyComparison>
@@ -2009,6 +2015,8 @@
     </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['goto'])]]></code>
+      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
+      <code><![CDATA[empty($config->settings['MemoryLimit'])]]></code>
     </RiskyTruthyFalsyComparison>
     <UnusedProperty>
       <code><![CDATA[$sql]]></code>
@@ -2018,9 +2026,6 @@
     <ArgumentTypeCoercion>
       <code><![CDATA[$sqlDelimiter]]></code>
     </ArgumentTypeCoercion>
-    <DocblockTypeContradiction>
-      <code><![CDATA[empty($parser->statements[0])]]></code>
-    </DocblockTypeContradiction>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -2272,6 +2277,9 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($config->settings['Servers'][Current::$server]['pmadb'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Operations/TableController.php">
     <DeprecatedMethod>
@@ -2295,6 +2303,13 @@
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['message_to_show'])]]></code>
+      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
+      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
+      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
+      <code><![CDATA[empty($createOptions['checksum'])]]></code>
+      <code><![CDATA[empty($createOptions['checksum'])]]></code>
+      <code><![CDATA[empty($createOptions['delay_key_write'])]]></code>
+      <code><![CDATA[empty($createOptions['delay_key_write'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Operations/ViewController.php">
@@ -3244,6 +3259,7 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$currentRow]]></code>
       <code><![CDATA[empty($GLOBALS['disp_message'])]]></code>
+      <code><![CDATA[empty($GLOBALS['goto'])]]></code>
       <code><![CDATA[empty($GLOBALS['unsaved_values'])]]></code>
       <code><![CDATA[empty($_POST['sql_query'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -3437,10 +3453,8 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response|null]]></code>
     </PossiblyUnusedReturnValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($parser->statements[0])]]></code>
-    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
       <code><![CDATA[empty($GLOBALS['where_clause'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -3856,9 +3870,11 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response|null]]></code>
     </PossiblyUnusedReturnValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($mimeMap[$columnName])]]></code>
-    </RedundantConditionGivenDocblockType>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($GLOBALS['query'])]]></code>
+      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
+      <code><![CDATA[empty($mimeMap[$columnName]['input_transformation'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/SearchController.php">
     <DeprecatedMethod>
@@ -4109,6 +4125,10 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response|null]]></code>
     </PossiblyUnusedReturnValue>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($_POST['field_adjust_privileges'][$i])]]></code>
+      <code><![CDATA[empty($_POST['field_move_to'][$i])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/Structure/SpatialController.php">
     <PossiblyUnusedReturnValue>
@@ -4277,6 +4297,9 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($mediaTypeMap[$transformKey]['mimetype'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Triggers/IndexController.php">
     <DeprecatedMethod>
@@ -4779,10 +4802,6 @@
       <code><![CDATA[$indexArray1]]></code>
       <code><![CDATA[$indexArray2]]></code>
     </PossiblyNullArrayOffset>
-    <RedundantCondition>
-      <code><![CDATA[! empty($indexArray1[$f1])]]></code>
-      <code><![CDATA[! empty($indexArray2[$f2])]]></code>
-    </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$foreigner]]></code>
     </RiskyTruthyFalsyComparison>
@@ -5086,6 +5105,7 @@
     </PossiblyUndefinedArrayOffset>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
+      <code><![CDATA[empty($_POST['funcs'][$routine['item_param_name'][$i]])]]></code>
       <code><![CDATA[empty($_POST['item_adjust_privileges'])]]></code>
       <code><![CDATA[empty($_POST['item_comment'])]]></code>
       <code><![CDATA[empty($_POST['item_returnlength'])]]></code>
@@ -5095,8 +5115,10 @@
       <code><![CDATA[empty($itemDefiner)]]></code>
       <code><![CDATA[empty($itemDefinition)]]></code>
       <code><![CDATA[empty($itemName)]]></code>
+      <code><![CDATA[empty($itemParamDir[$i])]]></code>
       <code><![CDATA[empty($itemParamLength)]]></code>
       <code><![CDATA[empty($itemParamName)]]></code>
+      <code><![CDATA[empty($itemParamName[$i])]]></code>
       <code><![CDATA[empty($itemParamType)]]></code>
       <code><![CDATA[empty($itemSecurityType)]]></code>
       <code><![CDATA[empty($routine['DTD_IDENTIFIER'])]]></code>
@@ -5294,7 +5316,6 @@
   </file>
   <file src="src/Display/Results.php">
     <InvalidArgument>
-      <code><![CDATA[$added[$orgFullTableName]]]></code>
       <code><![CDATA[$linkingUrlParams]]></code>
       <code><![CDATA[$linkingUrlParams]]></code>
       <code><![CDATA[$sortExpressionNoDirection]]></code>
@@ -5552,7 +5573,6 @@
       <code><![CDATA[(int) $this->config->settings['MaxRows']]]></code>
     </RedundantCastGivenDocblockType>
     <RedundantCondition>
-      <code><![CDATA[! empty($added[$orgFullTableName])]]></code>
       <code><![CDATA[empty($statementInfo->statement->from)]]></code>
       <code><![CDATA[empty($statementInfo->statement->from)]]></code>
       <code><![CDATA[empty($statementInfo->statement->where)]]></code>
@@ -5571,6 +5591,7 @@
       <code><![CDATA[empty($rowInfo['routine_type'])]]></code>
       <code><![CDATA[empty($statement->order)]]></code>
       <code><![CDATA[empty($this->mediaTypeMap[$orgFullColName]['input_transformation'])]]></code>
+      <code><![CDATA[empty($this->mediaTypeMap[$orgFullColName]['transformation'])]]></code>
       <code><![CDATA[strpos($linkRelations['default_page'], '?')]]></code>
     </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>
@@ -5877,6 +5898,7 @@
     </PossiblyInvalidCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$config->settings['Export'][$str]]]></code>
+      <code><![CDATA[empty($config->settings['SaveDir'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Export/Template.php">
@@ -5988,6 +6010,8 @@
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$name]]></code>
+      <code><![CDATA[empty($_FILES['fields_upload']['name']['multi_edit'][$rownumber][$key])]]></code>
+      <code><![CDATA[empty($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/FileListing.php">
@@ -6053,6 +6077,8 @@
     </RedundantCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$object]]></code>
+      <code><![CDATA[empty($GLOBALS['error_message'])]]></code>
+      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
       <code><![CDATA[empty($_REQUEST['no_debug'])]]></code>
     </RiskyTruthyFalsyComparison>
     <UnusedReturnValue>
@@ -6437,15 +6463,17 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$message]]></code>
     </PossiblyInvalidArgument>
-    <RedundantCondition>
-      <code><![CDATA[! empty($GLOBALS['message'])]]></code>
-    </RedundantCondition>
     <RedundantFunctionCallGivenDocblockType>
       <code><![CDATA[strtolower]]></code>
     </RedundantFunctionCallGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $this->config->get('DisableShortcutKeys')]]></code>
       <code><![CDATA[empty($_REQUEST['message'])]]></code>
+      <code><![CDATA[empty($this->config->settings['CaptchaApi'])]]></code>
+      <code><![CDATA[empty($this->config->settings['CaptchaLoginPrivateKey'])]]></code>
+      <code><![CDATA[empty($this->config->settings['CaptchaLoginPublicKey'])]]></code>
+      <code><![CDATA[empty($this->config->settings['CaptchaRequestParam'])]]></code>
+      <code><![CDATA[empty($this->config->settings['CaptchaResponseParam'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Html/Generator.php">
@@ -6521,9 +6549,13 @@
     </RiskyCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$suhosinGetMaxValueLength]]></code>
+      <code><![CDATA[empty($GLOBALS['display_query'])]]></code>
       <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
       <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
       <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
+      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
+      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
+      <code><![CDATA[empty($server['socket'])]]></code>
       <code><![CDATA[empty($server['ssl_ca'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -6612,7 +6644,6 @@
     </DeprecatedMethod>
     <DocblockTypeContradiction>
       <code><![CDATA[$nameArray === false]]></code>
-      <code><![CDATA[empty($parser->statements[0])]]></code>
     </DocblockTypeContradiction>
     <MixedArgument>
       <code><![CDATA[$active]]></code>
@@ -6643,6 +6674,7 @@
     </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[ImportSettings::$runQuery]]></code>
+      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Index.php">
@@ -6819,6 +6851,8 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $gotoInclude]]></code>
       <code><![CDATA[$editField->salt]]></code>
+      <code><![CDATA[empty($GLOBALS['goto'])]]></code>
+      <code><![CDATA[empty($this->config->settings['UploadDir'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/IpAllowDeny.php">
@@ -6888,6 +6922,9 @@
     <MixedArgumentTypeCoercion>
       <code><![CDATA[usort($databaseList, strnatcasecmp(...))]]></code>
     </MixedArgumentTypeCoercion>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($this->config->selectedServer['hide_db'])]]></code>
+    </RiskyTruthyFalsyComparison>
     <UnusedProperty>
       <code><![CDATA[$userPrivilegesFactory]]></code>
     </UnusedProperty>
@@ -6910,6 +6947,11 @@
     <PossiblyFalseOperand>
       <code><![CDATA[mb_strpos($tab, '_')]]></code>
     </PossiblyFalseOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($this->config->selectedServer['host'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['port'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['verbose'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Message.php">
     <MixedArgument>
@@ -7083,6 +7125,12 @@
     <PossiblyNullOperand>
       <code><![CDATA[$arr[0]]]></code>
     </PossiblyNullOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($this->config->selectedServer['hide_db'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['hide_db'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['only_db'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['only_db'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Navigation/Nodes/NodeColumn.php">
     <MixedArgument>
@@ -7397,6 +7445,7 @@
       <code><![CDATA[$_POST['new_auto_increment']]]></code>
     </RiskyCast>
     <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($GLOBALS['sql_constraints_query'])]]></code>
       <code><![CDATA[empty($_POST['adjust_privileges'])]]></code>
       <code><![CDATA[empty($_POST['new_auto_increment'])]]></code>
       <code><![CDATA[empty($_POST['new_checksum'])]]></code>
@@ -7698,7 +7747,20 @@
     </RiskyCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['conn_error'])]]></code>
+      <code><![CDATA[empty($GLOBALS['pma_auth_server'])]]></code>
+      <code><![CDATA[empty($GLOBALS['pma_auth_server'])]]></code>
       <code><![CDATA[empty($_POST[$config->settings['CaptchaResponseParam']])]]></code>
+      <code><![CDATA[empty($config->settings['CaptchaApi'])]]></code>
+      <code><![CDATA[empty($config->settings['CaptchaApi'])]]></code>
+      <code><![CDATA[empty($config->settings['CaptchaLoginPrivateKey'])]]></code>
+      <code><![CDATA[empty($config->settings['CaptchaLoginPrivateKey'])]]></code>
+      <code><![CDATA[empty($config->settings['CaptchaLoginPublicKey'])]]></code>
+      <code><![CDATA[empty($config->settings['CaptchaLoginPublicKey'])]]></code>
+      <code><![CDATA[empty($config->settings['CaptchaRequestParam'])]]></code>
+      <code><![CDATA[empty($config->settings['CaptchaRequestParam'])]]></code>
+      <code><![CDATA[empty($config->settings['CaptchaResponseParam'])]]></code>
+      <code><![CDATA[empty($config->settings['CaptchaResponseParam'])]]></code>
+      <code><![CDATA[empty($config->settings['Lang'])]]></code>
       <code><![CDATA[empty($serverCookie)]]></code>
       <code><![CDATA[empty($serverCookie)]]></code>
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
@@ -7728,6 +7790,8 @@
     </PossiblyInvalidCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$colon]]></code>
+      <code><![CDATA[empty($config->selectedServer['auth_http_realm'])]]></code>
+      <code><![CDATA[empty($config->selectedServer['verbose'])]]></code>
       <code><![CDATA[empty($oldUser)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -7762,6 +7826,9 @@
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[array_merge($config->selectedServer, $singleSignonCfgUpdate)]]></code>
     </MixedPropertyTypeCoercion>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($config->selectedServer['SignonURL'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/AuthenticationPlugin.php">
     <ArgumentTypeCoercion>
@@ -7788,6 +7855,9 @@
     <RiskyCast>
       <code><![CDATA[$_REQUEST['access_time']]]></code>
     </RiskyCast>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($config->selectedServer['LogoutURL'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/AuthenticationPluginFactory.php">
     <DeprecatedMethod>
@@ -7949,6 +8019,9 @@
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$aliases]]></code>
     </MixedArgumentTypeCoercion>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($aliases[$db]['tables'][$table]['columns'][$colAs])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Export/ExportLatex.php">
     <DeprecatedMethod>
@@ -8000,6 +8073,9 @@
       <code><![CDATA[$tableAlias]]></code>
       <code><![CDATA[$tableAlias]]></code>
     </PossiblyNullOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($config->selectedServer['port'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Export/ExportMediawiki.php">
     <DeprecatedMethod>
@@ -8180,13 +8256,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <DocblockTypeContradiction>
-      <code><![CDATA[empty($parser->statements[0])]]></code>
-    </DocblockTypeContradiction>
-    <InvalidArgument>
-      <code><![CDATA[$GLOBALS['asfile']]]></code>
-      <code><![CDATA[$GLOBALS['sql_if_not_exists']]]></code>
-    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
@@ -8346,6 +8415,7 @@
       <code><![CDATA[empty($GLOBALS['sql_drop_table'])]]></code>
       <code><![CDATA[empty($GLOBALS['sql_views_as_tables'])]]></code>
       <code><![CDATA[empty($column->collation)]]></code>
+      <code><![CDATA[empty($config->selectedServer['port'])]]></code>
       <code><![CDATA[empty($delimiter)]]></code>
       <code><![CDATA[empty($engine)]]></code>
       <code><![CDATA[empty($statement->fields)]]></code>
@@ -8457,6 +8527,9 @@
       <code><![CDATA[$record[$i]]]></code>
       <code><![CDATA[$tableAlias]]></code>
     </PossiblyNullArgument>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($config->selectedServer['port'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Export/ExportYaml.php">
     <DeprecatedMethod>
@@ -8959,6 +9032,9 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[string[]]]></code>
     </PossiblyUnusedReturnValue>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($config->settings['UploadDir'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Import/ImportSql.php">
     <DeprecatedMethod>
@@ -10212,6 +10288,7 @@
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($GLOBALS['error_message'])]]></code>
       <code><![CDATA[empty($_REQUEST['ajax_request'])]]></code>
       <code><![CDATA[empty($_REQUEST['no_debug'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -10239,6 +10316,10 @@
     <NullableReturnStatement>
       <code><![CDATA[Config::getInstance()->get('is_setup')]]></code>
     </NullableReturnStatement>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($found[3])]]></code>
+      <code><![CDATA[empty($found[3])]]></code>
+    </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>
       <code><![CDATA[isset($_COOKIE[$key]) && ! is_string($_COOKIE[$key])]]></code>
     </TypeDoesNotContainType>
@@ -10503,6 +10584,13 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($server['host'])]]></code>
+      <code><![CDATA[empty($server['only_db'])]]></code>
+      <code><![CDATA[empty($server['port'])]]></code>
+      <code><![CDATA[empty($server['user'])]]></code>
+      <code><![CDATA[empty($server['verbose'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Server/Status/Data.php">
     <MixedArgumentTypeCoercion>
@@ -10905,6 +10993,12 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$query]]></code>
     </PossiblyInvalidCast>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($GLOBALS['goto'])]]></code>
+      <code><![CDATA[empty($GLOBALS['goto'])]]></code>
+      <code><![CDATA[empty($GLOBALS['goto'])]]></code>
+      <code><![CDATA[empty($this->config->settings['Servers'][Current::$server]['verbose'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/StorageEngine.php">
     <DeprecatedMethod>
@@ -11369,9 +11463,6 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[true|Message]]></code>
     </PossiblyUnusedReturnValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($parser->statements[0])]]></code>
-    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $relationParams[$work]]]></code>
       <code><![CDATA[! Context::isKeyword($columnName, true)]]></code>
@@ -11659,6 +11750,11 @@
       <code><![CDATA[empty($_POST['item_timing'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/Twig/FlashMessagesExtension.php">
+    <InvalidArgument>
+      <code><![CDATA[[FlashMessages::class, 'getMessages']]]></code>
+    </InvalidArgument>
+  </file>
   <file src="src/TwoFactor.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -11710,6 +11806,8 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $config->get('is_setup')]]></code>
       <code><![CDATA[! Config::getInstance()->get('URLQueryEncryption')]]></code>
+      <code><![CDATA[empty($GLOBALS['lang'])]]></code>
+      <code><![CDATA[empty($GLOBALS['lang'])]]></code>
       <code><![CDATA[empty($config->getCookie('pma_lang'))]]></code>
       <code><![CDATA[empty($config->getCookie('pma_lang'))]]></code>
     </RiskyTruthyFalsyComparison>
@@ -14423,6 +14521,9 @@
     </MixedAssignment>
     <TypeDoesNotContainType>
       <code><![CDATA[assertSame]]></code>
+      <code><![CDATA[assertSame]]></code>
+      <code><![CDATA[assertSame]]></code>
+      <code><![CDATA[assertSame]]></code>
     </TypeDoesNotContainType>
   </file>
   <file src="tests/unit/Plugins/Export/ExportSqlTest.php">
@@ -14696,6 +14797,9 @@
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($GLOBALS['goto'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="tests/unit/SqlTest.php">
     <DeprecatedMethod>
