@@ -3296,11 +3296,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<int\\|string, mixed\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Parameter \\#3 \\$colOrder of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRowValues\\(\\) expects array\\|false, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php

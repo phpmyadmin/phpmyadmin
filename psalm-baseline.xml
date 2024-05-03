@@ -5988,9 +5988,8 @@
     </MixedReturnTypeCoercion>
   </file>
   <file src="libraries/classes/Display/Results.php">
-    <InvalidArgument occurrences="3">
+    <InvalidArgument occurrences="2">
       <code>$added[$orgFullTableName]</code>
-      <code>$multiOrderUrlParams</code>
       <code>$sortExpressionNoDirection</code>
     </InvalidArgument>
     <InvalidArrayOffset occurrences="2">
