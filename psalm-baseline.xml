@@ -811,11 +811,6 @@
       <code><![CDATA[Response|null]]></code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="src/Controllers/ChangeLogController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/CheckRelationsController.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>

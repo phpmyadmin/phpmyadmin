@@ -57,7 +57,7 @@ return [
         ],
         ChangeLogController::class => [
             'class' => ChangeLogController::class,
-            'arguments' => ['$response' => '@response', '$config' => '@config'],
+            'arguments' => ['@response', '@config', '@' . ResponseFactory::class, '@template'],
         ],
         CheckRelationsController::class => [
             'class' => CheckRelationsController::class,
