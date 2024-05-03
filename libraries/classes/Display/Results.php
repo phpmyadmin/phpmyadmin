@@ -982,7 +982,6 @@ class Results
      * @param array              $sortDirection             sort direction
      * @param bool               $isLimitedDisplay          with limited operations
      *                                                        or not
-     * @param string             $unsortedSqlQuery          query without the sort part
      *
      * @return string html content
      */
@@ -992,8 +991,7 @@ class Results
         array $sortExpression,
         array $sortExpressionNoDirection,
         array $sortDirection,
-        $isLimitedDisplay,
-        $unsortedSqlQuery
+        $isLimitedDisplay
     ) {
         // required to generate sort links that will remember whether the
         // "Show all" button has been clicked
@@ -1040,7 +1038,7 @@ class Results
                     $fieldsMeta[$i],
                     $sortExpression,
                     $sortExpressionNoDirection,
-                    $unsortedSqlQuery,
+                    $analyzedSqlResults,
                     $sessionMaxRows,
                     $comments,
                     $sortDirection,
@@ -1092,7 +1090,6 @@ class Results
      *
      * @param array              $displayParts              which elements to display
      * @param array              $analyzedSqlResults        analyzed sql results
-     * @param string             $unsortedSqlQuery          the unsorted sql query
      * @param array              $sortExpression            sort expression
      * @param array<int, string> $sortExpressionNoDirection sort expression without direction
      * @param array              $sortDirection             sort direction
@@ -1110,7 +1107,6 @@ class Results
     private function getTableHeaders(
         array $displayParts,
         array $analyzedSqlResults,
-        $unsortedSqlQuery,
         array $sortExpression = [],
         array $sortExpressionNoDirection = [],
         array $sortDirection = [],
@@ -1161,8 +1157,7 @@ class Results
             $sortExpression,
             $sortExpressionNoDirection,
             $sortDirection,
-            $isLimitedDisplay,
-            $unsortedSqlQuery
+            $isLimitedDisplay
         );
 
         // Display column at rightside - checkboxes or empty column
@@ -1513,7 +1508,7 @@ class Results
      * @param FieldMetadata      $fieldsMeta                set of field properties
      * @param array              $sortExpression            sort expression
      * @param array<int, string> $sortExpressionNoDirection sort expression without direction
-     * @param string             $unsortedSqlQuery          the unsorted sql query
+     * @param array              $analyzedSqlResults        analyzed sql results
      * @param int                $sessionMaxRows            maximum rows resulted by sql
      * @param string             $comments                  comment for row
      * @param array              $sortDirection             sort direction
@@ -1536,7 +1531,7 @@ class Results
         FieldMetadata $fieldsMeta,
         array $sortExpression,
         array $sortExpressionNoDirection,
-        $unsortedSqlQuery,
+        array $analyzedSqlResults,
         $sessionMaxRows,
         string $comments,
         array $sortDirection,
@@ -1565,19 +1560,16 @@ class Results
             $fieldsMeta
         );
 
-        if (
-            preg_match(
-                '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@is',
-                $unsortedSqlQuery,
-                $regs3
-            )
-        ) {
-            $singleSortedSqlQuery = $regs3[1] . $singleSortOrder . $regs3[2];
-            $multiSortedSqlQuery = $regs3[1] . $multiSortOrder . $regs3[2];
-        } else {
-            $singleSortedSqlQuery = $unsortedSqlQuery . $singleSortOrder;
-            $multiSortedSqlQuery = $unsortedSqlQuery . $multiSortOrder;
-        }
+        $singleSortedSqlQuery = Query::replaceClause(
+            $analyzedSqlResults['statement'],
+            $analyzedSqlResults['parser']->list,
+            $singleSortOrder
+        );
+        $multiSortedSqlQuery = Query::replaceClause(
+            $analyzedSqlResults['statement'],
+            $analyzedSqlResults['parser']->list,
+            $multiSortOrder
+        );
 
         $singleUrlParams = [
             'db' => $this->properties['db'],
@@ -3710,7 +3702,6 @@ class Results
             $this->properties['table'] = $fieldsMeta[0]->table;
         }
 
-        $unsortedSqlQuery = '';
         $sortByKeyData = [];
         // can the result be sorted?
         if ($displayParts['sort_lnk'] == '1' && isset($analyzedSqlResults['statement'])) {
@@ -3763,7 +3754,6 @@ class Results
         $headers = $this->getTableHeaders(
             $displayParts,
             $analyzedSqlResults,
-            $unsortedSqlQuery,
             $sortExpression,
             $sortExpressionNoDirection,
             $sortDirection,

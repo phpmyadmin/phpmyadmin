@@ -5996,7 +5996,7 @@
       <code>$GLOBALS['cfg']['Order']</code>
       <code>$delUrlParams</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="57">
+    <MixedArgument occurrences="61">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['query']</code>
@@ -6004,7 +6004,11 @@
       <code>$analyzedSqlResults['parser']-&gt;list</code>
       <code>$analyzedSqlResults['parser']-&gt;list</code>
       <code>$analyzedSqlResults['parser']-&gt;list</code>
+      <code>$analyzedSqlResults['parser']-&gt;list</code>
+      <code>$analyzedSqlResults['parser']-&gt;list</code>
       <code>$analyzedSqlResults['select_tables']</code>
+      <code>$analyzedSqlResults['statement']</code>
+      <code>$analyzedSqlResults['statement']</code>
       <code>$analyzedSqlResults['statement']</code>
       <code>$analyzedSqlResults['statement']</code>
       <code>$analyzedSqlResults['statement']</code>
@@ -6277,7 +6281,8 @@
       <code>$firstShownRec</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
     </MixedOperand>
-    <MixedPropertyFetch occurrences="16">
+    <MixedPropertyFetch occurrences="17">
+      <code>$analyzedSqlResults['parser']-&gt;list</code>
       <code>$analyzedSqlResults['parser']-&gt;list</code>
       <code>$analyzedSqlResults['parser']-&gt;list</code>
       <code>$analyzedSqlResults['statement']-&gt;expr</code>

@@ -3026,6 +3026,11 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOrderLinkAndSortedHeaderHtml\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOrderLinkAndSortedHeaderHtml\\(\\) has parameter \\$sortDirection with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -3301,7 +3306,7 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#5 \\$sortExpressionNoDirection of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableHeaders\\(\\) expects array\\<int, string\\>, array\\<int, string\\|null\\> given\\.$#"
+			message: "#^Parameter \\#4 \\$sortExpressionNoDirection of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableHeaders\\(\\) expects array\\<int, string\\>, array\\<int, string\\|null\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
