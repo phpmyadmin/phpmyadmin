@@ -541,7 +541,7 @@ return [
         ],
         PhpInfoController::class => [
             'class' => PhpInfoController::class,
-            'arguments' => ['$response' => '@response'],
+            'arguments' => ['@response', '@' . ResponseFactory::class, '@config'],
         ],
         Preferences\ExportController::class => [
             'class' => Preferences\ExportController::class,
