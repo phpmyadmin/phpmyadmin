@@ -429,20 +429,25 @@ class ResponseRenderer
     }
 
     /**
+     * Avoid relative path redirect problems in case user entered URL
+     * like /phpmyadmin/index.php/ which some web servers happily accept.
+     */
+    public function fixRelativeUrlForRedirect(string $url): string
+    {
+        if (! str_starts_with($url, '.')) {
+            return $url;
+        }
+
+        return $this->config->getRootPath() . substr($url, 2);
+    }
+
+    /**
      * @psalm-param non-empty-string $url
      * @psalm-param StatusCodeInterface::STATUS_* $statusCode
      */
     public function redirect(string $url, int $statusCode = StatusCodeInterface::STATUS_FOUND): void
     {
-        /**
-         * Avoid relative path redirect problems in case user entered URL
-         * like /phpmyadmin/index.php/ which some web servers happily accept.
-         */
-        if (str_starts_with($url, '.')) {
-            $url = $this->config->getRootPath() . substr($url, 2);
-        }
-
-        $this->addHeader('Location', $url);
+        $this->addHeader('Location', $this->fixRelativeUrlForRedirect($url));
         $this->setStatusCode($statusCode);
     }
 
