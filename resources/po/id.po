@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-04-28 00:20+0000\n"
-"PO-Revision-Date: 2022-12-30 07:50+0000\n"
-"Last-Translator: Iwan Haryatno <iwnharry61@gmail.com>\n"
+"PO-Revision-Date: 2024-05-05 00:20+0000\n"
+"Last-Translator: Indra Sah Noeldy <indragirsang75@smp.belajar.id>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 5.5.3\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
@@ -229,15 +229,13 @@ msgid "Storage engine"
 msgstr "Mesin Penyimpanan"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:135
-#, fuzzy
 msgid "PARTITION definition:"
-msgstr "Definisi PARTITION"
+msgstr "Definisi PARTISI:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:154
-#, fuzzy
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Jalankan ekspor dalam transaksi"
+msgstr "Transaksi online"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:157
 #: resources/templates/modals/index_dialog_modal.twig:11
@@ -351,9 +349,8 @@ msgid "Referenced by %s."
 msgstr "Pilih kunci rujukan"
 
 #: resources/templates/columns_definitions/column_name.twig:12
-#, fuzzy
 msgid "Is a foreign key."
-msgstr "Pilih Foreign Key"
+msgstr "Adalah sebuah foreign key."
 
 #: resources/templates/columns_definitions/column_name.twig:16
 #: resources/templates/database/data_dictionary/index.twig:22
@@ -389,9 +386,8 @@ msgid "Column"
 msgstr "Kolom"
 
 #: resources/templates/columns_definitions/column_name.twig:39
-#, fuzzy
 msgid "Pick from Central Columns"
-msgstr "Hapus kolom"
+msgstr "Pilih dari Kolom Tengah"
 
 #: resources/templates/columns_definitions/partitions.twig:17
 #, fuzzy
@@ -453,14 +449,12 @@ msgid "Comment"
 msgstr "Komentar"
 
 #: resources/templates/columns_definitions/partitions.twig:86
-#, fuzzy
 msgid "Data directory"
-msgstr "Direktori awal data"
+msgstr "Direktori Data"
 
 #: resources/templates/columns_definitions/partitions.twig:87
-#, fuzzy
 msgid "Index directory"
-msgstr "Direktori penyimpanan"
+msgstr "Direktori Index"
 
 #: resources/templates/columns_definitions/partitions.twig:88
 #, fuzzy
