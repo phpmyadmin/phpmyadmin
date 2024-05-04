@@ -2786,7 +2786,7 @@ parameters:
 			path: src/Controllers/LicenseController.php
 
 		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function printf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$path of function basename expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/LicenseController.php
 

@@ -448,7 +448,7 @@ return [
         ],
         LicenseController::class => [
             'class' => LicenseController::class,
-            'arguments' => ['$response' => '@response'],
+            'arguments' => ['@response', '@' . ResponseFactory::class],
         ],
         LintController::class => [
             'class' => LintController::class,

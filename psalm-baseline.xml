@@ -2040,11 +2040,6 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/LicenseController.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/LintController.php">
     <MixedAssignment>
       <code><![CDATA[$editorType]]></code>
