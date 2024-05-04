@@ -124,6 +124,7 @@ class SqlQueryForm
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
             'allow_shared_bookmarks' => $this->config->settings['AllowSharedBookmarks'],
+            'hideSQLEditorControls' => $this->config->get('hideSQLEditorControls'),
         ]);
     }
 

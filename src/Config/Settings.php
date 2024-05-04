@@ -900,6 +900,16 @@ final class Settings
     public bool $ShowDatabasesNavigationAsTree;
 
     /**
+     * In the navigation panel, hides the SQL buttons in the editor
+     *
+     * ```php
+     * $cfg['hideSQLEditorControls'] = true;
+     * ```
+     *
+     */
+    public bool $hideSQLEditorControls;
+
+    /**
      * maximum number of first level databases displayed in navigation panel
      *
      * ```php
@@ -2680,6 +2690,7 @@ final class Settings
         $this->CaptchaSiteVerifyURL = $this->setCaptchaSiteVerifyURL($settings);
         $this->enable_drag_drop_import = $this->setEnableDragDropImport($settings);
         $this->ShowDatabasesNavigationAsTree = $this->setShowDatabasesNavigationAsTree($settings);
+        $this->hideSQLEditorControls = $this->setHideSQLEditorControls($settings);
         $this->FirstLevelNavigationItems = $this->setFirstLevelNavigationItems($settings);
         $this->MaxNavigationItems = $this->setMaxNavigationItems($settings);
         $this->NavigationTreeEnableGrouping = $this->setNavigationTreeEnableGrouping($settings);
@@ -3016,6 +3027,7 @@ final class Settings
             'Console' => $this->Console->asArray(),
             'DefaultTransformations' => $this->DefaultTransformations->asArray(),
             'FirstDayOfCalendar' => $this->FirstDayOfCalendar,
+            'hideSQLEditorControls' => $this->hideSQLEditorControls,
         ];
     }
 
@@ -3676,6 +3688,16 @@ final class Settings
         }
 
         return (bool) $settings['ShowDatabasesNavigationAsTree'];
+    }
+
+    /** @param array<int|string, mixed> $settings */
+    private function setHideSQLEditorControls(array $settings): bool
+    {
+        if (! isset($settings['hideSQLEditorControls'])) {
+            return false;
+        }
+
+        return (bool) $settings['hideSQLEditorControls'];
     }
 
     /**

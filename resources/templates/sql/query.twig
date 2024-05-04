@@ -24,7 +24,7 @@
               <div id="querymessage"></div>
 
               <div class="btn-toolbar" role="toolbar">
-                {% if columns_list is not empty %}
+                {% if columns_list is not empty and not hideSQLEditorControls %}
                   <div class="btn-group me-2" role="group">
                     <input type="button" value="SELECT *" id="selectall" class="btn btn-secondary button sqlbutton">
                     <input type="button" value="SELECT" id="select" class="btn btn-secondary button sqlbutton">
