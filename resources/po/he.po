@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-05-05 00:19+0000\n"
-"PO-Revision-Date: 2024-04-29 05:07+0000\n"
+"PO-Revision-Date: 2024-05-05 08:33+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.5.1\n"
+"X-Generator: Weblate 5.5.3\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -13246,10 +13246,8 @@ msgid "Show query box"
 msgstr "הצגת תיבת שאילתות"
 
 #: src/Controllers/JavaScriptMessagesController.php:401
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "שליחת שאילתה"
+msgstr "עריכת שאילתה"
 
 #: src/Controllers/JavaScriptMessagesController.php:403
 #, php-format
