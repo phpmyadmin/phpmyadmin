@@ -1300,11 +1300,6 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/Database/Structure/AddPrefixController.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Database/Structure/AddPrefixTableController.php">
     <MixedOperand>
       <code><![CDATA[$request->getParsedBodyParam('add_prefix', '')]]></code>

@@ -219,7 +219,7 @@ return [
         ],
         Database\Structure\AddPrefixController::class => [
             'class' => Database\Structure\AddPrefixController::class,
-            'arguments' => ['$response' => '@response'],
+            'arguments' => ['@response', '@' . ResponseFactory::class, '@template'],
         ],
         Database\Structure\AddPrefixTableController::class => [
             'class' => Database\Structure\AddPrefixTableController::class,
