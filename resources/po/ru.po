@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-04-28 00:20+0000\n"
+"POT-Creation-Date: 2024-05-05 00:19+0000\n"
 "PO-Revision-Date: 2024-05-03 20:07+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -121,7 +121,7 @@ msgstr "после %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:220
-#: src/Display/Results.php:938 src/Plugins/Export/ExportSql.php:2054
+#: src/Display/Results.php:938 src/Plugins/Export/ExportSql.php:2069
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Нет"
@@ -193,7 +193,7 @@ msgstr "поле(я)"
 #: resources/templates/table/structure/display_structure.twig:572
 #: resources/templates/table/zoom_search/index.twig:153
 #: resources/templates/triggers/editor_form.twig:75
-#: resources/templates/view_create.twig:123 src/BrowseForeigners.php:179
+#: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:336
 #: src/Controllers/Server/PrivilegesController.php:288
 #: src/Normalization.php:229 src/Tracking/Tracking.php:306
@@ -258,7 +258,7 @@ msgstr "Предпросмотр SQL"
 #: resources/templates/table/relation/common_form.twig:142
 #: resources/templates/table/structure/partition_definition_form.twig:13
 #: resources/templates/table/zoom_search/result_form.twig:79
-#: src/Controllers/JavaScriptMessagesController.php:453
+#: src/Controllers/JavaScriptMessagesController.php:454
 msgid "Save"
 msgstr "Сохранить"
 
@@ -475,8 +475,8 @@ msgstr "Группа узлов"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:715
-#: src/Import/Import.php:1160 src/Menu.php:213 src/Menu.php:317
+#: src/Controllers/JavaScriptMessagesController.php:717
+#: src/Import/Import.php:1165 src/Menu.php:213 src/Menu.php:317
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1057 src/Util.php:1482
@@ -735,7 +735,7 @@ msgstr "Сбросить"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:679 src/Html/MySQLDocumentation.php:49
+#: src/Html/Generator.php:677 src/Html/MySQLDocumentation.php:49
 #: src/Sanitize.php:188
 msgid "Documentation"
 msgstr "Документация"
@@ -797,7 +797,7 @@ msgstr "Недоступно"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:36
 #: src/Controllers/Database/Structure/EmptyTableController.php:48
-#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/JavaScriptMessagesController.php:504
 #: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:107
@@ -905,8 +905,8 @@ msgstr "Повторный запрос"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:400
-#: src/Display/Results.php:2486 src/Html/Generator.php:528
-#: src/Html/Generator.php:794
+#: src/Display/Results.php:2486 src/Html/Generator.php:526
+#: src/Html/Generator.php:792
 msgid "Edit"
 msgstr "Изменить"
 
@@ -923,7 +923,7 @@ msgstr "Изменить"
 #: resources/templates/server/user_groups/user_groups.twig:56
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:188
-#: src/Controllers/JavaScriptMessagesController.php:401
+#: src/Controllers/JavaScriptMessagesController.php:402
 #: src/Display/Results.php:2545 src/Tracking/Tracking.php:231
 msgid "Delete"
 msgstr "Удалить"
@@ -973,7 +973,7 @@ msgstr "История"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:97
-#: src/Import/Import.php:1161 src/Import/Import.php:1219
+#: src/Import/Import.php:1166 src/Import/Import.php:1224
 #: src/Plugins/Export/ExportCodegen.php:52 src/Plugins/Export/ExportCsv.php:43
 #: src/Plugins/Export/ExportExcel.php:37
 #: src/Plugins/Export/ExportHtmlword.php:47
@@ -981,7 +981,7 @@ msgstr "История"
 #: src/Plugins/Export/ExportMediawiki.php:43
 #: src/Plugins/Export/ExportOds.php:51 src/Plugins/Export/ExportOdt.php:60
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
-#: src/Plugins/Export/ExportSql.php:114
+#: src/Plugins/Export/ExportSql.php:116
 #: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:60
 #: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:86
 #: src/Plugins/Import/ImportLdi.php:61
@@ -1016,7 +1016,7 @@ msgstr "Анализировать"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:615
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:613
 msgid "Profiling"
 msgstr "Профилирование"
 
@@ -1090,15 +1090,15 @@ msgid "Count:"
 msgstr "Количество:"
 
 #: resources/templates/console/display.twig:121
-#: src/Controllers/JavaScriptMessagesController.php:665
+#: src/Controllers/JavaScriptMessagesController.php:667
 msgid "Time taken:"
 msgstr "Занято времени:"
 
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1229
-#: src/Html/Generator.php:584
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1233
+#: src/Html/Generator.php:582
 msgid "Refresh"
 msgstr "Обновить"
 
@@ -1339,7 +1339,7 @@ msgstr "Индексы"
 #: resources/templates/indexes.twig:17
 #: resources/templates/table/structure/display_structure.twig:475
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:5
-#: src/BrowseForeigners.php:194 src/BrowseForeigners.php:198
+#: src/BrowseForeigners.php:195 src/BrowseForeigners.php:199
 msgid "Keyname"
 msgstr "Имя индекса"
 
@@ -1402,7 +1402,7 @@ msgid "Page to delete"
 msgstr "Удаляемая страница"
 
 #: resources/templates/database/designer/main.twig:10
-#: src/Controllers/JavaScriptMessagesController.php:546
+#: src/Controllers/JavaScriptMessagesController.php:548
 msgid "Untitled"
 msgstr "Без названия"
 
@@ -1423,7 +1423,7 @@ msgstr "Выйти из полноэкранного режима"
 
 #: resources/templates/database/designer/main.twig:40
 #: resources/templates/database/designer/main.twig:43
-#: src/Controllers/JavaScriptMessagesController.php:538
+#: src/Controllers/JavaScriptMessagesController.php:540
 msgid "Add tables from other databases"
 msgstr "Добавить таблицы из других баз данных"
 
@@ -1434,19 +1434,19 @@ msgstr "Новая страница"
 
 #: resources/templates/database/designer/main.twig:56
 #: resources/templates/database/designer/main.twig:59
-#: src/Controllers/JavaScriptMessagesController.php:542
+#: src/Controllers/JavaScriptMessagesController.php:544
 msgid "Open page"
 msgstr "Открыть страницу"
 
 #: resources/templates/database/designer/main.twig:63
 #: resources/templates/database/designer/main.twig:66
-#: src/Controllers/JavaScriptMessagesController.php:540
+#: src/Controllers/JavaScriptMessagesController.php:542
 msgid "Save page"
 msgstr "Сохранить страницу"
 
 #: resources/templates/database/designer/main.twig:70
 #: resources/templates/database/designer/main.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:541
+#: src/Controllers/JavaScriptMessagesController.php:543
 msgid "Save page as"
 msgstr "Сохранить страницу как"
 
@@ -1469,7 +1469,7 @@ msgstr "Создать ссылку"
 
 #: resources/templates/database/designer/main.twig:98
 #: resources/templates/database/designer/main.twig:101
-#: src/Controllers/JavaScriptMessagesController.php:532
+#: src/Controllers/JavaScriptMessagesController.php:534
 msgid "Choose column to display"
 msgstr "Выбор отображаемого столбца"
 
@@ -1615,7 +1615,7 @@ msgstr "Активные параметры"
 
 #: resources/templates/database/designer/main.twig:1139
 #: resources/templates/sql/query.twig:180
-#: src/Controllers/JavaScriptMessagesController.php:557
+#: src/Controllers/JavaScriptMessagesController.php:559
 msgid "Submit"
 msgstr "Выполнить"
 
@@ -1723,7 +1723,7 @@ msgstr "Определитель"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:376
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:952 src/Plugins/Export/ExportXml.php:84
+#: src/Plugins/Export/ExportSql.php:960 src/Plugins/Export/ExportXml.php:84
 #: src/Util.php:1491
 msgid "Events"
 msgstr "События"
@@ -1916,7 +1916,7 @@ msgstr "выберите столбец"
 #: resources/templates/database/multi_table_query/form.twig:38
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
-#: src/Controllers/JavaScriptMessagesController.php:714
+#: src/Controllers/JavaScriptMessagesController.php:716
 #: src/Controllers/Table/ChangeController.php:220
 msgid "Show"
 msgstr "Показать"
@@ -1998,7 +1998,7 @@ msgid "Update query"
 msgstr "Обновить запрос"
 
 #: resources/templates/database/multi_table_query/form.twig:166
-#: src/Html/Generator.php:553
+#: src/Html/Generator.php:551
 msgid "Submit query"
 msgstr "Отправить запрос"
 
@@ -2532,7 +2532,7 @@ msgid "Replace table prefix"
 msgstr "Заменить префикс таблицы"
 
 #: resources/templates/database/structure/check_all_tables.twig:28
-#: src/Controllers/JavaScriptMessagesController.php:677
+#: src/Controllers/JavaScriptMessagesController.php:679
 msgid "Copy table with prefix"
 msgstr "Копировать таблицу с префиксом"
 
@@ -2567,7 +2567,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:241
-#: src/Plugins/Export/ExportSql.php:889 src/Plugins/Export/ExportXml.php:357
+#: src/Plugins/Export/ExportSql.php:891 src/Plugins/Export/ExportXml.php:357
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "База данных:"
@@ -2860,9 +2860,9 @@ msgstr "Конец"
 
 #: resources/templates/display/results/table.twig:96
 #: resources/templates/server/privileges/initials_row.twig:21
-#: resources/templates/table/browse_foreigners/show_all.twig:4
-#: src/BrowseForeigners.php:299
-#: src/Controllers/JavaScriptMessagesController.php:575
+#: resources/templates/table/browse_foreigners/show_all.twig:2
+#: src/BrowseForeigners.php:293
+#: src/Controllers/JavaScriptMessagesController.php:577
 msgid "Show all"
 msgstr "Показать все"
 
@@ -2924,7 +2924,7 @@ msgid "Hide browser transformation"
 msgstr "Скрыть преобразование"
 
 #: resources/templates/display/results/table.twig:260
-#: src/Controllers/JavaScriptMessagesController.php:494
+#: src/Controllers/JavaScriptMessagesController.php:496
 msgid "Geometry"
 msgstr "Геометрия"
 
@@ -2939,7 +2939,7 @@ msgstr "Бинарный (WKB)"
 #: resources/templates/display/results/table.twig:320
 #: resources/templates/display/results/table.twig:321
 #: resources/templates/gis_data_editor_form.twig:62
-#: src/Controllers/JavaScriptMessagesController.php:488
+#: src/Controllers/JavaScriptMessagesController.php:490
 #: src/Display/Results.php:2490 src/Html/Generator.php:77
 msgid "Copy"
 msgstr "Копировать"
@@ -2950,6 +2950,8 @@ msgid "Query results operations"
 msgstr "Использование результатов запроса"
 
 #: resources/templates/display/results/table.twig:350
+#: src/Controllers/JavaScriptMessagesController.php:489
+#: src/Export/Export.php:1252
 msgid "Copy to clipboard"
 msgstr "В буфер обмена"
 
@@ -2979,7 +2981,7 @@ msgstr "Конвертировать в Кану"
 #: src/Controllers/Table/Partition/DropController.php:53
 #: src/Controllers/Table/Partition/RebuildController.php:53
 #: src/Controllers/Table/Partition/TruncateController.php:53
-#: src/Html/Generator.php:745 src/Import/Import.php:115 src/InsertEdit.php:490
+#: src/Html/Generator.php:743 src/Import/Import.php:115 src/InsertEdit.php:489
 #: src/Message.php:145
 msgid "Error"
 msgstr "Ошибка"
@@ -3060,7 +3062,7 @@ msgstr "Обновление"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:74
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:769
+#: src/Html/Generator.php:767
 msgid "SQL query:"
 msgstr "SQL запрос:"
 
@@ -3460,7 +3462,7 @@ msgid "Server connection:"
 msgstr "Соединение сервера:"
 
 #: resources/templates/home/index.twig:194
-#: src/Plugins/Export/ExportLatex.php:214 src/Plugins/Export/ExportSql.php:719
+#: src/Plugins/Export/ExportLatex.php:214 src/Plugins/Export/ExportSql.php:721
 #: src/Plugins/Export/ExportXml.php:204
 msgid "Server version:"
 msgstr "Версия сервера:"
@@ -3561,8 +3563,8 @@ msgstr "Применить"
 
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
-#: src/Controllers/JavaScriptMessagesController.php:435
-#: src/Export/Export.php:1265 src/Html/Generator.php:860
+#: src/Controllers/JavaScriptMessagesController.php:436
+#: src/Export/Export.php:1275 src/Html/Generator.php:858
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Назад"
@@ -3613,7 +3615,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Вы также можете просто перетащить файл на любой странице."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:491
+#: src/InsertEdit.php:490
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Установленный каталог загрузки не доступен."
 
@@ -3682,7 +3684,7 @@ msgstr "Первичный ключ был удален."
 msgid "Index %s has been dropped."
 msgstr "Индекс %s был удален."
 
-#: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:285
+#: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:279
 #: src/Language.php:178 src/Pdf.php:83
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:471
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:496
@@ -3907,7 +3909,7 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "При загрузке панели навигации произошла ошибка"
 
 #: resources/templates/navigation/main.twig:84
-#: src/Controllers/JavaScriptMessagesController.php:592
+#: src/Controllers/JavaScriptMessagesController.php:594
 msgid "Drop files here"
 msgstr "Перетащите файлы сюда"
 
@@ -4508,7 +4510,7 @@ msgstr "Тип таблиц"
 #: resources/templates/server/engines/index.twig:14
 #: resources/templates/server/plugins/index.twig:27
 #: resources/templates/server/status/variables/index.twig:77
-#: src/BrowseForeigners.php:195 src/BrowseForeigners.php:197
+#: src/BrowseForeigners.php:196 src/BrowseForeigners.php:198
 msgid "Description"
 msgstr "Описание"
 
@@ -4844,7 +4846,7 @@ msgstr "Разрешает выборку данных."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:499
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:498
 msgid "Or"
 msgstr "Или"
 
@@ -5284,7 +5286,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:206 src/Plugins/Export/ExportSql.php:708
+#: src/Plugins/Export/ExportLatex.php:206 src/Plugins/Export/ExportSql.php:710
 #: src/Plugins/Export/ExportXml.php:195
 msgid "Host:"
 msgstr "Хост:"
@@ -5329,7 +5331,7 @@ msgid "Generate password:"
 msgstr "Создать пароль:"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:599
+#: src/Controllers/JavaScriptMessagesController.php:601
 msgid "Generate"
 msgstr "Генерировать"
 
@@ -6304,7 +6306,7 @@ msgstr "Имитировать запрос"
 #: resources/templates/sql/relational_column_dropdown.twig:3
 #: resources/templates/table/insert/column_row.twig:48
 #: resources/templates/table/search/input_box.twig:21
-#: src/Controllers/JavaScriptMessagesController.php:403
+#: src/Controllers/JavaScriptMessagesController.php:404
 msgid "Browse foreign values"
 msgstr "Обзор внешних значений"
 
@@ -6527,9 +6529,9 @@ msgstr "Перетяните для изменения порядка сорти
 
 #: resources/templates/table/index_form.twig:167
 #: resources/templates/table/index_form.twig:203
-#: src/Controllers/JavaScriptMessagesController.php:487
-#: src/Controllers/JavaScriptMessagesController.php:638
-#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1529
+#: src/Controllers/JavaScriptMessagesController.php:488
+#: src/Controllers/JavaScriptMessagesController.php:640
+#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1528
 msgid "Ignore"
 msgstr "Игнорировать"
 
@@ -6985,7 +6987,7 @@ msgid "Column %s has been dropped."
 msgstr "Поле %s было удалено."
 
 #: resources/templates/table/structure/display_structure.twig:130
-#: src/Controllers/JavaScriptMessagesController.php:602
+#: src/Controllers/JavaScriptMessagesController.php:604
 msgid "More"
 msgstr "Ещё"
 
@@ -7220,7 +7222,7 @@ msgstr "Экспорт триггера %s"
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Plugins/Export/ExportHtmlword.php:530
 #: src/Plugins/Export/ExportOdt.php:657 src/Plugins/Export/ExportPdf.php:251
-#: src/Plugins/Export/ExportSql.php:1926
+#: src/Plugins/Export/ExportSql.php:1934
 #: src/Plugins/Export/ExportTexytext.php:498
 #: src/Plugins/Export/ExportXml.php:104 src/Util.php:1492 src/Util.php:1508
 msgid "Triggers"
@@ -8580,7 +8582,7 @@ msgstr ""
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit установлен на 1 MiB"
 
-#: src/BrowseForeigners.php:173
+#: src/BrowseForeigners.php:174
 msgid "Search:"
 msgstr "Поиск:"
 
@@ -8922,43 +8924,43 @@ msgid "Closed"
 msgstr "Закрыт"
 
 #: src/Config/ConfigFile.php:607
-#: src/Controllers/JavaScriptMessagesController.php:742
+#: src/Controllers/JavaScriptMessagesController.php:744
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "Понедельник"
 
 #: src/Config/ConfigFile.php:608
-#: src/Controllers/JavaScriptMessagesController.php:743
+#: src/Controllers/JavaScriptMessagesController.php:745
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Вторник"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:744
+#: src/Controllers/JavaScriptMessagesController.php:746
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Среда"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:745
+#: src/Controllers/JavaScriptMessagesController.php:747
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Четверг"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:746
+#: src/Controllers/JavaScriptMessagesController.php:748
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "Пятница"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:747
+#: src/Controllers/JavaScriptMessagesController.php:749
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Суббота"
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:741
+#: src/Controllers/JavaScriptMessagesController.php:743
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Воскресенье"
@@ -8993,7 +8995,7 @@ msgstr "Отключить"
 #: src/Plugins/Export/ExportLatex.php:94
 #: src/Plugins/Export/ExportMediawiki.php:63
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:213
+#: src/Plugins/Export/ExportSql.php:215
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "structure"
 msgstr "структура"
@@ -9004,7 +9006,7 @@ msgstr "структура"
 #: src/Plugins/Export/ExportLatex.php:94
 #: src/Plugins/Export/ExportMediawiki.php:63
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:213
+#: src/Plugins/Export/ExportSql.php:215
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "data"
 msgstr "данные"
@@ -9015,7 +9017,7 @@ msgstr "данные"
 #: src/Plugins/Export/ExportLatex.php:94
 #: src/Plugins/Export/ExportMediawiki.php:63
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:213
+#: src/Plugins/Export/ExportSql.php:215
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "structure and data"
 msgstr "структура и данные"
@@ -9220,7 +9222,7 @@ msgstr ""
 "может работать ([kbd]0[/kbd] - без ограничения)."
 
 #: src/Config/Descriptions.php:168 src/Config/Descriptions.php:708
-#: src/Plugins/Export/ExportSql.php:313
+#: src/Plugins/Export/ExportSql.php:315
 msgid "Exclude definition of current user"
 msgstr "Исключить определение текущего пользователя"
 
@@ -10543,7 +10545,7 @@ msgstr "Шаблон имени таблицы"
 #: src/Plugins/Export/ExportMediawiki.php:53
 #: src/Plugins/Export/ExportMediawiki.php:59
 #: src/Plugins/Export/ExportOdt.php:70 src/Plugins/Export/ExportPdf.php:81
-#: src/Plugins/Export/ExportSql.php:209
+#: src/Plugins/Export/ExportSql.php:211
 #: src/Plugins/Export/ExportTexytext.php:56
 msgid "Dump table"
 msgstr "Сохранение таблицы"
@@ -10605,11 +10607,11 @@ msgstr "Даты создания, обновления и проверки"
 msgid "Use delayed inserts"
 msgstr "Использовать отложенные вставки (DELAYED)"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:178
+#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:180
 msgid "Disable foreign key checks"
 msgstr "Отключить проверку внешних ключей"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:188
+#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:190
 msgid "Export views as tables"
 msgstr "Экспортировать представления как таблицы"
 
@@ -10630,7 +10632,7 @@ msgstr ""
 "Добавить IF NOT EXISTS (менее эффективно, т.к. индексы будут созданы во "
 "время создания таблицы)"
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:319
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:321
 #, php-format
 msgid "%s view"
 msgstr "%s вид"
@@ -10643,7 +10645,7 @@ msgstr "Использовать игнорирующие вставки (IGNORE
 msgid "Syntax to use when inserting data"
 msgstr "Использовать синтаксис при вставке данных"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:446
+#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:448
 msgid "Maximal length of created query"
 msgstr "Максимальная длина создаваемого запроса"
 
@@ -10651,7 +10653,7 @@ msgstr "Максимальная длина создаваемого запро�
 msgid "Export type"
 msgstr "Тип экспорта"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:168
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:170
 msgid "Enclose export in a transaction"
 msgstr "Заключить экспорт в транзакцию"
 
@@ -10918,7 +10920,7 @@ msgid "Navigation panel width"
 msgstr "Ширина панели навигации"
 
 #: src/Config/Descriptions.php:811
-#: src/Controllers/JavaScriptMessagesController.php:607
+#: src/Controllers/JavaScriptMessagesController.php:609
 #: src/Navigation/NavigationTree.php:1310
 msgid "Link with main panel"
 msgstr "Связать с главной панелью"
@@ -11347,11 +11349,11 @@ msgstr "Показывать статистику"
 msgid "Skip locked tables"
 msgstr "Пропускать заблокированные таблицы"
 
-#: src/Config/Descriptions.php:927 src/Html/Generator.php:503
+#: src/Config/Descriptions.php:927 src/Html/Generator.php:501
 msgid "Explain SQL"
 msgstr "Анализ SQL запроса"
 
-#: src/Config/Descriptions.php:929 src/Html/Generator.php:564
+#: src/Config/Descriptions.php:929 src/Html/Generator.php:562
 msgid "Create PHP code"
 msgstr "Создать PHP-код"
 
@@ -11479,7 +11481,7 @@ msgid "Missing data for %s"
 msgstr "Отсутствуют данные для %s"
 
 #: src/Config/FormDisplay.php:620 src/Config/Validator.php:587
-#: src/Controllers/JavaScriptMessagesController.php:825
+#: src/Controllers/JavaScriptMessagesController.php:827
 msgid "Incorrect value!"
 msgstr "Некорректное значение!"
 
@@ -11722,11 +11724,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "Сервер %d"
 
-#: src/ConfigStorage/Relation.php:1240
+#: src/ConfigStorage/Relation.php:1224
 msgid "no description"
 msgstr "нет описания"
 
-#: src/ConfigStorage/Relation.php:1437
+#: src/ConfigStorage/Relation.php:1421
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -11801,22 +11803,22 @@ msgid "Incorrect IP address: %s"
 msgstr "Некорректно введен IP адрес: %s"
 
 #: src/Config/Validator.php:522
-#: src/Controllers/JavaScriptMessagesController.php:824
+#: src/Controllers/JavaScriptMessagesController.php:826
 msgid "Not a valid port number!"
 msgstr "Некорректный номер порта!"
 
 #: src/Config/Validator.php:544
-#: src/Controllers/JavaScriptMessagesController.php:822
+#: src/Controllers/JavaScriptMessagesController.php:824
 msgid "Not a positive number!"
 msgstr "Значение должно быть положительным числом!"
 
 #: src/Config/Validator.php:566
-#: src/Controllers/JavaScriptMessagesController.php:823
+#: src/Controllers/JavaScriptMessagesController.php:825
 msgid "Not a non-negative number!"
 msgstr "Значение должно быть отрицательным числом!"
 
 #: src/Config/Validator.php:605
-#: src/Controllers/JavaScriptMessagesController.php:826
+#: src/Controllers/JavaScriptMessagesController.php:828
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "Значение должно быть меньше или равно %s!"
@@ -11848,7 +11850,7 @@ msgid "Incomplete params"
 msgstr "Неполные параметры"
 
 #: src/Controllers/Console/Bookmark/AddController.php:46
-#: src/Controllers/JavaScriptMessagesController.php:589
+#: src/Controllers/JavaScriptMessagesController.php:591
 msgid "Failed"
 msgstr "Ошибка"
 
@@ -11930,8 +11932,8 @@ msgstr ""
 #: src/Controllers/Table/IndexesController.php:73
 #: src/Controllers/Table/IndexRenameController.php:58
 #: src/Controllers/Table/IndexRenameController.php:63
-#: src/Controllers/Table/SearchController.php:174
-#: src/Controllers/Table/SearchController.php:179
+#: src/Controllers/Table/SearchController.php:173
+#: src/Controllers/Table/SearchController.php:178
 #: src/Controllers/Table/SqlController.php:65
 #: src/Controllers/Table/SqlController.php:70
 #: src/Controllers/Table/StructureController.php:95
@@ -11940,8 +11942,8 @@ msgstr ""
 #: src/Controllers/Table/Structure/PrimaryController.php:79
 #: src/Controllers/Table/TrackingController.php:70
 #: src/Controllers/Table/TrackingController.php:75
-#: src/Controllers/Table/ZoomSearchController.php:100
-#: src/Controllers/Table/ZoomSearchController.php:105
+#: src/Controllers/Table/ZoomSearchController.php:99
+#: src/Controllers/Table/ZoomSearchController.php:104
 #: src/Controllers/Triggers/IndexController.php:73
 #: src/Controllers/Triggers/IndexController.php:102
 #: src/Controllers/View/CreateController.php:75
@@ -12050,16 +12052,16 @@ msgstr "У вас нет прав администрировать пользо�
 #: src/Controllers/Table/Maintenance/ChecksumController.php:43
 #: src/Controllers/Table/Maintenance/OptimizeController.php:43
 #: src/Controllers/Table/Maintenance/RepairController.php:43
-#: src/Controllers/Table/SearchController.php:188
-#: src/Controllers/Table/SearchController.php:193
+#: src/Controllers/Table/SearchController.php:187
+#: src/Controllers/Table/SearchController.php:192
 #: src/Controllers/Table/SqlController.php:79
 #: src/Controllers/Table/SqlController.php:84
 #: src/Controllers/Table/StructureController.php:109
 #: src/Controllers/Table/StructureController.php:114
 #: src/Controllers/Table/Structure/PrimaryController.php:88
 #: src/Controllers/Table/Structure/PrimaryController.php:93
-#: src/Controllers/Table/ZoomSearchController.php:114
-#: src/Controllers/Table/ZoomSearchController.php:119
+#: src/Controllers/Table/ZoomSearchController.php:113
+#: src/Controllers/Table/ZoomSearchController.php:118
 #: src/Controllers/Triggers/IndexController.php:81
 msgid "No table selected."
 msgstr "Ни одна таблица не выбрана."
@@ -12184,7 +12186,7 @@ msgstr "Если у вас возникают проблемы, отправьт
 msgid "You may want to refresh the page."
 msgstr "Возможно вы хотите перезагрузить страницу."
 
-#: src/Controllers/Export/ExportController.php:111 src/Export/Export.php:1209
+#: src/Controllers/Export/ExportController.php:111 src/Export/Export.php:1213
 msgid "Bad type!"
 msgstr "Неучтённый тип!"
 
@@ -12200,7 +12202,7 @@ msgstr ""
 "Вы вышли из одного сервера, чтобы полностью выйти из phpMyAdmin, вам нужно "
 "выйти со всех серверов."
 
-#: src/Controllers/HomeController.php:192
+#: src/Controllers/HomeController.php:196
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12209,14 +12211,14 @@ msgstr ""
 "Хранилище конфигурации phpMyAdmin не полностью настроено, некоторые "
 "расширенные функции были отключены. %sУзнайте причину%s. "
 
-#: src/Controllers/HomeController.php:198
+#: src/Controllers/HomeController.php:202
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Или перейдите на вкладку 'Операции' любой базы данных, чтобы настроить "
 "хранилище в ней."
 
-#: src/Controllers/HomeController.php:264
+#: src/Controllers/HomeController.php:268
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12229,7 +12231,7 @@ msgstr ""
 "этой причине сессия входа может закончиться быстрее установленной в "
 "phpMyAdmin."
 
-#: src/Controllers/HomeController.php:284
+#: src/Controllers/HomeController.php:288
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12237,7 +12239,7 @@ msgstr ""
 "Значение длительности хранения cookie меньше, чем определено в phpMyAdmin. "
 "По этой причине сессия входа завершится быстрее установленной в phpMyAdmin."
 
-#: src/Controllers/HomeController.php:303
+#: src/Controllers/HomeController.php:307
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12248,7 +12250,7 @@ msgstr ""
 "исправить эту уязвимость безопасности, изменив пароль для управляющего "
 "пользователя 'pma'."
 
-#: src/Controllers/HomeController.php:322
+#: src/Controllers/HomeController.php:326
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12258,7 +12260,7 @@ msgstr ""
 "Временный ключ был автоматически создан для вас. Пожалуйста, обратитесь к "
 "[doc@cfg_blowfish_secret]документации[/doc] ."
 
-#: src/Controllers/HomeController.php:332
+#: src/Controllers/HomeController.php:336
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12269,7 +12271,7 @@ msgstr ""
 "длина должна быть всего %d байт. Пожалуйста, обратитесь к "
 "[doc@cfg_blowfish_secret]документации[/doc] ."
 
-#: src/Controllers/HomeController.php:350
+#: src/Controllers/HomeController.php:354
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12282,7 +12284,7 @@ msgstr ""
 "может быть скомпрометирована через свободный доступ к загрузке "
 "конфигурационного файла."
 
-#: src/Controllers/HomeController.php:371
+#: src/Controllers/HomeController.php:375
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12291,7 +12293,7 @@ msgstr ""
 "Сервер использует защитную систему Suhosin. Для решения возможных проблем "
 "обратитесь к %sдокументации%s."
 
-#: src/Controllers/HomeController.php:385
+#: src/Controllers/HomeController.php:389
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12300,7 +12302,7 @@ msgstr ""
 "$Cfg['TempDir'] (%s) недоступен. Из-за этого phpMyAdmin не может кэшировать "
 "шаблоны и будет медленным."
 
-#: src/Controllers/HomeController.php:442
+#: src/Controllers/HomeController.php:446
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12310,7 +12312,7 @@ msgstr ""
 "mbstring phpMyAdmin не в состоянии производить корректное разбиение строк, "
 "что может привести к непредсказуемым результатам."
 
-#: src/Controllers/HomeController.php:460
+#: src/Controllers/HomeController.php:464
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -13236,18 +13238,24 @@ msgstr "Скрыть поле запроса"
 msgid "Show query box"
 msgstr "Отобразить поле запроса"
 
-#: src/Controllers/JavaScriptMessagesController.php:402
+#: src/Controllers/JavaScriptMessagesController.php:401
+#, fuzzy
+#| msgid "Submit query"
+msgid "Edit query"
+msgstr "Отправить запрос"
+
+#: src/Controllers/JavaScriptMessagesController.php:403
 #, php-format
 msgid "%d is not valid row number."
 msgstr "Число %d не является правильным номером строки."
 
-#: src/Controllers/JavaScriptMessagesController.php:404
+#: src/Controllers/JavaScriptMessagesController.php:405
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 "Предыдущий автосохраненный запрос недоступен. Загружается запрос по "
 "умолчанию."
 
-#: src/Controllers/JavaScriptMessagesController.php:406
+#: src/Controllers/JavaScriptMessagesController.php:407
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
@@ -13255,25 +13263,25 @@ msgstr ""
 "У вас есть предыдущий сохраненный запрос. Нажмите Получить автосохраненный "
 "запрос, чтобы его загрузить."
 
-#: src/Controllers/JavaScriptMessagesController.php:408
+#: src/Controllers/JavaScriptMessagesController.php:409
 #, php-format
 msgid "Variable %d:"
 msgstr "Переменная %d:"
 
-#: src/Controllers/JavaScriptMessagesController.php:411
+#: src/Controllers/JavaScriptMessagesController.php:412
 #: src/Normalization.php:949
 msgid "Pick"
 msgstr "Выбрать"
 
-#: src/Controllers/JavaScriptMessagesController.php:412
+#: src/Controllers/JavaScriptMessagesController.php:413
 msgid "Column selector"
 msgstr "Селектор столбца"
 
-#: src/Controllers/JavaScriptMessagesController.php:413
+#: src/Controllers/JavaScriptMessagesController.php:414
 msgid "Search this list"
 msgstr "Искать в списке"
 
-#: src/Controllers/JavaScriptMessagesController.php:415
+#: src/Controllers/JavaScriptMessagesController.php:416
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -13283,54 +13291,54 @@ msgstr ""
 "столбцов для базы данных %s имеет столбцы, которые не присутствуют в текущей "
 "таблице."
 
-#: src/Controllers/JavaScriptMessagesController.php:418
+#: src/Controllers/JavaScriptMessagesController.php:419
 msgid "See more"
 msgstr "Больше информации"
 
-#: src/Controllers/JavaScriptMessagesController.php:421
+#: src/Controllers/JavaScriptMessagesController.php:422
 msgid "Add primary key"
 msgstr "Добавить первичный ключ"
 
-#: src/Controllers/JavaScriptMessagesController.php:422
+#: src/Controllers/JavaScriptMessagesController.php:423
 msgid "Primary key added."
 msgstr "Добавлен первичный ключ."
 
-#: src/Controllers/JavaScriptMessagesController.php:423
+#: src/Controllers/JavaScriptMessagesController.php:424
 #: src/Normalization.php:255
 msgid "Taking you to next step…"
 msgstr "Переход к следующему шагу…"
 
-#: src/Controllers/JavaScriptMessagesController.php:424
+#: src/Controllers/JavaScriptMessagesController.php:425
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Первый этап нормализации таблицы '%s' завершён."
 
-#: src/Controllers/JavaScriptMessagesController.php:425
+#: src/Controllers/JavaScriptMessagesController.php:426
 #: src/Normalization.php:511 src/Normalization.php:570
 #: src/Normalization.php:657 src/Normalization.php:730
 msgid "End of step"
 msgstr "Конец шага"
 
-#: src/Controllers/JavaScriptMessagesController.php:426
+#: src/Controllers/JavaScriptMessagesController.php:427
 msgid "Second step of normalization (2NF)"
 msgstr "Второй этап нормализации (2NF)"
 
 #. l10n: Display text for calendar close link
-#: src/Controllers/JavaScriptMessagesController.php:427
-#: src/Controllers/JavaScriptMessagesController.php:774
+#: src/Controllers/JavaScriptMessagesController.php:428
+#: src/Controllers/JavaScriptMessagesController.php:776
 #: src/Normalization.php:343
 msgid "Done"
 msgstr "Готово"
 
-#: src/Controllers/JavaScriptMessagesController.php:428
+#: src/Controllers/JavaScriptMessagesController.php:429
 msgid "Confirm partial dependencies"
 msgstr "Подтвердите частичные зависимости"
 
-#: src/Controllers/JavaScriptMessagesController.php:429
+#: src/Controllers/JavaScriptMessagesController.php:430
 msgid "Selected partial dependencies are as follows:"
 msgstr "Выбранные частичные зависимости показаны ниже:"
 
-#: src/Controllers/JavaScriptMessagesController.php:431
+#: src/Controllers/JavaScriptMessagesController.php:432
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -13338,20 +13346,20 @@ msgstr ""
 "Примечание: a, b -> d, f подразумевает, что значения столбцов a и b при "
 "объединении вместе могут определить значения столбца d и столбца f."
 
-#: src/Controllers/JavaScriptMessagesController.php:434
+#: src/Controllers/JavaScriptMessagesController.php:435
 msgid "No partial dependencies selected!"
 msgstr "Не выбраны зависимости!"
 
-#: src/Controllers/JavaScriptMessagesController.php:436
+#: src/Controllers/JavaScriptMessagesController.php:437
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "Покажите мне возможные частичные зависимости на основе данных в таблице"
 
-#: src/Controllers/JavaScriptMessagesController.php:437
+#: src/Controllers/JavaScriptMessagesController.php:438
 msgid "Hide partial dependencies list"
 msgstr "Скрыть список частичных зависимостей"
 
-#: src/Controllers/JavaScriptMessagesController.php:439
+#: src/Controllers/JavaScriptMessagesController.php:440
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -13359,158 +13367,158 @@ msgstr ""
 "Подождите, пожалуйста! Это может занять несколько секунд, в зависимости от "
 "объёма данных и количества столбцов таблицы."
 
-#: src/Controllers/JavaScriptMessagesController.php:441
+#: src/Controllers/JavaScriptMessagesController.php:442
 msgid "Step"
 msgstr "Шаг"
 
-#: src/Controllers/JavaScriptMessagesController.php:442
+#: src/Controllers/JavaScriptMessagesController.php:443
 msgid "The following actions will be performed:"
 msgstr "Выполнены следующие действия:"
 
-#: src/Controllers/JavaScriptMessagesController.php:443
+#: src/Controllers/JavaScriptMessagesController.php:444
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "DROP столбцов %s в таблице %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:444
+#: src/Controllers/JavaScriptMessagesController.php:445
 msgid "Create the following table"
 msgstr "Создать следующую таблицу"
 
-#: src/Controllers/JavaScriptMessagesController.php:447
+#: src/Controllers/JavaScriptMessagesController.php:448
 msgid "Third step of normalization (3NF)"
 msgstr "Третий этап нормализации (3NF)"
 
-#: src/Controllers/JavaScriptMessagesController.php:448
+#: src/Controllers/JavaScriptMessagesController.php:449
 msgid "Confirm transitive dependencies"
 msgstr "Подтвердите транзитивные зависимости"
 
-#: src/Controllers/JavaScriptMessagesController.php:449
+#: src/Controllers/JavaScriptMessagesController.php:450
 msgid "Selected dependencies are as follows:"
 msgstr "Выбранные зависимости показаны ниже:"
 
-#: src/Controllers/JavaScriptMessagesController.php:450
+#: src/Controllers/JavaScriptMessagesController.php:451
 msgid "No dependencies selected!"
 msgstr "Не выбраны зависимости!"
 
-#: src/Controllers/JavaScriptMessagesController.php:456
+#: src/Controllers/JavaScriptMessagesController.php:457
 msgid "Hide search criteria"
 msgstr "Скрыть параметры поиска"
 
-#: src/Controllers/JavaScriptMessagesController.php:457
+#: src/Controllers/JavaScriptMessagesController.php:458
 msgid "Show search criteria"
 msgstr "Отобразить параметры поиска"
 
-#: src/Controllers/JavaScriptMessagesController.php:458
+#: src/Controllers/JavaScriptMessagesController.php:459
 msgid "Column maximum:"
 msgstr "Максимум в столбце:"
 
-#: src/Controllers/JavaScriptMessagesController.php:459
+#: src/Controllers/JavaScriptMessagesController.php:460
 msgid "Column minimum:"
 msgstr "Минимум в столбце:"
 
-#: src/Controllers/JavaScriptMessagesController.php:462
+#: src/Controllers/JavaScriptMessagesController.php:463
 msgid "Hide find and replace criteria"
 msgstr "Скрыть параметры поиска и замены"
 
-#: src/Controllers/JavaScriptMessagesController.php:463
+#: src/Controllers/JavaScriptMessagesController.php:464
 msgid "Show find and replace criteria"
 msgstr "Отобразить параметры поиска и замены"
 
-#: src/Controllers/JavaScriptMessagesController.php:467
+#: src/Controllers/JavaScriptMessagesController.php:468
 msgid "Each point represents a data row."
 msgstr "Каждая точка представляет строку данных."
 
-#: src/Controllers/JavaScriptMessagesController.php:469
+#: src/Controllers/JavaScriptMessagesController.php:470
 msgid "Hovering over a point will show its label."
 msgstr "Удержание курсора над точкой отобразит ее название."
 
-#: src/Controllers/JavaScriptMessagesController.php:471
+#: src/Controllers/JavaScriptMessagesController.php:472
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Для увеличения, выберите часть диаграммы мышкой."
 
-#: src/Controllers/JavaScriptMessagesController.php:473
+#: src/Controllers/JavaScriptMessagesController.php:474
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 "Кликните ссылку сброса увеличения для возвращения к исходному состоянию."
 
-#: src/Controllers/JavaScriptMessagesController.php:475
+#: src/Controllers/JavaScriptMessagesController.php:476
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "Кликните точку данных для просмотра или редактирования строки данных."
 
-#: src/Controllers/JavaScriptMessagesController.php:477
+#: src/Controllers/JavaScriptMessagesController.php:478
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 "Можно изменить размер участка перетащив его вдоль нижнего правого угла."
 
-#: src/Controllers/JavaScriptMessagesController.php:480
+#: src/Controllers/JavaScriptMessagesController.php:481
 msgid "Select two columns"
 msgstr "Выберите два столбца"
 
-#: src/Controllers/JavaScriptMessagesController.php:482
+#: src/Controllers/JavaScriptMessagesController.php:483
 msgid "Select two different columns"
 msgstr "Выберите два различных столбца"
 
-#: src/Controllers/JavaScriptMessagesController.php:484
+#: src/Controllers/JavaScriptMessagesController.php:485
 msgid "Data point content"
 msgstr "Содержание точки данных"
 
-#: src/Controllers/JavaScriptMessagesController.php:489
+#: src/Controllers/JavaScriptMessagesController.php:491
 msgid "X"
 msgstr "X"
 
-#: src/Controllers/JavaScriptMessagesController.php:490
+#: src/Controllers/JavaScriptMessagesController.php:492
 msgid "Y"
 msgstr "Y"
 
-#: src/Controllers/JavaScriptMessagesController.php:491
+#: src/Controllers/JavaScriptMessagesController.php:493
 msgid "Point"
 msgstr "Точка"
 
-#: src/Controllers/JavaScriptMessagesController.php:492
+#: src/Controllers/JavaScriptMessagesController.php:494
 msgid "Linestring"
 msgstr "Линия"
 
-#: src/Controllers/JavaScriptMessagesController.php:493
+#: src/Controllers/JavaScriptMessagesController.php:495
 msgid "Polygon"
 msgstr "Многоугольник"
 
-#: src/Controllers/JavaScriptMessagesController.php:495
+#: src/Controllers/JavaScriptMessagesController.php:497
 msgid "Inner ring"
 msgstr "Внутренний контур"
 
-#: src/Controllers/JavaScriptMessagesController.php:496
+#: src/Controllers/JavaScriptMessagesController.php:498
 msgid "Outer ring"
 msgstr "Внешний контур"
 
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:499
 msgid "Add a point"
 msgstr "Добавить точку"
 
-#: src/Controllers/JavaScriptMessagesController.php:498
+#: src/Controllers/JavaScriptMessagesController.php:500
 msgid "Add a linestring"
 msgstr "Добавить отрезок"
 
-#: src/Controllers/JavaScriptMessagesController.php:499
+#: src/Controllers/JavaScriptMessagesController.php:501
 msgid "Add an inner ring"
 msgstr "Добавить внутренний контур"
 
-#: src/Controllers/JavaScriptMessagesController.php:500
+#: src/Controllers/JavaScriptMessagesController.php:502
 msgid "Add a polygon"
 msgstr "Добавить многоугольник"
 
-#: src/Controllers/JavaScriptMessagesController.php:501
+#: src/Controllers/JavaScriptMessagesController.php:503
 msgid "Add geometry"
 msgstr "Добавить геометрию"
 
-#: src/Controllers/JavaScriptMessagesController.php:503
+#: src/Controllers/JavaScriptMessagesController.php:505
 msgid "Do you want to copy encryption key?"
 msgstr "Вы хотите скопировать ключ шифрования?"
 
-#: src/Controllers/JavaScriptMessagesController.php:504
+#: src/Controllers/JavaScriptMessagesController.php:506
 msgid "Encryption key"
 msgstr "Ключ шифрования"
 
-#: src/Controllers/JavaScriptMessagesController.php:507
+#: src/Controllers/JavaScriptMessagesController.php:509
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
@@ -13518,7 +13526,7 @@ msgstr ""
 "HEX-функции будут трактовать целое число как строку при расчёте "
 "шестнадцатеричного значения"
 
-#: src/Controllers/JavaScriptMessagesController.php:512
+#: src/Controllers/JavaScriptMessagesController.php:514
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -13526,7 +13534,7 @@ msgstr ""
 "MySQL принимает дополнительные значения, которые нельзя выбрать с помощью "
 "ползунка; введите эти значения непосредственно при необходимости"
 
-#: src/Controllers/JavaScriptMessagesController.php:518
+#: src/Controllers/JavaScriptMessagesController.php:520
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -13534,7 +13542,7 @@ msgstr ""
 "MySQL принимает дополнительные значения, недоступные для выбора даты; "
 "введите эти значения непосредственно при необходимости"
 
-#: src/Controllers/JavaScriptMessagesController.php:524
+#: src/Controllers/JavaScriptMessagesController.php:526
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -13542,19 +13550,19 @@ msgstr ""
 "Показывает, что были произведены изменения на странице. Для отмены изменений "
 "потребуется подтверждение"
 
-#: src/Controllers/JavaScriptMessagesController.php:529
+#: src/Controllers/JavaScriptMessagesController.php:531
 msgid "Select referenced key"
 msgstr "Выберите ссылочный ключ"
 
-#: src/Controllers/JavaScriptMessagesController.php:530
+#: src/Controllers/JavaScriptMessagesController.php:532
 msgid "Select Foreign Key"
 msgstr "Выберите внешний ключ"
 
-#: src/Controllers/JavaScriptMessagesController.php:531
+#: src/Controllers/JavaScriptMessagesController.php:533
 msgid "Please select the primary key or a unique key!"
 msgstr "Выберите поле основного индекса (PRIMARY) или уникального индекса!"
 
-#: src/Controllers/JavaScriptMessagesController.php:534
+#: src/Controllers/JavaScriptMessagesController.php:536
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -13562,65 +13570,65 @@ msgstr ""
 "Вы не сохранили изменения в раскладке. Без сохранения, они будут потеряны. "
 "Продолжить?"
 
-#: src/Controllers/JavaScriptMessagesController.php:537
+#: src/Controllers/JavaScriptMessagesController.php:539
 msgid "value/subQuery is empty"
 msgstr "значение/subQuery пусто"
 
-#: src/Controllers/JavaScriptMessagesController.php:539
+#: src/Controllers/JavaScriptMessagesController.php:541
 msgid "Page name"
 msgstr "Название страницы"
 
-#: src/Controllers/JavaScriptMessagesController.php:543
+#: src/Controllers/JavaScriptMessagesController.php:545
 msgid "Delete page"
 msgstr "Удалить страницу"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:547
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 "Некоторые таблицы, сохранённые на этой странице, могли быть переименованы "
 "или удалены."
 
-#: src/Controllers/JavaScriptMessagesController.php:547
+#: src/Controllers/JavaScriptMessagesController.php:549
 msgid "Please select a page to continue"
 msgstr "Выберите следующую страницу"
 
-#: src/Controllers/JavaScriptMessagesController.php:548
+#: src/Controllers/JavaScriptMessagesController.php:550
 msgid "Please enter a valid page name"
 msgstr "Введите правильное имя страницы"
 
-#: src/Controllers/JavaScriptMessagesController.php:549
+#: src/Controllers/JavaScriptMessagesController.php:551
 msgid "Do you want to save the changes to the current page?"
 msgstr "Вы хотите записать изменения на текущую страницу?"
 
-#: src/Controllers/JavaScriptMessagesController.php:550
+#: src/Controllers/JavaScriptMessagesController.php:552
 msgid "Successfully deleted the page"
 msgstr "Страница успешно удалена"
 
-#: src/Controllers/JavaScriptMessagesController.php:551
+#: src/Controllers/JavaScriptMessagesController.php:553
 msgid "Export relational schema"
 msgstr "Экспорт схемы связей"
 
-#: src/Controllers/JavaScriptMessagesController.php:552
+#: src/Controllers/JavaScriptMessagesController.php:554
 msgid "Modifications have been saved"
 msgstr "Изменения сохранены"
 
-#: src/Controllers/JavaScriptMessagesController.php:555
+#: src/Controllers/JavaScriptMessagesController.php:557
 #, php-format
 msgid "%d object(s) created."
 msgstr "создано %d объект(ов)."
 
-#: src/Controllers/JavaScriptMessagesController.php:556
+#: src/Controllers/JavaScriptMessagesController.php:558
 msgid "Column name"
 msgstr "Название столбца"
 
-#: src/Controllers/JavaScriptMessagesController.php:560
+#: src/Controllers/JavaScriptMessagesController.php:562
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr ""
 "Для отмены редактирования нажмите Esc.<br>- Shift+Enter для перехода на "
 "новую строку."
 
-#: src/Controllers/JavaScriptMessagesController.php:562
+#: src/Controllers/JavaScriptMessagesController.php:564
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -13628,15 +13636,15 @@ msgstr ""
 "Вы отредактировали некоторые данные, но изменения не были сохранены. Вы "
 "уверены, что хотите покинуть данную страницу без сохранения данных?"
 
-#: src/Controllers/JavaScriptMessagesController.php:565
+#: src/Controllers/JavaScriptMessagesController.php:567
 msgid "Drag to reorder."
 msgstr "Перетяните для изменения порядка сортировки."
 
-#: src/Controllers/JavaScriptMessagesController.php:566
+#: src/Controllers/JavaScriptMessagesController.php:568
 msgid "Click to sort results by this column."
 msgstr "Кликните для сортировки результатов по данному столбцу."
 
-#: src/Controllers/JavaScriptMessagesController.php:568
+#: src/Controllers/JavaScriptMessagesController.php:570
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -13646,19 +13654,19 @@ msgstr ""
 "переключения ASC/DESC.<br>- Удерживая Ctrl или Alt (для Mac: удерживая Shift "
 "и Option), кликните для удаления столбца из класса ORDER BY"
 
-#: src/Controllers/JavaScriptMessagesController.php:572
+#: src/Controllers/JavaScriptMessagesController.php:574
 msgid "Click to mark/unmark."
 msgstr "Кликните для установки/снятия отметки."
 
-#: src/Controllers/JavaScriptMessagesController.php:573
+#: src/Controllers/JavaScriptMessagesController.php:575
 msgid "Double-click to copy column name."
 msgstr "Кликните дважды для копирования имени столбца."
 
-#: src/Controllers/JavaScriptMessagesController.php:574
+#: src/Controllers/JavaScriptMessagesController.php:576
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "Кликните выпадающую стрелку<br>для переключения видимости столбца."
 
-#: src/Controllers/JavaScriptMessagesController.php:577
+#: src/Controllers/JavaScriptMessagesController.php:579
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -13667,13 +13675,13 @@ msgstr ""
 "могут не работать функции связанные с редактированием сетки, выставления "
 "галочки, ссылки редактирования, копирования и удаления."
 
-#: src/Controllers/JavaScriptMessagesController.php:580
+#: src/Controllers/JavaScriptMessagesController.php:582
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Пожалуйста, введите допустимую шестнадцатеричную строку. Допустимыми знаками "
 "являются 0-9, A-F."
 
-#: src/Controllers/JavaScriptMessagesController.php:582
+#: src/Controllers/JavaScriptMessagesController.php:584
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -13681,53 +13689,53 @@ msgstr ""
 "Вы действительно хотите отобразить все строки? При большом количестве данных "
 "возможно отключение браузера."
 
-#: src/Controllers/JavaScriptMessagesController.php:584
+#: src/Controllers/JavaScriptMessagesController.php:586
 msgid "Original length"
 msgstr "Исходный размер"
 
-#: src/Controllers/JavaScriptMessagesController.php:587
+#: src/Controllers/JavaScriptMessagesController.php:589
 msgid "cancel"
 msgstr "Отмена"
 
-#: src/Controllers/JavaScriptMessagesController.php:588
+#: src/Controllers/JavaScriptMessagesController.php:590
 #: src/Controllers/Server/Status/StatusController.php:185
 msgid "Aborted"
 msgstr "Прервано"
 
-#: src/Controllers/JavaScriptMessagesController.php:590
+#: src/Controllers/JavaScriptMessagesController.php:592
 msgid "Success"
 msgstr "Успех"
 
-#: src/Controllers/JavaScriptMessagesController.php:591
+#: src/Controllers/JavaScriptMessagesController.php:593
 msgid "Import status"
 msgstr "Импортировать состояние"
 
-#: src/Controllers/JavaScriptMessagesController.php:593
+#: src/Controllers/JavaScriptMessagesController.php:595
 msgid "Select database first"
 msgstr "Выберите базу данных"
 
-#: src/Controllers/JavaScriptMessagesController.php:595
+#: src/Controllers/JavaScriptMessagesController.php:597
 msgid "Go to link:"
 msgstr "Перейти к ссылке:"
 
-#: src/Controllers/JavaScriptMessagesController.php:598
+#: src/Controllers/JavaScriptMessagesController.php:600
 msgid "Generate password"
 msgstr "Создать пароль"
 
-#: src/Controllers/JavaScriptMessagesController.php:605
+#: src/Controllers/JavaScriptMessagesController.php:607
 msgid "Show panel"
 msgstr "Раскрыть панель"
 
-#: src/Controllers/JavaScriptMessagesController.php:606
+#: src/Controllers/JavaScriptMessagesController.php:608
 msgid "Hide panel"
 msgstr "Скрыть панель"
 
-#: src/Controllers/JavaScriptMessagesController.php:608
+#: src/Controllers/JavaScriptMessagesController.php:610
 #: src/Navigation/NavigationTree.php:1313
 msgid "Unlink from main panel"
 msgstr "Отсоединить от основной панели"
 
-#: src/Controllers/JavaScriptMessagesController.php:612 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:614 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -13737,41 +13745,41 @@ msgstr ""
 "Новейшая версия %s, выпущена %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:616
+#: src/Controllers/JavaScriptMessagesController.php:618
 msgid ", latest stable version:"
 msgstr ", последняя стабильная версия:"
 
-#: src/Controllers/JavaScriptMessagesController.php:617
+#: src/Controllers/JavaScriptMessagesController.php:619
 msgid "up to date"
 msgstr "актуально"
 
-#: src/Controllers/JavaScriptMessagesController.php:618
+#: src/Controllers/JavaScriptMessagesController.php:620
 msgid "There was an error in loading the Git information."
 msgstr "Возникла ошибка при загрузке информации с Git."
 
-#: src/Controllers/JavaScriptMessagesController.php:621
+#: src/Controllers/JavaScriptMessagesController.php:623
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "Произошла фатальная ошибка JavaScript. Вы хотите отправить отчёт об ошибке?"
 
-#: src/Controllers/JavaScriptMessagesController.php:622
+#: src/Controllers/JavaScriptMessagesController.php:624
 msgid "Change report settings"
 msgstr "Изменить настройки отчёта"
 
-#: src/Controllers/JavaScriptMessagesController.php:623
+#: src/Controllers/JavaScriptMessagesController.php:625
 msgid "Show report details"
 msgstr "Показать детали отчёта"
 
-#: src/Controllers/JavaScriptMessagesController.php:624
+#: src/Controllers/JavaScriptMessagesController.php:626
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 "Ваш экспорт незавершён из-за ограничений времени выполнения на уровне PHP!"
 
-#: src/Controllers/JavaScriptMessagesController.php:627
+#: src/Controllers/JavaScriptMessagesController.php:629
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -13781,74 +13789,74 @@ msgstr ""
 "поля могут быть проигнорированы согласно значения переменной max_input_vars "
 "в PHP."
 
-#: src/Controllers/JavaScriptMessagesController.php:633
-#: src/Controllers/JavaScriptMessagesController.php:646
+#: src/Controllers/JavaScriptMessagesController.php:635
+#: src/Controllers/JavaScriptMessagesController.php:648
 msgid "Some errors have been detected on the server!"
 msgstr "На сервере обнаружены некоторые ошибки!"
 
-#: src/Controllers/JavaScriptMessagesController.php:635
+#: src/Controllers/JavaScriptMessagesController.php:637
 msgid "Please look at the bottom of this window."
 msgstr "Пожалуйста, посмотрите вниз текущего окна."
 
-#: src/Controllers/JavaScriptMessagesController.php:641
+#: src/Controllers/JavaScriptMessagesController.php:643
 #: src/Error/ErrorHandler.php:415
 msgid "Ignore All"
 msgstr "Игнорировать всё"
 
-#: src/Controllers/JavaScriptMessagesController.php:648
+#: src/Controllers/JavaScriptMessagesController.php:650
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "В соответствии с вашими настройками они заносятся в данное время, подождите, "
 "пожалуйста."
 
-#: src/Controllers/JavaScriptMessagesController.php:652
+#: src/Controllers/JavaScriptMessagesController.php:654
 msgid "Column name successfully copied to clipboard!"
 msgstr "Имя столбца скопировано в буфер обмена!"
 
-#: src/Controllers/JavaScriptMessagesController.php:653
+#: src/Controllers/JavaScriptMessagesController.php:655
 msgid "Column name copying to clipboard failed!"
 msgstr "Не удалось скопировать имя столбца в буфер обмена!"
 
-#: src/Controllers/JavaScriptMessagesController.php:654
+#: src/Controllers/JavaScriptMessagesController.php:656
 msgid "Successfully copied!"
 msgstr "Успешно скопировано!"
 
-#: src/Controllers/JavaScriptMessagesController.php:655
+#: src/Controllers/JavaScriptMessagesController.php:657
 msgid "Copying failed!"
 msgstr "Копирование не удалось!"
 
-#: src/Controllers/JavaScriptMessagesController.php:658
+#: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Execute this query again?"
 msgstr "Выполнить запрос ещё раз?"
 
-#: src/Controllers/JavaScriptMessagesController.php:659
+#: src/Controllers/JavaScriptMessagesController.php:661
 msgid "Do you really want to delete this bookmark?"
 msgstr "Вы действительно хотите удалить эту закладку?"
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:662
 msgid "Some error occurred while getting SQL debug info."
 msgstr "В процессе получения информации по отладке SQL произошла ошибка."
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:663
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s запрос(ов) выполнено %s раз(а) за %s секунд(у/ы)."
 
-#: src/Controllers/JavaScriptMessagesController.php:662
+#: src/Controllers/JavaScriptMessagesController.php:664
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s аргумент(ов/а) передано"
 
-#: src/Controllers/JavaScriptMessagesController.php:663
+#: src/Controllers/JavaScriptMessagesController.php:665
 msgid "Show arguments"
 msgstr "Отобразить аргументы"
 
-#: src/Controllers/JavaScriptMessagesController.php:664
+#: src/Controllers/JavaScriptMessagesController.php:666
 msgid "Hide arguments"
 msgstr "Скрыть аргументы"
 
-#: src/Controllers/JavaScriptMessagesController.php:667
+#: src/Controllers/JavaScriptMessagesController.php:669
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -13863,75 +13871,75 @@ msgstr ""
 "содержимое и данные пользователя\" может ее решить. В Safari, данную "
 "проблему обычно вызывает установка \"Режим частного доступа\"."
 
-#: src/Controllers/JavaScriptMessagesController.php:674
+#: src/Controllers/JavaScriptMessagesController.php:676
 msgid "Copy tables to"
 msgstr "Скопировать таблицы в"
 
-#: src/Controllers/JavaScriptMessagesController.php:675
+#: src/Controllers/JavaScriptMessagesController.php:677
 msgid "Add table prefix"
 msgstr "Добавить префикс таблицы"
 
-#: src/Controllers/JavaScriptMessagesController.php:676
+#: src/Controllers/JavaScriptMessagesController.php:678
 msgid "Replace table with prefix"
 msgstr "Заменить префикс таблицы"
 
-#: src/Controllers/JavaScriptMessagesController.php:680
+#: src/Controllers/JavaScriptMessagesController.php:682
 msgid "Extremely weak"
 msgstr "Чрезвычайно простой"
 
-#: src/Controllers/JavaScriptMessagesController.php:681
+#: src/Controllers/JavaScriptMessagesController.php:683
 msgid "Very weak"
 msgstr "Очень простой"
 
-#: src/Controllers/JavaScriptMessagesController.php:682
+#: src/Controllers/JavaScriptMessagesController.php:684
 msgid "Weak"
 msgstr "Простой"
 
-#: src/Controllers/JavaScriptMessagesController.php:683
+#: src/Controllers/JavaScriptMessagesController.php:685
 msgid "Good"
 msgstr "Хороший"
 
-#: src/Controllers/JavaScriptMessagesController.php:684
+#: src/Controllers/JavaScriptMessagesController.php:686
 msgid "Strong"
 msgstr "Сложный"
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:688
+#: src/Controllers/JavaScriptMessagesController.php:690
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "Превышено время ожидания для активации ключа безопасности."
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:690
+#: src/Controllers/JavaScriptMessagesController.php:692
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr "На ключ безопасности отправлен неверный запрос."
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:692
+#: src/Controllers/JavaScriptMessagesController.php:694
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr "Неизвестная ошибка ключа безопасности."
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:694
+#: src/Controllers/JavaScriptMessagesController.php:696
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr "Клиент не поддерживает ключ безопасности."
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:696
+#: src/Controllers/JavaScriptMessagesController.php:698
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr "Ошибка активации ключа безопасности."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:698
+#: src/Controllers/JavaScriptMessagesController.php:700
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Неверный ключ безопасности."
 
-#: src/Controllers/JavaScriptMessagesController.php:701
+#: src/Controllers/JavaScriptMessagesController.php:703
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
@@ -13939,7 +13947,7 @@ msgstr ""
 "WebAuthn недоступен. Пожалуйста, используйте поддерживаемый браузер в "
 "безопасном контексте (HTTPS)."
 
-#: src/Controllers/JavaScriptMessagesController.php:706
+#: src/Controllers/JavaScriptMessagesController.php:708
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
@@ -13949,354 +13957,354 @@ msgstr ""
 "IndexedDB не работает в вашем браузере, а ваше хранилище конфигурации "
 "phpMyAdmin не настроено для этого."
 
-#: src/Controllers/JavaScriptMessagesController.php:711
+#: src/Controllers/JavaScriptMessagesController.php:713
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "Таблица %s уже существует!"
 
-#: src/Controllers/JavaScriptMessagesController.php:713 src/InsertEdit.php:272
+#: src/Controllers/JavaScriptMessagesController.php:715 src/InsertEdit.php:272
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Скрыть"
 
-#: src/Controllers/JavaScriptMessagesController.php:717
+#: src/Controllers/JavaScriptMessagesController.php:719
 msgctxt "Month name"
 msgid "January"
 msgstr "Январь"
 
-#: src/Controllers/JavaScriptMessagesController.php:718
+#: src/Controllers/JavaScriptMessagesController.php:720
 msgctxt "Month name"
 msgid "February"
 msgstr "Февраль"
 
-#: src/Controllers/JavaScriptMessagesController.php:719
+#: src/Controllers/JavaScriptMessagesController.php:721
 msgctxt "Month name"
 msgid "March"
 msgstr "Март"
 
-#: src/Controllers/JavaScriptMessagesController.php:720
+#: src/Controllers/JavaScriptMessagesController.php:722
 msgctxt "Month name"
 msgid "April"
 msgstr "Апрель"
 
-#: src/Controllers/JavaScriptMessagesController.php:721
+#: src/Controllers/JavaScriptMessagesController.php:723
 msgctxt "Month name"
 msgid "May"
 msgstr "Май"
 
-#: src/Controllers/JavaScriptMessagesController.php:722
+#: src/Controllers/JavaScriptMessagesController.php:724
 msgctxt "Month name"
 msgid "June"
 msgstr "Июнь"
 
-#: src/Controllers/JavaScriptMessagesController.php:723
+#: src/Controllers/JavaScriptMessagesController.php:725
 msgctxt "Month name"
 msgid "July"
 msgstr "Июль"
 
-#: src/Controllers/JavaScriptMessagesController.php:724
+#: src/Controllers/JavaScriptMessagesController.php:726
 msgctxt "Month name"
 msgid "August"
 msgstr "Август"
 
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:727
 msgctxt "Month name"
 msgid "September"
 msgstr "Сентябрь"
 
-#: src/Controllers/JavaScriptMessagesController.php:726
+#: src/Controllers/JavaScriptMessagesController.php:728
 msgctxt "Month name"
 msgid "October"
 msgstr "Октябрь"
 
-#: src/Controllers/JavaScriptMessagesController.php:727
+#: src/Controllers/JavaScriptMessagesController.php:729
 msgctxt "Month name"
 msgid "November"
 msgstr "Ноябрь"
 
-#: src/Controllers/JavaScriptMessagesController.php:728
+#: src/Controllers/JavaScriptMessagesController.php:730
 msgctxt "Month name"
 msgid "December"
 msgstr "Декабрь"
 
-#: src/Controllers/JavaScriptMessagesController.php:729 src/Util.php:497
+#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:497
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Янв"
 
-#: src/Controllers/JavaScriptMessagesController.php:730 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:498
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Фев"
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:499
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Мар"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:500
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Апр"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:501
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Май"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:502
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Июн"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:503
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Июл"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:504
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Авг"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:505
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Сен"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:506
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Окт"
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:507
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Ноя"
 
-#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:508
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Дек"
 
-#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:511
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Вс"
 
-#: src/Controllers/JavaScriptMessagesController.php:749 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:512
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Пн"
 
-#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:513
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Вт"
 
-#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:514
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Ср"
 
-#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:515
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Чт"
 
-#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:516
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Пт"
 
-#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:517
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Сб"
 
-#: src/Controllers/JavaScriptMessagesController.php:755
+#: src/Controllers/JavaScriptMessagesController.php:757
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Вс"
 
-#: src/Controllers/JavaScriptMessagesController.php:756
+#: src/Controllers/JavaScriptMessagesController.php:758
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Пн"
 
-#: src/Controllers/JavaScriptMessagesController.php:757
+#: src/Controllers/JavaScriptMessagesController.php:759
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Вт"
 
-#: src/Controllers/JavaScriptMessagesController.php:758
+#: src/Controllers/JavaScriptMessagesController.php:760
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "Ср"
 
-#: src/Controllers/JavaScriptMessagesController.php:759
+#: src/Controllers/JavaScriptMessagesController.php:761
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Чт"
 
-#: src/Controllers/JavaScriptMessagesController.php:760
+#: src/Controllers/JavaScriptMessagesController.php:762
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Пт"
 
-#: src/Controllers/JavaScriptMessagesController.php:761
+#: src/Controllers/JavaScriptMessagesController.php:763
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Сб"
 
-#: src/Controllers/JavaScriptMessagesController.php:762
+#: src/Controllers/JavaScriptMessagesController.php:764
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "Нед."
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:764
+#: src/Controllers/JavaScriptMessagesController.php:766
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-year-month"
 
-#: src/Controllers/JavaScriptMessagesController.php:765
+#: src/Controllers/JavaScriptMessagesController.php:767
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "none"
 
-#: src/Controllers/JavaScriptMessagesController.php:766
+#: src/Controllers/JavaScriptMessagesController.php:768
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Время"
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:769
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Час"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:770
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Минута"
 
-#: src/Controllers/JavaScriptMessagesController.php:769
+#: src/Controllers/JavaScriptMessagesController.php:771
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Секунда"
 
-#: src/Controllers/JavaScriptMessagesController.php:770
+#: src/Controllers/JavaScriptMessagesController.php:772
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "Миллисекунда"
 
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:773
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "Микросекунда"
 
-#: src/Controllers/JavaScriptMessagesController.php:772
+#: src/Controllers/JavaScriptMessagesController.php:774
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
 msgstr "Часовой пояс"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:776
+#: src/Controllers/JavaScriptMessagesController.php:778
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Пред"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:778
+#: src/Controllers/JavaScriptMessagesController.php:780
 msgctxt "Next month"
 msgid "Next"
 msgstr "Следующий"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:780
+#: src/Controllers/JavaScriptMessagesController.php:782
 msgid "Today"
 msgstr "Сегодня"
 
-#: src/Controllers/JavaScriptMessagesController.php:783
+#: src/Controllers/JavaScriptMessagesController.php:785
 msgid "This field is required"
 msgstr "Это поле необходимо"
 
-#: src/Controllers/JavaScriptMessagesController.php:784
+#: src/Controllers/JavaScriptMessagesController.php:786
 msgid "Please fix this field"
 msgstr "Исправьте это поле"
 
-#: src/Controllers/JavaScriptMessagesController.php:785
+#: src/Controllers/JavaScriptMessagesController.php:787
 msgid "Please enter a valid email address"
 msgstr "Введите правильный адрес э-почты"
 
-#: src/Controllers/JavaScriptMessagesController.php:786
+#: src/Controllers/JavaScriptMessagesController.php:788
 msgid "Please enter a valid URL"
 msgstr "Введите правильный URL"
 
-#: src/Controllers/JavaScriptMessagesController.php:787
+#: src/Controllers/JavaScriptMessagesController.php:789
 msgid "Please enter a valid date"
 msgstr "Введите правильную дату"
 
-#: src/Controllers/JavaScriptMessagesController.php:788
+#: src/Controllers/JavaScriptMessagesController.php:790
 msgid "Please enter a valid date ( ISO )"
 msgstr "Введите правильную дату (ISO)"
 
-#: src/Controllers/JavaScriptMessagesController.php:789
+#: src/Controllers/JavaScriptMessagesController.php:791
 msgid "Please enter a valid number"
 msgstr "Введите правильное числовое значение"
 
-#: src/Controllers/JavaScriptMessagesController.php:790
+#: src/Controllers/JavaScriptMessagesController.php:792
 msgid "Please enter a valid credit card number"
 msgstr "Введите правильный номер кредитной карты"
 
-#: src/Controllers/JavaScriptMessagesController.php:791
+#: src/Controllers/JavaScriptMessagesController.php:793
 msgid "Please enter only digits"
 msgstr "Введите только цифры"
 
-#: src/Controllers/JavaScriptMessagesController.php:792
+#: src/Controllers/JavaScriptMessagesController.php:794
 msgid "Please enter the same value again"
 msgstr "Введите то же значение еще раз"
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:795
 msgid "Please enter no more than {0} characters"
 msgstr "Введите не более {0} символ(а/ов)"
 
-#: src/Controllers/JavaScriptMessagesController.php:794
+#: src/Controllers/JavaScriptMessagesController.php:796
 msgid "Please enter at least {0} characters"
 msgstr "Введите не менее {0} символ(а/ов)"
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:797
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Введите значение между {0} и {1} символами длиной"
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:798
 msgid "Please enter a value between {0} and {1}"
 msgstr "Введите значение между {0} и {1} символами"
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Ввведите значение меньшее или равное {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:798
+#: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Введите значение, большее или равное {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Please enter a valid date or time"
 msgstr "Введите правильную дату или время"
 
-#: src/Controllers/JavaScriptMessagesController.php:800
+#: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Please enter a valid HEX input"
 msgstr "Введите правильное значение HEX"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:802
+#: src/Controllers/JavaScriptMessagesController.php:804
 msgid "This column can not contain a 32 chars value"
 msgstr "Этот столбец не может содержать значение из 32 символов"
 
-#: src/Controllers/JavaScriptMessagesController.php:805
+#: src/Controllers/JavaScriptMessagesController.php:807
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
@@ -14304,38 +14312,38 @@ msgstr ""
 "Эти функции возвращают двоичный результат; чтобы избежать противоречивых "
 "результатов, его следует хранить в столбце BINARY, VARBINARY или BLOB."
 
-#: src/Controllers/JavaScriptMessagesController.php:810
+#: src/Controllers/JavaScriptMessagesController.php:812
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr "Вероятно, загружаемый файл превышает максимально допустимый размер."
 
-#: src/Controllers/JavaScriptMessagesController.php:812
+#: src/Controllers/JavaScriptMessagesController.php:814
 #, php-format
 msgid "%s of %s"
 msgstr "%s из %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:813
+#: src/Controllers/JavaScriptMessagesController.php:815
 #, php-format
 msgid "%s/sec."
 msgstr "%s/с"
 
-#: src/Controllers/JavaScriptMessagesController.php:814
+#: src/Controllers/JavaScriptMessagesController.php:816
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Осталось около %MIN мин. %SEC с."
 
-#: src/Controllers/JavaScriptMessagesController.php:815
+#: src/Controllers/JavaScriptMessagesController.php:817
 msgid "About %SEC sec. remaining."
 msgstr "Осталось около %SEC с."
 
-#: src/Controllers/JavaScriptMessagesController.php:816
+#: src/Controllers/JavaScriptMessagesController.php:818
 msgid "The file is being processed, please be patient."
 msgstr "Пожалуйста, подождите, файл находится в обработке."
 
-#: src/Controllers/JavaScriptMessagesController.php:817
+#: src/Controllers/JavaScriptMessagesController.php:819
 msgid "Uploading your import file…"
 msgstr "Загрузка файла импорта…"
 
-#: src/Controllers/JavaScriptMessagesController.php:819
+#: src/Controllers/JavaScriptMessagesController.php:821
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -15353,7 +15361,7 @@ msgstr "Внутренние связи были успешно обновлен
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Строка: %1$s, Столбец: %2$s, Ошибка: %3$s"
 
-#: src/Controllers/Table/Structure/MoveColumnsController.php:162
+#: src/Controllers/Table/Structure/MoveColumnsController.php:80
 msgid "The columns have been moved successfully."
 msgstr "Поля были успешно перемещены."
 
@@ -15525,7 +15533,7 @@ msgstr "Данный запрос не был выполнен: \"%s\""
 #: src/Database/Events.php:115 src/Database/Events.php:136
 #: src/Database/Routines.php:105 src/Database/Routines.php:131
 #: src/Database/Routines.php:209 src/Database/Routines.php:223
-#: src/Database/Routines.php:976 src/Html/Generator.php:810
+#: src/Database/Routines.php:976 src/Html/Generator.php:808
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:109 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
@@ -16060,12 +16068,12 @@ msgid "Report"
 msgstr "Отчёт"
 
 #: src/Export/Export.php:163 src/Export/Export.php:199
-#: src/Export/Export.php:437
+#: src/Export/Export.php:439
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Для сохранения файла %s недостаточно дискового пространства."
 
-#: src/Export/Export.php:390
+#: src/Export/Export.php:392
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -16073,18 +16081,18 @@ msgstr ""
 "Файл %s уже существует на сервере, измените имя или включите параметр "
 "перезаписи."
 
-#: src/Export/Export.php:397 src/Export/Export.php:407
+#: src/Export/Export.php:399 src/Export/Export.php:409
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Не достаточно прав для сохранения файла %s на веб-сервере."
 
-#: src/Export/Export.php:444
+#: src/Export/Export.php:446
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Дамп был сохранен в файл %s."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:877
+#: src/Export/Export.php:881
 msgid "Exporting a raw query is not supported for this export method."
 msgstr "Экспорт raw запроса не поддерживается для этого метода экспорта."
 
@@ -16190,32 +16198,32 @@ msgstr "SSL используется без центра сертификаци�
 msgid "SSL is used"
 msgstr "Используется SSL"
 
-#: src/Html/Generator.php:326
+#: src/Html/Generator.php:324
 msgid "The PHP function password_hash() with default options."
 msgstr "password_hash() PHP-функции с настройками по умолчанию."
 
-#: src/Html/Generator.php:327
+#: src/Html/Generator.php:325
 msgid "password_hash() PHP function"
 msgstr "password_hash() PHP-функции"
 
-#: src/Html/Generator.php:512
+#: src/Html/Generator.php:510
 msgid "Skip Explain SQL"
 msgstr "Убрать анализ SQL"
 
-#: src/Html/Generator.php:544
+#: src/Html/Generator.php:542
 msgid "Without PHP code"
 msgstr "Без кода PHP"
 
-#: src/Html/Generator.php:629
+#: src/Html/Generator.php:627
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Построчная правка"
 
-#: src/Html/Generator.php:752
+#: src/Html/Generator.php:750
 msgid "Static analysis:"
 msgstr "Статический анализ:"
 
-#: src/Html/Generator.php:755
+#: src/Html/Generator.php:753
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Найдено %d ошибок при анализе."
@@ -16297,7 +16305,7 @@ msgstr "Длина имени триггера не может превышат�
 msgid "The trigger name cannot end with a space character."
 msgstr "Имя триггера не может заканчиваться символом пробела."
 
-#: src/Import/Import.php:942
+#: src/Import/Import.php:947
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
@@ -16306,46 +16314,46 @@ msgstr ""
 "вроде GLOBAL) , содержащих транзакционные таблицы движка, может быть "
 "произведён откат."
 
-#: src/Import/Import.php:1164
+#: src/Import/Import.php:1169
 #, php-format
 msgid "Go to table: %s"
 msgstr "Перейти к таблице: %s"
 
-#: src/Import/Import.php:1172
+#: src/Import/Import.php:1177
 #, php-format
 msgid "Structure of %s"
 msgstr "Структура %s"
 
-#: src/Import/Import.php:1179 src/Import/Import.php:1228
+#: src/Import/Import.php:1184 src/Import/Import.php:1233
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Отредактировать настройки для %s"
 
-#: src/Import/Import.php:1190
+#: src/Import/Import.php:1195
 #, php-format
 msgid "Go to view: %s"
 msgstr "Перейти к представлению (VIEW): %s"
 
-#: src/Import/Import.php:1211
+#: src/Import/Import.php:1216
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Следующие структуры были созданы, либо изменены. Вы можете:"
 
-#: src/Import/Import.php:1213
+#: src/Import/Import.php:1218
 msgid "View a structure's contents by clicking on its name."
 msgstr "Просмотреть детали структуры, нажав на её имя."
 
-#: src/Import/Import.php:1214
+#: src/Import/Import.php:1219
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Изменить любую настройку, нажав на соответствующую ссылку \"Параметры\"."
 
-#: src/Import/Import.php:1215
+#: src/Import/Import.php:1220
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Отредактировать структуру, перейдя по ссылке \"Структура\"."
 
-#: src/Import/Import.php:1222
+#: src/Import/Import.php:1227
 #, php-format
 msgid "Go to database: %s"
 msgstr "Перейти к базе данных: %s"
@@ -16357,15 +16365,15 @@ msgid ""
 "removed."
 msgstr "Индексы %1$s и %2$s равнозначны и один из них может быть удалён."
 
-#: src/InsertEdit.php:500
+#: src/InsertEdit.php:499
 msgid "web server upload directory:"
 msgstr "Из каталога загрузки:"
 
-#: src/InsertEdit.php:930 src/Sql.php:854
+#: src/InsertEdit.php:929 src/Sql.php:854
 msgid "Showing SQL query"
 msgstr "Отображает SQL-запрос"
 
-#: src/InsertEdit.php:954 src/Sql.php:834
+#: src/InsertEdit.php:953 src/Sql.php:834
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Идентификатор вставленной строки: %1$d"
@@ -16374,13 +16382,13 @@ msgstr "Идентификатор вставленной строки: %1$d"
 msgid "Ignoring unsupported language code."
 msgstr "Игнорировать неподдерживаемые коды языков."
 
-#: src/Linter.php:103
+#: src/Linter.php:112
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
 "Отступы для данного запроса убраны из-за превышения максимальной длинны."
 
-#: src/Linter.php:155
+#: src/Linter.php:164
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (около <code>%2$s</code>)"
@@ -16503,7 +16511,7 @@ msgstr "Новое"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:24
-#: src/Plugins/Export/ExportSql.php:590 src/Plugins/Export/ExportXml.php:89
+#: src/Plugins/Export/ExportSql.php:592 src/Plugins/Export/ExportXml.php:89
 msgid "Functions"
 msgstr "Функции"
 
@@ -16523,7 +16531,7 @@ msgstr "Развернуть/Свернуть"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:24
-#: src/Plugins/Export/ExportSql.php:579 src/Plugins/Export/ExportXml.php:94
+#: src/Plugins/Export/ExportSql.php:581 src/Plugins/Export/ExportXml.php:94
 msgid "Procedures"
 msgstr "Процедуры"
 
@@ -17019,25 +17027,25 @@ msgid "Data dump options"
 msgstr "Параметры сохранения данных"
 
 #: src/Plugins/Export/ExportHtmlword.php:189
-#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2174
+#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2189
 #: src/Plugins/Export/ExportTexytext.php:173
 msgid "Dumping data for table"
 msgstr "Дамп данных таблицы"
 
 #: src/Plugins/Export/ExportHtmlword.php:521
-#: src/Plugins/Export/ExportOdt.php:647 src/Plugins/Export/ExportSql.php:1912
+#: src/Plugins/Export/ExportOdt.php:647 src/Plugins/Export/ExportSql.php:1920
 #: src/Plugins/Export/ExportTexytext.php:491
 msgid "Table structure for table"
 msgstr "Структура таблицы"
 
 #: src/Plugins/Export/ExportHtmlword.php:538
-#: src/Plugins/Export/ExportOdt.php:667 src/Plugins/Export/ExportSql.php:1969
+#: src/Plugins/Export/ExportOdt.php:667 src/Plugins/Export/ExportSql.php:1977
 #: src/Plugins/Export/ExportTexytext.php:504
 msgid "Structure for view"
 msgstr "Структура для представления"
 
 #: src/Plugins/Export/ExportHtmlword.php:544
-#: src/Plugins/Export/ExportOdt.php:675 src/Plugins/Export/ExportSql.php:2001
+#: src/Plugins/Export/ExportOdt.php:675 src/Plugins/Export/ExportSql.php:2016
 #: src/Plugins/Export/ExportTexytext.php:508
 msgid "Stand-in structure for view"
 msgstr "Дублирующая структура для представления"
@@ -17063,7 +17071,7 @@ msgid "Structure of table @TABLE@"
 msgstr "Структура таблицы @TABLE@"
 
 #: src/Plugins/Export/ExportLatex.php:104 src/Plugins/Export/ExportOdt.php:85
-#: src/Plugins/Export/ExportSql.php:225
+#: src/Plugins/Export/ExportSql.php:227
 msgid "Object creation options"
 msgstr "Параметры создания объектов"
 
@@ -17083,7 +17091,7 @@ msgid "Label key:"
 msgstr "Идентификатор метки:"
 
 #: src/Plugins/Export/ExportLatex.php:130 src/Plugins/Export/ExportOdt.php:93
-#: src/Plugins/Export/ExportSql.php:150
+#: src/Plugins/Export/ExportSql.php:152
 msgid "Display foreign key relationships"
 msgstr "Отобразить связи внешних ключей"
 
@@ -17092,7 +17100,7 @@ msgid "Display comments"
 msgstr "Отобразить комментарии"
 
 #: src/Plugins/Export/ExportLatex.php:143 src/Plugins/Export/ExportOdt.php:106
-#: src/Plugins/Export/ExportSql.php:158
+#: src/Plugins/Export/ExportSql.php:160
 msgid "Display media types"
 msgstr "Отобразить медиатипы"
 
@@ -17100,17 +17108,17 @@ msgstr "Отобразить медиатипы"
 msgid "Put columns names in the first row:"
 msgstr "Поместить названия полей в первой строке:"
 
-#: src/Plugins/Export/ExportLatex.php:212 src/Plugins/Export/ExportSql.php:715
+#: src/Plugins/Export/ExportLatex.php:212 src/Plugins/Export/ExportSql.php:717
 #: src/Plugins/Export/ExportXml.php:202
 msgid "Generation Time:"
 msgstr "Время создания:"
 
-#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:721
+#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:723
 #: src/Plugins/Export/ExportXml.php:205
 msgid "PHP Version:"
 msgstr "Версия PHP:"
 
-#: src/Plugins/Export/ExportLatex.php:304 src/Plugins/Export/ExportSql.php:2054
+#: src/Plugins/Export/ExportLatex.php:304 src/Plugins/Export/ExportSql.php:2069
 msgid "Data:"
 msgstr "Данные:"
 
@@ -17151,7 +17159,7 @@ msgstr "Просмотреть структуру"
 msgid "Stand in"
 msgstr "Замена"
 
-#: src/Plugins/Export/ExportSql.php:129
+#: src/Plugins/Export/ExportSql.php:131
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -17159,12 +17167,12 @@ msgstr ""
 "Вывести комментарии <i>(включает такую информацию, как: время экспорта, "
 "версия PHP, и версия MySQL сервера)</i>"
 
-#: src/Plugins/Export/ExportSql.php:136
+#: src/Plugins/Export/ExportSql.php:138
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
 "Добавить в заголовок собственный комментарий (\\n для разделения строк):"
 
-#: src/Plugins/Export/ExportSql.php:142
+#: src/Plugins/Export/ExportSql.php:144
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
@@ -17172,38 +17180,38 @@ msgstr ""
 "Включить время создания базы данных, время последнего обновления, и время "
 "последней проверки"
 
-#: src/Plugins/Export/ExportSql.php:195
+#: src/Plugins/Export/ExportSql.php:197
 msgid "Export metadata"
 msgstr "Экспорт метаданных"
 
-#: src/Plugins/Export/ExportSql.php:233
+#: src/Plugins/Export/ExportSql.php:235
 msgid "Add statements:"
 msgstr "Добавить выражения:"
 
-#: src/Plugins/Export/ExportSql.php:241 src/Plugins/Export/ExportSql.php:250
-#: src/Plugins/Export/ExportSql.php:267 src/Plugins/Export/ExportSql.php:276
-#: src/Plugins/Export/ExportSql.php:300 src/Plugins/Export/ExportSql.php:328
-#: src/Plugins/Export/ExportSql.php:337
+#: src/Plugins/Export/ExportSql.php:243 src/Plugins/Export/ExportSql.php:252
+#: src/Plugins/Export/ExportSql.php:269 src/Plugins/Export/ExportSql.php:278
+#: src/Plugins/Export/ExportSql.php:302 src/Plugins/Export/ExportSql.php:330
+#: src/Plugins/Export/ExportSql.php:339
 #, php-format
 msgid "Add %s statement"
 msgstr "Добавить выражение %s"
 
-#: src/Plugins/Export/ExportSql.php:283
+#: src/Plugins/Export/ExportSql.php:285
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 "(менее эффективно, т.к. индексы будут созданы во время создания таблицы)"
 
-#: src/Plugins/Export/ExportSql.php:290
+#: src/Plugins/Export/ExportSql.php:292
 #, php-format
 msgid "%s value"
 msgstr "%s значение"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: src/Plugins/Export/ExportSql.php:307
+#: src/Plugins/Export/ExportSql.php:309
 msgid "Use simple view export"
 msgstr "Использовать простой вид экспорта"
 
-#: src/Plugins/Export/ExportSql.php:346
+#: src/Plugins/Export/ExportSql.php:348
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -17211,35 +17219,35 @@ msgstr ""
 "Заключить имена таблиц и полей в обратные кавычки <i>(Защищает имена таблиц "
 "и полей содержащих специальные символы или зарезервированные слова)</i>"
 
-#: src/Plugins/Export/ExportSql.php:361
+#: src/Plugins/Export/ExportSql.php:363
 msgid "Data creation options"
 msgstr "Параметры создания данных"
 
-#: src/Plugins/Export/ExportSql.php:366 src/Plugins/Export/ExportSql.php:2132
+#: src/Plugins/Export/ExportSql.php:368 src/Plugins/Export/ExportSql.php:2147
 msgid "Truncate table before insert"
 msgstr "Очистить таблицу перед добавлением данных"
 
-#: src/Plugins/Export/ExportSql.php:373
+#: src/Plugins/Export/ExportSql.php:375
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Использовать вместо <code>INSERT</code> выражения:"
 
-#: src/Plugins/Export/ExportSql.php:379
+#: src/Plugins/Export/ExportSql.php:381
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code>"
 
-#: src/Plugins/Export/ExportSql.php:388 src/Plugins/Export/ExportSql.php:415
+#: src/Plugins/Export/ExportSql.php:390 src/Plugins/Export/ExportSql.php:417
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code>"
 
-#: src/Plugins/Export/ExportSql.php:399
+#: src/Plugins/Export/ExportSql.php:401
 msgid "Function to use when dumping data:"
 msgstr "Использовать оператор при сохранении данных:"
 
-#: src/Plugins/Export/ExportSql.php:410
+#: src/Plugins/Export/ExportSql.php:412
 msgid "Syntax to use when inserting data:"
 msgstr "Использовать синтаксис при вставке данных:"
 
-#: src/Plugins/Export/ExportSql.php:420
+#: src/Plugins/Export/ExportSql.php:422
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -17249,7 +17257,7 @@ msgstr ""
 "&nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:425
+#: src/Plugins/Export/ExportSql.php:427
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -17259,7 +17267,7 @@ msgstr ""
 "&nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:430
+#: src/Plugins/Export/ExportSql.php:432
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -17268,7 +17276,7 @@ msgstr ""
 "<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:435
+#: src/Plugins/Export/ExportSql.php:437
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -17276,7 +17284,7 @@ msgstr ""
 "ни один из выше перечисленных<br> &nbsp; &nbsp; &nbsp; Пример: <code>INSERT "
 "INTO tbl_name VALUES (1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:454
+#: src/Plugins/Export/ExportSql.php:456
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -17284,7 +17292,7 @@ msgstr ""
 "Сохранение бинарных полей в шестнадцатеричном виде <i>(к примеру, \"abc\" "
 "станет 0x616263)</i>"
 
-#: src/Plugins/Export/ExportSql.php:463
+#: src/Plugins/Export/ExportSql.php:465
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -17293,104 +17301,104 @@ msgstr ""
 "поля с типом TIMESTAMP между серверами находящимися в различных временных "
 "зонах)</i>"
 
-#: src/Plugins/Export/ExportSql.php:539
+#: src/Plugins/Export/ExportSql.php:541
 msgid "It appears your database uses routines;"
 msgstr "Кажется, ваша база данных использует подпрограммы;"
 
-#: src/Plugins/Export/ExportSql.php:542 src/Plugins/Export/ExportSql.php:1481
-#: src/Plugins/Export/ExportSql.php:1957
+#: src/Plugins/Export/ExportSql.php:544 src/Plugins/Export/ExportSql.php:1489
+#: src/Plugins/Export/ExportSql.php:1965
 msgid "alias export may not work reliably in all cases."
 msgstr "экспорт псевдонима не может надёжно работать во всех случаях."
 
-#: src/Plugins/Export/ExportSql.php:1008
+#: src/Plugins/Export/ExportSql.php:1016
 msgid "Metadata"
 msgstr "Метаданные"
 
-#: src/Plugins/Export/ExportSql.php:1069
+#: src/Plugins/Export/ExportSql.php:1077
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Метаданные для таблицы %s"
 
-#: src/Plugins/Export/ExportSql.php:1076
+#: src/Plugins/Export/ExportSql.php:1084
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Метаданные для базы данных %s"
 
-#: src/Plugins/Export/ExportSql.php:1393
+#: src/Plugins/Export/ExportSql.php:1401
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Структура чтения ошибок для таблицы %s:"
 
-#: src/Plugins/Export/ExportSql.php:1478
+#: src/Plugins/Export/ExportSql.php:1486
 msgid "It appears your database uses views;"
 msgstr "Похоже, что база данных использует представления;"
 
-#: src/Plugins/Export/ExportSql.php:1624
+#: src/Plugins/Export/ExportSql.php:1632
 msgid "Constraints for dumped tables"
 msgstr "Ограничения внешнего ключа сохраненных таблиц"
 
-#: src/Plugins/Export/ExportSql.php:1625
+#: src/Plugins/Export/ExportSql.php:1633
 msgid "Constraints for table"
 msgstr "Ограничения внешнего ключа таблицы"
 
-#: src/Plugins/Export/ExportSql.php:1652
+#: src/Plugins/Export/ExportSql.php:1660
 msgid "Indexes for dumped tables"
 msgstr "Индексы сохранённых таблиц"
 
-#: src/Plugins/Export/ExportSql.php:1653
+#: src/Plugins/Export/ExportSql.php:1661
 msgid "Indexes for table"
 msgstr "Индексы таблицы"
 
-#: src/Plugins/Export/ExportSql.php:1683
+#: src/Plugins/Export/ExportSql.php:1691
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT для сохранённых таблиц"
 
-#: src/Plugins/Export/ExportSql.php:1684
+#: src/Plugins/Export/ExportSql.php:1692
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT для таблицы"
 
-#: src/Plugins/Export/ExportSql.php:1755
+#: src/Plugins/Export/ExportSql.php:1763
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "МЕДИАТИПЫ ДЛЯ ТАБЛИЦЫ"
 
-#: src/Plugins/Export/ExportSql.php:1780
+#: src/Plugins/Export/ExportSql.php:1788
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "ССЫЛКИ ТАБЛИЦЫ"
 
-#: src/Plugins/Export/ExportSql.php:1954
+#: src/Plugins/Export/ExportSql.php:1962
 msgid "It appears your table uses triggers;"
 msgstr "Похоже, что ваша таблица использует триггеры;"
 
-#: src/Plugins/Export/ExportSql.php:1984
+#: src/Plugins/Export/ExportSql.php:1992
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Структура для представления %s экспортирована как таблица"
 
-#: src/Plugins/Export/ExportSql.php:2004
+#: src/Plugins/Export/ExportSql.php:2019
 msgid "(See below for the actual view)"
 msgstr "(См. Ниже фактическое представление)"
 
-#: src/Plugins/Export/ExportSql.php:2065
+#: src/Plugins/Export/ExportSql.php:2080
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Ошибка считывания данных таблицы %s:"
 
-#: src/Plugins/Export/ExportSql.php:2660
+#: src/Plugins/Export/ExportSql.php:2675
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:584
 msgid "Creation:"
 msgstr "Создание:"
 
-#: src/Plugins/Export/ExportSql.php:2670
+#: src/Plugins/Export/ExportSql.php:2685
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:595
 msgid "Last update:"
 msgstr "Последнее обновление:"
 
-#: src/Plugins/Export/ExportSql.php:2680
+#: src/Plugins/Export/ExportSql.php:2695
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
 msgid "Last check:"
 msgstr "Последняя проверка:"
 
-#: src/Plugins/Export/ExportSql.php:2703
+#: src/Plugins/Export/ExportSql.php:2718
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
