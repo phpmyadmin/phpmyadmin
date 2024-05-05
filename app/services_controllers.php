@@ -251,7 +251,7 @@ return [
         ],
         Database\Structure\ChangePrefixFormController::class => [
             'class' => Database\Structure\ChangePrefixFormController::class,
-            'arguments' => ['$response' => '@response'],
+            'arguments' => ['@response', '@' . ResponseFactory::class, '@template'],
         ],
         Database\Structure\CopyFormController::class => [
             'class' => Database\Structure\CopyFormController::class,

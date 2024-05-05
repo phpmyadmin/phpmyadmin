@@ -1329,11 +1329,6 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/Database/Structure/ChangePrefixFormController.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Database/Structure/CopyFormController.php">
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
