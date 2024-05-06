@@ -7,16 +7,21 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Template;
 
 use function __;
 
 final class CopyFormController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response)
-    {
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly ResponseFactory $responseFactory,
+        private readonly Template $template,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -44,12 +49,14 @@ final class CopyFormController implements InvocableController
             }
         }
 
-        $this->response->disable();
-        $this->response->render('database/structure/copy_form', [
+        $response = $this->responseFactory->createResponse();
+        foreach ($this->response->getHeader()->getHttpHeaders() as $name => $value) {
+            $response = $response->withHeader($name, $value);
+        }
+
+        return $response->write($this->template->render('database/structure/copy_form', [
             'url_params' => $urlParams,
             'options' => $databasesList->getList(),
-        ]);
-
-        return null;
+        ]));
     }
 }

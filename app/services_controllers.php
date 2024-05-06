@@ -255,7 +255,7 @@ return [
         ],
         Database\Structure\CopyFormController::class => [
             'class' => Database\Structure\CopyFormController::class,
-            'arguments' => ['$response' => '@response'],
+            'arguments' => ['@response', '@' . ResponseFactory::class, '@template'],
         ],
         Database\Structure\CopyTableController::class => [
             'class' => Database\Structure\CopyTableController::class,
