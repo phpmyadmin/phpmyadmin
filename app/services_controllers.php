@@ -1323,7 +1323,7 @@ return [
         ],
         VersionCheckController::class => [
             'class' => VersionCheckController::class,
-            'arguments' => ['$response' => '@response', '$versionInformation' => '@version_information'],
+            'arguments' => ['@version_information', '@' . ResponseFactory::class],
         ],
         View\CreateController::class => [
             'class' => View\CreateController::class,

@@ -4343,11 +4343,6 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/VersionCheckController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/View/CreateController.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
