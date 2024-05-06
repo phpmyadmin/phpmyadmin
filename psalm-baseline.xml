@@ -2032,9 +2032,6 @@
       <code><![CDATA[$editorType]]></code>
       <code><![CDATA[$options]]></code>
     </MixedAssignment>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/LogoutController.php">
     <PossiblyUnusedReturnValue>

@@ -450,10 +450,7 @@ return [
             'class' => LicenseController::class,
             'arguments' => ['@response', '@' . ResponseFactory::class],
         ],
-        LintController::class => [
-            'class' => LintController::class,
-            'arguments' => ['$response' => '@response'],
-        ],
+        LintController::class => ['class' => LintController::class, 'arguments' => ['@' . ResponseFactory::class]],
         LogoutController::class => [
             'class' => LogoutController::class,
             'arguments' => ['@' . AuthenticationPluginFactory::class],
