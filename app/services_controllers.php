@@ -616,7 +616,7 @@ return [
         ],
         SchemaExportController::class => [
             'class' => SchemaExportController::class,
-            'arguments' => ['$export' => '@export', '$response' => '@response'],
+            'arguments' => ['@export', '@response', '@' . ResponseFactory::class],
         ],
         Server\BinlogController::class => [
             'class' => Server\BinlogController::class,

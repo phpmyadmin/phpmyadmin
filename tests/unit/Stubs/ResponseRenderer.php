@@ -172,11 +172,6 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         return $this->isAjax;
     }
 
-    public function isDisabled(): bool
-    {
-        return $this->isDisabled;
-    }
-
     public function getResponse(): Response
     {
         return $this->response;

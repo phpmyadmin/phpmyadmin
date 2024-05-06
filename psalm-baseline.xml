@@ -2503,11 +2503,6 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/SchemaExportController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/Server/BinlogController.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
