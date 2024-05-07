@@ -995,6 +995,7 @@ return [
                 '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$dbTableExists' => '@' . DbTableExists::class,
+                '$responseFactory' => '@' . ResponseFactory::class,
             ],
         ],
         Table\ImportController::class => [
