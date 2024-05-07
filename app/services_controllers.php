@@ -986,7 +986,7 @@ return [
         ],
         Table\GetFieldController::class => [
             'class' => Table\GetFieldController::class,
-            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
+            'arguments' => ['@response', '@dbi', '@' . ResponseFactory::class],
         ],
         Table\GisVisualizationController::class => [
             'class' => Table\GisVisualizationController::class,

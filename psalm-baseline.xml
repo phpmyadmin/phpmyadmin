@@ -3474,14 +3474,6 @@
       <code><![CDATA[Response|null]]></code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="src/Controllers/Table/GetFieldController.php">
-    <PossiblyNullArgument>
-      <code><![CDATA[$result]]></code>
-    </PossiblyNullArgument>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/Table/GisVisualizationController.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
