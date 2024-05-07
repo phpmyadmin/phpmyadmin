@@ -1260,6 +1260,7 @@ return [
                 '$tracking' => '@tracking',
                 '$trackingChecker' => '@tracking_checker',
                 '$dbTableExists' => '@' . DbTableExists::class,
+                '$responseFactory' => '@' . ResponseFactory::class,
             ],
         ],
         Triggers\IndexController::class => [

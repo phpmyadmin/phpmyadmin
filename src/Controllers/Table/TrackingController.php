@@ -10,6 +10,7 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -42,6 +43,7 @@ final class TrackingController implements InvocableController
         private readonly Tracking $tracking,
         private readonly TrackingChecker $trackingChecker,
         private readonly DbTableExists $dbTableExists,
+        private readonly ResponseFactory $responseFactory,
     ) {
     }
 
@@ -138,11 +140,10 @@ final class TrackingController implements InvocableController
                 // Export as file download
                 if ($reportExportType === 'sqldumpfile') {
                     $downloadInfo = $this->tracking->getDownloadInfoForExport($tableParam, $entries);
-                    $this->response->disable();
+                    $response = $this->responseFactory->createResponse();
                     Core::downloadHeader($downloadInfo['filename'], 'text/x-sql', mb_strlen($downloadInfo['dump']));
-                    echo $downloadInfo['dump'];
 
-                    return null;
+                    return $response->write($downloadInfo['dump']);
                 }
 
                 // Export as SQL execution
