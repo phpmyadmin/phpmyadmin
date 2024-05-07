@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -24,6 +25,8 @@ use function __;
 use function htmlspecialchars;
 use function is_numeric;
 use function is_string;
+use function ob_get_clean;
+use function ob_start;
 use function round;
 use function sprintf;
 use function str_contains;
@@ -42,6 +45,7 @@ final class WrapperController implements InvocableController
         private readonly Relation $relation,
         private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
+        private readonly ResponseFactory $responseFactory,
     ) {
     }
 
@@ -107,9 +111,10 @@ final class WrapperController implements InvocableController
             }
         }
 
-        // Disabling standard response, we are sending binary here
-        $this->response->disable();
-        $this->response->getHeader()->sendHttpHeaders();
+        $response = $this->responseFactory->createResponse();
+        foreach ($this->response->getHeader()->getHttpHeaders() as $name => $value) {
+            $response = $response->withHeader($name, $value);
+        }
 
         /** @psalm-suppress MixedAssignment */
         $contentType = $request->getParam('ct');
@@ -133,19 +138,15 @@ final class WrapperController implements InvocableController
         $resize = $request->getParam('resize');
         if ($resize !== 'jpeg' && $resize !== 'png') {
             if (str_contains(strtolower($contentMediaType), 'html')) {
-                echo htmlspecialchars($row[$transformKey]);
-
-                return null;
+                return $response->write(htmlspecialchars($row[$transformKey]));
             }
 
-            echo $row[$transformKey];
-
-            return null;
+            return $response->write($row[$transformKey]);
         }
 
         $srcImage = ImageWrapper::fromString($row[$transformKey]);
         if ($srcImage === null) {
-            return null;
+            return $response;
         }
 
         $newHeight = $this->formatSize($request->getParam('newHeight'));
@@ -172,18 +173,21 @@ final class WrapperController implements InvocableController
 
         $destImage = ImageWrapper::create($destWidth, $destHeight);
         if ($destImage === null) {
-            return null;
+            return $response;
         }
 
         $destImage->copyResampled($srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight);
 
+        ob_start();
         if ($resize === 'jpeg') {
             $destImage->jpeg(null, 75);
         } else {
             $destImage->png();
         }
 
-        return null;
+        $output = ob_get_clean();
+
+        return $response->write((string) $output);
     }
 
     private function formatSize(mixed $size): int

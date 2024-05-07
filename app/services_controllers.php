@@ -1315,6 +1315,7 @@ return [
                 '$relation' => '@relation',
                 '$dbi' => '@dbi',
                 '$dbTableExists' => '@' . DbTableExists::class,
+                '$responseFactory' => '@' . ResponseFactory::class,
             ],
         ],
         UserPasswordController::class => [
