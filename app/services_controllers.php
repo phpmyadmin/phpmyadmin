@@ -588,6 +588,7 @@ return [
                 '$relation' => '@relation',
                 '$config' => '@config',
                 '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
+                '$responseFactory' => '@' . ResponseFactory::class,
             ],
         ],
         Preferences\NavigationController::class => [
