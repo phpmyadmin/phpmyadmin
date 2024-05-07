@@ -6,9 +6,11 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function __;
@@ -20,20 +22,26 @@ use function is_readable;
 use function ob_get_clean;
 use function ob_start;
 use function preg_replace;
-use function printf;
 use function readgzfile;
+use function sprintf;
 use function str_ends_with;
 
 final class ChangeLogController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly Config $config)
-    {
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly Config $config,
+        private readonly ResponseFactory $responseFactory,
+        private readonly Template $template,
+    ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $this->response->disable();
-        $this->response->getHeader()->sendHttpHeaders();
+        $response = $this->responseFactory->createResponse();
+        foreach ($this->response->getHeader()->getHttpHeaders() as $name => $value) {
+            $response = $response->withHeader($name, $value);
+        }
 
         $filename = $this->config->getChangeLogFilePath();
 
@@ -42,16 +50,12 @@ final class ChangeLogController implements InvocableController
          */
         // Check if the file is available, some distributions remove these.
         if (! @is_readable($filename)) {
-            printf(
-                __(
-                    'The %s file is not available on this system, please visit %s for more information.',
-                ),
+            return $response->write(sprintf(
+                __('The %s file is not available on this system, please visit %s for more information.'),
                 basename($filename),
                 '<a href="' . Core::linkURL('https://www.phpmyadmin.net/')
                 . '" rel="noopener noreferrer" target="_blank">phpmyadmin.net</a>',
-            );
-
-            return null;
+            ));
         }
 
         // Test if the file is in a compressed format
@@ -109,12 +113,8 @@ final class ChangeLogController implements InvocableController
             '/a href="/' => 'a target="_blank" rel="noopener noreferrer" href="',
         ];
 
-        $this->response->addHeader('Content-Type', 'text/html; charset=utf-8');
-
-        $this->response->render('changelog', [
+        return $response->write($this->template->render('changelog', [
             'changelog' => preg_replace(array_keys($replaces), $replaces, $changelog),
-        ]);
-
-        return null;
+        ]));
     }
 }

@@ -9,6 +9,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -111,8 +112,17 @@ class GisVisualizationControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
 
-        $response = new ResponseRenderer();
-        (new GisVisualizationController($response, $template, $dbi, new DbTableExists($dbi)))($request);
-        self::assertSame($expected, $response->getHTMLResult());
+        $responseRenderer = new ResponseRenderer();
+        $controller = new GisVisualizationController(
+            $responseRenderer,
+            $template,
+            $dbi,
+            new DbTableExists($dbi),
+            ResponseFactory::create(),
+        );
+        $response = $controller($request);
+
+        self::assertNull($response);
+        self::assertSame($expected, $responseRenderer->getHTMLResult());
     }
 }

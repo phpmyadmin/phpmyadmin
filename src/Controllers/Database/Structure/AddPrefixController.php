@@ -6,16 +6,21 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Template;
 
 use function __;
 
 final class AddPrefixController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response)
-    {
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly ResponseFactory $responseFactory,
+        private readonly Template $template,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -35,9 +40,11 @@ final class AddPrefixController implements InvocableController
             $params['selected'][] = $selectedValue;
         }
 
-        $this->response->disable();
-        $this->response->render('database/structure/add_prefix', ['url_params' => $params]);
+        $response = $this->responseFactory->createResponse();
+        foreach ($this->response->getHeader()->getHttpHeaders() as $name => $value) {
+            $response = $response->withHeader($name, $value);
+        }
 
-        return null;
+        return $response->write($this->template->render('database/structure/add_prefix', ['url_params' => $params]));
     }
 }

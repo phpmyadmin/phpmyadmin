@@ -811,11 +811,6 @@
       <code><![CDATA[Response|null]]></code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="src/Controllers/ChangeLogController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/CheckRelationsController.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -1305,11 +1300,6 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/Database/Structure/AddPrefixController.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Database/Structure/AddPrefixTableController.php">
     <MixedOperand>
       <code><![CDATA[$request->getParsedBodyParam('add_prefix', '')]]></code>
@@ -1339,18 +1329,10 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/Database/Structure/ChangePrefixFormController.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Database/Structure/CopyFormController.php">
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/Structure/CopyTableController.php">
     <MixedArgument>
@@ -2045,19 +2027,11 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/LicenseController.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/LintController.php">
     <MixedAssignment>
       <code><![CDATA[$editorType]]></code>
       <code><![CDATA[$options]]></code>
     </MixedAssignment>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/LogoutController.php">
     <PossiblyUnusedReturnValue>
@@ -2327,14 +2301,6 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/PhpInfoController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Preferences/ExportController.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -2536,11 +2502,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="src/Controllers/SchemaExportController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/BinlogController.php">
     <DeprecatedMethod>
@@ -3513,14 +3474,6 @@
       <code><![CDATA[Response|null]]></code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="src/Controllers/Table/GetFieldController.php">
-    <PossiblyNullArgument>
-      <code><![CDATA[$result]]></code>
-    </PossiblyNullArgument>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/Table/GisVisualizationController.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -3537,9 +3490,6 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_GET['fileFormat']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyCast>
       <code><![CDATA[$_POST['pos'] ?? $_GET['pos'] ?? $_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_POST['session_max_rows'] ?? $_GET['session_max_rows']]]></code>
@@ -4206,9 +4156,6 @@
       <code><![CDATA[$toggleActivation]]></code>
       <code><![CDATA[$version]]></code>
     </MixedAssignment>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/ZoomSearchController.php">
     <DeprecatedMethod>
@@ -4381,11 +4328,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="src/Controllers/VersionCheckController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/View/CreateController.php">
     <DeprecatedMethod>
@@ -12954,6 +12896,11 @@
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
+  </file>
+  <file src="tests/unit/Controllers/PhpInfoControllerTest.php">
+    <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+    </DeprecatedMethod>
   </file>
   <file src="tests/unit/Controllers/Server/BinlogControllerTest.php">
     <DeprecatedMethod>

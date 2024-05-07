@@ -13,6 +13,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -26,6 +27,8 @@ use function __;
 use function in_array;
 use function is_array;
 use function is_string;
+use function ob_get_clean;
+use function ob_start;
 
 /**
  * Handles creation of the GIS visualizations.
@@ -37,6 +40,7 @@ final class GisVisualizationController implements InvocableController
         private readonly Template $template,
         private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
+        private readonly ResponseFactory $responseFactory,
     ) {
     }
 
@@ -112,11 +116,13 @@ final class GisVisualizationController implements InvocableController
         $visualization = GisVisualization::get($sqlQuery, $visualizationSettings, $rows, $pos);
 
         if (isset($_GET['saveToFile'])) {
-            $this->response->disable();
+            $response = $this->responseFactory->createResponse();
             $filename = $visualization->getSpatialColumn();
+            ob_start();
             $visualization->toFile($filename, $_GET['fileFormat']);
+            $output = ob_get_clean();
 
-            return null;
+            return $response->write((string) $output);
         }
 
         $this->response->addScriptFiles(['vendor/openlayers/OpenLayers.js', 'table/gis_visualization.js']);

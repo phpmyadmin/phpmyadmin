@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\Table\TrackingController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
@@ -51,13 +52,13 @@ class TrackingControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
 
-        $response = new ResponseRenderer();
+        $responseRenderer = new ResponseRenderer();
         $template = new Template();
         $trackingChecker = self::createStub(TrackingChecker::class);
         $relation = new Relation($this->dbi);
         $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
-        (new TrackingController(
-            $response,
+        $response = (new TrackingController(
+            $responseRenderer,
             new Tracking(
                 new SqlQueryForm($template, $this->dbi, $bookmarkRepository),
                 $template,
@@ -67,7 +68,10 @@ class TrackingControllerTest extends AbstractTestCase
             ),
             $trackingChecker,
             new DbTableExists($this->dbi),
+            ResponseFactory::create(),
         ))($request);
+
+        self::assertNull($response);
 
         $main = $template->render('table/tracking/main', [
             'url_params' => [
@@ -101,6 +105,6 @@ class TrackingControllerTest extends AbstractTestCase
             'main' => $main,
         ]);
 
-        self::assertSame($expected, $response->getHTMLResult());
+        self::assertSame($expected, $responseRenderer->getHTMLResult());
     }
 }

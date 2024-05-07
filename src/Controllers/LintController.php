@@ -1,23 +1,18 @@
 <?php
-/**
- * Represents the interface between the linter and the query editor.
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Linter;
-use PhpMyAdmin\ResponseRenderer;
 
-use function header;
 use function is_array;
 use function is_string;
 use function json_encode;
-use function sprintf;
 
 /**
  * Represents the interface between the linter and the query editor.
@@ -30,7 +25,7 @@ final class LintController implements InvocableController
         'trigger' => "DELIMITER $$ CREATE TRIGGER `a` AFTER INSERT ON `b` FOR EACH ROW\n",
     ];
 
-    public function __construct(private readonly ResponseRenderer $response)
+    public function __construct(private readonly ResponseFactory $responseFactory)
     {
     }
 
@@ -70,15 +65,11 @@ final class LintController implements InvocableController
             }
         }
 
-        // Disabling standard response.
-        $this->response->disable();
-
+        $response = $this->responseFactory->createResponse();
         foreach (Core::headerJSON() as $name => $value) {
-            header(sprintf('%s: %s', $name, $value));
+            $response = $response->withHeader($name, $value);
         }
 
-        echo json_encode($lints);
-
-        return null;
+        return $response->write((string) json_encode($lints));
     }
 }

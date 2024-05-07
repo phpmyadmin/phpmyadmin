@@ -103,7 +103,7 @@ class Application
         $requestHandler->add(new RequestProblemChecking($this->template, $this->responseFactory));
         $requestHandler->add(new CurrentServerGlobalSetting($this->config));
         $requestHandler->add(new ThemeInitialization());
-        $requestHandler->add(new UrlRedirection($this->config));
+        $requestHandler->add(new UrlRedirection($this->config, $this->template, $this->responseFactory));
         $requestHandler->add(new SetupPageRedirection($this->config, $this->responseFactory));
         $requestHandler->add(new MinimumCommonRedirection($this->config, $this->responseFactory));
         $requestHandler->add(new LanguageAndThemeCookieSaving($this->config));

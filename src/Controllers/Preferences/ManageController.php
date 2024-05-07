@@ -11,6 +11,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -51,6 +52,7 @@ final class ManageController implements InvocableController
         private readonly Relation $relation,
         private readonly Config $config,
         private readonly ThemeManager $themeManager,
+        private readonly ResponseFactory $responseFactory,
     ) {
     }
 
@@ -69,29 +71,29 @@ final class ManageController implements InvocableController
         $GLOBALS['error'] = '';
         if ($request->hasBodyParam('submit_export') && $request->getParsedBodyParam('export_type') === 'text_file') {
             // export to JSON file
-            $this->response->disable();
+            $response = $this->responseFactory->createResponse();
             $filename = 'phpMyAdmin-config-' . urlencode(Core::getEnv('HTTP_HOST')) . '.json';
             Core::downloadHeader($filename, 'application/json');
             $settings = $this->userPreferences->load();
-            echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
 
-            return null;
+            return $response->write((string) json_encode($settings['config_data'], JSON_PRETTY_PRINT));
         }
 
         if ($request->hasBodyParam('submit_export') && $request->getParsedBodyParam('export_type') === 'php_file') {
-            // export to JSON file
-            $this->response->disable();
+            // export to PHP file
+            $response = $this->responseFactory->createResponse();
             $filename = 'phpMyAdmin-config-' . urlencode(Core::getEnv('HTTP_HOST')) . '.php';
             Core::downloadHeader($filename, 'application/php');
             $settings = $this->userPreferences->load();
-            echo '/* ' . __('phpMyAdmin configuration snippet') . " */\n\n";
-            echo '/* ' . __('Paste it to your config.inc.php') . " */\n\n";
+
+            $output = '/* ' . __('phpMyAdmin configuration snippet') . " */\n\n";
+            $output .= '/* ' . __('Paste it to your config.inc.php') . " */\n\n";
             foreach ($settings['config_data'] as $key => $val) {
-                echo '$cfg[\'' . str_replace('/', '\'][\'', $key) . '\'] = ';
-                echo var_export($val, true) . ";\n";
+                $output .= '$cfg[\'' . str_replace('/', '\'][\'', $key) . '\'] = ';
+                $output .= var_export($val, true) . ";\n";
             }
 
-            return null;
+            return $response->write($output);
         }
 
         if ($request->hasBodyParam('submit_get_json')) {
