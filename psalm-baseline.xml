@@ -11228,8 +11228,8 @@
       <code><![CDATA[$oneField]]></code>
       <code><![CDATA[$options['expr']]]></code>
       <code><![CDATA[$row['Type']]]></code>
-      <code><![CDATA[$this->uiprefs[$property]]]></code>
-      <code><![CDATA[$this->uiprefs[$property]]]></code>
+      <code><![CDATA[$this->uiprefs[$property->value]]]></code>
+      <code><![CDATA[$this->uiprefs[$property->value]]]></code>
       <code><![CDATA[$value]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>

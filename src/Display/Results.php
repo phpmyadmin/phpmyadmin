@@ -29,6 +29,7 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\SqlParser\Utils\StatementInfo;
 use PhpMyAdmin\SqlParser\Utils\StatementType;
 use PhpMyAdmin\Table\Table;
+use PhpMyAdmin\Table\UiProperty;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Transformations;
@@ -2391,26 +2392,26 @@ class Results
 
         if ($this->isSelect($statementInfo)) {
             $pmatable = new Table($this->table, $this->db, $this->dbi);
-            $colOrder = $pmatable->getUiProp(Table::PROP_COLUMN_ORDER);
+            $colOrder = $pmatable->getUiProp(UiProperty::ColumnOrder);
             $fieldsCount = count($this->fieldsMeta);
             /* Validate the value */
             if (is_array($colOrder)) {
                 foreach ($colOrder as $value) {
                     if ($value >= $fieldsCount) {
-                        $pmatable->removeUiProp(Table::PROP_COLUMN_ORDER);
+                        $pmatable->removeUiProp(UiProperty::ColumnOrder);
                         break;
                     }
                 }
 
                 if ($fieldsCount !== count($colOrder)) {
-                    $pmatable->removeUiProp(Table::PROP_COLUMN_ORDER);
+                    $pmatable->removeUiProp(UiProperty::ColumnOrder);
                     $colOrder = false;
                 }
             }
 
-            $colVisib = $pmatable->getUiProp(Table::PROP_COLUMN_VISIB);
+            $colVisib = $pmatable->getUiProp(UiProperty::ColumnVisibility);
             if (is_array($colVisib) && $fieldsCount !== count($colVisib)) {
-                $pmatable->removeUiProp(Table::PROP_COLUMN_VISIB);
+                $pmatable->removeUiProp(UiProperty::ColumnVisibility);
                 $colVisib = false;
             }
         }

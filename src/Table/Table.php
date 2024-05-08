@@ -72,13 +72,6 @@ use function trim;
  */
 class Table implements Stringable
 {
-    /**
-     * UI preferences properties
-     */
-    public const PROP_SORTED_COLUMN = 'sorted_col';
-    public const PROP_COLUMN_ORDER = 'col_order';
-    public const PROP_COLUMN_VISIB = 'col_visib';
-
     /** @var mixed[] UI preferences */
     public array $uiprefs = [];
 
@@ -1677,28 +1670,22 @@ class Table implements Stringable
     /**
      * Get a property from UI preferences.
      * Return false if the property is not found.
-     * Available property:
-     * - PROP_SORTED_COLUMN
-     * - PROP_COLUMN_ORDER
-     * - PROP_COLUMN_VISIB
-     *
-     * @param string $property property
      */
-    public function getUiProp(string $property): mixed
+    public function getUiProp(UiProperty $property): mixed
     {
         if ($this->uiprefs === []) {
             $this->loadUiPrefs();
         }
 
         // do checking based on property
-        if ($property === self::PROP_SORTED_COLUMN) {
-            if (! isset($this->uiprefs[$property])) {
+        if ($property === UiProperty::SortedColumn) {
+            if (! isset($this->uiprefs[$property->value])) {
                 return false;
             }
 
             if (! isset($_POST['discard_remembered_sort'])) {
                 // check if the column name exists in this table
-                $tmp = explode(' ', $this->uiprefs[$property]);
+                $tmp = explode(' ', $this->uiprefs[$property->value]);
                 $colname = $tmp[0];
                 //remove backquoting from colname
                 $colname = str_replace('`', '', $colname);
@@ -1708,7 +1695,7 @@ class Table implements Stringable
                 foreach ($availColumns as $eachCol) {
                     // check if $each_col ends with $colname
                     if (substr_compare($eachCol, $colname, mb_strlen($eachCol) - mb_strlen($colname)) === 0) {
-                        return $this->uiprefs[$property];
+                        return $this->uiprefs[$property->value];
                     }
                 }
             }
@@ -1719,47 +1706,43 @@ class Table implements Stringable
             return false;
         }
 
-        if ($property === self::PROP_COLUMN_ORDER || $property === self::PROP_COLUMN_VISIB) {
-            if ($this->isView() || ! isset($this->uiprefs[$property])) {
-                return false;
-            }
-
-            // check if the table has not been modified
-            if ($this->getStatusInfo('Create_time') == $this->uiprefs['CREATE_TIME']) {
-                return array_map(intval(...), $this->uiprefs[$property]);
-            }
-
-            // remove the property, since the table has been modified
-            $this->removeUiProp($property);
-
+        if ($this->isView() || ! isset($this->uiprefs[$property->value])) {
             return false;
         }
 
-        // default behaviour for other property:
-        return $this->uiprefs[$property] ?? false;
+        // check if the table has not been modified
+        if ($this->getStatusInfo('Create_time') == $this->uiprefs['CREATE_TIME']) {
+            return array_map(intval(...), $this->uiprefs[$property->value]);
+        }
+
+        // remove the property, since the table has been modified
+        $this->removeUiProp($property);
+
+        return false;
     }
 
     /**
      * Set a property from UI preferences.
      * If pmadb and table_uiprefs is set, it will save the UI preferences to
      * phpMyAdmin database.
-     * Available property:
-     * - PROP_SORTED_COLUMN
-     * - PROP_COLUMN_ORDER
-     * - PROP_COLUMN_VISIB
      *
-     * @param string      $property        Property
-     * @param mixed       $value           Value for the property
-     * @param string|null $tableCreateTime Needed for PROP_COLUMN_ORDER and PROP_COLUMN_VISIB
+     * @param int[]|string $value           Value for the property
+     * @param string|null  $tableCreateTime Needed for PROP_COLUMN_ORDER and PROP_COLUMN_VISIB
      */
-    public function setUiProp(string $property, mixed $value, string|null $tableCreateTime = null): bool|Message
-    {
+    public function setUiProp(
+        UiProperty $property,
+        array|string $value,
+        string|null $tableCreateTime = null,
+    ): bool|Message {
         if ($this->uiprefs === []) {
             $this->loadUiPrefs();
         }
 
         // we want to save the create time if the property is PROP_COLUMN_ORDER
-        if (! $this->isView() && ($property === self::PROP_COLUMN_ORDER || $property === self::PROP_COLUMN_VISIB)) {
+        if (
+            ! $this->isView()
+            && ($property === UiProperty::ColumnOrder || $property === UiProperty::ColumnVisibility)
+        ) {
             $currCreateTime = $this->getStatusInfo('CREATE_TIME');
             if ($tableCreateTime === null || $tableCreateTime != $currCreateTime) {
                 // there is no $table_create_time, or
@@ -1772,7 +1755,7 @@ class Table implements Stringable
                             'not be persistent after you refresh this page. ' .
                             'Please check if the table structure has been changed.',
                         ),
-                        $property,
+                        $property->value,
                     ),
                 );
             }
@@ -1781,7 +1764,7 @@ class Table implements Stringable
         }
 
         // save the value
-        $this->uiprefs[$property] = $value;
+        $this->uiprefs[$property->value] = $value;
 
         // check if pmadb is set
         $uiPreferencesFeature = $this->relation->getRelationParameters()->uiPreferencesFeature;
@@ -1795,18 +1778,16 @@ class Table implements Stringable
     /**
      * Remove a property from UI preferences.
      *
-     * @param string $property the property
-     *
      * @return true|Message
      */
-    public function removeUiProp(string $property): bool|Message
+    public function removeUiProp(UiProperty $property): bool|Message
     {
         if ($this->uiprefs === []) {
             $this->loadUiPrefs();
         }
 
-        if (isset($this->uiprefs[$property])) {
-            unset($this->uiprefs[$property]);
+        if (isset($this->uiprefs[$property->value])) {
+            unset($this->uiprefs[$property->value]);
 
             // check if pmadb is set
             $uiPreferencesFeature = $this->relation->getRelationParameters()->uiPreferencesFeature;
