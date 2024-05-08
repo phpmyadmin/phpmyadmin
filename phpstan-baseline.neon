@@ -7602,7 +7602,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 4
+			count: 2
 			path: src/Footer.php
 
 		-
@@ -7617,11 +7617,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: src/Footer.php
-
-		-
-			message: "#^Parameter \\#4 \\$sqlquery of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:setHistory\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Footer.php
 
@@ -8229,6 +8224,16 @@ parameters:
 			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Config\\:\\:setCookie\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Http/Middleware/SetupPageRedirection.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: src/Http/Middleware/StatementHistory.php
+
+		-
+			message: "#^Parameter \\#4 \\$sqlquery of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:setHistory\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Http/Middleware/StatementHistory.php
 
 		-
 			message: "#^Parameter \\#1 \\$known_string of function hash_equals expects string, mixed given\\.$#"
