@@ -2235,9 +2235,10 @@ logs. Currently there are two variables available:
     User name of currently active user (they do not have to be logged in).
 ``userStatus``
     Status of currently active user, one of ``ok`` (user is logged in),
-    ``mysql-denied`` (MySQL denied user login), ``allow-denied`` (user denied
+    ``server-denied`` (database server denied user login), ``allow-denied`` (user denied
     by allow/deny rules), ``root-denied`` (root is denied in configuration),
-    ``empty-denied`` (empty password is denied).
+    ``empty-denied`` (empty password is denied),
+    ``no-activity`` (automatically logged out due to inactivity).
 
 ``LogFormat`` directive for Apache can look like following:
 

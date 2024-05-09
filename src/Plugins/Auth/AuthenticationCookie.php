@@ -11,6 +11,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Error\ErrorHandler;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
@@ -206,6 +207,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      * it returns true if all seems ok which usually leads to auth_set_user()
      *
      * it directly switches to showFailure() if user inactivity timeout is reached
+     *
+     * @throws AuthenticationFailure
      */
     public function readCredentials(): bool
     {
@@ -371,7 +374,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             SessionCache::remove('table_priv');
             SessionCache::remove('proc_priv');
 
-            $this->showFailure('no-activity');
+            throw AuthenticationFailure::noActivity();
         }
 
         // check password cookie
@@ -539,14 +542,10 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * prepares error message and switches to showLoginForm() which display the error
      * and the login form
-     *
-     * @param string $failure String describing why authentication has failed
      */
-    public function showFailure(string $failure): never
+    public function showFailure(AuthenticationFailure $failure): never
     {
-        $GLOBALS['conn_error'] ??= null;
-
-        parent::showFailure($failure);
+        $this->logFailure($failure);
 
         // Deletes password cookie and displays the login form
         Config::getInstance()->removeCookie('pmaAuth-' . Current::$server);

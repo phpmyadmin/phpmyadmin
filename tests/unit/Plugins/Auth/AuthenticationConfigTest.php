@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
 use PhpMyAdmin\ResponseRenderer;
@@ -91,7 +92,7 @@ class AuthenticationConfigTest extends AbstractTestCase
 
         ob_start();
         try {
-            $this->object->showFailure('');
+            $this->object->showFailure(AuthenticationFailure::serverDenied());
         } catch (Throwable $throwable) {
         }
 

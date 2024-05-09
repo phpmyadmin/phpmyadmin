@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
@@ -33,6 +34,11 @@ final class AuthenticationPluginTest extends AbstractTestCase
             public function readCredentials(): bool
             {
                 return false;
+            }
+
+            public function showFailure(AuthenticationFailure $failure): never
+            {
+                throw new ExitException();
             }
         };
 

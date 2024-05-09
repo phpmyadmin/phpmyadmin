@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Error\ErrorHandler;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
 use PhpMyAdmin\ResponseRenderer;
@@ -90,23 +90,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame(200, $response->getStatusCode());
         self::assertFalse($responseStub->hasSuccessState());
         self::assertSame(['redirect_flag' => '1'], $responseStub->getJSONResult());
-    }
-
-    private function getAuthErrorMockResponse(): void
-    {
-        // mock error handler
-
-        $mockErrorHandler = $this->getMockBuilder(ErrorHandler::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['hasDisplayErrors'])
-            ->getMock();
-
-        $mockErrorHandler->expects(self::once())
-            ->method('hasDisplayErrors')
-            ->with()
-            ->willReturn(true);
-
-        ErrorHandler::$instance = $mockErrorHandler;
     }
 
     public function testAuthError(): void
@@ -576,11 +559,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->method('cookieDecrypt')
             ->willReturn('testBF');
 
-        $this->object->expects(self::once())
-            ->method('showFailure')
-            ->willThrowException(new ExitException());
-
-        $this->expectException(ExitException::class);
+        $this->expectExceptionObject(AuthenticationFailure::noActivity());
         $this->object->readCredentials();
     }
 
@@ -656,7 +635,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
-            $this->object->showFailure('empty-denied');
+            $this->object->showFailure(AuthenticationFailure::emptyDenied());
         } catch (Throwable $throwable) {
         }
 
@@ -668,7 +647,7 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         self::assertSame(
             $GLOBALS['conn_error'],
-            'Login without a password is forbidden by configuration (see AllowNoPassword)',
+            'Login without a password is forbidden by configuration (see AllowNoPassword).',
         );
     }
 
@@ -724,7 +703,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
-            $this->object->showFailure('allow-denied');
+            $this->object->showFailure(AuthenticationFailure::allowDenied());
         } catch (Throwable $throwable) {
         }
 
@@ -756,7 +735,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
-            $this->object->showFailure('no-activity');
+            $this->object->showFailure(AuthenticationFailure::noActivity());
         } catch (Throwable $throwable) {
         }
 
@@ -801,7 +780,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
-            $this->object->showFailure('');
+            $this->object->showFailure(AuthenticationFailure::serverDenied());
         } catch (Throwable $throwable) {
         }
 
@@ -811,7 +790,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
         self::assertSame(200, $response->getStatusCode());
 
-        self::assertSame($GLOBALS['conn_error'], '#42 Cannot log in to the MySQL server');
+        self::assertSame($GLOBALS['conn_error'], '#42 Cannot log in to the database server.');
     }
 
     public function testAuthFailsErrno(): void
@@ -842,7 +821,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
-            $this->object->showFailure('');
+            $this->object->showFailure(AuthenticationFailure::serverDenied());
         } catch (Throwable $throwable) {
         }
 
@@ -852,7 +831,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
         self::assertSame(200, $response->getStatusCode());
 
-        self::assertSame($GLOBALS['conn_error'], 'Cannot log in to the MySQL server');
+        self::assertSame($GLOBALS['conn_error'], 'Cannot log in to the database server.');
     }
 
     public function testGetEncryptionSecretEmpty(): void
@@ -999,31 +978,20 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->selectedServer['AllowNoPassword'] = $nopass;
         $config->selectedServer['AllowDeny'] = $rules;
 
-        if ($expected !== '') {
-            $this->getAuthErrorMockResponse();
-        }
-
-        $responseStub = new ResponseRendererStub();
-        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
-
+        $exception = null;
         try {
             $this->object->checkRules();
-        } catch (Throwable $throwable) {
-        }
-
-        $result = $responseStub->getHTMLResult();
-
-        if ($expected !== '') {
-            self::assertInstanceOf(ExitException::class, $throwable ?? null);
+        } catch (AuthenticationFailure $exception) {
         }
 
         if ($expected === '') {
-            self::assertSame($expected, $result);
-        } else {
-            self::assertStringContainsString($expected, $result);
+            self::assertNull($exception, 'checkRules() should not throw an exception.');
+
+            return;
         }
 
-        ErrorHandler::$instance = null;
+        self::assertInstanceOf(AuthenticationFailure::class, $exception);
+        self::assertSame($expected, $exception->failureType);
     }
 
     /** @return mixed[] */
@@ -1031,9 +999,9 @@ class AuthenticationCookieTest extends AbstractTestCase
     {
         return [
             'nopass-ok' => ['testUser', '', '1.2.3.4', true, true, [], ''],
-            'nopass' => ['testUser', '', '1.2.3.4', true, false, [], 'Login without a password is forbidden'],
+            'nopass' => ['testUser', '', '1.2.3.4', true, false, [], AuthenticationFailure::EMPTY_DENIED],
             'root-ok' => ['root', 'root', '1.2.3.4', true, true, [], ''],
-            'root' => ['root', 'root', '1.2.3.4', false, true, [], 'Access denied!'],
+            'root' => ['root', 'root', '1.2.3.4', false, true, [], AuthenticationFailure::ROOT_DENIED],
             'rules-deny-allow-ok' => [
                 'root',
                 'root',
@@ -1050,7 +1018,7 @@ class AuthenticationCookieTest extends AbstractTestCase
                 true,
                 true,
                 ['order' => 'deny,allow', 'rules' => ['allow root 1.2.3.4', 'deny % from all']],
-                'Access denied!',
+                AuthenticationFailure::ALLOW_DENIED,
             ],
             'rules-allow-deny-ok' => [
                 'root',
@@ -1068,7 +1036,7 @@ class AuthenticationCookieTest extends AbstractTestCase
                 true,
                 true,
                 ['order' => 'allow,deny', 'rules' => ['deny user from all', 'allow root 1.2.3.4']],
-                'Access denied!',
+                AuthenticationFailure::ALLOW_DENIED,
             ],
             'rules-explicit-ok' => [
                 'root',
@@ -1086,7 +1054,7 @@ class AuthenticationCookieTest extends AbstractTestCase
                 true,
                 true,
                 ['order' => 'explicit', 'rules' => ['deny user from all', 'allow root 1.2.3.4']],
-                'Access denied!',
+                AuthenticationFailure::ALLOW_DENIED,
             ],
         ];
     }

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Auth;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Error\ErrorHandler;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
@@ -65,12 +66,10 @@ class AuthenticationConfig extends AuthenticationPlugin
 
     /**
      * User is not allowed to login to MySQL -> authentication failed
-     *
-     * @param string $failure String describing why authentication has failed
      */
-    public function showFailure(string $failure): never
+    public function showFailure(AuthenticationFailure $failure): never
     {
-        parent::showFailure($failure);
+        $this->logFailure($failure);
 
         $connError = DatabaseInterface::getInstance()->getError();
         if ($connError === '' || $connError === '0') {
@@ -95,8 +94,8 @@ class AuthenticationConfig extends AuthenticationPlugin
         <tr>
             <td>';
         $config = Config::getInstance();
-        if ($failure === 'allow-denied') {
-            trigger_error(__('Access denied!'), E_USER_NOTICE);
+        if ($failure->failureType === AuthenticationFailure::ALLOW_DENIED) {
+            trigger_error($failure->getMessage(), E_USER_NOTICE);
         } else {
             // Check whether user has configured something
             if ($config->sourceMtime == 0) {

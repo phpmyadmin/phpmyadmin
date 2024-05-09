@@ -12,6 +12,7 @@ use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
@@ -178,12 +179,10 @@ class AuthenticationHttp extends AuthenticationPlugin
 
     /**
      * User is not allowed to login to MySQL -> authentication failed
-     *
-     * @param string $failure String describing why authentication has failed
      */
-    public function showFailure(string $failure): never
+    public function showFailure(AuthenticationFailure $failure): never
     {
-        parent::showFailure($failure);
+        $this->logFailure($failure);
 
         $error = DatabaseInterface::getInstance()->getError();
         if ($error && $GLOBALS['errno'] != 1045) {

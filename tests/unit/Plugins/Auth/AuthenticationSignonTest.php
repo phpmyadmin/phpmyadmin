@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 use PhpMyAdmin\ResponseRenderer;
@@ -260,12 +261,12 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->willThrowException(new ExitException());
 
         try {
-            $this->object->showFailure('empty-denied');
+            $this->object->showFailure(AuthenticationFailure::emptyDenied());
         } catch (ExitException) {
         }
 
         self::assertSame(
-            'Login without a password is forbidden by configuration (see AllowNoPassword)',
+            'Login without a password is forbidden by configuration (see AllowNoPassword).',
             $_SESSION['PMA_single_signon_error_message'],
         );
     }
@@ -285,7 +286,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->willThrowException(new ExitException());
 
         try {
-            $this->object->showFailure('allow-denied');
+            $this->object->showFailure(AuthenticationFailure::allowDenied());
         } catch (ExitException) {
         }
 
@@ -310,7 +311,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         $config->settings['LoginCookieValidity'] = '1440';
 
         try {
-            $this->object->showFailure('no-activity');
+            $this->object->showFailure(AuthenticationFailure::noActivity());
         } catch (ExitException) {
         }
 
@@ -347,7 +348,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         try {
-            $this->object->showFailure('');
+            $this->object->showFailure(AuthenticationFailure::serverDenied());
         } catch (ExitException) {
         }
 
@@ -380,11 +381,11 @@ class AuthenticationSignonTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         try {
-            $this->object->showFailure('');
+            $this->object->showFailure(AuthenticationFailure::serverDenied());
         } catch (ExitException) {
         }
 
-        self::assertSame('Cannot log in to the MySQL server', $_SESSION['PMA_single_signon_error_message']);
+        self::assertSame('Cannot log in to the database server.', $_SESSION['PMA_single_signon_error_message']);
     }
 
     public function testSetCookieParamsDefaults(): void

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
 use PhpMyAdmin\ResponseRenderer;
@@ -286,7 +287,7 @@ class AuthenticationHttpTest extends AbstractTestCase
 
         ob_start();
         try {
-            $this->object->showFailure('');
+            $this->object->showFailure(AuthenticationFailure::serverDenied());
         } catch (Throwable $throwable) {
         }
 
@@ -311,13 +312,13 @@ class AuthenticationHttpTest extends AbstractTestCase
         $GLOBALS['errno'] = 1045;
 
         try {
-            $this->object->showFailure('');
+            $this->object->showFailure(AuthenticationFailure::serverDenied());
         } catch (ExitException) {
         }
 
         // case 3
         $GLOBALS['errno'] = 1043;
         $this->expectException(ExitException::class);
-        $this->object->showFailure('');
+        $this->object->showFailure(AuthenticationFailure::serverDenied());
     }
 }

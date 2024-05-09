@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\Http\ServerRequest;
@@ -67,6 +68,8 @@ abstract class AuthenticationPlugin
 
     /**
      * Gets authentication credentials
+     *
+     * @throws AuthenticationFailure
      */
     abstract public function readCredentials(): bool;
 
@@ -93,12 +96,12 @@ abstract class AuthenticationPlugin
 
     /**
      * User is not allowed to login to MySQL -> authentication failed
-     *
-     * @param string $failure String describing why authentication has failed
      */
-    public function showFailure(string $failure): void
+    abstract public function showFailure(AuthenticationFailure $failure): never;
+
+    protected function logFailure(AuthenticationFailure $failure): void
     {
-        Logging::logUser(Config::getInstance(), $this->user, $failure);
+        Logging::logUser(Config::getInstance(), $this->user, $failure->failureType);
     }
 
     /**
@@ -157,38 +160,25 @@ abstract class AuthenticationPlugin
 
     /**
      * Returns error message for failed authentication.
-     *
-     * @param string $failure String describing why authentication has failed
      */
-    public function getErrorMessage(string $failure): string
+    public function getErrorMessage(AuthenticationFailure $failure): string
     {
-        if ($failure === 'empty-denied') {
-            return __('Login without a password is forbidden by configuration (see AllowNoPassword)');
+        if ($failure->failureType === AuthenticationFailure::NO_ACTIVITY) {
+            return sprintf($failure->getMessage(), (int) Config::getInstance()->settings['LoginCookieValidity']);
         }
 
-        if ($failure === 'root-denied' || $failure === 'allow-denied') {
-            return __('Access denied!');
+        if ($failure->failureType === AuthenticationFailure::SERVER_DENIED) {
+            $dbiError = DatabaseInterface::getInstance()->getError();
+            if ($dbiError !== '') {
+                return htmlspecialchars($dbiError);
+            }
+
+            if (isset($GLOBALS['errno'])) {
+                return '#' . $GLOBALS['errno'] . ' ' . $failure->getMessage();
+            }
         }
 
-        if ($failure === 'no-activity') {
-            return sprintf(
-                __('You have been automatically logged out due to inactivity of %s seconds.'
-                . ' Once you log in again, you should be able to resume the work where you left off.'),
-                (int) Config::getInstance()->settings['LoginCookieValidity'],
-            );
-        }
-
-        $dbiError = DatabaseInterface::getInstance()->getError();
-        if ($dbiError !== '') {
-            return htmlspecialchars($dbiError);
-        }
-
-        if (isset($GLOBALS['errno'])) {
-            return '#' . $GLOBALS['errno'] . ' '
-            . __('Cannot log in to the MySQL server');
-        }
-
-        return __('Cannot log in to the MySQL server');
+        return $failure->getMessage();
     }
 
     /**
@@ -235,6 +225,8 @@ abstract class AuthenticationPlugin
      * High level authentication interface
      *
      * Gets the credentials or shows login form if necessary
+     *
+     * @throws AuthenticationFailure
      */
     public function authenticate(): void
     {
@@ -269,6 +261,8 @@ abstract class AuthenticationPlugin
 
     /**
      * Check configuration defined restrictions for authentication
+     *
+     * @throws AuthenticationFailure
      */
     public function checkRules(): void
     {
@@ -287,13 +281,13 @@ abstract class AuthenticationPlugin
 
             // Ejects the user if banished
             if ($allowDenyForbidden) {
-                $this->showFailure('allow-denied');
+                throw AuthenticationFailure::allowDenied();
             }
         }
 
         // is root allowed?
         if (! $config->selectedServer['AllowRoot'] && $config->selectedServer['user'] === 'root') {
-            $this->showFailure('root-denied');
+            throw AuthenticationFailure::rootDenied();
         }
 
         // is a login without password allowed?
@@ -301,7 +295,7 @@ abstract class AuthenticationPlugin
             return;
         }
 
-        $this->showFailure('empty-denied');
+        throw AuthenticationFailure::emptyDenied();
     }
 
     /**

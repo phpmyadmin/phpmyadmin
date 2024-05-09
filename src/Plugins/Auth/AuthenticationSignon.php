@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
@@ -233,12 +234,10 @@ class AuthenticationSignon extends AuthenticationPlugin
 
     /**
      * User is not allowed to login to MySQL -> authentication failed
-     *
-     * @param string $failure String describing why authentication has failed
      */
-    public function showFailure(string $failure): never
+    public function showFailure(AuthenticationFailure $failure): never
     {
-        parent::showFailure($failure);
+        $this->logFailure($failure);
 
         /* Session name */
         $sessionName = Config::getInstance()->selectedServer['SignonSession'];
