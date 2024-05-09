@@ -99,7 +99,10 @@ final class Authentication implements MiddlewareInterface
             }
 
             assert($request instanceof ServerRequest);
-            $authPlugin->checkTwoFactor($request);
+            $response = $authPlugin->checkTwoFactor($request);
+            if ($response !== null) {
+                return $response;
+            }
         } catch (ExitException) {
             return ResponseRenderer::getInstance()->response();
         }

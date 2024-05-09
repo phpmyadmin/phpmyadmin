@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Plugins;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
-use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -306,35 +305,33 @@ abstract class AuthenticationPlugin
     }
 
     /**
-     * Checks whether two factor authentication is active
-     * for given user and performs it.
-     *
-     * @throws ExitException
+     * Checks whether two-factor authentication is active for given user and performs it.
      */
-    public function checkTwoFactor(ServerRequest $request): void
+    public function checkTwoFactor(ServerRequest $request): Response|null
     {
         $twofactor = new TwoFactor($this->user);
 
         /* Do we need to show the form? */
         if ($twofactor->check($request)) {
-            return;
+            return null;
         }
 
-        $response = ResponseRenderer::getInstance();
-        if ($response->loginPage()) {
-            $response->callExit();
+        $responseRenderer = ResponseRenderer::getInstance();
+        if ($responseRenderer->loginPage()) {
+            return $responseRenderer->response();
         }
 
-        $response->addHTML($this->template->render('login/header', ['session_expired' => false]));
-        $response->addHTML(Message::rawNotice(
+        $responseRenderer->addHTML($this->template->render('login/header', ['session_expired' => false]));
+        $responseRenderer->addHTML(Message::rawNotice(
             __('You have enabled two factor authentication, please confirm your login.'),
         )->getDisplay());
-        $response->addHTML($this->template->render('login/twofactor', [
+        $responseRenderer->addHTML($this->template->render('login/twofactor', [
             'form' => $twofactor->render($request),
             'show_submit' => $twofactor->showSubmit(),
         ]));
-        $response->addHTML($this->template->render('login/footer'));
-        $response->addHTML(Config::renderFooter());
-        $response->callExit();
+        $responseRenderer->addHTML($this->template->render('login/footer'));
+        $responseRenderer->addHTML(Config::renderFooter());
+
+        return $responseRenderer->response();
     }
 }

@@ -53,12 +53,9 @@ final class AuthenticationPluginTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/');
 
         $object->user = 'test_user';
-        try {
-            $object->checkTwoFactor($request);
-        } catch (ExitException) {
-        }
+        $response = $object->checkTwoFactor($request);
 
-        $response = $responseRenderer->response();
+        self::assertNotNull($response);
         self::assertStringContainsString(
             'You have enabled two factor authentication, please confirm your login.',
             (string) $response->getBody(),
