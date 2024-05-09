@@ -68,7 +68,7 @@ class Replication
             return -1;
         }
 
-        return $this->dbi->tryQuery($action . ' SLAVE ' . $control . ';', $connectionType);
+        return $this->dbi->tryQuery($action . ' REPLICA ' . $control . ';', $connectionType);
     }
 
     /**
@@ -99,13 +99,13 @@ class Replication
         }
 
         $out = $this->dbi->tryQuery(
-            'CHANGE MASTER TO ' .
-            'MASTER_HOST=' . $this->dbi->quoteString($host) . ',' .
-            'MASTER_PORT=' . $port . ',' .
-            'MASTER_USER=' . $this->dbi->quoteString($user) . ',' .
-            'MASTER_PASSWORD=' . $this->dbi->quoteString($password) . ',' .
-            'MASTER_LOG_FILE=' . $this->dbi->quoteString($pos['File']) . ',' .
-            'MASTER_LOG_POS=' . $pos['Position'] . ';',
+            'CHANGE REPLICATION SOURCE TO ' .
+            'SOURCE_HOST=' . $this->dbi->quoteString($host) . ',' .
+            'SOURCE_PORT=' . $port . ',' .
+            'SOURCE_USER=' . $this->dbi->quoteString($user) . ',' .
+            'SOURCE_PASSWORD=' . $this->dbi->quoteString($password) . ',' .
+            'SOURCE_LOG_FILE=' . $this->dbi->quoteString($pos['File']) . ',' .
+            'SOURCE_LOG_POS=' . $pos['Position'] . ';',
             $connectionType,
         );
 
@@ -154,7 +154,7 @@ class Replication
      */
     public function replicaBinLogPrimary(ConnectionType $connectionType): array
     {
-        $data = $this->dbi->fetchResult('SHOW MASTER STATUS', null, null, $connectionType);
+        $data = $this->dbi->fetchResult('SHOW BINARY LOG STATUS', null, null, $connectionType);
         $output = [];
 
         if ($data !== []) {
