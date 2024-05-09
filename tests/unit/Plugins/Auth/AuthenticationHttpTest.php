@@ -20,8 +20,6 @@ use ReflectionProperty;
 use Throwable;
 
 use function base64_encode;
-use function ob_get_clean;
-use function ob_start;
 
 #[CoversClass(AuthenticationHttp::class)]
 #[Medium]
@@ -285,17 +283,9 @@ class AuthenticationHttpTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['errno'] = 31;
 
-        ob_start();
-        try {
-            $this->object->showFailure(AuthenticationFailure::serverDenied());
-        } catch (Throwable $throwable) {
-        }
+        $response = $this->object->showFailure(AuthenticationFailure::serverDenied());
 
-        $result = ob_get_clean();
-
-        self::assertInstanceOf(ExitException::class, $throwable);
-
-        self::assertIsString($result);
+        $result = (string) $response->getBody();
 
         self::assertStringContainsString('<p>error 123</p>', $result);
 

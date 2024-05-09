@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
@@ -235,7 +236,7 @@ class AuthenticationSignon extends AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      */
-    public function showFailure(AuthenticationFailure $failure): never
+    public function showFailure(AuthenticationFailure $failure): Response
     {
         $this->logFailure($failure);
 

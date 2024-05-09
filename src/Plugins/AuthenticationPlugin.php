@@ -12,6 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\IpAllowDeny;
 use PhpMyAdmin\LanguageManager;
@@ -97,7 +98,7 @@ abstract class AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      */
-    abstract public function showFailure(AuthenticationFailure $failure): never;
+    abstract public function showFailure(AuthenticationFailure $failure): Response;
 
     protected function logFailure(AuthenticationFailure $failure): void
     {

@@ -8,6 +8,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -36,7 +37,7 @@ final class AuthenticationPluginTest extends AbstractTestCase
                 return false;
             }
 
-            public function showFailure(AuthenticationFailure $failure): never
+            public function showFailure(AuthenticationFailure $failure): Response
             {
                 throw new ExitException();
             }

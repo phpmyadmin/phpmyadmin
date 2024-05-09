@@ -15,10 +15,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
-use Throwable;
-
-use function ob_get_clean;
-use function ob_start;
 
 #[CoversClass(AuthenticationConfig::class)]
 #[Medium]
@@ -90,17 +86,9 @@ class AuthenticationConfigTest extends AbstractTestCase
 
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
 
-        ob_start();
-        try {
-            $this->object->showFailure(AuthenticationFailure::serverDenied());
-        } catch (Throwable $throwable) {
-        }
+        $response = $this->object->showFailure(AuthenticationFailure::serverDenied());
 
-        $html = ob_get_clean();
-
-        self::assertInstanceOf(ExitException::class, $throwable);
-
-        self::assertIsString($html);
+        $html = (string) $response->getBody();
 
         self::assertStringContainsString(
             'You probably did not create a configuration file. You might want ' .

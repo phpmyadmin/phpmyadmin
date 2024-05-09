@@ -13,6 +13,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
@@ -180,19 +181,20 @@ class AuthenticationHttp extends AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      */
-    public function showFailure(AuthenticationFailure $failure): never
+    public function showFailure(AuthenticationFailure $failure): Response
     {
         $this->logFailure($failure);
 
         $error = DatabaseInterface::getInstance()->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
-            echo $this->template->render('error/generic', [
+            $responseRenderer = ResponseRenderer::getInstance();
+            $responseRenderer->addHTML($this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
                 'dir' => LanguageManager::$textDir,
                 'error_message' => $error,
-            ]);
+            ]));
 
-            ResponseRenderer::getInstance()->callExit();
+            return $responseRenderer->response();
         }
 
         $this->authForm();

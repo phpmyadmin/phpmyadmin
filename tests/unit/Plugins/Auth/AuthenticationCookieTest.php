@@ -552,7 +552,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         // mock for blowfish function
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->onlyMethods(['showFailure', 'cookieDecrypt'])
+            ->onlyMethods(['cookieDecrypt'])
             ->getMock();
 
         $this->object->expects(self::once())
@@ -639,7 +639,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        self::assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable ?? null);
         $response = $responseStub->getResponse();
         self::assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
@@ -707,7 +707,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        self::assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable ?? null);
         $response = $responseStub->getResponse();
         self::assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
@@ -739,7 +739,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        self::assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable ?? null);
         $response = $responseStub->getResponse();
         self::assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
@@ -784,7 +784,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        self::assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable ?? null);
         $response = $responseStub->getResponse();
         self::assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
@@ -825,7 +825,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        self::assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable ?? null);
         $response = $responseStub->getResponse();
         self::assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));

@@ -63,7 +63,7 @@ final class Authentication implements MiddlewareInterface
             try {
                 $authPlugin->authenticate();
             } catch (AuthenticationFailure $exception) {
-                $authPlugin->showFailure($exception);
+                return $authPlugin->showFailure($exception);
             }
 
             $currentServer = new Server(Config::getInstance()->selectedServer);
@@ -79,7 +79,7 @@ final class Authentication implements MiddlewareInterface
             try {
                 $this->connectToDatabaseServer(DatabaseInterface::getInstance(), $currentServer);
             } catch (AuthenticationFailure $exception) {
-                $authPlugin->showFailure($exception);
+                return $authPlugin->showFailure($exception);
             }
 
             // Relation should only be initialized after the connection is successful

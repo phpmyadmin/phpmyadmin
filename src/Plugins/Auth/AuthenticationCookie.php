@@ -13,6 +13,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
@@ -543,7 +544,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      * prepares error message and switches to showLoginForm() which display the error
      * and the login form
      */
-    public function showFailure(AuthenticationFailure $failure): never
+    public function showFailure(AuthenticationFailure $failure): Response
     {
         $this->logFailure($failure);
 
@@ -552,11 +553,11 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $GLOBALS['conn_error'] = $this->getErrorMessage($failure);
 
-        $response = ResponseRenderer::getInstance();
+        $responseRenderer = ResponseRenderer::getInstance();
 
         // needed for PHP-CGI (not need for FastCGI or mod-php)
-        $response->addHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
-        $response->addHeader('Pragma', 'no-cache');
+        $responseRenderer->addHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+        $responseRenderer->addHeader('Pragma', 'no-cache');
 
         $this->showLoginForm();
     }

@@ -12,6 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Select;
@@ -19,6 +20,8 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function count;
+use function ob_get_clean;
+use function ob_start;
 use function sprintf;
 use function trigger_error;
 
@@ -67,7 +70,7 @@ class AuthenticationConfig extends AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      */
-    public function showFailure(AuthenticationFailure $failure): never
+    public function showFailure(AuthenticationFailure $failure): Response
     {
         $this->logFailure($failure);
 
@@ -77,12 +80,14 @@ class AuthenticationConfig extends AuthenticationPlugin
         }
 
         /* HTML header */
-        $response = ResponseRenderer::getInstance();
-        $response->setMinimalFooter();
-        $header = $response->getHeader();
+        $responseRenderer = ResponseRenderer::getInstance();
+        $responseRenderer->setMinimalFooter();
+        $header = $responseRenderer->getHeader();
         $header->setBodyId('loginform');
         $header->setTitle(__('Access denied!'));
         $header->disableMenuAndConsole();
+
+        ob_start();
         echo '<br><br>
     <div class="text-center">
         <h1>';
@@ -157,6 +162,9 @@ class AuthenticationConfig extends AuthenticationPlugin
         }
 
         echo '</table>' , "\n";
-        $response->callExit();
+
+        $responseRenderer->addHTML((string) ob_get_clean());
+
+        return $responseRenderer->response();
     }
 }
