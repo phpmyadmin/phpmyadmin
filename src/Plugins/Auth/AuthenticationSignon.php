@@ -14,6 +14,7 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Util;
+use RuntimeException;
 
 use function __;
 use function array_merge;
@@ -26,6 +27,7 @@ use function session_name;
 use function session_set_cookie_params;
 use function session_start;
 use function session_write_close;
+use function sprintf;
 
 /**
  * Handles the SignOn authentication method
@@ -92,6 +94,8 @@ class AuthenticationSignon extends AuthenticationPlugin
 
     /**
      * Gets authentication credentials
+     *
+     * @throws RuntimeException
      */
     public function readCredentials(): bool
     {
@@ -120,13 +124,10 @@ class AuthenticationSignon extends AuthenticationPlugin
         /* Handle script based auth */
         if ($scriptName !== '') {
             if (! @file_exists($scriptName)) {
-                echo $this->template->render('error/generic', [
-                    'lang' => $GLOBALS['lang'] ?? 'en',
-                    'dir' => LanguageManager::$textDir,
-                    'error_message' => __('Can not find signon authentication script:') . ' ' . $scriptName,
-                ]);
-
-                ResponseRenderer::getInstance()->callExit();
+                throw new RuntimeException(sprintf(
+                    __('Can not find signon authentication script: %s'),
+                    '$cfg[\'Servers\'][$i][\'SignonScript\']',
+                ));
             }
 
             include $scriptName;

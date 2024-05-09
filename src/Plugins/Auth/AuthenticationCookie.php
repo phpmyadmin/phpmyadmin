@@ -20,7 +20,6 @@ use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Session;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
@@ -210,6 +209,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      * it directly switches to showFailure() if user inactivity timeout is reached
      *
      * @throws AuthenticationFailure
+     * @throws SessionHandlerException
      */
     public function readCredentials(): bool
     {
@@ -313,19 +313,8 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $GLOBALS['pma_auth_server'] = Core::sanitizeMySQLHost($_REQUEST['pma_servername']);
             }
 
-            try {
-                /* Secure current session on login to avoid session fixation */
-                Session::secure();
-            } catch (SessionHandlerException $exception) {
-                $responseRenderer = ResponseRenderer::getInstance();
-                $responseRenderer->addHTML((new Template())->render('error/generic', [
-                    'lang' => $GLOBALS['lang'] ?? 'en',
-                    'dir' => LanguageManager::$textDir,
-                    'error_message' => $exception->getMessage(),
-                ]));
-
-                $responseRenderer->callExit();
-            }
+            /* Secure current session on login to avoid session fixation */
+            Session::secure();
 
             return true;
         }

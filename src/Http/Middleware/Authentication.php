@@ -26,6 +26,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use Throwable;
 
 use function assert;
 use function define;
@@ -67,6 +68,14 @@ final class Authentication implements MiddlewareInterface
                 }
             } catch (AuthenticationFailure $exception) {
                 return $authPlugin->showFailure($exception);
+            } catch (Throwable $exception) {
+                $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
+
+                return $response->write($this->template->render('error/generic', [
+                    'lang' => $GLOBALS['lang'] ?? 'en',
+                    'dir' => LanguageManager::$textDir,
+                    'error_message' => $exception->getMessage(),
+                ]));
             }
 
             $currentServer = new Server(Config::getInstance()->selectedServer);

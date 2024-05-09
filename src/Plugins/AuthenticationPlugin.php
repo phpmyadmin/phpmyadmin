@@ -1,20 +1,16 @@
 <?php
-/**
- * Abstract class for the authentication plugins
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
+use Exception;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
-use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\IpAllowDeny;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -36,8 +32,7 @@ use function sprintf;
 use function time;
 
 /**
- * Provides a common interface that will have to be implemented by all of the
- * authentication plugins.
+ * Provides a common interface that will have to be implemented by all the authentication plugins.
  */
 abstract class AuthenticationPlugin
 {
@@ -70,6 +65,7 @@ abstract class AuthenticationPlugin
      * Gets authentication credentials
      *
      * @throws AuthenticationFailure
+     * @throws Exception
      */
     abstract public function readCredentials(): bool;
 
@@ -228,6 +224,7 @@ abstract class AuthenticationPlugin
      * Gets the credentials or shows login form if necessary
      *
      * @throws AuthenticationFailure
+     * @throws Exception
      */
     public function authenticate(): Response|null
     {
@@ -236,18 +233,7 @@ abstract class AuthenticationPlugin
         /* Show login form (this exits) */
         if (! $success) {
             /* Force generating of new session */
-            try {
-                Session::secure();
-            } catch (SessionHandlerException $exception) {
-                $responseRenderer = ResponseRenderer::getInstance();
-                $responseRenderer->addHTML((new Template())->render('error/generic', [
-                    'lang' => $GLOBALS['lang'] ?? 'en',
-                    'dir' => LanguageManager::$textDir,
-                    'error_message' => $exception->getMessage(),
-                ]));
-
-                return $responseRenderer->response();
-            }
+            Session::secure();
 
             $response = $this->showLoginForm();
             if ($response !== null) {
