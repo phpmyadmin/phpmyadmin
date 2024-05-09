@@ -13,14 +13,14 @@ final class AuthenticationFailureTest extends TestCase
 {
     public function testAllowDenied(): void
     {
-        $exception = AuthenticationFailure::allowDenied();
+        $exception = AuthenticationFailure::deniedByAllowDenyRules();
         self::assertSame('allow-denied', $exception->failureType);
         self::assertSame('Access denied!', $exception->getMessage());
     }
 
     public function testEmptyDenied(): void
     {
-        $exception = AuthenticationFailure::emptyDenied();
+        $exception = AuthenticationFailure::emptyPasswordDeniedByConfiguration();
         self::assertSame('empty-denied', $exception->failureType);
         self::assertSame(
             'Login without a password is forbidden by configuration (see AllowNoPassword).',
@@ -30,7 +30,7 @@ final class AuthenticationFailureTest extends TestCase
 
     public function testNoActivity(): void
     {
-        $exception = AuthenticationFailure::noActivity();
+        $exception = AuthenticationFailure::loggedOutDueToInactivity();
         self::assertSame('no-activity', $exception->failureType);
         self::assertSame(
             'You have been automatically logged out due to inactivity of %s seconds.'
@@ -41,14 +41,14 @@ final class AuthenticationFailureTest extends TestCase
 
     public function testRootDenied(): void
     {
-        $exception = AuthenticationFailure::rootDenied();
+        $exception = AuthenticationFailure::rootDeniedByConfiguration();
         self::assertSame('root-denied', $exception->failureType);
         self::assertSame('Access denied!', $exception->getMessage());
     }
 
     public function testServerDenied(): void
     {
-        $exception = AuthenticationFailure::serverDenied();
+        $exception = AuthenticationFailure::deniedByDatabaseServer();
         self::assertSame('server-denied', $exception->failureType);
         self::assertSame('Cannot log in to the database server.', $exception->getMessage());
     }

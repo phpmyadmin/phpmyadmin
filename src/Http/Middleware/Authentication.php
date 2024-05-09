@@ -137,7 +137,7 @@ final class Authentication implements MiddlewareInterface
         // Connects to the server (validates user's login)
         $userConnection = $dbi->connect($currentServer, ConnectionType::User);
         if ($userConnection === null) {
-            throw AuthenticationFailure::serverDenied();
+            throw AuthenticationFailure::deniedByDatabaseServer();
         }
 
         if ($controlConnection !== null) {

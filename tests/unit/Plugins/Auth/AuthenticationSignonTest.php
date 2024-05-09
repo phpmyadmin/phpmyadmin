@@ -246,7 +246,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->willThrowException(new ExitException());
 
         try {
-            $this->object->showFailure(AuthenticationFailure::emptyDenied());
+            $this->object->showFailure(AuthenticationFailure::emptyPasswordDeniedByConfiguration());
         } catch (ExitException) {
         }
 
@@ -271,7 +271,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->willThrowException(new ExitException());
 
         try {
-            $this->object->showFailure(AuthenticationFailure::allowDenied());
+            $this->object->showFailure(AuthenticationFailure::deniedByAllowDenyRules());
         } catch (ExitException) {
         }
 
@@ -296,7 +296,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         $config->settings['LoginCookieValidity'] = '1440';
 
         try {
-            $this->object->showFailure(AuthenticationFailure::noActivity());
+            $this->object->showFailure(AuthenticationFailure::loggedOutDueToInactivity());
         } catch (ExitException) {
         }
 
@@ -333,7 +333,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         try {
-            $this->object->showFailure(AuthenticationFailure::serverDenied());
+            $this->object->showFailure(AuthenticationFailure::deniedByDatabaseServer());
         } catch (ExitException) {
         }
 
@@ -366,7 +366,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         try {
-            $this->object->showFailure(AuthenticationFailure::serverDenied());
+            $this->object->showFailure(AuthenticationFailure::deniedByDatabaseServer());
         } catch (ExitException) {
         }
 

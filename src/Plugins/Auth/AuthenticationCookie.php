@@ -364,7 +364,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             SessionCache::remove('table_priv');
             SessionCache::remove('proc_priv');
 
-            throw AuthenticationFailure::noActivity();
+            throw AuthenticationFailure::loggedOutDueToInactivity();
         }
 
         // check password cookie

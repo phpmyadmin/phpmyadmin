@@ -30,7 +30,7 @@ final class AuthenticationFailure extends RuntimeException
     /**
      * Database server denied user login
      */
-    public static function serverDenied(): self
+    public static function deniedByDatabaseServer(): self
     {
         return new self(self::SERVER_DENIED, __('Cannot log in to the database server.'));
     }
@@ -38,7 +38,7 @@ final class AuthenticationFailure extends RuntimeException
     /**
      * User denied by allow/deny rules
      */
-    public static function allowDenied(): self
+    public static function deniedByAllowDenyRules(): self
     {
         return new self(self::ALLOW_DENIED, __('Access denied!'));
     }
@@ -46,7 +46,7 @@ final class AuthenticationFailure extends RuntimeException
     /**
      * User 'root' is denied in configuration
      */
-    public static function rootDenied(): self
+    public static function rootDeniedByConfiguration(): self
     {
         return new self(self::ROOT_DENIED, __('Access denied!'));
     }
@@ -54,7 +54,7 @@ final class AuthenticationFailure extends RuntimeException
     /**
      * Empty password is denied
      */
-    public static function emptyDenied(): self
+    public static function emptyPasswordDeniedByConfiguration(): self
     {
         return new self(
             self::EMPTY_DENIED,
@@ -65,7 +65,7 @@ final class AuthenticationFailure extends RuntimeException
     /**
      * Automatically logged out due to inactivity
      */
-    public static function noActivity(): self
+    public static function loggedOutDueToInactivity(): self
     {
         return new self(
             self::NO_ACTIVITY,

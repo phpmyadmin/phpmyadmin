@@ -273,13 +273,13 @@ abstract class AuthenticationPlugin
 
             // Ejects the user if banished
             if ($allowDenyForbidden) {
-                throw AuthenticationFailure::allowDenied();
+                throw AuthenticationFailure::deniedByAllowDenyRules();
             }
         }
 
         // is root allowed?
         if (! $config->selectedServer['AllowRoot'] && $config->selectedServer['user'] === 'root') {
-            throw AuthenticationFailure::rootDenied();
+            throw AuthenticationFailure::rootDeniedByConfiguration();
         }
 
         // is a login without password allowed?
@@ -287,7 +287,7 @@ abstract class AuthenticationPlugin
             return;
         }
 
-        throw AuthenticationFailure::emptyDenied();
+        throw AuthenticationFailure::emptyPasswordDeniedByConfiguration();
     }
 
     /**

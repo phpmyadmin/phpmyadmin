@@ -100,7 +100,7 @@ class AuthenticationConfigTest extends AbstractTestCase
 
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
 
-        $response = $this->object->showFailure(AuthenticationFailure::serverDenied());
+        $response = $this->object->showFailure(AuthenticationFailure::deniedByDatabaseServer());
 
         $html = (string) $response->getBody();
 

@@ -546,7 +546,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->method('cookieDecrypt')
             ->willReturn('testBF');
 
-        $this->expectExceptionObject(AuthenticationFailure::noActivity());
+        $this->expectExceptionObject(AuthenticationFailure::loggedOutDueToInactivity());
         $this->object->readCredentials();
     }
 
@@ -628,7 +628,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
-            $this->object->showFailure(AuthenticationFailure::emptyDenied());
+            $this->object->showFailure(AuthenticationFailure::emptyPasswordDeniedByConfiguration());
         } catch (Throwable $throwable) {
         }
 
@@ -696,7 +696,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
-            $this->object->showFailure(AuthenticationFailure::allowDenied());
+            $this->object->showFailure(AuthenticationFailure::deniedByAllowDenyRules());
         } catch (Throwable $throwable) {
         }
 
@@ -728,7 +728,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
-            $this->object->showFailure(AuthenticationFailure::noActivity());
+            $this->object->showFailure(AuthenticationFailure::loggedOutDueToInactivity());
         } catch (Throwable $throwable) {
         }
 
@@ -773,7 +773,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
-            $this->object->showFailure(AuthenticationFailure::serverDenied());
+            $this->object->showFailure(AuthenticationFailure::deniedByDatabaseServer());
         } catch (Throwable $throwable) {
         }
 
@@ -814,7 +814,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
-            $this->object->showFailure(AuthenticationFailure::serverDenied());
+            $this->object->showFailure(AuthenticationFailure::deniedByDatabaseServer());
         } catch (Throwable $throwable) {
         }
 
