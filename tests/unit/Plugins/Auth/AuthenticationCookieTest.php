@@ -118,6 +118,8 @@ class AuthenticationCookieTest extends AbstractTestCase
         Current::$table = 'testTable';
         $config->settings['Servers'] = [1, 2];
 
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
+
         $response = $this->object->showLoginForm();
 
         $result = (string) $response->getBody();

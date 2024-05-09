@@ -47,13 +47,13 @@ class AuthenticationHttp extends AuthenticationPlugin
             return $responseRenderer->response();
         }
 
-        $this->authForm();
+        return $this->authForm();
     }
 
     /**
      * Displays authentication form
      */
-    public function authForm(): never
+    public function authForm(): Response
     {
         $config = Config::getInstance();
         if (empty($config->selectedServer['auth_http_realm'])) {
@@ -95,7 +95,7 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         $response->addHTML(Config::renderFooter());
 
-        $response->callExit();
+        return $response->response();
     }
 
     /**
@@ -198,7 +198,7 @@ class AuthenticationHttp extends AuthenticationPlugin
             return $responseRenderer->response();
         }
 
-        $this->authForm();
+        return $this->authForm();
     }
 
     /**
