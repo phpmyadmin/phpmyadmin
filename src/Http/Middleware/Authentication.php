@@ -93,7 +93,11 @@ final class Authentication implements MiddlewareInterface
             // Tracker can only be activated after the relation has been initialized
             Tracker::enable();
 
-            $authPlugin->rememberCredentials();
+            $response = $authPlugin->rememberCredentials();
+            if ($response !== null) {
+                return $response;
+            }
+
             assert($request instanceof ServerRequest);
             $authPlugin->checkTwoFactor($request);
         } catch (ExitException) {

@@ -590,6 +590,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->selectedServer['user'] = 'pmaUser';
         $config->settings['Servers'][1] = $arr;
         $config->settings['AllowArbitraryServer'] = true;
+        $config->settings['PmaAbsoluteUri'] = 'http://localhost/phpmyadmin';
         $GLOBALS['pma_auth_server'] = 'b 2';
         $this->object->password = 'testPW';
         $config->settings['LoginCookieStore'] = 100;
@@ -599,8 +600,13 @@ class AuthenticationCookieTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         $this->object->storeCredentials();
-        $this->expectException(ExitException::class);
-        $this->object->rememberCredentials();
+        $response = $this->object->rememberCredentials();
+        self::assertNotNull($response);
+        self::assertSame(StatusCodeInterface::STATUS_FOUND, $response->getStatusCode());
+        self::assertStringEndsWith(
+            '/phpmyadmin/index.php?route=/&db=db&table=table&lang=en',
+            $response->getHeaderLine('Location'),
+        );
     }
 
     public function testAuthFailsNoPass(): void

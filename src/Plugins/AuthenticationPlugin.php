@@ -91,8 +91,9 @@ abstract class AuthenticationPlugin
     /**
      * Stores user credentials after successful login.
      */
-    public function rememberCredentials(): void
+    public function rememberCredentials(): Response|null
     {
+        return null;
     }
 
     /**

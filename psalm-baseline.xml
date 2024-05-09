@@ -14333,6 +14333,7 @@
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
+      <code><![CDATA[$config->settings]]></code>
     </PropertyTypeCoercion>
     <TypeDoesNotContainType>
       <code><![CDATA[assertSame]]></code>

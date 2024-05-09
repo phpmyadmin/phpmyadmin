@@ -444,7 +444,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     /**
      * Stores user credentials after successful login.
      */
-    public function rememberCredentials(): void
+    public function rememberCredentials(): Response|null
     {
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
@@ -469,18 +469,18 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // user logged in successfully after session expiration
         if (isset($_REQUEST['session_timedout'])) {
-            $response = ResponseRenderer::getInstance();
-            $response->addJSON('logged_in', 1);
-            $response->addJSON('success', 1);
-            $response->addJSON('new_token', $_SESSION[' PMA_token ']);
+            $responseRenderer = ResponseRenderer::getInstance();
+            $responseRenderer->addJSON('logged_in', 1);
+            $responseRenderer->addJSON('success', 1);
+            $responseRenderer->addJSON('new_token', $_SESSION[' PMA_token ']);
 
-            $response->callExit();
+            return $responseRenderer->response();
         }
 
         // Set server cookies if required (once per session) and, in this case,
         // force reload to ensure the client accepts cookies
         if ($GLOBALS['from_cookie']) {
-            return;
+            return null;
         }
 
         /**
@@ -488,11 +488,11 @@ class AuthenticationCookie extends AuthenticationPlugin
          */
         Util::clearUserCache();
 
-        $response = ResponseRenderer::getInstance();
-        $response->disable();
-        $response->redirect('./index.php?route=/' . Url::getCommonRaw($urlParams, '&'));
+        $responseRenderer = ResponseRenderer::getInstance();
+        $responseRenderer->disable();
+        $responseRenderer->redirect('./index.php?route=/' . Url::getCommonRaw($urlParams, '&'));
 
-        $response->callExit();
+        return $responseRenderer->response();
     }
 
     /**
