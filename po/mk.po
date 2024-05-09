@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2024-03-06 04:39+0000\n"
+"PO-Revision-Date: 2024-05-10 07:26+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.4-rc\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -10051,9 +10051,8 @@ msgid "Table is already in Third normal form!"
 msgstr ""
 
 #: libraries/classes/Normalization.php:955
-#, fuzzy
 msgid "Improve table structure (Normalization):"
-msgstr "Предложи структура на табелата"
+msgstr "Подобрете ја структурата на табелата (нормализација):"
 
 #: libraries/classes/Normalization.php:956
 msgid "Select up to what step you want to normalize"
@@ -11553,9 +11552,8 @@ msgstr ""
 
 #: libraries/classes/SavedSearches.php:276
 #: libraries/classes/SavedSearches.php:310
-#, fuzzy
 msgid "An entry with this name already exists."
-msgstr "Корисник %s веќе постои!"
+msgstr "Запис со ова име веќе постои."
 
 #: libraries/classes/SavedSearches.php:338
 msgid "Missing information to delete the search."
@@ -15016,9 +15014,8 @@ msgid "New table name"
 msgstr "Нема табела"
 
 #: templates/export.twig:306
-#, fuzzy
 msgid "Select column:"
-msgstr "Додади/избриши колона"
+msgstr "Изберете колона:"
 
 #: templates/export.twig:314
 #, fuzzy
@@ -15041,9 +15038,8 @@ msgid "Save output to a file"
 msgstr "Сочувај како податотека"
 
 #: templates/export.twig:387
-#, fuzzy
 msgid "File name template:"
-msgstr "Шаблон на име на податотека"
+msgstr "Шаблон за име на фајл:"
 
 #: templates/export.twig:388
 #, php-format
@@ -15094,9 +15090,8 @@ msgid "The size is measured in MiB."
 msgstr ""
 
 #: templates/export.twig:482 templates/import.twig:182
-#, fuzzy
 msgid "Format-specific options:"
-msgstr "Опции на трансформацијата"
+msgstr "Опции специфични за форматот:"
 
 #: templates/export.twig:491 templates/import.twig:191
 msgid "Encoding Conversion:"
@@ -15108,9 +15103,8 @@ msgid "Filters"
 msgstr ""
 
 #: templates/filter.twig:4 templates/server/status/variables/index.twig:12
-#, fuzzy
 msgid "Containing the word:"
-msgstr "Немој да ја менуваш лозинката"
+msgstr "Содржи збор:"
 
 #: templates/footer.twig:7 templates/footer.twig:9 templates/footer.twig:11
 msgid "Open new phpMyAdmin window"
@@ -15267,17 +15261,16 @@ msgstr "Општи особини на релациите"
 #: templates/login/form.twig:23 templates/login/form.twig:24
 #: templates/setup/home/index.twig:8 templates/setup/home/index.twig:9
 msgid "Language"
-msgstr ""
+msgstr "Јазик"
 
 #: templates/home/index.twig:132
 msgid "Theme"
-msgstr ""
+msgstr "Тема"
 
 #: templates/home/index.twig:143
-#, fuzzy
 msgctxt "View all themes"
 msgid "View all"
-msgstr "Види само"
+msgstr "Види сите"
 
 #: templates/home/index.twig:159
 #, fuzzy
