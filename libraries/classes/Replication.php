@@ -62,7 +62,7 @@ class Replication
             return -1;
         }
 
-        return $dbi->tryQuery($action . ' SLAVE ' . $control . ';', $link);
+        return $dbi->tryQuery($action . ' REPLICA ' . $control . ';', $link);
     }
 
     /**
@@ -96,13 +96,13 @@ class Replication
         }
 
         $out = $dbi->tryQuery(
-            'CHANGE MASTER TO ' .
-            'MASTER_HOST=\'' . $host . '\',' .
-            'MASTER_PORT=' . ($port * 1) . ',' .
-            'MASTER_USER=\'' . $user . '\',' .
-            'MASTER_PASSWORD=\'' . $password . '\',' .
-            'MASTER_LOG_FILE=\'' . $pos['File'] . '\',' .
-            'MASTER_LOG_POS=' . $pos['Position'] . ';',
+            'CHANGE REPLICATION SOURCE TO ' .
+            'SOURCE_HOST=\'' . $host . '\',' .
+            'SOURCE_PORT=' . ($port * 1) . ',' .
+            'SOURCE_USER=\'' . $user . '\',' .
+            'SOURCE_PASSWORD=\'' . $password . '\',' .
+            'SOURCE_LOG_FILE=\'' . $pos['File'] . '\',' .
+            'SOURCE_LOG_POS=' . $pos['Position'] . ';',
             $link
         );
 
@@ -158,7 +158,7 @@ class Replication
     {
         global $dbi;
 
-        $data = $dbi->fetchResult('SHOW MASTER STATUS', null, null, $link);
+        $data = $dbi->fetchResult('SHOW BINARY LOG STATUS', null, null, $link);
         $output = [];
 
         if (! empty($data)) {
