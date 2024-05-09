@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-05-05 00:19+0000\n"
-"PO-Revision-Date: 2024-03-06 04:39+0000\n"
+"PO-Revision-Date: 2024-05-10 07:26+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.4-rc\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -1705,9 +1705,8 @@ msgid "Select page"
 msgstr "избери се"
 
 #: resources/templates/database/designer/schema_export.twig:6
-#, fuzzy
 msgid "Select export relational type:"
-msgstr "Релациона шема"
+msgstr "Изберете тип на експортна релација:"
 
 #: resources/templates/database/events/editor_form.twig:10
 #: resources/templates/database/routines/editor_form.twig:11
@@ -2529,13 +2528,11 @@ msgid "Browse"
 msgstr "Преглед"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<strong>Total:</strong> <em>%count%</em> match"
-#| msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<strong>Вкупно:</strong> <em>%count%</em> погодок"
-msgstr[1] "<strong>Вкупно:</strong> <em>%count%</em> погодоци"
+msgstr[0] "<strong>Вкупно:</strong> <em>%s</em> погодок"
+msgstr[1] "<strong>Вкупно:</strong> <em>%s</em> погодоци"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 #, fuzzy
@@ -3322,9 +3319,8 @@ msgid "New table name"
 msgstr "Нема табела"
 
 #: resources/templates/export.twig:308
-#, fuzzy
 msgid "Select column:"
-msgstr "Додади/избриши колона"
+msgstr "Изберете колона:"
 
 #: resources/templates/export.twig:316
 #, fuzzy
@@ -3353,9 +3349,8 @@ msgid "Save output to a file"
 msgstr "Сочувај како податотека"
 
 #: resources/templates/export.twig:389
-#, fuzzy
 msgid "File name template:"
-msgstr "Шаблон на име на податотека"
+msgstr "Шаблон за име на фајл:"
 
 #: resources/templates/export.twig:390
 #, php-format
@@ -3406,9 +3401,8 @@ msgid "The size is measured in MiB."
 msgstr ""
 
 #: resources/templates/export.twig:484 resources/templates/import.twig:173
-#, fuzzy
 msgid "Format-specific options:"
-msgstr "Опции на трансформацијата"
+msgstr "Опции специфични за форматот:"
 
 #: resources/templates/export.twig:493 resources/templates/import.twig:182
 msgid "Encoding Conversion:"
@@ -3422,9 +3416,8 @@ msgstr ""
 
 #: resources/templates/filter.twig:4
 #: resources/templates/server/status/variables/index.twig:12
-#, fuzzy
 msgid "Containing the word:"
-msgstr "Немој да ја менуваш лозинката"
+msgstr "Содржи збор:"
 
 #: resources/templates/footer.twig:10 resources/templates/footer.twig:12
 #: resources/templates/footer.twig:14
@@ -3491,9 +3484,8 @@ msgid "MySQL documentation"
 msgstr "Документација"
 
 #: resources/templates/header.twig:73
-#, fuzzy
 msgid "Appearance:"
-msgstr "Општи особини на релациите"
+msgstr "Изглед:"
 
 #: resources/templates/header.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
@@ -3598,17 +3590,16 @@ msgstr "Општи особини на релациите"
 #: resources/templates/setup/home/index.twig:8
 #: resources/templates/setup/home/index.twig:9
 msgid "Language"
-msgstr ""
+msgstr "Јазик"
 
 #: resources/templates/home/index.twig:131
 msgid "Theme"
-msgstr ""
+msgstr "Тема"
 
 #: resources/templates/home/index.twig:142
-#, fuzzy
 msgctxt "View all themes"
 msgid "View all"
-msgstr "Види само"
+msgstr "Види сите"
 
 #: resources/templates/home/index.twig:178
 #, fuzzy
@@ -6847,9 +6838,8 @@ msgid "Checksum"
 msgstr "Чешки"
 
 #: resources/templates/table/normalization/normalization.twig:4
-#, fuzzy
 msgid "Improve table structure (Normalization):"
-msgstr "Предложи структура на табелата"
+msgstr "Подобрете ја структурата на табелата (нормализација):"
 
 #: resources/templates/table/normalization/normalization.twig:7
 msgid "Select up to what step you want to normalize"
