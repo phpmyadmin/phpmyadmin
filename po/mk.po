@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-03-06 04:39+0000\n"
+"PO-Revision-Date: 2024-05-10 07:26+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.4-rc\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -8265,7 +8265,7 @@ msgstr ""
 #: libraries/classes/LanguageManager.php:963
 #: libraries/classes/LanguageManager.php:964 setup/frames/index.inc.php:63
 msgid "Language"
-msgstr ""
+msgstr "Јазик"
 
 #: libraries/classes/Linter.php:98
 msgid ""
@@ -8972,10 +8972,8 @@ msgid "Table is already in Third normal form!"
 msgstr ""
 
 #: libraries/classes/Normalization.php:879
-#, fuzzy
-#| msgid "Propose table structure"
 msgid "Improve table structure (Normalization):"
-msgstr "Предложи структура на табелата"
+msgstr "Подобрете ја структурата на табелата (нормализација):"
 
 #: libraries/classes/Normalization.php:880
 msgid "Select up to what step you want to normalize"
@@ -11454,10 +11452,8 @@ msgstr ""
 
 #: libraries/classes/SavedSearches.php:304
 #: libraries/classes/SavedSearches.php:341
-#, fuzzy
-#| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "Корисник %s веќе постои!"
+msgstr "Запис со ова име веќе постои."
 
 #: libraries/classes/SavedSearches.php:368
 msgid "Missing information to delete the search."
@@ -12538,10 +12534,8 @@ msgid "#"
 msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:52 templates/filter.twig:4
-#, fuzzy
-#| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Немој да ја менуваш лозинката"
+msgstr "Содржи збор:"
 
 #: libraries/classes/Server/Status/Variables.php:60
 #, fuzzy
@@ -14594,7 +14588,7 @@ msgstr ""
 
 #: themes.php:22 themes.php:27
 msgid "Theme"
-msgstr ""
+msgstr "Тема"
 
 #: themes.php:30
 msgid "Get more themes!"
@@ -15705,10 +15699,8 @@ msgid "Custom - display all possible options"
 msgstr ""
 
 #: templates/display/export/options_output_format.twig:3
-#, fuzzy
-#| msgid "File name template"
 msgid "File name template:"
-msgstr "Шаблон на име на податотека"
+msgstr "Шаблон за име на фајл:"
 
 #: templates/display/export/options_output_format.twig:11
 msgid "use this for future exports"
@@ -15873,10 +15865,8 @@ msgstr "Додади %s полиња"
 
 #: templates/display/export/options_format.twig:2
 #: templates/display/import/import.twig:174
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "Опции на трансформацијата"
+msgstr "Опции специфични за форматот:"
 
 #: templates/display/export/options_format.twig:4
 #: templates/display/import/import.twig:176
@@ -16683,10 +16673,8 @@ msgid "New table name"
 msgstr "Нема табела"
 
 #: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Select column:"
-msgstr "Додади/избриши колона"
+msgstr "Изберете колона:"
 
 #: templates/export/alias_add.twig:43
 #, fuzzy
