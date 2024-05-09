@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Routing\Routing;
 use Traversable;
@@ -17,7 +16,6 @@ use function file_exists;
 use function in_array;
 use function is_array;
 use function is_object;
-use function is_scalar;
 use function json_encode;
 use function json_last_error;
 
@@ -44,12 +42,9 @@ class Footer
      */
     private bool $isEnabled = true;
 
-    private Relation $relation;
-
     public function __construct(private readonly Template $template, private readonly Config $config)
     {
         $this->scripts = new Scripts($this->template);
-        $this->relation = new Relation(DatabaseInterface::getInstance());
     }
 
     /**
@@ -161,32 +156,6 @@ class Footer
     }
 
     /**
-     * Saves query in history
-     */
-    private function setHistory(): void
-    {
-        if (
-            (
-                isset($_REQUEST['no_history'])
-                && is_scalar($_REQUEST['no_history'])
-                && (string) $_REQUEST['no_history'] !== ''
-            )
-            || ! empty($GLOBALS['error_message'])
-            || empty($GLOBALS['sql_query'])
-            || ! DatabaseInterface::getInstance()->isConnected()
-        ) {
-            return;
-        }
-
-        $this->relation->setHistory(
-            Current::$database,
-            Current::$table,
-            $this->config->selectedServer['user'],
-            $GLOBALS['sql_query'],
-        );
-    }
-
-    /**
      * Disables the rendering of the footer
      */
     public function disable(): void
@@ -228,36 +197,35 @@ class Footer
      */
     public function getDisplay(): string
     {
-        $this->setHistory();
-        if ($this->isEnabled) {
-            if (! $this->isAjax && ! $this->isMinimal) {
-                if (Core::getEnv('SCRIPT_NAME') !== '') {
-                    $url = $this->getSelfUrl();
-                }
-
-                $this->scripts->addCode('window.Console.debugSqlInfo = ' . $this->getDebugMessage() . ';');
-                $errorMessages = $this->getErrorMessages();
-                $scripts = $this->scripts->getDisplay();
-
-                if ($this->config->config->debug->demo) {
-                    $gitRevisionInfo = $this->getGitRevisionInfo();
-                }
-
-                $footer = Config::renderFooter();
-            }
-
-            return $this->template->render('footer', [
-                'is_ajax' => $this->isAjax,
-                'is_minimal' => $this->isMinimal,
-                'self_url' => $url ?? null,
-                'error_messages' => $errorMessages ?? '',
-                'scripts' => $scripts ?? '',
-                'is_demo' => $this->config->config->debug->demo,
-                'git_revision_info' => $gitRevisionInfo ?? [],
-                'footer' => $footer ?? '',
-            ]);
+        if (! $this->isEnabled) {
+            return '';
         }
 
-        return '';
+        if (! $this->isAjax && ! $this->isMinimal) {
+            if (Core::getEnv('SCRIPT_NAME') !== '') {
+                $url = $this->getSelfUrl();
+            }
+
+            $this->scripts->addCode('window.Console.debugSqlInfo = ' . $this->getDebugMessage() . ';');
+            $errorMessages = $this->getErrorMessages();
+            $scripts = $this->scripts->getDisplay();
+
+            if ($this->config->config->debug->demo) {
+                $gitRevisionInfo = $this->getGitRevisionInfo();
+            }
+
+            $footer = Config::renderFooter();
+        }
+
+        return $this->template->render('footer', [
+            'is_ajax' => $this->isAjax,
+            'is_minimal' => $this->isMinimal,
+            'self_url' => $url ?? null,
+            'error_messages' => $errorMessages ?? '',
+            'scripts' => $scripts ?? '',
+            'is_demo' => $this->config->config->debug->demo,
+            'git_revision_info' => $gitRevisionInfo ?? [],
+            'footer' => $footer ?? '',
+        ]);
     }
 }

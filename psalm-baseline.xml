@@ -5996,10 +5996,6 @@
     </MixedOperand>
   </file>
   <file src="src/Footer.php">
-    <DeprecatedMethod>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
     <DeprecatedProperty>
       <code><![CDATA[Routing::$route]]></code>
     </DeprecatedProperty>
@@ -6014,13 +6010,8 @@
       <code><![CDATA[array{revision: string, revisionUrl: string, branch: string, branchUrl: string}|[]]]></code>
       <code><![CDATA[is_array($info) ? $info : []]]></code>
     </MixedReturnTypeCoercion>
-    <RedundantCast>
-      <code><![CDATA[(string) $_REQUEST['no_history']]]></code>
-    </RedundantCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$object]]></code>
-      <code><![CDATA[empty($GLOBALS['error_message'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
       <code><![CDATA[empty($_REQUEST['no_debug'])]]></code>
     </RiskyTruthyFalsyComparison>
     <UnusedReturnValue>
@@ -6521,6 +6512,17 @@
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+  </file>
+  <file src="src/Http/Middleware/StatementHistory.php">
+    <DeprecatedMethod>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+    </DeprecatedMethod>
+    <MixedArgument>
+      <code><![CDATA[$GLOBALS['sql_query']]]></code>
+    </MixedArgument>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($GLOBALS['error_message'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Http/Middleware/TokenRequestParamChecking.php">
     <MixedArgument>

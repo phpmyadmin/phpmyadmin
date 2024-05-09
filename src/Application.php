@@ -38,6 +38,7 @@ use PhpMyAdmin\Http\Middleware\SessionHandling;
 use PhpMyAdmin\Http\Middleware\SetupPageRedirection;
 use PhpMyAdmin\Http\Middleware\SqlDelimiterSetting;
 use PhpMyAdmin\Http\Middleware\SqlQueryGlobalSetting;
+use PhpMyAdmin\Http\Middleware\StatementHistory;
 use PhpMyAdmin\Http\Middleware\ThemeInitialization;
 use PhpMyAdmin\Http\Middleware\TokenMismatchChecking;
 use PhpMyAdmin\Http\Middleware\TokenRequestParamChecking;
@@ -116,6 +117,7 @@ class Application
         $requestHandler->add(new ProfilingChecking());
         $requestHandler->add(new UserPreferencesLoading($this->config));
         $requestHandler->add(new RecentTableHandling($this->config));
+        $requestHandler->add(new StatementHistory($this->config));
 
         $runner = new RequestHandlerRunner(
             $requestHandler,
