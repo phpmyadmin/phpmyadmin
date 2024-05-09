@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
@@ -24,6 +25,7 @@ use Throwable;
 use function base64_decode;
 use function base64_encode;
 use function is_readable;
+use function json_decode;
 use function json_encode;
 use function mb_strlen;
 use function ob_get_clean;
@@ -76,20 +78,21 @@ class AuthenticationCookieTest extends AbstractTestCase
     {
         $GLOBALS['conn_error'] = true;
 
-        $responseStub = new ResponseRendererStub();
-        $responseStub->setAjax(true);
-        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
+        $responseRenderer = ResponseRenderer::getInstance();
+        $responseRenderer->setAjax(true);
 
-        try {
-            $this->object->showLoginForm();
-        } catch (Throwable $throwable) {
-        }
+        $response = $this->object->showLoginForm();
 
-        self::assertInstanceOf(ExitException::class, $throwable);
-        $response = $responseStub->getResponse();
-        self::assertSame(200, $response->getStatusCode());
-        self::assertFalse($responseStub->hasSuccessState());
-        self::assertSame(['redirect_flag' => '1'], $responseStub->getJSONResult());
+        self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
+        $body = (string) $response->getBody();
+        self::assertJson($body);
+        $json = json_decode($body, true);
+        self::assertIsArray($json);
+        self::assertArrayHasKey('success', $json);
+        self::assertFalse($json['success']);
+        self::assertArrayHasKey('redirect_flag', $json);
+        self::assertSame('1', $json['redirect_flag']);
     }
 
     public function testAuthError(): void
@@ -115,17 +118,9 @@ class AuthenticationCookieTest extends AbstractTestCase
         Current::$table = 'testTable';
         $config->settings['Servers'] = [1, 2];
 
-        $responseStub = new ResponseRendererStub();
-        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+        $response = $this->object->showLoginForm();
 
-        try {
-            $this->object->showLoginForm();
-        } catch (Throwable $throwable) {
-        }
-
-        $result = $responseStub->getHTMLResult();
-
-        self::assertInstanceOf(ExitException::class, $throwable);
+        $result = (string) $response->getBody();
 
         self::assertStringContainsString(' id="imLogo"', $result);
 
@@ -185,14 +180,9 @@ class AuthenticationCookieTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
-        try {
-            $this->object->showLoginForm();
-        } catch (Throwable $throwable) {
-        }
+        $response = $this->object->showLoginForm();
 
-        $result = $responseStub->getHTMLResult();
-
-        self::assertInstanceOf(ExitException::class, $throwable);
+        $result = (string) $response->getBody();
 
         self::assertStringContainsString('id="imLogo"', $result);
 
@@ -246,14 +236,9 @@ class AuthenticationCookieTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
-        try {
-            $this->object->showLoginForm();
-        } catch (Throwable $throwable) {
-        }
+        $response = $this->object->showLoginForm();
 
-        $result = $responseStub->getHTMLResult();
-
-        self::assertInstanceOf(ExitException::class, $throwable);
+        $result = (string) $response->getBody();
 
         self::assertStringContainsString('id="imLogo"', $result);
 

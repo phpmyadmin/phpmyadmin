@@ -36,14 +36,15 @@ class AuthenticationHttp extends AuthenticationPlugin
     /**
      * Displays authentication form and redirect as necessary
      */
-    public function showLoginForm(): never
+    public function showLoginForm(): Response
     {
-        $response = ResponseRenderer::getInstance();
-        if ($response->isAjax()) {
-            $response->setRequestStatus(false);
+        $responseRenderer = ResponseRenderer::getInstance();
+        if ($responseRenderer->isAjax()) {
+            $responseRenderer->setRequestStatus(false);
             // reload_flag removes the token parameter from the URL and reloads
-            $response->addJSON('reload_flag', '1');
-            $response->callExit();
+            $responseRenderer->addJSON('reload_flag', '1');
+
+            return $responseRenderer->response();
         }
 
         $this->authForm();

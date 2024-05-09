@@ -16,10 +16,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
-use Throwable;
 
-use function ob_get_clean;
-use function ob_start;
 use function session_get_cookie_params;
 use function session_id;
 use function session_name;
@@ -62,20 +59,8 @@ class AuthenticationSignonTest extends AbstractTestCase
         Config::getInstance()->selectedServer['SignonURL'] = '';
         $_REQUEST = [];
         ResponseRenderer::getInstance()->setAjax(false);
-
-        ob_start();
-        try {
-            $this->object->showLoginForm();
-        } catch (Throwable $throwable) {
-        }
-
-        $result = ob_get_clean();
-
-        self::assertInstanceOf(ExitException::class, $throwable);
-
-        self::assertIsString($result);
-
-        self::assertStringContainsString('You must set SignonURL!', $result);
+        $response = $this->object->showLoginForm();
+        self::assertStringContainsString('You must set SignonURL!', (string) $response->getBody());
     }
 
     public function testAuthLogoutURL(): void

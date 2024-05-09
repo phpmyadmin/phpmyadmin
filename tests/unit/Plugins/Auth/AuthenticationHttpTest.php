@@ -20,6 +20,7 @@ use ReflectionProperty;
 use Throwable;
 
 use function base64_encode;
+use function json_decode;
 
 #[CoversClass(AuthenticationHttp::class)]
 #[Medium]
@@ -86,7 +87,7 @@ class AuthenticationHttpTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        self::assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable ?? null);
         $response = $responseStub->getResponse();
         self::assertSame(['Basic realm="phpMyAdmin verboseMessag"'], $response->getHeader('WWW-Authenticate'));
         self::assertSame(401, $response->getStatusCode());
@@ -107,7 +108,7 @@ class AuthenticationHttpTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        self::assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable ?? null);
         $response = $responseStub->getResponse();
         self::assertSame(['Basic realm="phpMyAdmin hst"'], $response->getHeader('WWW-Authenticate'));
         self::assertSame(401, $response->getStatusCode());
@@ -128,7 +129,7 @@ class AuthenticationHttpTest extends AbstractTestCase
         } catch (Throwable $throwable) {
         }
 
-        self::assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable ?? null);
         $response = $responseStub->getResponse();
         self::assertSame(['Basic realm="realmmessage"'], $response->getHeader('WWW-Authenticate'));
         self::assertSame(401, $response->getStatusCode());
@@ -270,6 +271,8 @@ class AuthenticationHttpTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['host'] = '';
         $_REQUEST = [];
+        Current::$server = 0;
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
         ResponseRenderer::getInstance()->setAjax(false);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -310,5 +313,21 @@ class AuthenticationHttpTest extends AbstractTestCase
         $GLOBALS['errno'] = 1043;
         $this->expectException(ExitException::class);
         $this->object->showFailure(AuthenticationFailure::serverDenied());
+    }
+
+    public function testShowLoginFormWithAjax(): void
+    {
+        Current::$database = '';
+        Current::$table = '';
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
+        ResponseRenderer::getInstance()->setAjax(true);
+        $response = (new AuthenticationHttp())->showLoginForm();
+
+        $body = (string) $response->getBody();
+        self::assertJson($body);
+        $json = json_decode($body, true);
+        self::assertIsArray($json);
+        self::assertArrayHasKey('reload_flag', $json);
+        self::assertSame('1', $json['reload_flag']);
     }
 }

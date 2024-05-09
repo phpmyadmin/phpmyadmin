@@ -65,11 +65,11 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @global string $conn_error the last connection error
      */
-    public function showLoginForm(): never
+    public function showLoginForm(): Response
     {
         $GLOBALS['conn_error'] ??= null;
 
-        $response = ResponseRenderer::getInstance();
+        $responseRenderer = ResponseRenderer::getInstance();
 
         /**
          * When sending login modal after session has expired, send the
@@ -77,8 +77,8 @@ class AuthenticationCookie extends AuthenticationPlugin
          * in all the forms having a hidden token.
          */
         $sessionExpired = isset($_REQUEST['check_timeout']) || isset($_REQUEST['session_timedout']);
-        if (! $sessionExpired && $response->loginPage()) {
-            $response->callExit();
+        if (! $sessionExpired && $responseRenderer->loginPage()) {
+            return $responseRenderer->response();
         }
 
         /**
@@ -87,8 +87,8 @@ class AuthenticationCookie extends AuthenticationPlugin
          * in all the forms having a hidden token.
          */
         if ($sessionExpired) {
-            $response->setRequestStatus(false);
-            $response->addJSON('new_token', $_SESSION[' PMA_token ']);
+            $responseRenderer->setRequestStatus(false);
+            $responseRenderer->addJSON('new_token', $_SESSION[' PMA_token ']);
         }
 
         /**
@@ -96,7 +96,7 @@ class AuthenticationCookie extends AuthenticationPlugin
          * using the modal was successful after session expiration.
          */
         if (isset($_REQUEST['session_timedout'])) {
-            $response->addJSON('logged_in', 0);
+            $responseRenderer->addJSON('logged_in', 0);
         }
 
         $config = Config::getInstance();
@@ -161,7 +161,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $configFooter = Config::renderFooter();
 
-        $response->addHTML($this->template->render('login/form', [
+        $responseRenderer->addHTML($this->template->render('login/form', [
             'login_header' => $loginHeader,
             'is_demo' => $config->config->debug->demo,
             'error_messages' => $errorMessages,
@@ -192,7 +192,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             'config_footer' => $configFooter,
         ]));
 
-        $response->callExit();
+        return $responseRenderer->response();
     }
 
     /**
@@ -559,7 +559,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $responseRenderer->addHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
         $responseRenderer->addHeader('Pragma', 'no-cache');
 
-        $this->showLoginForm();
+        return $this->showLoginForm();
     }
 
     /**

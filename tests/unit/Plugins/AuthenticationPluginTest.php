@@ -28,8 +28,9 @@ final class AuthenticationPluginTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         $object = new class extends AuthenticationPlugin {
-            public function showLoginForm(): void
+            public function showLoginForm(): Response|null
             {
+                return null;
             }
 
             public function readCredentials(): bool

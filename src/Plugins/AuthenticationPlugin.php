@@ -65,7 +65,7 @@ abstract class AuthenticationPlugin
     /**
      * Displays authentication form
      */
-    abstract public function showLoginForm(): void;
+    abstract public function showLoginForm(): Response|null;
 
     /**
      * Gets authentication credentials
@@ -249,7 +249,10 @@ abstract class AuthenticationPlugin
                 return $responseRenderer->response();
             }
 
-            $this->showLoginForm();
+            $response = $this->showLoginForm();
+            if ($response !== null) {
+                return $response;
+            }
         }
 
         /* Store credentials (eg. in cookies) */

@@ -35,25 +35,25 @@ class AuthenticationSignon extends AuthenticationPlugin
     /**
      * Displays authentication form
      */
-    public function showLoginForm(): never
+    public function showLoginForm(): Response
     {
-        $response = ResponseRenderer::getInstance();
-        $response->disable();
+        $responseRenderer = ResponseRenderer::getInstance();
+        $responseRenderer->disable();
         unset($_SESSION['LAST_SIGNON_URL']);
         $config = Config::getInstance();
         if (empty($config->selectedServer['SignonURL'])) {
-            echo $this->template->render('error/generic', [
+            $responseRenderer->addHTML($this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
                 'dir' => LanguageManager::$textDir,
                 'error_message' => 'You must set SignonURL!',
-            ]);
+            ]));
 
-            $response->callExit();
-        } else {
-            $response->redirect($config->selectedServer['SignonURL']);
+            return $responseRenderer->response();
         }
 
-        $response->callExit();
+        $responseRenderer->redirect($config->selectedServer['SignonURL']);
+
+        return $responseRenderer->response();
     }
 
     /**
@@ -260,7 +260,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             $_SESSION['PMA_single_signon_error_message'] = $this->getErrorMessage($failure);
         }
 
-        $this->showLoginForm();
+        return $this->showLoginForm();
     }
 
     /**
