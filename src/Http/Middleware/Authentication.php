@@ -61,7 +61,10 @@ final class Authentication implements MiddlewareInterface
 
         try {
             try {
-                $authPlugin->authenticate();
+                $response = $authPlugin->authenticate();
+                if ($response !== null) {
+                    return $response;
+                }
             } catch (AuthenticationFailure $exception) {
                 return $authPlugin->showFailure($exception);
             }

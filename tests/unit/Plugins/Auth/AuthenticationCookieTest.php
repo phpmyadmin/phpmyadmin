@@ -933,9 +933,10 @@ class AuthenticationCookieTest extends AbstractTestCase
         $_POST['pma_password'] = 'testPassword';
 
         ob_start();
-        $this->object->authenticate();
+        $response = $this->object->authenticate();
         $result = ob_get_clean();
 
+        self::assertNull($response);
         /* Nothing should be printed */
         self::assertSame('', $result);
 

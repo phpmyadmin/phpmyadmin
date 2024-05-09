@@ -229,7 +229,7 @@ abstract class AuthenticationPlugin
      *
      * @throws AuthenticationFailure
      */
-    public function authenticate(): void
+    public function authenticate(): Response|null
     {
         $success = $this->readCredentials();
 
@@ -246,7 +246,7 @@ abstract class AuthenticationPlugin
                     'error_message' => $exception->getMessage(),
                 ]));
 
-                $responseRenderer->callExit();
+                return $responseRenderer->response();
             }
 
             $this->showLoginForm();
@@ -258,6 +258,8 @@ abstract class AuthenticationPlugin
         $this->checkRules();
         /* clear user cache */
         Util::clearUserCache();
+
+        return null;
     }
 
     /**
