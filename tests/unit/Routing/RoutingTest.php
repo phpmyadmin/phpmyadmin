@@ -5,12 +5,18 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Routing;
 
 use FastRoute\Dispatcher;
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Controllers\HomeController;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Routing\Routing;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use Psr\Container\ContainerInterface;
 
 use function copy;
 use function unlink;
@@ -19,7 +25,7 @@ use const CACHE_DIR;
 use const TEST_PATH;
 
 #[CoversClass(Routing::class)]
-class RoutingTest extends AbstractTestCase
+final class RoutingTest extends AbstractTestCase
 {
     /**
      * Test for Routing::getDispatcher
@@ -96,5 +102,28 @@ class RoutingTest extends AbstractTestCase
             ['/phpmyadmin/index.php', '/phpmyadmin/index.php', '', '/phpmyadmin/index.php'],
             ['', '/phpmyadmin/index.php', '', '/phpmyadmin/index.php'],
         ];
+    }
+
+    public function testCallSetupControllerWithInvalidRoute(): void
+    {
+        $template = new Template();
+        $container = self::createStub(ContainerInterface::class);
+        $container->method('get')->willReturn($template);
+        ContainerBuilder::$container = $container;
+
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'https://example.com/')
+            ->withAttribute('route', '/setup/invalid-route');
+        $response = Routing::callSetupController($request, ResponseFactory::create());
+
+        $expected = $template->render('error/generic', [
+            'lang' => 'en',
+            'dir' => 'ltr',
+            'error_message' => 'Error 404! The page <code>/setup/invalid-route</code> was not found.',
+        ]);
+
+        self::assertSame(StatusCodeInterface::STATUS_NOT_FOUND, $response->getStatusCode());
+        self::assertSame($expected, (string) $response->getBody());
+
+        ContainerBuilder::$container = null;
     }
 }

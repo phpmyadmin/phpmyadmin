@@ -10,17 +10,14 @@ use FastRoute\Dispatcher\GroupCountBased as DispatcherGroupCountBased;
 use FastRoute\RouteCollector;
 use FastRoute\RouteParser\Std as RouteParserStd;
 use Fig\Http\Message\StatusCodeInterface;
-use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Console;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Setup\MainController;
 use PhpMyAdmin\Controllers\Setup\ShowConfigController;
 use PhpMyAdmin\Controllers\Setup\ValidateController;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -190,33 +187,33 @@ class Routing
     public static function callSetupController(ServerRequest $request, ResponseFactory $responseFactory): Response
     {
         $route = $request->getRoute();
-        $template = new Template();
-        if ($route === '/setup' || $route === '/') {
-            $dbi = DatabaseInterface::getInstance();
-            $relation = new Relation($dbi);
-            $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation));
+        $controllerName = match ($route) {
+            '/', '/setup' => MainController::class,
+            '/setup/show-config' => ShowConfigController::class,
+            '/setup/validate' => ValidateController::class,
+            default => null,
+        };
 
-            return (new MainController($responseFactory, $template, $console))($request);
+        $container = ContainerBuilder::getContainer();
+        if ($controllerName === null) {
+            $template = $container->get('template');
+            assert($template instanceof Template);
+            $response = $responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
+
+            return $response->write($template->render('error/generic', [
+                'lang' => $GLOBALS['lang'] ?? 'en',
+                'dir' => LanguageManager::$textDir,
+                'error_message' => Sanitize::convertBBCode(sprintf(
+                    __('Error 404! The page %s was not found.'),
+                    '[code]' . htmlspecialchars($route) . '[/code]',
+                )),
+            ]));
         }
 
-        if ($route === '/setup/show-config') {
-            return (new ShowConfigController())($request);
-        }
+        $controller = $container->get($controllerName);
+        assert($controller instanceof $controllerName);
 
-        if ($route === '/setup/validate') {
-            return (new ValidateController($responseFactory))($request);
-        }
-
-        $response = $responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
-
-        return $response->write($template->render('error/generic', [
-            'lang' => $GLOBALS['lang'] ?? 'en',
-            'dir' => LanguageManager::$textDir,
-            'error_message' => Sanitize::convertBBCode(sprintf(
-                __('Error 404! The page %s was not found.'),
-                '[code]' . htmlspecialchars($route) . '[/code]',
-            )),
-        ]));
+        return $controller($request);
     }
 
     /**

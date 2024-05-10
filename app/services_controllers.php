@@ -29,6 +29,7 @@ use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server;
+use PhpMyAdmin\Controllers\Setup;
 use PhpMyAdmin\Controllers\Sql;
 use PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Controllers\TableController;
@@ -865,6 +866,18 @@ return [
         Server\VariablesController::class => [
             'class' => Server\VariablesController::class,
             'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+        ],
+        Setup\MainController::class => [
+            'class' => Setup\MainController::class,
+            'arguments' => ['@' . ResponseFactory::class, '@template', '@console'],
+        ],
+        Setup\ShowConfigController::class => [
+            'class' => Setup\ShowConfigController::class,
+            'arguments' => ['@response'],
+        ],
+        Setup\ValidateController::class => [
+            'class' => Setup\ValidateController::class,
+            'arguments' => ['@' . ResponseFactory::class],
         ],
         Sql\ColumnPreferencesController::class => [
             'class' => Sql\ColumnPreferencesController::class,

@@ -18,13 +18,16 @@ use function is_string;
 
 final class ShowConfigController implements InvocableController
 {
+    public function __construct(private readonly ResponseRenderer $responseRenderer)
+    {
+    }
+
     public function __invoke(ServerRequest $request): Response
     {
         $formDisplay = new ConfigForm($GLOBALS['ConfigFile']);
         $formDisplay->save(['Config']);
 
-        $response = ResponseRenderer::getInstance();
-        $response->disable();
+        $this->responseRenderer->disable();
 
         /** @var mixed $eol */
         $eol = $request->getParsedBodyParam('eol');
@@ -38,10 +41,13 @@ final class ShowConfigController implements InvocableController
             // Clear current config and return to main page
             $GLOBALS['ConfigFile']->resetConfigData();
             // drop post data
-            $response->addHeader('Location', '../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
-            $response->setStatusCode(StatusCodeInterface::STATUS_SEE_OTHER);
+            $this->responseRenderer->addHeader(
+                'Location',
+                '../setup/index.php' . Url::getCommonRaw(['route' => '/setup']),
+            );
+            $this->responseRenderer->setStatusCode(StatusCodeInterface::STATUS_SEE_OTHER);
 
-            return $response->response();
+            return $this->responseRenderer->response();
         }
 
         /** @var mixed $submitDownload */
@@ -49,19 +55,19 @@ final class ShowConfigController implements InvocableController
         if (is_string($submitDownload) && $submitDownload !== '') {
             // Output generated config file
             Core::downloadHeader('config.inc.php', 'text/plain');
-            $response->disable();
+            $this->responseRenderer->disable();
             echo ConfigGenerator::getConfigFile($GLOBALS['ConfigFile']);
 
-            return $response->response();
+            return $this->responseRenderer->response();
         }
 
         // Show generated config file in a <textarea>
-        $response->addHeader(
+        $this->responseRenderer->addHeader(
             'Location',
             '../setup/index.php' . Url::getCommonRaw(['route' => '/setup', 'page' => 'config']),
         );
-        $response->setStatusCode(StatusCodeInterface::STATUS_SEE_OTHER);
+        $this->responseRenderer->setStatusCode(StatusCodeInterface::STATUS_SEE_OTHER);
 
-        return $response->response();
+        return $this->responseRenderer->response();
     }
 }
