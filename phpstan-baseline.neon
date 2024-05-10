@@ -3781,6 +3781,11 @@ parameters:
 			path: src/Controllers/Setup/MainController.php
 
 		-
+			message: "#^Parameter \\#1 \\$config of class PhpMyAdmin\\\\Controllers\\\\Setup\\\\ServerDestroyController constructor expects PhpMyAdmin\\\\Config\\\\ConfigFile, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Setup/MainController.php
+
+		-
 			message: "#^Parameter \\#1 \\$config of class PhpMyAdmin\\\\Controllers\\\\Setup\\\\ServersController constructor expects PhpMyAdmin\\\\Config\\\\ConfigFile, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Setup/MainController.php

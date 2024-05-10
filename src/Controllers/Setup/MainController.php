@@ -64,9 +64,8 @@ final class MainController implements InvocableController
         }
 
         if ($page === 'servers') {
-            $controller = new ServersController($GLOBALS['ConfigFile'], $this->template);
             if ($request->getQueryParam('mode') === 'remove' && $request->isPost()) {
-                $controller->destroy($request);
+                (new ServerDestroyController($GLOBALS['ConfigFile'], $this->template))($request);
                 $response = $response->withStatus(StatusCodeInterface::STATUS_FOUND);
 
                 return $response->withHeader(
@@ -75,7 +74,7 @@ final class MainController implements InvocableController
                 );
             }
 
-            return $response->write($controller->index($request));
+            return $response->write((new ServersController($GLOBALS['ConfigFile'], $this->template))($request));
         }
 
         return $response->write((new HomeController($GLOBALS['ConfigFile'], $this->template))($request));

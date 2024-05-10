@@ -16,7 +16,7 @@ use function ob_start;
 
 class ServersController extends AbstractController
 {
-    public function index(ServerRequest $request): string
+    public function __invoke(ServerRequest $request): string
     {
         $id = $this->getIdParam($request->getQueryParam('id'));
         $mode = $this->getModeParam($request->getQueryParam('mode'));
@@ -42,17 +42,6 @@ class ServersController extends AbstractController
             'server_dsn' => $this->config->getServerDSN($id),
             'page' => $page,
         ]);
-    }
-
-    public function destroy(ServerRequest $request): void
-    {
-        $id = $this->getIdParam($request->getQueryParam('id'));
-        $hasServer = $id >= 1 && $this->config->get('Servers/' . $id) !== null;
-        if (! $hasServer) {
-            return;
-        }
-
-        $this->config->removeServer($id);
     }
 
     private function getFormSetParam(mixed $formSetParam): string
