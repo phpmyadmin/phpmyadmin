@@ -11,7 +11,10 @@ use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Table\MoveMode;
+use PhpMyAdmin\Table\MoveScope;
 use PhpMyAdmin\Table\Table;
+use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\Triggers\Triggers;
 
 use function __;
@@ -31,8 +34,11 @@ use function urldecode;
  */
 class Operations
 {
-    public function __construct(private DatabaseInterface $dbi, private Relation $relation)
-    {
+    public function __construct(
+        private readonly DatabaseInterface $dbi,
+        private readonly Relation $relation,
+        private readonly TableMover $tableMover,
+    ) {
     }
 
     /**
@@ -192,15 +198,15 @@ class Operations
             //  for importing via the mysql client or our Import feature)
             $triggers = Triggers::getDetails($this->dbi, $db, $table);
 
+            $moveScope = MoveScope::tryFrom($copyMode) ?? MoveScope::StructureAndData;
             if (
-                ! Table::moveCopy(
+                ! $this->tableMover->moveCopy(
                     $db,
                     $table,
                     $newDatabaseName->getName(),
                     $table,
-                    $copyMode ?? 'data',
-                    $move,
-                    'db_copy',
+                    $move ? MoveScope::Move : $moveScope,
+                    MoveMode::WholeDatabase,
                     isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true',
                 )
             ) {
@@ -219,12 +225,12 @@ class Operations
             }
 
             // this does not apply to a rename operation
-            if (! isset($_POST['add_constraints']) || empty($GLOBALS['sql_constraints_query'])) {
+            if (! isset($_POST['add_constraints']) || $this->tableMover->sqlConstraintsQuery === '') {
                 continue;
             }
 
-            $sqlContraints[] = $GLOBALS['sql_constraints_query'];
-            unset($GLOBALS['sql_constraints_query']);
+            $sqlContraints[] = $this->tableMover->sqlConstraintsQuery;
+            $this->tableMover->sqlConstraintsQuery = '';
         }
 
         return $sqlContraints;
@@ -268,14 +274,13 @@ class Operations
     {
         // Add DROP IF EXIST to CREATE VIEW query, to remove stand-in VIEW that was created earlier.
         foreach ($views as $view) {
-            $copyingSucceeded = Table::moveCopy(
+            $copyingSucceeded = $this->tableMover->moveCopy(
                 $db,
                 $view,
                 $newDatabaseName->getName(),
                 $view,
-                'structure',
-                $move,
-                'db_copy',
+                $move ? MoveScope::Move : MoveScope::StructureOnly,
+                MoveMode::WholeDatabase,
                 true,
             );
             if (! $copyingSucceeded) {
@@ -459,7 +464,7 @@ class Operations
         $getFields = ['user', 'label', 'query'];
         $whereFields = ['dbase' => $db];
         $newFields = ['dbase' => $newDatabaseName->getName()];
-        Table::duplicateInfo('bookmarkwork', 'bookmark', $getFields, $whereFields, $newFields);
+        $this->tableMover->duplicateInfo('bookmarkwork', 'bookmark', $getFields, $whereFields, $newFields);
     }
 
     /**
@@ -887,14 +892,14 @@ class Operations
                     $message = Message::error(__('Can\'t copy table to same one!'));
                 }
             } else {
-                Table::moveCopy(
+                $move = isset($_POST['submit_move']);
+                $this->tableMover->moveCopy(
                     $db,
                     $table,
                     $targetDb,
                     (string) $_POST['new_name'],
-                    $_POST['what'],
-                    isset($_POST['submit_move']),
-                    'one_table',
+                    $move ? MoveScope::Move : MoveScope::from($_POST['what']),
+                    MoveMode::SingleTable,
                     isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true',
                 );
 

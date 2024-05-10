@@ -1891,7 +1891,7 @@ parameters:
 			path: src/Controllers/Database/Structure/CentralColumns/RemoveController.php
 
 		-
-			message: "#^Parameter \\#5 \\$what of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Table\\\\MoveScope\\:\\:from\\(\\) expects int\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/Structure/CopyTableController.php
 
@@ -9482,7 +9482,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 9
+			count: 8
 			path: src/Operations.php
 
 		-
@@ -9531,8 +9531,13 @@ parameters:
 			path: src/Operations.php
 
 		-
-			message: "#^Parameter \\#5 \\$what of static method PhpMyAdmin\\\\Table\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Table\\\\MoveScope\\:\\:from\\(\\) expects int\\|string, mixed given\\.$#"
+			count: 1
+			path: src/Operations.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Table\\\\MoveScope\\:\\:tryFrom\\(\\) expects int\\|string, mixed given\\.$#"
+			count: 1
 			path: src/Operations.php
 
 		-
@@ -10623,16 +10628,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquoteCompat\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 19
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Parameter \\#1 \\$line of method PhpMyAdmin\\\\Export\\\\Export\\:\\:outputHandler\\(\\) expects string, mixed given\\.$#"
-			count: 3
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Parameter \\#1 \\$sqlStatement of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:generateComment\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 3
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -13781,18 +13776,13 @@ parameters:
 			path: src/Table/Search.php
 
 		-
-			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\>\\|null supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: src/Table/Table.php
-
-		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Table/Table.php
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
-			count: 3
+			count: 2
 			path: src/Table/Table.php
 
 		-
@@ -13891,18 +13881,8 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 2
-			path: src/Table/Table.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 2
-			path: src/Table/Table.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 17
+			count: 13
 			path: src/Table/Table.php
 
 		-
@@ -13961,11 +13941,6 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, bool\\|string given\\.$#"
-			count: 1
-			path: src/Table/Table.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
 			path: src/Table/Table.php
@@ -13973,11 +13948,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|null given\\.$#"
 			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
-			count: 2
 			path: src/Table/Table.php
 
 		-
@@ -14011,18 +13981,8 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
-			count: 3
-			path: src/Table/Table.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, mixed given\\.$#"
 			count: 9
-			path: src/Table/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|null given\\.$#"
-			count: 6
 			path: src/Table/Table.php
 
 		-
@@ -14089,6 +14049,46 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Table\\\\Table\\:\\:\\$uiprefs \\(array\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Table/Table.php
+
+		-
+			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\>\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 2
+			path: src/Table/TableMover.php
+
+		-
+			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
+			count: 1
+			path: src/Table/TableMover.php
+
+		-
+			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 2
+			path: src/Table/TableMover.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 2
+			path: src/Table/TableMover.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: src/Table/TableMover.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, bool\\|string given\\.$#"
+			count: 1
+			path: src/Table/TableMover.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
+			count: 2
+			path: src/Table/TableMover.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|null given\\.$#"
+			count: 6
+			path: src/Table/TableMover.php
 
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
@@ -16102,7 +16102,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
-			count: 10
+			count: 4
 			path: tests/unit/Plugins/Export/ExportSqlTest.php
 
 		-

@@ -263,11 +263,15 @@ return [
                 '$operations' => '@operations',
                 '$structureController' => '@' . Database\StructureController::class,
                 '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
+                '$tableMover' => '@table_mover',
             ],
         ],
         Database\Structure\CopyTableWithPrefixController::class => [
             'class' => Database\Structure\CopyTableWithPrefixController::class,
-            'arguments' => ['$structureController' => '@' . Database\StructureController::class],
+            'arguments' => [
+                '$structureController' => '@' . Database\StructureController::class,
+                '$tableMover' => '@table_mover',
+            ],
         ],
         Database\Structure\DropFormController::class => [
             'class' => Database\Structure\DropFormController::class,

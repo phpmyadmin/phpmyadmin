@@ -12,7 +12,10 @@ use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\ListDatabase;
 use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\Table\MoveMode;
+use PhpMyAdmin\Table\MoveScope;
 use PhpMyAdmin\Table\Table;
+use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\Table\UiProperty;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
@@ -200,6 +203,37 @@ class TableTest extends AbstractTestCase
                         'Definer' => 'test_user@localhost',
                     ],
                 ],
+            ],
+            [
+                'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, '
+                    . 'ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM '
+                    . "information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA COLLATE utf8_bin= 'PMA' "
+                    . "AND EVENT_OBJECT_TABLE COLLATE utf8_bin = 'PMA_BookMark';",
+                null,
+                null,
+                ConnectionType::User,
+                [
+                    [],
+                ],
+            ],
+            [
+                'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, '
+                    . 'ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM '
+                    . "information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA COLLATE utf8_bin= 'aa' "
+                    . "AND EVENT_OBJECT_TABLE COLLATE utf8_bin = 'ad';",
+                null,
+                null,
+                ConnectionType::User,
+                [
+                    [],
+                ],
+            ],
+            [
+                'SHOW COLUMNS FROM `aa`.`ad`',
+                null,
+                null,
+                ConnectionType::User,
+                [],
             ],
         ];
 
@@ -899,7 +933,8 @@ class TableTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $ret = Table::duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
+        $object = new TableMover($this->mockedDbi, new Relation($this->mockedDbi));
+        $ret = $object->duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
         self::assertSame(-1, $ret);
     }
 
@@ -1309,9 +1344,6 @@ class TableTest extends AbstractTestCase
         $sourceDb = 'PMA';
         $targetTable = 'PMA_BookMark_new';
         $targetDb = 'PMA_new';
-        $what = 'dataonly';
-        $move = true;
-        $mode = 'one_table';
 
         unset($GLOBALS['sql_drop_table']);
 
@@ -1323,7 +1355,17 @@ class TableTest extends AbstractTestCase
         $this->mockedDbi->expects(self::any())->method('getTable')
             ->willReturnMap($getTableMap);
 
-        $return = Table::moveCopy($sourceDb, $sourceTable, $targetDb, $targetTable, $what, $move, $mode, true);
+        $object = new TableMover($this->mockedDbi, new Relation($this->mockedDbi));
+
+        $return = $object->moveCopy(
+            $sourceDb,
+            $sourceTable,
+            $targetDb,
+            $targetTable,
+            MoveScope::Move,
+            MoveMode::SingleTable,
+            true,
+        );
 
         //successfully
         self::assertTrue($return);
@@ -1334,7 +1376,15 @@ class TableTest extends AbstractTestCase
         $sqlQuery = 'DROP VIEW `PMA`.`PMA_BookMark`';
         self::assertStringContainsString($sqlQuery, $GLOBALS['sql_query']);
 
-        $return = Table::moveCopy($sourceDb, $sourceTable, $targetDb, $targetTable, $what, false, $mode, true);
+        $return = $object->moveCopy(
+            $sourceDb,
+            $sourceTable,
+            $targetDb,
+            $targetTable,
+            MoveScope::DataOnly,
+            MoveMode::SingleTable,
+            true,
+        );
 
         //successfully
         self::assertTrue($return);
@@ -1364,6 +1414,20 @@ class TableTest extends AbstractTestCase
                     $resultStub,
                 ],
                 ['USE `aa`', ConnectionType::User, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
+                [
+                    'RENAME TABLE `PMA`.`PMA_BookMark` TO `PMA`.`PMA_.BookMark`;',
+                    ConnectionType::User,
+                    DatabaseInterface::QUERY_BUFFERED,
+                    true,
+                    false,
+                ],
+                [
+                    'RENAME TABLE `aa`.`ad` TO `bb`.`ad`;',
+                    ConnectionType::User,
+                    DatabaseInterface::QUERY_BUFFERED,
+                    true,
+                    false,
+                ],
             ]);
         $resultStub->expects(self::any())
             ->method('fetchRow')
@@ -1376,7 +1440,7 @@ class TableTest extends AbstractTestCase
             ]);
 
         $GLOBALS['sql_query'] = '';
-        $return = Table::moveCopy('aa', 'ad', 'bb', 'ad', 'structure', true, 'db_copy', true);
+        $return = $object->moveCopy('aa', 'ad', 'bb', 'ad', MoveScope::Move, MoveMode::WholeDatabase, true);
         self::assertTrue($return);
         self::assertStringContainsString('DROP TABLE IF EXISTS `bb`.`ad`;', $GLOBALS['sql_query']);
         self::assertStringContainsString(

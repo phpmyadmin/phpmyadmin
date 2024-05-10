@@ -7354,7 +7354,7 @@
       <code><![CDATA[$_POST['prev_comment']]]></code>
       <code><![CDATA[$_POST['tbl_collation']]]></code>
       <code><![CDATA[$_POST['what']]]></code>
-      <code><![CDATA[$copyMode ?? 'data']]></code>
+      <code><![CDATA[$copyMode]]></code>
       <code><![CDATA[$newRowFormat]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
@@ -7362,8 +7362,6 @@
       <code><![CDATA[$_POST['db_collation']]]></code>
       <code><![CDATA[$_POST['prev_comment']]]></code>
       <code><![CDATA[$_POST['tbl_collation']]]></code>
-      <code><![CDATA[$_POST['what']]]></code>
-      <code><![CDATA[$copyMode ?? 'data']]></code>
       <code><![CDATA[$newRowFormat]]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
@@ -7382,14 +7380,10 @@
       <code><![CDATA[(string) $_POST['new_name']]]></code>
       <code><![CDATA[(string) $_POST['new_name']]]></code>
     </RedundantCast>
-    <RedundantCondition>
-      <code><![CDATA[$copyMode]]></code>
-    </RedundantCondition>
     <RiskyCast>
       <code><![CDATA[$_POST['new_auto_increment']]]></code>
     </RiskyCast>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['sql_constraints_query'])]]></code>
       <code><![CDATA[empty($_POST['adjust_privileges'])]]></code>
       <code><![CDATA[empty($_POST['new_auto_increment'])]]></code>
       <code><![CDATA[empty($_POST['new_checksum'])]]></code>
@@ -7399,9 +7393,6 @@
       <code><![CDATA[empty($_POST['new_transactional'])]]></code>
       <code><![CDATA[empty($_POST['tbl_collation'])]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainNull>
-      <code><![CDATA['data']]></code>
-    </TypeDoesNotContainNull>
   </file>
   <file src="src/Partitioning/Maintenance.php">
     <MixedArrayAccess>
@@ -8204,8 +8195,6 @@
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
       <code><![CDATA[$GLOBALS['sql_auto_increment']]]></code>
-      <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
       <code><![CDATA[$GLOBALS['sql_create_database']]]></code>
       <code><![CDATA[$GLOBALS['sql_delayed']]]></code>
       <code><![CDATA[$GLOBALS['sql_disable_fk']]]></code>
@@ -8218,8 +8207,6 @@
       <code><![CDATA[$GLOBALS['sql_header_comment']]]></code>
       <code><![CDATA[$GLOBALS['sql_include_comments']]]></code>
       <code><![CDATA[$GLOBALS['sql_include_comments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
       <code><![CDATA[$GLOBALS['sql_indexes_query']]]></code>
       <code><![CDATA[$GLOBALS['sql_or_replace_view']]]></code>
       <code><![CDATA[$GLOBALS['sql_simple_view_export']]]></code>
@@ -8234,11 +8221,7 @@
       <code><![CDATA[$GLOBALS['table_data']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
       <code><![CDATA[$GLOBALS['sql_header_comment']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$colAlias]]></code>
       <code><![CDATA[$colAlias]]></code>
@@ -8274,9 +8257,7 @@
       <code><![CDATA[$row[$j]]]></code>
     </MixedArrayTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
       <code><![CDATA[$GLOBALS['sql_drop_table']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
       <code><![CDATA[$GLOBALS['sql_indexes_query']]]></code>
       <code><![CDATA[$colAlias]]></code>
       <code><![CDATA[$colAlias]]></code>
@@ -11179,15 +11160,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['add_constraints']]]></code>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
-    </InvalidArrayOffset>
     <InvalidReturnStatement>
       <code><![CDATA[$tableAutoIncrement ?? '']]></code>
       <code><![CDATA[$this->getStatusInfo('TABLE_COLLATION') ?? '']]></code>
@@ -11199,8 +11172,6 @@
       <code><![CDATA[string]]></code>
     </InvalidReturnType>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
       <code><![CDATA[$_POST['constraint_name'][$masterFieldMd5]]]></code>
       <code><![CDATA[$column]]></code>
       <code><![CDATA[$column['Extra']]]></code>
@@ -11296,9 +11267,6 @@
       <code><![CDATA[$optionsArray[$existrelForeign[$masterFieldMd5]['on_update'] ?? '']]]></code>
     </MixedArrayTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$altered]]></code>
-      <code><![CDATA[$altered]]></code>
       <code><![CDATA[$column]]></code>
       <code><![CDATA[$column]]></code>
       <code><![CDATA[$columns[$row['Field']]]]></code>
@@ -11322,30 +11290,16 @@
       <code><![CDATA[$ret[]]]></code>
       <code><![CDATA[$row]]></code>
       <code><![CDATA[$value]]></code>
-      <code><![CDATA[$value]]></code>
-      <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[string]]></code>
       <code><![CDATA[string]]></code>
     </MixedInferredReturnType>
-    <MixedMethodCall>
-      <code><![CDATA[has]]></code>
-      <code><![CDATA[has]]></code>
-    </MixedMethodCall>
     <MixedOperand>
       <code><![CDATA[$backquoted ? Util::backquote($column) : $column]]></code>
       <code><![CDATA[$index[0]]]></code>
     </MixedOperand>
-    <MixedPropertyAssignment>
-      <code><![CDATA[$altered]]></code>
-      <code><![CDATA[$altered]]></code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch>
-      <code><![CDATA[$altered->options]]></code>
-      <code><![CDATA[$altered->options]]></code>
-    </MixedPropertyFetch>
     <MixedReturnStatement>
       <code><![CDATA[end($this->errors)]]></code>
       <code><![CDATA[end($this->messages)]]></code>
@@ -11369,15 +11323,9 @@
       <code><![CDATA[$_POST['on_update'][$masterFieldMd5]]]></code>
     </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument>
-      <code><![CDATA[$commentsCopyRow['column_name']]]></code>
-      <code><![CDATA[$commentsCopyRow['comment']]]></code>
-      <code><![CDATA[$commentsCopyRow['mimetype']]]></code>
-      <code><![CDATA[$commentsCopyRow['transformation']]]></code>
-      <code><![CDATA[$commentsCopyRow['transformation_options']]]></code>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['ref_db_name']]]></code>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['ref_index_list']]]></code>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['ref_table_name']]]></code>
-      <code><![CDATA[$val]]></code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]['constraint']]]></code>
@@ -11392,10 +11340,6 @@
       <code><![CDATA[$optionsArray]]></code>
       <code><![CDATA[$optionsArray]]></code>
     </PossiblyNullArrayOffset>
-    <PossiblyNullIterator>
-      <code><![CDATA[$statement->altered]]></code>
-      <code><![CDATA[$statement->altered]]></code>
-    </PossiblyNullIterator>
     <PossiblyNullOperand>
       <code><![CDATA[Generator::mysqlDie($tmpErrorCreate, $createQuery, false, '', false)]]></code>
       <code><![CDATA[Generator::mysqlDie($tmpErrorDrop, $dropQuery, false, '', false)]]></code>
@@ -11408,15 +11352,50 @@
       <code><![CDATA[true|Message]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $relationParams[$work]]]></code>
       <code><![CDATA[! Context::isKeyword($columnName, true)]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainType>
-      <code><![CDATA[! empty($GLOBALS['sql_constraints_query'])]]></code>
-    </TypeDoesNotContainType>
     <UnsupportedPropertyReferenceUsage>
       <code><![CDATA[$this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]]]></code>
     </UnsupportedPropertyReferenceUsage>
+  </file>
+  <file src="src/Table/TableMover.php">
+    <InvalidArrayOffset>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+    </InvalidArrayOffset>
+    <MixedAssignment>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$altered]]></code>
+      <code><![CDATA[$altered]]></code>
+      <code><![CDATA[$value]]></code>
+      <code><![CDATA[$value]]></code>
+    </MixedAssignment>
+    <MixedMethodCall>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+    </MixedMethodCall>
+    <MixedPropertyAssignment>
+      <code><![CDATA[$altered]]></code>
+      <code><![CDATA[$altered]]></code>
+    </MixedPropertyAssignment>
+    <MixedPropertyFetch>
+      <code><![CDATA[$altered->options]]></code>
+      <code><![CDATA[$altered->options]]></code>
+    </MixedPropertyFetch>
+    <PossiblyNullArgument>
+      <code><![CDATA[$commentsCopyRow['column_name']]]></code>
+      <code><![CDATA[$commentsCopyRow['comment']]]></code>
+      <code><![CDATA[$commentsCopyRow['mimetype']]]></code>
+      <code><![CDATA[$commentsCopyRow['transformation']]]></code>
+      <code><![CDATA[$commentsCopyRow['transformation_options']]]></code>
+      <code><![CDATA[$val]]></code>
+    </PossiblyNullArgument>
+    <PossiblyNullIterator>
+      <code><![CDATA[$statement->altered]]></code>
+      <code><![CDATA[$statement->altered]]></code>
+    </PossiblyNullIterator>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! $relationParams[$work]]]></code>
+    </RiskyTruthyFalsyComparison>
     <UnusedVariable>
       <code><![CDATA[$maintainRelations]]></code>
     </UnusedVariable>
@@ -14501,15 +14480,6 @@
       <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
     </MixedAssignment>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
-      <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
-      <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
-      <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
-    </PossiblyNullArgument>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
-    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="tests/unit/Plugins/Export/ExportTexytextTest.php">
     <DeprecatedMethod>

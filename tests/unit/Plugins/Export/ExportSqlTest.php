@@ -70,9 +70,6 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['plugin_param'] = [];
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
-        $GLOBALS['sql_constraints'] = null;
-        $GLOBALS['sql_indexes'] = null;
-        $GLOBALS['sql_auto_increments'] = null;
 
         $this->object = new ExportSql(
             new Relation($dbi),
@@ -615,7 +612,7 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportDBFooter(): void
     {
-        $GLOBALS['sql_constraints'] = 'SqlConstraints';
+        $this->object->sqlConstraints = 'SqlConstraints';
         $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
 
@@ -745,9 +742,7 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
         $GLOBALS['sql_include_comments'] = true;
-        if (isset($GLOBALS['sql_constraints'])) {
-            unset($GLOBALS['sql_constraints']);
-        }
+        $this->object->sqlConstraints = null;
 
         if (isset($GLOBALS['no_constraints_comments'])) {
             unset($GLOBALS['no_constraints_comments']);
@@ -806,12 +801,13 @@ SQL;
         self::assertStringContainsString('-- Last check: Jan 02, 2000 at 01:00 PM', $result);
         self::assertStringContainsString('DROP TABLE IF EXISTS `table`;', $result);
         self::assertStringContainsString('CREATE TABLE `table`', $result);
-        self::assertStringContainsString('-- Constraints for dumped tables', $GLOBALS['sql_constraints']);
-        self::assertStringContainsString('-- Constraints for table "table"', $GLOBALS['sql_constraints']);
-        self::assertStringContainsString('ALTER TABLE "table"', $GLOBALS['sql_constraints']);
-        self::assertStringContainsString('ADD CONSTRAINT', $GLOBALS['sql_constraints']);
-        self::assertStringContainsString('ALTER TABLE "table"', $GLOBALS['sql_constraints_query']);
-        self::assertStringContainsString('ADD CONSTRAINT', $GLOBALS['sql_constraints_query']);
+        self::assertIsString($this->object->sqlConstraints);
+        self::assertStringContainsString('-- Constraints for dumped tables', $this->object->sqlConstraints);
+        self::assertStringContainsString('-- Constraints for table "table"', $this->object->sqlConstraints);
+        self::assertStringContainsString('ALTER TABLE "table"', $this->object->sqlConstraints);
+        self::assertStringContainsString('ADD CONSTRAINT', $this->object->sqlConstraints);
+        self::assertStringContainsString('ALTER TABLE "table"', $this->object->sqlConstraintsQuery);
+        self::assertStringContainsString('ADD CONSTRAINT', $this->object->sqlConstraintsQuery);
         self::assertStringContainsString('ALTER TABLE "table"', $GLOBALS['sql_drop_foreign_keys']);
         self::assertStringContainsString('DROP FOREIGN KEY', $GLOBALS['sql_drop_foreign_keys']);
     }
@@ -824,9 +820,7 @@ SQL;
         $GLOBALS['sql_if_not_exists'] = true;
         $GLOBALS['sql_include_comments'] = true;
 
-        if (isset($GLOBALS['sql_constraints'])) {
-            unset($GLOBALS['sql_constraints']);
-        }
+        $this->object->sqlConstraints = null;
 
         if (isset($GLOBALS['no_constraints_comments'])) {
             unset($GLOBALS['no_constraints_comments']);
