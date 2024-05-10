@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Setup;
 
 use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Setup\FormProcessing;
 
@@ -15,18 +16,13 @@ use function ob_start;
 
 class FormController extends AbstractController
 {
-    /**
-     * @param mixed[] $params Request parameters
-     *
-     * @return string HTML
-     */
-    public function __invoke(array $params): string
+    public function __invoke(ServerRequest $request): string
     {
         $pages = $this->getPages();
 
-        $formset = isset($params['formset']) && is_string($params['formset']) ? $params['formset'] : '';
+        $formSet = $this->getFormSetParam($request->getQueryParam('formset'));
 
-        $formClass = SetupFormList::get($formset);
+        $formClass = SetupFormList::get($formSet);
         if ($formClass === null) {
             return $this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
@@ -41,10 +37,15 @@ class FormController extends AbstractController
         $page = ob_get_clean();
 
         return $this->template->render('setup/form/index', [
-            'formset' => $formset,
+            'formset' => $formSet,
             'pages' => $pages,
             'name' => $form::getName(),
             'page' => $page,
         ]);
+    }
+
+    private function getFormSetParam(mixed $formSetParam): string
+    {
+        return is_string($formSetParam) ? $formSetParam : '';
     }
 }

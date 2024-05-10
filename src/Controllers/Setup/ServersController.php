@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Setup;
 
 use PhpMyAdmin\Config\Forms\Setup\ServersForm;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Setup\FormProcessing;
 
 use function in_array;
@@ -15,19 +16,10 @@ use function ob_start;
 
 class ServersController extends AbstractController
 {
-    /**
-     * @param mixed[] $params Request parameters
-     *
-     * @return string HTML
-     */
-    public function index(array $params): string
+    public function index(ServerRequest $request): string
     {
-        $formset = isset($params['formset']) && is_string($params['formset']) ? $params['formset'] : '';
-        $id = isset($params['id']) && is_numeric($params['id']) && (int) $params['id'] >= 1 ? (int) $params['id'] : 0;
-        $mode = '';
-        if (isset($params['mode']) && in_array($params['mode'], ['add', 'edit', 'revert'], true)) {
-            $mode = $params['mode'];
-        }
+        $id = $this->getIdParam($request->getQueryParam('id'));
+        $mode = $this->getModeParam($request->getQueryParam('mode'));
 
         $pages = $this->getPages();
 
@@ -42,7 +34,7 @@ class ServersController extends AbstractController
         $page = ob_get_clean();
 
         return $this->template->render('setup/servers/index', [
-            'formset' => $formset,
+            'formset' => $this->getFormSetParam($request->getQueryParam('formset')),
             'pages' => $pages,
             'has_server' => $hasServer,
             'mode' => $mode,
@@ -52,17 +44,37 @@ class ServersController extends AbstractController
         ]);
     }
 
-    /** @param mixed[] $params Request parameters */
-    public function destroy(array $params): void
+    public function destroy(ServerRequest $request): void
     {
-        $id = isset($params['id']) && is_numeric($params['id']) && (int) $params['id'] >= 1 ? (int) $params['id'] : 0;
-
+        $id = $this->getIdParam($request->getQueryParam('id'));
         $hasServer = $id >= 1 && $this->config->get('Servers/' . $id) !== null;
-
         if (! $hasServer) {
             return;
         }
 
         $this->config->removeServer($id);
+    }
+
+    private function getFormSetParam(mixed $formSetParam): string
+    {
+        return is_string($formSetParam) ? $formSetParam : '';
+    }
+
+    /** @psalm-return 'add'|'edit'|'revert'|'' */
+    private function getModeParam(mixed $modeParam): string
+    {
+        return in_array($modeParam, ['add', 'edit', 'revert'], true) ? $modeParam : '';
+    }
+
+    /** @psalm-return int<0, max> */
+    private function getIdParam(mixed $idParam): int
+    {
+        if (! is_numeric($idParam)) {
+            return 0;
+        }
+
+        $id = (int) $idParam;
+
+        return $id >= 1 ? $id : 0;
     }
 }

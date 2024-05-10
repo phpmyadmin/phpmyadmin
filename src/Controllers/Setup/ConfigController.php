@@ -4,22 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Setup;
 
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Setup\ConfigGenerator;
 
 use function is_string;
 
 class ConfigController extends AbstractController
 {
-    /**
-     * @param mixed[] $params Request parameters
-     *
-     * @return string HTML
-     */
-    public function __invoke(array $params): string
+    public function __invoke(ServerRequest $request): string
     {
-        $formset = isset($params['formset']) && is_string($params['formset']) ? $params['formset'] : '';
-        $eol = isset($params['eol']) && $params['eol'] === 'win' ? 'win' : 'unix';
-
         $pages = $this->getPages();
 
         static $hasCheckPageRefresh = false;
@@ -30,11 +23,22 @@ class ConfigController extends AbstractController
         $config = ConfigGenerator::getConfigFile($this->config);
 
         return $this->template->render('setup/config/index', [
-            'formset' => $formset,
+            'formset' => $this->getFormSetParam($request->getQueryParam('formset')),
             'pages' => $pages,
-            'eol' => $eol,
+            'eol' => $this->getEolParam($request->getQueryParam('eol')),
             'config' => $config,
             'has_check_page_refresh' => $hasCheckPageRefresh,
         ]);
+    }
+
+    private function getFormSetParam(mixed $formSetParam): string
+    {
+        return is_string($formSetParam) ? $formSetParam : '';
+    }
+
+    /** @psalm-return 'win'|'unix' */
+    private function getEolParam(mixed $eolParam): string
+    {
+        return $eolParam === 'win' ? 'win' : 'unix';
     }
 }

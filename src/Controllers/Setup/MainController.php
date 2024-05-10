@@ -56,24 +56,17 @@ final class MainController implements InvocableController
         }
 
         if ($page === 'form') {
-            return $response->write((new FormController($GLOBALS['ConfigFile'], $this->template))([
-                'formset' => $request->getQueryParam('formset'),
-            ]));
+            return $response->write((new FormController($GLOBALS['ConfigFile'], $this->template))($request));
         }
 
         if ($page === 'config') {
-            return $response->write((new ConfigController($GLOBALS['ConfigFile'], $this->template))([
-                'formset' => $request->getQueryParam('formset'),
-                'eol' => $request->getQueryParam('eol'),
-            ]));
+            return $response->write((new ConfigController($GLOBALS['ConfigFile'], $this->template))($request));
         }
 
         if ($page === 'servers') {
             $controller = new ServersController($GLOBALS['ConfigFile'], $this->template);
-            /** @var mixed $mode */
-            $mode = $request->getQueryParam('mode');
-            if ($mode === 'remove' && $request->isPost()) {
-                $controller->destroy(['id' => $request->getQueryParam('id')]);
+            if ($request->getQueryParam('mode') === 'remove' && $request->isPost()) {
+                $controller->destroy($request);
                 $response = $response->withStatus(StatusCodeInterface::STATUS_FOUND);
 
                 return $response->withHeader(
@@ -82,16 +75,9 @@ final class MainController implements InvocableController
                 );
             }
 
-            return $response->write($controller->index([
-                'formset' => $request->getQueryParam('formset'),
-                'mode' => $mode,
-                'id' => $request->getQueryParam('id'),
-            ]));
+            return $response->write($controller->index($request));
         }
 
-        return $response->write((new HomeController($GLOBALS['ConfigFile'], $this->template))([
-            'formset' => $request->getQueryParam('formset'),
-            'version_check' => $request->getQueryParam('version_check'),
-        ]));
+        return $response->write((new HomeController($GLOBALS['ConfigFile'], $this->template))($request));
     }
 }

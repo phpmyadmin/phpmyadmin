@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Setup;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ServerConfigChecks;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Setup\Index;
 
@@ -16,22 +17,15 @@ use function is_string;
 
 class HomeController extends AbstractController
 {
-    /**
-     * @param mixed[] $params Request parameters
-     *
-     * @return string HTML
-     */
-    public function __invoke(array $params): string
+    public function __invoke(ServerRequest $request): string
     {
-        $formset = isset($params['formset']) && is_string($params['formset']) ? $params['formset'] : '';
-
         $pages = $this->getPages();
 
         // message handling
         Index::messagesBegin();
 
         // Check phpMyAdmin version
-        if (isset($params['version_check'])) {
+        if ($request->hasQueryParam('version_check')) {
             Index::versionCheck();
         }
 
@@ -86,7 +80,7 @@ class HomeController extends AbstractController
         }
 
         return $this->template->render('setup/home/index', [
-            'formset' => $formset,
+            'formset' => $this->getFormSetParam($request->getQueryParam('formset')),
             'languages' => $languages,
             'messages' => $messages,
             'server_count' => $this->config->getServerCount(),
@@ -97,5 +91,10 @@ class HomeController extends AbstractController
                 ? $_SESSION['eol']
                 : (Config::getInstance()->get('PMA_IS_WINDOWS') ? 'win' : 'unix'),
         ]);
+    }
+
+    private function getFormSetParam(mixed $formSetParam): string
+    {
+        return is_string($formSetParam) ? $formSetParam : '';
     }
 }
