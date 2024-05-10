@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-03-06 04:39+0000\n"
+"PO-Revision-Date: 2024-05-10 07:26+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.4-rc\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3720,7 +3720,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:849
 msgid "Minimum number of databases to display the database filter box"
-msgstr ""
+msgstr "Минимум број на датабази за да се покажат филтрите за датабази"
 
 #: libraries/classes/Config/Descriptions.php:851
 msgid "Group items in the tree"
@@ -5118,10 +5118,9 @@ msgstr "Прегледот %s е избришан"
 
 #: libraries/classes/Controllers/Database/StructureController.php:571
 #: templates/table/operations/index.twig:410
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Table %s has been dropped."
-msgstr "Табелата %s е избришана"
+msgstr "Табелата %s е отфрлена."
 
 #: libraries/classes/Controllers/Database/StructureController.php:626
 #: templates/table/operations/index.twig:388
@@ -8564,7 +8563,7 @@ msgstr ""
 #: libraries/classes/Controllers/ThemesController.php:20
 #: templates/themes.twig:1
 msgid "Theme"
-msgstr ""
+msgstr "Тема"
 
 #: libraries/classes/Controllers/UserPasswordController.php:51
 msgid "You don't have sufficient privileges to be here right now!"
@@ -8842,11 +8841,12 @@ msgid "Export of event %s"
 msgstr "Нема селектирани записи"
 
 #: libraries/classes/Database/Events.php:584
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "Табелите не се пронајдени во базата на податоци."
+msgstr ""
+"Грешка при процесирање на барањето: Нема настан со име %1$s најден во "
+"датабазата %2$s."
 
 #: libraries/classes/DatabaseInterface.php:1111
 #, php-format
@@ -9214,10 +9214,9 @@ msgstr ""
 
 #: libraries/classes/Database/Routines.php:1409
 #: libraries/classes/Database/Routines.php:1587
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Табелите не се пронајдени во базата на податоци."
+msgstr "Не се најде рутина со име %1$s во датабаза %2$s."
 
 #: libraries/classes/Database/Routines.php:1448
 #, fuzzy, php-format
@@ -10299,7 +10298,7 @@ msgstr ""
 #: libraries/classes/LanguageManager.php:1016 templates/setup/home/index.twig:8
 #: templates/setup/home/index.twig:9
 msgid "Language"
-msgstr ""
+msgstr "Јазик"
 
 #: libraries/classes/Linter.php:109
 msgid ""
@@ -10898,10 +10897,8 @@ msgid "Table is already in Third normal form!"
 msgstr ""
 
 #: libraries/classes/Normalization.php:949
-#, fuzzy
-#| msgid "Propose table structure"
 msgid "Improve table structure (Normalization):"
-msgstr "Предложи структура на табелата"
+msgstr "Подобрете ја структурата на табелата (нормализација):"
 
 #: libraries/classes/Normalization.php:950
 msgid "Select up to what step you want to normalize"
@@ -12621,10 +12618,8 @@ msgstr ""
 
 #: libraries/classes/SavedSearches.php:319
 #: libraries/classes/SavedSearches.php:356
-#, fuzzy
-#| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "Корисник %s веќе постои!"
+msgstr "Запис со ова име веќе постои."
 
 #: libraries/classes/SavedSearches.php:386
 msgid "Missing information to delete the search."
@@ -14236,10 +14231,8 @@ msgid "Partitions:"
 msgstr "Позиција"
 
 #: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "Position"
 msgid "Subpartition by:"
-msgstr "Позиција"
+msgstr "Подпартицирај по:"
 
 #: templates/columns_definitions/partitions.twig:65
 #, fuzzy
@@ -15454,10 +15447,8 @@ msgstr ""
 
 #: templates/database/routines/index.twig:6 templates/filter.twig:6
 #: templates/server/status/variables/index.twig:15
-#, fuzzy
-#| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Немој да ја менуваш лозинката"
+msgstr "Содржи збор:"
 
 #: templates/database/routines/index.twig:23
 msgid "There are no routines to display."
@@ -16038,10 +16029,8 @@ msgid "New table name"
 msgstr "Нема табела"
 
 #: templates/export.twig:263
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Select column:"
-msgstr "Додади/избриши колона"
+msgstr "Изберете колона:"
 
 #: templates/export.twig:269
 #, fuzzy
@@ -16056,10 +16045,8 @@ msgid "Save output to a file"
 msgstr "Сочувај како податотека"
 
 #: templates/export.twig:323
-#, fuzzy
-#| msgid "File name template"
 msgid "File name template:"
-msgstr "Шаблон на име на податотека"
+msgstr "Шаблон за име на фајл:"
 
 #: templates/export.twig:324
 #, php-format
@@ -16119,10 +16106,8 @@ msgid "Skip tables larger than %s MiB"
 msgstr ""
 
 #: templates/export.twig:406 templates/import.twig:204
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "Опции на трансформацијата"
+msgstr "Опции специфични за форматот:"
 
 #: templates/export.twig:408 templates/import.twig:206
 msgid ""
