@@ -13,17 +13,15 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Setup\SetupHelper;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 
 use function __;
 use function file_exists;
 use function in_array;
 use function is_numeric;
 use function is_string;
-use function ob_get_clean;
-use function ob_start;
 
 use const CONFIG_FILE;
 
@@ -67,18 +65,56 @@ final class ServersController implements InvocableController
             $id = 0;
         }
 
-        ob_start();
-        FormProcessing::process(new ServersForm($configFile, $id));
-        $page = ob_get_clean();
+        $formDisplay = new ServersForm($configFile, $id);
+
+        if ($mode === 'revert') {
+            // revert erroneous fields to their default values
+            $formDisplay->fixErrors();
+
+            return $response->withStatus(StatusCodeInterface::STATUS_FOUND)
+                ->withHeader('Location', '../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
+        }
+
+        $formSet = $this->getFormSetParam($request->getQueryParam('formset'));
+
+        if (! $formDisplay->process(false)) {
+            // handle form view and failed POST
+            return $response->write($this->template->render('setup/servers/index', [
+                'formset' => $formSet,
+                'pages' => $pages,
+                'has_server' => $hasServer,
+                'mode' => $mode,
+                'server_id' => $id,
+                'server_dsn' => $configFile->getServerDSN($id),
+                'page' => $formDisplay->getDisplay(),
+            ]));
+        }
+
+        // check for form errors
+        if (! $formDisplay->hasErrors()) {
+            return $response->withStatus(StatusCodeInterface::STATUS_FOUND)
+                ->withHeader('Location', '../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
+        }
+
+        $page = $this->getPageParam($request->getQueryParam('page'));
+        if ($id === 0 && $page === 'servers') {
+            // we've just added a new server, get its id
+            $id = $formDisplay->getConfigFile()->getServerCount();
+        }
+
+        $errors = $this->template->render('setup/error', [
+            'url_params' => ['page' => $page, 'formset' => $formSet, 'id' => $id],
+            'errors' => $formDisplay->displayErrors(),
+        ]);
 
         return $response->write($this->template->render('setup/servers/index', [
-            'formset' => $this->getFormSetParam($request->getQueryParam('formset')),
+            'formset' => $formSet,
             'pages' => $pages,
             'has_server' => $hasServer,
             'mode' => $mode,
             'server_id' => $id,
             'server_dsn' => $configFile->getServerDSN($id),
-            'page' => $page,
+            'page' => $errors,
         ]));
     }
 
@@ -103,5 +139,11 @@ final class ServersController implements InvocableController
         $id = (int) $idParam;
 
         return $id >= 1 ? $id : 0;
+    }
+
+    /** @psalm-return 'form'|'config'|'servers'|'index' */
+    private function getPageParam(mixed $pageParam): string
+    {
+        return in_array($pageParam, ['form', 'config', 'servers'], true) ? $pageParam : 'index';
     }
 }

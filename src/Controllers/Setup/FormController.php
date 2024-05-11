@@ -13,15 +13,15 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Setup\SetupHelper;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 
 use function __;
 use function file_exists;
+use function in_array;
+use function is_numeric;
 use function is_string;
-use function ob_get_clean;
-use function ob_start;
 
 use const CONFIG_FILE;
 
@@ -66,22 +66,72 @@ final class FormController implements InvocableController
         }
 
         $configFile = SetupHelper::createConfigFile();
+        $formDisplay = new $formClass($configFile);
 
-        ob_start();
-        $form = new $formClass($configFile);
-        FormProcessing::process($form);
-        $page = ob_get_clean();
+        if ($request->getQueryParam('mode') === 'revert') {
+            // revert erroneous fields to their default values
+            $formDisplay->fixErrors();
+
+            return $response->withStatus(StatusCodeInterface::STATUS_FOUND)
+                ->withHeader('Location', '../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
+        }
+
+        if (! $formDisplay->process(false)) {
+            // handle form view and failed POST
+            return $response->write($this->template->render('setup/form/index', [
+                'formset' => $formSet,
+                'pages' => $pages,
+                'name' => $formDisplay::getName(),
+                'page' => $formDisplay->getDisplay(),
+            ]));
+        }
+
+        // check for form errors
+        if (! $formDisplay->hasErrors()) {
+            return $response->withStatus(StatusCodeInterface::STATUS_FOUND)
+                ->withHeader('Location', '../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
+        }
+
+        $page = $this->getPageParam($request->getQueryParam('page'));
+        $id = $this->getIdParam($request->getQueryParam('id'));
+        if ($id === 0 && $page === 'servers') {
+            // we've just added a new server, get its id
+            $id = $formDisplay->getConfigFile()->getServerCount();
+        }
+
+        $errors = $this->template->render('setup/error', [
+            'url_params' => ['page' => $page, 'formset' => $formSet, 'id' => $id],
+            'errors' => $formDisplay->displayErrors(),
+        ]);
 
         return $response->write($this->template->render('setup/form/index', [
             'formset' => $formSet,
             'pages' => $pages,
-            'name' => $form::getName(),
-            'page' => $page,
+            'name' => $formDisplay::getName(),
+            'page' => $errors,
         ]));
     }
 
     private function getFormSetParam(mixed $formSetParam): string
     {
         return is_string($formSetParam) ? $formSetParam : '';
+    }
+
+    /** @psalm-return 'form'|'config'|'servers'|'index' */
+    private function getPageParam(mixed $pageParam): string
+    {
+        return in_array($pageParam, ['form', 'config', 'servers'], true) ? $pageParam : 'index';
+    }
+
+    /** @psalm-return int<0, max> */
+    private function getIdParam(mixed $idParam): int
+    {
+        if (! is_numeric($idParam)) {
+            return 0;
+        }
+
+        $id = (int) $idParam;
+
+        return $id >= 1 ? $id : 0;
     }
 }

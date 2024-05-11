@@ -14675,11 +14675,6 @@
       <code><![CDATA[$result]]></code>
     </MixedAssignment>
   </file>
-  <file src="tests/unit/Setup/FormProcessingTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="tests/unit/Setup/IndexTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
