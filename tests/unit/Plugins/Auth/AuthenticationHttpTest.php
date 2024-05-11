@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Exceptions\ExitException;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -16,11 +16,9 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
-use Throwable;
 
 use function base64_encode;
-use function ob_get_clean;
-use function ob_start;
+use function json_decode;
 
 #[CoversClass(AuthenticationHttp::class)]
 #[Medium]
@@ -82,13 +80,8 @@ class AuthenticationHttpTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
-        try {
-            $this->object->showLoginForm();
-        } catch (Throwable $throwable) {
-        }
+        $response = $this->object->showLoginForm();
 
-        self::assertInstanceOf(ExitException::class, $throwable);
-        $response = $responseStub->getResponse();
         self::assertSame(['Basic realm="phpMyAdmin verboseMessag"'], $response->getHeader('WWW-Authenticate'));
         self::assertSame(401, $response->getStatusCode());
     }
@@ -103,13 +96,8 @@ class AuthenticationHttpTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
-        try {
-            $this->object->showLoginForm();
-        } catch (Throwable $throwable) {
-        }
+        $response = $this->object->showLoginForm();
 
-        self::assertInstanceOf(ExitException::class, $throwable);
-        $response = $responseStub->getResponse();
         self::assertSame(['Basic realm="phpMyAdmin hst"'], $response->getHeader('WWW-Authenticate'));
         self::assertSame(401, $response->getStatusCode());
     }
@@ -124,13 +112,8 @@ class AuthenticationHttpTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
-        try {
-            $this->object->showLoginForm();
-        } catch (Throwable $throwable) {
-        }
+        $response = $this->object->showLoginForm();
 
-        self::assertInstanceOf(ExitException::class, $throwable);
-        $response = $responseStub->getResponse();
         self::assertSame(['Basic realm="realmmessage"'], $response->getHeader('WWW-Authenticate'));
         self::assertSame(401, $response->getStatusCode());
     }
@@ -271,6 +254,8 @@ class AuthenticationHttpTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['host'] = '';
         $_REQUEST = [];
+        Current::$server = 0;
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
         ResponseRenderer::getInstance()->setAjax(false);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -284,40 +269,48 @@ class AuthenticationHttpTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['errno'] = 31;
 
-        ob_start();
-        try {
-            $this->object->showFailure('');
-        } catch (Throwable $throwable) {
-        }
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
+        ResponseRenderer::getInstance()->setAjax(false);
 
-        $result = ob_get_clean();
+        $response = $this->object->showFailure(AuthenticationFailure::deniedByDatabaseServer());
 
-        self::assertInstanceOf(ExitException::class, $throwable);
-
-        self::assertIsString($result);
-
+        $result = (string) $response->getBody();
         self::assertStringContainsString('<p>error 123</p>', $result);
 
-        $this->object = $this->getMockBuilder(AuthenticationHttp::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['authForm'])
-            ->getMock();
-
-        $this->object->expects(self::exactly(2))
-            ->method('authForm')
-            ->willThrowException(new ExitException());
         // case 2
         $config->selectedServer['host'] = 'host';
         $GLOBALS['errno'] = 1045;
 
-        try {
-            $this->object->showFailure('');
-        } catch (ExitException) {
-        }
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
+        ResponseRenderer::getInstance()->setAjax(false);
+
+        $response = $this->object->showFailure(AuthenticationFailure::deniedByDatabaseServer());
+        $result = (string) $response->getBody();
+        self::assertStringContainsString('Wrong username/password. Access denied.', $result);
+
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
+        ResponseRenderer::getInstance()->setAjax(false);
 
         // case 3
         $GLOBALS['errno'] = 1043;
-        $this->expectException(ExitException::class);
-        $this->object->showFailure('');
+        $response = $this->object->showFailure(AuthenticationFailure::deniedByDatabaseServer());
+        $result = (string) $response->getBody();
+        self::assertStringContainsString('Wrong username/password. Access denied.', $result);
+    }
+
+    public function testShowLoginFormWithAjax(): void
+    {
+        Current::$database = '';
+        Current::$table = '';
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
+        ResponseRenderer::getInstance()->setAjax(true);
+        $response = (new AuthenticationHttp())->showLoginForm();
+
+        $body = (string) $response->getBody();
+        self::assertJson($body);
+        $json = json_decode($body, true);
+        self::assertIsArray($json);
+        self::assertArrayHasKey('reload_flag', $json);
+        self::assertSame('1', $json['reload_flag']);
     }
 }

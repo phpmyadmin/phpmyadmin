@@ -7,17 +7,15 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Exceptions\ExitException;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
-use Throwable;
 
-use function ob_get_clean;
-use function ob_start;
+use function json_decode;
 
 #[CoversClass(AuthenticationConfig::class)]
 #[Medium]
@@ -55,12 +53,25 @@ class AuthenticationConfigTest extends AbstractTestCase
         unset($this->object);
     }
 
-    public function testAuth(): void
+    public function testShowLoginFormWithoutAjax(): void
+    {
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
+        ResponseRenderer::getInstance()->setAjax(false);
+        self::assertNull($this->object->showLoginForm());
+    }
+
+    public function testShowLoginFormWithAjax(): void
     {
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
         ResponseRenderer::getInstance()->setAjax(true);
-        $this->expectException(ExitException::class);
-        $this->object->showLoginForm();
+        $response = $this->object->showLoginForm();
+        self::assertNotNull($response);
+        $body = (string) $response->getBody();
+        self::assertJson($body);
+        $json = json_decode($body, true);
+        self::assertIsArray($json);
+        self::assertArrayHasKey('reload_flag', $json);
+        self::assertSame('1', $json['reload_flag']);
     }
 
     public function testAuthCheck(): void
@@ -89,17 +100,9 @@ class AuthenticationConfigTest extends AbstractTestCase
 
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
 
-        ob_start();
-        try {
-            $this->object->showFailure('');
-        } catch (Throwable $throwable) {
-        }
+        $response = $this->object->showFailure(AuthenticationFailure::deniedByDatabaseServer());
 
-        $html = ob_get_clean();
-
-        self::assertInstanceOf(ExitException::class, $throwable);
-
-        self::assertIsString($html);
+        $html = (string) $response->getBody();
 
         self::assertStringContainsString(
             'You probably did not create a configuration file. You might want ' .

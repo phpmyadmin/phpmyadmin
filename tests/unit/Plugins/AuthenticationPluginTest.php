@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -26,13 +28,19 @@ final class AuthenticationPluginTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         $object = new class extends AuthenticationPlugin {
-            public function showLoginForm(): void
+            public function showLoginForm(): Response|null
             {
+                return null;
             }
 
             public function readCredentials(): bool
             {
                 return false;
+            }
+
+            public function showFailure(AuthenticationFailure $failure): Response
+            {
+                throw new ExitException();
             }
         };
 
@@ -45,12 +53,9 @@ final class AuthenticationPluginTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/');
 
         $object->user = 'test_user';
-        try {
-            $object->checkTwoFactor($request);
-        } catch (ExitException) {
-        }
+        $response = $object->checkTwoFactor($request);
 
-        $response = $responseRenderer->response();
+        self::assertNotNull($response);
         self::assertStringContainsString(
             'You have enabled two factor authentication, please confirm your login.',
             (string) $response->getBody(),

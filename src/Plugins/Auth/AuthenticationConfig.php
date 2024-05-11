@@ -10,7 +10,9 @@ namespace PhpMyAdmin\Plugins\Auth;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Error\ErrorHandler;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Select;
@@ -18,6 +20,8 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function count;
+use function ob_get_clean;
+use function ob_start;
 use function sprintf;
 use function trigger_error;
 
@@ -32,17 +36,18 @@ class AuthenticationConfig extends AuthenticationPlugin
     /**
      * Displays authentication form
      */
-    public function showLoginForm(): void
+    public function showLoginForm(): Response|null
     {
-        $response = ResponseRenderer::getInstance();
-        if (! $response->isAjax()) {
-            return;
+        $responseRenderer = ResponseRenderer::getInstance();
+        if (! $responseRenderer->isAjax()) {
+            return null;
         }
 
-        $response->setRequestStatus(false);
+        $responseRenderer->setRequestStatus(false);
         // reload_flag removes the token parameter from the URL and reloads
-        $response->addJSON('reload_flag', '1');
-        $response->callExit();
+        $responseRenderer->addJSON('reload_flag', '1');
+
+        return $responseRenderer->response();
     }
 
     /**
@@ -65,12 +70,10 @@ class AuthenticationConfig extends AuthenticationPlugin
 
     /**
      * User is not allowed to login to MySQL -> authentication failed
-     *
-     * @param string $failure String describing why authentication has failed
      */
-    public function showFailure(string $failure): never
+    public function showFailure(AuthenticationFailure $failure): Response
     {
-        parent::showFailure($failure);
+        $this->logFailure($failure);
 
         $connError = DatabaseInterface::getInstance()->getError();
         if ($connError === '' || $connError === '0') {
@@ -78,12 +81,14 @@ class AuthenticationConfig extends AuthenticationPlugin
         }
 
         /* HTML header */
-        $response = ResponseRenderer::getInstance();
-        $response->setMinimalFooter();
-        $header = $response->getHeader();
+        $responseRenderer = ResponseRenderer::getInstance();
+        $responseRenderer->setMinimalFooter();
+        $header = $responseRenderer->getHeader();
         $header->setBodyId('loginform');
         $header->setTitle(__('Access denied!'));
         $header->disableMenuAndConsole();
+
+        ob_start();
         echo '<br><br>
     <div class="text-center">
         <h1>';
@@ -95,8 +100,8 @@ class AuthenticationConfig extends AuthenticationPlugin
         <tr>
             <td>';
         $config = Config::getInstance();
-        if ($failure === 'allow-denied') {
-            trigger_error(__('Access denied!'), E_USER_NOTICE);
+        if ($failure->failureType === AuthenticationFailure::ALLOW_DENIED) {
+            trigger_error($failure->getMessage(), E_USER_NOTICE);
         } else {
             // Check whether user has configured something
             if ($config->sourceMtime == 0) {
@@ -158,6 +163,9 @@ class AuthenticationConfig extends AuthenticationPlugin
         }
 
         echo '</table>' , "\n";
-        $response->callExit();
+
+        $responseRenderer->addHTML((string) ob_get_clean());
+
+        return $responseRenderer->response();
     }
 }

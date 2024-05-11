@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 use PhpMyAdmin\ResponseRenderer;
@@ -15,10 +16,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
-use Throwable;
 
-use function ob_get_clean;
-use function ob_start;
 use function session_get_cookie_params;
 use function session_id;
 use function session_name;
@@ -61,20 +59,8 @@ class AuthenticationSignonTest extends AbstractTestCase
         Config::getInstance()->selectedServer['SignonURL'] = '';
         $_REQUEST = [];
         ResponseRenderer::getInstance()->setAjax(false);
-
-        ob_start();
-        try {
-            $this->object->showLoginForm();
-        } catch (Throwable $throwable) {
-        }
-
-        $result = ob_get_clean();
-
-        self::assertInstanceOf(ExitException::class, $throwable);
-
-        self::assertIsString($result);
-
-        self::assertStringContainsString('You must set SignonURL!', $result);
+        $response = $this->object->showLoginForm();
+        self::assertStringContainsString('You must set SignonURL!', (string) $response->getBody());
     }
 
     public function testAuthLogoutURL(): void
@@ -260,12 +246,12 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->willThrowException(new ExitException());
 
         try {
-            $this->object->showFailure('empty-denied');
+            $this->object->showFailure(AuthenticationFailure::emptyPasswordDeniedByConfiguration());
         } catch (ExitException) {
         }
 
         self::assertSame(
-            'Login without a password is forbidden by configuration (see AllowNoPassword)',
+            'Login without a password is forbidden by configuration (see AllowNoPassword).',
             $_SESSION['PMA_single_signon_error_message'],
         );
     }
@@ -285,7 +271,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->willThrowException(new ExitException());
 
         try {
-            $this->object->showFailure('allow-denied');
+            $this->object->showFailure(AuthenticationFailure::deniedByAllowDenyRules());
         } catch (ExitException) {
         }
 
@@ -310,7 +296,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         $config->settings['LoginCookieValidity'] = '1440';
 
         try {
-            $this->object->showFailure('no-activity');
+            $this->object->showFailure(AuthenticationFailure::loggedOutDueToInactivity());
         } catch (ExitException) {
         }
 
@@ -347,7 +333,7 @@ class AuthenticationSignonTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         try {
-            $this->object->showFailure('');
+            $this->object->showFailure(AuthenticationFailure::deniedByDatabaseServer());
         } catch (ExitException) {
         }
 
@@ -380,11 +366,11 @@ class AuthenticationSignonTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         try {
-            $this->object->showFailure('');
+            $this->object->showFailure(AuthenticationFailure::deniedByDatabaseServer());
         } catch (ExitException) {
         }
 
-        self::assertSame('Cannot log in to the MySQL server', $_SESSION['PMA_single_signon_error_message']);
+        self::assertSame('Cannot log in to the database server.', $_SESSION['PMA_single_signon_error_message']);
     }
 
     public function testSetCookieParamsDefaults(): void

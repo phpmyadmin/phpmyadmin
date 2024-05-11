@@ -7672,6 +7672,7 @@
       <code><![CDATA[$password]]></code>
     </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyUnusedReturnValue>
+      <code><![CDATA[Response]]></code>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
     <RedundantCast>
@@ -7761,6 +7762,9 @@
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[array_merge($config->selectedServer, $singleSignonCfgUpdate)]]></code>
     </MixedPropertyTypeCoercion>
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[Response]]></code>
+    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($config->selectedServer['SignonURL'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -14304,6 +14308,7 @@
       <code><![CDATA[dataProviderPasswordLength]]></code>
     </PossiblyUnusedMethod>
     <PropertyTypeCoercion>
+      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>

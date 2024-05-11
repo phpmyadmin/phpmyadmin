@@ -12,6 +12,8 @@ use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
@@ -34,23 +36,24 @@ class AuthenticationHttp extends AuthenticationPlugin
     /**
      * Displays authentication form and redirect as necessary
      */
-    public function showLoginForm(): never
+    public function showLoginForm(): Response
     {
-        $response = ResponseRenderer::getInstance();
-        if ($response->isAjax()) {
-            $response->setRequestStatus(false);
+        $responseRenderer = ResponseRenderer::getInstance();
+        if ($responseRenderer->isAjax()) {
+            $responseRenderer->setRequestStatus(false);
             // reload_flag removes the token parameter from the URL and reloads
-            $response->addJSON('reload_flag', '1');
-            $response->callExit();
+            $responseRenderer->addJSON('reload_flag', '1');
+
+            return $responseRenderer->response();
         }
 
-        $this->authForm();
+        return $this->authForm();
     }
 
     /**
      * Displays authentication form
      */
-    public function authForm(): never
+    public function authForm(): Response
     {
         $config = Config::getInstance();
         if (empty($config->selectedServer['auth_http_realm'])) {
@@ -92,7 +95,7 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         $response->addHTML(Config::renderFooter());
 
-        $response->callExit();
+        return $response->response();
     }
 
     /**
@@ -178,25 +181,24 @@ class AuthenticationHttp extends AuthenticationPlugin
 
     /**
      * User is not allowed to login to MySQL -> authentication failed
-     *
-     * @param string $failure String describing why authentication has failed
      */
-    public function showFailure(string $failure): never
+    public function showFailure(AuthenticationFailure $failure): Response
     {
-        parent::showFailure($failure);
+        $this->logFailure($failure);
 
         $error = DatabaseInterface::getInstance()->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
-            echo $this->template->render('error/generic', [
+            $responseRenderer = ResponseRenderer::getInstance();
+            $responseRenderer->addHTML($this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
                 'dir' => LanguageManager::$textDir,
                 'error_message' => $error,
-            ]);
+            ]));
 
-            ResponseRenderer::getInstance()->callExit();
+            return $responseRenderer->response();
         }
 
-        $this->authForm();
+        return $this->authForm();
     }
 
     /**
