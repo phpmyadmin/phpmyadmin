@@ -869,7 +869,7 @@ return [
         ],
         Setup\MainController::class => [
             'class' => Setup\MainController::class,
-            'arguments' => ['@' . ResponseFactory::class, '@template', '@console'],
+            'arguments' => ['@' . ResponseFactory::class, '@response', '@template'],
         ],
         Setup\ShowConfigController::class => [
             'class' => Setup\ShowConfigController::class,

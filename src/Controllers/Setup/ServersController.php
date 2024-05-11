@@ -5,7 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Setup;
 
 use PhpMyAdmin\Config\Forms\Setup\ServersForm;
+use PhpMyAdmin\Controllers\InvocableController;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Setup\SetupHelper;
 use PhpMyAdmin\Template;
@@ -16,14 +20,22 @@ use function is_string;
 use function ob_get_clean;
 use function ob_start;
 
-final class ServersController
+final class ServersController implements InvocableController
 {
-    public function __construct(private readonly Template $template)
-    {
+    public function __construct(
+        private readonly ResponseFactory $responseFactory,
+        private readonly ResponseRenderer $responseRenderer,
+        private readonly Template $template,
+    ) {
     }
 
-    public function __invoke(ServerRequest $request): string
+    public function __invoke(ServerRequest $request): Response
     {
+        $response = $this->responseFactory->createResponse();
+        foreach ($this->responseRenderer->getHeader()->getHttpHeaders() as $name => $value) {
+            $response = $response->withHeader($name, $value);
+        }
+
         $configFile = SetupHelper::createConfigFile();
 
         $id = $this->getIdParam($request->getQueryParam('id'));
@@ -41,7 +53,7 @@ final class ServersController
         FormProcessing::process(new ServersForm($configFile, $id));
         $page = ob_get_clean();
 
-        return $this->template->render('setup/servers/index', [
+        return $response->write($this->template->render('setup/servers/index', [
             'formset' => $this->getFormSetParam($request->getQueryParam('formset')),
             'pages' => $pages,
             'has_server' => $hasServer,
@@ -49,7 +61,7 @@ final class ServersController
             'server_id' => $id,
             'server_dsn' => $configFile->getServerDSN($id),
             'page' => $page,
-        ]);
+        ]));
     }
 
     private function getFormSetParam(mixed $formSetParam): string

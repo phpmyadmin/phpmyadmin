@@ -6,15 +6,13 @@ namespace PhpMyAdmin\Controllers\Setup;
 
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Console;
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\Header;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 
 use function __;
 use function file_exists;
@@ -26,8 +24,8 @@ final class MainController implements InvocableController
 {
     public function __construct(
         private readonly ResponseFactory $responseFactory,
+        private readonly ResponseRenderer $responseRenderer,
         private readonly Template $template,
-        private readonly Console $console,
     ) {
     }
 
@@ -48,35 +46,22 @@ final class MainController implements InvocableController
         $pageParam = $request->getQueryParam('page');
         $page = in_array($pageParam, ['form', 'config', 'servers'], true) ? $pageParam : 'index';
 
-        $response = $this->responseFactory->createResponse();
-        $header = new Header($this->template, $this->console, $config);
-        foreach ($header->getHttpHeaders() as $name => $value) {
-            // Sent security-related headers
-            $response = $response->withHeader($name, $value);
-        }
-
         if ($page === 'form') {
-            return $response->write((new FormController($this->template))($request));
+            return (new FormController($this->responseFactory, $this->responseRenderer, $this->template))($request);
         }
 
         if ($page === 'config') {
-            return $response->write((new ConfigController($this->template))($request));
+            return (new ConfigController($this->responseFactory, $this->responseRenderer, $this->template))($request);
+        }
+
+        if ($page === 'servers' && $request->getQueryParam('mode') === 'remove' && $request->isPost()) {
+            return (new ServerDestroyController($this->responseFactory, $this->responseRenderer))($request);
         }
 
         if ($page === 'servers') {
-            if ($request->getQueryParam('mode') === 'remove' && $request->isPost()) {
-                (new ServerDestroyController())($request);
-                $response = $response->withStatus(StatusCodeInterface::STATUS_FOUND);
-
-                return $response->withHeader(
-                    'Location',
-                    '../setup/index.php' . Url::getCommonRaw(['route' => '/setup']),
-                );
-            }
-
-            return $response->write((new ServersController($this->template))($request));
+            return (new ServersController($this->responseFactory, $this->responseRenderer, $this->template))($request);
         }
 
-        return $response->write((new HomeController($this->template))($request));
+        return (new HomeController($this->responseFactory, $this->responseRenderer, $this->template))($request);
     }
 }

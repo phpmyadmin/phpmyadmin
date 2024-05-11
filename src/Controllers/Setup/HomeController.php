@@ -6,8 +6,12 @@ namespace PhpMyAdmin\Controllers\Setup;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ServerConfigChecks;
+use PhpMyAdmin\Controllers\InvocableController;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Setup\Index;
 use PhpMyAdmin\Setup\SetupHelper;
 use PhpMyAdmin\Template;
@@ -17,14 +21,22 @@ use function array_keys;
 use function is_scalar;
 use function is_string;
 
-final class HomeController
+final class HomeController implements InvocableController
 {
-    public function __construct(private readonly Template $template)
-    {
+    public function __construct(
+        private readonly ResponseFactory $responseFactory,
+        private readonly ResponseRenderer $responseRenderer,
+        private readonly Template $template,
+    ) {
     }
 
-    public function __invoke(ServerRequest $request): string
+    public function __invoke(ServerRequest $request): Response
     {
+        $response = $this->responseFactory->createResponse();
+        foreach ($this->responseRenderer->getHeader()->getHttpHeaders() as $name => $value) {
+            $response = $response->withHeader($name, $value);
+        }
+
         $pages = SetupHelper::getPages();
 
         // message handling
@@ -87,7 +99,7 @@ final class HomeController
             $hasCheckPageRefresh = true;
         }
 
-        return $this->template->render('setup/home/index', [
+        return $response->write($this->template->render('setup/home/index', [
             'formset' => $this->getFormSetParam($request->getQueryParam('formset')),
             'languages' => $languages,
             'messages' => $messages,
@@ -98,7 +110,7 @@ final class HomeController
             'eol' => isset($_SESSION['eol']) && is_scalar($_SESSION['eol'])
                 ? $_SESSION['eol']
                 : (Config::getInstance()->get('PMA_IS_WINDOWS') ? 'win' : 'unix'),
-        ]);
+        ]));
     }
 
     private function getFormSetParam(mixed $formSetParam): string
