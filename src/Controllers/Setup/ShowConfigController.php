@@ -13,7 +13,6 @@ use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\LanguageManager;
-use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Setup\ConfigGenerator;
 use PhpMyAdmin\Setup\SetupHelper;
 use PhpMyAdmin\Template;
@@ -29,7 +28,6 @@ final class ShowConfigController implements InvocableController
 {
     public function __construct(
         private readonly ResponseFactory $responseFactory,
-        private readonly ResponseRenderer $responseRenderer,
         private readonly Template $template,
         private readonly Config $config,
     ) {
@@ -52,8 +50,6 @@ final class ShowConfigController implements InvocableController
         $formDisplay = new ConfigForm($configFile);
         $formDisplay->save(['Config']);
 
-        $this->responseRenderer->disable();
-
         /** @var mixed $eol */
         $eol = $request->getParsedBodyParam('eol');
         if ($eol !== null) {
@@ -65,34 +61,25 @@ final class ShowConfigController implements InvocableController
         if (is_string($submitClear) && $submitClear !== '') {
             // Clear current config and return to main page
             $configFile->resetConfigData();
-            // drop post data
-            $this->responseRenderer->addHeader(
-                'Location',
-                '../setup/index.php' . Url::getCommonRaw(['route' => '/setup']),
-            );
-            $this->responseRenderer->setStatusCode(StatusCodeInterface::STATUS_SEE_OTHER);
 
-            return $this->responseRenderer->response();
+            return $this->responseFactory->createResponse(StatusCodeInterface::STATUS_FOUND)
+                ->withHeader('Location', '../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
         }
 
         /** @var mixed $submitDownload */
         $submitDownload = $request->getParsedBodyParam('submit_download');
         if (is_string($submitDownload) && $submitDownload !== '') {
+            $response = $this->responseFactory->createResponse();
             // Output generated config file
             Core::downloadHeader('config.inc.php', 'text/plain');
-            $this->responseRenderer->disable();
-            echo ConfigGenerator::getConfigFile($configFile);
 
-            return $this->responseRenderer->response();
+            return $response->write(ConfigGenerator::getConfigFile($configFile));
         }
 
         // Show generated config file in a <textarea>
-        $this->responseRenderer->addHeader(
+        return $this->responseFactory->createResponse(StatusCodeInterface::STATUS_FOUND)->withHeader(
             'Location',
             '../setup/index.php' . Url::getCommonRaw(['route' => '/setup', 'page' => 'config']),
         );
-        $this->responseRenderer->setStatusCode(StatusCodeInterface::STATUS_SEE_OTHER);
-
-        return $this->responseRenderer->response();
     }
 }

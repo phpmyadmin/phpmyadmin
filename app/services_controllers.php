@@ -873,7 +873,7 @@ return [
         ],
         Setup\ShowConfigController::class => [
             'class' => Setup\ShowConfigController::class,
-            'arguments' => ['@' . ResponseFactory::class, '@response', '@template', '@config'],
+            'arguments' => ['@' . ResponseFactory::class, '@template', '@config'],
         ],
         Setup\ValidateController::class => [
             'class' => Setup\ValidateController::class,
