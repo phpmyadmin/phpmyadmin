@@ -9,7 +9,7 @@ use PhpMyAdmin\Setup\SetupHelper;
 
 use function is_numeric;
 
-class ServerDestroyController extends AbstractController
+final class ServerDestroyController
 {
     public function __invoke(ServerRequest $request): void
     {

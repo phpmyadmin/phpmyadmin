@@ -65,7 +65,7 @@ final class MainController implements InvocableController
 
         if ($page === 'servers') {
             if ($request->getQueryParam('mode') === 'remove' && $request->isPost()) {
-                (new ServerDestroyController($this->template))($request);
+                (new ServerDestroyController())($request);
                 $response = $response->withStatus(StatusCodeInterface::STATUS_FOUND);
 
                 return $response->withHeader(

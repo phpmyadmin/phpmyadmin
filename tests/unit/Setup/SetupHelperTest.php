@@ -31,4 +31,17 @@ final class SetupHelperTest extends AbstractTestCase
         self::assertSame($expected, $configFile->getPersistKeysMap());
         self::assertNotSame($configFile, SetupHelper::createConfigFile());
     }
+
+    public function testGetPages(): void
+    {
+        $expected = [
+            'Export' => ['name' => 'Export', 'formset' => 'Export'],
+            'Features' => ['name' => 'Features', 'formset' => 'Features'],
+            'Import' => ['name' => 'Import', 'formset' => 'Import'],
+            'Main' => ['name' => 'Main panel', 'formset' => 'Main'],
+            'Navi' => ['name' => 'Navigation panel', 'formset' => 'Navi'],
+            'Sql' => ['name' => 'SQL queries', 'formset' => 'Sql'],
+        ];
+        self::assertSame($expected, SetupHelper::getPages());
+    }
 }

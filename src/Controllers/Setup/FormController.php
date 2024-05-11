@@ -9,17 +9,22 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Setup\SetupHelper;
+use PhpMyAdmin\Template;
 
 use function __;
 use function is_string;
 use function ob_get_clean;
 use function ob_start;
 
-class FormController extends AbstractController
+final class FormController
 {
+    public function __construct(private readonly Template $template)
+    {
+    }
+
     public function __invoke(ServerRequest $request): string
     {
-        $pages = $this->getPages();
+        $pages = SetupHelper::getPages();
 
         $formSet = $this->getFormSetParam($request->getQueryParam('formset'));
 

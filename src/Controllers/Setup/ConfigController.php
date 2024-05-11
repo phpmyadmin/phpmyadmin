@@ -7,14 +7,19 @@ namespace PhpMyAdmin\Controllers\Setup;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Setup\ConfigGenerator;
 use PhpMyAdmin\Setup\SetupHelper;
+use PhpMyAdmin\Template;
 
 use function is_string;
 
-class ConfigController extends AbstractController
+final class ConfigController
 {
+    public function __construct(private readonly Template $template)
+    {
+    }
+
     public function __invoke(ServerRequest $request): string
     {
-        $pages = $this->getPages();
+        $pages = SetupHelper::getPages();
 
         static $hasCheckPageRefresh = false;
         if (! $hasCheckPageRefresh) {

@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\Forms\Setup\ServersForm;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Setup\SetupHelper;
+use PhpMyAdmin\Template;
 
 use function in_array;
 use function is_numeric;
@@ -15,8 +16,12 @@ use function is_string;
 use function ob_get_clean;
 use function ob_start;
 
-class ServersController extends AbstractController
+final class ServersController
 {
+    public function __construct(private readonly Template $template)
+    {
+    }
+
     public function __invoke(ServerRequest $request): string
     {
         $configFile = SetupHelper::createConfigFile();
@@ -24,7 +29,7 @@ class ServersController extends AbstractController
         $id = $this->getIdParam($request->getQueryParam('id'));
         $mode = $this->getModeParam($request->getQueryParam('mode'));
 
-        $pages = $this->getPages();
+        $pages = SetupHelper::getPages();
 
         $hasServer = $id >= 1 && $configFile->get('Servers/' . $id) !== null;
 

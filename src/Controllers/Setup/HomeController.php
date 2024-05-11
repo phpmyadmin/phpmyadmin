@@ -10,17 +10,22 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Setup\Index;
 use PhpMyAdmin\Setup\SetupHelper;
+use PhpMyAdmin\Template;
 
 use function __;
 use function array_keys;
 use function is_scalar;
 use function is_string;
 
-class HomeController extends AbstractController
+final class HomeController
 {
+    public function __construct(private readonly Template $template)
+    {
+    }
+
     public function __invoke(ServerRequest $request): string
     {
-        $pages = $this->getPages();
+        $pages = SetupHelper::getPages();
 
         // message handling
         Index::messagesBegin();
