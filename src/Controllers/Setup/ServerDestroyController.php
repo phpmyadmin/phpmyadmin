@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Setup;
 
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Setup\SetupHelper;
 
 use function is_numeric;
 
@@ -12,13 +13,15 @@ class ServerDestroyController extends AbstractController
 {
     public function __invoke(ServerRequest $request): void
     {
+        $configFile = SetupHelper::createConfigFile();
+
         $id = $this->getIdParam($request->getQueryParam('id'));
-        $hasServer = $id >= 1 && $this->config->get('Servers/' . $id) !== null;
+        $hasServer = $id >= 1 && $configFile->get('Servers/' . $id) !== null;
         if (! $hasServer) {
             return;
         }
 
-        $this->config->removeServer($id);
+        $configFile->removeServer($id);
     }
 
     /** @psalm-return int<0, max> */

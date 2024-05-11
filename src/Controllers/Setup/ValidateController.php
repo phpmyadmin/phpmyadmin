@@ -10,6 +10,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Setup\SetupHelper;
 use stdClass;
 
 use function __;
@@ -44,8 +45,10 @@ final class ValidateController implements InvocableController
             return $response->write((string) json_encode(['success' => false, 'message' => __('Wrong data')]));
         }
 
+        $configFile = SetupHelper::createConfigFile();
+
         $values = (array) $values;
-        $result = Validator::validate($GLOBALS['ConfigFile'], $vids, $values, true);
+        $result = Validator::validate($configFile, $vids, $values, true);
         if ($result === false) {
             $result = sprintf(
                 __('Wrong data or no validation for %s'),

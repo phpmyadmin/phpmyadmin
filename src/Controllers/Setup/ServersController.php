@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Setup;
 use PhpMyAdmin\Config\Forms\Setup\ServersForm;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Setup\FormProcessing;
+use PhpMyAdmin\Setup\SetupHelper;
 
 use function in_array;
 use function is_numeric;
@@ -18,19 +19,21 @@ class ServersController extends AbstractController
 {
     public function __invoke(ServerRequest $request): string
     {
+        $configFile = SetupHelper::createConfigFile();
+
         $id = $this->getIdParam($request->getQueryParam('id'));
         $mode = $this->getModeParam($request->getQueryParam('mode'));
 
         $pages = $this->getPages();
 
-        $hasServer = $id >= 1 && $this->config->get('Servers/' . $id) !== null;
+        $hasServer = $id >= 1 && $configFile->get('Servers/' . $id) !== null;
 
         if (! $hasServer && $mode !== 'revert' && $mode !== 'edit') {
             $id = 0;
         }
 
         ob_start();
-        FormProcessing::process(new ServersForm($this->config, $id));
+        FormProcessing::process(new ServersForm($configFile, $id));
         $page = ob_get_clean();
 
         return $this->template->render('setup/servers/index', [
@@ -39,7 +42,7 @@ class ServersController extends AbstractController
             'has_server' => $hasServer,
             'mode' => $mode,
             'server_id' => $id,
-            'server_dsn' => $this->config->getServerDSN($id),
+            'server_dsn' => $configFile->getServerDSN($id),
             'page' => $page,
         ]);
     }

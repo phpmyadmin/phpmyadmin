@@ -58,15 +58,14 @@ final class ManageController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response|null
     {
-        $GLOBALS['cf'] ??= null;
         $GLOBALS['error'] ??= null;
         $GLOBALS['lang'] ??= null;
         $GLOBALS['query'] ??= null;
 
         $route = $request->getRoute();
 
-        $GLOBALS['cf'] = new ConfigFile($this->config->baseSettings);
-        $this->userPreferences->pageInit($GLOBALS['cf']);
+        $configFile = new ConfigFile($this->config->baseSettings);
+        $this->userPreferences->pageInit($configFile);
 
         $GLOBALS['error'] = '';
         if ($request->hasBodyParam('submit_export') && $request->getParsedBodyParam('export_type') === 'text_file') {
@@ -142,10 +141,10 @@ final class ManageController implements InvocableController
             } else {
                 // sanitize input values: treat them as though
                 // they came from HTTP POST request
-                $formDisplay = new UserFormList($GLOBALS['cf']);
-                $newConfig = $GLOBALS['cf']->getFlatDefaultConfig();
+                $formDisplay = new UserFormList($configFile);
+                $newConfig = $configFile->getFlatDefaultConfig();
                 if ($request->hasBodyParam('import_merge')) {
-                    $newConfig = array_merge($newConfig, $GLOBALS['cf']->getConfigArray());
+                    $newConfig = array_merge($newConfig, $configFile->getConfigArray());
                 }
 
                 $newConfig = array_merge($newConfig, $configuration);
@@ -154,7 +153,7 @@ final class ManageController implements InvocableController
                     $_POST[str_replace('/', '-', (string) $k)] = $v;
                 }
 
-                $GLOBALS['cf']->resetConfigData();
+                $configFile->resetConfigData();
                 $allOk = $formDisplay->process(true, false);
                 $allOk = $allOk && ! $formDisplay->hasErrors();
                 $_POST = $postParamBackup;
@@ -200,7 +199,7 @@ final class ManageController implements InvocableController
                 }
 
                 // save settings
-                $result = $this->userPreferences->save($GLOBALS['cf']->getConfigArray());
+                $result = $this->userPreferences->save($configFile->getConfigArray());
                 if ($result === true) {
                     if ($returnUrl) {
                         $GLOBALS['query'] = Util::splitURLQuery($returnUrl);

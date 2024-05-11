@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Setup;
 
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Setup\ConfigGenerator;
+use PhpMyAdmin\Setup\SetupHelper;
 
 use function is_string;
 
@@ -20,7 +21,9 @@ class ConfigController extends AbstractController
             $hasCheckPageRefresh = true;
         }
 
-        $config = ConfigGenerator::getConfigFile($this->config);
+        $configFile = SetupHelper::createConfigFile();
+
+        $config = ConfigGenerator::getConfigFile($configFile);
 
         return $this->template->render('setup/config/index', [
             'formset' => $this->getFormSetParam($request->getQueryParam('formset')),

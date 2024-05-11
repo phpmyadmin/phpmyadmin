@@ -56,16 +56,16 @@ final class MainController implements InvocableController
         }
 
         if ($page === 'form') {
-            return $response->write((new FormController($GLOBALS['ConfigFile'], $this->template))($request));
+            return $response->write((new FormController($this->template))($request));
         }
 
         if ($page === 'config') {
-            return $response->write((new ConfigController($GLOBALS['ConfigFile'], $this->template))($request));
+            return $response->write((new ConfigController($this->template))($request));
         }
 
         if ($page === 'servers') {
             if ($request->getQueryParam('mode') === 'remove' && $request->isPost()) {
-                (new ServerDestroyController($GLOBALS['ConfigFile'], $this->template))($request);
+                (new ServerDestroyController($this->template))($request);
                 $response = $response->withStatus(StatusCodeInterface::STATUS_FOUND);
 
                 return $response->withHeader(
@@ -74,9 +74,9 @@ final class MainController implements InvocableController
                 );
             }
 
-            return $response->write((new ServersController($GLOBALS['ConfigFile'], $this->template))($request));
+            return $response->write((new ServersController($this->template))($request));
         }
 
-        return $response->write((new HomeController($GLOBALS['ConfigFile'], $this->template))($request));
+        return $response->write((new HomeController($this->template))($request));
     }
 }

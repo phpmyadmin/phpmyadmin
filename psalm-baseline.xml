@@ -2306,7 +2306,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
     </InvalidArrayOffset>
@@ -2314,7 +2313,6 @@
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
@@ -2328,7 +2326,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
     </InvalidArrayOffset>
@@ -2336,7 +2333,6 @@
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
@@ -2350,7 +2346,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
     </InvalidArrayOffset>
@@ -2358,7 +2353,6 @@
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
@@ -2372,7 +2366,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
     </InvalidArrayOffset>
@@ -2380,7 +2373,6 @@
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
@@ -2394,7 +2386,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['query']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
@@ -2407,7 +2398,6 @@
       <code><![CDATA[$key]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['query']]]></code>
       <code><![CDATA[$_POST[str_replace('/', '-', (string) $k)]]]></code>
       <code><![CDATA[$configuration]]></code>
@@ -2453,7 +2443,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
     </InvalidArrayOffset>
@@ -2461,7 +2450,6 @@
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
@@ -2475,7 +2463,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
     </InvalidArrayOffset>
@@ -2483,7 +2470,6 @@
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['cf']]]></code>
       <code><![CDATA[$GLOBALS['hash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>
       <code><![CDATA[$GLOBALS['tabHash']]]></code>

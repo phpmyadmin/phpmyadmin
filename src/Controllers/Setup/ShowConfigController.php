@@ -12,6 +12,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Setup\ConfigGenerator;
+use PhpMyAdmin\Setup\SetupHelper;
 use PhpMyAdmin\Url;
 
 use function is_string;
@@ -24,7 +25,9 @@ final class ShowConfigController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $formDisplay = new ConfigForm($GLOBALS['ConfigFile']);
+        $configFile = SetupHelper::createConfigFile();
+
+        $formDisplay = new ConfigForm($configFile);
         $formDisplay->save(['Config']);
 
         $this->responseRenderer->disable();
@@ -39,7 +42,7 @@ final class ShowConfigController implements InvocableController
         $submitClear = $request->getParsedBodyParam('submit_clear');
         if (is_string($submitClear) && $submitClear !== '') {
             // Clear current config and return to main page
-            $GLOBALS['ConfigFile']->resetConfigData();
+            $configFile->resetConfigData();
             // drop post data
             $this->responseRenderer->addHeader(
                 'Location',
@@ -56,7 +59,7 @@ final class ShowConfigController implements InvocableController
             // Output generated config file
             Core::downloadHeader('config.inc.php', 'text/plain');
             $this->responseRenderer->disable();
-            echo ConfigGenerator::getConfigFile($GLOBALS['ConfigFile']);
+            echo ConfigGenerator::getConfigFile($configFile);
 
             return $this->responseRenderer->response();
         }

@@ -49,7 +49,6 @@
             complete_query: string,
             compression: 'none'|'zip'|'gzip',
             conn_error: string,
-            ConfigFile: PhpMyAdmin\Config\ConfigFile,
             csv_columns: bool,
             csv_enclosed: string,
             csv_escaped: string,

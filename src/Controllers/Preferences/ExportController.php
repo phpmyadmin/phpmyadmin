@@ -35,15 +35,14 @@ final class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response|null
     {
-        $GLOBALS['cf'] ??= null;
         $GLOBALS['error'] ??= null;
         $GLOBALS['tabHash'] ??= null;
         $GLOBALS['hash'] ??= null;
 
-        $GLOBALS['cf'] = new ConfigFile($this->config->baseSettings);
-        $this->userPreferences->pageInit($GLOBALS['cf']);
+        $configFile = new ConfigFile($this->config->baseSettings);
+        $this->userPreferences->pageInit($configFile);
 
-        $formDisplay = new ExportForm($GLOBALS['cf'], 1);
+        $formDisplay = new ExportForm($configFile, 1);
 
         if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
@@ -58,7 +57,7 @@ final class ExportController implements InvocableController
             // Load 2FA settings
             $twoFactor = new TwoFactor(Config::getInstance()->selectedServer['user']);
             // save settings
-            $result = $this->userPreferences->save($GLOBALS['cf']->getConfigArray());
+            $result = $this->userPreferences->save($configFile->getConfigArray());
             // save back the 2FA setting only
             $twoFactor->save();
             if ($result === true) {

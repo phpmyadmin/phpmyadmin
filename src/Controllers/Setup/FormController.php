@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Setup\FormProcessing;
+use PhpMyAdmin\Setup\SetupHelper;
 
 use function __;
 use function is_string;
@@ -31,8 +32,10 @@ class FormController extends AbstractController
             ]);
         }
 
+        $configFile = SetupHelper::createConfigFile();
+
         ob_start();
-        $form = new $formClass($this->config);
+        $form = new $formClass($configFile);
         FormProcessing::process($form);
         $page = ob_get_clean();
 

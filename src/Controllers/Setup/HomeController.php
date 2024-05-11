@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Setup\Index;
+use PhpMyAdmin\Setup\SetupHelper;
 
 use function __;
 use function array_keys;
@@ -29,8 +30,10 @@ class HomeController extends AbstractController
             Index::versionCheck();
         }
 
+        $configFile = SetupHelper::createConfigFile();
+
         // Perform various security, compatibility and consistency checks
-        $configChecker = new ServerConfigChecks($this->config);
+        $configChecker = new ServerConfigChecks($configFile);
         $configChecker->performConfigChecks();
 
         $text = __(
@@ -60,12 +63,12 @@ class HomeController extends AbstractController
         }
 
         $servers = [];
-        foreach (array_keys($this->config->getServers()) as $id) {
+        foreach (array_keys($configFile->getServers()) as $id) {
             $servers[$id] = [
                 'id' => $id,
-                'name' => $this->config->getServerName($id),
-                'auth_type' => $this->config->getValue('Servers/' . $id . '/auth_type'),
-                'dsn' => $this->config->getServerDSN($id),
+                'name' => $configFile->getServerName($id),
+                'auth_type' => $configFile->getValue('Servers/' . $id . '/auth_type'),
+                'dsn' => $configFile->getServerDSN($id),
                 'params' => [
                     'token' => $_SESSION[' PMA_token '],
                     'edit' => ['page' => 'servers', 'mode' => 'edit', 'id' => $id],
@@ -83,7 +86,7 @@ class HomeController extends AbstractController
             'formset' => $this->getFormSetParam($request->getQueryParam('formset')),
             'languages' => $languages,
             'messages' => $messages,
-            'server_count' => $this->config->getServerCount(),
+            'server_count' => $configFile->getServerCount(),
             'servers' => $servers,
             'pages' => $pages,
             'has_check_page_refresh' => $hasCheckPageRefresh,

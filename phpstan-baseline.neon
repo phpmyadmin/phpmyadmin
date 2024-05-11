@@ -3026,29 +3026,9 @@ parameters:
 			path: src/Controllers/Operations/ViewController.php
 
 		-
-			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/ExportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$configArray of method PhpMyAdmin\\\\UserPreferences\\:\\:save\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/ExportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function ltrim expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Preferences/ExportController.php
-
-		-
-			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/FeaturesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$configArray of method PhpMyAdmin\\\\UserPreferences\\:\\:save\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/FeaturesController.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function ltrim expects string, mixed given\\.$#"
@@ -3056,49 +3036,14 @@ parameters:
 			path: src/Controllers/Preferences/FeaturesController.php
 
 		-
-			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/ImportController.php
-
-		-
-			message: "#^Parameter \\#1 \\$configArray of method PhpMyAdmin\\\\UserPreferences\\:\\:save\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function ltrim expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Preferences/ImportController.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function ltrim expects string, mixed given\\.$#"
 			count: 1
-			path: src/Controllers/Preferences/ImportController.php
-
-		-
-			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
-			count: 1
 			path: src/Controllers/Preferences/MainPanelController.php
-
-		-
-			message: "#^Parameter \\#1 \\$configArray of method PhpMyAdmin\\\\UserPreferences\\:\\:save\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/MainPanelController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function ltrim expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/MainPanelController.php
-
-		-
-			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
-			count: 2
-			path: src/Controllers/Preferences/ManageController.php
-
-		-
-			message: "#^Cannot call method getFlatDefaultConfig\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/ManageController.php
-
-		-
-			message: "#^Cannot call method resetConfigData\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/ManageController.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Message\\|string given\\.$#"
@@ -3112,16 +3057,6 @@ parameters:
 
 		-
 			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/ManageController.php
-
-		-
-			message: "#^Parameter \\#1 \\$cf of class PhpMyAdmin\\\\Config\\\\Forms\\\\User\\\\UserFormList constructor expects PhpMyAdmin\\\\Config\\\\ConfigFile, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/ManageController.php
-
-		-
-			message: "#^Parameter \\#1 \\$configArray of method PhpMyAdmin\\\\UserPreferences\\:\\:save\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Preferences/ManageController.php
 
@@ -3161,44 +3096,14 @@ parameters:
 			path: src/Controllers/Preferences/ManageController.php
 
 		-
-			message: "#^Parameter \\#1 \\.\\.\\.\\$arrays of function array_merge expects array, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Preferences/ManageController.php
-
-		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$arrays of function array_merge expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/ManageController.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: src/Controllers/Preferences/ManageController.php
 
 		-
-			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/NavigationController.php
-
-		-
-			message: "#^Parameter \\#1 \\$configArray of method PhpMyAdmin\\\\UserPreferences\\:\\:save\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/NavigationController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function ltrim expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Preferences/NavigationController.php
-
-		-
-			message: "#^Cannot call method getConfigArray\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/SqlController.php
-
-		-
-			message: "#^Parameter \\#1 \\$configArray of method PhpMyAdmin\\\\UserPreferences\\:\\:save\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/SqlController.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function ltrim expects string, mixed given\\.$#"
@@ -3766,54 +3671,9 @@ parameters:
 			path: src/Controllers/Setup/HomeController.php
 
 		-
-			message: "#^Parameter \\#1 \\$config of class PhpMyAdmin\\\\Controllers\\\\Setup\\\\ConfigController constructor expects PhpMyAdmin\\\\Config\\\\ConfigFile, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Setup/MainController.php
-
-		-
-			message: "#^Parameter \\#1 \\$config of class PhpMyAdmin\\\\Controllers\\\\Setup\\\\FormController constructor expects PhpMyAdmin\\\\Config\\\\ConfigFile, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Setup/MainController.php
-
-		-
-			message: "#^Parameter \\#1 \\$config of class PhpMyAdmin\\\\Controllers\\\\Setup\\\\HomeController constructor expects PhpMyAdmin\\\\Config\\\\ConfigFile, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Setup/MainController.php
-
-		-
-			message: "#^Parameter \\#1 \\$config of class PhpMyAdmin\\\\Controllers\\\\Setup\\\\ServerDestroyController constructor expects PhpMyAdmin\\\\Config\\\\ConfigFile, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Setup/MainController.php
-
-		-
-			message: "#^Parameter \\#1 \\$config of class PhpMyAdmin\\\\Controllers\\\\Setup\\\\ServersController constructor expects PhpMyAdmin\\\\Config\\\\ConfigFile, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Setup/MainController.php
-
-		-
 			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Setup/MainController.php
-
-		-
-			message: "#^Cannot call method resetConfigData\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Setup/ShowConfigController.php
-
-		-
-			message: "#^Parameter \\#1 \\$cf of class PhpMyAdmin\\\\Config\\\\Forms\\\\Setup\\\\ConfigForm constructor expects PhpMyAdmin\\\\Config\\\\ConfigFile, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Setup/ShowConfigController.php
-
-		-
-			message: "#^Parameter \\#1 \\$cf of static method PhpMyAdmin\\\\Setup\\\\ConfigGenerator\\:\\:getConfigFile\\(\\) expects PhpMyAdmin\\\\Config\\\\ConfigFile, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Setup/ShowConfigController.php
-
-		-
-			message: "#^Parameter \\#1 \\$cf of static method PhpMyAdmin\\\\Config\\\\Validator\\:\\:validate\\(\\) expects PhpMyAdmin\\\\Config\\\\ConfigFile, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Setup/ValidateController.php
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
@@ -15233,11 +15093,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$array of function array_keys expects array, mixed given\\.$#"
 			count: 2
-			path: tests/unit/Config/ServerConfigChecksTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$cfg of class PhpMyAdmin\\\\Config\\\\ServerConfigChecks constructor expects PhpMyAdmin\\\\Config\\\\ConfigFile, mixed given\\.$#"
-			count: 3
 			path: tests/unit/Config/ServerConfigChecksTest.php
 
 		-
