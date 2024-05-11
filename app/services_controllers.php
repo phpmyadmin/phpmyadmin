@@ -869,15 +869,15 @@ return [
         ],
         Setup\MainController::class => [
             'class' => Setup\MainController::class,
-            'arguments' => ['@' . ResponseFactory::class, '@response', '@template'],
+            'arguments' => ['@' . ResponseFactory::class, '@response', '@template', '@config'],
         ],
         Setup\ShowConfigController::class => [
             'class' => Setup\ShowConfigController::class,
-            'arguments' => ['@response'],
+            'arguments' => ['@' . ResponseFactory::class, '@response', '@template', '@config'],
         ],
         Setup\ValidateController::class => [
             'class' => Setup\ValidateController::class,
-            'arguments' => ['@' . ResponseFactory::class],
+            'arguments' => ['@' . ResponseFactory::class, '@template', '@config'],
         ],
         Sql\ColumnPreferencesController::class => [
             'class' => Sql\ColumnPreferencesController::class,

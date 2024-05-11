@@ -3656,7 +3656,22 @@ parameters:
 			path: src/Controllers/Server/Variables/SetVariableController.php
 
 		-
+			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Setup/ConfigController.php
+
+		-
+			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Setup/FormController.php
+
+		-
 			message: "#^Only booleans are allowed in a ternary operator condition, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Setup/HomeController.php
+
+		-
+			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Setup/HomeController.php
 
@@ -3673,7 +3688,22 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
 			count: 1
-			path: src/Controllers/Setup/MainController.php
+			path: src/Controllers/Setup/ServerDestroyController.php
+
+		-
+			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Setup/ServersController.php
+
+		-
+			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Setup/ShowConfigController.php
+
+		-
+			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Setup/ValidateController.php
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"

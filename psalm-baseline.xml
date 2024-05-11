@@ -3000,21 +3000,15 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Setup/HomeController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$id]]></code>
       <code><![CDATA[$id]]></code>
     </MixedArgumentTypeCoercion>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[Config::getInstance()->get('PMA_IS_WINDOWS')]]></code>
+      <code><![CDATA[$this->config->get('PMA_IS_WINDOWS')]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Setup/MainController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>

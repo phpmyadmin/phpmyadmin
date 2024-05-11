@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Setup;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Controllers\InvocableController;
@@ -18,8 +19,11 @@ use PhpMyAdmin\Template;
 
 use function __;
 use function array_keys;
+use function file_exists;
 use function is_scalar;
 use function is_string;
+
+use const CONFIG_FILE;
 
 final class HomeController implements InvocableController
 {
@@ -27,11 +31,22 @@ final class HomeController implements InvocableController
         private readonly ResponseFactory $responseFactory,
         private readonly ResponseRenderer $responseRenderer,
         private readonly Template $template,
+        private readonly Config $config,
     ) {
     }
 
     public function __invoke(ServerRequest $request): Response
     {
+        if (@file_exists(CONFIG_FILE) && ! $this->config->config->debug->demo) {
+            $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
+
+            return $response->write($this->template->render('error/generic', [
+                'lang' => $GLOBALS['lang'] ?? 'en',
+                'dir' => LanguageManager::$textDir,
+                'error_message' => __('Configuration already exists, setup is disabled!'),
+            ]));
+        }
+
         $response = $this->responseFactory->createResponse();
         foreach ($this->responseRenderer->getHeader()->getHttpHeaders() as $name => $value) {
             $response = $response->withHeader($name, $value);
@@ -109,7 +124,7 @@ final class HomeController implements InvocableController
             'has_check_page_refresh' => $hasCheckPageRefresh,
             'eol' => isset($_SESSION['eol']) && is_scalar($_SESSION['eol'])
                 ? $_SESSION['eol']
-                : (Config::getInstance()->get('PMA_IS_WINDOWS') ? 'win' : 'unix'),
+                : ($this->config->get('PMA_IS_WINDOWS') ? 'win' : 'unix'),
         ]));
     }
 
