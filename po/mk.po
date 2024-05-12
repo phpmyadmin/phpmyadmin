@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-05-10 07:26+0000\n"
+"PO-Revision-Date: 2024-05-12 19:01+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.5.4-rc\n"
+"X-Generator: Weblate 5.5.4\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -12268,20 +12268,18 @@ msgid "Advisor"
 msgstr ""
 
 #: libraries/classes/Server/Status/Data.php:491
-#, fuzzy, php-format
-#| msgid "per second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "во секунда"
-msgstr[1] "во секунда"
+msgstr[0] "%d секунда"
+msgstr[1] "%d секунди"
 
 #: libraries/classes/Server/Status/Data.php:496
-#, fuzzy, php-format
-#| msgid "in use"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "се користи"
-msgstr[1] "се користи"
+msgstr[0] "%d минута"
+msgstr[1] "%d минути"
 
 #: libraries/classes/Server/Status/Monitor.php:73
 #, fuzzy
@@ -14957,7 +14955,7 @@ msgstr "Додади %s полиња"
 
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "Уреди ENUM/SET вредности"
 
 #: templates/privileges/delete_user_fieldset.twig:3
 #, fuzzy
