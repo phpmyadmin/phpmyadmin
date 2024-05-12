@@ -430,7 +430,7 @@ Functions.escapeJsString = function (unsafe) {
  * @return {string}
  */
 Functions.escapeBacktick = function (s) {
-    return s.replace('`', '``');
+    return s.replaceAll('`', '``');
 };
 
 /**
