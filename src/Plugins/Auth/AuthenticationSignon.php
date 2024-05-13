@@ -7,8 +7,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
@@ -40,7 +42,6 @@ class AuthenticationSignon extends AuthenticationPlugin
     public function showLoginForm(): Response
     {
         $responseRenderer = ResponseRenderer::getInstance();
-        $responseRenderer->disable();
         unset($_SESSION['LAST_SIGNON_URL']);
         $config = Config::getInstance();
         if (empty($config->selectedServer['SignonURL'])) {
@@ -53,9 +54,10 @@ class AuthenticationSignon extends AuthenticationPlugin
             return $responseRenderer->response();
         }
 
-        $responseRenderer->redirect($config->selectedServer['SignonURL']);
-
-        return $responseRenderer->response();
+        return ResponseFactory::create()->createResponse(StatusCodeInterface::STATUS_FOUND)->withHeader(
+            'Location',
+            $responseRenderer->fixRelativeUrlForRedirect($config->selectedServer['SignonURL']),
+        );
     }
 
     /**

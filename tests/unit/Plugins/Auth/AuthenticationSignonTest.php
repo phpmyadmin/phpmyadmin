@@ -55,6 +55,7 @@ class AuthenticationSignonTest extends AbstractTestCase
 
     public function testAuth(): void
     {
+        Current::$server = 0;
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
         Config::getInstance()->selectedServer['SignonURL'] = '';
         $_REQUEST = [];
