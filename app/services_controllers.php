@@ -369,7 +369,7 @@ return [
         ],
         Export\ExportController::class => [
             'class' => Export\ExportController::class,
-            'arguments' => ['$response' => '@response', '$export' => '@export'],
+            'arguments' => ['@response', '@export', '@' . ResponseFactory::class],
         ],
         Export\TablesController::class => [
             'class' => Export\TablesController::class,

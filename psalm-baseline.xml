@@ -1815,6 +1815,7 @@
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
+      <code><![CDATA[$this->export->dumpBuffer]]></code>
       <code><![CDATA[$whatStrucOrData]]></code>
       <code><![CDATA[$whatStrucOrData]]></code>
       <code><![CDATA[$whatStrucOrData]]></code>
@@ -1844,10 +1845,6 @@
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
     </PossiblyNullArgument>
-    <RedundantCondition>
-      <code><![CDATA[! $GLOBALS['save_on_server']]]></code>
-      <code><![CDATA[$outputFormat === 'sendit' && ! $GLOBALS['save_on_server']]]></code>
-    </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$asSeparateFiles]]></code>
       <code><![CDATA[$onServerParam]]></code>

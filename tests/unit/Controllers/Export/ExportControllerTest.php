@@ -10,6 +10,7 @@ use PhpMyAdmin\Controllers\Export\ExportController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -189,7 +190,7 @@ final class ExportControllerTest extends AbstractTestCase
             COMMIT;
             SQL;
 
-        $exportController = new ExportController(new ResponseRenderer(), new Export($dbi));
+        $exportController = new ExportController(new ResponseRenderer(), new Export($dbi), ResponseFactory::create());
         $response = $exportController($request);
         $output = $this->getActualOutputForAssertion();
 
@@ -341,14 +342,15 @@ final class ExportControllerTest extends AbstractTestCase
         self::assertInstanceOf(Export::class, $export);
         (new ReflectionProperty(Export::class, 'dbi'))->setValue($export, $dbi);
 
-        $exportController = new ExportController(new ResponseRenderer(), $export);
+        $exportController = new ExportController(new ResponseRenderer(), $export, ResponseFactory::create());
         $response = $exportController($request);
 
         $output = $this->getActualOutputForAssertion();
 
+        self::assertNotNull($response);
+        self::assertSame('', (string) $response->getBody());
         self::assertStringStartsWith('-- phpMyAdmin SQL Dump', $output);
         self::assertStringEndsWith($expected, $output);
-        self::assertNull($response);
 
         $dbiDummy->assertAllQueriesConsumed();
 
@@ -507,12 +509,11 @@ final class ExportControllerTest extends AbstractTestCase
         self::assertInstanceOf(Export::class, $export);
         (new ReflectionProperty(Export::class, 'dbi'))->setValue($export, $dbi);
 
-        $exportController = new ExportController(new ResponseRenderer(), $export);
+        $exportController = new ExportController(new ResponseRenderer(), $export, ResponseFactory::create());
         $response = $exportController($request);
 
-        $output = $this->getActualOutputForAssertion();
-        self::assertNotEmpty($output);
-        self::assertNull($response);
+        self::assertNotNull($response);
+        $output = (string) $response->getBody();
 
         $tmpFile = tempnam('./', 'exportFileTest');
         self::assertNotFalse($tmpFile);
