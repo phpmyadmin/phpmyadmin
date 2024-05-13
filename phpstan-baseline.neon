@@ -7216,11 +7216,6 @@ parameters:
 			path: src/Export/Export.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Export\\\\Export\\:\\:getMemoryLimit\\(\\) should return int but returns \\(float\\|int\\)\\.$#"
-			count: 1
-			path: src/Export/Export.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
 			path: src/Export/Export.php
