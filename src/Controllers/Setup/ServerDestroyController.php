@@ -6,32 +6,27 @@ namespace PhpMyAdmin\Controllers\Setup;
 
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Config\Validator;
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Setup\SetupHelper;
 use PhpMyAdmin\Template;
-use stdClass;
+use PhpMyAdmin\Url;
 
 use function __;
-use function explode;
 use function file_exists;
-use function implode;
-use function is_string;
-use function json_decode;
-use function json_encode;
-use function sprintf;
+use function is_numeric;
 
 use const CONFIG_FILE;
 
-final class ValidateController implements InvocableController
+final class ServerDestroyController implements InvocableController
 {
     public function __construct(
         private readonly ResponseFactory $responseFactory,
+        private readonly ResponseRenderer $responseRenderer,
         private readonly Template $template,
         private readonly Config $config,
     ) {
@@ -50,32 +45,33 @@ final class ValidateController implements InvocableController
         }
 
         $response = $this->responseFactory->createResponse();
-        foreach (Core::headerJSON() as $name => $value) {
+        foreach ($this->responseRenderer->getHeader()->getHttpHeaders() as $name => $value) {
             $response = $response->withHeader($name, $value);
-        }
-
-        /** @var mixed $id */
-        $id = $request->getParsedBodyParam('id');
-        $vids = explode(',', is_string($id) ? $id : '');
-
-        /** @var mixed $valuesParam */
-        $valuesParam = $request->getParsedBodyParam('values');
-        $values = json_decode(is_string($valuesParam) ? $valuesParam : '');
-        if (! $values instanceof stdClass) {
-            return $response->write((string) json_encode(['success' => false, 'message' => __('Wrong data')]));
         }
 
         $configFile = SetupHelper::createConfigFile();
 
-        $values = (array) $values;
-        $result = Validator::validate($configFile, $vids, $values, true);
-        if ($result === false) {
-            $result = sprintf(
-                __('Wrong data or no validation for %s'),
-                implode(',', $vids),
-            );
+        $id = $this->getIdParam($request->getQueryParam('id'));
+        $hasServer = $id >= 1 && $configFile->get('Servers/' . $id) !== null;
+        if ($hasServer) {
+            $configFile->removeServer($id);
         }
 
-        return $response->write($result !== true ? (string) json_encode($result) : '');
+        return $response->withStatus(StatusCodeInterface::STATUS_FOUND)->withHeader(
+            'Location',
+            '../setup/index.php' . Url::getCommonRaw(['route' => '/setup']),
+        );
+    }
+
+    /** @psalm-return int<0, max> */
+    private function getIdParam(mixed $idParam): int
+    {
+        if (! is_numeric($idParam)) {
+            return 0;
+        }
+
+        $id = (int) $idParam;
+
+        return $id >= 1 ? $id : 0;
     }
 }

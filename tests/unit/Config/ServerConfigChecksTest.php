@@ -24,6 +24,8 @@ class ServerConfigChecksTest extends AbstractTestCase
 {
     private string $sessionID;
 
+    private ConfigFile $configFile;
+
     /** @throws ReflectionException */
     protected function setUp(): void
     {
@@ -35,11 +37,10 @@ class ServerConfigChecksTest extends AbstractTestCase
         $config->settings['AvailableCharsets'] = [];
         $config->settings['ServerDefault'] = 0;
 
-        $cf = new ConfigFile();
-        $GLOBALS['ConfigFile'] = $cf;
+        $this->configFile = new ConfigFile();
 
         $reflection = new ReflectionProperty(ConfigFile::class, 'id');
-        $this->sessionID = $reflection->getValue($cf);
+        $this->sessionID = $reflection->getValue($this->configFile);
 
         unset($_SESSION['messages']);
         unset($_SESSION[$this->sessionID]);
@@ -70,7 +71,7 @@ class ServerConfigChecksTest extends AbstractTestCase
 
         $configChecker = $this->getMockBuilder(ServerConfigChecks::class)
             ->onlyMethods(['functionExists'])
-            ->setConstructorArgs([$GLOBALS['ConfigFile']])
+            ->setConstructorArgs([$this->configFile])
             ->getMock();
 
         // Configure the stub.
@@ -113,7 +114,7 @@ class ServerConfigChecksTest extends AbstractTestCase
         $_SESSION[$this->sessionID]['BZipDump'] = false;
         $_SESSION[$this->sessionID]['ZipDump'] = false;
 
-        $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
+        $configChecker = new ServerConfigChecks($this->configFile);
         $configChecker->performConfigChecks();
 
         /**
@@ -141,7 +142,7 @@ class ServerConfigChecksTest extends AbstractTestCase
             '1' => ['host' => 'localhost', 'ssl' => true, 'auth_type' => 'cookie', 'AllowRoot' => false],
         ];
 
-        $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
+        $configChecker = new ServerConfigChecks($this->configFile);
         $configChecker->performConfigChecks();
 
         /**
@@ -167,7 +168,7 @@ class ServerConfigChecksTest extends AbstractTestCase
         $_SESSION[$this->sessionID]['blowfish_secret'] = str_repeat('a', SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
         $_SESSION[$this->sessionID]['Servers'] = ['1' => ['host' => 'localhost', 'auth_type' => 'cookie']];
 
-        $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
+        $configChecker = new ServerConfigChecks($this->configFile);
         $configChecker->performConfigChecks();
 
         /**

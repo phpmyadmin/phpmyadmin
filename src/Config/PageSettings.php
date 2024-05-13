@@ -65,15 +65,15 @@ class PageSettings
 
         $this->groupName = $formGroupName;
 
-        $cf = new ConfigFile(Config::getInstance()->baseSettings);
-        $this->userPreferences->pageInit($cf);
+        $configFile = new ConfigFile(Config::getInstance()->baseSettings);
+        $this->userPreferences->pageInit($configFile);
 
-        $formDisplay = new $formClass($cf);
+        $formDisplay = new $formClass($configFile);
 
         // Process form
         $error = null;
         if (isset($_POST['submit_save']) && $_POST['submit_save'] == $formGroupName) {
-            $error = $this->processPageSettings($formDisplay, $cf);
+            $error = $this->processPageSettings($formDisplay, $configFile);
         }
 
         // Display forms

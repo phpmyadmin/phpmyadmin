@@ -4,39 +4,68 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Setup;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ServerConfigChecks;
+use PhpMyAdmin\Controllers\InvocableController;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\Response;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Setup\Index;
+use PhpMyAdmin\Setup\SetupHelper;
+use PhpMyAdmin\Template;
 
 use function __;
 use function array_keys;
+use function file_exists;
 use function is_scalar;
 use function is_string;
 
-class HomeController extends AbstractController
-{
-    /**
-     * @param mixed[] $params Request parameters
-     *
-     * @return string HTML
-     */
-    public function __invoke(array $params): string
-    {
-        $formset = isset($params['formset']) && is_string($params['formset']) ? $params['formset'] : '';
+use const CONFIG_FILE;
 
-        $pages = $this->getPages();
+final class HomeController implements InvocableController
+{
+    public function __construct(
+        private readonly ResponseFactory $responseFactory,
+        private readonly ResponseRenderer $responseRenderer,
+        private readonly Template $template,
+        private readonly Config $config,
+    ) {
+    }
+
+    public function __invoke(ServerRequest $request): Response
+    {
+        if (@file_exists(CONFIG_FILE) && ! $this->config->config->debug->demo) {
+            $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
+
+            return $response->write($this->template->render('error/generic', [
+                'lang' => $GLOBALS['lang'] ?? 'en',
+                'dir' => LanguageManager::$textDir,
+                'error_message' => __('Configuration already exists, setup is disabled!'),
+            ]));
+        }
+
+        $response = $this->responseFactory->createResponse();
+        foreach ($this->responseRenderer->getHeader()->getHttpHeaders() as $name => $value) {
+            $response = $response->withHeader($name, $value);
+        }
+
+        $pages = SetupHelper::getPages();
 
         // message handling
         Index::messagesBegin();
 
         // Check phpMyAdmin version
-        if (isset($params['version_check'])) {
+        if ($request->hasQueryParam('version_check')) {
             Index::versionCheck();
         }
 
+        $configFile = SetupHelper::createConfigFile();
+
         // Perform various security, compatibility and consistency checks
-        $configChecker = new ServerConfigChecks($this->config);
+        $configChecker = new ServerConfigChecks($configFile);
         $configChecker->performConfigChecks();
 
         $text = __(
@@ -66,12 +95,12 @@ class HomeController extends AbstractController
         }
 
         $servers = [];
-        foreach (array_keys($this->config->getServers()) as $id) {
+        foreach (array_keys($configFile->getServers()) as $id) {
             $servers[$id] = [
                 'id' => $id,
-                'name' => $this->config->getServerName($id),
-                'auth_type' => $this->config->getValue('Servers/' . $id . '/auth_type'),
-                'dsn' => $this->config->getServerDSN($id),
+                'name' => $configFile->getServerName($id),
+                'auth_type' => $configFile->getValue('Servers/' . $id . '/auth_type'),
+                'dsn' => $configFile->getServerDSN($id),
                 'params' => [
                     'token' => $_SESSION[' PMA_token '],
                     'edit' => ['page' => 'servers', 'mode' => 'edit', 'id' => $id],
@@ -85,17 +114,22 @@ class HomeController extends AbstractController
             $hasCheckPageRefresh = true;
         }
 
-        return $this->template->render('setup/home/index', [
-            'formset' => $formset,
+        return $response->write($this->template->render('setup/home/index', [
+            'formset' => $this->getFormSetParam($request->getQueryParam('formset')),
             'languages' => $languages,
             'messages' => $messages,
-            'server_count' => $this->config->getServerCount(),
+            'server_count' => $configFile->getServerCount(),
             'servers' => $servers,
             'pages' => $pages,
             'has_check_page_refresh' => $hasCheckPageRefresh,
             'eol' => isset($_SESSION['eol']) && is_scalar($_SESSION['eol'])
                 ? $_SESSION['eol']
-                : (Config::getInstance()->get('PMA_IS_WINDOWS') ? 'win' : 'unix'),
-        ]);
+                : ($this->config->get('PMA_IS_WINDOWS') ? 'win' : 'unix'),
+        ]));
+    }
+
+    private function getFormSetParam(mixed $formSetParam): string
+    {
+        return is_string($formSetParam) ? $formSetParam : '';
     }
 }
