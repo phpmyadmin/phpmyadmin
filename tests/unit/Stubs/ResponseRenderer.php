@@ -48,7 +48,6 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     {
         $this->isSuccess = true;
         $this->isAjax = false;
-        $this->isDisabled = false;
 
         $GLOBALS['lang'] = 'en';
         $this->template = new Template();
