@@ -17,6 +17,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
@@ -143,7 +144,7 @@ final class IndexesController implements InvocableController
                 $message->addParam(Current::$table);
                 $this->response->addJSON(
                     'message',
-                    Generator::getMessage($message, $sqlQuery, 'success'),
+                    Generator::getMessage($message, $sqlQuery, MessageType::Success),
                 );
 
                 $indexes = Index::getFromTable($this->dbi, Current::$table, Current::$database);

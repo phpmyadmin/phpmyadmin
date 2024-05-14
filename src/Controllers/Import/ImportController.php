@@ -20,6 +20,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Plugins\Import\ImportFormat;
 use PhpMyAdmin\ResponseRenderer;
@@ -705,7 +706,7 @@ final class ImportController implements InvocableController
             $this->response->addJSON('message', Message::success(ImportSettings::$message));
             $this->response->addJSON(
                 'sql_query',
-                Generator::getMessage(ImportSettings::$message, $GLOBALS['sql_query'], 'success'),
+                Generator::getMessage(ImportSettings::$message, $GLOBALS['sql_query'], MessageType::Success),
             );
         } elseif ($GLOBALS['result'] === false) {
             $this->response->setRequestStatus(false);

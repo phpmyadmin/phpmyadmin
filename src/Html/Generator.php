@@ -12,6 +12,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\Query\Compatibility;
@@ -389,7 +390,7 @@ class Generator
      *
      * @param Message|string $message  the message to display
      * @param string|null    $sqlQuery the query to display
-     * @param string         $type     the type (level) of the message
+     * @param MessageType    $type     the type (level) of the message
      *
      * @throws Throwable
      * @throws LoaderError
@@ -399,7 +400,7 @@ class Generator
     public static function getMessage(
         Message|string $message,
         string|null $sqlQuery = null,
-        string $type = 'notice',
+        MessageType $type = MessageType::Notice,
     ): string {
         $retval = '';
 
@@ -422,14 +423,11 @@ class Generator
         }
 
         if (is_string($message)) {
-            $context = Message::NOTICE;
-            if ($type === 'error') {
-                $context = Message::ERROR;
-            } elseif ($type === 'success') {
-                $context = Message::SUCCESS;
-            }
-
-            $message = new Message($message, $context);
+            $message = new Message($message, match($type) {
+                MessageType::Error => Message::ERROR,
+                MessageType::Notice => Message::NOTICE,
+                MessageType::Success => Message::SUCCESS,
+            });
         }
 
         if (isset($GLOBALS['special_message'])) {

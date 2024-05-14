@@ -16,6 +16,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
@@ -139,7 +140,7 @@ final class RelationController implements InvocableController
                 Generator::getMessage(
                     __('Your SQL query has been executed successfully.'),
                     null,
-                    'success',
+                    MessageType::Success,
                 ),
             );
         }
@@ -324,7 +325,7 @@ final class RelationController implements InvocableController
             Generator::getMessage(
                 __('Display column was successfully updated.'),
                 '',
-                'success',
+                MessageType::Success,
             ),
         );
     }
@@ -358,7 +359,7 @@ final class RelationController implements InvocableController
             Generator::getMessage(
                 __('Internal relationships were successfully updated.'),
                 '',
-                'success',
+                MessageType::Success,
             ),
         );
     }
