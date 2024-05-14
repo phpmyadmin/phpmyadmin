@@ -329,16 +329,13 @@ class MessageTest extends AbstractTestCase
         );
     }
 
-    /**
-     * getLevel test
-     */
-    public function testGetLevel(): void
+    public function testGetContext(): void
     {
-        self::assertSame('notice', $this->object->getLevel());
+        self::assertSame('primary', $this->object->getContext());
         $this->object->setType(MessageType::Success);
-        self::assertSame('success', $this->object->getLevel());
+        self::assertSame('success', $this->object->getContext());
         $this->object->setType(MessageType::Error);
-        self::assertSame('error', $this->object->getLevel());
+        self::assertSame('danger', $this->object->getContext());
     }
 
     /**

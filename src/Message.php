@@ -512,26 +512,17 @@ class Message implements Stringable
         return $this->string;
     }
 
-    /**
-     * returns level of message
-     *
-     * @return string level of message
-     */
-    public function getLevel(): string
+    protected function getLevel(): MessageType
     {
-        return match ($this->type) {
-            MessageType::Success => 'success',
-            MessageType::Notice => 'notice',
-            MessageType::Error => 'error'
-        };
+        return $this->type;
     }
 
     public function getContext(): string
     {
         return match ($this->getLevel()) {
-            'error' => 'danger',
-            'success' => 'success',
-            default => 'primary',
+            MessageType::Error => 'danger',
+            MessageType::Success => 'success',
+            MessageType::Notice => 'primary',
         };
     }
 
@@ -544,11 +535,9 @@ class Message implements Stringable
     {
         $this->isDisplayed(true);
 
-        $context = $this->getContext();
-
         $template = new Template();
 
-        return $template->render('message', ['context' => $context, 'message' => $this->getMessage()]);
+        return $template->render('message', ['context' => $this->getContext(), 'message' => $this->getMessage()]);
     }
 
     /**
@@ -577,9 +566,9 @@ class Message implements Stringable
     public function getMessageWithIcon(string $message): string
     {
         $image = match ($this->getLevel()) {
-            'error' => 's_error',
-            'success' => 's_success',
-            default =>'s_notice',
+            MessageType::Error => 's_error',
+            MessageType::Success => 's_success',
+            MessageType::Notice =>'s_notice',
         };
 
         return self::notice(Html\Generator::getImage($image)) . ' ' . $message;

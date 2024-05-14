@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Error;
 
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Template;
 use Throwable;
 
@@ -277,30 +278,15 @@ class Error extends Message
         };
     }
 
-    /**
-     * returns level of error
-     *
-     * @return string level of error
-     */
-    public function getLevel(): string
+    protected function getLevel(): MessageType
     {
         return match ($this->errorNumber) {
-            default => 'error',
-            E_ERROR => 'error',
-            E_WARNING => 'error',
-            E_PARSE => 'error',
-            E_NOTICE => 'notice',
-            E_CORE_ERROR => 'error',
-            E_CORE_WARNING => 'error',
-            E_COMPILE_ERROR => 'error',
-            E_COMPILE_WARNING => 'error',
-            E_USER_ERROR => 'error',
-            E_USER_WARNING => 'error',
-            E_USER_NOTICE => 'notice',
-            E_STRICT => 'notice',
-            E_DEPRECATED => 'notice',
-            E_USER_DEPRECATED => 'notice',
-            E_RECOVERABLE_ERROR => 'error',
+            default => MessageType::Error,
+            E_NOTICE,
+            E_USER_NOTICE,
+            E_STRICT,
+            E_DEPRECATED,
+            E_USER_DEPRECATED => MessageType::Notice,
         };
     }
 
@@ -433,16 +419,10 @@ class Error extends Message
     {
         $this->isDisplayed(true);
 
-        $context = 'primary';
-        $level = $this->getLevel();
-        if ($level === 'error') {
-            $context = 'danger';
-        }
-
         $template = new Template();
 
         return $template->render('error/get_display', [
-            'context' => $context,
+            'context' => $this->getLevel() === MessageType::Error ? 'danger' : 'primary',
             'is_user_error' => $this->isUserError(),
             'type' => $this->getType(),
             'file' => $this->getFile(),
