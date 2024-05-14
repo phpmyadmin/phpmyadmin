@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-05-12 00:20+0000\n"
-"PO-Revision-Date: 2024-05-05 08:33+0000\n"
+"PO-Revision-Date: 2024-05-15 13:34+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.5.3\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -15954,10 +15954,8 @@ msgid "Report"
 msgstr "דיווח"
 
 #: src/Exceptions/AuthenticationFailure.php:35
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Cannot log in to the database server."
-msgstr "הכניסה לשרת ה־MySQL נכשלה"
+msgstr "הכניסה לשרת מסד הנתונים נכשלה"
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
@@ -15967,13 +15965,9 @@ msgid "Access denied!"
 msgstr "הגישה נדחתה!"
 
 #: src/Exceptions/AuthenticationFailure.php:61
-#, fuzzy
-#| msgid ""
-#| "Login without a password is forbidden by configuration (see "
-#| "AllowNoPassword)"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
-msgstr "כניסה ללא ססמה אסורה לפי ההגדרות (לחפש אחר AllowNoPassword)"
+msgstr "כניסה ללא סיסמה אסורה לפי ההגדרות (לחפש אחר AllowNoPassword)."
 
 #: src/Exceptions/AuthenticationFailure.php:73
 #, php-format
@@ -15981,6 +15975,8 @@ msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
+"המערכת הוציאה אותך עקב חוסר פעילות של %s שניות. לאחר כניסה מחדש, אמורה להיות "
+"לך האפשרות להמשיך את העבודה מאיפה שסיימת."
 
 #: src/Export/Export.php:163 src/Export/Export.php:199
 #: src/Export/Export.php:439
