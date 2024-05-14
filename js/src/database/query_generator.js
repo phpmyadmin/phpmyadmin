@@ -14,7 +14,7 @@ $(document).on('change', '.criteria_op', function () {
     const op = $(this).val();
     const criteria = $(this).closest('.table').find('.rhs_text_val');
 
-    isOpWithoutArg(op) ? criteria.hide() : criteria.show();
+    isOpWithoutArg(op) ? criteria.hide().val('') : criteria.show();
 });
 
 function getFormatsText () {
