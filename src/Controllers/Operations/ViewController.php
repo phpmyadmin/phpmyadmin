@@ -124,7 +124,7 @@ final class ViewController implements InvocableController
 
             if ($warningMessages !== []) {
                 $message->addMessagesString($warningMessages);
-                $message->setType(Message::ERROR);
+                $message->setType(MessageType::Error);
             }
 
             $this->response->addHTML(Generator::getMessage(

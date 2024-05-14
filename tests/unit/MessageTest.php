@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -40,7 +41,7 @@ class MessageTest extends AbstractTestCase
      */
     public function testSuccess(): void
     {
-        $this->object = new Message('test<&>', Message::SUCCESS);
+        $this->object = new Message('test<&>', MessageType::Success);
         self::assertEquals($this->object, Message::success('test<&>'));
         self::assertSame(
             'Your SQL query has been executed successfully.',
@@ -53,7 +54,7 @@ class MessageTest extends AbstractTestCase
      */
     public function testError(): void
     {
-        $this->object = new Message('test<&>', Message::ERROR);
+        $this->object = new Message('test<&>', MessageType::Error);
         self::assertEquals($this->object, Message::error('test<&>'));
         self::assertSame('Error', Message::error()->getString());
     }
@@ -63,7 +64,7 @@ class MessageTest extends AbstractTestCase
      */
     public function testNotice(): void
     {
-        $this->object = new Message('test<&>', Message::NOTICE);
+        $this->object = new Message('test<&>', MessageType::Notice);
         self::assertEquals($this->object, Message::notice('test<&>'));
     }
 
@@ -72,7 +73,7 @@ class MessageTest extends AbstractTestCase
      */
     public function testRawError(): void
     {
-        $this->object = new Message('', Message::ERROR);
+        $this->object = new Message('', MessageType::Error);
         $this->object->setMessage('test<&>');
         $this->object->setBBCode(false);
 
@@ -84,7 +85,7 @@ class MessageTest extends AbstractTestCase
      */
     public function testRawNotice(): void
     {
-        $this->object = new Message('', Message::NOTICE);
+        $this->object = new Message('', MessageType::Notice);
         $this->object->setMessage('test<&>');
         $this->object->setBBCode(false);
 
@@ -96,7 +97,7 @@ class MessageTest extends AbstractTestCase
      */
     public function testRawSuccess(): void
     {
-        $this->object = new Message('', Message::SUCCESS);
+        $this->object = new Message('', MessageType::Success);
         $this->object->setMessage('test<&>');
         $this->object->setBBCode(false);
 
@@ -109,7 +110,7 @@ class MessageTest extends AbstractTestCase
     public function testIsSuccess(): void
     {
         self::assertFalse($this->object->isSuccess());
-        $this->object->setType(Message::SUCCESS);
+        $this->object->setType(MessageType::Success);
         self::assertTrue($this->object->isSuccess());
     }
 
@@ -119,9 +120,9 @@ class MessageTest extends AbstractTestCase
     public function testIsNotice(): void
     {
         self::assertTrue($this->object->isNotice());
-        $this->object->setType(Message::ERROR);
+        $this->object->setType(MessageType::Error);
         self::assertFalse($this->object->isNotice());
-        $this->object->setType(Message::NOTICE);
+        $this->object->setType(MessageType::Notice);
         self::assertTrue($this->object->isNotice());
     }
 
@@ -131,7 +132,7 @@ class MessageTest extends AbstractTestCase
     public function testIsError(): void
     {
         self::assertFalse($this->object->isError());
-        $this->object->setType(Message::ERROR);
+        $this->object->setType(MessageType::Error);
         self::assertTrue($this->object->isError());
     }
 
@@ -236,7 +237,7 @@ class MessageTest extends AbstractTestCase
     {
         $messages = [];
         $messages[] = new Message('Test1');
-        $messages[] = new Message('PMA_Test2', Message::ERROR);
+        $messages[] = new Message('PMA_Test2', MessageType::Error);
         $messages[] = new Message('Test3');
         $this->object->addMessages($messages, '');
 
@@ -282,7 +283,7 @@ class MessageTest extends AbstractTestCase
         $this->object->setString('<&>test');
         $this->object->setMessage('<&>test');
         self::assertSame(
-            md5(Message::NOTICE . '<&>test<&>test'),
+            md5(MessageType::Notice->getNumericalValue() . '<&>test<&>test'),
             $this->object->getHash(),
         );
     }
@@ -334,9 +335,9 @@ class MessageTest extends AbstractTestCase
     public function testGetLevel(): void
     {
         self::assertSame('notice', $this->object->getLevel());
-        $this->object->setType(Message::SUCCESS);
+        $this->object->setType(MessageType::Success);
         self::assertSame('success', $this->object->getLevel());
-        $this->object->setType(Message::ERROR);
+        $this->object->setType(MessageType::Error);
         self::assertSame('error', $this->object->getLevel());
     }
 

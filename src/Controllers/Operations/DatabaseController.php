@@ -18,6 +18,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidDatabaseName;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Query\Utilities;
@@ -289,7 +290,7 @@ final class DatabaseController implements InvocableController
             $GLOBALS['message']->addParamHtml('</a>');
             /* Show error if user has configured something, notice elsewhere */
             if (! empty($config->settings['Servers'][Current::$server]['pmadb'])) {
-                $GLOBALS['message']->setType(Message::ERROR);
+                $GLOBALS['message']->setType(MessageType::Error);
             }
         }
 

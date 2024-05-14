@@ -423,11 +423,7 @@ class Generator
         }
 
         if (is_string($message)) {
-            $message = new Message($message, match($type) {
-                MessageType::Error => Message::ERROR,
-                MessageType::Notice => Message::NOTICE,
-                MessageType::Success => Message::SUCCESS,
-            });
+            $message = new Message($message, $type);
         }
 
         if (isset($GLOBALS['special_message'])) {

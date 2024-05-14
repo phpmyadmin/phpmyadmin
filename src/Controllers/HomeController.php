@@ -22,6 +22,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -210,7 +211,7 @@ final class HomeController implements InvocableController
                 $messageInstance->addParamHtml('</a>');
                 /* Show error if user has configured something, notice elsewhere */
                 if (! empty($config->settings['Servers'][Current::$server]['pmadb'])) {
-                    $messageInstance->setType(Message::ERROR);
+                    $messageInstance->setType(MessageType::Error);
                 }
 
                 $configStorageMessage = $messageInstance->getDisplay();

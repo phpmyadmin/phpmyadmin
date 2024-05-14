@@ -19,6 +19,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
@@ -324,19 +325,19 @@ final class ReplaceController implements InvocableController
         if ($rowSkipped) {
             $gotoInclude = '/table/change';
             $GLOBALS['message']->addMessagesString($insertErrors, '<br>');
-            $GLOBALS['message']->setType(Message::ERROR);
+            $GLOBALS['message']->setType(MessageType::Error);
         }
 
         $GLOBALS['message']->addMessages($lastMessages, '<br>');
 
         if (! empty($warningMessages)) {
             $GLOBALS['message']->addMessagesString($warningMessages, '<br>');
-            $GLOBALS['message']->setType(Message::ERROR);
+            $GLOBALS['message']->setType(MessageType::Error);
         }
 
         if (! empty($errorMessages)) {
             $GLOBALS['message']->addMessagesString($errorMessages);
-            $GLOBALS['message']->setType(Message::ERROR);
+            $GLOBALS['message']->setType(MessageType::Error);
         }
 
         /**
