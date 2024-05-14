@@ -18,6 +18,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
@@ -371,7 +372,7 @@ final class TableController implements InvocableController
             if ($warningMessages !== []) {
                 $newMessage = new Message();
                 $newMessage->addMessagesString($warningMessages);
-                $newMessage->setType(Message::ERROR);
+                $newMessage->setType(MessageType::Error);
                 if ($request->isAjax()) {
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $newMessage);

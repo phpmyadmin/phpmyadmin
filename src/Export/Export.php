@@ -15,6 +15,7 @@ use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
@@ -437,14 +438,14 @@ class Export
         if ($dumpBuffer !== '' && $writeResult !== strlen($dumpBuffer)) {
             return new Message(
                 __('Insufficient space to save the file %s.'),
-                Message::ERROR,
+                MessageType::Error,
                 [$saveFilename],
             );
         }
 
         return new Message(
             __('Dump has been saved to file %s.'),
-            Message::SUCCESS,
+            MessageType::Success,
             [$saveFilename],
         );
     }

@@ -13,6 +13,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -85,7 +86,7 @@ final class CreateController implements InvocableController
 
             $json = [
                 'message' => $message,
-                'sql_query' => Generator::getMessage('', $sqlQuery, 'success'),
+                'sql_query' => Generator::getMessage('', $sqlQuery, MessageType::Success),
                 'url' => $scriptName . Url::getCommon(
                     ['db' => $newDb],
                     ! str_contains($scriptName, '?') ? '?' : '&',

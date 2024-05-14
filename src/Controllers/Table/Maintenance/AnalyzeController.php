@@ -13,6 +13,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Maintenance;
 use Webmozart\Assert\Assert;
@@ -71,7 +72,7 @@ final class AnalyzeController implements InvocableController
         $message = Generator::getMessage(
             __('Your SQL query has been executed successfully.'),
             $query,
-            'success',
+            MessageType::Success,
         );
 
         $this->response->render('table/maintenance/analyze', ['message' => $message, 'rows' => $rows]);

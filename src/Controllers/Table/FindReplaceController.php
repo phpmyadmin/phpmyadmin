@@ -15,6 +15,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -118,7 +119,7 @@ final class FindReplaceController implements InvocableController
                 Generator::getMessage(
                     __('Your SQL query has been executed successfully.'),
                     null,
-                    'success',
+                    MessageType::Success,
                 ),
             );
         }

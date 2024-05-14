@@ -16,6 +16,7 @@ use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Octetstream_Sql;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Json;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql;
@@ -3143,12 +3144,12 @@ class Results
                 $afterCount,
             );
 
-            $sqlQueryMessage = Generator::getMessage($message, $this->sqlQuery, 'success');
+            $sqlQueryMessage = Generator::getMessage($message, $this->sqlQuery, MessageType::Success);
         } elseif (! $this->printView && ! $isLimitedDisplay) {
             $sqlQueryMessage = Generator::getMessage(
                 __('Your SQL query has been executed successfully.'),
                 $this->sqlQuery,
-                'success',
+                MessageType::Success,
             );
         }
 

@@ -15,6 +15,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -86,7 +87,7 @@ final class ViewController implements InvocableController
         $GLOBALS['urlParams']['goto'] = $GLOBALS['urlParams']['back'] = Url::getFromRoute('/view/operations');
 
         $message = new Message();
-        $type = 'success';
+        $type = MessageType::Success;
         $newname = $request->getParsedBodyParam('new_name');
 
         $warningMessages = [];
@@ -118,12 +119,12 @@ final class ViewController implements InvocableController
                     $message->addText(__('Error'));
                 }
 
-                $type = $result ? 'success' : 'error';
+                $type = $result ? MessageType::Success : MessageType::Error;
             }
 
             if ($warningMessages !== []) {
                 $message->addMessagesString($warningMessages);
-                $message->setType(Message::ERROR);
+                $message->setType(MessageType::Error);
             }
 
             $this->response->addHTML(Generator::getMessage(

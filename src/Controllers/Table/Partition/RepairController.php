@@ -12,6 +12,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Partitioning\Maintenance;
 use PhpMyAdmin\ResponseRenderer;
 use Webmozart\Assert\Assert;
@@ -45,7 +46,7 @@ final class RepairController implements InvocableController
         $message = Generator::getMessage(
             __('Your SQL query has been executed successfully.'),
             $query,
-            'success',
+            MessageType::Success,
         );
 
         $this->response->render('table/partition/repair', [

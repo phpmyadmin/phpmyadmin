@@ -923,7 +923,7 @@ class Sql
             $message = $this->getMessageForNoRowsReturned($messageToShow, $statementInfo, $numRows);
         }
 
-        $queryMessage = Generator::getMessage($message, $GLOBALS['sql_query'], 'success');
+        $queryMessage = Generator::getMessage($message, $GLOBALS['sql_query'], MessageType::Success);
 
         if (isset($GLOBALS['show_as_php'])) {
             return $queryMessage;
@@ -1184,7 +1184,7 @@ class Sql
         Message|string $displayMessage,
     ): string {
         if ($displayQuery !== null && $showSql && $sqlData === []) {
-            return Generator::getMessage($displayMessage, $displayQuery, 'success');
+            return Generator::getMessage($displayMessage, $displayQuery, MessageType::Success);
         }
 
         return '';
@@ -1556,7 +1556,7 @@ class Sql
 
             $message = $this->getMessageForNoRowsReturned($messageToShow, $statementInfo, 0);
 
-            return Generator::getMessage($message, $GLOBALS['sql_query'], 'success');
+            return Generator::getMessage($message, $GLOBALS['sql_query'], MessageType::Success);
         }
 
         // Handle disable/enable foreign key checks

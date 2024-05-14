@@ -12,6 +12,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Partitioning\Maintenance;
 use PhpMyAdmin\ResponseRenderer;
 use Webmozart\Assert\Assert;
@@ -46,13 +47,13 @@ final class RebuildController implements InvocableController
             $message = Generator::getMessage(
                 __('Your SQL query has been executed successfully.'),
                 $query,
-                'success',
+                MessageType::Success,
             );
         } else {
             $message = Generator::getMessage(
                 __('Error'),
                 $query,
-                'error',
+                MessageType::Error,
             );
         }
 
