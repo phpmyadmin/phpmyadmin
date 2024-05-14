@@ -60,10 +60,6 @@ class Header
      */
     private bool $isAjax = false;
     /**
-     * Whether to display anything
-     */
-    private bool $isEnabled = true;
-    /**
      * Whether the HTTP headers (and possibly some HTML)
      * have already been sent to the browser
      */
@@ -164,14 +160,6 @@ class Header
     }
 
     /**
-     * Disables the rendering of the header
-     */
-    public function disable(): void
-    {
-        $this->isEnabled = false;
-    }
-
-    /**
      * Set the ajax flag to indicate whether
      * we are servicing an ajax request
      *
@@ -247,7 +235,7 @@ class Header
      */
     public function getDisplay(): string
     {
-        if ($this->headerIsSent || ! $this->isEnabled || $this->isAjax) {
+        if ($this->headerIsSent || $this->isAjax) {
             return '';
         }
 

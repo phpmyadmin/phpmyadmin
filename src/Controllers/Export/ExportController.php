@@ -13,6 +13,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -39,8 +40,11 @@ use function time;
 
 final class ExportController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly Export $export)
-    {
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly Export $export,
+        private readonly ResponseFactory $responseFactory,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response|null
@@ -162,14 +166,6 @@ final class ExportController implements InvocableController
                 // Will we save dump on server?
                 $GLOBALS['save_on_server'] = ! empty($config->settings['SaveDir']);
             }
-        }
-
-        /**
-         * If we are sending the export file (as opposed to just displaying it
-         * as text), we have to bypass the usual PhpMyAdmin\Response mechanism
-         */
-        if ($outputFormat === 'sendit' && ! $GLOBALS['save_on_server']) {
-            $this->response->disable();
         }
 
         $tableNames = [];
@@ -546,9 +542,7 @@ final class ExportController implements InvocableController
             return null;
         }
 
-        echo $this->export->dumpBuffer;
-
-        return null;
+        return $this->responseFactory->createResponse()->write($this->export->dumpBuffer);
     }
 
     /**

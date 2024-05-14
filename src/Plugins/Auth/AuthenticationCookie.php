@@ -7,12 +7,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
@@ -478,10 +480,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         Util::clearUserCache();
 
         $responseRenderer = ResponseRenderer::getInstance();
-        $responseRenderer->disable();
-        $responseRenderer->redirect('./index.php?route=/' . Url::getCommonRaw($urlParams, '&'));
 
-        return $responseRenderer->response();
+        return ResponseFactory::create()->createResponse(StatusCodeInterface::STATUS_FOUND)->withHeader(
+            'Location',
+            $responseRenderer->fixRelativeUrlForRedirect('./index.php?route=/' . Url::getCommonRaw($urlParams, '&')),
+        );
     }
 
     /**

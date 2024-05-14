@@ -52,10 +52,6 @@ class ResponseRenderer
      */
     protected bool $isAjax = false;
     /**
-     * Whether response object is disabled
-     */
-    protected bool $isDisabled = false;
-    /**
      * Whether there were any errors during the processing of the request
      * Only used for ajax responses
      */
@@ -206,17 +202,6 @@ class ResponseRenderer
     }
 
     /**
-     * Disables the rendering of the header
-     * and the footer in responses
-     */
-    public function disable(): void
-    {
-        $this->header->disable();
-        $this->footer->disable();
-        $this->isDisabled = true;
-    }
-
-    /**
      * Returns a PhpMyAdmin\Header object
      */
     public function getHeader(): Header
@@ -273,11 +258,6 @@ class ResponseRenderer
      */
     private function ajaxResponse(): string
     {
-        /* Avoid wrapping in case we're disabled */
-        if ($this->isDisabled) {
-            return $this->getDisplay();
-        }
-
         if (! isset($this->JSON['message'])) {
             $this->JSON['message'] = $this->getDisplay();
         } elseif ($this->JSON['message'] instanceof Message) {

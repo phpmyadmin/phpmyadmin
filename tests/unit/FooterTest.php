@@ -100,19 +100,6 @@ class FooterTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for disable
-     */
-    public function testDisable(): void
-    {
-        $footer = new Footer(new Template(), Config::getInstance());
-        $footer->disable();
-        self::assertSame(
-            '',
-            $footer->getDisplay(),
-        );
-    }
-
     public function testGetDisplayWhenAjaxIsEnabled(): void
     {
         $template = new Template();

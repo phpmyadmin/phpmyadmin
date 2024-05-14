@@ -65,19 +65,6 @@ class HeaderTest extends AbstractTestCase
     }
 
     /**
-     * Test for disable
-     */
-    public function testDisable(): void
-    {
-        $header = $this->getNewHeaderInstance();
-        $header->disable();
-        self::assertSame(
-            '',
-            $header->getDisplay(),
-        );
-    }
-
-    /**
      * Test for enable
      */
     public function testEnable(): void

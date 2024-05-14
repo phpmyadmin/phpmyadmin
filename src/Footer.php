@@ -37,10 +37,6 @@ class Footer
      * or also include scripts, errors and links
      */
     private bool $isMinimal = false;
-    /**
-     * Whether to display anything
-     */
-    private bool $isEnabled = true;
 
     public function __construct(private readonly Template $template, private readonly Config $config)
     {
@@ -156,14 +152,6 @@ class Footer
     }
 
     /**
-     * Disables the rendering of the footer
-     */
-    public function disable(): void
-    {
-        $this->isEnabled = false;
-    }
-
-    /**
      * Set the ajax flag to indicate whether
      * we are servicing an ajax request
      *
@@ -197,10 +185,6 @@ class Footer
      */
     public function getDisplay(): string
     {
-        if (! $this->isEnabled) {
-            return '';
-        }
-
         if (! $this->isAjax && ! $this->isMinimal) {
             if (Core::getEnv('SCRIPT_NAME') !== '') {
                 $url = $this->getSelfUrl();

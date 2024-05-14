@@ -1815,6 +1815,7 @@
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
+      <code><![CDATA[$this->export->dumpBuffer]]></code>
       <code><![CDATA[$whatStrucOrData]]></code>
       <code><![CDATA[$whatStrucOrData]]></code>
       <code><![CDATA[$whatStrucOrData]]></code>
@@ -1844,13 +1845,6 @@
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
-    <RedundantCondition>
-      <code><![CDATA[! $GLOBALS['save_on_server']]]></code>
-      <code><![CDATA[$outputFormat === 'sendit' && ! $GLOBALS['save_on_server']]]></code>
-    </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$asSeparateFiles]]></code>
       <code><![CDATA[$onServerParam]]></code>
@@ -5737,12 +5731,6 @@
       <code><![CDATA[$GLOBALS['time_start']]]></code>
       <code><![CDATA[$GLOBALS['xkana']]]></code>
     </InvalidArrayOffset>
-    <InvalidReturnStatement>
-      <code><![CDATA[$memoryLimit]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[int]]></code>
-    </InvalidReturnType>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['xkana'] ?? '']]></code>
       <code><![CDATA[$dbAlias]]></code>
@@ -13666,7 +13654,6 @@
   </file>
   <file src="tests/unit/FooterTest.php">
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>

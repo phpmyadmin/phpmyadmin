@@ -276,7 +276,7 @@ class Export
         // Some memory is needed for compression, assume 1/3
         $memoryLimit /= 8;
 
-        return $memoryLimit;
+        return (int) $memoryLimit;
     }
 
     /**
