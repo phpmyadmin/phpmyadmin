@@ -37,14 +37,14 @@ function generateCondition (criteriaDiv, table) {
     const tableAlias = table.siblings('.table_alias').val();
 
     var query = '`' + Functions.escapeBacktick(tableAlias === '' ? tableName : tableAlias) + '`.';
-    query += '`' + Functions.escapeBacktick(table.siblings('.columnNameSelect').first().val()) + '`';
+    query += '`' + Functions.escapeBacktick(table.parent().find('.opColumn').first().val()) + '`';
     if (criteriaDiv.find('.criteria_rhs').first().val() === 'text') {
         var formatsText = getFormatsText();
         query += sprintf(formatsText[criteriaDiv.find('.criteria_op').first().val()], Functions.escapeSingleQuote(criteriaDiv.find('.rhs_text_val').first().val()));
     } else {
         query += ' ' + criteriaDiv.find('.criteria_op').first().val();
         query += ' `' + Functions.escapeBacktick(criteriaDiv.find('.tableNameSelect').first().val()) + '`.';
-        query += '`' + Functions.escapeBacktick(criteriaDiv.find('.columnNameSelect').first().val()) + '`';
+        query += '`' + Functions.escapeBacktick(criteriaDiv.find('.opColumn').first().val()) + '`';
     }
     return query;
 }
