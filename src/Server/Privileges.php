@@ -2220,7 +2220,7 @@ class Privileges
      * @param string|null         $password   password
      * @param bool                $isMenuwork is_menuwork set?
      *
-     * @return array{Message|null, string[], string[]|null, string|null, bool}
+     * @return array{Message|null, string[], string[]|null, string, bool}
      */
     public function addUser(
         string|array|null $dbname,
@@ -2232,7 +2232,7 @@ class Privileges
         $message = null;
         $queries = [];
         $queriesForDisplay = null;
-        $sqlQuery = null;
+        $sqlQuery = '';
 
         if (! isset($_POST['adduser_submit']) && ! isset($_POST['change_copy'])) {
             return [
