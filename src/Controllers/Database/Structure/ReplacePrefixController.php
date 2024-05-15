@@ -8,7 +8,7 @@ use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -24,7 +24,7 @@ final class ReplacePrefixController implements InvocableController
     public function __construct(
         private readonly DatabaseInterface $dbi,
         private readonly ResponseFactory $responseFactory,
-        private readonly FlashMessages $flashMessages,
+        private readonly FlashMessenger $flashMessenger,
     ) {
     }
 
@@ -57,7 +57,7 @@ final class ReplacePrefixController implements InvocableController
 
         $GLOBALS['message'] = Message::success();
 
-        $this->flashMessages->addMessage('success', $GLOBALS['message']->getMessage(), $GLOBALS['sql_query']);
+        $this->flashMessenger->addMessage('success', $GLOBALS['message']->getMessage(), $GLOBALS['sql_query']);
 
         return $this->responseFactory->createResponse(StatusCodeInterface::STATUS_FOUND)
             ->withHeader('Location', Url::getFromRoute('/database/structure', ['db' => Current::$database]));

@@ -41,6 +41,7 @@ use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Controllers\View;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -298,7 +299,7 @@ return [
                 '$dbi' => '@dbi',
                 '$relation' => '@relation',
                 '$relationCleanup' => '@relation_cleanup',
-                '$flash' => '@flash',
+                '$flashMessenger' => '@' . FlashMessenger::class,
                 '$structureController' => '@' . Database\StructureController::class,
             ],
         ],
@@ -321,7 +322,7 @@ return [
         ],
         Database\Structure\ReplacePrefixController::class => [
             'class' => Database\Structure\ReplacePrefixController::class,
-            'arguments' => ['@dbi', '@' . ResponseFactory::class, '@flash'],
+            'arguments' => ['@dbi', '@' . ResponseFactory::class, '@' . FlashMessenger::class],
         ],
         Database\Structure\ShowCreateController::class => [
             'class' => Database\Structure\ShowCreateController::class,
@@ -976,7 +977,7 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$dbi' => '@dbi',
-                '$flash' => '@flash',
+                '$flashMessenger' => '@' . FlashMessenger::class,
                 '$relationCleanup' => '@relation_cleanup',
             ],
         ],

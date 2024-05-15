@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig;
 
-use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\FlashMessenger;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-final class FlashMessagesExtension extends AbstractExtension
+final class FlashMessengerExtension extends AbstractExtension
 {
     /** @return TwigFunction[] */
     public function getFunctions(): array
     {
-        return [new TwigFunction('flash', [FlashMessages::class, 'getMessages'])];
+        return [new TwigFunction('flash', [FlashMessenger::class, 'getMessages'])];
     }
 }

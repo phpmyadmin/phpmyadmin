@@ -4,21 +4,21 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\FlashMessenger;
 use PHPUnit\Framework\Attributes\CoversClass;
 use RuntimeException;
 
-#[CoversClass(FlashMessages::class)]
-class FlashMessagesTest extends AbstractTestCase
+#[CoversClass(FlashMessenger::class)]
+final class FlashMessengerTest extends AbstractTestCase
 {
-    private const STORAGE_KEY = 'flashMessages';
+    private const STORAGE_KEY = 'FlashMessenger';
 
     public function testConstructor(): void
     {
         self::assertArrayNotHasKey(self::STORAGE_KEY, $_SESSION);
-        $flash = new FlashMessages();
+        $flashMessenger = new FlashMessenger();
         self::assertIsArray($_SESSION[self::STORAGE_KEY]);
-        self::assertSame([], $flash->getMessages());
+        self::assertSame([], $flashMessenger->getMessages());
     }
 
     public function testConstructorSessionNotFound(): void
@@ -26,14 +26,14 @@ class FlashMessagesTest extends AbstractTestCase
         $_SESSION = null;
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('Session not found.');
-        new FlashMessages();
+        new FlashMessenger();
     }
 
     public function testAddMessage(): void
     {
-        $flash = new FlashMessages();
+        $flashMessenger = new FlashMessenger();
         self::assertArrayNotHasKey('error', $_SESSION[self::STORAGE_KEY]);
-        $flash->addMessage('error', 'Error');
+        $flashMessenger->addMessage('error', 'Error');
         self::assertArrayHasKey('error', $_SESSION[self::STORAGE_KEY]);
         self::assertIsArray($_SESSION[self::STORAGE_KEY]['error']);
         self::assertSame([['message' => 'Error', 'statement' => '']], $_SESSION[self::STORAGE_KEY]['error']);
@@ -41,9 +41,9 @@ class FlashMessagesTest extends AbstractTestCase
 
     public function testAddMessageWithStatement(): void
     {
-        $flash = new FlashMessages();
+        $flashMessenger = new FlashMessenger();
         self::assertArrayNotHasKey('success', $_SESSION[self::STORAGE_KEY]);
-        $flash->addMessage('success', 'Your SQL query has been executed successfully.', 'SELECT 1;');
+        $flashMessenger->addMessage('success', 'Your SQL query has been executed successfully.', 'SELECT 1;');
         self::assertArrayHasKey('success', $_SESSION[self::STORAGE_KEY]);
         self::assertIsArray($_SESSION[self::STORAGE_KEY]['success']);
         self::assertSame(
@@ -55,10 +55,10 @@ class FlashMessagesTest extends AbstractTestCase
     public function testGetMessage(): void
     {
         $_SESSION[self::STORAGE_KEY] = ['warning' => [['message' => 'Warning', 'statement' => '']]];
-        $flash = new FlashMessages();
-        $message = $flash->getMessage('error');
+        $flashMessenger = new FlashMessenger();
+        $message = $flashMessenger->getMessage('error');
         self::assertNull($message);
-        $message = $flash->getMessage('warning');
+        $message = $flashMessenger->getMessage('warning');
         self::assertSame([['message' => 'Warning', 'statement' => '']], $message);
     }
 
@@ -71,9 +71,9 @@ class FlashMessagesTest extends AbstractTestCase
             ],
             'warning' => [['message' => 'Warning', 'statement' => '']],
         ];
-        $flash = new FlashMessages();
-        $flash->addMessage('notice', 'Notice');
-        $messages = $flash->getMessages();
+        $flashMessenger = new FlashMessenger();
+        $flashMessenger->addMessage('notice', 'Notice');
+        $messages = $flashMessenger->getMessages();
         self::assertSame(
             [
                 'error' => [

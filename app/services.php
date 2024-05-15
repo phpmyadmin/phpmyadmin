@@ -24,7 +24,7 @@ use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\FileListing;
-use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\SimulateDml;
@@ -109,7 +109,7 @@ return [
         'export_template_model' => ['class' => TemplateModel::class, 'arguments' => ['@dbi']],
         'expression_language' => ['class' => ExpressionLanguage::class],
         'file_listing' => ['class' => FileListing::class],
-        'flash' => ['class' => FlashMessages::class],
+        FlashMessenger::class => ['class' => FlashMessenger::class],
         'http_request' => ['class' => HttpRequest::class],
         ResponseFactory::class => [
             'class' => ResponseFactory::class,
@@ -223,7 +223,6 @@ return [
         UserPrivilegesFactory::class => ['class' => UserPrivilegesFactory::class, 'arguments' => ['@dbi']],
         'version_information' => ['class' => VersionInformation::class],
         DatabaseInterface::class => 'dbi',
-        PhpMyAdmin\FlashMessages::class => 'flash',
         PhpMyAdmin\ResponseRenderer::class => 'response',
         'bookmarkRepository' => ['class' => BookmarkRepository::class, 'arguments' => ['@dbi', '@relation']],
         'console' => ['class' => Console::class, 'arguments' => [ '@relation', '@template', '@bookmarkRepository']],

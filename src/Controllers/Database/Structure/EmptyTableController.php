@@ -12,7 +12,7 @@ use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -34,7 +34,7 @@ final class EmptyTableController implements InvocableController
         private readonly DatabaseInterface $dbi,
         private readonly Relation $relation,
         private readonly RelationCleanup $relationCleanup,
-        private readonly FlashMessages $flash,
+        private readonly FlashMessenger $flashMessenger,
         private readonly StructureController $structureController,
     ) {
     }
@@ -46,7 +46,7 @@ final class EmptyTableController implements InvocableController
         $selected = $request->getParsedBodyParam('selected', []);
 
         if ($multBtn !== __('Yes')) {
-            $this->flash->addMessage('success', __('No change'));
+            $this->flashMessenger->addMessage('success', __('No change'));
             $this->response->redirectToRoute('/database/structure', ['db' => Current::$database]);
 
             return null;

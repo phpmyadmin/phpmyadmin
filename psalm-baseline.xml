@@ -5942,7 +5942,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
-  <file src="src/FlashMessages.php">
+  <file src="src/FlashMessenger.php">
     <MixedArrayAssignment>
       <code><![CDATA[$this->storage[self::STORAGE_KEY][$key]]]></code>
       <code><![CDATA[$this->storage[self::STORAGE_KEY][$key]]]></code>
@@ -11657,9 +11657,9 @@
       <code><![CDATA[empty($_POST['item_timing'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/Twig/FlashMessagesExtension.php">
+  <file src="src/Twig/FlashMessengerExtension.php">
     <InvalidArgument>
-      <code><![CDATA[[FlashMessages::class, 'getMessages']]]></code>
+      <code><![CDATA[[FlashMessenger::class, 'getMessages']]]></code>
     </InvalidArgument>
   </file>
   <file src="src/TwoFactor.php">
@@ -13639,7 +13639,7 @@
       <code><![CDATA[compressedFiles]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="tests/unit/FlashMessagesTest.php">
+  <file src="tests/unit/FlashMessengerTest.php">
     <InvalidScalarArgument>
       <code><![CDATA[$_SESSION]]></code>
     </InvalidScalarArgument>

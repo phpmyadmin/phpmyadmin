@@ -9,7 +9,7 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Table\DropColumnController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -42,20 +42,20 @@ class DropColumnControllerTest extends AbstractTestCase
         $dummyDbi->addResult('ALTER TABLE `test_table` DROP `name`, DROP `datetimefield`;', true);
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        self::assertArrayNotHasKey('flashMessages', $_SESSION);
+        self::assertArrayNotHasKey('FlashMessenger', $_SESSION);
 
         (new DropColumnController(
             new ResponseRenderer(),
             $dbi,
-            new FlashMessages(),
+            new FlashMessenger(),
             new RelationCleanup($dbi, new Relation($dbi)),
         ))(self::createStub(ServerRequest::class));
 
-        self::assertArrayHasKey('flashMessages', $_SESSION);
+        self::assertArrayHasKey('FlashMessenger', $_SESSION);
         /** @psalm-suppress InvalidArrayOffset */
         self::assertSame(
             ['success' => [['message' => '2 columns have been dropped successfully.', 'statement' => '']]],
-            $_SESSION['flashMessages'],
+            $_SESSION['FlashMessenger'],
         );
     }
 }

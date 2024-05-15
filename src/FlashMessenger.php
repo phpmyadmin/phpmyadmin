@@ -8,9 +8,9 @@ use RuntimeException;
 
 use function __;
 
-final class FlashMessages
+final class FlashMessenger
 {
-    private const STORAGE_KEY = 'flashMessages';
+    private const STORAGE_KEY = 'FlashMessenger';
 
     /** @var mixed[] */
     private array $storage;

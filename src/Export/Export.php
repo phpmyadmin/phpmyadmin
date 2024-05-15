@@ -12,7 +12,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
-use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
@@ -1045,7 +1045,7 @@ class Export
      */
     public function getPageLocationAndSaveMessage(string $exportType, Message $message): string
     {
-        (new FlashMessages())->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
+        (new FlashMessenger())->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
 
         if ($exportType === 'server') {
             return 'index.php?route=/server/export' . Url::getCommonRaw([], '&');

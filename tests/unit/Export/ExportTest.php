@@ -9,7 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
-use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
@@ -244,7 +244,7 @@ SQL;
         self::assertSame('index.php?route=/server/export&server=2&lang=en', $location);
         self::assertSame(
             ['danger' => [['message' => 'Error message!', 'statement' => '']]],
-            (new FlashMessages())->getMessages(),
+            (new FlashMessenger())->getMessages(),
         );
     }
 
@@ -259,7 +259,7 @@ SQL;
         self::assertSame('index.php?route=/server/export&server=2&lang=en', $location);
         self::assertSame(
             ['success' => [['message' => 'Success message!', 'statement' => '']]],
-            (new FlashMessages())->getMessages(),
+            (new FlashMessenger())->getMessages(),
         );
     }
 
@@ -275,7 +275,7 @@ SQL;
         self::assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
         self::assertSame(
             ['danger' => [['message' => 'Error message!', 'statement' => '']]],
-            (new FlashMessages())->getMessages(),
+            (new FlashMessenger())->getMessages(),
         );
     }
 
@@ -291,7 +291,7 @@ SQL;
         self::assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
         self::assertSame(
             ['success' => [['message' => 'Success message!', 'statement' => '']]],
-            (new FlashMessages())->getMessages(),
+            (new FlashMessenger())->getMessages(),
         );
     }
 
@@ -311,7 +311,7 @@ SQL;
         );
         self::assertSame(
             ['danger' => [['message' => 'Error message!', 'statement' => '']]],
-            (new FlashMessages())->getMessages(),
+            (new FlashMessenger())->getMessages(),
         );
     }
 
@@ -331,7 +331,7 @@ SQL;
         );
         self::assertSame(
             ['success' => [['message' => 'Success message!', 'statement' => '']]],
-            (new FlashMessages())->getMessages(),
+            (new FlashMessenger())->getMessages(),
         );
     }
 }
