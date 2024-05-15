@@ -182,6 +182,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 const $colsSelect = $table.parent().find('.columnNameSelect');
 
                 $alias.prop('disabled', true);
+
                 $colsSelect.each(function () {
                     $(this).show();
                     $(this).first().html($('#' + $table.find(':selected').data('hash')).html());
