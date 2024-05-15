@@ -242,7 +242,10 @@ SQL;
         $export = new Export($dbi);
         $location = $export->getPageLocationAndSaveMessage('server', Message::error('Error message!'));
         self::assertSame('index.php?route=/server/export&server=2&lang=en', $location);
-        self::assertSame(['danger' => ['Error message!']], (new FlashMessages())->getMessages());
+        self::assertSame(
+            ['danger' => [['message' => 'Error message!', 'statement' => '']]],
+            (new FlashMessages())->getMessages(),
+        );
     }
 
     public function testGetPageLocationAndSaveMessageForServerExportWithSuccess(): void
@@ -254,7 +257,10 @@ SQL;
         $export = new Export($dbi);
         $location = $export->getPageLocationAndSaveMessage('server', Message::success('Success message!'));
         self::assertSame('index.php?route=/server/export&server=2&lang=en', $location);
-        self::assertSame(['success' => ['Success message!']], (new FlashMessages())->getMessages());
+        self::assertSame(
+            ['success' => [['message' => 'Success message!', 'statement' => '']]],
+            (new FlashMessages())->getMessages(),
+        );
     }
 
     public function testGetPageLocationAndSaveMessageForDatabaseExportWithError(): void
@@ -267,7 +273,10 @@ SQL;
         $export = new Export($dbi);
         $location = $export->getPageLocationAndSaveMessage('database', Message::error('Error message!'));
         self::assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
-        self::assertSame(['danger' => ['Error message!']], (new FlashMessages())->getMessages());
+        self::assertSame(
+            ['danger' => [['message' => 'Error message!', 'statement' => '']]],
+            (new FlashMessages())->getMessages(),
+        );
     }
 
     public function testGetPageLocationAndSaveMessageForDatabaseExportWithSuccess(): void
@@ -280,7 +289,10 @@ SQL;
         $export = new Export($dbi);
         $location = $export->getPageLocationAndSaveMessage('database', Message::success('Success message!'));
         self::assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
-        self::assertSame(['success' => ['Success message!']], (new FlashMessages())->getMessages());
+        self::assertSame(
+            ['success' => [['message' => 'Success message!', 'statement' => '']]],
+            (new FlashMessages())->getMessages(),
+        );
     }
 
     public function testGetPageLocationAndSaveMessageForTableExportWithError(): void
@@ -297,7 +309,10 @@ SQL;
             'index.php?route=/table/export&db=test_db&table=test_table&single_table=true&server=2&lang=en',
             $location,
         );
-        self::assertSame(['danger' => ['Error message!']], (new FlashMessages())->getMessages());
+        self::assertSame(
+            ['danger' => [['message' => 'Error message!', 'statement' => '']]],
+            (new FlashMessages())->getMessages(),
+        );
     }
 
     public function testGetPageLocationAndSaveMessageForTableExportWithSuccess(): void
@@ -314,6 +329,9 @@ SQL;
             'index.php?route=/table/export&db=test_db&table=test_table&single_table=true&server=2&lang=en',
             $location,
         );
-        self::assertSame(['success' => ['Success message!']], (new FlashMessages())->getMessages());
+        self::assertSame(
+            ['success' => [['message' => 'Success message!', 'statement' => '']]],
+            (new FlashMessages())->getMessages(),
+        );
     }
 }

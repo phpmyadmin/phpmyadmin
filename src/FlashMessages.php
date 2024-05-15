@@ -15,7 +15,7 @@ final class FlashMessages
     /** @var mixed[] */
     private array $storage;
 
-    /** @var array<string, string[]> */
+    /** @var array<string, string[][]> */
     private array $previousMessages = [];
 
     public function __construct()
@@ -33,22 +33,22 @@ final class FlashMessages
         $this->storage[self::STORAGE_KEY] = [];
     }
 
-    public function addMessage(string $key, string $message): void
+    public function addMessage(string $key, string $message, string $statement = ''): void
     {
         if (! isset($this->storage[self::STORAGE_KEY][$key])) {
             $this->storage[self::STORAGE_KEY][$key] = [];
         }
 
-        $this->storage[self::STORAGE_KEY][$key][] = $message;
+        $this->storage[self::STORAGE_KEY][$key][] = ['message' => $message, 'statement' => $statement];
     }
 
-    /** @return string[]|null */
+    /** @return string[][]|null */
     public function getMessage(string $key): array|null
     {
         return $this->previousMessages[$key] ?? null;
     }
 
-    /** @return array<string, string[]> */
+    /** @return array<string, string[][]> */
     public function getMessages(): array
     {
         return $this->previousMessages;

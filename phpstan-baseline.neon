@@ -1996,6 +1996,11 @@ parameters:
 			path: src/Controllers/Database/Structure/ReplacePrefixController.php
 
 		-
+			message: "#^Parameter \\#3 \\$statement of method PhpMyAdmin\\\\FlashMessages\\:\\:addMessage\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Database/Structure/ReplacePrefixController.php
+
+		-
 			message: "#^Call to function array_search\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 4
 			path: src/Controllers/Database/StructureController.php
@@ -7471,7 +7476,7 @@ parameters:
 			path: src/FlashMessages.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\FlashMessages\\:\\:\\$previousMessages \\(array\\<string, array\\<string\\>\\>\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\FlashMessages\\:\\:\\$previousMessages \\(array\\<string, array\\<array\\<string\\>\\>\\>\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/FlashMessages.php
 
@@ -15542,12 +15547,12 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$array of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
-			count: 1
+			count: 2
 			path: tests/unit/FlashMessagesTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$array of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
-			count: 1
+			count: 2
 			path: tests/unit/FlashMessagesTest.php
 
 		-

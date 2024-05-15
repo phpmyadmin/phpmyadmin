@@ -13646,10 +13646,14 @@
     <MixedArgument>
       <code><![CDATA[$_SESSION[self::STORAGE_KEY]]]></code>
       <code><![CDATA[$_SESSION[self::STORAGE_KEY]]]></code>
+      <code><![CDATA[$_SESSION[self::STORAGE_KEY]]]></code>
+      <code><![CDATA[$_SESSION[self::STORAGE_KEY]]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[self::STORAGE_KEY]['error']]]></code>
       <code><![CDATA[$_SESSION[self::STORAGE_KEY]['error']]]></code>
+      <code><![CDATA[$_SESSION[self::STORAGE_KEY]['success']]]></code>
+      <code><![CDATA[$_SESSION[self::STORAGE_KEY]['success']]]></code>
     </MixedArrayAccess>
   </file>
   <file src="tests/unit/FooterTest.php">

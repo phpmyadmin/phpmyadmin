@@ -390,7 +390,6 @@ class Generator
      *
      * @param Message|string $message  the message to display
      * @param string|null    $sqlQuery the query to display
-     * @param MessageType    $type     the type (level) of the message
      *
      * @throws Throwable
      * @throws LoaderError
@@ -400,7 +399,7 @@ class Generator
     public static function getMessage(
         Message|string $message,
         string|null $sqlQuery = null,
-        MessageType $type = MessageType::Notice,
+        MessageType|string $type = MessageType::Notice,
     ): string {
         $retval = '';
 
@@ -423,6 +422,14 @@ class Generator
         }
 
         if (is_string($message)) {
+            if (is_string($type)) {
+                $type = match ($type) {
+                    'success' => MessageType::Success,
+                    'error' => MessageType::Error,
+                    default => MessageType::Notice,
+                };
+            }
+
             $message = new Message($message, $type);
         }
 

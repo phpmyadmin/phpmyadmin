@@ -53,6 +53,9 @@ class DropColumnControllerTest extends AbstractTestCase
 
         self::assertArrayHasKey('flashMessages', $_SESSION);
         /** @psalm-suppress InvalidArrayOffset */
-        self::assertSame(['success' => ['2 columns have been dropped successfully.']], $_SESSION['flashMessages']);
+        self::assertSame(
+            ['success' => [['message' => '2 columns have been dropped successfully.', 'statement' => '']]],
+            $_SESSION['flashMessages'],
+        );
     }
 }

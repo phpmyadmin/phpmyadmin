@@ -321,7 +321,7 @@ return [
         ],
         Database\Structure\ReplacePrefixController::class => [
             'class' => Database\Structure\ReplacePrefixController::class,
-            'arguments' => ['$dbi' => '@dbi', '$structureController' => '@' . Database\StructureController::class],
+            'arguments' => ['@dbi', '@' . ResponseFactory::class, '@flash'],
         ],
         Database\Structure\ShowCreateController::class => [
             'class' => Database\Structure\ShowCreateController::class,
