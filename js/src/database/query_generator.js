@@ -51,7 +51,7 @@ function generateCondition (criteriaDiv, table) {
     const op = criteriaDiv.find('.criteria_op').first().val();
 
     var query = '`' + Functions.escapeBacktick(tableAlias === '' ? tableName : tableAlias) + '`.';
-    query += '`' + Functions.escapeBacktick(table.siblings('.columnNameSelect').first().val()) + '`';
+    query += '`' + Functions.escapeBacktick(table.parent().find('.opColumn').first().val()) + '`';
     if (criteriaDiv.find('.criteria_rhs').first().val() === 'text') {
         if (isOpWithoutArg(op)) {
             query += ' ' + op;
@@ -62,7 +62,7 @@ function generateCondition (criteriaDiv, table) {
     } else {
         query += ' ' + op;
         query += ' `' + Functions.escapeBacktick(criteriaDiv.find('.tableNameSelect').first().val()) + '`.';
-        query += '`' + Functions.escapeBacktick(criteriaDiv.find('.columnNameSelect').first().val()) + '`';
+        query += '`' + Functions.escapeBacktick(criteriaDiv.find('.opColumn').first().val()) + '`';
     }
     return query;
 }
