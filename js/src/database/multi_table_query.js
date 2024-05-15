@@ -177,15 +177,19 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
     function addNewColumnCallbacks () {
         $('.tableNameSelect').each(function () {
             $(this).on('change', function () {
-                var $sibs = $(this).siblings('.columnNameSelect');
-                const $alias = $(this).siblings('.col_alias');
+                const $table = $(this);
+                const $alias = $table.siblings('.col_alias');
+                const $colsSelect = $table.parent().find('.columnNameSelect');
 
-                if ($sibs.length === 0) {
-                    $sibs = $(this).parent().parent().find('.columnNameSelect');
-                }
-
-                $sibs.first().html($('#' + $(this).find(':selected').data('hash')).html());
                 $alias.prop('disabled', true);
+
+                $colsSelect.each(function () {
+                    $(this).show();
+                    $(this).first().html($('#' + $table.find(':selected').data('hash')).html());
+                    if ($(this).hasClass('opColumn')) {
+                        $(this).find('option[value="*"]').remove();
+                    }
+                });
             });
         });
 
