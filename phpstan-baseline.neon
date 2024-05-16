@@ -1151,6 +1151,11 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
+			message: "#^Offset 'bookmarktable'\\|'central_columns'\\|'column_info'\\|'designer_settings'\\|'export_templates'\\|'favorite'\\|'history'\\|'navigationhiding'\\|'recent'\\|'relation'\\|'savedsearches'\\|'table_uiprefs'\\|'tracking'\\|'userconfig' on array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
 			message: "#^Offset 'central_columns' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
@@ -1187,6 +1192,11 @@ parameters:
 
 		-
 			message: "#^Offset 'pdf_pages' on \\*NEVER\\* on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'pdf_pages'\\|'relation'\\|'table_coords'\\|'table_info'\\|'usergroups'\\|'users' on array\\{host\\: string, port\\: string, socket\\: string, ssl\\: bool, ssl_key\\: string\\|null, ssl_cert\\: string\\|null, ssl_ca\\: string\\|null, ssl_ca_path\\: string\\|null, \\.\\.\\.\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
 
@@ -2071,11 +2081,6 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given\\.$#"
-			count: 4
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Database/StructureController.php
@@ -2542,11 +2547,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$showGitRevision of class PhpMyAdmin\\\\Git constructor expects bool, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/HomeController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given\\.$#"
 			count: 1
 			path: src/Controllers/HomeController.php
 
@@ -3901,11 +3901,6 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: "#^Parameter \\#1 \\$files of method PhpMyAdmin\\\\ResponseRenderer\\:\\:addScriptFiles\\(\\) expects array\\<int, string\\>, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
@@ -5191,11 +5186,6 @@ parameters:
 			path: src/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given\\.$#"
-			count: 1
-			path: src/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Parameter \\#1 \\$datetime of function strtotime expects string, int\\|string given\\.$#"
 			count: 3
 			path: src/Controllers/Table/StructureController.php
@@ -5444,11 +5434,6 @@ parameters:
 			message: "#^Parameter \\#3 \\$name of method PhpMyAdmin\\\\Triggers\\\\Triggers\\:\\:getTriggerByName\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Triggers/IndexController.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given\\.$#"
-			count: 1
-			path: src/Controllers/UserPasswordController.php
 
 		-
 			message: "#^Parameter \\#1 \\$password of method PhpMyAdmin\\\\UserPassword\\:\\:changePassword\\(\\) expects string, mixed given\\.$#"
@@ -7971,11 +7956,6 @@ parameters:
 			path: src/Header.php
 
 		-
-			message: "#^Only booleans are allowed in a ternary operator condition, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given\\.$#"
-			count: 1
-			path: src/Header.php
-
-		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Header.php
@@ -8416,11 +8396,6 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: "#^Binary operation \"\\*\" between array\\<non\\-empty\\-array\\<0\\|1\\|2\\|3\\|'AllowDeny'\\|'AllowNoPassword'\\|'AllowRoot'\\|'auth_http_realm'\\|'auth_type'\\|'bookmarktable'\\|'central_columns'\\|'column_info'\\|'compress'\\|'control_compress'\\|'control_hide…'\\|'control_socket'\\|'control_ssl'\\|'control_ssl_ca'\\|'control_ssl_ca_path'\\|'control_ssl_cert'\\|'control_ssl_ciphers'\\|'control_ssl_key'\\|'control_ssl_verify'\\|'controlhost'\\|'controlpass'\\|'controlport'\\|'controluser'\\|'designer_settings'\\|'DisableIS'\\|'export_templates'\\|'favorite'\\|'hide_db'\\|'history'\\|'host'\\|'LogoutURL'\\|'MaxTableUiprefs'\\|'navigationhiding'\\|'only_db'\\|'password'\\|'pdf_pages'\\|'pmadb'\\|'port'\\|'recent'\\|'relation'\\|'savedsearches'\\|'SessionTimeZone'\\|'SignonCookieParams'\\|'SignonScript'\\|'SignonSession'\\|'SignonURL'\\|'socket'\\|'ssl'\\|'ssl_ca'\\|'ssl_ca_path'\\|'ssl_cert'\\|'ssl_ciphers'\\|'ssl_key'\\|'ssl_verify'\\|'table_coords'\\|'table_info'\\|'table_uiprefs'\\|'tracking'\\|'user'\\|'userconfig'\\|'usergroups'\\|'users'\\|'verbose'\\|'wrapper_link'\\|'wrapper_params', array\\<array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string and 2 results in an error\\.$#"
-			count: 2
-			path: src/InsertEdit.php
-
-		-
 			message: "#^Cannot access offset 'relational_display' on mixed\\.$#"
 			count: 1
 			path: src/InsertEdit.php
@@ -8491,11 +8466,6 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: "#^Only booleans are allowed in &&, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given on the left side\\.$#"
-			count: 1
-			path: src/InsertEdit.php
-
-		-
 			message: "#^Only booleans are allowed in &&, string\\|null given on the left side\\.$#"
 			count: 1
 			path: src/InsertEdit.php
@@ -8513,11 +8483,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
 			count: 2
-			path: src/InsertEdit.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given\\.$#"
-			count: 1
 			path: src/InsertEdit.php
 
 		-
@@ -8666,16 +8631,6 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#4 \\$fieldsize of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlInput\\(\\) expects int, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given\\.$#"
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#5 \\$max of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects int\\|null, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given\\.$#"
-			count: 1
-			path: src/InsertEdit.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 3
 			path: src/InsertEdit.php
@@ -8781,34 +8736,9 @@ parameters:
 			path: src/ListDatabase.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function strtr expects string, array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string given\\.$#"
-			count: 1
-			path: src/ListDatabase.php
-
-		-
 			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(mixed, mixed\\)\\: int, Closure\\(string, string\\)\\: int\\<\\-1, 1\\> given\\.$#"
 			count: 1
 			path: src/ListDatabase.php
-
-		-
-			message: "#^Parameter \\#2 \\$likeDbName of method PhpMyAdmin\\\\ListDatabase\\:\\:retrieve\\(\\) expects string\\|null, array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string given\\.$#"
-			count: 1
-			path: src/ListDatabase.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string given\\.$#"
-			count: 1
-			path: src/ListDatabase.php
-
-		-
-			message: "#^Binary operation \"\\.\" between '\\:' and non\\-empty\\-array\\<array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string\\>\\|int\\<1, max\\>\\|non\\-falsy\\-string\\|true results in an error\\.$#"
-			count: 1
-			path: src/Menu.php
-
-		-
-			message: "#^Binary operation \"\\.\\=\" between array\\<array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string\\>\\|bool\\|int\\<1, max\\>\\|string\\|null and mixed results in an error\\.$#"
-			count: 1
-			path: src/Menu.php
 
 		-
 			message: "#^Cannot access offset 'icon' on mixed\\.$#"
@@ -8871,17 +8801,7 @@ parameters:
 			path: src/Navigation/Navigation.php
 
 		-
-			message: "#^Only booleans are allowed in &&, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given on the left side\\.$#"
-			count: 1
-			path: src/Navigation/Navigation.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
-			count: 1
-			path: src/Navigation/Navigation.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, array\\<array\\<int\\|string, array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string given\\.$#"
 			count: 1
 			path: src/Navigation/Navigation.php
 
@@ -9046,11 +8966,6 @@ parameters:
 			path: src/Navigation/NavigationTree.php
 
 		-
-			message: "#^Argument of an invalid type array\\<array\\<string\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\<1, max\\>\\|string\\|null supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: src/Navigation/Nodes/Node.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 4
 			path: src/Navigation/Nodes/Node.php
@@ -9078,11 +8993,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$haystack of function strstr expects string, string\\|null given\\.$#"
 			count: 4
-			path: src/Navigation/Nodes/Node.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string given\\.$#"
-			count: 1
 			path: src/Navigation/Nodes/Node.php
 
 		-
@@ -9617,7 +9527,7 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins.php
 
 		-
@@ -9653,11 +9563,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$name of static method PhpMyAdmin\\\\Plugins\\:\\:getString\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 2
-			path: src/Plugins.php
-
-		-
-			message: "#^Parameter \\#1 \\$search of function str_replace expects array\\|string, mixed given\\.$#"
-			count: 1
 			path: src/Plugins.php
 
 		-
@@ -12821,18 +12726,8 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: "#^Binary operation \"\\.\" between '  \\(' and non\\-empty\\-array\\<array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string\\>\\|int\\<1, max\\>\\|non\\-falsy\\-string\\|true results in an error\\.$#"
-			count: 1
-			path: src/Server/Select.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 5
-			path: src/Server/Select.php
-
-		-
-			message: "#^Parameter \\#2 \\$array of function implode expects array\\<string\\>, array\\<array\\<string\\>\\|bool\\|int\\|string\\> given\\.$#"
-			count: 1
 			path: src/Server/Select.php
 
 		-
@@ -13039,26 +12934,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Processes\\:\\:getList\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Server/Status/Processes.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\SysInfo\\\\Linux\\:\\:memory\\(\\) should return array\\<string, int\\> but returns array\\<int\\>\\.$#"
-			count: 1
-			path: src/Server/SysInfo/Linux.php
-
-		-
-			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(mixed\\)\\: mixed\\)\\|null, Closure\\(array\\|bool\\|float\\|int\\|resource\\|string\\|null, int\\=\\)\\: int given\\.$#"
-			count: 1
-			path: src/Server/SysInfo/Linux.php
-
-		-
-			message: "#^Parameter \\#1 \\$keys of function array_combine expects array\\<int\\|string\\>, mixed given\\.$#"
-			count: 1
-			path: src/Server/SysInfo/Linux.php
-
-		-
-			message: "#^Parameter \\#2 \\$values of function array_combine expects array, mixed given\\.$#"
-			count: 1
-			path: src/Server/SysInfo/Linux.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false\\|null given\\.$#"
@@ -14456,7 +14331,7 @@ parameters:
 			path: src/Util.php
 
 		-
-			message: "#^Binary operation \"\\.\" between non\\-empty\\-string and array\\<non\\-empty\\-array\\<0\\|1\\|2\\|3\\|'AllowDeny'\\|'AllowNoPassword'\\|'AllowRoot'\\|'auth_http_realm'\\|'auth_type'\\|'bookmarktable'\\|'central_columns'\\|'column_info'\\|'compress'\\|'control_compress'\\|'control_hide…'\\|'control_socket'\\|'control_ssl'\\|'control_ssl_ca'\\|'control_ssl_ca_path'\\|'control_ssl_cert'\\|'control_ssl_ciphers'\\|'control_ssl_key'\\|'control_ssl_verify'\\|'controlhost'\\|'controlpass'\\|'controlport'\\|'controluser'\\|'designer_settings'\\|'DisableIS'\\|'export_templates'\\|'favorite'\\|'hide_db'\\|'history'\\|'host'\\|'LogoutURL'\\|'MaxTableUiprefs'\\|'navigationhiding'\\|'only_db'\\|'password'\\|'pdf_pages'\\|'pmadb'\\|'port'\\|'recent'\\|'relation'\\|'savedsearches'\\|'SessionTimeZone'\\|'SignonCookieParams'\\|'SignonScript'\\|'SignonSession'\\|'SignonURL'\\|'socket'\\|'ssl'\\|'ssl_ca'\\|'ssl_ca_path'\\|'ssl_cert'\\|'ssl_ciphers'\\|'ssl_key'\\|'ssl_verify'\\|'table_coords'\\|'table_info'\\|'table_uiprefs'\\|'tracking'\\|'user'\\|'userconfig'\\|'usergroups'\\|'users'\\|'verbose'\\|'wrapper_link'\\|'wrapper_params', array\\<array\\<string\\>\\|bool\\|int\\<0, max\\>\\|string\\>\\|bool\\|int\\|string\\|null\\>\\|bool\\|int\\|string\\>\\|bool\\|int\\|string results in an error\\.$#"
+			message: "#^Binary operation \"\\.\" between non\\-empty\\-string and array\\<string\\>\\|string\\|false results in an error\\.$#"
 			count: 1
 			path: src/Util.php
 
@@ -14527,6 +14402,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Util\\:\\:getTableListPosition\\(\\) should return int but returns mixed\\.$#"
+			count: 1
+			path: src/Util.php
+
+		-
+			message: "#^Offset int\\<1, 6\\> on array\\{string, string, string, string, string, string, string\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: src/Util.php
 
