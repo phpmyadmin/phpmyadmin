@@ -399,7 +399,7 @@ class Generator
     public static function getMessage(
         Message|string $message,
         string|null $sqlQuery = null,
-        MessageType|string $type = MessageType::Notice,
+        MessageType $type = MessageType::Notice,
     ): string {
         $retval = '';
 
@@ -422,14 +422,6 @@ class Generator
         }
 
         if (is_string($message)) {
-            if (is_string($type)) {
-                $type = match ($type) {
-                    'success' => MessageType::Success,
-                    'error' => MessageType::Error,
-                    default => MessageType::Notice,
-                };
-            }
-
             $message = new Message($message, $type);
         }
 
