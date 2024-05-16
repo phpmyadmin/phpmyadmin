@@ -17,6 +17,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Tracking\LogType;
 use PhpMyAdmin\Tracking\TrackedDataType;
 use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Tracking\Tracking;
@@ -30,7 +31,6 @@ use function __;
 use function array_map;
 use function explode;
 use function htmlspecialchars;
-use function in_array;
 use function is_array;
 use function mb_strlen;
 use function sprintf;
@@ -107,7 +107,7 @@ final class TrackingController implements InvocableController
         /** @var string $tableParam */
         $tableParam = $request->getParsedBodyParam('table');
 
-        $logType = $this->validateLogTypeParam($request->getParsedBodyParam('log_type'));
+        $logType = LogType::tryFrom((string) $request->getParsedBodyParam('log_type')) ?? LogType::SchemaAndData;
 
         $message = '';
         $sqlDump = '';
@@ -271,12 +271,6 @@ final class TrackingController implements InvocableController
         ]);
 
         return null;
-    }
-
-    /** @psalm-return 'schema'|'data'|'schema_and_data' */
-    private function validateLogTypeParam(mixed $param): string
-    {
-        return in_array($param, ['schema', 'data'], true) ? $param : 'schema_and_data';
     }
 
     private function validateDateTimeParam(mixed $param): DateTimeImmutable

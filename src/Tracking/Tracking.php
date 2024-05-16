@@ -191,12 +191,11 @@ class Tracking
      * @param TrackedData $trackedData data
      * @param mixed[]     $urlParams   url params
      * @param string[]    $filterUsers filter users
-     * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      */
     public function getHtmlForTrackingReport(
         TrackedData $trackedData,
         array $urlParams,
-        string $logType,
+        LogType $logType,
         array $filterUsers,
         string $version,
         DateTimeImmutable $dateFrom,
@@ -266,24 +265,22 @@ class Tracking
 
     /**
      * Generate HTML element for report form
-     *
-     * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      */
     public function getHtmlForElementsOfTrackingReport(
-        string $logType,
+        LogType $logType,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
         string $users,
     ): string {
         $str1 = '<select name="log_type">'
             . '<option value="schema"'
-            . ($logType === 'schema' ? ' selected="selected"' : '') . '>'
+            . ($logType === LogType::Schema ? ' selected="selected"' : '') . '>'
             . __('Structure only') . '</option>'
             . '<option value="data"'
-            . ($logType === 'data' ? ' selected="selected"' : '') . '>'
+            . ($logType === LogType::Data ? ' selected="selected"' : '') . '>'
             . __('Data only') . '</option>'
             . '<option value="schema_and_data"'
-            . ($logType === 'schema_and_data' ? ' selected="selected"' : '') . '>'
+            . ($logType === LogType::SchemaAndData ? ' selected="selected"' : '') . '>'
             . __('Structure and data') . '</option>'
             . '</select>';
         $str2 = '<input type="text" name="date_from" value="'
@@ -312,14 +309,13 @@ class Tracking
      * @param mixed[]     $urlParams       url params
      * @param string[]    $filterUsers     filter users
      * @param string      $dropImageOrText HTML for image or text
-     * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      *
      * @return string HTML for form
      */
     public function getHtmlForTrackingReportExportForm1(
         TrackedData $trackedData,
         array $urlParams,
-        string $logType,
+        LogType $logType,
         array $filterUsers,
         string $htmlForElementsOfTrackingReport,
         string $dropImageOrText,
@@ -334,7 +330,7 @@ class Tracking
 
         $html .= $htmlForElementsOfTrackingReport;
 
-        if ($logType === 'schema' || $logType === 'schema_and_data' && $trackedData->ddlog !== []) {
+        if ($logType === LogType::Schema || $logType === LogType::SchemaAndData && $trackedData->ddlog !== []) {
             [$temp, $ddlogCount] = $this->getHtmlForDataDefinitionStatements(
                 $trackedData,
                 $filterUsers,
@@ -349,7 +345,7 @@ class Tracking
         }
 
         // Secondly, list tracked data manipulation statements
-        if (($logType === 'data' || $logType === 'schema_and_data') && $trackedData->dmlog !== []) {
+        if (($logType === LogType::Data || $logType === LogType::SchemaAndData) && $trackedData->dmlog !== []) {
             $html .= $this->getHtmlForDataManipulationStatements(
                 $trackedData,
                 $filterUsers,
@@ -371,14 +367,13 @@ class Tracking
      * Generate HTML for export form
      *
      * @param mixed[] $urlParams Parameters
-     * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      *
      * @return string HTML for form
      */
     public function getHtmlForTrackingReportExportForm2(
         array $urlParams,
         string $htmlForElementsOfTrackingReport,
-        string $logType,
+        LogType $logType,
         string $version,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
@@ -394,7 +389,7 @@ class Tracking
         $html .= Url::getHiddenInputs($urlParams + [
             'report' => 'true',
             'version' => $version,
-            'log_type' => $logType,
+            'log_type' => $logType->value,
             'date_from' => $dateFrom->format('Y-m-d H:i:s'),
             'date_to' => $dateTo->format('Y-m-d H:i:s'),
             'users' => $users,
@@ -1033,20 +1028,19 @@ class Tracking
      * Function to get the entries
      *
      * @param string[] $filterUsers filter users
-     * @phpstan-param 'schema'|'data'|'schema_and_data' $logType
      *
      * @return mixed[]
      */
     public function getEntries(
         TrackedData $trackedData,
         array $filterUsers,
-        string $logType,
+        LogType $logType,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
     ): array {
         $entries = [];
         // Filtering data definition statements
-        if ($logType === 'schema' || $logType === 'schema_and_data') {
+        if ($logType === LogType::Schema || $logType === LogType::SchemaAndData) {
             $entries = array_merge(
                 $entries,
                 $this->filter($trackedData->ddlog, $filterUsers, $dateFrom, $dateTo),
@@ -1054,7 +1048,7 @@ class Tracking
         }
 
         // Filtering data manipulation statements
-        if ($logType === 'data' || $logType === 'schema_and_data') {
+        if ($logType === LogType::Data || $logType === LogType::SchemaAndData) {
             $entries = array_merge(
                 $entries,
                 $this->filter($trackedData->dmlog, $filterUsers, $dateFrom, $dateTo),

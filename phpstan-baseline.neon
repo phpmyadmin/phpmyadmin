@@ -5216,6 +5216,11 @@ parameters:
 			path: src/Controllers/Table/TrackingController.php
 
 		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: src/Controllers/Table/TrackingController.php
+
+		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/TrackingController.php
