@@ -13,28 +13,21 @@ final class FlashMessengerTest extends AbstractTestCase
 {
     private const STORAGE_KEY = 'FlashMessenger';
 
-    public function testConstructor(): void
-    {
-        self::assertArrayNotHasKey(self::STORAGE_KEY, $_SESSION);
-        $flashMessenger = new FlashMessenger();
-        self::assertIsArray($_SESSION[self::STORAGE_KEY]);
-        self::assertSame([], $flashMessenger->getMessages());
-    }
-
-    public function testConstructorSessionNotFound(): void
+    public function testSessionNotFoundException(): void
     {
         $_SESSION = null;
+        $flashMessenger = new FlashMessenger();
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('Session not found.');
-        new FlashMessenger();
+        $flashMessenger->getCurrentMessages();
     }
 
     public function testAddMessage(): void
     {
+        unset($_SESSION[self::STORAGE_KEY]);
         $flashMessenger = new FlashMessenger();
-        self::assertSame([], $_SESSION[self::STORAGE_KEY]);
+        self::assertArrayNotHasKey(self::STORAGE_KEY, $_SESSION);
         $flashMessenger->addMessage('error', 'Error');
-        /** @psalm-suppress DocblockTypeContradiction addMessage() mutates $_SESSION[self::STORAGE_KEY] */
         self::assertSame(
             [['context' => 'error', 'message' => 'Error', 'statement' => '']],
             $_SESSION[self::STORAGE_KEY],
@@ -43,10 +36,10 @@ final class FlashMessengerTest extends AbstractTestCase
 
     public function testAddMessageWithStatement(): void
     {
+        unset($_SESSION[self::STORAGE_KEY]);
         $flashMessenger = new FlashMessenger();
-        self::assertSame([], $_SESSION[self::STORAGE_KEY]);
+        self::assertArrayNotHasKey(self::STORAGE_KEY, $_SESSION);
         $flashMessenger->addMessage('success', 'Success!', 'SELECT 1;');
-        /** @psalm-suppress DocblockTypeContradiction addMessage() mutates $_SESSION[self::STORAGE_KEY] */
         self::assertSame(
             [['context' => 'success', 'message' => 'Success!', 'statement' => 'SELECT 1;']],
             $_SESSION[self::STORAGE_KEY],
@@ -55,7 +48,7 @@ final class FlashMessengerTest extends AbstractTestCase
 
     public function testGetMessages(): void
     {
-        $_SESSION[self::STORAGE_KEY] = [];
+        unset($_SESSION[self::STORAGE_KEY]);
         $flashMessengerOne = new FlashMessenger();
         self::assertSame([], $flashMessengerOne->getCurrentMessages());
         $flashMessengerOne->addMessage('error', 'Error1');

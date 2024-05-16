@@ -5950,7 +5950,7 @@
       <code><![CDATA[$this->previousMessages]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code><![CDATA[list<array{context: string, message: string, statement: string}>]]></code>
+      <code><![CDATA[FlashMessageList]]></code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$this->storage[self::STORAGE_KEY]]]></code>
@@ -13643,11 +13643,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[compressedFiles]]></code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/unit/FlashMessengerTest.php">
-    <InvalidScalarArgument>
-      <code><![CDATA[$_SESSION]]></code>
-    </InvalidScalarArgument>
   </file>
   <file src="tests/unit/FooterTest.php">
     <DeprecatedMethod>

@@ -8,18 +8,24 @@ use RuntimeException;
 
 use function __;
 
+/** @psalm-type FlashMessageList = list<array{context: string, message: string, statement: string}> */
 final class FlashMessenger
 {
     private const STORAGE_KEY = 'FlashMessenger';
 
     /** @var mixed[] */
-    private array $storage;
+    private array|null $storage = null;
 
-    /** @psalm-var list<array{context: string, message: string, statement: string}> */
+    /** @psalm-var FlashMessageList */
     private array $previousMessages = [];
 
-    public function __construct()
+    /** @psalm-assert !null $this->storage */
+    private function initSessionStorage(): void
     {
+        if ($this->storage !== null) {
+            return;
+        }
+
         if (! isset($_SESSION)) {
             throw new RuntimeException(__('Session not found.'));
         }
@@ -35,18 +41,24 @@ final class FlashMessenger
 
     public function addMessage(string $context, string $message, string $statement = ''): void
     {
+        $this->initSessionStorage();
+
         $this->storage[self::STORAGE_KEY][] = ['context' => $context, 'message' => $message, 'statement' => $statement];
     }
 
-    /** @psalm-return list<array{context: string, message: string, statement: string}> */
+    /** @psalm-return FlashMessageList */
     public function getMessages(): array
     {
+        $this->initSessionStorage();
+
         return $this->previousMessages;
     }
 
-    /** @psalm-return list<array{context: string, message: string, statement: string}> */
+    /** @psalm-return FlashMessageList */
     public function getCurrentMessages(): array
     {
+        $this->initSessionStorage();
+
         return $this->storage[self::STORAGE_KEY];
     }
 }
