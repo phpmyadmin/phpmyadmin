@@ -13,6 +13,6 @@ final class FlashMessengerExtension extends AbstractExtension
     /** @return TwigFunction[] */
     public function getFunctions(): array
     {
-        return [new TwigFunction('flash', [FlashMessenger::class, 'getMessages'])];
+        return [new TwigFunction('flash_messages', [FlashMessenger::class, 'getMessages'])];
     }
 }

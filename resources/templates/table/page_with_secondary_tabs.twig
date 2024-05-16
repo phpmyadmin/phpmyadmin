@@ -14,15 +14,7 @@
   </ul>
 {% endif %}
 
-{% for flash_message in flash() %}
-  {% if flash_message.statement is empty %}
-    <div class="alert alert-{{ flash_message.context }}" role="alert">
-      {{ flash_message.message }}
-    </div>
-  {% else %}
-    {{ statement_message(flash_message.message, flash_message.statement, flash_message.context) }}
-  {% endif %}
-{% endfor %}
+{{ include('components/flash_messages.twig', with_context = false) }}
 
 <div id="structure_content">
   {% block content %}{% endblock %}
