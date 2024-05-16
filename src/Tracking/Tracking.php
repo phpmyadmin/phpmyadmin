@@ -211,7 +211,7 @@ class Tracking
             . htmlspecialchars($trackedData->tracking) . '</small><br>';
         $html .= '<br>';
 
-        [$str1, $str2, $str3, $str4, $str5] = $this->getHtmlForElementsOfTrackingReport(
+        $htmlForElementsOfTrackingReport = $this->getHtmlForElementsOfTrackingReport(
             $logType,
             $dateFrom,
             $dateTo,
@@ -242,11 +242,7 @@ class Tracking
             $urlParams,
             $logType,
             $filterUsers,
-            $str1,
-            $str2,
-            $str3,
-            $str4,
-            $str5,
+            $htmlForElementsOfTrackingReport,
             $dropImageOrText,
             $version,
             $dateFrom,
@@ -255,11 +251,7 @@ class Tracking
 
         $html .= $this->getHtmlForTrackingReportExportForm2(
             $urlParams,
-            $str1,
-            $str2,
-            $str3,
-            $str4,
-            $str5,
+            $htmlForElementsOfTrackingReport,
             $logType,
             $version,
             $dateFrom,
@@ -276,15 +268,13 @@ class Tracking
      * Generate HTML element for report form
      *
      * @psalm-param 'schema'|'data'|'schema_and_data' $logType
-     *
-     * @return string[]
      */
     public function getHtmlForElementsOfTrackingReport(
         string $logType,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
         string $users,
-    ): array {
+    ): string {
         $str1 = '<select name="log_type">'
             . '<option value="schema"'
             . ($logType === 'schema' ? ' selected="selected"' : '') . '>'
@@ -305,7 +295,14 @@ class Tracking
         $str5 = '<input type="hidden" name="list_report" value="1">'
             . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
 
-        return [$str1, $str2, $str3, $str4, $str5];
+        return sprintf(
+            __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
+            $str1,
+            $str2,
+            $str3,
+            $str4,
+            $str5,
+        );
     }
 
     /**
@@ -314,11 +311,6 @@ class Tracking
      * @param TrackedData $trackedData     data
      * @param mixed[]     $urlParams       url params
      * @param string[]    $filterUsers     filter users
-     * @param string      $str1            HTML for log_type select
-     * @param string      $str2            HTML for "from date"
-     * @param string      $str3            HTML for "to date"
-     * @param string      $str4            HTML for user
-     * @param string      $str5            HTML for "list report"
      * @param string      $dropImageOrText HTML for image or text
      * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      *
@@ -329,11 +321,7 @@ class Tracking
         array $urlParams,
         string $logType,
         array $filterUsers,
-        string $str1,
-        string $str2,
-        string $str3,
-        string $str4,
-        string $str5,
+        string $htmlForElementsOfTrackingReport,
         string $dropImageOrText,
         string $version,
         DateTimeImmutable $dateFrom,
@@ -344,14 +332,7 @@ class Tracking
         $html = '<form method="post" action="' . Url::getFromRoute('/table/tracking') . '">';
         $html .= Url::getHiddenInputs($urlParams + ['report' => 'true', 'version' => $version]);
 
-        $html .= sprintf(
-            __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
-            $str1,
-            $str2,
-            $str3,
-            $str4,
-            $str5,
-        );
+        $html .= $htmlForElementsOfTrackingReport;
 
         if ($logType === 'schema' || $logType === 'schema_and_data' && $trackedData->ddlog !== []) {
             [$temp, $ddlogCount] = $this->getHtmlForDataDefinitionStatements(
@@ -390,22 +371,13 @@ class Tracking
      * Generate HTML for export form
      *
      * @param mixed[] $urlParams Parameters
-     * @param string  $str1      HTML for log_type select
-     * @param string  $str2      HTML for "from date"
-     * @param string  $str3      HTML for "to date"
-     * @param string  $str4      HTML for user
-     * @param string  $str5      HTML for "list report"
      * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      *
      * @return string HTML for form
      */
     public function getHtmlForTrackingReportExportForm2(
         array $urlParams,
-        string $str1,
-        string $str2,
-        string $str3,
-        string $str4,
-        string $str5,
+        string $htmlForElementsOfTrackingReport,
         string $logType,
         string $version,
         DateTimeImmutable $dateFrom,
@@ -415,14 +387,7 @@ class Tracking
         $html = '<form method="post" action="' . Url::getFromRoute('/table/tracking') . '">';
         $html .= Url::getHiddenInputs($urlParams + ['report' => 'true', 'version' => $version]);
 
-        $html .= sprintf(
-            __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
-            $str1,
-            $str2,
-            $str3,
-            $str4,
-            $str5,
-        );
+        $html .= $htmlForElementsOfTrackingReport;
         $html .= '</form>';
 
         $html .= '<form class="disableAjax" method="post" action="' . Url::getFromRoute('/table/tracking') . '">';
