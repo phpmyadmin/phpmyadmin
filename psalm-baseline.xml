@@ -5944,12 +5944,17 @@
   </file>
   <file src="src/FlashMessenger.php">
     <MixedArrayAssignment>
-      <code><![CDATA[$this->storage[self::STORAGE_KEY][$key]]]></code>
-      <code><![CDATA[$this->storage[self::STORAGE_KEY][$key]]]></code>
+      <code><![CDATA[$this->storage[self::STORAGE_KEY][]]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$this->previousMessages]]></code>
     </MixedAssignment>
+    <MixedInferredReturnType>
+      <code><![CDATA[list<array{context: string, message: string, statement: string}>]]></code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement>
+      <code><![CDATA[$this->storage[self::STORAGE_KEY]]]></code>
+    </MixedReturnStatement>
   </file>
   <file src="src/Font.php">
     <MixedArgument>
@@ -13643,18 +13648,6 @@
     <InvalidScalarArgument>
       <code><![CDATA[$_SESSION]]></code>
     </InvalidScalarArgument>
-    <MixedArgument>
-      <code><![CDATA[$_SESSION[self::STORAGE_KEY]]]></code>
-      <code><![CDATA[$_SESSION[self::STORAGE_KEY]]]></code>
-      <code><![CDATA[$_SESSION[self::STORAGE_KEY]]]></code>
-      <code><![CDATA[$_SESSION[self::STORAGE_KEY]]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[self::STORAGE_KEY]['error']]]></code>
-      <code><![CDATA[$_SESSION[self::STORAGE_KEY]['error']]]></code>
-      <code><![CDATA[$_SESSION[self::STORAGE_KEY]['success']]]></code>
-      <code><![CDATA[$_SESSION[self::STORAGE_KEY]['success']]]></code>
-    </MixedArrayAccess>
   </file>
   <file src="tests/unit/FooterTest.php">
     <DeprecatedMethod>

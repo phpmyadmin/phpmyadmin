@@ -15,7 +15,7 @@ final class FlashMessenger
     /** @var mixed[] */
     private array $storage;
 
-    /** @var array<string, string[][]> */
+    /** @psalm-var list<array{context: string, message: string, statement: string}> */
     private array $previousMessages = [];
 
     public function __construct()
@@ -33,24 +33,20 @@ final class FlashMessenger
         $this->storage[self::STORAGE_KEY] = [];
     }
 
-    public function addMessage(string $key, string $message, string $statement = ''): void
+    public function addMessage(string $context, string $message, string $statement = ''): void
     {
-        if (! isset($this->storage[self::STORAGE_KEY][$key])) {
-            $this->storage[self::STORAGE_KEY][$key] = [];
-        }
-
-        $this->storage[self::STORAGE_KEY][$key][] = ['message' => $message, 'statement' => $statement];
+        $this->storage[self::STORAGE_KEY][] = ['context' => $context, 'message' => $message, 'statement' => $statement];
     }
 
-    /** @return string[][]|null */
-    public function getMessage(string $key): array|null
-    {
-        return $this->previousMessages[$key] ?? null;
-    }
-
-    /** @return array<string, string[][]> */
+    /** @psalm-return list<array{context: string, message: string, statement: string}> */
     public function getMessages(): array
     {
         return $this->previousMessages;
+    }
+
+    /** @psalm-return list<array{context: string, message: string, statement: string}> */
+    public function getCurrentMessages(): array
+    {
+        return $this->storage[self::STORAGE_KEY];
     }
 }

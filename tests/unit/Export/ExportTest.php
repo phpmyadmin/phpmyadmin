@@ -243,7 +243,7 @@ SQL;
         $location = $export->getPageLocationAndSaveMessage('server', Message::error('Error message!'));
         self::assertSame('index.php?route=/server/export&server=2&lang=en', $location);
         self::assertSame(
-            ['danger' => [['message' => 'Error message!', 'statement' => '']]],
+            [['context' => 'danger', 'message' => 'Error message!', 'statement' => '']],
             (new FlashMessenger())->getMessages(),
         );
     }
@@ -258,7 +258,7 @@ SQL;
         $location = $export->getPageLocationAndSaveMessage('server', Message::success('Success message!'));
         self::assertSame('index.php?route=/server/export&server=2&lang=en', $location);
         self::assertSame(
-            ['success' => [['message' => 'Success message!', 'statement' => '']]],
+            [['context' => 'success', 'message' => 'Success message!', 'statement' => '']],
             (new FlashMessenger())->getMessages(),
         );
     }
@@ -274,7 +274,7 @@ SQL;
         $location = $export->getPageLocationAndSaveMessage('database', Message::error('Error message!'));
         self::assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
         self::assertSame(
-            ['danger' => [['message' => 'Error message!', 'statement' => '']]],
+            [['context' => 'danger', 'message' => 'Error message!', 'statement' => '']],
             (new FlashMessenger())->getMessages(),
         );
     }
@@ -290,7 +290,7 @@ SQL;
         $location = $export->getPageLocationAndSaveMessage('database', Message::success('Success message!'));
         self::assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
         self::assertSame(
-            ['success' => [['message' => 'Success message!', 'statement' => '']]],
+            [['context' => 'success', 'message' => 'Success message!', 'statement' => '']],
             (new FlashMessenger())->getMessages(),
         );
     }
@@ -310,7 +310,7 @@ SQL;
             $location,
         );
         self::assertSame(
-            ['danger' => [['message' => 'Error message!', 'statement' => '']]],
+            [['context' => 'danger', 'message' => 'Error message!', 'statement' => '']],
             (new FlashMessenger())->getMessages(),
         );
     }
@@ -330,7 +330,7 @@ SQL;
             $location,
         );
         self::assertSame(
-            ['success' => [['message' => 'Success message!', 'statement' => '']]],
+            [['context' => 'success', 'message' => 'Success message!', 'statement' => '']],
             (new FlashMessenger())->getMessages(),
         );
     }

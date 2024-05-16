@@ -7471,12 +7471,12 @@ parameters:
 			path: src/FlashMessenger.php
 
 		-
-			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 2
+			message: "#^Method PhpMyAdmin\\\\FlashMessenger\\:\\:getCurrentMessages\\(\\) should return array\\<int, array\\{context\\: string, message\\: string, statement\\: string\\}\\> but returns mixed\\.$#"
+			count: 1
 			path: src/FlashMessenger.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\FlashMessenger\\:\\:\\$previousMessages \\(array\\<string, array\\<array\\<string\\>\\>\\>\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\FlashMessenger\\:\\:\\$previousMessages \\(array\\<int, array\\{context\\: string, message\\: string, statement\\: string\\}\\>\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/FlashMessenger.php
 
@@ -15544,16 +15544,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
 			path: tests/unit/Export/OptionsTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$array of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
-			count: 2
-			path: tests/unit/FlashMessengerTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$array of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
-			count: 2
-			path: tests/unit/FlashMessengerTest.php
 
 		-
 			message: "#^Cannot access offset 'queries' on mixed\\.$#"

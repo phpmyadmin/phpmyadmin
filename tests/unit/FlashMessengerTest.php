@@ -32,57 +32,61 @@ final class FlashMessengerTest extends AbstractTestCase
     public function testAddMessage(): void
     {
         $flashMessenger = new FlashMessenger();
-        self::assertArrayNotHasKey('error', $_SESSION[self::STORAGE_KEY]);
+        self::assertSame([], $_SESSION[self::STORAGE_KEY]);
         $flashMessenger->addMessage('error', 'Error');
-        self::assertArrayHasKey('error', $_SESSION[self::STORAGE_KEY]);
-        self::assertIsArray($_SESSION[self::STORAGE_KEY]['error']);
-        self::assertSame([['message' => 'Error', 'statement' => '']], $_SESSION[self::STORAGE_KEY]['error']);
+        /** @psalm-suppress DocblockTypeContradiction addMessage() mutates $_SESSION[self::STORAGE_KEY] */
+        self::assertSame(
+            [['context' => 'error', 'message' => 'Error', 'statement' => '']],
+            $_SESSION[self::STORAGE_KEY],
+        );
     }
 
     public function testAddMessageWithStatement(): void
     {
         $flashMessenger = new FlashMessenger();
-        self::assertArrayNotHasKey('success', $_SESSION[self::STORAGE_KEY]);
-        $flashMessenger->addMessage('success', 'Your SQL query has been executed successfully.', 'SELECT 1;');
-        self::assertArrayHasKey('success', $_SESSION[self::STORAGE_KEY]);
-        self::assertIsArray($_SESSION[self::STORAGE_KEY]['success']);
+        self::assertSame([], $_SESSION[self::STORAGE_KEY]);
+        $flashMessenger->addMessage('success', 'Success!', 'SELECT 1;');
+        /** @psalm-suppress DocblockTypeContradiction addMessage() mutates $_SESSION[self::STORAGE_KEY] */
         self::assertSame(
-            [['message' => 'Your SQL query has been executed successfully.', 'statement' => 'SELECT 1;']],
-            $_SESSION[self::STORAGE_KEY]['success'],
+            [['context' => 'success', 'message' => 'Success!', 'statement' => 'SELECT 1;']],
+            $_SESSION[self::STORAGE_KEY],
         );
-    }
-
-    public function testGetMessage(): void
-    {
-        $_SESSION[self::STORAGE_KEY] = ['warning' => [['message' => 'Warning', 'statement' => '']]];
-        $flashMessenger = new FlashMessenger();
-        $message = $flashMessenger->getMessage('error');
-        self::assertNull($message);
-        $message = $flashMessenger->getMessage('warning');
-        self::assertSame([['message' => 'Warning', 'statement' => '']], $message);
     }
 
     public function testGetMessages(): void
     {
-        $_SESSION[self::STORAGE_KEY] = [
-            'error' => [
-                ['message' => 'Error1', 'statement' => ''],
-                ['message' => 'Error2', 'statement' => ''],
-            ],
-            'warning' => [['message' => 'Warning', 'statement' => '']],
-        ];
-        $flashMessenger = new FlashMessenger();
-        $flashMessenger->addMessage('notice', 'Notice');
-        $messages = $flashMessenger->getMessages();
+        $_SESSION[self::STORAGE_KEY] = [];
+        $flashMessengerOne = new FlashMessenger();
+        self::assertSame([], $flashMessengerOne->getCurrentMessages());
+        $flashMessengerOne->addMessage('error', 'Error1');
+        $flashMessengerOne->addMessage('error', 'Error2', 'SOME SQL;');
+        $flashMessengerOne->addMessage('warning', 'Warning');
         self::assertSame(
             [
-                'error' => [
-                    ['message' => 'Error1', 'statement' => ''],
-                    ['message' => 'Error2', 'statement' => ''],
-                ],
-                'warning' => [['message' => 'Warning', 'statement' => '']],
+                ['context' => 'error', 'message' => 'Error1', 'statement' => ''],
+                ['context' => 'error', 'message' => 'Error2', 'statement' => 'SOME SQL;'],
+                ['context' => 'warning', 'message' => 'Warning', 'statement' => ''],
             ],
-            $messages,
+            $flashMessengerOne->getCurrentMessages(),
+        );
+        self::assertSame([], $flashMessengerOne->getMessages());
+        $flashMessengerTwo = new FlashMessenger();
+        $flashMessengerTwo->addMessage('notice', 'Notice');
+        self::assertSame(
+            [['context' => 'notice', 'message' => 'Notice', 'statement' => '']],
+            $flashMessengerTwo->getCurrentMessages(),
+        );
+        self::assertSame(
+            [
+                ['context' => 'error', 'message' => 'Error1', 'statement' => ''],
+                ['context' => 'error', 'message' => 'Error2', 'statement' => 'SOME SQL;'],
+                ['context' => 'warning', 'message' => 'Warning', 'statement' => ''],
+            ],
+            $flashMessengerTwo->getMessages(),
+        );
+        self::assertSame(
+            [['context' => 'notice', 'message' => 'Notice', 'statement' => '']],
+            (new FlashMessenger())->getMessages(),
         );
     }
 }
