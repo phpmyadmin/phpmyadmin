@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2024-05-15 13:34+0000\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"PO-Revision-Date: 2024-05-17 13:01+0000\n"
+"Last-Translator: גבריאל עדי <gabrieladi613@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/5-2/he/"
 ">\n"
 "Language: he\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
-msgstr ""
+msgstr "זמן פעילות מתחת ליום אחד"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
