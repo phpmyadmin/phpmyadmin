@@ -444,7 +444,7 @@ class Tracking
             $filterUsers,
             $urlParams,
             $dropImageOrText,
-            LogTypeEnum::DML,
+            TrackedDataType::DML,
             $ddlogCount,
             $version,
             $dateFrom,
@@ -478,7 +478,7 @@ class Tracking
             $filterUsers,
             $urlParams,
             $dropImageOrText,
-            LogTypeEnum::DDL,
+            TrackedDataType::DDL,
             1,
             $version,
             $dateFrom,
@@ -493,7 +493,6 @@ class Tracking
      * @param string[]                                                       $filterUsers     filter users
      * @param mixed[]                                                        $urlParams       url parameters
      * @param string                                                         $dropImageOrText drop image or text
-     * @param LogTypeEnum                                                    $logType         DDL|DML
      * @param int                                                            $lineNumber      line number
      *
      * @return array{string, int} [$html, $lineNumber]
@@ -503,7 +502,7 @@ class Tracking
         array $filterUsers,
         array $urlParams,
         string $dropImageOrText,
-        LogTypeEnum $logType,
+        TrackedDataType $trackedDataType,
         int $lineNumber,
         string $version,
         DateTimeImmutable $dateFrom,
@@ -518,7 +517,7 @@ class Tracking
                 || in_array($entry['username'], $filterUsers, true))
             ) {
                 $entry['formated_statement'] = Generator::formatSql($entry['statement'], true);
-                $deleteParam = 'delete_' . $logType->getLogName();
+                $deleteParam = 'delete_' . $trackedDataType->getLogName();
                 $entry['url_params'] = Url::getCommon($urlParams + [
                     'report' => 'true',
                     'version' => $version,
@@ -532,8 +531,8 @@ class Tracking
         }
 
         $html = $this->template->render('table/tracking/report_table', [
-            'table_id' => $logType->getTableId(),
-            'header_message' => $logType->getHeaderMessage(),
+            'table_id' => $trackedDataType->getTableId(),
+            'header_message' => $trackedDataType->getHeaderMessage(),
             'entries' => $entries,
             'drop_image_or_text' => $dropImageOrText,
         ]);
@@ -723,7 +722,6 @@ class Tracking
      * Function to delete from a tracking report log
      *
      * @param list<array{date: string, username: string, statement: string}> $logData tracked data
-     * @param LogTypeEnum                                                    $logType DDL|DML
      *
      * @return string HTML for the message
      */
@@ -732,14 +730,14 @@ class Tracking
         string $table,
         string $version,
         array $logData,
-        LogTypeEnum $logType,
+        TrackedDataType $trackedDataType,
         int $deleteId,
     ): string {
         unset($logData[$deleteId]);
 
-        $successfullyDeleted = $this->changeTrackingData($db, $table, $version, $logType, $logData);
+        $successfullyDeleted = $this->changeTrackingData($db, $table, $version, $trackedDataType, $logData);
         if ($successfullyDeleted) {
-            $msg = Message::success($logType->getSuccessMessage());
+            $msg = Message::success($trackedDataType->getSuccessMessage());
         } else {
             $msg = Message::rawError(__('Query error'));
         }
@@ -753,14 +751,13 @@ class Tracking
      * @param string                                                          $dbName    name of database
      * @param string                                                          $tableName name of table
      * @param string                                                          $version   version
-     * @param LogTypeEnum                                                     $logType   type of data(DDL || DML)
      * @param array<array{date: string, username: string, statement: string}> $newData   the new tracking data
      */
     public function changeTrackingData(
         string $dbName,
         string $tableName,
         string $version,
-        LogTypeEnum $logType,
+        TrackedDataType $trackedDataType,
         array $newData,
     ): bool {
         $newDataProcessed = '';
@@ -777,7 +774,7 @@ class Tracking
             'UPDATE %s.%s SET `%s` = %s WHERE `db_name` = %s AND `table_name` = %s AND `version` = %s',
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
-            $logType->getColumnName(),
+            $trackedDataType->getColumnName(),
             $this->dbi->quoteString($newDataProcessed, ConnectionType::ControlUser),
             $this->dbi->quoteString($dbName, ConnectionType::ControlUser),
             $this->dbi->quoteString($tableName, ConnectionType::ControlUser),

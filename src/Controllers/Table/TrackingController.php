@@ -17,7 +17,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Tracking\LogTypeEnum;
+use PhpMyAdmin\Tracking\TrackedDataType;
 use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
@@ -162,7 +162,7 @@ final class TrackingController implements InvocableController
                     Current::$table,
                     $versionParam,
                     $trackedData->ddlog,
-                    LogTypeEnum::DDL,
+                    TrackedDataType::DDL,
                     (int) $request->getParsedBodyParam('delete_ddlog'),
                 );
                 // After deletion reload data from the database
@@ -173,7 +173,7 @@ final class TrackingController implements InvocableController
                     Current::$table,
                     $versionParam,
                     $trackedData->dmlog,
-                    LogTypeEnum::DML,
+                    TrackedDataType::DML,
                     (int) $request->getParsedBodyParam('delete_dmlog'),
                 );
                 // After deletion reload data from the database

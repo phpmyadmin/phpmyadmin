@@ -15,7 +15,7 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
-use PhpMyAdmin\Tracking\LogTypeEnum;
+use PhpMyAdmin\Tracking\TrackedDataType;
 use PhpMyAdmin\Tracking\TrackedData;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
@@ -649,7 +649,7 @@ class TrackingTest extends AbstractTestCase
                 'pma_db',
                 'pma_table',
                 '1.0',
-                LogTypeEnum::DML,
+                TrackedDataType::DML,
                 $newData,
             ),
         );
