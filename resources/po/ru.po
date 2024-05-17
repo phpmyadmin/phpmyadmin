@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-05-12 00:20+0000\n"
-"PO-Revision-Date: 2024-05-13 01:02+0000\n"
+"PO-Revision-Date: 2024-05-18 09:01+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.5.4\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -4490,8 +4490,8 @@ msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
-"Примечание: Включение статистики баз данных может спровоцировать большой "
-"трафик между веб-сервером и сервером MySQL."
+"Примечание: Включение статистики баз данных может вызвать увеличение трафика "
+"между веб-сервером и сервером MySQL."
 
 #: resources/templates/server/databases/index.twig:296
 #: resources/templates/server/databases/index.twig:297
@@ -5847,8 +5847,8 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Примечание: Включение автообновления может спровоцировать большой трафик "
-"между веб-сервером и сервером MySQL."
+"Примечание: Включение автообновления может вызвать увеличение трафика между "
+"веб-сервером и сервером MySQL."
 
 #: resources/templates/server/status/processes/index.twig:49
 #: src/Controllers/JavaScriptMessagesController.php:225
