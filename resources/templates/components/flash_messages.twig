@@ -1,0 +1,9 @@
+{% for flash_message in flash_messages() %}
+  {% if flash_message.statement is empty %}
+    <div class="alert alert-{{ flash_message.context }}" role="alert">
+      {{ flash_message.message }}
+    </div>
+  {% else %}
+    {{ statement_message(flash_message.message, flash_message.statement, flash_message.context) }}
+  {% endif %}
+{% endfor %}

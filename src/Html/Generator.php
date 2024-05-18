@@ -390,7 +390,6 @@ class Generator
      *
      * @param Message|string $message  the message to display
      * @param string|null    $sqlQuery the query to display
-     * @param MessageType    $type     the type (level) of the message
      *
      * @throws Throwable
      * @throws LoaderError

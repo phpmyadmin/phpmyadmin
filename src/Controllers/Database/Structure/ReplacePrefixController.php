@@ -4,13 +4,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Controllers\Database\StructureController;
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FlashMessenger;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function mb_strlen;
@@ -20,11 +23,12 @@ final class ReplacePrefixController implements InvocableController
 {
     public function __construct(
         private readonly DatabaseInterface $dbi,
-        private readonly StructureController $structureController,
+        private readonly ResponseFactory $responseFactory,
+        private readonly FlashMessenger $flashMessenger,
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected', []);
@@ -53,8 +57,9 @@ final class ReplacePrefixController implements InvocableController
 
         $GLOBALS['message'] = Message::success();
 
-        ($this->structureController)($request);
+        $this->flashMessenger->addMessage('success', $GLOBALS['message']->getMessage(), $GLOBALS['sql_query']);
 
-        return null;
+        return $this->responseFactory->createResponse(StatusCodeInterface::STATUS_FOUND)
+            ->withHeader('Location', Url::getFromRoute('/database/structure', ['db' => Current::$database]));
     }
 }
