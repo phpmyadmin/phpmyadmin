@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-05-12 00:20+0000\n"
+"POT-Creation-Date: 2024-05-19 00:20+0000\n"
 "PO-Revision-Date: 2022-12-30 07:50+0000\n"
 "Last-Translator: Iwan Haryatno <iwnharry61@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -112,7 +112,7 @@ msgstr "setelah %s"
 #: resources/templates/config/form_display/input.twig:43
 #: resources/templates/database/central_columns/main.twig:311
 #: resources/templates/database/designer/main.twig:586
-#: resources/templates/export.twig:435
+#: resources/templates/export.twig:429
 #: resources/templates/server/privileges/privileges_summary.twig:31
 #: resources/templates/server/status/monitor/index.twig:176
 #: resources/templates/server/status/processes/list.twig:72
@@ -120,7 +120,7 @@ msgstr "setelah %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:220
-#: src/Display/Results.php:939 src/Plugins/Export/ExportSql.php:2071
+#: src/Display/Results.php:940 src/Plugins/Export/ExportSql.php:2071
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Tidak ada"
@@ -134,8 +134,8 @@ msgstr "Nama tabel"
 #: resources/templates/columns_definitions/column_definitions_form.twig:31
 #: resources/templates/console/display.twig:136
 #: resources/templates/database/central_columns/main.twig:202
-#: resources/templates/export.twig:287 resources/templates/export.twig:303
-#: resources/templates/export.twig:319
+#: resources/templates/export.twig:281 resources/templates/export.twig:297
+#: resources/templates/export.twig:313
 msgid "Add"
 msgstr "Tambah"
 
@@ -276,7 +276,7 @@ msgstr ""
 #: resources/templates/database/designer/main.twig:1095
 #: resources/templates/database/designer/main.twig:1110
 #: resources/templates/database/designer/main.twig:1127
-#: resources/templates/export_modal.twig:5 resources/templates/export.twig:87
+#: resources/templates/export_modal.twig:5 resources/templates/export.twig:81
 #: resources/templates/modals/add_index.twig:5
 #: resources/templates/modals/index_dialog_modal.twig:5
 #: resources/templates/modals/preview_sql_confirmation.twig:5
@@ -294,8 +294,8 @@ msgstr "Memproses"
 #: resources/templates/database/designer/main.twig:1138
 #: resources/templates/error/report_modal.twig:14
 #: resources/templates/export_modal.twig:6
-#: resources/templates/export_modal.twig:10 resources/templates/export.twig:88
-#: resources/templates/export.twig:98 resources/templates/export.twig:196
+#: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
+#: resources/templates/export.twig:92 resources/templates/export.twig:190
 #: resources/templates/home/index.twig:317
 #: resources/templates/home/index.twig:325
 #: resources/templates/modals/add_index.twig:6
@@ -758,7 +758,7 @@ msgstr "Reset"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:677 src/Html/MySQLDocumentation.php:49
+#: src/Html/Generator.php:668 src/Html/MySQLDocumentation.php:49
 #: src/Sanitize.php:188
 msgid "Documentation"
 msgstr "Dokumentasi"
@@ -930,8 +930,8 @@ msgstr "Kueri ulang"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:400
-#: src/Display/Results.php:2487 src/Html/Generator.php:526
-#: src/Html/Generator.php:792
+#: src/Display/Results.php:2488 src/Html/Generator.php:517
+#: src/Html/Generator.php:783
 msgid "Edit"
 msgstr "Ubah"
 
@@ -943,13 +943,13 @@ msgstr "Ubah"
 #: resources/templates/database/search/results.twig:31
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/display/results/table.twig:325
-#: resources/templates/export.twig:62
+#: resources/templates/export.twig:56
 #: resources/templates/server/user_groups/user_groups.twig:37
 #: resources/templates/server/user_groups/user_groups.twig:56
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:188
 #: src/Controllers/JavaScriptMessagesController.php:402
-#: src/Display/Results.php:2546 src/Tracking/Tracking.php:231
+#: src/Display/Results.php:2547 src/Tracking/Tracking.php:231
 msgid "Delete"
 msgstr "Hapus"
 
@@ -970,8 +970,8 @@ msgstr "Hapus"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1566
-#: src/Server/Privileges.php:1568 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1567
+#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "Basis data"
 
@@ -1042,7 +1042,7 @@ msgstr "Jelaskan"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:613
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:604
 msgid "Profiling"
 msgstr "Profil"
 
@@ -1134,8 +1134,8 @@ msgstr "Waktu yang dipakai:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1233
-#: src/Html/Generator.php:582
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1234
+#: src/Html/Generator.php:573
 msgid "Refresh"
 msgstr "Segarkan"
 
@@ -1343,7 +1343,7 @@ msgstr "Jumlah kolom"
 
 #: resources/templates/database/create_table.twig:14
 #: resources/templates/database/operations/index.twig:40
-#: resources/templates/export.twig:35
+#: resources/templates/export.twig:29
 #: resources/templates/server/databases/index.twig:46
 msgid "Create"
 msgstr "Buat"
@@ -1355,7 +1355,7 @@ msgstr "Komentar database"
 
 #: resources/templates/database/data_dictionary/index.twig:8
 #: resources/templates/database/data_dictionary/index.twig:124
-#: resources/templates/database/structure/index.twig:19
+#: resources/templates/database/structure/index.twig:13
 #: resources/templates/display/results/table.twig:348
 #: resources/templates/table/structure/display_structure.twig:393
 msgid "Print"
@@ -1836,7 +1836,7 @@ msgstr "Pilih Semua"
 #: resources/templates/display/results/table.twig:329
 #: resources/templates/display/results/table.twig:330
 #: resources/templates/display/results/table.twig:362
-#: resources/templates/export.twig:3 resources/templates/export.twig:501
+#: resources/templates/export.twig:3 resources/templates/export.twig:495
 #: resources/templates/preferences/header.twig:42
 #: resources/templates/preferences/manage/main.twig:67
 #: resources/templates/server/privileges/new_user_ajax.twig:63
@@ -1852,7 +1852,7 @@ msgstr "Pilih Semua"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:240
-#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1283
+#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1284
 #: src/Util.php:1471 src/Util.php:1486 src/Util.php:1503
 msgid "Export"
 msgstr "Ekspor"
@@ -2027,8 +2027,8 @@ msgstr "Urutan"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1471
-#: src/Display/Results.php:1478 src/Util.php:2000 src/Util.php:2017
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1472
+#: src/Display/Results.php:1479 src/Util.php:2000 src/Util.php:2017
 msgid "Ascending"
 msgstr "Menaik"
 
@@ -2039,8 +2039,8 @@ msgstr "Menaik"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1466
-#: src/Display/Results.php:1483 src/Util.php:2005 src/Util.php:2022
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1467
+#: src/Display/Results.php:1484 src/Util.php:2005 src/Util.php:2022
 msgid "Descending"
 msgstr "Menurun"
 
@@ -2080,7 +2080,7 @@ msgid "Update query"
 msgstr "Perbarui Kueri"
 
 #: resources/templates/database/multi_table_query/form.twig:166
-#: src/Html/Generator.php:551
+#: src/Html/Generator.php:542
 msgid "Submit query"
 msgstr "Kirim Kueri"
 
@@ -2099,7 +2099,7 @@ msgid "Rename database to"
 msgstr "Ubah nama basis data menjadi"
 
 #: resources/templates/database/operations/index.twig:59
-#: resources/templates/export.twig:284
+#: resources/templates/export.twig:278
 msgid "New database name"
 msgstr "Nama database baru"
 
@@ -2277,14 +2277,14 @@ msgstr "routine"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1275
+#: src/Server/Privileges.php:1276
 #, fuzzy
 msgid "Edit privileges"
 msgstr "Edit Hak Akses"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2062
+#: src/Server/Privileges.php:2063
 msgid "No user found."
 msgstr "Pengguna tidak ditemukan."
 
@@ -2304,7 +2304,7 @@ msgstr "Dengan pilihan:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1219
+#: src/Server/Privileges.php:1220
 #, fuzzy
 msgid "Not enough privilege to view users."
 msgstr "Hak akses tidak cukup untuk melihat pengguna."
@@ -2708,16 +2708,16 @@ msgstr "Hapus dari favorit"
 msgid "Add to Favorites"
 msgstr "Tambahkan ke favorit"
 
-#: resources/templates/database/structure/index.twig:21
+#: resources/templates/database/structure/index.twig:15
 #: src/Plugins/Schema/SchemaPdf.php:87
 msgid "Data dictionary"
 msgstr "Kamus data"
 
-#: resources/templates/database/structure/index.twig:25
+#: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:84
 #: src/Controllers/Database/TrackingController.php:131
-#: src/Controllers/Export/ExportController.php:302
+#: src/Controllers/Export/ExportController.php:298
 msgid "No tables found in database."
 msgstr "Tidak ada tabel yang ditemukan di database."
 
@@ -2742,8 +2742,8 @@ msgstr "Tampilkan kueri SQL"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:425 src/Server/Privileges.php:1572
-#: src/Server/Privileges.php:1574
+#: src/Plugins/Export/ExportXml.php:425 src/Server/Privileges.php:1573
+#: src/Server/Privileges.php:1575
 msgid "Table"
 msgstr "Tabel"
 
@@ -2757,8 +2757,8 @@ msgstr "View"
 #: resources/templates/database/structure/show_create.twig:35
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
-#: src/Controllers/Operations/TableController.php:121
-#: src/Controllers/Operations/TableController.php:330
+#: src/Controllers/Operations/TableController.php:122
+#: src/Controllers/Operations/TableController.php:331
 #: src/Controllers/Table/StructureController.php:155
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
@@ -2974,7 +2974,7 @@ msgid "Restore column order"
 msgstr "Pulihkan urutan kolom"
 
 #: resources/templates/display/results/table.twig:121
-#: resources/templates/export.twig:151
+#: resources/templates/export.twig:145
 #: resources/templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "Jumlah baris:"
@@ -2995,12 +2995,12 @@ msgid "Extra options"
 msgstr "Opsi hasil"
 
 #: resources/templates/display/results/table.twig:209
-#: src/Display/Results.php:1121
+#: src/Display/Results.php:1122
 msgid "Partial texts"
 msgstr "Teks parsial"
 
 #: resources/templates/display/results/table.twig:213
-#: src/Display/Results.php:1125
+#: src/Display/Results.php:1126
 msgid "Full texts"
 msgstr "Teks penuh"
 
@@ -3041,7 +3041,7 @@ msgstr "Biner Diketahui"
 #: resources/templates/display/results/table.twig:321
 #: resources/templates/gis_data_editor_form.twig:62
 #: src/Controllers/JavaScriptMessagesController.php:490
-#: src/Display/Results.php:2491 src/Html/Generator.php:77
+#: src/Display/Results.php:2492 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "Salin"
 
@@ -3052,7 +3052,7 @@ msgstr "Operasi hasil kueri"
 
 #: resources/templates/display/results/table.twig:350
 #: src/Controllers/JavaScriptMessagesController.php:489
-#: src/Export/Export.php:1252
+#: src/Export/Export.php:1253
 msgid "Copy to clipboard"
 msgstr "Salin ke clipboard"
 
@@ -3078,12 +3078,12 @@ msgstr "Mengonversi ke Kana"
 
 #: resources/templates/error/generic.twig:37
 #: resources/templates/table/structure/display_structure.twig:372
-#: src/Controllers/Operations/ViewController.php:118
-#: src/Controllers/Table/Partition/DropController.php:53
-#: src/Controllers/Table/Partition/RebuildController.php:53
-#: src/Controllers/Table/Partition/TruncateController.php:53
-#: src/Html/Generator.php:743 src/Import/Import.php:115 src/InsertEdit.php:489
-#: src/Message.php:145
+#: src/Controllers/Operations/ViewController.php:119
+#: src/Controllers/Table/Partition/DropController.php:54
+#: src/Controllers/Table/Partition/RebuildController.php:54
+#: src/Controllers/Table/Partition/TruncateController.php:54
+#: src/Html/Generator.php:734 src/Import/Import.php:115 src/InsertEdit.php:489
+#: src/Message.php:138
 msgid "Error"
 msgstr "Galat"
 
@@ -3136,176 +3136,176 @@ msgid "Go back"
 msgstr "Kembali"
 
 #: resources/templates/export/template_options.twig:1
-#: resources/templates/export.twig:50
+#: resources/templates/export.twig:44
 msgid "Select a template"
 msgstr "Pilih template"
 
-#: resources/templates/export.twig:22
+#: resources/templates/export.twig:16
 msgid "Export templates:"
 msgstr "Template ekspor:"
 
-#: resources/templates/export.twig:26
+#: resources/templates/export.twig:20
 msgid "New template:"
 msgstr "Template Baru:"
 
-#: resources/templates/export.twig:29 resources/templates/export.twig:32
+#: resources/templates/export.twig:23 resources/templates/export.twig:26
 msgid "Template name"
 msgstr "Nama template"
 
-#: resources/templates/export.twig:43
+#: resources/templates/export.twig:37
 msgid "Existing templates:"
 msgstr "Template yang tersedia:"
 
-#: resources/templates/export.twig:46
+#: resources/templates/export.twig:40
 msgid "Template:"
 msgstr "Template:"
 
-#: resources/templates/export.twig:59
+#: resources/templates/export.twig:53
 msgid "Update"
 msgstr "Perbaharui"
 
 #. l10n: Title of the option on the Export page
-#: resources/templates/export.twig:74
+#: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:767
+#: src/Html/Generator.php:758
 msgid "SQL query:"
 msgstr "Query SQL:"
 
 #. l10n: Button to show the SQL query on the export page
-#: resources/templates/export.twig:78
+#: resources/templates/export.twig:72
 #, fuzzy
 msgid "Show SQL query"
 msgstr "Menampilkan kueri SQL"
 
-#: resources/templates/export.twig:110
+#: resources/templates/export.twig:104
 msgid "Export method:"
 msgstr "Metode ekspor:"
 
-#: resources/templates/export.twig:114
+#: resources/templates/export.twig:108
 msgid "Quick - display only the minimal options"
 msgstr "Cepat - menampilkan opsi minimum"
 
-#: resources/templates/export.twig:118
+#: resources/templates/export.twig:112
 msgid "Custom - display all possible options"
 msgstr "Kustom - menampilkan semua opsi"
 
-#: resources/templates/export.twig:125 src/Plugins/Export/ExportCodegen.php:66
+#: resources/templates/export.twig:119 src/Plugins/Export/ExportCodegen.php:66
 msgid "Format:"
 msgstr "Format:"
 
-#: resources/templates/export.twig:127
+#: resources/templates/export.twig:121
 #, fuzzy
 msgid "File format to export"
 msgstr "Berkas untuk impor:"
 
-#: resources/templates/export.twig:139
+#: resources/templates/export.twig:133
 msgid "Rows:"
 msgstr "Baris:"
 
-#: resources/templates/export.twig:143
+#: resources/templates/export.twig:137
 msgid "Dump all rows"
 msgstr "Dump semua row"
 
-#: resources/templates/export.twig:147
+#: resources/templates/export.twig:141
 msgid "Dump some row(s)"
 msgstr "Dump beberapa baris"
 
-#: resources/templates/export.twig:162
+#: resources/templates/export.twig:156
 msgid "Row to begin at:"
 msgstr "Baris untuk memulai:"
 
-#: resources/templates/export.twig:172 resources/templates/export.twig:334
+#: resources/templates/export.twig:166 resources/templates/export.twig:328
 msgid "Output:"
 msgstr "Hasil:"
 
-#: resources/templates/export.twig:177 resources/templates/export.twig:372
+#: resources/templates/export.twig:171 resources/templates/export.twig:366
 #, fuzzy, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Simpan ke server didalam direktori <b>%s</b>"
 
-#: resources/templates/export.twig:184 resources/templates/export.twig:379
+#: resources/templates/export.twig:178 resources/templates/export.twig:373
 #: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
 msgid "Overwrite existing file(s)"
 msgstr "Timpa berkas yang ada"
 
-#: resources/templates/export.twig:195 resources/templates/export.twig:339
+#: resources/templates/export.twig:189 resources/templates/export.twig:333
 msgid "Rename exported databases/tables/columns"
 msgstr "Ubah nama database / tabel / kolom yang diekspor"
 
-#: resources/templates/export.twig:203
+#: resources/templates/export.twig:197
 msgid "Defined aliases"
 msgstr "Nama-nama lain yang ditetapkan"
 
-#: resources/templates/export.twig:212
+#: resources/templates/export.twig:206
 #: src/Controllers/JavaScriptMessagesController.php:294
 msgctxt "Alias"
 msgid "Database"
 msgstr "Basis data"
 
-#: resources/templates/export.twig:218 resources/templates/export.twig:232
-#: resources/templates/export.twig:245 resources/templates/export.twig:262
+#: resources/templates/export.twig:212 resources/templates/export.twig:226
+#: resources/templates/export.twig:239 resources/templates/export.twig:256
 msgid "Remove"
 msgstr "Lepas"
 
-#: resources/templates/export.twig:226
+#: resources/templates/export.twig:220
 #: src/Controllers/JavaScriptMessagesController.php:295
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabel"
 
-#: resources/templates/export.twig:239
+#: resources/templates/export.twig:233
 #: src/Controllers/JavaScriptMessagesController.php:296
 msgctxt "Alias"
 msgid "Column"
 msgstr "Kolom"
 
-#: resources/templates/export.twig:271
+#: resources/templates/export.twig:265
 msgid "Define new aliases"
 msgstr "Tetapkan alias baru"
 
-#: resources/templates/export.twig:276
+#: resources/templates/export.twig:270
 msgid "Select database:"
 msgstr "Pilih database:"
 
-#: resources/templates/export.twig:292
+#: resources/templates/export.twig:286
 msgid "Select table:"
 msgstr "Pilih tabel:"
 
-#: resources/templates/export.twig:300
+#: resources/templates/export.twig:294
 msgid "New table name"
 msgstr "Nama tabel baru"
 
-#: resources/templates/export.twig:308
+#: resources/templates/export.twig:302
 msgid "Select column:"
 msgstr "Pilih kolom:"
 
-#: resources/templates/export.twig:316
+#: resources/templates/export.twig:310
 msgid "New column name"
 msgstr "Nama kolom baru"
 
-#: resources/templates/export.twig:326
+#: resources/templates/export.twig:320
 #: src/Controllers/JavaScriptMessagesController.php:108
 msgid "Save & close"
 msgstr "Simpan & Tutup"
 
-#: resources/templates/export.twig:349
+#: resources/templates/export.twig:343
 #, php-format
 msgid "Use %s statement"
 msgstr "Gunakan pernyataan %s"
 
-#: resources/templates/export.twig:358
+#: resources/templates/export.twig:352
 msgid "View output as text"
 msgstr "Tampilkan hasil sebagai teks"
 
-#: resources/templates/export.twig:362
+#: resources/templates/export.twig:356
 msgid "Save output to a file"
 msgstr "Simpan hasil ke suatu berkas"
 
-#: resources/templates/export.twig:389
+#: resources/templates/export.twig:383
 msgid "File name template:"
 msgstr "Templat nama berkas:"
 
-#: resources/templates/export.twig:390
+#: resources/templates/export.twig:384
 #, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
@@ -3317,50 +3317,50 @@ msgstr ""
 "terjadi: %s. Teks lain akan disimpan seperti biasa. Lihat FAQ 6.27 untuk "
 "rincian."
 
-#: resources/templates/export.twig:400
+#: resources/templates/export.twig:394
 #, fuzzy
 msgid "Use this for future exports"
 msgstr "gunakan ini untuk ekspor kedepannya"
 
-#: resources/templates/export.twig:411 resources/templates/import.twig:98
+#: resources/templates/export.twig:405 resources/templates/import.twig:98
 msgid "Character set of the file:"
 msgstr "Set karakter berkas:"
 
-#: resources/templates/export.twig:431
+#: resources/templates/export.twig:425
 msgid "Compression:"
 msgstr "Kompresi:"
 
-#: resources/templates/export.twig:439
+#: resources/templates/export.twig:433
 msgid "zipped"
 msgstr "di-zip"
 
-#: resources/templates/export.twig:445
+#: resources/templates/export.twig:439
 msgid "gzipped"
 msgstr "di-gzip"
 
-#: resources/templates/export.twig:463
+#: resources/templates/export.twig:457
 msgid "Export databases as separate files"
 msgstr "Mengekspor database sebagai file terpisah"
 
-#: resources/templates/export.twig:465
+#: resources/templates/export.twig:459
 msgid "Export tables as separate files"
 msgstr "Mengekspor tabel sebagai file terpisah"
 
-#: resources/templates/export.twig:476
+#: resources/templates/export.twig:470
 #, fuzzy
 msgid "Skip tables larger than:"
 msgstr "Lewati tabel yang lebih besar dari"
 
-#: resources/templates/export.twig:478
+#: resources/templates/export.twig:472
 #, fuzzy
 msgid "The size is measured in MiB."
 msgstr "Ukuran dalam MiB."
 
-#: resources/templates/export.twig:484 resources/templates/import.twig:173
+#: resources/templates/export.twig:478 resources/templates/import.twig:173
 msgid "Format-specific options:"
 msgstr "Opsi format-spesifik:"
 
-#: resources/templates/export.twig:493 resources/templates/import.twig:182
+#: resources/templates/export.twig:487 resources/templates/import.twig:182
 msgid "Encoding Conversion:"
 msgstr "Konversi Pengodean:"
 
@@ -3527,7 +3527,7 @@ msgstr "Pengaturan umum"
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
-#: src/Controllers/UserPasswordController.php:85
+#: src/Controllers/UserPasswordController.php:90
 msgid "Change password"
 msgstr "Ubah kata sandi"
 
@@ -3687,7 +3687,7 @@ msgstr "ambil ini"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:436
-#: src/Export/Export.php:1275 src/Html/Generator.php:858
+#: src/Export/Export.php:1276 src/Html/Generator.php:849
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Kembali"
@@ -4320,9 +4320,9 @@ msgstr "Anda mengaktifkan otentikasi dua langkah."
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:37
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
-#: src/Controllers/Operations/TableController.php:346
+#: src/Controllers/Operations/TableController.php:347
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:282 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:283 src/Core.php:499
 msgid "No change"
 msgstr "Tidak ada perubahan"
 
@@ -4848,7 +4848,7 @@ msgstr "Akun pengguna"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
-#: src/Server/Privileges.php:1578 src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1579 src/Server/Privileges.php:1581
 msgid "Routine"
 msgstr "Rutinitas"
 
@@ -4862,7 +4862,7 @@ msgstr ""
 "Catatan: Anda mencoba untuk mengedit hak-hak user yang Anda sedang login."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1579
+#: src/Server/Privileges.php:1580
 #, fuzzy
 msgid "Routine-specific privileges"
 msgstr "Hak akses khusus kolom"
@@ -5011,7 +5011,7 @@ msgstr "Edit pengguna grup"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1573
+#: src/Server/Privileges.php:1574
 msgid "Table-specific privileges"
 msgstr "Hak akses khusus tabel"
 
@@ -5043,7 +5043,7 @@ msgstr "Tambahkan hak akses pada tabel berikut"
 #: resources/templates/server/privileges/privileges_table.twig:16
 #: resources/templates/server/privileges/privileges_table.twig:287
 #: resources/templates/server/privileges/privileges_table.twig:290
-#: src/Server/Privileges.php:309
+#: src/Server/Privileges.php:310
 msgid "Allows reading data."
 msgstr "Mengizinkan untuk baca data."
 
@@ -5070,20 +5070,20 @@ msgstr "Tidak ada"
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
 #: resources/templates/server/privileges/privileges_table.twig:303
-#: src/Server/Privileges.php:310
+#: src/Server/Privileges.php:311
 msgid "Allows inserting and replacing data."
 msgstr "Mengizinkan untuk tambah dan ganti data."
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
 #: resources/templates/server/privileges/privileges_table.twig:316
-#: src/Server/Privileges.php:311
+#: src/Server/Privileges.php:312
 msgid "Allows changing data."
 msgstr "Mengizinkan untuk ubah data."
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
-#: src/Server/Privileges.php:319
+#: src/Server/Privileges.php:320
 msgid "Has no effect in this MySQL version."
 msgstr "Tidak ada efek dalam versi MySQL yang digunakan."
 
@@ -5091,7 +5091,7 @@ msgstr "Tidak ada efek dalam versi MySQL yang digunakan."
 #: resources/templates/server/privileges/privileges_table.twig:128
 #: resources/templates/server/privileges/privileges_table.twig:326
 #: resources/templates/server/privileges/privileges_table.twig:329
-#: src/Server/Privileges.php:289 src/Server/Privileges.php:312
+#: src/Server/Privileges.php:290 src/Server/Privileges.php:313
 msgid "Allows deleting data."
 msgstr "Mengizinkan untuk menghapus data."
 
@@ -5099,7 +5099,7 @@ msgstr "Mengizinkan untuk menghapus data."
 #: resources/templates/server/privileges/privileges_table.twig:140
 #: resources/templates/server/privileges/privileges_table.twig:367
 #: resources/templates/server/privileges/privileges_table.twig:375
-#: src/Server/Privileges.php:290
+#: src/Server/Privileges.php:291
 msgid "Allows creating new tables."
 msgstr "Mengizinkan untuk membuat tabel baru."
 
@@ -5107,7 +5107,7 @@ msgstr "Mengizinkan untuk membuat tabel baru."
 #: resources/templates/server/privileges/privileges_table.twig:152
 #: resources/templates/server/privileges/privileges_table.twig:415
 #: resources/templates/server/privileges/privileges_table.twig:423
-#: src/Server/Privileges.php:291
+#: src/Server/Privileges.php:292
 msgid "Allows dropping tables."
 msgstr "Mengizinkan untuk hapus tabel."
 
@@ -5127,7 +5127,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:177
 #: resources/templates/server/privileges/privileges_table.twig:399
 #: resources/templates/server/privileges/privileges_table.twig:402
-#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
+#: src/Server/Privileges.php:293 src/Server/Privileges.php:321
 msgid "Allows creating and dropping indexes."
 msgstr "Mengizinkan untuk menciptakan dan hapus Indeks."
 
@@ -5135,7 +5135,7 @@ msgstr "Mengizinkan untuk menciptakan dan hapus Indeks."
 #: resources/templates/server/privileges/privileges_table.twig:189
 #: resources/templates/server/privileges/privileges_table.twig:386
 #: resources/templates/server/privileges/privileges_table.twig:389
-#: src/Server/Privileges.php:293 src/Server/Privileges.php:321
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:322
 msgid "Allows altering the structure of existing tables."
 msgstr "Mengizinkan untuk mengubah struktur dari tabel yang ada."
 
@@ -5145,8 +5145,8 @@ msgstr "Mengizinkan untuk mengubah struktur dari tabel yang ada."
 #: resources/templates/server/privileges/privileges_table.twig:503
 #: resources/templates/server/privileges/privileges_table.twig:515
 #: resources/templates/server/privileges/privileges_table.twig:518
-#: src/Server/Privileges.php:294 src/Server/Privileges.php:340
-#: src/Server/Privileges.php:344
+#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
+#: src/Server/Privileges.php:345
 msgid "Allows creating new views."
 msgstr "Mengizinkan untuk membuat view baru."
 
@@ -5154,8 +5154,8 @@ msgstr "Mengizinkan untuk membuat view baru."
 #: resources/templates/server/privileges/privileges_table.twig:213
 #: resources/templates/server/privileges/privileges_table.twig:447
 #: resources/templates/server/privileges/privileges_table.twig:450
-#: src/Server/Privileges.php:295 src/Server/Privileges.php:345
-#: src/Server/Privileges.php:347
+#: src/Server/Privileges.php:296 src/Server/Privileges.php:346
+#: src/Server/Privileges.php:348
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Mengizinkan pencarian dengan cara SHOW CREATE VIEW."
 
@@ -5163,14 +5163,14 @@ msgstr "Mengizinkan pencarian dengan cara SHOW CREATE VIEW."
 #: resources/templates/server/privileges/privileges_table.twig:225
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: resources/templates/server/privileges/privileges_table.twig:546
-#: src/Server/Privileges.php:296 src/Server/Privileges.php:342
+#: src/Server/Privileges.php:297 src/Server/Privileges.php:343
 msgid "Allows creating and dropping triggers."
 msgstr "Mengizinkan untuk membuat dan menghapus trigger."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
-#: src/Server/Privileges.php:353 src/Server/Privileges.php:362
+#: src/Server/Privileges.php:354 src/Server/Privileges.php:363
 #, fuzzy
 msgid "Allows deleting historical rows."
 msgstr "Mengizinkan untuk menghapus data."
@@ -5185,55 +5185,55 @@ msgid "Global privileges"
 msgstr "Hak akses global"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1567
+#: src/Server/Privileges.php:1568
 msgid "Database-specific privileges"
 msgstr "Hak akses khusus basis data"
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
-#: src/Server/Privileges.php:318
+#: src/Server/Privileges.php:319
 msgid "Allows importing data from and exporting data into files."
 msgstr "Mengizinkan mengimpor data dari dan mengekspor data ke berkas."
 
 #: resources/templates/server/privileges/privileges_table.twig:365
 #: resources/templates/server/privileges/privileges_table.twig:373
-#: src/Server/Privileges.php:313
+#: src/Server/Privileges.php:314
 msgid "Allows creating new databases and tables."
 msgstr "Mengizinkan untuk membuat basis data dan tabel baru."
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
-#: src/Server/Privileges.php:314
+#: src/Server/Privileges.php:315
 msgid "Allows dropping databases and tables."
 msgstr "Mengizinkan penghapusan basis data dan tabel."
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
-#: src/Server/Privileges.php:332
+#: src/Server/Privileges.php:333
 msgid "Allows creating temporary tables."
 msgstr "Mengizinkan untuk membuat tabel temporer."
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
-#: src/Server/Privileges.php:364
+#: src/Server/Privileges.php:365
 msgid "Allows creating stored routines."
 msgstr "Mengizinkan untuk membuat routine tersimpan."
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
-#: src/Server/Privileges.php:365
+#: src/Server/Privileges.php:366
 msgid "Allows altering and dropping stored routines."
 msgstr "Mengizinkan untuk mengubah dan menghapus routine tersimpan."
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
-#: src/Server/Privileges.php:367
+#: src/Server/Privileges.php:368
 msgid "Allows executing stored routines."
 msgstr "Mengizinkan eksekusi routine tersimpan."
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
-#: src/Server/Privileges.php:341
+#: src/Server/Privileges.php:342
 #, fuzzy
 msgid "Allows to set up events for the event scheduler."
 msgstr "Mengizinkan penyiapan event untuk penjadwal event"
@@ -5252,7 +5252,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
-#: src/Server/Privileges.php:327
+#: src/Server/Privileges.php:328
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5265,13 +5265,13 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:318
 msgid "Allows viewing processes of all users."
 msgstr "Mengizinkan untuk melihat proses oleh semua pengguna."
 
 #: resources/templates/server/privileges/privileges_table.twig:610
 #: resources/templates/server/privileges/privileges_table.twig:613
-#: src/Server/Privileges.php:315
+#: src/Server/Privileges.php:316
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Mengizinkan untuk memuat ulang pengaturan server dan membersihkan singgahan "
@@ -5279,19 +5279,19 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:317
 msgid "Allows shutting down the server."
 msgstr "Mengizinkan untuk shut-down server."
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
-#: src/Server/Privileges.php:322
+#: src/Server/Privileges.php:323
 msgid "Gives access to the complete list of databases."
 msgstr "Memberi akses ke seluruh daftar basis data."
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
-#: src/Server/Privileges.php:333
+#: src/Server/Privileges.php:334
 msgid "Allows locking tables for the current thread."
 msgstr "Mengizinkan untuk mengunci tabel dalam Thread yang lagi berjalan."
 
@@ -5312,7 +5312,7 @@ msgstr "Tidak ada efek dalam versi MySQL yang digunakan."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
-#: src/Server/Privileges.php:338
+#: src/Server/Privileges.php:339
 #, fuzzy
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr ""
@@ -5320,14 +5320,14 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
-#: src/Server/Privileges.php:334
+#: src/Server/Privileges.php:335
 #, fuzzy
 msgid "Needed for the replication replicas."
 msgstr "Digunakan untuk replikasi dari slaves."
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
-#: src/Server/Privileges.php:366
+#: src/Server/Privileges.php:367
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Mengizinkan untuk membuat, menghapus, dan mengubah nama akun pengguna."
 
@@ -6123,7 +6123,7 @@ msgid "Start auto refresh"
 msgstr "Mulai penyegaran otomatis"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2565
+#: src/Display/Results.php:2566
 msgid "Kill"
 msgstr "Tutup"
 
@@ -6510,24 +6510,24 @@ msgid "Pie chart with profiling results."
 msgstr "Profil Hasil"
 
 #: resources/templates/sql/query.twig:7
-#: src/Controllers/Operations/ViewController.php:115
+#: src/Controllers/Operations/ViewController.php:116
 #: src/Controllers/Table/DeleteRowsController.php:77
-#: src/Controllers/Table/FindReplaceController.php:119
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:72
-#: src/Controllers/Table/Maintenance/CheckController.php:72
-#: src/Controllers/Table/Maintenance/ChecksumController.php:72
-#: src/Controllers/Table/Maintenance/OptimizeController.php:72
-#: src/Controllers/Table/Maintenance/RepairController.php:72
-#: src/Controllers/Table/Partition/AnalyzeController.php:46
-#: src/Controllers/Table/Partition/CheckController.php:46
-#: src/Controllers/Table/Partition/DropController.php:47
-#: src/Controllers/Table/Partition/OptimizeController.php:46
-#: src/Controllers/Table/Partition/RebuildController.php:47
-#: src/Controllers/Table/Partition/RepairController.php:46
-#: src/Controllers/Table/Partition/TruncateController.php:47
-#: src/Controllers/Table/RelationController.php:140
-#: src/Database/Routines.php:995 src/Display/Results.php:3149
-#: src/Message.php:129
+#: src/Controllers/Table/FindReplaceController.php:120
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:73
+#: src/Controllers/Table/Maintenance/CheckController.php:73
+#: src/Controllers/Table/Maintenance/ChecksumController.php:73
+#: src/Controllers/Table/Maintenance/OptimizeController.php:73
+#: src/Controllers/Table/Maintenance/RepairController.php:73
+#: src/Controllers/Table/Partition/AnalyzeController.php:47
+#: src/Controllers/Table/Partition/CheckController.php:47
+#: src/Controllers/Table/Partition/DropController.php:48
+#: src/Controllers/Table/Partition/OptimizeController.php:47
+#: src/Controllers/Table/Partition/RebuildController.php:48
+#: src/Controllers/Table/Partition/RepairController.php:47
+#: src/Controllers/Table/Partition/TruncateController.php:48
+#: src/Controllers/Table/RelationController.php:141
+#: src/Database/Routines.php:995 src/Display/Results.php:3150
+#: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Kueri SQL Anda berhasil dieksekusi."
 
@@ -11783,11 +11783,11 @@ msgstr "Tampilkan statistik"
 msgid "Skip locked tables"
 msgstr "Lewati tabel terkunci"
 
-#: src/Config/Descriptions.php:927 src/Html/Generator.php:501
+#: src/Config/Descriptions.php:927 src/Html/Generator.php:492
 msgid "Explain SQL"
 msgstr "Jelaskan SQL"
 
-#: src/Config/Descriptions.php:929 src/Html/Generator.php:562
+#: src/Config/Descriptions.php:929 src/Html/Generator.php:553
 msgid "Create PHP code"
 msgstr "Buat kode PHP"
 
@@ -12364,15 +12364,15 @@ msgstr ""
 #: src/Controllers/Database/TrackingController.php:65
 #: src/Controllers/JavaScriptMessagesController.php:355
 #: src/Controllers/Operations/Database/CollationController.php:62
-#: src/Controllers/Operations/DatabaseController.php:239
-#: src/Controllers/Operations/DatabaseController.php:244
-#: src/Controllers/Operations/TableController.php:85
-#: src/Controllers/Operations/TableController.php:90
-#: src/Controllers/Operations/ViewController.php:62
-#: src/Controllers/Operations/ViewController.php:67
+#: src/Controllers/Operations/DatabaseController.php:240
+#: src/Controllers/Operations/DatabaseController.php:245
+#: src/Controllers/Operations/TableController.php:86
+#: src/Controllers/Operations/TableController.php:91
+#: src/Controllers/Operations/ViewController.php:63
+#: src/Controllers/Operations/ViewController.php:68
 #: src/Controllers/Server/Databases/DestroyController.php:61
-#: src/Controllers/Table/AddFieldController.php:163
-#: src/Controllers/Table/AddFieldController.php:168
+#: src/Controllers/Table/AddFieldController.php:164
+#: src/Controllers/Table/AddFieldController.php:169
 #: src/Controllers/Table/ChangeController.php:69
 #: src/Controllers/Table/ChangeController.php:74
 #: src/Controllers/Table/ChartController.php:105
@@ -12384,16 +12384,16 @@ msgstr ""
 #: src/Controllers/Table/DeleteConfirmController.php:66
 #: src/Controllers/Table/DropColumnConfirmationController.php:50
 #: src/Controllers/Table/DropColumnConfirmationController.php:55
-#: src/Controllers/Table/FindReplaceController.php:73
-#: src/Controllers/Table/FindReplaceController.php:78
+#: src/Controllers/Table/FindReplaceController.php:74
+#: src/Controllers/Table/FindReplaceController.php:79
 #: src/Controllers/Table/GisVisualizationController.php:63
 #: src/Controllers/Table/GisVisualizationController.php:68
 #: src/Controllers/Table/ImportController.php:67
 #: src/Controllers/Table/ImportController.php:72
-#: src/Controllers/Table/IndexesController.php:68
-#: src/Controllers/Table/IndexesController.php:73
-#: src/Controllers/Table/IndexRenameController.php:58
-#: src/Controllers/Table/IndexRenameController.php:63
+#: src/Controllers/Table/IndexesController.php:69
+#: src/Controllers/Table/IndexesController.php:74
+#: src/Controllers/Table/IndexRenameController.php:59
+#: src/Controllers/Table/IndexRenameController.php:64
 #: src/Controllers/Table/SearchController.php:173
 #: src/Controllers/Table/SearchController.php:178
 #: src/Controllers/Table/SqlController.php:65
@@ -12484,12 +12484,12 @@ msgstr "Anda tidak punya hak akses untuk membuat trigger"
 #: src/Controllers/Database/Structure/ShowCreateController.php:34
 #: src/Controllers/Export/TablesController.php:27
 #: src/Controllers/JavaScriptMessagesController.php:356
-#: src/Controllers/Operations/TableController.php:99
-#: src/Controllers/Operations/TableController.php:104
-#: src/Controllers/Operations/ViewController.php:76
-#: src/Controllers/Operations/ViewController.php:81
-#: src/Controllers/Table/AddFieldController.php:177
-#: src/Controllers/Table/AddFieldController.php:182
+#: src/Controllers/Operations/TableController.php:100
+#: src/Controllers/Operations/TableController.php:105
+#: src/Controllers/Operations/ViewController.php:77
+#: src/Controllers/Operations/ViewController.php:82
+#: src/Controllers/Table/AddFieldController.php:178
+#: src/Controllers/Table/AddFieldController.php:183
 #: src/Controllers/Table/ChangeController.php:83
 #: src/Controllers/Table/ChangeController.php:88
 #: src/Controllers/Table/ChartController.php:119
@@ -12499,19 +12499,19 @@ msgstr "Anda tidak punya hak akses untuk membuat trigger"
 #: src/Controllers/Table/DeleteConfirmController.php:80
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
 #: src/Controllers/Table/DropColumnConfirmationController.php:68
-#: src/Controllers/Table/FindReplaceController.php:87
-#: src/Controllers/Table/FindReplaceController.php:92
+#: src/Controllers/Table/FindReplaceController.php:88
+#: src/Controllers/Table/FindReplaceController.php:93
 #: src/Controllers/Table/ImportController.php:81
 #: src/Controllers/Table/ImportController.php:86
-#: src/Controllers/Table/IndexesController.php:82
-#: src/Controllers/Table/IndexesController.php:87
-#: src/Controllers/Table/IndexRenameController.php:72
-#: src/Controllers/Table/IndexRenameController.php:77
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:43
-#: src/Controllers/Table/Maintenance/CheckController.php:43
-#: src/Controllers/Table/Maintenance/ChecksumController.php:43
-#: src/Controllers/Table/Maintenance/OptimizeController.php:43
-#: src/Controllers/Table/Maintenance/RepairController.php:43
+#: src/Controllers/Table/IndexesController.php:83
+#: src/Controllers/Table/IndexesController.php:88
+#: src/Controllers/Table/IndexRenameController.php:73
+#: src/Controllers/Table/IndexRenameController.php:78
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:44
+#: src/Controllers/Table/Maintenance/CheckController.php:44
+#: src/Controllers/Table/Maintenance/ChecksumController.php:44
+#: src/Controllers/Table/Maintenance/OptimizeController.php:44
+#: src/Controllers/Table/Maintenance/RepairController.php:44
 #: src/Controllers/Table/SearchController.php:187
 #: src/Controllers/Table/SearchController.php:192
 #: src/Controllers/Table/SqlController.php:79
@@ -12583,7 +12583,7 @@ msgid "Success!"
 msgstr "Sukses!"
 
 #: src/Controllers/Database/StructureController.php:576
-#: src/Display/Results.php:3429
+#: src/Display/Results.php:3430
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12650,15 +12650,15 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Anda mungkin perlu menyegarkan halaman."
 
-#: src/Controllers/Export/ExportController.php:111 src/Export/Export.php:1213
+#: src/Controllers/Export/ExportController.php:115 src/Export/Export.php:1214
 msgid "Bad type!"
 msgstr "Tipe yang buruk!"
 
-#: src/Controllers/Export/ExportController.php:194
+#: src/Controllers/Export/ExportController.php:190
 msgid "Bad parameters!"
 msgstr "Parameter yang buruk!"
 
-#: src/Controllers/HomeController.php:98
+#: src/Controllers/HomeController.php:99
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -12666,7 +12666,7 @@ msgstr ""
 "Anda keluar dari satu server, untuk keluar sepenuhnya dari phpMyAdmin, Anda "
 "perlu keluar dari semua server."
 
-#: src/Controllers/HomeController.php:196
+#: src/Controllers/HomeController.php:197
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12675,14 +12675,14 @@ msgstr ""
 "Penyimpanan konfigurasi phpMyAdmin belum ditata secara lengkap, beberapa "
 "fitur untuk sementara dimatikan. %sCari tahu mengapa%s. "
 
-#: src/Controllers/HomeController.php:202
+#: src/Controllers/HomeController.php:203
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Sebagai alternatif pergilah ke tab 'Operations' dari database lain untuk "
 "mengaturnya."
 
-#: src/Controllers/HomeController.php:268
+#: src/Controllers/HomeController.php:269
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12694,7 +12694,7 @@ msgstr ""
 "daripada validitas cookie di phpMyAdmin, oleh karena itu login Anda mungkin "
 "kedaluwarsa lebih cepat daripada yang dikonfigurasi dalam phpMyAdmin."
 
-#: src/Controllers/HomeController.php:288
+#: src/Controllers/HomeController.php:289
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12703,7 +12703,7 @@ msgstr ""
 "phpMyAdmin, karenanya, login Anda lebih cepat kedaluwarsa daripada yang "
 "dikonfigurasi dalam phpMyAdmin."
 
-#: src/Controllers/HomeController.php:307
+#: src/Controllers/HomeController.php:308
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12714,14 +12714,14 @@ msgstr ""
 "kelemahan keamanan ini dengan mengubah kata sandi untuk pengguna kontrol "
 "'pma'."
 
-#: src/Controllers/HomeController.php:326
+#: src/Controllers/HomeController.php:327
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:336
+#: src/Controllers/HomeController.php:337
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12729,7 +12729,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:354
+#: src/Controllers/HomeController.php:355
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12741,7 +12741,7 @@ msgstr ""
 "phpMyAdmin dikonfigurasi. Jika tidak, keamanan server Anda bisa dirusak oleh "
 "orang yang tidak berhak yang mengunduh konfigurasi Anda."
 
-#: src/Controllers/HomeController.php:375
+#: src/Controllers/HomeController.php:376
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12750,7 +12750,7 @@ msgstr ""
 "Server berjalan dengan Suhosin. Harap baca %sdokumentasi%s untuk kemungkinan "
 "masalah."
 
-#: src/Controllers/HomeController.php:389
+#: src/Controllers/HomeController.php:390
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12759,7 +12759,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) tidak dapat diakses. phpMyAdmin tidak bisa meng-cache "
 "templat-templat dan akan lambat karena ini."
 
-#: src/Controllers/HomeController.php:446
+#: src/Controllers/HomeController.php:447
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12770,7 +12770,7 @@ msgstr ""
 "baris-baris dengan benar. Hal ini mampu mengakibatkan hasil yang tidak "
 "diinginkan."
 
-#: src/Controllers/HomeController.php:464
+#: src/Controllers/HomeController.php:465
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -12779,7 +12779,7 @@ msgstr ""
 "Sehingga menyebabkan beberapa fitur seperti laporan kesalahan atau "
 "pengecekan versi tidak aktif."
 
-#: src/Controllers/Import/ImportController.php:164
+#: src/Controllers/Import/ImportController.php:165
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12788,22 +12788,22 @@ msgstr ""
 "Anda mungkin mencoba mengunggah berkas yang terlalu besar. Silakan lihat "
 "%sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
 
-#: src/Controllers/Import/ImportController.php:191
+#: src/Controllers/Import/ImportController.php:192
 #, fuzzy
 msgid "Incorrect format parameter"
 msgstr "Formulir salah yang ditentukan!"
 
-#: src/Controllers/Import/ImportController.php:300
-#: src/Controllers/Import/ImportController.php:513
+#: src/Controllers/Import/ImportController.php:301
+#: src/Controllers/Import/ImportController.php:514
 msgid "Showing bookmark"
 msgstr "Menampilkan markah"
 
-#: src/Controllers/Import/ImportController.php:320
-#: src/Controllers/Import/ImportController.php:509
+#: src/Controllers/Import/ImportController.php:321
+#: src/Controllers/Import/ImportController.php:510
 msgid "The bookmark has been deleted."
 msgstr "Markah telah dihapus."
 
-#: src/Controllers/Import/ImportController.php:432
+#: src/Controllers/Import/ImportController.php:433
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12813,13 +12813,13 @@ msgstr ""
 "nama berkas yang diberikan, atau ukuran berkas melebihi ukuran maksimum yang "
 "diizinkan oleh konfigurasi PHP Anda. Lihat [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:521
+#: src/Controllers/Import/ImportController.php:522
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Impor telah selesai, %d kueri dilakukan."
 
-#: src/Controllers/Import/ImportController.php:558
+#: src/Controllers/Import/ImportController.php:559
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12828,7 +12828,7 @@ msgstr ""
 "Masa waktu skrip telah habis, jika Anda ingin menyelesaikan mengimpor, "
 "%skirim kembali berkas yang sama%s dan impor akan berlanjut."
 
-#: src/Controllers/Import/ImportController.php:568
+#: src/Controllers/Import/ImportController.php:569
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12837,12 +12837,12 @@ msgstr ""
 "phpMyAdmin tidak bisa menyelesaikan proses impor kecuali Anda menambah batas "
 "waktu eksekusi php."
 
-#: src/Controllers/Import/ImportController.php:631
+#: src/Controllers/Import/ImportController.php:632
 #: src/Controllers/Sql/SqlController.php:159
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Perintah \"DROP DATABASE\" dinonaktifkan."
 
-#: src/Controllers/Import/ImportController.php:686 src/Sql.php:872
+#: src/Controllers/Import/ImportController.php:687 src/Sql.php:872
 msgid "[ROLLBACK occurred.]"
 msgstr "[Terjadi ROLLBACK.]"
 
@@ -13084,12 +13084,12 @@ msgid "The user name is empty!"
 msgstr "Nama pengguna kosong!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:766 src/UserPassword.php:39
+#: src/Server/Privileges.php:767 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Kata sandi kosong!"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:764 src/UserPassword.php:43
+#: src/Server/Privileges.php:765 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Kata sandi tidak sama!"
 
@@ -14895,27 +14895,27 @@ msgid "String"
 msgstr "String"
 
 #: src/Controllers/Operations/Database/CollationController.php:44
-#: src/Controllers/Operations/TableController.php:276
+#: src/Controllers/Operations/TableController.php:277
 msgid "No collation provided."
 msgstr "Tidak ada pemeriksaan yang tersedia."
 
-#: src/Controllers/Operations/DatabaseController.php:82
+#: src/Controllers/Operations/DatabaseController.php:83
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Tidak dapat menyalin database dengan nama yang sama. Gunakan nama lain dan "
 "coba lagi."
 
-#: src/Controllers/Operations/DatabaseController.php:165
+#: src/Controllers/Operations/DatabaseController.php:166
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Nama database %1$s telah diubah menjadi %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:179
+#: src/Controllers/Operations/DatabaseController.php:180
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Database %1$s telah disalin ke %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:282
+#: src/Controllers/Operations/DatabaseController.php:283
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -14923,16 +14923,16 @@ msgstr ""
 "Penyimpanan konfigurasi phpMyAdmin telah dinonaktifkan. %sCari tahu "
 "mengapa%s."
 
-#: src/Controllers/Preferences/ManageController.php:89
+#: src/Controllers/Preferences/ManageController.php:88
 #, fuzzy
 msgid "phpMyAdmin configuration snippet"
 msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
 
-#: src/Controllers/Preferences/ManageController.php:90
+#: src/Controllers/Preferences/ManageController.php:89
 msgid "Paste it to your config.inc.php"
 msgstr "Pastel di config.inc.php anda"
 
-#: src/Controllers/Preferences/ManageController.php:140
+#: src/Controllers/Preferences/ManageController.php:139
 msgid "Could not import configuration"
 msgstr "Tidak dapat mengimpor konfigurasi"
 
@@ -14948,11 +14948,11 @@ msgstr "Metode autentikasi dalam konfigurasi tidak sah:"
 
 #: src/Controllers/SchemaExportController.php:40
 #: src/Controllers/Server/UserGroupsFormController.php:44
-#: src/ResponseRenderer.php:497
+#: src/ResponseRenderer.php:477
 msgid "Missing parameter:"
 msgstr "Parameter yang hilang:"
 
-#: src/Controllers/Server/Databases/CreateController.php:81
+#: src/Controllers/Server/Databases/CreateController.php:82
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "Database %1$s telah dibuat."
@@ -15784,11 +15784,21 @@ msgstr "Singgahan kueri tidak diaktifkan."
 msgid "Setting variable failed"
 msgstr "Pengaturan variabel gagal"
 
-#: src/Controllers/Setup/FormController.php:34
+#: src/Controllers/Setup/ConfigController.php:43
+#: src/Controllers/Setup/FormController.php:46
+#: src/Controllers/Setup/HomeController.php:46
+#: src/Controllers/Setup/ServerDestroyController.php:43
+#: src/Controllers/Setup/ServersController.php:46
+#: src/Controllers/Setup/ShowConfigController.php:44
+#: src/Controllers/Setup/ValidateController.php:48
+msgid "Configuration already exists, setup is disabled!"
+msgstr "Konfigurasi sudah ada, persiapan di non-aktifkan!"
+
+#: src/Controllers/Setup/FormController.php:64
 msgid "Incorrect form specified!"
 msgstr "Formulir salah yang ditentukan!"
 
-#: src/Controllers/Setup/HomeController.php:43
+#: src/Controllers/Setup/HomeController.php:72
 #, fuzzy
 msgid ""
 "You are not using a secure connection; all data (including potentially "
@@ -15798,7 +15808,7 @@ msgstr ""
 "yang berpotensi sensitif, seperti password) yang ditransfer tidak "
 "terenkripsi!"
 
-#: src/Controllers/Setup/HomeController.php:48
+#: src/Controllers/Setup/HomeController.php:77
 #, fuzzy
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
@@ -15807,19 +15817,15 @@ msgstr ""
 "Jika server Anda juga dikonfigurasi untuk menerima permintaan HTTPS "
 "mengikuti [a@%s] link ini [/a] untuk menggunakan sambungan aman."
 
-#: src/Controllers/Setup/HomeController.php:52
+#: src/Controllers/Setup/HomeController.php:81
 msgid "Insecure connection"
 msgstr "Koneksi tidak aman"
 
-#: src/Controllers/Setup/MainController.php:43
-msgid "Configuration already exists, setup is disabled!"
-msgstr "Konfigurasi sudah ada, persiapan di non-aktifkan!"
-
-#: src/Controllers/Setup/ValidateController.php:44
+#: src/Controllers/Setup/ValidateController.php:65
 msgid "Wrong data"
 msgstr "Data salah"
 
-#: src/Controllers/Setup/ValidateController.php:51
+#: src/Controllers/Setup/ValidateController.php:74
 #, fuzzy, php-format
 msgid "Wrong data or no validation for %s"
 msgstr "Salah data atau tidak ada validasi untuk %s"
@@ -15833,11 +15839,11 @@ msgstr "Markah %s telah dibuat."
 msgid "Bookmark not created!"
 msgstr "Bookmark tidak dibuat!"
 
-#: src/Controllers/Table/AddFieldController.php:134
-#: src/Controllers/Table/IndexesController.php:141
-#: src/Controllers/Table/IndexRenameController.php:130
-#: src/Controllers/Table/Structure/PartitioningController.php:265
-#: src/Controllers/Table/Structure/SaveController.php:215
+#: src/Controllers/Table/AddFieldController.php:135
+#: src/Controllers/Table/IndexesController.php:142
+#: src/Controllers/Table/IndexRenameController.php:131
+#: src/Controllers/Table/Structure/PartitioningController.php:266
+#: src/Controllers/Table/Structure/SaveController.php:216
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabel %1$s berhasil diubah."
@@ -15916,21 +15922,21 @@ msgstr "MySQL memberikan hasil kosong (atau nol baris)."
 msgid "No spatial column found for this SQL query."
 msgstr "Tidak ada efek dalam versi MySQL yang digunakan."
 
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:64
-#: src/Controllers/Table/Maintenance/CheckController.php:64
-#: src/Controllers/Table/Maintenance/ChecksumController.php:64
-#: src/Controllers/Table/Maintenance/OptimizeController.php:64
-#: src/Controllers/Table/Maintenance/RepairController.php:64
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:65
+#: src/Controllers/Table/Maintenance/CheckController.php:65
+#: src/Controllers/Table/Maintenance/ChecksumController.php:65
+#: src/Controllers/Table/Maintenance/OptimizeController.php:65
+#: src/Controllers/Table/Maintenance/RepairController.php:65
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr "Operasi pemeliharaan pada beberapa tabel dinonaktifkan."
 
-#: src/Controllers/Table/Partition/AnalyzeController.php:33
-#: src/Controllers/Table/Partition/CheckController.php:33
-#: src/Controllers/Table/Partition/DropController.php:33
-#: src/Controllers/Table/Partition/OptimizeController.php:33
-#: src/Controllers/Table/Partition/RebuildController.php:33
-#: src/Controllers/Table/Partition/RepairController.php:33
-#: src/Controllers/Table/Partition/TruncateController.php:33
+#: src/Controllers/Table/Partition/AnalyzeController.php:34
+#: src/Controllers/Table/Partition/CheckController.php:34
+#: src/Controllers/Table/Partition/DropController.php:34
+#: src/Controllers/Table/Partition/OptimizeController.php:34
+#: src/Controllers/Table/Partition/RebuildController.php:34
+#: src/Controllers/Table/Partition/RepairController.php:34
+#: src/Controllers/Table/Partition/TruncateController.php:34
 #, fuzzy
 msgid "The partition name must be a non-empty string."
 msgstr "Nama tabel kosong!"
@@ -15940,15 +15946,15 @@ msgstr "Nama tabel kosong!"
 msgid "Invalid database or table name."
 msgstr "Nama tabel tidak valid"
 
-#: src/Controllers/Table/RelationController.php:325
+#: src/Controllers/Table/RelationController.php:326
 msgid "Display column was successfully updated."
 msgstr "Kolom display sukses diperbarui."
 
-#: src/Controllers/Table/RelationController.php:359
+#: src/Controllers/Table/RelationController.php:360
 msgid "Internal relationships were successfully updated."
 msgstr "Hubungan internal sukses diperbarui."
 
-#: src/Controllers/Table/ReplaceController.php:182
+#: src/Controllers/Table/ReplaceController.php:183
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Baris: %1$s, Kolom: %2$s, Kesalahan: %3$s"
@@ -15957,8 +15963,8 @@ msgstr "Baris: %1$s, Kolom: %2$s, Kesalahan: %3$s"
 msgid "The columns have been moved successfully."
 msgstr "Kolom sukses dipindah."
 
-#: src/Controllers/Table/Structure/PartitioningController.php:257
-#: src/Controllers/Table/Structure/SaveController.php:265
+#: src/Controllers/Table/Structure/PartitioningController.php:258
+#: src/Controllers/Table/Structure/SaveController.php:266
 #: src/Tracking/Tracking.php:779
 msgid "Query error"
 msgstr "Galat kueri"
@@ -15969,7 +15975,7 @@ msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "Nama '%s' adalah kata kunci pesanan MySQL."
 
-#: src/Controllers/Table/Structure/SaveController.php:210
+#: src/Controllers/Table/Structure/SaveController.php:211
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -16014,7 +16020,7 @@ msgid ""
 "%2$s."
 msgstr "Trigger dengan nama %1$s tidak ditemukan dalam basis data %2$s"
 
-#: src/Controllers/UserPasswordController.php:49
+#: src/Controllers/UserPasswordController.php:50
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Hak Akses Anda untuk melanjut tidak cukup!"
 
@@ -16128,7 +16134,7 @@ msgstr "Query berikut telah gagal: \"%s\""
 #: src/Database/Events.php:115 src/Database/Events.php:136
 #: src/Database/Routines.php:105 src/Database/Routines.php:131
 #: src/Database/Routines.php:209 src/Database/Routines.php:223
-#: src/Database/Routines.php:976 src/Html/Generator.php:808
+#: src/Database/Routines.php:976 src/Html/Generator.php:799
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:109 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
@@ -16281,31 +16287,31 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2522 src/Display/Results.php:2537
+#: src/Display/Results.php:2523 src/Display/Results.php:2538
 msgid "The row has been deleted."
 msgstr "Baris telah dihapus."
 
-#: src/Display/Results.php:3438
+#: src/Display/Results.php:3439
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Menampilkan baris %1s - %2s"
 
-#: src/Display/Results.php:3452
+#: src/Display/Results.php:3453
 #, fuzzy, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "total %1$d, %2$d dalam kueri"
 
-#: src/Display/Results.php:3457
+#: src/Display/Results.php:3458
 #, fuzzy, php-format
 msgid "%s total"
 msgstr "total %d"
 
-#: src/Display/Results.php:3470 src/Sql.php:864
+#: src/Display/Results.php:3471 src/Sql.php:864
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Pencarian dilakukan dalam %01.4f detik."
 
-#: src/Display/Results.php:3776
+#: src/Display/Results.php:3777
 msgid "Link not found!"
 msgstr "Tautan tidak ditemukan!"
 
@@ -16696,13 +16702,13 @@ msgstr ""
 "anda secara otomatis logout karenta tidak aktif selama %s detik. Jika anda "
 "log in lagi, ada bisa melanjutkan kerja anda dimana anda log out."
 
-#: src/Export/Export.php:163 src/Export/Export.php:199
-#: src/Export/Export.php:439
+#: src/Export/Export.php:164 src/Export/Export.php:200
+#: src/Export/Export.php:440
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Tidak cukup ruang untuk menyimpan %s."
 
-#: src/Export/Export.php:392
+#: src/Export/Export.php:393
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -16710,18 +16716,18 @@ msgstr ""
 "Berkas %s sudah ada pada server. Ganti nama berkas atau centang opsi "
 "overwrite."
 
-#: src/Export/Export.php:399 src/Export/Export.php:409
+#: src/Export/Export.php:400 src/Export/Export.php:410
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Server web tidak memiliki hak akses untuk menyimpan berkas %s."
 
-#: src/Export/Export.php:446
+#: src/Export/Export.php:447
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Dump (Skema) disimpan pada berkas %s."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:881
+#: src/Export/Export.php:882
 msgid "Exporting a raw query is not supported for this export method."
 msgstr "Mengekspor kueri mentah tidak didukung untuk metode ekspor ini."
 
@@ -16799,58 +16805,58 @@ msgstr ""
 "Anda mencoba untuk memuat berkas dengan kompresi yang tidak didukung (%s). "
 "Dukungan belum diimplementasi atau tidak aktif di dalam konfigurasi Anda."
 
-#: src/FlashMessages.php:24
+#: src/FlashMessenger.php:30
 #, fuzzy
 msgid "Session not found."
 msgstr "Ekstensi SOAP tidak ditemukan"
 
-#: src/Html/Generator.php:145
+#: src/Html/Generator.php:146
 #, fuzzy, php-format
 msgid "Jump to database “%s”."
 msgstr "Langsung ke basis data \"%s\"."
 
-#: src/Html/Generator.php:211
+#: src/Html/Generator.php:212
 msgid "SSL is not being used"
 msgstr "SSL sedang tidak digunakan"
 
-#: src/Html/Generator.php:218
+#: src/Html/Generator.php:219
 msgid "SSL is used with disabled verification"
 msgstr "SSL sedang digunakan tanpa vertifikasi"
 
-#: src/Html/Generator.php:220
+#: src/Html/Generator.php:221
 msgid "SSL is used without certification authority"
 msgstr "SSL sedang digunakan tanpa ijin sertifikat"
 
-#: src/Html/Generator.php:223
+#: src/Html/Generator.php:224
 msgid "SSL is used"
 msgstr "SSL sedang digunakan"
 
-#: src/Html/Generator.php:324
+#: src/Html/Generator.php:325
 msgid "The PHP function password_hash() with default options."
 msgstr "Fungsi PHP password_hash () dengan opsi default."
 
-#: src/Html/Generator.php:325
+#: src/Html/Generator.php:326
 msgid "password_hash() PHP function"
 msgstr "Fungsi PHP password_hash()"
 
-#: src/Html/Generator.php:510
+#: src/Html/Generator.php:501
 msgid "Skip Explain SQL"
 msgstr "Lewati Penjelasan SQL"
 
-#: src/Html/Generator.php:542
+#: src/Html/Generator.php:533
 msgid "Without PHP code"
 msgstr "Tanpa kode PHP"
 
-#: src/Html/Generator.php:627
+#: src/Html/Generator.php:618
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Edit dikotak"
 
-#: src/Html/Generator.php:750
+#: src/Html/Generator.php:741
 msgid "Static analysis:"
 msgstr "Data statis:"
 
-#: src/Html/Generator.php:753
+#: src/Html/Generator.php:744
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "%d kesalahan ditemukan dalam analisis."
@@ -17061,7 +17067,7 @@ msgstr "Mesin"
 
 # No difference between singular and plural in this case for Indonesian
 # language.
-#: src/Message.php:194
+#: src/Message.php:185
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
@@ -17069,7 +17075,7 @@ msgstr[0] "%1$d baris terpengaruh."
 
 # No difference between singular and plural in this case for Indonesian
 # language.
-#: src/Message.php:211
+#: src/Message.php:202
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
@@ -17077,7 +17083,7 @@ msgstr[0] "%1$d baris telah dihapus."
 
 # No difference between singular and plural in this case for Indonesian
 # language.
-#: src/Message.php:228
+#: src/Message.php:219
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
@@ -17571,30 +17577,30 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "Coba untuk menghubungkan kembali"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:123
+#: src/Plugins/Auth/AuthenticationCookie.php:125
 msgid "Your session has expired. Please log in again."
 msgstr "Sesi anda telah berakhir. Silakan log in kembali."
 
-#: src/Plugins/Auth/AuthenticationCookie.php:239
+#: src/Plugins/Auth/AuthenticationCookie.php:241
 #, fuzzy
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr "Verifikasi reCAPTCHA hilang, mungkin telah diblokir oleh adblock?"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:274
+#: src/Plugins/Auth/AuthenticationCookie.php:276
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "Tidak dapat terhubung ke layanan reCAPTCHA!"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:276
+#: src/Plugins/Auth/AuthenticationCookie.php:278
 msgid "Entered captcha is wrong, try again!"
 msgstr "Captcha yang dimasukan salah, coba lagi!"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:288
+#: src/Plugins/Auth/AuthenticationCookie.php:290
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:307
+#: src/Plugins/Auth/AuthenticationCookie.php:309
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Kamu tidak diizinkan masuk ke server MySQL!"
 
@@ -17602,7 +17608,7 @@ msgstr "Kamu tidak diizinkan masuk ke server MySQL!"
 msgid "Wrong username/password. Access denied."
 msgstr "Nama pengguna/kata sandi salah. Akses ditolak."
 
-#: src/Plugins/Auth/AuthenticationSignon.php:128
+#: src/Plugins/Auth/AuthenticationSignon.php:130
 #, fuzzy, php-format
 #| msgid "Can not find signon authentication script:"
 msgid "Can not find signon authentication script: %s"
@@ -18691,24 +18697,24 @@ msgstr "Tidak dapat mengubah master"
 msgid "Primary server changed successfully to %s."
 msgstr "Server master berhasil diubah menjadi %s"
 
-#: src/Routing/Routing.php:122
+#: src/Routing/Routing.php:119
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: src/Routing/Routing.php:156 src/Routing/Routing.php:216
+#: src/Routing/Routing.php:153 src/Routing/Routing.php:207
 #, fuzzy, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Sumber Basis data `%s` tidak ditemukan!"
 
-#: src/Routing/Routing.php:164
+#: src/Routing/Routing.php:161
 msgid "Error 405! Request method not allowed."
 msgstr "Kesalahan 405! Jalur permintaan tidak dibolehkan."
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3264
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:634
+#: src/Server/Privileges.php:3265
 msgid "Native MySQL authentication"
 msgstr "Autentikasi asli MySQL"
 
@@ -18736,65 +18742,65 @@ msgstr "Autentikasi asli MySQL"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: src/Server/Privileges.php:266
+#: src/Server/Privileges.php:267
 msgid "No privileges."
 msgstr "Tanpa hak akses."
 
-#: src/Server/Privileges.php:272
+#: src/Server/Privileges.php:273
 msgid "Includes all privileges except GRANT."
 msgstr "Mencakup semua hak akses selain GRANT."
 
-#: src/Server/Privileges.php:893
+#: src/Server/Privileges.php:894
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Sukses mengubah Kata Sandi untuk %s ."
 
-#: src/Server/Privileges.php:941
+#: src/Server/Privileges.php:942
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Anda telah mencabut hak akses untuk %s."
 
-#: src/Server/Privileges.php:1279
+#: src/Server/Privileges.php:1280
 msgid "Revoke"
 msgstr "Cabut"
 
-#: src/Server/Privileges.php:1884
+#: src/Server/Privileges.php:1885
 msgid "No users selected for deleting!"
 msgstr "Tidak ada pengguna yang dipilih untuk dihapus!"
 
-#: src/Server/Privileges.php:1887
+#: src/Server/Privileges.php:1888
 msgid "Reloading the privileges"
 msgstr "Memuat hak akses"
 
-#: src/Server/Privileges.php:1912
+#: src/Server/Privileges.php:1913
 msgid "The selected users have been deleted successfully."
 msgstr "Sukses menghapus pengguna yang dipilih."
 
-#: src/Server/Privileges.php:1986
+#: src/Server/Privileges.php:1987
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Anda telah memperbarui hak akses untuk %s."
 
-#: src/Server/Privileges.php:2143
+#: src/Server/Privileges.php:2144
 #, php-format
 msgid "Deleting %s"
 msgstr "Menghapus %s"
 
-#: src/Server/Privileges.php:2174
+#: src/Server/Privileges.php:2175
 msgid "The privileges were reloaded successfully."
 msgstr "Hak akses berhasil dimuat ulang."
 
-#: src/Server/Privileges.php:2275
+#: src/Server/Privileges.php:2276
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Pengguna %s telah terdaftar!"
 
-#: src/Server/Privileges.php:2512
+#: src/Server/Privileges.php:2513
 #, php-format
 msgid "Privileges for %s"
 msgstr "Hak akses untuk %s"
 
-#: src/Server/Privileges.php:2603
+#: src/Server/Privileges.php:2604
 #, fuzzy, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -18808,7 +18814,7 @@ msgstr ""
 "diubah secara manual. Disarankan untuk %sme-reload profil pengguna%s sebelum "
 "melanjut."
 
-#: src/Server/Privileges.php:2619
+#: src/Server/Privileges.php:2620
 #, fuzzy
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -18823,11 +18829,11 @@ msgstr ""
 "diubah secara manual. Disarankan untuk %sme-reload profil pengguna%s sebelum "
 "melanjut."
 
-#: src/Server/Privileges.php:2907
+#: src/Server/Privileges.php:2908
 msgid "You have added a new user."
 msgstr "Pengguna baru telah ditambahkan."
 
-#: src/Server/Privileges.php:3357
+#: src/Server/Privileges.php:3358
 #, fuzzy
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
