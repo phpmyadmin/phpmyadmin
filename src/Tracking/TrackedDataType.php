@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tracking;
 
 use function __;
 
-enum LogTypeEnum
+enum TrackedDataType
 {
     case DDL;
     case DML;
@@ -15,8 +15,8 @@ enum LogTypeEnum
     public function getColumnName(): string
     {
         return match ($this) {
-            LogTypeEnum::DDL => 'schema_sql',
-            LogTypeEnum::DML => 'data_sql',
+            TrackedDataType::DDL => 'schema_sql',
+            TrackedDataType::DML => 'data_sql',
         };
     }
 
@@ -24,24 +24,24 @@ enum LogTypeEnum
     public function getLogName(): string
     {
         return match ($this) {
-            LogTypeEnum::DDL => 'ddlog',
-            LogTypeEnum::DML => 'dmlog',
+            TrackedDataType::DDL => 'ddlog',
+            TrackedDataType::DML => 'dmlog',
         };
     }
 
     public function getSuccessMessage(): string
     {
         return match ($this) {
-            LogTypeEnum::DDL => __('Tracking data definition successfully deleted'),
-            LogTypeEnum::DML => __('Tracking data manipulation successfully deleted'),
+            TrackedDataType::DDL => __('Tracking data definition successfully deleted'),
+            TrackedDataType::DML => __('Tracking data manipulation successfully deleted'),
         };
     }
 
     public function getHeaderMessage(): string
     {
         return match ($this) {
-            LogTypeEnum::DDL => __('Data definition statement'),
-            LogTypeEnum::DML => __('Data manipulation statement'),
+            TrackedDataType::DDL => __('Data definition statement'),
+            TrackedDataType::DML => __('Data manipulation statement'),
         };
     }
 
@@ -49,8 +49,8 @@ enum LogTypeEnum
     public function getTableId(): string
     {
         return match ($this) {
-            LogTypeEnum::DDL => 'ddl_versions',
-            LogTypeEnum::DML => 'dml_versions',
+            TrackedDataType::DDL => 'ddl_versions',
+            TrackedDataType::DML => 'dml_versions',
         };
     }
 }

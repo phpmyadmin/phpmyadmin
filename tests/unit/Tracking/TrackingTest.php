@@ -15,8 +15,9 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
-use PhpMyAdmin\Tracking\LogTypeEnum;
+use PhpMyAdmin\Tracking\LogType;
 use PhpMyAdmin\Tracking\TrackedData;
+use PhpMyAdmin\Tracking\TrackedDataType;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
@@ -260,7 +261,7 @@ class TrackingTest extends AbstractTestCase
         $html = $this->tracking->getHtmlForTrackingReport(
             $data,
             $urlParams,
-            'schema_and_data',
+            LogType::SchemaAndData,
             $filterUsers,
             '10',
             new DateTimeImmutable('2022-11-03 22:15:24'),
@@ -536,7 +537,7 @@ class TrackingTest extends AbstractTestCase
         $entries = $this->tracking->getEntries(
             $data,
             $filterUsers,
-            'schema',
+            LogType::Schema,
             new DateTimeImmutable('2010-01-01 12:34:56'),
             new DateTimeImmutable('2020-01-01 12:34:56'),
         );
@@ -649,7 +650,7 @@ class TrackingTest extends AbstractTestCase
                 'pma_db',
                 'pma_table',
                 '1.0',
-                LogTypeEnum::DML,
+                TrackedDataType::DML,
                 $newData,
             ),
         );
