@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-02-02 11:39+0000\n"
+"PO-Revision-Date: 2024-05-21 07:01+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5428,9 +5428,8 @@ msgstr "データベースを完全に削除しようとしています!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
 msgid "Cannot rename database to the same name. Change the name and try again."
-msgstr ""
-"同じ名前にデータベースをリネームすることはできません。 名前を変更して再試行し"
-"てください。"
+msgstr "データベースを同じ名前に変更することはできません。 "
+"名前を変更して再試行してください。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to DESTROY a complete table!"
@@ -7220,10 +7219,8 @@ msgid "up to date"
 msgstr "最新版"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:611
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "ESRI シェープファイルをインポート中にエラーがありました: \"%s\"。"
+msgstr "Git 情報の読み込み中にエラーが発生しました。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:614
 msgid ""
@@ -10562,10 +10559,8 @@ msgid "The table name is empty!"
 msgstr "テーブル名が空です!"
 
 #: libraries/classes/Partitioning/Maintenance.php:141
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "読み取り専用の値のため編集できません"
+msgstr "このテーブルはビューであるため、空にできません。"
 
 #: libraries/classes/Pdf.php:136
 msgid "Error while creating PDF:"
@@ -10625,16 +10620,11 @@ msgid "Entered captcha is wrong, try again!"
 msgstr "入力されたCAPTCHAは間違っている、もう一度お試しください！"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:301
-#, fuzzy
-#| msgid ""
-#| "Your password is too long. To prevent denial-of-service attacks, "
-#| "phpMyAdmin restricts passwords to less than 1000 characters."
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
-msgstr ""
-"パスワードが長すぎます。サービス拒否攻撃を防ぐために、phpMyAdmin はパスワード"
-"を 1000 文字以下に制限しています。"
+msgstr "パスワードが長すぎます。サービス拒否攻撃を防ぐために、phpMyAdmin "
+"はパスワードを 2000 文字未満に制限しています。"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
 msgid "You are not allowed to log in to this MySQL server!"
@@ -15501,7 +15491,7 @@ msgstr "バーをクリックしてページ上部にスクロール"
 
 #: templates/home/git_info.twig:2
 msgid "Git revision:"
-msgstr "Git のリビジョン："
+msgstr "Gitのリビジョン:"
 
 #: templates/home/git_info.twig:13
 msgid "no branch"
