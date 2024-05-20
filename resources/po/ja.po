@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-05-19 00:20+0000\n"
-"PO-Revision-Date: 2023-04-06 01:50+0000\n"
+"PO-Revision-Date: 2024-05-20 08:01+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -1129,8 +1129,6 @@ msgid "OK"
 msgstr "OK"
 
 #: resources/templates/console/display.twig:178
-#, fuzzy
-#| msgid "Restore default value"
 msgid "Restore default values"
 msgstr "デフォルト値に戻す"
 
@@ -1635,10 +1633,8 @@ msgid "Select page"
 msgstr "ページを選択してください"
 
 #: resources/templates/database/designer/schema_export.twig:6
-#, fuzzy
-#| msgid "Select Export Relational Type"
 msgid "Select export relational type:"
-msgstr "エクスポートするリレーショナルタイプを選択してください"
+msgstr "エクスポートするリレーショナルタイプを選択してください:"
 
 #: resources/templates/database/events/editor_form.twig:10
 #: resources/templates/database/routines/editor_form.twig:11
@@ -2410,12 +2406,10 @@ msgid "Browse"
 msgstr "表示"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<strong>Total:</strong> <em>%count%</em> match"
-#| msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<strong>合計:</strong> <em>%count%</em> 件"
+msgstr[0] "<strong>合計:</strong> <em>%s</em> 件"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
@@ -3297,10 +3291,8 @@ msgid "Javascript must be enabled past this point!"
 msgstr "Javascript を有効にしてください！"
 
 #: resources/templates/header.twig:46
-#, fuzzy
-#| msgid "Add user account"
 msgid "Open user account menu"
-msgstr "ユーザアカウントを追加する"
+msgstr "ユーザアカウントメニューを開く"
 
 #: resources/templates/header.twig:57
 #: resources/templates/navigation/main.twig:35
@@ -3309,22 +3301,16 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdminのドキュメント"
 
 #: resources/templates/header.twig:62
-#, fuzzy
-#| msgid "MariaDB Documentation"
 msgid "MariaDB documentation"
 msgstr "MariaDBドキュメント"
 
 #: resources/templates/header.twig:62
-#, fuzzy
-#| msgid "MySQL Documentation"
 msgid "MySQL documentation"
 msgstr "MySQLドキュメント"
 
 #: resources/templates/header.twig:73
-#, fuzzy
-#| msgid "Appearance settings"
 msgid "Appearance:"
-msgstr "外観の設定"
+msgstr "外観:"
 
 #: resources/templates/header.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
@@ -3365,7 +3351,7 @@ msgstr "バーをクリックしてページ上部にスクロール"
 
 #: resources/templates/home/git_info.twig:2
 msgid "Git revision:"
-msgstr "Gitのリビジョン："
+msgstr "Gitのリビジョン:"
 
 #: resources/templates/home/git_info.twig:13
 msgid "no branch"
@@ -3940,8 +3926,6 @@ msgid "Clear fast filter"
 msgstr "クリアフィルタ"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
-#, fuzzy
-#| msgid "Recently used tables"
 msgid "Recently visited tables"
 msgstr "最近使用したテーブル"
 
@@ -5253,10 +5237,8 @@ msgid "Save changes"
 msgstr "変更の保存"
 
 #: resources/templates/server/replication/change_primary.twig:7
-#, fuzzy
-#| msgid "Change or reconfigure primary server"
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "プリライマリサーバの変更または再設定"
+msgstr "レプリカ設定 - プリライマリサーバの変更または再設定"
 
 #: resources/templates/server/replication/change_primary.twig:12
 msgid ""
@@ -5596,14 +5578,10 @@ msgid "Advisor"
 msgstr "アドバイザ"
 
 #: resources/templates/server/status/monitor/index.twig:4
-#, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
-msgstr "システムメモリ"
+msgstr "システムモニタ"
 
 #: resources/templates/server/status/monitor/index.twig:7
-#, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "モニタ開始"
 
@@ -5630,16 +5608,14 @@ msgstr "更新間隔"
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
-#, fuzzy, php-format
-#| msgid "%d second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d 秒"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
-#, fuzzy, php-format
-#| msgid "%d minute"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d 分"
@@ -5853,24 +5829,21 @@ msgstr "起動以後の問い合わせ数："
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
-#| msgid "ø per hour"
+#, php-format
 msgid "ø per hour: %s"
-msgstr "ø / 時"
+msgstr "ø / 時: %s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
-#| msgid "per minute:"
+#, php-format
 msgid "ø per minute: %s"
-msgstr "1 分当たり:"
+msgstr "ø / 分: %s"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
-#| msgid "per second:"
+#, php-format
 msgid "ø per second: %s"
-msgstr "1 秒当たり:"
+msgstr "ø / 秒: %s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -5890,7 +5863,7 @@ msgstr "ø / 時"
 
 #: resources/templates/server/status/queries/index.twig:52
 msgid "Pie chart with the most frequent statements."
-msgstr ""
+msgstr "最もよく使われるステートメントの円グラフ。"
 
 #: resources/templates/server/status/status/index.twig:6
 #, php-format
@@ -6200,10 +6173,8 @@ msgid "ø Time"
 msgstr "ø 時間"
 
 #: resources/templates/sql/profiling_chart.twig:66
-#, fuzzy
-#| msgid "Profiling results"
 msgid "Pie chart with profiling results."
-msgstr "プロファイリングの結果"
+msgstr "プロファイリング結果の円グラフ。"
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:116
@@ -6595,7 +6566,7 @@ msgstr "編集／挿入"
 
 #: resources/templates/table/insert/continue_insertion_form.twig:14
 msgid "Amount of rows to insert"
-msgstr ""
+msgstr "挿入する行数"
 
 #: resources/templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
@@ -6629,10 +6600,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "第３正規化(1NF+2NF+3NF)"
 
 #: resources/templates/table/operations/index.twig:2
-#, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
-msgstr "テーブルオプション"
+msgstr "テーブル操作"
 
 #: resources/templates/table/operations/index.twig:10
 msgid "Alter table order by"
@@ -9566,7 +9535,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:328
 msgid "Allow users to create bookmarks that are available for all other users"
-msgstr ""
+msgstr "ユーザが他のすべてのユーザに利用できるブックマークを作成できるようにする"
 
 #: src/Config/Descriptions.php:330
 msgid ""
@@ -10991,7 +10960,7 @@ msgstr "クエリ履歴の長さ"
 
 #: src/Config/Descriptions.php:851
 msgid "Allow shared bookmarks between users"
-msgstr ""
+msgstr "ユーザー間の共有ブックマークを許可"
 
 #: src/Config/Descriptions.php:852
 msgid "Recoding engine"
@@ -11498,14 +11467,8 @@ msgid "Failed to read configuration file!"
 msgstr "設定ファイルの読み込みに失敗しました！"
 
 #: src/Config.php:661
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
 msgid "This usually means there is a syntax error in it."
-msgstr ""
-"通常、これは構文エラーがあることを意味します。以下に示す全てのエラーを確認し"
-"てください。"
+msgstr "通常、これは構文エラーがあることを意味します。"
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -11776,17 +11739,14 @@ msgid "Succeeded"
 msgstr "成功しました"
 
 #: src/Controllers/Console/UpdateConfigController.php:49
-#, fuzzy
-#| msgid "Table %1$s has been altered successfully."
 msgid "Console settings has been updated successfully."
-msgstr "テーブル %1$s は正常に変更されました。"
+msgstr "コンソール設定は正常に更新されました。"
 
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:28
-#, fuzzy
 msgid "Unexpected parameter value."
-msgstr "予期しない文字 (行: %s)。"
+msgstr "予期しないパラメータ値です。"
 
 #: src/Controllers/Database/CentralColumnsController.php:150
 #, php-format
@@ -12321,13 +12281,9 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "データベースを完全に削除しようとしています!"
 
 #: src/Controllers/JavaScriptMessagesController.php:56
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot rename database to the same name. Change the name and try again."
-msgstr ""
-"同じ名前にデータベースをリネームすることはできません。 名前を変更して再試行し"
-"てください"
+msgstr "データベースを同じ名前に変更することはできません。 "
+"名前を変更して再試行してください。"
 
 #: src/Controllers/JavaScriptMessagesController.php:58
 msgid "You are about to DESTROY a complete table!"
@@ -12583,10 +12539,8 @@ msgid "Connections / Processes"
 msgstr "接続／プロセス"
 
 #: src/Controllers/JavaScriptMessagesController.php:168
-#, fuzzy
-#| msgid "Number of tables:"
 msgid "Number of statements"
-msgstr "テーブル数:"
+msgstr "ステートメント数"
 
 #: src/Controllers/JavaScriptMessagesController.php:171
 msgid "Local monitor configuration incompatible!"
@@ -13153,10 +13107,8 @@ msgid "Show query box"
 msgstr "クエリボックスを表示"
 
 #: src/Controllers/JavaScriptMessagesController.php:401
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "クエリを実行する"
+msgstr "クエリを編集"
 
 #: src/Controllers/JavaScriptMessagesController.php:403
 #, php-format
@@ -13650,10 +13602,8 @@ msgid "up to date"
 msgstr "最新版"
 
 #: src/Controllers/JavaScriptMessagesController.php:620
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "ESRI シェープファイルをインポート中にエラーがありました: \"%s\"。"
+msgstr "Git 情報の読み込み中にエラーが発生しました。"
 
 #: src/Controllers/JavaScriptMessagesController.php:623
 msgid ""
@@ -14078,8 +14028,6 @@ msgid "Time"
 msgstr "時刻"
 
 #: src/Controllers/JavaScriptMessagesController.php:769
-#, fuzzy
-#| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "時"
@@ -14366,10 +14314,8 @@ msgid ""
 msgstr "スレッド %s の終了に失敗しました。すでに閉じているようです。"
 
 #: src/Controllers/Server/Status/QueriesController.php:92
-#, fuzzy
-#| msgid "Add statements:"
 msgid "Other statements"
-msgstr "追加コマンド："
+msgstr "他のステートメント"
 
 #: src/Controllers/Server/Status/StatusController.php:131
 msgid "Received"
@@ -15213,10 +15159,8 @@ msgid "The partition name must be a non-empty string."
 msgstr "パーティション名を空文字列にすることはできません。"
 
 #: src/Controllers/Table/RecentFavoriteController.php:35
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "Invalid database or table name."
-msgstr "テーブル名が不正です"
+msgstr "データベース名またはテーブル名が不正です。"
 
 #: src/Controllers/Table/RelationController.php:326
 msgid "Display column was successfully updated."
@@ -15555,16 +15499,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "行 %1s - %2s の表示"
 
 #: src/Display/Results.php:3453
-#, fuzzy, php-format
-#| msgid "%1$d total, %2$d in query"
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "合計 %1$d, クエリで %2$d"
+msgstr "合計 %1$s, クエリで %2$s"
 
 #: src/Display/Results.php:3458
-#, fuzzy, php-format
-#| msgid "%d total"
+#, php-format
 msgid "%s total"
-msgstr "合計 %d"
+msgstr "合計 %s"
 
 #: src/Display/Results.php:3471 src/Sql.php:864
 #, php-format
@@ -15923,10 +15865,8 @@ msgid "Report"
 msgstr "レポート"
 
 #: src/Exceptions/AuthenticationFailure.php:35
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Cannot log in to the database server."
-msgstr "MySQL サーバにログインできません"
+msgstr "データベースサーバにログインできません。"
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
@@ -15936,14 +15876,10 @@ msgid "Access denied!"
 msgstr "アクセスが拒否されました!"
 
 #: src/Exceptions/AuthenticationFailure.php:61
-#, fuzzy
-#| msgid ""
-#| "Login without a password is forbidden by configuration (see "
-#| "AllowNoPassword)"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
-msgstr ""
-"パスワードなしログインは設定 (AllowNoPassword 参照) によって禁止されています"
+msgstr "パスワードなしログインは設定 (AllowNoPassword 参照) "
+"によって禁止されています。"
 
 #: src/Exceptions/AuthenticationFailure.php:73
 #, php-format
@@ -16181,34 +16117,26 @@ msgid "The table name cannot end with a space character."
 msgstr "テーブル名を空白文字で終えることはできません。"
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
-#| msgid "View name can not be empty!"
 msgid "The trigger name must not be empty."
-msgstr "ビュー名を空にすることはできません!"
+msgstr "トリガ名を空にすることはできません。"
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
-#| msgid "The table name cannot be longer than %d characters."
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "テーブル名を %d 文字より長くすることはできません。"
+msgstr "トリガ名を %d 文字より長くすることはできません。"
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
-#| msgid "The table name cannot end with a space character."
 msgid "The trigger name cannot end with a space character."
-msgstr "テーブル名を空白文字で終えることはできません。"
+msgstr "トリガ名を空白文字で終えることはできません。"
 
 #: src/Import/Import.php:947
-#, fuzzy
-#| msgid ""
-#| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
-#| "transactional engine tables can be rolled back."
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
-"トランザクションエンジンテーブルを含むINSERT、UPDATE、DELETE、およびREPLACE "
-"SQLクエリのみをロールバックできます。"
+"トランザクションエンジンのテーブルを含む "
+"INSERT、UPDATE、DELETE、REPLACE、SET（GLOBAL などのオプションなし）の SQL "
+"クエリのみをロールバックできます。"
 
 #: src/Import/Import.php:1169
 #, php-format
@@ -16751,10 +16679,8 @@ msgid "The table name is empty!"
 msgstr "テーブル名が空です!"
 
 #: src/Partitioning/Maintenance.php:142
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "読み取り専用の値のため編集できません"
+msgstr "このテーブルはビューであるため、空にできません。"
 
 #: src/Pdf.php:138
 msgid "Error while creating PDF:"
@@ -16793,13 +16719,8 @@ msgid "Your session has expired. Please log in again."
 msgstr "セッションが期限切れです。もう一度ログインしてください。"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:241
-#, fuzzy
-#| msgid ""
-#| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
-msgstr ""
-"reCAPTCHA検証がない。adblockによってブロックされている可能性があるでしょう"
-"か？"
+msgstr "Captcha の検証がありません。広告ブロックによってブロックされていませんか？"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:276
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -16813,9 +16734,8 @@ msgstr "入力されたCAPTCHAは間違っている、もう一度お試しく�
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
-msgstr ""
-"パスワードが長すぎます。サービス拒否攻撃を防ぐために、phpMyAdmin はパスワード"
-"を 2000 文字以下に制限しています。"
+msgstr "パスワードが長すぎます。サービス拒否攻撃を防ぐために、phpMyAdmin "
+"はパスワードを 2000 文字未満に制限しています。"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:309
 msgid "You are not allowed to log in to this MySQL server!"
@@ -16827,10 +16747,9 @@ msgstr ""
 "ユーザ名ないしパスワードが間違っています。<br />アクセスは拒否されました。"
 
 #: src/Plugins/Auth/AuthenticationSignon.php:130
-#, fuzzy, php-format
-#| msgid "Can not find signon authentication script:"
+#, php-format
 msgid "Can not find signon authentication script: %s"
-msgstr "サインオン認証スクリプトが見つかりません："
+msgstr "サインオン認証スクリプトが見つかりません: %s"
 
 #: src/Plugins/AuthenticationPluginFactory.php:31
 msgid "Invalid authentication method set in configuration:"
@@ -17526,18 +17445,6 @@ msgstr ""
 "ションを使う場合は 1 つ目のオプションは空文字列にする必要があります。"
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Abs/ExternalTransformationsPlugin.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use. The second option should be blank for historical reasons. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -17552,14 +17459,15 @@ msgid ""
 msgstr ""
 "LINUX のみ: 外部アプリケーションを起動して標準入力経由でカラムデータを渡しま"
 "す。アプリケーションの標準出力が返ります。デフォルトは Tidy です (これは "
-"HTML コードを綺麗にするためのものです)。セキュリティ上の理由から libraries/"
-"classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php を自分"
-"で編集して利用したいツールを明記しておく必要があります。最初のオプションは利"
-"用したいプログラムの数です。2 つ目のオプションは歴史的な理由のため、空白のま"
-"まにしてください。3 つ目のオプションが 1 に設定されている場合は "
-"htmlspecialchars() を用いて出力を変換します (デフォルトは 1 です)。4 つ目のオ"
-"プションが 1 に設定されている場合は禁則処理をせず出力全体が 1 行に収まるよう"
-"にします (デフォルトは 1 です)。"
+"HTML コードを綺麗にするためのものです)。セキュリティ上の理由から src/Plugins/"
+"Transformations/Abs/ExternalTransformationsPlugin.php を自分で編集して利用し"
+"たいツールを明記しておく必要があります。最初のオプションは利用したいプログラ"
+"ムの数です。2 "
+"つ目のオプションは歴史的な理由のため、空白のままにしてください。3 "
+"つ目のオプションが 1 に設定されている場合は htmlspecialchars() "
+"を用いて出力を変換します (デフォルトは 1 です)。4 つ目のオプションが 1 "
+"に設定されている場合は禁則処理をせず出力全体が 1 行に収まるようにします ("
+"デフォルトは 1 です)。"
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
