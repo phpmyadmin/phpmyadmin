@@ -12,8 +12,6 @@ final class FulltextController extends AbstractIndexController implements Invoca
 {
     public function __invoke(ServerRequest $request): Response|null
     {
-        $this->handleIndexCreation($request, 'FULLTEXT');
-
-        return null;
+        return $this->handleIndexCreation($request, 'FULLTEXT');
     }
 }

@@ -3865,16 +3865,6 @@
       <code><![CDATA[Response|null]]></code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="src/Controllers/Table/Structure/AbstractIndexController.php">
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$selected]]></code>
-    </MixedArgumentTypeCoercion>
-  </file>
-  <file src="src/Controllers/Table/Structure/AddKeyController.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Table/Structure/BrowseController.php">
     <MixedArgument>
       <code><![CDATA[$sval]]></code>
@@ -4114,9 +4104,6 @@
     <PossiblyNullOperand>
       <code><![CDATA[$showTable['Rows']]]></code>
     </PossiblyNullOperand>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($showTable['Data_length'])]]></code>
       <code><![CDATA[empty($showTable['Index_length'])]]></code>

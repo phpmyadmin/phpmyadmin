@@ -12,8 +12,6 @@ final class SpatialController extends AbstractIndexController implements Invocab
 {
     public function __invoke(ServerRequest $request): Response|null
     {
-        $this->handleIndexCreation($request, 'SPATIAL');
-
-        return null;
+        return $this->handleIndexCreation($request, 'SPATIAL');
     }
 }

@@ -12,8 +12,6 @@ final class AddIndexController extends AbstractIndexController implements Invoca
 {
     public function __invoke(ServerRequest $request): Response|null
     {
-        $this->handleIndexCreation($request, 'INDEX');
-
-        return null;
+        return $this->handleIndexCreation($request, 'INDEX');
     }
 }

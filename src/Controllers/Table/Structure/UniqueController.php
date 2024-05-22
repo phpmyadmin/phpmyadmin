@@ -12,8 +12,6 @@ final class UniqueController extends AbstractIndexController implements Invocabl
 {
     public function __invoke(ServerRequest $request): Response|null
     {
-        $this->handleIndexCreation($request, 'UNIQUE');
-
-        return null;
+        return $this->handleIndexCreation($request, 'UNIQUE');
     }
 }

@@ -136,11 +136,9 @@
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or (primary and primary.hasColumn(field_name)) %}
                             <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_primary', t('Primary')) }}</span>
                           {% else %}
-                            <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_primary_key_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
-                              'db': db,
-                              'table': table,
-                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ (primary ? ' DROP PRIMARY KEY,') ~ ' ADD PRIMARY KEY(' ~ backquote(row.field) ~ ');',
-                              'message_to_show': t('A primary key has been added on %s.')|format(row.field|e)
+                            <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_primary_key_anchor" href="{{ url('/table/structure/add-key', {'db': db, 'table': table}) }}" data-post="{{ get_common({
+                              'selected_fld': [row.field],
+                              'key_type': 'PRIMARY',
                             }, '', false) }}">
                               {{ get_icon('b_primary', t('Primary')) }}
                             </a>
@@ -151,11 +149,9 @@
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' %}
                             <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_unique', t('Unique')) }}</span>
                           {% else %}
-                            <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_unique_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
-                              'db': db,
-                              'table': table,
-                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD UNIQUE(' ~ backquote(row.field) ~ ');',
-                              'message_to_show': t('An index has been added on %s.')|format(row.field|e)
+                            <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_unique_anchor" href="{{ url('/table/structure/add-key', {'db': db, 'table': table}) }}" data-post="{{ get_common({
+                              'selected_fld': [row.field],
+                              'key_type': 'UNIQUE',
                             }, '', false) }}">
                               {{ get_icon('b_unique', t('Unique')) }}
                             </a>
@@ -166,11 +162,9 @@
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' %}
                             <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_index', t('Index')) }}</span>
                           {% else %}
-                            <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_index_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
-                              'db': db,
-                              'table': table,
-                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD INDEX(' ~ backquote(row.field) ~ ');',
-                              'message_to_show': t('An index has been added on %s.')|format(row.field|e)
+                            <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_index_anchor" href="{{ url('/table/structure/add-key', {'db': db, 'table': table}) }}" data-post="{{ get_common({
+                              'selected_fld': [row.field],
+                              'key_type': 'INDEX',
                             }, '', false) }}">
                               {{ get_icon('b_index', t('Index')) }}
                             </a>
@@ -191,11 +185,9 @@
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or (type not in spatial_types and (tbl_storage_engine == 'MYISAM' or mysql_int_version >= 50705)) %}
                             <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_spatial', t('Spatial')) }}</span>
                           {% else %}
-                            <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_spatial_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
-                              'db': db,
-                              'table': table,
-                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD SPATIAL(' ~ backquote(row.field) ~ ');',
-                              'message_to_show': t('An index has been added on %s.')|format(row.field|e)
+                            <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_spatial_anchor" href="{{ url('/table/structure/add-key', {'db': db, 'table': table}) }}" data-post="{{ get_common({
+                              'selected_fld': [row.field],
+                              'key_type': 'SPATIAL',
                             }, '', false) }}">
                               {{ get_icon('b_spatial', t('Spatial')) }}
                             </a>
@@ -210,11 +202,9 @@
                                 or tbl_storage_engine == 'MARIA'
                                 or (tbl_storage_engine == 'INNODB' and mysql_int_version >= 50604)
                             ) and ('text' in type or 'char' in type) %}
-                            <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key add_fulltext_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
-                              'db': db,
-                              'table': table,
-                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD FULLTEXT(' ~ backquote(row.field) ~ ');',
-                              'message_to_show': t('An index has been added on %s.')|format(row.field|e)
+                            <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key add_fulltext_anchor" href="{{ url('/table/structure/add-key', {'db': db, 'table': table}) }}" data-post="{{ get_common({
+                              'selected_fld': [row.field],
+                              'key_type': 'FULLTEXT',
                             }, '', false) }}">
                               {{ get_icon('b_ftext', t('Fulltext')) }}
                             </a>
