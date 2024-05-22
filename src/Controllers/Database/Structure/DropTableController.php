@@ -38,9 +38,7 @@ final class DropTableController implements InvocableController
 
             unset($_POST['mult_btn']);
 
-            ($this->structureController)($request);
-
-            return null;
+            return ($this->structureController)($request);
         }
 
         $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
@@ -101,8 +99,6 @@ final class DropTableController implements InvocableController
 
         unset($_POST['mult_btn']);
 
-        ($this->structureController)($request);
-
-        return null;
+        return ($this->structureController)($request);
     }
 }

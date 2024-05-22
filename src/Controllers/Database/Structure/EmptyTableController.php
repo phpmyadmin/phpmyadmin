@@ -90,8 +90,6 @@ final class EmptyTableController implements InvocableController
 
         unset($_POST['mult_btn']);
 
-        ($this->structureController)($request);
-
-        return null;
+        return ($this->structureController)($request);
     }
 }

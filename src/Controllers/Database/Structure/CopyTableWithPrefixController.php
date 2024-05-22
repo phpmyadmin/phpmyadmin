@@ -50,8 +50,6 @@ final class CopyTableWithPrefixController implements InvocableController
 
         $GLOBALS['message'] = Message::success();
 
-        ($this->structureController)($request);
-
-        return null;
+        return ($this->structureController)($request);
     }
 }

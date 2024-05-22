@@ -286,9 +286,7 @@ final class ReplaceController implements InvocableController
                 $gotoInclude = '/table/change';
             }
 
-            $this->moveBackToCallingScript($gotoInclude, $request);
-
-            return null;
+            return $this->moveBackToCallingScript($gotoInclude, $request);
         }
 
         // If there is a request for SQL previewing.
@@ -375,9 +373,7 @@ final class ReplaceController implements InvocableController
             unset($_POST['where_clause']);
         }
 
-        $this->moveBackToCallingScript($gotoInclude, $request);
-
-        return null;
+        return $this->moveBackToCallingScript($gotoInclude, $request);
     }
 
     /** @param string[][] $mimeMap */
@@ -465,27 +461,21 @@ final class ReplaceController implements InvocableController
         $this->response->addJSON($extraData);
     }
 
-    private function moveBackToCallingScript(string $gotoInclude, ServerRequest $request): void
+    private function moveBackToCallingScript(string $gotoInclude, ServerRequest $request): Response|null
     {
         if ($gotoInclude === '/sql') {
-            ($this->sqlController)($request);
-
-            return;
+            return ($this->sqlController)($request);
         }
 
         if ($gotoInclude === '/database/sql') {
-            ($this->databaseSqlController)($request);
-
-            return;
+            return ($this->databaseSqlController)($request);
         }
 
         if ($gotoInclude === '/table/sql') {
-            ($this->tableSqlController)($request);
-
-            return;
+            return ($this->tableSqlController)($request);
         }
 
-        ($this->changeController)($request);
+        return ($this->changeController)($request);
     }
 
     /**

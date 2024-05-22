@@ -60,9 +60,7 @@ final class SaveController implements InvocableController
             unset($_POST['selected']);
         }
 
-        ($this->structureController)($request);
-
-        return null;
+        return ($this->structureController)($request);
     }
 
     /**

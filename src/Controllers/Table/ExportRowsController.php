@@ -45,8 +45,6 @@ final class ExportRowsController implements InvocableController
             $GLOBALS['where_clause'] = array_values($_POST['rows_to_delete']);
         }
 
-        ($this->exportController)($request);
-
-        return null;
+        return ($this->exportController)($request);
     }
 }

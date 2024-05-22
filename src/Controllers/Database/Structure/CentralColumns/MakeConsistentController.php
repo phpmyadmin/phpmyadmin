@@ -49,8 +49,6 @@ final class MakeConsistentController implements InvocableController
 
         unset($_POST['submit_mult']);
 
-        ($this->structureController)($request);
-
-        return null;
+        return ($this->structureController)($request);
     }
 }

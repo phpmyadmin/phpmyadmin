@@ -1059,9 +1059,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['table_select'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -1291,9 +1288,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Database/SqlFormatController.php">
     <PossiblyUnusedMethod>
@@ -1565,9 +1559,6 @@
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
     </MixedOperand>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$checkTime]]></code>
       <code><![CDATA[$createTime]]></code>
@@ -3113,9 +3104,6 @@
     <MixedOperand>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedOperand>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['back'])]]></code>
       <code><![CDATA[empty($GLOBALS['goto'])]]></code>
@@ -3201,9 +3189,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$isUpload]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$currentRow]]></code>
       <code><![CDATA[empty($GLOBALS['disp_message'])]]></code>
@@ -3398,9 +3383,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$parser->list]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
       <code><![CDATA[empty($GLOBALS['where_clause'])]]></code>
@@ -3861,9 +3843,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$delimiter]]></code>
     </MixedAssignment>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/Structure/BrowseController.php">
     <MixedArgument>

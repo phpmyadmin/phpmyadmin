@@ -123,9 +123,7 @@ final class CreateController implements InvocableController
                 return null;
             }
 
-            $this->setSuccessResponse($view, $ajaxdialog, $request);
-
-            return null;
+            return $this->setSuccessResponse($view, $ajaxdialog, $request);
         }
 
         $GLOBALS['sql_query'] = $request->getParsedBodyParam('sql_query', '');
@@ -203,7 +201,7 @@ final class CreateController implements InvocableController
     }
 
     /** @param mixed[] $view */
-    private function setSuccessResponse(array $view, bool $ajaxdialog, ServerRequest $request): void
+    private function setSuccessResponse(array $view, bool $ajaxdialog, ServerRequest $request): Response|null
     {
         // If different column names defined for VIEW
         $viewColumns = [];
@@ -234,17 +232,20 @@ final class CreateController implements InvocableController
             $GLOBALS['message'] = Message::success();
             /** @var StructureController $controller */
             $controller = ContainerBuilder::getContainer()->get(StructureController::class);
-            $controller($request);
-        } else {
-            $this->response->addJSON(
-                'message',
-                Generator::getMessage(
-                    Message::success(),
-                    $GLOBALS['sql_query'],
-                ),
-            );
-            $this->response->setRequestStatus(true);
+
+            return $controller($request);
         }
+
+        $this->response->addJSON(
+            'message',
+            Generator::getMessage(
+                Message::success(),
+                $GLOBALS['sql_query'],
+            ),
+        );
+        $this->response->setRequestStatus(true);
+
+        return null;
     }
 
     /**

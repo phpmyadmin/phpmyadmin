@@ -131,9 +131,7 @@ final class PrimaryController implements InvocableController
             $GLOBALS['message'] = Message::success();
         }
 
-        ($this->structureController)($request);
-
-        return null;
+        return ($this->structureController)($request);
     }
 
     private function hasPrimaryKey(): bool

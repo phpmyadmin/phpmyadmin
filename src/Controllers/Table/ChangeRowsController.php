@@ -46,8 +46,6 @@ final class ChangeRowsController implements InvocableController
             $GLOBALS['where_clause'] = array_values($rowsToDelete);
         }
 
-        ($this->changeController)($request);
-
-        return null;
+        return ($this->changeController)($request);
     }
 }

@@ -299,9 +299,8 @@ final class ExportController implements InvocableController
                     );
                     /** @var DatabaseExportController $controller */
                     $controller = ContainerBuilder::getContainer()->get(DatabaseExportController::class);
-                    $controller($request);
 
-                    return null;
+                    return $controller($request);
                 }
             }
 

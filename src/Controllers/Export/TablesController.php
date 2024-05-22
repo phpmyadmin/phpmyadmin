@@ -29,8 +29,6 @@ final class TablesController implements InvocableController
             return null;
         }
 
-        ($this->exportController)($request);
-
-        return null;
+        return ($this->exportController)($request);
     }
 }

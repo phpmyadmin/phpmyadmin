@@ -164,9 +164,8 @@ final class IndexesController implements InvocableController
 
             /** @var StructureController $controller */
             $controller = ContainerBuilder::getContainer()->get(StructureController::class);
-            $controller($request);
 
-            return null;
+            return $controller($request);
         }
 
         $this->displayForm($index);

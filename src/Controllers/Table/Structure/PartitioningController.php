@@ -46,9 +46,8 @@ final class PartitioningController implements InvocableController
         if (isset($_POST['save_partitioning'])) {
             $this->dbi->selectDb(Current::$database);
             $this->updatePartitioning();
-            ($this->structureController)($request);
 
-            return null;
+            return ($this->structureController)($request);
         }
 
         $this->pageSettings->init('TableStructure');
