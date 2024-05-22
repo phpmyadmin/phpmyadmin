@@ -106,8 +106,7 @@ class FooterTest extends AbstractTestCase
         $footer = new Footer($template, Config::getInstance());
         $footer->setAjax(true);
         self::assertSame(
-            $template->render('modals/add_index') . "\n"
-            . $template->render('modals/page_settings') . "\n",
+            $template->render('modals/page_settings') . "\n",
             $footer->getDisplay(),
         );
     }
@@ -146,8 +145,7 @@ class FooterTest extends AbstractTestCase
         $footer = new Footer($template, Config::getInstance());
         $footer->setMinimal();
         self::assertSame(
-            $template->render('modals/add_index') . "\n"
-            . $template->render('modals/page_settings')
+            $template->render('modals/page_settings')
             . "\n  </div>\n  </body>\n</html>\n",
             $footer->getDisplay(),
         );
