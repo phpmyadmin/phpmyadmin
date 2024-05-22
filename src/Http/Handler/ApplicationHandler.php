@@ -24,14 +24,9 @@ final class ApplicationHandler implements RequestHandlerInterface
     {
         assert($request instanceof ServerRequest);
         try {
-            $response = $this->application->handle($request);
-            if ($response === null) {
-                throw new ExitException();
-            }
+            return $this->application->handle($request);
         } catch (ExitException) {
-            $response = ResponseRenderer::getInstance()->response();
+            return ResponseRenderer::getInstance()->response();
         }
-
-        return $response;
     }
 }

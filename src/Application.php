@@ -136,7 +136,7 @@ class Application
         $runner->run();
     }
 
-    public function handle(ServerRequest $request): Response|null
+    public function handle(ServerRequest $request): Response
     {
         return Routing::callControllerForRoute(
             $request,

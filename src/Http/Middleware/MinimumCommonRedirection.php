@@ -38,20 +38,15 @@ final class MinimumCommonRedirection implements MiddlewareInterface
         assert($request instanceof ServerRequest);
 
         try {
-            $response = Routing::callControllerForRoute(
+            return Routing::callControllerForRoute(
                 $request,
                 Routing::getDispatcher(),
                 $container,
                 $this->responseFactory,
             );
-            if ($response === null) {
-                throw new ExitException();
-            }
         } catch (ExitException) {
-            $response = ResponseRenderer::getInstance()->response();
+            return ResponseRenderer::getInstance()->response();
         }
-
-        return $response;
     }
 
     private function isMinimumCommon(mixed $route): bool
