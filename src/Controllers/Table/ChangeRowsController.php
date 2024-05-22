@@ -21,7 +21,7 @@ final class ChangeRowsController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['where_clause'] ??= null;
 
@@ -34,7 +34,7 @@ final class ChangeRowsController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         // As we got the rows to be edited from the

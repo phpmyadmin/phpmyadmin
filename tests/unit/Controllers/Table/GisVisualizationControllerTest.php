@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\Table\GisVisualizationController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
@@ -122,7 +123,7 @@ class GisVisualizationControllerTest extends AbstractTestCase
         );
         $response = $controller($request);
 
-        self::assertNull($response);
+        self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
         self::assertSame($expected, $responseRenderer->getHTMLResult());
     }
 }

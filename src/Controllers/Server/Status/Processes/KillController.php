@@ -29,10 +29,10 @@ final class KillController extends AbstractController implements InvocableContro
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
         $processId = $this->getProcessId($request->getAttribute('routeVars'));
@@ -56,7 +56,7 @@ final class KillController extends AbstractController implements InvocableContro
 
         $this->response->addJSON(['message' => $message]);
 
-        return null;
+        return $this->response->response();
     }
 
     private function getProcessId(mixed $routeVars): int

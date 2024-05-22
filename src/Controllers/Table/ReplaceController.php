@@ -54,12 +54,12 @@ final class ReplaceController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['message'] ??= null;
         if (! $this->response->checkParameters(['db', 'table', 'goto'])) {
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['errorUrl'] ??= null;
@@ -293,7 +293,7 @@ final class ReplaceController implements InvocableController
         if ($request->hasBodyParam('preview_sql')) {
             Core::previewSQL($GLOBALS['query']);
 
-            return null;
+            return $this->response->response();
         }
 
         $returnToSqlQuery = '';
@@ -352,7 +352,7 @@ final class ReplaceController implements InvocableController
              */
             $this->doTransformations($mimeMap, $request);
 
-            return null;
+            return $this->response->response();
         }
 
         if (! empty($returnToSqlQuery)) {
@@ -461,7 +461,7 @@ final class ReplaceController implements InvocableController
         $this->response->addJSON($extraData);
     }
 
-    private function moveBackToCallingScript(string $gotoInclude, ServerRequest $request): Response|null
+    private function moveBackToCallingScript(string $gotoInclude, ServerRequest $request): Response
     {
         if ($gotoInclude === '/sql') {
             return ($this->sqlController)($request);

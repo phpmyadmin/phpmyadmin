@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Controllers\Table\ChangeRowsController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -32,7 +33,8 @@ class ChangeRowsControllerTest extends AbstractTestCase
             ->withParsedBody(['rows_to_delete' => 'row']);
 
         $mock = self::createMock(ChangeController::class);
-        $mock->expects(self::once())->method('__invoke')->with($request);
+        $mock->expects(self::once())->method('__invoke')->with($request)
+            ->willReturn(ResponseFactory::create()->createResponse());
 
         (new ChangeRowsController(new ResponseRenderer(), $mock))($request);
 
@@ -46,7 +48,8 @@ class ChangeRowsControllerTest extends AbstractTestCase
             ->withParsedBody(['goto' => 'goto']);
 
         $mock = self::createMock(ChangeController::class);
-        $mock->expects(self::never())->method('__invoke')->with($request);
+        $mock->expects(self::never())->method('__invoke')->with($request)
+            ->willReturn(ResponseFactory::create()->createResponse());
 
         $response = new ResponseRenderer();
         (new ChangeRowsController($response, $mock))($request);
@@ -63,7 +66,8 @@ class ChangeRowsControllerTest extends AbstractTestCase
             ->withParsedBody(['goto' => 'goto', 'rows_to_delete' => ['key1' => 'row1', 'key2' => 'row2']]);
 
         $mock = self::createMock(ChangeController::class);
-        $mock->expects(self::once())->method('__invoke')->with($request);
+        $mock->expects(self::once())->method('__invoke')->with($request)
+            ->willReturn(ResponseFactory::create()->createResponse());
 
         (new ChangeRowsController(new ResponseRenderer(), $mock))($request);
 

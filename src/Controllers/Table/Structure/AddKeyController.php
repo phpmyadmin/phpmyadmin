@@ -13,7 +13,7 @@ use function in_array;
 
 final class AddKeyController extends AbstractIndexController implements InvocableController
 {
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['reload'] = true;
 
@@ -22,7 +22,7 @@ final class AddKeyController extends AbstractIndexController implements Invocabl
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('Invalid request parameter.'));
 
-            return null;
+            return $this->response->response();
         }
 
         return $this->handleIndexCreation($request, $keyType);

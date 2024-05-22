@@ -20,24 +20,24 @@ final class UpdateNavWidthConfigController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $value = $request->getParsedBodyParam('value');
         if (! is_numeric($value) || $value < 0) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error(__('Unexpected parameter value.'))]);
 
-            return null;
+            return $this->response->response();
         }
 
         $result = $this->config->setUserValue(null, 'NavigationWidth', (int) $value);
         if ($result === true) {
-            return null;
+            return $this->response->response();
         }
 
         $this->response->setRequestStatus(false);
         $this->response->addJSON(['message' => $result]);
 
-        return null;
+        return $this->response->response();
     }
 }

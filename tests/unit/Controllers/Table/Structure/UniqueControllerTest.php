@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\Table\Structure\UniqueController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Table\Indexes;
@@ -33,7 +34,8 @@ class UniqueControllerTest extends AbstractTestCase
         $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], ['test_field']]]);
         $controllerStub = self::createMock(StructureController::class);
-        $controllerStub->expects(self::once())->method('__invoke')->with($request);
+        $controllerStub->expects(self::once())->method('__invoke')->with($request)
+            ->willReturn(ResponseFactory::create()->createResponse());
 
         $indexes = new Indexes(DatabaseInterface::getInstance());
         $controller = new UniqueController(new ResponseRenderer(), $controllerStub, $indexes);
@@ -61,7 +63,8 @@ class UniqueControllerTest extends AbstractTestCase
         $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], ['test_field1', 'test_field2']]]);
         $controllerStub = self::createMock(StructureController::class);
-        $controllerStub->expects(self::once())->method('__invoke')->with($request);
+        $controllerStub->expects(self::once())->method('__invoke')->with($request)
+            ->willReturn(ResponseFactory::create()->createResponse());
 
         $indexes = new Indexes(DatabaseInterface::getInstance());
         $controller = new UniqueController(new ResponseRenderer(), $controllerStub, $indexes);
@@ -117,7 +120,8 @@ class UniqueControllerTest extends AbstractTestCase
         $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], ['test_field']]]);
         $controllerStub = self::createMock(StructureController::class);
-        $controllerStub->expects(self::once())->method('__invoke')->with($request);
+        $controllerStub->expects(self::once())->method('__invoke')->with($request)
+            ->willReturn(ResponseFactory::create()->createResponse());
 
         $indexes = new Indexes(DatabaseInterface::getInstance());
         $controller = new UniqueController(new ResponseRenderer(), $controllerStub, $indexes);

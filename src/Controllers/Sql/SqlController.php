@@ -37,7 +37,7 @@ class SqlController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['display_query'] ??= null;
         $GLOBALS['ajax_reload'] ??= null;
@@ -126,7 +126,7 @@ class SqlController implements InvocableController
             // set $goto to what will be displayed if query returns 0 rows
             $GLOBALS['goto'] = '';
         } elseif (! $this->response->checkParameters(['sql_query'])) {
-            return null;
+            return $this->response->response();
         }
 
         /**
@@ -171,7 +171,7 @@ class SqlController implements InvocableController
         if ($storeBkm && $bkmFields !== null) {
             $this->addBookmark($GLOBALS['goto'], $bkmFields, (bool) $bkmAllUsers);
 
-            return null;
+            return $this->response->response();
         }
 
         /**
@@ -201,7 +201,7 @@ class SqlController implements InvocableController
             $GLOBALS['complete_query'] ?? null,
         ));
 
-        return null;
+        return $this->response->response();
     }
 
     /** @param array<string> $bkmFields */

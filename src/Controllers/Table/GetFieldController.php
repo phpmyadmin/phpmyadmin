@@ -35,10 +35,10 @@ final class GetFieldController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $this->response->checkParameters(['db', 'table'])) {
-            return null;
+            return $this->response->response();
         }
 
         /* Select database */
@@ -65,7 +65,7 @@ final class GetFieldController implements InvocableController
             /* l10n: In case a SQL query did not pass a security check  */
             $this->response->addHTML(Message::error(__('There is an issue with your request.'))->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         $transformKey = (string) $request->getQueryParam('transform_key', '');
@@ -82,7 +82,7 @@ final class GetFieldController implements InvocableController
                 $sql,
             );
 
-            return null;
+            return $this->response->response();
         }
 
         $result ??= '';

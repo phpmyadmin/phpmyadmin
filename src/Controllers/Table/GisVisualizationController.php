@@ -44,10 +44,10 @@ final class GisVisualizationController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $this->response->checkParameters(['db'])) {
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -62,12 +62,12 @@ final class GisVisualizationController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         // SQL query for retrieving GIS data
@@ -80,7 +80,7 @@ final class GisVisualizationController implements InvocableController
                 Message::error(__('No SQL query was set to fetch data.'))->getDisplay(),
             );
 
-            return null;
+            return $this->response->response();
         }
 
         $meta = $this->getColumnMeta($sqlQuery);
@@ -102,7 +102,7 @@ final class GisVisualizationController implements InvocableController
                 Message::error(__('No spatial column found for this SQL query.'))->getDisplay(),
             );
 
-            return null;
+            return $this->response->response();
         }
 
         // Get settings if any posted
@@ -169,7 +169,7 @@ final class GisVisualizationController implements InvocableController
 
         $this->response->addHTML($html);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

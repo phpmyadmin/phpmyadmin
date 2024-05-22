@@ -62,7 +62,7 @@ class StructureController implements InvocableController
         $this->tableObj = $this->dbi->getTable(Current::$database, Current::$table);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] ??= null;
 
@@ -77,7 +77,7 @@ class StructureController implements InvocableController
         $relationParameters = $this->relation->getRelationParameters();
 
         if (! $this->response->checkParameters(['db', 'table'])) {
-            return null;
+            return $this->response->response();
         }
 
         $isSystemSchema = Utilities::isSystemSchema(Current::$database);
@@ -94,12 +94,12 @@ class StructureController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -108,12 +108,12 @@ class StructureController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $primary = Index::getPrimary($this->dbi, Current::$table, Current::$database);
@@ -132,7 +132,7 @@ class StructureController implements InvocableController
             $request->getRoute(),
         ));
 
-        return null;
+        return $this->response->response();
     }
 
     /**

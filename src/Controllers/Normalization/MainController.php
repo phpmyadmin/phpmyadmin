@@ -19,7 +19,7 @@ final class MainController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $this->response->addScriptFiles(['normalization.js', 'vendor/jquery/jquery.uitablefilter.js']);
         $this->response->render('table/normalization/normalization', [
@@ -27,6 +27,6 @@ final class MainController implements InvocableController
             'table' => Current::$table,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

@@ -32,7 +32,7 @@ final class CentralColumnsController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['message'] ??= null;
         $db = DatabaseName::from($request->getParam('db'));
@@ -52,7 +52,7 @@ final class CentralColumnsController implements InvocableController
                 $db,
             ));
 
-            return null;
+            return $this->response->response();
         }
 
         if ($request->hasBodyParam('add_new_column')) {
@@ -76,7 +76,7 @@ final class CentralColumnsController implements InvocableController
                 $request->getParsedBodyParam('cur_table', ''),
             ));
 
-            return null;
+            return $this->response->response();
         }
 
         if ($request->hasBodyParam('add_column')) {
@@ -100,7 +100,7 @@ final class CentralColumnsController implements InvocableController
                 'db' => $request->getParsedBodyParam('db'),
             ]);
 
-            return null;
+            return $this->response->response();
         }
 
         if ($request->hasBodyParam('multi_edit_central_column_save')) {
@@ -150,12 +150,12 @@ final class CentralColumnsController implements InvocableController
             sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $numberOfColumns),
         );
         if (! isset($tmpMsg) || $tmpMsg === true) {
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['message'] = $tmpMsg;
 
-        return null;
+        return $this->response->response();
     }
 
     public function main(string $totalRows, string $position, DatabaseName $db): void

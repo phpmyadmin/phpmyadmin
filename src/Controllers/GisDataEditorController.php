@@ -40,7 +40,7 @@ final class GisDataEditorController implements InvocableController
         'GEOMETRYCOLLECTION',
     ];
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         /** @var string|null $field */
         $field = $request->getParsedBodyParam('field');
@@ -54,7 +54,7 @@ final class GisDataEditorController implements InvocableController
         $inputName = $request->getParsedBodyParam('input_name');
 
         if (! isset($field)) {
-            return null;
+            return $this->response->response();
         }
 
         // Get data if any posted
@@ -66,7 +66,7 @@ final class GisDataEditorController implements InvocableController
         // Generate parameters from value passed.
         $gisObj = GisFactory::fromType($geomType);
         if ($gisObj === null) {
-            return null;
+            return $this->response->response();
         }
 
         if (isset($value)) {
@@ -91,7 +91,7 @@ final class GisDataEditorController implements InvocableController
         if ($request->hasBodyParam('generate')) {
             $this->response->addJSON(['result' => $result, 'visualization' => $svg, 'openLayers' => $openLayers]);
 
-            return null;
+            return $this->response->response();
         }
 
         $templateOutput = $this->template->render('gis_data_editor_form', [
@@ -111,7 +111,7 @@ final class GisDataEditorController implements InvocableController
 
         $this->response->addJSON(['gis_editor' => $templateOutput]);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

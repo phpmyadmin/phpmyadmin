@@ -29,7 +29,7 @@ final class ExportController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['unlim_num_rows'] ??= null;
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
@@ -70,7 +70,7 @@ final class ExportController implements InvocableController
                 __('Could not load export plugins, please check your installation!'),
             )->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         $options = $this->export->getOptions(
@@ -89,6 +89,6 @@ final class ExportController implements InvocableController
             'databases' => $databases,
         ]));
 
-        return null;
+        return $this->response->response();
     }
 }

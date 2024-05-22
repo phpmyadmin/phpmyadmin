@@ -19,12 +19,12 @@ final class FirstStepController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $tables = $request->getParsedBodyParam('tables');
         $res = $this->normalization->getHtmlFor3NFstep1(Current::$database, $tables);
         $this->response->addJSON($res);
 
-        return null;
+        return $this->response->response();
     }
 }

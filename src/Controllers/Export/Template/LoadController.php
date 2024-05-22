@@ -22,13 +22,13 @@ final class LoadController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $templateId = (int) $request->getParsedBodyParam('templateId');
 
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
         if ($exportTemplatesFeature === null) {
-            return null;
+            return $this->response->response();
         }
 
         $template = $this->model->load(
@@ -42,12 +42,12 @@ final class LoadController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $template);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->setRequestStatus(true);
         $this->response->addJSON('data', $template->getData());
 
-        return null;
+        return $this->response->response();
     }
 }

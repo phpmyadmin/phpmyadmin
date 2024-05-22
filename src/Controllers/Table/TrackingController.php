@@ -47,7 +47,7 @@ final class TrackingController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -55,7 +55,7 @@ final class TrackingController implements InvocableController
         $this->response->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
         if (! $this->response->checkParameters(['db', 'table'])) {
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -71,12 +71,12 @@ final class TrackingController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $activeMessage = '';
@@ -270,7 +270,7 @@ final class TrackingController implements InvocableController
             'main' => $main,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     private function validateDateTimeParam(mixed $param): DateTimeImmutable

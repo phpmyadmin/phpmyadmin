@@ -26,7 +26,7 @@ final class EnumValuesController implements InvocableController
     /**
      * Get possible values for enum fields during grid edit.
      */
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $column = $request->getParsedBodyParam('column');
         $currValue = $request->getParsedBodyParam('curr_value');
@@ -36,7 +36,7 @@ final class EnumValuesController implements InvocableController
             $this->response->addJSON('message', __('Error in processing request'));
             $this->response->setRequestStatus(false);
 
-            return null;
+            return $this->response->response();
         }
 
         $dropdown = $this->template->render('sql/enum_column_dropdown', [
@@ -46,6 +46,6 @@ final class EnumValuesController implements InvocableController
 
         $this->response->addJSON('dropdown', $dropdown);
 
-        return null;
+        return $this->response->response();
     }
 }

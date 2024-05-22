@@ -47,7 +47,7 @@ final class ExportController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['export_type'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -100,7 +100,7 @@ final class ExportController implements InvocableController
         $GLOBALS['what'] = Core::securePath($whatParam);
 
         if (! $this->response->checkParameters(['what', 'export_type'])) {
-            return null;
+            return $this->response->response();
         }
 
         // export class instance, not array of properties, as before
@@ -114,7 +114,7 @@ final class ExportController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error(__('Bad type!'))->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         if ($request->hasBodyParam('sql_backquotes') && $exportPlugin instanceof ExportSql) {
@@ -189,7 +189,7 @@ final class ExportController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error(__('Bad parameters!'))->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         // Merge SQL Query aliases with Export aliases from
@@ -276,7 +276,7 @@ final class ExportController implements InvocableController
                 $location = $this->export->getPageLocationAndSaveMessage($GLOBALS['export_type'], $message);
                 $this->response->redirect($location);
 
-                return null;
+                return $this->response->response();
             }
         } elseif ($GLOBALS['asfile']) {
             /**
@@ -486,7 +486,7 @@ final class ExportController implements InvocableController
             $location = $this->export->getPageLocationAndSaveMessage($GLOBALS['export_type'], $GLOBALS['message']);
             $this->response->redirect($location);
 
-            return null;
+            return $this->response->response();
         }
 
         /**
@@ -499,7 +499,7 @@ final class ExportController implements InvocableController
                 Current::$table,
             );
 
-            return null;
+            return $this->response->response();
         }
 
         // Convert the charset if required.
@@ -538,7 +538,7 @@ final class ExportController implements InvocableController
             $location = $this->export->getPageLocationAndSaveMessage($GLOBALS['export_type'], $message);
             $this->response->redirect($location);
 
-            return null;
+            return $this->response->response();
         }
 
         return $this->responseFactory->createResponse()->write($this->export->dumpBuffer);

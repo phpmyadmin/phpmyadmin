@@ -29,10 +29,10 @@ final class UserGroupsFormController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
         /** @var string $username */
@@ -43,7 +43,7 @@ final class UserGroupsFormController implements InvocableController
             $this->response->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
             $this->response->addJSON('message', __('Missing parameter:') . ' username');
 
-            return null;
+            return $this->response->response();
         }
 
         $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
@@ -52,14 +52,14 @@ final class UserGroupsFormController implements InvocableController
             $this->response->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
             $this->response->addJSON('message', __('User groups management is not enabled.'));
 
-            return null;
+            return $this->response->response();
         }
 
         $form = $this->getHtmlToChooseUserGroup($username, $configurableMenusFeature);
 
         $this->response->addJSON('message', $form);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

@@ -28,10 +28,10 @@ final class DataDictionaryController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $this->response->checkParameters(['db'], true)) {
-            return null;
+            return $this->response->response();
         }
 
         $relationParameters = $this->relation->getRelationParameters();
@@ -110,6 +110,6 @@ final class DataDictionaryController implements InvocableController
             'tables' => $tables,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

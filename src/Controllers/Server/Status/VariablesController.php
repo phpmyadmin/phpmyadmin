@@ -33,7 +33,7 @@ final class VariablesController extends AbstractController implements InvocableC
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] ??= null;
 
@@ -130,7 +130,7 @@ final class VariablesController extends AbstractController implements InvocableC
             'variables' => $variables ?? [],
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

@@ -37,7 +37,7 @@ final class DesignerController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -83,7 +83,7 @@ final class DesignerController implements InvocableController
                 $this->response->addHTML($html);
             }
 
-            return null;
+            return $this->response->response();
         }
 
         if ($request->hasBodyParam('operation')) {
@@ -105,7 +105,7 @@ final class DesignerController implements InvocableController
                     );
                     $this->response->setRequestStatus(false);
 
-                    return null;
+                    return $this->response->response();
                 } else {
                     $page = $this->designerCommon->createNewPage($request->getParsedBodyParam('selected_value'), $db);
                     $this->response->addJSON('id', $page);
@@ -150,11 +150,11 @@ final class DesignerController implements InvocableController
                 $this->response->setRequestStatus($success);
             }
 
-            return null;
+            return $this->response->response();
         }
 
         if (! $this->response->checkParameters(['db'])) {
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -169,12 +169,12 @@ final class DesignerController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $scriptDisplayField = $this->designerCommon->getTablesInfo();
@@ -257,6 +257,6 @@ final class DesignerController implements InvocableController
 
         $this->response->addHTML('<div id="PMA_disable_floating_menubar"></div>');
 
-        return null;
+        return $this->response->response();
     }
 }

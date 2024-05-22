@@ -33,7 +33,7 @@ final class PrimaryController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['message'] ??= null;
         $GLOBALS['urlParams'] ??= null;
@@ -46,7 +46,7 @@ final class PrimaryController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         $this->dbi->selectDb(Current::$database);
@@ -57,7 +57,7 @@ final class PrimaryController implements InvocableController
 
         if ($hasPrimary && $deletionConfirmed === null) {
             if (! $this->response->checkParameters(['db', 'table'])) {
-                return null;
+                return $this->response->response();
             }
 
             $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -73,12 +73,12 @@ final class PrimaryController implements InvocableController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-                return null;
+                return $this->response->response();
             }
 
             $tableName = TableName::tryFrom($request->getParam('table'));
@@ -87,12 +87,12 @@ final class PrimaryController implements InvocableController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->render('table/structure/primary', [
@@ -101,7 +101,7 @@ final class PrimaryController implements InvocableController
                 'selected' => $selected,
             ]);
 
-            return null;
+            return $this->response->response();
         }
 
         if ($deletionConfirmed === __('Yes') || ! $hasPrimary) {

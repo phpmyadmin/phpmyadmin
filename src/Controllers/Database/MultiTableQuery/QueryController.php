@@ -16,13 +16,13 @@ final class QueryController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $this->response->addHTML(MultiTableQuery::displayResults(
             $request->getParsedBodyParam('sql_query'),
             $request->getParam('db'),
         ));
 
-        return null;
+        return $this->response->response();
     }
 }

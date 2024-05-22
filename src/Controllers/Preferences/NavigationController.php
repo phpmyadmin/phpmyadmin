@@ -33,7 +33,7 @@ final class NavigationController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['error'] ??= null;
         $GLOBALS['tabHash'] ??= null;
@@ -49,7 +49,7 @@ final class NavigationController implements InvocableController
             $formDisplay->fixErrors();
             $this->response->redirectToRoute('/preferences/navigation', []);
 
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['error'] = null;
@@ -67,7 +67,7 @@ final class NavigationController implements InvocableController
                 $GLOBALS['hash'] = ltrim($GLOBALS['tabHash'], '#');
                 $this->userPreferences->redirect('index.php?route=/preferences/navigation', null, $GLOBALS['hash']);
 
-                return null;
+                return $this->response->response();
             }
 
             $GLOBALS['error'] = $result;
@@ -97,11 +97,11 @@ final class NavigationController implements InvocableController
         if ($request->isAjax()) {
             $this->response->addJSON('disableNaviSettings', true);
 
-            return null;
+            return $this->response->response();
         }
 
         define('PMA_DISABLE_NAVI_SETTINGS', true);
 
-        return null;
+        return $this->response->response();
     }
 }

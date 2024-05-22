@@ -34,7 +34,7 @@ final class VariablesController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -93,7 +93,7 @@ final class VariablesController implements InvocableController
             'is_mariadb' => $this->dbi->isMariaDB(),
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

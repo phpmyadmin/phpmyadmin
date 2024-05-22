@@ -29,7 +29,7 @@ final class PluginsController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -58,6 +58,6 @@ final class PluginsController implements InvocableController
 
         $this->response->render('server/plugins/index', ['plugins' => $plugins, 'clean_types' => $cleanTypes]);
 
-        return null;
+        return $this->response->response();
     }
 }

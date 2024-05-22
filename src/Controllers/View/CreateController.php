@@ -53,10 +53,10 @@ final class CreateController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $this->response->checkParameters(['db'])) {
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['urlParams'] ??= null;
@@ -74,12 +74,12 @@ final class CreateController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/structure');
@@ -94,7 +94,7 @@ final class CreateController implements InvocableController
             $this->response->addJSON('message', $GLOBALS['message']);
             $this->response->setRequestStatus(false);
 
-            return null;
+            return $this->response->response();
         }
 
         $createview = $request->hasBodyParam('createview');
@@ -108,7 +108,7 @@ final class CreateController implements InvocableController
                 if (! $ajaxdialog) {
                     $GLOBALS['message'] = Message::rawError($this->dbi->getError());
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->addJSON(
@@ -120,7 +120,7 @@ final class CreateController implements InvocableController
                 );
                 $this->response->setRequestStatus(false);
 
-                return null;
+                return $this->response->response();
             }
 
             return $this->setSuccessResponse($view, $ajaxdialog, $request);
@@ -197,11 +197,11 @@ final class CreateController implements InvocableController
             'view_security_options' => self::VIEW_SECURITY_OPTIONS,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     /** @param mixed[] $view */
-    private function setSuccessResponse(array $view, bool $ajaxdialog, ServerRequest $request): Response|null
+    private function setSuccessResponse(array $view, bool $ajaxdialog, ServerRequest $request): Response
     {
         // If different column names defined for VIEW
         $viewColumns = [];
@@ -245,7 +245,7 @@ final class CreateController implements InvocableController
         );
         $this->response->setRequestStatus(true);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

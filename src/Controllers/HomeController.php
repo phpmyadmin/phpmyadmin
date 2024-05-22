@@ -59,7 +59,7 @@ final class HomeController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if ($this->shouldRedirectToDatabaseOrTablePage($request)) {
             return $this->redirectToDatabaseOrTablePage($request);
@@ -70,7 +70,7 @@ final class HomeController implements InvocableController
         $GLOBALS['errorUrl'] ??= null;
 
         if ($request->isAjax() && ! empty($_REQUEST['access_time'])) {
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addScriptFiles(['home.js']);
@@ -250,7 +250,7 @@ final class HomeController implements InvocableController
             'errors' => $this->errors,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     private function checkRequirements(): void

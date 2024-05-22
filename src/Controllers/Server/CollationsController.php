@@ -41,7 +41,7 @@ final class CollationsController implements InvocableController
         $this->collations = $collations ?? Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -69,6 +69,6 @@ final class CollationsController implements InvocableController
 
         $this->response->render('server/collations/index', ['charsets' => $charsets]);
 
-        return null;
+        return $this->response->response();
     }
 }

@@ -16,17 +16,17 @@ final class TableController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $request->hasBodyParam('db')) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addJSON(['tables' => $this->dbi->getTables($request->getParsedBodyParam('db'))]);
 
-        return null;
+        return $this->response->response();
     }
 }

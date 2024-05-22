@@ -23,19 +23,19 @@ final class ThemeSetController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $theme = $request->getParsedBodyParam('set_theme');
         if (! Config::getInstance()->settings['ThemeManager'] || ! is_string($theme) || $theme === '') {
             if ($request->isAjax()) {
                 $this->response->addJSON('themeColorMode', '');
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirect('index.php?route=/' . Url::getCommonRaw([], '&'));
 
-            return null;
+            return $this->response->response();
         }
 
         $this->themeManager->setActiveTheme($theme);
@@ -55,11 +55,11 @@ final class ThemeSetController implements InvocableController
         if ($request->isAjax()) {
             $this->response->addJSON('themeColorMode', $this->themeManager->theme->getColorMode());
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->redirect('index.php?route=/' . Url::getCommonRaw([], '&'));
 
-        return null;
+        return $this->response->response();
     }
 }

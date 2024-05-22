@@ -33,7 +33,7 @@ final class SqlController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['error'] ??= null;
         $GLOBALS['tabHash'] ??= null;
@@ -49,7 +49,7 @@ final class SqlController implements InvocableController
             $formDisplay->fixErrors();
             $this->response->redirectToRoute('/preferences/sql', []);
 
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['error'] = null;
@@ -67,7 +67,7 @@ final class SqlController implements InvocableController
                 $GLOBALS['hash'] = ltrim($GLOBALS['tabHash'], '#');
                 $this->userPreferences->redirect('index.php?route=/preferences/sql', null, $GLOBALS['hash']);
 
-                return null;
+                return $this->response->response();
             }
 
             $GLOBALS['error'] = $result;
@@ -100,6 +100,6 @@ final class SqlController implements InvocableController
             define('PMA_DISABLE_NAVI_SETTINGS', true);
         }
 
-        return null;
+        return $this->response->response();
     }
 }

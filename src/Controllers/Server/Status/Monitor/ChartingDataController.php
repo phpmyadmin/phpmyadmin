@@ -27,7 +27,7 @@ final class ChartingDataController extends AbstractController implements Invocab
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] ??= null;
 
@@ -39,11 +39,11 @@ final class ChartingDataController extends AbstractController implements Invocab
         }
 
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addJSON(['message' => $this->monitor->getJsonForChartingData($requiredData)]);
 
-        return null;
+        return $this->response->response();
     }
 }

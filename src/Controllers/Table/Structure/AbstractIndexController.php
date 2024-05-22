@@ -26,14 +26,14 @@ abstract class AbstractIndexController
     }
 
     /** @psalm-param 'FULLTEXT'|'INDEX'|'PRIMARY'|'SPATIAL'|'UNIQUE' $indexType */
-    public function handleIndexCreation(ServerRequest $request, string $indexType): Response|null
+    public function handleIndexCreation(ServerRequest $request, string $indexType): Response
     {
         $selected = $request->getParsedBodyParam('selected_fld', []);
         if (! is_array($selected) || $selected === []) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         Assert::allString($selected);

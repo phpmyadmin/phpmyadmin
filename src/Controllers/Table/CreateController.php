@@ -42,10 +42,10 @@ final class CreateController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $this->response->checkParameters(['db'])) {
-            return null;
+            return $this->response->response();
         }
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
@@ -103,7 +103,7 @@ final class CreateController implements InvocableController
             if (isset($_POST['preview_sql'])) {
                 Core::previewSQL($GLOBALS['sql_query']);
 
-                return null;
+                return $this->response->response();
             }
 
             // Executes the query
@@ -137,7 +137,7 @@ final class CreateController implements InvocableController
                 $this->response->addJSON('message', $this->dbi->getError());
             }
 
-            return null;
+            return $this->response->response();
         }
 
         // Do not display the table in the header since it hasn't been created yet
@@ -146,14 +146,14 @@ final class CreateController implements InvocableController
         $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
         if (! $this->response->checkParameters(['server', 'db'])) {
-            return null;
+            return $this->response->response();
         }
 
         $templateData = $this->columnsDefinition->displayForm($userPrivileges, '/table/create', $numFields);
 
         $this->response->render('columns_definitions/column_definitions_form', $templateData);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

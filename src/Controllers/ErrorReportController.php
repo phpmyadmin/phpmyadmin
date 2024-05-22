@@ -39,7 +39,7 @@ final class ErrorReportController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         /** @var string $exceptionType */
         $exceptionType = $request->getParsedBodyParam('exception_type', '');
@@ -49,7 +49,7 @@ final class ErrorReportController implements InvocableController
         $alwaysSend = $request->getParsedBodyParam('always_send');
 
         if (! in_array($exceptionType, ['js', 'php'], true)) {
-            return null;
+            return $this->response->response();
         }
 
         $config = Config::getInstance();
@@ -146,6 +146,6 @@ final class ErrorReportController implements InvocableController
             $this->errorHandler->savePreviousErrors();
         }
 
-        return null;
+        return $this->response->response();
     }
 }

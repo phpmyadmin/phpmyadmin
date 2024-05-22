@@ -10,7 +10,7 @@ use PhpMyAdmin\Http\ServerRequest;
 
 final class SpatialController extends AbstractIndexController implements InvocableController
 {
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         return $this->handleIndexCreation($request, 'SPATIAL');
     }

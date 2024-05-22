@@ -26,7 +26,7 @@ final class CentralColumnsAddController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['message'] ??= null;
 
@@ -36,7 +36,7 @@ final class CentralColumnsAddController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         Assert::allString($selected);

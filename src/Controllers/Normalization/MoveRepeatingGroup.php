@@ -19,7 +19,7 @@ final class MoveRepeatingGroup implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $repeatingColumns = $request->getParsedBodyParam('repeatingColumns');
         $newTable = $request->getParsedBodyParam('newTable');
@@ -35,6 +35,6 @@ final class MoveRepeatingGroup implements InvocableController
         );
         $this->response->addJSON($res);
 
-        return null;
+        return $this->response->response();
     }
 }

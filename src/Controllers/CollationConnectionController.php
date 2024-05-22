@@ -16,7 +16,7 @@ final class CollationConnectionController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $this->config->setUserValue(
             null,
@@ -27,6 +27,6 @@ final class CollationConnectionController implements InvocableController
 
         $this->response->redirect('index.php?route=/' . Url::getCommonRaw([], '&'));
 
-        return null;
+        return $this->response->response();
     }
 }

@@ -16,10 +16,10 @@ final class DefaultForeignKeyCheckValueController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $this->response->addJSON('default_fk_check_value', ForeignKey::isCheckEnabled());
 
-        return null;
+        return $this->response->response();
     }
 }

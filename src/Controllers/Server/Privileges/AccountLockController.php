@@ -23,10 +23,10 @@ final class AccountLockController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
         /** @var string $userName */
@@ -41,7 +41,7 @@ final class AccountLockController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error($exception->getMessage())]);
 
-            return null;
+            return $this->response->response();
         }
 
         $message = Message::success(__('The account %s@%s has been successfully locked.'));
@@ -49,6 +49,6 @@ final class AccountLockController implements InvocableController
         $message->addParam($hostName);
         $this->response->addJSON(['message' => $message]);
 
-        return null;
+        return $this->response->response();
     }
 }

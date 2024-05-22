@@ -26,7 +26,7 @@ final class AnalyzeController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $partitionName = $request->getParsedBodyParam('partition_name');
 
@@ -38,7 +38,7 @@ final class AnalyzeController implements InvocableController
             $message = Message::error($exception->getMessage());
             $this->response->addHTML($message->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         [$rows, $query] = $this->model->analyze($database, $table, $partitionName);
@@ -55,6 +55,6 @@ final class AnalyzeController implements InvocableController
             'rows' => $rows,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

@@ -42,7 +42,7 @@ final class PrivilegesController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['message'] ??= null;
@@ -106,7 +106,7 @@ final class PrivilegesController implements InvocableController
                     ->getDisplay(),
             );
 
-            return null;
+            return $this->response->response();
         }
 
         if (! $isGrantUser && ! $isCreateUser) {
@@ -135,7 +135,7 @@ final class PrivilegesController implements InvocableController
             );
             $this->response->setRequestStatus(false);
 
-            return null;
+            return $this->response->response();
         }
 
         /**
@@ -300,7 +300,7 @@ final class PrivilegesController implements InvocableController
                 $this->response->addJSON('message', $GLOBALS['message']);
                 $this->response->addJSON($extraData);
 
-                return null;
+                return $this->response->response();
             }
         }
 
@@ -331,7 +331,7 @@ final class PrivilegesController implements InvocableController
                 $this->response->addJSON('message', $export);
                 $this->response->addJSON('title', $title);
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->addHTML('<h2>' . $title . '</h2>' . $export);
@@ -395,12 +395,12 @@ final class PrivilegesController implements InvocableController
         }
 
         if ($relationParameters->configurableMenusFeature === null) {
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addHTML('</div>');
 
-        return null;
+        return $this->response->response();
     }
 
     private function getExportPageTitle(string $username, string $hostname, array|null $selectedUsers): string

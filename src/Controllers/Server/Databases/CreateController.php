@@ -31,7 +31,7 @@ final class CreateController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $newDb = $request->getParsedBodyParam('new_db');
         $dbCollation = $request->getParsedBodyParam('db_collation');
@@ -39,7 +39,7 @@ final class CreateController implements InvocableController
         if (! is_string($newDb) || $newDb === '' || ! $request->isAjax()) {
             $this->response->addJSON(['message' => Message::error()]);
 
-            return null;
+            return $this->response->response();
         }
 
         if ($this->dbi->getLowerCaseNames() === 1) {
@@ -96,6 +96,6 @@ final class CreateController implements InvocableController
 
         $this->response->addJSON($json);
 
-        return null;
+        return $this->response->response();
     }
 }

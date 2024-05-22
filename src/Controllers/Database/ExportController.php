@@ -36,7 +36,7 @@ final class ExportController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['table_select'] ??= null;
@@ -50,7 +50,7 @@ final class ExportController implements InvocableController
         $this->response->addScriptFiles(['export.js']);
 
         if (! $this->response->checkParameters(['db'])) {
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -65,12 +65,12 @@ final class ExportController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/export');
@@ -84,7 +84,7 @@ final class ExportController implements InvocableController
                 Message::error(__('No tables found in database.'))->getDisplay(),
             );
 
-            return null;
+            return $this->response->response();
         }
 
         $selectedTable = $request->getParsedBodyParam('selected_tbl');
@@ -150,7 +150,7 @@ final class ExportController implements InvocableController
                 __('Could not load export plugins, please check your installation!'),
             )->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         $options = $this->exportOptions->getOptions(
@@ -170,6 +170,6 @@ final class ExportController implements InvocableController
             'tables' => $tablesForMultiValues,
         ]));
 
-        return null;
+        return $this->response->response();
     }
 }

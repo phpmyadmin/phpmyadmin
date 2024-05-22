@@ -51,7 +51,7 @@ final class RelationController implements InvocableController
     /**
      * Index
      */
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $options = [
             'CASCADE' => 'CASCADE',
@@ -85,7 +85,7 @@ final class RelationController implements InvocableController
                 $this->getDropdownValueForDatabase($storageEngine);
             }
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addScriptFiles(['table/relation.js']);
@@ -131,7 +131,7 @@ final class RelationController implements InvocableController
         if (isset($_POST['preview_sql'])) {
             Core::previewSQL($previewSqlData);
 
-            return null;
+            return $this->response->response();
         }
 
         if ($displayQuery !== '' && ! $seenError) {
@@ -311,7 +311,7 @@ final class RelationController implements InvocableController
             'foreign_key_row' => $foreignKeyRow,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

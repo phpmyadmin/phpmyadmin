@@ -22,7 +22,7 @@ final class GetColumnsController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $html = '<option selected disabled>' . __('Select one…') . '</option>'
             . '<option value="no_such_col">' . __('No such column') . '</option>';
@@ -34,6 +34,6 @@ final class GetColumnsController implements InvocableController
         );
         $this->response->addHTML($html);
 
-        return null;
+        return $this->response->response();
     }
 }

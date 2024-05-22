@@ -25,7 +25,7 @@ final class SimulateDmlController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $error = '';
         $errorMsg = __('Only single-table UPDATE and DELETE queries can be simulated.');
@@ -77,11 +77,11 @@ final class SimulateDmlController implements InvocableController
             $this->response->addJSON('message', $message);
             $this->response->addJSON('sql_data', false);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addJSON('sql_data', $sqlData);
 
-        return null;
+        return $this->response->response();
     }
 }

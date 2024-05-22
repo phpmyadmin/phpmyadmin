@@ -22,7 +22,7 @@ final class AddController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $db = $request->getParsedBodyParam('db');
         $label = $request->getParsedBodyParam('label');
@@ -32,7 +32,7 @@ final class AddController implements InvocableController
         if (! is_string($label) || ! is_string($db) || ! is_string($bookmarkQuery) || ! is_string($shared)) {
             $this->response->addJSON('message', __('Incomplete params'));
 
-            return null;
+            return $this->response->response();
         }
 
         $bookmark = $this->bookmarkRepository->createBookmark(
@@ -45,7 +45,7 @@ final class AddController implements InvocableController
         if ($bookmark === false || ! $bookmark->save()) {
             $this->response->addJSON('message', __('Failed'));
 
-            return null;
+            return $this->response->response();
         }
 
         $bookmarkFields = [
@@ -59,6 +59,6 @@ final class AddController implements InvocableController
         $this->response->addJSON('data', $bookmarkFields);
         $this->response->addJSON('isShared', $shared === 'true');
 
-        return null;
+        return $this->response->response();
     }
 }

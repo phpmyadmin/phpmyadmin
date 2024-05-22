@@ -38,7 +38,6 @@ final class SchemaExportControllerTest extends AbstractTestCase
         $controller = new SchemaExportController($export, new ResponseRenderer(), ResponseFactory::create());
         $response = $controller($request);
 
-        self::assertNotNull($response);
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
         self::assertSame('file data', (string) $response->getBody());
 

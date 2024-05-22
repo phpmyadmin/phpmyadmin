@@ -22,10 +22,10 @@ final class GetVariableController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
         $name = $this->getName($request->getAttribute('routeVars'));
@@ -50,7 +50,7 @@ final class GetVariableController implements InvocableController
 
         $this->response->addJSON($json);
 
-        return null;
+        return $this->response->response();
     }
 
     private function getName(mixed $routeVars): string

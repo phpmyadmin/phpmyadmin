@@ -19,11 +19,11 @@ final class PartialDependenciesController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $html = $this->normalization->findPartialDependencies(Current::$table, Current::$database);
         $this->response->addHTML($html);
 
-        return null;
+        return $this->response->response();
     }
 }

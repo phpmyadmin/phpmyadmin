@@ -44,7 +44,7 @@ final class IndexController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errors'] ??= null;
         $GLOBALS['urlParams'] ??= null;
@@ -59,7 +59,7 @@ final class IndexController implements InvocableController
              */
             if (Current::$table !== '' && in_array(Current::$table, $this->dbi->getTables(Current::$database), true)) {
                 if (! $this->response->checkParameters(['db', 'table'])) {
-                    return null;
+                    return $this->response->response();
                 }
 
                 $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -73,20 +73,20 @@ final class IndexController implements InvocableController
                         ['reload' => true, 'message' => __('No databases selected.')],
                     );
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $tableName = TableName::tryFrom($request->getParam('table'));
                 if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
                     $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-                    return null;
+                    return $this->response->response();
                 }
             } else {
                 Current::$table = '';
 
                 if (! $this->response->checkParameters(['db'])) {
-                    return null;
+                    return $this->response->response();
                 }
 
                 $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -102,7 +102,7 @@ final class IndexController implements InvocableController
                         ['reload' => true, 'message' => __('No databases selected.')],
                     );
 
-                    return null;
+                    return $this->response->response();
                 }
             }
         } elseif (Current::$database !== '') {
@@ -168,7 +168,7 @@ final class IndexController implements InvocableController
 
                 $this->response->addJSON('tableType', 'triggers');
 
-                return null;
+                return $this->response->response();
             }
         }
 
@@ -222,12 +222,12 @@ final class IndexController implements InvocableController
                     $this->response->addJSON('message', $editor);
                     $this->response->addJSON('title', $title);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->addHTML("\n\n<h2>" . $title . "</h2>\n\n" . $editor);
 
-                return null;
+                return $this->response->response();
             }
 
             $message = __('Error in processing request:') . ' ';
@@ -241,7 +241,7 @@ final class IndexController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->addHTML($message->getDisplay());
@@ -260,7 +260,7 @@ final class IndexController implements InvocableController
                 $this->response->addJSON('title', $title);
                 $this->response->addJSON('message', htmlspecialchars(trim($exportData)));
 
-                return null;
+                return $this->response->response();
             }
 
             if ($exportData !== null) {
@@ -269,7 +269,7 @@ final class IndexController implements InvocableController
                     'item_name' => $triggerName->getName(),
                 ]);
 
-                return null;
+                return $this->response->response();
             }
 
             $message = Message::error(sprintf(
@@ -281,7 +281,7 @@ final class IndexController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
-                return null;
+                return $this->response->response();
             }
         }
 
@@ -298,7 +298,7 @@ final class IndexController implements InvocableController
             'error_message' => $message?->getDisplay() ?? '',
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

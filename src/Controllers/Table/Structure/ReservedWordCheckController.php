@@ -24,12 +24,12 @@ final class ReservedWordCheckController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (Config::getInstance()->settings['ReservedWordDisableWarning'] !== false) {
             $this->response->setRequestStatus(false);
 
-            return null;
+            return $this->response->response();
         }
 
         $columnsNames = $request->getParsedBodyParam('field_name');
@@ -62,6 +62,6 @@ final class ReservedWordCheckController implements InvocableController
             ),
         );
 
-        return null;
+        return $this->response->response();
     }
 }

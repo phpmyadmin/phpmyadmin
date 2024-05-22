@@ -32,16 +32,16 @@ final class ChangeController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $this->response->checkParameters(['server', 'db', 'table'])) {
-            return null;
+            return $this->response->response();
         }
 
         if ($request->getParam('change_column') !== null) {
             $this->displayHtmlForColumnChange([$request->getParam('field')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $selected = $request->getParsedBodyParam('selected_fld', []);
@@ -50,12 +50,12 @@ final class ChangeController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         $this->displayHtmlForColumnChange($selected);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

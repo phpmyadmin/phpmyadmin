@@ -47,7 +47,7 @@ final class AddFieldController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['message'] ??= null;
@@ -58,7 +58,7 @@ final class AddFieldController implements InvocableController
         $this->response->addScriptFiles(['table/structure.js']);
 
         if (! $this->response->checkParameters(['db', 'table'])) {
-            return null;
+            return $this->response->response();
         }
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
@@ -93,7 +93,7 @@ final class AddFieldController implements InvocableController
             if (isset($_POST['preview_sql'])) {
                 Core::previewSQL($GLOBALS['sql_query']);
 
-                return null;
+                return $this->response->response();
             }
 
             $result = $createAddField->tryColumnCreationQuery(
@@ -107,7 +107,7 @@ final class AddFieldController implements InvocableController
                 $this->response->addHTML($errorMessageHtml ?? '');
                 $this->response->setRequestStatus(false);
 
-                return null;
+                return $this->response->response();
             }
 
             // Update comment table for mime types [MIME]
@@ -150,7 +150,7 @@ final class AddFieldController implements InvocableController
                 ]),
             );
 
-            return null;
+            return $this->response->response();
         }
 
         $urlParams = ['db' => Current::$database, 'table' => Current::$table];
@@ -163,12 +163,12 @@ final class AddFieldController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -177,24 +177,24 @@ final class AddFieldController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
         if (! $this->response->checkParameters(['server', 'db', 'table'])) {
-            return null;
+            return $this->response->response();
         }
 
         $templateData = $this->columnsDefinition->displayForm($userPrivileges, '/table/add-field', $numFields);
 
         $this->response->render('columns_definitions/column_definitions_form', $templateData);
 
-        return null;
+        return $this->response->response();
     }
 }
