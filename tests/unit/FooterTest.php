@@ -105,10 +105,7 @@ class FooterTest extends AbstractTestCase
         $template = new Template();
         $footer = new Footer($template, Config::getInstance());
         $footer->setAjax(true);
-        self::assertSame(
-            $template->render('modals/page_settings') . "\n",
-            $footer->getDisplay(),
-        );
+        self::assertSame('', $footer->getDisplay());
     }
 
     /**
@@ -144,11 +141,7 @@ class FooterTest extends AbstractTestCase
         $template = new Template();
         $footer = new Footer($template, Config::getInstance());
         $footer->setMinimal();
-        self::assertSame(
-            $template->render('modals/page_settings')
-            . "\n  </div>\n  </body>\n</html>\n",
-            $footer->getDisplay(),
-        );
+        self::assertSame("  </div>\n  </body>\n</html>\n", $footer->getDisplay());
     }
 
     public function testSetAjax(): void
