@@ -269,22 +269,4 @@ class HeaderTest extends AbstractTestCase
         ];
         self::assertSame($expected, $scripts->getFiles());
     }
-
-    public function testSetAjax(): void
-    {
-        $header = $this->getNewHeaderInstance();
-        $console = (new ReflectionProperty(Header::class, 'console'))->getValue($header);
-        self::assertInstanceOf(Console::class, $console);
-        $isAjax = new ReflectionProperty(Header::class, 'isAjax');
-        $consoleIsAjax = new ReflectionProperty(Console::class, 'isAjax');
-
-        self::assertFalse($isAjax->getValue($header));
-        self::assertFalse($consoleIsAjax->getValue($console));
-        $header->setAjax(true);
-        self::assertTrue($isAjax->getValue($header));
-        self::assertTrue($consoleIsAjax->getValue($console));
-        $header->setAjax(false);
-        self::assertFalse($isAjax->getValue($header));
-        self::assertFalse($consoleIsAjax->getValue($console));
-    }
 }

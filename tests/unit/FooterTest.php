@@ -12,7 +12,6 @@ use PhpMyAdmin\Footer;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
-use ReflectionProperty;
 
 use function json_encode;
 
@@ -100,14 +99,6 @@ class FooterTest extends AbstractTestCase
         );
     }
 
-    public function testGetDisplayWhenAjaxIsEnabled(): void
-    {
-        $template = new Template();
-        $footer = new Footer($template, Config::getInstance());
-        $footer->setAjax(true);
-        self::assertSame('', $footer->getDisplay());
-    }
-
     /**
      * Test for footer get Scripts
      */
@@ -142,17 +133,5 @@ class FooterTest extends AbstractTestCase
         $footer = new Footer($template, Config::getInstance());
         $footer->setMinimal();
         self::assertSame("  </div>\n  </body>\n</html>\n", $footer->getDisplay());
-    }
-
-    public function testSetAjax(): void
-    {
-        $isAjax = new ReflectionProperty(Footer::class, 'isAjax');
-        $footer = new Footer(new Template(), Config::getInstance());
-
-        self::assertFalse($isAjax->getValue($footer));
-        $footer->setAjax(true);
-        self::assertTrue($isAjax->getValue($footer));
-        $footer->setAjax(false);
-        self::assertFalse($isAjax->getValue($footer));
     }
 }

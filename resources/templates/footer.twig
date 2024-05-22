@@ -1,7 +1,5 @@
-{% if not is_ajax %}
   </div>
-{% endif %}
-{% if not is_ajax and not is_minimal %}
+{% if not is_minimal %}
   {% if self_url is not empty %}
     <div id="selflink" class="d-print-none">
       <a href="{{ self_url }}" title="{{ t('Open new phpMyAdmin window') }}" target="_blank" rel="noopener noreferrer">
@@ -41,7 +39,5 @@
 
   {{ footer|raw }}
 {% endif %}
-{% if not is_ajax %}
   </body>
 </html>
-{% endif %}

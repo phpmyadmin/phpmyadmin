@@ -55,15 +55,6 @@ class Header
      * Whether to show the warnings
      */
     private bool $warningsEnabled = true;
-    /**
-     * Whether we are servicing an ajax request.
-     */
-    private bool $isAjax = false;
-    /**
-     * Whether the HTTP headers (and possibly some HTML)
-     * have already been sent to the browser
-     */
-    private bool $headerIsSent = false;
 
     private UserPreferences $userPreferences;
 
@@ -160,18 +151,6 @@ class Header
     }
 
     /**
-     * Set the ajax flag to indicate whether
-     * we are servicing an ajax request
-     *
-     * @param bool $isAjax Whether we are servicing an ajax request
-     */
-    public function setAjax(bool $isAjax): void
-    {
-        $this->isAjax = $isAjax;
-        $this->console->setAjax($isAjax);
-    }
-
-    /**
      * Returns the Scripts object
      *
      * @return Scripts object
@@ -235,10 +214,6 @@ class Header
      */
     public function getDisplay(): string
     {
-        if ($this->headerIsSent || $this->isAjax) {
-            return '';
-        }
-
         $this->sendHttpHeaders();
 
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
@@ -386,8 +361,6 @@ class Header
         foreach ($headers as $name => $value) {
             header(sprintf('%s: %s', $name, $value));
         }
-
-        $this->headerIsSent = true;
     }
 
     /** @return array<string, string> */

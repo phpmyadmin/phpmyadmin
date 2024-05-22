@@ -28,10 +28,7 @@ class Footer
      * Scripts instance
      */
     private Scripts $scripts;
-    /**
-     * Whether we are servicing an ajax request.
-     */
-    private bool $isAjax = false;
+
     /**
      * Whether to only close the BODY and HTML tags
      * or also include scripts, errors and links
@@ -152,17 +149,6 @@ class Footer
     }
 
     /**
-     * Set the ajax flag to indicate whether
-     * we are servicing an ajax request
-     *
-     * @param bool $isAjax Whether we are servicing an ajax request
-     */
-    public function setAjax(bool $isAjax): void
-    {
-        $this->isAjax = $isAjax;
-    }
-
-    /**
      * Turn on minimal display mode
      */
     public function setMinimal(): void
@@ -185,7 +171,7 @@ class Footer
      */
     public function getDisplay(): string
     {
-        if (! $this->isAjax && ! $this->isMinimal) {
+        if (! $this->isMinimal) {
             if (Core::getEnv('SCRIPT_NAME') !== '') {
                 $url = $this->getSelfUrl();
             }
@@ -202,7 +188,6 @@ class Footer
         }
 
         return $this->template->render('footer', [
-            'is_ajax' => $this->isAjax,
             'is_minimal' => $this->isMinimal,
             'self_url' => $url ?? null,
             'error_messages' => $errorMessages ?? '',
