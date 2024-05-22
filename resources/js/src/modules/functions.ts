@@ -1763,6 +1763,29 @@ function sqlPrettyPrint (string) {
     return output;
 }
 
+function createFunctionConfirmModal (): void {
+    if ($('#functionConfirmModal').length > 0) {
+        return;
+    }
+
+    const functionConfirmModalTemplate = '<div class="modal fade" id="functionConfirmModal" tabindex="-1" aria-labelledby="functionConfirmModalLabel" aria-hidden="true">' +
+        '  <div class="modal-dialog">' +
+        '    <div class="modal-content">' +
+        '      <div class="modal-header">' +
+        '        <h5 class="modal-title" id="functionConfirmModalLabel">' + window.Messages.strConfirm + '</h5>' +
+        '        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="' + window.Messages.strClose + '"></button>' +
+        '      </div>' +
+        '      <div class="modal-body"></div>' +
+        '      <div class="modal-footer">' +
+        '        <button type="button" class="btn btn-secondary" id="functionConfirmOkButton">' + window.Messages.strOK + '</button>' +
+        '        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">' + window.Messages.strClose + '</button>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '</div>';
+    $(functionConfirmModalTemplate).appendTo('body');
+}
+
 /**
  * jQuery function that uses jQueryUI's dialogs to confirm with user. Does not
  * return a jQuery object yet and hence cannot be chained
@@ -1789,6 +1812,8 @@ function confirmDialog (question, url = undefined, callbackFn = undefined, openC
     if (window.Messages.strDoYouReally === '') {
         return true;
     }
+
+    createFunctionConfirmModal();
 
     const functionConfirmModal = $('#functionConfirmModal') as JQuery<HTMLDivElement>;
     functionConfirmModal.modal('show');

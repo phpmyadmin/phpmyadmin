@@ -359,6 +359,7 @@ final class JavaScriptMessagesController implements InvocableController
             'strAddingPrimaryKey' => __('Adding primary key'),
             'strOK' => __('OK'),
             'strDismiss' => __('Click to dismiss this notification'),
+            'strConfirm' => __('Confirm'),
 
             /* For database/operations.js */
             'strRenamingDatabases' => __('Renaming databases'),
