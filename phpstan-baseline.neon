@@ -351,11 +351,6 @@ parameters:
 			path: libraries/classes/Config/ConfigFile.php
 
 		-
-			message: "#^Empty array passed to foreach\\.$#"
-			count: 1
-			path: libraries/classes/Config/Form.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Config\\\\Form\\:\\:__construct\\(\\) has parameter \\$form with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Config/Form.php
@@ -1562,6 +1557,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$messages of method PhpMyAdmin\\\\Message\\:\\:addMessagesString\\(\\) expects array\\<string\\>, array\\<int\\<0, max\\>, PhpMyAdmin\\\\Message\\|string\\|null\\> given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#5 \\$relationFieldValue of method PhpMyAdmin\\\\InsertEdit\\:\\:getLinkForRelationalDisplayField\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
@@ -9012,6 +9012,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Util\\:\\:unsupportedDatatypes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
+
+		-
+			message: "#^Offset int\\<1, 6\\> on array\\{string, string, string, string, string, string, string\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
