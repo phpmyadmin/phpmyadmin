@@ -1,1 +1,170 @@
-{{- header|raw -}}{{- content|raw -}}{{- footer|raw -}}
+<!doctype html>
+<html lang="{{ header.lang }}" dir="{{ header.text_dir }}" data-bs-theme="{{ header.theme_color_mode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="same-origin">
+  <meta name="robots" content="noindex,nofollow,notranslate">
+  <meta name="google" content="notranslate">
+  <script>window.allowThirdPartyFraming = {{ header.allow_third_party_framing == 'sameorigin' ? '"sameorigin"' : (header.allow_third_party_framing ? '1' : '0') }};</script>
+  {% if not header.allow_third_party_framing -%}
+    <style id="cfs-style">html{display: none;}</style>
+  {%- endif %}
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="{{ header.theme_path }}/jquery/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="{{ header.base_dir }}js/vendor/codemirror/lib/codemirror.css?{{ header.version }}">
+  <link rel="stylesheet" type="text/css" href="{{ header.base_dir }}js/vendor/codemirror/addon/hint/show-hint.css?{{ header.version }}">
+  <link rel="stylesheet" type="text/css" href="{{ header.base_dir }}js/vendor/codemirror/addon/lint/lint.css?{{ header.version }}">
+  <link rel="stylesheet" type="text/css" href="{{ header.theme_path }}/css/theme{{ header.text_dir == 'rtl' ? '.rtl' }}.css?{{ header.version }}">
+  <title>{{ header.title }}</title>
+  {{ header.scripts|raw }}
+  <noscript><style>html{display:block}</style></noscript>
+</head>
+<body{{ header.body_id is not empty ? ' id=' ~ header.body_id }}>
+{{ header.navigation|raw }}
+{{ header.custom_header|raw }}
+{{ header.load_user_preferences|raw }}
+
+{% if not header.show_hint %}
+  <span id="no_hint" class="hide"></span>
+{% endif %}
+
+{% if header.is_warnings_enabled %}
+  <noscript>
+    {{ t('Javascript must be enabled past this point!')|error }}
+  </noscript>
+{% endif %}
+
+{% if header.is_menu_enabled and header.server > 0 %}
+  {{ header.menu|raw }}
+  <div id="page_nav_icons" class="row row-cols-sm-auto align-items-center d-print-none me-3 p-1">
+    <div class="col-12">
+      <div id="userAccountDropdown" class="dropdown">
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{- get_image('user', t('Open user account menu')) -}}
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item text-nowrap disableAjax" href="{{ url('/server/privileges', {'username': header.current_user[0], 'hostname': header.current_user[1]}) }}">
+              {{ get_image('user', '', {'aria-hidden': 'true'}) }} <span dir="ltr">{{ header.current_user|join('@') }}</span>
+            </a>
+          </li>
+          <li><hr class="dropdown-divider"></li>
+          <li>
+            <a class="dropdown-item disableAjax" href="{{ get_docu_link('index') }}" target="_blank" rel="noopener noreferrer">
+              {{ get_icon('b_docs', t('phpMyAdmin documentation')) }}
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item disableAjax" href="{{ get_docu_url(header.is_mariadb) }}" target="_blank" rel="noopener noreferrer">
+              {{ get_icon('b_sqlhelp', header.is_mariadb ? t('MariaDB documentation') : t('MySQL documentation')) }}
+            </a>
+          </li>
+          <li><hr class="dropdown-divider"></li>
+          {% if header.theme_color_modes|length > 1 %}
+            <li>
+              <form method="post" action="{{ url('/themes/set') }}" class="dropdown-item py-0 disableAjax">
+                {{ get_hidden_inputs() }}
+                <input type="hidden" name="set_theme" value="{{ header.theme_id }}">
+                <div class="row row-cols-lg-auto align-items-center flex-nowrap">
+                  <div class="col-12">
+                    <label class="col-form-label" for="themeColorModeToggle">{{ get_icon('s_theme', t('Appearance:')) }}</label>
+                  </div>
+                  <div class="col-12">
+                    <select class="form-select form-select-sm" name="themeColorMode" id="themeColorModeToggle" aria-label="{{ t('Color mode for the theme') }}">
+                      {% for color_mode in header.theme_color_modes %}
+                        <option value="{{ color_mode }}"{{ header.theme_color_mode == color_mode ? ' selected' }}>
+                          {%- if color_mode == 'light' -%}
+                            {{ t('Light', context = 'Light color mode of the theme') }}
+                          {%- elseif color_mode == 'dark' -%}
+                            {{ t('Dark', context = 'Dark color mode of the theme') }}
+                          {%- else -%}
+                            {{ color_mode|title }}
+                          {%- endif -%}
+                        </option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </li>
+          {% endif %}
+          <li>
+            <a class="dropdown-item disableAjax" href="{{ url('/preferences/manage') }}">{{ get_icon('s_cog', t('Settings')) }}</a>
+          </li>
+          <li><hr class="dropdown-divider"></li>
+          <li>
+            <a class="dropdown-item logout disableAjax" href="{{ url('/logout') }}">{{ get_icon('s_loggoff', t('Log out')) }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <span id="lock_page_icon"></span>
+      <span id="page_settings_icon">
+          {{ get_image('s_cog', t('Page-related settings')) }}
+        </span>
+      <a id="goto_pagetop" href="#">{{ get_image('s_top', t('Click on the bar to scroll to top of page')) }}</a>
+    </div>
+  </div>
+{% endif %}
+
+{{ header.console|raw }}
+
+<div id="page_content">
+  {{ header.messages|raw }}
+
+  {%- if header.is_logged_in -%}
+    {{ include('modals/preview_sql_modal.twig') }}
+    {{ include('modals/enum_set_editor.twig') }}
+    {{ include('modals/create_view.twig') }}
+  {%- endif -%}
+
+{{ content|raw }}
+</div>
+
+{% if not footer.is_minimal %}
+  {% if footer.self_url is not empty %}
+    <div id="selflink" class="d-print-none">
+      <a href="{{ footer.self_url }}" title="{{ t('Open new phpMyAdmin window') }}" target="_blank" rel="noopener noreferrer">
+        {% if show_icons('TabsMode') %}
+          {{ get_image('window-new', t('Open new phpMyAdmin window')) }}
+        {% else %}
+          {{ t('Open new phpMyAdmin window') }}
+        {% endif %}
+      </a>
+    </div>
+  {% endif %}
+
+  <div class="clearfloat d-print-none" id="pma_errors">
+    {{ footer.error_messages|raw }}
+  </div>
+
+  {{ footer.scripts|raw }}
+
+  {% if footer.is_demo %}
+    <div id="pma_demo" class="d-print-none">
+      {% apply notice %}
+        <a href="{{ url('/') }}">{{ t('phpMyAdmin Demo Server') }}:</a>
+        {% if footer.git_revision_info is not empty %}
+          {% set revision_info -%}
+            <a target="_blank" rel="noopener noreferrer" href="{{ footer.git_revision_info.revisionUrl|link }}">{{ footer.git_revision_info.revision }}</a>
+          {%- endset %}
+          {% set branch_info -%}
+            <a target="_blank" rel="noopener noreferrer" href="{{ footer.git_revision_info.branchUrl|link }}">{{ footer.git_revision_info.branch }}</a>
+          {%- endset %}
+          {{ t('Currently running Git revision %1$s from the %2$s branch.')|format(revision_info, branch_info)|raw }}
+        {% else %}
+          {{ t('Git information missing!') }}
+        {% endif %}
+      {% endapply %}
+    </div>
+  {% endif %}
+
+  {{ footer.footer|raw }}
+{% endif %}
+</body>
+</html>

@@ -35,9 +35,9 @@ class Footer
      */
     private bool $isMinimal = false;
 
-    public function __construct(private readonly Template $template, private readonly Config $config)
+    public function __construct(Template $template, private readonly Config $config)
     {
-        $this->scripts = new Scripts($this->template);
+        $this->scripts = new Scripts($template);
     }
 
     /**
@@ -166,10 +166,8 @@ class Footer
         return $this->scripts;
     }
 
-    /**
-     * Renders the footer
-     */
-    public function getDisplay(): string
+    /** @return mixed[] */
+    public function getDisplay(): array
     {
         if (! $this->isMinimal) {
             if (Core::getEnv('SCRIPT_NAME') !== '') {
@@ -187,7 +185,7 @@ class Footer
             $footer = Config::renderFooter();
         }
 
-        return $this->template->render('footer', [
+        return [
             'is_minimal' => $this->isMinimal,
             'self_url' => $url ?? null,
             'error_messages' => $errorMessages ?? '',
@@ -195,6 +193,6 @@ class Footer
             'is_demo' => $this->config->config->debug->demo,
             'git_revision_info' => $gitRevisionInfo ?? [],
             'footer' => $footer ?? '',
-        ]);
+        ];
     }
 }

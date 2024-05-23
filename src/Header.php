@@ -207,12 +207,8 @@ class Header
         $this->warningsEnabled = false;
     }
 
-    /**
-     * Generates the header
-     *
-     * @return string The header
-     */
-    public function getDisplay(): string
+    /** @return mixed[] */
+    public function getDisplay(): array
     {
         $this->sendHttpHeaders();
 
@@ -284,7 +280,7 @@ class Header
         $this->scripts->addFile('datetimepicker.js');
         $this->scripts->addFile('validator-messages.js');
 
-        return $this->template->render('header', [
+        return [
             'lang' => $GLOBALS['lang'],
             'allow_third_party_framing' => $this->config->settings['AllowThirdPartyFraming'],
             'base_dir' => $baseDir,
@@ -310,7 +306,7 @@ class Header
             'theme_id' => $theme->getId(),
             'current_user' => $dbi->getCurrentUserAndHost(),
             'is_mariadb' => $dbi->isMariaDB(),
-        ]);
+        ];
     }
 
     /**
