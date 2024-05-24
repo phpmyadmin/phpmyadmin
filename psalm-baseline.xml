@@ -10159,7 +10159,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['focus_querywindow']]]></code>
@@ -10173,7 +10172,6 @@
     </MixedAssignment>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['error_message'])]]></code>
-      <code><![CDATA[empty($_REQUEST['ajax_request'])]]></code>
       <code><![CDATA[empty($_REQUEST['no_debug'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
