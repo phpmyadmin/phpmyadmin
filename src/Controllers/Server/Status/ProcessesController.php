@@ -26,7 +26,7 @@ final class ProcessesController extends AbstractController implements InvocableC
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -62,6 +62,6 @@ final class ProcessesController extends AbstractController implements InvocableC
             'server_process_list' => $listHtml,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

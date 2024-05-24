@@ -30,12 +30,12 @@ final class CollationController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] ??= null;
 
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
         $dbCollation = $request->getParsedBodyParam('db_collation') ?? '';
@@ -43,11 +43,11 @@ final class CollationController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No collation provided.')));
 
-            return null;
+            return $this->response->response();
         }
 
         if (! $this->response->checkParameters(['db'])) {
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -61,7 +61,7 @@ final class CollationController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-            return null;
+            return $this->response->response();
         }
 
         $sqlQuery = 'ALTER DATABASE ' . Util::backquote(Current::$database)
@@ -102,6 +102,6 @@ final class CollationController implements InvocableController
         $this->response->setRequestStatus($message->isSuccess());
         $this->response->addJSON('message', $message);
 
-        return null;
+        return $this->response->response();
     }
 }

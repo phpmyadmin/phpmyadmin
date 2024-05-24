@@ -27,7 +27,7 @@ final class LogVarsController extends AbstractController implements InvocableCon
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] ??= null;
 
@@ -38,7 +38,7 @@ final class LogVarsController extends AbstractController implements InvocableCon
         }
 
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addJSON([
@@ -48,6 +48,6 @@ final class LogVarsController extends AbstractController implements InvocableCon
             ),
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

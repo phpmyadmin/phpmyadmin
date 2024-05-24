@@ -19,12 +19,12 @@ final class SqlFormatController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         /** @var string $query */
         $query = $request->getParsedBodyParam('sql', '');
         $this->response->addJSON(['sql' => Formatter::format($query)]);
 
-        return null;
+        return $this->response->response();
     }
 }

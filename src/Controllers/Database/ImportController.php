@@ -38,7 +38,7 @@ final class ImportController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['SESSION_KEY'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -50,7 +50,7 @@ final class ImportController implements InvocableController
         $this->response->addScriptFiles(['import.js']);
 
         if (! $this->response->checkParameters(['db'])) {
-            return null;
+            return $this->response->response();
         }
 
         $config = Config::getInstance();
@@ -63,12 +63,12 @@ final class ImportController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         [$GLOBALS['SESSION_KEY'], $uploadId] = Ajax::uploadProgressSetup();
@@ -81,7 +81,7 @@ final class ImportController implements InvocableController
                 'Could not load import plugins, please check your installation!',
             ))->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         $offset = null;
@@ -138,6 +138,6 @@ final class ImportController implements InvocableController
             'local_files' => Import::getLocalFiles($importList),
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

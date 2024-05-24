@@ -23,18 +23,18 @@ final class BrowseController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (empty($_POST['selected_fld'])) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         $this->displayTableBrowseForSelectedColumns($GLOBALS['goto']);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

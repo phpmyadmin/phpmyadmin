@@ -21,7 +21,7 @@ final class EmptyFormController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected_tbl', []);
@@ -30,7 +30,7 @@ final class EmptyFormController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         $fullQuery = '';
@@ -48,6 +48,6 @@ final class EmptyFormController implements InvocableController
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

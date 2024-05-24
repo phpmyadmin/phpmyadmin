@@ -26,7 +26,7 @@ final class SqlController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] ??= null;
 
@@ -43,6 +43,6 @@ final class SqlController implements InvocableController
 
         $this->response->addHTML($this->sqlQueryForm->getHtml('', ''));
 
-        return null;
+        return $this->response->response();
     }
 }

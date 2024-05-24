@@ -16,7 +16,7 @@ final class ColumnController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         /** @var string|null $db */
         $db = $request->getParsedBodyParam('db');
@@ -27,11 +27,11 @@ final class ColumnController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addJSON(['columns' => $this->dbi->getColumnNames($db, $table)]);
 
-        return null;
+        return $this->response->response();
     }
 }

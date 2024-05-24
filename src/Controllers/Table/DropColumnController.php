@@ -29,7 +29,7 @@ final class DropColumnController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $selected = $_POST['selected'] ?? [];
 
@@ -37,7 +37,7 @@ final class DropColumnController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         $selectedCount = count($selected);
@@ -75,6 +75,6 @@ final class DropColumnController implements InvocableController
         $this->flashMessenger->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
         $this->response->redirectToRoute('/table/structure', ['db' => Current::$database, 'table' => Current::$table]);
 
-        return null;
+        return $this->response->response();
     }
 }

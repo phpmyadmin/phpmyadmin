@@ -34,7 +34,7 @@ class ExportController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -48,7 +48,7 @@ class ExportController implements InvocableController
         $this->response->addScriptFiles(['export.js']);
 
         if (! $this->response->checkParameters(['db', 'table'])) {
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -103,7 +103,7 @@ class ExportController implements InvocableController
                 __('Could not load export plugins, please check your installation!'),
             )->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         $exportType = 'table';
@@ -128,6 +128,6 @@ class ExportController implements InvocableController
             'page_settings_html' => $pageSettingsHtml,
         ]));
 
-        return null;
+        return $this->response->response();
     }
 }

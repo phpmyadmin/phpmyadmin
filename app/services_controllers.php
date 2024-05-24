@@ -1165,10 +1165,7 @@ return [
         ],
         Table\Structure\AddKeyController::class => [
             'class' => Table\Structure\AddKeyController::class,
-            'arguments' => [
-                '$sqlController' => '@' . Sql\SqlController::class,
-                '$structureController' => '@' . Table\StructureController::class,
-            ],
+            'arguments' => ['@response', '@' . Table\StructureController::class, '@table_indexes'],
         ],
         Table\Structure\BrowseController::class => [
             'class' => Table\Structure\BrowseController::class,

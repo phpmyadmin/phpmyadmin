@@ -34,7 +34,7 @@ class SqlController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['goto'] ??= null;
         $GLOBALS['back'] ??= null;
@@ -47,7 +47,7 @@ class SqlController implements InvocableController
         $this->response->addHTML($this->pageSettings->getHTML());
 
         if (! $this->response->checkParameters(['db'])) {
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -62,12 +62,12 @@ class SqlController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         /**
@@ -86,6 +86,6 @@ class SqlController implements InvocableController
             htmlspecialchars($delimiter),
         ));
 
-        return null;
+        return $this->response->response();
     }
 }

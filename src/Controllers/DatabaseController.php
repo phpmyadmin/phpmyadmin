@@ -15,10 +15,10 @@ final class DatabaseController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $this->response->addJSON(['databases' => $this->dbi->getDatabaseList()]);
 
-        return null;
+        return $this->response->response();
     }
 }

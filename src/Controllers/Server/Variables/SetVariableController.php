@@ -35,10 +35,10 @@ final class SetVariableController implements InvocableController
     /**
      * Handle the AJAX request for setting value for a single variable
      */
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
         $value = (string) $request->getParsedBodyParam('varValue');
@@ -83,7 +83,7 @@ final class SetVariableController implements InvocableController
 
         $this->response->addJSON($json);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

@@ -66,7 +66,7 @@ final class DatabasesController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] ??= null;
 
@@ -166,7 +166,7 @@ final class DatabasesController implements InvocableController
             'text_dir' => LanguageManager::$textDir,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

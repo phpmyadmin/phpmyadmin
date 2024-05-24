@@ -55,7 +55,6 @@ class GetFieldControllerTest extends AbstractTestCase
 
         $response = (new GetFieldController(new ResponseRenderer(), $dbi, ResponseFactory::create()))($request);
 
-        self::assertNotNull($response);
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
         self::assertSame('46494c45', (string) $response->getBody());
     }

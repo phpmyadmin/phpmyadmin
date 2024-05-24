@@ -10,10 +10,8 @@ use PhpMyAdmin\Http\ServerRequest;
 
 final class FulltextController extends AbstractIndexController implements InvocableController
 {
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $this->handleIndexCreation($request, 'FULLTEXT');
-
-        return null;
+        return $this->handleIndexCreation($request, 'FULLTEXT');
     }
 }

@@ -21,13 +21,13 @@ final class DeleteController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $templateId = (int) $request->getParsedBodyParam('templateId');
 
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
         if ($exportTemplatesFeature === null) {
-            return null;
+            return $this->response->response();
         }
 
         $result = $this->model->delete(
@@ -41,11 +41,11 @@ final class DeleteController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $result);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->setRequestStatus(true);
 
-        return null;
+        return $this->response->response();
     }
 }

@@ -50,7 +50,7 @@ final class SaveController implements InvocableController
         $this->tableObj = $this->dbi->getTable(Current::$database, Current::$table);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
@@ -60,9 +60,7 @@ final class SaveController implements InvocableController
             unset($_POST['selected']);
         }
 
-        ($this->structureController)($request);
-
-        return null;
+        return ($this->structureController)($request);
     }
 
     /**

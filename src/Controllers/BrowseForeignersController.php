@@ -22,7 +22,7 @@ final class BrowseForeignersController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         /** @var string|null $database */
         $database = $request->getParsedBodyParam('db');
@@ -40,7 +40,7 @@ final class BrowseForeignersController implements InvocableController
         $foreignFilter = $request->getParsedBodyParam('foreign_filter', '');
 
         if (! isset($database, $table, $field)) {
-            return null;
+            return $this->response->response();
         }
 
         $this->response->setMinimalFooter();
@@ -68,6 +68,6 @@ final class BrowseForeignersController implements InvocableController
             $data,
         ));
 
-        return null;
+        return $this->response->response();
     }
 }

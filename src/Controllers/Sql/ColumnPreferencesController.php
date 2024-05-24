@@ -24,7 +24,7 @@ final class ColumnPreferencesController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $tableObject = $this->dbi->getTable(Current::$database, Current::$table);
         $status = false;
@@ -50,11 +50,11 @@ final class ColumnPreferencesController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $status->getString());
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->setRequestStatus($status);
 
-        return null;
+        return $this->response->response();
     }
 }

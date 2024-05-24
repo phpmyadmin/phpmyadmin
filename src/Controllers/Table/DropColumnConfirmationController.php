@@ -27,7 +27,7 @@ final class DropColumnConfirmationController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $fields = $request->getParsedBodyParam('selected_fld');
         try {
@@ -37,11 +37,11 @@ final class DropColumnConfirmationController implements InvocableController
         } catch (InvalidIdentifier $exception) {
             $this->sendErrorResponse($exception->getMessage());
 
-            return null;
+            return $this->response->response();
         } catch (InvalidArgumentException) {
             $this->sendErrorResponse(__('No column selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         if (! $this->dbTableExists->selectDatabase($db)) {
@@ -49,12 +49,12 @@ final class DropColumnConfirmationController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         if (! $this->dbTableExists->hasTable($db, $table)) {
@@ -62,12 +62,12 @@ final class DropColumnConfirmationController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->render('table/structure/drop_confirm', [
@@ -76,7 +76,7 @@ final class DropColumnConfirmationController implements InvocableController
             'fields' => $fields,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     private function sendErrorResponse(string $message): void

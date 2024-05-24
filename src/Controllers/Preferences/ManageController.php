@@ -56,7 +56,7 @@ final class ManageController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['error'] ??= null;
         $GLOBALS['lang'] ??= null;
@@ -100,7 +100,7 @@ final class ManageController implements InvocableController
             $this->response->addJSON('prefs', json_encode($settings['config_data']));
             $this->response->addJSON('mtime', $settings['mtime']);
 
-            return null;
+            return $this->response->response();
         }
 
         if ($request->hasBodyParam('submit_import')) {
@@ -180,7 +180,7 @@ final class ManageController implements InvocableController
                         'return_url' => $returnUrl,
                     ]);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 // check for ThemeDefault
@@ -222,7 +222,7 @@ final class ManageController implements InvocableController
                     $this->config->loadUserPreferences($this->themeManager);
                     $this->userPreferences->redirect($returnUrl ?? '', $redirectParams);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $GLOBALS['error'] = $result;
@@ -233,12 +233,12 @@ final class ManageController implements InvocableController
                 $this->config->removeCookie('pma_lang');
                 $this->userPreferences->redirect('index.php?route=/preferences/manage');
 
-                return null;
+                return $this->response->response();
             }
 
             $GLOBALS['error'] = $result;
 
-            return null;
+            return $this->response->response();
         }
 
         $relationParameters = $this->relation->getRelationParameters();
@@ -270,6 +270,6 @@ final class ManageController implements InvocableController
             define('PMA_DISABLE_NAVI_SETTINGS', true);
         }
 
-        return null;
+        return $this->response->response();
     }
 }

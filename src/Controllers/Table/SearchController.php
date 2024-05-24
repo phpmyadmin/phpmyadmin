@@ -153,10 +153,10 @@ final class SearchController implements InvocableController
     /**
      * Index action
      */
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $this->response->checkParameters(['db', 'table'])) {
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -172,12 +172,12 @@ final class SearchController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -186,12 +186,12 @@ final class SearchController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->loadTableInfo();
@@ -208,7 +208,7 @@ final class SearchController implements InvocableController
         if (isset($_POST['range_search'])) {
             $this->rangeSearchAction();
 
-            return null;
+            return $this->response->response();
         }
 
         /**
@@ -220,7 +220,7 @@ final class SearchController implements InvocableController
             $this->doSelectionAction();
         }
 
-        return null;
+        return $this->response->response();
     }
 
     /**

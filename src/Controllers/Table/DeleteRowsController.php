@@ -32,7 +32,7 @@ final class DeleteRowsController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['goto'] ??= null;
         $GLOBALS['disp_message'] ??= null;
@@ -97,6 +97,6 @@ final class DeleteRowsController implements InvocableController
             null,
         ));
 
-        return null;
+        return $this->response->response();
     }
 }

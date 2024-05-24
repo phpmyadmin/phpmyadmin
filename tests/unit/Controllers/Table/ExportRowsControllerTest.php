@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\Table\ExportController;
 use PhpMyAdmin\Controllers\Table\ExportRowsController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -32,7 +33,8 @@ class ExportRowsControllerTest extends AbstractTestCase
         $_POST['rows_to_delete'] = 'row';
 
         $controller = $this->createMock(ExportController::class);
-        $controller->expects(self::once())->method('__invoke');
+        $controller->expects(self::once())->method('__invoke')
+            ->willReturn(ResponseFactory::create()->createResponse());
 
         (new ExportRowsController(
             new ResponseRenderer(),
@@ -69,7 +71,8 @@ class ExportRowsControllerTest extends AbstractTestCase
         $_POST['rows_to_delete'] = ['key1' => 'row1', 'key2' => 'row2'];
 
         $controller = $this->createMock(ExportController::class);
-        $controller->expects(self::once())->method('__invoke');
+        $controller->expects(self::once())->method('__invoke')
+            ->willReturn(ResponseFactory::create()->createResponse());
 
         (new ExportRowsController(
             new ResponseRenderer(),

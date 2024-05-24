@@ -9,6 +9,7 @@ use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Linter;
+use PhpMyAdmin\ResponseRenderer;
 
 use function is_array;
 use function is_string;
@@ -29,10 +30,10 @@ final class LintController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $request->isAjax()) {
-            return null;
+            return ResponseRenderer::getInstance()->response();
         }
 
         /**

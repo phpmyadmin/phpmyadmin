@@ -19,16 +19,16 @@ final class GitInfoController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
         $git = new Git($this->config->get('ShowGitRevision') ?? true);
 
         if (! $git->isGitRevision()) {
-            return null;
+            return $this->response->response();
         }
 
         $commit = $git->checkGitRevision();
@@ -36,7 +36,7 @@ final class GitInfoController implements InvocableController
         if (! $git->hasGitInformation() || $commit === null) {
             $this->response->setRequestStatus(false);
 
-            return null;
+            return $this->response->response();
         }
 
         $commit['author']['date'] = Util::localisedDate(strtotime($commit['author']['date']));
@@ -44,6 +44,6 @@ final class GitInfoController implements InvocableController
 
         $this->response->render('home/git_info', $commit);
 
-        return null;
+        return $this->response->response();
     }
 }

@@ -21,7 +21,7 @@ final class CreateNewTablesController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $partialDependencies = json_decode($request->getParsedBodyParam('pd'), true);
         $tablesName = json_decode($request->getParsedBodyParam('newTablesName'));
@@ -33,6 +33,6 @@ final class CreateNewTablesController implements InvocableController
         );
         $this->response->addJSON($res);
 
-        return null;
+        return $this->response->response();
     }
 }

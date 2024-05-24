@@ -33,7 +33,7 @@ final class DestroyController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['selected'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -51,7 +51,7 @@ final class DestroyController implements InvocableController
             $this->response->setRequestStatus($message->isSuccess());
             $this->response->addJSON($json);
 
-            return null;
+            return $this->response->response();
         }
 
         if (
@@ -63,7 +63,7 @@ final class DestroyController implements InvocableController
             $this->response->setRequestStatus($message->isSuccess());
             $this->response->addJSON($json);
 
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['errorUrl'] = Url::getFromRoute('/server/databases');
@@ -93,6 +93,6 @@ final class DestroyController implements InvocableController
         $this->response->setRequestStatus($message->isSuccess());
         $this->response->addJSON($json);
 
-        return null;
+        return $this->response->response();
     }
 }

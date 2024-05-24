@@ -38,7 +38,7 @@ final class TrackingController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -46,7 +46,7 @@ final class TrackingController implements InvocableController
         $this->response->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
 
         if (! $this->response->checkParameters(['db'])) {
-            return null;
+            return $this->response->response();
         }
 
         $config = Config::getInstance();
@@ -59,12 +59,12 @@ final class TrackingController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
@@ -114,7 +114,7 @@ final class TrackingController implements InvocableController
                         'default_statements' => $config->selectedServer['tracking_default_statements'],
                     ]);
 
-                    return null;
+                    return $this->response->response();
                 }
             } else {
                 $this->response->addHTML(Message::notice(
@@ -134,7 +134,7 @@ final class TrackingController implements InvocableController
                 $this->response->render('database/create_table', ['db' => Current::$database]);
             }
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addHTML($this->tracking->getHtmlForDbTrackingTables(
@@ -145,7 +145,7 @@ final class TrackingController implements InvocableController
 
         // If available print out database log
         if ($trackedData->ddlog === []) {
-            return null;
+            return $this->response->response();
         }
 
         $log = '';
@@ -156,6 +156,6 @@ final class TrackingController implements InvocableController
 
         $this->response->addHTML(Generator::getMessage(__('Database Log'), $log));
 
-        return null;
+        return $this->response->response();
     }
 }

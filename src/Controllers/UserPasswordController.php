@@ -28,7 +28,7 @@ final class UserPasswordController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['hostname'] ??= null;
         $GLOBALS['username'] ??= null;
@@ -50,7 +50,7 @@ final class UserPasswordController implements InvocableController
                 __('You don\'t have sufficient privileges to be here right now!'),
             )->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         $noPass = $request->getParsedBodyParam('nopass');
@@ -84,21 +84,21 @@ final class UserPasswordController implements InvocableController
                     );
                     $this->response->addJSON('message', $sqlQuery);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->addHTML('<h1>' . __('Change password') . '</h1>' . "\n\n");
                 $this->response->addHTML(Generator::getMessage($message, $sqlQuery, MessageType::Success));
                 $this->response->render('user_password', []);
 
-                return null;
+                return $this->response->response();
             }
 
             if ($request->isAjax()) {
                 $this->response->addJSON('message', $GLOBALS['change_password_message']['msg']);
                 $this->response->setRequestStatus(false);
 
-                return null;
+                return $this->response->response();
             }
         }
 
@@ -118,6 +118,6 @@ final class UserPasswordController implements InvocableController
             $request->getRoute(),
         ));
 
-        return null;
+        return $this->response->response();
     }
 }

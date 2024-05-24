@@ -21,7 +21,7 @@ final class FirstStepController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $this->response->addScriptFiles(['normalization.js', 'vendor/jquery/jquery.uitablefilter.js']);
 
@@ -34,6 +34,6 @@ final class FirstStepController implements InvocableController
         $html = $this->normalization->getHtmlFor1NFStep1(Current::$database, Current::$table, $normalForm);
         $this->response->addHTML($html);
 
-        return null;
+        return $this->response->response();
     }
 }

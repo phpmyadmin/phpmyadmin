@@ -20,7 +20,7 @@ final class TablesController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         /** @var string[] $tables */
         $tables = $request->getQueryParam('tables', []);
@@ -37,6 +37,6 @@ final class TablesController implements InvocableController
         );
         $this->response->addJSON(['foreignKeyConstrains' => $constrains]);
 
-        return null;
+        return $this->response->response();
     }
 }

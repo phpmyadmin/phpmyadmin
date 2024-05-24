@@ -27,7 +27,7 @@ final class SetValuesController implements InvocableController
     /**
      * Get possible values for SET fields during grid edit.
      */
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $column = $request->getParsedBodyParam('column');
         $currentValue = $request->getParsedBodyParam('curr_value');
@@ -39,7 +39,7 @@ final class SetValuesController implements InvocableController
             $this->response->addJSON('message', __('Error in processing request'));
             $this->response->setRequestStatus(false);
 
-            return null;
+            return $this->response->response();
         }
 
         // If the $currentValue was truncated, we should fetch the correct full values from the table.
@@ -59,6 +59,6 @@ final class SetValuesController implements InvocableController
 
         $this->response->addJSON('select', $select);
 
-        return null;
+        return $this->response->response();
     }
 }

@@ -808,7 +808,7 @@
   </file>
   <file src="src/Controllers/BrowseForeignersController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/CheckRelationsController.php">
@@ -816,17 +816,17 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/CollationConnectionController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/ColumnController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Console/Bookmark/AddController.php">
@@ -835,12 +835,12 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Console/Bookmark/RefreshController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Database/CentralColumns/PopulateColumnsController.php">
@@ -972,7 +972,7 @@
       <code><![CDATA[$page]]></code>
     </PossiblyNullArgument>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Database/EventsController.php">
@@ -1006,7 +1006,7 @@
       <code><![CDATA[isSuccess]]></code>
     </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_GET['export_item'])]]></code>
@@ -1059,9 +1059,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['table_select'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -1103,7 +1100,7 @@
   </file>
   <file src="src/Controllers/Database/MultiTableQuery/TablesController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Database/MultiTableQueryController.php">
@@ -1116,7 +1113,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Database/RoutinesController.php">
@@ -1215,7 +1212,7 @@
       <code><![CDATA[isSuccess]]></code>
     </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RedundantCondition>
       <code><![CDATA[! $GLOBALS['errors']]]></code>
@@ -1291,9 +1288,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Database/SqlFormatController.php">
     <PossiblyUnusedMethod>
@@ -1446,7 +1440,7 @@
       <code><![CDATA[$rowCount]]></code>
     </PossiblyNullArgument>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Database/Structure/ReplacePrefixController.php">
@@ -1565,9 +1559,6 @@
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
     </MixedOperand>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$checkTime]]></code>
       <code><![CDATA[$createTime]]></code>
@@ -1596,7 +1587,7 @@
   </file>
   <file src="src/Controllers/DatabaseController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/ErrorReportController.php">
@@ -1866,7 +1857,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Export/Template/DeleteController.php">
@@ -1874,7 +1865,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Export/Template/LoadController.php">
@@ -1882,7 +1873,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Export/Template/UpdateController.php">
@@ -1890,7 +1881,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/GitInfoController.php">
@@ -1980,11 +1971,14 @@
       <code><![CDATA[$bookmarkVariables]]></code>
       <code><![CDATA[$consoleMessageId]]></code>
     </MixedAssignment>
+    <MixedInferredReturnType>
+      <code><![CDATA[Response]]></code>
+    </MixedInferredReturnType>
     <PossiblyInvalidPropertyAssignmentValue>
       <code><![CDATA[$memoryLimit / 8]]></code>
     </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <PropertyTypeCoercion>
       <code><![CDATA[(string) $request->getParsedBodyParam('import_type')]]></code>
@@ -2029,12 +2023,12 @@
   </file>
   <file src="src/Controllers/LogoutController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Navigation/UpdateNavWidthConfigController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/NavigationController.php">
@@ -2053,17 +2047,17 @@
       <code><![CDATA[$itemType]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/AddNewPrimaryController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/CreateNewColumnController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/FirstNormalForm/FirstStepController.php">
@@ -2071,32 +2065,32 @@
       <code><![CDATA[$normalizeTo]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/FirstNormalForm/FourthStepController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/FirstNormalForm/SecondStepController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/FirstNormalForm/ThirdStepController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/GetColumnsController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/MainController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/MoveRepeatingGroup.php">
@@ -2113,12 +2107,12 @@
       <code><![CDATA[$repeatingColumns]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/PartialDependenciesController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/SecondNormalForm/CreateNewTablesController.php">
@@ -2133,12 +2127,12 @@
       <code><![CDATA[$tablesName]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/SecondNormalForm/FirstStepController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/SecondNormalForm/NewTablesController.php">
@@ -2150,7 +2144,7 @@
       <code><![CDATA[$partialDependencies]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/ThirdNormalForm/CreateNewTablesController.php">
@@ -2162,7 +2156,7 @@
       <code><![CDATA[$newtables]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/ThirdNormalForm/FirstStepController.php">
@@ -2173,7 +2167,7 @@
       <code><![CDATA[$tables]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/ThirdNormalForm/NewTablesController.php">
@@ -2188,7 +2182,7 @@
       <code><![CDATA[$tables]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Operations/Database/CollationController.php">
@@ -2267,7 +2261,7 @@
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['message_to_show'])]]></code>
@@ -2496,7 +2490,7 @@
       <code><![CDATA[$urlParams['log']]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/CollationsController.php">
@@ -2504,7 +2498,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Databases/CreateController.php">
@@ -2515,7 +2509,7 @@
       <code><![CDATA[$dbCollation]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Databases/DestroyController.php">
@@ -2535,7 +2529,7 @@
       <code><![CDATA[$database]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/DatabasesController.php">
@@ -2588,12 +2582,12 @@
       <code><![CDATA[$key]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/EnginesController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/ExportController.php">
@@ -2648,17 +2642,17 @@
   </file>
   <file src="src/Controllers/Server/PluginsController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Privileges/AccountLockController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Privileges/AccountUnlockController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/PrivilegesController.php">
@@ -2690,7 +2684,7 @@
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
     </PossiblyInvalidArgument>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[! empty($GLOBALS['message']) && $GLOBALS['message'] instanceof Message]]></code>
@@ -2723,7 +2717,7 @@
   </file>
   <file src="src/Controllers/Server/ShowEngineController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/SqlController.php">
@@ -2739,7 +2733,7 @@
   </file>
   <file src="src/Controllers/Server/Status/AdvisorController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/Monitor/ChartingDataController.php">
@@ -2765,7 +2759,7 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/Monitor/LogVarsController.php">
@@ -2780,7 +2774,7 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/Monitor/QueryAnalyzerController.php">
@@ -2795,7 +2789,7 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/Monitor/SlowLogController.php">
@@ -2806,12 +2800,12 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/MonitorController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/Processes/KillController.php">
@@ -2821,12 +2815,12 @@
   </file>
   <file src="src/Controllers/Server/Status/Processes/RefreshController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/ProcessesController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/QueriesController.php">
@@ -2855,7 +2849,7 @@
       <code><![CDATA[str_replace(['Com_', '_'], ['', ' '], $key)]]></code>
     </PossiblyInvalidCast>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/StatusController.php">
@@ -2900,7 +2894,7 @@
       <code><![CDATA[$this->data->status['Uptime']]]></code>
     </MixedOperand>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/VariablesController.php">
@@ -2933,7 +2927,7 @@
       <code><![CDATA[$this->data->variables['thread_cache_size']]]></code>
     </MixedOperand>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <UnusedForeachValue>
       <code><![CDATA[$linkUrl]]></code>
@@ -2990,7 +2984,7 @@
       <code><![CDATA[$filterValue]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Setup/HomeController.php">
@@ -3037,7 +3031,7 @@
       <code><![CDATA[$currValue]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Sql/RelationalValuesController.php">
@@ -3066,7 +3060,7 @@
       <code><![CDATA[$whereClause]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Sql/SqlController.php">
@@ -3113,9 +3107,6 @@
     <MixedOperand>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedOperand>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['back'])]]></code>
       <code><![CDATA[empty($GLOBALS['goto'])]]></code>
@@ -3158,7 +3149,7 @@
       <code><![CDATA[$mimetype]]></code>
     </PossiblyInvalidCast>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/ChangeController.php">
@@ -3201,9 +3192,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$isUpload]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$currentRow]]></code>
       <code><![CDATA[empty($GLOBALS['disp_message'])]]></code>
@@ -3221,7 +3209,7 @@
       <code><![CDATA[$rowsToDelete]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/ChartController.php">
@@ -3253,7 +3241,7 @@
       <code><![CDATA[$statement->limit->rowCount]]></code>
     </PossiblyInvalidOperand>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/CreateController.php">
@@ -3291,7 +3279,7 @@
       <code><![CDATA[$mimetype]]></code>
     </PossiblyInvalidCast>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/DeleteConfirmController.php">
@@ -3305,7 +3293,7 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/DeleteRowsController.php">
@@ -3335,7 +3323,7 @@
       <code><![CDATA[$selected]]></code>
     </PossiblyInvalidIterator>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_REQUEST['pos'])]]></code>
@@ -3343,7 +3331,7 @@
   </file>
   <file src="src/Controllers/Table/DropColumnConfirmationController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/DropColumnController.php">
@@ -3365,7 +3353,7 @@
       <code><![CDATA[$selected]]></code>
     </PossiblyInvalidIterator>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$message->isError()]]></code>
@@ -3398,9 +3386,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$parser->list]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
       <code><![CDATA[empty($GLOBALS['where_clause'])]]></code>
@@ -3416,7 +3401,7 @@
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/FindReplaceController.php">
@@ -3458,7 +3443,7 @@
       <code><![CDATA[$row]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/GisVisualizationController.php">
@@ -3505,7 +3490,7 @@
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
     </PossiblyInvalidArrayOffset>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/IndexRenameController.php">
@@ -3526,7 +3511,7 @@
       <code><![CDATA[$oldIndexName]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/IndexesController.php">
@@ -3562,7 +3547,7 @@
   </file>
   <file src="src/Controllers/Table/Maintenance/AnalyzeController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->config->get('DisableMultiTableMaintenance')]]></code>
@@ -3570,7 +3555,7 @@
   </file>
   <file src="src/Controllers/Table/Maintenance/CheckController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->config->get('DisableMultiTableMaintenance')]]></code>
@@ -3578,7 +3563,7 @@
   </file>
   <file src="src/Controllers/Table/Maintenance/ChecksumController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->config->get('DisableMultiTableMaintenance')]]></code>
@@ -3586,7 +3571,7 @@
   </file>
   <file src="src/Controllers/Table/Maintenance/OptimizeController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->config->get('DisableMultiTableMaintenance')]]></code>
@@ -3594,7 +3579,7 @@
   </file>
   <file src="src/Controllers/Table/Maintenance/RepairController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->config->get('DisableMultiTableMaintenance')]]></code>
@@ -3605,7 +3590,7 @@
       <code><![CDATA[$query]]></code>
     </MixedArgument>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/Partition/CheckController.php">
@@ -3613,7 +3598,7 @@
       <code><![CDATA[$query]]></code>
     </MixedArgument>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/Partition/DropController.php">
@@ -3622,7 +3607,7 @@
       <code><![CDATA[$query]]></code>
     </MixedArgument>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/Partition/OptimizeController.php">
@@ -3630,12 +3615,12 @@
       <code><![CDATA[$query]]></code>
     </MixedArgument>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/Partition/RebuildController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/Partition/RepairController.php">
@@ -3643,12 +3628,12 @@
       <code><![CDATA[$query]]></code>
     </MixedArgument>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/Partition/TruncateController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/PrivilegesController.php">
@@ -3656,12 +3641,12 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/RecentFavoriteController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/RelationController.php">
@@ -3805,7 +3790,7 @@
       <code><![CDATA[$extraData]]></code>
     </PossiblyUndefinedVariable>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['query'])]]></code>
@@ -3834,7 +3819,7 @@
       <code><![CDATA[$_POST['column']]]></code>
     </PossiblyInvalidCast>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RedundantCastGivenDocblockType>
       <code><![CDATA[(int) $config->settings['MaxRows']]]></code>
@@ -3861,19 +3846,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$delimiter]]></code>
     </MixedAssignment>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/Structure/AbstractIndexController.php">
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$selected]]></code>
-    </MixedArgumentTypeCoercion>
-  </file>
-  <file src="src/Controllers/Table/Structure/AddKeyController.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Table/Structure/BrowseController.php">
     <MixedArgument>
@@ -4060,7 +4032,7 @@
       <code><![CDATA[$_POST['field_virtuality'][$i]]]></code>
     </PossiblyInvalidOperand>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['field_adjust_privileges'][$i])]]></code>
@@ -4069,12 +4041,12 @@
   </file>
   <file src="src/Controllers/Table/Structure/SpatialController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/Structure/UniqueController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/StructureController.php">
@@ -4114,9 +4086,6 @@
     <PossiblyNullOperand>
       <code><![CDATA[$showTable['Rows']]]></code>
     </PossiblyNullOperand>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($showTable['Data_length'])]]></code>
       <code><![CDATA[empty($showTable['Index_length'])]]></code>
@@ -4187,7 +4156,7 @@
       <code><![CDATA[$_POST['where_clause']]]></code>
     </PossiblyInvalidOperand>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RedundantCastGivenDocblockType>
       <code><![CDATA[(int) $config->settings['maxRowPlotLimit']]]></code>
@@ -4214,7 +4183,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/ThemesController.php">
@@ -4224,7 +4193,7 @@
   </file>
   <file src="src/Controllers/Transformation/OverviewController.php">
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Transformation/WrapperController.php">
@@ -4269,7 +4238,7 @@
       <code><![CDATA[isSuccess]]></code>
     </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response|null]]></code>
+      <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['editor_process_add'])]]></code>

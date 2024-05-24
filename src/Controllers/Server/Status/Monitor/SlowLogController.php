@@ -27,7 +27,7 @@ final class SlowLogController extends AbstractController implements InvocableCon
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] ??= null;
 
@@ -38,7 +38,7 @@ final class SlowLogController extends AbstractController implements InvocableCon
         }
 
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
         $data = $this->monitor->getJsonForLogDataTypeSlow(
@@ -48,11 +48,11 @@ final class SlowLogController extends AbstractController implements InvocableCon
         if ($data === null) {
             $this->response->setRequestStatus(false);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addJSON(['message' => $data]);
 
-        return null;
+        return $this->response->response();
     }
 }

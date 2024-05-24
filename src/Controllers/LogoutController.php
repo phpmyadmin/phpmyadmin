@@ -15,17 +15,18 @@ final class LogoutController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
+        $responseRenderer = ResponseRenderer::getInstance();
         if (! $request->isPost() || $GLOBALS['token_mismatch']) {
-            ResponseRenderer::getInstance()->redirect('./index.php?route=/');
+            $responseRenderer->redirect('./index.php?route=/');
 
-            return null;
+            return $responseRenderer->response();
         }
 
         $authPlugin = $this->authPluginFactory->create();
         $authPlugin->logOut();
 
-        return null;
+        return $responseRenderer->response();
     }
 }

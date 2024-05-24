@@ -31,7 +31,7 @@ final class SchemaExportController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $db = DatabaseName::tryFrom($request->getParsedBodyParam('db'));
         /** @var mixed $exportType */
@@ -43,7 +43,7 @@ final class SchemaExportController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error($errorMessage)->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         /**
@@ -55,7 +55,7 @@ final class SchemaExportController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error($exception->getMessage())->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         $response = $this->responseFactory->createResponse();

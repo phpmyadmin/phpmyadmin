@@ -121,14 +121,14 @@ final class StructureController implements InvocableController
         $this->dbIsSystemSchema = true;
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] ??= null;
 
         $parameters = ['sort' => $_REQUEST['sort'] ?? null, 'sort_order' => $_REQUEST['sort_order'] ?? null];
 
         if (! $this->response->checkParameters(['db'])) {
-            return null;
+            return $this->response->response();
         }
 
         $config = Config::getInstance();
@@ -141,12 +141,12 @@ final class StructureController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addScriptFiles(['database/structure.js', 'table/change.js']);
@@ -208,7 +208,7 @@ final class StructureController implements InvocableController
             'create_table_html' => $createTable,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     /** @param mixed[] $replicaInfo */

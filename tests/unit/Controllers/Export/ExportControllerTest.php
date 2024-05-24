@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Export;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Controllers\Export\ExportController;
@@ -194,7 +195,7 @@ final class ExportControllerTest extends AbstractTestCase
         $response = $exportController($request);
         $output = $this->getActualOutputForAssertion();
 
-        self::assertNull($response);
+        self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
         self::assertStringNotContainsString('Missing parameter: what', $output);
         self::assertStringNotContainsString('Missing parameter: export_type', $output);
         self::assertStringContainsString(htmlspecialchars($expectedOutput, ENT_COMPAT), $output);
@@ -347,7 +348,6 @@ final class ExportControllerTest extends AbstractTestCase
 
         $output = $this->getActualOutputForAssertion();
 
-        self::assertNotNull($response);
         self::assertSame('', (string) $response->getBody());
         self::assertStringStartsWith('-- phpMyAdmin SQL Dump', $output);
         self::assertStringEndsWith($expected, $output);
@@ -512,7 +512,6 @@ final class ExportControllerTest extends AbstractTestCase
         $exportController = new ExportController(new ResponseRenderer(), $export, ResponseFactory::create());
         $response = $exportController($request);
 
-        self::assertNotNull($response);
         $output = (string) $response->getBody();
 
         $tmpFile = tempnam('./', 'exportFileTest');

@@ -35,7 +35,7 @@ final class PrivilegesController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         try {
             $db = DatabaseName::from($request->getParam('db'));
@@ -45,7 +45,7 @@ final class PrivilegesController implements InvocableController
         } catch (InvalidDatabaseName $exception) {
             $this->response->addHTML(Message::error($exception->getMessage())->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
@@ -63,7 +63,7 @@ final class PrivilegesController implements InvocableController
                     ->getDisplay(),
             );
 
-            return null;
+            return $this->response->response();
         }
 
         if (! $isGrantUser && ! $isCreateUser) {
@@ -90,6 +90,6 @@ final class PrivilegesController implements InvocableController
         ]);
         $this->response->render('export_modal', []);
 
-        return null;
+        return $this->response->response();
     }
 }

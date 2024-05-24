@@ -31,7 +31,7 @@ final class RealRowCountController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] ??= null;
 
@@ -41,7 +41,7 @@ final class RealRowCountController implements InvocableController
         ];
 
         if (! $this->response->checkParameters(['db'])) {
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -51,7 +51,7 @@ final class RealRowCountController implements InvocableController
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -59,7 +59,7 @@ final class RealRowCountController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-            return null;
+            return $this->response->response();
         }
 
         // If there is a request to update all table's row count.
@@ -73,7 +73,7 @@ final class RealRowCountController implements InvocableController
 
             $this->response->addJSON(['real_row_count' => $realRowCount]);
 
-            return null;
+            return $this->response->response();
         }
 
         // Array to store the results.
@@ -88,6 +88,6 @@ final class RealRowCountController implements InvocableController
 
         $this->response->addJSON(['real_row_count_all' => $realRowCountAll]);
 
-        return null;
+        return $this->response->response();
     }
 }

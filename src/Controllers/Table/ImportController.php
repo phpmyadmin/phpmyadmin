@@ -39,7 +39,7 @@ final class ImportController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['SESSION_KEY'] ??= null;
@@ -52,7 +52,7 @@ final class ImportController implements InvocableController
         $this->response->addScriptFiles(['import.js']);
 
         if (! $this->response->checkParameters(['db', 'table'])) {
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -66,12 +66,12 @@ final class ImportController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -80,12 +80,12 @@ final class ImportController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/import');
@@ -101,7 +101,7 @@ final class ImportController implements InvocableController
                 'Could not load import plugins, please check your installation!',
             ))->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         $offset = null;
@@ -163,6 +163,6 @@ final class ImportController implements InvocableController
             'local_files' => Import::getLocalFiles($importList),
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

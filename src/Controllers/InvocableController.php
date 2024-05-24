@@ -9,5 +9,5 @@ use PhpMyAdmin\Http\ServerRequest;
 
 interface InvocableController
 {
-    public function __invoke(ServerRequest $request): Response|null;
+    public function __invoke(ServerRequest $request): Response;
 }

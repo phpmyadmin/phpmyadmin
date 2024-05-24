@@ -31,7 +31,7 @@ final class RepairController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $selectedTablesParam = $request->getParsedBodyParam('selected_tbl');
 
@@ -43,7 +43,7 @@ final class RepairController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         try {
@@ -57,14 +57,14 @@ final class RepairController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $message->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         if ($this->config->get('DisableMultiTableMaintenance') && count($selectedTables) > 1) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('Maintenance operations on multiple tables are disabled.'));
 
-            return null;
+            return $this->response->response();
         }
 
         [$rows, $query] = $this->model->getRepairTableRows($database, $selectedTables);
@@ -77,6 +77,6 @@ final class RepairController implements InvocableController
 
         $this->response->render('table/maintenance/repair', ['message' => $message, 'rows' => $rows]);
 
-        return null;
+        return $this->response->response();
     }
 }

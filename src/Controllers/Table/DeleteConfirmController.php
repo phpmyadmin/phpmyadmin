@@ -29,7 +29,7 @@ final class DeleteConfirmController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -40,11 +40,11 @@ final class DeleteConfirmController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         if (! $this->response->checkParameters(['db', 'table'])) {
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -60,12 +60,12 @@ final class DeleteConfirmController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -74,12 +74,12 @@ final class DeleteConfirmController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->render('table/delete/confirm', [
@@ -90,6 +90,6 @@ final class DeleteConfirmController implements InvocableController
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

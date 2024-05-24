@@ -34,7 +34,7 @@ final class BinlogController implements InvocableController
         $this->binaryLogs = $this->dbi->fetchResult('SHOW MASTER LOGS', 'Log_name');
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $log = $request->getParsedBodyParam('log');
         $position = (int) $request->getParsedBodyParam('pos', 0);
@@ -98,7 +98,7 @@ final class BinlogController implements InvocableController
             'is_full_query' => $isFullQuery,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

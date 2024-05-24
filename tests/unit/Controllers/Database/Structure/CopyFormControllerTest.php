@@ -46,7 +46,6 @@ final class CopyFormControllerTest extends AbstractTestCase
             ],
         ]);
 
-        self::assertNotNull($response);
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
         self::assertSame(['text/html; charset=utf-8'], $response->getHeader('Content-Type'));
         self::assertSame($expected, (string) $response->getBody());

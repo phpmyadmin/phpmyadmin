@@ -41,14 +41,13 @@ final class PartitioningController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (isset($_POST['save_partitioning'])) {
             $this->dbi->selectDb(Current::$database);
             $this->updatePartitioning();
-            ($this->structureController)($request);
 
-            return null;
+            return ($this->structureController)($request);
         }
 
         $this->pageSettings->init('TableStructure');
@@ -75,7 +74,7 @@ final class PartitioningController implements InvocableController
             'storage_engines' => $storageEngines,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

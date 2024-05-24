@@ -23,7 +23,7 @@ final class CheckRelationsController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $cfgStorageDbName = $this->relation->getConfigurationStorageDbName();
 
@@ -57,6 +57,6 @@ final class CheckRelationsController implements InvocableController
             'are_config_storage_tables_defined' => $this->relation->arePmadbTablesDefined(),
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

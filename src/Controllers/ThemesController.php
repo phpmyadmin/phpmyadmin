@@ -19,18 +19,18 @@ final class ThemesController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $themes = $this->themeManager->getThemesArray();
         $themesList = $this->template->render('home/themes', ['themes' => $themes]);
         if ($request->isAjax()) {
             $this->response->addJSON('themes', $themesList);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addHTML($themesList);
 
-        return null;
+        return $this->response->response();
     }
 }

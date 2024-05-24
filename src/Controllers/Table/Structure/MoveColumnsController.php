@@ -37,14 +37,14 @@ final class MoveColumnsController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $moveColumns = $request->getParsedBodyParam('move_columns');
         $previewSql = $request->getParsedBodyParam('preview_sql') === '1';
         if (! is_array($moveColumns) || ! array_is_list($moveColumns) || ! $this->response->isAjax()) {
             $this->response->setRequestStatus(false);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->dbi->selectDb(Current::$database);
@@ -55,7 +55,7 @@ final class MoveColumnsController implements InvocableController
         if ($sqlQuery === null) {
             $this->response->setRequestStatus(false);
 
-            return null;
+            return $this->response->response();
         }
 
         if ($previewSql) {
@@ -64,7 +64,7 @@ final class MoveColumnsController implements InvocableController
                 $this->template->render('preview_sql', ['query_data' => $sqlQuery]),
             );
 
-            return null;
+            return $this->response->response();
         }
 
         $this->dbi->tryQuery($sqlQuery);
@@ -73,7 +73,7 @@ final class MoveColumnsController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error($tmpError));
 
-            return null;
+            return $this->response->response();
         }
 
         $message = Message::success(
@@ -82,7 +82,7 @@ final class MoveColumnsController implements InvocableController
         $this->response->addJSON('message', $message);
         $this->response->addJSON('columns', $moveColumns);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

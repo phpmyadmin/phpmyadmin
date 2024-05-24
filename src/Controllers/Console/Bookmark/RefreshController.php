@@ -16,10 +16,10 @@ final class RefreshController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $this->response->addJSON('console_message_bookmark', $this->console->getBookmarkContent());
 
-        return null;
+        return $this->response->response();
     }
 }

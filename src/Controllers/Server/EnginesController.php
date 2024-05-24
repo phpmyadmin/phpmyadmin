@@ -21,7 +21,7 @@ final class EnginesController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -31,6 +31,6 @@ final class EnginesController implements InvocableController
 
         $this->response->render('server/engines/index', ['engines' => StorageEngine::getStorageEngines()]);
 
-        return null;
+        return $this->response->response();
     }
 }

@@ -10,10 +10,8 @@ use PhpMyAdmin\Http\ServerRequest;
 
 final class AddIndexController extends AbstractIndexController implements InvocableController
 {
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $this->handleIndexCreation($request, 'INDEX');
-
-        return null;
+        return $this->handleIndexCreation($request, 'INDEX');
     }
 }

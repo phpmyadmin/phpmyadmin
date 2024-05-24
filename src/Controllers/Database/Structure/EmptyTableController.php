@@ -39,7 +39,7 @@ final class EmptyTableController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $multBtn = $_POST['mult_btn'] ?? '';
         /** @var string[] $selected */
@@ -49,7 +49,7 @@ final class EmptyTableController implements InvocableController
             $this->flashMessenger->addMessage('success', __('No change'));
             $this->response->redirectToRoute('/database/structure', ['db' => Current::$database]);
 
-            return null;
+            return $this->response->response();
         }
 
         $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
@@ -90,8 +90,6 @@ final class EmptyTableController implements InvocableController
 
         unset($_POST['mult_btn']);
 
-        ($this->structureController)($request);
-
-        return null;
+        return ($this->structureController)($request);
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -71,7 +72,7 @@ class TrackingControllerTest extends AbstractTestCase
             ResponseFactory::create(),
         ))($request);
 
-        self::assertNull($response);
+        self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
 
         $main = $template->render('table/tracking/main', [
             'url_params' => [

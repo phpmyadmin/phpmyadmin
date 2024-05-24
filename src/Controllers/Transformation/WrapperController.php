@@ -49,7 +49,7 @@ final class WrapperController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $this->response->getHeader()->setIsTransformationWrapper(true);
 
@@ -57,15 +57,15 @@ final class WrapperController implements InvocableController
             $db = DatabaseName::from($request->getParam('db'));
             $table = TableName::from($request->getParam('table'));
         } catch (InvalidIdentifier) {
-            return null;
+            return $this->response->response();
         }
 
         if (! $this->dbi->selectDb($db)) {
-            return null;
+            return $this->response->response();
         }
 
         if (! $this->dbTableExists->hasTable($db, $table)) {
-            return null;
+            return $this->response->response();
         }
 
         $query = $this->getQuery($table, $request->getParam('where_clause'), $request->getParam('where_clause_sign'));
@@ -74,12 +74,12 @@ final class WrapperController implements InvocableController
             /* l10n: In case a SQL query did not pass a security check  */
             $this->response->addHTML(Message::error(__('There is an issue with your request.'))->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         $row = $this->dbi->query($query)->fetchAssoc();
         if ($row === []) {
-            return null;
+            return $this->response->response();
         }
 
         $transformKey = $request->getParam('transform_key');
@@ -87,7 +87,7 @@ final class WrapperController implements InvocableController
             ! is_string($transformKey) || $transformKey === ''
             || ! isset($row[$transformKey]) || $row[$transformKey] === ''
         ) {
-            return null;
+            return $this->response->response();
         }
 
         $mediaTypeMap = [];

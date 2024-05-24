@@ -32,7 +32,6 @@ final class LintControllerTest extends AbstractTestCase
 
         $response = $this->getLintController()($request);
 
-        self::assertNotNull($response);
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
         self::assertSame(['application/json; charset=UTF-8'], $response->getHeader('Content-Type'));
         $output = (string) $response->getBody();
@@ -51,7 +50,6 @@ final class LintControllerTest extends AbstractTestCase
 
         $response = $this->getLintController()($request);
 
-        self::assertNotNull($response);
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
         self::assertSame(['application/json; charset=UTF-8'], $response->getHeader('Content-Type'));
         $output = (string) $response->getBody();
@@ -106,7 +104,6 @@ final class LintControllerTest extends AbstractTestCase
 
         $response = $this->getLintController()($request);
 
-        self::assertNotNull($response);
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
         self::assertSame(['application/json; charset=UTF-8'], $response->getHeader('Content-Type'));
         $output = (string) $response->getBody();

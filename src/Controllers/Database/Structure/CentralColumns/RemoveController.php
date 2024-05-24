@@ -26,7 +26,7 @@ final class RemoveController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['message'] ??= null;
 
@@ -36,7 +36,7 @@ final class RemoveController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         Assert::allString($selected);
@@ -48,8 +48,6 @@ final class RemoveController implements InvocableController
 
         unset($_POST['submit_mult']);
 
-        ($this->structureController)($request);
-
-        return null;
+        return ($this->structureController)($request);
     }
 }

@@ -21,7 +21,7 @@ final class ExportRowsController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['single_table'] ??= null;
         $GLOBALS['where_clause'] ??= null;
@@ -30,7 +30,7 @@ final class ExportRowsController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         // Needed to allow SQL export
@@ -45,8 +45,6 @@ final class ExportRowsController implements InvocableController
             $GLOBALS['where_clause'] = array_values($_POST['rows_to_delete']);
         }
 
-        ($this->exportController)($request);
-
-        return null;
+        return ($this->exportController)($request);
     }
 }

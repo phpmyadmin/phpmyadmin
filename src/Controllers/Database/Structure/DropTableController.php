@@ -26,7 +26,7 @@ final class DropTableController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['reload'] = $_POST['reload'] ?? $GLOBALS['reload'] ?? null;
         $multBtn = $_POST['mult_btn'] ?? '';
@@ -38,9 +38,7 @@ final class DropTableController implements InvocableController
 
             unset($_POST['mult_btn']);
 
-            ($this->structureController)($request);
-
-            return null;
+            return ($this->structureController)($request);
         }
 
         $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
@@ -101,8 +99,6 @@ final class DropTableController implements InvocableController
 
         unset($_POST['mult_btn']);
 
-        ($this->structureController)($request);
-
-        return null;
+        return ($this->structureController)($request);
     }
 }

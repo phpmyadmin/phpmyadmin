@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\CollationConnectionController;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -23,6 +24,7 @@ class CollationConnectionControllerTest extends AbstractTestCase
         $response = self::createMock(ResponseRenderer::class);
         $response->expects(self::once())->method('redirect')
             ->with('index.php?route=/' . Url::getCommonRaw([], '&'));
+        $response->expects(self::once())->method('response')->willReturn(ResponseFactory::create()->createResponse());
 
         $config = self::createMock(Config::class);
         $config->expects(self::once())->method('setUserValue')

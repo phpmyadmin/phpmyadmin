@@ -46,7 +46,7 @@ final class DatabaseController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -211,7 +211,7 @@ final class DatabaseController implements InvocableController
                 );
                 $this->response->addJSON('db', Current::$database);
 
-                return null;
+                return $this->response->response();
             }
         }
 
@@ -226,7 +226,7 @@ final class DatabaseController implements InvocableController
         }
 
         if (! $this->response->checkParameters(['db'])) {
-            return null;
+            return $this->response->response();
         }
 
         $config = Config::getInstance();
@@ -239,12 +239,12 @@ final class DatabaseController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/operations');
@@ -258,7 +258,7 @@ final class DatabaseController implements InvocableController
         $dbCollation = $this->dbi->getDbCollation(Current::$database);
 
         if (Utilities::isSystemSchema(Current::$database)) {
-            return null;
+            return $this->response->response();
         }
 
         $databaseComment = '';
@@ -307,6 +307,6 @@ final class DatabaseController implements InvocableController
             'collations' => $collations,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

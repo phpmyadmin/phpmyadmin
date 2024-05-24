@@ -47,7 +47,7 @@ final class RoutinesController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errors'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -66,7 +66,7 @@ final class RoutinesController implements InvocableController
              */
             if (Current::$table !== '' && in_array(Current::$table, $this->dbi->getTables(Current::$database), true)) {
                 if (! $this->response->checkParameters(['db', 'table'])) {
-                    return null;
+                    return $this->response->response();
                 }
 
                 $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
@@ -80,20 +80,20 @@ final class RoutinesController implements InvocableController
                         ['reload' => true, 'message' => __('No databases selected.')],
                     );
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $tableName = TableName::tryFrom($request->getParam('table'));
                 if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
                     $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-                    return null;
+                    return $this->response->response();
                 }
             } else {
                 Current::$table = '';
 
                 if (! $this->response->checkParameters(['db'])) {
-                    return null;
+                    return $this->response->response();
                 }
 
                 $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -109,7 +109,7 @@ final class RoutinesController implements InvocableController
                         ['reload' => true, 'message' => __('No databases selected.')],
                     );
 
-                    return null;
+                    return $this->response->response();
                 }
             }
         } elseif (Current::$database !== '') {
@@ -130,7 +130,7 @@ final class RoutinesController implements InvocableController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $output);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $routines = Routines::getDetails(
@@ -154,7 +154,7 @@ final class RoutinesController implements InvocableController
                 $this->response->addJSON('message', $output);
                 $this->response->addJSON('tableType', 'routines');
 
-                return null;
+                return $this->response->response();
             }
         }
 
@@ -282,12 +282,12 @@ final class RoutinesController implements InvocableController
                     );
                     $this->response->addJSON('type', $routine['item_type']);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->addHTML("\n\n<h2>" . $title . "</h2>\n\n" . $editor);
 
-                return null;
+                return $this->response->response();
             }
 
             $message = __('Error in processing request:') . ' ';
@@ -307,7 +307,7 @@ final class RoutinesController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->addHTML($message->getDisplay());
@@ -331,12 +331,12 @@ final class RoutinesController implements InvocableController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $message);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->addHTML($message->getDisplay());
 
-                return null;
+                return $this->response->response();
             }
 
             [$output, $message] = $this->routines->handleExecuteRoutine($routine);
@@ -347,14 +347,14 @@ final class RoutinesController implements InvocableController
                 $this->response->addJSON('message', $message->getDisplay() . $output);
                 $this->response->addJSON('dialog', false);
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->addHTML($message->getDisplay() . $output);
             if ($message->isError()) {
                 // At least one query has failed, so shouldn't
                 // execute any more queries, so we quit.
-                return null;
+                return $this->response->response();
             }
         } elseif (! empty($_GET['execute_dialog']) && ! empty($_GET['item_name'])) {
             /**
@@ -378,13 +378,13 @@ final class RoutinesController implements InvocableController
                     $this->response->addJSON('title', $title);
                     $this->response->addJSON('dialog', true);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->addHTML("\n\n<h2>" . __('Execute routine') . "</h2>\n\n");
                 $this->response->addHTML($form);
 
-                return null;
+                return $this->response->response();
             }
 
             if ($request->isAjax()) {
@@ -399,7 +399,7 @@ final class RoutinesController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
-                return null;
+                return $this->response->response();
             }
         }
 
@@ -439,7 +439,7 @@ final class RoutinesController implements InvocableController
                     $this->response->addJSON('message', $exportData);
                     $this->response->addJSON('title', $title);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $output = '<div class="container">';
@@ -464,7 +464,7 @@ final class RoutinesController implements InvocableController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $message);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->addHTML($message->getDisplay());
@@ -494,6 +494,6 @@ final class RoutinesController implements InvocableController
             'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', Current::$database, Current::$table),
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

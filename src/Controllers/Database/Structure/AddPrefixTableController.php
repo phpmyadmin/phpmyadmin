@@ -21,7 +21,7 @@ final class AddPrefixTableController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected', []);
@@ -40,8 +40,6 @@ final class AddPrefixTableController implements InvocableController
 
         $GLOBALS['message'] = Message::success();
 
-        ($this->structureController)($request);
-
-        return null;
+        return ($this->structureController)($request);
     }
 }

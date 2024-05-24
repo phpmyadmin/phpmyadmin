@@ -142,7 +142,7 @@ class Routing
         Dispatcher $dispatcher,
         ContainerInterface $container,
         ResponseFactory $responseFactory,
-    ): Response|null {
+    ): Response {
         $route = $request->getRoute();
         $routeInfo = $dispatcher->dispatch($request->getMethod(), rawurldecode($route));
 
@@ -211,7 +211,7 @@ class Routing
         }
 
         $controller = $container->get($controllerName);
-        assert($controller instanceof $controllerName);
+        assert($controller instanceof InvocableController);
 
         return $controller($request);
     }

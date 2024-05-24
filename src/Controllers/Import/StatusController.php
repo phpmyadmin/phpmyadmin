@@ -10,6 +10,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 use function __;
@@ -30,7 +31,7 @@ class StatusController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['SESSION_KEY'] ??= null;
 
@@ -78,6 +79,6 @@ class StatusController implements InvocableController
             Ajax::status($request->getQueryParam('id'));
         }
 
-        return null;
+        return ResponseRenderer::getInstance()->response();
     }
 }

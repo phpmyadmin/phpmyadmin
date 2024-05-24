@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Table;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Compatibility;
@@ -186,5 +187,17 @@ final class Indexes
         }
 
         return Message::success();
+    }
+
+    public function hasPrimaryKey(string|TableName $table): bool
+    {
+        $result = $this->dbi->query('SHOW KEYS FROM ' . Util::backquote($table));
+        foreach ($result as $row) {
+            if ($row['Key_name'] === 'PRIMARY') {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

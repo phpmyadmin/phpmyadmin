@@ -35,7 +35,7 @@ final class ImportController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['SESSION_KEY'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -61,7 +61,7 @@ final class ImportController implements InvocableController
                 'Could not load import plugins, please check your installation!',
             ))->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         $offset = null;
@@ -119,6 +119,6 @@ final class ImportController implements InvocableController
             'local_files' => Import::getLocalFiles($importList),
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

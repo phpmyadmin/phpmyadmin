@@ -38,7 +38,7 @@ final class EventsController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errors'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -47,7 +47,7 @@ final class EventsController implements InvocableController
 
         if (! $request->isAjax()) {
             if (! $this->response->checkParameters(['db'])) {
-                return null;
+                return $this->response->response();
             }
 
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -60,7 +60,7 @@ final class EventsController implements InvocableController
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                 $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-                return null;
+                return $this->response->response();
             }
         } elseif (Current::$database !== '') {
             $this->dbi->selectDb(Current::$database);
@@ -111,7 +111,7 @@ final class EventsController implements InvocableController
 
                 $this->response->addJSON('tableType', 'events');
 
-                return null;
+                return $this->response->response();
             }
         }
 
@@ -184,12 +184,12 @@ final class EventsController implements InvocableController
                     $this->response->addJSON('message', $editor);
                     $this->response->addJSON('title', $title);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->addHTML("\n\n<h2>" . $title . "</h2>\n\n" . $editor);
 
-                return null;
+                return $this->response->response();
             }
 
             $message = __('Error in processing request:') . ' ';
@@ -203,7 +203,7 @@ final class EventsController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->addHTML($message->getDisplay());
@@ -226,7 +226,7 @@ final class EventsController implements InvocableController
                     $this->response->addJSON('message', $exportData);
                     $this->response->addJSON('title', $title);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $output = '<div class="container">';
@@ -248,7 +248,7 @@ final class EventsController implements InvocableController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $message);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->addHTML($message->getDisplay());
@@ -266,6 +266,6 @@ final class EventsController implements InvocableController
             'is_ajax' => $request->isAjax() && empty($_REQUEST['ajax_page_request']),
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

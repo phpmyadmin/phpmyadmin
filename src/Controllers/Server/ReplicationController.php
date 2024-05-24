@@ -30,7 +30,7 @@ final class ReplicationController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -133,6 +133,6 @@ final class ReplicationController implements InvocableController
             'change_primary_html' => $changePrimaryHtml ?? '',
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

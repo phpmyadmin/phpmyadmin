@@ -39,12 +39,12 @@ final class FavoriteTableController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] ??= null;
 
         if (Current::$database === '') {
-            return null;
+            return $this->response->response();
         }
 
         $config = Config::getInstance();
@@ -52,7 +52,7 @@ final class FavoriteTableController implements InvocableController
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
         $favoriteInstance = RecentFavoriteTables::getInstance(TableType::Favorite);
@@ -74,7 +74,7 @@ final class FavoriteTableController implements InvocableController
                 ));
             }
 
-            return null;
+            return $this->response->response();
         }
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -82,7 +82,7 @@ final class FavoriteTableController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-            return null;
+            return $this->response->response();
         }
 
         $changes = true;
@@ -120,7 +120,7 @@ final class FavoriteTableController implements InvocableController
             ]);
             $this->response->addJSON($json);
 
-            return null;
+            return $this->response->response();
         }
 
         // Check if current table is already in favorite list.
@@ -143,7 +143,7 @@ final class FavoriteTableController implements InvocableController
 
         $this->response->addJSON($json);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

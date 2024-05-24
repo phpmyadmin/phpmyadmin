@@ -22,7 +22,7 @@ final class RelationalValuesController implements InvocableController
      *
      * During grid edit, if we have a relational field, show the dropdown for it.
      */
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $column = $request->getParsedBodyParam('column');
         $relationKeyOrDisplayColumn = $request->getParsedBodyParam('relation_key_or_display_column');
@@ -41,6 +41,6 @@ final class RelationalValuesController implements InvocableController
         );
         $this->response->addJSON('dropdown', $dropdown);
 
-        return null;
+        return $this->response->response();
     }
 }

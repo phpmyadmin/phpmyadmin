@@ -28,11 +28,11 @@ final class UserGroupsController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
         if ($configurableMenusFeature === null) {
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addScriptFiles(['server/user_groups.js']);
@@ -45,7 +45,7 @@ final class UserGroupsController implements InvocableController
                 Message::error(__('No Privileges'))->getDisplay(),
             );
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addHTML('<div class="container-fluid">');
@@ -98,6 +98,6 @@ final class UserGroupsController implements InvocableController
 
         $this->response->addHTML('</div>');
 
-        return null;
+        return $this->response->response();
     }
 }

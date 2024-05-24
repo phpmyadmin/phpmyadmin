@@ -4881,11 +4881,6 @@ parameters:
 			path: src/Controllers/Table/SqlController.php
 
 		-
-			message: "#^Parameter \\#3 \\$selectedColumns of static method PhpMyAdmin\\\\Query\\\\Generator\\:\\:getAddIndexSql\\(\\) expects array\\<string\\>, array given\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/AbstractIndexController.php
-
-		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/BrowseController.php

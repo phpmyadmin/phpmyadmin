@@ -10,10 +10,8 @@ use PhpMyAdmin\Http\ServerRequest;
 
 final class UniqueController extends AbstractIndexController implements InvocableController
 {
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $this->handleIndexCreation($request, 'UNIQUE');
-
-        return null;
+        return $this->handleIndexCreation($request, 'UNIQUE');
     }
 }

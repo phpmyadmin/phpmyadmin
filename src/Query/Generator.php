@@ -447,12 +447,28 @@ class Generator
         return $sqlQuery . implode(', ', $partitionNames) . ';';
     }
 
-    /** @param string[] $selectedColumns */
+    /**
+     * @param string[] $selectedColumns
+     * @psalm-param 'FULLTEXT'|'INDEX'|'SPATIAL'|'UNIQUE' $indexType
+     */
     public static function getAddIndexSql(string $indexType, string $table, array $selectedColumns): string
     {
         $columnsSql = implode(', ', array_map(Util::backquote(...), $selectedColumns));
 
         return 'ALTER TABLE ' . Util::backquote($table) . ' ADD ' . $indexType . '(' . $columnsSql . ');';
+    }
+
+    public static function getAddPrimaryKeyStatement(string $table, string $column, bool $hasDropPrimaryKey): string
+    {
+        if ($hasDropPrimaryKey) {
+            return sprintf(
+                'ALTER TABLE %s DROP PRIMARY KEY, ADD PRIMARY KEY(%s);',
+                Util::backquote($table),
+                Util::backquote($column),
+            );
+        }
+
+        return sprintf('ALTER TABLE %s ADD PRIMARY KEY(%s);', Util::backquote($table), Util::backquote($column));
     }
 
     /**
