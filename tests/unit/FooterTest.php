@@ -12,7 +12,6 @@ use PhpMyAdmin\Footer;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
-use ReflectionProperty;
 
 use function json_encode;
 
@@ -100,19 +99,6 @@ class FooterTest extends AbstractTestCase
         );
     }
 
-    public function testGetDisplayWhenAjaxIsEnabled(): void
-    {
-        $template = new Template();
-        $footer = new Footer($template, Config::getInstance());
-        $footer->setAjax(true);
-        self::assertSame(
-            $template->render('modals/function_confirm') . "\n"
-            . $template->render('modals/add_index') . "\n"
-            . $template->render('modals/page_settings') . "\n",
-            $footer->getDisplay(),
-        );
-    }
-
     /**
      * Test for footer get Scripts
      */
@@ -132,10 +118,27 @@ class FooterTest extends AbstractTestCase
     public function testDisplay(): void
     {
         $footer = new Footer(new Template(), Config::getInstance());
-        self::assertStringContainsString(
-            'Open new phpMyAdmin window',
-            $footer->getDisplay(),
-        );
+        $scripts = <<<'HTML'
+
+            <script data-cfasync="false">
+            // <![CDATA[
+            window.Console.debugSqlInfo = 'false';
+
+            // ]]>
+            </script>
+
+            HTML;
+
+        $expected = [
+            'is_minimal' => false,
+            'self_url' => 'index.php?route=%2F&server=1&lang=en',
+            'error_messages' => '',
+            'scripts' => $scripts,
+            'is_demo' => false,
+            'git_revision_info' => [],
+            'footer' => '',
+        ];
+        self::assertSame($expected, $footer->getDisplay());
     }
 
     /**
@@ -146,24 +149,15 @@ class FooterTest extends AbstractTestCase
         $template = new Template();
         $footer = new Footer($template, Config::getInstance());
         $footer->setMinimal();
-        self::assertSame(
-            $template->render('modals/function_confirm') . "\n"
-            . $template->render('modals/add_index') . "\n"
-            . $template->render('modals/page_settings')
-            . "\n  </div>\n  </body>\n</html>\n",
-            $footer->getDisplay(),
-        );
-    }
-
-    public function testSetAjax(): void
-    {
-        $isAjax = new ReflectionProperty(Footer::class, 'isAjax');
-        $footer = new Footer(new Template(), Config::getInstance());
-
-        self::assertFalse($isAjax->getValue($footer));
-        $footer->setAjax(true);
-        self::assertTrue($isAjax->getValue($footer));
-        $footer->setAjax(false);
-        self::assertFalse($isAjax->getValue($footer));
+        $expected = [
+            'is_minimal' => true,
+            'self_url' => null,
+            'error_messages' => '',
+            'scripts' => '',
+            'is_demo' => false,
+            'git_revision_info' => [],
+            'footer' => '',
+        ];
+        self::assertSame($expected, $footer->getDisplay());
     }
 }

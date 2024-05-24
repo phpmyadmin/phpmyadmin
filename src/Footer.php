@@ -28,19 +28,16 @@ class Footer
      * Scripts instance
      */
     private Scripts $scripts;
-    /**
-     * Whether we are servicing an ajax request.
-     */
-    private bool $isAjax = false;
+
     /**
      * Whether to only close the BODY and HTML tags
      * or also include scripts, errors and links
      */
     private bool $isMinimal = false;
 
-    public function __construct(private readonly Template $template, private readonly Config $config)
+    public function __construct(Template $template, private readonly Config $config)
     {
-        $this->scripts = new Scripts($this->template);
+        $this->scripts = new Scripts($template);
     }
 
     /**
@@ -152,17 +149,6 @@ class Footer
     }
 
     /**
-     * Set the ajax flag to indicate whether
-     * we are servicing an ajax request
-     *
-     * @param bool $isAjax Whether we are servicing an ajax request
-     */
-    public function setAjax(bool $isAjax): void
-    {
-        $this->isAjax = $isAjax;
-    }
-
-    /**
      * Turn on minimal display mode
      */
     public function setMinimal(): void
@@ -180,12 +166,10 @@ class Footer
         return $this->scripts;
     }
 
-    /**
-     * Renders the footer
-     */
-    public function getDisplay(): string
+    /** @return mixed[] */
+    public function getDisplay(): array
     {
-        if (! $this->isAjax && ! $this->isMinimal) {
+        if (! $this->isMinimal) {
             if (Core::getEnv('SCRIPT_NAME') !== '') {
                 $url = $this->getSelfUrl();
             }
@@ -201,8 +185,7 @@ class Footer
             $footer = Config::renderFooter();
         }
 
-        return $this->template->render('footer', [
-            'is_ajax' => $this->isAjax,
+        return [
             'is_minimal' => $this->isMinimal,
             'self_url' => $url ?? null,
             'error_messages' => $errorMessages ?? '',
@@ -210,6 +193,6 @@ class Footer
             'is_demo' => $this->config->config->debug->demo,
             'git_revision_info' => $gitRevisionInfo ?? [],
             'footer' => $footer ?? '',
-        ]);
+        ];
     }
 }

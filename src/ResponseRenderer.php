@@ -165,8 +165,6 @@ class ResponseRenderer
     public function setAjax(bool $isAjax): void
     {
         $this->isAjax = $isAjax;
-        $this->header->setAjax($this->isAjax);
-        $this->footer->setAjax($this->isAjax);
     }
 
     /**
@@ -242,10 +240,6 @@ class ResponseRenderer
      */
     private function getDisplay(): string
     {
-        // The header may contain nothing at all,
-        // if its content was already rendered
-        // and, in this case, the header will be
-        // in the content part of the request
         return $this->template->render('base', [
             'header' => $this->header->getDisplay(),
             'content' => $this->HTML,
@@ -259,7 +253,7 @@ class ResponseRenderer
     private function ajaxResponse(): string
     {
         if (! isset($this->JSON['message'])) {
-            $this->JSON['message'] = $this->getDisplay();
+            $this->JSON['message'] = $this->HTML;
         } elseif ($this->JSON['message'] instanceof Message) {
             $this->JSON['message'] = $this->JSON['message']->getDisplay();
         }

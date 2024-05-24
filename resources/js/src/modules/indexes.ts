@@ -322,6 +322,8 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
 
     postData.columns = JSON.stringify(columns);
 
+    createAddIndexModal();
+
     $('#addIndexModalGoButton').on('click', function () {
         addIndexGo(sourceArray, arrayIndex, index, colIndex);
     });
@@ -447,6 +449,8 @@ function indexTypeSelectionDialog (sourceArray, indexChoice, colIndex): void {
     $dialogContent.append($singleColumnRadio);
     $dialogContent.append($compositeIndexRadio);
 
+    createAddIndexModal();
+
     // 'OK' operation.
     $('#addIndexModalGoButton').on('click', function () {
         if ($('#single_column').is(':checked')) {
@@ -541,6 +545,29 @@ function off () {
         $('body').off('change', 'select[name*="field_key"]');
         $(document).off('click', '.show_index_dialog');
     };
+}
+
+function createAddIndexModal (): void {
+    if ($('#addIndexModal').length > 0) {
+        return;
+    }
+
+    const addIndexModalTemplate = '<div class="modal fade" id="addIndexModal" tabindex="-1" aria-labelledby="addIndexModalLabel" aria-hidden="true">' +
+        '  <div class="modal-dialog">' +
+        '    <div class="modal-content">' +
+        '      <div class="modal-header">' +
+        '        <h5 class="modal-title" id="addIndexModalLabel">' + window.Messages.strLoading + '</h5>' +
+        '        <button type="button" class="btn-close" id="addIndexModalCloseButton" aria-label="' + window.Messages.strClose + '"></button>' +
+        '      </div>' +
+        '      <div class="modal-body"></div>' +
+        '      <div class="modal-footer">' +
+        '        <button type="button" class="btn btn-secondary" id="addIndexModalGoButton">' + window.Messages.strGo + '</button>' +
+        '        <button type="button" class="btn btn-secondary" id="addIndexModalCancelButton">' + window.Messages.strCancel + '</button>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '</div>';
+    $(addIndexModalTemplate).appendTo('body');
 }
 
 /**

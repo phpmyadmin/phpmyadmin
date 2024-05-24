@@ -55,15 +55,6 @@ class Header
      * Whether to show the warnings
      */
     private bool $warningsEnabled = true;
-    /**
-     * Whether we are servicing an ajax request.
-     */
-    private bool $isAjax = false;
-    /**
-     * Whether the HTTP headers (and possibly some HTML)
-     * have already been sent to the browser
-     */
-    private bool $headerIsSent = false;
 
     private UserPreferences $userPreferences;
 
@@ -160,18 +151,6 @@ class Header
     }
 
     /**
-     * Set the ajax flag to indicate whether
-     * we are servicing an ajax request
-     *
-     * @param bool $isAjax Whether we are servicing an ajax request
-     */
-    public function setAjax(bool $isAjax): void
-    {
-        $this->isAjax = $isAjax;
-        $this->console->setAjax($isAjax);
-    }
-
-    /**
      * Returns the Scripts object
      *
      * @return Scripts object
@@ -228,17 +207,9 @@ class Header
         $this->warningsEnabled = false;
     }
 
-    /**
-     * Generates the header
-     *
-     * @return string The header
-     */
-    public function getDisplay(): string
+    /** @return mixed[] */
+    public function getDisplay(): array
     {
-        if ($this->headerIsSent || $this->isAjax) {
-            return '';
-        }
-
         $this->sendHttpHeaders();
 
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
@@ -309,7 +280,7 @@ class Header
         $this->scripts->addFile('datetimepicker.js');
         $this->scripts->addFile('validator-messages.js');
 
-        return $this->template->render('header', [
+        return [
             'lang' => $GLOBALS['lang'],
             'allow_third_party_framing' => $this->config->settings['AllowThirdPartyFraming'],
             'base_dir' => $baseDir,
@@ -335,7 +306,7 @@ class Header
             'theme_id' => $theme->getId(),
             'current_user' => $dbi->getCurrentUserAndHost(),
             'is_mariadb' => $dbi->isMariaDB(),
-        ]);
+        ];
     }
 
     /**
@@ -386,8 +357,6 @@ class Header
         foreach ($headers as $name => $value) {
             header(sprintf('%s: %s', $name, $value));
         }
-
-        $this->headerIsSent = true;
     }
 
     /** @return array<string, string> */

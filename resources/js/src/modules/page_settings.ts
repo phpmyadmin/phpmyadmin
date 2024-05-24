@@ -1,5 +1,28 @@
 import $ from 'jquery';
 
+function createPageSettingsModal (): void {
+    if ($('#pageSettingsModal').length > 0) {
+        return;
+    }
+
+    const pageSettingsModalTemplate = '<div class="modal fade" id="pageSettingsModal" tabindex="-1" aria-labelledby="pageSettingsModalLabel" aria-hidden="true">' +
+        '  <div class="modal-dialog modal-lg" id="pageSettingsModalDialog">' +
+        '    <div class="modal-content">' +
+        '      <div class="modal-header">' +
+        '        <h5 class="modal-title" id="pageSettingsModalLabel">' + window.Messages.strPageSettings + '</h5>' +
+        '        <button type="button" class="btn-close" id="pageSettingsModalCloseButton" aria-label="' + window.Messages.strClose + '"></button>' +
+        '      </div>' +
+        '      <div class="modal-body"></div>' +
+        '      <div class="modal-footer">' +
+        '        <button type="button" class="btn btn-secondary" id="pageSettingsModalApplyButton">' + window.Messages.strApply + '</button>' +
+        '        <button type="button" class="btn btn-secondary" id="pageSettingsModalCancelButton">' + window.Messages.strCancel + '</button>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '</div>';
+    $(pageSettingsModalTemplate).appendTo('body');
+}
+
 /**
  * @fileoverview    function used for page-related settings
  * @name            Page-related settings
@@ -8,6 +31,8 @@ import $ from 'jquery';
  */
 
 function showSettings (selector) {
+    createPageSettingsModal();
+
     // Keeping a clone to restore in case the user cancels the operation
     var $clone = $(selector + ' .page_settings').clone(true);
 

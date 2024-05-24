@@ -12,6 +12,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Version;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
@@ -64,30 +65,52 @@ class HeaderTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for enable
-     */
     public function testEnable(): void
     {
         Current::$server = 0;
-        $header = $this->getNewHeaderInstance();
-        self::assertStringContainsString(
-            '<title>phpMyAdmin</title>',
-            $header->getDisplay(),
-        );
-    }
+        $GLOBALS['message'] = '';
+        $config = Config::getInstance();
+        $config->settings['CodemirrorEnable'] = false;
+        $config->settings['SendErrorReports'] = 'never';
+        $config->settings['enable_drag_drop_import'] = false;
+        $config->settings['DisableShortcutKeys'] = true;
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
+        $relation = new Relation($dbi);
+        $template = new Template($config);
+        $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation));
+        $header = new Header($template, $console, $config);
 
-    /**
-     * Test for Set BodyId
-     */
-    public function testSetBodyId(): void
-    {
-        $header = $this->getNewHeaderInstance();
         $header->setBodyId('PMA_header_id');
-        self::assertStringContainsString(
-            'PMA_header_id',
-            $header->getDisplay(),
-        );
+        $actual = $header->getDisplay();
+        $expected = [
+            'lang' => 'en',
+            'allow_third_party_framing' => false,
+            'base_dir' => '',
+            'theme_path' => '',
+            'version' => 'v=' . Version::VERSION,
+            'text_dir' => 'ltr',
+            'server' => 0,
+            'title' => 'phpMyAdmin',
+            'scripts' => $header->getScripts()->getDisplay(),
+            'body_id' => 'PMA_header_id',
+            'navigation' => '',
+            'custom_header' => '',
+            'load_user_preferences' => '',
+            'show_hint' => true,
+            'is_warnings_enabled' => true,
+            'is_menu_enabled' => true,
+            'is_logged_in' => true,
+            'menu' => '',
+            'console' => $console->getDisplay(),
+            'messages' => '',
+            'theme_color_mode' => 'light',
+            'theme_color_modes' => ['light'],
+            'theme_id' => '',
+            'current_user' => ['pma_test', 'localhost'],
+            'is_mariadb' => false,
+        ];
+        self::assertSame($expected, $actual);
     }
 
     /**
@@ -268,23 +291,5 @@ class HeaderTest extends AbstractTestCase
             ['name' => 'main.js', 'fire' => 1],
         ];
         self::assertSame($expected, $scripts->getFiles());
-    }
-
-    public function testSetAjax(): void
-    {
-        $header = $this->getNewHeaderInstance();
-        $console = (new ReflectionProperty(Header::class, 'console'))->getValue($header);
-        self::assertInstanceOf(Console::class, $console);
-        $isAjax = new ReflectionProperty(Header::class, 'isAjax');
-        $consoleIsAjax = new ReflectionProperty(Console::class, 'isAjax');
-
-        self::assertFalse($isAjax->getValue($header));
-        self::assertFalse($consoleIsAjax->getValue($console));
-        $header->setAjax(true);
-        self::assertTrue($isAjax->getValue($header));
-        self::assertTrue($consoleIsAjax->getValue($console));
-        $header->setAjax(false);
-        self::assertFalse($isAjax->getValue($header));
-        self::assertFalse($consoleIsAjax->getValue($console));
     }
 }

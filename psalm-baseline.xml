@@ -13620,8 +13620,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InaccessibleProperty>
       <code><![CDATA[$config->config->debug->sql]]></code>
@@ -13755,6 +13753,7 @@
   </file>
   <file src="tests/unit/HeaderTest.php">
     <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
