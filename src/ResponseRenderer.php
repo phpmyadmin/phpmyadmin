@@ -318,12 +318,6 @@ class ResponseRenderer
             }
         }
 
-        // Set the Content-Type header to JSON so that jQuery parses the
-        // response correctly.
-        foreach (Core::headerJSON() as $name => $value) {
-            $this->addHeader($name, $value);
-        }
-
         $result = json_encode($this->JSON);
         if ($result === false) {
             return (string) json_encode([
@@ -337,9 +331,19 @@ class ResponseRenderer
 
     public function response(): Response
     {
-        $this->response->getBody()->write($this->isAjax() ? $this->ajaxResponse() : $this->getDisplay());
+        if ($this->isAjax()) {
+            $headers = Core::headerJSON();
+            $body = $this->ajaxResponse();
+        } else {
+            $headers = $this->header->getHttpHeaders();
+            $body = $this->getDisplay();
+        }
 
-        return $this->response;
+        foreach ($headers as $name => $value) {
+            $this->response = $this->response->withHeader($name, $value);
+        }
+
+        return $this->response->write($body);
     }
 
     public function addHeader(string $name, string $value): void
