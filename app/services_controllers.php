@@ -1035,6 +1035,16 @@ return [
                 '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
+        Table\CheckConstraintsController::class => [
+            'class' => Table\CheckConstraintsController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+                '$checkConstraints' => '@check_constraints',
+                '$dbTableExists' => '@' . DbTableExists::class,
+            ],
+        ],
         Table\IndexRenameController::class => [
             'class' => Table\IndexRenameController::class,
             'arguments' => [

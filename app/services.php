@@ -45,6 +45,7 @@ use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Server\Status\Processes;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlQueryForm;
+use PhpMyAdmin\Table\CheckConstraints;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Table\Search;
@@ -193,6 +194,10 @@ return [
         ],
         'table_indexes' => [
             'class' => Indexes::class,
+            'arguments' => ['$dbi' => '@dbi'],
+        ],
+        'check_constraints' => [
+            'class' => CheckConstraints::class,
             'arguments' => ['$dbi' => '@dbi'],
         ],
         'table_maintenance' => ['class' => PhpMyAdmin\Table\Maintenance::class, 'arguments' => ['$dbi' => '@dbi']],

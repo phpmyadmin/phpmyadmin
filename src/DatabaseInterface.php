@@ -1044,6 +1044,28 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
+     * Returns all check constraints of a table (including column constraints)
+     *
+     * @param string $database name of database
+     * @param string $table    name of the table whose indexes are to be retrieved
+     *
+     * @return array<int, array<string, string|null>>
+     * @psalm-return array<int, array{
+     *   CONSTRAINT_NAME: string,
+     *   LEVEL: 'Column'|'Table',
+     *   CHECK_CLAUSE: string
+     * }>
+     */
+    public function getTableCheckConstraints(
+        string $database,
+        string $table,
+        ConnectionType $connectionType = ConnectionType::User,
+    ): array {
+        $sql = QueryGenerator::getTableCheckConstraintsSql($database, $table);
+        return $this->fetchResult($sql, null, null, $connectionType);
+    }
+
+    /**
      * returns value of given mysql server variable
      *
      * @param string $var  mysql server variable name

@@ -22,6 +22,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\CheckConstraint;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Partitioning\Partition;
@@ -248,6 +249,7 @@ class StructureController implements InvocableController
             'is_foreign_key_supported' => ForeignKey::isSupported($engine),
             'indexes' => Index::getFromTable($this->dbi, Current::$table, Current::$database),
             'indexes_duplicates' => Index::findDuplicates(Current::$table, Current::$database),
+            'check_constraints' => CheckConstraint::getFromTable($this->dbi, Current::$table, Current::$database),
             'relation_parameters' => $relationParameters,
             'hide_structure_actions' => $config->settings['HideStructureActions'] === true,
             'db' => Current::$database,

@@ -132,6 +132,22 @@ class Generator
     }
 
     /**
+     * Returns SQL for fetching information about check constraints present on the provided table or its columns
+     *
+     * @param string $database name of database
+     * @param string $table    name of the table whose check constraints are to be retrieved
+     *
+     * @return string SQL for getting check constraints
+     */
+    public static function getTableCheckConstraintsSql(
+        string $database,
+        string $table,
+    ): string {
+        $sql = 'SELECT * FROM information_schema.CHECK_CONSTRAINTS WHERE CONSTRAINT_SCHEMA = \'' . $database . '\' AND TABLE_NAME = \'' . $table . '\';';
+        return $sql;
+    }
+
+    /**
      * Returns SQL query for fetching columns for a table
      *
      * @param string      $database     name of database
