@@ -8,15 +8,12 @@ use PhpMyAdmin\CheckConstraint;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
-use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Util;
 
 use function __;
-use function implode;
-use function in_array;
 use function sprintf;
 
 final class CheckConstraints
@@ -54,73 +51,46 @@ final class CheckConstraints
         if ($oldCheckConstraintName !== null) {
             $oldCheckConstraint = CheckConstraint::singleton($this->dbi, $dbName, $tableName, $oldCheckConstraintName);
 
-            if ($oldCheckConstraint->getLevel() == "Table") {
+            if ($oldCheckConstraint->getLevel() === CheckConstraint::TABLE) {
                 $sqlQuery .= sprintf(' DROP CONSTRAINT %s;', $oldCheckConstraintName);
+            } else if ($checkConstraint->getLevel() === CheckConstraint::COLUMN) {
+                // TODO: implement sql for dropping column check constraints
             } else {
-
+                // This means that we don't know the level of the check constraint.
+                // This is because that the LEVEL column in information_schema.CHECK_CONSTRAINTS is not available.
+                // It was introduced around MariaDB version 10.5.10 (check constraints par se are available since 10.2.1) and is still NOT present AT ALL in MySQL
+                // In both systems information_schema.CHECK_CONSTRAINTS seems to store both table and column check constraints
+                // Not sure what to do in this scenario
             }
         }
 
-        if ($checkConstraint->getLevel() == "Table") {
+        if ($checkConstraint->getLevel() === CheckConstraint::TABLE) {
             $sqlQuery .= sprintf(' ADD CONSTRAINT %s CHECK(%s);', $oldCheckConstraintName, $checkConstraint->getClause());
+        } else if ($checkConstraint->getLevel() === CheckConstraint::COLUMN) {
+            // TODO: implement sql for adding column check constraints
         } else {
-
+            // This means that we don't know the level of the check constraint.
+            // This is because that the LEVEL column in information_schema.CHECK_CONSTRAINTS is not available.
+            // It was introduced around MariaDB version 10.5.10 (check constraints par se are available since 10.2.1) and is still NOT present AT ALL in MySQL
+            // In both systems information_schema.CHECK_CONSTRAINTS seems to store both table and column check constraints
+            // Not sure what to do in this scenario
         }
 
         return $sqlQuery;
     }
 
-    public function getSqlQueryForRename(string $oldIndexName, CheckConstraint $index, string $db, string $table): string
+    public function getSqlQueryForRename(string $oldIndexName, CheckConstraint $checkConstraint, string $db, string $table): string
     {
+        return $this->getSqlQueryForCreateOrEdit($oldIndexName, $checkConstraint, $db, $table);
         if (! Compatibility::isCompatibleRenameIndex($this->dbi->getVersion())) {
-            return $this->getSqlQueryForCreateOrEdit($oldIndexName, $index, $db, $table);
         }
 
-        if ($oldIndexName === 'PRIMARY') {
-            if ($index->getName() === '') {
-                $index->setName('PRIMARY');
-            } elseif ($index->getName() !== 'PRIMARY') {
-                $this->error = Message::error(
-                    __('The name of the primary key must be "PRIMARY"!'),
-                );
-            }
-        }
-
-        if ($index->getName() === 'PRIMARY') {
-            $this->error = Message::error(
-                __('Can\'t rename index to PRIMARY!'),
-            );
-        }
 
         return QueryGenerator::getSqlQueryForIndexRename(
             $db,
             $table,
             $oldIndexName,
-            $index->getName(),
+            $checkConstraint->getName(),
         );
-    }
-
-    public function executeAddIndexSql(string|DatabaseName $db, string $sql): Message
-    {
-        $this->dbi->selectDb($db);
-        $result = $this->dbi->tryQuery($sql);
-
-        if (! $result) {
-            return Message::error($this->dbi->getError());
-        }
-
-        return Message::success();
-    }
-
-    public function hasPrimaryKey(string|TableName $table): bool
-    {
-        $result = $this->dbi->query('SHOW KEYS FROM ' . Util::backquote($table));
-        foreach ($result as $row) {
-            if ($row['Key_name'] === 'PRIMARY') {
-                return true;
-            }
-        }
-
-        return false;
     }
 }
