@@ -40,7 +40,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
     var columnCount = 3;
     addNewColumnCallbacks();
 
-    function theHints() {
+    function theHints () {
         return {
             'IN (...)': 'Separate the values by commas',
             'NOT IN (...)': 'Separate the values by commas',
@@ -190,12 +190,12 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         });
     });
 
-    function showHint(opSelect) {
+    function showHint (opSelect) {
         const hints = theHints();
         const value = opSelect.val();
         const criteriaInputCol = opSelect.closest('table').find('.rhs_text_val').parent();
 
-        criteriaInputCol.find(".rhs_hint").remove();
+        criteriaInputCol.find('.rhs_hint').remove();
 
         Object.keys(hints).includes(value) && criteriaInputCol.append(`<p class="rhs_hint">${hints[value]}</p>`);
     }
