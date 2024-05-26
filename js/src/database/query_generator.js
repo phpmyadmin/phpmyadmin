@@ -23,6 +23,7 @@ function getFormatsText () {
         'NOT LIKE': ' NOT LIKE \'%s\'',
         'NOT LIKE %...%': ' NOT LIKE \'%%%s%%\'',
         'IN (...)': ' IN (%s)',
+        'NOT IN (...)': ' NOT IN (%s)',
         'BETWEEN': ' BETWEEN \'%s\'',
         'NOT BETWEEN': ' NOT BETWEEN \'%s\'',
         'IS NULL': ' \'%s\' IS NULL',
