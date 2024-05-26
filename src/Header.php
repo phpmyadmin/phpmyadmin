@@ -15,8 +15,6 @@ use PhpMyAdmin\Theme\ThemeManager;
 
 use function array_merge;
 use function defined;
-use function gmdate;
-use function header;
 use function htmlspecialchars;
 use function ini_get;
 use function json_encode;
@@ -210,8 +208,6 @@ class Header
     /** @return mixed[] */
     public function getDisplay(): array
     {
-        $this->sendHttpHeaders();
-
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
 
         /** @var ThemeManager $themeManager */
@@ -336,27 +332,6 @@ class Header
         }
 
         return $retval;
-    }
-
-    /**
-     * Sends out the HTTP headers
-     */
-    public function sendHttpHeaders(): void
-    {
-        if (defined('TESTSUITE')) {
-            return;
-        }
-
-        /**
-         * Sends http headers
-         */
-        $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
-
-        $headers = $this->getHttpHeaders();
-
-        foreach ($headers as $name => $value) {
-            header(sprintf('%s: %s', $name, $value));
-        }
     }
 
     /** @return array<string, string> */
@@ -544,5 +519,10 @@ class Header
     public function setIsTransformationWrapper(bool $isTransformationWrapper): void
     {
         $this->isTransformationWrapper = $isTransformationWrapper;
+    }
+
+    public function getConsole(): Console
+    {
+        return $this->console;
     }
 }

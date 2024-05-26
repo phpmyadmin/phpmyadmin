@@ -5,19 +5,24 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use Fig\Http\Message\StatusCodeInterface;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Scripts;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Version;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 
 use function array_column;
+use function json_decode;
 
 #[CoversClass(ResponseRenderer::class)]
-class ResponseRendererTest extends AbstractTestCase
+final class ResponseRendererTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
@@ -104,6 +109,117 @@ class ResponseRendererTest extends AbstractTestCase
 
         self::assertStringNotContainsString($expected, (string) $response->getBody());
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
+
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
+    }
+
+    public function testHtmlResponse(): void
+    {
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
+
+        $_SERVER['SCRIPT_NAME'] = 'index.php';
+        Current::$server = 0;
+
+        $responseRenderer = ResponseRenderer::getInstance();
+        $responseRenderer->setAjax(false);
+        $responseRenderer->addHTML('<div>TEST</div>');
+
+        $response = $responseRenderer->response();
+
+        self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
+        self::assertSame('text/html; charset=utf-8', $response->getHeaderLine('Content-Type'));
+        $header = $responseRenderer->getHeader();
+        self::assertSame(
+            (new Template(new Config()))->render('base', [
+                'header' => [
+                    'lang' => 'en',
+                    'allow_third_party_framing' => false,
+                    'base_dir' => '',
+                    'theme_path' => '',
+                    'version' => 'v=' . Version::VERSION,
+                    'text_dir' => 'ltr',
+                    'server' => 0,
+                    'title' => 'phpMyAdmin',
+                    'scripts' => $header->getScripts()->getDisplay(),
+                    'body_id' => '',
+                    'navigation' => '',
+                    'custom_header' => '',
+                    'load_user_preferences' => '',
+                    'show_hint' => true,
+                    'is_warnings_enabled' => true,
+                    'is_menu_enabled' => true,
+                    'is_logged_in' => true,
+                    'menu' => '',
+                    'console' => $header->getConsole()->getDisplay(),
+                    'messages' => '',
+                    'theme_color_mode' => 'light',
+                    'theme_color_modes' => ['light'],
+                    'theme_id' => '',
+                    'current_user' => ['pma_test', 'localhost'],
+                    'is_mariadb' => false,
+                ],
+                'content' => '<div>TEST</div>',
+                'footer' => [
+                    'is_minimal' => false,
+                    'self_url' => 'index.php?route=%2F&server=0&lang=en',
+                    'error_messages' => '',
+                    'scripts' => <<<'HTML'
+
+                        <script data-cfasync="false">
+                        // <![CDATA[
+                        window.Console.debugSqlInfo = 'false';
+
+                        // ]]>
+                        </script>
+
+                        HTML,
+                    'is_demo' => false,
+                    'git_revision_info' => [],
+                    'footer' => '',
+                ],
+            ]),
+            (string) $response->getBody(),
+        );
+
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
+    }
+
+    public function testJsonResponse(): void
+    {
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
+
+        $_SERVER['SCRIPT_NAME'] = 'index.php';
+        Current::$server = 0;
+
+        $responseRenderer = ResponseRenderer::getInstance();
+        $responseRenderer->setAjax(true);
+        $responseRenderer->addJSON('message', 'test message');
+        $responseRenderer->addJSON('test', 'test');
+
+        $response = $responseRenderer->response();
+
+        self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
+        self::assertSame('application/json; charset=UTF-8', $response->getHeaderLine('Content-Type'));
+        $body = (string) $response->getBody();
+        self::assertJson($body);
+        $header = $responseRenderer->getHeader();
+        self::assertEquals(
+            [
+                'message' => 'test message',
+                'test' => 'test',
+                'success' => true,
+                'title' => '<title>phpMyAdmin</title>',
+                'menu' => $header->getMenu()->getDisplay(),
+                'scripts' => $header->getScripts()->getFiles(),
+                'selflink' => 'index.php?route=%2F&server=0&lang=en',
+                'displayMessage' => '',
+                'debug' => "'false'",
+                'promptPhpErrors' => false,
+                'reloadQuerywindow' => ['db' => '', 'table' => '', 'sql_query' => ''],
+                'params' => $header->getJsParams(),
+            ],
+            json_decode($body, true),
+        );
 
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
     }
