@@ -174,6 +174,19 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         });
     });
 
+    $('.criteria_op').each(function () {
+        $(this).on('change', function () {
+            const isIN = $(this).val() === 'IN (...)';
+            const criteriaInputCol = $(this).closest('table').find('.rhs_text_val').parent();
+
+            if (isIN) {
+                criteriaInputCol.append('<p class="rhs_hint">Separate the values by commas</p>');
+            } else {
+                criteriaInputCol.find(".rhs_hint").remove();
+            }
+        });
+    });
+
     function addNewColumnCallbacks () {
         $('.tableNameSelect').each(function () {
             $(this).on('change', function () {
