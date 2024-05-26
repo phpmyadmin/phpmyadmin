@@ -42,7 +42,12 @@ function generateCondition (criteriaDiv, table) {
     query += '`' + Functions.escapeBacktick(table.siblings('.columnNameSelect').first().val()) + '`';
     if (criteriaDiv.find('.criteria_rhs').first().val() === 'text') {
         var formatsText = getFormatsText();
-        query += sprintf(formatsText[criteriaDiv.find('.criteria_op').first().val()], Functions.escapeSingleQuote(criteriaDiv.find('.rhs_text_val').first().val()));
+
+        if (['IN (...)', 'NOT IN (...)'].includes(criteriaDiv.find('.criteria_op').first().val())) {
+            query += sprintf(formatsText[criteriaDiv.find('.criteria_op').first().val()], criteriaDiv.find('.rhs_text_val').first().val());
+        } else {
+            query += sprintf(formatsText[criteriaDiv.find('.criteria_op').first().val()], Functions.escapeSingleQuote(criteriaDiv.find('.rhs_text_val').first().val()));
+        }
     } else {
         query += ' ' + criteriaDiv.find('.criteria_op').first().val();
         query += ' `' + Functions.escapeBacktick(criteriaDiv.find('.tableNameSelect').first().val()) + '`.';
