@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-05-19 00:20+0000\n"
+"POT-Creation-Date: 2024-05-26 00:21+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -15,6 +15,96 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.11-dev\n"
+
+#: resources/templates/base.twig:36 resources/templates/login/header.twig:13
+msgid "Javascript must be enabled past this point!"
+msgstr "Javascript мусіць быць уключаным!"
+
+#: resources/templates/base.twig:46
+#, fuzzy
+#| msgid "Add user account"
+msgid "Open user account menu"
+msgstr "Дадаць конт карыстальніка"
+
+#: resources/templates/base.twig:57 resources/templates/navigation/main.twig:35
+#: resources/templates/navigation/main.twig:36
+msgid "phpMyAdmin documentation"
+msgstr "Дакумэнтацыя па phpMyAdmin"
+
+#: resources/templates/base.twig:62
+#, fuzzy
+#| msgid "Documentation"
+msgid "MariaDB documentation"
+msgstr "Дакумэнтацыя"
+
+#: resources/templates/base.twig:62
+#, fuzzy
+#| msgid "Documentation"
+msgid "MySQL documentation"
+msgstr "Дакумэнтацыя"
+
+#: resources/templates/base.twig:73
+#, fuzzy
+#| msgid "Appearance settings"
+msgid "Appearance:"
+msgstr "Налады выгляду"
+
+#: resources/templates/base.twig:76 resources/templates/home/index.twig:150
+msgid "Color mode for the theme"
+msgstr ""
+
+#: resources/templates/base.twig:80 resources/templates/home/index.twig:154
+#, fuzzy
+#| msgctxt "Collation variant"
+#| msgid "weight=2"
+msgctxt "Light color mode of the theme"
+msgid "Light"
+msgstr "вага=2"
+
+#: resources/templates/base.twig:82 resources/templates/home/index.twig:156
+msgctxt "Dark color mode of the theme"
+msgid "Dark"
+msgstr ""
+
+#: resources/templates/base.twig:95
+#: resources/templates/server/status/monitor/index.twig:8
+#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:474
+#: src/Util.php:1473
+msgid "Settings"
+msgstr "Налады"
+
+#: resources/templates/base.twig:99 resources/templates/navigation/main.twig:30
+#: resources/templates/navigation/main.twig:31
+msgid "Log out"
+msgstr "Выйсьці з сыстэмы"
+
+#: resources/templates/base.twig:108
+#: src/Controllers/JavaScriptMessagesController.php:340
+msgid "Page-related settings"
+msgstr "Налады старонкі"
+
+#: resources/templates/base.twig:110
+msgid "Click on the bar to scroll to top of page"
+msgstr ""
+
+#: resources/templates/base.twig:132 resources/templates/base.twig:134
+#: resources/templates/base.twig:136
+msgid "Open new phpMyAdmin window"
+msgstr "Адкрыць новае акно phpMyAdmin"
+
+#: resources/templates/base.twig:151 resources/templates/home/index.twig:18
+#: resources/templates/login/form.twig:5
+msgid "phpMyAdmin Demo Server"
+msgstr "Дэма-сервер phpMyAdmin"
+
+#: resources/templates/base.twig:159
+#, php-format
+msgid "Currently running Git revision %1$s from the %2$s branch."
+msgstr ""
+
+#: resources/templates/base.twig:161
+msgid "Git information missing!"
+msgstr "Адсутнічае Інфармацыя пра Git!"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -49,8 +139,8 @@ msgstr ""
 #: resources/templates/columns_definitions/column_attributes.twig:112
 #: resources/templates/database/data_dictionary/index.twig:41
 #: resources/templates/table/structure/display_structure.twig:137
-#: resources/templates/table/structure/display_structure.twig:145
-#: resources/templates/table/structure/display_structure.twig:295
+#: resources/templates/table/structure/display_structure.twig:143
+#: resources/templates/table/structure/display_structure.twig:285
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
 #: src/Controllers/Table/StructureController.php:222
 msgid "Primary"
@@ -59,19 +149,19 @@ msgstr "Першасны"
 #: resources/templates/columns_definitions/column_attributes.twig:116
 #: resources/templates/database/data_dictionary/index.twig:75
 #: resources/templates/indexes.twig:19
-#: resources/templates/table/structure/display_structure.twig:152
-#: resources/templates/table/structure/display_structure.twig:160
-#: resources/templates/table/structure/display_structure.twig:298
-#: resources/templates/table/structure/display_structure.twig:477
+#: resources/templates/table/structure/display_structure.twig:150
+#: resources/templates/table/structure/display_structure.twig:156
+#: resources/templates/table/structure/display_structure.twig:288
+#: resources/templates/table/structure/display_structure.twig:467
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:7
 msgid "Unique"
 msgstr "Унікальнае"
 
 #: resources/templates/columns_definitions/column_attributes.twig:120
 #: resources/templates/columns_definitions/table_fields_definitions.twig:46
-#: resources/templates/table/structure/display_structure.twig:167
-#: resources/templates/table/structure/display_structure.twig:175
-#: resources/templates/table/structure/display_structure.twig:301
+#: resources/templates/table/structure/display_structure.twig:163
+#: resources/templates/table/structure/display_structure.twig:169
+#: resources/templates/table/structure/display_structure.twig:291
 #: resources/templates/table/structure/display_table_stats.twig:24
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
 #: src/Controllers/Table/StructureController.php:226
@@ -80,16 +170,16 @@ msgid "Index"
 msgstr "Індэкс"
 
 #: resources/templates/columns_definitions/column_attributes.twig:124
-#: resources/templates/table/structure/display_structure.twig:219
-#: resources/templates/table/structure/display_structure.twig:222
-#: resources/templates/table/structure/display_structure.twig:307
+#: resources/templates/table/structure/display_structure.twig:209
+#: resources/templates/table/structure/display_structure.twig:212
+#: resources/templates/table/structure/display_structure.twig:297
 msgid "Fulltext"
 msgstr "Поўнатэкстэкставае"
 
 #: resources/templates/columns_definitions/column_attributes.twig:128
+#: resources/templates/table/structure/display_structure.twig:186
 #: resources/templates/table/structure/display_structure.twig:192
-#: resources/templates/table/structure/display_structure.twig:200
-#: resources/templates/table/structure/display_structure.twig:304
+#: resources/templates/table/structure/display_structure.twig:294
 msgid "Spatial"
 msgstr ""
 
@@ -103,7 +193,7 @@ msgid "first"
 msgstr ""
 
 #: resources/templates/columns_definitions/column_attributes.twig:190
-#: resources/templates/table/structure/display_structure.twig:450
+#: resources/templates/table/structure/display_structure.twig:440
 #, php-format
 msgid "after %s"
 msgstr "пасля %s"
@@ -154,7 +244,6 @@ msgstr "слупок(і)"
 #: resources/templates/database/routines/editor_form.twig:186
 #: resources/templates/database/routines/execute_form.twig:55
 #: resources/templates/display/results/table.twig:276
-#: resources/templates/modals/add_index.twig:10
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/create_view.twig:10
 #: resources/templates/modals/enum_set_editor.twig:10
@@ -188,16 +277,16 @@ msgstr "слупок(і)"
 #: resources/templates/table/search/index.twig:171
 #: resources/templates/table/search/index.twig:195
 #: resources/templates/table/start_and_number_of_rows_fieldset.twig:15
-#: resources/templates/table/structure/display_structure.twig:343
-#: resources/templates/table/structure/display_structure.twig:454
-#: resources/templates/table/structure/display_structure.twig:572
+#: resources/templates/table/structure/display_structure.twig:333
+#: resources/templates/table/structure/display_structure.twig:444
+#: resources/templates/table/structure/display_structure.twig:562
 #: resources/templates/table/zoom_search/index.twig:153
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:336
 #: src/Controllers/Server/PrivilegesController.php:288
-#: src/Normalization.php:229 src/Tracking/Tracking.php:306
-#: src/Tracking/Tracking.php:448
+#: src/Normalization.php:229 src/Tracking/Tracking.php:293
+#: src/Tracking/Tracking.php:408
 msgid "Go"
 msgstr "Панеслася"
 
@@ -246,8 +335,8 @@ msgstr "Экспартаваць за адну транзакцыю"
 #: resources/templates/table/index_rename_form.twig:28
 #: resources/templates/table/insert/actions_panel.twig:36
 #: resources/templates/table/relation/common_form.twig:141
+#: resources/templates/table/structure/display_structure.twig:334
 #: resources/templates/table/structure/display_structure.twig:344
-#: resources/templates/table/structure/display_structure.twig:354
 #: src/Controllers/JavaScriptMessagesController.php:128
 msgid "Preview SQL"
 msgstr ""
@@ -262,7 +351,7 @@ msgstr ""
 #: resources/templates/table/relation/common_form.twig:142
 #: resources/templates/table/structure/partition_definition_form.twig:13
 #: resources/templates/table/zoom_search/result_form.twig:79
-#: src/Controllers/JavaScriptMessagesController.php:454
+#: src/Controllers/JavaScriptMessagesController.php:455
 msgid "Save"
 msgstr "Захаваць"
 
@@ -277,7 +366,6 @@ msgstr ""
 #: resources/templates/database/designer/main.twig:1110
 #: resources/templates/database/designer/main.twig:1127
 #: resources/templates/export_modal.twig:5 resources/templates/export.twig:81
-#: resources/templates/modals/add_index.twig:5
 #: resources/templates/modals/index_dialog_modal.twig:5
 #: resources/templates/modals/preview_sql_confirmation.twig:5
 #: resources/templates/modals/preview_sql_modal.twig:5
@@ -300,18 +388,14 @@ msgstr "Загрузка…"
 #: resources/templates/export.twig:92 resources/templates/export.twig:190
 #: resources/templates/home/index.twig:317
 #: resources/templates/home/index.twig:325
-#: resources/templates/modals/add_index.twig:6
 #: resources/templates/modals/change_password.twig:6
 #: resources/templates/modals/create_view.twig:6
 #: resources/templates/modals/create_view.twig:11
 #: resources/templates/modals/enum_set_editor.twig:6
 #: resources/templates/modals/enum_set_editor.twig:11
-#: resources/templates/modals/function_confirm.twig:6
-#: resources/templates/modals/function_confirm.twig:11
 #: resources/templates/modals/index_dialog_modal.twig:6
 #: resources/templates/modals/index_dialog_modal.twig:12
 #: resources/templates/modals/index_dialog_modal.twig:22
-#: resources/templates/modals/page_settings.twig:6
 #: resources/templates/modals/preview_sql_confirmation.twig:6
 #: resources/templates/modals/preview_sql_confirmation.twig:15
 #: resources/templates/modals/preview_sql_modal.twig:6
@@ -333,15 +417,15 @@ msgstr "Загрузка…"
 #: resources/templates/table/relation/common_form.twig:151
 #: resources/templates/table/relation/common_form.twig:156
 #: resources/templates/table/search/index.twig:181
-#: resources/templates/table/structure/display_structure.twig:329
+#: resources/templates/table/structure/display_structure.twig:319
+#: resources/templates/table/structure/display_structure.twig:335
 #: resources/templates/table/structure/display_structure.twig:345
-#: resources/templates/table/structure/display_structure.twig:355
-#: resources/templates/table/structure/display_structure.twig:373
+#: resources/templates/table/structure/display_structure.twig:363
 #: resources/templates/table/zoom_search/result_form.twig:27
 #: resources/templates/table/zoom_search/result_form.twig:80
 #: resources/templates/table/zoom_search/result_form.twig:96
 #: src/Controllers/JavaScriptMessagesController.php:147
-#: src/Tracking/Tracking.php:207 src/Tracking/Tracking.php:587
+#: src/Tracking/Tracking.php:206 src/Tracking/Tracking.php:546
 msgid "Close"
 msgstr ""
 
@@ -369,7 +453,7 @@ msgstr "Гэта знешні ключ."
 #: resources/templates/table/relation/foreign_key_row.twig:114
 #: resources/templates/table/relation/foreign_key_row.twig:124
 #: resources/templates/table/search/index.twig:38
-#: resources/templates/table/structure/display_structure.twig:479
+#: resources/templates/table/structure/display_structure.twig:469
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:6
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:9
 #: resources/templates/table/zoom_search/index.twig:36
@@ -438,7 +522,7 @@ msgstr "Механізм"
 #: resources/templates/database/structure/table_header.twig:46
 #: resources/templates/indexes.twig:25
 #: resources/templates/table/structure/display_partitions.twig:32
-#: resources/templates/table/structure/display_structure.twig:483
+#: resources/templates/table/structure/display_structure.twig:473
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:12
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:13
 msgid "Comment"
@@ -479,7 +563,7 @@ msgstr "Група вузлоў"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:717
+#: src/Controllers/JavaScriptMessagesController.php:718
 #: src/Import/Import.php:1165 src/Menu.php:213 src/Menu.php:317
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
@@ -523,7 +607,7 @@ msgstr "Назва"
 #: resources/templates/table/privileges/index.twig:21
 #: resources/templates/table/search/index.twig:39
 #: resources/templates/table/structure/display_structure.twig:22
-#: resources/templates/table/structure/display_structure.twig:476
+#: resources/templates/table/structure/display_structure.twig:466
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
 #: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:288
@@ -607,7 +691,7 @@ msgstr ""
 #: resources/templates/table/operations/index.twig:152
 #: resources/templates/table/search/index.twig:40
 #: resources/templates/table/structure/display_structure.twig:23
-#: resources/templates/table/structure/display_structure.twig:481
+#: resources/templates/table/structure/display_structure.twig:471
 #: resources/templates/table/structure/display_table_stats.twig:108
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:8
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
@@ -632,7 +716,7 @@ msgstr "Атрыбуты"
 #: resources/templates/indexes.twig:24
 #: resources/templates/table/insert/get_head_and_foot_of_insert_row_table.twig:8
 #: resources/templates/table/structure/display_structure.twig:25
-#: resources/templates/table/structure/display_structure.twig:482
+#: resources/templates/table/structure/display_structure.twig:472
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:9
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:12
 #: resources/templates/table/zoom_search/result_form.twig:36
@@ -735,7 +819,6 @@ msgid "Input transformation options"
 msgstr "Параметры пераўтварэння ўвода"
 
 #: resources/templates/config/form_display/display.twig:46
-#: resources/templates/modals/page_settings.twig:10
 #: src/Controllers/JavaScriptMessagesController.php:341
 msgid "Apply"
 msgstr ""
@@ -807,7 +890,7 @@ msgstr "Адключана"
 #: resources/templates/table/delete/confirm.twig:30
 #: resources/templates/table/privileges/index.twig:73
 #: resources/templates/table/structure/display_structure.twig:80
-#: resources/templates/table/structure/display_structure.twig:532
+#: resources/templates/table/structure/display_structure.twig:522
 #: resources/templates/table/structure/drop_confirm.twig:19
 #: resources/templates/table/structure/primary.twig:19
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
@@ -815,7 +898,7 @@ msgstr "Адключана"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:36
 #: src/Controllers/Database/Structure/EmptyTableController.php:48
-#: src/Controllers/JavaScriptMessagesController.php:504
+#: src/Controllers/JavaScriptMessagesController.php:505
 #: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:107
@@ -848,13 +931,13 @@ msgstr "Так"
 #: resources/templates/table/delete/confirm.twig:31
 #: resources/templates/table/privileges/index.twig:73
 #: resources/templates/table/structure/display_structure.twig:80
-#: resources/templates/table/structure/display_structure.twig:532
+#: resources/templates/table/structure/display_structure.twig:522
 #: resources/templates/table/structure/drop_confirm.twig:20
 #: resources/templates/table/structure/primary.twig:20
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/JavaScriptMessagesController.php:367 src/IndexColumn.php:145
+#: src/Controllers/JavaScriptMessagesController.php:368 src/IndexColumn.php:145
 #: src/Index.php:443 src/Index.php:469
 #: src/Plugins/Export/ExportHtmlword.php:597
 #: src/Plugins/Export/ExportLatex.php:573 src/Plugins/Export/ExportOdt.php:716
@@ -918,11 +1001,11 @@ msgstr "Паўтарыць запыт"
 #: resources/templates/server/variables/index.twig:41
 #: resources/templates/server/variables/index.twig:44
 #: resources/templates/setup/home/index.twig:64
-#: resources/templates/table/structure/display_structure.twig:497
+#: resources/templates/table/structure/display_structure.twig:487
 #: resources/templates/triggers/row.twig:28
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
-#: src/Controllers/JavaScriptMessagesController.php:400
+#: src/Controllers/JavaScriptMessagesController.php:401
 #: src/Display/Results.php:2488 src/Html/Generator.php:517
 #: src/Html/Generator.php:783
 msgid "Edit"
@@ -941,8 +1024,8 @@ msgstr "Рэдагаваць"
 #: resources/templates/server/user_groups/user_groups.twig:56
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:188
-#: src/Controllers/JavaScriptMessagesController.php:402
-#: src/Display/Results.php:2547 src/Tracking/Tracking.php:231
+#: src/Controllers/JavaScriptMessagesController.php:403
+#: src/Display/Results.php:2547 src/Tracking/Tracking.php:230
 msgid "Delete"
 msgstr "Выдаліць"
 
@@ -1110,7 +1193,7 @@ msgid "Count:"
 msgstr "Назвы калёнак"
 
 #: resources/templates/console/display.twig:121
-#: src/Controllers/JavaScriptMessagesController.php:667
+#: src/Controllers/JavaScriptMessagesController.php:668
 msgid "Time taken:"
 msgstr ""
 
@@ -1146,7 +1229,7 @@ msgstr "Падзяліцца гэтай закладкай"
 #: resources/templates/database/designer/main.twig:952
 #: resources/templates/database/designer/main.twig:1059
 #: resources/templates/modals/preview_sql_confirmation.twig:14
-#: resources/templates/table/structure/display_structure.twig:378
+#: resources/templates/table/structure/display_structure.twig:368
 #: src/Controllers/JavaScriptMessagesController.php:360
 msgid "OK"
 msgstr "OK"
@@ -1246,7 +1329,7 @@ msgid "Search this table"
 msgstr "Пошук у гэтай табліцы"
 
 #: resources/templates/database/central_columns/main.twig:184
-#: resources/templates/table/structure/display_structure.twig:435
+#: resources/templates/table/structure/display_structure.twig:425
 msgid "Add column"
 msgstr "Дадаць слупок"
 
@@ -1276,7 +1359,7 @@ msgstr "Клікніце для сартавання."
 #: resources/templates/table/privileges/index.twig:24
 #: resources/templates/table/structure/display_partitions.twig:34
 #: resources/templates/table/structure/display_structure.twig:34
-#: resources/templates/table/structure/display_structure.twig:474
+#: resources/templates/table/structure/display_structure.twig:464
 #: resources/templates/table/tracking/main.twig:32
 #: resources/templates/table/tracking/report_table.twig:8
 msgid "Action"
@@ -1301,9 +1384,7 @@ msgstr "Дзеяньне"
 #: resources/templates/error/report_modal.twig:6
 #: resources/templates/error/report_modal.twig:11
 #: resources/templates/gis_data_editor_form.twig:63
-#: resources/templates/modals/add_index.twig:11
 #: resources/templates/modals/change_password.twig:11
-#: resources/templates/modals/page_settings.twig:11
 #: resources/templates/server/databases/index.twig:315
 #: resources/templates/server/databases/index.twig:319
 #: resources/templates/server/variables/index.twig:15
@@ -1341,7 +1422,7 @@ msgstr "Камэнтар да базы дадзеных"
 #: resources/templates/database/data_dictionary/index.twig:124
 #: resources/templates/database/structure/index.twig:13
 #: resources/templates/display/results/table.twig:348
-#: resources/templates/table/structure/display_structure.twig:393
+#: resources/templates/table/structure/display_structure.twig:383
 msgid "Print"
 msgstr "Друк"
 
@@ -1357,7 +1438,7 @@ msgstr "Зьвязаная з"
 
 #: resources/templates/database/data_dictionary/index.twig:68
 #: resources/templates/indexes.twig:3
-#: resources/templates/table/structure/display_structure.twig:461
+#: resources/templates/table/structure/display_structure.twig:451
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
 #: src/Controllers/Server/DatabasesController.php:266
 #: src/Navigation/Nodes/NodeIndexContainer.php:23
@@ -1367,7 +1448,7 @@ msgstr "Індэксы"
 
 #: resources/templates/database/data_dictionary/index.twig:73
 #: resources/templates/indexes.twig:17
-#: resources/templates/table/structure/display_structure.twig:475
+#: resources/templates/table/structure/display_structure.twig:465
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:5
 #: src/BrowseForeigners.php:195 src/BrowseForeigners.php:199
 msgid "Keyname"
@@ -1375,21 +1456,21 @@ msgstr "Імя ключа"
 
 #: resources/templates/database/data_dictionary/index.twig:76
 #: resources/templates/indexes.twig:20
-#: resources/templates/table/structure/display_structure.twig:478
+#: resources/templates/table/structure/display_structure.twig:468
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:8
 msgid "Packed"
 msgstr "Сьціснутая"
 
 #: resources/templates/database/data_dictionary/index.twig:78
 #: resources/templates/indexes.twig:22
-#: resources/templates/table/structure/display_structure.twig:480
+#: resources/templates/table/structure/display_structure.twig:470
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
 msgstr "Колькасьць элемэнтаў"
 
 #: resources/templates/database/data_dictionary/index.twig:117
 #: resources/templates/indexes.twig:93
-#: resources/templates/table/structure/display_structure.twig:559
+#: resources/templates/table/structure/display_structure.twig:549
 msgid "No index defined!"
 msgstr "Індэкс ня вызначаны!"
 
@@ -1434,7 +1515,7 @@ msgid "Page to delete"
 msgstr "Старонка для выдалення"
 
 #: resources/templates/database/designer/main.twig:10
-#: src/Controllers/JavaScriptMessagesController.php:548
+#: src/Controllers/JavaScriptMessagesController.php:549
 msgid "Untitled"
 msgstr ""
 
@@ -1455,7 +1536,7 @@ msgstr ""
 
 #: resources/templates/database/designer/main.twig:40
 #: resources/templates/database/designer/main.twig:43
-#: src/Controllers/JavaScriptMessagesController.php:540
+#: src/Controllers/JavaScriptMessagesController.php:541
 msgid "Add tables from other databases"
 msgstr "Дабавіць табліцы з іншых баз даных"
 
@@ -1466,19 +1547,19 @@ msgstr "Новая старонка"
 
 #: resources/templates/database/designer/main.twig:56
 #: resources/templates/database/designer/main.twig:59
-#: src/Controllers/JavaScriptMessagesController.php:544
+#: src/Controllers/JavaScriptMessagesController.php:545
 msgid "Open page"
 msgstr "Адкрыць старонку"
 
 #: resources/templates/database/designer/main.twig:63
 #: resources/templates/database/designer/main.twig:66
-#: src/Controllers/JavaScriptMessagesController.php:542
+#: src/Controllers/JavaScriptMessagesController.php:543
 msgid "Save page"
 msgstr "Захаваць старонку"
 
 #: resources/templates/database/designer/main.twig:70
 #: resources/templates/database/designer/main.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:543
+#: src/Controllers/JavaScriptMessagesController.php:544
 msgid "Save page as"
 msgstr "Захаваць старонку як"
 
@@ -1501,7 +1582,7 @@ msgstr "Стварыць сувязь"
 
 #: resources/templates/database/designer/main.twig:98
 #: resources/templates/database/designer/main.twig:101
-#: src/Controllers/JavaScriptMessagesController.php:534
+#: src/Controllers/JavaScriptMessagesController.php:535
 msgid "Choose column to display"
 msgstr "Выберыце слупок для адлюстраваньня"
 
@@ -1647,7 +1728,7 @@ msgstr "Актыўная опцыі"
 
 #: resources/templates/database/designer/main.twig:1139
 #: resources/templates/sql/query.twig:180
-#: src/Controllers/JavaScriptMessagesController.php:559
+#: src/Controllers/JavaScriptMessagesController.php:560
 msgid "Submit"
 msgstr "Адправіць"
 
@@ -1818,7 +1899,7 @@ msgstr "Адзначыць усё"
 #: resources/templates/triggers/list.twig:18
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
-#: src/Controllers/JavaScriptMessagesController.php:385 src/Menu.php:240
+#: src/Controllers/JavaScriptMessagesController.php:386 src/Menu.php:240
 #: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1284
 #: src/Util.php:1471 src/Util.php:1486 src/Util.php:1503
 msgid "Export"
@@ -1843,8 +1924,8 @@ msgstr "Экспарт"
 #: resources/templates/table/relation/foreign_key_row.twig:25
 #: resources/templates/table/structure/display_partitions.twig:146
 #: resources/templates/table/structure/display_structure.twig:120
-#: resources/templates/table/structure/display_structure.twig:290
-#: resources/templates/table/structure/display_structure.twig:525
+#: resources/templates/table/structure/display_structure.twig:280
+#: resources/templates/table/structure/display_structure.twig:515
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
@@ -1958,7 +2039,7 @@ msgstr "выберыце слупок"
 #: resources/templates/database/multi_table_query/form.twig:38
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
-#: src/Controllers/JavaScriptMessagesController.php:716
+#: src/Controllers/JavaScriptMessagesController.php:717
 #: src/Controllers/Table/ChangeController.php:220
 msgid "Show"
 msgstr "Паказаць"
@@ -2105,21 +2186,21 @@ msgstr "Назва базы даных"
 #: resources/templates/database/operations/index.twig:132
 #: resources/templates/database/structure/copy_form.twig:21
 #: resources/templates/table/operations/index.twig:276
-#: src/Tracking/Tracking.php:291
+#: src/Tracking/Tracking.php:278
 msgid "Structure only"
 msgstr "Толькі структуру"
 
 #: resources/templates/database/operations/index.twig:138
 #: resources/templates/database/structure/copy_form.twig:17
 #: resources/templates/table/operations/index.twig:282
-#: src/Tracking/Tracking.php:297
+#: src/Tracking/Tracking.php:284
 msgid "Structure and data"
 msgstr "Структуру і дадзеныя"
 
 #: resources/templates/database/operations/index.twig:144
 #: resources/templates/database/structure/copy_form.twig:25
 #: resources/templates/table/operations/index.twig:288
-#: src/Tracking/Tracking.php:294
+#: src/Tracking/Tracking.php:281
 msgid "Data only"
 msgstr "Толькі дадзеныя"
 
@@ -2455,7 +2536,7 @@ msgstr[2] "%1$s супадзенняў у <strong>%2$s</strong>"
 
 #: resources/templates/database/search/results.twig:25
 #: resources/templates/database/structure/structure_table_row.twig:43
-#: resources/templates/table/structure/display_structure.twig:282
+#: resources/templates/table/structure/display_structure.twig:272
 #: src/Config/ConfigFile.php:525 src/Config/ConfigFile.php:539
 #: src/Config/ConfigFile.php:603 src/Menu.php:206
 #: src/Navigation/Nodes/NodeTable.php:288 src/Util.php:1061 src/Util.php:1498
@@ -2588,7 +2669,7 @@ msgid "Replace table prefix"
 msgstr "Замяніць прэфікс табліцы"
 
 #: resources/templates/database/structure/check_all_tables.twig:28
-#: src/Controllers/JavaScriptMessagesController.php:679
+#: src/Controllers/JavaScriptMessagesController.php:680
 msgid "Copy table with prefix"
 msgstr "Капіяваць табліцу з прэфіксам"
 
@@ -2653,7 +2734,7 @@ msgstr "Ці сапраўды вы жадаеце выканаць наступ�
 #: resources/templates/database/structure/empty_form.twig:15
 #: resources/templates/import.twig:154 resources/templates/sql/query.twig:144
 #: resources/templates/table/delete/confirm.twig:25
-#: src/Controllers/JavaScriptMessagesController.php:370
+#: src/Controllers/JavaScriptMessagesController.php:371
 msgid "Enable foreign key checks"
 msgstr "Уключыць праверку знешніх ключоў"
 
@@ -2754,7 +2835,7 @@ msgstr "выкарыстоўваецца"
 
 #: resources/templates/database/structure/table_header.twig:26
 #: resources/templates/table/structure/display_partitions.twig:29
-#: resources/templates/table/structure/display_structure.twig:230
+#: resources/templates/table/structure/display_structure.twig:220
 #: resources/templates/table/structure/display_table_stats.twig:119
 #: src/Controllers/Server/DatabasesController.php:264 src/Import/Import.php:126
 msgid "Rows"
@@ -2844,13 +2925,13 @@ msgstr "Версіі"
 
 #: resources/templates/database/tracking/tables.twig:115
 #: resources/templates/table/tracking/main.twig:73
-#: src/Tracking/Tracking.php:206
+#: src/Tracking/Tracking.php:205
 msgid "Tracking report"
 msgstr ""
 
 #: resources/templates/database/tracking/tables.twig:126
 #: resources/templates/table/tracking/main.twig:80
-#: src/Tracking/Tracking.php:586
+#: src/Tracking/Tracking.php:545
 msgid "Structure snapshot"
 msgstr "Здымак структуры"
 
@@ -2861,7 +2942,7 @@ msgstr "Неадсочваемыя табліцы"
 #: resources/templates/database/tracking/tables.twig:175
 #: resources/templates/database/tracking/tables.twig:186
 #: resources/templates/database/tracking/tables.twig:187
-#: resources/templates/table/structure/display_structure.twig:413
+#: resources/templates/table/structure/display_structure.twig:403
 msgid "Track table"
 msgstr "Адсочваць табліцу"
 
@@ -2915,7 +2996,7 @@ msgstr "Апошняя"
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:2
 #: src/BrowseForeigners.php:293
-#: src/Controllers/JavaScriptMessagesController.php:577
+#: src/Controllers/JavaScriptMessagesController.php:578
 msgid "Show all"
 msgstr "Паказаць усе"
 
@@ -2981,7 +3062,7 @@ msgid "Hide browser transformation"
 msgstr "Схаваць ператварэнне"
 
 #: resources/templates/display/results/table.twig:260
-#: src/Controllers/JavaScriptMessagesController.php:496
+#: src/Controllers/JavaScriptMessagesController.php:497
 msgid "Geometry"
 msgstr ""
 
@@ -2996,7 +3077,7 @@ msgstr "Добра вядомыя двайковыя даныя"
 #: resources/templates/display/results/table.twig:320
 #: resources/templates/display/results/table.twig:321
 #: resources/templates/gis_data_editor_form.twig:62
-#: src/Controllers/JavaScriptMessagesController.php:490
+#: src/Controllers/JavaScriptMessagesController.php:491
 #: src/Display/Results.php:2492 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "Скапіяваць"
@@ -3007,7 +3088,7 @@ msgid "Query results operations"
 msgstr "Дзеяньні з вынікамі запытаў"
 
 #: resources/templates/display/results/table.twig:350
-#: src/Controllers/JavaScriptMessagesController.php:489
+#: src/Controllers/JavaScriptMessagesController.php:490
 #: src/Export/Export.php:1253
 msgid "Copy to clipboard"
 msgstr ""
@@ -3033,7 +3114,7 @@ msgid "Convert to Kana"
 msgstr ""
 
 #: resources/templates/error/generic.twig:37
-#: resources/templates/table/structure/display_structure.twig:372
+#: resources/templates/table/structure/display_structure.twig:362
 #: src/Controllers/Operations/ViewController.php:119
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
@@ -3078,7 +3159,7 @@ msgstr ""
 
 #: resources/templates/error/simple.twig:7
 #: resources/templates/modals/index_dialog_modal.twig:30
-#: resources/templates/table/structure/display_structure.twig:363
+#: resources/templates/table/structure/display_structure.twig:353
 msgid "Go back"
 msgstr ""
 
@@ -3326,25 +3407,6 @@ msgstr "Фільтры"
 msgid "Containing the word:"
 msgstr "Змяшчае слова:"
 
-#: resources/templates/footer.twig:10 resources/templates/footer.twig:12
-#: resources/templates/footer.twig:14
-msgid "Open new phpMyAdmin window"
-msgstr "Адкрыць новае акно phpMyAdmin"
-
-#: resources/templates/footer.twig:29 resources/templates/home/index.twig:18
-#: resources/templates/login/form.twig:5
-msgid "phpMyAdmin Demo Server"
-msgstr "Дэма-сервер phpMyAdmin"
-
-#: resources/templates/footer.twig:37
-#, php-format
-msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
-
-#: resources/templates/footer.twig:39
-msgid "Git information missing!"
-msgstr "Адсутнічае Інфармацыя пра Git!"
-
 #: resources/templates/gis_data_editor_form.twig:4
 #, php-format
 msgid "Value for the column \"%s\""
@@ -3362,80 +3424,6 @@ msgstr ""
 
 #: resources/templates/gis_data_editor_form.twig:59
 msgid "Output"
-msgstr ""
-
-#: resources/templates/header.twig:36 resources/templates/login/header.twig:13
-msgid "Javascript must be enabled past this point!"
-msgstr "Javascript мусіць быць уключаным!"
-
-#: resources/templates/header.twig:46
-#, fuzzy
-#| msgid "Add user account"
-msgid "Open user account menu"
-msgstr "Дадаць конт карыстальніка"
-
-#: resources/templates/header.twig:57
-#: resources/templates/navigation/main.twig:35
-#: resources/templates/navigation/main.twig:36
-msgid "phpMyAdmin documentation"
-msgstr "Дакумэнтацыя па phpMyAdmin"
-
-#: resources/templates/header.twig:62
-#, fuzzy
-#| msgid "Documentation"
-msgid "MariaDB documentation"
-msgstr "Дакумэнтацыя"
-
-#: resources/templates/header.twig:62
-#, fuzzy
-#| msgid "Documentation"
-msgid "MySQL documentation"
-msgstr "Дакумэнтацыя"
-
-#: resources/templates/header.twig:73
-#, fuzzy
-#| msgid "Appearance settings"
-msgid "Appearance:"
-msgstr "Налады выгляду"
-
-#: resources/templates/header.twig:76 resources/templates/home/index.twig:150
-msgid "Color mode for the theme"
-msgstr ""
-
-#: resources/templates/header.twig:80 resources/templates/home/index.twig:154
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "weight=2"
-msgctxt "Light color mode of the theme"
-msgid "Light"
-msgstr "вага=2"
-
-#: resources/templates/header.twig:82 resources/templates/home/index.twig:156
-msgctxt "Dark color mode of the theme"
-msgid "Dark"
-msgstr ""
-
-#: resources/templates/header.twig:95
-#: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:474
-#: src/Util.php:1473
-msgid "Settings"
-msgstr "Налады"
-
-#: resources/templates/header.twig:99
-#: resources/templates/navigation/main.twig:30
-#: resources/templates/navigation/main.twig:31
-msgid "Log out"
-msgstr "Выйсьці з сыстэмы"
-
-#: resources/templates/header.twig:108
-#: resources/templates/modals/page_settings.twig:5
-#: src/Controllers/JavaScriptMessagesController.php:340
-msgid "Page-related settings"
-msgstr "Налады старонкі"
-
-#: resources/templates/header.twig:110
-msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
 #: resources/templates/home/git_info.twig:2
@@ -3619,7 +3607,7 @@ msgstr "Хатняя старонка phpMyAdmin"
 #: resources/templates/navigation/main.twig:58
 #: resources/templates/server/privileges/users_overview.twig:172
 #: resources/templates/server/status/monitor/index.twig:66
-#: resources/templates/table/structure/display_structure.twig:359
+#: resources/templates/table/structure/display_structure.twig:349
 #: src/Controllers/JavaScriptMessagesController.php:344
 msgid "Loading…"
 msgstr "Загрузка…"
@@ -3641,7 +3629,7 @@ msgstr "Узяць гэта"
 
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
-#: src/Controllers/JavaScriptMessagesController.php:436
+#: src/Controllers/JavaScriptMessagesController.php:437
 #: src/Export/Export.php:1276 src/Html/Generator.php:849
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
@@ -3766,19 +3754,19 @@ msgid "Other options"
 msgstr "Іншыя параметры:"
 
 #: resources/templates/indexes.twig:40
-#: resources/templates/table/structure/display_structure.twig:506
+#: resources/templates/table/structure/display_structure.twig:496
 #, fuzzy
 #| msgid "Rename to"
 msgid "Rename"
 msgstr "Перайменаваць у"
 
 #: resources/templates/indexes.twig:46
-#: resources/templates/table/structure/display_structure.twig:512
+#: resources/templates/table/structure/display_structure.twig:502
 msgid "The primary key has been dropped."
 msgstr "Першасны ключ быў выдалены."
 
 #: resources/templates/indexes.twig:51
-#: resources/templates/table/structure/display_structure.twig:517
+#: resources/templates/table/structure/display_structure.twig:507
 #, php-format
 msgid "Index %s has been dropped."
 msgstr "Індэкс %s быў выдалены."
@@ -3946,15 +3934,6 @@ msgstr "Панэль таблічнай навігацыі"
 msgid "(current)"
 msgstr ""
 
-#: resources/templates/modals/function_confirm.twig:5
-#: resources/templates/server/databases/index.twig:314
-msgid "Confirm"
-msgstr ""
-
-#: resources/templates/modals/function_confirm.twig:10
-msgid "Ok"
-msgstr ""
-
 #: resources/templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
 msgstr "Паказаць схаваныя элементы дрэва навігацыі."
@@ -4002,7 +3981,7 @@ msgid "An error has occurred while loading the navigation display"
 msgstr ""
 
 #: resources/templates/navigation/main.twig:84
-#: src/Controllers/JavaScriptMessagesController.php:594
+#: src/Controllers/JavaScriptMessagesController.php:595
 msgid "Drop files here"
 msgstr "Скінуць файлы сюды"
 
@@ -4617,6 +4596,11 @@ msgstr "Уключыць статыстыку"
 #: resources/templates/server/databases/index.twig:304
 msgid "No databases"
 msgstr "Базы дадзеных адсутнічаюць"
+
+#: resources/templates/server/databases/index.twig:314
+#: src/Controllers/JavaScriptMessagesController.php:362
+msgid "Confirm"
+msgstr ""
 
 #: resources/templates/server/engines/index.twig:5
 #: resources/templates/server/engines/show.twig:3
@@ -5476,7 +5460,7 @@ msgid "Generate password:"
 msgstr "Згенераваць пароль:"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:601
+#: src/Controllers/JavaScriptMessagesController.php:602
 msgid "Generate"
 msgstr "Згенэраваць"
 
@@ -6442,7 +6426,7 @@ msgstr "Сімуляваць запыт"
 #: resources/templates/sql/relational_column_dropdown.twig:3
 #: resources/templates/table/insert/column_row.twig:48
 #: resources/templates/table/search/input_box.twig:21
-#: src/Controllers/JavaScriptMessagesController.php:404
+#: src/Controllers/JavaScriptMessagesController.php:405
 msgid "Browse foreign values"
 msgstr "Праглядзець зьнешнія значэньні"
 
@@ -6668,8 +6652,8 @@ msgstr ""
 
 #: resources/templates/table/index_form.twig:167
 #: resources/templates/table/index_form.twig:203
-#: src/Controllers/JavaScriptMessagesController.php:488
-#: src/Controllers/JavaScriptMessagesController.php:640
+#: src/Controllers/JavaScriptMessagesController.php:489
+#: src/Controllers/JavaScriptMessagesController.php:641
 #: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1528
 msgid "Ignore"
 msgstr "Ігнараваць"
@@ -7058,7 +7042,7 @@ msgid "Start row:"
 msgstr "Пачатковы радок:"
 
 #: resources/templates/table/structure/display_partitions.twig:3
-#: resources/templates/table/structure/display_structure.twig:597
+#: resources/templates/table/structure/display_structure.twig:587
 msgid "Partitions"
 msgstr "Падзелы"
 
@@ -7141,7 +7125,7 @@ msgid "None"
 msgstr "Няма"
 
 #: resources/templates/table/structure/display_structure.twig:108
-#: resources/templates/table/structure/display_structure.twig:287
+#: resources/templates/table/structure/display_structure.twig:277
 msgid "Change"
 msgstr "Зьмяніць"
 
@@ -7151,74 +7135,61 @@ msgid "Column %s has been dropped."
 msgstr "Слупок %s быў знішчаны."
 
 #: resources/templates/table/structure/display_structure.twig:130
-#: src/Controllers/JavaScriptMessagesController.php:604
+#: src/Controllers/JavaScriptMessagesController.php:605
 msgid "More"
 msgstr "Больш"
 
-#: resources/templates/table/structure/display_structure.twig:142
-#, php-format
-msgid "A primary key has been added on %s."
-msgstr "Першасны ключ быў дададзены да %s."
-
-#: resources/templates/table/structure/display_structure.twig:157
-#: resources/templates/table/structure/display_structure.twig:172
-#: resources/templates/table/structure/display_structure.twig:197
-#: resources/templates/table/structure/display_structure.twig:216
-#, php-format
-msgid "An index has been added on %s."
-msgstr "Быў дададзены індэкс для %s."
-
-#: resources/templates/table/structure/display_structure.twig:238
+#: resources/templates/table/structure/display_structure.twig:228
 msgid "Distinct values"
 msgstr "Розныя значэнні"
 
-#: resources/templates/table/structure/display_structure.twig:249
-#: resources/templates/table/structure/display_structure.twig:315
+#: resources/templates/table/structure/display_structure.twig:239
+#: resources/templates/table/structure/display_structure.twig:305
 msgid "Remove from central columns"
 msgstr "Выдаліць з цэнтральных слупкоў"
 
-#: resources/templates/table/structure/display_structure.twig:257
-#: resources/templates/table/structure/display_structure.twig:312
+#: resources/templates/table/structure/display_structure.twig:247
+#: resources/templates/table/structure/display_structure.twig:302
 msgid "Add to central columns"
 msgstr "Дадаць да цэнтральных слупкоў"
 
-#: resources/templates/table/structure/display_structure.twig:328
-#: resources/templates/table/structure/display_structure.twig:332
-#: resources/templates/table/structure/display_structure.twig:417
+#: resources/templates/table/structure/display_structure.twig:318
+#: resources/templates/table/structure/display_structure.twig:322
+#: resources/templates/table/structure/display_structure.twig:407
 msgid "Move columns"
 msgstr "Перамясціць слупкі"
 
-#: resources/templates/table/structure/display_structure.twig:333
+#: resources/templates/table/structure/display_structure.twig:323
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: resources/templates/table/structure/display_structure.twig:389
+#: resources/templates/table/structure/display_structure.twig:379
 #: resources/templates/view_create.twig:16
 msgid "Edit view"
 msgstr "Рэдагаваць прадстаўленне"
 
-#: resources/templates/table/structure/display_structure.twig:403
+#: resources/templates/table/structure/display_structure.twig:393
 msgid "Propose table structure"
 msgstr "Прапанаваная структура табліцы"
 
-#: resources/templates/table/structure/display_structure.twig:420
+#: resources/templates/table/structure/display_structure.twig:410
 msgid "Normalize"
 msgstr ""
 
-#: resources/templates/table/structure/display_structure.twig:426
+#: resources/templates/table/structure/display_structure.twig:416
 msgid "Track view"
 msgstr "Адсочваць прадстаўленне"
 
-#: resources/templates/table/structure/display_structure.twig:440
+#: resources/templates/table/structure/display_structure.twig:430
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Дадаць %s слупок(і)"
 
-#: resources/templates/table/structure/display_structure.twig:445
+#: resources/templates/table/structure/display_structure.twig:435
 msgid "at beginning of table"
 msgstr "у пачатку табліцы"
 
-#: resources/templates/table/structure/display_structure.twig:569
+#: resources/templates/table/structure/display_structure.twig:559
 #, fuzzy, php-format
 #| msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgid "Create an index on %s columns"
@@ -8864,7 +8835,7 @@ msgid "Closed"
 msgstr "Закрыты"
 
 #: src/Config/ConfigFile.php:607
-#: src/Controllers/JavaScriptMessagesController.php:744
+#: src/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
 #| msgid "Monday"
 msgctxt "Week day name"
@@ -8872,7 +8843,7 @@ msgid "Monday"
 msgstr "Панядзелак"
 
 #: src/Config/ConfigFile.php:608
-#: src/Controllers/JavaScriptMessagesController.php:745
+#: src/Controllers/JavaScriptMessagesController.php:746
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -8880,7 +8851,7 @@ msgid "Tuesday"
 msgstr "Аўторак"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:746
+#: src/Controllers/JavaScriptMessagesController.php:747
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -8888,7 +8859,7 @@ msgid "Wednesday"
 msgstr "Аўторак"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:747
+#: src/Controllers/JavaScriptMessagesController.php:748
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -8896,7 +8867,7 @@ msgid "Thursday"
 msgstr "Аўторак"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:748
+#: src/Controllers/JavaScriptMessagesController.php:749
 #, fuzzy
 #| msgid "Friday"
 msgctxt "Week day name"
@@ -8904,13 +8875,13 @@ msgid "Friday"
 msgstr "Пятніца"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:749
+#: src/Controllers/JavaScriptMessagesController.php:750
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr ""
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:743
+#: src/Controllers/JavaScriptMessagesController.php:744
 #, fuzzy
 #| msgid "Sunday"
 msgctxt "Week day name"
@@ -10657,7 +10628,7 @@ msgid "Navigation panel width"
 msgstr "Шырыня навігацыйнай панэлі"
 
 #: src/Config/Descriptions.php:811
-#: src/Controllers/JavaScriptMessagesController.php:609
+#: src/Controllers/JavaScriptMessagesController.php:610
 #: src/Navigation/NavigationTree.php:1310
 msgid "Link with main panel"
 msgstr "Злучыць з галоўнай панэллю"
@@ -11220,7 +11191,7 @@ msgid "Missing data for %s"
 msgstr ""
 
 #: src/Config/FormDisplay.php:620 src/Config/Validator.php:587
-#: src/Controllers/JavaScriptMessagesController.php:827
+#: src/Controllers/JavaScriptMessagesController.php:828
 msgid "Incorrect value!"
 msgstr ""
 
@@ -11501,27 +11472,27 @@ msgid "Incorrect IP address: %s"
 msgstr ""
 
 #: src/Config/Validator.php:522
-#: src/Controllers/JavaScriptMessagesController.php:826
+#: src/Controllers/JavaScriptMessagesController.php:827
 msgid "Not a valid port number!"
 msgstr "Некарэктны нумар порта!"
 
 #: src/Config/Validator.php:544
-#: src/Controllers/JavaScriptMessagesController.php:824
+#: src/Controllers/JavaScriptMessagesController.php:825
 msgid "Not a positive number!"
 msgstr ""
 
 #: src/Config/Validator.php:566
-#: src/Controllers/JavaScriptMessagesController.php:825
+#: src/Controllers/JavaScriptMessagesController.php:826
 msgid "Not a non-negative number!"
 msgstr ""
 
 #: src/Config/Validator.php:605
-#: src/Controllers/JavaScriptMessagesController.php:828
+#: src/Controllers/JavaScriptMessagesController.php:829
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr ""
 
-#: src/Console.php:76
+#: src/Console.php:61
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
@@ -11529,7 +11500,7 @@ msgstr[0] "Паказваецца %1$d закладка (прыватная ці
 msgstr[1] "Паказваюцца %1$d закладкі (прыватныя ці агульныя)"
 msgstr[2] "Паказваюцца %1$d закладак (прыватныя ці агульныя)"
 
-#: src/Console.php:83
+#: src/Console.php:68
 msgid "No bookmarks"
 msgstr "Няма закладак"
 
@@ -11546,7 +11517,7 @@ msgid "Incomplete params"
 msgstr "Няпоўныя параметры"
 
 #: src/Controllers/Console/Bookmark/AddController.php:46
-#: src/Controllers/JavaScriptMessagesController.php:591
+#: src/Controllers/JavaScriptMessagesController.php:592
 msgid "Failed"
 msgstr ""
 
@@ -12061,7 +12032,7 @@ msgstr ""
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: src/Controllers/Import/StatusController.php:64
+#: src/Controllers/Import/StatusController.php:65
 msgid "Could not load the progress of the import."
 msgstr ""
 
@@ -12797,546 +12768,546 @@ msgstr "Даданне першаснага ключа"
 msgid "Click to dismiss this notification"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:364
+#: src/Controllers/JavaScriptMessagesController.php:365
 msgid "Renaming databases"
 msgstr "Перайменаваць базы дадзеных"
 
-#: src/Controllers/JavaScriptMessagesController.php:365
+#: src/Controllers/JavaScriptMessagesController.php:366
 msgid "Copying database"
 msgstr "Капіяваць базу дадзеных"
 
-#: src/Controllers/JavaScriptMessagesController.php:366
+#: src/Controllers/JavaScriptMessagesController.php:367
 msgid "Changing charset"
 msgstr "Змена кадавання"
 
-#: src/Controllers/JavaScriptMessagesController.php:373
+#: src/Controllers/JavaScriptMessagesController.php:374
 msgid "Failed to get real row count."
 msgstr "Не ўдалося атрымаць рэальную колькасць радкоў."
 
-#: src/Controllers/JavaScriptMessagesController.php:376
+#: src/Controllers/JavaScriptMessagesController.php:377
 msgid "Searching"
 msgstr "Пошук"
 
-#: src/Controllers/JavaScriptMessagesController.php:377
+#: src/Controllers/JavaScriptMessagesController.php:378
 msgid "Hide search results"
 msgstr "Схаваць вынікі пошуку"
 
-#: src/Controllers/JavaScriptMessagesController.php:378
+#: src/Controllers/JavaScriptMessagesController.php:379
 msgid "Show search results"
 msgstr "Паказаць вынікі пошуку"
 
-#: src/Controllers/JavaScriptMessagesController.php:379
+#: src/Controllers/JavaScriptMessagesController.php:380
 msgid "Browsing"
 msgstr "Прагляд"
 
-#: src/Controllers/JavaScriptMessagesController.php:380
+#: src/Controllers/JavaScriptMessagesController.php:381
 msgid "Deleting"
 msgstr "Выдаленне"
 
-#: src/Controllers/JavaScriptMessagesController.php:381
+#: src/Controllers/JavaScriptMessagesController.php:382
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Выдаліць адпаведнасць для табліцы %s?"
 
-#: src/Controllers/JavaScriptMessagesController.php:384
+#: src/Controllers/JavaScriptMessagesController.php:385
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:386
+#: src/Controllers/JavaScriptMessagesController.php:387
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:389
+#: src/Controllers/JavaScriptMessagesController.php:390
 #, php-format
 msgid "Values for column %s"
 msgstr "Значэнне для слупка %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:390
+#: src/Controllers/JavaScriptMessagesController.php:391
 msgid "Values for a new column"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:391
+#: src/Controllers/JavaScriptMessagesController.php:392
 msgid "Enter each value in a separate field."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:392
+#: src/Controllers/JavaScriptMessagesController.php:393
 #, php-format
 msgid "Add %d value(s)"
 msgstr "Дадаць %d значэнне(яў)"
 
-#: src/Controllers/JavaScriptMessagesController.php:395
+#: src/Controllers/JavaScriptMessagesController.php:396
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:398
+#: src/Controllers/JavaScriptMessagesController.php:399
 msgid "Hide query box"
 msgstr "Схаваць акно запытаў"
 
-#: src/Controllers/JavaScriptMessagesController.php:399
+#: src/Controllers/JavaScriptMessagesController.php:400
 msgid "Show query box"
 msgstr "Паказаць акно запытаў"
 
-#: src/Controllers/JavaScriptMessagesController.php:401
+#: src/Controllers/JavaScriptMessagesController.php:402
 #, fuzzy
 #| msgid "Submit query"
 msgid "Edit query"
 msgstr "Выканаць запыт"
 
-#: src/Controllers/JavaScriptMessagesController.php:403
+#: src/Controllers/JavaScriptMessagesController.php:404
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d не зьяўляецца карэктным нумарам радка."
 
-#: src/Controllers/JavaScriptMessagesController.php:405
+#: src/Controllers/JavaScriptMessagesController.php:406
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:407
+#: src/Controllers/JavaScriptMessagesController.php:408
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:409
+#: src/Controllers/JavaScriptMessagesController.php:410
 #, php-format
 msgid "Variable %d:"
 msgstr "Зменная %d:"
 
-#: src/Controllers/JavaScriptMessagesController.php:412
+#: src/Controllers/JavaScriptMessagesController.php:413
 #: src/Normalization.php:949
 msgid "Pick"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:413
+#: src/Controllers/JavaScriptMessagesController.php:414
 msgid "Column selector"
 msgstr "Селектар слупка"
 
-#: src/Controllers/JavaScriptMessagesController.php:414
+#: src/Controllers/JavaScriptMessagesController.php:415
 msgid "Search this list"
 msgstr "Шукаць у гэтым спісе"
 
-#: src/Controllers/JavaScriptMessagesController.php:416
+#: src/Controllers/JavaScriptMessagesController.php:417
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:419
+#: src/Controllers/JavaScriptMessagesController.php:420
 msgid "See more"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:422
+#: src/Controllers/JavaScriptMessagesController.php:423
 msgid "Add primary key"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:423
+#: src/Controllers/JavaScriptMessagesController.php:424
 msgid "Primary key added."
 msgstr "Першасны ключ дададзены."
 
-#: src/Controllers/JavaScriptMessagesController.php:424
+#: src/Controllers/JavaScriptMessagesController.php:425
 #: src/Normalization.php:255
 msgid "Taking you to next step…"
 msgstr "Пераход да наступнага кроку…"
 
-#: src/Controllers/JavaScriptMessagesController.php:425
+#: src/Controllers/JavaScriptMessagesController.php:426
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:426
+#: src/Controllers/JavaScriptMessagesController.php:427
 #: src/Normalization.php:511 src/Normalization.php:570
 #: src/Normalization.php:657 src/Normalization.php:730
 msgid "End of step"
 msgstr "Канец кроку"
 
-#: src/Controllers/JavaScriptMessagesController.php:427
+#: src/Controllers/JavaScriptMessagesController.php:428
 msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: src/Controllers/JavaScriptMessagesController.php:428
-#: src/Controllers/JavaScriptMessagesController.php:776
+#: src/Controllers/JavaScriptMessagesController.php:429
+#: src/Controllers/JavaScriptMessagesController.php:777
 #: src/Normalization.php:343
 msgid "Done"
 msgstr "Гатова"
 
-#: src/Controllers/JavaScriptMessagesController.php:429
+#: src/Controllers/JavaScriptMessagesController.php:430
 msgid "Confirm partial dependencies"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:430
+#: src/Controllers/JavaScriptMessagesController.php:431
 msgid "Selected partial dependencies are as follows:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:432
+#: src/Controllers/JavaScriptMessagesController.php:433
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:435
+#: src/Controllers/JavaScriptMessagesController.php:436
 msgid "No partial dependencies selected!"
 msgstr "Ня выбраны частковыя залежнасці!"
 
-#: src/Controllers/JavaScriptMessagesController.php:437
+#: src/Controllers/JavaScriptMessagesController.php:438
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:438
+#: src/Controllers/JavaScriptMessagesController.php:439
 msgid "Hide partial dependencies list"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:440
+#: src/Controllers/JavaScriptMessagesController.php:441
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:442
+#: src/Controllers/JavaScriptMessagesController.php:443
 msgid "Step"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:443
+#: src/Controllers/JavaScriptMessagesController.php:444
 msgid "The following actions will be performed:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:444
+#: src/Controllers/JavaScriptMessagesController.php:445
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:445
+#: src/Controllers/JavaScriptMessagesController.php:446
 msgid "Create the following table"
 msgstr "Стварыць наступную табліцу"
 
-#: src/Controllers/JavaScriptMessagesController.php:448
+#: src/Controllers/JavaScriptMessagesController.php:449
 msgid "Third step of normalization (3NF)"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:449
+#: src/Controllers/JavaScriptMessagesController.php:450
 msgid "Confirm transitive dependencies"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:450
+#: src/Controllers/JavaScriptMessagesController.php:451
 msgid "Selected dependencies are as follows:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:451
+#: src/Controllers/JavaScriptMessagesController.php:452
 msgid "No dependencies selected!"
 msgstr "Ня выбраны залежнасці!"
 
-#: src/Controllers/JavaScriptMessagesController.php:457
+#: src/Controllers/JavaScriptMessagesController.php:458
 msgid "Hide search criteria"
 msgstr "Схаваць крытэрый пошуку"
 
-#: src/Controllers/JavaScriptMessagesController.php:458
+#: src/Controllers/JavaScriptMessagesController.php:459
 msgid "Show search criteria"
 msgstr "Паказаць крытэрый пошуку"
 
-#: src/Controllers/JavaScriptMessagesController.php:459
+#: src/Controllers/JavaScriptMessagesController.php:460
 msgid "Column maximum:"
 msgstr "Максімум у слупку:"
 
-#: src/Controllers/JavaScriptMessagesController.php:460
+#: src/Controllers/JavaScriptMessagesController.php:461
 msgid "Column minimum:"
 msgstr "Мінімум у слупку:"
 
-#: src/Controllers/JavaScriptMessagesController.php:463
+#: src/Controllers/JavaScriptMessagesController.php:464
 msgid "Hide find and replace criteria"
 msgstr "Схаваць крытэрый пошуку і замены"
 
-#: src/Controllers/JavaScriptMessagesController.php:464
+#: src/Controllers/JavaScriptMessagesController.php:465
 msgid "Show find and replace criteria"
 msgstr "Паказаць крытэрый пошуку і замены"
 
-#: src/Controllers/JavaScriptMessagesController.php:468
+#: src/Controllers/JavaScriptMessagesController.php:469
 msgid "Each point represents a data row."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:470
+#: src/Controllers/JavaScriptMessagesController.php:471
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:472
+#: src/Controllers/JavaScriptMessagesController.php:473
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:474
+#: src/Controllers/JavaScriptMessagesController.php:475
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:476
+#: src/Controllers/JavaScriptMessagesController.php:477
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:478
+#: src/Controllers/JavaScriptMessagesController.php:479
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:481
+#: src/Controllers/JavaScriptMessagesController.php:482
 msgid "Select two columns"
 msgstr "Абярыце два слупкі"
 
-#: src/Controllers/JavaScriptMessagesController.php:483
+#: src/Controllers/JavaScriptMessagesController.php:484
 msgid "Select two different columns"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:485
+#: src/Controllers/JavaScriptMessagesController.php:486
 msgid "Data point content"
 msgstr "Змест кропкі даных"
 
-#: src/Controllers/JavaScriptMessagesController.php:491
+#: src/Controllers/JavaScriptMessagesController.php:492
 msgid "X"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:492
+#: src/Controllers/JavaScriptMessagesController.php:493
 msgid "Y"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:493
+#: src/Controllers/JavaScriptMessagesController.php:494
 msgid "Point"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:494
+#: src/Controllers/JavaScriptMessagesController.php:495
 msgid "Linestring"
 msgstr "Адрэзак"
 
-#: src/Controllers/JavaScriptMessagesController.php:495
+#: src/Controllers/JavaScriptMessagesController.php:496
 msgid "Polygon"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:498
 msgid "Inner ring"
 msgstr "Унутранае кальцо"
 
-#: src/Controllers/JavaScriptMessagesController.php:498
+#: src/Controllers/JavaScriptMessagesController.php:499
 msgid "Outer ring"
 msgstr "Знешняе кальцо"
 
-#: src/Controllers/JavaScriptMessagesController.php:499
+#: src/Controllers/JavaScriptMessagesController.php:500
 msgid "Add a point"
 msgstr "Дадаць кропку"
 
-#: src/Controllers/JavaScriptMessagesController.php:500
+#: src/Controllers/JavaScriptMessagesController.php:501
 msgid "Add a linestring"
 msgstr "Дадаць адрэзак"
 
-#: src/Controllers/JavaScriptMessagesController.php:501
+#: src/Controllers/JavaScriptMessagesController.php:502
 msgid "Add an inner ring"
 msgstr "Дадаць унутранае кальцо"
 
-#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/JavaScriptMessagesController.php:503
 msgid "Add a polygon"
 msgstr "Дадаць шматкутнік"
 
-#: src/Controllers/JavaScriptMessagesController.php:503
+#: src/Controllers/JavaScriptMessagesController.php:504
 msgid "Add geometry"
 msgstr "Дадаць геаметрыю"
 
-#: src/Controllers/JavaScriptMessagesController.php:505
+#: src/Controllers/JavaScriptMessagesController.php:506
 msgid "Do you want to copy encryption key?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:506
+#: src/Controllers/JavaScriptMessagesController.php:507
 msgid "Encryption key"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:509
+#: src/Controllers/JavaScriptMessagesController.php:510
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:514
+#: src/Controllers/JavaScriptMessagesController.php:515
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:520
+#: src/Controllers/JavaScriptMessagesController.php:521
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:526
+#: src/Controllers/JavaScriptMessagesController.php:527
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:531
+#: src/Controllers/JavaScriptMessagesController.php:532
 msgid "Select referenced key"
 msgstr "Выберыце спасылкавы ключ"
 
-#: src/Controllers/JavaScriptMessagesController.php:532
+#: src/Controllers/JavaScriptMessagesController.php:533
 msgid "Select Foreign Key"
 msgstr "Выберыце зьнешні ключ"
 
-#: src/Controllers/JavaScriptMessagesController.php:533
+#: src/Controllers/JavaScriptMessagesController.php:534
 msgid "Please select the primary key or a unique key!"
 msgstr "Калі ласка, выберыце першасны альбо ўнікальны ключ!"
 
-#: src/Controllers/JavaScriptMessagesController.php:536
+#: src/Controllers/JavaScriptMessagesController.php:537
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:539
+#: src/Controllers/JavaScriptMessagesController.php:540
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:541
+#: src/Controllers/JavaScriptMessagesController.php:542
 msgid "Page name"
 msgstr "Назва старонкі"
 
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:546
 msgid "Delete page"
 msgstr "Выдаліць старонку"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:547
+#: src/Controllers/JavaScriptMessagesController.php:548
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:549
+#: src/Controllers/JavaScriptMessagesController.php:550
 msgid "Please select a page to continue"
 msgstr "Калі ласка, выберыце старонку для працягу"
 
-#: src/Controllers/JavaScriptMessagesController.php:550
+#: src/Controllers/JavaScriptMessagesController.php:551
 msgid "Please enter a valid page name"
 msgstr "Калі ласка, увядзіце карэктную назву старонкі"
 
-#: src/Controllers/JavaScriptMessagesController.php:551
+#: src/Controllers/JavaScriptMessagesController.php:552
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:552
+#: src/Controllers/JavaScriptMessagesController.php:553
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:553
+#: src/Controllers/JavaScriptMessagesController.php:554
 msgid "Export relational schema"
 msgstr "Экспартаваць рэляцыйную схему"
 
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:555
 msgid "Modifications have been saved"
 msgstr "Мадыфікацыі былі захаваныя"
 
-#: src/Controllers/JavaScriptMessagesController.php:557
+#: src/Controllers/JavaScriptMessagesController.php:558
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d аб'ект(аў) створана."
 
-#: src/Controllers/JavaScriptMessagesController.php:558
+#: src/Controllers/JavaScriptMessagesController.php:559
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "Назвы калёнак"
 
-#: src/Controllers/JavaScriptMessagesController.php:562
+#: src/Controllers/JavaScriptMessagesController.php:563
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:564
+#: src/Controllers/JavaScriptMessagesController.php:565
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:567
+#: src/Controllers/JavaScriptMessagesController.php:568
 msgid "Drag to reorder."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:568
+#: src/Controllers/JavaScriptMessagesController.php:569
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:570
+#: src/Controllers/JavaScriptMessagesController.php:571
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:574
+#: src/Controllers/JavaScriptMessagesController.php:575
 msgid "Click to mark/unmark."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:575
+#: src/Controllers/JavaScriptMessagesController.php:576
 msgid "Double-click to copy column name."
 msgstr "Націсні двойчы, каб скапіявацю назву слупка."
 
-#: src/Controllers/JavaScriptMessagesController.php:576
+#: src/Controllers/JavaScriptMessagesController.php:577
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:579
+#: src/Controllers/JavaScriptMessagesController.php:580
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:582
+#: src/Controllers/JavaScriptMessagesController.php:583
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:584
+#: src/Controllers/JavaScriptMessagesController.php:585
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:586
+#: src/Controllers/JavaScriptMessagesController.php:587
 msgid "Original length"
 msgstr "Першапачатковая даўжыня"
 
-#: src/Controllers/JavaScriptMessagesController.php:589
+#: src/Controllers/JavaScriptMessagesController.php:590
 msgid "cancel"
 msgstr "скасаваць"
 
-#: src/Controllers/JavaScriptMessagesController.php:590
+#: src/Controllers/JavaScriptMessagesController.php:591
 #: src/Controllers/Server/Status/StatusController.php:185
 msgid "Aborted"
 msgstr "Спынена"
 
-#: src/Controllers/JavaScriptMessagesController.php:592
+#: src/Controllers/JavaScriptMessagesController.php:593
 msgid "Success"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:593
+#: src/Controllers/JavaScriptMessagesController.php:594
 msgid "Import status"
 msgstr "Стан імпарту"
 
-#: src/Controllers/JavaScriptMessagesController.php:595
+#: src/Controllers/JavaScriptMessagesController.php:596
 msgid "Select database first"
 msgstr "Выберыце спачатку базу даных"
 
-#: src/Controllers/JavaScriptMessagesController.php:597
+#: src/Controllers/JavaScriptMessagesController.php:598
 msgid "Go to link:"
 msgstr "Перайсці па спасылцы:"
 
-#: src/Controllers/JavaScriptMessagesController.php:600
+#: src/Controllers/JavaScriptMessagesController.php:601
 msgid "Generate password"
 msgstr "Згенэраваць пароль"
 
-#: src/Controllers/JavaScriptMessagesController.php:607
+#: src/Controllers/JavaScriptMessagesController.php:608
 msgid "Show panel"
 msgstr "Паказаць панэль"
 
-#: src/Controllers/JavaScriptMessagesController.php:608
+#: src/Controllers/JavaScriptMessagesController.php:609
 msgid "Hide panel"
 msgstr "Схаваць панэль"
 
-#: src/Controllers/JavaScriptMessagesController.php:610
+#: src/Controllers/JavaScriptMessagesController.php:611
 #: src/Navigation/NavigationTree.php:1313
 msgid "Unlink from main panel"
 msgstr "Адлучыць ад галоўнай панэлі"
 
-#: src/Controllers/JavaScriptMessagesController.php:614 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:615 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -13344,113 +13315,113 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:618
+#: src/Controllers/JavaScriptMessagesController.php:619
 msgid ", latest stable version:"
 msgstr ", апошняя стабільная версія:"
 
-#: src/Controllers/JavaScriptMessagesController.php:619
+#: src/Controllers/JavaScriptMessagesController.php:620
 msgid "up to date"
 msgstr "актуальная"
 
-#: src/Controllers/JavaScriptMessagesController.php:620
+#: src/Controllers/JavaScriptMessagesController.php:621
 msgid "There was an error in loading the Git information."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:623
+#: src/Controllers/JavaScriptMessagesController.php:624
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:624
+#: src/Controllers/JavaScriptMessagesController.php:625
 msgid "Change report settings"
 msgstr "Змяніць налады зварота"
 
-#: src/Controllers/JavaScriptMessagesController.php:625
+#: src/Controllers/JavaScriptMessagesController.php:626
 msgid "Show report details"
 msgstr "Паказаць дэталі зварота"
 
-#: src/Controllers/JavaScriptMessagesController.php:626
+#: src/Controllers/JavaScriptMessagesController.php:627
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:629
+#: src/Controllers/JavaScriptMessagesController.php:630
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:635
-#: src/Controllers/JavaScriptMessagesController.php:648
+#: src/Controllers/JavaScriptMessagesController.php:636
+#: src/Controllers/JavaScriptMessagesController.php:649
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:637
+#: src/Controllers/JavaScriptMessagesController.php:638
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:643
+#: src/Controllers/JavaScriptMessagesController.php:644
 #: src/Error/ErrorHandler.php:415
 msgid "Ignore All"
 msgstr "Ігнараваць усё"
 
-#: src/Controllers/JavaScriptMessagesController.php:650
+#: src/Controllers/JavaScriptMessagesController.php:651
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:654
+#: src/Controllers/JavaScriptMessagesController.php:655
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:655
+#: src/Controllers/JavaScriptMessagesController.php:656
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:656
+#: src/Controllers/JavaScriptMessagesController.php:657
 msgid "Successfully copied!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:657
+#: src/Controllers/JavaScriptMessagesController.php:658
 #, fuzzy
 #| msgid "Copying database"
 msgid "Copying failed!"
 msgstr "Капіяваць базу дадзеных"
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:661
 msgid "Execute this query again?"
 msgstr "Выканаць гэты запыт зноў?"
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:662
 msgid "Do you really want to delete this bookmark?"
 msgstr "Ці сапраўды вы жадаеце выдаліць гэтую закладку?"
 
-#: src/Controllers/JavaScriptMessagesController.php:662
+#: src/Controllers/JavaScriptMessagesController.php:663
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:663
+#: src/Controllers/JavaScriptMessagesController.php:664
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s запытаў выканана %s разоў за %s секунд."
 
-#: src/Controllers/JavaScriptMessagesController.php:664
+#: src/Controllers/JavaScriptMessagesController.php:665
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:665
+#: src/Controllers/JavaScriptMessagesController.php:666
 msgid "Show arguments"
 msgstr "Паказаць аргументы"
 
-#: src/Controllers/JavaScriptMessagesController.php:666
+#: src/Controllers/JavaScriptMessagesController.php:667
 msgid "Hide arguments"
 msgstr "Схаваць аргументы"
 
-#: src/Controllers/JavaScriptMessagesController.php:669
+#: src/Controllers/JavaScriptMessagesController.php:670
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -13459,89 +13430,89 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:676
+#: src/Controllers/JavaScriptMessagesController.php:677
 msgid "Copy tables to"
 msgstr "Капіяваць табліцы у"
 
-#: src/Controllers/JavaScriptMessagesController.php:677
+#: src/Controllers/JavaScriptMessagesController.php:678
 msgid "Add table prefix"
 msgstr "Дадаць прэфікс табліцы"
 
-#: src/Controllers/JavaScriptMessagesController.php:678
+#: src/Controllers/JavaScriptMessagesController.php:679
 msgid "Replace table with prefix"
 msgstr "Замяніць прэфікс табліцы"
 
-#: src/Controllers/JavaScriptMessagesController.php:682
+#: src/Controllers/JavaScriptMessagesController.php:683
 msgid "Extremely weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:683
+#: src/Controllers/JavaScriptMessagesController.php:684
 msgid "Very weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:684
+#: src/Controllers/JavaScriptMessagesController.php:685
 msgid "Weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:685
+#: src/Controllers/JavaScriptMessagesController.php:686
 msgid "Good"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:686
+#: src/Controllers/JavaScriptMessagesController.php:687
 msgid "Strong"
 msgstr ""
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:690
+#: src/Controllers/JavaScriptMessagesController.php:691
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:692
+#: src/Controllers/JavaScriptMessagesController.php:693
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:694
+#: src/Controllers/JavaScriptMessagesController.php:695
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr ""
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:696
+#: src/Controllers/JavaScriptMessagesController.php:697
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:698
+#: src/Controllers/JavaScriptMessagesController.php:699
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:700
+#: src/Controllers/JavaScriptMessagesController.php:701
 #, fuzzy
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Тып экспарту"
 
-#: src/Controllers/JavaScriptMessagesController.php:703
+#: src/Controllers/JavaScriptMessagesController.php:704
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:708
+#: src/Controllers/JavaScriptMessagesController.php:709
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:713
+#: src/Controllers/JavaScriptMessagesController.php:714
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -13549,270 +13520,270 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Табліца %s ужо існуе!"
 
-#: src/Controllers/JavaScriptMessagesController.php:715 src/InsertEdit.php:272
+#: src/Controllers/JavaScriptMessagesController.php:716 src/InsertEdit.php:272
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Схаваць"
 
-#: src/Controllers/JavaScriptMessagesController.php:719
+#: src/Controllers/JavaScriptMessagesController.php:720
 #, fuzzy
 #| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Студзень"
 
-#: src/Controllers/JavaScriptMessagesController.php:720
+#: src/Controllers/JavaScriptMessagesController.php:721
 msgctxt "Month name"
 msgid "February"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:721
+#: src/Controllers/JavaScriptMessagesController.php:722
 #, fuzzy
 #| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "Сакавік"
 
-#: src/Controllers/JavaScriptMessagesController.php:722
+#: src/Controllers/JavaScriptMessagesController.php:723
 #, fuzzy
 #| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "Красавік"
 
-#: src/Controllers/JavaScriptMessagesController.php:723
+#: src/Controllers/JavaScriptMessagesController.php:724
 #, fuzzy
 #| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Тра"
 
-#: src/Controllers/JavaScriptMessagesController.php:724
+#: src/Controllers/JavaScriptMessagesController.php:725
 #, fuzzy
 #| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "Чэрвень"
 
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy
 #| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Ліпень"
 
-#: src/Controllers/JavaScriptMessagesController.php:726
+#: src/Controllers/JavaScriptMessagesController.php:727
 #, fuzzy
 #| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "Жнівень"
 
-#: src/Controllers/JavaScriptMessagesController.php:727
+#: src/Controllers/JavaScriptMessagesController.php:728
 msgctxt "Month name"
 msgid "September"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:728
+#: src/Controllers/JavaScriptMessagesController.php:729
 #, fuzzy
 #| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Кастрычнік"
 
-#: src/Controllers/JavaScriptMessagesController.php:729
+#: src/Controllers/JavaScriptMessagesController.php:730
 msgctxt "Month name"
 msgid "November"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:730
+#: src/Controllers/JavaScriptMessagesController.php:731
 msgctxt "Month name"
 msgid "December"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:731 src/Util.php:497
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:497
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Сту"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:498
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Лют"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:499
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Сак"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:500
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Кра"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:501
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Тра"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:502
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Чэр"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:503
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Ліп"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:504
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Жні"
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:505
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Вер"
 
-#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:506
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Кас"
 
-#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:507
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Ліс"
 
-#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:508
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Сьн"
 
-#: src/Controllers/JavaScriptMessagesController.php:750 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:511
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Ндз"
 
-#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:512
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Пан"
 
-#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:513
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Аўт"
 
-#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:514
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Сер"
 
-#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:515
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Цач"
 
-#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:516
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Пят"
 
-#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:517
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Суб"
 
-#: src/Controllers/JavaScriptMessagesController.php:757
+#: src/Controllers/JavaScriptMessagesController.php:758
 #, fuzzy
 #| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Ндз"
 
-#: src/Controllers/JavaScriptMessagesController.php:758
+#: src/Controllers/JavaScriptMessagesController.php:759
 #, fuzzy
 #| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Пн"
 
-#: src/Controllers/JavaScriptMessagesController.php:759
+#: src/Controllers/JavaScriptMessagesController.php:760
 #, fuzzy
 #| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Аў"
 
-#: src/Controllers/JavaScriptMessagesController.php:760
+#: src/Controllers/JavaScriptMessagesController.php:761
 #, fuzzy
 #| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "Ср"
 
-#: src/Controllers/JavaScriptMessagesController.php:761
+#: src/Controllers/JavaScriptMessagesController.php:762
 #, fuzzy
 #| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Чц"
 
-#: src/Controllers/JavaScriptMessagesController.php:762
+#: src/Controllers/JavaScriptMessagesController.php:763
 #, fuzzy
 #| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Пт"
 
-#: src/Controllers/JavaScriptMessagesController.php:763
+#: src/Controllers/JavaScriptMessagesController.php:764
 #, fuzzy
 #| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Сб"
 
-#: src/Controllers/JavaScriptMessagesController.php:764
+#: src/Controllers/JavaScriptMessagesController.php:765
 #, fuzzy
 #| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
@@ -13820,13 +13791,13 @@ msgid "Wk"
 msgstr "Тдз"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:766
+#: src/Controllers/JavaScriptMessagesController.php:767
 #, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:768
 #, fuzzy
 #| msgctxt "Year suffix"
 #| msgid "none"
@@ -13834,47 +13805,47 @@ msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "няма"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:769
 #, fuzzy
 #| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Час"
 
-#: src/Controllers/JavaScriptMessagesController.php:769
+#: src/Controllers/JavaScriptMessagesController.php:770
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:770
+#: src/Controllers/JavaScriptMessagesController.php:771
 #, fuzzy
 #| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Хвіліна"
 
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:772
 #, fuzzy
 #| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Секунда"
 
-#: src/Controllers/JavaScriptMessagesController.php:772
+#: src/Controllers/JavaScriptMessagesController.php:773
 #, fuzzy
 #| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "у сэкунду"
 
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:774
 #, fuzzy
 #| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "у секунду"
 
-#: src/Controllers/JavaScriptMessagesController.php:774
+#: src/Controllers/JavaScriptMessagesController.php:775
 #, fuzzy
 #| msgctxt "Chart type"
 #| msgid "Timeline"
@@ -13883,7 +13854,7 @@ msgid "Time zone"
 msgstr "Часовая шкала"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:778
+#: src/Controllers/JavaScriptMessagesController.php:779
 #, fuzzy
 #| msgctxt "Previous month"
 #| msgid "Prev"
@@ -13892,7 +13863,7 @@ msgid "Prev"
 msgstr "Папярэдні"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:780
+#: src/Controllers/JavaScriptMessagesController.php:781
 #, fuzzy
 #| msgctxt "Next month"
 #| msgid "Next"
@@ -13901,125 +13872,125 @@ msgid "Next"
 msgstr "Наступны"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:782
+#: src/Controllers/JavaScriptMessagesController.php:783
 msgid "Today"
 msgstr "Сёння"
 
-#: src/Controllers/JavaScriptMessagesController.php:785
+#: src/Controllers/JavaScriptMessagesController.php:786
 msgid "This field is required"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:786
+#: src/Controllers/JavaScriptMessagesController.php:787
 msgid "Please fix this field"
 msgstr "Калі ласка, выпраўце гэтае поле"
 
-#: src/Controllers/JavaScriptMessagesController.php:787
+#: src/Controllers/JavaScriptMessagesController.php:788
 msgid "Please enter a valid email address"
 msgstr "Калі ласка, увядзіце дзейны адрас электроннай пошты"
 
-#: src/Controllers/JavaScriptMessagesController.php:788
+#: src/Controllers/JavaScriptMessagesController.php:789
 msgid "Please enter a valid URL"
 msgstr "Калі ласка, увядзіце карэктны URL"
 
-#: src/Controllers/JavaScriptMessagesController.php:789
+#: src/Controllers/JavaScriptMessagesController.php:790
 msgid "Please enter a valid date"
 msgstr "Калі ласка, увядзіце карэктную дату"
 
-#: src/Controllers/JavaScriptMessagesController.php:790
+#: src/Controllers/JavaScriptMessagesController.php:791
 msgid "Please enter a valid date ( ISO )"
 msgstr "Калі ласка, увядзіце карэктную дату (ISO)"
 
-#: src/Controllers/JavaScriptMessagesController.php:791
+#: src/Controllers/JavaScriptMessagesController.php:792
 msgid "Please enter a valid number"
 msgstr "Калі ласка, увядзіце карэктны лік"
 
-#: src/Controllers/JavaScriptMessagesController.php:792
+#: src/Controllers/JavaScriptMessagesController.php:793
 msgid "Please enter a valid credit card number"
 msgstr "Калі ласка, увядзіце дзейны нумар крэдытнай карты"
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:794
 msgid "Please enter only digits"
 msgstr "Калі ласка, увядзіце толькі лічбы"
 
-#: src/Controllers/JavaScriptMessagesController.php:794
+#: src/Controllers/JavaScriptMessagesController.php:795
 msgid "Please enter the same value again"
 msgstr "Калі ласка, увядзіце тое ж значэнне зноў"
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:796
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:797
 msgid "Please enter at least {0} characters"
 msgstr "Калі ласка, увядзіце не менш {0} знакаў"
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:798
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:798
+#: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Please enter a value between {0} and {1}"
 msgstr "Калі ласка, увядзіце значэнне паміж {0} і {1}"
 
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Калі ласка, увядзіце значэнне меншае ці роўнае {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:800
+#: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Калі ласка, увядзіце значэнне большае ці роўнае {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:801
+#: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Please enter a valid date or time"
 msgstr "Калі ласка, увядзіце сапраўдную дату або час"
 
-#: src/Controllers/JavaScriptMessagesController.php:802
+#: src/Controllers/JavaScriptMessagesController.php:803
 msgid "Please enter a valid HEX input"
 msgstr "Калі ласка, увядзіце сапраўдны HEX"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:804
+#: src/Controllers/JavaScriptMessagesController.php:805
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:807
+#: src/Controllers/JavaScriptMessagesController.php:808
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:812
+#: src/Controllers/JavaScriptMessagesController.php:813
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:814
+#: src/Controllers/JavaScriptMessagesController.php:815
 #, php-format
 msgid "%s of %s"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:815
+#: src/Controllers/JavaScriptMessagesController.php:816
 #, php-format
 msgid "%s/sec."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:816
+#: src/Controllers/JavaScriptMessagesController.php:817
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:817
+#: src/Controllers/JavaScriptMessagesController.php:818
 msgid "About %SEC sec. remaining."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:818
+#: src/Controllers/JavaScriptMessagesController.php:819
 msgid "The file is being processed, please be patient."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:819
+#: src/Controllers/JavaScriptMessagesController.php:820
 msgid "Uploading your import file…"
 msgstr "Загрузка вашага файла імпарту…"
 
-#: src/Controllers/JavaScriptMessagesController.php:821
+#: src/Controllers/JavaScriptMessagesController.php:822
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -14094,7 +14065,7 @@ msgstr "Двух-фактарная аўтэнтыфікацыя сканфіг�
 
 #: src/Controllers/SchemaExportController.php:40
 #: src/Controllers/Server/UserGroupsFormController.php:44
-#: src/ResponseRenderer.php:477
+#: src/ResponseRenderer.php:471
 msgid "Missing parameter:"
 msgstr "Адсутны параметр:"
 
@@ -14936,8 +14907,8 @@ msgstr "Закладка не створаная!"
 #: src/Controllers/Table/AddFieldController.php:135
 #: src/Controllers/Table/IndexesController.php:142
 #: src/Controllers/Table/IndexRenameController.php:131
-#: src/Controllers/Table/Structure/PartitioningController.php:266
-#: src/Controllers/Table/Structure/SaveController.php:216
+#: src/Controllers/Table/Structure/PartitioningController.php:265
+#: src/Controllers/Table/Structure/SaveController.php:214
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Табліца %1$s была пасьпяхова зьмененая."
@@ -15060,13 +15031,17 @@ msgstr "Унутраныя сувязі паспяхова абноўленыя.
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
+#: src/Controllers/Table/Structure/AddKeyController.php:23
+msgid "Invalid request parameter."
+msgstr ""
+
 #: src/Controllers/Table/Structure/MoveColumnsController.php:80
 msgid "The columns have been moved successfully."
 msgstr "Слупкі паспяхова перамешчаныя."
 
-#: src/Controllers/Table/Structure/PartitioningController.php:258
-#: src/Controllers/Table/Structure/SaveController.php:266
-#: src/Tracking/Tracking.php:779
+#: src/Controllers/Table/Structure/PartitioningController.php:257
+#: src/Controllers/Table/Structure/SaveController.php:264
+#: src/Tracking/Tracking.php:737
 msgid "Query error"
 msgstr "Памылка запыту"
 
@@ -15078,7 +15053,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/Controllers/Table/Structure/SaveController.php:211
+#: src/Controllers/Table/Structure/SaveController.php:209
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -17916,15 +17891,15 @@ msgstr "%s была адключаная для рэтага MySQL-сэрвэр�
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Гэты сэрвэр MySQL не падтрымлівае машыну захаваньня дадзеных %s."
 
-#: src/Table/Indexes.php:70 src/Table/Indexes.php:160
+#: src/Table/Indexes.php:71 src/Table/Indexes.php:161
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Імя першаснага ключа мусіць быць PRIMARY!"
 
-#: src/Table/Indexes.php:82 src/Table/Indexes.php:167
+#: src/Table/Indexes.php:83 src/Table/Indexes.php:168
 msgid "Can't rename index to PRIMARY!"
 msgstr "Немагчыма перайменаваць індэкс у PRIMARY!"
 
-#: src/Table/Indexes.php:108
+#: src/Table/Indexes.php:109
 msgid "No index parts defined!"
 msgstr "Часткі індэксу ня вызначаныя!"
 
@@ -17995,100 +17970,100 @@ msgstr "Тэма %s ня знойдзеная!"
 msgid "No valid image path for theme %s found!"
 msgstr "Дапушчальны шлях да малюнкаў тэмы %s ня знойдзены!"
 
-#: src/Tracking/LogTypeEnum.php:35
+#: src/Tracking/TrackedDataType.php:35
 msgid "Tracking data definition successfully deleted"
 msgstr ""
 
-#: src/Tracking/LogTypeEnum.php:36
+#: src/Tracking/TrackedDataType.php:36
 msgid "Tracking data manipulation successfully deleted"
 msgstr ""
 
-#: src/Tracking/LogTypeEnum.php:43
+#: src/Tracking/TrackedDataType.php:43
 msgid "Data definition statement"
 msgstr ""
 
-#: src/Tracking/LogTypeEnum.php:44
+#: src/Tracking/TrackedDataType.php:44
 msgid "Data manipulation statement"
 msgstr ""
 
-#: src/Tracking/Tracking.php:210
+#: src/Tracking/Tracking.php:209
 msgid "Tracking statements"
 msgstr ""
 
-#: src/Tracking/Tracking.php:226
+#: src/Tracking/Tracking.php:225
 msgid "Delete tracking data row from report"
 msgstr "Выдаліць радок даных сачэння са справаздачы"
 
-#: src/Tracking/Tracking.php:236
+#: src/Tracking/Tracking.php:235
 msgid "No data"
 msgstr "Няма даных"
 
-#: src/Tracking/Tracking.php:348 src/Tracking/Tracking.php:419
+#: src/Tracking/Tracking.php:296
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr ""
 
-#: src/Tracking/Tracking.php:439
+#: src/Tracking/Tracking.php:399
 msgid "SQL dump (file download)"
 msgstr ""
 
-#: src/Tracking/Tracking.php:441
+#: src/Tracking/Tracking.php:401
 msgid "SQL dump"
 msgstr ""
 
-#: src/Tracking/Tracking.php:444
+#: src/Tracking/Tracking.php:404
 msgid "This option will replace your table and contained data."
 msgstr ""
 
-#: src/Tracking/Tracking.php:446
+#: src/Tracking/Tracking.php:406
 msgid "SQL execution"
 msgstr ""
 
-#: src/Tracking/Tracking.php:450
+#: src/Tracking/Tracking.php:410
 #, php-format
 msgid "Export as %s"
 msgstr "Экспартаваць як %s"
 
-#: src/Tracking/Tracking.php:604
+#: src/Tracking/Tracking.php:563
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
-#: src/Tracking/Tracking.php:839
+#: src/Tracking/Tracking.php:796
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
 
-#: src/Tracking/Tracking.php:843
+#: src/Tracking/Tracking.php:800
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
-#: src/Tracking/Tracking.php:854
+#: src/Tracking/Tracking.php:811
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
-#: src/Tracking/Tracking.php:887
+#: src/Tracking/Tracking.php:844
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr ""
 
-#: src/Tracking/Tracking.php:910
+#: src/Tracking/Tracking.php:867
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr ""
 
-#: src/Tracking/Tracking.php:913
+#: src/Tracking/Tracking.php:870
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr ""
 
-#: src/Tracking/Tracking.php:1008
+#: src/Tracking/Tracking.php:965
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "Версія %1$s з %2$s выдаленая."
 
-#: src/Tracking/Tracking.php:1039
+#: src/Tracking/Tracking.php:996
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
@@ -18422,6 +18397,14 @@ msgstr "Памылка ў ZIP-архіве:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Файлы ў ZIP-архіве ня знойдзеныя!"
+
+#, php-format
+#~ msgid "A primary key has been added on %s."
+#~ msgstr "Першасны ключ быў дададзены да %s."
+
+#, php-format
+#~ msgid "An index has been added on %s."
+#~ msgstr "Быў дададзены індэкс для %s."
 
 #, fuzzy, php-format
 #~| msgid "per second"
