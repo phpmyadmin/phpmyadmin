@@ -27,17 +27,6 @@ function initGISEditorVisualization () {
     visualizationController = new window.GisVisualizationController();
 }
 
-/**
- * Closes the GIS data editor and perform necessary clean up work.
- */
-function closeGISEditor () {
-    $('#popup_background').fadeOut('fast');
-    $('#gis_editor').fadeOut('fast', function () {
-        disposeGISEditorVisualization();
-        $(this).empty();
-    });
-}
-
 function withIndex (prefix: string, ...index: Array<string|number>): string {
     let result = prefix;
     for (let i = 0; i < index.length; ++i) {
@@ -289,7 +278,7 @@ function loadJSAndGISEditor (resolve) {
  * @param inputName name of the input field
  */
 function loadGISEditor (value, field, type, inputName) {
-    const $gisEditor = $('#gis_editor');
+    const $gisEditorModal = $('#gisEditorModal');
     const data = {
         'field': field,
         'value': value,
@@ -307,7 +296,8 @@ function loadGISEditor (value, field, type, inputName) {
 
         disposeGISEditorVisualization();
 
-        $gisEditor.html(data.gis_editor);
+        $gisEditorModal.find('.modal-title').first().html(data.gis_editor_title);
+        $gisEditorModal.find('.modal-body').first().html(data.gis_editor);
         initGISEditorVisualization();
 
         const gisData = $('#gis_data').data('gisData');
@@ -324,18 +314,6 @@ function loadGISEditor (value, field, type, inputName) {
     }, 'json');
 }
 
-function openGISEditorInternal () {
-    $('#popup_background').fadeIn('fast');
-    $('#gis_editor')
-        .append(
-            '<div id="gis_data_editor">' +
-            '<img class="ajaxIcon" id="loadingMonitorIcon" src="' +
-            window.themeImagePath + 'ajax_clock_small.gif" alt="">' +
-            '</div>'
-        )
-        .fadeIn('fast');
-}
-
 /**
  * Opens up the dialog for the GIS data editor.
  *
@@ -345,8 +323,6 @@ function openGISEditorInternal () {
  * @param inputName name of the input field
  */
 function openGISEditor (value, field, type, inputName) {
-    openGISEditorInternal();
-
     if (gisEditorLoaded) {
         loadGISEditor(value, field, type, inputName);
     } else {
@@ -373,8 +349,6 @@ function insertDataAndClose () {
 
         $('input[name=\'' + inputName + '\']').val(data.result);
     }, 'json');
-
-    closeGISEditor();
 }
 
 function onCoordinateEdit (data) {
@@ -497,7 +471,6 @@ AJAX.registerTeardown('gis_data_editor.js', function () {
     $(document).off('click', '#gis_editor button.gis-copy-data');
     $(document).off('change', '#gis_editor input[type=\'text\']');
     $(document).off('change', '#gis_editor select.gis_type');
-    $(document).off('click', '#gis_editor button.cancel_gis_editor');
     $(document).off('click', '#gis_editor button.addJs.addPoint');
     $(document).off('click', '#gis_editor button.addJs.addLine');
     $(document).off('click', '#gis_editor button.addJs.addPolygon');
@@ -509,7 +482,6 @@ AJAX.registerOnload('gis_data_editor.js', function () {
 
     $(document).on('change', '#gis_editor input[type=\'text\']', updateResult);
     $(document).on('change', '#gis_editor select.gis_type', onGeometryTypeChange);
-    $(document).on('click', '#gis_editor button.cancel_gis_editor', () => closeGISEditor());
 
     $(document).on('click', '#gis_editor button.addJs.addPoint', addPoint);
     $(document).on('click', '#gis_editor button.addJs.addLine', addLineStringOrInnerRing);

@@ -119,9 +119,10 @@
       {% endif %}
 
       {% if column.pmaType in gis_data_types %}
-        <span class="open_gis_editor" data-row-id="{{ row_id }}">
-          {{ link_or_button('#', null, get_icon('b_edit', t('Edit/Insert'))) }}
-        </span>
+        <span class="open_gis_editor" data-row-id="{{ row_id }}"></span>
+        <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#gisEditorModal" data-row-id="{{ row_id }}">
+          {{ get_icon('b_edit', t('Edit/Insert')) }}
+        </button>
       {% endif %}
     {% endif %}
   </td>

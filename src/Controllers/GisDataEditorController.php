@@ -14,11 +14,13 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
+use function __;
 use function array_merge;
 use function in_array;
 use function is_array;
 use function mb_strtoupper;
 use function preg_match;
+use function sprintf;
 use function trim;
 
 /**
@@ -109,7 +111,8 @@ final class GisDataEditorController implements InvocableController
             'result' => $result,
         ]);
 
-        $this->response->addJSON(['gis_editor' => $templateOutput]);
+        $this->response->addJSON('gis_editor', $templateOutput);
+        $this->response->addJSON('gis_editor_title', sprintf(__('Value for the column "%s"'), $field));
 
         return $this->response->response();
     }
