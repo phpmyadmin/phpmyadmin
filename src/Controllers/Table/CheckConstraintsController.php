@@ -92,12 +92,20 @@ final class CheckConstraintsController implements InvocableController
             }
         }
 
-        if (isset($_POST['index'])) {
-            if (is_array($_POST['index'])) {
+        if (isset($_POST['check_constraint'])) {
+            if (is_array($_POST['check_constraint'])) {
                 // coming already from form
-                $checkConstraint = new CheckConstraint($_POST['index']);
+                $_POST['check_constraint']['Schema'] = Current::$database;
+                $_POST['check_constraint']['Table'] = Current::$table;
+
+                // if level is Column then check constraint must have same name as the column
+                if ($_POST['check_constraint']['LEVEL'] == CheckConstraint::COLUMN) {
+                    $_POST['check_constraint']['CONSTRAINT_NAME'] = $_POST['check_constraint']['CONSTRAINT_COLUMN'];
+                }
+
+                $checkConstraint = new CheckConstraint($_POST['check_constraint']);
             } else {
-                $checkConstraint = $this->dbi->getTable(Current::$database, Current::$table)->getCheckConstraint($_POST['index']);
+                $checkConstraint = $this->dbi->getTable(Current::$database, Current::$table)->getCheckConstraint($_POST['check_constraint']);
             }
         } else {
             $checkConstraint = new CheckConstraint();

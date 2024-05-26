@@ -1,7 +1,7 @@
 <form action="{{ url('/table/check-constraints') }}"
     method="post"
-    name="index_frm"
-    id="index_frm"
+    name="check_constraint_frm"
+    id="check_constraint_frm"
     class="card ajax">
 
     {{ get_hidden_inputs(form_params) }}
@@ -10,240 +10,89 @@
     {% endif %}
 
     <div class="card-body">
-        <div class="index_info">
+        <div class="check_constraint_info">
             <div>
                 <div class="label">
                     <strong>
-                        <label for="input_index_name">
-                            {{ t('Index name:') }}
-                            {{ show_hint(t('"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!')) }}
+                        <label for="select_check_constraint_level">
+                            {{ t('Check constraint level:') }}
+                            {# {{ show_mysql_docu('ALTER_TABLE') }} #}
+                        </label>
+                    </strong>
+                </div>
+
+              <select name="check_constraint[LEVEL]" id="select_check_constraint_level"{{ create_edit_table ? ' disabled' }}>
+                <option value="Column"{{ check_constraint.getLevel() == 'Column' ? ' selected' }}>Column</option>
+                <option value="Table"{{ check_constraint.getLevel() == 'Table' ? ' selected' }}>Table</option>
+              </select>
+            </div>
+
+            <div id="check_constraint_name_container" class="hide">
+                <div class="label">
+                    <strong>
+                        <label for="input_check_constraint_name">
+                            {{ t('Check Constraint name:') }}
                         </label>
                     </strong>
                 </div>
 
                 <input type="text"
-                    name="index[Key_name]"
-                    id="input_index_name"
+                    name="check_constraint[CONSTRAINT_NAME]"
+                    id="input_check_constraint_name"
                     size="25"
                     maxlength="64"
-                    value="{{ index.getName() }}"
+                    value="{{ check_constraint.getName() }}"
                     onfocus="this.select()">
             </div>
 
-            <div>
+            <div id="check_constraint_column_container">
                 <div class="label">
                     <strong>
-                        <label for="select_index_choice">
-                            {{ t('Index choice:') }}
-                            {{ show_mysql_docu('ALTER_TABLE') }}
+                        <label for="input_check_constraint_column">
+                            {{ t('Check Constraint column:') }}
                         </label>
                     </strong>
                 </div>
 
-              <select name="index[Index_choice]" id="select_index_choice"{{ create_edit_table ? ' disabled' }}>
-                {% if index.getChoice() == 'PRIMARY' or not index.hasPrimary() %}
-                  <option value="PRIMARY"{{ index.getChoice() == 'PRIMARY' ? ' selected' }}>PRIMARY</option>
-                {% endif %}
-                <option value="INDEX"{{ index.getChoice() == 'INDEX' ? ' selected' }}>INDEX</option>
-                <option value="UNIQUE"{{ index.getChoice() == 'UNIQUE' ? ' selected' }}>UNIQUE</option>
-                <option value="SPATIAL"{{ index.getChoice() == 'SPATIAL' ? ' selected' }}>SPATIAL</option>
-                <option value="FULLTEXT"{{ index.getChoice() == 'FULLTEXT' ? ' selected' }}>FULLTEXT</option>
-              </select>
-            </div>
-
-            {% if default_sliders_state != 'disabled' %}
-            <div class="mb-3">
-              <button class="btn btn-sm btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#advancedOptions" aria-expanded="{{ default_sliders_state == 'open' ? 'true' : 'false' }}" aria-controls="advancedOptions">
-                {{ t('Advanced options') }}
-              </button>
-            </div>
-            <div class="collapse mb-3{{ default_sliders_state == 'open' ? ' show' }}" id="advancedOptions">
-            {% endif %}
-
-            <div>
-                <div class="label">
-                    <strong>
-                        <label for="input_key_block_size">
-                            {{ t('Key block size:') }}
-                        </label>
-                    </strong>
-                </div>
-
-                <input type="text"
-                    name="index[Key_block_size]"
-                    id="input_key_block_size"
-                    size="30"
-                    value="{{ index.getKeyBlockSize() }}">
-            </div>
-
-            <div>
-
-                <div class="label">
-                    <strong>
-                        <label for="select_index_type">
-                            {{ t('Index type:') }}
-                            {{ show_mysql_docu('ALTER_TABLE') }}
-                        </label>
-                    </strong>
-                </div>
-
-              <select name="index[Index_type]" id="select_index_type">
-                {% for index_type in ['', 'BTREE', 'HASH'] %}
-                  <option value="{{ index_type }}"{{ index.getType() == index_type ? ' selected' }}>{{ index_type }}</option>
-                {% endfor %}
-              </select>
-            </div>
-
-            <div>
-                <div class="label">
-                    <strong>
-                        <label for="input_parser">
-                            {{ t('Parser:') }}
-                        </label>
-                    </strong>
-                </div>
-
-                <input type="text"
-                    name="index[Parser]"
-                    id="input_parse"
-                    size="30"
-                    value="{{ index.getParser() }}">
-            </div>
-
-            <div>
-                <div class="label">
-                    <strong>
-                        <label for="input_index_comment">
-                            {{ t('Comment:') }}
-                        </label>
-                    </strong>
-                </div>
-
-                <input type="text"
-                    name="index[Index_comment]"
-                    id="input_index_comment"
-                    size="30"
-                    maxlength="1024"
-                    value="{{ index.getComment() }}">
-            </div>
-
-            {% if default_sliders_state != 'disabled' %}
-            </div>
-            {% endif %}
-
-        <div class="clearfloat"></div>
-
-        <table class="table align-middle" id="index_columns">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>
-                        {{ t('Column') }}
-                    </th>
-                    <th>
-                        {{ t('Size') }}
-                    </th>
-                </tr>
-            </thead>
-            {% set spatial_types = [
-                'geometry',
-                'point',
-                'linestring',
-                'polygon',
-                'multipoint',
-                'multilinestring',
-                'multipolygon',
-                'geomtrycollection'
-            ] %}
-            <tbody>
-                {% for column in index.getColumns() %}
-                    <tr class="noclick">
-                        <td>
-                            <span class="drag_icon" title="{{ t('Drag to reorder') }}"></span>
-                        </td>
-                        <td>
-                            <select name="index[columns][names][]">
-                                <option value="">
-                                    -- {{ t('Ignore') }} --
-                                </option>
-                                {% for field_name, field_type in fields %}
-                                    {% if (index.getChoice() != 'FULLTEXT'
-                                            or field_type matches '/(char|text)/i')
-                                        and (index.getChoice() != 'SPATIAL'
-                                            or field_type in spatial_types) %}
-
-                                        <option value="{{ field_name }}"
-                                            {%- if field_name == column.getName() %}
-                                                selected="selected"
-                                            {%- endif %}>
-                                            {{ field_name }} [{{ field_type }}]
-                                        </option>
-                                    {% endif %}
-                                {% endfor %}
-                            </select>
-                        </td>
-                        <td>
-                            <input type="text"
-                                size="5"
-                                onfocus="this.select()"
-                                name="index[columns][sub_parts][]"
-                                value="{{ index.getChoice() != 'SPATIAL' ?
-                                    column.getSubPart() }}">
-                        </td>
-                    </tr>
-                {% endfor %}
-                {% if add_fields > 0 %}
-                    {% for i in range(1, add_fields) %}
-                        <tr class="noclick">
-                            <td>
-                                <span class="drag_icon" title="{{ t('Drag to reorder') }}"></span>
-                            </td>
-                            <td>
-                                <select name="index[columns][names][]">
-                                    <option value="">-- {{ t('Ignore') }} --</option>
-                                    {% set j = 0 %}
-                                    {% for field_name, field_type in fields %}
-                                        {% if create_edit_table %}
-                                            {% set col_index = field_type[1] %}
-                                            {% set field_type = field_type[0] %}
-                                        {% endif %}
-                                        {% set j = j + 1 %}
-                                        <option value="{{ col_index is defined ?
-                                            col_index : field_name }}"
-                                            {{- j == i ? ' selected="selected"' }}>
-                                            {{ field_name }} [{{ field_type }}]
-                                        </option>
-                                    {% endfor %}
-                                </select>
-                            </td>
-                            <td>
-                                <input type="text"
-                                    size="5"
-                                    onfocus="this.select()"
-                                    name="index[columns][sub_parts][]"
-                                    value="">
-                            </td>
-                        </tr>
+                <select name="check_constraint[CONSTRAINT_COLUMN]" id="input_check_constraint_column" value="{{ check_constraint.getName() }}">
+                    {% for field_name, field_type in fields %}
+                        {% if (true) %}
+                            <option value="{{ field_name }}"
+                                {%- if field_name == column.getName() %}
+                                    selected="selected"
+                                {%- endif %}>
+                                {{ field_name }} [{{ field_type }}]
+                            </option>
+                        {% endif %}
                     {% endfor %}
-                {% endif %}
-            </tbody>
-        </table>
-        <div class="add_more">
-
-            <div class="slider"></div>
-            <div class="add_fields hide">
-                <input class="btn btn-secondary" type="submit"
-                    id="add_fields"
-                    value="{{ t('Add %s column(s) to index')|format(1) }}">
+                </select>
             </div>
-        </div>
-        </div>
+
+            <div>
+                <div class="label">
+                    <strong>
+                        <label for="input_check_constraint_clause">
+                            {{ t('Check Constraint clause:') }}
+                            {{ show_hint(t('Column check constraint clause <b>cannot</b> reference other columns then the column itself!')) }}
+                        </label>
+                    </strong>
+                </div>
+
+                <input type="text"
+                    name="check_constraint[CHECK_CLAUSE]"
+                    id="input_check_constraint_clause"
+                    size="25"
+                    maxlength="64"
+                    value="{{ check_constraint.getClause() }}"
+                    onfocus="this.select()">
+            </div>
+        <div class="clearfloat"></div>
     </div>
     {# The modal already has buttons to execute and preview SQL #}
     {%- if not create_edit_table -%}
     <div class="card-footer">
         <button class="btn btn-primary" type="submit">{{ t('Go') }}</button>
-        <button class="btn btn-secondary" type="submit" id="preview_index_frm">{{ t('Preview SQL') }}</button>
+        <button class="btn btn-secondary" type="submit" id="preview_check_constraint_frm">{{ t('Preview SQL') }}</button>
     </div>
     {%- endif -%}
 </form>

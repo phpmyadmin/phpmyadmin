@@ -65,7 +65,7 @@ final class CheckConstraints
         }
 
         if ($checkConstraint->getLevel() === CheckConstraint::TABLE) {
-            $sqlQuery .= sprintf(' ADD CONSTRAINT %s CHECK(%s);', $oldCheckConstraintName, $checkConstraint->getClause());
+            $sqlQuery .= sprintf(' ADD CONSTRAINT %s CHECK(%s);', $checkConstraint->getName(), $checkConstraint->getClause());
         } else if ($checkConstraint->getLevel() === CheckConstraint::COLUMN) {
             // TODO: implement sql for adding column check constraints
         } else {

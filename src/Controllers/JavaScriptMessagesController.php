@@ -65,6 +65,7 @@ final class JavaScriptMessagesController implements InvocableController
             'strDeletingTrackingEntry' => __('Delete entry from tracking report?'),
             'strDeletingTrackingData' => __('Deleting tracking data'),
             'strDroppingPrimaryKeyIndex' => __('Dropping Primary Key/Index'),
+            'strDroppingCheckConstraint' => __('Dropping Check constraint'),
             'strDroppingForeignKey' => __('Dropping Foreign key.'),
             'strDropUserGroupWarning' => __('Do you really want to delete user group "%s"?'),
             'strConfirmNavigation' => __('You have unsaved changes; are you sure you want to leave this page?'),
@@ -123,6 +124,10 @@ final class JavaScriptMessagesController implements InvocableController
             'strCreateCompositeIndex' => __('Create composite index'),
             'strCompositeWith' => __('Composite with:'),
             'strMissingColumn' => __('Please select column(s) for the index.'),
+
+            /* For check constraints */
+            'strAddConstraint' => __('Add constraint'),
+            'strEditConstraint' => __('Edit constraint'),
 
             /* For Preview SQL*/
             'strPreviewSQL' => __('Preview SQL'),
