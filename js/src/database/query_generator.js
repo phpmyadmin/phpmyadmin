@@ -37,19 +37,21 @@ function getFormatsText () {
 function generateCondition (criteriaDiv, table) {
     const tableName = table.val();
     const tableAlias = table.siblings('.table_alias').val();
+    const criteriaOp = criteriaDiv.find('.criteria_op').first().val();
+    let criteriaText = criteriaDiv.find('.rhs_text_val').first().val();
 
-    var query = '`' + Functions.escapeBacktick(tableAlias === '' ? tableName : tableAlias) + '`.';
+    let query = '`' + Functions.escapeBacktick(tableAlias === '' ? tableName : tableAlias) + '`.';
     query += '`' + Functions.escapeBacktick(table.siblings('.columnNameSelect').first().val()) + '`';
     if (criteriaDiv.find('.criteria_rhs').first().val() === 'text') {
-        var formatsText = getFormatsText();
+        const formatsText = getFormatsText();
 
-        if (['IN (...)', 'NOT IN (...)'].includes(criteriaDiv.find('.criteria_op').first().val())) {
-            query += sprintf(formatsText[criteriaDiv.find('.criteria_op').first().val()], criteriaDiv.find('.rhs_text_val').first().val());
-        } else {
-            query += sprintf(formatsText[criteriaDiv.find('.criteria_op').first().val()], Functions.escapeSingleQuote(criteriaDiv.find('.rhs_text_val').first().val()));
+        if (!['IN (...)', 'NOT IN (...)'].includes(criteriaOp)) {
+            criteriaText = Functions.escapeSingleQuote(criteriaText);
         }
+
+        query += sprintf(formatsText[criteriaOp], criteriaText);
     } else {
-        query += ' ' + criteriaDiv.find('.criteria_op').first().val();
+        query += ' ' + criteriaOp;
         query += ' `' + Functions.escapeBacktick(criteriaDiv.find('.tableNameSelect').first().val()) + '`.';
         query += '`' + Functions.escapeBacktick(criteriaDiv.find('.columnNameSelect').first().val()) + '`';
     }
