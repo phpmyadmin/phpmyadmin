@@ -195,9 +195,9 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         const value = opSelect.val();
         const criteriaInputCol = opSelect.closest('table').find('.rhs_text_val').parent();
 
-        Object.keys(hints).includes(value)
-            ? criteriaInputCol.append(`<p class="rhs_hint">${hints[value]}</p>`)
-            : criteriaInputCol.find(".rhs_hint").remove();
+        criteriaInputCol.find(".rhs_hint").remove();
+
+        Object.keys(hints).includes(value) && criteriaInputCol.append(`<p class="rhs_hint">${hints[value]}</p>`);
     }
 
     function addNewColumnCallbacks () {
