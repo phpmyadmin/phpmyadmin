@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Query;
 
 use PhpMyAdmin\Triggers\Trigger;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
 
 use function array_map;
@@ -143,7 +144,8 @@ class Generator
         string $database,
         string $table,
     ): string {
-        $sql = 'SELECT * FROM information_schema.CHECK_CONSTRAINTS WHERE CONSTRAINT_SCHEMA = \'' . $database . '\' AND TABLE_NAME = \'' . $table . '\';';
+        $dbi = DatabaseInterface::getInstance();
+        $sql = 'SELECT * FROM information_schema.CHECK_CONSTRAINTS WHERE CONSTRAINT_SCHEMA = ' . $dbi->quoteString($database) . ' AND TABLE_NAME = ' . $dbi->quoteString($table) . ';';
         return $sql;
     }
 
