@@ -459,11 +459,11 @@ class GisVisualizationController {
     constructor () {
         this.boundOnChoiceChange = this.onChoiceChange.bind(this);
 
-        $(document).on('click', '#choice', this.boundOnChoiceChange);
+        $(document).on('click', '#useOsmAsBaseLayerSwitch', this.boundOnChoiceChange);
 
         if (typeof window.ol === 'undefined') {
-            $('#choice, #labelChoice').hide();
-            $('#choice').prop('checked', false);
+            $('#useOsmAsBaseLayerSwitch, #useOsmAsBaseLayerSwitchLabel').hide();
+            $('#useOsmAsBaseLayerSwitch').prop('checked', false);
         }
 
         this.selectVisualization();
@@ -477,7 +477,7 @@ class GisVisualizationController {
      * Initially loads either SVG or OSM visualization based on the choice.
      */
     private selectVisualization () {
-        const showOl = $('#choice').prop('checked') === true;
+        const showOl = $('#useOsmAsBaseLayerSwitch').prop('checked') === true;
         const oldVis = showOl ? this.svgVis : this.olVis;
         if (oldVis) {
             oldVis.hide();
@@ -508,7 +508,7 @@ class GisVisualizationController {
      * Cleanup events when no longer needed
      */
     public dispose () {
-        $(document).off('click', '#choice');
+        $(document).off('click', '#useOsmAsBaseLayerSwitch');
 
         if (this.svgVis) {
             this.svgVis.dispose();
