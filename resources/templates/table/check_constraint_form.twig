@@ -21,13 +21,16 @@
                     </strong>
                 </div>
 
-              <select name="check_constraint[LEVEL]" id="select_check_constraint_level"{{ create_edit_table ? ' disabled' }}>
+                {% if create_check_constraint == 0 %}
+                <input type="hidden" name="check_constraint[LEVEL]" value={{check_constraint.getLevel()}}>
+                {% endif %}
+              <select name="check_constraint[LEVEL]" id="select_check_constraint_level"{{ create_check_constraint == 0 ? ' disabled' }}>
                 <option value="Column"{{ check_constraint.getLevel() == 'Column' ? ' selected' }}>Column</option>
                 <option value="Table"{{ check_constraint.getLevel() == 'Table' ? ' selected' }}>Table</option>
               </select>
             </div>
 
-            <div id="check_constraint_name_container" class="hide">
+            <div id="check_constraint_name_container" class="{{ check_constraint.getLevel() is same as('Column') or check_constraint.getLevel() is same as('') ? 'hide' }}">
                 <div class="label">
                     <strong>
                         <label for="input_check_constraint_name">
@@ -45,7 +48,7 @@
                     onfocus="this.select()">
             </div>
 
-            <div id="check_constraint_column_container">
+            <div id="check_constraint_column_container" class="{{ check_constraint.getLevel() is same as('Table') ? 'hide' }}">
                 <div class="label">
                     <strong>
                         <label for="input_check_constraint_column">

@@ -52,7 +52,7 @@ final class CheckConstraints
             $oldCheckConstraint = CheckConstraint::singleton($this->dbi, $dbName, $tableName, $oldCheckConstraintName);
 
             if ($oldCheckConstraint->getLevel() === CheckConstraint::TABLE) {
-                $sqlQuery .= sprintf(' DROP CONSTRAINT %s;', $oldCheckConstraintName);
+                $sqlQuery .= sprintf(' DROP CONSTRAINT %s, ', $oldCheckConstraintName);
             } else if ($checkConstraint->getLevel() === CheckConstraint::COLUMN) {
                 // TODO: implement sql for dropping column check constraints
             } else {

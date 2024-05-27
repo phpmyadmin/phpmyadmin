@@ -190,49 +190,24 @@ final class CheckConstraintsController implements InvocableController
     private function displayForm(CheckConstraint $checkConstraint): void
     {
         $this->dbi->selectDb(Current::$database);
-        $addFields = 0;
-        // if (isset($_POST['index']) && is_array($_POST['index'])) {
-        //     // coming already from form
-        //     if (isset($_POST['index']['columns']['names'])) {
-        //         $addFields = count($_POST['index']['columns']['names'])
-        //             - $checkConstraint->getColumnCount();
-        //     }
-
-        //     if (isset($_POST['add_fields'])) {
-        //         $addFields += $_POST['added_fields'];
-        //     }
-        // }
-
-        $addFields = 1;
-
-        // Get fields and stores their name/type
-        if (isset($_POST['create_edit_table'])) {
-            $fields = json_decode($_POST['columns'], true);
-            $indexParams = ['Non_unique' => $_POST['index']['Index_choice'] !== 'UNIQUE'];
-            $checkConstraint->set($indexParams);
-            $addFields = count($fields);
-        } else {
-            $fields = $this->dbi->getTable(Current::$database, Current::$table)
-                ->getNameAndTypeOfTheColumns();
-        }
+        $fields = $this->dbi->getTable(Current::$database, Current::$table)
+            ->getNameAndTypeOfTheColumns();
 
         $formParams = ['db' => Current::$database, 'table' => Current::$table];
 
         if (isset($_POST['create_check_constraint'])) {
             $formParams['create_check_constraint'] = 1;
-        } elseif (isset($_POST['old_index'])) {
-            $formParams['old_index'] = $_POST['old_index'];
-        } elseif (isset($_POST['index'])) {
-            $formParams['old_index'] = $_POST['index'];
+        } elseif (isset($_POST['old_check_constraint'])) {
+            $formParams['old_check_constraint'] = $_POST['old_create_check_constraint'];
+        } elseif (isset($_POST['check_constraint'])) {
+            $formParams['old_check_constraint'] = $_POST['check_constraint'];
         }
 
         $this->response->render('table/check_constraint_form', [
             'fields' => $fields,
             'check_constraint' => $checkConstraint,
             'form_params' => $formParams,
-            'add_fields' => $addFields,
-            'create_edit_table' => isset($_POST['create_edit_table']),
-            'default_sliders_state' => Config::getInstance()->settings['InitialSlidersState'],
+            'create_check_constraint' => isset($_POST['create_check_constraint']),
             'is_from_nav' => isset($_POST['is_from_nav']),
         ]);
     }
