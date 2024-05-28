@@ -363,10 +363,8 @@ function onCoordinateEdit (data) {
     $('#visualization-placeholder > .visualization-target-svg').html(data.visualization);
     $('#gis_data_textarea').val(data.result);
 
-    /* TODO: the gis_data_editor should rather return JSON than JS code to eval */
-    // eslint-disable-next-line no-eval
-    eval(data.openLayers);
     initGISEditorVisualization();
+    visualizationController.setOpenLayersData(data.openLayersData);
 }
 
 /**

@@ -51,11 +51,10 @@
         </div>
       </form>
 
-      <div id="visualization-placeholder" class="mt-3" style="height: {{ height }}px;">
+      <div id="visualization-placeholder" class="mt-3" style="height: {{ height }}px;" data-ol-data="{{ open_layers_data|json_encode|e('html_attr') }}">
         <div class="visualization-target visualization-target-svg hide">{{ visualization|raw }}</div>
         <div class="visualization-target visualization-target-ol hide"></div>
       </div>
-      <script>{{ draw_ol|raw }}</script>
     </div>
   </div>
 </div>

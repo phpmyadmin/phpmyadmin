@@ -40,7 +40,7 @@
         <div class="col-auto">
           <div class="card">
             <div class="card-body">
-              <div id="visualization-placeholder" style="width: {{ width }}px; height: {{ height }}px;">
+              <div id="visualization-placeholder" style="width: {{ width }}px; height: {{ height }}px;" data-ol-data="{{ open_layers_data|json_encode|e('html_attr') }}">
                 <div class="visualization-target visualization-target-svg hide">{{ visualization|raw }}</div>
                 <div class="visualization-target visualization-target-ol hide"></div>
               </div>
@@ -52,7 +52,6 @@
                 <label for="useOsmAsBaseLayerSwitch" id="useOsmAsBaseLayerSwitchLabel">{{ t('Use OpenStreetMaps as Base Layer') }}</label>
               </div>
             </div>
-            <script>{{ open_layers|raw }}</script>
           </div>
         </div>
       </div>

@@ -12,7 +12,6 @@ use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
-use function json_encode;
 use function mb_substr;
 use function round;
 use function sprintf;
@@ -188,46 +187,37 @@ class GisPoint extends GisGeometry
     }
 
     /**
-     * Prepares JavaScript related to a row in the GIS dataset
-     * to visualize it with OpenLayers.
+     * Prepares data related to a row in the GIS dataset to visualize it with OpenLayers.
      *
      * @param string $spatial GIS POINT object
      * @param int    $srid    Spatial reference ID
      * @param string $label   Label for the GIS POINT object
      * @param int[]  $color   Color for the GIS POINT object
      *
-     * @return string JavaScript related to a row in the GIS dataset
+     * @return mixed[]
      */
     public function prepareRowAsOl(
         string $spatial,
         int $srid,
         string $label,
         array $color,
-    ): string {
+    ): array {
         $fillStyle = ['color' => 'white'];
         $strokeStyle = ['color' => $color, 'width' => 2];
-        $style = 'new ol.style.Style({'
-            . 'image: new ol.style.Circle({'
-            . 'fill: new ol.style.Fill(' . json_encode($fillStyle) . '),'
-            . 'stroke: new ol.style.Stroke(' . json_encode($strokeStyle) . '),'
-            . 'radius: 3'
-            . '})';
+        $style = ['circle' => ['fill' => $fillStyle, 'stroke' => $strokeStyle, 'radius' => 3]];
         if ($label !== '') {
-            $textStyle = ['text' => $label, 'offsetY' => -9];
-            $style .= ',text: new ol.style.Text(' . json_encode($textStyle) . ')';
+            $style['text'] = ['text' => $label, 'offsetY' => -9];
         }
-
-        $style .= '})';
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
-        $olGeometry = $this->toOpenLayersObject(
-            'ol.geom.Point',
-            $this->extractPoints1dLinear($point, null),
-            $srid,
-        );
+        $geometry = [
+            'type' => 'Point',
+            'coordinates' => $this->extractPoints1dLinear($point, null),
+            'srid' => $srid,
+        ];
 
-        return $this->addGeometryToLayer($olGeometry, $style);
+        return ['geometry' => $geometry, 'style' => $style];
     }
 
     /**

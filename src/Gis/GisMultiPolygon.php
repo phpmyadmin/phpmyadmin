@@ -18,7 +18,6 @@ use function array_slice;
 use function count;
 use function explode;
 use function implode;
-use function json_encode;
 use function max;
 use function mb_substr;
 use function round;
@@ -232,40 +231,34 @@ class GisMultiPolygon extends GisGeometry
     }
 
     /**
-     * Prepares JavaScript related to a row in the GIS dataset
-     * to visualize it with OpenLayers.
+     * Prepares data related to a row in the GIS dataset to visualize it with OpenLayers.
      *
      * @param string $spatial GIS MULTIPOLYGON object
      * @param int    $srid    Spatial reference ID
      * @param string $label   Label for the GIS MULTIPOLYGON object
      * @param int[]  $color   Color for the GIS MULTIPOLYGON object
      *
-     * @return string JavaScript related to a row in the GIS dataset
+     * @return mixed[]
      */
-    public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): string
+    public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): array
     {
         $color[] = 0.8;
         $fillStyle = ['color' => $color];
         $strokeStyle = ['color' => [0, 0, 0], 'width' => 0.5];
-        $style = 'new ol.style.Style({'
-            . 'fill: new ol.style.Fill(' . json_encode($fillStyle) . '),'
-            . 'stroke: new ol.style.Stroke(' . json_encode($strokeStyle) . ')';
+        $style = ['fill' => $fillStyle, 'stroke' => $strokeStyle];
         if ($label !== '') {
-            $textStyle = ['text' => $label];
-            $style .= ',text: new ol.style.Text(' . json_encode($textStyle) . ')';
+            $style['text'] = ['text' => $label];
         }
-
-        $style .= '})';
 
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $wktCoordinates = mb_substr($spatial, 15, -3);
-        $olGeometry = $this->toOpenLayersObject(
-            'ol.geom.MultiPolygon',
-            $this->extractPoints3d($wktCoordinates, null),
-            $srid,
-        );
+        $geometry = [
+            'type' => 'MultiPolygon',
+            'coordinates' => $this->extractPoints3d($wktCoordinates, null),
+            'srid' => $srid,
+        ];
 
-        return $this->addGeometryToLayer($olGeometry, $style);
+        return ['geometry' => $geometry, 'style' => $style];
     }
 
     /**

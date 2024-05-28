@@ -255,11 +255,11 @@ class GisMultiPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsOl() method
      *
-     * @param string $spatial GIS MULTIPOINT object
-     * @param int    $srid    spatial reference ID
-     * @param string $label   label for the GIS MULTIPOINT object
-     * @param int[]  $color   color for the GIS MULTIPOINT object
-     * @param string $output  expected output
+     * @param string  $spatial  GIS MULTIPOINT object
+     * @param int     $srid     spatial reference ID
+     * @param string  $label    label for the GIS MULTIPOINT object
+     * @param int[]   $color    color for the GIS MULTIPOINT object
+     * @param mixed[] $expected
      */
     #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
@@ -267,17 +267,16 @@ class GisMultiPointTest extends GisGeomTestCase
         int $srid,
         string $label,
         array $color,
-        string $output,
+        array $expected,
     ): void {
         $object = GisMultiPoint::singleton();
-        $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
-        self::assertSame($output, $ol);
+        self::assertSame($expected, $object->prepareRowAsOl($spatial, $srid, $label, $color));
     }
 
     /**
      * data provider for testPrepareRowAsOl() test case
      *
-     * @return array<array{string, int, string, int[], string}>
+     * @return array<array{string, int, string, int[], mixed[]}>
      */
     public static function providerForPrepareRowAsOl(): array
     {
@@ -287,12 +286,28 @@ class GisMultiPointTest extends GisGeomTestCase
                 4326,
                 'Ol',
                 [176, 46, 224],
-                'var feature = new ol.Feature(new ol.geom.MultiPoint([[12,35],[48,75],[69,23],[25,4'
-                . '5],[14,53],[35,78]]).transform(\'EPSG:4326\', \'EPSG:3857\'));feature.setStyle(n'
-                . 'ew ol.style.Style({image: new ol.style.Circle({fill: new ol.style.Fill({"color":'
-                . '"white"}),stroke: new ol.style.Stroke({"color":[176,46,224],"width":2}),radius: '
-                . '3}),text: new ol.style.Text({"text":"Ol","offsetY":-9})}));vectorSource.addFeatur'
-                . 'e(feature);',
+                [
+                    'geometry' => [
+                        'type' => 'MultiPoint',
+                        'coordinates' => [
+                            [12.0, 35.0],
+                            [48.0, 75.0],
+                            [69.0, 23.0],
+                            [25.0, 45.0],
+                            [14.0, 53.0],
+                            [35.0, 78.0],
+                        ],
+                        'srid' => 4326,
+                    ],
+                    'style' => [
+                        'circle' => [
+                            'fill' => ['color' => 'white'],
+                            'stroke' => ['color' => [176, 46, 224], 'width' => 2],
+                            'radius' => 3,
+                        ],
+                        'text' => ['text' => 'Ol', 'offsetY' => -9],
+                    ],
+                ],
             ],
         ];
     }

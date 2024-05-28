@@ -15,7 +15,6 @@ use TCPDF;
 use function array_map;
 use function defined;
 use function explode;
-use function json_encode;
 use function mb_strripos;
 use function mb_substr;
 use function mt_getrandmax;
@@ -81,22 +80,21 @@ abstract class GisGeometry
     ): void;
 
     /**
-     * Prepares the JavaScript related to a row in the GIS dataset
-     * to visualize it with OpenLayers.
+     * Prepares the data related to a row in the GIS dataset to visualize it with OpenLayers.
      *
      * @param string $spatial GIS data object
      * @param int    $srid    spatial reference ID
      * @param string $label   label for the GIS data object
      * @param int[]  $color   color for the GIS data object
      *
-     * @return string the JavaScript related to a row in the GIS dataset
+     * @return mixed[]
      */
     abstract public function prepareRowAsOl(
         string $spatial,
         int $srid,
         string $label,
         array $color,
-    ): string;
+    ): array;
 
     /**
      * Get coordinate extent for this wkt.
@@ -330,27 +328,6 @@ abstract class GisGeometry
         $parts = explode(')),((', $wktCoords);
 
         return array_map(fn (string $coord): array => $this->extractPoints2d($coord, $scaleData), $parts);
-    }
-
-    /**
-     * @param string                                      $constructor OpenLayers geometry constructor string
-     * @param float[]|float[][]|float[][][]|float[][][][] $coordinates Array of coordinates 1-4 dimensions
-     */
-    protected function toOpenLayersObject(string $constructor, array $coordinates, int $srid): string
-    {
-        $ol = 'new ' . $constructor . '(' . json_encode($coordinates) . ')';
-        if ($srid !== 3857) {
-            $ol .= '.transform(\'EPSG:' . ($srid !== 0 ? $srid : 4326) . '\', \'EPSG:3857\')';
-        }
-
-        return $ol;
-    }
-
-    protected function addGeometryToLayer(string $olGeometry, string $style): string
-    {
-        return 'var feature = new ol.Feature(' . $olGeometry . ');'
-            . 'feature.setStyle(' . $style . ');'
-            . 'vectorSource.addFeature(feature);';
     }
 
     protected function getRandomId(): int
