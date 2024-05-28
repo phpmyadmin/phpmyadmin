@@ -3092,6 +3092,10 @@ function checkConstraintEditorDialog (url, title, callbackSuccess, callbackFailu
     Functions.checkConstraintDialogModal('index.php?route=/table/check-constraints', url, title, callbackSuccess, callbackFailure);
 }
 
+function checkConstraintRenameDialog (url, title, callbackSuccess, callbackFailure = undefined) {
+    Functions.checkConstraintDialogModal('index.php?route=/table/check-constraints/rename', url, title, callbackSuccess, callbackFailure);
+}
+
 // TODO: convert to check constraints
 function showCheckConstraintEditDialog ($outer) {
     // checkIndexType();
@@ -4050,6 +4054,7 @@ const Functions = {
     checkConstraintDialogModal: checkConstraintDialogModal,
     checkConstraintEditorDialog: checkConstraintEditorDialog,
     showCheckConstraintEditDialog: showCheckConstraintEditDialog,
+    checkConstraintRenameDialog: checkConstraintRenameDialog,
     showHints: showHints,
     initializeMenuResizer: initializeMenuResizer,
     toggleButton: toggleButton,

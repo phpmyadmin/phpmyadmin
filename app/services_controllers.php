@@ -1055,6 +1055,16 @@ return [
                 '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
+        Table\CheckConstraintRenameController::class => [
+            'class' => Table\CheckConstraintRenameController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+                '$checkConstraints' => '@check_constraints',
+                '$dbTableExists' => '@' . DbTableExists::class,
+            ],
+        ],
         Table\Maintenance\AnalyzeController::class => [
             'class' => Table\Maintenance\AnalyzeController::class,
             'arguments' => ['$response' => '@response', '$model' => '@table_maintenance', '$config' => '@config'],

@@ -254,6 +254,7 @@ final class Routes
             $routes->addRoute(['GET', 'POST'], '/indexes', Table\IndexesController::class);
             $routes->addRoute(['GET', 'POST'], '/indexes/rename', Table\IndexRenameController::class);
             $routes->addRoute(['GET', 'POST'], '/check-constraints', Table\CheckConstraintsController::class);
+            $routes->addRoute(['GET', 'POST'], '/check-constraints/rename', Table\CheckConstraintRenameController::class);
             $routes->addGroup('/maintenance', static function (RouteCollector $routes): void {
                 $routes->post('/analyze', Table\Maintenance\AnalyzeController::class);
                 $routes->post('/check', Table\Maintenance\CheckController::class);

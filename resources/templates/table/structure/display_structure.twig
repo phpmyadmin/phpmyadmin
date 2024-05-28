@@ -602,20 +602,20 @@
                         {{ get_icon('b_edit', t('Edit')) }}
                         </a>
                     </td>
-                    <td class="rename_index d-print-none" style="color: red;">
+                    {# <td class="rename_index d-print-none" style="color: red;">
                         Rename not supported
-                    </td>
-                    {# <td class="rename_index d-print-none ajax" >
+                    </td> #}
+                    <td class="rename_check_constraint d-print-none ajax" >
                         <a class="ajax" href="{{ url('/table/check-constraints/rename') }}" data-post="{{ get_common({
                         'db': db,
                         'table': table,
-                        'index': constraint.getName()
+                        'check_constraint': constraint.getName()
                         }, '', false) }}">
                         {{ get_icon('b_rename', t('Rename')) }}
                         </a>
-                    </td> #}
+                    </td>
                     {% else %}
-                    <td class="rename_index d-print-none" style="color: red;" colspan="2">
+                    <td class="rename_check_constraint d-print-none" style="color: red;" colspan="2">
                         Edit & Rename are not supported
                     </td>
                     {% endif %}

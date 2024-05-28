@@ -63,6 +63,21 @@ function on() {
         );
 
         /**
+         * Ajax event handler for index rename
+         **/
+        $(document).on('click', '#table_check_constraint tbody tr td.rename_check_constraint.ajax', function (event) {
+            event.preventDefault();
+            var url = $(this).find('a').getPostData();
+            var title = window.Messages.strRenameCheckConstraint;
+            url += CommonParams.get('arg_separator') + 'ajax_request=true';
+            Functions.checkConstraintRenameDialog(url, title, function (data) {
+                Navigation.update(CommonParams.set('db', data.params.db));
+                Navigation.update(CommonParams.set('table', data.params.table));
+                refreshMainContent('index.php?route=/table/structure');
+            });
+        });
+
+        /**
          * Ajax Event handler for 'Drop Index'
          */
         $(document).on('click', 'a.drop_check_constraint_anchor.ajax', function (event) {

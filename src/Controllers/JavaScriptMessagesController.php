@@ -128,6 +128,7 @@ final class JavaScriptMessagesController implements InvocableController
             /* For check constraints */
             'strAddConstraint' => __('Add constraint'),
             'strEditConstraint' => __('Edit constraint'),
+            'strRenameCheckConstraint' => __('Rename check constraint'),
 
             /* For Preview SQL*/
             'strPreviewSQL' => __('Preview SQL'),
