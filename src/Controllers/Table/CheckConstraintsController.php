@@ -105,7 +105,10 @@ final class CheckConstraintsController implements InvocableController
 
                 $checkConstraint = new CheckConstraint($_POST['check_constraint']);
             } else {
-                $checkConstraint = $this->dbi->getTable(Current::$database, Current::$table)->getCheckConstraint($_POST['check_constraint']);
+                $checkConstraint = $this->dbi->getTable(Current::$database, Current::$table)
+                ->getCheckConstraint(
+                    CheckConstraint::getQualifiedName($_POST['check_constraint'], $_POST['check_constraint_level'])
+                );
             }
         } else {
             $checkConstraint = new CheckConstraint();

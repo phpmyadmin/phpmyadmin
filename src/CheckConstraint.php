@@ -28,6 +28,9 @@ class CheckConstraint
     /** @var string The name of the check constraint */
     private string $name = '';
 
+    /** @var string The name of the check constraint combined with the level separated with a dot. Format: Level.Name*/
+    private string $qualifiedName = '';
+
     /**
      * The check constraint level (Column, Table).
      * This isn't supported by MySQL and MariaDB <= 10.5.10
@@ -55,17 +58,17 @@ class CheckConstraint
         DatabaseInterface $dbi,
         string $schema,
         string $table,
-        string $constraintName = '',
+        string $constraintQualifiedName = '',
     ): CheckConstraint {
         self::loadCheckConstraints($dbi, $table, $schema);
-        if (isset(self::$registry[$schema][$table][$constraintName])) {
-            return self::$registry[$schema][$table][$constraintName];
+        if (isset(self::$registry[$schema][$table][$constraintQualifiedName])) {
+            return self::$registry[$schema][$table][$constraintQualifiedName];
         }
 
         $constraint = new CheckConstraint();
-        if ($constraintName !== '') {
-            $constraint->setName($constraintName);
-            self::$registry[$schema][$table][$constraint->getName()] = $constraint;
+        if ($constraintQualifiedName !== '') {
+            $constraint->setName($constraintQualifiedName);
+            self::$registry[$schema][$table][$constraint->qualifiedName] = $constraint;
         }
 
         return $constraint;
@@ -83,6 +86,10 @@ class CheckConstraint
         return self::$registry[$schema][$table] ?? [];
     }
 
+    public static function getQualifiedName(string $name, string $level): string {
+        return $level . "." . $name;
+    }
+
     /**
      * Load constraint data for table
      */
@@ -96,9 +103,9 @@ class CheckConstraint
         foreach ($rawCheckConstraints as $eachConstraint) {
             $eachConstraint['Schema'] = $schema;
             $eachConstraint['Table'] = $table;
-            $name = $eachConstraint['CONSTRAINT_NAME'];
-            if (! isset(self::$registry[$schema][$table][$name])) {
-                self::$registry[$schema][$table][$name] = new CheckConstraint($eachConstraint);
+            $qualifiedName = $eachConstraint['LEVEL'] . "." . $eachConstraint['CONSTRAINT_NAME'];
+            if (! isset(self::$registry[$schema][$table][$qualifiedName])) {
+                self::$registry[$schema][$table][$qualifiedName] = new CheckConstraint($eachConstraint);
             }
         }
     }
@@ -125,6 +132,9 @@ class CheckConstraint
 
         if (isset($params['LEVEL'])) {
             $this->level = $params['LEVEL'];
+            $this->qualifiedName = $this->level. ".". $this->name;
+        } else {
+            $this->qualifiedName = "." . $this->name;
         }
 
         if (isset($params['CHECK_CLAUSE'])) {

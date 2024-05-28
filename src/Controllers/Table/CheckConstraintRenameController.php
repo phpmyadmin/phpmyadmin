@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\CheckConstraint;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
@@ -80,13 +81,17 @@ final class CheckConstraintRenameController implements InvocableController
 
         $oldCheckConstraintName = $request->getParsedBodyParam('old_check_constraint');
         $checkConstraintName = $request->getParsedBodyParam('check_constraint');
+        $checkConstraintLevel = $request->getParsedBodyParam('check_constraint_level');
         if ($oldCheckConstraintName === null) {
-            $checkConstraint = $this->dbi->getTable($databaseName->getName(), $tableName->getName())->getCheckConstraint($checkConstraintName);
+            $checkConstraint = $this->dbi->
+            getTable($databaseName->getName(), $tableName->getName())->
+            getCheckConstraint(CheckConstraint::getQualifiedName($checkConstraintName, $checkConstraintLevel));
 
             $formParams = [
                 'db' => $databaseName->getName(),
                 'table' => $tableName->getName(),
                 'old_check_constraint' => $checkConstraint->getName(),
+                'old_check_constraint_level' => $checkConstraint->getLevel(),
             ];
 
             $this->response->render('table/check_constraint_rename_form', ['check_constraint' => $checkConstraint, 'form_params' => $formParams]);
@@ -94,7 +99,10 @@ final class CheckConstraintRenameController implements InvocableController
         }
 
         // coming already from form
-        $checkConstraint = $this->dbi->getTable($databaseName->getName(), $tableName->getName())->getCheckConstraint($oldCheckConstraintName);
+        $oldCheckConstraintLevel = $request->getParsedBodyParam('old_check_constraint_level');
+        $checkConstraint = $this->dbi->
+        getTable($databaseName->getName(), $tableName->getName())->
+        getCheckConstraint(CheckConstraint::getQualifiedName($oldCheckConstraintName, $oldCheckConstraintLevel));
         $checkConstraint->setName($checkConstraintName);
 
         $previewSql = $request->hasBodyParam('preview_sql');

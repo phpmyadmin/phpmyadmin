@@ -49,7 +49,12 @@ final class CheckConstraints
 
         // Drops the old check constraint
         if ($oldCheckConstraintName !== null) {
-            $oldCheckConstraint = CheckConstraint::singleton($this->dbi, $dbName, $tableName, $oldCheckConstraintName);
+            $oldCheckConstraint = CheckConstraint::singleton(
+                $this->dbi,
+                $dbName,
+                $tableName,
+                CheckConstraint::getQualifiedName($oldCheckConstraintName, $checkConstraint->getLevel()) // We can do this because we cannot edit the level of an existing check constraint
+            );
 
             if ($oldCheckConstraint->getLevel() === CheckConstraint::TABLE) {
                 $sqlQuery .= sprintf(' DROP CONSTRAINT %s, ', $oldCheckConstraintName);

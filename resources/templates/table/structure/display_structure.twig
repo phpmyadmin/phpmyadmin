@@ -598,6 +598,7 @@
                         'db': db,
                         'table': table,
                         'check_constraint': constraint.getName(),
+                        'check_constraint_level': constraint.getLevel()
                         }, '', false) }}">
                         {{ get_icon('b_edit', t('Edit')) }}
                         </a>
@@ -609,7 +610,8 @@
                         <a class="ajax" href="{{ url('/table/check-constraints/rename') }}" data-post="{{ get_common({
                         'db': db,
                         'table': table,
-                        'check_constraint': constraint.getName()
+                        'check_constraint': constraint.getName(),
+                        'check_constraint_level': constraint.getLevel()
                         }, '', false) }}">
                         {{ get_icon('b_rename', t('Rename')) }}
                         </a>
