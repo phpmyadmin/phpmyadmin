@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-05-26 00:21+0000\n"
-"PO-Revision-Date: 2021-12-28 12:53+0000\n"
-"Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
+"PO-Revision-Date: 2024-05-29 10:37+0000\n"
+"Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/vi/>\n"
 "Language: vi\n"
@@ -18,17 +18,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript phải được bật qua điểm này!"
 
 #: resources/templates/base.twig:46
-#, fuzzy
-#| msgid "Add user account"
 msgid "Open user account menu"
-msgstr "Tạo tài khoản người dùng mới"
+msgstr "Mở menu tài khoản người dùng"
 
 #: resources/templates/base.twig:57 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
@@ -36,38 +34,30 @@ msgid "phpMyAdmin documentation"
 msgstr "Tài liệu phpMyAdmin"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB documentation"
-msgstr "Tài liệu"
+msgstr "Tài liệu MariaDB"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL documentation"
-msgstr "Tài liệu"
+msgstr "Tài liệu MySQL"
 
 #: resources/templates/base.twig:73
-#, fuzzy
-#| msgid "Appearance settings"
 msgid "Appearance:"
-msgstr "Cài đặt diện mạo"
+msgstr "Giao diện:"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "Chế độ màu cho chủ đề"
 
 #: resources/templates/base.twig:80 resources/templates/home/index.twig:154
-#, fuzzy
-#| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr "Phải"
+msgstr "Sáng"
 
 #: resources/templates/base.twig:82 resources/templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Tối"
 
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
@@ -234,10 +224,8 @@ msgid "Add"
 msgstr "Thêm"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:39
-#, fuzzy
-#| msgid "Columns"
 msgid "column(s)"
-msgstr "Cột"
+msgstr "cột"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:42
 #: resources/templates/database/designer/main.twig:1100
@@ -317,8 +305,6 @@ msgstr "Kết nối:"
 #: resources/templates/columns_definitions/column_definitions_form.twig:112
 #: resources/templates/columns_definitions/partitions.twig:137
 #: resources/templates/table/operations/index.twig:134
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engine"
 msgstr "Máy lưu trữ"
 
@@ -327,11 +313,9 @@ msgid "PARTITION definition:"
 msgstr "Định nghĩa PHÂN VÙNG:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:154
-#, fuzzy
-#| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Bao quanh những thứ xuất ra bằng một giao dịch"
+msgstr "Giao dịch trực tuyến"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:157
 #: resources/templates/modals/index_dialog_modal.twig:11
@@ -365,6 +349,8 @@ msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
+"Độ rộng cột của các loại số nguyên bị bỏ qua trong phiên bản MySQL của bạn "
+"trừ khi xác định cột TINYINT(1)"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:176
 #: resources/templates/database/designer/main.twig:1095
@@ -378,10 +364,8 @@ msgstr ""
 #: resources/templates/table/relation/common_form.twig:150
 #: resources/templates/table/zoom_search/result_form.twig:26
 #: resources/templates/table/zoom_search/result_form.twig:95
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Đang tải…"
+msgstr "Đang tải"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:177
 #: resources/templates/columns_definitions/column_definitions_form.twig:182
@@ -641,6 +625,10 @@ msgid ""
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
+"Nếu loại cột là \"enum\" hoặc \"set\", vui lòng nhập các giá trị bằng định "
+"dạng sau: 'a','b','c'…<br>Nếu bạn cần đặt dấu gạch chéo ngược (\"\\\") hoặc "
+"dấu nháy đơn (\"'\") trong số các giá trị đó, đặt trước dấu gạch chéo ngược ("
+"ví dụ '\\\\xyz' hoặc 'a\\'b')."
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:20
 #: resources/templates/database/central_columns/edit.twig:11
@@ -668,6 +656,8 @@ msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 msgstr ""
+"Với giá trị mặc định, xin nhập một giá trị duy nhất, không thoát dấu gạch "
+"chéo ngược hoặc dấu ngoặc kép, sử dụng định dạng sau: a"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:24
 #: resources/templates/database/central_columns/edit.twig:12
@@ -764,10 +754,8 @@ msgstr "Di chuyển cột"
 #: src/Plugins/Export/ExportOdt.php:480
 #: src/Plugins/Export/ExportTexytext.php:380
 #: src/Plugins/Export/Helpers/Pdf.php:520
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type"
-msgstr "Kiểu MIME"
+msgstr "Loại phương tiện"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:75
 #: resources/templates/columns_definitions/table_fields_definitions.twig:86
@@ -777,11 +765,11 @@ msgstr "Liệt kê các chuyển dạng sẵn có và các tùy chọn của ch�
 #: resources/templates/columns_definitions/table_fields_definitions.twig:77
 #: resources/templates/transformation_overview.twig:18
 msgid "Browser display transformation"
-msgstr ""
+msgstr "Chuyển đổi hiển thị trình duyệt"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:81
 msgid "Browser display transformation options"
-msgstr ""
+msgstr "Tùy chọn chuyển đổi hiển thị trình duyệt"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:82
 #: resources/templates/columns_definitions/table_fields_definitions.twig:93
@@ -791,15 +779,19 @@ msgid ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
+"Vui lòng nhập các giá trị cho các tùy chọn chuyển đổi bằng định dạng sau: "
+"'a', 100, b,'c'…<br>Nếu bạn cần đặt dấu gạch chéo ngược (\"\\\") hoặc một "
+"trích dẫn (\"'\") trong số đó các giá trị, đặt trước nó bằng dấu gạch chéo "
+"ngược (ví dụ '\\\\xyz' hoặc 'a\\'b')."
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:88
 #: resources/templates/transformation_overview.twig:37
 msgid "Input transformation"
-msgstr ""
+msgstr "Chuyển đổi đầu vào"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:92
 msgid "Input transformation options"
-msgstr ""
+msgstr "Tùy chọn chuyển đổi đầu vào"
 
 #: resources/templates/config/form_display/display.twig:46
 #: src/Controllers/JavaScriptMessagesController.php:341
@@ -1216,10 +1208,8 @@ msgid "OK"
 msgstr "Tốt"
 
 #: resources/templates/console/display.twig:178
-#, fuzzy
-#| msgid "Restore default value"
 msgid "Restore default values"
-msgstr "Phục hồi lại giá trị mặc định"
+msgstr "Khôi phục giá trị mặc định"
 
 #: resources/templates/console/display.twig:185 src/Config/Descriptions.php:958
 msgid "Always expand query messages"
@@ -1230,22 +1220,16 @@ msgid "Show query history at start"
 msgstr "Hiển thị lịch sử truy vấn lúc bắt đầu"
 
 #: resources/templates/console/display.twig:193 src/Config/Descriptions.php:959
-#, fuzzy
-#| msgid "Show current browsing query"
 msgid "Show current browsing query"
 msgstr "Hiển thị truy vấn duyệt hiện tại"
 
 #: resources/templates/console/display.twig:197
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."
 msgstr ""
-"Thực thi truy vấn bằng Enter và chèn thêm dòng mới bằng Shift + Enter. Để "
-"cài lâu dài, xem các cài đặt."
+"Thực thi truy vấn bằng Enter và chèn thêm dòng mới bằng Shift+Enter. Để thực "
+"hiện việc này vĩnh viễn, hãy xem cài đặt."
 
 #: resources/templates/console/display.twig:201 src/Config/Descriptions.php:961
 msgid "Switch to dark theme"
@@ -1263,19 +1247,17 @@ msgstr "Phiên bản tạo %1$s"
 
 #: resources/templates/create_tracking_version.twig:21
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Theo dõi các câu định nghĩa dữ liệu này:"
 
 #: resources/templates/create_tracking_version.twig:60
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Theo dõi các câu lệnh thao tác dữ liệu này:"
 
 #: resources/templates/create_tracking_version.twig:77
 msgid "Create version"
 msgstr "Phiên bản tạo"
 
 #: resources/templates/database/central_columns/edit.twig:15
-#, fuzzy
-#| msgid "A_I"
 msgctxt "Auto Increment"
 msgid "A_I"
 msgstr "A_I"
@@ -1286,10 +1268,8 @@ msgstr "Thêm cột mới"
 
 #: resources/templates/database/central_columns/main.twig:24
 #: resources/templates/database/central_columns/main.twig:234
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Length/Value"
-msgstr "Dài/Giá-trị"
+msgstr "Độ dài/Giá trị"
 
 #: resources/templates/database/central_columns/main.twig:36
 #: resources/templates/database/central_columns/main.twig:246
@@ -1302,17 +1282,13 @@ msgid "A_I"
 msgstr "A_I"
 
 #: resources/templates/database/central_columns/main.twig:129
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "Danh sách các cột trong Cơ sở dữ liệu hiện tại trống."
+msgstr "Danh sách các cột trung tâm của cơ sở dữ liệu hiện tại trống"
 
 #: resources/templates/database/central_columns/main.twig:168
 #: resources/templates/display/results/table.twig:136
-#, fuzzy
-#| msgid "Filter rows"
 msgid "Filter rows:"
-msgstr "Số hàng"
+msgstr "Lọc hàng:"
 
 #: resources/templates/database/central_columns/main.twig:171
 #: resources/templates/display/results/table.twig:140
@@ -1386,10 +1362,8 @@ msgstr "Hủy bỏ"
 
 #: resources/templates/database/create_table.twig:3
 #: resources/templates/database/operations/index.twig:28
-#, fuzzy
-#| msgid "Create table"
 msgid "Create new table"
-msgstr "Tạo bảng"
+msgstr "Tạo bảng mới"
 
 #: resources/templates/database/create_table.twig:10
 #: resources/templates/database/operations/index.twig:35
@@ -1484,10 +1458,9 @@ msgid "See table structure"
 msgstr "Xem cấu trúc bảng"
 
 #: resources/templates/database/designer/database_tables.twig:93
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Chọn tất cả"
+msgstr "Chọn \"%s\""
 
 #: resources/templates/database/designer/database_tables.twig:111
 #, php-format
@@ -1565,10 +1538,8 @@ msgstr "Tạo bảng"
 #: resources/templates/database/designer/main.twig:91
 #: resources/templates/database/designer/main.twig:94
 #: resources/templates/database/designer/main.twig:269
-#, fuzzy
-#| msgid "Create relation"
 msgid "Create relationship"
-msgstr "Tạo quan hệ"
+msgstr "Tạo mối quan hệ"
 
 #: resources/templates/database/designer/main.twig:98
 #: resources/templates/database/designer/main.twig:101
@@ -1613,10 +1584,8 @@ msgstr "Bật/tắt lớn/nhỏ"
 
 #: resources/templates/database/designer/main.twig:150
 #: resources/templates/database/designer/main.twig:153
-#, fuzzy
-#| msgid "Toggle relation lines"
 msgid "Toggle relationship lines"
-msgstr "Bật/tắt đường quan hệ"
+msgstr "Chuyển đổi các dòng quan hệ"
 
 #: resources/templates/database/designer/main.twig:158
 #: resources/templates/database/designer/main.twig:161
@@ -1643,27 +1612,21 @@ msgid "Hide/Show all"
 msgstr "Ẩn/Hiện hết"
 
 #: resources/templates/database/designer/main.twig:212
-#, fuzzy
-#| msgid "Hide/Show Tables with no relation"
 msgid "Hide/Show tables with no relationship"
-msgstr "Ẩn/Hiện các bảng mà không có quan hệ"
+msgstr "Ẩn/Hiện bảng không có mối quan hệ"
 
 #: resources/templates/database/designer/main.twig:223
 msgid "Number of tables:"
 msgstr "Số lượng bảng:"
 
 #: resources/templates/database/designer/main.twig:379
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Delete relationship"
-msgstr "Xóa quan hệ"
+msgstr "Xóa mối quan hệ"
 
 #: resources/templates/database/designer/main.twig:443
 #: resources/templates/database/designer/main.twig:608
-#, fuzzy
-#| msgid "Relation operator"
 msgid "Relationship operator"
-msgstr "thao tác sai"
+msgstr "Toán tử quan hệ"
 
 #: resources/templates/database/designer/main.twig:472
 #: resources/templates/database/designer/main.twig:637
@@ -1747,10 +1710,8 @@ msgid "Select page"
 msgstr "Chọn trang"
 
 #: resources/templates/database/designer/schema_export.twig:6
-#, fuzzy
-#| msgid "Select Export Relational Type"
 msgid "Select export relational type:"
-msgstr "Chọn kiểu quan hệ xuất"
+msgstr "Chọn loại quan hệ xuất:"
 
 #: resources/templates/database/events/editor_form.twig:10
 #: resources/templates/database/routines/editor_form.twig:11
@@ -1932,10 +1893,8 @@ msgid "Drop"
 msgstr "Xóa"
 
 #: resources/templates/database/events/index.twig:29
-#, fuzzy
-#| msgid "Create version"
 msgid "Create new event"
-msgstr "Phiên bản tạo"
+msgstr "Tạo sự kiện mới"
 
 #: resources/templates/database/events/index.twig:38
 msgid "There are no events to display."
@@ -1959,20 +1918,18 @@ msgid "OFF"
 msgstr "TẮT"
 
 #: resources/templates/database/export/index.twig:61
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr ", @DATABASE@ sẽ được thay bằng tên cơ sở dữ liệu"
+msgstr ""
+"@SERVER@ sẽ trở thành tên máy chủ và @DATABASE@ sẽ trở thành tên cơ sở dữ "
+"liệu."
 
 #. l10n: A query that the user has written freely
 #: resources/templates/database/export/index.twig:5
 #: resources/templates/table/export/index.twig:5
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Exporting a raw query"
-msgstr "Hiện truy vấn SQL"
+msgstr "Xuất truy vấn thô"
 
 #: resources/templates/database/export/index.twig:7
 #, php-format
@@ -2006,16 +1963,12 @@ msgid "Data"
 msgstr "Dữ liệu"
 
 #: resources/templates/database/export/index.twig:30
-#, fuzzy
-#| msgid "Allows altering the structure of existing tables."
 msgid "Export the structure of all tables."
-msgstr "Cho phép sửa đổi cấu trúc của bảng sẵn có."
+msgstr "Xuất cấu trúc của tất cả các bảng."
 
 #: resources/templates/database/export/index.twig:33
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export the data of all tables."
-msgstr "Xuất view như là một bảng"
+msgstr "Xuất dữ liệu của tất cả các bảng."
 
 #: resources/templates/database/import/index.twig:3
 #, php-format
@@ -2028,17 +1981,13 @@ msgstr "Cửa sổ Truy vấn"
 
 #: resources/templates/database/multi_table_query/form.twig:27
 #: resources/templates/database/multi_table_query/form.twig:117
-#, fuzzy
-#| msgid "Select table"
 msgid "select table"
-msgstr "Chọn bảng"
+msgstr "chọn bảng"
 
 #: resources/templates/database/multi_table_query/form.twig:34
 #: resources/templates/database/multi_table_query/form.twig:125
-#, fuzzy
-#| msgid "Select a column."
 msgid "select column"
-msgstr "Chọn một cột."
+msgstr "chọn cột"
 
 #: resources/templates/database/multi_table_query/form.twig:38
 #: resources/templates/database/tracking/tables.twig:19
@@ -2049,28 +1998,20 @@ msgid "Show"
 msgstr "Hiện"
 
 #: resources/templates/database/multi_table_query/form.twig:40
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "Các bảng"
+msgstr "Bí danh bảng"
 
 #: resources/templates/database/multi_table_query/form.twig:41
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "Các tên cột"
+msgstr "Bí danh cột"
 
 #: resources/templates/database/multi_table_query/form.twig:44
-#, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "Dùng cột này để làm nhãn cho từng điểm"
+msgstr "Sử dụng cột này trong tiêu chí"
 
 #: resources/templates/database/multi_table_query/form.twig:48
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Tiêu chuẩn:"
+msgstr "tiêu chuẩn:"
 
 #: resources/templates/database/multi_table_query/form.twig:56
 #: src/Util.php:1992
@@ -2102,10 +2043,8 @@ msgid "Descending"
 msgstr "Giảm dần"
 
 #: resources/templates/database/multi_table_query/form.twig:62
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "Thêm %s"
+msgstr "Thêm như"
 
 #: resources/templates/database/multi_table_query/form.twig:107
 #: src/Config/ConfigFile.php:544 src/Config/ConfigFile.php:556
@@ -2114,20 +2053,16 @@ msgid "Text"
 msgstr "Chữ"
 
 #: resources/templates/database/multi_table_query/form.twig:108
-#, fuzzy
-#| msgid "Move column"
 msgid "Another column"
-msgstr "Di chuyển cột"
+msgstr "Một cột khác"
 
 #: resources/templates/database/multi_table_query/form.twig:135
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Nhập tiêu chí dưới dạng văn bản tự do"
 
 #: resources/templates/database/multi_table_query/form.twig:142
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "Gỡ bỏ các cột thừa"
+msgstr "Xóa cột này"
 
 #: resources/templates/database/multi_table_query/form.twig:150
 #: resources/templates/table/relation/foreign_key_row.twig:85
@@ -2135,8 +2070,6 @@ msgid "+ Add column"
 msgstr "+ Thêm cột"
 
 #: resources/templates/database/multi_table_query/form.twig:165
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
 msgstr "Cập nhật truy vấn"
 
@@ -2169,16 +2102,12 @@ msgstr "Tên cơ sở dữ liệu mới"
 #: resources/templates/table/operations/index.twig:78
 #: resources/templates/table/operations/index.twig:114
 #: resources/templates/table/operations/index.twig:314
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
 "Bạn không có đủ đặc quyền cần thiết để thực hiện thao tác này; Vui lòng xem "
-"tài liệu để biết thêm chi tiết"
+"tài liệu để biết thêm chi tiết."
 
 #: resources/templates/database/operations/index.twig:84
 msgid "Remove database"
@@ -2256,16 +2185,12 @@ msgid "Switch to copied database"
 msgstr "Chuyển tới cơ sở dữ liệu đã sao chép"
 
 #: resources/templates/database/operations/index.twig:217
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
-msgstr "Thay đổi mọi bảng mã đối chiếu cột"
+msgstr "Thay đổi mọi bảng đối chiếu"
 
 #: resources/templates/database/operations/index.twig:221
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
-msgstr "Thay đổi mọi bảng mã đối chiếu cột"
+msgstr "Thay đổi tất cả các đối chiếu cột của bảng"
 
 #: resources/templates/database/privileges/index.twig:5
 #: resources/templates/table/privileges/index.twig:5
@@ -2424,16 +2349,12 @@ msgid "Is deterministic"
 msgstr "Là một tất định"
 
 #: resources/templates/database/routines/editor_form.twig:141
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
 msgstr ""
 "Bạn không có đủ đặc quyền cần thiết để thực hiện thao tác này; Vui lòng xem "
-"tài liệu để biết thêm chi tiết"
+"tài liệu để biết thêm chi tiết."
 
 #: resources/templates/database/routines/editor_form.twig:154
 msgid "Security type"
@@ -2521,22 +2442,16 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Các từ được ngăn cách nhau bằng ký tự khoảng trắng (\" \")."
 
 #: resources/templates/database/search/main.twig:22 src/Database/Search.php:73
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "ít nhất một trong các từ"
+msgstr "tất cả các từ"
 
 #: resources/templates/database/search/main.twig:26 src/Database/Search.php:74
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
-msgstr "đúng nhóm từ"
+msgstr "cụm từ chính xác dưới dạng chuỗi con"
 
 #: resources/templates/database/search/main.twig:30 src/Database/Search.php:75
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
-msgstr "đúng nhóm từ"
+msgstr "cụm từ chính xác như toàn bộ trường"
 
 #: resources/templates/database/search/main.twig:34 src/Database/Search.php:76
 msgid "as regular expression"
@@ -2572,12 +2487,10 @@ msgid "Browse"
 msgstr "Duyệt"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<b>Tổng cộng:</b> <i>%s</i> khớp mẫu"
+msgstr[0] "<strong>Tổng:</strong> <em>%s</em> khớp"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
@@ -2732,10 +2645,8 @@ msgid "Database:"
 msgstr "Cơ sở dữ liệu:"
 
 #: resources/templates/database/structure/copy_form.twig:14
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "Tùy chọn"
+msgstr "Tùy chọn:"
 
 #: resources/templates/database/structure/copy_form.twig:31
 #: src/Config/Descriptions.php:898
@@ -2743,8 +2654,6 @@ msgid "Add DROP TABLE"
 msgstr "Thêm DROP TABLE"
 
 #: resources/templates/database/structure/copy_form.twig:35
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
 msgstr "Thêm giá trị AUTO_INCREMENT"
 
@@ -2974,22 +2883,13 @@ msgstr "Bảng theo dõi"
 
 #: resources/templates/display/results/checkbox_and_links.twig:16
 #: resources/templates/display/results/checkbox_and_links.twig:78
-#, fuzzy
-#| msgid "You can also edit most values<br>by clicking directly on them."
 msgid "You can also edit most values by clicking directly on them."
-msgstr ""
-"Bạn cũng có thể sửa phần lớn các giá trị<br>bằng cách bấm chuột trực tiếp "
-"vào chúng."
+msgstr "Bạn có thể sửa mọi giá trị bằng cách nhấp trực tiếp vào chúng."
 
 #: resources/templates/display/results/checkbox_and_links.twig:18
 #: resources/templates/display/results/checkbox_and_links.twig:80
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br>by double-clicking directly on them."
 msgid "You can also edit most values by double-clicking directly on them."
-msgstr ""
-"Bạn cũng có thể sửa phần lớn các giá trị<br>bằng cách bấm đúp chuột trực "
-"tiếp vào chúng."
+msgstr "Bạn có thể sửa mọi giá trị bằng cách bấm đúp chuột trực tiếp vào chúng."
 
 #: resources/templates/display/results/table.twig:18
 #: resources/templates/display/results/table.twig:21
@@ -3054,17 +2954,13 @@ msgid "All"
 msgstr "Tất cả"
 
 #: resources/templates/display/results/table.twig:148
-#, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
-msgstr "Sắp xếp theo khóa"
+msgstr "Sắp xếp theo khóa:"
 
 #: resources/templates/display/results/table.twig:197
 #: resources/templates/table/search/index.twig:101
-#, fuzzy
-#| msgid "Return options"
 msgid "Extra options"
-msgstr "Tùy chọn trả về"
+msgstr "Tùy chọn bổ sung"
 
 #: resources/templates/display/results/table.twig:209
 #: src/Display/Results.php:1122
@@ -3081,8 +2977,6 @@ msgid "Relational key"
 msgstr "Khóa quan hệ"
 
 #: resources/templates/display/results/table.twig:225
-#, fuzzy
-#| msgid "Display column for relations"
 msgid "Display column for relationships"
 msgstr "Hiển thị cột cho các quan hệ"
 
@@ -3104,7 +2998,6 @@ msgid "Geometry"
 msgstr "Hình dạng"
 
 #: resources/templates/display/results/table.twig:265
-#, fuzzy
 msgid "Well Known Text"
 msgstr "Văn bản nổi tiếng"
 
@@ -3168,12 +3061,16 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
+"Báo cáo này tự động bao gồm dữ liệu về lỗi và thông tin về cài đặt cấu hình "
+"có liên quan. Nó sẽ được gửi đến nhóm phpMyAdmin để sửa lỗi."
 
 #: resources/templates/error/report_form.twig:9
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"Bạn có thể cho chúng tôi biết các bước dẫn đến lỗi này không? Nó quyết định "
+"giúp gỡ lỗi:"
 
 #: resources/templates/error/report_form.twig:16
 msgid "You may examine the data in the error report:"
@@ -3193,13 +3090,13 @@ msgstr "Gửi báo cáo lỗi"
 
 #: resources/templates/error/simple.twig:2
 msgid "Something went wrong"
-msgstr ""
+msgstr "Đã xảy ra lỗi"
 
 #: resources/templates/error/simple.twig:7
 #: resources/templates/modals/index_dialog_modal.twig:30
 #: resources/templates/table/structure/display_structure.twig:353
 msgid "Go back"
-msgstr ""
+msgstr "Quay lại"
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
@@ -3239,8 +3136,6 @@ msgstr "Truy vấn SQL:"
 
 #. l10n: Button to show the SQL query on the export page
 #: resources/templates/export.twig:72
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show SQL query"
 msgstr "Hiện truy vấn SQL"
 
@@ -3261,10 +3156,8 @@ msgid "Format:"
 msgstr "Định dạng:"
 
 #: resources/templates/export.twig:121
-#, fuzzy
-#| msgid "File to import:"
 msgid "File format to export"
-msgstr "Tập tin để nhập:"
+msgstr "Định dạng tệp để xuất"
 
 #: resources/templates/export.twig:133
 msgid "Rows:"
@@ -3287,10 +3180,9 @@ msgid "Output:"
 msgstr "Xuất:"
 
 #: resources/templates/export.twig:171 resources/templates/export.twig:366
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Lưu trên máy chủ phục vụ ở thư mục <b>%s</b>"
+msgstr "Lưu trên máy chủ ở thư mục <strong>%s</strong>"
 
 #: resources/templates/export.twig:178 resources/templates/export.twig:373
 #: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
@@ -3314,7 +3206,7 @@ msgstr "Cơ sở dữ liệu"
 #: resources/templates/export.twig:212 resources/templates/export.twig:226
 #: resources/templates/export.twig:239 resources/templates/export.twig:256
 msgid "Remove"
-msgstr ""
+msgstr "Xóa"
 
 #: resources/templates/export.twig:220
 #: src/Controllers/JavaScriptMessagesController.php:295
@@ -3330,29 +3222,23 @@ msgstr "Cột"
 
 #: resources/templates/export.twig:265
 msgid "Define new aliases"
-msgstr ""
+msgstr "Xác định bí danh mới"
 
 #: resources/templates/export.twig:270
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "Chọn cơ sở dữ liệu"
+msgstr "Chọn cơ sở dữ liệu:"
 
 #: resources/templates/export.twig:286
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "Chọn bảng"
+msgstr "Chọn bảng:"
 
 #: resources/templates/export.twig:294
 msgid "New table name"
 msgstr "Tên bảng mới"
 
 #: resources/templates/export.twig:302
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Chọn một cột."
+msgstr "Chọn cột:"
 
 #: resources/templates/export.twig:310
 msgid "New column name"
@@ -3381,27 +3267,19 @@ msgid "File name template:"
 msgstr "Tên tập tin mẫu:"
 
 #: resources/templates/export.twig:384
-#, fuzzy, php-format
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
+#, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"Giá trị này được phiên dịch dùng %1$sstrftime%2$s, do đó bạn có thể sử dụng "
-"chuỗi định dạng thời gian. Thêm nữa, việc chuyển đổi sau sẽ xảy ra: %3$s. "
-"Các chữ khác sẽ được nguyên như nó vốn có. Xem %4$sFAQ%5$s để biết thêm chi "
-"tiết."
+"Giá trị này được diễn giải bằng hàm 'strftime', do đó bạn có thể sử dụng "
+"chuỗi định dạng thời gian. Ngoài ra, các chuyển đổi sau sẽ xảy ra: %s Văn "
+"bản khác sẽ được giữ nguyên. Xem FAQ 6.27 để biết chi tiết."
 
 #: resources/templates/export.twig:394
-#, fuzzy
-#| msgid "use this for future exports"
 msgid "Use this for future exports"
-msgstr "dùng các cài đặt này cho lần xuất tới"
+msgstr "Dùng cái này cho việc xuất tương lai"
 
 #: resources/templates/export.twig:405 resources/templates/import.twig:98
 msgid "Character set of the file:"
@@ -3428,14 +3306,12 @@ msgid "Export tables as separate files"
 msgstr "Xuất các bảng thành các tập tin khác nhau"
 
 #: resources/templates/export.twig:470
-#, fuzzy
-#| msgid "Skip tables larger than"
 msgid "Skip tables larger than:"
-msgstr "Bỏ qua các bảng lớn hơn"
+msgstr "Bỏ qua các bảng lớn hơn:"
 
 #: resources/templates/export.twig:472
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "Kích thước được đo bằng MiB."
 
 #: resources/templates/export.twig:478 resources/templates/import.twig:173
 msgid "Format-specific options:"
@@ -3467,8 +3343,6 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Dùng OpenStreetMaps như là lớp cơ sở"
 
 #: resources/templates/gis_data_editor_form.twig:50
-#, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
@@ -3487,22 +3361,19 @@ msgstr "không nhánh nào"
 
 #: resources/templates/home/git_info.twig:15
 #: resources/templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%1$s từ %2$s nhánh"
+msgstr "từ nhánh %s"
 
 #: resources/templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "chuyển giao vào %1$s bởi %2$s"
+msgstr "chuyển giao vào %s bởi %s"
 
 #: resources/templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "xác thực lúc %1$s bởi %2$s"
+msgstr "xác thực lúc %s bởi %s"
 
 #: resources/templates/home/index.twig:22 resources/templates/login/form.twig:8
 #, php-format
@@ -3528,10 +3399,8 @@ msgid "Change password"
 msgstr "Đổi mật khẩu"
 
 #: resources/templates/home/index.twig:56
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
-msgstr "Bảng mã đối chiếu kết nối máy dịch vụ"
+msgstr "Đối chiếu kết nối máy chủ:"
 
 #: resources/templates/home/index.twig:82
 #: resources/templates/preferences/manage/main.twig:55
@@ -3556,11 +3425,9 @@ msgid "Theme"
 msgstr "Chủ đề"
 
 #: resources/templates/home/index.twig:142
-#, fuzzy
-#| msgid "View only"
 msgctxt "View all themes"
 msgid "View all"
-msgstr "Chỉ hiển thị"
+msgstr "Xem tất cả"
 
 #: resources/templates/home/index.twig:178
 msgid "Database server"
@@ -3576,10 +3443,8 @@ msgid "Server type:"
 msgstr "Kiểu máy chủ:"
 
 #: resources/templates/home/index.twig:190
-#, fuzzy
-#| msgid "Master connection:"
 msgid "Server connection:"
-msgstr "Kết nối với máy chủ:"
+msgstr "Kết nối máy chủ:"
 
 #: resources/templates/home/index.twig:194
 #: src/Plugins/Export/ExportLatex.php:214 src/Plugins/Export/ExportSql.php:727
@@ -3651,13 +3516,11 @@ msgstr "Cảnh báo"
 
 #: resources/templates/home/index.twig:303
 msgid "Notice"
-msgstr ""
+msgstr "Thông báo"
 
 #: resources/templates/home/index.twig:316
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
-msgstr "Trang chủ phpMyAdmin"
+msgstr "Chủ đề phpMyAdmin"
 
 #: resources/templates/home/index.twig:321
 #: resources/templates/modals/index_dialog_modal.twig:26
@@ -3674,17 +3537,14 @@ msgid "Get more themes!"
 msgstr "Muốn lấy thêm các chủ đề khác!"
 
 #: resources/templates/home/themes.twig:8
-#, fuzzy, php-format
-#| msgid "Schema of the %s database"
+#, php-format
 msgid "Screenshot of the %s theme."
-msgstr "Lược đồ của cơ sở dữ liệu %s"
+msgstr "Ảnh chụp màn hình của chủ đề %s."
 
 #. l10n: Choose the theme button in the themes list modal
 #: resources/templates/home/themes.twig:14
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
-msgstr "lấy nó"
+msgstr "Lấy nó"
 
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
@@ -3715,28 +3575,20 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Tập tin có thể nén (%s) hoặc không."
 
 #: resources/templates/import.twig:29
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Tên của tập tin nén phải kết thúc bằng <b>.[định dạng].[nén]</b>. Ví dụ: <b>."
-"sql.zip</b>"
+"Tên của tệp nén phải kết thúc bằng <strong>.[định dạng].[nén]</strong>. Ví "
+"dụ: <strong>.sql.zip</strong>"
 
 #: resources/templates/import.twig:37
-#, fuzzy
-#| msgid "Save as file"
 msgid "Upload a file"
-msgstr "Lưu thành tập tin"
+msgstr "Tải lên một tệp"
 
 #: resources/templates/import.twig:40
-#, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
-msgstr "Tập tin để nhập:"
+msgstr "Chọn tệp để nhập"
 
 #: resources/templates/import.twig:46 resources/templates/import.twig:72
 #: resources/templates/preferences/manage/main.twig:21
@@ -3758,10 +3610,8 @@ msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "Chọn từ thư mục tải lên của máy phục vụ web [strong]%s[/strong]:"
 
 #: resources/templates/import.twig:65 resources/templates/import.twig:91
-#, fuzzy
-#| msgid "There are no files to upload!"
 msgid "There are no files to import!"
-msgstr "Không có tập tin nào để tải lên!"
+msgstr "Không có tệp nào để nhập!"
 
 #: resources/templates/import.twig:95
 msgid "File uploads are not allowed on this server."
@@ -3779,49 +3629,33 @@ msgstr ""
 "Lần nhập trước gặp lỗi quá giờ, sau khi gửi lại sẽ tiếp tục tại vị trí %d."
 
 #: resources/templates/import.twig:133
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
 msgstr ""
-"Cho phép ngắt của lần nhập vào trong trường hợp văn lệnh dò thấy nó bị đóng "
-"bởi giới hạn thời gian PHP. <i>(Việc này có lẽ tốt khi muốn nhập tập tin có "
-"kích thước lớn, tuy nhiên nó có thể làm gãy giao dịch.)</i>"
+"Cho phép gián đoạn quá trình nhập trong trường hợp tập lệnh phát hiện nó gần "
+"đạt đến giới hạn thời gian chờ của PHP."
 
 #: resources/templates/import.twig:135
-#, fuzzy
-#| msgid ""
-#| "Allow interrupt of import in case script detects it is close to time "
-#| "limit. This might be a good way to import large files, however it can "
-#| "break transactions."
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"Cho phép ngắt nhập khẩu trong trường hợp văn lệnh dò thấy nó bị đóng vì giới "
-"hạn thời gian. Việc náy có lẽ tốt trong trường hợp bạn muốn nhập một tập tin "
-"có kích cỡ lớn, tuy nhiên nó có thể làm hỏng các giao dịch."
+"Đây có thể là một cách hay để nhập các tệp lớn, tuy nhiên nó có thể làm gián "
+"đoạn các giao dịch."
 
 #: resources/templates/import.twig:139
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Bỏ qua số lượng truy vấn này (cho SQL) bắt đầu tính từ cái thứ nhất:"
 
 #: resources/templates/import.twig:149
-#, fuzzy
-#| msgid "Other options:"
 msgid "Other options"
-msgstr "Những tùy chọn khác:"
+msgstr "Tùy chọn khác"
 
 #: resources/templates/indexes.twig:40
 #: resources/templates/table/structure/display_structure.twig:496
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
-msgstr "Đổi tên thành"
+msgstr "Đổi tên"
 
 #: resources/templates/indexes.twig:46
 #: resources/templates/table/structure/display_structure.twig:502
@@ -3871,10 +3705,8 @@ msgid "Password:"
 msgstr "Mật khẩu:"
 
 #: resources/templates/login/form.twig:93
-#, fuzzy
-#| msgid "Server Choice:"
 msgid "Server choice:"
-msgstr "Chọn Máy chủ:"
+msgstr "Chọn máy chủ:"
 
 #: resources/templates/login/header.twig:10
 #: src/Plugins/Auth/AuthenticationConfig.php:95
@@ -3889,43 +3721,48 @@ msgid ""
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
 msgstr ""
+"Có sự không khớp giữa HTTPS được chỉ định trên máy chủ và máy khách. Điều "
+"này có thể dẫn đến phpMyAdmin không hoạt động hoặc có nguy cơ bảo mật. Vui "
+"lòng sửa cấu hình máy chủ của bạn để chỉ ra HTTPS chính xác."
 
 #: resources/templates/login/twofactor/application_configure.twig:3
 msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"Vui lòng quét mã QR sau vào ứng dụng xác thực hai yếu tố trên thiết bị của "
+"bạn và nhập mã xác thực mà nó tạo ra."
 
 #: resources/templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
-msgstr ""
+msgstr "Bí mật/khóa:"
 
 #: resources/templates/login/twofactor/application_configure.twig:16
 #: resources/templates/login/twofactor/application.twig:2
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Xác thực"
+msgstr "Mã xác thực:"
 
 #: resources/templates/login/twofactor/application.twig:5
 msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"Mở ứng dụng xác thực hai yếu tố trên thiết bị của bạn để xem mã xác thực và "
+"xác minh danh tính của bạn."
 
 #: resources/templates/login/twofactor/invalid.twig:2
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
 msgstr ""
+"Xác thực hai yếu tố đã định cấu hình không khả dụng, vui lòng cài đặt các "
+"phần phụ thuộc còn thiếu."
 
 #: resources/templates/login/twofactor/key_configure.twig:3
 #: resources/templates/login/twofactor/key.twig:3
 #: resources/templates/preferences/two_factor/main.twig:56
-#, fuzzy
-#| msgid "Replicated"
 msgid "Deprecated!"
-msgstr "Bản sao"
+msgstr "Không được dùng!"
 
 #: resources/templates/login/twofactor/key_configure.twig:4
 #: resources/templates/login/twofactor/key.twig:4
@@ -3935,6 +3772,8 @@ msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
 msgstr ""
+"API FIDO U2F không còn được dùng nữa để thay thế bằng API xác thực web "
+"(WebAuthn)."
 
 #: resources/templates/login/twofactor/key_configure.twig:6
 #: resources/templates/login/twofactor/key.twig:6
@@ -3944,24 +3783,32 @@ msgid ""
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
+"Bạn vẫn có thể sử dụng Firefox để xác thực tài khoản của mình bằng API FIDO "
+"U2F, tuy nhiên, bạn nên sử dụng xác thực WebAuthn để thay thế."
 
 #: resources/templates/login/twofactor/key_configure.twig:10
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"Vui lòng kết nối thiết bị FIDO U2F của bạn với cổng USB trên máy tính. Sau "
+"đó xác nhận đăng ký trên thiết bị."
 
 #: resources/templates/login/twofactor/key-https-warning.twig:3
 msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
+"Bạn không sử dụng https để truy cập phpMyAdmin, do đó thiết bị FIDO U2F rất "
+"có thể sẽ từ chối xác thực bạn."
 
 #: resources/templates/login/twofactor/key.twig:10
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"Vui lòng kết nối thiết bị FIDO U2F của bạn với cổng USB trên máy tính. Sau "
+"đó xác nhận đăng nhập trên thiết bị."
 
 #: resources/templates/login/twofactor.twig:10
 msgid "Verify"
@@ -3972,17 +3819,19 @@ msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
+"Vui lòng kết nối thiết bị WebAuthn/FIDO2 của bạn. Sau đó xác nhận đăng ký "
+"trên thiết bị."
 
 #: resources/templates/login/twofactor/webauthn_request.twig:1
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
+"Vui lòng kết nối thiết bị WebAuthn/FIDO2 của bạn. Sau đó xác nhận đăng nhập "
+"trên thiết bị."
 
 #: resources/templates/menu/main.twig:27
-#, fuzzy
-#| msgid "Views:"
 msgid "View:"
-msgstr "Trình bày:"
+msgstr "Xem:"
 
 #: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:177
 msgid "Table:"
@@ -3990,15 +3839,13 @@ msgstr "Bảng:"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: resources/templates/menu/main.twig:49
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Toggle navigation"
-msgstr "Xóa thanh công cụ kết nối nhanh"
+msgstr "Chuyển đổi điều hướng"
 
 #. l10n: Current page
 #: resources/templates/menu/main.twig:59
 msgid "(current)"
-msgstr ""
+msgstr "(hiện tại)"
 
 #: resources/templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
@@ -4006,7 +3853,7 @@ msgstr "Hiển thị các mục ẩn cây điều hướng."
 
 #: resources/templates/navigation/item_unhide_dialog.twig:19
 msgid "Unhide"
-msgstr ""
+msgstr "Bỏ ẩn"
 
 #: resources/templates/navigation/main.twig:25
 #: resources/templates/navigation/main.twig:26
@@ -4015,24 +3862,18 @@ msgstr "Trang chủ"
 
 #: resources/templates/navigation/main.twig:30
 #: resources/templates/navigation/main.twig:31
-#, fuzzy
-#| msgid "Dumping data"
 msgid "Empty session data"
-msgstr "Đang đổ dữ liệu"
+msgstr "Dữ liệu phiên trống"
 
 #: resources/templates/navigation/main.twig:39
 #: resources/templates/navigation/main.twig:40
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
-msgstr "Tài liệu"
+msgstr "Tài liệu MariaDB"
 
 #: resources/templates/navigation/main.twig:39
 #: resources/templates/navigation/main.twig:40
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
-msgstr "Tài liệu"
+msgstr "Tài liệu MySQL"
 
 #: resources/templates/navigation/main.twig:43
 #: resources/templates/navigation/main.twig:44
@@ -4054,10 +3895,8 @@ msgid "Drop files here"
 msgstr "Thả tập tin vào đây"
 
 #: resources/templates/navigation/main.twig:88
-#, fuzzy
-#| msgid "SQL dump"
 msgid "SQL upload"
-msgstr "Đổ SQL"
+msgstr "Tải lên SQL"
 
 #: resources/templates/navigation/tree/database_select.twig:10
 #: resources/templates/server/databases/index.twig:3
@@ -4079,10 +3918,8 @@ msgid "Clear fast filter"
 msgstr "Xóa bộ lọc nhanh"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
-#, fuzzy
-#| msgid "Recently used tables"
 msgid "Recently visited tables"
-msgstr "Các bảng mới dùng gần đây"
+msgstr "Các bảng đã truy cập gần đây"
 
 #: resources/templates/navigation/tree/quick_warp.twig:6
 msgid "Recent"
@@ -4106,10 +3943,8 @@ msgstr ""
 "vào phiên này không?"
 
 #: resources/templates/preferences/autoload.twig:11
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings"
-msgstr "Xóa theo dõi"
+msgstr "Xóa cài đặt"
 
 #: resources/templates/preferences/forms/main.twig:4
 msgid "Cannot save settings, submitted form contains errors!"
@@ -4120,10 +3955,8 @@ msgid "Manage your settings"
 msgstr "Quản lý các cài đặt"
 
 #: resources/templates/preferences/header.twig:12
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Cấu hình xác thực"
+msgstr "Xác thực hai yếu tố"
 
 #: resources/templates/preferences/header.twig:18
 #: src/Config/Forms/User/FeaturesForm.php:81
@@ -4207,16 +4040,12 @@ msgstr ""
 "như dùng %sTrang cài đặt%s."
 
 #: resources/templates/preferences/manage/main.twig:80
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Lưu thành tập tin"
+msgstr "Lưu thành tệp JSON"
 
 #: resources/templates/preferences/manage/main.twig:84
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Lưu thành tập tin"
+msgstr "Lưu thành tệp PHP"
 
 #: resources/templates/preferences/manage/main.twig:89
 msgid "Save to browser's storage"
@@ -4239,47 +4068,41 @@ msgstr ""
 #: resources/templates/preferences/two_factor/configure.twig:5
 #: resources/templates/preferences/two_factor/main.twig:77
 #: resources/templates/preferences/two_factor/main.twig:98
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Cấu hình xác thực"
+msgstr "Cấu hình xác thực hai yếu tố"
 
 #: resources/templates/preferences/two_factor/configure.twig:12
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Cấu hình xác thực"
+msgstr "Kích hoạt xác thực hai yếu tố"
 
 #: resources/templates/preferences/two_factor/confirm.twig:5
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Cấu hình xác thực"
+msgstr "Xác nhận vô hiệu hóa xác thực hai yếu tố"
 
 #: resources/templates/preferences/two_factor/confirm.twig:9
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"Bằng cách vô hiệu hóa xác thực hai yếu tố, bạn sẽ chỉ có thể đăng nhập lại "
+"bằng mật khẩu."
 
 #: resources/templates/preferences/two_factor/confirm.twig:13
 #: resources/templates/preferences/two_factor/main.twig:66
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Cấu hình xác thực"
+msgstr "Vô hiệu hóa xác thực hai yếu tố"
 
 #: resources/templates/preferences/two_factor/main.twig:5
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Cài đặt xác thực"
+msgstr "Trạng thái xác thực hai yếu tố"
 
 #: resources/templates/preferences/two_factor/main.twig:11
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"Xác thực hai yếu tố không khả dụng, vui lòng cài đặt các phần phụ thuộc tùy "
+"chọn để bật phần phụ trợ xác thực."
 
 #: resources/templates/preferences/two_factor/main.twig:12
 #: resources/templates/preferences/two_factor/main.twig:27
@@ -4288,27 +4111,32 @@ msgstr ""
 
 #: resources/templates/preferences/two_factor/main.twig:20
 msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
+msgstr "Xác thực hai yếu tố có sẵn và được định cấu hình cho tài khoản này."
 
 #: resources/templates/preferences/two_factor/main.twig:22
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
+"Xác thực hai yếu tố có sẵn nhưng không được định cấu hình cho tài khoản này."
 
 #: resources/templates/preferences/two_factor/main.twig:26
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
+"Vui lòng cài đặt các phần phụ thuộc tùy chọn để kích hoạt thêm phần phụ trợ "
+"xác thực."
 
 #: resources/templates/preferences/two_factor/main.twig:37
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
 msgstr ""
+"Xác thực hai yếu tố không khả dụng, hãy bật bộ lưu trữ cấu hình phpMyAdmin "
+"để sử dụng nó."
 
 #: resources/templates/preferences/two_factor/main.twig:52
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "Bạn đã kích hoạt xác thực hai yếu tố."
 
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:37
@@ -4328,10 +4156,8 @@ msgid "There are no recent tables."
 msgstr "Không có bảng mới dùng nào cả."
 
 #: resources/templates/relation/check_relations.twig:3
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration storage"
-msgstr "Thiếu các bảng lưu trữ cấu hình phpMyAdmin"
+msgstr "lưu trữ cấu hình phpMyAdmin"
 
 #: resources/templates/relation/check_relations.twig:9
 msgid "Configuration of pmadb…"
@@ -4370,17 +4196,19 @@ msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
 "storage there."
 msgstr ""
+"%sTạo%s cơ sở dữ liệu có tên '%s' và thiết lập bộ lưu trữ cấu hình "
+"phpMyAdmin ở đó."
 
 #: resources/templates/relation/check_relations.twig:24
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr ""
+msgstr "%sTạo%s bộ lưu trữ cấu hình phpMyAdmin trong cơ sở dữ liệu hiện tại."
 
 #: resources/templates/relation/check_relations.twig:31
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr ""
+msgstr "%sTạo%s thiếu bảng lưu trữ cấu hình phpMyAdmin."
 
 #: resources/templates/relation/check_relations.twig:42
 #: resources/templates/relation/check_relations.twig:54
@@ -4407,10 +4235,8 @@ msgid "OK"
 msgstr "Tốt"
 
 #: resources/templates/relation/check_relations.twig:62
-#, fuzzy
-#| msgid "General relation features"
 msgid "General relation features:"
-msgstr "gặp tính năng hệ thống tập tin không được hỗ trợ"
+msgstr "Đặc điểm quan hệ chung:"
 
 #: resources/templates/relation/check_relations.twig:64
 #: resources/templates/relation/check_relations.twig:89
@@ -4434,106 +4260,76 @@ msgid "Enabled"
 msgstr "Bật"
 
 #: resources/templates/relation/check_relations.twig:87
-#, fuzzy
-#| msgid "Display Features"
 msgid "Display features:"
-msgstr "Hiển thị các Tính năng"
+msgstr "Hiển thị đặc trưng:"
 
 #: resources/templates/relation/check_relations.twig:125
-#, fuzzy
-#| msgid "Designer and creation of PDFs"
 msgid "Designer and creation of PDFs:"
-msgstr "Bộ thiết kế và tạo PDF"
+msgstr "Thiết kế và tạo PDFs:"
 
 #: resources/templates/relation/check_relations.twig:150
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Displaying column comments:"
-msgstr "Hiển thị các ghi chú cột"
+msgstr "Hiển thị các bình luận cột:"
 
 #: resources/templates/relation/check_relations.twig:160
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser transformation:"
-msgstr "Chuyển dạng phối cảnh"
+msgstr "Chuyển đổi trình duyệt:"
 
 #: resources/templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
 msgstr "Vui lòng xem tài liệu để biết cách cập nhật bảng column_info của bạn."
 
 #: resources/templates/relation/check_relations.twig:195
-#, fuzzy
-#| msgid "Bookmarked SQL query"
 msgid "Bookmarked SQL query:"
-msgstr "Truy vấn SQL đã đánh dấu"
+msgstr "Truy vấn SQL đã đánh dấu:"
 
 #: resources/templates/relation/check_relations.twig:220
 msgid "SQL history:"
 msgstr "Lịch sử SQL:"
 
 #: resources/templates/relation/check_relations.twig:245
-#, fuzzy
-#| msgid "Persistent recently used tables"
 msgid "Persistent recently used tables:"
-msgstr "Bảng mới dùng cố định"
+msgstr "Các bảng dùng liên tục gần đây:"
 
 #: resources/templates/relation/check_relations.twig:270
-#, fuzzy
-#| msgid "Persistent favorite tables"
 msgid "Persistent favorite tables:"
-msgstr "Các bảng ưa dùng cố định"
+msgstr "Các bảng ưa thích liên tục:"
 
 #: resources/templates/relation/check_relations.twig:295
-#, fuzzy
-#| msgid "Could not save table UI preferences!"
 msgid "Persistent tables' UI preferences:"
-msgstr "Không thể ghi lại bảng mới dùng"
+msgstr "Tùy chọn giao diện của bảng liên tục:"
 
 #: resources/templates/relation/check_relations.twig:320
-#, fuzzy
-#| msgid "Tracking"
 msgid "Tracking:"
-msgstr "Theo dõi"
+msgstr "Theo dõi:"
 
 #: resources/templates/relation/check_relations.twig:345
-#, fuzzy
-#| msgid "User preferences"
 msgid "User preferences:"
-msgstr "Tùy chình cá nhân hóa"
+msgstr "Sở thích người dùng:"
 
 #: resources/templates/relation/check_relations.twig:383
-#, fuzzy
-#| msgid "Configurable menus"
 msgid "Configurable menus:"
-msgstr "Trình đơn cấu hình"
+msgstr "Trình đơn cấu hình:"
 
 #: resources/templates/relation/check_relations.twig:408
-#, fuzzy
-#| msgid "Hide/show navigation items"
 msgid "Hide/show navigation items:"
-msgstr "Ẩn/hiện các mục điều hướng"
+msgstr "Ẩn/hiện các mục điều hướng:"
 
 #: resources/templates/relation/check_relations.twig:433
 msgid "Saving Query-By-Example searches:"
 msgstr ""
 
 #: resources/templates/relation/check_relations.twig:458
-#, fuzzy
-#| msgid "Managing Central list of columns"
 msgid "Managing central list of columns:"
-msgstr "Quản lý danh sách trung tâm của cột"
+msgstr "Quản lý danh sách cột trung tâm:"
 
 #: resources/templates/relation/check_relations.twig:483
-#, fuzzy
-#| msgid "Remembering Designer Settings"
 msgid "Remembering designer settings:"
-msgstr "Ghi nhớ các cài đặt bộ thiết kế"
+msgstr "Ghi nhớ cài đặt của nhà thiết kế:"
 
 #: resources/templates/relation/check_relations.twig:508
-#, fuzzy
-#| msgid "Saving export templates"
 msgid "Saving export templates:"
-msgstr "Đang lưu các mẫu xuất"
+msgstr "Lưu mẫu xuất:"
 
 #: resources/templates/relation/check_relations.twig:519
 msgid "Quick steps to set up advanced features:"
@@ -4553,10 +4349,12 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
+"Bật các tính năng nâng cao trong tệp cấu hình (<code>config.inc.php</code>), "
+"ví dụ: bằng cách bắt đầu từ <code>config.sample.inc.php</code>."
 
 #: resources/templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
+msgstr "Đăng nhập lại vào phpMyAdmin để tải tệp cấu hình đã cập nhật."
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:489
 #: src/Server/Status/Data.php:126 src/Util.php:1474
@@ -4575,16 +4373,12 @@ msgstr "Tập tin"
 #: resources/templates/server/binlog/index.twig:57
 #: resources/templates/server/binlog/index.twig:58
 #: resources/templates/server/status/processes/list.twig:20
-#, fuzzy
-#| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
-msgstr "Cắt cụt các truy vấn hiện"
+msgstr "Cắt bớt các truy vấn được hiển thị"
 
 #: resources/templates/server/binlog/index.twig:61
 #: resources/templates/server/binlog/index.twig:62
 #: resources/templates/server/status/processes/list.twig:26
-#, fuzzy
-#| msgid "Show Full Queries"
 msgid "Show full queries"
 msgstr "Hiện Toàn bộ các truy vấn"
 
@@ -7110,7 +6904,7 @@ msgstr "dành-riêng-cho-bảng"
 
 #: resources/templates/table/relation/common_form.twig:10
 msgid "Foreign key constraints"
-msgstr "Các ràng buộc khóa ngoại"
+msgstr "Ràng buộc khóa ngoại"
 
 #: resources/templates/table/relation/common_form.twig:16
 msgid "Actions"
@@ -7651,13 +7445,15 @@ msgstr "Phần trăm các truy vấn chậm"
 #: src/Advisory/Rules.php:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "Có rất nhiều truy vấn chậm so với tổng số truy vấn."
 
 #: src/Advisory/Rules.php:68 src/Advisory/Rules.php:81
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Bạn có thể muốn tăng {long_query_time} hoặc tối ưu hóa các truy vấn được "
+"liệt kê trong nhật ký truy vấn chậm"
 
 #: src/Advisory/Rules.php:70
 #, php-format
@@ -7679,6 +7475,7 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Tỉ lệ truy vấn của bạn chậm %s mỗi giờ, tỉ lệ này nên nhỏ hơn 1%% mỗi giờ."
 
 #: src/Advisory/Rules.php:90
 msgid "Long query time"
@@ -7695,6 +7492,8 @@ msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Bạn nên đặt {long_query_time} giá trị thấp hơn, tùy vào môi trường của bạn. "
+"Giá trị được khuyến nghị thường là từ 1-5 giây."
 
 #: src/Advisory/Rules.php:101
 #, php-format
@@ -7714,6 +7513,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Bật ghi nhật ký truy vấn chậm bằng cách đặt {log_slow_queries} là 'BẬT'. Nó "
+"giúp khắc phục sự cố truy vấn hoạt động kém."
 
 #: src/Advisory/Rules.php:115
 msgid "log_slow_queries is set to 'OFF'"
@@ -7724,6 +7525,8 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Bật ghi nhật ký truy vấn chậm bằng cách đặt {slow_query_log} là 'BẬT'. Nó "
+"giúp khắc phục sự cố truy vấn hoạt động kém."
 
 #: src/Advisory/Rules.php:128
 msgid "slow_query_log is set to 'OFF'"
@@ -7851,6 +7654,10 @@ msgid ""
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple replicas."
 msgstr ""
+"Bạn đang dùng bộ đệm truy vấn MySQL với cơ sở dữ liệu lưu lượng truy cập khá "
+"cao. Có thể cân nhắc sử dụng <a href=\"https://dev.mysql.com/doc/refman/5.6/"
+"en/ha-memcached.html\">memcached</a> thay vì bộ nhớ đệm Truy vấn MySQL, đặc "
+"biệt nếu bạn có nhiều bản sao."
 
 #: src/Advisory/Rules.php:223
 #, php-format
@@ -7858,20 +7665,24 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"Bộ đệm truy vấn được bật và máy chủ nhận được %d truy vấn mỗi giây. Quy tắc "
+"này sẽ kích hoạt nếu có hơn 100 truy vấn mỗi giây."
 
 #: src/Advisory/Rules.php:231
 msgid "Percentage of sorts that cause temporary tables"
-msgstr ""
+msgstr "Tỷ lệ sắp xếp gây ra các bảng tạm thời"
 
 #: src/Advisory/Rules.php:235 src/Advisory/Rules.php:250
 msgid "Too many sorts are causing temporary tables."
-msgstr ""
+msgstr "Quá nhiều sắp xếp đang phát sinh các bảng tạm."
 
 #: src/Advisory/Rules.php:237 src/Advisory/Rules.php:252
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
+"Hãy cân nhắc tăng {sort_buffer_size} và/hoặc {read_rnd_buffer_size}, tùy "
+"thuộc vào giới hạn bộ nhớ hệ thống của bạn."
 
 #: src/Advisory/Rules.php:241
 #, php-format
@@ -7879,10 +7690,11 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"%s%% của tất cả sắp xếp phát sinh bảng tạm, giá trị này phải thấp hơn 10%%."
 
 #: src/Advisory/Rules.php:247
 msgid "Rate of sorts that cause temporary tables"
-msgstr ""
+msgstr "Tỉ lệ sắp xếp phát sinh bảng tạm"
 
 #: src/Advisory/Rules.php:255
 #, php-format
@@ -7905,11 +7717,15 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting."
 msgstr ""
+"Mặc dù không có gì sai khi sắp xếp số lượng hàng nhiều, nhưng bạn có thể "
+"muốn đảm bảo rằng các truy vấn yêu cầu sắp xếp nhiều sẽ sử dụng các cột được "
+"lập chỉ mục trong mệnh đề ORDER BY, vì điều này sẽ giúp sắp xếp nhanh hơn "
+"nhiều."
 
 #: src/Advisory/Rules.php:269
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Trung bình các hàng được sắp xếp: %s"
 
 #: src/Advisory/Rules.php:275
 msgid "Rate of joins without indexes"
@@ -7924,11 +7740,14 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
+"Điều này có nghĩa là các phép nối đang thực hiện quét toàn bộ bảng. Việc "
+"thêm chỉ mục cho các cột đang được sử dụng trong điều kiện nối sẽ tăng tốc "
+"đáng kể việc nối bảng."
 
 #: src/Advisory/Rules.php:283
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "Trung bình số lần ghép bảng: %s, giá trị này phải nhỏ hơn 1 mỗi giờ"
 
 #: src/Advisory/Rules.php:288
 msgid "Rate of reading first index entry"
@@ -7947,11 +7766,17 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Điều này thường cho thấy việc quét chỉ mục đầy đủ thường xuyên. Quét chỉ mục "
+"đầy đủ nhanh hơn quét bảng nhưng yêu cầu nhiều chu kỳ CPU trong các bảng "
+"lớn, nếu những bảng đó có hoặc có số lượng CẬP NHẬT và XÓA cao, thì việc "
+"chạy 'BẢNG TỐI ƯU HÓA' có thể giảm số lượng và/hoặc tăng tốc độ quét chỉ mục "
+"đầy đủ . Ngoài ra, việc quét chỉ mục đầy đủ chỉ có thể được giảm bớt bằng "
+"cách viết lại các truy vấn."
 
 #: src/Advisory/Rules.php:299
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "Trung bình quét chỉ mục: %s, giá trị này phải nhỏ hơn 1 mỗi giờ"
 
 #: src/Advisory/Rules.php:304
 msgid "Rate of reading fixed position"
@@ -7967,6 +7792,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"Điều này cho thấy rằng nhiều truy vấn cần sắp xếp kết quả và/hoặc thực hiện "
+"quét toàn bộ bảng, bao gồm cả các truy vấn nối không sử dụng chỉ mục. Thêm "
+"chỉ mục nếu có."
 
 #: src/Advisory/Rules.php:313
 #, php-format
@@ -7974,6 +7802,8 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Tốc độ đọc trung bình của vị trí cố định: %s, giá trị này phải nhỏ hơn 1 mỗi "
+"giờ"
 
 #: src/Advisory/Rules.php:319
 msgid "Rate of reading next table row"
@@ -7988,20 +7818,23 @@ msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Điều này chỉ ra rằng nhiều truy vấn đang thực hiện quét toàn bộ bảng. Thêm "
+"chỉ mục nếu có."
 
 #: src/Advisory/Rules.php:326
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
+"Tốc độ đọc hàng tiếp theo của bảng: %s, giá trị này phải nhỏ hơn 1 mỗi giờ"
 
 #: src/Advisory/Rules.php:332
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr ""
+msgstr "tmp_table_size và max_heap_table_size khác nhau"
 
 #: src/Advisory/Rules.php:335
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr ""
+msgstr "{tmp_table_size} và {max_heap_table_size} không giống nhau."
 
 #: src/Advisory/Rules.php:337
 msgid ""
@@ -8010,21 +7843,25 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Nếu bạn cố tình thay đổi một trong hai: Máy chủ sử dụng giá trị thấp hơn của "
+"một trong hai để xác định kích thước tối đa của các bảng trong bộ nhớ. Vì "
+"vậy, nếu bạn muốn tăng giới hạn bảng trong bộ nhớ, bạn cũng sẽ phải tăng giá "
+"trị khác."
 
 #: src/Advisory/Rules.php:341
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "Giá trị hiện tại là tmp_table_size: %s, max_heap_table_size: %s"
 
 #: src/Advisory/Rules.php:347
 msgid "Percentage of temp tables on disk"
-msgstr ""
+msgstr "Tỷ lệ bảng tạm thời trên đĩa"
 
 #: src/Advisory/Rules.php:351 src/Advisory/Rules.php:372
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
-msgstr ""
+msgstr "Nhiều bảng tạm thời được ghi vào đĩa thay vì được lưu trong bộ nhớ."
 
 #: src/Advisory/Rules.php:353
 msgid ""
@@ -8036,6 +7873,13 @@ msgid ""
 "mentioned in the beginning of an <a href=\"https://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
+"Việc tăng {max_heap_table_size} và {tmp_table_size} có thể hữu ích. Tuy "
+"nhiên, một số bảng tạm luôn ghi vào đĩa, không phụ thuộc vào giá trị của các "
+"biến này. Để loại bỏ điều này, bạn sẽ phải viết lại các truy vấn của mình để "
+"tránh những điều kiện đó (Trong bảng tạm thời: Sự hiện diện của cột BLOB "
+"hoặc TEXT hoặc sự hiện diện của cột lớn hơn 512 byte) như đã đề cập ở phần "
+"đầu của <a href=\"https ://www.facebook.com/note."
+"php?note_id=10150111255065841&comments\">Bài viết của Nhóm Pythian</a>"
 
 #: src/Advisory/Rules.php:362
 #, php-format
@@ -8043,6 +7887,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% trong số tất cả các bảng tạm đang được ghi vào đĩa, giá trị này phải "
+"dưới 25%%"
 
 #: src/Advisory/Rules.php:368
 msgid "Temp disk rate"
@@ -8058,6 +7904,13 @@ msgid ""
 "mentioned in the <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"Việc tăng {max_heap_table_size} và {tmp_table_size} có thể hữu ích. Tuy "
+"nhiên, một số bảng tạm luôn ghi vào đĩa, không phụ thuộc vào giá trị của các "
+"biến này. Để loại bỏ những điều này, bạn sẽ phải viết lại các truy vấn của "
+"mình để tránh những điều kiện đó (Trong bảng tạm thời: Sự hiện diện của cột "
+"BLOB hoặc TEXT hoặc sự hiện diện của cột lớn hơn 512 byte) như được đề cập "
+"trong <a href=\"https:// dev.mysql.com/doc/refman/8.0/en/internal-temporary-"
+"tables.html\">Tài liệu MySQL</a>"
 
 #: src/Advisory/Rules.php:383
 #, php-format
@@ -8065,6 +7918,7 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
+"Tỷ lệ các bảng tạm được ghi vào đĩa: %s, giá trị này phải nhỏ hơn 1 mỗi giờ"
 
 #: src/Advisory/Rules.php:390
 msgid "MyISAM key buffer size"
@@ -8073,27 +7927,30 @@ msgstr "Cỡ đệm khóa MyISAM"
 #: src/Advisory/Rules.php:393
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"Bộ đệm khóa không được khởi tạo. Không có chỉ mục MyISAM nào được lưu vào bộ "
+"nhớ đệm."
 
 #: src/Advisory/Rules.php:395
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"Đặt {key_buffer_size} tùy thuộc vào kích thước chỉ mục MyISAM của bạn. 64M "
+"là một khởi đầu tốt."
 
 #: src/Advisory/Rules.php:397
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size là 0"
 
 #: src/Advisory/Rules.php:402
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer size"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "Cỡ đệm khóa MyISAM"
+msgstr "Bộ đệm khóa MyISAM% tối đa từng được sử dụng"
 
 #: src/Advisory/Rules.php:407 src/Advisory/Rules.php:424
 #, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr ""
+msgstr "Bộ đệm khóa MyISAM (bộ đệm chỉ mục) % được sử dụng ở mức thấp."
 
 #: src/Advisory/Rules.php:409 src/Advisory/Rules.php:426
 msgid ""
@@ -8101,39 +7958,44 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Bạn có thể cần giảm kích thước của {key_buffer_size}, kiểm tra lại các bảng "
+"của mình để xem liệu các chỉ mục đã bị xóa hay chưa hoặc kiểm tra các truy "
+"vấn và kỳ vọng về những chỉ mục nào đang được sử dụng."
 
 #: src/Advisory/Rules.php:413
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
+"tối đa %% Bộ đệm khóa MyISAM đã từng được sử dụng: %s%%, giá trị này phải "
+"trên 95%%"
 
 #: src/Advisory/Rules.php:418
 msgid "Percentage of MyISAM key buffer used"
-msgstr ""
+msgstr "Phần trăm bộ đệm khóa MyISAM được sử dụng"
 
 #: src/Advisory/Rules.php:430
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "%% Bộ đệm khóa MyISAM được sử dụng: %s%%, giá trị này phải trên 95%%"
 
 #: src/Advisory/Rules.php:435
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Phần trăm chỉ mục được đọc từ bộ nhớ"
 
 #: src/Advisory/Rules.php:440
 #, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "Tỷ lệ % chỉ mục sử dụng bộ đệm khóa MyISAM thấp."
 
 #: src/Advisory/Rules.php:441
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Bạn có thể cần tăng {key_buffer_size}."
 
 #: src/Advisory/Rules.php:442
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Chỉ mục đọc từ bộ nhớ: %s%%, giá trị này phải trên 95%%"
 
 #: src/Advisory/Rules.php:448
 msgid "Rate of table open"
@@ -8148,33 +8010,39 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Việc mở bảng yêu cầu I/O đĩa rất tốn kém. Việc tăng {table_open_cache} có "
+"thể tránh được điều này."
 
 #: src/Advisory/Rules.php:455
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr ""
+msgstr "Tỷ lệ bảng đã mở: %s, giá trị này phải nhỏ hơn 10 mỗi giờ"
 
 #: src/Advisory/Rules.php:460
 msgid "Percentage of used open files limit"
-msgstr ""
+msgstr "Tỷ lệ phần trăm giới hạn tệp đang mở được sử dụng"
 
 #: src/Advisory/Rules.php:464
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"Số lượng tệp đang mở đang tiến gần đến số lượng tệp đang mở tối đa. Bạn có "
+"thể gặp lỗi \"Quá nhiều tệp đang mở\"."
 
 #: src/Advisory/Rules.php:468 src/Advisory/Rules.php:481
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
 msgstr ""
+"Cân nhắc việc tăng {open_files_limit} và kiểm tra nhật ký lỗi khi khởi động "
+"lại sau khi thay đổi {open_files_limit}"
 
 #: src/Advisory/Rules.php:471
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
-msgstr ""
+msgstr "Số lượng tệp đã mở ở mức %s%% giới hạn. Nó phải dưới 85%%"
 
 #: src/Advisory/Rules.php:476
 msgid "Rate of open files"
@@ -8187,34 +8055,35 @@ msgstr "Tốc độ mở các tập tin cao."
 #: src/Advisory/Rules.php:484
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr ""
+msgstr "Tỷ lệ tệp được mở: %s, giá trị này phải nhỏ hơn 5 mỗi giờ"
 
 #: src/Advisory/Rules.php:490
 #, no-php-format
 msgid "Immediate table locks %"
-msgstr ""
+msgstr "Khóa bảng ngay lập tức %"
 
 #: src/Advisory/Rules.php:494 src/Advisory/Rules.php:504
 msgid "Too many table locks were not granted immediately."
-msgstr ""
+msgstr "Quá nhiều khóa bảng không được cấp ngay lập tức."
 
 #: src/Advisory/Rules.php:495 src/Advisory/Rules.php:505
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
+"Tối ưu hóa các truy vấn và/hoặc sử dụng InnoDB để giảm thời gian chờ khóa."
 
 #: src/Advisory/Rules.php:496
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Khóa bảng ngay lập tức: %s%%, giá trị này phải trên 95%%"
 
 #: src/Advisory/Rules.php:501
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Tỷ lệ chờ khóa bảng"
 
 #: src/Advisory/Rules.php:506
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "Tốc độ chờ khóa bảng: %s, giá trị này phải nhỏ hơn 1 mỗi giờ"
 
 #: src/Advisory/Rules.php:511
 msgid "Thread cache"
@@ -8225,6 +8094,8 @@ msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"Bộ đệm luồng bị vô hiệu hóa, dẫn đến tốn nhiều chi phí hơn từ các kết nối "
+"mới tới MySQL."
 
 #: src/Advisory/Rules.php:515
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
@@ -8235,10 +8106,9 @@ msgid "The thread cache is set to 0"
 msgstr "Bộ đệm tuyến trình được đặt thành 0"
 
 #: src/Advisory/Rules.php:521
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "Tỷ lệ %% trúng bộ đệm tuyến trình"
+msgstr "Tỷ lệ truy cập bộ nhớ đệm của luồng %"
 
 #: src/Advisory/Rules.php:525
 msgid "Thread cache is not efficient."
@@ -8266,11 +8136,14 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"Điều này thường xảy ra trong trường hợp hệ thống chung bị quá tải vì đây là "
+"thao tác khá đơn giản. Bạn có thể muốn theo dõi tải hệ thống của mình một "
+"cách cẩn thận."
 
 #: src/Advisory/Rules.php:541
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
+msgstr "%s luồng mất nhiều hơn %s giây để bắt đầu, lẽ ra phải là 0"
 
 #: src/Advisory/Rules.php:546
 msgid "Slow launch time"
@@ -8302,6 +8175,8 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
 msgstr ""
+"Số lượng kết nối được sử dụng tối đa đang tiến gần đến giá trị của "
+"{max_connections}."
 
 #: src/Advisory/Rules.php:566
 msgid ""
@@ -8309,6 +8184,9 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
+"Tăng {max_connections} hoặc giảm {wait_timeout} để các kết nối không đóng "
+"trình xử lý cơ sở dữ liệu đúng cách sẽ bị hủy sớm hơn. Đảm bảo mã đóng trình "
+"xử lý cơ sở dữ liệu đúng cách."
 
 #: src/Advisory/Rules.php:570
 #, php-format
@@ -8332,6 +8210,10 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
+"Các kết nối thường bị hủy bỏ khi chúng không thể được cấp phép. <a href="
+"\"https://www.percona.com/blog/2008/08/23/"
+"how-to-track-down-the-source-of-aborted_connects/\">Bài viết này</a> có thể "
+"giúp bạn truy tìm nguồn gốc."
 
 #: src/Advisory/Rules.php:584
 #, php-format
@@ -8364,6 +8246,9 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Khách hàng thường bị hủy bỏ khi họ không đóng kết nối với MySQL đúng cách. "
+"Điều này có thể là do sự cố mạng hoặc mã không đóng trình xử lý cơ sở dữ "
+"liệu đúng cách. Kiểm tra mạng và mã của bạn."
 
 #: src/Advisory/Rules.php:612
 #, php-format
@@ -8422,6 +8307,15 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"Đặc biệt trên hệ thống có nhiều thao tác ghi vào bảng InnoDB, bạn nên đặt "
+"{innodb_log_file_size} là 25% của {innodb_buffer_pool_size}. Tuy nhiên, giá "
+"trị này càng lớn thì thời gian khôi phục sẽ càng lâu khi cơ sở dữ liệu gặp "
+"sự cố, vì vậy không nên đặt cao hơn 256 MiB. Tuy nhiên, xin lưu ý rằng bạn "
+"không thể đơn giản thay đổi giá trị của biến này. Bạn cần tắt máy chủ, xóa "
+"tệp nhật ký InnoDB, đặt giá trị mới trong my.cnf, khởi động máy chủ, sau đó "
+"kiểm tra nhật ký lỗi nếu mọi thứ đều ổn. Xem thêm <a href=\"https"
+"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">mục blog này</a>"
 
 #: src/Advisory/Rules.php:662 src/Advisory/Rules.php:692
 #, php-format
@@ -8429,6 +8323,8 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
+"Kích thước nhật ký InnoDB của bạn ở mức %s%% so với kích thước nhóm bộ đệm "
+"InnoDB, nó không được dưới 20%%"
 
 #: src/Advisory/Rules.php:699
 msgid "Max InnoDB log size"
@@ -8451,6 +8347,15 @@ msgid ""
 "href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"Thông thường, chỉ cần đặt {innodb_log_file_size} thành 25% kích thước của "
+"{innodb_buffer_pool_size} là đủ. {innodb_log_file_size} rất lớn làm chậm "
+"đáng kể thời gian khôi phục sau khi cơ sở dữ liệu gặp sự cố. Xem thêm <a "
+"href=\"https://www.percona.com/blog/2006/07/03/"
+"choosing-proper-innodb_log_file_size/\">Bài viết này</a>. Bạn cần tắt máy "
+"chủ, xóa tệp nhật ký InnoDB, đặt giá trị mới trong my.cnf, khởi động máy "
+"chủ, sau đó kiểm tra nhật ký lỗi nếu mọi thứ đều ổn. Xem thêm <a href=\"https"
+"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">mục blog này</a>"
 
 #: src/Advisory/Rules.php:717
 #, php-format
@@ -8479,6 +8384,16 @@ msgid ""
 "href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
+"Nhóm bộ đệm InnoDB có tác động sâu sắc đến hiệu suất của các bảng InnoDB. "
+"Gán tất cả bộ nhớ còn lại của bạn vào bộ đệm này. Đối với các máy chủ cơ sở "
+"dữ liệu chỉ sử dụng InnoDB làm công cụ lưu trữ và không chạy dịch vụ nào "
+"khác (ví dụ: máy chủ web), bạn có thể đặt mức này lên tới 80% bộ nhớ khả "
+"dụng của mình. Nếu không phải như vậy, bạn cần đánh giá cẩn thận mức tiêu "
+"thụ bộ nhớ của các dịch vụ khác và các Bảng không phải InnoDB rồi đặt biến "
+"này cho phù hợp. Nếu nó được đặt quá cao, hệ thống của bạn sẽ bắt đầu hoán "
+"đổi, điều này làm giảm hiệu suất đáng kể. Xem thêm <a href=\"https://www."
+"percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">bài viết "
+"này</a>"
 
 #: src/Advisory/Rules.php:738
 #, php-format
@@ -8488,10 +8403,14 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"Bạn hiện đang sử dụng %s%% bộ nhớ cho vùng đệm InnoDB. Quy tắc này sẽ áp "
+"dụng nếu bạn chỉ định dưới 60%%, tuy nhiên, quy tắc này có thể hoàn toàn phù "
+"hợp với hệ thống của bạn nếu bạn không có nhiều bảng InnoDB hoặc các dịch vụ "
+"khác chạy trên cùng một máy."
 
 #: src/Advisory/Rules.php:748
 msgid "MyISAM concurrent inserts"
-msgstr ""
+msgstr "Chèn đồng thời MyISAM"
 
 #: src/Advisory/Rules.php:751
 msgid "Enable {concurrent_insert} by setting it to 1"
@@ -8526,6 +8445,10 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"Bộ đệm truy vấn được biết là cải thiện đáng kể hiệu suất nếu được cấu hình "
+"đúng. Kích hoạt nó bằng cách đặt {query_cache_size} thành giá trị MiB gồm 2 "
+"chữ số và đặt {query_cache_type} thành 'BẬT'. <b>Lưu ý:</b> Nếu bạn đang sử "
+"dụng memcached, hãy bỏ qua đề xuất này."
 
 #: src/Advisory/Rules.php:781
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -8533,14 +8456,13 @@ msgstr ""
 "query_cache_size được đặt thành 0 hoặc query_cache_type được đặt thành “OFF”"
 
 #: src/Advisory/Rules.php:786
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "Hiệu quả đệm truy vấn (%%)"
+msgstr "Hiệu suất bộ đệm truy vấn (%)"
 
 #: src/Advisory/Rules.php:790
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
+msgstr "Bộ đệm truy vấn không chạy hiệu quả và có tỷ lệ truy cập thấp."
 
 #: src/Advisory/Rules.php:791
 msgid "Consider increasing {query_cache_limit}."
@@ -8549,23 +8471,24 @@ msgstr "Cân nhắc tăng {query_cache_limit}."
 #: src/Advisory/Rules.php:792
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
+msgstr "Tỷ lệ truy cập bộ nhớ đệm truy vấn hiện tại là %s%% dưới 20%%"
 
 #: src/Advisory/Rules.php:797
 msgid "Query Cache usage"
 msgstr "Mức dùng bộ nhớ tạm khi truy vấn"
 
 #: src/Advisory/Rules.php:802
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "Ít hơn 80%% của bộ nhớ đệm truy vấn là được dùng."
+msgstr "Ít hơn 80% bộ đệm truy vấn đang được sử dụng."
 
 #: src/Advisory/Rules.php:804
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"Điều này có thể do {query_cache_limit} quá thấp. Xóa bộ đệm truy vấn cũng có "
+"thể hữu ích."
 
 #: src/Advisory/Rules.php:808
 #, php-format
@@ -8573,6 +8496,8 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is "
 "%s%%. It should be above 80%%"
 msgstr ""
+"Tỷ lệ hiện tại của bộ nhớ bộ đệm truy vấn miễn phí trên tổng kích thước bộ "
+"đệm truy vấn là %s%%. Nó phải trên 80%%"
 
 #: src/Advisory/Rules.php:815
 msgid "Query cache fragmentation"
@@ -8580,7 +8505,7 @@ msgstr "Mức dùng bộ nhớ tạm khi truy vấn"
 
 #: src/Advisory/Rules.php:819
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "Bộ đệm truy vấn bị phân mảnh đáng kể."
 
 #: src/Advisory/Rules.php:821
 msgid ""
@@ -8593,6 +8518,14 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
+"Sự phân mảnh nghiêm trọng có khả năng (thêm nữa) làm tăng "
+"Qcache_lowmem_prunes. Điều này có thể do nhiều bộ đệm truy vấn bị cắt giảm "
+"bộ nhớ do {query_cache_size} quá nhỏ. Để khắc phục ngay lập tức nhưng trong "
+"thời gian ngắn, bạn có thể xóa bộ đệm truy vấn (có thể khóa bộ đệm truy vấn "
+"trong một thời gian dài). Việc điều chỉnh cẩn thận {query_cache_min_res_unit}"
+" thành giá trị thấp hơn cũng có thể hữu ích, ví dụ: bạn có thể đặt kích "
+"thước trung bình của các truy vấn trong bộ đệm bằng công thức sau: ("
+"query_cache_size - qcache_free_memory)/qcache_queries_in_cache"
 
 #: src/Advisory/Rules.php:829
 #, php-format
@@ -8601,16 +8534,21 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"Bộ nhớ đệm hiện bị phân mảnh theo %s%%, với mức độ phân mảnh 100%% có nghĩa "
+"là bộ đệm truy vấn là một mẫu xen kẽ các khối trống và đã sử dụng. Giá trị "
+"này phải dưới 20%%."
 
 #: src/Advisory/Rules.php:836
 msgid "Query cache low memory prunes"
-msgstr ""
+msgstr "Truy vấn bộ nhớ cache cắt giảm bộ nhớ thấp"
 
 #: src/Advisory/Rules.php:840
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
 msgstr ""
+"Các truy vấn được lưu trong bộ nhớ đệm sẽ bị xóa do bộ nhớ đệm truy vấn "
+"trong bộ nhớ đệm truy vấn thấp."
 
 #: src/Advisory/Rules.php:842
 msgid ""
@@ -8618,6 +8556,9 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"Bạn có thể muốn tăng {query_cache_size}, tuy nhiên, hãy nhớ rằng chi phí duy "
+"trì bộ nhớ đệm có thể tăng theo kích thước của nó, vì vậy hãy thực hiện việc "
+"này theo từng bước nhỏ và theo dõi kết quả."
 
 #: src/Advisory/Rules.php:847
 #, php-format
@@ -8625,6 +8566,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"Tỷ lệ truy vấn bị xóa so với truy vấn được chèn là %s%%. Giá trị này càng "
+"thấp thì càng tốt (Giới hạn kích hoạt quy tắc này: 0,1%%)"
 
 #: src/Advisory/Rules.php:854
 msgid "Query cache max size"
@@ -8635,12 +8578,16 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
+"Kích thước bộ đệm truy vấn trên 128 MiB. Bộ đệm truy vấn lớn có thể gây ra "
+"hao phí đáng kể cần thiết để duy trì bộ đệm."
 
 #: src/Advisory/Rules.php:863
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
+"Tùy thuộc vào môi trường của bạn, hiệu suất có thể tăng lên để giảm giá trị "
+"này."
 
 #: src/Advisory/Rules.php:865
 #, php-format
@@ -8655,6 +8602,7 @@ msgstr "Cỡ kết đệm kết quả truy vấn tối thiểu"
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
+"Kích thước tối đa của tập kết quả trong bộ đệm truy vấn là mặc định là 1 MiB."
 
 #: src/Advisory/Rules.php:876
 msgid ""
@@ -8667,6 +8615,14 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"Thay đổi {query_cache_limit} (thường bằng cách tăng) có thể tăng hiệu quả. "
+"Biến này xác định kích thước tối đa mà kết quả truy vấn có thể phải được "
+"chèn vào bộ đệm truy vấn. Nếu có nhiều kết quả truy vấn trên 1 MiB có khả "
+"năng lưu vào bộ nhớ đệm tốt (đọc nhiều, ghi ít) thì việc tăng "
+"{query_cache_limit} sẽ tăng hiệu quả. Trong khi đó, trong trường hợp có "
+"nhiều kết quả truy vấn trên 1 MiB không có khả năng lưu vào bộ nhớ đệm tốt ("
+"thường bị vô hiệu do cập nhật bảng), việc tăng {query_cache_limit} có thể "
+"làm giảm hiệu quả."
 
 #: src/Advisory/Rules.php:883
 msgid "query_cache_limit is set to 1 MiB"
@@ -14862,6 +14818,9 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
+"Số lượng yêu cầu đọc hàng tiếp theo theo thứ tự khóa. Điều này sẽ tăng lên "
+"nếu bạn đang truy vấn một cột chỉ mục có giới hạn phạm vi hoặc nếu bạn đang "
+"thực hiện quét chỉ mục."
 
 #: src/Controllers/Server/Status/VariablesController.php:281
 msgid ""
@@ -17433,11 +17392,11 @@ msgstr "Cơ sở dữ liệu của bạn có vẻ như có dùng các view;"
 
 #: src/Plugins/Export/ExportSql.php:1634
 msgid "Constraints for dumped tables"
-msgstr "Các ràng buộc cho các bảng đã đổ"
+msgstr "Ràng buộc đối với các bảng kết xuất"
 
 #: src/Plugins/Export/ExportSql.php:1635
 msgid "Constraints for table"
-msgstr "Các ràng buộc cho bảng"
+msgstr "Ràng buộc cho bảng"
 
 #: src/Plugins/Export/ExportSql.php:1662
 msgid "Indexes for dumped tables"
