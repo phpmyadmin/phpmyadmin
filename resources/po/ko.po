@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-05-26 00:21+0000\n"
-"PO-Revision-Date: 2024-01-17 19:47+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2024-05-29 10:37+0000\n"
+"Last-Translator: 전지연 <jeeyeon0131@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -23,7 +23,7 @@ msgstr "이 페이지를 넘기려면 Javascript 사용을 허용해야 합니�
 #, fuzzy
 #| msgid "Add user account"
 msgid "Open user account menu"
-msgstr "사용자 추가"
+msgstr "사용자 계정 메뉴 열기"
 
 #: resources/templates/base.twig:57 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
@@ -31,20 +31,14 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin 설명서"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "MariaDB Documentation"
 msgid "MariaDB documentation"
 msgstr "MariaDB 문서"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "MySQL Documentation"
 msgid "MySQL documentation"
 msgstr "MySQL 문서"
 
 #: resources/templates/base.twig:73
-#, fuzzy
-#| msgid "Appearance settings"
 msgid "Appearance:"
 msgstr "외관 설정"
 
@@ -56,7 +50,7 @@ msgstr "테마용 컬러 모드"
 #, fuzzy
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr "오른쪽"
+msgstr "라이트"
 
 #: resources/templates/base.twig:82 resources/templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
@@ -1289,9 +1283,8 @@ msgstr "현재 데이터베이스의 중요 열 목록이 비어 있습니다"
 
 #: resources/templates/database/central_columns/main.twig:168
 #: resources/templates/display/results/table.twig:136
-#, fuzzy
 msgid "Filter rows:"
-msgstr "행 필터링"
+msgstr "행 필터링:"
 
 #: resources/templates/database/central_columns/main.twig:171
 #: resources/templates/display/results/table.twig:140
@@ -1715,7 +1708,7 @@ msgstr "페이지를 선택하세요"
 #: resources/templates/database/designer/schema_export.twig:6
 #, fuzzy
 msgid "Select export relational type:"
-msgstr "관계 스키마를 수정 또는 내보내기"
+msgstr "내보내기할 관계 타입 선택:"
 
 #: resources/templates/database/events/editor_form.twig:10
 #: resources/templates/database/routines/editor_form.twig:11
@@ -2487,9 +2480,7 @@ msgid "Browse"
 msgstr "보기"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<strong>Total:</strong> <em>%count%</em> match"
-#| msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
 msgstr[0] "<strong>총:</strong> <em>%count%</em> 건 일치"
@@ -2883,7 +2874,6 @@ msgstr "테이블 추적"
 
 #: resources/templates/display/results/checkbox_and_links.twig:16
 #: resources/templates/display/results/checkbox_and_links.twig:78
-#, fuzzy
 msgid "You can also edit most values by clicking directly on them."
 msgstr "값을 클릭하여 바로 수정할 수 있습니다.<br>(일부 제외)."
 
@@ -3912,8 +3902,6 @@ msgid "Clear fast filter"
 msgstr "빠른 필터 비우기"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
-#, fuzzy
-#| msgid "Recently used tables"
 msgid "Recently visited tables"
 msgstr "최근 사용한 테이블"
 
@@ -4565,7 +4553,7 @@ msgstr "%s 데이터베이스에 대한 모든 권한을 부여합니다."
 #: resources/templates/server/privileges/add_user.twig:38
 #, fuzzy
 msgid "Create user"
-msgstr "만들기"
+msgstr "사용자 추가"
 
 #: resources/templates/server/privileges/change_password.twig:18
 msgid "No Password"
@@ -5124,7 +5112,6 @@ msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr "이 Subject가 포함된 유효한 X509 인증서가 필요합니다."
 
 #: resources/templates/server/privileges/privileges_table.twig:877
-#, fuzzy
 msgid "Update user privileges"
 msgstr "권한 수정"
 
@@ -5217,7 +5204,7 @@ msgstr "변경사항을 저장"
 #: resources/templates/server/replication/change_primary.twig:7
 #, fuzzy
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "최근 테이블이 없습니다."
+msgstr "복제본 설정 - 주 서버 변경 혹은 재설정"
 
 #: resources/templates/server/replication/change_primary.twig:12
 msgid ""
@@ -5550,7 +5537,7 @@ msgstr "시스템 분석 / 조언"
 #: resources/templates/server/status/monitor/index.twig:4
 #, fuzzy
 msgid "System monitor"
-msgstr "시스템 메모리"
+msgstr "시스템 모니터"
 
 #: resources/templates/server/status/monitor/index.twig:7
 #, fuzzy
@@ -5580,16 +5567,14 @@ msgstr "새로고침 간격"
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
-#, fuzzy, php-format
-#| msgid "%d second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d 초"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
-#, fuzzy, php-format
-#| msgid "%d minute"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d 분"
@@ -5802,21 +5787,21 @@ msgstr "시작 이후 질문:"
 #, fuzzy, php-format
 #| msgid "ø per hour"
 msgid "ø per hour: %s"
-msgstr "시간 당 ø"
+msgstr "시간 당 %s ø"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
 #, fuzzy, php-format
 #| msgid "per minute:"
 msgid "ø per minute: %s"
-msgstr "분당:"
+msgstr "분당 %s ø"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
 #, fuzzy, php-format
 #| msgid "per second:"
 msgid "ø per second: %s"
-msgstr "초당:"
+msgstr "초당: %s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -6086,7 +6071,6 @@ msgid "Bookmark this SQL query"
 msgstr "이 SQL 쿼리를 북마크하기"
 
 #: resources/templates/sql/bookmark.twig:14
-#, fuzzy
 msgid "Bookmark label:"
 msgstr "테이블 즐겨찾기"
 
@@ -6096,7 +6080,6 @@ msgid "Let every user access this bookmark"
 msgstr "모든 사용자가 이 북마크를 사용할 수 있게 합니다"
 
 #: resources/templates/sql/bookmark.twig:26
-#, fuzzy
 msgid "Create new bookmark"
 msgstr "북마크 생성"
 
@@ -6148,7 +6131,7 @@ msgstr "ø 시간"
 #: resources/templates/sql/profiling_chart.twig:66
 #, fuzzy
 msgid "Pie chart with profiling results."
-msgstr "프로파일링 결과"
+msgstr "프로파일링 결과로 파이 차트"
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:116
@@ -7024,7 +7007,7 @@ msgstr "다음 자동인덱스"
 #: resources/templates/table/structure/drop_confirm.twig:2
 #, fuzzy
 msgid "Dropping columns from the table"
-msgstr "컬럼%s을(를) 테이블%s로부터 DROP"
+msgstr "테이블에서 열 삭제"
 
 #: resources/templates/table/tracking/main.twig:64
 #: resources/templates/table/tracking/main.twig:91
@@ -8756,49 +8739,42 @@ msgstr "닫기"
 
 #: src/Config/ConfigFile.php:607
 #: src/Controllers/JavaScriptMessagesController.php:745
-#, fuzzy
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "월요일"
 
 #: src/Config/ConfigFile.php:608
 #: src/Controllers/JavaScriptMessagesController.php:746
-#, fuzzy
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "화요일"
 
 #: src/Config/ConfigFile.php:609
 #: src/Controllers/JavaScriptMessagesController.php:747
-#, fuzzy
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "수요일"
 
 #: src/Config/ConfigFile.php:610
 #: src/Controllers/JavaScriptMessagesController.php:748
-#, fuzzy
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "목요일"
 
 #: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:749
-#, fuzzy
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "금요일"
 
 #: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:750
-#, fuzzy
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "토요일"
 
 #: src/Config/ConfigFile.php:613
 #: src/Controllers/JavaScriptMessagesController.php:744
-#, fuzzy
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "일요일"
@@ -11330,11 +11306,9 @@ msgid "Failed to read configuration file!"
 msgstr "설정 파일을 읽는데 실패했습니다!"
 
 #: src/Config.php:661
-#, fuzzy
 msgid "This usually means there is a syntax error in it."
-msgstr ""
-"일반적으로 이것은 문법 오류가 있음을 의미합니다. 다음의 모든 오류를 확인하십"
-"시오."
+msgstr "일반적으로 이것은 문법 오류가 있음을 의미합니다. 다음의 모든 오류를 "
+"확인하십시오."
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -11605,14 +11579,14 @@ msgstr "성공함"
 #, fuzzy
 #| msgid "Table %1$s has been altered successfully."
 msgid "Console settings has been updated successfully."
-msgstr "%1$s 테이블이 정상적으로 수정되었습니다."
+msgstr "콘솔 설정이 성공적으로 업데이트되었습니다."
 
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:28
 #, fuzzy
 msgid "Unexpected parameter value."
-msgstr "%s 라인에 알 수 없는 문자가 있습니다."
+msgstr "기대하지 않은 파라미터 값"
 
 #: src/Controllers/Database/CentralColumnsController.php:150
 #, php-format
@@ -12067,7 +12041,7 @@ msgstr ""
 #: src/Controllers/Import/ImportController.php:192
 #, fuzzy
 msgid "Incorrect format parameter"
-msgstr "마지막 파라미터 제거"
+msgstr "올바르지 않은 포맷 파라미터"
 
 #: src/Controllers/Import/ImportController.php:301
 #: src/Controllers/Import/ImportController.php:514
@@ -12142,9 +12116,8 @@ msgstr "이 데이터베이스 전체를 제거하려고 합니다!"
 #| msgid ""
 #| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot rename database to the same name. Change the name and try again."
-msgstr ""
-"같은 이름으로 데이터베이스의 이름을 변경할 수 없습니다. 이름을 바꾸어 다시 시"
-"도해 주세요"
+msgstr "같은 이름으로 데이터베이스의 이름을 변경할 수 없습니다. 이름을 바꾸어 다시 "
+"시도해 주세요."
 
 #: src/Controllers/JavaScriptMessagesController.php:58
 msgid "You are about to DESTROY a complete table!"
@@ -12960,7 +12933,7 @@ msgstr "질의 상자 보이기"
 #, fuzzy
 #| msgid "Submit query"
 msgid "Edit query"
-msgstr "쿼리 실행"
+msgstr "쿼리 수정"
 
 #: src/Controllers/JavaScriptMessagesController.php:404
 #, php-format
@@ -13682,79 +13655,66 @@ msgid "February"
 msgstr "2월"
 
 #: src/Controllers/JavaScriptMessagesController.php:722
-#, fuzzy
 msgctxt "Month name"
 msgid "March"
 msgstr "3월"
 
 #: src/Controllers/JavaScriptMessagesController.php:723
-#, fuzzy
 msgctxt "Month name"
 msgid "April"
 msgstr "4월"
 
 #: src/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
 msgctxt "Month name"
 msgid "May"
 msgstr "5월"
 
 #: src/Controllers/JavaScriptMessagesController.php:725
-#, fuzzy
 msgctxt "Month name"
 msgid "June"
 msgstr "6월"
 
 #: src/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
 msgctxt "Month name"
 msgid "July"
 msgstr "7월"
 
 #: src/Controllers/JavaScriptMessagesController.php:727
-#, fuzzy
 msgctxt "Month name"
 msgid "August"
 msgstr "8월"
 
 #: src/Controllers/JavaScriptMessagesController.php:728
-#, fuzzy
 msgctxt "Month name"
 msgid "September"
 msgstr "9월"
 
 #: src/Controllers/JavaScriptMessagesController.php:729
-#, fuzzy
 msgctxt "Month name"
 msgid "October"
 msgstr "10월"
 
 #: src/Controllers/JavaScriptMessagesController.php:730
-#, fuzzy
 msgctxt "Month name"
 msgid "November"
 msgstr "11월"
 
 #: src/Controllers/JavaScriptMessagesController.php:731
-#, fuzzy
 msgctxt "Month name"
 msgid "December"
 msgstr "12월"
 
 #: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:497
-#, fuzzy
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "1월"
 
 #: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:498
-#, fuzzy
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "2월"
 
 #: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:499
-#, fuzzy
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "3월"
@@ -15055,9 +15015,8 @@ msgid "The partition name must be a non-empty string."
 msgstr "테이블명이 없습니다!"
 
 #: src/Controllers/Table/RecentFavoriteController.php:35
-#, fuzzy
 msgid "Invalid database or table name."
-msgstr "잘못된 테이블 이름"
+msgstr "잘못된 데이터베이스 혹은 테이블 이름"
 
 #: src/Controllers/Table/RelationController.php:326
 msgid "Display column was successfully updated."
@@ -15399,14 +15358,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "%1s - %2s행 표시 중"
 
 #: src/Display/Results.php:3453
-#, fuzzy, php-format
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "총 %1$d개 중 현재 쿼리에 %2$d개"
+msgstr "총 %1$s개 중 현재 쿼리에 %2$s개"
 
 #: src/Display/Results.php:3458
-#, fuzzy, php-format
+#, php-format
 msgid "%s total"
-msgstr "합계 %d"
+msgstr "합계 %s"
 
 #: src/Display/Results.php:3471 src/Sql.php:864
 #, php-format
@@ -15757,10 +15716,8 @@ msgid "Report"
 msgstr "보고"
 
 #: src/Exceptions/AuthenticationFailure.php:35
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Cannot log in to the database server."
-msgstr "MySQL 서버에 로그인할 수 없습니다"
+msgstr "데이터베이스 서버에 로그인할 수 없습니다."
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
@@ -15776,9 +15733,8 @@ msgstr "접근이 거부되었습니다!"
 #| "AllowNoPassword)"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
-msgstr ""
-"비밀번호가 없는 로그인이 설정으로 차단되어 있습니다 (AllowNoLogin 항목을 참조"
-"하세요)"
+msgstr "비밀번호가 없는 로그인이 설정에 의해 차단되어 있습니다 (AllowNoPassword "
+"항목을 참조하세요)"
 
 #: src/Exceptions/AuthenticationFailure.php:73
 #, php-format
@@ -15993,12 +15949,12 @@ msgstr "데이터베이스명이 없습니다!"
 #: src/Identifiers/InvalidDatabaseName.php:20
 #, fuzzy, php-format
 msgid "The database name cannot be longer than %d characters."
-msgstr "{0} 글자 이하로 입력해 주세요"
+msgstr "%d 글자 이하로 입력해 주세요"
 
 #: src/Identifiers/InvalidDatabaseName.php:25
 #, fuzzy
 msgid "The database name cannot end with a space character."
-msgstr "단어는 스페이스(\" \")로 구분됩니다."
+msgstr "데이터베이스 이름은 공백문자로 끝날 수 없습니다."
 
 #: src/Identifiers/InvalidTableName.php:14
 #, fuzzy
@@ -16008,22 +15964,22 @@ msgstr "테이블명이 없습니다!"
 #: src/Identifiers/InvalidTableName.php:20
 #, fuzzy, php-format
 msgid "The table name cannot be longer than %d characters."
-msgstr "{0} 글자 이하로 입력해 주세요"
+msgstr "%d 글자 이하로 입력해 주세요"
 
 #: src/Identifiers/InvalidTableName.php:25
 #, fuzzy
 msgid "The table name cannot end with a space character."
-msgstr "단어는 스페이스(\" \")로 구분됩니다."
+msgstr "테이블 이름은 스페이스 문자로 끝낼 수 없습니다."
 
 #: src/Identifiers/InvalidTriggerName.php:14
 #, fuzzy
 msgid "The trigger name must not be empty."
-msgstr "뷰 이름은 비워둘 수 없습니다!"
+msgstr "트리거 이름은 비워둘 수 없습니다!"
 
 #: src/Identifiers/InvalidTriggerName.php:20
 #, fuzzy, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "{0} 글자 이하로 입력해 주세요"
+msgstr "%d 글자 이하로 입력해 주세요"
 
 #: src/Identifiers/InvalidTriggerName.php:25
 #, fuzzy
@@ -16031,16 +15987,11 @@ msgid "The trigger name cannot end with a space character."
 msgstr "단어는 스페이스(\" \")로 구분됩니다."
 
 #: src/Import/Import.php:947
-#, fuzzy
-#| msgid ""
-#| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
-#| "transactional engine tables can be rolled back."
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
-msgstr ""
-"트랜잭션 엔진 테이블이 포함된 INSERT, UPDATE, DELETE, REPLACE SQL 쿼리만 롤백"
-"할 수 있습니다."
+msgstr "트랜잭션 엔진 테이블이 포함된 INSERT, UPDATE, DELETE, REPLACE SQL 쿼리만 "
+"롤백할 수 있습니다."
 
 #: src/Import/Import.php:1169
 #, php-format
@@ -16647,7 +16598,7 @@ msgstr "사용자명/비밀번호가 틀렸습니다. 접근이 거부되었습�
 #, fuzzy, php-format
 #| msgid "Can not find signon authentication script:"
 msgid "Can not find signon authentication script: %s"
-msgstr "접근관련 인증 스크립트를 찾을수 없습니다:"
+msgstr "로그인 인증 스크립트를 찾을 수 없습니다: %s"
 
 #: src/Plugins/AuthenticationPluginFactory.php:31
 msgid "Invalid authentication method set in configuration:"
