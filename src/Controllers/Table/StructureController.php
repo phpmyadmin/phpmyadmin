@@ -29,6 +29,7 @@ use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
+use PhpMyAdmin\Table\CheckConstraints;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking\Tracker;

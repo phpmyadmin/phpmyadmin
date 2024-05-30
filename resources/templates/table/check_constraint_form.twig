@@ -57,7 +57,7 @@
                     </strong>
                 </div>
 
-                <select name="check_constraint[CONSTRAINT_COLUMN]" id="input_check_constraint_column" value="{{ check_constraint.getName() }}">
+                <select name="check_constraint[CONSTRAINT_COLUMN]" id="input_check_constraint_column" value="{{ check_constraint.getName() }}" {{ create_check_constraint == 0 ? 'disabled' }}>
                     {% for field_name, field_type in fields %}
                         {% if (true) %}
                             <option value="{{ field_name }}"

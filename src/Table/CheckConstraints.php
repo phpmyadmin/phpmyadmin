@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Table;
 
 use PhpMyAdmin\CheckConstraint;
+use PhpMyAdmin\ColumnFull;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -47,6 +49,27 @@ final class CheckConstraints
             Util::backquote($tableName),
         );
 
+        if ($checkConstraint->getLevel() === CheckConstraint::COLUMN) {
+            // If column constraint the edit is same as creating a new one
+            $column = $this->dbi->getColumns(Current::$database, Current::$table, true)[$checkConstraint->getName()];
+            $sqlQuery .= ' CHANGE ';
+            $sqlQuery .=  Table::generateAlter(
+                $checkConstraint->getName(),
+                $checkConstraint->getName(),
+                explode("(", $column->type)[0],
+                explode(")", explode("(", $column->type)[1])[0], "",
+                $column->collation == NULL ? "" : $column->collation,
+                $column->isNull ? "YES" : "NO", "",
+                $column->default ?? "",
+                $column->extra,
+                $column->comment,
+                "", "", "",
+            );
+
+            $sqlQuery .= ' CHECK(' . $checkConstraint->getClause() . ');';
+            return $sqlQuery; // Column constraints can be edited in 1 step
+        }
+
         // Drops the old check constraint
         if ($oldCheckConstraintName !== null) {
             $oldCheckConstraint = CheckConstraint::singleton(
@@ -58,8 +81,6 @@ final class CheckConstraints
 
             if ($oldCheckConstraint->getLevel() === CheckConstraint::TABLE) {
                 $sqlQuery .= sprintf(' DROP CONSTRAINT %s, ', $oldCheckConstraintName);
-            } else if ($checkConstraint->getLevel() === CheckConstraint::COLUMN) {
-                // TODO: implement sql for dropping column check constraints
             } else {
                 // This means that we don't know the level of the check constraint.
                 // This is because that the LEVEL column in information_schema.CHECK_CONSTRAINTS is not available.
@@ -71,8 +92,6 @@ final class CheckConstraints
 
         if ($checkConstraint->getLevel() === CheckConstraint::TABLE) {
             $sqlQuery .= sprintf(' ADD CONSTRAINT %s CHECK(%s);', $checkConstraint->getName(), $checkConstraint->getClause());
-        } else if ($checkConstraint->getLevel() === CheckConstraint::COLUMN) {
-            // TODO: implement sql for adding column check constraints
         } else {
             // This means that we don't know the level of the check constraint.
             // This is because that the LEVEL column in information_schema.CHECK_CONSTRAINTS is not available.
@@ -80,6 +99,32 @@ final class CheckConstraints
             // In both systems information_schema.CHECK_CONSTRAINTS seems to store both table and column check constraints
             // Not sure what to do in this scenario
         }
+
+        return $sqlQuery;
+    }
+
+    public static function getSqlForColumnConstraintDrop(string $dbName, string $tableName, CheckConstraint $checkConstraint) {
+        $sqlQuery = sprintf(
+            'ALTER TABLE %s.%s',
+            Util::backquote($dbName),
+            Util::backquote($tableName),
+        );
+
+        $dbi = DatabaseInterface::$instance;
+        $column = $dbi->getColumns(Current::$database, Current::$table, true)[$checkConstraint->getName()];
+        $sqlQuery .= ' CHANGE ';
+        $sqlQuery .=  Table::generateAlter(
+            $checkConstraint->getName(),
+            $checkConstraint->getName(),
+            explode("(", $column->type)[0],
+            explode(")", explode("(", $column->type)[1])[0], "",
+            $column->collation == NULL ? "" : $column->collation,
+            $column->isNull ? "YES" : "NO", "",
+            $column->default ?? "",
+            $column->extra,
+            $column->comment,
+            "", "", "",
+        );
 
         return $sqlQuery;
     }

@@ -592,7 +592,6 @@
                 <tbody class="row_span">
                 {% for constraint in check_constraints %}
                     <tr class="noclick">
-                    {% if constraint.getLevel() is same as("Table") %}
                     <td class="edit_check_constraint d-print-none ajax">
                         <a class="ajax" href="{{ url('/table/check-constraints') }}" data-post="{{ get_common({
                         'db': db,
@@ -603,9 +602,7 @@
                         {{ get_icon('b_edit', t('Edit')) }}
                         </a>
                     </td>
-                    {# <td class="rename_index d-print-none" style="color: red;">
-                        Rename not supported
-                    </td> #}
+                    {% if constraint.getLevel() is same as("Table") %}
                     <td class="rename_check_constraint d-print-none ajax" >
                         <a class="ajax" href="{{ url('/table/check-constraints/rename') }}" data-post="{{ get_common({
                         'db': db,
@@ -616,25 +613,17 @@
                         {{ get_icon('b_rename', t('Rename')) }}
                         </a>
                     </td>
-                    {% else %}
-                    <td class="rename_check_constraint d-print-none" style="color: red;" colspan="2">
-                        Edit & Rename are not supported
-                    </td>
                     {% endif %}
-                    <td class="d-print-none">
+                    <td class="d-print-none" colspan="{{ constraint.getLevel() is same as("Table") ? 1 : 2 }}">
                         {% if constraint.getLevel() is same as("Table") %}
                         {% set constraint_params = {
                             'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP CONSTRAINT ' ~ backquote(constraint.getName()) ~ ';',
                             'message_to_show': t('The table check constraint %s has been dropped.')|format(constraint.getName())
                         } %}
                         {% elseif constraint.getLevel() is same as("Column") %}
-                        {# {% set constraint_params = {
-                            'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP INDEX ' ~ backquote(index.getName()) ~ ';',
-                            'message_to_show': t('The column check constraint %s has been dropped.')|format(constraint.getName())
-                        } %} #}
                         {% set constraint_params = {
-                            'sql_query': '',
-                            'message_to_show': t('Dropping column check constraints isn\'t supported yet')
+                            'sql_query': getSqlForColumnConstraintDrop(db, table, constraint),
+                            'message_to_show': t('The column check constraint %s has been dropped.')|format(constraint.getName())
                         } %}
                         {% else %}
                         {% set constraint_params = {

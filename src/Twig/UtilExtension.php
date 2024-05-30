@@ -138,6 +138,7 @@ class UtilExtension extends AbstractExtension
                 Util::timespanFormat(...),
             ),
             new TwigFunction('parse_enum_set_values', 'PhpMyAdmin\Util::parseEnumSetValues'),
+            new TwigFunction('getSqlForColumnConstraintDrop', 'PhpMyAdmin\Table\CheckConstraints::getSqlForColumnConstraintDrop')
         ];
     }
 
