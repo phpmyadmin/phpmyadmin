@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-05-29 10:37+0000\n"
+"PO-Revision-Date: 2024-05-31 05:09+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/vi/>\n"
@@ -1564,7 +1564,7 @@ msgstr "Xuất vùng chọn:"
 #: libraries/config.values.php:105
 #: templates/database/tracking/tracked_tables.twig:15
 msgid "Status"
-msgstr "Tình trạng"
+msgstr "Trạng thái"
 
 #: js/messages.php:293 js/messages.php:913
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:487
@@ -1795,8 +1795,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
-"Kết nối với máy chủ đã bị mất. Vui lòng kiểm tra lại kết nối mạng và trạng "
-"thái máy chủ."
+"Có vẻ như kết nối tới máy chủ đã bị mất. Vui lòng kiểm tra lại kết nối mạng "
+"và trạng thái máy chủ."
 
 #: js/messages.php:373
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:194
@@ -2469,7 +2469,7 @@ msgstr "Thành công"
 
 #: js/messages.php:621
 msgid "Import status"
-msgstr "Trạng thái nhập vào"
+msgstr "Trạng thái nhập"
 
 #: js/messages.php:622 libraries/classes/Navigation/Navigation.php:127
 msgid "Drop files here"
@@ -8202,7 +8202,7 @@ msgstr "Các cột trung tâm"
 
 #: libraries/classes/Menu.php:607
 msgid "User accounts"
-msgstr "Các tài khoản người dùng"
+msgstr "Tài khoản người dùng"
 
 #: libraries/classes/Menu.php:634 libraries/classes/Server/Status/Data.php:121
 #: libraries/classes/Util.php:3996 templates/server/sub_page_header.twig:2
@@ -10722,7 +10722,7 @@ msgstr "BẬT"
 
 #: libraries/classes/Rte/Footer.php:119
 msgid "Event scheduler status"
-msgstr "Các trạng thái lịch biểu sự kiện"
+msgstr "Trạng thái lên lịch sự kiện"
 
 #: libraries/classes/Rte/General.php:46
 msgid "The backed up query was:"
@@ -11380,7 +11380,7 @@ msgstr "Bạn đã thu hồi đặc quyền dành cho %s."
 #: libraries/classes/Server/Privileges.php:2175
 #: templates/privileges/add_user_fieldset.twig:7
 msgid "Add user account"
-msgstr "Tạo tài khoản người dùng mới"
+msgstr "Thêm tài khoản người dùng"
 
 #: libraries/classes/Server/Privileges.php:2184
 msgid "Database for user account"
@@ -11418,7 +11418,7 @@ msgstr "Quyền cấp"
 
 #: libraries/classes/Server/Privileges.php:2600
 msgid "Not enough privilege to view users."
-msgstr "Không đủ thẩm quyền để xem các tài khoản."
+msgstr "Không đủ quyền để xem người dùng."
 
 #: libraries/classes/Server/Privileges.php:2619
 #: libraries/classes/Server/Privileges.php:3993
@@ -11691,6 +11691,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"Hệ thống Cố Vấn có thể đưa ra đề xuất về các biến máy chủ bằng cách phân "
+"tích các biến trạng thái máy chủ."
 
 #: libraries/classes/Server/Status/Advisor.php:41
 msgid ""
@@ -11785,7 +11787,7 @@ msgstr "Thống kê truy vấn"
 
 #: libraries/classes/Server/Status/Data.php:439
 msgid "All status variables"
-msgstr "Liệt kê mọi biến trạng thái"
+msgstr "Tất cả các biến trạng thái"
 
 #: libraries/classes/Server/Status/Data.php:443
 msgid "Monitor"
@@ -11894,7 +11896,7 @@ msgstr "Biểu đồ hoạt động"
 
 #: libraries/classes/Server/Status/Monitor.php:189
 msgid "Status variable(s)"
-msgstr "Các biến trạng thái"
+msgstr "Biến trạng thái"
 
 #: libraries/classes/Server/Status/Monitor.php:192
 msgid "Select series:"
@@ -12511,7 +12513,7 @@ msgstr "Tổng số lượng khối nhớ trong bộ nhớ đệm truy vấn."
 
 #: libraries/classes/Server/Status/Variables.php:690
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr ""
+msgstr "Trạng thái sao chép không an toàn (chưa được triển khai)."
 
 #: libraries/classes/Server/Status/Variables.php:693
 msgid ""
@@ -12650,7 +12652,7 @@ msgstr "Máy chủ cơ sở dữ liệu"
 
 #: libraries/classes/Server/UserGroups.php:121
 msgid "View users"
-msgstr "Hiện các tài khoản người dùng"
+msgstr "Xem người dùng"
 
 #: libraries/classes/Server/UserGroups.php:159
 #: libraries/classes/Server/UserGroups.php:225
@@ -12823,8 +12825,7 @@ msgstr "Chỉ hiển thị"
 #: libraries/classes/StorageEngine.php:280
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr ""
-"Không có thông tin trạng thái chi tiết sẵn có nào cho bộ máy lưu trữ này."
+msgstr "Không có thông tin trạng thái chi tiết sẵn có nào cho máy lưu trữ này."
 
 #: libraries/classes/StorageEngine.php:383
 #: templates/database/structure/body_for_table_summary.twig:48
@@ -13811,7 +13812,7 @@ msgstr ""
 
 #: server_status.php:35
 msgid "Not enough privilege to view server status."
-msgstr "Không đủ đặc quyền để xem trạng thái của máy phục vụ."
+msgstr "Không đủ quyền xem trạng thái của máy chủ."
 
 #: server_status_advisor.php:33
 msgid "Not enough privilege to view the advisor."
@@ -13835,7 +13836,7 @@ msgstr "Không đủ đặc quyền để xem thống kê truy vấn."
 
 #: server_status_variables.php:52
 msgid "Not enough privilege to view status variables."
-msgstr "Không đủ đặc quyền để xem các biến trạng thái."
+msgstr "Không đủ quyền để xem các biến trạng thái."
 
 #: setup/frames/config.inc.php:17 setup/frames/index.inc.php:190
 msgid "Configuration file"
@@ -14387,7 +14388,7 @@ msgstr "Sửa giá trị ENUM/SET"
 
 #: templates/privileges/delete_user_fieldset.twig:3
 msgid "Remove selected user accounts"
-msgstr "Xóa bỏ các tài khoản người dùng đã chọn"
+msgstr "Xóa tài khoản người dùng đã chọn"
 
 #: templates/privileges/delete_user_fieldset.twig:6
 msgid "Revoke all active privileges from the users and delete them afterwards."
