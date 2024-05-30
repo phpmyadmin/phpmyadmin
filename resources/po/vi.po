@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-05-26 00:21+0000\n"
-"PO-Revision-Date: 2024-05-29 10:37+0000\n"
+"PO-Revision-Date: 2024-05-31 05:09+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/vi/>\n"
@@ -1732,7 +1732,7 @@ msgstr "Tên sự kiện"
 #: src/Controllers/JavaScriptMessagesController.php:287 src/Menu.php:445
 #: src/Server/Status/Processes.php:96 src/Util.php:1469
 msgid "Status"
-msgstr "Tình trạng"
+msgstr "Trạng thái"
 
 #: resources/templates/database/events/editor_form.twig:40
 #: resources/templates/server/binlog/index.twig:84
@@ -1902,7 +1902,7 @@ msgstr "Ở đây không có sự kiện nào để trình bày."
 
 #: resources/templates/database/events/index.twig:114
 msgid "Event scheduler status"
-msgstr "Các trạng thái lịch biểu sự kiện"
+msgstr "Trạng thái lên lịch sự kiện"
 
 #: resources/templates/database/events/index.twig:119
 #: resources/templates/database/tracking/tables.twig:47
@@ -2294,7 +2294,7 @@ msgstr "Lưu mục đã chọn"
 #: resources/templates/table/privileges/index.twig:126
 #: src/Server/Privileges.php:1220
 msgid "Not enough privilege to view users."
-msgstr "Không đủ thẩm quyền để xem các tài khoản."
+msgstr "Không đủ quyền để xem người dùng."
 
 #: resources/templates/database/privileges/index.twig:131
 #: resources/templates/server/privileges/add_user_fieldset.twig:5
@@ -2303,7 +2303,7 @@ msgstr "Không đủ thẩm quyền để xem các tài khoản."
 #: resources/templates/server/privileges/users_overview.twig:139
 #: resources/templates/table/privileges/index.twig:136
 msgid "Add user account"
-msgstr "Tạo tài khoản người dùng mới"
+msgstr "Thêm tài khoản người dùng"
 
 #: resources/templates/database/routines/editor_form.twig:25
 msgid "Routine name"
@@ -5278,7 +5278,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/users_overview.twig:146
 msgid "Remove selected user accounts"
-msgstr "Xóa bỏ các tài khoản người dùng đã chọn"
+msgstr "Xóa tài khoản người dùng đã chọn"
 
 #: resources/templates/server/privileges/users_overview.twig:148
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -5414,10 +5414,8 @@ msgstr "Máy phục vụ này được cấu hình là máy chính trong tiến 
 
 #: resources/templates/server/replication/primary_replication.twig:9
 #: src/Server/Status/Data.php:170
-#, fuzzy
-#| msgid "Show master status"
 msgid "Show primary status"
-msgstr "Hiện trạng thái máy chính"
+msgstr "Hiển thị trạng thái chính"
 
 #: resources/templates/server/replication/primary_replication.twig:16
 #, fuzzy
@@ -5466,10 +5464,8 @@ msgstr ""
 "muốn:"
 
 #: resources/templates/server/replication/replica_configuration.twig:34
-#, fuzzy
-#| msgid "See slave status table"
 msgid "See replica status table"
-msgstr "Xem bảng trạng thái máy phụ"
+msgstr "Xem bảng trạng thái bản sao"
 
 #: resources/templates/server/replication/replica_configuration.twig:38
 #, fuzzy
@@ -5538,14 +5534,10 @@ msgstr ""
 "bản sao. Bạn có muốn <a href=\"%s\">cấu hình</a> nó?"
 
 #: resources/templates/server/replication/status_table.twig:6
-#, fuzzy
-#| msgid "Import status"
 msgid "Primary status"
-msgstr "Trạng thái nhập vào"
+msgstr "Trạng thái chính"
 
 #: resources/templates/server/replication/status_table.twig:8
-#, fuzzy
-#| msgid "Replication status"
 msgid "Replica status"
 msgstr "Trạng thái bản sao"
 
@@ -5583,6 +5575,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"Hệ thống Cố Vấn có thể đưa ra đề xuất về các biến máy chủ bằng cách phân "
+"tích các biến trạng thái máy chủ."
 
 #: resources/templates/server/status/advisor/index.twig:27
 msgid ""
@@ -5662,7 +5656,7 @@ msgstr "Thống kê truy vấn"
 
 #: resources/templates/server/status/base.twig:21
 msgid "All status variables"
-msgstr "Liệt kê mọi biến trạng thái"
+msgstr "Tất cả các biến trạng thái"
 
 #: resources/templates/server/status/base.twig:26
 msgid "Monitor"
@@ -5797,7 +5791,7 @@ msgstr "Biểu đồ hoạt động"
 
 #: resources/templates/server/status/monitor/index.twig:109
 msgid "Status variable(s)"
-msgstr "Các biến trạng thái"
+msgstr "Biến trạng thái"
 
 #: resources/templates/server/status/monitor/index.twig:114
 msgid "Select series:"
@@ -6022,7 +6016,7 @@ msgstr "Trạng thái bản sao"
 
 #: resources/templates/server/status/status/index.twig:75
 msgid "Not enough privilege to view server status."
-msgstr "Không đủ đặc quyền để xem trạng thái của máy phục vụ."
+msgstr "Không đủ quyền xem trạng thái của máy chủ."
 
 #: resources/templates/server/status/variables/index.twig:20
 msgid "Show only alert values"
@@ -6043,7 +6037,7 @@ msgstr "Liên kết có liên quan:"
 
 #: resources/templates/server/status/variables/index.twig:139
 msgid "Not enough privilege to view status variables."
-msgstr "Không đủ đặc quyền để xem các biến trạng thái."
+msgstr "Không đủ quyền để xem các biến trạng thái."
 
 #: resources/templates/server/user_groups/edit_user_groups.twig:3
 #: resources/templates/server/user_groups/edit_user_groups.twig:31
@@ -11856,7 +11850,7 @@ msgstr ""
 
 #: src/ConfigStorage/UserGroups.php:105
 msgid "View users"
-msgstr "Hiện các tài khoản người dùng"
+msgstr "Xem người dùng"
 
 #: src/ConfigStorage/UserGroups.php:228
 msgid "Server-level tabs"
@@ -13254,8 +13248,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
-"Kết nối với máy chủ đã bị mất. Vui lòng kiểm tra lại kết nối mạng và trạng "
-"thái máy chủ."
+"Có vẻ như kết nối tới máy chủ đã bị mất. Vui lòng kiểm tra lại kết nối mạng "
+"và trạng thái máy chủ."
 
 #: src/Controllers/JavaScriptMessagesController.php:357
 msgid "No accounts selected."
@@ -13816,7 +13810,7 @@ msgstr "Thành công"
 
 #: src/Controllers/JavaScriptMessagesController.php:594
 msgid "Import status"
-msgstr "Trạng thái nhập vào"
+msgstr "Trạng thái nhập"
 
 #: src/Controllers/JavaScriptMessagesController.php:596
 msgid "Select database first"
@@ -15183,7 +15177,7 @@ msgstr "Tổng số lượng khối nhớ trong bộ nhớ đệm truy vấn."
 
 #: src/Controllers/Server/Status/VariablesController.php:447
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr ""
+msgstr "Trạng thái sao chép không an toàn (chưa được triển khai)."
 
 #: src/Controllers/Server/Status/VariablesController.php:449
 msgid ""
@@ -16556,7 +16550,7 @@ msgstr "Bộ thiết kế"
 
 #: src/Menu.php:458
 msgid "User accounts"
-msgstr "Các tài khoản người dùng"
+msgstr "Tài khoản người dùng"
 
 #: src/Menu.php:507 src/Util.php:1477
 msgid "Charsets"
@@ -18235,10 +18229,8 @@ msgid "Show replica hosts"
 msgstr "Hiển thị máy lệ thuộc"
 
 #: src/Server/Status/Data.php:174
-#, fuzzy
-#| msgid "Show slave status"
 msgid "Show replica status"
-msgstr "Hiện trạng thái máy lệ thuộc"
+msgstr "Hiển thị trạng thái bản sao"
 
 #: src/Server/Status/Data.php:179
 msgid "Flush query cache"
@@ -18323,8 +18315,7 @@ msgstr "Chạy (các) truy vấn SQL trên bảng %s"
 #: src/StorageEngine.php:319
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr ""
-"Không có thông tin trạng thái chi tiết sẵn có nào cho bộ máy lưu trữ này."
+msgstr "Không có thông tin trạng thái chi tiết sẵn có nào cho máy lưu trữ này."
 
 #: src/StorageEngine.php:416
 #, php-format
