@@ -1466,13 +1466,13 @@ class ResultsTest extends AbstractTestCase
                 [
                     'column_name' => 'id',
                     'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
-                        . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0AORDER+BY+%60id%60+ASC+'
+                        . '&sql_signature=5b09494be0beb7899b460ba6b695504ca89d1ad1fbc8705f3b60f7da71f61b2f'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">id'
                         . '<input type="hidden" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
-                        . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0AORDER+BY+%60id%60+ASC+'
+                        . '&sql_signature=5b09494be0beb7899b460ba6b695504ca89d1ad1fbc8705f3b60f7da71f61b2f'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
                         . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
                         . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
@@ -1481,8 +1481,8 @@ class ResultsTest extends AbstractTestCase
                         . '&discard_remembered_sort=1">' . "\n"
                         . '<input type="hidden" name="url-add-order" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
-                        . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0AORDER+BY+%60id%60+ASC+'
+                        . '&sql_signature=5b09494be0beb7899b460ba6b695504ca89d1ad1fbc8705f3b60f7da71f61b2f'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
                     'comments' => '',
                     'is_browse_pointer_enabled' => true,
@@ -1493,13 +1493,13 @@ class ResultsTest extends AbstractTestCase
                 [
                     'column_name' => 'name',
                     'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
-                        . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0AORDER+BY+%60name%60+ASC+'
+                        . '&sql_signature=deb7ae82acc39ae4faa69b87f757edb5c3a6a714196d2f5fefe5cccc06985aba'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">name'
                         . '<input type="hidden" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
-                        . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0AORDER+BY+%60name%60+ASC+'
+                        . '&sql_signature=deb7ae82acc39ae4faa69b87f757edb5c3a6a714196d2f5fefe5cccc06985aba'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
                         . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
                         . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
@@ -1508,8 +1508,8 @@ class ResultsTest extends AbstractTestCase
                         . '&discard_remembered_sort=1">' . "\n"
                         . '<input type="hidden" name="url-add-order" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
-                        . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0AORDER+BY+%60name%60+ASC+'
+                        . '&sql_signature=deb7ae82acc39ae4faa69b87f757edb5c3a6a714196d2f5fefe5cccc06985aba'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
                     'comments' => '',
                     'is_browse_pointer_enabled' => true,
@@ -1520,15 +1520,15 @@ class ResultsTest extends AbstractTestCase
                 [
                     'column_name' => 'datetimefield',
                     'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
-                        . 'ORDER+BY+%60datetimefield%60+DESC'
-                        . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0A'
+                        . 'ORDER+BY+%60datetimefield%60+DESC+'
+                        . '&sql_signature=d7f66b34e106a07349e748fa1f6c517fb33e0a717c285b623d10e7f0e24a3db4'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">datetimefield'
                         . '<input type="hidden" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
-                        . 'ORDER+BY+%60datetimefield%60+DESC'
-                        . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0A'
+                        . 'ORDER+BY+%60datetimefield%60+DESC+'
+                        . '&sql_signature=d7f66b34e106a07349e748fa1f6c517fb33e0a717c285b623d10e7f0e24a3db4'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
                         . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
                         . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
@@ -1537,9 +1537,9 @@ class ResultsTest extends AbstractTestCase
                         . '&discard_remembered_sort=1">' . "\n"
                         . '<input type="hidden" name="url-add-order" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
-                        . 'ORDER+BY+%60datetimefield%60+DESC'
-                        . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0A'
+                        . 'ORDER+BY+%60datetimefield%60+DESC+'
+                        . '&sql_signature=d7f66b34e106a07349e748fa1f6c517fb33e0a717c285b623d10e7f0e24a3db4'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
                     'comments' => '',
                     'is_browse_pointer_enabled' => true,
