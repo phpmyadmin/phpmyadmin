@@ -21,40 +21,60 @@ use function count;
 class SimulateDmlTest extends AbstractTestCase
 {
     /**
-     * @param list<string>                $columns
-     * @param list<list<string|int|null>> $result
+     * @param array<array<mixed>> $expectedPerQuery
+     * @psalm-param list<
+     *   array{
+     *     simulated: string,
+     *     columns: list<string>,
+     *     result: list<list<string|int|null>>,
+     *   }
+     * > $expectedPerQuery
      *
      * @dataProvider providerForTestGetMatchedRows
      */
-    public function testGetMatchedRows(string $sqlQuery, string $simulatedQuery, array $columns, array $result): void
+    public function testGetMatchedRows(string $sqlQuery, array $expectedPerQuery): void
     {
         $GLOBALS['db'] = 'PMA';
         $object = new SimulateDml($this->dbi);
         $parser = new Parser($sqlQuery);
-        $this->dummyDbi->addSelectDb('PMA');
-        $this->dummyDbi->addResult($simulatedQuery, $result, $columns);
 
-        /** @var DeleteStatement|UpdateStatement $statement */
-        $statement = $parser->statements[0];
-        $simulatedData = $object->getMatchedRows($sqlQuery, $parser, $statement);
+        $this->assertCount(count($expectedPerQuery), $parser->statements);
+        foreach ($expectedPerQuery as $idx => $expected) {
+            /** @var DeleteStatement|UpdateStatement $statement */
+            $statement = $parser->statements[$idx];
 
-        $matchedRowsUrl = Url::getFromRoute('/sql', [
-            'db' => 'PMA',
-            'sql_query' => $simulatedQuery,
-            'sql_signature' => Core::signSqlQuery($simulatedQuery),
-        ]);
+            $this->dummyDbi->addSelectDb('PMA');
+            $this->dummyDbi->addResult($expected['simulated'], $expected['result'], $expected['columns']);
+            $simulatedData = $object->getMatchedRows($parser, $statement);
 
-        $this->assertAllSelectsConsumed();
-        $this->assertAllQueriesConsumed();
-        $this->assertEquals([
-            'sql_query' => Generator::formatSql($sqlQuery),
-            'matched_rows' => count($result),
-            'matched_rows_url' => $matchedRowsUrl,
-        ], $simulatedData);
+            $matchedRowsUrl = Url::getFromRoute('/sql', [
+                'db' => 'PMA',
+                'sql_query' => $expected['simulated'],
+                'sql_signature' => Core::signSqlQuery($expected['simulated']),
+            ]);
+
+            $this->assertAllSelectsConsumed();
+            $this->assertAllQueriesConsumed();
+            $this->assertEquals([
+                'sql_query' => Generator::formatSql($statement->build()),
+                'matched_rows' => count($expected['result']),
+                'matched_rows_url' => $matchedRowsUrl,
+            ], $simulatedData);
+        }
     }
 
     /**
-     * @return array<string, array{string, string, list<string>, list<list<string|int|null>>}>
+     * @return array<string, array<mixed>>
+     * @psalm-return array<
+     *   array{
+     *     string,
+     *     list<array{
+     *       simulated: string,
+     *       columns: list<string>,
+     *       result: list<list<string|int|null>>,
+     *     }>
+     *   }
+     * >
      */
     public function providerForTestGetMatchedRows(): array
     {
@@ -69,87 +89,161 @@ class SimulateDmlTest extends AbstractTestCase
         return [
             'update statement set null' => [
                 'UPDATE t SET `b` = NULL, a = a ORDER BY id DESC LIMIT 3',
-                'SELECT * FROM (' .
-                    'SELECT *, a AS `a ``new```, NULL AS `b ``new``` FROM `t` ORDER BY id DESC LIMIT 3' .
-                    ') AS `pma_tmp`' .
-                    ' WHERE NOT (`a`, `b`) <=> (`a ``new```, `b ``new```)',
-                ['id', 'a', 'b', 'a `new`', 'b `new`'],
-                [[5, 2, 'test', 2, null]],
+                [
+                    [
+                        'simulated' =>
+                            'SELECT * FROM (' .
+                            'SELECT *, a AS `a ``new```, NULL AS `b ``new``` FROM `t` ORDER BY id DESC LIMIT 3' .
+                            ') AS `pma_tmp`' .
+                            ' WHERE NOT (`a`, `b`) <=> (`a ``new```, `b ``new```)',
+                        'columns' => ['id', 'a', 'b', 'a `new`', 'b `new`'],
+                        'result' => [[5, 2, 'test', 2, null]],
+                    ],
+                ],
             ],
             'update statement' => [
                 'UPDATE `t` SET `a` = 20 WHERE `id` > 4',
-                'SELECT *' .
-                    ' FROM (SELECT *, 20 AS `a ``new``` FROM `t` WHERE `id` > 4) AS `pma_tmp`' .
-                    ' WHERE NOT (`a`) <=> (`a ``new```)',
-                ['id', 'a', 'b', 'a `new`'],
                 [
-                    [5, 2, 'test', 20],
-                    [6, 2, null, 20],
+                    [
+                        'simulated' =>
+                            'SELECT *' .
+                            ' FROM (SELECT *, 20 AS `a ``new``` FROM `t` WHERE `id` > 4) AS `pma_tmp`' .
+                            ' WHERE NOT (`a`) <=> (`a ``new```)',
+                        'columns' => ['id', 'a', 'b', 'a `new`'],
+                        'result' => [
+                            [5, 2, 'test', 20],
+                            [6, 2, null, 20],
+                        ],
+                    ],
                 ],
             ],
             'update statement false condition' => [
                 'UPDATE `t` SET `a` = 20 WHERE 0',
-                'SELECT *' .
-                    ' FROM (SELECT *, 20 AS `a ``new``` FROM `t` WHERE 0) AS `pma_tmp`' .
-                    ' WHERE NOT (`a`) <=> (`a ``new```)',
-                ['id', 'a', 'b', 'a `new`'],
-                [],
+                [
+                    [
+                        'simulated' =>
+                            'SELECT *' .
+                            ' FROM (SELECT *, 20 AS `a ``new``` FROM `t` WHERE 0) AS `pma_tmp`' .
+                            ' WHERE NOT (`a`) <=> (`a ``new```)',
+                        'columns' => ['id', 'a', 'b', 'a `new`'],
+                        'result' => [],
+                    ],
+                ],
             ],
             'update statement no condition' => [
                 'UPDATE `t` SET `a` = 2',
-                'SELECT *' .
-                    ' FROM (SELECT *, 2 AS `a ``new``` FROM `t`) AS `pma_tmp`' .
-                    ' WHERE NOT (`a`) <=> (`a ``new```)',
-                ['id', 'a', 'b', 'a `new`'],
                 [
-                    [2, 1, null, 2],
-                    [3, 1, null, 2],
-                    [4, 1, null, 2],
+                    [
+                        'simulated' =>
+                            'SELECT *' .
+                            ' FROM (SELECT *, 2 AS `a ``new``` FROM `t`) AS `pma_tmp`' .
+                            ' WHERE NOT (`a`) <=> (`a ``new```)',
+                        'columns' => ['id', 'a', 'b', 'a `new`'],
+                        'result' => [
+                            [2, 1, null, 2],
+                            [3, 1, null, 2],
+                            [4, 1, null, 2],
+                        ],
+                    ],
                 ],
             ],
             'update order by limit' => [
                 'UPDATE `t` SET `id` = 20 ORDER BY `id` ASC LIMIT 3',
-                'SELECT *' .
-                    ' FROM (SELECT *, 20 AS `id ``new``` FROM `t` ORDER BY `id` ASC LIMIT 3) AS `pma_tmp`' .
-                    ' WHERE NOT (`id`) <=> (`id ``new```)',
-                ['id', 'a', 'b', 'id `new`'],
                 [
-                    [1, 2, 'test', 20],
-                    [2, 1, null, 20],
-                    [3, 1, null, 20],
+                    [
+                        'simulated' =>
+                            'SELECT *' .
+                            ' FROM (SELECT *, 20 AS `id ``new``` FROM `t` ORDER BY `id` ASC LIMIT 3) AS `pma_tmp`' .
+                            ' WHERE NOT (`id`) <=> (`id ``new```)',
+                        'columns' => ['id', 'a', 'b', 'id `new`'],
+                        'result' => [
+                            [1, 2, 'test', 20],
+                            [2, 1, null, 20],
+                            [3, 1, null, 20],
+                        ],
+                    ],
                 ],
             ],
             'update duplicate set' => [
                 'UPDATE `t` SET `id` = 2, `id` = 1 WHERE `id` = 1',
-                'SELECT *' .
-                    ' FROM (SELECT *, 1 AS `id ``new``` FROM `t` WHERE `id` = 1) AS `pma_tmp`' .
-                    ' WHERE NOT (`id`) <=> (`id ``new```)',
-                ['id', 'a', 'b', 'id `new`'],
-                [],
+                [
+                    [
+                        'simulated' =>
+                            'SELECT *' .
+                            ' FROM (SELECT *, 1 AS `id ``new``` FROM `t` WHERE `id` = 1) AS `pma_tmp`' .
+                            ' WHERE NOT (`id`) <=> (`id ``new```)',
+                        'columns' => ['id', 'a', 'b', 'id `new`'],
+                        'result' => [],
+                    ],
+                ],
             ],
             'delete statement' => [
                 'DELETE FROM `t` WHERE `id` > 4',
-                'SELECT * FROM `t` WHERE `id` > 4',
-                ['id', 'a', 'b'],
                 [
-                    [5, 2, 'test'],
-                    [6, 2, null],
+                    [
+                        'simulated' => 'SELECT * FROM `t` WHERE `id` > 4',
+                        'columns' => ['id', 'a', 'b'],
+                        'result' => [
+                            [5, 2, 'test'],
+                            [6, 2, null],
+                        ],
+                    ],
                 ],
             ],
             'delete statement false condition' => [
                 'DELETE FROM `t` WHERE 0',
-                'SELECT * FROM `t` WHERE 0',
-                ['id', 'a', 'b'],
-                [],
+                [
+                    [
+                        'simulated' => 'SELECT * FROM `t` WHERE 0',
+                        'columns' => ['id', 'a', 'b'],
+                        'result' => [],
+                    ],
+                ],
             ],
             'delete statement order by limit' => [
                 'DELETE FROM `t` ORDER BY `id` ASC LIMIT 3',
-                'SELECT * FROM `t` ORDER BY `id` ASC LIMIT 3',
-                ['id', 'a', 'b'],
                 [
-                    [1, 2, 'test'],
-                    [2, 1, null],
-                    [3, 1, null],
+                    [
+                        'simulated' => 'SELECT * FROM `t` ORDER BY `id` ASC LIMIT 3',
+                        'columns' => ['id', 'a', 'b'],
+                        'result' => [
+                            [1, 2, 'test'],
+                            [2, 1, null],
+                            [3, 1, null],
+                        ],
+                    ],
+                ],
+            ],
+            'multiple statments' => [
+                'UPDATE `t` SET `b` = `a`; DELETE FROM `t` WHERE 1',
+                [
+                    [
+                        'simulated' =>
+                            'SELECT *' .
+                            ' FROM (SELECT *, `a` AS `b ``new``` FROM `t`) AS `pma_tmp`' .
+                            ' WHERE NOT (`b`) <=> (`b ``new```)',
+                        'columns' => ['id', 'a', 'b', 'b `new`'],
+                        'result' => [
+                            [1, 2, 2, 'test'],
+                            [2, 1, 1, null],
+                            [3, 1, 1, null],
+                            [4, 1, 1, null],
+                            [5, 2, 2, 'test'],
+                            [6, 2, 2, null],
+                        ],
+                    ],
+                    [
+                        'simulated' => 'SELECT * FROM `t` WHERE 1',
+                        'columns' => ['id', 'a', 'b'],
+                        'result' => [
+                            [1, 2, 'test'],
+                            [2, 1, null],
+                            [3, 1, null],
+                            [4, 1, null],
+                            [5, 2, 'test'],
+                            [6, 2, null],
+                        ],
+                    ],
                 ],
             ],
         ];

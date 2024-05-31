@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
@@ -16,7 +17,6 @@ use PhpMyAdmin\Template;
 
 use function __;
 use function count;
-use function explode;
 
 final class SimulateDmlController extends AbstractController
 {
@@ -35,42 +35,24 @@ final class SimulateDmlController extends AbstractController
     public function __invoke(): void
     {
         $error = '';
-        $errorMsg = __('Only single-table UPDATE and DELETE queries can be simulated.');
         /** @var string $sqlDelimiter */
         $sqlDelimiter = $_POST['sql_delimiter'];
         $sqlData = [];
-        /** @var string[] $queries */
-        $queries = explode($sqlDelimiter, $GLOBALS['sql_query']);
-        foreach ($queries as $sqlQuery) {
-            if (empty($sqlQuery)) {
-                continue;
-            }
+        $lexer = new Lexer($GLOBALS['sql_query'], false, $sqlDelimiter);
+        $parser = new Parser($lexer->list);
 
-            // Parsing the query.
-            $parser = new Parser($sqlQuery);
-
-            if (empty($parser->statements[0])) {
-                continue;
-            }
-
-            $statement = $parser->statements[0];
-
+        foreach ($parser->statements as $statement) {
             if (
-                ! ($statement instanceof UpdateStatement || $statement instanceof DeleteStatement)
+                ! $statement instanceof UpdateStatement && ! $statement instanceof DeleteStatement
                 || ! empty($statement->join)
+                || count(Query::getTables($statement)) > 1
             ) {
-                $error = $errorMsg;
-                break;
-            }
-
-            $tables = Query::getTables($statement);
-            if (count($tables) > 1) {
-                $error = $errorMsg;
+                $error = __('Only single-table UPDATE and DELETE queries can be simulated.');
                 break;
             }
 
             // Get the matched rows for the query.
-            $result = $this->simulateDml->getMatchedRows($sqlQuery, $parser, $statement);
+            $result = $this->simulateDml->getMatchedRows($parser, $statement);
             $error = $this->simulateDml->getError();
 
             if ($error !== '') {

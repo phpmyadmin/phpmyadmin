@@ -8,6 +8,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
@@ -46,7 +47,7 @@ final class SimulateDml
      *   matched_rows_url: string
      * }
      */
-    public function getMatchedRows(string $query, Parser $parser, $statement): array
+    public function getMatchedRows(Parser $parser, Statement $statement): array
     {
         if ($statement instanceof DeleteStatement) {
             $matchedRowsQuery = $this->getSimulatedDeleteQuery($parser, $statement);
@@ -63,7 +64,7 @@ final class SimulateDml
         ]);
 
         return [
-            'sql_query' => Html\Generator::formatSql($query),
+            'sql_query' => Html\Generator::formatSql($statement->build()),
             'matched_rows' => $matchedRows,
             'matched_rows_url' => $matchedRowsUrl,
         ];
