@@ -4,21 +4,24 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Import;
 
+use PhpMyAdmin\Controllers\Import\SimulateDmlController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
 
 use function count;
 
 /**
- * @covers \PhpMyAdmin\Import\SimulateDml
+ * @covers \PhpMyAdmin\Controllers\Import\SimulateDmlController
  */
-class SimulateDmlTest extends AbstractTestCase
+class SimulateDmlControllerTest extends AbstractTestCase
 {
     /**
      * @param array<array<mixed>> $expectedPerQuery
@@ -35,31 +38,47 @@ class SimulateDmlTest extends AbstractTestCase
     public function testGetMatchedRows(string $sqlQuery, array $expectedPerQuery): void
     {
         $GLOBALS['db'] = 'PMA';
-        $object = new SimulateDml($this->dbi);
-        $parser = new Parser($sqlQuery);
 
-        $this->assertCount(count($expectedPerQuery), $parser->statements);
-        foreach ($expectedPerQuery as $idx => $expected) {
-            /** @var DeleteStatement|UpdateStatement $statement */
-            $statement = $parser->statements[$idx];
-
+        foreach ($expectedPerQuery as $expected) {
             $this->dummyDbi->addSelectDb('PMA');
             $this->dummyDbi->addResult($expected['simulated'], $expected['result'], $expected['columns']);
-            $simulatedData = $object->getMatchedRows($parser, $statement);
+        }
 
-            $matchedRowsUrl = Url::getFromRoute('/sql', [
-                'db' => 'PMA',
-                'sql_query' => $expected['simulated'],
-                'sql_signature' => Core::signSqlQuery($expected['simulated']),
-            ]);
+        $controller = new SimulateDmlController(
+            new ResponseRenderer(),
+            new Template(),
+            new SimulateDml($this->dbi)
+        );
+        /** @var Parser $parser */
+        $parser = $this->callFunction($controller, SimulateDmlController::class, 'createParser', [$sqlQuery, ';']);
+        $this->assertCount(count($expectedPerQuery), $parser->statements);
 
-            $this->assertAllSelectsConsumed();
-            $this->assertAllQueriesConsumed();
-            $this->assertEquals([
+        $this->callFunction($controller, SimulateDmlController::class, 'process', [$parser]);
+
+        $this->assertAllSelectsConsumed();
+        $this->assertAllQueriesConsumed();
+
+        /** @var string $error */
+        $error = $this->getProperty($controller, SimulateDmlController::class, 'error');
+        $this->assertSame('', $error);
+
+        /** @var list<array<mixed>> $result */
+        $result = $this->getProperty($controller, SimulateDmlController::class, 'data');
+
+        foreach ($expectedPerQuery as $idx => $expectedData) {
+            /** @var DeleteStatement|UpdateStatement $statement */
+            $statement = $parser->statements[$idx];
+            $expected = [
                 'sql_query' => Generator::formatSql($statement->build()),
-                'matched_rows' => count($expected['result']),
-                'matched_rows_url' => $matchedRowsUrl,
-            ], $simulatedData);
+                'matched_rows' => count($expectedData['result']),
+                'matched_rows_url' => Url::getFromRoute('/sql', [
+                    'db' => 'PMA',
+                    'sql_query' => $expectedData['simulated'],
+                    'sql_signature' => Core::signSqlQuery($expectedData['simulated']),
+                ]),
+            ];
+
+            $this->assertEquals($expected, $result[$idx]);
         }
     }
 
@@ -243,6 +262,19 @@ class SimulateDmlTest extends AbstractTestCase
                             [5, 2, 'test'],
                             [6, 2, null],
                         ],
+                    ],
+                ],
+            ],
+            'statement with comment' => [
+                "UPDATE `t` SET `a` = 20 -- oops\nWHERE 0",
+                [
+                    [
+                        'simulated' =>
+                            'SELECT *' .
+                            ' FROM (SELECT *, 20 AS `a ``new``` FROM `t` WHERE 0) AS `pma_tmp`' .
+                            ' WHERE NOT (`a`) <=> (`a ``new```)',
+                        'columns' => ['id', 'a', 'b', 'a `new`'],
+                        'result' => [],
                     ],
                 ],
             ],
