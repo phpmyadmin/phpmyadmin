@@ -53,21 +53,21 @@ function makeAddButton (prefix: string, cls: string, label: string, type: string
 
 function makeCoordinateInputs (prefix: string, data): string {
     return (
-        '<label>' +
+        '<div class="col"><label class="input-group input-group-sm"><span class="input-group-text">' +
         window.Messages.strX +
-        ' <input type="text" name="' + prefix + '[x]" value="' + (data ? data.x : '') +  '">' +
-        '</label>' +
-        ' <label>' +
+        '</span><input class="form-control" type="text" name="' + prefix + '[x]" value="' + (data ? data.x : '') +  '">' +
+        '</label></div>' +
+        '<div class="col"><label class="input-group input-group-sm"><span class="input-group-text">' +
         window.Messages.strY +
-        ' <input type="text" name="' + prefix + '[y]" value="' + (data ? data.y : '') + '">' +
-        '</label> '
+        '</span><input class="form-control" type="text" name="' + prefix + '[y]" value="' + (data ? data.y : '') + '">' +
+        '</label></div>'
     );
 }
 
 function makePointNInputs (prefix: string, index: number, data): string {
     return (
-        '<div class="gis-coordinates">' +
-        window.Messages.strPoint + ' ' + (index + 1) + ': ' +
+        '<div class="gis-coordinates row gx-2 align-items-center mb-2"><div class="col-2">' +
+        window.Messages.strPoint + ' ' + (index + 1) + ':</div>' +
         makeCoordinateInputs(withIndex(prefix, index), data) +
         '</div>'
     );
@@ -75,9 +75,9 @@ function makePointNInputs (prefix: string, index: number, data): string {
 
 function makePointInputs (prefix: string, data): string {
     return (
-        '<div class="gis-coordinates-list">' +
-        '<div class="gis-coordinates">' +
-        window.Messages.strPoint + ': ' +
+        '<div class="gis-coordinates-list card-body">' +
+        '<div class="gis-coordinates row gx-2 align-items-center"><div class="col-2">' +
+        window.Messages.strPoint + ':</div>' +
         makeCoordinateInputs(prefix, data) +
         '</div>' +
         '</div>'
@@ -94,7 +94,7 @@ function makeMultiPointInputs (prefix: string, data): string {
     }
 
     return (
-        '<div class="gis-coordinates-list">' +
+        '<div class="gis-coordinates-list card-body">' +
         inputs.join('') +
         makeDataLengthInput(prefix, i) +
         makeAddButton(prefix, 'addPoint', window.Messages.strAddPoint, 'POINT') +
@@ -113,7 +113,7 @@ function makeLineStringInputs (prefix: string, data, type: string): string {
     }
 
     return (
-        '<div class="gis-coordinates-list">' +
+        '<div class="gis-coordinates-list card-body">' +
         inputs.join('') +
         makeDataLengthInput(prefix, i) +
         makeAddButton(prefix, 'addPoint', window.Messages.strAddPoint, 'LINESTRING') +
@@ -127,15 +127,17 @@ function makeMultiLineStringInputs (prefix: string, data): string {
     let i = 0;
     while (d[i] || i < 1) {
         inputs.push(
-            window.Messages.strLineString + ' ' + (i + 1) + ':',
-            makeLineStringInputs(withIndex(prefix, i), d[i], 'MULTILINESTRING')
+            '<div class="card mb-3"><div class="card-header">',
+            window.Messages.strLineString + ' ' + (i + 1) + ':</div>',
+            makeLineStringInputs(withIndex(prefix, i), d[i], 'MULTILINESTRING'),
+            '</div>'
         );
 
         ++i;
     }
 
     return (
-        '<div class="gis-coordinates-list">' +
+        '<div class="gis-coordinates-list card-body">' +
         inputs.join('') +
         makeDataLengthInput(prefix, i) +
         makeAddButton(prefix, 'addLine', window.Messages.strAddLineString, 'MULTILINESTRING') +
@@ -149,15 +151,17 @@ function makePolygonInputs (prefix: string, data, type: string): string {
     let i = 0;
     while (d[i] || i < 1) {
         inputs.push(
-            (i === 0 ? window.Messages.strOuterRing : window.Messages.strInnerRing + ' ' + i) + ':',
-            makeLineStringInputs(withIndex(prefix, i), d[i], type)
+            '<div class="card mb-3"><div class="card-header">',
+            (i === 0 ? window.Messages.strOuterRing : window.Messages.strInnerRing + ' ' + i) + ':</div>',
+            makeLineStringInputs(withIndex(prefix, i), d[i], type),
+            '</div>'
         );
 
         ++i;
     }
 
     return (
-        '<div class="gis-coordinates-list">' +
+        '<div class="gis-coordinates-list card-body">' +
         inputs.join('') +
         makeDataLengthInput(prefix, i) +
         makeAddButton(prefix, 'addLine', window.Messages.strAddInnerRing, 'POLYGON') +
@@ -171,15 +175,17 @@ function makeMultiPolygonInputs (prefix: string, data): string {
     let i = 0;
     while (d[i] || i < 1) {
         inputs.push(
-            window.Messages.strPolygon + ' ' + (i + 1) + ':',
-            makePolygonInputs(withIndex(prefix, i), d[i], 'MULTIPOLYGON')
+            '<div class="card mb-3"><div class="card-header">',
+            window.Messages.strPolygon + ' ' + (i + 1) + ':</div>',
+            makePolygonInputs(withIndex(prefix, i), d[i], 'MULTIPOLYGON'),
+            '</div>'
         );
 
         ++i;
     }
 
     return (
-        '<div class="gis-coordinates-list">' +
+        '<div class="gis-coordinates-list card-body">' +
         inputs.join('') +
         makeDataLengthInput(prefix, i) +
         makeAddButton(prefix, 'addPolygon', window.Messages.strAddPolygon, 'MULTIPOLYGON') +
@@ -206,10 +212,10 @@ function makeGeometryCollectionGeometryInputs (prefix: string, index: number, da
     select.setAttribute('name', withIndex(prefix, index, 'gis_type'));
 
     return (
-        '<div class="gis-geometry">' +
-        '<div class="gis-geometry-type">' +
-        window.Messages.strGeometry + ' ' + (index + 1) + ': ' + select.outerHTML +
-        '</div>' +
+        '<div class="gis-geometry card mb-3">' +
+        '<div class="gis-geometry-type card-header"><div class="row align-items-center"><div class="col-auto">' +
+        window.Messages.strGeometry + ' ' + (index + 1) + ':</div><div class="col">' + select.outerHTML +
+        '</div></div></div>' +
         fn(withIndex(prefix, index, type), data ? data[type] : null, type) +
         '</div>'
     );
@@ -224,11 +230,11 @@ function makeGeometryCollectionInputs (prefix: string, data): string {
     }
 
     return (
-        '<div class="gis-geometry-list">' +
+        '<div class="gis-geometry-list card"><div class="card-body">' +
         inputs.join('') +
         makeDataLengthInput('gis_data[GEOMETRYCOLLECTION]', i) +
         makeAddButton(prefix, 'addGeom', window.Messages.strAddGeometry, 'GEOMETRYCOLLECTION') +
-        '</div>'
+        '</div></div>'
     );
 }
 
@@ -237,7 +243,7 @@ function makeGeometryInputs (gisData): string {
     const geometry = gisData[0][type];
     const fn = INPUTS_GENERATOR[type];
 
-    return fn(withIndex('gis_data', 0, type), geometry, type);
+    return '<div class="card">' + fn(withIndex('gis_data', 0, type), geometry, type) + '</div>';
 }
 
 /**
@@ -389,13 +395,13 @@ function addLineStringOrInnerRing () {
     const $a = $(this);
     const prefix = $a.data('prefix');
     const type = $a.data('geometryType');
-    const dataLength = this.parentElement.querySelectorAll(':scope > .gis-coordinates-list').length;
+    const dataLength = this.parentElement.querySelectorAll(':scope > .card > .gis-coordinates-list').length;
     $('input[name=\'' + prefix + '[data_length]' + '\']').val(dataLength + 1);
 
     const label = type === 'MULTILINESTRING' ? window.Messages.strLineString : window.Messages.strInnerRing;
     const n = type === 'MULTILINESTRING' ? dataLength + 1 : dataLength;
     const html = makeLineStringInputs(withIndex(prefix, dataLength), null, type);
-    $a.before('<div class="gis-geometry-type">' + label + ' ' + n + ':</div>', html);
+    $a.before('<div class="card mb-3"><div class="gis-geometry-type card-header">' + label + ' ' + n + ':</div>' + html + '</div>');
 
     updateResult();
 }
@@ -406,11 +412,11 @@ function addLineStringOrInnerRing () {
 function addPolygon () {
     const $a = $(this);
     const prefix = $a.data('prefix');
-    const dataLength = this.parentElement.querySelectorAll(':scope > .gis-coordinates-list').length;
+    const dataLength = this.parentElement.querySelectorAll(':scope > .card > .gis-coordinates-list').length;
     $('input[name=\'' + prefix + '[data_length]' + '\']').val(dataLength + 1);
 
     const html = makePolygonInputs(withIndex(prefix, dataLength), null, 'MULTIPOLYGON');
-    $a.before('<div class="gis-geometry-type">' + window.Messages.strPolygon + ' ' + (dataLength +  1) + ':</div>', html);
+    $a.before('<div class="card mb-3"><div class="gis-geometry-type card-header">' + window.Messages.strPolygon + ' ' + (dataLength +  1) + ':</div>' + html + '</div>');
 
     updateResult();
 }
@@ -441,13 +447,15 @@ function onGeometryTypeChange () {
     if (isSubGeom) {
         const fn = INPUTS_GENERATOR[type];
         html = fn(withIndex(prefix, type), null, type);
+
+        $(typeSelect.parentElement.parentElement.parentElement.nextElementSibling).replaceWith(html);
     } else {
         html = type === 'GEOMETRYCOLLECTION'
             ? makeGeometryCollectionInputs(prefix, {})
             : makeGeometryInputs({ 'gis_type': type, '0': {} });
-    }
 
-    $(typeSelect.parentElement.nextElementSibling).replaceWith(html);
+        $(typeSelect.parentElement.parentElement.nextElementSibling).replaceWith(html);
+    }
 
     updateResult();
 }

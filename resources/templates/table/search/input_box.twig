@@ -28,9 +28,9 @@
         class="textfield"
         id="field_{{ column_index }}">
     {% if in_fbs %}
-        <span class="open_search_gis_editor">
-            {{ link_or_button('#', null, get_icon('b_edit', t('Edit/Insert'))) }}
-        </span>
+      <button type="button" class="btn btn-link open_search_gis_editor" data-bs-toggle="modal" data-bs-target="#gisEditorModal">
+        {{ get_icon('b_edit', t('Edit/Insert')) }}
+      </button>
     {% endif %}
 {% elseif column_type starts with 'enum'
     or (column_type starts with 'set' and in_zoom_search_edit) %}

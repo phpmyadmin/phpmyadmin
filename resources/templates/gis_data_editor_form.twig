@@ -13,25 +13,34 @@
         <div class="col">
           <div id="gis_data" class="gis-geometry mb-3" data-gis-data="{{ gis_data|json_encode }}">
             <template id="gis_type_template">
-              <select class="gis_type">
-                {% for gis_type in gis_types|slice(0, 6) %}
+              <select class="gis_type form-select">
+                {% for gis_type in gis_types|filter(v => v != 'GEOMETRYCOLLECTION') %}
                   <option value="{{ gis_type }}">{{ gis_type }}</option>
                 {% endfor %}
               </select>
             </template>
 
             {# Header section - Inclueds GIS type selector and input field for SRID #}
-            <div class="gis-geometry-type">
-              <select name="gis_data[gis_type]" class="gis_type{{ column_type != 'GEOMETRY' ? ' hide' }}">
-                {% for gis_type in gis_types %}
-                  <option value="{{ gis_type }}"{{ geom_type == gis_type ? ' selected="selected"' }}>
-                    {{ gis_type }}
-                  </option>
-                {% endfor %}
-              </select>
+            <div class="gis-geometry-type mb-3 row">
+              <div class="col">
+                <label class="form-label" for="gisDataEditorTypeSelect">{{ t('Geometry type:') }}</label>
+                {% if column_type == 'GEOMETRY' %}
+                  <select id="gisDataEditorTypeSelect" name="gis_data[gis_type]" class="gis_type form-select">
+                    {% for gis_type in gis_types %}
+                      <option value="{{ gis_type }}"{{ geom_type == gis_type ? ' selected' }}>
+                        {{ gis_type }}
+                      </option>
+                    {% endfor %}
+                  </select>
+                {% else %}
+                  <input type="text" id="gisDataEditorTypeSelect" name="gis_data[gis_type]" class="form-control" value="{{ geom_type }}" disabled readonly>
+                {% endif %}
+              </div>
 
-              <label for="srid">{{ t('SRID:', context = 'Spatial Reference System Identifier') }}</label>
-              <input id="srid" name="gis_data[srid]" type="text" value="{{ srid }}">
+              <div class="col-auto">
+                <label class="form-label" for="srid"><abbr title="{{ t('Spatial Reference System Identifier') }}">{{ t('SRID:', context = 'Spatial Reference System Identifier') }}</abbr></label>
+                <input class="form-control" id="srid" name="gis_data[srid]" type="text" value="{{ srid }}">
+              </div>
             </div>
             {# End of header section #}
           </div>
