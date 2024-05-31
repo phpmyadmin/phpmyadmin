@@ -616,9 +616,9 @@ for kit in $KITS ; do
         # Documentation source code
         mv docs/html htmldoc
         rm -r docs
-        mkdir docs
-        mv htmldoc docs/html
-        rm docs/html/.buildinfo docs/html/objects.inv
+        mkdir public/docs
+        mv htmldoc public/docs/html
+        rm public/docs/html/.buildinfo public/docs/html/objects.inv
         rm -r node_modules
         # Remove bin files for non source version
         # https://github.com/phpmyadmin/phpmyadmin/issues/16033
