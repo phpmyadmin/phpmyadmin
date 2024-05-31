@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-05-26 00:21+0000\n"
-"PO-Revision-Date: 2024-05-29 10:37+0000\n"
-"Last-Translator: 전지연 <jeeyeon0131@gmail.com>\n"
+"PO-Revision-Date: 2024-05-31 17:34+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
 "Language: ko\n"
@@ -2480,10 +2480,10 @@ msgid "Browse"
 msgstr "보기"
 
 #: resources/templates/database/search/results.twig:43
-#, php-format
+#, fuzzy, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<strong>총:</strong> <em>%count%</em> 건 일치"
+msgstr[0] "<strong>총:</strong> <em>%s</em> 건 일치"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
