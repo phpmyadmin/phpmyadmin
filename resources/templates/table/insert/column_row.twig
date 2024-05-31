@@ -114,14 +114,13 @@
           {{ max_upload_size }}
         {% endif %}
         {{ select_option_for_upload|raw }}
+      {% elseif column.pmaType in gis_data_types %}
+        {{ value|raw }}
+        <button type="button" class="btn btn-link open_gis_editor" data-bs-toggle="modal" data-bs-target="#gisEditorModal" data-row-id="{{ row_id }}">
+          {{ get_icon('b_edit', t('Edit/Insert')) }}
+        </button>
       {% else %}
         {{ value|raw }}
-      {% endif %}
-
-      {% if column.pmaType in gis_data_types %}
-        <span class="open_gis_editor" data-row-id="{{ row_id }}">
-          {{ link_or_button('#', null, get_icon('b_edit', t('Edit/Insert'))) }}
-        </span>
       {% endif %}
     {% endif %}
   </td>

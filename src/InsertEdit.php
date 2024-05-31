@@ -1505,14 +1505,6 @@ class InsertEdit
     }
 
     /**
-     * Function to get html for the gis editor div
-     */
-    public function getHtmlForGisEditor(): string
-    {
-        return '<div id="gis_editor"></div><div id="popup_background"></div><br>';
-    }
-
-    /**
      * Function to get html for the ignore option in insert mode
      *
      * @param int  $rowId   row id

@@ -2720,8 +2720,8 @@ class InsertEditTest extends AbstractTestCase
             $actual,
         );
         self::assertStringContainsString(
-            '<a href="#" ><span class="text-nowrap"><img src="themes/dot.gif" title="Edit/Insert"' .
-            ' alt="Edit/Insert" class="icon ic_b_edit">&nbsp;Edit/Insert</span></a>',
+            '<span class="text-nowrap"><img src="themes/dot.gif" title="Edit/Insert"' .
+            ' alt="Edit/Insert" class="icon ic_b_edit">&nbsp;Edit/Insert</span>',
             $actual,
         );
     }

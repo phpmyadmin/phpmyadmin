@@ -256,11 +256,11 @@ class GisPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsOl() method
      *
-     * @param string $spatial GIS POINT object
-     * @param int    $srid    spatial reference ID
-     * @param string $label   label for the GIS POINT object
-     * @param int[]  $color   color for the GIS POINT object
-     * @param string $output  expected output
+     * @param string  $spatial  GIS POINT object
+     * @param int     $srid     spatial reference ID
+     * @param string  $label    label for the GIS POINT object
+     * @param int[]   $color    color for the GIS POINT object
+     * @param mixed[] $expected
      */
     #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
@@ -268,17 +268,16 @@ class GisPointTest extends GisGeomTestCase
         int $srid,
         string $label,
         array $color,
-        string $output,
+        array $expected,
     ): void {
         $object = GisPoint::singleton();
-        $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
-        self::assertSame($output, $ol);
+        self::assertSame($expected, $object->prepareRowAsOl($spatial, $srid, $label, $color));
     }
 
     /**
      * data provider for testPrepareRowAsOl() test case
      *
-     * @return array<array{string, int, string, int[], string}>
+     * @return array<array{string, int, string, int[], mixed[]}>
      */
     public static function providerForPrepareRowAsOl(): array
     {
@@ -288,13 +287,17 @@ class GisPointTest extends GisGeomTestCase
                 4326,
                 'Ol',
                 [176, 46, 224],
-                'var feature = new ol.Feature(new ol.geom.Point([12,35]'
-                . ').transform(\'EPSG:4326\', \'EPSG:3857\'));feature.s'
-                . 'etStyle(new ol.style.Style({image: new ol.style.Circ'
-                . 'le({fill: new ol.style.Fill({"color":"white"}),strok'
-                . 'e: new ol.style.Stroke({"color":[176,46,224],"width"'
-                . ':2}),radius: 3}),text: new ol.style.Text({"text":"Ol'
-                . '","offsetY":-9})}));vectorSource.addFeature(feature);',
+                [
+                    'geometry' => ['type' => 'Point', 'coordinates' => [12.0, 35.0], 'srid' => 4326],
+                    'style' => [
+                        'circle' => [
+                            'fill' => ['color' => 'white'],
+                            'stroke' => ['color' => [176, 46, 224], 'width' => 2],
+                            'radius' => 3,
+                        ],
+                        'text' => ['text' => 'Ol', 'offsetY' => -9],
+                    ],
+                ],
             ],
         ];
     }

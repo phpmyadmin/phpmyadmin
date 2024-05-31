@@ -14,7 +14,6 @@ use TCPDF;
 
 use function count;
 use function implode;
-use function json_encode;
 use function max;
 use function mb_substr;
 use function round;
@@ -196,38 +195,32 @@ class GisLineString extends GisGeometry
     }
 
     /**
-     * Prepares JavaScript related to a row in the GIS dataset
-     * to visualize it with OpenLayers.
+     * Prepares data related to a row in the GIS dataset to visualize it with OpenLayers.
      *
      * @param string $spatial GIS LINESTRING object
      * @param int    $srid    Spatial reference ID
      * @param string $label   Label for the GIS LINESTRING object
      * @param int[]  $color   Color for the GIS LINESTRING object
      *
-     * @return string JavaScript related to a row in the GIS dataset
+     * @return mixed[]
      */
-    public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): string
+    public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): array
     {
         $strokeStyle = ['color' => $color, 'width' => 2];
-
-        $style = 'new ol.style.Style({'
-            . 'stroke: new ol.style.Stroke(' . json_encode($strokeStyle) . ')';
+        $style = ['stroke' => $strokeStyle];
         if ($label !== '') {
-            $textStyle = ['text' => $label];
-            $style .= ', text: new ol.style.Text(' . json_encode($textStyle) . ')';
+            $style['text'] = ['text' => $label];
         }
-
-        $style .= '})';
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $wktCoordinates = mb_substr($spatial, 11, -1);
-        $olGeometry = $this->toOpenLayersObject(
-            'ol.geom.LineString',
-            $this->extractPoints1d($wktCoordinates, null),
-            $srid,
-        );
+        $geometry = [
+            'type' => 'LineString',
+            'coordinates' => $this->extractPoints1d($wktCoordinates, null),
+            'srid' => $srid,
+        ];
 
-        return $this->addGeometryToLayer($olGeometry, $style);
+        return ['geometry' => $geometry, 'style' => $style];
     }
 
     /**

@@ -2,6 +2,8 @@ import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
 
+let openLayersData: any[]|null = null;
+
 /**
  * @fileoverview    functions used for visualizing GIS data
  *
@@ -449,6 +451,107 @@ class OlVisualization extends GisVisualization {
     }
 }
 
+function getFeaturesFromOpenLayersData (geometries: any[]): any[] {
+    let features = [];
+    for (const geometry of geometries) {
+        if (geometry.isCollection) {
+            features = features.concat(getFeaturesFromOpenLayersData(geometry.geometries));
+
+            continue;
+        }
+
+        let olGeometry: any = null;
+        const style: any = {};
+        if (geometry.geometry.type === 'LineString') {
+            olGeometry = new window.ol.geom.LineString(geometry.geometry.coordinates);
+            style.stroke = new window.ol.style.Stroke(geometry.style.stroke);
+        } else if (geometry.geometry.type === 'MultiLineString') {
+            olGeometry = new window.ol.geom.MultiLineString(geometry.geometry.coordinates);
+            style.stroke = new window.ol.style.Stroke(geometry.style.stroke);
+        } else if (geometry.geometry.type === 'MultiPoint') {
+            olGeometry = new window.ol.geom.MultiPoint(geometry.geometry.coordinates);
+            style.image = new window.ol.style.Circle({
+                fill: new window.ol.style.Fill(geometry.style.circle.fill),
+                stroke: new window.ol.style.Stroke(geometry.style.circle.stroke),
+                radius: geometry.style.circle.radius,
+            });
+        } else if (geometry.geometry.type === 'MultiPolygon') {
+            olGeometry = new window.ol.geom.MultiPolygon(geometry.geometry.coordinates);
+            style.fill = new window.ol.style.Fill(geometry.style.fill);
+            style.stroke = new window.ol.style.Stroke(geometry.style.stroke);
+        } else if (geometry.geometry.type === 'Point') {
+            olGeometry = new window.ol.geom.Point(geometry.geometry.coordinates);
+            style.image = new window.ol.style.Circle({
+                fill: new window.ol.style.Fill(geometry.style.circle.fill),
+                stroke: new window.ol.style.Stroke(geometry.style.circle.stroke),
+                radius: geometry.style.circle.radius,
+            });
+        } else if (geometry.geometry.type === 'Polygon') {
+            olGeometry = new window.ol.geom.Polygon(geometry.geometry.coordinates);
+            style.fill = new window.ol.style.Fill(geometry.style.fill);
+            style.stroke = new window.ol.style.Stroke(geometry.style.stroke);
+        } else {
+            throw new Error();
+        }
+
+        if (geometry.geometry.srid !== 3857) {
+            olGeometry = olGeometry.transform(
+                'EPSG:' + (geometry.geometry.srid !== 0 ? geometry.geometry.srid : 4326),
+                'EPSG:3857'
+            );
+        }
+
+        if (geometry.style.text) {
+            style.text = new window.ol.style.Text(geometry.style.text);
+        }
+
+        const feature = new window.ol.Feature(olGeometry);
+        feature.setStyle(new window.ol.style.Style(style));
+        features.push(feature);
+    }
+
+    return features;
+}
+
+function drawOpenLayers (target: HTMLElement) {
+    if (typeof window.ol === 'undefined') {
+        return undefined;
+    }
+
+    $('head').append('<link rel="stylesheet" type="text/css" href="js/vendor/openlayers/theme/ol.css">');
+
+    const vectorSource = new window.ol.source.Vector({});
+    const map = new window.ol.Map({
+        target: target,
+        layers: [
+            new window.ol.layer.Tile({ source: new window.ol.source.OSM() }),
+            new window.ol.layer.Vector({ source: vectorSource })
+        ],
+        view: new window.ol.View({ center: [0, 0], zoom: 4 }),
+        controls: [
+            new window.ol.control.MousePosition({
+                coordinateFormat: window.ol.coordinate.createStringXY(4),
+                projection: 'EPSG:4326'
+            }),
+            new window.ol.control.Zoom,
+            new window.ol.control.Attribution
+        ]
+    });
+
+    openLayersData = openLayersData ?? JSON.parse($('#visualization-placeholder').attr('data-ol-data'));
+    const features = getFeaturesFromOpenLayersData(openLayersData);
+    for (const feature of features) {
+        vectorSource.addFeature(feature);
+    }
+
+    const extent = vectorSource.getExtent();
+    if (! window.ol.extent.isEmpty(extent)) {
+        map.getView().fit(extent, { padding: [20, 20, 20, 20] });
+    }
+
+    return map;
+}
+
 class GisVisualizationController {
     private svgVis: SvgVisualization|undefined = undefined;
 
@@ -459,11 +562,11 @@ class GisVisualizationController {
     constructor () {
         this.boundOnChoiceChange = this.onChoiceChange.bind(this);
 
-        $(document).on('click', '#choice', this.boundOnChoiceChange);
+        $(document).on('click', '#useOsmAsBaseLayerSwitch', this.boundOnChoiceChange);
 
         if (typeof window.ol === 'undefined') {
-            $('#choice, #labelChoice').hide();
-            $('#choice').prop('checked', false);
+            $('#useOsmAsBaseLayerSwitch, #useOsmAsBaseLayerSwitchLabel').hide();
+            $('#useOsmAsBaseLayerSwitch').prop('checked', false);
         }
 
         this.selectVisualization();
@@ -477,7 +580,7 @@ class GisVisualizationController {
      * Initially loads either SVG or OSM visualization based on the choice.
      */
     private selectVisualization () {
-        const showOl = $('#choice').prop('checked') === true;
+        const showOl = $('#useOsmAsBaseLayerSwitch').prop('checked') === true;
         const oldVis = showOl ? this.svgVis : this.olVis;
         if (oldVis) {
             oldVis.hide();
@@ -488,7 +591,7 @@ class GisVisualizationController {
             if (!this.olVis) {
                 this.olVis = new OlVisualization(
                     $('#visualization-placeholder > .visualization-target-ol').get(0),
-                    window.drawOpenLayers
+                    drawOpenLayers
                 );
             }
 
@@ -508,7 +611,7 @@ class GisVisualizationController {
      * Cleanup events when no longer needed
      */
     public dispose () {
-        $(document).off('click', '#choice');
+        $(document).off('click', '#useOsmAsBaseLayerSwitch');
 
         if (this.svgVis) {
             this.svgVis.dispose();
@@ -517,6 +620,10 @@ class GisVisualizationController {
         if (this.olVis) {
             this.olVis.dispose();
         }
+    }
+
+    public setOpenLayersData (olData: any[]): void {
+        openLayersData = olData;
     }
 }
 

@@ -91,8 +91,8 @@
             </tbody>
           </table>
         </div>
-        <div id="gis_editor"></div>
-        <div id="popup_background"></div>
+
+        {{ include('modals/gis_editor.twig') }}
       </div>
 
       {% if default_sliders_state != 'disabled' %}

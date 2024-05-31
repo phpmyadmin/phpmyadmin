@@ -164,7 +164,7 @@ final class GisVisualizationController implements InvocableController
             'start_and_number_of_rows_fieldset' => $startAndNumberOfRowsFieldset,
             'useBaseLayer' => $useBaseLayer,
             'visualization' => $visualization->asSVG(),
-            'draw_ol' => $visualization->asOl(),
+            'open_layers_data' => $visualization->asOl(),
         ]);
 
         $this->response->addHTML($html);

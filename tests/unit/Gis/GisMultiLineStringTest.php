@@ -270,11 +270,11 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsOl() method
      *
-     * @param string $spatial GIS MULTILINESTRING object
-     * @param int    $srid    spatial reference ID
-     * @param string $label   label for the GIS MULTILINESTRING object
-     * @param int[]  $color   color for the GIS MULTILINESTRING object
-     * @param string $output  expected output
+     * @param string  $spatial  GIS MULTILINESTRING object
+     * @param int     $srid     spatial reference ID
+     * @param string  $label    label for the GIS MULTILINESTRING object
+     * @param int[]   $color    color for the GIS MULTILINESTRING object
+     * @param mixed[] $expected
      */
     #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
@@ -282,17 +282,16 @@ class GisMultiLineStringTest extends GisGeomTestCase
         int $srid,
         string $label,
         array $color,
-        string $output,
+        array $expected,
     ): void {
         $object = GisMultiLineString::singleton();
-        $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
-        self::assertSame($output, $ol);
+        self::assertSame($expected, $object->prepareRowAsOl($spatial, $srid, $label, $color));
     }
 
     /**
      * data provider for testPrepareRowAsOl() test case
      *
-     * @return array<array{string, int, string, int[], string}>
+     * @return array<array{string, int, string, int[], mixed[]}>
      */
     public static function providerForPrepareRowAsOl(): array
     {
@@ -302,11 +301,17 @@ class GisMultiLineStringTest extends GisGeomTestCase
                 4326,
                 'Ol',
                 [176, 46, 224],
-                'var feature = new ol.Feature(new ol.geom.MultiLineString([[[36,14],[47,23],[62,75]'
-                . '],[[36,10],[17,23],[178,53]]]).transform(\'EPSG:4326\', \'EPSG:3857\'));feature.'
-                . 'setStyle(new ol.style.Style({stroke: new ol.style.Stroke({"color":[176,46,224],"'
-                . 'width":2}), text: new ol.style.Text({"text":"Ol"})}));vectorSource.addFeature(fea'
-                . 'ture);',
+                [
+                    'geometry' => [
+                        'type' => 'MultiLineString',
+                        'coordinates' => [
+                            [[36.0, 14.0], [47.0, 23.0], [62.0, 75.0]],
+                            [[36.0, 10.0], [17.0, 23.0], [178.0, 53.0]],
+                        ],
+                        'srid' => 4326,
+                    ],
+                    'style' => ['stroke' => ['color' => [176, 46, 224], 'width' => 2], 'text' => ['text' => 'Ol']],
+                ],
             ],
         ];
     }

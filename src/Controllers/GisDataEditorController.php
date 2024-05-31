@@ -14,11 +14,13 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
+use function __;
 use function array_merge;
 use function in_array;
 use function is_array;
 use function mb_strtoupper;
 use function preg_match;
+use function sprintf;
 use function trim;
 
 /**
@@ -85,11 +87,15 @@ final class GisDataEditorController implements InvocableController
 
         $visualization = GisVisualization::getByData($data, $visualizationSettings);
         $svg = $visualization->asSVG();
-        $openLayers = $visualization->asOl();
+        $openLayersData = $visualization->asOl();
 
         // If the call is to update the WKT and visualization make an AJAX response
         if ($request->hasBodyParam('generate')) {
-            $this->response->addJSON(['result' => $result, 'visualization' => $svg, 'openLayers' => $openLayers]);
+            $this->response->addJSON([
+                'result' => $result,
+                'visualization' => $svg,
+                'openLayersData' => $openLayersData,
+            ]);
 
             return $this->response->response();
         }
@@ -101,7 +107,7 @@ final class GisDataEditorController implements InvocableController
             'input_name' => $inputName,
             'srid' => $srid,
             'visualization' => $svg,
-            'open_layers' => $openLayers,
+            'open_layers_data' => $openLayersData,
             'column_type' => mb_strtoupper($type),
             'gis_types' => self::GIS_TYPES,
             'geom_type' => $geomType,
@@ -109,7 +115,8 @@ final class GisDataEditorController implements InvocableController
             'result' => $result,
         ]);
 
-        $this->response->addJSON(['gis_editor' => $templateOutput]);
+        $this->response->addJSON('gis_editor', $templateOutput);
+        $this->response->addJSON('gis_editor_title', sprintf(__('Value for the column "%s"'), $field));
 
         return $this->response->response();
     }
