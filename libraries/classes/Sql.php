@@ -738,24 +738,27 @@ class Sql
                         ->countRecords(true);
                 }
             } else {
+                /** @var SelectStatement $statement */
                 $statement = $analyzedSqlResults['statement'];
 
-                // Remove ORDER BY to decrease unnecessary sorting time
-                if ($analyzedSqlResults['order'] !== false) {
-                    $statement->order = null;
-                }
-
-                // Removes LIMIT clause that might have been added
-                if ($analyzedSqlResults['limit'] !== null) {
-                    $statement->limit = null;
-                }
-
-                if (
-                    $analyzedSqlResults['is_group'] === false
+                $changeOrder = $analyzedSqlResults['order'] !== false;
+                $changeLimit = $analyzedSqlResults['limit'] !== false;
+                $changeExpression = $analyzedSqlResults['is_group'] === false
                     && $analyzedSqlResults['distinct'] === false
                     && $analyzedSqlResults['union'] === false
-                    && count($statement->expr) === 1
-                ) {
+                    && count($statement->expr) === 1;
+
+                if ($changeOrder || $changeLimit || $changeExpression) {
+                    $statement = clone $statement;
+                }
+
+                // Remove ORDER BY to decrease unnecessary sorting time
+                $statement->order = null;
+
+                // Removes LIMIT clause that might have been added
+                $statement->limit = null;
+
+                if ($changeExpression) {
                     $statement->expr[0] = new Expression();
                     $statement->expr[0]->expr = '1';
                 }
