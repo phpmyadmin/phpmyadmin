@@ -1625,9 +1625,6 @@ class Results
 
             $this->numEmptyColumnsAfter = $displayParts->hasEditLink
                 && $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE ? 4 : 1;
-
-            $rightColumnHtml .= "\n" . '<td class="position-sticky bg-body d-print-none"' . $colspan
-                . '></td>';
         }
 
         return $rightColumnHtml;
