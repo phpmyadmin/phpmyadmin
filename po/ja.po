@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2024-05-21 07:01+0000\n"
+"PO-Revision-Date: 2024-06-03 04:09+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ja/>\n"
@@ -4469,7 +4469,7 @@ msgstr "Enterでクエリを実行し、Shift + Enterで新しい行を挿入し
 #: libraries/classes/Config/Descriptions.php:981
 #: templates/console/display.twig:168
 msgid "Switch to dark theme"
-msgstr "暗いテーマに切り替える"
+msgstr "ダークテーマに切り替える"
 
 #: libraries/classes/Config/Descriptions.php:982
 msgid "Console height"
@@ -4482,7 +4482,7 @@ msgstr "コンソールモード"
 #: libraries/classes/Config/Descriptions.php:984
 #: templates/console/display.twig:64
 msgid "Group queries"
-msgstr "グループ クエリ"
+msgstr "グループクエリ"
 
 #: libraries/classes/Config/Descriptions.php:985
 #: templates/sql/profiling_chart.twig:9
@@ -8956,7 +8956,7 @@ msgstr "トリガ名は必須です!"
 
 #: libraries/classes/Database/Triggers.php:395
 msgid "You must provide a valid timing for the trigger!"
-msgstr "有効な実行時機を指定してください!"
+msgstr "トリガの有効なタイミングを指定してください!"
 
 #: libraries/classes/Database/Triggers.php:401
 msgid "You must provide a valid event for the trigger!"
@@ -11758,7 +11758,7 @@ msgstr "テキストの内容を JSONとみなし、構文ハイライト表示�
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Xml.php:44
 msgid "Formats text as XML with syntax highlighting."
-msgstr "テキストの内容を XMLとみなし、構文ハイライト表示します。"
+msgstr "テキストを XML として構文ハイライトつきで表示します。"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:135
 msgid "Authentication Application (2FA)"
@@ -11942,11 +11942,11 @@ msgstr ""
 #: libraries/classes/Routing.php:162
 #, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "エラー 404!　ページ 「%s」が見つかりませんでした。"
+msgstr "エラー 404! ページ 「%s」が見つかりませんでした。"
 
 #: libraries/classes/Routing.php:173
 msgid "Error 405! Request method not allowed."
-msgstr "エラー 405!　要求メソッドは許可されていません。"
+msgstr "エラー 405! リクエストメソッドは許可されていません。"
 
 #: libraries/classes/SavedSearches.php:239
 msgid "Please provide a name for this bookmarked search."
@@ -12332,9 +12332,9 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
-"localhostから任意のユーザに接続を許可するユーザが存在します。 これにより、そ"
-"のアカウントのホスト部分で任意ホスト（％）からの接続が許可されている場合、他"
-"のユーザは接続できなくなります。"
+"localhostから任意のユーザに接続を許可するユーザが存在します。 これにより、"
+"そのアカウントのホスト部分で任意ホスト (%) "
+"からの接続が許可されている場合、他のユーザは接続できなくなります。"
 
 #: libraries/classes/Server/Privileges.php:3017
 #, php-format
@@ -12825,17 +12825,16 @@ msgstr ""
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
-msgstr ""
-"固定小数 (M, D) - 整数部の最大桁数 M は 65 (デフォルトは 10)、小数部のの最大"
-"桁数 D は 30 (デフォルトは 0)"
+msgstr "固定小数点数 (M, D) - 整数部の最大桁数 M は 65 (デフォルトは 10)、"
+"小数部の最大桁数 D は 30 (デフォルトは 0)"
 
 #: libraries/classes/Types.php:264
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"単精度浮動小数、有効範囲は -3.402823466E+38 から -1.175494351E-38、0、"
-"1.175494351E-38 から 3.402823466E+38"
+"単精度浮動小数点数、有効範囲は -3.402823466E+38 から -1.175494351E-38、0、1."
+"175494351E-38 から 3.402823466E+38"
 
 #: libraries/classes/Types.php:271
 msgid ""
@@ -12843,9 +12842,9 @@ msgid ""
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"倍精度浮動小数、有効範囲は -1.7976931348623157E+308 から "
-"-2.2250738585072014E-308、0、2.2250738585072014E-308 から "
-"1.7976931348623157E+308"
+"倍精度浮動小数点数、有効範囲は -1.7976931348623157E+308 から -2."
+"2250738585072014E-308、0、2.2250738585072014E-308 から 1."
+"7976931348623157E+308"
 
 #: libraries/classes/Types.php:277
 msgid ""
@@ -12859,9 +12858,8 @@ msgstr ""
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
-msgstr ""
-"ビットフィールドタイプ（M）。値ごとにMビットを保管します（デフォルトは1、最大"
-"は64です）"
+msgstr "ビットフィールドタ型 (M)。値ごとに M ビットを保管します（デフォルトは 1、"
+"最大は 64 です）"
 
 #: libraries/classes/Types.php:284
 msgid ""
@@ -12926,25 +12924,22 @@ msgstr ""
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
-msgstr ""
-"TEXT カラム、最大長 255 (2^8 - 1)、これの長さは単位がバイトで、1 バイト値で表"
-"現できる範囲です"
+msgstr "TEXT カラム、最大長 255 (2^8 - 1)、バイト単位で長さを示す 1 "
+"バイトの接頭辞つきで格納されます"
 
 #: libraries/classes/Types.php:348
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
-msgstr ""
-"TEXT カラム、最大長 65,535 (2^16 - 1)、これの長さは単位がバイトで、2 バイト値"
-"で表現できる範囲です"
+msgstr "TEXT カラム、最大長 65,535 (2^16 - 1)、バイト単位で長さを示す 2 "
+"バイトの接頭辞つきで格納されます"
 
 #: libraries/classes/Types.php:355
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
-msgstr ""
-"TEXT カラム、最大長 16,777,215 (2^24 - 1)、これの長さは単位がバイトで、3 バイ"
-"ト値で表現できる範囲です"
+msgstr "TEXT カラム、最大長 16,777,215 (2^24 - 1)、バイト単位で長さを示す 3 "
+"バイトの接頭辞つきで格納されます"
 
 #: libraries/classes/Types.php:362
 msgid ""
@@ -12952,8 +12947,8 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
-"TEXT カラム、最大長 4,294,967,295 または 4GiB (2^32 - 1)、これの長さは単位が"
-"バイトで、4 バイト値で表現できる範囲です"
+"TEXT カラム、最大長 4,294,967,295 または 4GiB (2^32 - 1)、"
+"バイト単位で長さを示す 4 バイトの接頭辞つきで格納されます"
 
 #: libraries/classes/Types.php:369
 msgid ""
@@ -12974,33 +12969,30 @@ msgstr ""
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
-msgstr ""
-"BLOB カラム、最大 255 (2^8 - 1) バイト、これの長さは 1 バイト値で表現できる範"
-"囲です"
+msgstr "BLOB カラム、最大 255 (2^8 - 1) バイト、バイト単位で長さを示す 1 "
+"バイトの接頭辞つきで格納されます"
 
 #: libraries/classes/Types.php:386
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
-msgstr ""
-"BLOB カラム、最大 16,777,215 (2^24 - 1) バイト、これの長さは 3 バイト値で表現"
-"できる範囲です"
+msgstr "BLOB カラム、最大 16,777,215 (2^24 - 1) バイト、バイト単位で長さを示す 3 "
+"バイトの接頭辞つきで格納されます"
 
 #: libraries/classes/Types.php:393
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
-msgstr ""
-"BLOB カラム、最大 65,535 (2^16 - 1) バイト、これの長さは 2 バイト値で表現でき"
-"る範囲です"
+msgstr "BLOB カラム、最大 65,535 (2^16 - 1) バイト、バイト単位で長さを示す 2 "
+"バイトの接頭辞つきで格納されます"
 
 #: libraries/classes/Types.php:399
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
-"BLOB カラム、最大 4,294,967,295 バイトまたは 4GiB (2^32 - 1)、これの長さは 4 "
-"バイト値で表現できる範囲です"
+"BLOB カラム、最大 4,294,967,295 バイトまたは 4GiB (2^32 - 1)、"
+"バイト単位で長さを示す 4 バイトの接頭辞つきで格納されます"
 
 #: libraries/classes/Types.php:406
 msgid ""
@@ -13050,9 +13042,8 @@ msgstr "任意の型の幾何物体の集合"
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
-msgstr ""
-"JSON（JavaScript Object Notation）文書内のデータを格納し、効率的にデータにア"
-"クセスする"
+msgstr "JSON (JavaScript Object Notation) "
+"文書内のデータを格納し、効率的にデータにアクセスする"
 
 #: libraries/classes/Types.php:440
 msgid ""
@@ -13521,7 +13512,7 @@ msgstr "接続:"
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:133
 msgid "Storage engine"
-msgstr "ストレージ エンジン"
+msgstr "ストレージエンジン"
 
 #: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
@@ -13530,7 +13521,7 @@ msgstr "PARTITION 定義:"
 #: templates/columns_definitions/column_definitions_form.twig:154
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "オンライン トランザクション"
+msgstr "オンライントランザクション"
 
 #: templates/columns_definitions/column_definitions_form.twig:166
 msgid ""
@@ -13621,11 +13612,11 @@ msgstr "コメント"
 
 #: templates/columns_definitions/partitions.twig:86
 msgid "Data directory"
-msgstr "データ ディレクトリ"
+msgstr "データディレクトリ"
 
 #: templates/columns_definitions/partitions.twig:87
 msgid "Index directory"
-msgstr "インデックス ディレクトリ"
+msgstr "インデックスディレクトリ"
 
 #: templates/columns_definitions/partitions.twig:88
 msgid "Max rows"
@@ -13799,7 +13790,7 @@ msgstr "クエリを実行するには、Ctrl キーを押しながら Enter キ
 
 #: templates/console/display.twig:23
 msgid "Press Enter to execute query"
-msgstr "Enterキーを押してクエリを実行する"
+msgstr "Enter キーを押してクエリを実行する"
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Explain"
