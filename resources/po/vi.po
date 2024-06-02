@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-05-26 00:21+0000\n"
+"POT-Creation-Date: 2024-06-02 00:20+0000\n"
 "PO-Revision-Date: 2024-05-31 05:09+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -273,7 +273,7 @@ msgstr "cột"
 #: resources/templates/table/structure/display_structure.twig:333
 #: resources/templates/table/structure/display_structure.twig:444
 #: resources/templates/table/structure/display_structure.twig:562
-#: resources/templates/table/zoom_search/index.twig:153
+#: resources/templates/table/zoom_search/index.twig:152
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:336
@@ -382,6 +382,7 @@ msgstr "Đang tải"
 #: resources/templates/modals/create_view.twig:11
 #: resources/templates/modals/enum_set_editor.twig:6
 #: resources/templates/modals/enum_set_editor.twig:11
+#: resources/templates/modals/gis_editor.twig:6
 #: resources/templates/modals/index_dialog_modal.twig:6
 #: resources/templates/modals/index_dialog_modal.twig:12
 #: resources/templates/modals/index_dialog_modal.twig:22
@@ -627,8 +628,8 @@ msgid ""
 msgstr ""
 "Nếu loại cột là \"enum\" hoặc \"set\", vui lòng nhập các giá trị bằng định "
 "dạng sau: 'a','b','c'…<br>Nếu bạn cần đặt dấu gạch chéo ngược (\"\\\") hoặc "
-"dấu nháy đơn (\"'\") trong số các giá trị đó, đặt trước dấu gạch chéo ngược ("
-"ví dụ '\\\\xyz' hoặc 'a\\'b')."
+"dấu nháy đơn (\"'\") trong số các giá trị đó, đặt trước dấu gạch chéo ngược "
+"(ví dụ '\\\\xyz' hoặc 'a\\'b')."
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:20
 #: resources/templates/database/central_columns/edit.twig:11
@@ -1350,7 +1351,7 @@ msgstr "Hành động"
 #: resources/templates/database/structure/check_all_tables.twig:55
 #: resources/templates/error/report_modal.twig:6
 #: resources/templates/error/report_modal.twig:11
-#: resources/templates/gis_data_editor_form.twig:63
+#: resources/templates/gis_data_editor_form.twig:76
 #: resources/templates/modals/change_password.twig:11
 #: resources/templates/server/databases/index.twig:315
 #: resources/templates/server/databases/index.twig:319
@@ -2889,7 +2890,8 @@ msgstr "Bạn có thể sửa mọi giá trị bằng cách nhấp trực tiếp
 #: resources/templates/display/results/checkbox_and_links.twig:18
 #: resources/templates/display/results/checkbox_and_links.twig:80
 msgid "You can also edit most values by double-clicking directly on them."
-msgstr "Bạn có thể sửa mọi giá trị bằng cách bấm đúp chuột trực tiếp vào chúng."
+msgstr ""
+"Bạn có thể sửa mọi giá trị bằng cách bấm đúp chuột trực tiếp vào chúng."
 
 #: resources/templates/display/results/table.twig:18
 #: resources/templates/display/results/table.twig:21
@@ -3007,7 +3009,7 @@ msgstr ""
 
 #: resources/templates/display/results/table.twig:320
 #: resources/templates/display/results/table.twig:321
-#: resources/templates/gis_data_editor_form.twig:62
+#: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:491
 #: src/Display/Results.php:2492 src/Html/Generator.php:78
 msgid "Copy"
@@ -3332,22 +3334,27 @@ msgstr "Bộ lọc"
 msgid "Containing the word:"
 msgstr "Có chứa từ:"
 
-#: resources/templates/gis_data_editor_form.twig:4
-#, php-format
-msgid "Value for the column \"%s\""
-msgstr "Giá trị cho cột \"%s\""
+#: resources/templates/gis_data_editor_form.twig:26
+#, fuzzy
+#| msgid "Geometry %d:"
+msgid "Geometry type:"
+msgstr "Hình dạng %d:"
 
-#: resources/templates/gis_data_editor_form.twig:23
-#: resources/templates/table/gis_visualization/gis_visualization.twig:39
-msgid "Use OpenStreetMaps as Base Layer"
-msgstr "Dùng OpenStreetMaps như là lớp cơ sở"
+#: resources/templates/gis_data_editor_form.twig:41
+msgid "Spatial Reference System Identifier"
+msgstr ""
 
-#: resources/templates/gis_data_editor_form.twig:50
+#: resources/templates/gis_data_editor_form.twig:41
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
 
-#: resources/templates/gis_data_editor_form.twig:59
+#: resources/templates/gis_data_editor_form.twig:61
+#: resources/templates/table/gis_visualization/gis_visualization.twig:39
+msgid "Use OpenStreetMaps as Base Layer"
+msgstr "Dùng OpenStreetMaps như là lớp cơ sở"
+
+#: resources/templates/gis_data_editor_form.twig:70
 msgid "Output"
 msgstr "Kết xuất"
 
@@ -6605,7 +6612,7 @@ msgstr "Kéo thả để thay đổi thứ tự"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:489
 #: src/Controllers/JavaScriptMessagesController.php:641
-#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1528
+#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1520
 msgid "Ignore"
 msgstr "Bỏ qua"
 
@@ -6672,7 +6679,7 @@ msgstr "Bởi vì chiều dài của nó,<br> cột này có thể không sửa 
 msgid "Binary - do not edit"
 msgstr "Nhị phân (Binary) - đừng sửa"
 
-#: resources/templates/table/insert/column_row.twig:123
+#: resources/templates/table/insert/column_row.twig:120
 #: resources/templates/table/search/input_box.twig:32
 msgid "Edit/Insert"
 msgstr "Sửa/Chèn"
@@ -7872,8 +7879,8 @@ msgstr ""
 "biến này. Để loại bỏ điều này, bạn sẽ phải viết lại các truy vấn của mình để "
 "tránh những điều kiện đó (Trong bảng tạm thời: Sự hiện diện của cột BLOB "
 "hoặc TEXT hoặc sự hiện diện của cột lớn hơn 512 byte) như đã đề cập ở phần "
-"đầu của <a href=\"https ://www.facebook.com/note."
-"php?note_id=10150111255065841&comments\">Bài viết của Nhóm Pythian</a>"
+"đầu của <a href=\"https ://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\">Bài viết của Nhóm Pythian</a>"
 
 #: src/Advisory/Rules.php:362
 #, php-format
@@ -8204,10 +8211,9 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Các kết nối thường bị hủy bỏ khi chúng không thể được cấp phép. <a href="
-"\"https://www.percona.com/blog/2008/08/23/"
-"how-to-track-down-the-source-of-aborted_connects/\">Bài viết này</a> có thể "
-"giúp bạn truy tìm nguồn gốc."
+"Các kết nối thường bị hủy bỏ khi chúng không thể được cấp phép. <a "
+"href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
+"of-aborted_connects/\">Bài viết này</a> có thể giúp bạn truy tìm nguồn gốc."
 
 #: src/Advisory/Rules.php:584
 #, php-format
@@ -8307,9 +8313,9 @@ msgstr ""
 "sự cố, vì vậy không nên đặt cao hơn 256 MiB. Tuy nhiên, xin lưu ý rằng bạn "
 "không thể đơn giản thay đổi giá trị của biến này. Bạn cần tắt máy chủ, xóa "
 "tệp nhật ký InnoDB, đặt giá trị mới trong my.cnf, khởi động máy chủ, sau đó "
-"kiểm tra nhật ký lỗi nếu mọi thứ đều ổn. Xem thêm <a href=\"https"
-"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">mục blog này</a>"
+"kiểm tra nhật ký lỗi nếu mọi thứ đều ổn. Xem thêm <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">mục blog này</a>"
 
 #: src/Advisory/Rules.php:662 src/Advisory/Rules.php:692
 #, php-format
@@ -8344,12 +8350,12 @@ msgstr ""
 "Thông thường, chỉ cần đặt {innodb_log_file_size} thành 25% kích thước của "
 "{innodb_buffer_pool_size} là đủ. {innodb_log_file_size} rất lớn làm chậm "
 "đáng kể thời gian khôi phục sau khi cơ sở dữ liệu gặp sự cố. Xem thêm <a "
-"href=\"https://www.percona.com/blog/2006/07/03/"
-"choosing-proper-innodb_log_file_size/\">Bài viết này</a>. Bạn cần tắt máy "
-"chủ, xóa tệp nhật ký InnoDB, đặt giá trị mới trong my.cnf, khởi động máy "
-"chủ, sau đó kiểm tra nhật ký lỗi nếu mọi thứ đều ổn. Xem thêm <a href=\"https"
-"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">mục blog này</a>"
+"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">Bài viết này</a>. Bạn cần tắt máy chủ, xóa tệp nhật "
+"ký InnoDB, đặt giá trị mới trong my.cnf, khởi động máy chủ, sau đó kiểm tra "
+"nhật ký lỗi nếu mọi thứ đều ổn. Xem thêm <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">mục blog này</a>"
 
 #: src/Advisory/Rules.php:717
 #, php-format
@@ -8516,10 +8522,11 @@ msgstr ""
 "Qcache_lowmem_prunes. Điều này có thể do nhiều bộ đệm truy vấn bị cắt giảm "
 "bộ nhớ do {query_cache_size} quá nhỏ. Để khắc phục ngay lập tức nhưng trong "
 "thời gian ngắn, bạn có thể xóa bộ đệm truy vấn (có thể khóa bộ đệm truy vấn "
-"trong một thời gian dài). Việc điều chỉnh cẩn thận {query_cache_min_res_unit}"
-" thành giá trị thấp hơn cũng có thể hữu ích, ví dụ: bạn có thể đặt kích "
-"thước trung bình của các truy vấn trong bộ đệm bằng công thức sau: ("
-"query_cache_size - qcache_free_memory)/qcache_queries_in_cache"
+"trong một thời gian dài). Việc điều chỉnh cẩn thận "
+"{query_cache_min_res_unit} thành giá trị thấp hơn cũng có thể hữu ích, ví "
+"dụ: bạn có thể đặt kích thước trung bình của các truy vấn trong bộ đệm bằng "
+"công thức sau: (query_cache_size - qcache_free_memory)/"
+"qcache_queries_in_cache"
 
 #: src/Advisory/Rules.php:829
 #, php-format
@@ -8614,8 +8621,8 @@ msgstr ""
 "chèn vào bộ đệm truy vấn. Nếu có nhiều kết quả truy vấn trên 1 MiB có khả "
 "năng lưu vào bộ nhớ đệm tốt (đọc nhiều, ghi ít) thì việc tăng "
 "{query_cache_limit} sẽ tăng hiệu quả. Trong khi đó, trong trường hợp có "
-"nhiều kết quả truy vấn trên 1 MiB không có khả năng lưu vào bộ nhớ đệm tốt ("
-"thường bị vô hiệu do cập nhật bảng), việc tăng {query_cache_limit} có thể "
+"nhiều kết quả truy vấn trên 1 MiB không có khả năng lưu vào bộ nhớ đệm tốt "
+"(thường bị vô hiệu do cập nhật bảng), việc tăng {query_cache_limit} có thể "
 "làm giảm hiệu quả."
 
 #: src/Advisory/Rules.php:883
@@ -12304,6 +12311,11 @@ msgstr "Sai kiểu!"
 msgid "Bad parameters!"
 msgstr "Tham số sai!"
 
+#: src/Controllers/GisDataEditorController.php:119
+#, php-format
+msgid "Value for the column \"%s\""
+msgstr "Giá trị cho cột \"%s\""
+
 #: src/Controllers/HomeController.php:99
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
@@ -14645,7 +14657,7 @@ msgstr "Phương thức xác thực trong cấu hình không hợp lệ:"
 
 #: src/Controllers/SchemaExportController.php:40
 #: src/Controllers/Server/UserGroupsFormController.php:44
-#: src/ResponseRenderer.php:471
+#: src/ResponseRenderer.php:476
 msgid "Missing parameter:"
 msgstr "Thiếu tham số:"
 
@@ -18967,10 +18979,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #, php-format
 #~ msgid "Point %d"
 #~ msgstr "Điểm %d"
-
-#, php-format
-#~ msgid "Geometry %d:"
-#~ msgstr "Hình dạng %d:"
 
 #~ msgid "Point:"
 #~ msgstr "Tọa độ:"

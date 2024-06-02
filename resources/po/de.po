@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-05-26 00:21+0000\n"
+"POT-Creation-Date: 2024-06-02 00:20+0000\n"
 "PO-Revision-Date: 2024-02-07 20:01+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -273,7 +273,7 @@ msgstr "Spalte(n)"
 #: resources/templates/table/structure/display_structure.twig:333
 #: resources/templates/table/structure/display_structure.twig:444
 #: resources/templates/table/structure/display_structure.twig:562
-#: resources/templates/table/zoom_search/index.twig:153
+#: resources/templates/table/zoom_search/index.twig:152
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:336
@@ -382,6 +382,7 @@ msgstr "Laden"
 #: resources/templates/modals/create_view.twig:11
 #: resources/templates/modals/enum_set_editor.twig:6
 #: resources/templates/modals/enum_set_editor.twig:11
+#: resources/templates/modals/gis_editor.twig:6
 #: resources/templates/modals/index_dialog_modal.twig:6
 #: resources/templates/modals/index_dialog_modal.twig:12
 #: resources/templates/modals/index_dialog_modal.twig:22
@@ -1352,7 +1353,7 @@ msgstr "Aktion"
 #: resources/templates/database/structure/check_all_tables.twig:55
 #: resources/templates/error/report_modal.twig:6
 #: resources/templates/error/report_modal.twig:11
-#: resources/templates/gis_data_editor_form.twig:63
+#: resources/templates/gis_data_editor_form.twig:76
 #: resources/templates/modals/change_password.twig:11
 #: resources/templates/server/databases/index.twig:315
 #: resources/templates/server/databases/index.twig:319
@@ -3016,7 +3017,7 @@ msgstr "Bekanntes Binary"
 
 #: resources/templates/display/results/table.twig:320
 #: resources/templates/display/results/table.twig:321
-#: resources/templates/gis_data_editor_form.twig:62
+#: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:491
 #: src/Display/Results.php:2492 src/Html/Generator.php:78
 msgid "Copy"
@@ -3343,22 +3344,27 @@ msgstr "Filter"
 msgid "Containing the word:"
 msgstr "Beinhalten das Wort:"
 
-#: resources/templates/gis_data_editor_form.twig:4
-#, php-format
-msgid "Value for the column \"%s\""
-msgstr "Wert für die Spalte »%s«"
+#: resources/templates/gis_data_editor_form.twig:26
+#, fuzzy
+#| msgid "Geometry %d:"
+msgid "Geometry type:"
+msgstr "Geometrie %d:"
 
-#: resources/templates/gis_data_editor_form.twig:23
-#: resources/templates/table/gis_visualization/gis_visualization.twig:39
-msgid "Use OpenStreetMaps as Base Layer"
-msgstr "Verwende OpenStreetMaps als Basis-Satz"
+#: resources/templates/gis_data_editor_form.twig:41
+msgid "Spatial Reference System Identifier"
+msgstr ""
 
-#: resources/templates/gis_data_editor_form.twig:50
+#: resources/templates/gis_data_editor_form.twig:41
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
 
-#: resources/templates/gis_data_editor_form.twig:59
+#: resources/templates/gis_data_editor_form.twig:61
+#: resources/templates/table/gis_visualization/gis_visualization.twig:39
+msgid "Use OpenStreetMaps as Base Layer"
+msgstr "Verwende OpenStreetMaps als Basis-Satz"
+
+#: resources/templates/gis_data_editor_form.twig:70
 msgid "Output"
 msgstr "Ausgabe"
 
@@ -6562,7 +6568,7 @@ msgstr "Zur Umsortierung ziehen"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:489
 #: src/Controllers/JavaScriptMessagesController.php:641
-#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1528
+#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1520
 msgid "Ignore"
 msgstr "Ignorieren"
 
@@ -6627,7 +6633,7 @@ msgstr "Wegen seiner Länge ist dieses<br>Feld vielleicht nicht editierbar."
 msgid "Binary - do not edit"
 msgstr "Binär - nicht editierbar"
 
-#: resources/templates/table/insert/column_row.twig:123
+#: resources/templates/table/insert/column_row.twig:120
 #: resources/templates/table/search/input_box.twig:32
 msgid "Edit/Insert"
 msgstr "Bearbeiten/Einfügen"
@@ -12274,6 +12280,11 @@ msgstr "Ungültiger Typ!"
 msgid "Bad parameters!"
 msgstr "Ungültige Parameter!"
 
+#: src/Controllers/GisDataEditorController.php:119
+#, php-format
+msgid "Value for the column \"%s\""
+msgstr "Wert für die Spalte »%s«"
+
 #: src/Controllers/HomeController.php:99
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
@@ -14546,7 +14557,7 @@ msgstr "Zwei-Faktor-Authentifizierung wurde eingerichtet."
 
 #: src/Controllers/SchemaExportController.php:40
 #: src/Controllers/Server/UserGroupsFormController.php:44
-#: src/ResponseRenderer.php:471
+#: src/ResponseRenderer.php:476
 msgid "Missing parameter:"
 msgstr "Fehlende(r) Parameter:"
 
@@ -19198,10 +19209,6 @@ msgstr "Keine Dateien im ZIP-Archiv gefunden!"
 #, php-format
 #~ msgid "Point %d"
 #~ msgstr "Punkt %d"
-
-#, php-format
-#~ msgid "Geometry %d:"
-#~ msgstr "Geometrie %d:"
 
 #~ msgid "Point:"
 #~ msgstr "Punkt:"

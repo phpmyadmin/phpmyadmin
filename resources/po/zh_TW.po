@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-05-26 00:21+0000\n"
+"POT-Creation-Date: 2024-06-02 00:20+0000\n"
 "PO-Revision-Date: 2023-03-13 13:06+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -276,7 +276,7 @@ msgstr "欄位"
 #: resources/templates/table/structure/display_structure.twig:333
 #: resources/templates/table/structure/display_structure.twig:444
 #: resources/templates/table/structure/display_structure.twig:562
-#: resources/templates/table/zoom_search/index.twig:153
+#: resources/templates/table/zoom_search/index.twig:152
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:336
@@ -385,6 +385,7 @@ msgstr "載入中"
 #: resources/templates/modals/create_view.twig:11
 #: resources/templates/modals/enum_set_editor.twig:6
 #: resources/templates/modals/enum_set_editor.twig:11
+#: resources/templates/modals/gis_editor.twig:6
 #: resources/templates/modals/index_dialog_modal.twig:6
 #: resources/templates/modals/index_dialog_modal.twig:12
 #: resources/templates/modals/index_dialog_modal.twig:22
@@ -1363,7 +1364,7 @@ msgstr "動作"
 #: resources/templates/database/structure/check_all_tables.twig:55
 #: resources/templates/error/report_modal.twig:6
 #: resources/templates/error/report_modal.twig:11
-#: resources/templates/gis_data_editor_form.twig:63
+#: resources/templates/gis_data_editor_form.twig:76
 #: resources/templates/modals/change_password.twig:11
 #: resources/templates/server/databases/index.twig:315
 #: resources/templates/server/databases/index.twig:319
@@ -3034,7 +3035,7 @@ msgstr "易懂的二進位檔"
 
 #: resources/templates/display/results/table.twig:320
 #: resources/templates/display/results/table.twig:321
-#: resources/templates/gis_data_editor_form.twig:62
+#: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:491
 #: src/Display/Results.php:2492 src/Html/Generator.php:78
 msgid "Copy"
@@ -3362,22 +3363,27 @@ msgstr "篩選"
 msgid "Containing the word:"
 msgstr "包含這個字："
 
-#: resources/templates/gis_data_editor_form.twig:4
-#, php-format
-msgid "Value for the column \"%s\""
-msgstr "「%s」欄位的值"
+#: resources/templates/gis_data_editor_form.twig:26
+#, fuzzy
+#| msgid "Geometry %d:"
+msgid "Geometry type:"
+msgstr "幾何圖形 %d："
 
-#: resources/templates/gis_data_editor_form.twig:23
-#: resources/templates/table/gis_visualization/gis_visualization.twig:39
-msgid "Use OpenStreetMaps as Base Layer"
-msgstr "使用 OpenStreetMaps 作為基礎圖層"
+#: resources/templates/gis_data_editor_form.twig:41
+msgid "Spatial Reference System Identifier"
+msgstr ""
 
-#: resources/templates/gis_data_editor_form.twig:50
+#: resources/templates/gis_data_editor_form.twig:41
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "空間參考識別碼(SRID)："
 
-#: resources/templates/gis_data_editor_form.twig:59
+#: resources/templates/gis_data_editor_form.twig:61
+#: resources/templates/table/gis_visualization/gis_visualization.twig:39
+msgid "Use OpenStreetMaps as Base Layer"
+msgstr "使用 OpenStreetMaps 作為基礎圖層"
+
+#: resources/templates/gis_data_editor_form.twig:70
 msgid "Output"
 msgstr "輸出"
 
@@ -6578,7 +6584,7 @@ msgstr "使用滑鼠拖曳來重新排序"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:489
 #: src/Controllers/JavaScriptMessagesController.php:641
-#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1528
+#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1520
 msgid "Ignore"
 msgstr "略過"
 
@@ -6643,7 +6649,7 @@ msgstr "因長度問題，<br> 該欄位可能無法編輯。"
 msgid "Binary - do not edit"
 msgstr "二進位 - 無法編輯"
 
-#: resources/templates/table/insert/column_row.twig:123
+#: resources/templates/table/insert/column_row.twig:120
 #: resources/templates/table/search/input_box.twig:32
 msgid "Edit/Insert"
 msgstr "修改／新增"
@@ -11969,6 +11975,11 @@ msgstr "類型錯誤！"
 msgid "Bad parameters!"
 msgstr "參數出錯！"
 
+#: src/Controllers/GisDataEditorController.php:119
+#, php-format
+msgid "Value for the column \"%s\""
+msgstr "「%s」欄位的值"
+
 #: src/Controllers/HomeController.php:99
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
@@ -14208,7 +14219,7 @@ msgstr "已設定雙因素認證。"
 
 #: src/Controllers/SchemaExportController.php:40
 #: src/Controllers/Server/UserGroupsFormController.php:44
-#: src/ResponseRenderer.php:471
+#: src/ResponseRenderer.php:476
 msgid "Missing parameter:"
 msgstr "未填寫必要的參數："
 
@@ -18576,10 +18587,6 @@ msgstr "ZIP 壓縮檔中沒有檔案！"
 #, php-format
 #~ msgid "Point %d"
 #~ msgstr "點 %d"
-
-#, php-format
-#~ msgid "Geometry %d:"
-#~ msgstr "幾何圖形 %d："
 
 #~ msgid "Point:"
 #~ msgstr "點："
