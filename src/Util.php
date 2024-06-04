@@ -2044,9 +2044,9 @@ class Util
             $urlParams['tbl_group'] = $_REQUEST['tbl_group'];
         }
 
-        $url = Url::getFromRoute('/database/structure');
+        $url = Url::getFromRoute('/database/structure', $urlParams, false);
 
-        return Generator::linkOrButton($url, $urlParams, $title . $orderImg, $orderLinkParams);
+        return Generator::linkOrButton($url, null, $title . $orderImg, $orderLinkParams);
     }
 
     /**

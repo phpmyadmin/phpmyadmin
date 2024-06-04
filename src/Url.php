@@ -339,8 +339,8 @@ class Url
      * @param string  $route                Route to use
      * @param mixed[] $additionalParameters Additional URL parameters
      */
-    public static function getFromRoute(string $route, array $additionalParameters = []): string
+    public static function getFromRoute(string $route, array $additionalParameters = [], bool $encrypt = true): string
     {
-        return 'index.php?route=' . $route . self::getCommon($additionalParameters, self::getArgSeparator());
+        return 'index.php?route=' . $route . self::getCommon($additionalParameters, self::getArgSeparator(), $encrypt);
     }
 }

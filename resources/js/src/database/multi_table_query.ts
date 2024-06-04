@@ -25,6 +25,10 @@ AJAX.registerTeardown('database/multi_table_query.js', function () {
         $(this).off('change');
     });
 
+    $('.columnNameSelect').each(function () {
+        $(this).off('change');
+    });
+
     $('#update_query_button').off('click');
     $('#add_column_button').off('click');
 });
@@ -176,15 +180,27 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         addNewColumnCallbacks();
     });
 
+    $('.columnNameSelect').each(function () {
+        $(this).on('change', function () {
+            const colIsStar = $(this).val() === '*';
+
+            colIsStar && $(this).siblings('.col_alias').val('');
+            $(this).siblings('.col_alias').prop('disabled', colIsStar);
+        });
+    });
+
     function addNewColumnCallbacks () {
         $('.tableNameSelect').each(function () {
             $(this).on('change', function () {
                 var $sibs = $(this).siblings('.columnNameSelect');
+                const $alias = $(this).siblings('.col_alias');
+
                 if ($sibs.length === 0) {
                     $sibs = $(this).parent().parent().find('.columnNameSelect');
                 }
 
                 $sibs.first().html($('#' + $(this).find(':selected').data('hash')).html());
+                $alias.prop('disabled', true);
             });
         });
 

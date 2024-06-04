@@ -680,7 +680,6 @@ class Results
      * @param mixed[]            $sortDirection             sort direction
      * @param bool               $isLimitedDisplay          with limited operations
      *                                                        or not
-     * @param string             $unsortedSqlQuery          query without the sort part
      *
      * @return string html content
      */
@@ -691,7 +690,6 @@ class Results
         array $sortExpressionNoDirection,
         array $sortDirection,
         bool $isLimitedDisplay,
-        string $unsortedSqlQuery,
     ): string {
         // required to generate sort links that will remember whether the
         // "Show all" button has been clicked
@@ -728,7 +726,7 @@ class Results
                     $this->fieldsMeta[$i],
                     $sortExpression,
                     $sortExpressionNoDirection,
-                    $unsortedSqlQuery,
+                    $statementInfo,
                     $sessionMaxRows,
                     $comments,
                     $sortDirection,
@@ -776,7 +774,6 @@ class Results
      *
      * @see getTable()
      *
-     * @param string             $unsortedSqlQuery          the unsorted sql query
      * @param mixed[]            $sortExpression            sort expression
      * @param array<int, string> $sortExpressionNoDirection sort expression without direction
      * @param mixed[]            $sortDirection             sort direction
@@ -794,7 +791,6 @@ class Results
     private function getTableHeaders(
         DisplayParts $displayParts,
         StatementInfo $statementInfo,
-        string $unsortedSqlQuery,
         array $sortExpression = [],
         array $sortExpressionNoDirection = [],
         array $sortDirection = [],
@@ -838,7 +834,6 @@ class Results
             $sortExpressionNoDirection,
             $sortDirection,
             $isLimitedDisplay,
-            $unsortedSqlQuery,
         );
 
         // Display column at rightside - checkboxes or empty column
@@ -1134,7 +1129,7 @@ class Results
             . $themeManager->theme->getImgPath($tmpImageFile)
             . '" alt="' . $tmpTxt . '" title="' . $tmpTxt . '">';
 
-        return Generator::linkOrButton(Url::getFromRoute('/sql'), $urlParamsFullText, $tmpImage);
+        return Generator::linkOrButton(Url::getFromRoute('/sql', $urlParamsFullText, false), null, $tmpImage);
     }
 
     /**
@@ -1165,7 +1160,6 @@ class Results
      * @param FieldMetadata      $fieldsMeta                set of field properties
      * @param mixed[]            $sortExpression            sort expression
      * @param array<int, string> $sortExpressionNoDirection sort expression without direction
-     * @param string             $unsortedSqlQuery          the unsorted sql query
      * @param int                $sessionMaxRows            maximum rows resulted by sql
      * @param string             $comments                  comment for row
      * @param mixed[]            $sortDirection             sort direction
@@ -1187,7 +1181,7 @@ class Results
         FieldMetadata $fieldsMeta,
         array $sortExpression,
         array $sortExpressionNoDirection,
-        string $unsortedSqlQuery,
+        StatementInfo $statementInfo,
         int $sessionMaxRows,
         string $comments,
         array $sortDirection,
@@ -1216,19 +1210,16 @@ class Results
             $fieldsMeta,
         );
 
-        if (
-            preg_match(
-                '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@is',
-                $unsortedSqlQuery,
-                $regs3,
-            )
-        ) {
-            $singleSortedSqlQuery = $regs3[1] . $singleSortOrder . $regs3[2];
-            $multiSortedSqlQuery = $regs3[1] . $multiSortOrder . $regs3[2];
-        } else {
-            $singleSortedSqlQuery = $unsortedSqlQuery . $singleSortOrder;
-            $multiSortedSqlQuery = $unsortedSqlQuery . $multiSortOrder;
-        }
+        $singleSortedSqlQuery = Query::replaceClause(
+            $statementInfo->statement,
+            $statementInfo->parser->list,
+            $singleSortOrder,
+        );
+        $multiSortedSqlQuery = Query::replaceClause(
+            $statementInfo->statement,
+            $statementInfo->parser->list,
+            $multiSortOrder,
+        );
 
         $singleUrlParams = [
             'db' => $this->db,
@@ -1507,16 +1498,15 @@ class Results
         array $orderUrlParams,
         array $multiOrderUrlParams,
     ): string {
-        $urlPath = Url::getFromRoute('/sql');
+        $urlPath = Url::getFromRoute('/sql', $multiOrderUrlParams, false);
         $innerLinkContent = htmlspecialchars($fieldsMeta->name) . $orderImg
             . '<input type="hidden" value="'
             . $urlPath
-            . Url::getCommon($multiOrderUrlParams, str_contains($urlPath, '?') ? '&' : '?', false)
             . '">';
 
         return Generator::linkOrButton(
-            Url::getFromRoute('/sql'),
-            $orderUrlParams,
+            Url::getFromRoute('/sql', $orderUrlParams, false),
+            null,
             $innerLinkContent,
             ['class' => 'sortlink'],
         );
@@ -3161,7 +3151,6 @@ class Results
             $this->table = $this->fieldsMeta[0]->table;
         }
 
-        $unsortedSqlQuery = '';
         $sortByKeyData = [];
         // can the result be sorted?
         if ($displayParts->hasSortLink && $statementInfo->statement !== null) {
@@ -3211,7 +3200,6 @@ class Results
         $headers = $this->getTableHeaders(
             $displayParts,
             $statementInfo,
-            $unsortedSqlQuery,
             $sortExpression,
             $sortExpressionNoDirection,
             $sortDirection,
@@ -3909,8 +3897,8 @@ class Results
                 }
 
                 $value .= Generator::linkOrButton(
-                    Url::getFromRoute('/sql'),
-                    $urlParams,
+                    Url::getFromRoute('/sql', $urlParams, false),
+                    null,
                     $displayedData,
                     $tagParams,
                 );

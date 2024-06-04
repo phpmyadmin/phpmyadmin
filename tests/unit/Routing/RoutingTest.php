@@ -4,13 +4,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Routing;
 
+use FastRoute\DataGenerator\GroupCountBased as DataGeneratorGroupCountBased;
 use FastRoute\Dispatcher;
+use FastRoute\RouteCollector;
+use FastRoute\RouteParser\Std as RouteParserStd;
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Routing\Routes;
 use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -18,54 +22,71 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Psr\Container\ContainerInterface;
 
-use function copy;
+use function file_exists;
+use function file_put_contents;
+use function sprintf;
 use function unlink;
+use function var_export;
 
 use const CACHE_DIR;
-use const TEST_PATH;
 
 #[CoversClass(Routing::class)]
 final class RoutingTest extends AbstractTestCase
 {
-    /**
-     * Test for Routing::getDispatcher
-     */
-    public function testGetDispatcher(): void
+    public function testGetDispatcherWithDevEnv(): void
     {
+        Config::getInstance()->settings['environment'] = 'development';
         $expected = [Dispatcher::FOUND, HomeController::class, []];
-        $cacheFilename = CACHE_DIR . 'routes.cache.php';
-        $validCacheFilename = TEST_PATH . 'tests/test_data/routes/routes-valid.cache.txt';
-        $invalidCacheFilename = TEST_PATH . 'tests/test_data/routes/routes-invalid.cache.txt';
-        $config = Config::getInstance();
-        $config->settings['environment'] = null;
+        self::assertSame($expected, Routing::getDispatcher()->dispatch('GET', '/'));
+    }
+
+    public function testGetDispatcherWithValidCacheFile(): void
+    {
+        Config::getInstance()->settings['environment'] = 'production';
+        $_SESSION['isRoutesCacheFileValid'] = true;
 
         self::assertDirectoryIsWritable(CACHE_DIR);
 
-        // Valid cache file.
-        self::assertTrue(copy($validCacheFilename, $cacheFilename));
-        $dispatcher = Routing::getDispatcher();
-        self::assertSame($expected, $dispatcher->dispatch('GET', '/'));
-        self::assertFileEquals($validCacheFilename, $cacheFilename);
+        $routeCollector = new RouteCollector(new RouteParserStd(), new DataGeneratorGroupCountBased());
+        Routes::collect($routeCollector);
+        $routesData = sprintf('<?php return %s;', var_export($routeCollector->getData(), true));
+        self::assertNotFalse(file_put_contents(Routing::ROUTES_CACHE_FILE, $routesData));
 
-        // Invalid cache file.
-        self::assertTrue(copy($invalidCacheFilename, $cacheFilename));
-        $dispatcher = Routing::getDispatcher();
-        self::assertSame($expected, $dispatcher->dispatch('GET', '/'));
-        self::assertFileNotEquals($invalidCacheFilename, $cacheFilename);
+        $expected = [Dispatcher::FOUND, HomeController::class, []];
+        self::assertSame($expected, Routing::getDispatcher()->dispatch('GET', '/'));
+    }
 
-        // Create new cache file.
-        self::assertTrue(unlink($cacheFilename));
+    public function testGetDispatcherWithInvalidCacheFile(): void
+    {
+        Config::getInstance()->settings['environment'] = 'production';
+        $_SESSION['isRoutesCacheFileValid'] = null;
 
-        self::assertFileDoesNotExist($cacheFilename);
+        self::assertDirectoryIsWritable(CACHE_DIR);
 
-        $dispatcher = Routing::getDispatcher();
-        self::assertSame($expected, $dispatcher->dispatch('GET', '/'));
-        self::assertFileExists($cacheFilename);
+        $routeCollector = new RouteCollector(new RouteParserStd(), new DataGeneratorGroupCountBased());
+        Routes::collect($routeCollector);
+        $dispatchData = $routeCollector->getData();
+        /** @psalm-suppress MixedArrayAccess */
+        unset($dispatchData[0]['GET']['/']);
+        $routesData = sprintf('<?php return %s;', var_export($dispatchData, true));
+        self::assertNotFalse(file_put_contents(Routing::ROUTES_CACHE_FILE, $routesData));
 
-        // Without a cache file.
-        $config->settings['environment'] = 'development';
-        $dispatcher = Routing::getDispatcher();
-        self::assertSame($expected, $dispatcher->dispatch('GET', '/'));
+        $expected = [Dispatcher::FOUND, HomeController::class, []];
+        self::assertSame($expected, Routing::getDispatcher()->dispatch('GET', '/'));
+    }
+
+    public function testGetDispatcherWithNoCacheFile(): void
+    {
+        Config::getInstance()->settings['environment'] = 'production';
+        $_SESSION['isRoutesCacheFileValid'] = null;
+
+        self::assertDirectoryIsWritable(CACHE_DIR);
+        if (file_exists(Routing::ROUTES_CACHE_FILE)) {
+            self::assertTrue(unlink(Routing::ROUTES_CACHE_FILE));
+        }
+
+        $expected = [Dispatcher::FOUND, HomeController::class, []];
+        self::assertSame($expected, Routing::getDispatcher()->dispatch('GET', '/'));
     }
 
     /**

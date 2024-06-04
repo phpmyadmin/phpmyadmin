@@ -5455,6 +5455,8 @@
     <PossiblyNullArgument>
       <code><![CDATA[$statementInfo->parser->list]]></code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
+      <code><![CDATA[$statementInfo->parser->list]]></code>
+      <code><![CDATA[$statementInfo->statement]]></code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
       <code><![CDATA[$firstStatement->order[$key]]]></code>
@@ -10179,9 +10181,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArrayAccess>
-      <code><![CDATA[$dispatchData[0]['GET']['/']]]></code>
-    </MixedArrayAccess>
   </file>
   <file src="src/Sanitize.php">
     <DeprecatedMethod>
@@ -14538,10 +14537,10 @@
   <file src="tests/unit/Routing/RoutingTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->settings]]></code>
-    </InvalidPropertyAssignmentValue>
     <PossiblyUnusedMethod>
       <code><![CDATA[providerForTestCleanupPathInfo]]></code>
     </PossiblyUnusedMethod>

@@ -38,7 +38,7 @@ export function escapeJsString (unsafe) {
  * @return {string}
  */
 export function escapeBacktick (s) {
-    return s.replace('`', '``');
+    return s.replaceAll('`', '``');
 }
 
 /**
