@@ -242,10 +242,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         self::assertSame(
             [
-                'window.Config.registerFieldValidator(\'testID\', \'\\\';\', true, '
-                . '["\\\\r\\\\n\\\\\''
-                . '\u003CscrIpt\u003E\u003C\/\' + \'script\u003E"])',
-                'window.Config.registerFieldValidator(\'testID\', \'\', true)',
+                ['fieldId' => 'testID', 'name' => '\\\';', 'args' => ['\r\n\\\'<scrIpt></\' + \'script>']],
+                ['fieldId' => 'testID', 'name' => null, 'args' => null],
             ],
             $js,
         );

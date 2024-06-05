@@ -481,7 +481,7 @@
                     $workPath,
                     $translatedPath,
                     $userPrefsAllow,
-                    $jsDefault,
+                    $defaultValues,
                 )]]></code>
     </PossiblyNullOperand>
     <RiskyTruthyFalsyComparison>
@@ -499,9 +499,6 @@
       <code><![CDATA[$vName]]></code>
       <code><![CDATA[$validator]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$vName]]></code>
-    </MixedOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $isSetupScript]]></code>
       <code><![CDATA[$this->config->get('is_setup')]]></code>

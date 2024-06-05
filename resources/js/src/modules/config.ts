@@ -4,11 +4,11 @@ import { ajaxShowMessage } from './ajax-message.ts';
 import isStorageSupported from './functions/isStorageSupported.ts';
 import formatDateTime from './functions/formatDateTime.ts';
 
-window.configInlineParams;
-window.configScriptLoaded;
+let configInlineParams: any[] | undefined;
+let configScriptLoaded: boolean = false;
 
 // default values for fields
-window.defaultValues = {};
+const defaultValues: object = {};
 
 /**
  * Returns field type
@@ -170,21 +170,21 @@ function getAllValues () {
 function checkFieldDefault (field, type) {
     var $field = $(field);
     var fieldId = $field.attr('id');
-    if (typeof window.defaultValues[fieldId] === 'undefined') {
+    if (typeof defaultValues[fieldId] === 'undefined') {
         return true;
     }
 
     var isDefault = true;
     var currentValue = getFieldValue($field, type);
     if (type !== 'select') {
-        isDefault = currentValue === window.defaultValues[fieldId];
+        isDefault = currentValue === defaultValues[fieldId];
     } else {
         // compare arrays, will work for our representation of select values
-        if (currentValue.length !== window.defaultValues[fieldId].length) {
+        if (currentValue.length !== defaultValues[fieldId].length) {
             isDefault = false;
         } else {
             for (var i = 0; i < currentValue.length; i++) {
-                if (currentValue[i] !== window.defaultValues[fieldId][i]) {
+                if (currentValue[i] !== defaultValues[fieldId][i]) {
                     isDefault = false;
                     break;
                 }
@@ -313,7 +313,7 @@ const validators = {
  * @param {boolean} onKeyUp  whether fire on key up
  * @param {any[]}   params   validation function parameters
  */
-function registerFieldValidator (id, type, onKeyUp, params) {
+function registerFieldValidator (id, type, onKeyUp, params = undefined) {
     if (typeof window.validators[type] === 'undefined') {
         return;
     }
@@ -509,21 +509,44 @@ function validateFieldAndFieldset (field, isKeyUp) {
 }
 
 function loadInlineConfig () {
-    if (! Array.isArray(window.configInlineParams)) {
+    if (! Array.isArray(configInlineParams)) {
         return;
     }
 
-    for (var i = 0; i < window.configInlineParams.length; ++i) {
-        if (typeof window.configInlineParams[i] === 'function') {
-            window.configInlineParams[i]();
+    for (var i = 0; i < configInlineParams.length; ++i) {
+        if (typeof configInlineParams[i] === 'function') {
+            configInlineParams[i]();
         }
     }
 }
 
 function setupValidation () {
     validate = {};
-    window.configScriptLoaded = true;
-    if (window.configScriptLoaded && typeof window.configInlineParams !== 'undefined') {
+
+    const configInlineParamsData = $('#configInlineParamsData');
+    if (configInlineParamsData.length > 0) {
+        const fieldValidators = configInlineParamsData.data('fieldValidators');
+        const inlineDefaultValues = configInlineParamsData.data('defaultValues');
+
+        if (typeof configInlineParams === 'undefined' || !Array.isArray(configInlineParams)) {
+            configInlineParams = [];
+        }
+
+        configInlineParams.push(function () {
+            for (const validator of fieldValidators) {
+                if (validator.args) {
+                    registerFieldValidator(validator.fieldId, validator.name, true, validator.args);
+                } else {
+                    registerFieldValidator(validator.fieldId, validator.name, true);
+                }
+            }
+        });
+
+        $.extend(defaultValues, inlineDefaultValues);
+    }
+
+    configScriptLoaded = true;
+    if (configScriptLoaded && typeof configInlineParams !== 'undefined') {
         Config.loadInlineConfig();
     }
 
@@ -598,11 +621,11 @@ function adjustPrefsNotification () {
  */
 function restoreField (fieldId): void {
     var $field = $('#' + fieldId);
-    if ($field.length === 0 || window.defaultValues[fieldId] === undefined) {
+    if ($field.length === 0 || defaultValues[fieldId] === undefined) {
         return;
     }
 
-    setFieldValue($field, getFieldType($field), window.defaultValues[fieldId]);
+    setFieldValue($field, getFieldType($field), defaultValues[fieldId]);
 }
 
 function setupRestoreField () {
@@ -755,7 +778,7 @@ function on () {
         $('.optbox input[type=button][name=submit_reset]').on('click', function () {
             var fields = $(this).closest('fieldset').find('input, select, textarea');
             for (var i = 0, imax = fields.length; i < imax; i++) {
-                setFieldValue(fields[i], getFieldType(fields[i]), window.defaultValues[fields[i].id]);
+                setFieldValue(fields[i], getFieldType(fields[i]), defaultValues[fields[i].id]);
             }
 
             setDisplayError();
@@ -833,7 +856,6 @@ function on () {
 const Config = {
     getAllValues: getAllValues,
     getIdPrefix: getIdPrefix,
-    registerFieldValidator: registerFieldValidator,
     displayErrors: displayErrors,
     loadInlineConfig: loadInlineConfig,
     setupValidation: setupValidation,
@@ -844,9 +866,6 @@ const Config = {
 
 declare global {
     interface Window {
-        configInlineParams: any[] | undefined;
-        configScriptLoaded: boolean | undefined;
-        defaultValues: object;
         validators: typeof validators;
         Config: typeof Config;
     }
