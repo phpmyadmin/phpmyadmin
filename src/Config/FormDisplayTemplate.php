@@ -11,9 +11,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Template;
 
 use function array_shift;
-use function json_encode;
-
-use const JSON_HEX_TAG;
 
 /**
  * PhpMyAdmin\Config\FormDisplayTemplate class
@@ -127,18 +124,20 @@ class FormDisplayTemplate
     /**
      * Appends JS validation code to $js_array
      *
-     * @param string         $fieldId    ID of field to validate
-     * @param string|mixed[] $validators validators callback
-     * @param mixed[]        $jsArray    will be updated with javascript code
+     * @param string         $fieldId         ID of field to validate
+     * @param string|mixed[] $validators      validators callback
+     * @param mixed[]        $fieldValidators will be updated with javascript code
      */
-    public function addJsValidate(string $fieldId, string|array $validators, array &$jsArray): void
+    public function addJsValidate(string $fieldId, string|array $validators, array &$fieldValidators): void
     {
         foreach ((array) $validators as $validator) {
             $validator = (array) $validator;
             $vName = array_shift($validator);
-            $vArgs = $validator !== [] ? ', ' . json_encode($validator, JSON_HEX_TAG) : '';
-            $jsArray[] = "window.Config.registerFieldValidator('"
-                . $fieldId . "', '" . $vName . "', true" . $vArgs . ')';
+            $fieldValidators[] = [
+                'fieldId' => $fieldId,
+                'name' => $vName,
+                'args' => $validator !== [] ? $validator : null,
+            ];
         }
     }
 

@@ -214,8 +214,8 @@ class FormDisplay
         string|null $formAction = null,
         array|null $hiddenFields = null,
     ): string {
-        $js = [];
-        $jsDefault = [];
+        $fieldValidators = [];
+        $defaultValues = [];
 
         /**
          * We do validation on page refresh when browser remembers field values,
@@ -278,14 +278,14 @@ class FormDisplay
                     $workPath,
                     $translatedPath,
                     $userPrefsAllow,
-                    $jsDefault,
+                    $defaultValues,
                 );
                 // register JS validators for this field
                 if (! isset($validators[$path])) {
                     continue;
                 }
 
-                $this->formDisplayTemplate->addJsValidate($translatedPath, $validators[$path], $js);
+                $this->formDisplayTemplate->addJsValidate($translatedPath, $validators[$path], $fieldValidators);
             }
         }
 
@@ -296,8 +296,8 @@ class FormDisplay
             'tabs' => $tabs,
             'forms' => $forms,
             'show_buttons' => $showButtons,
-            'js_array' => $js,
-            'js_default' => $jsDefault,
+            'default_values' => $defaultValues,
+            'field_validators' => $fieldValidators,
         ]);
     }
 

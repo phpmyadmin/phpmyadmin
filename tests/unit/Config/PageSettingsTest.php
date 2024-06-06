@@ -79,9 +79,28 @@ class PageSettingsTest extends AbstractTestCase
         self::assertStringContainsString('<input type="hidden" name="submit_save" value="Browse">', $html);
 
         self::assertStringContainsString(
-            "window.Config.registerFieldValidator('MaxRows', 'validatePositiveNumber', true);\n"
-            . "window.Config.registerFieldValidator('RepeatCells', 'validateNonNegativeNumber', true);\n"
-            . "window.Config.registerFieldValidator('LimitChars', 'validatePositiveNumber', true);\n",
+            'data-field-validators="&#x5B;&#x7B;&quot;fieldId&quot;&#x3A;&quot;MaxRows&quot;,'
+                . '&quot;name&quot;&#x3A;&quot;validatePositiveNumber&quot;,'
+                . '&quot;args&quot;&#x3A;null&#x7D;,&#x7B;&quot;fieldId&quot;&#x3A;&quot;RepeatCells&quot;,'
+                . '&quot;name&quot;&#x3A;&quot;validateNonNegativeNumber&quot;,'
+                . '&quot;args&quot;&#x3A;null&#x7D;,&#x7B;&quot;fieldId&quot;&#x3A;&quot;LimitChars&quot;,'
+                . '&quot;name&quot;&#x3A;&quot;validatePositiveNumber&quot;,&quot;args&quot;&#x3A;null&#x7D;&#x5D;"',
+            $html,
+        );
+        self::assertStringContainsString(
+            'data-default-values="&#x7B;&quot;TableNavigationLinksMode&quot;&#x3A;&#x5B;&quot;icons&quot;&#x5D;,'
+                . '&quot;ActionLinksMode&quot;&#x3A;&#x5B;&quot;both&quot;&#x5D;,'
+                . '&quot;ShowAll&quot;&#x3A;false,&quot;MaxRows&quot;&#x3A;&#x5B;25&#x5D;,'
+                . '&quot;Order&quot;&#x3A;&#x5B;&quot;SMART&quot;&#x5D;,'
+                . '&quot;BrowsePointerEnable&quot;&#x3A;true,&quot;BrowseMarkerEnable&quot;&#x3A;true,'
+                . '&quot;GridEditing&quot;&#x3A;&#x5B;&quot;double-click&quot;&#x5D;,'
+                . '&quot;SaveCellsAtOnce&quot;&#x3A;false,&quot;RepeatCells&quot;&#x3A;&quot;100&quot;,'
+                . '&quot;LimitChars&quot;&#x3A;&quot;50&quot;,'
+                . '&quot;RowActionLinks&quot;&#x3A;&#x5B;&quot;left&quot;&#x5D;,'
+                . '&quot;RowActionLinksWithoutUnique&quot;&#x3A;false,'
+                . '&quot;TablePrimaryKeyOrder&quot;&#x3A;&#x5B;&quot;NONE&quot;&#x5D;,'
+                . '&quot;RememberSorting&quot;&#x3A;true,'
+                . '&quot;RelationalDisplay&quot;&#x3A;&#x5B;&quot;K&quot;&#x5D;&#x7D;"',
             $html,
         );
     }
