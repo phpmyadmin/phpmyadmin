@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-04-19 09:03+0000\n"
+"PO-Revision-Date: 2024-06-06 22:17+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ka/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5726,10 +5726,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "ნამდვილად გსურთ "
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:68
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to RESET SLAVE?"
-msgstr "ნამდვილად გსურთ "
+msgstr "ნამდვილად გსურთ დამხმარე სერვერის ჩამოყრა?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:70
 msgid ""
@@ -5887,10 +5885,8 @@ msgid "Y values"
 msgstr "მნიშვნელობა"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:126
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter the SQL query first."
-msgstr "პორტის ნომერი არასწორია"
+msgstr "ჯერ შეიყვანეთ SQL მოთხოვნა."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:129
 msgid "The host name is empty!"
@@ -7421,10 +7417,8 @@ msgid "Go to link:"
 msgstr "მონაცემთა ბაზები არაა"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:607
-#, fuzzy
-#| msgid "Column names"
 msgid "Copy column name."
-msgstr "სვეტების სახელები"
+msgstr "სვეტების სახელის კოპირება."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:608
 msgid "Right-click the column name to copy it to your clipboard."
