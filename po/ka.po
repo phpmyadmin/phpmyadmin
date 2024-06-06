@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-03-18 04:02+0000\n"
+"PO-Revision-Date: 2024-06-06 22:17+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ka/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -933,10 +933,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "მართლა გნებავთ დაყოფის წაშლა?"
 
 #: js/messages.php:87
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to RESET SLAVE?"
-msgstr "ნამდვილად გსურთ "
+msgstr "ნამდვილად გსურთ დამხმარე სერვერის ჩამოყრა?"
 
 #: js/messages.php:89
 msgid ""
@@ -2380,10 +2378,8 @@ msgid "Go to link:"
 msgstr "ბმულზე გადასვლა:"
 
 #: js/messages.php:645
-#, fuzzy
-#| msgid "Column names"
 msgid "Copy column name."
-msgstr "სვეტების სახელები"
+msgstr "სვეტების სახელის კოპირება."
 
 #: js/messages.php:647
 msgid "Right-click the column name to copy it to your clipboard."
@@ -2970,10 +2966,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Advisor.php:567
-#, fuzzy, php-format
-#| msgid "Invalid server index: \"%s\""
+#, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "Invalid server index: \"%s\""
+msgstr "არასწორი წესის გამოცხადება ხაზზე %s."
 
 #: libraries/classes/Advisor.php:575
 #, php-format
