@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-06-02 00:20+0000\n"
-"PO-Revision-Date: 2024-04-18 08:29+0000\n"
-"Last-Translator: Sebastian <stomczyk145@gmail.com>\n"
+"PO-Revision-Date: 2024-06-08 10:09+0000\n"
+"Last-Translator: Krylan <drapeg1@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -5632,22 +5632,20 @@ msgstr "Częstotliwość odświeżania"
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
-#, fuzzy, php-format
-#| msgid "%d second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "%d sekund"
-msgstr[1] "%d sekund"
+msgstr[0] "%d sekunda"
+msgstr[1] "%d sekundy"
 msgstr[2] "%d sekund"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
-#, fuzzy, php-format
-#| msgid "%d minute"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "%d minut"
-msgstr[1] "%d minut"
+msgstr[0] "%d minuta"
+msgstr[1] "%d minuty"
 msgstr[2] "%d minut"
 
 #: resources/templates/server/status/monitor/index.twig:38
@@ -5860,24 +5858,21 @@ msgstr "Pytania od uruchomienia:"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
-#| msgid "ø per hour"
+#, php-format
 msgid "ø per hour: %s"
-msgstr "ø na godzinę"
+msgstr "ø na godzinę: %s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
-#| msgid "per minute:"
+#, php-format
 msgid "ø per minute: %s"
-msgstr "na minutę:"
+msgstr "ø na minutę: %s"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
-#| msgid "per second:"
+#, php-format
 msgid "ø per second: %s"
-msgstr "na sekundę:"
+msgstr "ø na sekundę: %s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -11824,10 +11819,8 @@ msgstr "Ustawienia konsoli zostały pomyślnie zaktualizowane."
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:28
-#, fuzzy
-#| msgid "Unexpected character."
 msgid "Unexpected parameter value."
-msgstr "Nieoczekiwany znak."
+msgstr "Nieoczekiwana wartość parametru."
 
 #: src/Controllers/Database/CentralColumnsController.php:150
 #, php-format
@@ -13208,10 +13201,8 @@ msgid "Show query box"
 msgstr "Pokaż okno zapytań"
 
 #: src/Controllers/JavaScriptMessagesController.php:402
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "Prześlij zapytanie"
+msgstr "Edytuj zapytanie"
 
 #: src/Controllers/JavaScriptMessagesController.php:404
 #, php-format
@@ -15331,11 +15322,8 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Linia: %1$s, Kolumna: %2$s, Błąd: %3$s"
 
 #: src/Controllers/Table/Structure/AddKeyController.php:23
-#, fuzzy
-#| msgctxt "U2F error"
-#| msgid "Invalid request sent to security key."
 msgid "Invalid request parameter."
-msgstr "Nieprawidłowe żądanie wysłane do klucza bezpieczeństwa."
+msgstr "Nieprawidłowy parametr żądania."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:80
 msgid "The columns have been moved successfully."
@@ -16040,10 +16028,8 @@ msgid "Report"
 msgstr "Raport"
 
 #: src/Exceptions/AuthenticationFailure.php:35
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Cannot log in to the database server."
-msgstr "Nie udało się zalogować na serwer MySQL"
+msgstr "Nie udało się zalogować na serwer bazy danych."
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
@@ -16053,13 +16039,9 @@ msgid "Access denied!"
 msgstr "Odmowa dostępu!"
 
 #: src/Exceptions/AuthenticationFailure.php:61
-#, fuzzy
-#| msgid ""
-#| "Login without a password is forbidden by configuration (see "
-#| "AllowNoPassword)"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
-msgstr "Konfiguracja zabrania logowania bez hasła (zobacz AllowNoPassword)"
+msgstr "Konfiguracja zabrania logowania bez hasła (zobacz AllowNoPassword)."
 
 #: src/Exceptions/AuthenticationFailure.php:73
 #, php-format
@@ -16297,33 +16279,24 @@ msgid "The table name cannot end with a space character."
 msgstr "Nazwa tabeli nie może kończyć się znakiem spacji."
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
-#| msgid "View name can not be empty!"
 msgid "The trigger name must not be empty."
-msgstr "Wyświetlana nazwa nie może być pusta!"
+msgstr "Wyświetlana nazwa nie może być pusta."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
-#| msgid "The table name cannot be longer than %d characters."
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "Nazwa tabeli nie może być dłuższa niż %d znaków."
+msgstr "Nazwa wyzwalacza nie może być dłuższa niż %d znaków."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
-#| msgid "The table name cannot end with a space character."
 msgid "The trigger name cannot end with a space character."
-msgstr "Nazwa tabeli nie może kończyć się znakiem spacji."
+msgstr "Nazwa wyzwalacza nie może kończyć się znakiem spacji."
 
 #: src/Import/Import.php:947
-#, fuzzy
-#| msgid ""
-#| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
-#| "transactional engine tables can be rolled back."
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
-"Tylko INSERT, UPDATE, DELETE i REPLACE Zapytania SQL zawierające "
+"Tylko INSERT, UPDATE, DELETE, REPLACE i SET Zapytania SQL zawierające "
 "transakcyjne tabele silników mogą zostać wycofane."
 
 #: src/Import/Import.php:1169
@@ -16954,10 +16927,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Błędny login/hasło. Odmowa dostępu."
 
 #: src/Plugins/Auth/AuthenticationSignon.php:130
-#, fuzzy, php-format
-#| msgid "Can not find signon authentication script:"
+#, php-format
 msgid "Can not find signon authentication script: %s"
-msgstr "Nie możesz znaleźć skrypt uwierzytelniania signon:"
+msgstr "Nie można znaleźć skryptu uwierzytelniania signon: %s"
 
 #: src/Plugins/AuthenticationPluginFactory.php:31
 msgid "Invalid authentication method set in configuration:"
@@ -18806,9 +18778,8 @@ msgstr ""
 "założeniu konwencjonalnego mapowania adresów IPv4 na adresy IPv6"
 
 #: src/Types.php:326
-#, fuzzy
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "Przechowuje unikatowego identyfikatora (UUID)"
+msgstr "128-bitowy UUID (Uniwersalnie Unikalny Identyfikator)"
 
 #: src/Types.php:650
 msgctxt "numeric types"
