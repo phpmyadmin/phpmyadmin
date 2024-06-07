@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-06-02 00:20+0000\n"
 "PO-Revision-Date: 2024-06-08 10:09+0000\n"
-"Last-Translator: Krylan <drapeg1@gmail.com>\n"
+"Last-Translator: Sebastian <stomczyk145@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
@@ -18005,9 +18005,8 @@ msgid "SHA256 password authentication"
 msgstr "Uwierzytelnianie hasłem SHA256"
 
 #: src/Server/Plugins.php:63
-#, fuzzy
 msgid "Caching sha2 authentication"
-msgstr "Uwierzytelnianie w pliku konfiguracyjnym"
+msgstr "Buforowanie uwierzytalniania sha2"
 
 #: src/Server/Plugins.php:68
 msgid "Unix Socket based authentication"
