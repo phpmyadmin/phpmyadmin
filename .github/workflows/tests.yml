@@ -55,10 +55,10 @@ jobs:
         run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
       - name: Print arch
-        run: docker run --rm ${{ matrix.arch }}/alpine:3.17 uname -a
+        run: docker run --rm ${{ matrix.arch }}/alpine:3.19 uname -a
 
       - name: Run tests on php ${{ matrix.php-version }}
-        run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.17 sh /app/do-tests.sh
+        run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.19 sh /app/do-tests.sh
 
   test-php:
     name: Test on PHP ${{ matrix.php-version }}, ${{ matrix.composer-dependency }} and ${{ matrix.os }}
