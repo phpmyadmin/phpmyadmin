@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-06-02 00:20+0000\n"
+"POT-Creation-Date: 2024-06-09 00:22+0000\n"
 "PO-Revision-Date: 2024-04-16 19:21+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -200,7 +200,7 @@ msgstr "po %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:220
-#: src/Display/Results.php:940 src/Plugins/Export/ExportSql.php:2071
+#: src/Display/Results.php:935 src/Plugins/Export/ExportSql.php:2071
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Brez"
@@ -232,7 +232,7 @@ msgstr "stolpec(-ce)"
 #: resources/templates/database/operations/index.twig:226
 #: resources/templates/database/routines/editor_form.twig:186
 #: resources/templates/database/routines/execute_form.twig:55
-#: resources/templates/display/results/table.twig:276
+#: resources/templates/display/results/table.twig:279
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/create_view.twig:10
 #: resources/templates/modals/enum_set_editor.twig:10
@@ -968,8 +968,8 @@ msgstr "Ponovna poizvedba"
 #: resources/templates/database/routines/row.twig:20
 #: resources/templates/database/routines/row.twig:23
 #: resources/templates/database/structure/structure_table_row.twig:66
-#: resources/templates/display/results/table.twig:316
-#: resources/templates/display/results/table.twig:317
+#: resources/templates/display/results/table.twig:319
+#: resources/templates/display/results/table.twig:320
 #: resources/templates/indexes.twig:35
 #: resources/templates/server/variables/index.twig:41
 #: resources/templates/server/variables/index.twig:44
@@ -979,7 +979,7 @@ msgstr "Ponovna poizvedba"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:401
-#: src/Display/Results.php:2488 src/Html/Generator.php:517
+#: src/Display/Results.php:2478 src/Html/Generator.php:517
 #: src/Html/Generator.php:783
 msgid "Edit"
 msgstr "Uredi"
@@ -990,15 +990,15 @@ msgstr "Uredi"
 #: resources/templates/database/central_columns/main.twig:387
 #: resources/templates/database/designer/main.twig:386
 #: resources/templates/database/search/results.twig:31
-#: resources/templates/display/results/table.twig:324
-#: resources/templates/display/results/table.twig:325
+#: resources/templates/display/results/table.twig:327
+#: resources/templates/display/results/table.twig:328
 #: resources/templates/export.twig:56
 #: resources/templates/server/user_groups/user_groups.twig:37
 #: resources/templates/server/user_groups/user_groups.twig:56
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:188
 #: src/Controllers/JavaScriptMessagesController.php:403
-#: src/Display/Results.php:2547 src/Tracking/Tracking.php:230
+#: src/Display/Results.php:2537 src/Tracking/Tracking.php:230
 msgid "Delete"
 msgstr "Izbriši"
 
@@ -1284,12 +1284,12 @@ msgid "The central list of columns for the current database is empty"
 msgstr "Osrednji seznam stolpcev je za trenutno zbirko podatkov prazen"
 
 #: resources/templates/database/central_columns/main.twig:168
-#: resources/templates/display/results/table.twig:136
+#: resources/templates/display/results/table.twig:139
 msgid "Filter rows:"
 msgstr "Filtriraj vrstice:"
 
 #: resources/templates/database/central_columns/main.twig:171
-#: resources/templates/display/results/table.twig:140
+#: resources/templates/display/results/table.twig:143
 msgid "Search this table"
 msgstr "Išči po tabeli"
 
@@ -1382,7 +1382,7 @@ msgstr "Pripomba zbirke podatkov:"
 #: resources/templates/database/data_dictionary/index.twig:8
 #: resources/templates/database/data_dictionary/index.twig:124
 #: resources/templates/database/structure/index.twig:13
-#: resources/templates/display/results/table.twig:348
+#: resources/templates/display/results/table.twig:351
 #: resources/templates/table/structure/display_structure.twig:383
 msgid "Print"
 msgstr "Natisni"
@@ -1806,8 +1806,8 @@ msgstr "Dogodki"
 #: resources/templates/database/routines/index.twig:14
 #: resources/templates/database/structure/check_all_tables.twig:3
 #: resources/templates/database/structure/check_all_tables.twig:4
-#: resources/templates/display/results/table.twig:312
-#: resources/templates/display/results/table.twig:313
+#: resources/templates/display/results/table.twig:315
+#: resources/templates/display/results/table.twig:316
 #: resources/templates/select_all.twig:3 resources/templates/select_all.twig:4
 #: resources/templates/server/databases/index.twig:64
 #: resources/templates/server/privileges/edit_routine_privileges.twig:58
@@ -1838,9 +1838,9 @@ msgstr "Označi vse"
 #: resources/templates/database/routines/row.twig:60
 #: resources/templates/database/routines/row.twig:63
 #: resources/templates/database/structure/check_all_tables.twig:12
-#: resources/templates/display/results/table.twig:329
-#: resources/templates/display/results/table.twig:330
-#: resources/templates/display/results/table.twig:362
+#: resources/templates/display/results/table.twig:332
+#: resources/templates/display/results/table.twig:333
+#: resources/templates/display/results/table.twig:365
 #: resources/templates/export.twig:3 resources/templates/export.twig:495
 #: resources/templates/preferences/header.twig:42
 #: resources/templates/preferences/manage/main.twig:67
@@ -2023,8 +2023,8 @@ msgstr "Razvrsti"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1472
-#: src/Display/Results.php:1479 src/Util.php:2000 src/Util.php:2017
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1463
+#: src/Display/Results.php:1470 src/Util.php:2000 src/Util.php:2017
 msgid "Ascending"
 msgstr "Naraščajoče"
 
@@ -2035,8 +2035,8 @@ msgstr "Naraščajoče"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1467
-#: src/Display/Results.php:1484 src/Util.php:2005 src/Util.php:2022
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1458
+#: src/Display/Results.php:1475 src/Util.php:2005 src/Util.php:2022
 msgid "Descending"
 msgstr "Padajoče"
 
@@ -2278,8 +2278,8 @@ msgstr "Najden ni bil noben uporabnik."
 #: resources/templates/database/privileges/index.twig:114
 #: resources/templates/database/structure/check_all_tables.twig:2
 #: resources/templates/database/structure/check_all_tables.twig:9
-#: resources/templates/display/results/table.twig:311
 #: resources/templates/display/results/table.twig:314
+#: resources/templates/display/results/table.twig:317
 #: resources/templates/select_all.twig:1 resources/templates/select_all.twig:5
 #: resources/templates/server/privileges/users_overview.twig:119
 #: resources/templates/server/privileges/users_overview.twig:122
@@ -2745,7 +2745,7 @@ msgid "View"
 msgstr "Pogled"
 
 #: resources/templates/database/structure/show_create.twig:36
-#: resources/templates/display/results/table.twig:387
+#: resources/templates/display/results/table.twig:390
 #: resources/templates/modals/create_view.twig:5
 #: resources/templates/sql/no_results_returned.twig:14
 #: resources/templates/view_create.twig:14
@@ -2956,87 +2956,87 @@ msgstr "Obnovi vrstni red stolpcev"
 msgid "Number of rows:"
 msgstr "Število vrstic:"
 
-#: resources/templates/display/results/table.twig:124
+#: resources/templates/display/results/table.twig:125
 msgid "All"
 msgstr "Vse"
 
-#: resources/templates/display/results/table.twig:148
+#: resources/templates/display/results/table.twig:151
 msgid "Sort by key:"
 msgstr "Uredi po ključu:"
 
-#: resources/templates/display/results/table.twig:197
+#: resources/templates/display/results/table.twig:200
 #: resources/templates/table/search/index.twig:101
 msgid "Extra options"
 msgstr "Dodatne možnosti"
 
-#: resources/templates/display/results/table.twig:209
-#: src/Display/Results.php:1122
+#: resources/templates/display/results/table.twig:212
+#: src/Display/Results.php:1117
 msgid "Partial texts"
 msgstr "Delna besedila"
 
-#: resources/templates/display/results/table.twig:213
-#: src/Display/Results.php:1126
+#: resources/templates/display/results/table.twig:216
+#: src/Display/Results.php:1121
 msgid "Full texts"
 msgstr "Polna besedila"
 
-#: resources/templates/display/results/table.twig:221
+#: resources/templates/display/results/table.twig:224
 msgid "Relational key"
 msgstr "Relacijski ključ"
 
-#: resources/templates/display/results/table.twig:225
+#: resources/templates/display/results/table.twig:228
 msgid "Display column for relationships"
 msgstr "Prikaži stolpec za razmerja"
 
-#: resources/templates/display/results/table.twig:234
+#: resources/templates/display/results/table.twig:237
 msgid "Show binary contents"
 msgstr "Prikaži dvojiške vsebine"
 
-#: resources/templates/display/results/table.twig:240
+#: resources/templates/display/results/table.twig:243
 msgid "Show BLOB contents"
 msgstr "Prikaži vsebine BLOB"
 
-#: resources/templates/display/results/table.twig:252
+#: resources/templates/display/results/table.twig:255
 msgid "Hide browser transformation"
 msgstr "Skrij pretvorbo z brskalnikom"
 
-#: resources/templates/display/results/table.twig:260
+#: resources/templates/display/results/table.twig:263
 #: src/Controllers/JavaScriptMessagesController.php:497
 msgid "Geometry"
 msgstr "Geometrija"
 
-#: resources/templates/display/results/table.twig:265
+#: resources/templates/display/results/table.twig:268
 msgid "Well Known Text"
 msgstr "Dobro poznano besedilo"
 
-#: resources/templates/display/results/table.twig:269
+#: resources/templates/display/results/table.twig:272
 msgid "Well Known Binary"
 msgstr "Dobro poznana dvojiška datoteka"
 
-#: resources/templates/display/results/table.twig:320
-#: resources/templates/display/results/table.twig:321
+#: resources/templates/display/results/table.twig:323
+#: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:491
-#: src/Display/Results.php:2492 src/Html/Generator.php:78
+#: src/Display/Results.php:2482 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "Kopiraj"
 
-#: resources/templates/display/results/table.twig:344
+#: resources/templates/display/results/table.twig:347
 #: resources/templates/sql/no_results_returned.twig:9
 msgid "Query results operations"
 msgstr "Dejanja rezultatov poizvedbe"
 
-#: resources/templates/display/results/table.twig:350
+#: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:490
 #: src/Export/Export.php:1253
 msgid "Copy to clipboard"
 msgstr "Kopiraj v odložišče"
 
-#: resources/templates/display/results/table.twig:369
+#: resources/templates/display/results/table.twig:372
 #: resources/templates/table/chart/tbl_chart.twig:2
 msgid "Display chart"
 msgstr "Prikaži grafikon"
 
-#: resources/templates/display/results/table.twig:377
+#: resources/templates/display/results/table.twig:380
 msgid "Visualize GIS data"
 msgstr "Predstavi podatke GIS"
 
@@ -5847,7 +5847,7 @@ msgid "Start auto refresh"
 msgstr "Začni s samodejnim osveževanjem"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2566
+#: src/Display/Results.php:2556
 msgid "Kill"
 msgstr "Prekini proces"
 
@@ -6230,7 +6230,7 @@ msgstr "Tortni diagram z rezultati profiliranja."
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:995 src/Display/Results.php:3150
+#: src/Database/Routines.php:995 src/Display/Results.php:3140
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Poizvedbo SQL smo uspešno izvedli."
@@ -12055,7 +12055,7 @@ msgid "Success!"
 msgstr "Uspešno!"
 
 #: src/Controllers/Database/StructureController.php:576
-#: src/Display/Results.php:3430
+#: src/Display/Results.php:3418
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15621,31 +15621,31 @@ msgstr ""
 "Napaka 1045: Uporabnik nima dostopa. Dodatne informacije so morda na voljo, "
 "vendar so skrite zaradi konfiguracijske direktive %s."
 
-#: src/Display/Results.php:2523 src/Display/Results.php:2538
+#: src/Display/Results.php:2513 src/Display/Results.php:2528
 msgid "The row has been deleted."
 msgstr "Vrstica je izbrisana."
 
-#: src/Display/Results.php:3439
+#: src/Display/Results.php:3427
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Prikazujem vrstice %1s–%2s"
 
-#: src/Display/Results.php:3453
+#: src/Display/Results.php:3441
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "skupno %1$s, %2$s v poizvedbi"
 
-#: src/Display/Results.php:3458
+#: src/Display/Results.php:3446
 #, php-format
 msgid "%s total"
 msgstr "skupaj %s"
 
-#: src/Display/Results.php:3471 src/Sql.php:864
+#: src/Display/Results.php:3459 src/Sql.php:864
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Poizvedba je potrebovala %01.4f sekunde."
 
-#: src/Display/Results.php:3777
+#: src/Display/Results.php:3765
 msgid "Link not found!"
 msgstr "Povezave ni mogoče najti!"
 
@@ -17954,7 +17954,7 @@ msgstr "Ne morem spremeniti glavnega strežnika!"
 msgid "Primary server changed successfully to %s."
 msgstr "Glavni strežnik smo uspešno spremenili v %s."
 
-#: src/Routing/Routing.php:119
+#: src/Routing/Routing.php:125
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
@@ -17963,12 +17963,12 @@ msgstr ""
 "Nismo mogli zapisati usmerjevalnega predpomnilnika; nastaviti je treba "
 "dovoljenja mape/datoteke \"%s\""
 
-#: src/Routing/Routing.php:153 src/Routing/Routing.php:207
+#: src/Routing/Routing.php:159 src/Routing/Routing.php:203
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Napaka 404! Strani %s nismo našli."
 
-#: src/Routing/Routing.php:161
+#: src/Routing/Routing.php:167
 msgid "Error 405! Request method not allowed."
 msgstr "Napaka 405! Metoda zahteve ni dovoljena."
 

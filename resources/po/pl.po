@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-06-02 00:20+0000\n"
+"POT-Creation-Date: 2024-06-09 00:22+0000\n"
 "PO-Revision-Date: 2024-06-08 10:09+0000\n"
 "Last-Translator: Sebastian <stomczyk145@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -200,7 +200,7 @@ msgstr "po %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:220
-#: src/Display/Results.php:940 src/Plugins/Export/ExportSql.php:2071
+#: src/Display/Results.php:935 src/Plugins/Export/ExportSql.php:2071
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Żaden"
@@ -232,7 +232,7 @@ msgstr "kolumna(y)"
 #: resources/templates/database/operations/index.twig:226
 #: resources/templates/database/routines/editor_form.twig:186
 #: resources/templates/database/routines/execute_form.twig:55
-#: resources/templates/display/results/table.twig:276
+#: resources/templates/display/results/table.twig:279
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/create_view.twig:10
 #: resources/templates/modals/enum_set_editor.twig:10
@@ -968,8 +968,8 @@ msgstr "Wykonaj zapytanie ponownie"
 #: resources/templates/database/routines/row.twig:20
 #: resources/templates/database/routines/row.twig:23
 #: resources/templates/database/structure/structure_table_row.twig:66
-#: resources/templates/display/results/table.twig:316
-#: resources/templates/display/results/table.twig:317
+#: resources/templates/display/results/table.twig:319
+#: resources/templates/display/results/table.twig:320
 #: resources/templates/indexes.twig:35
 #: resources/templates/server/variables/index.twig:41
 #: resources/templates/server/variables/index.twig:44
@@ -979,7 +979,7 @@ msgstr "Wykonaj zapytanie ponownie"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:401
-#: src/Display/Results.php:2488 src/Html/Generator.php:517
+#: src/Display/Results.php:2478 src/Html/Generator.php:517
 #: src/Html/Generator.php:783
 msgid "Edit"
 msgstr "Edytuj"
@@ -990,15 +990,15 @@ msgstr "Edytuj"
 #: resources/templates/database/central_columns/main.twig:387
 #: resources/templates/database/designer/main.twig:386
 #: resources/templates/database/search/results.twig:31
-#: resources/templates/display/results/table.twig:324
-#: resources/templates/display/results/table.twig:325
+#: resources/templates/display/results/table.twig:327
+#: resources/templates/display/results/table.twig:328
 #: resources/templates/export.twig:56
 #: resources/templates/server/user_groups/user_groups.twig:37
 #: resources/templates/server/user_groups/user_groups.twig:56
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:188
 #: src/Controllers/JavaScriptMessagesController.php:403
-#: src/Display/Results.php:2547 src/Tracking/Tracking.php:230
+#: src/Display/Results.php:2537 src/Tracking/Tracking.php:230
 msgid "Delete"
 msgstr "Usuń"
 
@@ -1284,12 +1284,12 @@ msgid "The central list of columns for the current database is empty"
 msgstr "Centralna lista kolumn bieżącej bazy danych jest pusta"
 
 #: resources/templates/database/central_columns/main.twig:168
-#: resources/templates/display/results/table.twig:136
+#: resources/templates/display/results/table.twig:139
 msgid "Filter rows:"
 msgstr "Filtruj wiersze:"
 
 #: resources/templates/database/central_columns/main.twig:171
-#: resources/templates/display/results/table.twig:140
+#: resources/templates/display/results/table.twig:143
 msgid "Search this table"
 msgstr "Przeszukaj tę tabelę"
 
@@ -1382,7 +1382,7 @@ msgstr "Komentarz do bazy danych:"
 #: resources/templates/database/data_dictionary/index.twig:8
 #: resources/templates/database/data_dictionary/index.twig:124
 #: resources/templates/database/structure/index.twig:13
-#: resources/templates/display/results/table.twig:348
+#: resources/templates/display/results/table.twig:351
 #: resources/templates/table/structure/display_structure.twig:383
 msgid "Print"
 msgstr "Drukuj"
@@ -1806,8 +1806,8 @@ msgstr "Zdarzenia"
 #: resources/templates/database/routines/index.twig:14
 #: resources/templates/database/structure/check_all_tables.twig:3
 #: resources/templates/database/structure/check_all_tables.twig:4
-#: resources/templates/display/results/table.twig:312
-#: resources/templates/display/results/table.twig:313
+#: resources/templates/display/results/table.twig:315
+#: resources/templates/display/results/table.twig:316
 #: resources/templates/select_all.twig:3 resources/templates/select_all.twig:4
 #: resources/templates/server/databases/index.twig:64
 #: resources/templates/server/privileges/edit_routine_privileges.twig:58
@@ -1838,9 +1838,9 @@ msgstr "Zaznacz wszystko"
 #: resources/templates/database/routines/row.twig:60
 #: resources/templates/database/routines/row.twig:63
 #: resources/templates/database/structure/check_all_tables.twig:12
-#: resources/templates/display/results/table.twig:329
-#: resources/templates/display/results/table.twig:330
-#: resources/templates/display/results/table.twig:362
+#: resources/templates/display/results/table.twig:332
+#: resources/templates/display/results/table.twig:333
+#: resources/templates/display/results/table.twig:365
 #: resources/templates/export.twig:3 resources/templates/export.twig:495
 #: resources/templates/preferences/header.twig:42
 #: resources/templates/preferences/manage/main.twig:67
@@ -2021,8 +2021,8 @@ msgstr "Sortuj"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1472
-#: src/Display/Results.php:1479 src/Util.php:2000 src/Util.php:2017
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1463
+#: src/Display/Results.php:1470 src/Util.php:2000 src/Util.php:2017
 msgid "Ascending"
 msgstr "Rosnąco"
 
@@ -2033,8 +2033,8 @@ msgstr "Rosnąco"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1467
-#: src/Display/Results.php:1484 src/Util.php:2005 src/Util.php:2022
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1458
+#: src/Display/Results.php:1475 src/Util.php:2005 src/Util.php:2022
 msgid "Descending"
 msgstr "Malejąco"
 
@@ -2276,8 +2276,8 @@ msgstr "Żadnego użytkownika nie znaleziono."
 #: resources/templates/database/privileges/index.twig:114
 #: resources/templates/database/structure/check_all_tables.twig:2
 #: resources/templates/database/structure/check_all_tables.twig:9
-#: resources/templates/display/results/table.twig:311
 #: resources/templates/display/results/table.twig:314
+#: resources/templates/display/results/table.twig:317
 #: resources/templates/select_all.twig:1 resources/templates/select_all.twig:5
 #: resources/templates/server/privileges/users_overview.twig:119
 #: resources/templates/server/privileges/users_overview.twig:122
@@ -2740,7 +2740,7 @@ msgid "View"
 msgstr "Widok"
 
 #: resources/templates/database/structure/show_create.twig:36
-#: resources/templates/display/results/table.twig:387
+#: resources/templates/display/results/table.twig:390
 #: resources/templates/modals/create_view.twig:5
 #: resources/templates/sql/no_results_returned.twig:14
 #: resources/templates/view_create.twig:14
@@ -2952,87 +2952,87 @@ msgstr "Przywrócić porządek w kolumnie"
 msgid "Number of rows:"
 msgstr "Liczba wierszy:"
 
-#: resources/templates/display/results/table.twig:124
+#: resources/templates/display/results/table.twig:125
 msgid "All"
 msgstr "Wszystko"
 
-#: resources/templates/display/results/table.twig:148
+#: resources/templates/display/results/table.twig:151
 msgid "Sort by key:"
 msgstr "Sortuj wg klucza:"
 
-#: resources/templates/display/results/table.twig:197
+#: resources/templates/display/results/table.twig:200
 #: resources/templates/table/search/index.twig:101
 msgid "Extra options"
 msgstr "Dodatkowe opcje"
 
-#: resources/templates/display/results/table.twig:209
-#: src/Display/Results.php:1122
+#: resources/templates/display/results/table.twig:212
+#: src/Display/Results.php:1117
 msgid "Partial texts"
 msgstr "Częściowe teksty"
 
-#: resources/templates/display/results/table.twig:213
-#: src/Display/Results.php:1126
+#: resources/templates/display/results/table.twig:216
+#: src/Display/Results.php:1121
 msgid "Full texts"
 msgstr "Pełne teksty"
 
-#: resources/templates/display/results/table.twig:221
+#: resources/templates/display/results/table.twig:224
 msgid "Relational key"
 msgstr "Klucz relacyjny"
 
-#: resources/templates/display/results/table.twig:225
+#: resources/templates/display/results/table.twig:228
 msgid "Display column for relationships"
 msgstr "Wyświetl kolumnę dla relacji"
 
-#: resources/templates/display/results/table.twig:234
+#: resources/templates/display/results/table.twig:237
 msgid "Show binary contents"
 msgstr "Pokaż binarne treści"
 
-#: resources/templates/display/results/table.twig:240
+#: resources/templates/display/results/table.twig:243
 msgid "Show BLOB contents"
 msgstr "Pokaż zawartość BLOB"
 
-#: resources/templates/display/results/table.twig:252
+#: resources/templates/display/results/table.twig:255
 msgid "Hide browser transformation"
 msgstr "Ukryj transformacje przeglądarki"
 
-#: resources/templates/display/results/table.twig:260
+#: resources/templates/display/results/table.twig:263
 #: src/Controllers/JavaScriptMessagesController.php:497
 msgid "Geometry"
 msgstr "Geometria"
 
-#: resources/templates/display/results/table.twig:265
+#: resources/templates/display/results/table.twig:268
 msgid "Well Known Text"
 msgstr "Znany tekst"
 
-#: resources/templates/display/results/table.twig:269
+#: resources/templates/display/results/table.twig:272
 msgid "Well Known Binary"
 msgstr "Znane binarne"
 
-#: resources/templates/display/results/table.twig:320
-#: resources/templates/display/results/table.twig:321
+#: resources/templates/display/results/table.twig:323
+#: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:491
-#: src/Display/Results.php:2492 src/Html/Generator.php:78
+#: src/Display/Results.php:2482 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "Kopiuj"
 
-#: resources/templates/display/results/table.twig:344
+#: resources/templates/display/results/table.twig:347
 #: resources/templates/sql/no_results_returned.twig:9
 msgid "Query results operations"
 msgstr "Operacja na wynikach zapytania"
 
-#: resources/templates/display/results/table.twig:350
+#: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:490
 #: src/Export/Export.php:1253
 msgid "Copy to clipboard"
 msgstr "Kopiuj do schowka"
 
-#: resources/templates/display/results/table.twig:369
+#: resources/templates/display/results/table.twig:372
 #: resources/templates/table/chart/tbl_chart.twig:2
 msgid "Display chart"
 msgstr "Wyświetlanie wykresu"
 
-#: resources/templates/display/results/table.twig:377
+#: resources/templates/display/results/table.twig:380
 msgid "Visualize GIS data"
 msgstr "Wizualizacja danych GIS"
 
@@ -5843,7 +5843,7 @@ msgid "Start auto refresh"
 msgstr "Rozpocznij automatyczne odświeżanie"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2566
+#: src/Display/Results.php:2556
 msgid "Kill"
 msgstr "Zabij"
 
@@ -6222,7 +6222,7 @@ msgstr "Wykres kołowy z wynikami profilowania."
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:995 src/Display/Results.php:3150
+#: src/Database/Routines.php:995 src/Display/Results.php:3140
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Zapytanie SQL zostało wykonane pomyślnie."
@@ -12076,7 +12076,7 @@ msgid "Success!"
 msgstr "Sukces!"
 
 #: src/Controllers/Database/StructureController.php:576
-#: src/Display/Results.php:3430
+#: src/Display/Results.php:3418
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15647,31 +15647,31 @@ msgstr ""
 "Błąd 1045: Brak dostępu dla użytkownika. Dodatkowe informacje na temat błędu "
 "mogą być dostępne, ale są ukryte przez %s dyrektywę konfiguracji."
 
-#: src/Display/Results.php:2523 src/Display/Results.php:2538
+#: src/Display/Results.php:2513 src/Display/Results.php:2528
 msgid "The row has been deleted."
 msgstr "Wiersz został usunięty."
 
-#: src/Display/Results.php:3439
+#: src/Display/Results.php:3427
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Pokazano wiersze %1s - %2s"
 
-#: src/Display/Results.php:3453
+#: src/Display/Results.php:3441
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "%1$s ogółem, %2$s w zapytaniu"
 
-#: src/Display/Results.php:3458
+#: src/Display/Results.php:3446
 #, php-format
 msgid "%s total"
 msgstr "%s ogółem"
 
-#: src/Display/Results.php:3471 src/Sql.php:864
+#: src/Display/Results.php:3459 src/Sql.php:864
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Wykonanie zapytania trwało %01.4f sekund(y)."
 
-#: src/Display/Results.php:3777
+#: src/Display/Results.php:3765
 msgid "Link not found!"
 msgstr "Łącza nie znaleziono!"
 
@@ -17977,7 +17977,7 @@ msgstr "Nie można zmienić serwera głównego!"
 msgid "Primary server changed successfully to %s."
 msgstr "Serwer główny został pomyślnie zmieniony na %s."
 
-#: src/Routing/Routing.php:119
+#: src/Routing/Routing.php:125
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
@@ -17986,12 +17986,12 @@ msgstr ""
 "Nie można zapisać pamięci podręcznej routingu, musisz dostosować uprawnienia "
 "do folderu/pliku „%s”"
 
-#: src/Routing/Routing.php:153 src/Routing/Routing.php:207
+#: src/Routing/Routing.php:159 src/Routing/Routing.php:203
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Błąd 404! Strona %s nie została znaleziona."
 
-#: src/Routing/Routing.php:161
+#: src/Routing/Routing.php:167
 msgid "Error 405! Request method not allowed."
 msgstr "Błąd 405! Metoda żądania jest niedozwolona."
 

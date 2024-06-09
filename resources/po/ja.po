@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-06-02 00:20+0000\n"
+"POT-Creation-Date: 2024-06-09 00:22+0000\n"
 "PO-Revision-Date: 2024-06-03 04:09+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -199,7 +199,7 @@ msgstr "%s の後へ"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:220
-#: src/Display/Results.php:940 src/Plugins/Export/ExportSql.php:2071
+#: src/Display/Results.php:935 src/Plugins/Export/ExportSql.php:2071
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "なし"
@@ -231,7 +231,7 @@ msgstr "カラム"
 #: resources/templates/database/operations/index.twig:226
 #: resources/templates/database/routines/editor_form.twig:186
 #: resources/templates/database/routines/execute_form.twig:55
-#: resources/templates/display/results/table.twig:276
+#: resources/templates/display/results/table.twig:279
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/create_view.twig:10
 #: resources/templates/modals/enum_set_editor.twig:10
@@ -964,8 +964,8 @@ msgstr "再クエリ"
 #: resources/templates/database/routines/row.twig:20
 #: resources/templates/database/routines/row.twig:23
 #: resources/templates/database/structure/structure_table_row.twig:66
-#: resources/templates/display/results/table.twig:316
-#: resources/templates/display/results/table.twig:317
+#: resources/templates/display/results/table.twig:319
+#: resources/templates/display/results/table.twig:320
 #: resources/templates/indexes.twig:35
 #: resources/templates/server/variables/index.twig:41
 #: resources/templates/server/variables/index.twig:44
@@ -975,7 +975,7 @@ msgstr "再クエリ"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:401
-#: src/Display/Results.php:2488 src/Html/Generator.php:517
+#: src/Display/Results.php:2478 src/Html/Generator.php:517
 #: src/Html/Generator.php:783
 msgid "Edit"
 msgstr "編集"
@@ -986,15 +986,15 @@ msgstr "編集"
 #: resources/templates/database/central_columns/main.twig:387
 #: resources/templates/database/designer/main.twig:386
 #: resources/templates/database/search/results.twig:31
-#: resources/templates/display/results/table.twig:324
-#: resources/templates/display/results/table.twig:325
+#: resources/templates/display/results/table.twig:327
+#: resources/templates/display/results/table.twig:328
 #: resources/templates/export.twig:56
 #: resources/templates/server/user_groups/user_groups.twig:37
 #: resources/templates/server/user_groups/user_groups.twig:56
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:188
 #: src/Controllers/JavaScriptMessagesController.php:403
-#: src/Display/Results.php:2547 src/Tracking/Tracking.php:230
+#: src/Display/Results.php:2537 src/Tracking/Tracking.php:230
 msgid "Delete"
 msgstr "削除"
 
@@ -1280,12 +1280,12 @@ msgid "The central list of columns for the current database is empty"
 msgstr "現在のデータベースの主要カラムリストは空です"
 
 #: resources/templates/database/central_columns/main.twig:168
-#: resources/templates/display/results/table.twig:136
+#: resources/templates/display/results/table.twig:139
 msgid "Filter rows:"
 msgstr "行フィルタ:"
 
 #: resources/templates/database/central_columns/main.twig:171
-#: resources/templates/display/results/table.twig:140
+#: resources/templates/display/results/table.twig:143
 msgid "Search this table"
 msgstr "このテーブルを検索"
 
@@ -1378,7 +1378,7 @@ msgstr "データベースのコメント:"
 #: resources/templates/database/data_dictionary/index.twig:8
 #: resources/templates/database/data_dictionary/index.twig:124
 #: resources/templates/database/structure/index.twig:13
-#: resources/templates/display/results/table.twig:348
+#: resources/templates/display/results/table.twig:351
 #: resources/templates/table/structure/display_structure.twig:383
 msgid "Print"
 msgstr "印刷"
@@ -1802,8 +1802,8 @@ msgstr "イベント"
 #: resources/templates/database/routines/index.twig:14
 #: resources/templates/database/structure/check_all_tables.twig:3
 #: resources/templates/database/structure/check_all_tables.twig:4
-#: resources/templates/display/results/table.twig:312
-#: resources/templates/display/results/table.twig:313
+#: resources/templates/display/results/table.twig:315
+#: resources/templates/display/results/table.twig:316
 #: resources/templates/select_all.twig:3 resources/templates/select_all.twig:4
 #: resources/templates/server/databases/index.twig:64
 #: resources/templates/server/privileges/edit_routine_privileges.twig:58
@@ -1834,9 +1834,9 @@ msgstr "すべてチェックする"
 #: resources/templates/database/routines/row.twig:60
 #: resources/templates/database/routines/row.twig:63
 #: resources/templates/database/structure/check_all_tables.twig:12
-#: resources/templates/display/results/table.twig:329
-#: resources/templates/display/results/table.twig:330
-#: resources/templates/display/results/table.twig:362
+#: resources/templates/display/results/table.twig:332
+#: resources/templates/display/results/table.twig:333
+#: resources/templates/display/results/table.twig:365
 #: resources/templates/export.twig:3 resources/templates/export.twig:495
 #: resources/templates/preferences/header.twig:42
 #: resources/templates/preferences/manage/main.twig:67
@@ -2017,8 +2017,8 @@ msgstr "ソート"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1472
-#: src/Display/Results.php:1479 src/Util.php:2000 src/Util.php:2017
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1463
+#: src/Display/Results.php:1470 src/Util.php:2000 src/Util.php:2017
 msgid "Ascending"
 msgstr "昇順"
 
@@ -2029,8 +2029,8 @@ msgstr "昇順"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1467
-#: src/Display/Results.php:1484 src/Util.php:2005 src/Util.php:2022
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1458
+#: src/Display/Results.php:1475 src/Util.php:2005 src/Util.php:2022
 msgid "Descending"
 msgstr "降順"
 
@@ -2272,8 +2272,8 @@ msgstr "ユーザが存在しません。"
 #: resources/templates/database/privileges/index.twig:114
 #: resources/templates/database/structure/check_all_tables.twig:2
 #: resources/templates/database/structure/check_all_tables.twig:9
-#: resources/templates/display/results/table.twig:311
 #: resources/templates/display/results/table.twig:314
+#: resources/templates/display/results/table.twig:317
 #: resources/templates/select_all.twig:1 resources/templates/select_all.twig:5
 #: resources/templates/server/privileges/users_overview.twig:119
 #: resources/templates/server/privileges/users_overview.twig:122
@@ -2726,7 +2726,7 @@ msgid "View"
 msgstr "ビュー"
 
 #: resources/templates/database/structure/show_create.twig:36
-#: resources/templates/display/results/table.twig:387
+#: resources/templates/display/results/table.twig:390
 #: resources/templates/modals/create_view.twig:5
 #: resources/templates/sql/no_results_returned.twig:14
 #: resources/templates/view_create.twig:14
@@ -2937,87 +2937,87 @@ msgstr "カラムの順番を元に戻す"
 msgid "Number of rows:"
 msgstr "行数:"
 
-#: resources/templates/display/results/table.twig:124
+#: resources/templates/display/results/table.twig:125
 msgid "All"
 msgstr "全部"
 
-#: resources/templates/display/results/table.twig:148
+#: resources/templates/display/results/table.twig:151
 msgid "Sort by key:"
 msgstr "キーで並べ替え:"
 
-#: resources/templates/display/results/table.twig:197
+#: resources/templates/display/results/table.twig:200
 #: resources/templates/table/search/index.twig:101
 msgid "Extra options"
 msgstr "拡張オプション"
 
-#: resources/templates/display/results/table.twig:209
-#: src/Display/Results.php:1122
+#: resources/templates/display/results/table.twig:212
+#: src/Display/Results.php:1117
 msgid "Partial texts"
 msgstr "部分テキスト"
 
-#: resources/templates/display/results/table.twig:213
-#: src/Display/Results.php:1126
+#: resources/templates/display/results/table.twig:216
+#: src/Display/Results.php:1121
 msgid "Full texts"
 msgstr "全文"
 
-#: resources/templates/display/results/table.twig:221
+#: resources/templates/display/results/table.twig:224
 msgid "Relational key"
 msgstr "リレーションキー"
 
-#: resources/templates/display/results/table.twig:225
+#: resources/templates/display/results/table.twig:228
 msgid "Display column for relationships"
 msgstr "リレーションのカラムを表示する"
 
-#: resources/templates/display/results/table.twig:234
+#: resources/templates/display/results/table.twig:237
 msgid "Show binary contents"
 msgstr "バイナリの内容を表示する"
 
-#: resources/templates/display/results/table.twig:240
+#: resources/templates/display/results/table.twig:243
 msgid "Show BLOB contents"
 msgstr "BLOB の内容を表示する"
 
-#: resources/templates/display/results/table.twig:252
+#: resources/templates/display/results/table.twig:255
 msgid "Hide browser transformation"
 msgstr "ブラウザ変換機能を隠す"
 
-#: resources/templates/display/results/table.twig:260
+#: resources/templates/display/results/table.twig:263
 #: src/Controllers/JavaScriptMessagesController.php:497
 msgid "Geometry"
 msgstr "幾何データ"
 
-#: resources/templates/display/results/table.twig:265
+#: resources/templates/display/results/table.twig:268
 msgid "Well Known Text"
 msgstr "空間データをテキストで表示"
 
-#: resources/templates/display/results/table.twig:269
+#: resources/templates/display/results/table.twig:272
 msgid "Well Known Binary"
 msgstr "空間データをバイナリで表示"
 
-#: resources/templates/display/results/table.twig:320
-#: resources/templates/display/results/table.twig:321
+#: resources/templates/display/results/table.twig:323
+#: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:491
-#: src/Display/Results.php:2492 src/Html/Generator.php:78
+#: src/Display/Results.php:2482 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "コピー"
 
-#: resources/templates/display/results/table.twig:344
+#: resources/templates/display/results/table.twig:347
 #: resources/templates/sql/no_results_returned.twig:9
 msgid "Query results operations"
 msgstr "クエリ結果操作"
 
-#: resources/templates/display/results/table.twig:350
+#: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:490
 #: src/Export/Export.php:1253
 msgid "Copy to clipboard"
 msgstr "クリップボードにコピー"
 
-#: resources/templates/display/results/table.twig:369
+#: resources/templates/display/results/table.twig:372
 #: resources/templates/table/chart/tbl_chart.twig:2
 msgid "Display chart"
 msgstr "グラフで表示する"
 
-#: resources/templates/display/results/table.twig:377
+#: resources/templates/display/results/table.twig:380
 msgid "Visualize GIS data"
 msgstr "空間情報のデータを視覚化する"
 
@@ -5802,7 +5802,7 @@ msgid "Start auto refresh"
 msgstr "自動更新を開始"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2566
+#: src/Display/Results.php:2556
 msgid "Kill"
 msgstr "停止"
 
@@ -6181,7 +6181,7 @@ msgstr "プロファイリング結果の円グラフ。"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:995 src/Display/Results.php:3150
+#: src/Database/Routines.php:995 src/Display/Results.php:3140
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL は正常に実行されました。"
@@ -11982,7 +11982,7 @@ msgid "Success!"
 msgstr "成功！"
 
 #: src/Controllers/Database/StructureController.php:576
-#: src/Display/Results.php:3430
+#: src/Display/Results.php:3418
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15475,31 +15475,31 @@ msgstr ""
 "エラー1045：ユーザのアクセスが拒否されました。追加のエラー情報が利用できる場"
 "合がありますが、%s 構成ディレクティブによって隠されています。"
 
-#: src/Display/Results.php:2523 src/Display/Results.php:2538
+#: src/Display/Results.php:2513 src/Display/Results.php:2528
 msgid "The row has been deleted."
 msgstr "行を削除しました。"
 
-#: src/Display/Results.php:3439
+#: src/Display/Results.php:3427
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "行 %1s - %2s の表示"
 
-#: src/Display/Results.php:3453
+#: src/Display/Results.php:3441
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "合計 %1$s, クエリで %2$s"
 
-#: src/Display/Results.php:3458
+#: src/Display/Results.php:3446
 #, php-format
 msgid "%s total"
 msgstr "合計 %s"
 
-#: src/Display/Results.php:3471 src/Sql.php:864
+#: src/Display/Results.php:3459 src/Sql.php:864
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "クエリの実行時間： %01.4f 秒。"
 
-#: src/Display/Results.php:3777
+#: src/Display/Results.php:3765
 msgid "Link not found!"
 msgstr "リンクが見つかりません！"
 
@@ -17769,7 +17769,7 @@ msgstr "プライマリを切り替えることができません!"
 msgid "Primary server changed successfully to %s."
 msgstr "プライマリサーバを %s へ切り替えるのに成功しました。"
 
-#: src/Routing/Routing.php:119
+#: src/Routing/Routing.php:125
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
@@ -17778,12 +17778,12 @@ msgstr ""
 "ルーティングキャッシュが書き込みできません。 \"%s\" フォルダ/ファイルのアクセ"
 "ス権を調整する必要があります"
 
-#: src/Routing/Routing.php:153 src/Routing/Routing.php:207
+#: src/Routing/Routing.php:159 src/Routing/Routing.php:203
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "エラー 404! ページ 「%s」が見つかりませんでした。"
 
-#: src/Routing/Routing.php:161
+#: src/Routing/Routing.php:167
 msgid "Error 405! Request method not allowed."
 msgstr "エラー 405! リクエストメソッドは許可されていません。"
 
@@ -17907,9 +17907,9 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
-"localhostから任意のユーザに接続を許可するユーザが存在します。 これにより、"
-"そのアカウントのホスト部分で任意ホスト (%) "
-"からの接続が許可されている場合、他のユーザは接続できなくなります。"
+"localhostから任意のユーザに接続を許可するユーザが存在します。 これにより、そ"
+"のアカウントのホスト部分で任意ホスト (%) からの接続が許可されている場合、他の"
+"ユーザは接続できなくなります。"
 
 #: src/Server/Status/Data.php:123
 msgid "Handler"
@@ -18325,16 +18325,17 @@ msgstr ""
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
-msgstr "固定小数点数 (M, D) - 整数部の最大桁数 M は 65 (デフォルトは 10)、"
-"小数部の最大桁数 D は 30 (デフォルトは 0)"
+msgstr ""
+"固定小数点数 (M, D) - 整数部の最大桁数 M は 65 (デフォルトは 10)、小数部の最"
+"大桁数 D は 30 (デフォルトは 0)"
 
 #: src/Types.php:217
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"単精度浮動小数点数、有効範囲は -3.402823466E+38 から -1.175494351E-38、0、1."
-"175494351E-38 から 3.402823466E+38"
+"単精度浮動小数点数、有効範囲は -3.402823466E+38 から -1.175494351E-38、0、"
+"1.175494351E-38 から 3.402823466E+38"
 
 #: src/Types.php:222
 msgid ""
@@ -18342,9 +18343,9 @@ msgid ""
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"倍精度浮動小数点数、有効範囲は -1.7976931348623157E+308 から -2."
-"2250738585072014E-308、0、2.2250738585072014E-308 から 1."
-"7976931348623157E+308"
+"倍精度浮動小数点数、有効範囲は -1.7976931348623157E+308 から "
+"-2.2250738585072014E-308、0、2.2250738585072014E-308 から "
+"1.7976931348623157E+308"
 
 #: src/Types.php:226
 msgid ""
@@ -18358,8 +18359,9 @@ msgstr ""
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
-msgstr "ビットフィールドタ型 (M)。値ごとに M ビットを保管します（デフォルトは 1、"
-"最大は 64 です）"
+msgstr ""
+"ビットフィールドタ型 (M)。値ごとに M ビットを保管します（デフォルトは 1、最大"
+"は 64 です）"
 
 #: src/Types.php:229
 msgid ""
@@ -18424,22 +18426,25 @@ msgstr ""
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
-msgstr "TEXT カラム、最大長 255 (2^8 - 1)、バイト単位で長さを示す 1 "
-"バイトの接頭辞つきで格納されます"
+msgstr ""
+"TEXT カラム、最大長 255 (2^8 - 1)、バイト単位で長さを示す 1 バイトの接頭辞つ"
+"きで格納されます"
 
 #: src/Types.php:273
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
-msgstr "TEXT カラム、最大長 65,535 (2^16 - 1)、バイト単位で長さを示す 2 "
-"バイトの接頭辞つきで格納されます"
+msgstr ""
+"TEXT カラム、最大長 65,535 (2^16 - 1)、バイト単位で長さを示す 2 バイトの接頭"
+"辞つきで格納されます"
 
 #: src/Types.php:278
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
-msgstr "TEXT カラム、最大長 16,777,215 (2^24 - 1)、バイト単位で長さを示す 3 "
-"バイトの接頭辞つきで格納されます"
+msgstr ""
+"TEXT カラム、最大長 16,777,215 (2^24 - 1)、バイト単位で長さを示す 3 バイトの"
+"接頭辞つきで格納されます"
 
 #: src/Types.php:283
 msgid ""
@@ -18447,8 +18452,8 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
-"TEXT カラム、最大長 4,294,967,295 または 4GiB (2^32 - 1)、"
-"バイト単位で長さを示す 4 バイトの接頭辞つきで格納されます"
+"TEXT カラム、最大長 4,294,967,295 または 4GiB (2^32 - 1)、バイト単位で長さを"
+"示す 4 バイトの接頭辞つきで格納されます"
 
 #: src/Types.php:288
 msgid ""
@@ -18469,30 +18474,33 @@ msgstr ""
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
-msgstr "BLOB カラム、最大 255 (2^8 - 1) バイト、バイト単位で長さを示す 1 "
-"バイトの接頭辞つきで格納されます"
+msgstr ""
+"BLOB カラム、最大 255 (2^8 - 1) バイト、バイト単位で長さを示す 1 バイトの接頭"
+"辞つきで格納されます"
 
 #: src/Types.php:299
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
-msgstr "BLOB カラム、最大 16,777,215 (2^24 - 1) バイト、バイト単位で長さを示す 3 "
-"バイトの接頭辞つきで格納されます"
+msgstr ""
+"BLOB カラム、最大 16,777,215 (2^24 - 1) バイト、バイト単位で長さを示す 3 バイ"
+"トの接頭辞つきで格納されます"
 
 #: src/Types.php:304
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
-msgstr "BLOB カラム、最大 65,535 (2^16 - 1) バイト、バイト単位で長さを示す 2 "
-"バイトの接頭辞つきで格納されます"
+msgstr ""
+"BLOB カラム、最大 65,535 (2^16 - 1) バイト、バイト単位で長さを示す 2 バイトの"
+"接頭辞つきで格納されます"
 
 #: src/Types.php:308
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
-"BLOB カラム、最大 4,294,967,295 バイトまたは 4GiB (2^32 - 1)、"
-"バイト単位で長さを示す 4 バイトの接頭辞つきで格納されます"
+"BLOB カラム、最大 4,294,967,295 バイトまたは 4GiB (2^32 - 1)、バイト単位で長"
+"さを示す 4 バイトの接頭辞つきで格納されます"
 
 #: src/Types.php:312
 msgid ""
@@ -18542,8 +18550,9 @@ msgstr "任意の型の幾何物体の集合"
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
-msgstr "JSON (JavaScript Object Notation) "
-"文書内のデータを格納し、効率的にデータにアクセスする"
+msgstr ""
+"JSON (JavaScript Object Notation) 文書内のデータを格納し、効率的にデータにア"
+"クセスする"
 
 #: src/Types.php:323
 msgid ""
