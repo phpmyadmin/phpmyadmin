@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
+use DateTimeImmutable;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
@@ -64,7 +65,7 @@ final class StatusController extends AbstractController implements InvocableCont
                 $uptime = Util::timespanFormat((int) $this->data->status['Uptime']);
             }
 
-            $startTime = Util::localisedDate($this->getStartTime());
+            $startTime = Util::localisedDate((new DateTimeImmutable())->setTimestamp($this->getStartTime()));
 
             $traffic = $this->getTrafficInfo();
 

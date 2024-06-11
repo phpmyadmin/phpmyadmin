@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use DateTimeImmutable;
 use PhpMyAdmin\ConfigStorage\UserGroupLevel;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -74,7 +75,6 @@ use function strnatcasecmp;
 use function strrev;
 use function strtolower;
 use function strtr;
-use function time;
 use function trim;
 use function uksort;
 
@@ -486,12 +486,9 @@ class Util
     /**
      * Writes localised date
      *
-     * @param int    $timestamp the current timestamp
-     * @param string $format    format
-     *
-     * @return string   the formatted date
+     * @return string the formatted date
      */
-    public static function localisedDate(int $timestamp = -1, string $format = ''): string
+    public static function localisedDate(DateTimeImmutable $dateTime, string $format = ''): string
     {
         $month = [
             _pgettext('Short month name for January', 'Jan'),
@@ -522,25 +519,11 @@ class Util
             $format = __('%B %d, %Y at %I:%M %p');
         }
 
-        if ($timestamp === -1) {
-            $timestamp = time();
-        }
-
-        $date = (string) preg_replace(
-            '@%[aA]@',
-            // phpcs:ignore Generic.PHP.DeprecatedFunctions
-            $dayOfWeek[(int) @strftime('%w', $timestamp)],
-            $format,
-        );
-        $date = (string) preg_replace(
-            '@%[bB]@',
-            // phpcs:ignore Generic.PHP.DeprecatedFunctions
-            $month[(int) @strftime('%m', $timestamp) - 1],
-            $date,
-        );
+        $date = (string) preg_replace('@%[aA]@', $dayOfWeek[(int) $dateTime->format('w')], $format);
+        $date = (string) preg_replace('@%[bB]@', $month[(int) $dateTime->format('n') - 1], $date);
 
         /* Fill in AM/PM */
-        $hours = (int) date('H', $timestamp);
+        $hours = (int) $dateTime->format('H');
         if ($hours >= 12) {
             $amPm = _pgettext('AM/PM indication in time', 'PM');
         } else {
@@ -552,11 +535,11 @@ class Util
         // Can return false on windows for Japanese language
         // See https://github.com/phpmyadmin/phpmyadmin/issues/15830
         // phpcs:ignore Generic.PHP.DeprecatedFunctions
-        $ret = @strftime($date, $timestamp);
+        $ret = @strftime($date, $dateTime->getTimestamp());
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
         // output here. See https://github.com/phpmyadmin/phpmyadmin/issues/10598
         if ($ret === false || mb_detect_encoding($ret, 'UTF-8', true) !== 'UTF-8') {
-            return date('Y-m-d H:i:s', $timestamp);
+            return $dateTime->format('Y-m-d H:i:s');
         }
 
         return $ret;

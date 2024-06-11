@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
+use DateTimeImmutable;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
@@ -128,7 +129,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             $timestamp -= (int) $options[0] * 60 * 60;
             $source = $buffer;
             $text = match ($options[2]) {
-                'local' => Util::localisedDate($timestamp, $options[1]),
+                'local' => Util::localisedDate((new DateTimeImmutable())->setTimestamp($timestamp), $options[1]),
                 'utc' => gmdate($options[1], $timestamp),
                 default => 'INVALID DATE TYPE',
             };

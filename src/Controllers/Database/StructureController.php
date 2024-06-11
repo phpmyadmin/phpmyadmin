@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use DateTimeImmutable;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
@@ -50,7 +51,6 @@ use function preg_match;
 use function preg_quote;
 use function sprintf;
 use function str_replace;
-use function strtotime;
 use function urlencode;
 
 /**
@@ -420,11 +420,11 @@ final class StructureController implements InvocableController
                 'unit' => $unit,
                 'overhead' => $overhead,
                 'create_time' => isset($createTime) && $createTime
-                        ? Util::localisedDate(strtotime($createTime)) : '-',
+                        ? Util::localisedDate(new DateTimeImmutable($createTime)) : '-',
                 'update_time' => isset($updateTime) && $updateTime
-                        ? Util::localisedDate(strtotime($updateTime)) : '-',
+                        ? Util::localisedDate(new DateTimeImmutable($updateTime)) : '-',
                 'check_time' => isset($checkTime) && $checkTime
-                        ? Util::localisedDate(strtotime($checkTime)) : '-',
+                        ? Util::localisedDate(new DateTimeImmutable($checkTime)) : '-',
                 'charset' => $charset ?? '',
                 'is_show_stats' => $this->isShowStats,
                 'ignored' => $ignored,
@@ -497,9 +497,9 @@ final class StructureController implements InvocableController
                 'database_charset' => $databaseCharset,
                 'sum_size' => $sumSize,
                 'overhead_size' => $overheadSize,
-                'create_time_all' => $createTimeAll ? Util::localisedDate(strtotime($createTimeAll)) : '-',
-                'update_time_all' => $updateTimeAll ? Util::localisedDate(strtotime($updateTimeAll)) : '-',
-                'check_time_all' => $checkTimeAll ? Util::localisedDate(strtotime($checkTimeAll)) : '-',
+                'create_time_all' => $createTimeAll ? Util::localisedDate(new DateTimeImmutable($createTimeAll)) : '-',
+                'update_time_all' => $updateTimeAll ? Util::localisedDate(new DateTimeImmutable($updateTimeAll)) : '-',
+                'check_time_all' => $checkTimeAll ? Util::localisedDate(new DateTimeImmutable($checkTimeAll)) : '-',
                 'approx_rows' => $overallApproxRows,
                 'num_favorite_tables' => $config->settings['NumFavoriteTables'],
                 'db' => Current::$database,
