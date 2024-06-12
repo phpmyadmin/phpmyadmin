@@ -10734,7 +10734,6 @@
       <code><![CDATA[$foreignData->foreignField]]></code>
       <code><![CDATA[$numberOfLine / $maxRows]]></code>
       <code><![CDATA[$sortCol]]></code>
-      <code><![CDATA[$statement->expr]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
@@ -10748,7 +10747,6 @@
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['possible_as_geometry']]]></code>
-      <code><![CDATA[$statement->expr[0]]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$maxRows]]></code>
@@ -10837,14 +10835,6 @@
       <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
       <code><![CDATA[empty($statement->altered[0]->field->column)]]></code>
     </RiskyTruthyFalsyComparison>
-    <UndefinedPropertyAssignment>
-      <code><![CDATA[$statement->expr]]></code>
-      <code><![CDATA[$statement->limit]]></code>
-      <code><![CDATA[$statement->order]]></code>
-    </UndefinedPropertyAssignment>
-    <UndefinedPropertyFetch>
-      <code><![CDATA[$statement->expr]]></code>
-    </UndefinedPropertyFetch>
   </file>
   <file src="src/SqlQueryForm.php">
     <DeprecatedMethod>

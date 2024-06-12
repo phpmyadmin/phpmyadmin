@@ -660,24 +660,25 @@ class Sql
                     $unlimNumRows = $this->dbi->getTable($db, $table)->countRecords(true);
                 }
             } else {
+                /** @var SelectStatement $statement */
                 $statement = $statementInfo->statement;
 
-                // Remove ORDER BY to decrease unnecessary sorting time
-                if ($statementInfo->flags->order) {
-                    $statement->order = null;
-                }
-
-                // Removes LIMIT clause that might have been added
-                if ($statementInfo->flags->limit) {
-                    $statement->limit = false;
-                }
-
-                if (
-                    ! $statementInfo->flags->isGroup
+                $changeExpression = ! $statementInfo->flags->isGroup
                     && ! $statementInfo->flags->distinct
                     && ! $statementInfo->flags->union
-                    && count($statement->expr) === 1
-                ) {
+                    && count($statement->expr) === 1;
+
+                if ($statementInfo->flags->order || $statementInfo->flags->limit || $changeExpression) {
+                    $statement = clone $statement;
+                }
+
+                // Remove ORDER BY to decrease unnecessary sorting time
+                $statement->order = null;
+
+                // Removes LIMIT clause that might have been added
+                $statement->limit = null;
+
+                if ($changeExpression) {
                     $statement->expr[0] = new Expression();
                     $statement->expr[0]->expr = '1';
                 }
