@@ -35,6 +35,7 @@ use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Throwable;
 
 use function __;
 use function array_search;
@@ -221,9 +222,9 @@ final class StructureController implements InvocableController
 
         $i = $sumEntries = 0;
         $overheadCheck = false;
-        $createTimeAll = '';
-        $updateTimeAll = '';
-        $checkTimeAll = '';
+        $createTimeAll = null;
+        $updateTimeAll = null;
+        $checkTimeAll = null;
         $config = Config::getInstance();
         $numColumns = $config->settings['PropertiesNumColumns'] > 1
             ? ceil($this->numTables / $config->settings['PropertiesNumColumns']) + 1
@@ -237,6 +238,7 @@ final class StructureController implements InvocableController
         $structureTableRows = [];
         $trackedTables = $this->trackingChecker->getTrackedTables(Current::$database);
         $recentFavoriteTables = RecentFavoriteTables::getInstance(TableType::Favorite);
+        /** @var mixed[] $currentTable */
         foreach ($this->tables as $currentTable) {
             // Get valid statistics whatever is the table type
 
@@ -301,23 +303,26 @@ final class StructureController implements InvocableController
                 }
             }
 
-            if ($config->settings['ShowDbStructureCreation']) {
-                $createTime = $currentTable['Create_time'] ?? '';
-                if ($createTime && (! $createTimeAll || $createTime < $createTimeAll)) {
+            $createTime = null;
+            if ($config->settings['ShowDbStructureCreation'] && isset($currentTable['Create_time'])) {
+                $createTime = $this->createDateTime($currentTable['Create_time']);
+                if ($createTime !== null && ($createTimeAll === null || $createTime < $createTimeAll)) {
                     $createTimeAll = $createTime;
                 }
             }
 
-            if ($config->settings['ShowDbStructureLastUpdate']) {
-                $updateTime = $currentTable['Update_time'] ?? '';
-                if ($updateTime && (! $updateTimeAll || $updateTime < $updateTimeAll)) {
+            $updateTime = null;
+            if ($config->settings['ShowDbStructureLastUpdate'] && isset($currentTable['Update_time'])) {
+                $updateTime = $this->createDateTime($currentTable['Update_time']);
+                if ($updateTime !== null && ($updateTimeAll === null || $updateTime < $updateTimeAll)) {
                     $updateTimeAll = $updateTime;
                 }
             }
 
-            if ($config->settings['ShowDbStructureLastCheck']) {
-                $checkTime = $currentTable['Check_time'] ?? '';
-                if ($checkTime && (! $checkTimeAll || $checkTime < $checkTimeAll)) {
+            $checkTime = null;
+            if ($config->settings['ShowDbStructureLastCheck'] && isset($currentTable['Check_time'])) {
+                $checkTime = $this->createDateTime($currentTable['Check_time']);
+                if ($checkTime !== null && ($checkTimeAll === null || $checkTime < $checkTimeAll)) {
                     $checkTimeAll = $checkTime;
                 }
             }
@@ -419,12 +424,9 @@ final class StructureController implements InvocableController
                 'formatted_size' => $formattedSize,
                 'unit' => $unit,
                 'overhead' => $overhead,
-                'create_time' => isset($createTime) && $createTime
-                        ? Util::localisedDate(new DateTimeImmutable($createTime)) : '-',
-                'update_time' => isset($updateTime) && $updateTime
-                        ? Util::localisedDate(new DateTimeImmutable($updateTime)) : '-',
-                'check_time' => isset($checkTime) && $checkTime
-                        ? Util::localisedDate(new DateTimeImmutable($checkTime)) : '-',
+                'create_time' => $createTime !== null ? Util::localisedDate($createTime) : '-',
+                'update_time' => $updateTime !== null ? Util::localisedDate($updateTime) : '-',
+                'check_time' => $checkTime !== null ? Util::localisedDate($checkTime) : '-',
                 'charset' => $charset ?? '',
                 'is_show_stats' => $this->isShowStats,
                 'ignored' => $ignored,
@@ -497,9 +499,9 @@ final class StructureController implements InvocableController
                 'database_charset' => $databaseCharset,
                 'sum_size' => $sumSize,
                 'overhead_size' => $overheadSize,
-                'create_time_all' => $createTimeAll ? Util::localisedDate(new DateTimeImmutable($createTimeAll)) : '-',
-                'update_time_all' => $updateTimeAll ? Util::localisedDate(new DateTimeImmutable($updateTimeAll)) : '-',
-                'check_time_all' => $checkTimeAll ? Util::localisedDate(new DateTimeImmutable($checkTimeAll)) : '-',
+                'create_time_all' => $createTimeAll !== null ? Util::localisedDate($createTimeAll) : '-',
+                'update_time_all' => $updateTimeAll !== null ? Util::localisedDate($updateTimeAll) : '-',
+                'check_time_all' => $checkTimeAll !== null ? Util::localisedDate($checkTimeAll) : '-',
                 'approx_rows' => $overallApproxRows,
                 'num_favorite_tables' => $config->settings['NumFavoriteTables'],
                 'db' => Current::$database,
@@ -651,7 +653,7 @@ final class StructureController implements InvocableController
      * @param int     $sumSize      total table size
      * @param int     $overheadSize overhead size
      *
-     * @return mixed[]
+     * @psalm-return list{mixed[], string, string, string, string, int, bool, int}
      */
     private function getStuffForEngineTypeTable(
         array $currentTable,
@@ -865,5 +867,18 @@ final class StructureController implements InvocableController
         }
 
         return [$currentTable, $formattedSize, $unit, $sumSize];
+    }
+
+    private function createDateTime(mixed $dateTime): DateTimeImmutable|null
+    {
+        if (! is_string($dateTime) || $dateTime === '') {
+            return null;
+        }
+
+        try {
+            return new DateTimeImmutable($dateTime);
+        } catch (Throwable) {
+            return null;
+        }
     }
 }

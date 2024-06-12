@@ -2016,38 +2016,13 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Cannot access offset 'Check_time' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Collation' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Create_time' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'ENGINE' on mixed\\.$#"
-			count: 2
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'TABLE_COMMENT' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Cannot access offset 'TABLE_NAME' on mixed\\.$#"
-			count: 12
+			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
 			message: "#^Cannot access offset 'TABLE_ROWS' on mixed\\.$#"
-			count: 3
+			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -2056,7 +2031,7 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Cannot access offset 'Update_time' on mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getStuffForEngineTypeTable\\(\\) should return array\\{array, string, string, string, string, int, bool, int\\} but returns array\\{mixed, mixed, mixed, mixed, mixed, mixed, bool, mixed\\}\\.$#"
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
@@ -2066,58 +2041,13 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Only booleans are allowed in &&, mixed given on the left side\\.$#"
-			count: 3
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Only booleans are allowed in &&, mixed given on the right side\\.$#"
-			count: 3
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
-			count: 3
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Only booleans are allowed in a ternary operator condition, mixed given\\.$#"
-			count: 3
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Only booleans are allowed in \\|\\|, mixed given on the left side\\.$#"
-			count: 2
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Only booleans are allowed in \\|\\|, mixed given on the right side\\.$#"
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
 			message: "#^Parameter \\#1 \\$connection of method PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:load\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$currentTable of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getStuffForEngineTypeTable\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$currentTable of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:isRowCountApproximated\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$datetime of class DateTimeImmutable constructor expects string, mixed given\\.$#"
-			count: 6
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -2166,17 +2096,7 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Parameter \\#2 \\$sumSize of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getStuffForEngineTypeTable\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getReplicationStatus\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableIsView of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:isRowCountApproximated\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
@@ -2187,11 +2107,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$name of static method PhpMyAdmin\\\\Charsets\\:\\:findCollationByName\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#3 \\$overheadSize of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getStuffForEngineTypeTable\\(\\) expects int, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
