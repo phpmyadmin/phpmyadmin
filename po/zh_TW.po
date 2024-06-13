@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-01-04 00:55+0000\n"
-"Last-Translator: yangyangdaji <1504305527@qq.com>\n"
+"PO-Revision-Date: 2024-06-13 16:09+0000\n"
+"Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2997,14 +2997,14 @@ msgstr "將欄位名稱儲存至第一行"
 #: libraries/classes/Config/Descriptions.php:800
 #: libraries/classes/Plugins/Import/ImportCsv.php:666
 msgid "Columns enclosed with"
-msgstr "內容分隔符號："
+msgstr "內容分隔符號"
 
 #: libraries/classes/Config/Descriptions.php:662
 #: libraries/classes/Config/Descriptions.php:795
 #: libraries/classes/Config/Descriptions.php:801
 #: libraries/classes/Plugins/Import/ImportCsv.php:677
 msgid "Columns escaped with"
-msgstr "內容跳脫符號："
+msgstr "內容跳脫符號"
 
 #: libraries/classes/Config/Descriptions.php:663
 #: libraries/classes/Config/Descriptions.php:669
@@ -3032,7 +3032,7 @@ msgstr "欄位內容換行字元為"
 #: libraries/classes/Config/Descriptions.php:793
 #: libraries/classes/Plugins/Import/ImportCsv.php:684
 msgid "Lines terminated with"
-msgstr "換行符號："
+msgstr "換行符號"
 
 #: libraries/classes/Config/Descriptions.php:668
 msgid "Excel edition"
@@ -3140,8 +3140,6 @@ msgid "Export as separate files"
 msgstr "匯出為個別檔案"
 
 #: libraries/classes/Config/Descriptions.php:705
-#, fuzzy
-#| msgid "Remember file name template"
 msgid "Remember filename template"
 msgstr "記錄模板檔案名稱"
 
@@ -4168,8 +4166,6 @@ msgid "Version check"
 msgstr "檢查更新"
 
 #: libraries/classes/Config/Descriptions.php:963
-#, fuzzy
-#| msgid "Proxy url"
 msgid "Proxy URL"
 msgstr "代理伺服器網址"
 
@@ -4245,10 +4241,8 @@ msgid "Show current browsing query"
 msgstr "顯示目前瀏覽的查詢"
 
 #: libraries/classes/Config/Descriptions.php:980
-#, fuzzy
-#| msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
-msgstr "按 Enter 執行查詢，輸入新一行則用 Shift + Enter"
+msgstr "按 Enter 執行查詢，輸入新一行則用 Shift+Enter"
 
 #: libraries/classes/Config/Descriptions.php:981
 #: templates/console/display.twig:168
@@ -4762,7 +4756,7 @@ msgstr "無法載入匯入外掛程式，請檢查安裝是否有誤！"
 #: libraries/classes/Controllers/Database/Operations/CollationController.php:48
 #: libraries/classes/Controllers/Table/OperationsController.php:258
 msgid "No collation provided."
-msgstr ""
+msgstr "沒有提供編碼與排序。"
 
 #: libraries/classes/Controllers/Database/OperationsController.php:90
 #: libraries/classes/Controllers/Table/CreateController.php:72
@@ -5157,8 +5151,9 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "即將刪除(DESTROY)整個資料庫！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
+#, fuzzy
 msgid "Cannot rename database to the same name. Change the name and try again."
-msgstr "無法修改資料庫為相同名稱。更改名稱後再試"
+msgstr "無法修改資料庫為相同名稱。更改名稱後再試。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to DESTROY a complete table!"
@@ -7066,17 +7061,16 @@ msgstr "很好"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:683
-#, fuzzy
-#| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "等候啟用安全金鑰逾時。"
 
 #. l10n: error code 2 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#, fuzzy
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "無效的匯出類型。"
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:687
@@ -7713,14 +7707,11 @@ msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "延遲新增等待寫入序列的列數。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:437
-#, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
-msgstr "已經開啟的資料表數。如果該值很大，則代表資料表快取可能設得太小。"
+msgstr "已經開啟的資料表數。如果該值很大，則代表資料表快取(table_open_cache "
+")可能設得太小。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:440
 msgid "The number of files that are open."
@@ -8052,10 +8043,8 @@ msgstr "資料表名稱無效"
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:72
 #: libraries/classes/Controllers/Transformation/WrapperController.php:103
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "有太多的資料表連結(join)未使用索引。"
+msgstr "請求發生問題。"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1243
@@ -8221,16 +8210,12 @@ msgid "NO"
 msgstr "否"
 
 #: libraries/classes/Database/Designer/Common.php:528
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
-msgstr "欄位中央清單功能未能使用，因設定儲存空間尚未預備好。"
+msgstr "phpMyAdmin設定儲存空間沒有完成對「顯示功能」的設定。"
 
 #: libraries/classes/Database/Designer/Common.php:573
 msgid "Error: relationship already exists."
@@ -8387,11 +8372,10 @@ msgid "Export of event %s"
 msgstr "匯出事件 %s"
 
 #: libraries/classes/Database/Events.php:589
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的事件。"
+msgstr "請求出現問題：資料庫 %2$s 沒有名為 %1$s 的事件。"
 
 #: libraries/classes/DatabaseInterface.php:1132
 #, php-format
@@ -8558,17 +8542,13 @@ msgid "Export of routine %s"
 msgstr "匯出預存程序 %s"
 
 #: libraries/classes/Database/Routines.php:1589
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine."
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
-msgstr ""
-"在資料庫 %2$s 中查無名稱為 %1$s 的預存程序，您可能缺少能夠檢視/匯出該程序的權"
-"限。"
+msgstr "請求出現問題：資料庫 %2$s 沒有名為 %1$s "
+"的預存程序。您可能缺少能夠檢視/匯出該程序的權限。"
 
 #: libraries/classes/Database/Search.php:103
 #: templates/database/search/main.twig:19
@@ -8649,12 +8629,11 @@ msgid "Export of trigger %s"
 msgstr "匯出觸發器 %s"
 
 #: libraries/classes/Database/Triggers.php:520
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的觸發器。"
+msgstr "請求出現問題：資料庫 %2$s 沒有名為 %1$s 的觸發器。"
 
 #: libraries/classes/Dbal/DbiMysqli.php:152
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9204,7 +9183,7 @@ msgstr ""
 #, fuzzy
 #| msgid "SOAP extension not found"
 msgid "Session not found."
-msgstr "未安裝 SOAP 擴充套件"
+msgstr "未安裝 SOAP 擴充套件。"
 
 #: libraries/classes/Html/Generator.php:146
 #, php-format
@@ -9815,7 +9794,7 @@ msgstr "第一正規化 (1NF)"
 #: libraries/classes/Normalization.php:324
 #: libraries/classes/Normalization.php:361
 msgid "Step 1."
-msgstr "第一步："
+msgstr "第一步。"
 
 #: libraries/classes/Normalization.php:230
 msgid ""
@@ -9922,7 +9901,7 @@ msgstr "無重複群組"
 
 #: libraries/classes/Normalization.php:404
 msgid "Step 2."
-msgstr "第二步："
+msgstr "第二步。"
 
 #: libraries/classes/Normalization.php:404
 msgid "Find partial dependencies"
@@ -10016,7 +9995,7 @@ msgstr "所選的重複群組已經移至「%s」資料表"
 
 #: libraries/classes/Normalization.php:868
 msgid "Step 3."
-msgstr "第三步："
+msgstr "第三步。"
 
 #: libraries/classes/Normalization.php:868
 msgid "Find transitive dependencies"
@@ -10167,10 +10146,8 @@ msgid "The table name is empty!"
 msgstr "資料表名稱不能為空！"
 
 #: libraries/classes/Partitioning/Maintenance.php:141
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "此為唯讀變數，不可編輯"
+msgstr "此資料表為檢視表，不可清空。"
 
 #: libraries/classes/Pdf.php:136
 msgid "Error while creating PDF:"
@@ -10389,7 +10366,7 @@ msgstr "傾印資料表的資料"
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:36
 msgid "Null"
-msgstr "空值(Null)"
+msgstr "無值(Null)"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:281
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:376
@@ -10589,10 +10566,8 @@ msgstr "匯出資料表的標題"
 
 #: libraries/classes/Plugins/Export/ExportOdt.php:246
 #: libraries/classes/Plugins/Export/ExportTexytext.php:179
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data for query result"
-msgstr "傾印資料表的資料"
+msgstr "傾印查詢結果"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:77
 msgid "Report title:"
@@ -10603,8 +10578,6 @@ msgid "Dumping data"
 msgstr "傾印資料"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:213
-#, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
 msgstr "查詢結果"
 
@@ -11167,18 +11140,6 @@ msgstr ""
 "案名稱作為欄位名稱。如果使用第二個選項，第一個選項必須留空。"
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:41
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -11192,12 +11153,12 @@ msgid ""
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
 "僅對 Linux 有效：執行外部的應用程，並透過標準輸入(stdin)提供欄位資料，然後以"
-"標準輸出(stdout)回傳應用程式的結果。預設使用 Tidy，用來格式化 HTML 程式碼。為"
-"了安全起見，您須要手動編輯 libraries/classes/Plugins/Transformations/Output/"
-"Text_Plain_External.php 檔案，並且列出要使用的工具。第一個選項是欲使用程式的"
-"數字，第二個選項是該程式的參數。第三個選項，若設為 1 則會使用 "
-"htmlspecialchars() 轉換輸出結果 (預設為 1)。第四個選項，若設為 1 則會停止自動"
-"換行，並確保輸出結果以一行顯示 (預設為 1)。"
+"標準輸出(stdout)回傳應用程式的結果。預設使用 Tidy，用來格式化 HTML "
+"程式碼。為了安全起見，您須要手動編輯 libraries/classes/Plugins/"
+"Transformations/Abs/ExternalTransformationsPlugin.php 檔案，並且列出要使用的"
+"工具。第一個選項是欲使用程式的數字。由於編程原因請留空第二個選項。第三個選項"
+"若設為1，則會使用 htmlspecialchars() 轉換輸出結果 (預設為 "
+"1)。第四個選項若設為1，則會停止自動換行並確保輸出結果以一行顯示 (預設為 1)。"
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:121
 #, php-format
@@ -11205,7 +11166,8 @@ msgid ""
 "You are using the external transformation command line options field, which "
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
-msgstr ""
+msgstr "您正在使用外部轉換“命令列選項”欄位，出於安全原因，該欄位已棄用。 "
+"請將所有“命令列選項”直接新增到 %s中的定義中。"
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:29
 msgid ""
@@ -12767,41 +12729,39 @@ msgstr "12月"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:692
-#, fuzzy
-#| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
-msgstr "週日"
+msgstr "日"
 
 #. l10n: Short week day name for Monday
 #: libraries/classes/Util.php:694 templates/javascript/variables.twig:58
 msgid "Mon"
-msgstr "週一"
+msgstr "一"
 
 #. l10n: Short week day name for Tuesday
 #: libraries/classes/Util.php:696 templates/javascript/variables.twig:59
 msgid "Tue"
-msgstr "週二"
+msgstr "二"
 
 #. l10n: Short week day name for Wednesday
 #: libraries/classes/Util.php:698 templates/javascript/variables.twig:60
 msgid "Wed"
-msgstr "週三"
+msgstr "三"
 
 #. l10n: Short week day name for Thursday
 #: libraries/classes/Util.php:700 templates/javascript/variables.twig:61
 msgid "Thu"
-msgstr "週四"
+msgstr "四"
 
 #. l10n: Short week day name for Friday
 #: libraries/classes/Util.php:702 templates/javascript/variables.twig:62
 msgid "Fri"
-msgstr "週五"
+msgstr "五"
 
 #. l10n: Short week day name for Saturday
 #: libraries/classes/Util.php:704 templates/javascript/variables.twig:63
 msgid "Sat"
-msgstr "週六"
+msgstr "六"
 
 #: libraries/classes/Util.php:730
 msgctxt "AM/PM indication in time"
@@ -13044,7 +13004,7 @@ msgstr "您的權限不足以執行此操作；請參閱說明文件了解詳細
 #: templates/table/structure/display_structure.twig:477
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
 msgid "Unique"
-msgstr "獨一"
+msgstr "唯一"
 
 #: templates/columns_definitions/column_attributes.twig:124
 #: templates/table/structure/display_structure.twig:219
@@ -13237,20 +13197,15 @@ msgid "Length/Values"
 msgstr "長度／值"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\\\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"如果欄位類型為 enum 或 set，請使用以下格式輸入值: 'a','b','c'…<br>如果需要輸"
-"入反斜線(\\)或單引號(')，請在前面加上反斜線(如 '\\\\xyz' 或 'a\\'b')。"
+"如果欄位類型為\"enum\"或\"set\"，請使用以下格式輸入值: "
+"'a','b','c'…<br>如果需要輸入反斜線(\\)或單引號(')，請在前面加上反斜線(如 '\\"
+"\\xyz' 或 'a\\'b')。"
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -13472,16 +13427,11 @@ msgid "Set default"
 msgstr "設為預設值"
 
 #: templates/console/display.twig:162
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."
-msgstr ""
-"按 Enter 執行查詢，或以 Shift + Enter 輸入新的一行。要永久儲存此設定，請檢視"
-"設定項目。"
+msgstr "按 Enter 執行查詢，或以 Shift+Enter "
+"輸入新的一行。要永久儲存此設定，請檢視設定項目。"
 
 #: templates/create_tracking_version.twig:10
 #, php-format
@@ -13506,8 +13456,6 @@ msgid "Create version"
 msgstr "建立版本"
 
 #: templates/database/central_columns/edit.twig:15
-#, fuzzy
-#| msgid "A_I"
 msgctxt "Auto Increment"
 msgid "A_I"
 msgstr "自動遞增"
@@ -13583,10 +13531,8 @@ msgstr "動作"
 
 #: templates/database/create_table.twig:3
 #: templates/database/operations/index.twig:27
-#, fuzzy
-#| msgid "Create table"
 msgid "Create new table"
-msgstr "建立資料表"
+msgstr "建立新資料表"
 
 #: templates/database/create_table.twig:10
 #: templates/database/operations/index.twig:34
@@ -13940,7 +13886,7 @@ msgstr "全選"
 #, fuzzy
 #| msgid "Create event"
 msgid "Create new event"
-msgstr "新建視圖"
+msgstr "建立新事件"
 
 #: templates/database/events/index.twig:38
 msgid "There are no events to display."
@@ -13988,10 +13934,8 @@ msgid "Export the structure of all tables."
 msgstr "允許修改現有資料表的結構。"
 
 #: templates/database/export/index.twig:33
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export the data of all tables."
-msgstr "將檢視表匯出成資料表"
+msgstr "匯出所有資料表。"
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -14233,10 +14177,8 @@ msgid "Ins:"
 msgstr "插入："
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "及："
+msgstr "及"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -14720,7 +14662,7 @@ msgstr "依主鍵排序："
 #, fuzzy
 #| msgid "Return options"
 msgid "Extra options"
-msgstr "回傳選項"
+msgstr "更多選項"
 
 #: templates/display/results/table.twig:141
 msgid "Relational key"
@@ -14852,7 +14794,7 @@ msgstr "自訂 - 顯示所有可用的選項"
 #, fuzzy
 #| msgid "File to import:"
 msgid "File format to export"
-msgstr "要匯入的檔案："
+msgstr "匯出檔案格式"
 
 #: templates/export.twig:137
 msgid "Rows:"
@@ -14974,14 +14916,13 @@ msgid "Export tables as separate files"
 msgstr "將每個資料表匯出為不同的檔案"
 
 #: templates/export.twig:474
-#, fuzzy
-#| msgid "Skip tables larger than %s MiB"
 msgid "Skip tables larger than:"
-msgstr "略過超過 %s MiB 的資料表"
+msgstr "略過超過以下的資料表："
 
 #: templates/export.twig:476
+#, fuzzy
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "檔案大小單位為MiB。"
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
@@ -15258,10 +15199,9 @@ msgid "Get more themes!"
 msgstr "取得更多的佈景主題！"
 
 #: templates/home/themes.twig:7
-#, fuzzy, php-format
-#| msgid "Schema of the %s database"
+#, php-format
 msgid "Screenshot of the %s theme."
-msgstr "%s 資料庫綱要"
+msgstr "佈景主題 %s 截圖。"
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
@@ -15371,17 +15311,10 @@ msgid ""
 msgstr "上一個匯入逾時，隨後重新送出將會從 %d 處開始。"
 
 #: templates/import.twig:138
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <em>(This might be a good way to import "
-#| "large files, however it can break transactions.)</em>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
-msgstr ""
-"當偵測到執行時間已接近 PHP 執行時間的限制，允許中斷匯入的動作。<em>(若要匯入"
-"大型檔案，這是很好的方法，不過使用這種方法會破壞指令中的交易動作)</em>"
+msgstr "當偵測到執行時間已接近 PHP 執行時間的限制，允許中斷匯入的動作。"
 
 #: templates/import.twig:140
 #, fuzzy
@@ -15427,11 +15360,8 @@ msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
-#, fuzzy
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgid "none"
-msgstr "none"
+msgstr "無"
 
 # 這應該是使用於選擇日期的月曆
 #. l10n: Previous month. Display text for previous month link in calendar
@@ -15702,10 +15632,8 @@ msgstr "未能提供所設定的雙因素認證，請安裝缺少的元件。"
 #: templates/login/twofactor/key_configure.twig:3
 #: templates/login/twofactor/key.twig:3
 #: templates/preferences/two_factor/main.twig:56
-#, fuzzy
-#| msgid "Replicated"
 msgid "Deprecated!"
-msgstr "已備援"
+msgstr "已棄用！"
 
 #: templates/login/twofactor/key_configure.twig:4
 #: templates/login/twofactor/key.twig:4
@@ -15767,15 +15695,13 @@ msgid ""
 msgstr "請將 FIDO U2F 裝置連接電腦的 USB 埠，然後於裝置確認登入。"
 
 #: templates/menu/breadcrumbs.twig:27
-#, fuzzy
-#| msgid "Views:"
 msgid "View:"
 msgstr "檢視表："
 
 #: templates/modals/index_dialog_modal.twig:30
 #: templates/table/structure/display_structure.twig:363
 msgid "Go back"
-msgstr ""
+msgstr "返回"
 
 #: templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
@@ -16159,10 +16085,8 @@ msgid "Persistent favorite tables:"
 msgstr "保留最愛資料表："
 
 #: templates/relation/check_relations.twig:295
-#, fuzzy
-#| msgid "Persistent tables' UI preferences"
 msgid "Persistent tables' UI preferences:"
-msgstr "一律使用資料表的「介面偏好」"
+msgstr "一律使用資料表的「介面偏好」："
 
 #: templates/relation/check_relations.twig:320
 msgid "Tracking:"
@@ -17072,10 +16996,8 @@ msgstr ""
 "善，那麼就還原這個變更。"
 
 #: templates/server/status/advisor/index.twig:53
-#, fuzzy
-#| msgid "Some error occurred while getting SQL debug info."
 msgid "Errors occurred while executing rule expressions:"
-msgstr "取得 SQL 除錯資訊時發生一些錯誤。"
+msgstr "取得 SQL 除錯資訊時發生一些錯誤："
 
 #: templates/server/status/advisor/index.twig:63
 msgid "Possible performance issues"
@@ -17931,7 +17853,7 @@ msgstr "二進位"
 #, fuzzy
 #| msgid "Value for the column \"%s\""
 msgid "Use the NULL value for this column."
-msgstr "「%s」欄位的值"
+msgstr "請用「無」為此欄位的值。"
 
 #: templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
@@ -17952,14 +17874,12 @@ msgid "Continue insertion with %s rows"
 msgstr "繼續新增 %s 列"
 
 #: templates/table/maintenance/checksum.twig:13
-#, fuzzy
-#| msgid "Check"
 msgid "Checksum"
-msgstr "檢查"
+msgstr "核對和"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
-msgstr "修改資料表的排序，依據："
+msgstr "修改資料表的排序"
 
 #: templates/table/operations/index.twig:20
 #, fuzzy
@@ -17969,10 +17889,8 @@ msgid "(singly)"
 msgstr "(單一)"
 
 #: templates/table/operations/index.twig:50
-#, fuzzy
-#| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
-msgstr "移動資料表到 (資料庫<b>.</b>資料表)"
+msgstr "移動資料表到 (資料庫.資料表)"
 
 #: templates/table/operations/index.twig:101
 msgid "Table options"
@@ -17991,10 +17909,8 @@ msgid "Change all column collations"
 msgstr "更改所有欄位編碼與排序"
 
 #: templates/table/operations/index.twig:251
-#, fuzzy
-#| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
-msgstr "複製資料表到 (資料庫<b>.</b>資料表)"
+msgstr "複製資料表到 (資料庫.資料表)"
 
 #: templates/table/operations/index.twig:322
 msgid "Switch to copied table"
@@ -18098,7 +18014,7 @@ msgstr "指定資料表"
 
 #: templates/table/relation/common_form.twig:9
 msgid "Foreign key constraints"
-msgstr "外鍵限制式"
+msgstr "外來鍵限制"
 
 #: templates/table/relation/common_form.twig:14
 msgid "Actions"
@@ -18124,7 +18040,7 @@ msgstr "僅顯示已建立索引的欄位。您可以於下方定義索引。"
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr "外鍵限制式"
+msgstr "外來鍵限制"
 
 #: templates/table/relation/common_form.twig:93
 msgid "+ Add constraint"
@@ -18427,7 +18343,7 @@ msgstr "資料表導覽列"
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "(在此)"
 
 #: templates/transformation_overview.twig:1
 msgid "Available media types"
