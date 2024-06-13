@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-06-09 00:22+0000\n"
-"PO-Revision-Date: 2024-04-10 01:01+0000\n"
-"Last-Translator: yangyangdaji <1504305527@qq.com>\n"
+"PO-Revision-Date: 2024-06-14 16:09+0000\n"
+"Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -5721,24 +5721,21 @@ msgstr "自启动以来的内部查询："
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
-#| msgid "ø per hour"
+#, php-format
 msgid "ø per hour: %s"
-msgstr "ø 每小时"
+msgstr "ø 每小时：%s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
-#| msgid "per minute:"
+#, php-format
 msgid "ø per minute: %s"
-msgstr "每分钟："
+msgstr "ø 每分钟：%s"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
-#| msgid "per second:"
+#, php-format
 msgid "ø per second: %s"
-msgstr "每秒："
+msgstr "ø 每秒：%s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -15293,10 +15290,8 @@ msgid "Report"
 msgstr "报告"
 
 #: src/Exceptions/AuthenticationFailure.php:35
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Cannot log in to the database server."
-msgstr "无法登录 MySQL 服务器"
+msgstr "无法登录 MySQL 服务器。"
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
@@ -15306,13 +15301,9 @@ msgid "Access denied!"
 msgstr "访问被拒绝！"
 
 #: src/Exceptions/AuthenticationFailure.php:61
-#, fuzzy
-#| msgid ""
-#| "Login without a password is forbidden by configuration (see "
-#| "AllowNoPassword)"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
-msgstr "空密码登录被禁止 (参见 允许空密码)"
+msgstr "空密码登录被禁止 (参见 允许空密码)。"
 
 #: src/Exceptions/AuthenticationFailure.php:73
 #, php-format
@@ -16142,10 +16133,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "用户名/密码错误。拒绝访问。"
 
 #: src/Plugins/Auth/AuthenticationSignon.php:130
-#, fuzzy, php-format
-#| msgid "Can not find signon authentication script:"
+#, php-format
 msgid "Can not find signon authentication script: %s"
-msgstr "找不到 signon 认证脚本:"
+msgstr "找不到 signon 认证脚本：%s"
 
 #: src/Plugins/AuthenticationPluginFactory.php:31
 msgid "Invalid authentication method set in configuration:"
