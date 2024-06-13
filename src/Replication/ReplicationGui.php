@@ -74,7 +74,7 @@ class ReplicationGui
     ): string {
         if (! $hasReplicaClearScreen) {
             $primaryStatusTable = $this->getHtmlForReplicationStatusTable($connection, 'primary', true, false);
-            $replicas = DatabaseInterface::getInstance()->fetchResult('SHOW SLAVE HOSTS');
+            $replicas = DatabaseInterface::getInstance()->fetchResult('SHOW REPLICAS');
 
             $urlParams = $GLOBALS['urlParams'];
             $urlParams['primary_add_user'] = true;
@@ -126,13 +126,13 @@ class ReplicationGui
         array $serverReplicaReplication,
         bool $replicaConfigure,
     ): string {
-        $serverReplicaMultiReplication = DatabaseInterface::getInstance()->fetchResult('SHOW ALL SLAVES STATUS');
+        $serverReplicaMultiReplication = DatabaseInterface::getInstance()->fetchResult('SHOW ALL REPLICAS STATUS');
         if ($serverReplicaStatus) {
             $urlParams = $GLOBALS['urlParams'];
             $urlParams['sr_take_action'] = true;
             $urlParams['sr_replica_server_control'] = true;
 
-            if ($serverReplicaReplication[0]['Slave_IO_Running'] === 'No') {
+            if ($serverReplicaReplication[0]['Replica_IO_Running'] === 'No') {
                 $urlParams['sr_replica_action'] = 'start';
             } else {
                 $urlParams['sr_replica_action'] = 'stop';
@@ -141,7 +141,7 @@ class ReplicationGui
             $urlParams['sr_replica_control_param'] = 'IO_THREAD';
             $replicaControlIoLink = Url::getCommon($urlParams, '', false);
 
-            if ($serverReplicaReplication[0]['Slave_SQL_Running'] === 'No') {
+            if ($serverReplicaReplication[0]['Replica_SQL_Running'] === 'No') {
                 $urlParams['sr_replica_action'] = 'start';
             } else {
                 $urlParams['sr_replica_action'] = 'stop';
@@ -151,8 +151,8 @@ class ReplicationGui
             $replicaControlSqlLink = Url::getCommon($urlParams, '', false);
 
             if (
-                $serverReplicaReplication[0]['Slave_IO_Running'] === 'No'
-                || $serverReplicaReplication[0]['Slave_SQL_Running'] === 'No'
+                $serverReplicaReplication[0]['Replica_IO_Running'] === 'No'
+                || $serverReplicaReplication[0]['Replica_SQL_Running'] === 'No'
             ) {
                 $urlParams['sr_replica_action'] = 'start';
             } else {
@@ -178,8 +178,8 @@ class ReplicationGui
 
             $replicaStatusTable = $this->getHtmlForReplicationStatusTable($connection, 'replica', true, false);
 
-            $replicaIoRunning = $serverReplicaReplication[0]['Slave_IO_Running'] !== 'No';
-            $replicaSqlRunning = $serverReplicaReplication[0]['Slave_SQL_Running'] !== 'No';
+            $replicaIoRunning = $serverReplicaReplication[0]['Replica_IO_Running'] !== 'No';
+            $replicaSqlRunning = $serverReplicaReplication[0]['Replica_SQL_Running'] !== 'No';
         }
 
         return $this->template->render('server/replication/replica_configuration', [
@@ -263,8 +263,8 @@ class ReplicationGui
         $serverReplication = $replicationInfo->getPrimaryStatus();
         if ($type === 'replica') {
             $replicationVariables = $replicationInfo->replicaVariables;
-            $variablesAlerts = ['Slave_IO_Running' => 'No', 'Slave_SQL_Running' => 'No'];
-            $variablesOks = ['Slave_IO_Running' => 'Yes', 'Slave_SQL_Running' => 'Yes'];
+            $variablesAlerts = ['Replica_IO_Running' => 'No', 'Replica_SQL_Running' => 'No'];
+            $variablesOks = ['Replica_IO_Running' => 'Yes', 'Replica_SQL_Running' => 'Yes'];
             $serverReplication = $replicationInfo->getReplicaStatus();
         }
 
@@ -529,7 +529,7 @@ class ReplicationGui
     {
         if ($srReplicaAction === 'reset') {
             $qStop = $this->replication->replicaControl('STOP', null, ConnectionType::User);
-            $qReset = DatabaseInterface::getInstance()->tryQuery('RESET SLAVE;');
+            $qReset = DatabaseInterface::getInstance()->tryQuery('RESET REPLICA;');
             $qStart = $this->replication->replicaControl('START', null, ConnectionType::User);
 
             return $qStop !== false && $qStop !== -1 && $qReset !== false && $qStart !== false && $qStart !== -1;
@@ -544,7 +544,7 @@ class ReplicationGui
     {
         $dbi = DatabaseInterface::getInstance();
         $qStop = $this->replication->replicaControl('STOP', null, ConnectionType::User);
-        $qSkip = $dbi->tryQuery('SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ' . $srSkipErrorsCount . ';');
+        $qSkip = $dbi->tryQuery('SET GLOBAL SQL_REPLICA_SKIP_COUNTER = ' . $srSkipErrorsCount . ';');
         $qStart = $this->replication->replicaControl('START', null, ConnectionType::User);
 
         return $qStop !== false && $qStop !== -1 && $qSkip !== false && $qStart !== false && $qStart !== -1;
