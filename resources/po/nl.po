@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-06-09 00:22+0000\n"
-"PO-Revision-Date: 2024-03-29 21:04+0000\n"
-"Last-Translator: Jorrit Schippers <jorrit@ncode.nl>\n"
+"PO-Revision-Date: 2024-06-14 16:09+0000\n"
+"Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
 "Language: nl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -43,10 +43,8 @@ msgid "MySQL documentation"
 msgstr "MYSQL Documentatie"
 
 #: resources/templates/base.twig:73
-#, fuzzy
-#| msgid "Appearance settings"
 msgid "Appearance:"
-msgstr "Opmaakinstellingen"
+msgstr "Opmaakinstellingen:"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
@@ -1719,10 +1717,8 @@ msgid "Select page"
 msgstr "Selecteer pagina"
 
 #: resources/templates/database/designer/schema_export.twig:6
-#, fuzzy
-#| msgid "Select Export Relational Type"
 msgid "Select export relational type:"
-msgstr "Selecteer uitvoer relationeel type"
+msgstr "Selecteer uitvoer relationeel type:"
 
 #: resources/templates/database/events/editor_form.twig:10
 #: resources/templates/database/routines/editor_form.twig:11
@@ -2497,13 +2493,11 @@ msgid "Browse"
 msgstr "Verkennen"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<strong>Total:</strong> <em>%count%</em> match"
-#| msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<strong> Totaal:</strong> <em> %count% </em> overeenkomst"
-msgstr[1] "<strong> Totaal:</strong> <em> %count% </em> overeenkomsten"
+msgstr[0] "<strong> Totaal:</strong> <em> %s </em> overeenkomst"
+msgstr[1] "<strong> Totaal:</strong> <em> %s </em> overeenkomsten"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
@@ -5675,21 +5669,19 @@ msgstr "Vernieuwingsfrequentie"
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
-#, fuzzy, php-format
-#| msgid "%d second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d seconde"
-msgstr[1] "%d seconde"
+msgstr[1] "%d seconden"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
-#, fuzzy, php-format
-#| msgid "%d minute"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minuut"
-msgstr[1] "%d minuut"
+msgstr[1] "%d minuten"
 
 #: resources/templates/server/status/monitor/index.twig:38
 msgid "Chart columns"
@@ -5904,24 +5896,21 @@ msgstr "Aanvragen sinds opstarten:"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
-#| msgid "ø per hour"
+#, php-format
 msgid "ø per hour: %s"
-msgstr "ø per uur"
+msgstr "ø per uur: %s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
-#| msgid "per minute:"
+#, php-format
 msgid "ø per minute: %s"
-msgstr "per minuut:"
+msgstr "ø per minuut: %s"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
-#| msgid "per second:"
+#, php-format
 msgid "ø per second: %s"
-msgstr "per seconde:"
+msgstr "ø per seconde: %s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -6256,7 +6245,7 @@ msgstr "Gemiddelde tijd"
 #, fuzzy
 #| msgid "Profiling results"
 msgid "Pie chart with profiling results."
-msgstr "Profiling-resultaten"
+msgstr "Profiling-resultaten."
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:116
@@ -12487,13 +12476,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "U staat op het punt een volledige database te VERWIJDEREN!"
 
 #: src/Controllers/JavaScriptMessagesController.php:56
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "Kan de database niet hernoemen naar dezelfde naam. Wijzig de naam en probeer "
-"het opnieuw"
+"het opnieuw."
 
 #: src/Controllers/JavaScriptMessagesController.php:58
 msgid "You are about to DESTROY a complete table!"
@@ -15462,7 +15448,7 @@ msgstr "De partitienaam mag geen leeg tekstveld zijn."
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid database or table name."
-msgstr "Ongeldige tabelnaam"
+msgstr "Ongeldige tabelnaam."
 
 #: src/Controllers/Table/RelationController.php:326
 msgid "Display column was successfully updated."
@@ -15819,16 +15805,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "Weergave van records %1s - %2s"
 
 #: src/Display/Results.php:3441
-#, fuzzy, php-format
-#| msgid "%1$d total, %2$d in query"
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "%1$d in totaal, %2$d in de query"
+msgstr "%1$s in totaal, %2$s in de query"
 
 #: src/Display/Results.php:3446
-#, fuzzy, php-format
-#| msgid "%d total"
+#, php-format
 msgid "%s total"
-msgstr "%d totaal"
+msgstr "%s totaal"
 
 #: src/Display/Results.php:3459 src/Sql.php:864
 #, php-format
@@ -16201,7 +16185,7 @@ msgstr "Rapporteren"
 #, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Cannot log in to the database server."
-msgstr "Kan niet aanmelden op de MySQL-server"
+msgstr "Kan niet aanmelden op de MySQL-server."
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
@@ -16211,15 +16195,11 @@ msgid "Access denied!"
 msgstr "Toegang geweigerd!"
 
 #: src/Exceptions/AuthenticationFailure.php:61
-#, fuzzy
-#| msgid ""
-#| "Login without a password is forbidden by configuration (see "
-#| "AllowNoPassword)"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
 msgstr ""
 "Aanmelden zonder wachtwoord is niet toegestaan door de instellingen (zie "
-"AllowNoPassword)"
+"AllowNoPassword)."
 
 #: src/Exceptions/AuthenticationFailure.php:73
 #, php-format
@@ -16463,7 +16443,7 @@ msgstr "De tabelnaam kan niet eindigen op een spatie."
 #, fuzzy
 #| msgid "View name can not be empty!"
 msgid "The trigger name must not be empty."
-msgstr "View naam kan niet leeg zijn!"
+msgstr "View naam kan niet leeg zijn."
 
 #: src/Identifiers/InvalidTriggerName.php:20
 #, fuzzy, php-format
@@ -17055,7 +17035,7 @@ msgstr "De tabelnaam is leeg!"
 #, fuzzy
 #| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Dit is een alleen-lezen variabele en kan niet worden gewijzigd"
+msgstr "Dit is een alleen-lezen variabele en kan niet worden gewijzigd."
 
 #: src/Pdf.php:138
 msgid "Error while creating PDF:"
@@ -17128,10 +17108,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Verkeerde gebruikersnaam/wachtwoord. Toegang geweigerd."
 
 #: src/Plugins/Auth/AuthenticationSignon.php:130
-#, fuzzy, php-format
-#| msgid "Can not find signon authentication script:"
+#, php-format
 msgid "Can not find signon authentication script: %s"
-msgstr "Signon-authenticatiescript kon niet gevonden worden:"
+msgstr "Signon-authenticatiescript kon niet gevonden worden: %s"
 
 #: src/Plugins/AuthenticationPluginFactory.php:31
 msgid "Invalid authentication method set in configuration:"
