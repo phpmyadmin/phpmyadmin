@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-06-09 00:22+0000\n"
-"PO-Revision-Date: 2024-06-03 04:09+0000\n"
+"PO-Revision-Date: 2024-06-14 16:09+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -6936,7 +6936,7 @@ msgstr "Onar"
 #: resources/templates/table/structure/display_partitions.twig:135
 #: src/Operations.php:522
 msgid "Truncate"
-msgstr "Kes"
+msgstr "Buda"
 
 #: resources/templates/table/structure/display_partitions.twig:195
 msgid "Partition table"
