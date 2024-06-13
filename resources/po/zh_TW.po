@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-06-09 00:22+0000\n"
-"PO-Revision-Date: 2024-06-13 15:09+0000\n"
+"PO-Revision-Date: 2024-06-14 16:09+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hant/>\n"
@@ -1924,10 +1924,8 @@ msgstr "@SERVER@ 會以伺服器名稱取代，@DATABASE@ 會以資料庫名稱�
 #. l10n: A query that the user has written freely
 #: resources/templates/database/export/index.twig:5
 #: resources/templates/table/export/index.twig:5
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Exporting a raw query"
-msgstr "顯示 SQL 查詢"
+msgstr "匯出 SQL 查詢"
 
 #: resources/templates/database/export/index.twig:7
 #, php-format
@@ -3333,8 +3331,6 @@ msgid "Containing the word:"
 msgstr "包含這個字："
 
 #: resources/templates/gis_data_editor_form.twig:26
-#, fuzzy
-#| msgid "Geometry %d:"
 msgid "Geometry type:"
 msgstr "幾何圖形種類："
 
@@ -3733,7 +3729,8 @@ msgid ""
 "There is a mismatch between HTTPS indicated on the server and client. This "
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
-msgstr ""
+msgstr "伺服器和客戶端上指示的HTTPS之間不同。可能導致phpMyAdmin無法正常運作或有安全風"
+"險。請更新伺服器配置以正確指示HTTPS。"
 
 #: resources/templates/login/twofactor/application_configure.twig:3
 msgid ""
@@ -3837,10 +3834,8 @@ msgstr "資料表："
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: resources/templates/menu/main.twig:49
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Toggle navigation"
-msgstr "資料表導覽列"
+msgstr "切換資料表導覽"
 
 #. l10n: Current page
 #: resources/templates/menu/main.twig:59
@@ -5047,20 +5042,16 @@ msgid "Allows locking tables for the current thread."
 msgstr "允許鎖定目前執行緒的資料表。"
 
 #: resources/templates/server/privileges/privileges_table.twig:680
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "允許建立預存程序。"
+msgstr "允許建立外來鍵。"
 
 #: resources/templates/server/privileges/privileges_table.twig:680
 msgid "Not used on MariaDB."
 msgstr "未在 MariaDB 上使用。"
 
 #: resources/templates/server/privileges/privileges_table.twig:680
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "在此版本的 MySQL 無效。"
+msgstr "此版本的 MySQL 沒有使用。"
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
@@ -6142,7 +6133,7 @@ msgstr "新增伺服器"
 
 #: resources/templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "出現問題。"
 
 #: resources/templates/sql/bookmark.twig:11
 msgid "Bookmark this SQL query"
@@ -6648,11 +6639,9 @@ msgid "Alter table order by"
 msgstr "修改資料表的排序"
 
 #: resources/templates/table/operations/index.twig:21
-#, fuzzy
-#| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
-msgstr "(單一)"
+msgstr "(逐一)"
 
 #: resources/templates/table/operations/index.twig:51
 msgid "Move table to (database.table)"
@@ -6736,7 +6725,7 @@ msgstr "分區維護"
 #: resources/templates/table/operations/index.twig:501
 #: resources/templates/table/structure/display_partitions.twig:202
 msgid "Remove partitioning"
-msgstr "刪除分割"
+msgstr "刪除分區"
 
 #: resources/templates/table/operations/index.twig:514
 msgid "Check referential integrity"
@@ -6770,40 +6759,28 @@ msgid "Analyze partition"
 msgstr "分析分區"
 
 #: resources/templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "已分區"
+msgstr "檢查分區"
 
 #: resources/templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "已分區"
+msgstr "刪除分區"
 
 #: resources/templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "刪除分割"
+msgstr "最佳化分區"
 
 #: resources/templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "子分區"
+msgstr "重建分區"
 
 #: resources/templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "刪除分割"
+msgstr "修復分區"
 
 #: resources/templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "子分區"
+msgstr "清空分區"
 
 #: resources/templates/table/privileges/index.twig:57
 msgid "table-specific"
@@ -9078,7 +9055,7 @@ msgstr "設定 Script 允許執行的時間限制 (以秒計算，[kbd]0[/kbd] �
 #: src/Config/Descriptions.php:168 src/Config/Descriptions.php:708
 #: src/Plugins/Export/ExportSql.php:321
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "排除當前的使用者定義"
 
 #: src/Config/Descriptions.php:170
 msgid ""
@@ -9921,7 +9898,7 @@ msgstr "使用外鍵檢查某些查詢的核選方塊的預設值。"
 
 #: src/Config/Descriptions.php:546
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
+msgstr "取消選取以停用拖放匯入"
 
 #: src/Config/Descriptions.php:547
 msgid "How many rows can be inserted at one time."
@@ -10422,7 +10399,7 @@ msgstr "外鍵檢查"
 
 #: src/Config/Descriptions.php:727
 msgid "First day of calendar"
-msgstr ""
+msgstr "日歷第一日"
 
 #: src/Config/Descriptions.php:729
 msgid "Browse mode"
@@ -11206,10 +11183,8 @@ msgid "Enable Zero Configuration mode"
 msgstr "開啟零設定模式"
 
 #: src/Config/Descriptions.php:960
-#, fuzzy
-#| msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
-msgstr "按 Enter 執行查詢，輸入新一行則用 Shift + Enter"
+msgstr "按 Enter 執行查詢，輸入新一行則用 Shift+Enter"
 
 #: src/Config/Descriptions.php:962
 msgid "Console height"
@@ -11605,7 +11580,7 @@ msgstr "正在顯示第 %1$s - %2$s 列。"
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "已存在名為 “%s” 的頁面，請重新命名。"
 
 #: src/Controllers/Database/DesignerController.php:170
 #: src/Controllers/Database/DesignerController.php:175
@@ -15005,10 +14980,8 @@ msgstr ""
 #: src/Controllers/Table/Partition/RebuildController.php:34
 #: src/Controllers/Table/Partition/RepairController.php:34
 #: src/Controllers/Table/Partition/TruncateController.php:34
-#, fuzzy
-#| msgid "The table name must be a non-empty string."
 msgid "The partition name must be a non-empty string."
-msgstr "資料表名稱必須是一個非空的字串。"
+msgstr "分區名稱必須是一個非空的字串。"
 
 #: src/Controllers/Table/RecentFavoriteController.php:35
 msgid "Invalid database or table name."
@@ -15028,10 +15001,8 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "列：%1$s，欄：%2$s，錯誤：%3$s"
 
 #: src/Controllers/Table/Structure/AddKeyController.php:23
-#, fuzzy
-#| msgid "Invalid direction \"%s\" given for parameter."
 msgid "Invalid request parameter."
-msgstr "提供的參數方向「%s」無效。"
+msgstr "無效請求參數。"
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:80
 msgid "The columns have been moved successfully."
