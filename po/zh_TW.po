@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2022-03-29 23:07+0000\n"
-"Last-Translator: Eotones <eotones@gmail.com>\n"
+"PO-Revision-Date: 2024-06-13 16:09+0000\n"
+"Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-1/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -538,17 +538,15 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size 為 0"
 
 #: libraries/advisory_rules_generic.php:373
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "MyISAM 鍵值緩衝區最大使用 %%"
+msgstr "MyISAM 鍵值緩衝區最大使用 %"
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "MyISAM 鍵值緩衝區 (索引快取) %% 使用率過低。"
+msgstr "MyISAM 鍵值緩衝區 (索引快取) % 使用率過低。"
 
 #: libraries/advisory_rules_generic.php:380
 #: libraries/advisory_rules_generic.php:397
@@ -580,8 +578,7 @@ msgid "Percentage of index reads from memory"
 msgstr "從記憶體中讀取索引的比率"
 
 #: libraries/advisory_rules_generic.php:411
-#, fuzzy, no-php-format
-#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+#, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
 msgstr "索引使用 MyISAM 鍵值緩衝區的比率太低。"
 
@@ -618,16 +615,11 @@ msgid "Percentage of used open files limit"
 msgstr "已使用檔案開啟限制比率"
 
 #: libraries/advisory_rules_generic.php:436
-#, fuzzy
-#| msgid ""
-#| "The number of open files is approaching the max number of open files.  "
-#| "You may get a \"Too many open files\" error."
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
-msgstr ""
-"檔案開啟的數量已接近上限，可能會發生「開啟過多檔案(Too many open files)」的錯"
-"誤。"
+msgstr "檔案開啟的數量已接近上限，可能會發生「開啟過多檔案(Too many open "
+"files)」的錯誤。"
 
 #: libraries/advisory_rules_generic.php:440
 #: libraries/advisory_rules_generic.php:453
@@ -658,10 +650,9 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "檔案開啟次數：%s，此值應該低於每小時 5 次"
 
 #: libraries/advisory_rules_generic.php:462
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "立即資料表鎖定 %%"
+msgstr "立即資料表鎖定 %"
 
 #: libraries/advisory_rules_generic.php:466
 #: libraries/advisory_rules_generic.php:476
@@ -706,10 +697,9 @@ msgid "The thread cache is set to 0"
 msgstr "執行緒快取目前設定為 0"
 
 #: libraries/advisory_rules_generic.php:493
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "執行緒快取命中率 %%"
+msgstr "執行緒快取命中率 %"
 
 #: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
@@ -888,18 +878,7 @@ msgstr "不適當的 InnoDB 記錄檔大小，應與 InnoDB 緩衝池呈比例�
 
 #: libraries/advisory_rules_generic.php:622
 #: libraries/advisory_rules_generic.php:651
-#, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -912,11 +891,12 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "特別在某些會大量寫入資料到 InnoDB 資料表的系統上，應設定 "
-"{innodb_log_file_size} 為 {innodb_buffer_pool_size} 的 25%%。不論如何，這個值"
-"越大，在資料庫當機時還原資料庫的時間將越長，所以這個值不應該高於 256 MB。請注"
-"意，若要修改這個值，必須先關閉伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 "
-"my.cnf 設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參閱<a "
-"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"{innodb_log_file_size} 為 {innodb_buffer_pool_size} 的 "
+"25%。不論如何，這個值越大，在資料庫當機時還原資料庫的時間將越長，"
+"所以這個值不應該高於 256 MB。請注意，若要修改這個值，"
+"必須先關閉伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 my.cnf "
+"設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參閱<a href="
+"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">此部落格文章</a>"
 
 #: libraries/advisory_rules_generic.php:633
@@ -936,17 +916,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB 記錄檔不夠大。"
 
 #: libraries/advisory_rules_generic.php:675
-#, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -958,14 +928,14 @@ msgid ""
 "href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"通常將 {innodb_log_file_size} 設為 {innodb_buffer_pool_size} 的 25%% 就足夠。"
+"通常將 {innodb_log_file_size} 設為 {innodb_buffer_pool_size} 的 25% 就足夠。"
 "過大的 {innodb_log_file_size} 會增加資料庫當機後資料還原的時間，請參閱<a "
-"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">此篇文章</a>。若要修改這個值，必須先關閉伺服器並刪除"
-"所有已有的 InnoDB 的記錄檔，再在 my.cnf 設定新的值，然後啟動伺服器並檢查錯誤"
-"記錄查看是否一切順利。請參閱<a href=\"https://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">此部落格文"
-"章</a>"
+"href=\"https://www.percona.com/blog/2006/07/03/"
+"choosing-proper-innodb_log_file_size/\">此篇文章</a>。若要修改這個值，"
+"必須先關閉伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 my.cnf "
+"設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參閱<a href="
+"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">此部落格文章</a>"
 
 #: libraries/advisory_rules_generic.php:685
 #, php-format
@@ -981,18 +951,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "InnoDB 緩衝池太小了。"
 
 #: libraries/advisory_rules_generic.php:696
-#, fuzzy, no-php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-#| "innodb_buffer_pool_size/\">this article</a>"
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1005,13 +964,14 @@ msgid ""
 "href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
-"InnoDB 緩衝池對 InnoDB 資料表的效能有重大影響。請將剩餘的記憶體分配給此緩衝"
-"區。如果資料庫伺服器僅以 InnoDB 作為儲存引擎，又沒有運行其他服務 (如網頁伺服"
-"器)，可以將最高 80%% 的可用記憶體分配給它。如果情況並非如此，請仔細評估其他服"
-"務和非 InnoDB 資料表的記憶體消耗狀況，並相對應地設定此數值。如果將之定得太"
-"高，系統會開始將記憶體資料置換到磁碟，因而大大降低效能。請參閱<a "
-"href=\"https://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">這篇文章</a>"
+"InnoDB 緩衝池對 InnoDB "
+"資料表的效能有重大影響。請將剩餘的記憶體分配給此緩衝區。如果資料庫伺服器僅以 "
+"InnoDB 作為儲存引擎，又沒有運行其他服務 (如網頁伺服器)，可以將最高 80% "
+"的可用記憶體分配給它。如果情況並非如此，請仔細評估其他服務和非 InnoDB 資料表"
+"的記憶體消耗狀況，並相對應地設定此數值。如果將之定得太高，系統會開始將記憶體"
+"資料置換到磁碟，因而大大降低效能。請參閱<a href=\"https://www."
+"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\""
+">這篇文章</a>"
 
 #: libraries/advisory_rules_generic.php:706
 #, php-format
@@ -1071,10 +1031,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size 已設為 0 或 query_cache_type 已設為 OFF"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "查詢快取效能(%%)"
+msgstr "查詢快取效能(%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1094,10 +1053,9 @@ msgid "Query Cache usage"
 msgstr "查詢快取使用狀況"
 
 #: libraries/advisory_rules_mysql_before80003.php:39
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "查詢快取的使用比例低於 80%%。"
+msgstr "查詢快取的使用比例低於 80%。"
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
@@ -1697,7 +1655,7 @@ msgstr "允許在匯入時使用 bzip2 壓縮。"
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr "請為您的網域驗證碼 (reCaptcha) 服務輸入私密金鑰。"
+msgstr "請為您兼容reCaptcha v2的API輸入URL。"
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid ""
@@ -2994,14 +2952,14 @@ msgstr "將欄位名稱儲存至第一行"
 #: libraries/classes/Config/Descriptions.php:809
 #: libraries/classes/Plugins/Import/ImportCsv.php:678
 msgid "Columns enclosed with"
-msgstr "內容分隔符號:"
+msgstr "內容分隔符號"
 
 #: libraries/classes/Config/Descriptions.php:671
 #: libraries/classes/Config/Descriptions.php:804
 #: libraries/classes/Config/Descriptions.php:810
 #: libraries/classes/Plugins/Import/ImportCsv.php:689
 msgid "Columns escaped with"
-msgstr "內容跳脫符號:"
+msgstr "內容跳脫符號"
 
 #: libraries/classes/Config/Descriptions.php:672
 #: libraries/classes/Config/Descriptions.php:678
@@ -3029,7 +2987,7 @@ msgstr "欄位內容換行字元為"
 #: libraries/classes/Config/Descriptions.php:802
 #: libraries/classes/Plugins/Import/ImportCsv.php:698
 msgid "Lines terminated with"
-msgstr "換行符號："
+msgstr "換行符號"
 
 #: libraries/classes/Config/Descriptions.php:677
 msgid "Excel edition"
@@ -4876,7 +4834,7 @@ msgstr "已停用 phpMyAdmin 設定儲存空間。%s了解原因%s。"
 #: libraries/classes/Controllers/Database/OperationsController.php:363
 #: libraries/classes/Controllers/Table/OperationsController.php:272
 msgid "No collation provided."
-msgstr ""
+msgstr "沒有提供編碼與排序。"
 
 #: libraries/classes/Controllers/Database/SearchController.php:55
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:89
@@ -7015,8 +6973,6 @@ msgstr "很好"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
-#, fuzzy
-#| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "等候啟用安全金鑰逾時。"
@@ -7027,7 +6983,7 @@ msgstr "等候啟用安全金鑰逾時。"
 #| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr "無效的匯出類型"
+msgstr "無效的匯出類型。"
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
@@ -7680,14 +7636,11 @@ msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "延遲新增等待寫入序列的列數。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:549
-#, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
-msgstr "已經開啟的資料表數。如果該值很大，則代表資料表快取可能設得太小。"
+msgstr "已經開啟的資料表數。如果該值很大，則代表資料表快取(table_open_cache "
+")可能設得太小。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:553
 msgid "The number of files that are open."
@@ -7992,10 +7945,8 @@ msgstr "資料表名稱無效"
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:70
 #: libraries/classes/Controllers/TransformationWrapperController.php:111
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "有太多的資料表連結(join)未使用索引。"
+msgstr "請求發生問題。"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:84
 #: libraries/classes/Database/Routines.php:1511
@@ -8213,16 +8164,12 @@ msgid "NO"
 msgstr "否"
 
 #: libraries/classes/Database/Designer/Common.php:568
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
-msgstr "欄位中央清單功能未能使用，因設定儲存空間尚未預備好。"
+msgstr "phpMyAdmin設定儲存空間沒有完成對「顯示功能」的設定。"
 
 #: libraries/classes/Database/Designer/Common.php:617
 msgid "Error: relationship already exists."
@@ -8385,11 +8332,10 @@ msgid "Export of event %s"
 msgstr "匯出事件 %s"
 
 #: libraries/classes/Database/Events.php:584
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的事件。"
+msgstr "請求出現問題：資料庫 %2$s 沒有名為 %1$s 的事件。"
 
 #: libraries/classes/DatabaseInterface.php:1111
 #, php-format
@@ -8783,17 +8729,13 @@ msgid "Export of routine %s"
 msgstr "匯出預存程序 %s"
 
 #: libraries/classes/Database/Routines.php:1925
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine."
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
-msgstr ""
-"在資料庫 %2$s 中查無名稱為 %1$s 的預存程序，您可能缺少能夠檢視/匯出該程序的權"
-"限。"
+msgstr "請求出現問題：資料庫 %2$s 沒有名為 %1$s "
+"的預存程序。您可能缺少能夠檢視/匯出該程序的權限。"
 
 #: libraries/classes/Database/Search.php:109
 #: templates/database/search/main.twig:19
@@ -8893,12 +8835,11 @@ msgid "Export of trigger %s"
 msgstr "匯出觸發器 %s"
 
 #: libraries/classes/Database/Triggers.php:636
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的觸發器。"
+msgstr "請求出現問題：資料庫 %2$s 沒有名為 %1$s 的觸發器。"
 
 #: libraries/classes/Dbal/DbiMysqli.php:207
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9727,7 +9668,7 @@ msgstr "欄位"
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:33
 msgid "Null"
-msgstr "空值(Null)"
+msgstr "無值(Null)"
 
 #: libraries/classes/InsertEdit.php:2407 libraries/classes/Sql.php:1042
 msgid "Showing SQL query"
@@ -10083,7 +10024,7 @@ msgstr "第一正規化 (1NF)"
 #: libraries/classes/Normalization.php:333
 #: libraries/classes/Normalization.php:370
 msgid "Step 1."
-msgstr "第一步："
+msgstr "第一步。"
 
 #: libraries/classes/Normalization.php:234
 msgid ""
@@ -10190,7 +10131,7 @@ msgstr "無重複群組"
 
 #: libraries/classes/Normalization.php:414
 msgid "Step 2."
-msgstr "第二步："
+msgstr "第二步。"
 
 #: libraries/classes/Normalization.php:414
 msgid "Find partial dependencies"
@@ -10284,7 +10225,7 @@ msgstr "所選的重複群組已經移至「%s」資料表"
 
 #: libraries/classes/Normalization.php:859
 msgid "Step 3."
-msgstr "第三步："
+msgstr "第三步。"
 
 #: libraries/classes/Normalization.php:859
 msgid "Find transitive dependencies"
@@ -10794,10 +10735,8 @@ msgstr "匯出資料表的標題"
 
 #: libraries/classes/Plugins/Export/ExportOdt.php:267
 #: libraries/classes/Plugins/Export/ExportTexytext.php:192
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data for query result"
-msgstr "傾印資料表的資料"
+msgstr "傾印查詢結果"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:98
 msgid "Report title:"
@@ -10808,8 +10747,6 @@ msgid "Dumping data"
 msgstr "傾印資料"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:252
-#, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
 msgstr "查詢結果"
 
@@ -11372,18 +11309,6 @@ msgstr ""
 "案名稱作為欄位名稱。如果使用第二個選項，第一個選項必須留空。"
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:39
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -11397,12 +11322,12 @@ msgid ""
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
 "僅對 Linux 有效：執行外部的應用程，並透過標準輸入(stdin)提供欄位資料，然後以"
-"標準輸出(stdout)回傳應用程式的結果。預設使用 Tidy，用來格式化 HTML 程式碼。為"
-"了安全起見，您須要手動編輯 libraries/classes/Plugins/Transformations/Output/"
-"Text_Plain_External.php 檔案，並且列出要使用的工具。第一個選項是欲使用程式的"
-"數字，第二個選項是該程式的參數。第三個選項，若設為 1 則會使用 "
-"htmlspecialchars() 轉換輸出結果 (預設為 1)。第四個選項，若設為 1 則會停止自動"
-"換行，並確保輸出結果以一行顯示 (預設為 1)。"
+"標準輸出(stdout)回傳應用程式的結果。預設使用 Tidy，用來格式化 HTML "
+"程式碼。為了安全起見，您須要手動編輯 libraries/classes/Plugins/"
+"Transformations/Abs/ExternalTransformationsPlugin.php 檔案，並且列出要使用的"
+"工具。第一個選項是欲使用程式的數字。由於編程原因請留空第二個選項。第三個選項"
+"若設為1，則會使用 htmlspecialchars() 轉換輸出結果 (預設為 "
+"1)。第四個選項若設為1，則會停止自動換行並確保輸出結果以一行顯示 (預設為 1)。"
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:124
 #, php-format
@@ -11410,7 +11335,8 @@ msgid ""
 "You are using the external transformation command line options field, which "
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
-msgstr ""
+msgstr "您正在使用外部轉換“命令列選項”欄位，出於安全原因，該欄位已棄用。 "
+"請將所有“命令列選項”直接新增到 %s中的定義中。"
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:27
 msgid ""
@@ -13036,41 +12962,39 @@ msgstr "12月"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:770
-#, fuzzy
-#| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
-msgstr "週日"
+msgstr "日"
 
 #. l10n: Short week day name for Monday
 #: libraries/classes/Util.php:772 templates/javascript/variables.twig:58
 msgid "Mon"
-msgstr "週一"
+msgstr "一"
 
 #. l10n: Short week day name for Tuesday
 #: libraries/classes/Util.php:774 templates/javascript/variables.twig:59
 msgid "Tue"
-msgstr "週二"
+msgstr "二"
 
 #. l10n: Short week day name for Wednesday
 #: libraries/classes/Util.php:776 templates/javascript/variables.twig:60
 msgid "Wed"
-msgstr "週三"
+msgstr "三"
 
 #. l10n: Short week day name for Thursday
 #: libraries/classes/Util.php:778 templates/javascript/variables.twig:61
 msgid "Thu"
-msgstr "週四"
+msgstr "四"
 
 #. l10n: Short week day name for Friday
 #: libraries/classes/Util.php:780 templates/javascript/variables.twig:62
 msgid "Fri"
-msgstr "週五"
+msgstr "五"
 
 #. l10n: Short week day name for Saturday
 #: libraries/classes/Util.php:782 templates/javascript/variables.twig:63
 msgid "Sat"
-msgstr "週六"
+msgstr "六"
 
 #: libraries/classes/Util.php:808
 msgctxt "AM/PM indication in time"
@@ -13302,7 +13226,7 @@ msgstr "您的權限不足以執行此操作；請參閱說明文件了解詳細
 #: templates/table/structure/display_structure.twig:417
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
 msgid "Unique"
-msgstr "獨一"
+msgstr "唯一"
 
 #: templates/columns_definitions/column_attributes.twig:119
 #: templates/table/structure/display_structure.twig:220
@@ -13454,20 +13378,15 @@ msgid "Node group"
 msgstr "節點群組"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\\\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"如果欄位類型為 enum 或 set，請使用以下格式輸入值: 'a','b','c'…<br>如果需要輸"
-"入反斜線(\\)或單引號(')，請在前面加上反斜線(如 '\\\\xyz' 或 'a\\'b')。"
+"如果欄位類型為\"enum\"或\"set\"，請使用以下格式輸入值: "
+"'a','b','c'…<br>如果需要輸入反斜線(\\)或單引號(')，請在前面加上反斜線(如 '\\"
+"\\xyz' 或 'a\\'b')。"
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -13688,8 +13607,6 @@ msgid "Create version"
 msgstr "建立版本"
 
 #: templates/database/central_columns/edit.twig:13
-#, fuzzy
-#| msgid "A_I"
 msgctxt "Auto Increment"
 msgid "A_I"
 msgstr "自動遞增"
@@ -14351,10 +14268,8 @@ msgid "Ins:"
 msgstr "插入："
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "及："
+msgstr "及"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -14427,9 +14342,6 @@ msgid "Returns"
 msgstr "回傳"
 
 #: templates/database/routines/index.twig:62
-#, fuzzy
-#| msgctxt "Create new column"
-#| msgid "New"
 msgctxt "Create new routine"
 msgid "New"
 msgstr "新增"
@@ -15333,11 +15245,8 @@ msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
-#, fuzzy
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgid "none"
-msgstr "none"
+msgstr "無"
 
 # 這應該是使用於選擇日期的月曆
 #. l10n: Previous month. Display text for previous month link in calendar
@@ -15627,8 +15536,6 @@ msgid "Verify"
 msgstr "驗證"
 
 #: templates/menu/breadcrumbs.twig:27
-#, fuzzy
-#| msgid "Views:"
 msgid "View:"
 msgstr "檢視表："
 
@@ -16644,10 +16551,8 @@ msgstr ""
 "善，那麼就還原這個變更。"
 
 #: templates/server/status/advisor/index.twig:55
-#, fuzzy
-#| msgid "Some error occurred while getting SQL debug info."
 msgid "Errors occurred while executing rule expressions:"
-msgstr "取得 SQL 除錯資訊時發生一些錯誤。"
+msgstr "取得 SQL 除錯資訊時發生一些錯誤："
 
 #: templates/server/status/advisor/index.twig:65
 msgid "Possible performance issues"
@@ -17419,14 +17324,12 @@ msgid "Continue insertion with %s rows"
 msgstr "繼續新增 %s 列"
 
 #: templates/table/maintenance/checksum.twig:13
-#, fuzzy
-#| msgid "Check"
 msgid "Checksum"
-msgstr "檢查"
+msgstr "核對和"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
-msgstr "修改資料表的排序，依據："
+msgstr "修改資料表的排序"
 
 #: templates/table/operations/index.twig:20
 #, fuzzy
@@ -17436,10 +17339,8 @@ msgid "(singly)"
 msgstr "(單一)"
 
 #: templates/table/operations/index.twig:50
-#, fuzzy
-#| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
-msgstr "移動資料表到 (資料庫<b>.</b>資料表)"
+msgstr "移動資料表到 (資料庫.資料表)"
 
 #: templates/table/operations/index.twig:103
 msgid "Table options"
@@ -17458,10 +17359,8 @@ msgid "Change all column collations"
 msgstr "更改所有欄位編碼與排序"
 
 #: templates/table/operations/index.twig:227
-#, fuzzy
-#| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
-msgstr "複製資料表到 (資料庫<b>.</b>資料表)"
+msgstr "複製資料表到 (資料庫.資料表)"
 
 #: templates/table/operations/index.twig:300
 msgid "Switch to copied table"
@@ -17559,7 +17458,7 @@ msgstr "指定資料表"
 
 #: templates/table/relation/common_form.twig:9
 msgid "Foreign key constraints"
-msgstr "外鍵限制式"
+msgstr "外來鍵限制"
 
 #: templates/table/relation/common_form.twig:14
 msgid "Actions"
@@ -17585,7 +17484,7 @@ msgstr "僅顯示已建立索引的欄位。您可以於下方定義索引。"
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr "外鍵限制式"
+msgstr "外來鍵限制"
 
 #: templates/table/relation/common_form.twig:93
 msgid "+ Add constraint"
@@ -17883,7 +17782,7 @@ msgstr "資料表導覽列"
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "(在此)"
 
 #: templates/transformation_overview.twig:1
 msgid "Available media types"
