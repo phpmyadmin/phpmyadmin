@@ -1469,12 +1469,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$checkTime]]></code>
-      <code><![CDATA[$checkTimeAll]]></code>
-      <code><![CDATA[$createTime]]></code>
-      <code><![CDATA[$createTimeAll]]></code>
-      <code><![CDATA[$currentTable]]></code>
-      <code><![CDATA[$currentTable]]></code>
       <code><![CDATA[$currentTable['Collation']]]></code>
       <code><![CDATA[$currentTable['Data_free']]]></code>
       <code><![CDATA[$currentTable['Name']]]></code>
@@ -1489,7 +1483,6 @@
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$dbTable]]></code>
-      <code><![CDATA[$overheadSize]]></code>
       <code><![CDATA[$replicaInfo['Do_DB']]]></code>
       <code><![CDATA[$replicaInfo['Do_DB']]]></code>
       <code><![CDATA[$replicaInfo['Do_DB']]]></code>
@@ -1499,29 +1492,11 @@
       <code><![CDATA[$replicaInfo['Wild_Do_Table']]]></code>
       <code><![CDATA[$replicaInfo['Wild_Ignore_Table']]]></code>
       <code><![CDATA[$request->getParsedBodyParam('primary_connection')]]></code>
-      <code><![CDATA[$sumSize]]></code>
-      <code><![CDATA[$tableIsView]]></code>
       <code><![CDATA[$truename]]></code>
-      <code><![CDATA[$updateTime]]></code>
-      <code><![CDATA[$updateTimeAll]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$currentTable['Check_time']]]></code>
-      <code><![CDATA[$currentTable['Collation']]]></code>
-      <code><![CDATA[$currentTable['Create_time']]]></code>
-      <code><![CDATA[$currentTable['ENGINE']]]></code>
-      <code><![CDATA[$currentTable['ENGINE']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
-      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
-      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
       <code><![CDATA[$currentTable['TABLE_TYPE']]]></code>
-      <code><![CDATA[$currentTable['Update_time']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
@@ -1529,11 +1504,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$charset]]></code>
-      <code><![CDATA[$checkTime]]></code>
-      <code><![CDATA[$checkTimeAll]]></code>
-      <code><![CDATA[$createTime]]></code>
-      <code><![CDATA[$createTimeAll]]></code>
-      <code><![CDATA[$currentTable]]></code>
       <code><![CDATA[$dbTable]]></code>
       <code><![CDATA[$overheadSize]]></code>
       <code><![CDATA[$searchDb]]></code>
@@ -1542,8 +1512,6 @@
       <code><![CDATA[$searchTable]]></code>
       <code><![CDATA[$sumEntries]]></code>
       <code><![CDATA[$truename]]></code>
-      <code><![CDATA[$updateTime]]></code>
-      <code><![CDATA[$updateTimeAll]]></code>
     </MixedAssignment>
     <MixedMethodCall>
       <code><![CDATA[getCharset]]></code>
@@ -1556,11 +1524,19 @@
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
     </MixedOperand>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$checkTime]]></code>
-      <code><![CDATA[$createTime]]></code>
-      <code><![CDATA[$updateTime]]></code>
-    </RiskyTruthyFalsyComparison>
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[[
+            $currentTable,
+            $formattedSize,
+            $unit,
+            $formattedOverhead,
+            $overheadUnit,
+            $overheadSize,
+            $tableIsView,
+            $sumSize,
+        ]]]></code>
+      <code><![CDATA[list{mixed[], string, string, string, string, int, bool, int}]]></code>
+    </MixedReturnTypeCoercion>
   </file>
   <file src="src/Controllers/Database/TrackingController.php">
     <DeprecatedMethod>
@@ -9727,14 +9703,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidOperand>
-      <code><![CDATA[$timestamp]]></code>
-    </InvalidOperand>
-    <MixedArgument>
-      <code><![CDATA[$options[1]]]></code>
-      <code><![CDATA[$options[1]]]></code>
-      <code><![CDATA[$options[2]]]></code>
-    </MixedArgument>
   </file>
   <file src="src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php">
     <InvalidArrayOffset>

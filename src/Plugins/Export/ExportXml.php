@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use DateTimeImmutable;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
@@ -200,7 +201,7 @@ class ExportXml extends ExportPlugin
         $dbi = DatabaseInterface::getInstance();
         $head .= "\n"
             . '- ' . __('Generation Time:') . ' '
-            . Util::localisedDate() . "\n"
+            . Util::localisedDate(new DateTimeImmutable()) . "\n"
             . '- ' . __('Server version:') . ' ' . $dbi->getVersionString() . "\n"
             . '- ' . __('PHP Version:') . ' ' . PHP_VERSION . "\n"
             . '-->' . "\n\n";

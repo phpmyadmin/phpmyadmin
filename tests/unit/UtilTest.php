@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use DateTimeImmutable;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
@@ -738,10 +739,7 @@ class UtilTest extends AbstractTestCase
         $tmpTimezone = date_default_timezone_get();
         date_default_timezone_set($tz);
 
-        self::assertSame(
-            $e,
-            Util::localisedDate($a, $b),
-        );
+        self::assertSame($e, Util::localisedDate((new DateTimeImmutable())->setTimestamp($a), $b));
 
         date_default_timezone_set($tmpTimezone);
         _setlocale(LC_ALL, 'en');

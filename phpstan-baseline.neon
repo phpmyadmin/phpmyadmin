@@ -2016,38 +2016,13 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Cannot access offset 'Check_time' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Collation' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Create_time' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'ENGINE' on mixed\\.$#"
-			count: 2
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'TABLE_COMMENT' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Cannot access offset 'TABLE_NAME' on mixed\\.$#"
-			count: 12
+			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
 			message: "#^Cannot access offset 'TABLE_ROWS' on mixed\\.$#"
-			count: 3
+			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -2056,7 +2031,7 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Cannot access offset 'Update_time' on mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getStuffForEngineTypeTable\\(\\) should return array\\{array, string, string, string, string, int, bool, int\\} but returns array\\{mixed, mixed, mixed, mixed, mixed, mixed, bool, mixed\\}\\.$#"
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
@@ -2066,58 +2041,13 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Only booleans are allowed in &&, mixed given on the left side\\.$#"
-			count: 3
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Only booleans are allowed in &&, mixed given on the right side\\.$#"
-			count: 3
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
-			count: 3
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Only booleans are allowed in a ternary operator condition, mixed given\\.$#"
-			count: 3
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
-			count: 2
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Only booleans are allowed in \\|\\|, mixed given on the left side\\.$#"
-			count: 2
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Only booleans are allowed in \\|\\|, mixed given on the right side\\.$#"
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
 			message: "#^Parameter \\#1 \\$connection of method PhpMyAdmin\\\\Replication\\\\ReplicationInfo\\:\\:load\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$currentTable of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getStuffForEngineTypeTable\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$currentTable of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:isRowCountApproximated\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$datetime of function strtotime expects string, mixed given\\.$#"
-			count: 6
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -2151,11 +2081,6 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, \\(int\\|false\\) given\\.$#"
-			count: 6
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 2
 			path: src/Controllers/Database/StructureController.php
@@ -2171,17 +2096,7 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Parameter \\#2 \\$sumSize of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getStuffForEngineTypeTable\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getReplicationStatus\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableIsView of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:isRowCountApproximated\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
@@ -2192,11 +2107,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$name of static method PhpMyAdmin\\\\Charsets\\:\\:findCollationByName\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#3 \\$overheadSize of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getStuffForEngineTypeTable\\(\\) expects int, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
@@ -2513,11 +2423,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$showGitRevision of class PhpMyAdmin\\\\Git constructor expects bool, mixed given\\.$#"
 			count: 1
-			path: src/Controllers/GitInfoController.php
-
-		-
-			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, int\\|false given\\.$#"
-			count: 2
 			path: src/Controllers/GitInfoController.php
 
 		-
@@ -5186,12 +5091,7 @@ parameters:
 			path: src/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Parameter \\#1 \\$datetime of function strtotime expects string, int\\|string given\\.$#"
-			count: 3
-			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, int\\|false given\\.$#"
+			message: "#^Parameter \\#1 \\$datetime of class DateTimeImmutable constructor expects string, int\\|string given\\.$#"
 			count: 3
 			path: src/Controllers/Table/StructureController.php
 
@@ -10441,11 +10341,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, int\\|false given\\.$#"
-			count: 3
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Parameter \\#2 \\$compat of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:exportUseStatement\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Plugins/Export/ExportSql.php
@@ -11461,17 +11356,12 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Parameter \\#1 \\$datetime of function strtotime expects string, int\\|string given\\.$#"
+			message: "#^Parameter \\#1 \\$datetime of class DateTimeImmutable constructor expects string, int\\|string given\\.$#"
 			count: 3
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
 			message: "#^Parameter \\#1 \\$link of method TCPDF\\:\\:setLink\\(\\) expects int, mixed given\\.$#"
-			count: 3
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, int\\|false given\\.$#"
 			count: 3
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
@@ -11681,21 +11571,6 @@ parameters:
 			path: src/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php
 
 		-
-			message: "#^Binary operation \"\\-\\=\" between int\\<0, max\\>\\|string\\|false and int results in an error\\.$#"
-			count: 1
-			path: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
-
-		-
-			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
-			path: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
-
-		-
 			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
 			count: 1
 			path: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
@@ -11703,31 +11578,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
 			count: 2
-			path: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
-
-		-
-			message: "#^Parameter \\#1 \\$format of function gmdate expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function mb_strtolower expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
-
-		-
-			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
-
-		-
-			message: "#^Parameter \\#2 \\$format of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
-
-		-
-			message: "#^Parameter \\#2 \\$timestamp of function gmdate expects int\\|null, mixed given\\.$#"
-			count: 1
 			path: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
 
 		-

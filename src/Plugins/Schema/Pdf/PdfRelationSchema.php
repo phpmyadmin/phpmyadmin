@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Pdf;
 
+use DateTimeImmutable;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -25,7 +26,6 @@ use function rsort;
 use function sort;
 use function sprintf;
 use function str_replace;
-use function strtotime;
 
 // phpcs:disable PSR1.Files.SideEffects
 /**
@@ -537,19 +537,13 @@ class PdfRelationSchema extends ExportRelationSchema
             $showTable = $dbi->getTable($this->db->getName(), $table)->getStatusInfo();
             $showComment = $showTable['Comment'] ?? '';
             $createTime = isset($showTable['Create_time'])
-                ? Util::localisedDate(
-                    strtotime($showTable['Create_time']),
-                )
+                ? Util::localisedDate(new DateTimeImmutable($showTable['Create_time']))
                 : '';
             $updateTime = isset($showTable['Update_time'])
-                ? Util::localisedDate(
-                    strtotime($showTable['Update_time']),
-                )
+                ? Util::localisedDate(new DateTimeImmutable($showTable['Update_time']))
                 : '';
             $checkTime = isset($showTable['Check_time'])
-                ? Util::localisedDate(
-                    strtotime($showTable['Check_time']),
-                )
+                ? Util::localisedDate(new DateTimeImmutable($showTable['Check_time']))
                 : '';
 
             /**

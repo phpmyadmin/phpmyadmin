@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use DateTimeImmutable;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
@@ -54,7 +55,6 @@ use function sprintf;
 use function str_contains;
 use function str_repeat;
 use function str_replace;
-use function strtotime;
 use function strtoupper;
 use function trigger_error;
 
@@ -721,7 +721,7 @@ class ExportSql extends ExportPlugin
         $head .= $this->exportComment($hostString);
         $head .= $this->exportComment(
             __('Generation Time:') . ' '
-            . Util::localisedDate(),
+            . Util::localisedDate(new DateTimeImmutable()),
         )
         . $this->exportComment(
             __('Server version:') . ' ' . $dbi->getVersionString(),
@@ -2675,9 +2675,7 @@ class ExportSql extends ExportPlugin
             if ($showDates && ! empty($tmpres['Create_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Creation:') . ' '
-                    . Util::localisedDate(
-                        strtotime($tmpres['Create_time']),
-                    ),
+                    . Util::localisedDate(new DateTimeImmutable($tmpres['Create_time'])),
                 );
                 $newCrlf = $this->exportComment() . "\n";
             }
@@ -2685,9 +2683,7 @@ class ExportSql extends ExportPlugin
             if ($showDates && ! empty($tmpres['Update_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Last update:') . ' '
-                    . Util::localisedDate(
-                        strtotime($tmpres['Update_time']),
-                    ),
+                    . Util::localisedDate(new DateTimeImmutable($tmpres['Update_time'])),
                 );
                 $newCrlf = $this->exportComment() . "\n";
             }
@@ -2695,9 +2691,7 @@ class ExportSql extends ExportPlugin
             if ($showDates && ! empty($tmpres['Check_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Last check:') . ' '
-                    . Util::localisedDate(
-                        strtotime($tmpres['Check_time']),
-                    ),
+                    . Util::localisedDate(new DateTimeImmutable($tmpres['Check_time'])),
                 );
                 $newCrlf = $this->exportComment() . "\n";
             }

@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use DateTimeImmutable;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Git;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Util;
-
-use function strtotime;
 
 final class GitInfoController implements InvocableController
 {
@@ -39,8 +38,8 @@ final class GitInfoController implements InvocableController
             return $this->response->response();
         }
 
-        $commit['author']['date'] = Util::localisedDate(strtotime($commit['author']['date']));
-        $commit['committer']['date'] = Util::localisedDate(strtotime($commit['committer']['date']));
+        $commit['author']['date'] = Util::localisedDate(new DateTimeImmutable($commit['author']['date']));
+        $commit['committer']['date'] = Util::localisedDate(new DateTimeImmutable($commit['committer']['date']));
 
         $this->response->render('home/git_info', $commit);
 

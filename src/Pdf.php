@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use DateTimeImmutable;
 use Exception;
 use TCPDF;
 use TCPDF_FONTS;
@@ -86,7 +87,7 @@ class Pdf extends TCPDF
             0,
             'C',
         );
-        $this->Cell(0, 6, Util::localisedDate(), 0, 1, 'R');
+        $this->Cell(0, 6, Util::localisedDate(new DateTimeImmutable()), 0, 1, 'R');
         $this->setY(20);
 
         // set footerset
