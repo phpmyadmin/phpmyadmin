@@ -15,11 +15,12 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function checkdate;
-use function gmdate;
 use function htmlspecialchars;
+use function is_int;
+use function is_numeric;
+use function is_string;
 use function json_encode;
 use function mb_strlen;
-use function mb_strtolower;
 use function mb_substr;
 use function mktime;
 use function preg_match;
@@ -62,17 +63,6 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
         // possibly use a global transform and feed it with special options
         $cfg = Config::getInstance()->settings;
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['DateFormat']);
-
-        // further operations on $buffer using the $options[] array.
-        $options[2] = mb_strtolower($options[2]);
-
-        if (empty($options[1])) {
-            if ($options[2] === 'local') {
-                $options[1] = __('%B %d, %Y at %I:%M %p');
-            } else {
-                $options[1] = 'Y-m-d  H:i:s';
-            }
-        }
 
         $timestamp = -1;
 
@@ -125,20 +115,29 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
         }
 
         // Reformat a valid timestamp
-        if ($timestamp >= 0) {
-            $timestamp -= (int) $options[0] * 60 * 60;
-            $source = $buffer;
-            $text = match ($options[2]) {
-                'local' => Util::localisedDate((new DateTimeImmutable())->setTimestamp($timestamp), $options[1]),
-                'utc' => gmdate($options[1], $timestamp),
-                default => 'INVALID DATE TYPE',
-            };
-
-            return '<dfn onclick="alert(' . htmlspecialchars((string) json_encode($source), ENT_COMPAT) . ');" title="'
-                . htmlspecialchars($source) . '">' . htmlspecialchars($text) . '</dfn>';
+        if (! is_numeric($timestamp) || $timestamp < 0) {
+            return htmlspecialchars($buffer);
         }
 
-        return htmlspecialchars($buffer);
+        $timestampOffset = is_int($options[0]) ? $options[0] : 0;
+        $timestamp -= $timestampOffset * 60 * 60;
+        $source = $buffer;
+
+        $timeZone = $options[2] === 'utc' ? 'utc' : 'local';
+        $dateFormat = is_string($options[1]) ? $options[1] : '';
+        if ($dateFormat === '' && $timeZone === 'local') {
+            $dateFormat = __('%B %d, %Y at %I:%M %p');
+        } elseif ($dateFormat === '') {
+            $dateFormat = 'Y-m-d  H:i:s';
+        }
+
+        $text = match ($timeZone) {
+            'local' => Util::localisedDate((new DateTimeImmutable())->setTimestamp((int) $timestamp), $dateFormat),
+            'utc' => (new DateTimeImmutable('@' . $timestamp))->format($dateFormat),
+        };
+
+        return '<dfn onclick="alert(' . htmlspecialchars((string) json_encode($source), ENT_COMPAT) . ');" title="'
+            . htmlspecialchars($source) . '">' . htmlspecialchars($text) . '</dfn>';
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

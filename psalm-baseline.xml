@@ -9703,14 +9703,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidOperand>
-      <code><![CDATA[$timestamp]]></code>
-    </InvalidOperand>
-    <MixedArgument>
-      <code><![CDATA[$options[1]]]></code>
-      <code><![CDATA[$options[1]]]></code>
-      <code><![CDATA[$options[2]]]></code>
-    </MixedArgument>
   </file>
   <file src="src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php">
     <InvalidArrayOffset>
