@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-06-13 16:09+0000\n"
+"PO-Revision-Date: 2024-06-14 20:09+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-1/zh_Hant/>\n"
@@ -1768,7 +1768,7 @@ msgstr "設定 Script 允許執行的時間限制 (以秒計算，[kbd]0[/kbd] �
 #: libraries/classes/Config/Descriptions.php:737
 #: libraries/classes/Plugins/Export/ExportSql.php:348
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "排除當前的使用者定義"
 
 #: libraries/classes/Config/Descriptions.php:174
 msgid ""
@@ -2608,7 +2608,7 @@ msgstr "使用外鍵檢查某些查詢的核選方塊的預設值。"
 
 #: libraries/classes/Config/Descriptions.php:580
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
+msgstr "取消選取以停用拖放匯入"
 
 #: libraries/classes/Config/Descriptions.php:581
 msgid "How many rows can be inserted at one time."
@@ -3205,7 +3205,7 @@ msgstr "外鍵檢查"
 
 #: libraries/classes/Config/Descriptions.php:756
 msgid "First day of calendar"
-msgstr ""
+msgstr "日歷第一日"
 
 #: libraries/classes/Config/Descriptions.php:757
 #: libraries/classes/Config/Descriptions.php:768 libraries/classes/Menu.php:530
@@ -4764,7 +4764,7 @@ msgstr "正在顯示第 %1$s - %2$s 列。"
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "已存在名為 “%s” 的頁面，請重新命名。"
 
 #: libraries/classes/Controllers/Database/ExportController.php:78
 #: libraries/classes/Controllers/Database/TrackingController.php:128
@@ -14033,10 +14033,8 @@ msgstr "@SERVER@ 會以伺服器名稱取代，@DATABASE@ 會以資料庫名稱�
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5 templates/table/export/index.twig:5
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Exporting a raw query"
-msgstr "顯示 SQL 查詢"
+msgstr "匯出 SQL 查詢"
 
 #: templates/database/export/index.twig:7
 #, php-format
@@ -15484,7 +15482,8 @@ msgid ""
 "There is a mismatch between HTTPS indicated on the server and client. This "
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
-msgstr ""
+msgstr "伺服器和客戶端上指示的HTTPS之間不同。可能導致phpMyAdmin無法正常運作或有安全風"
+"險。請更新伺服器配置以正確指示HTTPS。"
 
 #: templates/login/twofactor/application_configure.twig:3
 msgid ""
@@ -16193,20 +16192,16 @@ msgid ""
 msgstr "允許新增使用者和權限，但不允許重新載入權限表。"
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "允許建立預存程序。"
+msgstr "允許建立外來鍵。"
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
 msgstr "未在 MariaDB 上使用。"
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "在此版本的 MySQL 無效。"
+msgstr "此版本的 MySQL 沒有使用。"
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
@@ -17026,7 +17021,7 @@ msgstr "新增伺服器"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "出現問題。"
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
@@ -17332,11 +17327,9 @@ msgid "Alter table order by"
 msgstr "修改資料表的排序"
 
 #: templates/table/operations/index.twig:20
-#, fuzzy
-#| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
-msgstr "(單一)"
+msgstr "(逐一)"
 
 #: templates/table/operations/index.twig:50
 msgid "Move table to (database.table)"
@@ -17394,7 +17387,7 @@ msgstr "分區維護"
 #: templates/table/operations/index.twig:458
 #: templates/table/structure/display_partitions.twig:201
 msgid "Remove partitioning"
-msgstr "刪除分割"
+msgstr "刪除分區"
 
 #: templates/table/operations/index.twig:471
 msgid "Check referential integrity"
@@ -17417,40 +17410,28 @@ msgid "Analyze partition"
 msgstr "分析分區"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "已分區"
+msgstr "檢查分區"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "已分區"
+msgstr "刪除分區"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "刪除分割"
+msgstr "最佳化分區"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "子分區"
+msgstr "重建分區"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "刪除分割"
+msgstr "修復分區"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "子分區"
+msgstr "清空分區"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
@@ -17774,10 +17755,8 @@ msgstr "取得更多的佈景主題！"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Toggle navigation"
-msgstr "資料表導覽列"
+msgstr "切換資料表導覽"
 
 #. l10n: Current page
 #: templates/top_menu.twig:14
