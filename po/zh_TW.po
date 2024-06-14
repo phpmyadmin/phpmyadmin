@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-06-13 16:09+0000\n"
+"PO-Revision-Date: 2024-06-14 20:09+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/zh_Hant/>\n"
@@ -8659,7 +8659,7 @@ msgstr "分區 %s"
 #: libraries/classes/Operations.php:1652
 #: templates/table/structure/display_partitions.twig:137
 msgid "Remove partitioning"
-msgstr "刪除分割"
+msgstr "刪除分區"
 
 #: libraries/classes/Operations.php:1678
 msgid "Check referential integrity:"
