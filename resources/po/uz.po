@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-06-09 00:22+0000\n"
+"POT-Creation-Date: 2024-06-16 00:21+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Uzbek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -69,7 +69,7 @@ msgstr ""
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:474
-#: src/Util.php:1473
+#: src/Util.php:1456
 #, fuzzy
 #| msgid "settings"
 msgid "Settings"
@@ -310,7 +310,7 @@ msgstr "OK"
 #: resources/templates/columns_definitions/column_definitions_form.twig:71
 #: resources/templates/database/data_dictionary/index.twig:16
 #: resources/templates/table/structure/display_table_stats.twig:6
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:573
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:567
 msgid "Table comments:"
 msgstr "Изоҳлар жадвали:"
 
@@ -490,13 +490,13 @@ msgstr "Ташқи калитни танланг"
 #: src/Navigation/Nodes/NodeColumn.php:28
 #: src/Plugins/Export/ExportHtmlword.php:259
 #: src/Plugins/Export/ExportHtmlword.php:352
-#: src/Plugins/Export/ExportLatex.php:505 src/Plugins/Export/ExportOdt.php:361
+#: src/Plugins/Export/ExportLatex.php:506 src/Plugins/Export/ExportOdt.php:361
 #: src/Plugins/Export/ExportOdt.php:454
 #: src/Plugins/Export/ExportTexytext.php:285
 #: src/Plugins/Export/ExportTexytext.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:489
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:620
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:642
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:614
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:636
 msgid "Column"
 msgstr "Устун"
 
@@ -628,8 +628,8 @@ msgstr "Фойдаланувчи"
 #: src/Import/Import.php:1165 src/Menu.php:213 src/Menu.php:317
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1057 src/Util.php:1482
-#: src/Util.php:1499
+#: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1040 src/Util.php:1465
+#: src/Util.php:1482
 msgid "Structure"
 msgstr "Тузилиши"
 
@@ -674,13 +674,13 @@ msgstr "Номи"
 #: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:288
 #: src/Plugins/Export/ExportHtmlword.php:262
 #: src/Plugins/Export/ExportHtmlword.php:355
-#: src/Plugins/Export/ExportLatex.php:506 src/Plugins/Export/ExportOdt.php:364
+#: src/Plugins/Export/ExportLatex.php:507 src/Plugins/Export/ExportOdt.php:364
 #: src/Plugins/Export/ExportOdt.php:457
 #: src/Plugins/Export/ExportTexytext.php:286
 #: src/Plugins/Export/ExportTexytext.php:367
 #: src/Plugins/Export/Helpers/Pdf.php:491
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:621
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:643
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:615
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:637
 msgid "Type"
 msgstr "Тур"
 
@@ -719,13 +719,13 @@ msgstr ""
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:10
 #: src/Plugins/Export/ExportHtmlword.php:268
 #: src/Plugins/Export/ExportHtmlword.php:361
-#: src/Plugins/Export/ExportLatex.php:508 src/Plugins/Export/ExportOdt.php:370
+#: src/Plugins/Export/ExportLatex.php:509 src/Plugins/Export/ExportOdt.php:370
 #: src/Plugins/Export/ExportOdt.php:463
 #: src/Plugins/Export/ExportTexytext.php:288
 #: src/Plugins/Export/ExportTexytext.php:369
 #: src/Plugins/Export/Helpers/Pdf.php:495
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:646
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:618
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:640
 msgid "Default"
 msgstr "Андоза"
 
@@ -763,8 +763,8 @@ msgstr "Таққослаш"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:27
 #: resources/templates/database/central_columns/edit.twig:13
 #: resources/templates/table/structure/display_structure.twig:24
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:622
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:644
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:616
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:638
 msgid "Attributes"
 msgstr "Атрибутлар"
 
@@ -783,13 +783,13 @@ msgstr "Атрибутлар"
 #: resources/templates/table/zoom_search/result_form.twig:36
 #: src/Plugins/Export/ExportHtmlword.php:265
 #: src/Plugins/Export/ExportHtmlword.php:358
-#: src/Plugins/Export/ExportLatex.php:507 src/Plugins/Export/ExportOdt.php:367
+#: src/Plugins/Export/ExportLatex.php:508 src/Plugins/Export/ExportOdt.php:367
 #: src/Plugins/Export/ExportOdt.php:460
 #: src/Plugins/Export/ExportTexytext.php:287
 #: src/Plugins/Export/ExportTexytext.php:368
 #: src/Plugins/Export/Helpers/Pdf.php:493
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:623
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:645
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:617
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:639
 msgid "Null"
 msgstr "Null"
 
@@ -811,11 +811,11 @@ msgstr "Привилегияларни таҳрирлаш"
 #: resources/templates/table/structure/display_structure.twig:28
 #: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
 #: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:371
-#: src/Plugins/Export/ExportLatex.php:514 src/Plugins/Export/ExportOdt.php:473
+#: src/Plugins/Export/ExportLatex.php:515 src/Plugins/Export/ExportOdt.php:473
 #: src/Plugins/Export/ExportTexytext.php:375
 #: src/Plugins/Export/Helpers/Pdf.php:512
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:636
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:649
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:643
 msgid "Comments"
 msgstr "Изоҳлар"
 
@@ -979,9 +979,9 @@ msgstr "Фаолсизлантирилган"
 #: src/Controllers/Table/Structure/PrimaryController.php:107
 #: src/IndexColumn.php:148 src/Index.php:469
 #: src/Plugins/Export/ExportHtmlword.php:597
-#: src/Plugins/Export/ExportLatex.php:573 src/Plugins/Export/ExportOdt.php:716
+#: src/Plugins/Export/ExportLatex.php:574 src/Plugins/Export/ExportOdt.php:716
 #: src/Plugins/Export/ExportTexytext.php:555
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:688
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:682
 msgid "Yes"
 msgstr "Ҳа"
 
@@ -1015,9 +1015,9 @@ msgstr "Ҳа"
 #: src/Controllers/JavaScriptMessagesController.php:368 src/IndexColumn.php:145
 #: src/Index.php:443 src/Index.php:469
 #: src/Plugins/Export/ExportHtmlword.php:597
-#: src/Plugins/Export/ExportLatex.php:573 src/Plugins/Export/ExportOdt.php:716
+#: src/Plugins/Export/ExportLatex.php:574 src/Plugins/Export/ExportOdt.php:716
 #: src/Plugins/Export/ExportTexytext.php:555
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:688
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:682
 msgid "No"
 msgstr "Йўқ"
 
@@ -1159,12 +1159,12 @@ msgstr "SQL-сўровлар тарихи"
 #: src/Plugins/Export/ExportCodegen.php:52 src/Plugins/Export/ExportCsv.php:43
 #: src/Plugins/Export/ExportExcel.php:37
 #: src/Plugins/Export/ExportHtmlword.php:47
-#: src/Plugins/Export/ExportJson.php:67 src/Plugins/Export/ExportLatex.php:68
+#: src/Plugins/Export/ExportJson.php:67 src/Plugins/Export/ExportLatex.php:69
 #: src/Plugins/Export/ExportMediawiki.php:43
 #: src/Plugins/Export/ExportOds.php:51 src/Plugins/Export/ExportOdt.php:60
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
 #: src/Plugins/Export/ExportSql.php:122
-#: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:60
+#: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:61
 #: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:86
 #: src/Plugins/Import/ImportLdi.php:61
 #: src/Plugins/Import/ImportMediawiki.php:61
@@ -1564,11 +1564,11 @@ msgstr "Чоп этиш"
 
 #: resources/templates/database/data_dictionary/index.twig:27
 #: src/Plugins/Export/ExportHtmlword.php:365
-#: src/Plugins/Export/ExportLatex.php:510 src/Plugins/Export/ExportOdt.php:467
+#: src/Plugins/Export/ExportLatex.php:511 src/Plugins/Export/ExportOdt.php:467
 #: src/Plugins/Export/ExportTexytext.php:371
 #: src/Plugins/Export/Helpers/Pdf.php:504
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:648
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:620
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:642
 msgid "Links to"
 msgstr "Алоқалар"
 
@@ -1975,7 +1975,7 @@ msgstr "Ҳодиса тури"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:577
 #: src/Controllers/JavaScriptMessagesController.php:287 src/Menu.php:445
-#: src/Server/Status/Processes.php:96 src/Util.php:1469
+#: src/Server/Status/Processes.php:96 src/Util.php:1452
 msgid "Status"
 msgstr "Ҳолат"
 
@@ -2053,8 +2053,8 @@ msgstr ""
 #: resources/templates/database/events/index.twig:3 src/Menu.php:376
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:966 src/Plugins/Export/ExportXml.php:84
-#: src/Util.php:1491
+#: src/Plugins/Export/ExportSql.php:966 src/Plugins/Export/ExportXml.php:85
+#: src/Util.php:1474
 msgid "Events"
 msgstr "Ҳодисалар"
 
@@ -2118,7 +2118,7 @@ msgstr "Барчасини белгилаш"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:386 src/Menu.php:240
 #: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1284
-#: src/Util.php:1471 src/Util.php:1486 src/Util.php:1503
+#: src/Util.php:1454 src/Util.php:1469 src/Util.php:1486
 msgid "Export"
 msgstr "Экспорт"
 
@@ -2214,7 +2214,7 @@ msgstr "Жадваллар"
 #: src/Controllers/Server/DatabasesController.php:263
 #: src/Navigation/Nodes/NodeTableContainer.php:22
 #: src/Navigation/Nodes/NodeTableContainer.php:24
-#: src/Plugins/Export/ExportXml.php:99 src/Server/Status/Data.php:133
+#: src/Plugins/Export/ExportXml.php:100 src/Server/Status/Data.php:133
 msgid "Tables"
 msgstr "Жадваллар"
 
@@ -2296,7 +2296,7 @@ msgid "criteria"
 msgstr "Критерий"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1992
+#: src/Util.php:1975
 msgid "Sort"
 msgstr "Сортировка қилиш"
 
@@ -2308,7 +2308,7 @@ msgstr "Сортировка қилиш"
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
 #: src/Config/ConfigFile.php:553 src/Display/Results.php:1463
-#: src/Display/Results.php:1470 src/Util.php:2000 src/Util.php:2017
+#: src/Display/Results.php:1470 src/Util.php:1983 src/Util.php:2000
 msgid "Ascending"
 msgstr "Ўсиш тартибида"
 
@@ -2320,7 +2320,7 @@ msgstr "Ўсиш тартибида"
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
 #: src/Config/ConfigFile.php:553 src/Display/Results.php:1458
-#: src/Display/Results.php:1475 src/Util.php:2005 src/Util.php:2022
+#: src/Display/Results.php:1475 src/Util.php:1988 src/Util.php:2005
 msgid "Descending"
 msgstr "Камайиш тартибида"
 
@@ -2533,7 +2533,7 @@ msgstr "Журнал файли"
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:581
 #: src/Controllers/Server/PrivilegesController.php:409 src/Menu.php:256
-#: src/Menu.php:364 src/Util.php:1489 src/Util.php:1505
+#: src/Menu.php:364 src/Util.php:1472 src/Util.php:1488
 msgid "Privileges"
 msgstr "Привилегиялар"
 
@@ -2711,7 +2711,7 @@ msgid "Function"
 msgstr "Функция"
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:370
-#: src/Util.php:1490
+#: src/Util.php:1473
 msgid "Routines"
 msgstr "Муолажалар"
 
@@ -2723,8 +2723,8 @@ msgstr "Муолажалар"
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:521 src/Config/ConfigFile.php:535
 #: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599 src/Menu.php:222
-#: src/Menu.php:326 src/Navigation/Nodes/NodeTable.php:285 src/Util.php:1059
-#: src/Util.php:1484 src/Util.php:1501
+#: src/Menu.php:326 src/Navigation/Nodes/NodeTable.php:285 src/Util.php:1042
+#: src/Util.php:1467 src/Util.php:1484
 msgid "Search"
 msgstr "Қидириш"
 
@@ -2830,7 +2830,7 @@ msgstr[1] "<i>\"%s\"</i> жадвалида ўхшашликлар сони \"%s
 #: resources/templates/table/structure/display_structure.twig:272
 #: src/Config/ConfigFile.php:525 src/Config/ConfigFile.php:539
 #: src/Config/ConfigFile.php:603 src/Menu.php:206
-#: src/Navigation/Nodes/NodeTable.php:288 src/Util.php:1061 src/Util.php:1498
+#: src/Navigation/Nodes/NodeTable.php:288 src/Util.php:1044 src/Util.php:1481
 msgid "Browse"
 msgstr "Кўриб чиқиш"
 
@@ -2859,7 +2859,7 @@ msgstr[1] ""
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:496
-#: src/Server/Status/Data.php:131 src/Util.php:1475
+#: src/Server/Status/Data.php:131 src/Util.php:1458
 msgid "Replication"
 msgstr "Репликация (захира нусха кўчириш)"
 
@@ -2977,7 +2977,7 @@ msgid "Copy table with prefix"
 msgstr "Жадвални префикси билан нусхалаш"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:404 src/Util.php:1495
+#: src/Menu.php:404 src/Util.php:1478
 #, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Central columns"
@@ -3010,8 +3010,8 @@ msgid ""
 msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
-#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:241
-#: src/Plugins/Export/ExportSql.php:897 src/Plugins/Export/ExportXml.php:357
+#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:242
+#: src/Plugins/Export/ExportSql.php:897 src/Plugins/Export/ExportXml.php:358
 #: src/Plugins/Export/Helpers/Pdf.php:176
 #, fuzzy
 #| msgid "Database"
@@ -3105,7 +3105,7 @@ msgstr "Show SQL сўровларини кўрсатиш"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:425 src/Server/Privileges.php:1573
+#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1573
 #: src/Server/Privileges.php:1575
 msgid "Table"
 msgstr "Жадвал"
@@ -3113,7 +3113,7 @@ msgstr "Жадвал"
 #: resources/templates/database/structure/show_create.twig:30
 #: src/Navigation/Nodes/NodeViewContainer.php:22
 #: src/Navigation/Nodes/NodeViewContainer.php:24
-#: src/Plugins/Export/ExportXml.php:109
+#: src/Plugins/Export/ExportXml.php:110
 #, fuzzy
 #| msgid "View"
 msgid "Views"
@@ -3158,7 +3158,7 @@ msgstr "Репликация (захира нусха кўчириш)"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:75 src/Config/ConfigFile.php:523
 #: src/Config/ConfigFile.php:537 src/Config/ConfigFile.php:601 src/Menu.php:233
-#: src/Navigation/Nodes/NodeTable.php:286 src/Util.php:1060 src/Util.php:1502
+#: src/Navigation/Nodes/NodeTable.php:286 src/Util.php:1043 src/Util.php:1485
 msgid "Insert"
 msgstr "Қўйиш"
 
@@ -3980,8 +3980,8 @@ msgid "Server connection:"
 msgstr "Нохавфсиз уланиш"
 
 #: resources/templates/home/index.twig:194
-#: src/Plugins/Export/ExportLatex.php:214 src/Plugins/Export/ExportSql.php:727
-#: src/Plugins/Export/ExportXml.php:204
+#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:727
+#: src/Plugins/Export/ExportXml.php:205
 #, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
@@ -4120,8 +4120,8 @@ msgstr "Орқага"
 #: resources/templates/server/status/monitor/index.twig:53
 #: src/Config/Forms/User/ImportForm.php:58
 #: src/Controllers/JavaScriptMessagesController.php:322 src/Menu.php:249
-#: src/Menu.php:352 src/Menu.php:469 src/Util.php:1472 src/Util.php:1487
-#: src/Util.php:1504
+#: src/Menu.php:352 src/Menu.php:469 src/Util.php:1455 src/Util.php:1470
+#: src/Util.php:1487
 msgid "Import"
 msgstr "Импорт"
 
@@ -4263,7 +4263,7 @@ msgid "Taking you to the target site."
 msgstr "Кузатиш ҳисоботи"
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:279
-#: src/Language.php:178 src/Pdf.php:83
+#: src/Language.php:178 src/Pdf.php:84
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:471
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:496
 msgid "Page number:"
@@ -4503,7 +4503,7 @@ msgstr "SQL дамп"
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:575 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:435 src/Util.php:1467
+#: src/Config/Descriptions.php:739 src/Menu.php:435 src/Util.php:1450
 msgid "Databases"
 msgstr "Маълумотлар базалари"
 
@@ -5047,7 +5047,7 @@ msgstr ""
 "қайта киринг."
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:489
-#: src/Server/Status/Data.php:126 src/Util.php:1474
+#: src/Server/Status/Data.php:126 src/Util.php:1457
 msgid "Binary log"
 msgstr "Иккилик журнал"
 
@@ -5212,7 +5212,7 @@ msgstr "Тавсифи"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:193 src/Config/ConfigFile.php:579
-#: src/Menu.php:502 src/Server/Status/Data.php:193 src/Util.php:1476
+#: src/Menu.php:502 src/Server/Status/Data.php:193 src/Util.php:1459
 msgid "Variables"
 msgstr "Ўзгарувчилар"
 
@@ -5239,7 +5239,7 @@ msgid "Importing into the current server"
 msgstr "MySQL серверига уланиб бўлмади"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:517
-#: src/Util.php:1478
+#: src/Util.php:1461
 msgid "Plugins"
 msgstr ""
 
@@ -6080,8 +6080,8 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:206 src/Plugins/Export/ExportSql.php:716
-#: src/Plugins/Export/ExportXml.php:195
+#: src/Plugins/Export/ExportLatex.php:207 src/Plugins/Export/ExportSql.php:716
+#: src/Plugins/Export/ExportXml.php:196
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -7733,7 +7733,7 @@ msgstr "Жадвал кешини янгилаш (\"FLUSH\")"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:406
+#: src/Controllers/Database/StructureController.php:411
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "\"%s\" жадвали тозаланди."
@@ -7750,14 +7750,14 @@ msgstr "Ушбу базага ўтиш"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:358
+#: src/Controllers/Database/StructureController.php:363
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "\"%s\" намойиши ўчирилди"
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:359
+#: src/Controllers/Database/StructureController.php:364
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
@@ -7786,7 +7786,7 @@ msgstr "Маълумотлар яхлитлигини текшириш:"
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:591 src/Menu.php:267 src/Menu.php:277
-#: src/Menu.php:357 src/Util.php:1062 src/Util.php:1488 src/Util.php:1506
+#: src/Menu.php:357 src/Util.php:1045 src/Util.php:1471 src/Util.php:1489
 msgid "Operations"
 msgstr "Операциялар"
 
@@ -8068,8 +8068,8 @@ msgstr "Бўлакларни (PARTITIONS) ўчириш"
 
 #: resources/templates/table/structure/display_structure.twig:30
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:11
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:647
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:619
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:641
 msgid "Extra"
 msgstr "Қўшимча"
 
@@ -8186,8 +8186,8 @@ msgstr "Эффективлик"
 
 #: resources/templates/table/structure/display_table_stats.twig:45
 #: src/Controllers/Server/DatabasesController.php:267
-#: src/Controllers/Server/Status/StatusController.php:141
-#: src/Controllers/Server/Status/StatusController.php:191
+#: src/Controllers/Server/Status/StatusController.php:142
+#: src/Controllers/Server/Status/StatusController.php:192
 msgid "Total"
 msgstr "Жами"
 
@@ -8370,7 +8370,7 @@ msgstr "Триггерларни экспорт қилиш"
 #: src/Plugins/Export/ExportOdt.php:657 src/Plugins/Export/ExportPdf.php:251
 #: src/Plugins/Export/ExportSql.php:1936
 #: src/Plugins/Export/ExportTexytext.php:498
-#: src/Plugins/Export/ExportXml.php:104 src/Util.php:1492 src/Util.php:1508
+#: src/Plugins/Export/ExportXml.php:105 src/Util.php:1475 src/Util.php:1491
 msgid "Triggers"
 msgstr "Триггерлар"
 
@@ -10018,8 +10018,8 @@ msgstr "Жадвал номи"
 #: src/Config/ConfigFile.php:519 src/Config/ConfigFile.php:533
 #: src/Config/ConfigFile.php:587 src/Config/ConfigFile.php:597
 #: src/Config/Descriptions.php:755 src/Menu.php:218 src/Menu.php:322
-#: src/Menu.php:440 src/Navigation/Nodes/NodeTable.php:287 src/Util.php:1058
-#: src/Util.php:1468 src/Util.php:1483 src/Util.php:1500
+#: src/Menu.php:440 src/Navigation/Nodes/NodeTable.php:287 src/Util.php:1041
+#: src/Util.php:1451 src/Util.php:1466 src/Util.php:1483
 msgid "SQL"
 msgstr "SQL"
 
@@ -10168,7 +10168,7 @@ msgstr "Фаолсизлантирилган"
 #: src/Config/ConfigFile.php:663 src/Config/ConfigFile.php:716
 #: src/Config/ConfigFile.php:728 src/Config/ConfigFile.php:736
 #: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:62
-#: src/Plugins/Export/ExportLatex.php:94
+#: src/Plugins/Export/ExportLatex.php:95
 #: src/Plugins/Export/ExportMediawiki.php:63
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
 #: src/Plugins/Export/ExportSql.php:221
@@ -10179,7 +10179,7 @@ msgstr "тузилиш"
 #: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:717
 #: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
 #: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:62
-#: src/Plugins/Export/ExportLatex.php:94
+#: src/Plugins/Export/ExportLatex.php:95
 #: src/Plugins/Export/ExportMediawiki.php:63
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
 #: src/Plugins/Export/ExportSql.php:221
@@ -10190,7 +10190,7 @@ msgstr ""
 #: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:718
 #: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
 #: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:62
-#: src/Plugins/Export/ExportLatex.php:94
+#: src/Plugins/Export/ExportLatex.php:95
 #: src/Plugins/Export/ExportMediawiki.php:63
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
 #: src/Plugins/Export/ExportSql.php:221
@@ -12040,7 +12040,7 @@ msgstr "Жадвал номи шаблони"
 #: src/Config/Descriptions.php:657 src/Config/Descriptions.php:670
 #: src/Config/Descriptions.php:679 src/Config/Descriptions.php:717
 #: src/Config/Descriptions.php:723 src/Plugins/Export/ExportHtmlword.php:57
-#: src/Plugins/Export/ExportLatex.php:89
+#: src/Plugins/Export/ExportLatex.php:90
 #: src/Plugins/Export/ExportMediawiki.php:53
 #: src/Plugins/Export/ExportMediawiki.php:59
 #: src/Plugins/Export/ExportOdt.php:70 src/Plugins/Export/ExportPdf.php:81
@@ -12051,7 +12051,7 @@ msgstr "Жадвал номи шаблони"
 msgid "Dump table"
 msgstr "Жадваллар сони: \"%s\""
 
-#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:80
+#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:81
 msgid "Include table caption"
 msgstr "Жадвалга сарлавҳа қўшиш"
 
@@ -13669,8 +13669,8 @@ msgstr ""
 #: src/Controllers/Database/SearchController.php:59
 #: src/Controllers/Database/SqlController.php:63
 #: src/Controllers/Database/SqlController.php:68
-#: src/Controllers/Database/StructureController.php:142
-#: src/Controllers/Database/StructureController.php:147
+#: src/Controllers/Database/StructureController.php:143
+#: src/Controllers/Database/StructureController.php:148
 #: src/Controllers/Database/Structure/FavoriteTableController.php:83
 #: src/Controllers/Database/Structure/RealRowCountController.php:60
 #: src/Controllers/Database/TrackingController.php:60
@@ -13912,7 +13912,7 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:576
+#: src/Controllers/Database/StructureController.php:578
 #: src/Display/Results.php:3418
 #, php-format
 msgid ""
@@ -13922,7 +13922,7 @@ msgstr ""
 "Ушбу намойиш камида кўрсатилган миқдорда қаторларга эга. Батафсил маълумот "
 "учун %sдокументацияга%s қаранг."
 
-#: src/Controllers/Database/StructureController.php:740
+#: src/Controllers/Database/StructureController.php:742
 msgid "unknown"
 msgstr "номаълум"
 
@@ -14198,7 +14198,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" (маълумотлар базасини ўчириш) буйруғи ўчирилган."
 
-#: src/Controllers/Import/ImportController.php:687 src/Sql.php:872
+#: src/Controllers/Import/ImportController.php:687 src/Sql.php:873
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -15679,7 +15679,7 @@ msgid "cancel"
 msgstr "Бекор қилиш"
 
 #: src/Controllers/JavaScriptMessagesController.php:591
-#: src/Controllers/Server/Status/StatusController.php:185
+#: src/Controllers/Server/Status/StatusController.php:186
 msgid "Aborted"
 msgstr "Узилди"
 
@@ -16054,91 +16054,91 @@ msgctxt "Month name"
 msgid "December"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:497
+#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:494
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Янв"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:495
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Фев"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:496
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Мар"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:497
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Апр"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:498
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Май"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:499
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Июн"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:500
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Июл"
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:501
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Авг"
 
-#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:502
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Сен"
 
-#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:503
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Окт"
 
-#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:504
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Ноя"
 
-#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:505
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Дек"
 
-#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:508
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -16146,42 +16146,42 @@ msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Якш"
 
-#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:509
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Душ"
 
-#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:510
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Сеш"
 
-#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:511
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Чор"
 
-#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:512
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Пай"
 
-#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:513
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Жум"
 
-#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:514
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
@@ -16631,21 +16631,21 @@ msgstr "phpMyAdmin \"%s\" оқим ишини тугута олмади. Эҳт�
 msgid "Other statements"
 msgstr "Тавсиф"
 
-#: src/Controllers/Server/Status/StatusController.php:131
+#: src/Controllers/Server/Status/StatusController.php:132
 msgid "Received"
 msgstr "Қабул қилинди"
 
-#: src/Controllers/Server/Status/StatusController.php:136
+#: src/Controllers/Server/Status/StatusController.php:137
 msgid "Sent"
 msgstr "Юборилди"
 
-#: src/Controllers/Server/Status/StatusController.php:173
+#: src/Controllers/Server/Status/StatusController.php:174
 #, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Max. concurrent connections"
 msgstr "Максимал уланишлар сони"
 
-#: src/Controllers/Server/Status/StatusController.php:179
+#: src/Controllers/Server/Status/StatusController.php:180
 msgid "Failed attempts"
 msgstr "Муваффақиятсиз уринишлар сони"
 
@@ -17421,7 +17421,7 @@ msgstr "Маълумотлар базаси мавжуд эмас"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1048
+#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1049
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -17514,7 +17514,7 @@ msgstr "Биронта ҳам конфигурацияланган сервер 
 
 #: src/Controllers/Table/GetFieldController.php:81
 #: src/Database/Routines.php:1012 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:858
+#: src/InsertEdit.php:199 src/Sql.php:859
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL бўш натижа берди (яъни нольта сатр)."
 
@@ -17960,7 +17960,7 @@ msgstr ""
 msgid "%s total"
 msgstr "жами"
 
-#: src/Display/Results.php:3459 src/Sql.php:864
+#: src/Display/Results.php:3459 src/Sql.php:865
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -18695,11 +18695,11 @@ msgstr "%1$s ва %2$s индекслари бир хил, улардан бир
 msgid "web server upload directory:"
 msgstr "Юклаш каталогидан"
 
-#: src/InsertEdit.php:929 src/Sql.php:855
+#: src/InsertEdit.php:929 src/Sql.php:856
 msgid "Showing SQL query"
 msgstr "SQL-сўровни кўрсатиш"
 
-#: src/InsertEdit.php:953 src/Sql.php:835
+#: src/InsertEdit.php:953 src/Sql.php:836
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Киритилган қатор идентификатори: %1$d"
@@ -18718,7 +18718,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: src/Menu.php:283 src/Menu.php:390 src/Util.php:1493 src/Util.php:1507
+#: src/Menu.php:283 src/Menu.php:390 src/Util.php:1476 src/Util.php:1490
 msgid "Tracking"
 msgstr "Кузатиш"
 
@@ -18726,11 +18726,11 @@ msgstr "Кузатиш"
 msgid "Database seems to be empty!"
 msgstr "Маълумотлар базаси бўш!"
 
-#: src/Menu.php:334 src/Util.php:1485
+#: src/Menu.php:334 src/Util.php:1468
 msgid "Query"
 msgstr "Сўров"
 
-#: src/Menu.php:397 src/Util.php:1494
+#: src/Menu.php:397 src/Util.php:1477
 msgid "Designer"
 msgstr "Дизайнер"
 
@@ -18740,11 +18740,11 @@ msgstr "Дизайнер"
 msgid "User accounts"
 msgstr "Фойдаланувчи"
 
-#: src/Menu.php:507 src/Util.php:1477
+#: src/Menu.php:507 src/Util.php:1460
 msgid "Charsets"
 msgstr "Кодировкалар"
 
-#: src/Menu.php:512 src/Util.php:1479
+#: src/Menu.php:512 src/Util.php:1462
 msgid "Engines"
 msgstr "Жадвал турлари"
 
@@ -18848,7 +18848,7 @@ msgstr ""
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:24
-#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportXml.php:89
+#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportXml.php:90
 msgid "Functions"
 msgstr "Функциялар"
 
@@ -18868,7 +18868,7 @@ msgstr ""
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:24
-#: src/Plugins/Export/ExportSql.php:587 src/Plugins/Export/ExportXml.php:94
+#: src/Plugins/Export/ExportSql.php:587 src/Plugins/Export/ExportXml.php:95
 msgid "Procedures"
 msgstr "Муолажалар"
 
@@ -19191,7 +19191,7 @@ msgstr "Жадвал номи кўрсатилмаган!"
 msgid "This table is a view, it can not be truncated."
 msgstr ""
 
-#: src/Pdf.php:138
+#: src/Pdf.php:139
 #, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
@@ -19304,7 +19304,7 @@ msgstr "Қаторлар бўлувчиси"
 
 #: src/Plugins/Export/ExportCsv.php:75 src/Plugins/Export/ExportExcel.php:49
 #: src/Plugins/Export/ExportHtmlword.php:77
-#: src/Plugins/Export/ExportLatex.php:184 src/Plugins/Export/ExportOds.php:63
+#: src/Plugins/Export/ExportLatex.php:185 src/Plugins/Export/ExportOds.php:63
 #: src/Plugins/Export/ExportOdt.php:129
 #: src/Plugins/Export/ExportTexytext.php:81
 #, fuzzy
@@ -19325,9 +19325,9 @@ msgid "Excel edition:"
 msgstr "Excel-версияси"
 
 #: src/Plugins/Export/ExportHtmlword.php:71
-#: src/Plugins/Export/ExportLatex.php:155 src/Plugins/Export/ExportOdt.php:118
+#: src/Plugins/Export/ExportLatex.php:156 src/Plugins/Export/ExportOdt.php:118
 #: src/Plugins/Export/ExportTexytext.php:70
-#: src/Plugins/Export/ExportXml.php:117
+#: src/Plugins/Export/ExportXml.php:118
 #, fuzzy
 #| msgid "Databases display options"
 msgid "Data dump options"
@@ -19365,93 +19365,93 @@ msgstr ""
 msgid "Output unicode characters unescaped"
 msgstr ""
 
-#: src/Plugins/Export/ExportLatex.php:50
+#: src/Plugins/Export/ExportLatex.php:51
 msgid "Content of table @TABLE@"
 msgstr "@TABLE@ жадвалининг мундарижаси"
 
-#: src/Plugins/Export/ExportLatex.php:51
+#: src/Plugins/Export/ExportLatex.php:52
 msgid "(continued)"
 msgstr "(давоми)"
 
-#: src/Plugins/Export/ExportLatex.php:52
+#: src/Plugins/Export/ExportLatex.php:53
 msgid "Structure of table @TABLE@"
 msgstr "@TABLE@ жадвалининг тузилиши"
 
-#: src/Plugins/Export/ExportLatex.php:104 src/Plugins/Export/ExportOdt.php:85
+#: src/Plugins/Export/ExportLatex.php:105 src/Plugins/Export/ExportOdt.php:85
 #: src/Plugins/Export/ExportSql.php:233
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
 msgstr "Ўгиришлар параметрлари"
 
-#: src/Plugins/Export/ExportLatex.php:110
-#: src/Plugins/Export/ExportLatex.php:166
+#: src/Plugins/Export/ExportLatex.php:111
+#: src/Plugins/Export/ExportLatex.php:167
 #, fuzzy
 #| msgid "Table caption"
 msgid "Table caption:"
 msgstr "Жадвал сарлавҳаси"
 
-#: src/Plugins/Export/ExportLatex.php:116
-#: src/Plugins/Export/ExportLatex.php:172
+#: src/Plugins/Export/ExportLatex.php:117
+#: src/Plugins/Export/ExportLatex.php:173
 #, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued):"
 msgstr "Жадвал сарлавҳаси"
 
-#: src/Plugins/Export/ExportLatex.php:122
-#: src/Plugins/Export/ExportLatex.php:178
+#: src/Plugins/Export/ExportLatex.php:123
+#: src/Plugins/Export/ExportLatex.php:179
 #, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
 msgstr "Белги идентификатори"
 
-#: src/Plugins/Export/ExportLatex.php:130 src/Plugins/Export/ExportOdt.php:93
+#: src/Plugins/Export/ExportLatex.php:131 src/Plugins/Export/ExportOdt.php:93
 #: src/Plugins/Export/ExportSql.php:158
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
 msgstr "Ташқи калитларни текширишни ўчириш"
 
-#: src/Plugins/Export/ExportLatex.php:137 src/Plugins/Export/ExportOdt.php:100
+#: src/Plugins/Export/ExportLatex.php:138 src/Plugins/Export/ExportOdt.php:100
 #, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
 msgstr "Майдон изоҳларини кўрсатиш"
 
-#: src/Plugins/Export/ExportLatex.php:143 src/Plugins/Export/ExportOdt.php:106
+#: src/Plugins/Export/ExportLatex.php:144 src/Plugins/Export/ExportOdt.php:106
 #: src/Plugins/Export/ExportSql.php:166
 #, fuzzy
 #| msgid "Available MIME types"
 msgid "Display media types"
 msgstr "Мавжуд MIME турлари"
 
-#: src/Plugins/Export/ExportLatex.php:161
+#: src/Plugins/Export/ExportLatex.php:162
 #, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row:"
 msgstr "Майдон номларини биринчи қаторга жойлаштириш"
 
-#: src/Plugins/Export/ExportLatex.php:212 src/Plugins/Export/ExportSql.php:723
-#: src/Plugins/Export/ExportXml.php:202
+#: src/Plugins/Export/ExportLatex.php:213 src/Plugins/Export/ExportSql.php:723
+#: src/Plugins/Export/ExportXml.php:203
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
 msgstr "Тузилган сана"
 
-#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:729
-#: src/Plugins/Export/ExportXml.php:205
+#: src/Plugins/Export/ExportLatex.php:216 src/Plugins/Export/ExportSql.php:729
+#: src/Plugins/Export/ExportXml.php:206
 #, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
 msgstr "PHP версиясм"
 
-#: src/Plugins/Export/ExportLatex.php:304 src/Plugins/Export/ExportSql.php:2071
+#: src/Plugins/Export/ExportLatex.php:305 src/Plugins/Export/ExportSql.php:2071
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
 msgstr "Маълумотлар"
 
-#: src/Plugins/Export/ExportLatex.php:483
+#: src/Plugins/Export/ExportLatex.php:484
 #, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
@@ -19736,30 +19736,30 @@ msgid "Error reading data for table %s:"
 msgstr "Маълумотларни чақиришга рухсат беради"
 
 #: src/Plugins/Export/ExportSql.php:2677
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:584
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:578
 msgid "Creation:"
 msgstr "Тузиш:"
 
-#: src/Plugins/Export/ExportSql.php:2687
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:595
+#: src/Plugins/Export/ExportSql.php:2685
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:589
 msgid "Last update:"
 msgstr "Охирги янгиланиш:"
 
-#: src/Plugins/Export/ExportSql.php:2697
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
+#: src/Plugins/Export/ExportSql.php:2693
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:600
 msgid "Last check:"
 msgstr "Охирги текширув:"
 
-#: src/Plugins/Export/ExportSql.php:2720
+#: src/Plugins/Export/ExportSql.php:2714
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 
-#: src/Plugins/Export/ExportXml.php:78
+#: src/Plugins/Export/ExportXml.php:79
 msgid "Object creation options (all are recommended)"
 msgstr ""
 
-#: src/Plugins/Export/ExportXml.php:122
+#: src/Plugins/Export/ExportXml.php:123
 msgid "Export contents"
 msgstr "Таркибини экспорт қилиш"
 
@@ -20019,7 +20019,7 @@ msgid ""
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
 
-#: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:40
+#: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:42
 #, fuzzy
 #| msgid ""
 #| "plays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
@@ -20049,8 +20049,8 @@ msgstr ""
 "ўрнатилиши керак."
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
-#: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:70
-#: src/Util.php:522
+#: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:129
+#: src/Util.php:519
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y й., %H:%M"
 
@@ -20712,18 +20712,18 @@ msgstr "Янгироқ версия ҳали мавжуд эмас"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:852
+#: src/Sql.php:853
 msgid "Showing as PHP code"
 msgstr "PHP-код сифатида кўрсатиш"
 
-#: src/Sql.php:1216
+#: src/Sql.php:1217
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: src/Sql.php:1230
+#: src/Sql.php:1231
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -21296,22 +21296,22 @@ msgstr ""
 msgid "Max: %s%s"
 msgstr "Максимал ҳажми: \"%s\"%s\""
 
-#: src/Util.php:545
+#: src/Util.php:528
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr ""
 
-#: src/Util.php:547
+#: src/Util.php:530
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: src/Util.php:619
+#: src/Util.php:602
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "\"%s\" кун, \"%s\" соат, \"%s\" минут ва \"%s\" секунд"
 
-#: src/Util.php:1470
+#: src/Util.php:1453
 #, fuzzy
 #| msgid "User"
 msgid "Users"
