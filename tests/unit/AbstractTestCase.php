@@ -185,4 +185,20 @@ abstract class AbstractTestCase extends TestCase
 
         $property->setValue($object, $value);
     }
+
+    /**
+     * Get a private or protected property via reflection.
+     *
+     * @param object $object       The object to inspect, pass null for static objects()
+     * @param string $className    The class name
+     * @param string $propertyName The method name
+     * @phpstan-param class-string $className
+     */
+    protected function getProperty(object $object, string $className, string $propertyName): mixed
+    {
+        $class = new ReflectionClass($className);
+        $property = $class->getProperty($propertyName);
+
+        return $property->getValue($object);
+    }
 }

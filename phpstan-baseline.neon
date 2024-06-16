@@ -2652,16 +2652,11 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 2
-			path: src/Controllers/Import/SimulateDmlController.php
-
-		-
-			message: "#^Parameter \\#1 \\$separator of function explode expects non\\-empty\\-string, string given\\.$#"
 			count: 1
 			path: src/Controllers/Import/SimulateDmlController.php
 
 		-
-			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\Controllers\\\\Import\\\\SimulateDmlController\\:\\:createParser\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Import/SimulateDmlController.php
 

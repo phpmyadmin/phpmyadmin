@@ -1966,12 +1966,6 @@
     </UnusedProperty>
   </file>
   <file src="src/Controllers/Import/SimulateDmlController.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$sqlDelimiter]]></code>
-    </ArgumentTypeCoercion>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($statement->join)]]></code>
     </RiskyTruthyFalsyComparison>
@@ -12745,6 +12739,11 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
+  <file src="tests/unit/Controllers/Import/SimulateDmlControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[providerForTestGetMatchedRows]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="tests/unit/Controllers/Navigation/UpdateNavWidthConfigControllerTest.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[invalidParamsProvider]]></code>
@@ -13852,11 +13851,6 @@
       <code><![CDATA[assertNull]]></code>
       <code><![CDATA[assertNull]]></code>
     </TypeDoesNotContainNull>
-  </file>
-  <file src="tests/unit/Import/SimulateDmlTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[providerForTestGetMatchedRows]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/IndexTest.php">
     <MixedArgument>
