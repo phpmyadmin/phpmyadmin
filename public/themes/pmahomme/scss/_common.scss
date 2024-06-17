@@ -71,10 +71,10 @@ select {
 }
 
 input {
-  &[type=text],
-  &[type=password],
-  &[type=number],
-  &[type=date] {
+  &[type="text"],
+  &[type="password"],
+  &[type="number"],
+  &[type="date"] {
     border-radius: 2px;
     background: white;
     border: 1px solid #aaa;
@@ -82,11 +82,11 @@ input {
     padding: 4px;
   }
 
-  &:not(.form-control)[type=text],
-  &:not(.form-control)[type=password],
-  &:not(.form-control)[type=number],
-  &[type=date],
-  &:not(.form-check-input)[type=checkbox] {
+  &:not(.form-control)[type="text"],
+  &:not(.form-control)[type="password"],
+  &:not(.form-control)[type="number"],
+  &[type="date"],
+  &:not(.form-check-input)[type="checkbox"] {
     margin: 6px;
   }
 }
@@ -96,10 +96,10 @@ select:not(.form-select) {
 }
 
 input {
-  &[type=text],
-  &[type=password],
-  &[type=number],
-  &[type=date] {
+  &[type="text"],
+  &[type="password"],
+  &[type="number"],
+  &[type="date"] {
     transition: all 0.2s;
   }
 }
@@ -109,10 +109,10 @@ select {
 }
 
 input {
-  &[type=text][disabled],
-  &[type=password][disabled],
-  &[type=number][disabled],
-  &[type=date][disabled] {
+  &[type="text"][disabled],
+  &[type="password"][disabled],
+  &[type="number"][disabled],
+  &[type="date"][disabled] {
     background: #e8e8e8;
     box-shadow: none;
 
@@ -134,7 +134,7 @@ select[disabled] {
 }
 
 input {
-  &[type=text] {
+  &[type="text"] {
     &:hover,
     &:focus {
       border: 1px solid #7c7c7c;
@@ -142,7 +142,7 @@ input {
     }
   }
 
-  &[type=password] {
+  &[type="password"] {
     &:hover,
     &:focus {
       border: 1px solid #7c7c7c;
@@ -150,7 +150,7 @@ input {
     }
   }
 
-  &[type=number] {
+  &[type="number"] {
     &:hover,
     &:focus {
       border: 1px solid #7c7c7c;
@@ -158,7 +158,7 @@ input {
     }
   }
 
-  &[type=date] {
+  &[type="date"] {
     &:hover,
     &:focus {
       border: 1px solid #7c7c7c;
@@ -173,10 +173,10 @@ select:focus {
 }
 
 input {
-  &[type=text]:hover,
-  &[type=password]:hover,
-  &[type=number]:hover,
-  &[type=date]:hover {
+  &[type="text"]:hover,
+  &[type="password"]:hover,
+  &[type="number"]:hover,
+  &[type="date"]:hover {
     box-shadow: 0 1px 3px #aaa;
   }
 }
@@ -210,8 +210,8 @@ button {
 }
 
 input {
-  &:not(.form-check-input)[type=checkbox],
-  &[type=radio] {
+  &:not(.form-check-input)[type="checkbox"],
+  &[type="radio"] {
     vertical-align: -11%;
   }
 }
@@ -928,10 +928,10 @@ table {
   *  Validation error message styles
   */
 input {
-  &[type=text].invalid_value,
-  &[type=password].invalid_value,
-  &[type=number].invalid_value,
-  &[type=date].invalid_value {
+  &[type="text"].invalid_value,
+  &[type="password"].invalid_value,
+  &[type="number"].invalid_value,
+  &[type="date"].invalid_value {
     background: #fcc;
   }
 }
@@ -984,17 +984,19 @@ input#import_merge {
   margin-right: 1em;
 }
 
-#addColumns input[type=radio] {
+#addColumns input[type="radio"] {
   margin: 3px 0 0;
   margin-left: 1em;
 }
 
 /**
- * Indexes
+ * Indexes and Check constraints
  */
-#index_frm {
-  .index_info {
-    input[type=text],
+#index_frm,
+#check_constraint_frm {
+  .index_info,
+  .check_constraint_info {
+    input[type="text"],
     select {
       width: 100%;
       margin: 0;
@@ -1171,9 +1173,9 @@ table#index_columns {
   }
 
   input {
-    &[type=text],
-    &[type=password],
-    &[type=number] {
+    &[type="text"],
+    &[type="password"],
+    &[type="number"] {
       border: 1px #a7a6aa solid;
       height: auto;
 
@@ -1338,9 +1340,9 @@ input#auto_increment_opt {
   overflow: auto;
 
   input {
-    &[type=text],
-    &[type=password],
-    &[type=number] {
+    &[type="text"],
+    &[type="password"],
+    &[type="number"] {
       width: 10em;
       box-sizing: border-box;
     }
@@ -1588,7 +1590,7 @@ input#auto_increment_opt {
   }
 
   input {
-    &[type=submit] {
+    &[type="submit"] {
       background: none;
       border: 0;
       filter: none;
@@ -1642,7 +1644,7 @@ input#auto_increment_opt {
   padding: 0;
   position: absolute;
 
-  input[type=text] {
+  input[type="text"] {
     background: #fff;
     height: 100%;
     margin: 0;
@@ -1675,7 +1677,7 @@ input#auto_increment_opt {
   }
 
   .edit_box_posting {
-    background: #fff url('../img/ajax_clock_small.gif') no-repeat right center;
+    background: #fff url("../img/ajax_clock_small.gif") no-repeat right center;
     padding-right: 1.5em;
   }
 
@@ -1692,7 +1694,7 @@ input#auto_increment_opt {
 }
 
 .saving_edited_data {
-  background: url('../img/ajax_clock_small.gif') no-repeat left;
+  background: url("../img/ajax_clock_small.gif") no-repeat left;
   padding-left: 20px;
 }
 
@@ -2182,7 +2184,7 @@ textarea {
     }
   }
 
-  input[type=text] {
+  input[type="text"] {
     margin: 0;
     padding: 2px 4px;
   }

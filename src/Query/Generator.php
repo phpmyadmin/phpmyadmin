@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Query;
 
 use PhpMyAdmin\Triggers\Trigger;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
 
 use function array_map;
@@ -128,6 +129,23 @@ class Generator
             $sql .= ' WHERE (' . $where . ')';
         }
 
+        return $sql;
+    }
+
+    /**
+     * Returns SQL for fetching information about check constraints present on the provided table or its columns
+     *
+     * @param string $database name of database
+     * @param string $table    name of the table whose check constraints are to be retrieved
+     *
+     * @return string SQL for getting check constraints
+     */
+    public static function getTableCheckConstraintsSql(
+        string $database,
+        string $table,
+    ): string {
+        $dbi = DatabaseInterface::getInstance();
+        $sql = 'SELECT * FROM information_schema.CHECK_CONSTRAINTS WHERE CONSTRAINT_SCHEMA = ' . $dbi->quoteString($database) . ' AND TABLE_NAME = ' . $dbi->quoteString($table) . ';';
         return $sql;
     }
 

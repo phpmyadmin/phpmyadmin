@@ -2972,6 +2972,195 @@ function showIndexEditDialog ($outer) {
     }
 }
 
+
+function checkConstraintDialogModal (routeUrl, url, title, callbackSuccess, callbackFailure = undefined) {
+    /* Remove the hidden dialogs if there are*/
+    var modal = $('#checkConstraintDialogModal');
+
+    const checkConstraintDialogPreviewModal = document.getElementById('checkConstraintDialogPreviewModal');
+    checkConstraintDialogPreviewModal.addEventListener('shown.bs.modal', () => {
+        const modalBody = checkConstraintDialogPreviewModal.querySelector('.modal-body');
+        const $form = $('#check_constraint_frm');
+        const formUrl = $form.attr('action');
+        const sep = CommonParams.get('arg_separator');
+        const formData = $form.serialize() +
+            sep + 'do_save_data=1' +
+            sep + 'preview_sql=1' +
+            sep + 'ajax_request=1';
+        $.post({
+            url: formUrl,
+            data: formData,
+            success: response => {
+                if (! response.success) {
+                    modalBody.innerHTML = '<div class="alert alert-danger" role="alert">' + window.Messages.strErrorProcessingRequest + '</div>';
+
+                    return;
+                }
+
+                modalBody.innerHTML = response.sql_data;
+                highlightSql($('#checkConstraintDialogPreviewModal'));
+            },
+            error: () => {
+                modalBody.innerHTML = '<div class="alert alert-danger" role="alert">' + window.Messages.strErrorProcessingRequest + '</div>';
+            }
+        });
+    });
+
+    checkConstraintDialogPreviewModal.addEventListener('hidden.bs.modal', () => {
+        checkConstraintDialogPreviewModal.querySelector('.modal-body').innerHTML = '<div class="spinner-border" role="status">' +
+            '<span class="visually-hidden">' + window.Messages.strLoading + '</span></div>';
+    });
+
+    // Remove previous click listeners from other modal openings (issue: #17892)
+    $('#checkConstraintDialogModalGoButton').off('click');
+    $('#checkConstraintDialogModalGoButton').on('click', function () {
+        /**
+         * @var the_form object referring to the export form
+         */
+        var $form = $('#check_constraint_frm');
+        ajaxShowMessage(window.Messages.strProcessingRequest);
+        Functions.prepareForAjaxRequest($form);
+        // User wants to submit the form
+        $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
+            var $sqlqueryresults = $('.sqlqueryresults');
+            if ($sqlqueryresults.length !== 0) {
+                $sqlqueryresults.remove();
+            }
+
+            if (typeof data !== 'undefined' && data.success === true) {
+                ajaxShowMessage(data.message);
+                highlightSql($('.result_query'));
+                $('.result_query .alert').remove();
+                /* Reload the field form*/
+                $('#table_check_constraint').remove();
+                $('<div id=\'temp_div\'><div>')
+                    .append(data.index_table)
+                    .find('#table_check_constraint')
+                    .insertAfter('#index_header');
+
+                var $editCheckConstraintDialog = $('#checkConstraintDialogModal');
+                if ($editCheckConstraintDialog.length > 0) {
+                    $editCheckConstraintDialog.modal('hide');
+                }
+
+                $('div.no_check_constraints_defined').hide();
+                if (callbackSuccess) {
+                    callbackSuccess(data);
+                }
+
+                Navigation.reload();
+            } else {
+                var $tempDiv = $('<div id=\'temp_div\'><div>').append(data.error);
+                var $error;
+                if ($tempDiv.find('.error code').length !== 0) {
+                    $error = $tempDiv.find('.error code').addClass('error');
+                } else {
+                    $error = $tempDiv;
+                }
+
+                if (callbackFailure) {
+                    callbackFailure();
+                }
+
+                ajaxShowMessage($error, false);
+            }
+        }); // end $.post()
+    });
+
+    var $msgbox = ajaxShowMessage();
+    $.post(routeUrl, url, function (data) {
+        if (typeof data !== 'undefined' && data.success === false) {
+            // in the case of an error, show the error message returned.
+            ajaxShowMessage(data.error, false);
+
+            return;
+        }
+
+        ajaxRemoveMessage($msgbox);
+        // Show dialog if the request was successful
+        modal.modal('show');
+        // FIXME data may be undefiend
+        modal.find('.modal-body').first().html(data?.message);
+        $('#checkConstraintDialogModalLabel').first().text(title);
+        Functions.verifyColumnsProperties();
+        modal.find('.card-footer').remove();
+        Functions.showIndexEditDialog(modal);
+    }); // end $.get()
+}
+
+function checkConstraintEditorDialog (url, title, callbackSuccess, callbackFailure = undefined) {
+    Functions.checkConstraintDialogModal('index.php?route=/table/check-constraints', url, title, callbackSuccess, callbackFailure);
+}
+
+function checkConstraintRenameDialog (url, title, callbackSuccess, callbackFailure = undefined) {
+    Functions.checkConstraintDialogModal('index.php?route=/table/check-constraints/rename', url, title, callbackSuccess, callbackFailure);
+}
+
+// TODO: convert to check constraints
+function showCheckConstraintEditDialog ($outer) {
+    // checkIndexType();
+    // checkIndexName('index_frm');
+
+
+    var $indexColumns = $('#index_columns');
+    $indexColumns.find('tbody').sortable({
+        axis: 'y',
+        containment: $indexColumns.find('tbody'),
+        tolerance: 'pointer',
+        forcePlaceholderSize: true,
+        // Add custom dragged row
+        // @ts-ignore
+        helper: function (event, tr: any) {
+            var $originalCells = (tr as JQuery<HTMLElement>).children();
+            var $helper = (tr as JQuery<HTMLElement>).clone();
+            $helper.children().each(function (index) {
+                // Set cell width in dragged row
+                $(this).width($originalCells.eq(index).outerWidth());
+                var $childrenSelect = $originalCells.eq(index).children('select');
+                if ($childrenSelect.length) {
+                    var selectedIndex = $childrenSelect.prop('selectedIndex');
+                    // Set correct select value in dragged row
+                    $(this).children('select').prop('selectedIndex', selectedIndex);
+                }
+            });
+
+            return $helper;
+        }
+    });
+
+    Functions.showHints($outer);
+    // Add a slider for selecting how many columns to add to the index
+    $outer.find('.slider').slider({
+        animate: true,
+        value: 1,
+        min: 1,
+        max: 16,
+        slide: function (event, ui) {
+            $(this).closest('.card-body').find('input[type=submit]').val(
+                window.sprintf(window.Messages.strAddToIndex, ui.value)
+            );
+        }
+    });
+
+    $('div.add_fields').removeClass('hide');
+    // focus index size input on column picked
+    $outer.find('table#index_columns select').on('change', function () {
+        if ($(this).find('option:selected').val() === '') {
+            return true;
+        }
+
+        $(this).closest('tr').find('input').trigger('focus');
+    });
+
+    // Focus the slider, otherwise it looks nearly transparent
+    $('a.ui-slider-handle').addClass('ui-state-focus');
+    // set focus on index name input, if empty
+    var input = $outer.find('input#input_index_name');
+    if (! input.val()) {
+        input.trigger('focus');
+    }
+}
+
 /**
  * Function to display tooltips that were
  * generated on the PHP side by PhpMyAdmin\Util::showHint()
@@ -3862,6 +4051,10 @@ const Functions = {
     indexEditorDialog: indexEditorDialog,
     indexRenameDialog: indexRenameDialog,
     showIndexEditDialog: showIndexEditDialog,
+    checkConstraintDialogModal: checkConstraintDialogModal,
+    checkConstraintEditorDialog: checkConstraintEditorDialog,
+    showCheckConstraintEditDialog: showCheckConstraintEditDialog,
+    checkConstraintRenameDialog: checkConstraintRenameDialog,
     showHints: showHints,
     initializeMenuResizer: initializeMenuResizer,
     toggleButton: toggleButton,

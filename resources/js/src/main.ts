@@ -5,6 +5,7 @@ import { KeyHandlerEvents } from './modules/keyhandler.ts';
 import { PageSettings } from './modules/page_settings.ts';
 import { crossFramingProtection } from './modules/cross_framing_protection.ts';
 import { Indexes } from './modules/indexes.ts';
+import { CheckConstraints } from "./modules/check-constraints.ts";
 import { Config } from './modules/config.ts';
 import checkNumberOfFields from './modules/functions/checkNumberOfFields.ts';
 import onloadNavigation from './modules/navigation/event-loader.ts';
@@ -44,6 +45,8 @@ $(onloadNavigation());
 
 AJAX.registerTeardown('main.js', Indexes.off());
 AJAX.registerOnload('main.js', Indexes.on());
+AJAX.registerTeardown('main.js', CheckConstraints.off());
+AJAX.registerOnload('main.js', CheckConstraints.on());
 
 $(() => checkNumberOfFields());
 

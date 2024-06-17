@@ -1,0 +1,34 @@
+<div class="modal fade" id="checkConstraintDialogModal" tabindex="-1" aria-labelledby="checkConstraintDialogModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="checkConstraintDialogModalLabel">{{ t('Loading') }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="checkConstraintDialogModalGoButton">{{ t('Go') }}</button>
+        <button type="button" class="btn btn-secondary" data-bs-target="#checkConstraintDialogPreviewModal" data-bs-toggle="modal">{{ t('Preview SQL') }}</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="checkConstraintDialogPreviewModal" aria-hidden="true" aria-labelledby="checkConstraintDialogPreviewModalLabel" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="checkConstraintDialogPreviewModalLabel">{{ t('Preview SQL') }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+      </div>
+      <div class="modal-body">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">{{ t('Loading…') }}</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#checkConstraintDialogModal" data-bs-toggle="modal">{{ t('Go back') }}</button>
+      </div>
+    </div>
+  </div>
+</div>

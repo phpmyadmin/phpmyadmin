@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Table;
 
+use PhpMyAdmin\CheckConstraint;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\DisplayFeature;
 use PhpMyAdmin\ConfigStorage\Features\RelationFeature;
@@ -1350,6 +1351,16 @@ class Table implements Stringable
     public function getIndex(string $index): Index
     {
         return Index::singleton($this->dbi, $this->dbName, $this->name, $index);
+    }
+
+    /**
+     * Get check constraint with its name
+     *
+     * @param string $checkConstraint Check constraint name
+     */
+    public function getCheckConstraint(string $checkConstraint): CheckConstraint
+    {
+        return CheckConstraint::singleton($this->dbi, $this->dbName, $this->name, $checkConstraint);
     }
 
     /**

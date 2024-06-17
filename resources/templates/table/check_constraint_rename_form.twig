@@ -1,0 +1,30 @@
+<form action="{{ url('/table/check-constraints/rename') }}" method="post" name="check_constraint_frm" id="check_constraint_frm" class="card ajax">
+
+  {{ get_hidden_inputs(form_params) }}
+
+  <div class="card-body">
+    <div class="index_info">
+      <div>
+          <div class="label">
+              <strong>
+                  <label for="input_index_name">
+                      {{ t('Check constraint name:') }}
+                      {{ show_hint(t('Name of a table constraint shuldn\'t be a column name')) }}
+                  </label>
+              </strong>
+          </div>
+
+          <input type="text"
+              name="check_constraint"
+              id="input_check_constraint_name"
+              size="25"
+              maxlength="64"
+              value="{{ check_constraint.getName() }}"
+              onfocus="this.select()">
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-secondary" type="submit" id="preview_check_constraint_frm">{{ t('Preview SQL') }}</button>
+  </div>
+</form>

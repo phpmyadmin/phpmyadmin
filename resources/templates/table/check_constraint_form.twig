@@ -1,0 +1,104 @@
+<form action="{{ url('/table/check-constraints') }}"
+    method="post"
+    name="check_constraint_frm"
+    id="check_constraint_frm"
+    class="card ajax">
+
+    {{ get_hidden_inputs(form_params) }}
+    {% if is_from_nav %}
+      <input type="hidden" name="do_save_data" value="1">
+    {% endif %}
+
+    <div class="card-body">
+        <div class="check_constraint_info">
+            <div>
+                <div class="label">
+                    <strong>
+                        <label for="select_check_constraint_level">
+                            {{ t('Check constraint level:') }}
+                            {# {{ show_mysql_docu('ALTER_TABLE') }} #}
+                        </label>
+                    </strong>
+                </div>
+
+                {% if create_check_constraint == 0 %}
+                <input type="hidden" name="check_constraint[LEVEL]" value={{check_constraint.getLevel()}}>
+                {% endif %}
+              <select name="check_constraint[LEVEL]" id="select_check_constraint_level"{{ create_check_constraint == 0 ? ' disabled' }}>
+                <option value="Column"{{ check_constraint.getLevel() == 'Column' ? ' selected' }}>Column</option>
+                <option value="Table"{{ check_constraint.getLevel() == 'Table' ? ' selected' }}>Table</option>
+              </select>
+            </div>
+
+            <div id="check_constraint_name_container" class="{{ check_constraint.getLevel() is same as('Column') or check_constraint.getLevel() is same as('') ? 'hide' }}">
+                <div class="label">
+                    <strong>
+                        <label for="input_check_constraint_name">
+                            {{ t('Check Constraint name:') }}
+                        </label>
+                    </strong>
+                </div>
+
+                <input type="text"
+                    name="check_constraint[CONSTRAINT_NAME]"
+                    id="input_check_constraint_name"
+                    size="25"
+                    maxlength="64"
+                    value="{{ check_constraint.getName() }}"
+                    onfocus="this.select()">
+            </div>
+
+            <div id="check_constraint_column_container" class="{{ check_constraint.getLevel() is same as('Table') ? 'hide' }}">
+                <div class="label">
+                    <strong>
+                        <label for="input_check_constraint_column">
+                            {{ t('Check Constraint column:') }}
+                        </label>
+                    </strong>
+                </div>
+
+                <select name="check_constraint[CONSTRAINT_COLUMN]" id="input_check_constraint_column" value="{{ check_constraint.getName() }}" {{ create_check_constraint == 0 ? 'disabled' }}>
+                    {% for field_name, field_type in fields %}
+                        {% if (true) %}
+                            <option value="{{ field_name }}"
+                                {%- if field_name == column.getName() %}
+                                    selected="selected"
+                                {%- endif %}>
+                                {{ field_name }} [{{ field_type }}]
+                            </option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div>
+                <div class="label">
+                    <strong>
+                        <label for="input_check_constraint_clause">
+                            {{ t('Check Constraint clause:') }}
+                            {{ show_hint(t('Column check constraint clause <b>cannot</b> reference other columns then the column itself!')) }}
+                        </label>
+                    </strong>
+                </div>
+
+                <input type="text"
+                    name="check_constraint[CHECK_CLAUSE]"
+                    id="input_check_constraint_clause"
+                    size="25"
+                    maxlength="64"
+                    value="{{ check_constraint.getClause() }}"
+                    onfocus="this.select()">
+            </div>
+        <div class="clearfloat"></div>
+    </div>
+    {# The modal already has buttons to execute and preview SQL #}
+    {%- if not create_edit_table -%}
+    <div class="card-footer">
+        <button class="btn btn-primary" type="submit">{{ t('Go') }}</button>
+        <button class="btn btn-secondary" type="submit" id="preview_check_constraint_frm">{{ t('Preview SQL') }}</button>
+    </div>
+    {%- endif -%}
+</form>
+{% if is_from_nav %}
+  {{ include('modals/preview_sql_modal.twig') }}
+{% endif %}
