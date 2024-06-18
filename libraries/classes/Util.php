@@ -2002,7 +2002,7 @@ class Util
      */
     public static function addMicroseconds($value)
     {
-        if (empty($value) || $value === 'CURRENT_TIMESTAMP' || $value === 'current_timestamp()') {
+        if (empty($value) || $value === 'CURRENT_TIMESTAMP' || preg_match('/^current_timestamp\([0-6]?\)$/', $value)) {
             return $value;
         }
 

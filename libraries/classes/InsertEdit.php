@@ -1802,7 +1802,7 @@ class InsertEdit
         } elseif (
             ! ($type === 'datetime' || $type === 'timestamp' || $type === 'date')
             || ($currentValue !== 'CURRENT_TIMESTAMP'
-                && $currentValue !== 'current_timestamp()')
+                && ! preg_match('/^current_timestamp\([0-6]?\)$/', $currentValue))
         ) {
             $currentValue = "'" . $this->dbi->escapeString($currentValue)
                 . "'";
