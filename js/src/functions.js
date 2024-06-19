@@ -438,7 +438,7 @@ Functions.escapeBacktick = function (s) {
  * @return {string}
  */
 Functions.escapeSingleQuote = function (s) {
-    return s.replace('\\', '\\\\').replace('\'', '\\\'');
+    return s.replaceAll('\\', '\\\\').replaceAll('\'', '\\\'');
 };
 
 Functions.sprintf = function () {
