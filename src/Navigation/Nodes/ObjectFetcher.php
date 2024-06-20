@@ -12,16 +12,16 @@ use function in_array;
 
 class ObjectFetcher
 {
-    /** @var string[]|null */
-    private array|null $tables = null;
-    /** @var string[]|null */
-    private array|null $views = null;
-    /** @var string[]|null */
-    private array|null $procedures = null;
-    /** @var string[]|null */
-    private array|null $functions = null;
-    /** @var string[]|null */
-    private array|null $events = null;
+    /** @var string[][] */
+    private array $tables = [];
+    /** @var string[][] */
+    private array $views = [];
+    /** @var string[][] */
+    private array $procedures = [];
+    /** @var string[][] */
+    private array $functions = [];
+    /** @var string[][] */
+    private array $events = [];
 
     public function __construct(private DatabaseInterface $dbi, private Config $config)
     {
@@ -36,11 +36,12 @@ class ObjectFetcher
      */
     public function getTables(string $realName, string $searchClause): array
     {
-        if ($this->tables === null) {
+        $key = $this->getCacheKey($realName, $searchClause);
+        if (!isset($this->tables[$key])) {
             $this->bufferTablesAndViews($realName, $searchClause);
         }
 
-        return $this->tables;
+        return $this->tables[$key];
     }
 
     /**
@@ -52,11 +53,12 @@ class ObjectFetcher
      */
     public function getViews(string $realName, string $searchClause): array
     {
-        if ($this->views === null) {
+        $key = $this->getCacheKey($realName, $searchClause);;
+        if (!isset($this->views[$key])) {
             $this->bufferTablesAndViews($realName, $searchClause);
         }
 
-        return $this->views;
+        return $this->views[$key];
     }
 
     /**
@@ -68,11 +70,12 @@ class ObjectFetcher
      */
     public function getProcedures(string $realName, string $searchClause): array
     {
-        if ($this->procedures !== null) {
-            return $this->procedures;
+        $key = $this->getCacheKey($realName, $searchClause);;
+        if (isset($this->procedures[$key])) {
+            return $this->procedures[$key];
         }
 
-        return $this->procedures = $this->getRoutines('PROCEDURE', $realName, $searchClause);
+        return $this->procedures[$key] = $this->getRoutines('PROCEDURE', $realName, $searchClause);
     }
 
     /**
@@ -84,11 +87,12 @@ class ObjectFetcher
      */
     public function getFunctions(string $realName, string $searchClause): array
     {
-        if ($this->functions !== null) {
-            return $this->functions;
+        $key = $this->getCacheKey($realName, $searchClause);;
+        if (isset($this->functions[$key])) {
+            return $this->functions[$key];
         }
 
-        return $this->functions = $this->getRoutines('FUNCTION', $realName, $searchClause);
+        return $this->functions[$key] = $this->getRoutines('FUNCTION', $realName, $searchClause);
     }
 
     /**
@@ -100,11 +104,12 @@ class ObjectFetcher
      */
     public function getEvents(string $realName, string $searchClause): array
     {
-        if ($this->events !== null) {
-            return $this->events;
+        $key = $this->getCacheKey($realName, $searchClause);;
+        if (isset($this->events[$key])) {
+            return $this->events[$key];
         }
 
-        return $this->events = $this->getEventsFromDb($realName, $searchClause);
+        return $this->events[$key] = $this->getEventsFromDb($realName, $searchClause);
     }
 
     /** @return string[] */
@@ -148,15 +153,16 @@ class ObjectFetcher
      */
     private function bufferTablesAndViews(string $realName, string $searchClause): void
     {
-        $this->tables = [];
-        $this->views = [];
+        $key = $this->getCacheKey($realName, $searchClause);
+        $this->tables[$key] = [];
+        $this->views[$key] = [];
         $tablesAndViews = $this->getTablesAndViews($realName, $searchClause);
 
         foreach ($tablesAndViews as $tableOrView) {
             if (in_array($tableOrView['type'], ['BASE TABLE', 'SYSTEM VERSIONED'], true)) {
-                $this->tables[] = $tableOrView['name'];
+                $this->tables[$key][] = $tableOrView['name'];
             } else {
-                $this->views[] = $tableOrView['name'];
+                $this->views[$key][] = $tableOrView['name'];
             }
         }
     }
@@ -242,5 +248,17 @@ class ObjectFetcher
         }
 
         return $retval;
+    }
+
+    /**
+     * Return the cache key for the given search clause
+     *
+     * @param string $searchClause A string used to filter the results of the query
+     *
+     * @return string
+     */
+    private function getCacheKey(string $realName, string $searchClause): string
+    {
+        return $realName . ' ' . $searchClause;
     }
 }
