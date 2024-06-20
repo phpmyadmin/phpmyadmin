@@ -429,10 +429,13 @@ Functions.sprintf = function () {
  * Ticks the NULL checkbox if NULL is chosen as default value.
  */
 Functions.hideShowDefaultValue = function ($defaultType) {
-    if ($defaultType.val() === 'USER_DEFINED') {
+    if ($defaultType.val() === 'USER_DEFINED_VALUE') {
+        $defaultType.siblings('.default_function').hide();
         $defaultType.siblings('.default_value').show().trigger('focus');
+    } else if ($defaultType.val() === 'USER_DEFINED_FUNCTION') {
+        $defaultType.siblings('.default_function, .default_value').show().trigger('focus');
     } else {
-        $defaultType.siblings('.default_value').hide();
+        $defaultType.siblings('.default_value, .default_function').hide();
         if ($defaultType.val() === 'NULL') {
             var $nullCheckbox = $defaultType.closest('tr').find('.allow_null');
             $nullCheckbox.prop('checked', true);
@@ -461,6 +464,7 @@ Functions.hideShowExpression = function ($virtuality) {
 Functions.verifyColumnsProperties = function () {
     $('select.column_type').each(function () {
         Functions.showNoticeForEnum($(this));
+        Functions.updateDefaultFunction($(this));
     });
     $('select.default_type').each(function () {
         Functions.hideShowDefaultValue($(this));
@@ -2562,6 +2566,32 @@ Functions.showNoticeForEnum = function (selectElement) {
 };
 
 /**
+ * Update the function for particular type
+ */
+Functions.updateDefaultFunction = function (selectElement) {
+    var selectedType = selectElement.val();
+    var params = {
+        'ajax_request': true,
+        'type': selectedType,
+    };
+    var url = 'index.php?route=/ajax/defaultFuncs';
+    $.post(url, params, function (response) {
+        if (response.success === true) {
+            var selectBox = $('#field_' + selectElement.attr('id').substring(6,7) + '_4').siblings('select');
+            selectBox.find('option').remove();
+            $.each(response.default_functions, function (id, value) {
+                var option = $('<option></option>');
+                option.text(value);
+                option.attr('value', value);
+                $('#field_' + selectElement.attr('id').substring(6,7) + '_4').siblings('select').append(option);
+            });
+        } else {
+            Functions.ajaxShowMessage(response.error, false);
+        }
+    });
+};
+
+/**
  * Creates a Profiling Chart. Used in sql.js
  * and in server/status/monitor.js
  */
@@ -3323,6 +3353,7 @@ AJAX.registerOnload('functions.js', function () {
     // needs on() to work also in the Create Table dialog
     $(document).on('change', 'select.column_type', function () {
         Functions.showNoticeForEnum($(this));
+        Functions.updateDefaultFunction($(this));
     });
     $(document).on('change', 'select.default_type', function () {
         Functions.hideShowDefaultValue($(this));
