@@ -161,6 +161,7 @@ module.exports = [
                     { from: rootPath + '/node_modules/updated-jqplot/build/plugins/jqplot.highlighter.js', to: publicPath + '/js/vendor/jqplot/plugins/jqplot.highlighter.js' },
                     { from: rootPath + '/node_modules/chart.js/dist/chart.umd.js', to: publicPath + '/js/vendor/chart.umd.js' },
                     { from: rootPath + '/node_modules/chart.js/dist/chart.umd.js.map', to: publicPath + '/js/vendor/chart.umd.js.map' },
+                    { from: rootPath + '/node_modules/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.js', to: publicPath + '/js/vendor/chartjs-adapter-date-fns.bundle.js' },
                 ],
             }),
             new WebpackConcatPlugin({

@@ -37,8 +37,9 @@ function extractDate (dateString) {
 }
 
 function queryChart (data, columnNames, settings) {
-    if ($('#querychart').length === 0) {
-        return;
+    const queryChartCanvas = document.getElementById('queryChartCanvas') as HTMLCanvasElement;
+    if (! queryChartCanvas) {
+        return null;
     }
 
     var plotSettings = {
@@ -69,10 +70,6 @@ function queryChart (data, columnNames, settings) {
         },
         stackSeries: settings.stackSeries
     };
-
-    // create the chart
-    var factory = new window.JQPlotChartFactory();
-    var chart = factory.createChart(settings.type, 'querychart');
 
     // create the data table and add columns
     var dataTable = new window.DataTable();
@@ -161,10 +158,77 @@ function queryChart (data, columnNames, settings) {
         dataTable.setData(values);
     }
 
-    // draw the chart and return the chart object
-    chart.draw(dataTable, plotSettings);
+    let chartType = settings.type;
+    if (chartType === 'spline' || chartType === 'timeline' || chartType === 'area') {
+        chartType = 'line';
+    } else if (chartType === 'column') {
+        chartType = 'bar';
+    }
 
-    return chart;
+    const chartData = dataTable.getData();
+    const chartColumns = dataTable.getColumns();
+    const labels = chartData.map(row => row[0]);
+    const datasets = [];
+    for (let i = 1; i < chartColumns.length; i++) {
+        const data = chartData.map(function (row: any[]) {
+            if (settings.type === 'scatter') {
+                return { x: row[0], y: row[i] };
+            }
+
+            return row[i];
+        });
+        const dataset: Chart.ChartDataSets = { label: chartColumns[i].name, data: data };
+        if (settings.type === 'area') {
+            dataset.fill = 'start';
+        }
+
+        datasets.push(dataset);
+    }
+
+    const chartOptions = {
+        type: chartType,
+        data: { labels: labels, datasets: datasets },
+        options: {
+            animation: false,
+            plugins: {
+                legend: { position: 'right' },
+                title: { display: plotSettings.title.text !== '', text: plotSettings.title.text }
+            },
+            indexAxis: settings.type === 'bar' ? 'y' : 'x',
+            scales: {
+                x: {
+                    display: true,
+                    title: { display: plotSettings.axes.xaxis.label !== '', text: plotSettings.axes.xaxis.label },
+                    stacked: plotSettings.stackSeries,
+                },
+                y: {
+                    display: true,
+                    title: { display: plotSettings.axes.yaxis.label !== '', text: plotSettings.axes.yaxis.label },
+                    stacked: plotSettings.stackSeries,
+                }
+            }
+        }
+    };
+    if (settings.type === 'timeline') {
+        // @ts-ignore
+        chartOptions.options.scales.x.type = 'time';
+    }
+
+    // @ts-ignore
+    let queryChart = window.Chart.getChart('queryChartCanvas');
+    if (queryChart) {
+        queryChart.destroy();
+    }
+
+    // @ts-ignore
+    queryChart = new window.Chart(queryChartCanvas, chartOptions);
+
+    if (settings.type === 'spline') {
+        queryChart.options.elements.line.tension = 0.4;
+        queryChart.update('none');
+    }
+
+    return queryChart;
 }
 
 function drawChart () {
@@ -184,7 +248,7 @@ function drawChart () {
     try {
         currentChart = queryChart(chartData, columnNames, currentSettings);
         if (currentChart !== null) {
-            $('#saveChart').attr('href', currentChart.toImageString());
+            $('#saveChart').attr('href', currentChart.toBase64Image());
         }
     } catch (err) {
         ajaxShowMessage(err.message, false);
@@ -269,18 +333,6 @@ AJAX.registerTeardown('table/chart.js', function () {
 });
 
 AJAX.registerOnload('table/chart.js', function () {
-    // handle manual resize
-    $('#resizer').on('resizestop', function () {
-        // make room so that the handle will still appear
-        $('#querychart').height($('#resizer').height() * 0.96);
-        $('#querychart').width($('#resizer').width() * 0.96);
-        if (currentChart !== null) {
-            currentChart.redraw({
-                resetAxes: true
-            });
-        }
-    });
-
     // handle chart type changes
     $('input[name="chartType"]').on('click', function () {
         var type = currentSettings.type = $(this).val();
