@@ -8,11 +8,11 @@
 <meta http-equiv="Refresh" content="0;url=./public/">
 <script>
 //<![CDATA[
-setTimeout(function() { window.location = decodeURI('./public/'); }, 2000);
+setTimeout(function() { window.location = decodeURI('./public/'); }, 4000);
 //]]>
 </script>
 </head>
-<body>
+<body
 <script>
 //<![CDATA[
 document.write('<p><a href="./public/">Redirecting…</a></p>');
