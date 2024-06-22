@@ -18,10 +18,10 @@
   </li>
 </ul>
 
-<form method="post" action="{{ url('/table/zoom-search') }}" name="insertForm" id="zoom_search_form" class="ajax lock-page">
+<form method="post" action="{{ url('/table/zoom-search', {'db': db, 'table': table}) }}" name="insertForm" id="zoom_search_form" class="ajax lock-page">
   {{ get_hidden_inputs(db, table) }}
   <input type="hidden" name="goto" value="{{ goto }}">
-  <input type="hidden" name="back" value="{{ url('/table/zoom-search') }}">
+  <input type="hidden" name="back" value="{{ url('/table/zoom-search', {'db': db, 'table': table}) }}">
 
   <div class="card mb-3">
     <div class="card-header">{% trans 'Do a "query by example" (wildcard: "%") for two different columns' %}</div>
