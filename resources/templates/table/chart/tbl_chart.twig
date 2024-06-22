@@ -1,4 +1,4 @@
-<div id="div_view_options" class="container-fluid">
+<div id="div_view_options" class="container">
   <h2>{{ t('Display chart') }}</h2>
 
   <div class="card">
@@ -142,12 +142,12 @@
         {{ include('table/start_and_number_of_rows_fieldset.twig', start_and_number_of_rows_fieldset) }}
 
         <div id="resizer" class="mt-3">
+          <canvas id="queryChartCanvas" aria-label="{{ t('The generated chart') }}" role="img"></canvas>
           <div class="position-absolute top-0 end-0 mt-1 me-1">
-            <a class="disableAjax" id="saveChart" href="#" download="chart.png">
+            <a class="disableAjax btn btn-sm btn-outline-secondary" id="saveChart" href="#" download="chart.png">
               {{ get_image('b_saveimage', t('Save chart as image')) }}
             </a>
           </div>
-          <div id="querychart" dir="ltr"></div>
         </div>
       </form>
     </div>

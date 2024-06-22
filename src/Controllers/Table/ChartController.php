@@ -81,6 +81,8 @@ final class ChartController implements InvocableController
             'vendor/jqplot/plugins/jqplot.pieRenderer.js',
             'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
             'vendor/jqplot/plugins/jqplot.highlighter.js',
+            'vendor/chart.umd.js',
+            'vendor/chartjs-adapter-date-fns.bundle.js',
         ]);
 
         $urlParams = [];
