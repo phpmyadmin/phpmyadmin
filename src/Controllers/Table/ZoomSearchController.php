@@ -25,6 +25,7 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\Gis;
 
 use function __;
+use function array_map;
 use function array_search;
 use function array_values;
 use function htmlspecialchars;
@@ -414,6 +415,16 @@ final class ZoomSearchController implements InvocableController
             );
         }
 
+        $integerTypes = $this->dbi->types->getIntegerTypes();
+        $floatTypes = $this->dbi->types->getFloatTypes();
+        $columnDataTypes = array_map(static function (string $type) use ($integerTypes, $floatTypes): string {
+            $cleanType = (string) preg_replace('@\(.*@s', '', $type);
+            $isInteger = in_array($cleanType, $integerTypes, true);
+            $isFloat = in_array($cleanType, $floatTypes, true);
+
+            return $isInteger ? 'INT' : ($isFloat ? 'FLOAT' : strtoupper($cleanType));
+        }, $this->columnTypes);
+
         $this->response->render('table/zoom_search/result_form', [
             'db' => Current::$database,
             'table' => Current::$table,
@@ -422,6 +433,7 @@ final class ZoomSearchController implements InvocableController
             'foreigners' => $this->foreigners,
             'column_null_flags' => $this->columnNullFlags,
             'column_types' => $this->columnTypes,
+            'column_data_types' => $columnDataTypes,
             'goto' => $goto,
             'data' => $data,
             'data_json' => json_encode($data),
