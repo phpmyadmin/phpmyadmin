@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-06-16 00:21+0000\n"
+"POT-Creation-Date: 2024-06-23 00:20+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -6785,7 +6785,11 @@ msgstr "Στήλη σειρών:"
 msgid "Value Column:"
 msgstr "Στήλη Τιμής:"
 
-#: resources/templates/table/chart/tbl_chart.twig:147
+#: resources/templates/table/chart/tbl_chart.twig:145
+msgid "The generated chart"
+msgstr ""
+
+#: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
 msgstr "Αποθήκευση διαγράμματος ως εικόνα"
 
@@ -12531,11 +12535,11 @@ msgstr ""
 #: src/Controllers/Table/AddFieldController.php:169
 #: src/Controllers/Table/ChangeController.php:69
 #: src/Controllers/Table/ChangeController.php:74
-#: src/Controllers/Table/ChartController.php:105
-#: src/Controllers/Table/ChartController.php:110
-#: src/Controllers/Table/ChartController.php:147
-#: src/Controllers/Table/ChartController.php:152
-#: src/Controllers/Table/ChartController.php:234
+#: src/Controllers/Table/ChartController.php:107
+#: src/Controllers/Table/ChartController.php:112
+#: src/Controllers/Table/ChartController.php:149
+#: src/Controllers/Table/ChartController.php:154
+#: src/Controllers/Table/ChartController.php:236
 #: src/Controllers/Table/DeleteConfirmController.php:61
 #: src/Controllers/Table/DeleteConfirmController.php:66
 #: src/Controllers/Table/DropColumnConfirmationController.php:50
@@ -12651,9 +12655,9 @@ msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για 
 #: src/Controllers/Table/AddFieldController.php:183
 #: src/Controllers/Table/ChangeController.php:83
 #: src/Controllers/Table/ChangeController.php:88
-#: src/Controllers/Table/ChartController.php:119
-#: src/Controllers/Table/ChartController.php:124
-#: src/Controllers/Table/ChartController.php:242
+#: src/Controllers/Table/ChartController.php:121
+#: src/Controllers/Table/ChartController.php:126
+#: src/Controllers/Table/ChartController.php:244
 #: src/Controllers/Table/DeleteConfirmController.php:75
 #: src/Controllers/Table/DeleteConfirmController.php:80
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
@@ -13015,7 +13019,7 @@ msgstr "Οι εντολές «DROP DATABASE» έχουν απενεργοποι�
 msgid "[ROLLBACK occurred.]"
 msgstr "[συνέβει ROLLBACK.]"
 
-#: src/Controllers/Import/SimulateDmlController.php:31
+#: src/Controllers/Import/SimulateDmlController.php:84
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Μονο ερωτήματα UPDATE και DELETE μονού πίνακα μπορούν να εξομοιωθούν."
 
@@ -16079,11 +16083,11 @@ msgstr "Δεν επιλέχθηκε εγγραφή."
 msgid "No SQL query was set to fetch data."
 msgstr "Κανένα ερώτημα SQL δεν τέθηκε για να έρθουν δεδομένα."
 
-#: src/Controllers/Table/ChartController.php:191
+#: src/Controllers/Table/ChartController.php:193
 msgid "No numeric columns present in the table to plot."
 msgstr "Καμία αριθμητική στήλη παρούσα στον πίνακα για εκτύπωση."
 
-#: src/Controllers/Table/ChartController.php:269
+#: src/Controllers/Table/ChartController.php:271
 msgid "No data to display"
 msgstr "Κανένα δεδομένο για προβολή"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-06-16 00:21+0000\n"
+"POT-Creation-Date: 2024-06-23 00:20+0000\n"
 "PO-Revision-Date: 2024-06-14 16:09+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -6249,7 +6249,11 @@ msgstr "图例项（系列）所在字段："
 msgid "Value Column:"
 msgstr "数据值字段："
 
-#: resources/templates/table/chart/tbl_chart.twig:147
+#: resources/templates/table/chart/tbl_chart.twig:145
+msgid "The generated chart"
+msgstr ""
+
+#: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
 msgstr "将图表另存为图像"
 
@@ -11368,11 +11372,11 @@ msgstr "已经有名为 “%s” 的页面了，请重新命名。"
 #: src/Controllers/Table/AddFieldController.php:169
 #: src/Controllers/Table/ChangeController.php:69
 #: src/Controllers/Table/ChangeController.php:74
-#: src/Controllers/Table/ChartController.php:105
-#: src/Controllers/Table/ChartController.php:110
-#: src/Controllers/Table/ChartController.php:147
-#: src/Controllers/Table/ChartController.php:152
-#: src/Controllers/Table/ChartController.php:234
+#: src/Controllers/Table/ChartController.php:107
+#: src/Controllers/Table/ChartController.php:112
+#: src/Controllers/Table/ChartController.php:149
+#: src/Controllers/Table/ChartController.php:154
+#: src/Controllers/Table/ChartController.php:236
 #: src/Controllers/Table/DeleteConfirmController.php:61
 #: src/Controllers/Table/DeleteConfirmController.php:66
 #: src/Controllers/Table/DropColumnConfirmationController.php:50
@@ -11483,9 +11487,9 @@ msgstr "您没有权限管理用户！"
 #: src/Controllers/Table/AddFieldController.php:183
 #: src/Controllers/Table/ChangeController.php:83
 #: src/Controllers/Table/ChangeController.php:88
-#: src/Controllers/Table/ChartController.php:119
-#: src/Controllers/Table/ChartController.php:124
-#: src/Controllers/Table/ChartController.php:242
+#: src/Controllers/Table/ChartController.php:121
+#: src/Controllers/Table/ChartController.php:126
+#: src/Controllers/Table/ChartController.php:244
 #: src/Controllers/Table/DeleteConfirmController.php:75
 #: src/Controllers/Table/DeleteConfirmController.php:80
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
@@ -11814,7 +11818,7 @@ msgstr "已禁用“删除数据库”语句。"
 msgid "[ROLLBACK occurred.]"
 msgstr "[发生 ROLLBACK.]"
 
-#: src/Controllers/Import/SimulateDmlController.php:31
+#: src/Controllers/Import/SimulateDmlController.php:84
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "只能预览单一数据表的UPDATE和DELETE查询。"
 
@@ -14533,11 +14537,11 @@ msgstr "没有选中任何行。"
 msgid "No SQL query was set to fetch data."
 msgstr "没有设置SQL 查询来检索数据。"
 
-#: src/Controllers/Table/ChartController.php:191
+#: src/Controllers/Table/ChartController.php:193
 msgid "No numeric columns present in the table to plot."
 msgstr "在将表格转为图表时没有找到数字类型的列。"
 
-#: src/Controllers/Table/ChartController.php:269
+#: src/Controllers/Table/ChartController.php:271
 msgid "No data to display"
 msgstr "没有可显示数据"
 

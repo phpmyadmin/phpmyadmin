@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-06-16 00:21+0000\n"
+"POT-Creation-Date: 2024-06-23 00:20+0000\n"
 "PO-Revision-Date: 2024-05-31 17:34+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -6326,7 +6326,11 @@ msgstr "계열의 열:"
 msgid "Value Column:"
 msgstr "값 열:"
 
-#: resources/templates/table/chart/tbl_chart.twig:147
+#: resources/templates/table/chart/tbl_chart.twig:145
+msgid "The generated chart"
+msgstr ""
+
+#: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
 msgstr "차트를 이미지 파일로 저장"
 
@@ -11640,11 +11644,11 @@ msgstr ""
 #: src/Controllers/Table/AddFieldController.php:169
 #: src/Controllers/Table/ChangeController.php:69
 #: src/Controllers/Table/ChangeController.php:74
-#: src/Controllers/Table/ChartController.php:105
-#: src/Controllers/Table/ChartController.php:110
-#: src/Controllers/Table/ChartController.php:147
-#: src/Controllers/Table/ChartController.php:152
-#: src/Controllers/Table/ChartController.php:234
+#: src/Controllers/Table/ChartController.php:107
+#: src/Controllers/Table/ChartController.php:112
+#: src/Controllers/Table/ChartController.php:149
+#: src/Controllers/Table/ChartController.php:154
+#: src/Controllers/Table/ChartController.php:236
 #: src/Controllers/Table/DeleteConfirmController.php:61
 #: src/Controllers/Table/DeleteConfirmController.php:66
 #: src/Controllers/Table/DropColumnConfirmationController.php:50
@@ -11758,9 +11762,9 @@ msgstr "사용자를 관리할 권한이 없습니다!"
 #: src/Controllers/Table/AddFieldController.php:183
 #: src/Controllers/Table/ChangeController.php:83
 #: src/Controllers/Table/ChangeController.php:88
-#: src/Controllers/Table/ChartController.php:119
-#: src/Controllers/Table/ChartController.php:124
-#: src/Controllers/Table/ChartController.php:242
+#: src/Controllers/Table/ChartController.php:121
+#: src/Controllers/Table/ChartController.php:126
+#: src/Controllers/Table/ChartController.php:244
 #: src/Controllers/Table/DeleteConfirmController.php:75
 #: src/Controllers/Table/DeleteConfirmController.php:80
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
@@ -12106,7 +12110,7 @@ msgstr "\"DROP DATABASE\" 구문은 허락되지 않습니다."
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK이 발생했습니다.]"
 
-#: src/Controllers/Import/SimulateDmlController.php:31
+#: src/Controllers/Import/SimulateDmlController.php:84
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "단일 테이블 UPDATE 및 DELETE 쿼리만 시뮬레이션할 수 있습니다."
 
@@ -14947,11 +14951,11 @@ msgstr "선택한 행이 없습니다."
 msgid "No SQL query was set to fetch data."
 msgstr "데이터를 가져오기 위한 SQL 쿼리가 없습니다."
 
-#: src/Controllers/Table/ChartController.php:191
+#: src/Controllers/Table/ChartController.php:193
 msgid "No numeric columns present in the table to plot."
 msgstr "테이블에 숫자형 컬럼이 없어 표시할 수 없습니다."
 
-#: src/Controllers/Table/ChartController.php:269
+#: src/Controllers/Table/ChartController.php:271
 msgid "No data to display"
 msgstr "표시할 데이터 없음"
 

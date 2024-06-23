@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-06-16 00:21+0000\n"
+"POT-Creation-Date: 2024-06-23 00:20+0000\n"
 "PO-Revision-Date: 2024-02-07 20:01+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -6437,7 +6437,11 @@ msgstr "Wertespalten:"
 msgid "Value Column:"
 msgstr "Wertspalte:"
 
-#: resources/templates/table/chart/tbl_chart.twig:147
+#: resources/templates/table/chart/tbl_chart.twig:145
+msgid "The generated chart"
+msgstr ""
+
+#: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
 msgstr "Diagramm als Bild speichern"
 
@@ -11990,11 +11994,11 @@ msgstr ""
 #: src/Controllers/Table/AddFieldController.php:169
 #: src/Controllers/Table/ChangeController.php:69
 #: src/Controllers/Table/ChangeController.php:74
-#: src/Controllers/Table/ChartController.php:105
-#: src/Controllers/Table/ChartController.php:110
-#: src/Controllers/Table/ChartController.php:147
-#: src/Controllers/Table/ChartController.php:152
-#: src/Controllers/Table/ChartController.php:234
+#: src/Controllers/Table/ChartController.php:107
+#: src/Controllers/Table/ChartController.php:112
+#: src/Controllers/Table/ChartController.php:149
+#: src/Controllers/Table/ChartController.php:154
+#: src/Controllers/Table/ChartController.php:236
 #: src/Controllers/Table/DeleteConfirmController.php:61
 #: src/Controllers/Table/DeleteConfirmController.php:66
 #: src/Controllers/Table/DropColumnConfirmationController.php:50
@@ -12111,9 +12115,9 @@ msgstr "Sie haben nicht die Berechtigung, die Benutzer zu verwalten!"
 #: src/Controllers/Table/AddFieldController.php:183
 #: src/Controllers/Table/ChangeController.php:83
 #: src/Controllers/Table/ChangeController.php:88
-#: src/Controllers/Table/ChartController.php:119
-#: src/Controllers/Table/ChartController.php:124
-#: src/Controllers/Table/ChartController.php:242
+#: src/Controllers/Table/ChartController.php:121
+#: src/Controllers/Table/ChartController.php:126
+#: src/Controllers/Table/ChartController.php:244
 #: src/Controllers/Table/DeleteConfirmController.php:75
 #: src/Controllers/Table/DeleteConfirmController.php:80
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
@@ -12483,7 +12487,7 @@ msgstr "\"DROP DATABASE\" - Anweisungen wurden deaktiviert."
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK aufgetreten.]"
 
-#: src/Controllers/Import/SimulateDmlController.php:31
+#: src/Controllers/Import/SimulateDmlController.php:84
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "Nur UPDATE- und DELETE-Abfragen mit einer Tabelle können simuliert werden."
@@ -15429,12 +15433,12 @@ msgstr "Keine Reihe ausgewählt."
 msgid "No SQL query was set to fetch data."
 msgstr "Zum Erhalten von Daten ist keine SQL-Abfrage gesetzt."
 
-#: src/Controllers/Table/ChartController.php:191
+#: src/Controllers/Table/ChartController.php:193
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 "Die Tabelle enthält keine numerischen Spalten zum Anzeigen eines Diagramms."
 
-#: src/Controllers/Table/ChartController.php:269
+#: src/Controllers/Table/ChartController.php:271
 msgid "No data to display"
 msgstr "Keine Daten zum Anzeigen"
 
