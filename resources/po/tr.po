@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-06-23 00:20+0000\n"
-"PO-Revision-Date: 2024-06-14 16:09+0000\n"
+"PO-Revision-Date: 2024-06-24 10:09+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.6-rc\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -6393,7 +6393,7 @@ msgstr "Değer Sütunu:"
 
 #: resources/templates/table/chart/tbl_chart.twig:145
 msgid "The generated chart"
-msgstr ""
+msgstr "Oluşturulan çizelge"
 
 #: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
