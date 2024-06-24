@@ -10,6 +10,13 @@
 
 /* global sprintf */ // js/vendor/sprintf.js
 
+$(document).on('change', '.criteria_op', function () {
+    const op = $(this).val();
+    const criteria = $(this).closest('.table').find('.rhs_text_val');
+
+    isOpWithoutArg(op) ? criteria.hide().val('') : criteria.show();
+});
+
 function getFormatsText () {
     return {
         '=': ' = \'%s\'',
@@ -24,25 +31,36 @@ function getFormatsText () {
         'NOT LIKE %...%': ' NOT LIKE \'%%%s%%\'',
         'BETWEEN': ' BETWEEN \'%s\'',
         'NOT BETWEEN': ' NOT BETWEEN \'%s\'',
-        'IS NULL': ' \'%s\' IS NULL',
-        'IS NOT NULL': ' \'%s\' IS NOT NULL',
         'REGEXP': ' REGEXP \'%s\'',
         'REGEXP ^...$': ' REGEXP \'^%s$\'',
         'NOT REGEXP': ' NOT REGEXP \'%s\''
     };
 }
 
+function opsWithoutArg () {
+    return ['IS NULL', 'IS NOT NULL'];
+}
+
+function isOpWithoutArg (op) {
+    return opsWithoutArg().includes(op);
+}
+
 function generateCondition (criteriaDiv, table) {
     const tableName = table.val();
     const tableAlias = table.siblings('.table_alias').val();
+    const op = criteriaDiv.find('.criteria_op').first().val();
 
     var query = '`' + Functions.escapeBacktick(tableAlias === '' ? tableName : tableAlias) + '`.';
     query += '`' + Functions.escapeBacktick(table.siblings('.columnNameSelect').first().val()) + '`';
     if (criteriaDiv.find('.criteria_rhs').first().val() === 'text') {
-        var formatsText = getFormatsText();
-        query += sprintf(formatsText[criteriaDiv.find('.criteria_op').first().val()], Functions.escapeSingleQuote(criteriaDiv.find('.rhs_text_val').first().val()));
+        if (isOpWithoutArg(op)) {
+            query += ' ' + op;
+        } else {
+            const formatsText = getFormatsText();
+            query += sprintf(formatsText[op], Functions.escapeSingleQuote(criteriaDiv.find('.rhs_text_val').first().val()));
+        }
     } else {
-        query += ' ' + criteriaDiv.find('.criteria_op').first().val();
+        query += ' ' + op;
         query += ' `' + Functions.escapeBacktick(criteriaDiv.find('.tableNameSelect').first().val()) + '`.';
         query += '`' + Functions.escapeBacktick(criteriaDiv.find('.columnNameSelect').first().val()) + '`';
     }
