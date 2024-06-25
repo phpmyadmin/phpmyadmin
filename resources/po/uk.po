@@ -4,27 +4,25 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-06-23 00:20+0000\n"
-"PO-Revision-Date: 2023-09-20 11:57+0000\n"
-"Last-Translator: Kipя <yankirill@icloud.com>\n"
+"PO-Revision-Date: 2024-06-25 12:09+0000\n"
+"Last-Translator: Hotripak <hotr1pak@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.6-rc\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "З цього моменту Javascript має бути увімкнений!"
 
 #: resources/templates/base.twig:46
-#, fuzzy
-#| msgid "Add user account"
 msgid "Open user account menu"
-msgstr "Додати обліковий запис користувача"
+msgstr "Відкрити меню облікового запису користувача"
 
 #: resources/templates/base.twig:57 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
@@ -32,22 +30,16 @@ msgid "phpMyAdmin documentation"
 msgstr "Документація phpMyAdmin"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "MariaDB Documentation"
 msgid "MariaDB documentation"
-msgstr "Документація MariaDB"
+msgstr "MariaDB документація"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "MySQL Documentation"
 msgid "MySQL documentation"
-msgstr "Документація MySQL"
+msgstr "MySQL документація"
 
 #: resources/templates/base.twig:73
-#, fuzzy
-#| msgid "Appearance settings"
 msgid "Appearance:"
-msgstr "Налаштування вигляду"
+msgstr "Зовнішність:"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
@@ -1214,10 +1206,8 @@ msgid "OK"
 msgstr "OK"
 
 #: resources/templates/console/display.twig:178
-#, fuzzy
-#| msgid "Restore default value"
 msgid "Restore default values"
-msgstr "Відновити значення за замовчуванням"
+msgstr "Відновлення значень за замовчуванням"
 
 #: resources/templates/console/display.twig:185 src/Config/Descriptions.php:958
 msgid "Always expand query messages"
@@ -1295,10 +1285,8 @@ msgstr "Основний список стовпців для поточної �
 
 #: resources/templates/database/central_columns/main.twig:168
 #: resources/templates/display/results/table.twig:139
-#, fuzzy
-#| msgid "Filter rows"
 msgid "Filter rows:"
-msgstr "Фільтрувати рядки"
+msgstr "Відфільтрувати рядки:"
 
 #: resources/templates/database/central_columns/main.twig:171
 #: resources/templates/display/results/table.twig:143
@@ -1720,10 +1708,8 @@ msgid "Select page"
 msgstr "Вибрати сторінку"
 
 #: resources/templates/database/designer/schema_export.twig:6
-#, fuzzy
-#| msgid "Select Export Relational Type"
 msgid "Select export relational type:"
-msgstr "Виберіть тип експорту зв'язків"
+msgstr "Виберіть тип відношення для експорту:"
 
 #: resources/templates/database/events/editor_form.twig:10
 #: resources/templates/database/routines/editor_form.twig:11
@@ -2497,14 +2483,12 @@ msgid "Browse"
 msgstr "Переглянути"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<strong>Total:</strong> <em>%count%</em> match"
-#| msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<strong>Всього:</strong> <em>%count%</em> збіг"
-msgstr[1] "<strong>Всього:</strong> <em>%count%</em> збіги"
-msgstr[2] "<strong>Всього:</strong> <em>%count%</em> збігів"
+msgstr[0] "<strong>Всього:</strong> <em>%s</em> збіг"
+msgstr[1] "<strong>Всього:</strong> <em>%s</em> збіги"
+msgstr[2] "<strong>Всього:</strong> <em>%s</em> збігів"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
@@ -3355,14 +3339,12 @@ msgid "Containing the word:"
 msgstr "Містить слово:"
 
 #: resources/templates/gis_data_editor_form.twig:26
-#, fuzzy
-#| msgid "Geometry %d:"
 msgid "Geometry type:"
-msgstr "Геометрія %d:"
+msgstr "Тип геометрії:"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
-msgstr ""
+msgstr "Ідентифікатор системи просторової прив'язки"
 
 # Ідентифікатор просторової системи координат
 #: resources/templates/gis_data_editor_form.twig:41
@@ -3843,27 +3825,19 @@ msgid "Verify"
 msgstr "Перевірити"
 
 #: resources/templates/login/twofactor/webauthn_creation.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm registration on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
-"Будь ласка, підключіть пристрій FIDO U2F до USB-порту комп'ютера. Потім "
-"підтвердіть реєстрацію на пристрої."
+"Будь ласка, під'єднайте ваш пристрій WebAuthn/FIDO2. Потім підтвердьте "
+"реєстрацію на пристрої."
 
 #: resources/templates/login/twofactor/webauthn_request.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm login on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
-"Будь ласка, підключіть пристрій FIDO U2F до USB-порту комп'ютера. Потім "
-"підтвердіть логін на пристрої."
+"Будь ласка, під'єднайте ваш пристрій WebAuthn/FIDO2. Потім підтвердьте вхід "
+"на пристрої."
 
 #: resources/templates/menu/main.twig:27
 msgid "View:"
@@ -3954,10 +3928,8 @@ msgid "Clear fast filter"
 msgstr "Очистити швидкий фільтр"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
-#, fuzzy
-#| msgid "Recently used tables"
 msgid "Recently visited tables"
-msgstr "Таблиці, що були недавно використані"
+msgstr "Нещодавно відвідані столи"
 
 #: resources/templates/navigation/tree/quick_warp.twig:6
 msgid "Recent"
@@ -5292,10 +5264,8 @@ msgid "Save changes"
 msgstr "Зберегти зміни"
 
 #: resources/templates/server/replication/change_primary.twig:7
-#, fuzzy
-#| msgid "Change or reconfigure primary server"
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "Змінити або переконфігурувати головний сервер"
+msgstr "Конфігурація репліки - Зміна або переналаштування основного сервера"
 
 #: resources/templates/server/replication/change_primary.twig:12
 msgid ""
@@ -5634,16 +5604,12 @@ msgid "Advisor"
 msgstr "Радник"
 
 #: resources/templates/server/status/monitor/index.twig:4
-#, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
-msgstr "Системна пам'ять"
+msgstr "Системний монітор"
 
 #: resources/templates/server/status/monitor/index.twig:7
-#, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
-msgstr "Запустити монітор"
+msgstr "Монітор запуску"
 
 #: resources/templates/server/status/monitor/index.twig:9
 msgid "Instructions/Setup"
@@ -5668,23 +5634,21 @@ msgstr "Інтервал оновлення"
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
-#, fuzzy, php-format
-#| msgid "%d second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d секунда"
-msgstr[1] "%d секунда"
-msgstr[2] "%d секунда"
+msgstr[1] "%d секунди"
+msgstr[2] "%d секунд"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
-#, fuzzy, php-format
-#| msgid "%d minute"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d хвилина"
-msgstr[1] "%d хвилина"
-msgstr[2] "%d хвилина"
+msgstr[1] "%d хвилини"
+msgstr[2] "%d хвилин"
 
 #: resources/templates/server/status/monitor/index.twig:38
 msgid "Chart columns"
@@ -5895,24 +5859,21 @@ msgstr "Запитань із моменту запуску:"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
-#| msgid "ø per hour"
+#, php-format
 msgid "ø per hour: %s"
-msgstr "ø за годину"
+msgstr "ø на годину: %s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
-#| msgid "per minute:"
+#, php-format
 msgid "ø per minute: %s"
-msgstr "за хвилину:"
+msgstr "ø на хвилину: %s"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
-#| msgid "per second:"
+#, php-format
 msgid "ø per second: %s"
-msgstr "за секунду:"
+msgstr "ø на секунду: %s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -6433,7 +6394,7 @@ msgstr "Значення стовпця:"
 
 #: resources/templates/table/chart/tbl_chart.twig:145
 msgid "The generated chart"
-msgstr ""
+msgstr "Згенерована діаграма"
 
 #: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
@@ -6636,7 +6597,7 @@ msgstr "Редагувати/Вставити"
 
 #: resources/templates/table/insert/continue_insertion_form.twig:14
 msgid "Amount of rows to insert"
-msgstr ""
+msgstr "Кількість рядків для вставки"
 
 #: resources/templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
@@ -6672,10 +6633,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Третій крок нормалізації (1NF+2NF+3NF)"
 
 #: resources/templates/table/operations/index.twig:2
-#, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
-msgstr "Налаштування таблиці"
+msgstr "Табличні операції"
 
 #: resources/templates/table/operations/index.twig:10
 msgid "Alter table order by"
@@ -8914,56 +8873,42 @@ msgstr "Закрити"
 
 #: src/Config/ConfigFile.php:607
 #: src/Controllers/JavaScriptMessagesController.php:745
-#, fuzzy
-#| msgid "Monday"
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "Понеділок"
 
 #: src/Config/ConfigFile.php:608
 #: src/Controllers/JavaScriptMessagesController.php:746
-#, fuzzy
-#| msgid "Tuesday"
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Вівторок"
 
 #: src/Config/ConfigFile.php:609
 #: src/Controllers/JavaScriptMessagesController.php:747
-#, fuzzy
-#| msgid "Wednesday"
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Середа"
 
 #: src/Config/ConfigFile.php:610
 #: src/Controllers/JavaScriptMessagesController.php:748
-#, fuzzy
-#| msgid "Thursday"
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Четвер"
 
 #: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:749
-#, fuzzy
-#| msgid "Friday"
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "П'ятниця"
 
 #: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:750
-#, fuzzy
-#| msgid "Saturday"
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Субота"
 
 #: src/Config/ConfigFile.php:613
 #: src/Controllers/JavaScriptMessagesController.php:744
-#, fuzzy
-#| msgid "Sunday"
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Неділя"
@@ -11580,14 +11525,8 @@ msgid "Failed to read configuration file!"
 msgstr "Не вдалося прочитати файл конфігурації!"
 
 #: src/Config.php:661
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
 msgid "This usually means there is a syntax error in it."
-msgstr ""
-"Як правило, це означає, що в ньому є синтаксичні помилки, будь ласка, "
-"перевірте будь-які помилки що показано нижче."
+msgstr "Зазвичай це означає, що в цьому є синтаксична помилка."
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -11875,17 +11814,14 @@ msgid "Succeeded"
 msgstr "Успішно"
 
 #: src/Controllers/Console/UpdateConfigController.php:49
-#, fuzzy
-#| msgid "Table %1$s has been altered successfully."
 msgid "Console settings has been updated successfully."
-msgstr "Таблицю %1$s успішно змінено."
+msgstr "Налаштування консолі успішно оновлено."
 
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:28
-#, fuzzy
 msgid "Unexpected parameter value."
-msgstr "Неочікувані символи в рядку %s."
+msgstr "Неочікуване значення параметра."
 
 #: src/Controllers/Database/CentralColumnsController.php:150
 #, php-format
@@ -12427,13 +12363,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Ви збираєтесь повністю ЗНИЩИТИ базу даних!"
 
 #: src/Controllers/JavaScriptMessagesController.php:56
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
-"Неможливо перейменувати базу даних з таким же ім'ям. Змініть ім'я та "
-"спробуйте ще раз"
+"Не вдається перейменувати базу даних на ту саму назву. Змініть назву і "
+"спробуйте ще раз."
 
 #: src/Controllers/JavaScriptMessagesController.php:58
 msgid "You are about to DESTROY a complete table!"
@@ -12693,10 +12626,8 @@ msgid "Connections / Processes"
 msgstr "З'єднань / Процесів"
 
 #: src/Controllers/JavaScriptMessagesController.php:168
-#, fuzzy
-#| msgid "Number of tables:"
 msgid "Number of statements"
-msgstr "Число таблиць:"
+msgstr "Кількість висловлювань"
 
 #: src/Controllers/JavaScriptMessagesController.php:171
 msgid "Local monitor configuration incompatible!"
@@ -13258,10 +13189,8 @@ msgid "Show query box"
 msgstr "Показати вікно запиту"
 
 #: src/Controllers/JavaScriptMessagesController.php:402
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "Відправити запит"
+msgstr "Редагувати запит"
 
 #: src/Controllers/JavaScriptMessagesController.php:404
 #, php-format
@@ -13772,10 +13701,8 @@ msgid "up to date"
 msgstr "оновлено"
 
 #: src/Controllers/JavaScriptMessagesController.php:621
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "При імпорті файлу ESRI сталася помилка: \"%s\"."
+msgstr "Виникла помилка при завантаженні інформації про Git."
 
 #: src/Controllers/JavaScriptMessagesController.php:624
 msgid ""
@@ -13989,169 +13916,121 @@ msgid "Hide"
 msgstr "Приховати"
 
 #: src/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
-#| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Січень"
 
 #: src/Controllers/JavaScriptMessagesController.php:721
-#, fuzzy
-#| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "Лютий"
 
 #: src/Controllers/JavaScriptMessagesController.php:722
-#, fuzzy
-#| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "Березень"
 
 #: src/Controllers/JavaScriptMessagesController.php:723
-#, fuzzy
-#| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "Квітень"
 
 #: src/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
-#| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Травень"
 
 #: src/Controllers/JavaScriptMessagesController.php:725
-#, fuzzy
-#| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "Червень"
 
 #: src/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
-#| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Липень"
 
 #: src/Controllers/JavaScriptMessagesController.php:727
-#, fuzzy
-#| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "Серпень"
 
 #: src/Controllers/JavaScriptMessagesController.php:728
-#, fuzzy
-#| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "Вересень"
 
 #: src/Controllers/JavaScriptMessagesController.php:729
-#, fuzzy
-#| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Жовтень"
 
 #: src/Controllers/JavaScriptMessagesController.php:730
-#, fuzzy
-#| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "Листопад"
 
 #: src/Controllers/JavaScriptMessagesController.php:731
-#, fuzzy
-#| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "Грудень"
 
 #: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:494
-#, fuzzy
-#| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Січ"
 
 #: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:495
-#, fuzzy
-#| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Лют"
 
 #: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:496
-#, fuzzy
-#| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Бер"
 
 #: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:497
-#, fuzzy
-#| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Квт"
 
 #: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:498
-#, fuzzy
-#| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
-msgstr "Травень"
+msgstr "Тра"
 
 #: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:499
-#, fuzzy
-#| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Чрв"
 
 #: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:500
-#, fuzzy
-#| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Лип"
 
 #: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:501
-#, fuzzy
-#| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
-msgstr "Сер"
+msgstr "Срп"
 
 #: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:502
-#, fuzzy
-#| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Вер"
 
 #: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:503
-#, fuzzy
-#| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Жов"
 
 #: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:504
-#, fuzzy
-#| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Лис"
 
 #: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:505
-#, fuzzy
-#| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Гру"
@@ -14162,172 +14041,123 @@ msgid "Sun"
 msgstr "Нд"
 
 #: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:509
-#, fuzzy
-#| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Пон"
 
 #: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:510
-#, fuzzy
-#| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Вт"
 
 #: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:511
-#, fuzzy
-#| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Сер"
 
 #: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:512
-#, fuzzy
-#| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Чт"
 
 #: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:513
-#, fuzzy
-#| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Пт"
 
 #: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:514
-#, fuzzy
-#| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Сб"
 
 #: src/Controllers/JavaScriptMessagesController.php:758
-#, fuzzy
-#| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Нд"
 
 #: src/Controllers/JavaScriptMessagesController.php:759
-#, fuzzy
-#| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Пн"
 
 #: src/Controllers/JavaScriptMessagesController.php:760
-#, fuzzy
-#| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Вт"
 
 #: src/Controllers/JavaScriptMessagesController.php:761
-#, fuzzy
-#| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "Ср"
 
 #: src/Controllers/JavaScriptMessagesController.php:762
-#, fuzzy
-#| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Чт"
 
 #: src/Controllers/JavaScriptMessagesController.php:763
-#, fuzzy
-#| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Пт"
 
 #: src/Controllers/JavaScriptMessagesController.php:764
-#, fuzzy
-#| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Сб"
 
 #: src/Controllers/JavaScriptMessagesController.php:765
-#, fuzzy
-#| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "Тж"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
 #: src/Controllers/JavaScriptMessagesController.php:767
-#, fuzzy
-#| msgid "calendar-month-year"
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "календар-місяць-рік"
 
 #: src/Controllers/JavaScriptMessagesController.php:768
-#, fuzzy
-#| msgid "none"
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
-msgstr "none"
+msgstr "нічого"
 
 #: src/Controllers/JavaScriptMessagesController.php:769
-#, fuzzy
-#| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Час"
 
 #: src/Controllers/JavaScriptMessagesController.php:770
-#, fuzzy
-#| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Година"
 
 #: src/Controllers/JavaScriptMessagesController.php:771
-#, fuzzy
-#| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Хвилина"
 
 #: src/Controllers/JavaScriptMessagesController.php:772
-#, fuzzy
-#| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Секунда"
 
 #: src/Controllers/JavaScriptMessagesController.php:773
-#, fuzzy
-#| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
-msgstr "Секунда"
+msgstr "Мілісекунда"
 
 #: src/Controllers/JavaScriptMessagesController.php:774
-#, fuzzy
-#| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
-msgstr "за секунду"
+msgstr "Мікросекунда"
 
 #: src/Controllers/JavaScriptMessagesController.php:775
-#, fuzzy
-#| msgctxt "Chart type"
-#| msgid "Timeline"
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
-msgstr "Часова шкала"
+msgstr "Часовий пояс"
 
 #. l10n: Display text for previous month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:779
-#, fuzzy
-#| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Попередній"
@@ -14430,17 +14260,10 @@ msgstr ""
 "VARBINARY або BLOB."
 
 #: src/Controllers/JavaScriptMessagesController.php:813
-#, fuzzy
-#| msgid ""
-#| "The file being uploaded is probably larger than the maximum allowed size "
-#| "or this is a known bug in webkit based (Safari, Google Chrome, Arora "
-#| "etc.) browsers."
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
-"Ймовірно, завантажуваний файл має більший розмір, ніж максимально допустимо, "
-"або помилка пов’язана з використанням веб-орієнтованих браузерів (Safari, "
-"Google Chrome, Arora та ін.)."
+"Ймовірно, розмір файлу, що завантажується, перевищує максимально допустимий."
 
 #: src/Controllers/JavaScriptMessagesController.php:815
 #, php-format
@@ -14593,10 +14416,8 @@ msgid ""
 msgstr "phpMyAdmin не може припинити процес %s. Він вже напевно був зупинений."
 
 #: src/Controllers/Server/Status/QueriesController.php:92
-#, fuzzy
-#| msgid "Add statements:"
 msgid "Other statements"
-msgstr "Додати оператори:"
+msgstr "Інші висловлювання"
 
 #: src/Controllers/Server/Status/StatusController.php:132
 msgid "Received"
@@ -15448,10 +15269,8 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL повернула пустий результат (тобто нуль рядків)."
 
 #: src/Controllers/Table/GisVisualizationController.php:102
-#, fuzzy
-#| msgid "Not used for this MySQL version."
 msgid "No spatial column found for this SQL query."
-msgstr "Невикористовується для цієї версії MySQL."
+msgstr "Для цього SQL-запиту не знайдено просторового стовпця."
 
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:65
 #: src/Controllers/Table/Maintenance/CheckController.php:65
@@ -15472,10 +15291,8 @@ msgid "The partition name must be a non-empty string."
 msgstr "Ім’я розділу має бути не порожнім рядком."
 
 #: src/Controllers/Table/RecentFavoriteController.php:35
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "Invalid database or table name."
-msgstr "Неправильна назва таблиці"
+msgstr "Неправильна назва бази даних або таблиці."
 
 #: src/Controllers/Table/RelationController.php:326
 msgid "Display column was successfully updated."
@@ -15491,11 +15308,8 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Рядок: %1$s, Стовпець: %2$s, Помилка: %3$s"
 
 #: src/Controllers/Table/Structure/AddKeyController.php:23
-#, fuzzy
-#| msgctxt "U2F error"
-#| msgid "Invalid request sent to security key."
 msgid "Invalid request parameter."
-msgstr "До ключа безпеки надіслано недійсний запит."
+msgstr "Неправильний параметр запиту."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:80
 msgid "The columns have been moved successfully."
@@ -15828,16 +15642,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "Показано рядки %1s - %2s"
 
 #: src/Display/Results.php:3441
-#, fuzzy, php-format
-#| msgid "%1$d total, %2$d in query"
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "%1$d всього, %2$d в запиті"
+msgstr "%1$s всього, %2$s в запиті"
 
 #: src/Display/Results.php:3446
-#, fuzzy, php-format
-#| msgid "%d total"
+#, php-format
 msgid "%s total"
-msgstr "всього %d"
+msgstr "%s всього"
 
 #: src/Display/Results.php:3459 src/Sql.php:865
 #, php-format
@@ -16201,10 +16013,8 @@ msgid "Report"
 msgstr "Звіт"
 
 #: src/Exceptions/AuthenticationFailure.php:35
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Cannot log in to the database server."
-msgstr "Не можу зареєструватися на MySQL сервері"
+msgstr "Не вдається увійти на сервер бази даних."
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
@@ -16214,13 +16024,9 @@ msgid "Access denied!"
 msgstr "Доступ заборонено!"
 
 #: src/Exceptions/AuthenticationFailure.php:61
-#, fuzzy
-#| msgid ""
-#| "Login without a password is forbidden by configuration (see "
-#| "AllowNoPassword)"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
-msgstr "Авторизація без паролю заборонена в настройках (див. AllowNoPassword)"
+msgstr "Вхід без пароля заборонено конфігурацією (див. AllowNoPassword)."
 
 #: src/Exceptions/AuthenticationFailure.php:73
 #, php-format
@@ -16460,28 +16266,21 @@ msgid "The trigger name must not be empty."
 msgstr "Ім’я тригера не має бути порожнім."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
-#| msgid "The table name cannot be longer than %d characters."
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "Ім’я таблиці не може перевищувати %d символів."
+msgstr "Назва тригера не може бути довшою за %d символів."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
-#| msgid "The table name cannot end with a space character."
 msgid "The trigger name cannot end with a space character."
-msgstr "Ім'я таблиці не може закінчуватися пробілом."
+msgstr "Назва тригера не може закінчуватися пробілом."
 
 #: src/Import/Import.php:947
-#, fuzzy
-#| msgid ""
-#| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
-#| "transactional engine tables can be rolled back."
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
-"Тільки для INSERT, UPDATE, DELETE і REPLACE SQL запитів, що містять "
-"транзакційні таблиці движка, може бути проведений відкат."
+"Відкотити можна лише SQL-запити INSERT, UPDATE, DELETE, REPLACE і SET (без "
+"опцій типу GLOBAL), що містять таблиці транзакційного механізму."
 
 #: src/Import/Import.php:1169
 #, php-format
@@ -17041,10 +16840,8 @@ msgid "The table name is empty!"
 msgstr "Порожня назва таблиці!"
 
 #: src/Partitioning/Maintenance.php:142
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Це змінна тільки для читання і не можуть бути змінена"
+msgstr "Ця таблиця є представленням, її не можна усікати."
 
 #: src/Pdf.php:139
 msgid "Error while creating PDF:"
@@ -17084,11 +16881,8 @@ msgid "Your session has expired. Please log in again."
 msgstr "Ваш час сесії закінчився. Будь ласка увійдіть знову."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:241
-#, fuzzy
-#| msgid ""
-#| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
-msgstr "Відсутня перевірка reCAPTCHA, можливо, вона заблокована adblock?"
+msgstr "Відсутня перевірка Captcha, можливо, вона заблокована adblock?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:276
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -17115,10 +16909,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Невірний логін/пароль. Доступ не дозволено."
 
 #: src/Plugins/Auth/AuthenticationSignon.php:130
-#, fuzzy, php-format
-#| msgid "Can not find signon authentication script:"
+#, php-format
 msgid "Can not find signon authentication script: %s"
-msgstr "Не вдаеться знайти скрипт аутентифікації:"
+msgstr "Не вдається знайти скрипт автентифікації при вході в систему: %s"
 
 #: src/Plugins/AuthenticationPluginFactory.php:31
 msgid "Invalid authentication method set in configuration:"
@@ -17827,18 +17620,6 @@ msgstr ""
 "порожнього рядка."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Abs/ExternalTransformationsPlugin.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use. The second option should be blank for historical reasons. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -17851,16 +17632,17 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"ЛИШЕ LINUX: Запускає зовнішню програму і подає стовпцеві дані через "
-"стандартний ввід. Повертає стандартний вивід програми. Типовою програмою є "
-"Tidy, яка гарно друкує HTML код. З міркувань безпеки Вам потрібно самостійно "
-"відредагувати файл libraries/classes/Plugins/Transformations/Abs/"
-"ExternalTransformationsPlugin.php та вписати програми дозволені для запуску. "
-"У такому випадку, перша опція - кількість програм, які Ви бажаєте "
-"використовувати. Друга опція має бути порожньою з історичних причин. Третя "
-"опція, встановлена в 1, буде конвертувати вивід, використовуючи "
-"htmlspecialchars() (типово: 1). Четверта опція, встановлена в 1, "
-"запобігатиме перенесенню рядка і виведе усі дані одним рядком (типово: 1)."
+"ТІЛЬКИ ДЛЯ LINUX: Запускає зовнішню програму і передає їй дані стовпця через "
+"стандартний ввід. Повертає стандартний вивід програми. За замовчуванням має "
+"значення Tidy, для гарного виведення HTML-коду. З міркувань безпеки вам слід "
+"вручну відредагувати файл src/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php і перерахувати інструменти, які ви хочете "
+"зробити доступними. Перший параметр - це номер програми, яку ви хочете "
+"використовувати. Другий параметр має бути порожнім з історичних причин. "
+"Третій параметр, якщо він дорівнює 1, перетворить вихідні дані за допомогою "
+"htmlspecialchars() (за замовчуванням 1). Четвертий параметр, якщо його "
+"встановлено в 1, запобігатиме обгортанню і забезпечить виведення даних в "
+"одному рядку (за замовчуванням 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
@@ -18047,16 +17829,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Ключ безпеки устаткування (FIDO U2F)"
 
 #: src/Plugins/TwoFactor/Key.php:211
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
-"Забезпечує автентифікацію за допомогою апаратних жетонів безпеки, що "
-"підтримують FIDO U2F, таких як Yubikey."
+"Забезпечує автентифікацію за допомогою апаратних токенів безпеки, що "
+"підтримують FIDO U2F, таких як YubiKey."
 
 #: src/Plugins/TwoFactorPlugin.php:57
 #, php-format
@@ -18088,16 +17866,12 @@ msgid "Hardware Security Key (WebAuthn/FIDO2)"
 msgstr "Ключ безпеки обладнання (WebAuthn/FIDO2)"
 
 #: src/Plugins/TwoFactor/WebAuthn.php:182
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
-"Забезпечує автентифікацію за допомогою апаратних жетонів безпеки, що "
-"підтримують FIDO U2F, таких як Yubikey."
+"Забезпечує автентифікацію за допомогою апаратних токенів безпеки, що "
+"підтримують протокол WebAuthn/FIDO2, таких як YubiKey."
 
 #: src/Query/Utilities.php:93
 msgid ""
