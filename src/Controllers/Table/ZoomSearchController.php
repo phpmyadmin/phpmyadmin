@@ -124,14 +124,11 @@ final class ZoomSearchController implements InvocableController
         $this->loadTableInfo();
 
         $this->response->addScriptFiles([
+            'vendor/chart.umd.js',
+            'vendor/hammer.js',
+            'vendor/chartjs-plugin-zoom.js',
             'makegrid.js',
             'sql.js',
-            'vendor/jqplot/jquery.jqplot.js',
-            'vendor/jqplot/plugins/jqplot.canvasTextRenderer.js',
-            'vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
-            'vendor/jqplot/plugins/jqplot.dateAxisRenderer.js',
-            'vendor/jqplot/plugins/jqplot.highlighter.js',
-            'vendor/jqplot/plugins/jqplot.cursor.js',
             'table/zoom_plot_jqplot.js',
             'table/select.js',
             'table/change.js',
