@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-06-23 00:20+0000\n"
-"PO-Revision-Date: 2024-04-16 19:21+0000\n"
+"PO-Revision-Date: 2024-06-25 22:51+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.6-rc\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2486,9 +2486,7 @@ msgid "Browse"
 msgstr "Prebrskaj"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<strong>Total:</strong> <em>%count%</em> match"
-#| msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
 msgstr[0] "<strong>Skupaj:</strong> <em>%s</em> zadetek"
@@ -3341,14 +3339,12 @@ msgid "Containing the word:"
 msgstr "Vsebuje besedo:"
 
 #: resources/templates/gis_data_editor_form.twig:26
-#, fuzzy
-#| msgid "Geometry %d:"
 msgid "Geometry type:"
-msgstr "Geometrija %d:"
+msgstr "Vrsta geometrije:"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
-msgstr ""
+msgstr "Identifikator prostorskega referenčnega sistema (SRID)"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgctxt "Spatial Reference System Identifier"
@@ -5633,25 +5629,23 @@ msgstr "Hitrost osveževanja"
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
-#, fuzzy, php-format
-#| msgid "%d second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d sekunda"
-msgstr[1] "%d sekunda"
-msgstr[2] "%d sekunda"
-msgstr[3] "%d sekunda"
+msgstr[1] "%d sekundi"
+msgstr[2] "%d sekunde"
+msgstr[3] "%d sekund"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
-#, fuzzy, php-format
-#| msgid "%d minute"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minuta"
-msgstr[1] "%d minuta"
-msgstr[2] "%d minuta"
-msgstr[3] "%d minuta"
+msgstr[1] "%d minuti"
+msgstr[2] "%d minute"
+msgstr[3] "%d minut"
 
 #: resources/templates/server/status/monitor/index.twig:38
 msgid "Chart columns"
@@ -5862,24 +5856,21 @@ msgstr "Vprašanj od zagona:"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
-#| msgid "ø per hour"
+#, php-format
 msgid "ø per hour: %s"
-msgstr "povp. na uro"
+msgstr "povp. na uro: %s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
-#| msgid "per minute:"
+#, php-format
 msgid "ø per minute: %s"
-msgstr "na minuto:"
+msgstr "povp. na minuto: %s"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
-#| msgid "per second:"
+#, php-format
 msgid "ø per second: %s"
-msgstr "na sekundo:"
+msgstr "povp. na sekundo: %s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -6402,7 +6393,7 @@ msgstr "Stolpec z vrednostjo:"
 
 #: resources/templates/table/chart/tbl_chart.twig:145
 msgid "The generated chart"
-msgstr ""
+msgstr "Generirani grafikon"
 
 #: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
@@ -13181,10 +13172,8 @@ msgid "Show query box"
 msgstr "Prikaži polje poizvedbe"
 
 #: src/Controllers/JavaScriptMessagesController.php:402
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "Izvedi poizvedbo"
+msgstr "Uredi poizvedbo"
 
 #: src/Controllers/JavaScriptMessagesController.php:404
 #, php-format
@@ -15294,11 +15283,8 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Vrstica: %1$s, Stolpec: %2$s, Napaka: %3$s"
 
 #: src/Controllers/Table/Structure/AddKeyController.php:23
-#, fuzzy
-#| msgctxt "U2F error"
-#| msgid "Invalid request sent to security key."
 msgid "Invalid request parameter."
-msgstr "Varnostnemu ključu je bila poslana neveljavna zahteva."
+msgstr "Neveljaven parameter zahteve."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:80
 msgid "The columns have been moved successfully."
@@ -16005,10 +15991,8 @@ msgid "Report"
 msgstr "Poročaj"
 
 #: src/Exceptions/AuthenticationFailure.php:35
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Cannot log in to the database server."
-msgstr "Ne morem se prijaviti v strežnik MySQL"
+msgstr "Ne morem se prijaviti v strežnik zbirk podatkov."
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
@@ -16018,14 +16002,10 @@ msgid "Access denied!"
 msgstr "Dostop zavrnjen!"
 
 #: src/Exceptions/AuthenticationFailure.php:61
-#, fuzzy
-#| msgid ""
-#| "Login without a password is forbidden by configuration (see "
-#| "AllowNoPassword)"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
 msgstr ""
-"Prijava brez gesla je prepovedana s konfiguracijo (glej AllowNoPassword)"
+"Prijava brez gesla je prepovedana s konfiguracijo (glej AllowNoPassword)."
 
 #: src/Exceptions/AuthenticationFailure.php:73
 #, php-format
@@ -16272,16 +16252,12 @@ msgid "The trigger name cannot end with a space character."
 msgstr "Ime sprožilca se ne more končati s presledkom."
 
 #: src/Import/Import.php:947
-#, fuzzy
-#| msgid ""
-#| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
-#| "transactional engine tables can be rolled back."
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
-"Razveljavite lahko samo SQL-poizvedbe INSERT, UPDATE, DELETE in REPLACE, ki "
-"vsebujejo tabele transakcijskega pogona."
+"Razveljavite lahko samo SQL-poizvedbe INSERT, UPDATE, DELETE, REPLACE in SET "
+"(brez nastavitev, kot je GLOBAL), ki vsebujejo tabele transakcijskega pogona."
 
 #: src/Import/Import.php:1169
 #, php-format
@@ -16910,10 +16886,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Napačno uporabniško ime/geslo. Dostop zavrnjen."
 
 #: src/Plugins/Auth/AuthenticationSignon.php:130
-#, fuzzy, php-format
-#| msgid "Can not find signon authentication script:"
+#, php-format
 msgid "Can not find signon authentication script: %s"
-msgstr "Ne morem najti overitvenega skripta signon:"
+msgstr "Ne morem najti overitvenega skripta signon: %s"
 
 #: src/Plugins/AuthenticationPluginFactory.php:31
 msgid "Invalid authentication method set in configuration:"
