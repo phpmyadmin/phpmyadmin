@@ -7,17 +7,15 @@
     <div class="card-header">{{ t('Browse/Edit the points') }}</div>
 
     <div class="card-body">
-      {# JSON encode the data(query result) #}
-      <div class="text-center">
-        {% if zoom_submit and data is not empty %}
-          <div id="resizer">
-            <a class="text-center" id="help_dialog" href="#">{{ t('How to use') }}</a>
-            <div id="querydata" class="hide">{{ data_json }}</div>
-            <div id="querychart"></div>
-            <button class="btn btn-primary button-reset">{{ t('Reset zoom') }}</button>
-          </div>
-        {% endif %}
-      </div>
+      {% if zoom_submit and data is not empty %}
+        <a class="btn btn-secondary" id="help_dialog" href="#">{{ t('How to use') }}</a>
+        <button class="btn btn-secondary button-reset">{{ t('Reset zoom') }}</button>
+        {# JSON encode the data(query result) #}
+        <div id="querydata" class="hide">{{ data_json }}</div>
+        <div class="mt-3" id="resizer">
+          <canvas id="queryChartCanvas" aria-label="{{ t('The generated chart') }}" role="img"></canvas>
+        </div>
+      {% endif %}
 
       <div class="modal fade" id="dataPointModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="dataPointModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-scrollable">

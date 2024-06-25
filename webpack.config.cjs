@@ -162,6 +162,8 @@ module.exports = [
                     { from: rootPath + '/node_modules/chart.js/dist/chart.umd.js', to: publicPath + '/js/vendor/chart.umd.js' },
                     { from: rootPath + '/node_modules/chart.js/dist/chart.umd.js.map', to: publicPath + '/js/vendor/chart.umd.js.map' },
                     { from: rootPath + '/node_modules/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.js', to: publicPath + '/js/vendor/chartjs-adapter-date-fns.bundle.js' },
+                    { from: rootPath + '/node_modules/chartjs-plugin-zoom/dist/chartjs-plugin-zoom.js', to: publicPath + '/js/vendor/chartjs-plugin-zoom.js' },
+                    { from: rootPath + '/node_modules/hammerjs/hammer.js', to: publicPath + '/js/vendor/hammer.js' },
                 ],
             }),
             new WebpackConcatPlugin({

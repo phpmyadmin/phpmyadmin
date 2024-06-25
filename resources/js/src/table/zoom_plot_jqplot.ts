@@ -118,12 +118,10 @@ AJAX.registerTeardown('table/zoom_plot_jqplot.js', function () {
     $('#togglesearchformlink').off('click');
     $(document).off('keydown', '#dataDisplay :input');
     $('button.button-reset').off('click');
-    $('div#resizer').off('resizestop');
-    $('div#querychart').off('jqplotDataClick');
 });
 
 AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
-    var currentChart = null;
+    let currentChart = null;
     var searchedDataKey = null;
     var xLabel = ($('#tableid_0').val() as string);
     var yLabel = ($('#tableid_1').val() as string);
@@ -346,9 +344,15 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                     // TODO: text values
                 }
 
-                currentChart.series[0].data = series[0];
-                // TODO: axis changing
-                currentChart.replot();
+                currentChart.data.datasets = [
+                    {
+                        data: series[0].map(function (row: any[]) {
+                            return { x: row[0], y: row[1], row: row };
+                        }),
+                    }
+                ];
+
+                currentChart.update('none');
             }
 
             if (yChange) {
@@ -364,9 +368,15 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                     // TODO: text values
                 }
 
-                currentChart.series[0].data = series[0];
-                // TODO: axis changing
-                currentChart.replot();
+                currentChart.data.datasets = [
+                    {
+                        data: series[0].map(function (row: any[]) {
+                            return { x: row[0], y: row[1], row: row };
+                        }),
+                    }
+                ];
+
+                currentChart.update('none');
             }
         } // End plot update
 
@@ -444,11 +454,6 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
         }
     });
 
-
-    /*
-     * Generate plot using jqplot
-     */
-
     if (searchedData !== null) {
         $('#zoom_search_form')
             .slideToggle()
@@ -479,11 +484,9 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             axes: {
                 xaxis: {
                     label: $('#tableid_0').val(),
-                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer
                 },
                 yaxis: {
                     label: $('#tableid_1').val(),
-                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer
                 }
             },
             highlighter: {
@@ -525,7 +528,6 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             //    format = '%Y-%m-%d %H:%M';
             // }
             $.extend(options.axes.xaxis, {
-                renderer: $.jqplot.DateAxisRenderer,
                 tickOptions: {
                     formatString: format
                 }
@@ -539,7 +541,6 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             }
 
             $.extend(options.axes.yaxis, {
-                renderer: $.jqplot.DateAxisRenderer,
                 tickOptions: {
                     formatString: format
                 }
@@ -575,67 +576,110 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             ]);
         });
 
-        // under IE 8, the initial display is mangled; after a manual
-        // resizing, it's ok
-        // under IE 9, everything is fine
-        currentChart = $.jqplot('querychart', series, options);
-        currentChart.resetZoom();
-
         $('button.button-reset').on('click', function (event) {
             event.preventDefault();
+            // @ts-ignore
             currentChart.resetZoom();
         });
 
-        $('div#resizer').resizable();
-        $('div#resizer').on('resizestop', function () {
-            // make room so that the handle will still appear
-            $('div#querychart').height($('div#resizer').height() * 0.96);
-            $('div#querychart').width($('div#resizer').width() * 0.96);
-            currentChart.replot({ resetAxes: true });
-        });
+        const resizerDiv = $('div#resizer');
+        resizerDiv.resizable();
+        resizerDiv.width(600);
+        resizerDiv.height(400);
 
-        $('div#querychart').on('jqplotDataClick',
-            function (event, seriesIndex, pointIndex, data) {
-                searchedDataKey = data[4]; // key from searchedData (global)
-                var fieldId = 0;
-                var postParams = {
-                    'ajax_request': true,
-                    'get_data_row': true,
-                    'server': CommonParams.get('server'),
-                    'db': CommonParams.get('db'),
-                    'table': CommonParams.get('table'),
-                    'where_clause': data[3],
-                    'where_clause_sign': data[5]
-                };
+        const queryChartCanvas = document.getElementById('queryChartCanvas') as HTMLCanvasElement;
 
-                $.post('index.php?route=/table/zoom-search', postParams, function (data) {
-                    // Row is contained in data.row_info,
-                    // now fill the displayResultForm with row values
-                    var key;
-                    for (key in data.row_info) {
-                        var $field = $('#edit_fieldID_' + fieldId);
-                        var $fieldNull = $('#edit_fields_null_id_' + fieldId);
-                        if (data.row_info[key] === null) {
-                            $fieldNull.prop('checked', true);
-                            $field.val('');
-                        } else {
-                            $fieldNull.prop('checked', false);
-                            if ($field.attr('multiple')) { // when the column is of type SET
-                                $field.val(data.row_info[key].split(','));
-                            } else {
-                                $field.val(data.row_info[key]);
+        const datasets = [
+            {
+                data: series[0].map(function (row: any[]) {
+                    return { x: row[0], y: row[1], row: row };
+                }),
+            }
+        ];
+
+        const lang = CommonParams.get('lang').replace('_', '-');
+        currentChart = new window.Chart(queryChartCanvas, {
+            type: 'scatter',
+            data: { datasets: datasets },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    zoom: {
+                        pan: { enabled: true, mode: 'xy' },
+                        zoom: {
+                            wheel: { enabled: true },
+                            pinch: { enabled: true },
+                            mode: 'xy',
+                            onZoomComplete ({ chart }) {
+                                chart.update('none');
                             }
-                        }
-
-                        fieldId++;
+                        },
+                    },
+                },
+                scales: {
+                    // @ts-ignore
+                    x: {
+                        display: true,
+                        title: { display: options.axes.xaxis.label !== '', text: options.axes.xaxis.label },
+                        ticks: { callback: value => xType === 'time' ? (new Date(value)).toLocaleString(lang) : value },
+                    },
+                    y: {
+                        display: true,
+                        title: { display: options.axes.yaxis.label !== '', text: options.axes.yaxis.label },
+                        ticks: { callback: value => yType === 'time' ? (new Date(value)).toLocaleString(lang) : value },
+                    }
+                },
+                onClick (e: Event) {
+                    // @ts-ignore
+                    const activeElements = e.chart.getActiveElements();
+                    if (activeElements.length === 0) {
+                        return;
                     }
 
-                    selectedRow = data.row_info;
-                });
+                    const data = activeElements[0].element.$context.raw.row;
 
-                $('#dataPointModal').modal('show');
-            }
-        );
+                    searchedDataKey = data[4]; // key from searchedData (global)
+                    var fieldId = 0;
+                    var postParams = {
+                        'ajax_request': true,
+                        'get_data_row': true,
+                        'server': CommonParams.get('server'),
+                        'db': CommonParams.get('db'),
+                        'table': CommonParams.get('table'),
+                        'where_clause': data[3],
+                        'where_clause_sign': data[5]
+                    };
+
+                    $.post('index.php?route=/table/zoom-search', postParams, function (data) {
+                        // Row is contained in data.row_info,
+                        // now fill the displayResultForm with row values
+                        var key;
+                        for (key in data.row_info) {
+                            var $field = $('#edit_fieldID_' + fieldId);
+                            var $fieldNull = $('#edit_fields_null_id_' + fieldId);
+                            if (data.row_info[key] === null) {
+                                $fieldNull.prop('checked', true);
+                                $field.val('');
+                            } else {
+                                $fieldNull.prop('checked', false);
+                                if ($field.attr('multiple')) { // when the column is of type SET
+                                    $field.val(data.row_info[key].split(','));
+                                } else {
+                                    $field.val(data.row_info[key]);
+                                }
+                            }
+
+                            fieldId++;
+                        }
+
+                        selectedRow = data.row_info;
+                    });
+
+                    $('#dataPointModal').modal('show');
+                },
+            },
+        });
     }
 
     $('#help_dialog').on('click', function () {
