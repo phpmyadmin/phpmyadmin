@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-06-14 20:09+0000\n"
+"PO-Revision-Date: 2024-06-27 08:09+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-1/zh_Hant/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.6-rc\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -479,10 +479,10 @@ msgid ""
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
 "增加 {max_heap_table_size} 和 {tmp_table_size} 可能有所幫助。但某些暫存資料表"
-"仍然會寫到磁碟，與這些變數無關。要解決這個問題，必須重寫查詢條件，避免在暫存"
-"資料表中儲存 BLOB 或 TEXT 類型的欄位，或者使用長度大於 512 位元組的欄位，如 "
-"<a href=\"HTTP://www.facebook.com/note.php?"
-"note_id=10150111255065841&comments\">Pythian 小組文章</a>開首所提到的狀況"
+"仍然會寫到磁碟，與這些變數無關。要解決這個問題，必須重寫查詢條件，"
+"避免在暫存資料表中儲存 BLOB 或 TEXT 類型的欄位，或者使用長度大於 512 "
+"位元組的欄位，如 <a href=\"https://www.facebook.com/note."
+"php?note_id=10150111255065841&comments\">Pythian 小組文章</a>開首所提到的狀況"
 
 #: libraries/advisory_rules_generic.php:333
 #, php-format
@@ -1652,24 +1652,22 @@ msgid "Enable bzip2 compression for import operations."
 msgstr "允許在匯入時使用 bzip2 壓縮。"
 
 #: libraries/classes/Config/Descriptions.php:88
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr "請為您兼容reCaptcha v2的API輸入URL。"
+msgstr "請輸入兼容reCaptcha v2的API的網址。"
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
 "API."
-msgstr ""
+msgstr "請輸入兼容reCaptcha v2的API的内容安全策略（CSP）程式碼。"
 
 #: libraries/classes/Config/Descriptions.php:90
 msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+msgstr "請輸入兼容reCaptcha v2的API的請求參數。"
 
 #: libraries/classes/Config/Descriptions.php:91
 msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+msgstr "請輸入兼容reCaptcha v2的API的回應參數。"
 
 #: libraries/classes/Config/Descriptions.php:92
 msgid "Enter your public key for your domain reCaptcha service."
@@ -1680,10 +1678,8 @@ msgid "Enter your private key for your domain reCaptcha service."
 msgstr "請為您的網域驗證碼 (reCaptcha) 服務輸入私密金鑰。"
 
 #: libraries/classes/Config/Descriptions.php:94
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCaptcha service."
-msgstr "請為您的網域驗證碼 (reCaptcha) 服務輸入私密金鑰。"
+msgstr "請輸入reCaptcha的網址核實(siteverify)網址。"
 
 #: libraries/classes/Config/Descriptions.php:96
 msgid ""
@@ -4131,11 +4127,11 @@ msgstr "ZIP 壓縮"
 
 #: libraries/classes/Config/Descriptions.php:976
 msgid "URL for reCaptcha v2 API"
-msgstr ""
+msgstr "reCaptcha v2 API的網址"
 
 #: libraries/classes/Config/Descriptions.php:977
 msgid "Content-Security-Policy snippet for reCaptcha v2 API"
-msgstr ""
+msgstr "reCaptcha v2 API的内容安全策略（CSP）程式碼"
 
 #: libraries/classes/Config/Descriptions.php:978
 msgid "Request parameter for reCaptcha v2 API"
