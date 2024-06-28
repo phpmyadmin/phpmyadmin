@@ -86,10 +86,10 @@ use function trim;
  */
 class Results
 {
-    public const POSITION_LEFT = 'left';
-    public const POSITION_RIGHT = 'right';
-    public const POSITION_BOTH = 'both';
-    public const POSITION_NONE = 'none';
+    private const POSITION_LEFT = 'left';
+    private const POSITION_RIGHT = 'right';
+    private const POSITION_BOTH = 'both';
+    private const POSITION_NONE = 'none';
 
     public const DISPLAY_FULL_TEXT = 'F';
     public const DISPLAY_PARTIAL_TEXT = 'P';
@@ -101,15 +101,14 @@ class Results
     public const GEOMETRY_DISP_WKT = 'WKT';
     public const GEOMETRY_DISP_WKB = 'WKB';
 
-    public const SMART_SORT_ORDER = 'SMART';
-    public const ASCENDING_SORT_DIR = 'ASC';
-    public const DESCENDING_SORT_DIR = 'DESC';
+    private const SMART_SORT_ORDER = 'SMART';
+    private const ASCENDING_SORT_DIR = 'ASC';
+    private const DESCENDING_SORT_DIR = 'DESC';
 
-    public const TABLE_TYPE_INNO_DB = 'InnoDB';
     public const ALL_ROWS = 'all';
 
-    public const ACTION_LINK_CONTENT_ICONS = 'icons';
-    public const ACTION_LINK_CONTENT_TEXT = 'text';
+    private const ACTION_LINK_CONTENT_ICONS = 'icons';
+    private const ACTION_LINK_CONTENT_TEXT = 'text';
 
     /**
      * the total number of rows returned by the SQL query without any appended "LIMIT" clause programmatically

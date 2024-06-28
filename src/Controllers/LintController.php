@@ -20,7 +20,7 @@ use function json_encode;
  */
 final class LintController implements InvocableController
 {
-    public const EDITOR_SQL_PREFIX = [
+    private const EDITOR_SQL_PREFIX = [
         'event' => "DELIMITER $$ CREATE EVENT `a` ON SCHEDULE EVERY MINUTE DO\n",
         'routine' => "DELIMITER $$ CREATE PROCEDURE `a`()\n",
         'trigger' => "DELIMITER $$ CREATE TRIGGER `a` AFTER INSERT ON `b` FOR EACH ROW\n",
