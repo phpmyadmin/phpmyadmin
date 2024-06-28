@@ -464,7 +464,7 @@ final class JavaScriptMessagesController implements InvocableController
             'strHideFindNReplaceCriteria' => __('Hide find and replace criteria'),
             'strShowFindNReplaceCriteria' => __('Show find and replace criteria'),
 
-            /* For table/zoom_plot_jqplot.js */
+            /* For table/zoom_search.js */
             'strDisplayHelp' => '<ul><li>'
                 . __('Each point represents a data row.')
                 . '</li><li>'

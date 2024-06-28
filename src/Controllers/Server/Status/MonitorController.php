@@ -41,16 +41,7 @@ final class MonitorController extends AbstractController implements InvocableCon
             'vendor/chartjs-adapter-date-fns.bundle.js',
             'vendor/jquery/jquery.tablesorter.js',
             'jquery.sortable-table.js',
-            'vendor/jqplot/jquery.jqplot.js',
-            'vendor/jqplot/plugins/jqplot.pieRenderer.js',
-            'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
-            'vendor/jqplot/plugins/jqplot.canvasTextRenderer.js',
-            'vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
-            'vendor/jqplot/plugins/jqplot.dateAxisRenderer.js',
-            'vendor/jqplot/plugins/jqplot.highlighter.js',
-            'vendor/jqplot/plugins/jqplot.cursor.js',
             'server/status/monitor.js',
-            'chart.js',// Needed by createProfilingChart in server/status/monitor.js
         ]);
 
         $form = [

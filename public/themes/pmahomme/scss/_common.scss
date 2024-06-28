@@ -1752,17 +1752,6 @@ body #ui-datepicker-div {
   z-index: 801;
 }
 
-// over-riding jqplot-yaxis class
-.jqplot-yaxis {
-  left: 0 !important;
-  min-width: 25px;
-  width: auto;
-}
-
-.jqplot-axis {
-  overflow: hidden;
-}
-
 div#page_content div {
   &#tableslistcontainer {
     margin-top: 1em;

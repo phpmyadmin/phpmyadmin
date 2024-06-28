@@ -24,7 +24,7 @@ A window layer "Display chart" is shown in which you can customize the chart wit
 Chart implementation
 --------------------
 
-Charts in phpMyAdmin are drawn using `jqPlot <http://www.jqplot.com/>`_ jQuery library.
+Charts in phpMyAdmin are drawn using the `Chart.js <https://www.chartjs.org/>`_ library.
 
 Examples
 --------
