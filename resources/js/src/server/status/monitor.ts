@@ -2210,7 +2210,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             },
             width: 'auto',
             height: 'auto',
-            resizable: false,
+            resizable: true,
             // @ts-ignore
             buttons: dlgBtns,
             close: function () {
@@ -2346,23 +2346,23 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 $('#queryAnalyzerDialog').find('div.placeHolder td.chart').append(
                     '<b>' + window.Messages.strProfilingResults + ' ' + $('#profiling_docu').html() + '</b> ' +
                     '(<a href="#showNums">' + window.Messages.strTable + '</a>, <a href="#showChart">' + window.Messages.strChart + '</a>)<br>' +
-                    numberTable + ' <div id="queryProfiling"></div>');
+                    numberTable + ' <div style="height: 500px"><canvas id="queryProfilingCanvas" role="img"></canvas></div>');
 
                 $('#queryAnalyzerDialog').find('div.placeHolder a[href="#showNums"]').on('click', function () {
-                    $('#queryAnalyzerDialog').find('#queryProfiling').hide();
+                    $('#queryAnalyzerDialog').find('#queryProfilingCanvas').hide();
                     $('#queryAnalyzerDialog').find('table.queryNums').show();
 
                     return false;
                 });
 
                 $('#queryAnalyzerDialog').find('div.placeHolder a[href="#showChart"]').on('click', function () {
-                    $('#queryAnalyzerDialog').find('#queryProfiling').show();
+                    $('#queryAnalyzerDialog').find('#queryProfilingCanvas').show();
                     $('#queryAnalyzerDialog').find('table.queryNums').hide();
 
                     return false;
                 });
 
-                profilingChart = createProfilingChart('queryProfiling', chartData);
+                profilingChart = createProfilingChart('queryProfilingCanvas', chartData);
             }
         });
 
