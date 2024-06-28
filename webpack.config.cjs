@@ -39,7 +39,6 @@ module.exports = [
             'gis_data_editor': rootPath + '/resources/js/src/gis_data_editor.ts',
             'home': rootPath + '/resources/js/src/home.ts',
             'import': rootPath + '/resources/js/src/import.ts',
-            'jqplot/plugins/jqplot.byteFormatter': rootPath + '/resources/js/src/jqplot/plugins/jqplot.byteFormatter.ts',
             'jquery.sortable-table': rootPath + '/resources/js/src/jquery.sortable-table.ts',
             'main': rootPath + '/resources/js/src/main.ts',
             'makegrid': rootPath + '/resources/js/src/makegrid.ts',

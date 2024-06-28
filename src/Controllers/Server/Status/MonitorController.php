@@ -37,6 +37,8 @@ final class MonitorController extends AbstractController implements InvocableCon
         }
 
         $this->response->addScriptFiles([
+            'vendor/chart.umd.js',
+            'vendor/chartjs-adapter-date-fns.bundle.js',
             'vendor/jquery/jquery.tablesorter.js',
             'jquery.sortable-table.js',
             'vendor/jqplot/jquery.jqplot.js',
@@ -47,7 +49,6 @@ final class MonitorController extends AbstractController implements InvocableCon
             'vendor/jqplot/plugins/jqplot.dateAxisRenderer.js',
             'vendor/jqplot/plugins/jqplot.highlighter.js',
             'vendor/jqplot/plugins/jqplot.cursor.js',
-            'jqplot/plugins/jqplot.byteFormatter.js',
             'server/status/monitor.js',
             'chart.js',// Needed by createProfilingChart in server/status/monitor.js
         ]);
