@@ -7,6 +7,7 @@ import createProfilingChart from '../../modules/functions/createProfilingChart.t
 import { escapeHtml } from '../../modules/functions/escape.ts';
 import getImageTag from '../../modules/functions/getImageTag.ts';
 import isStorageSupported from '../../modules/functions/isStorageSupported.ts';
+import chartByteFormatter from '../../modules/functions/chartByteFormatter.ts';
 
 /**
  * @fileoverview    Javascript functions used in server status monitor page
@@ -251,12 +252,6 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             maxYLabel: 0
         }
     };
-
-    // time span selection
-    var selectionTimeDiff = [];
-    var selectionStartX;
-    var selectionStartY;
-    var drawTimeSpan = false;
 
     /* Add OS specific system info charts to the preset chart list */
     switch (serverOs) {
@@ -1185,8 +1180,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             $.each(runtime.charts, function (key, chartObj) {
                 for (var i = 0, l = chartObj.nodes.length; i < l; i++) {
                     oldData[chartObj.nodes[i].dataPoint] = [];
-                    for (var j = 0, ll = chartObj.chart.series[i].data.length; j < ll; j++) {
-                        oldData[chartObj.nodes[i].dataPoint].push([chartObj.chart.series[i].data[j].x, chartObj.chart.series[i].data[j].y]);
+                    for (var j = 0, ll = chartObj.chart.data.datasets[i].data.length; j < ll; j++) {
+                        oldData[chartObj.nodes[i].dataPoint].push([chartObj.chart.data.datasets[i].data[j].x, chartObj.chart.data.datasets[i].data[j].y]);
                     }
                 }
             });
@@ -1230,7 +1225,6 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             },
             axes: {
                 xaxis: {
-                    renderer: $.jqplot.DateAxisRenderer,
                     tickOptions: {
                         formatString: '%H:%M:%S',
                         showGridline: false
@@ -1270,11 +1264,11 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         ) {
             settings.stackSeries = true;
             settings.axes.yaxis.tickOptions = {
-                formatter: $.jqplot.byteFormatter(2) // MiB
+                formatter: chartByteFormatter(2) // MiB
             };
         } else if (settings.title === window.Messages.strTraffic) {
             settings.axes.yaxis.tickOptions = {
-                formatter: $.jqplot.byteFormatter(1) // KiB
+                formatter: chartByteFormatter(1) // KiB
             };
         } else if (settings.title === window.Messages.strQuestions ||
             settings.title === window.Messages.strConnections
@@ -1282,11 +1276,11 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             settings.axes.yaxis.tickOptions = {
                 formatter: function (format, val) {
                     if (Math.abs(val) >= 1000000) {
-                        return $.jqplot.sprintf('%.3g M', val / 1000000);
+                        return window.sprintf('%.3g M', val / 1000000);
                     } else if (Math.abs(val) >= 1000) {
-                        return $.jqplot.sprintf('%.3g k', val / 1000);
+                        return window.sprintf('%.3g k', val / 1000);
                     } else {
-                        return $.jqplot.sprintf('%d', val);
+                        return window.sprintf('%d', val);
                     }
                 }
             };
@@ -1294,7 +1288,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
         settings.series = chartObj.series;
 
-        if ($('#' + 'gridchart' + runtime.chartAI).length === 0) {
+        if ($('#' + 'gridChartCanvas' + runtime.chartAI).length === 0) {
             var numCharts = $('#chartGrid').find('.monitorChart').length;
 
             if (numCharts === 0 || (numCharts % monitorSettings.columns === 0)) {
@@ -1306,11 +1300,10 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             }
 
             $('#chartGrid').find('tr').last().append(
-                '<td><div id="gridChartContainer' + runtime.chartAI + '" class="">' +
-                '<div class="ui-state-default monitorChart"' +
-                ' id="gridchart' + runtime.chartAI + '"' +
-                ' style="width:' + chartSize.width + 'px; height:' + chartSize.height + 'px;"></div>' +
-                '</div></td>'
+                '<td>' +
+                '<div class="card card-body monitorChart" style="width:' + chartSize.width + 'px; height:' + chartSize.height + 'px;">' +
+                '<canvas id="gridChartCanvas' + runtime.chartAI + '"></canvas></div>' +
+                '</td>'
             );
         }
 
@@ -1369,107 +1362,76 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             };
         }
 
-        chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, series, settings);
-        // remove [0,0] after plotting
-        for (i in chartObj.chart.series) {
-            chartObj.chart.series[i].data.shift();
+        const datasets = [];
+        for (let i = 0; i < series.length; i++) {
+            const dataset = {
+                label: settings.series[i].label,
+                data: [],
+                fill: settings.stackSeries ? 'start' : false,
+                tension: 0.3,
+            };
+            datasets.push(dataset);
         }
 
-        var $legend = $('<div></div>').css('padding', '0.5em');
-        for (i in chartObj.chart.series) {
-            $legend.append(
-                $('<div></div>').append(
-                    $('<div>').css({
-                        width: '1em',
-                        height: '1em',
-                        background: chartObj.chart.seriesColors[i]
-                    }).addClass('float-start')
-                ).append(
-                    $('<div>').text(
-                        chartObj.chart.series[i].label
-                    ).addClass('float-start')
-                ).append(
-                    $('<div class="clearfloat">')
-                ).addClass('float-start')
-            );
-        }
+        chartObj.chart = new window.Chart(
+            'gridChartCanvas' + runtime.chartAI,
+            {
+                type: 'line',
+                data: { labels: [], datasets: datasets },
+                options: {
+                    locale: CommonParams.get('lang').replace('_', '-'),
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: { display: true, text: settings.title },
+                        legend: { display: true, position: 'bottom' },
+                    },
+                    interaction: { mode: 'index' },
+                    scales: {
+                        // @ts-ignore
+                        x: {
+                            type: 'time',
+                            ticks: { maxTicksLimit: 5 },
+                        },
+                        y: {
+                            stacked: !! settings.stackSeries,
+                            suggestedMin: settings.axes.yaxis.min,
+                            suggestedMax: settings.axes.yaxis.max,
+                            ticks: {
+                                stepSize: settings.axes.yaxis.tickInterval,
+                                callback: function (value, index, ticks) {
+                                    if (settings.axes.yaxis?.tickOptions?.formatString) {
+                                        return window.sprintf(settings.axes.yaxis.tickOptions.formatString, value);
+                                    }
 
-        $('#gridchart' + runtime.chartAI)
-            .parent()
-            .append($legend);
+                                    if (settings.axes.yaxis?.tickOptions?.formatter) {
+                                        return settings.axes.yaxis.tickOptions.formatter(null, value);
+                                    }
+
+                                    // @ts-ignore
+                                    return window.Chart.Ticks.formatters.numeric.apply(this, [value, index, ticks]);
+                                },
+                            },
+                        },
+                    },
+                    onClick: function (event) {
+                        if (editMode) {
+                            return;
+                        }
+
+                        // @ts-ignore
+                        const minDate = new Date(event.chart.scales.x.ticks[0].value);
+                        // @ts-ignore
+                        const maxDate = new Date(event.chart.scales.x.ticks[4].value);
+                        getLogAnalyseDialog(minDate, maxDate);
+                    },
+                },
+            },
+        );
 
         if (initialize !== true) {
             runtime.charts['c' + runtime.chartAI] = chartObj;
             buildRequiredDataList();
         }
-
-        // time span selection
-        $('#gridchart' + runtime.chartAI).on('jqplotMouseDown', function (ev, gridpos, datapos) {
-            drawTimeSpan = true;
-            selectionTimeDiff.push(datapos.xaxis);
-            if ($('#selection_box').length) {
-                $('#selection_box').remove();
-            }
-
-            var selectionBox = $('<div id="selection_box" >');
-            // eslint-disable-next-line compat/compat
-            $(document.body).append(selectionBox);
-            selectionStartX = ev.pageX;
-            selectionStartY = ev.pageY;
-            selectionBox
-                .attr({ id: 'selection_box' })
-                .css({
-                    top: selectionStartY - gridpos.y,
-                    left: selectionStartX
-                })
-                .fadeIn();
-        });
-
-        $('#gridchart' + runtime.chartAI).on('jqplotMouseUp', function (ev, gridpos, datapos) {
-            if (! drawTimeSpan || editMode) {
-                return;
-            }
-
-            selectionTimeDiff.push(datapos.xaxis);
-
-            if (selectionTimeDiff[1] <= selectionTimeDiff[0]) {
-                selectionTimeDiff = [];
-
-                return;
-            }
-
-            // get date from timestamp
-            var min = new Date(Math.ceil(selectionTimeDiff[0]));
-            var max = new Date(Math.ceil(selectionTimeDiff[1]));
-            getLogAnalyseDialog(min, max);
-            selectionTimeDiff = [];
-            drawTimeSpan = false;
-        });
-
-        $('#gridchart' + runtime.chartAI).on('jqplotMouseMove', function (ev) {
-            if (! drawTimeSpan || editMode) {
-                return;
-            }
-
-            if (selectionStartX !== undefined) {
-                $('#selection_box')
-                    .css({
-                        width: Math.ceil(ev.pageX - selectionStartX)
-                    })
-                    .fadeIn();
-            }
-        });
-
-        $('#gridchart' + runtime.chartAI).on('jqplotMouseLeave', function () {
-            drawTimeSpan = false;
-        });
-
-        // eslint-disable-next-line compat/compat
-        $(document.body).on('mouseup', function () {
-            if ($('#selection_box').length) {
-                $('#selection_box').remove();
-            }
-        });
 
         // Edit, Print icon only in edit mode
         $('#chartGrid').find('div svg').find('*[zIndex=20], *[zIndex=21], *[zIndex=19]').toggle(editMode);
@@ -1477,7 +1439,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         runtime.chartAI++;
     }
 
-    function getLogAnalyseDialog (min, max) {
+    function getLogAnalyseDialog (min: Date, max: Date) {
         var $logAnalyseDialog = $('#logAnalyseDialog');
         var $dateStart = $logAnalyseDialog.find('input[name="dateStart"]');
         var $dateEnd = $logAnalyseDialog.find('input[name="dateEnd"]');
@@ -1535,7 +1497,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         $dateEnd.datepicker('setDate', max);
     }
 
-    function loadLog (type, min, max) {
+    function loadLog (type: string, min: Date, max: Date) {
         var dateStart = Date.parse($('#logAnalyseDialog').find('input[name="dateStart"]').datepicker('getDate').toString()) || min;
         var dateEnd = Date.parse($('#logAnalyseDialog').find('input[name="dateEnd"]').datepicker('getDate').toString()) || max;
 
@@ -1591,7 +1553,6 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         runtime.xmax += diff;
                     }
 
-                    // elem.chart.xAxis[0].setExtremes(runtime.xmin, runtime.xmax, false);
                     /* Calculate y value */
 
                     // If transform function given, use it
@@ -1630,7 +1591,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
                     // Set y value, if defined
                     if (value !== undefined) {
-                        elem.chart.series[j].data.push([chartData.x, value]);
+                        elem.chart.data.datasets[j].data.push({ x: chartData.x, y: value });
                         if (value > elem.maxYLabel) {
                             elem.maxYLabel = value;
                         } else if (elem.maxYLabel === 0) {
@@ -1638,15 +1599,15 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         }
 
                         // free old data point values and update maxYLabel
-                        if (elem.chart.series[j].data.length > runtime.gridMaxPoints &&
-                            elem.chart.series[j].data[0][0] < runtime.xmin
+                        if (elem.chart.data.datasets[j].data.length > runtime.gridMaxPoints &&
+                            elem.chart.data.datasets[j].data[0].x < runtime.xmin
                         ) {
                             // check if the next freeable point is highest
-                            if (elem.maxYLabel <= elem.chart.series[j].data[0][1]) {
-                                elem.chart.series[j].data.splice(0, elem.chart.series[j].data.length - runtime.gridMaxPoints);
-                                elem.maxYLabel = getMaxYLabel(elem.chart.series[j].data);
+                            if (elem.maxYLabel <= elem.chart.data.datasets[j].data[0].y) {
+                                elem.chart.data.datasets[j].data.splice(0, elem.chart.data.datasets[j].data.length - runtime.gridMaxPoints);
+                                elem.maxYLabel = getMaxYLabel(elem.chart.data.datasets[j].data);
                             } else {
-                                elem.chart.series[j].data.splice(0, elem.chart.series[j].data.length - runtime.gridMaxPoints);
+                                elem.chart.data.datasets[j].data.splice(0, elem.chart.data.datasets[j].data.length - runtime.gridMaxPoints);
                             }
                         }
 
@@ -1661,7 +1622,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 // update chart options
                 // keep ticks number/positioning consistent while refreshrate changes
                 var tickInterval = (runtime.xmax - runtime.xmin) / 5;
-                elem.chart.axes.xaxis.ticks = [
+                elem.chart.data.labels = [
                     (runtime.xmax - tickInterval * 4),
                     (runtime.xmax - tickInterval * 3),
                     (runtime.xmax - tickInterval * 2),
@@ -1673,20 +1634,22 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     elem.title !== window.Messages.strQueryCacheEfficiency &&
                     elem.title !== window.Messages.strSystemMemory &&
                     elem.title !== window.Messages.strSystemSwap
+                    && elem.maxYLabel > 0
                 ) {
-                    elem.chart.axes.yaxis.max = Math.ceil(elem.maxYLabel * 1.1);
-                    elem.chart.axes.yaxis.tickInterval = Math.ceil(elem.maxYLabel * 1.1 / 5);
-                } else if (elem.title === window.Messages.strSystemMemory ||
-                    elem.title === window.Messages.strSystemSwap
+                    elem.chart.options.scales.y.max = Math.ceil(elem.maxYLabel * 1.1);
+                    elem.chart.options.scales.y.ticks.stepSize = Math.ceil(elem.maxYLabel * 1.1 / 5);
+                } else if (
+                    (elem.title === window.Messages.strSystemMemory || elem.title === window.Messages.strSystemSwap)
+                    && total > 0
                 ) {
-                    elem.chart.axes.yaxis.max = Math.ceil(total * 1.1 / 100) * 100;
-                    elem.chart.axes.yaxis.tickInterval = Math.ceil(total * 1.1 / 5);
+                    elem.chart.options.scales.y.max = Math.ceil(total * 1.1 / 100) * 100;
+                    elem.chart.options.scales.y.ticks.stepSize = Math.ceil(total * 1.1 / 5);
                 }
 
                 i++;
 
                 if (runtime.redrawCharts) {
-                    elem.chart.replot();
+                    elem.chart.update('none');
                 }
             });
 
@@ -1696,13 +1659,13 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         });
     }
 
-    /* Function to get highest plotted point's y label, to scale the chart,
-     * TODO: make jqplot's autoscale:true work here
+    /**
+     * Function to get the highest plotted point's y label, to scale the chart.
      */
     function getMaxYLabel (dataValues) {
-        var maxY = dataValues[0][1];
+        var maxY = dataValues[0].y;
         $.each(dataValues, function (k, v) {
-            maxY = (v[1] > maxY) ? v[1] : maxY;
+            maxY = (v.y > maxY) ? v.y : maxY;
         });
 
         return maxY;
@@ -2247,7 +2210,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             },
             width: 'auto',
             height: 'auto',
-            resizable: false,
+            resizable: true,
             // @ts-ignore
             buttons: dlgBtns,
             close: function () {
@@ -2383,23 +2346,23 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 $('#queryAnalyzerDialog').find('div.placeHolder td.chart').append(
                     '<b>' + window.Messages.strProfilingResults + ' ' + $('#profiling_docu').html() + '</b> ' +
                     '(<a href="#showNums">' + window.Messages.strTable + '</a>, <a href="#showChart">' + window.Messages.strChart + '</a>)<br>' +
-                    numberTable + ' <div id="queryProfiling"></div>');
+                    numberTable + ' <div style="height: 500px"><canvas id="queryProfilingCanvas" role="img"></canvas></div>');
 
                 $('#queryAnalyzerDialog').find('div.placeHolder a[href="#showNums"]').on('click', function () {
-                    $('#queryAnalyzerDialog').find('#queryProfiling').hide();
+                    $('#queryAnalyzerDialog').find('#queryProfilingCanvas').hide();
                     $('#queryAnalyzerDialog').find('table.queryNums').show();
 
                     return false;
                 });
 
                 $('#queryAnalyzerDialog').find('div.placeHolder a[href="#showChart"]').on('click', function () {
-                    $('#queryAnalyzerDialog').find('#queryProfiling').show();
+                    $('#queryAnalyzerDialog').find('#queryProfilingCanvas').show();
                     $('#queryAnalyzerDialog').find('table.queryNums').hide();
 
                     return false;
                 });
 
-                profilingChart = createProfilingChart('queryProfiling', chartData);
+                profilingChart = createProfilingChart('queryProfilingCanvas', chartData);
             }
         });
 

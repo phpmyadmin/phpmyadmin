@@ -3,6 +3,7 @@ import { AJAX } from '../modules/ajax.ts';
 import { Functions } from '../modules/functions.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
+import { ColumnType, DataTable } from '../modules/chart.ts';
 
 var chartData = {};
 var tempChartTitle;
@@ -72,20 +73,20 @@ function queryChart (data, columnNames, settings) {
     };
 
     // create the data table and add columns
-    var dataTable = new window.DataTable();
+    const dataTable = new DataTable();
     if (settings.type === 'timeline') {
-        dataTable.addColumn(window.ColumnType.DATE, columnNames[settings.mainAxis]);
+        dataTable.addColumn(ColumnType.DATE, columnNames[settings.mainAxis]);
     } else if (settings.type === 'scatter') {
-        dataTable.addColumn(window.ColumnType.NUMBER, columnNames[settings.mainAxis]);
+        dataTable.addColumn(ColumnType.NUMBER, columnNames[settings.mainAxis]);
     } else {
-        dataTable.addColumn(window.ColumnType.STRING, columnNames[settings.mainAxis]);
+        dataTable.addColumn(ColumnType.STRING, columnNames[settings.mainAxis]);
     }
 
     var i;
     var values = [];
     if (settings.seriesColumn === null) {
         $.each(settings.selectedSeries, function (index, element) {
-            dataTable.addColumn(window.ColumnType.NUMBER, columnNames[element]);
+            dataTable.addColumn(ColumnType.NUMBER, columnNames[element]);
         });
 
         // set data to the data table
@@ -131,7 +132,7 @@ function queryChart (data, columnNames, settings) {
         }
 
         $.each(seriesNames, function (seriesName) {
-            dataTable.addColumn(window.ColumnType.NUMBER, seriesName);
+            dataTable.addColumn(ColumnType.NUMBER, seriesName);
         });
 
         var valueMap = {};

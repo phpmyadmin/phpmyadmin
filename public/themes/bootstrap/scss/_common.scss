@@ -481,12 +481,6 @@ table#chartGrid {
     padding: 3px;
     margin: 0;
   }
-
-  div.monitorChart {
-    background: #ebebeb;
-    border: none;
-    min-width: 1px;
-  }
 }
 
 div.tabLinks {
@@ -519,10 +513,6 @@ div {
     div {
       &.CodeMirror-scroll {
         height: auto;
-      }
-
-      &#queryProfiling {
-        height: 300px;
       }
     }
 
@@ -1551,17 +1541,6 @@ body .ui-widget {
   z-index: 801;
 }
 
-// over-riding jqplot-yaxis class
-.jqplot-yaxis {
-  left: 0 !important;
-  min-width: 25px;
-  width: auto;
-}
-
-.jqplot-axis {
-  overflow: hidden;
-}
-
 div#page_content div {
   &#tableslistcontainer {
     margin-top: 1em;
@@ -2403,16 +2382,6 @@ body .ui-dialog {
 
 #tooltip_font {
   font-weight: bold;
-}
-
-#selection_box {
-  z-index: 1000;
-  height: 205px;
-  position: absolute;
-  background-color: #87ceeb;
-  opacity: 0.4;
-  filter: alpha(opacity=40);
-  pointer-events: none;
 }
 
 #filterQueryText {

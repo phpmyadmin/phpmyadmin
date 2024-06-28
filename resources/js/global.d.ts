@@ -48,6 +48,5 @@ interface JQuery {
 interface JQueryStatic {
     timepicker: any;
     tablesorter: any;
-    jqplot: any;
     uiTableFilter: any;
 }

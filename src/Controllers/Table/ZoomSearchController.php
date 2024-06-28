@@ -129,7 +129,7 @@ final class ZoomSearchController implements InvocableController
             'vendor/chartjs-plugin-zoom.js',
             'makegrid.js',
             'sql.js',
-            'table/zoom_plot_jqplot.js',
+            'table/zoom_search.js',
             'table/select.js',
             'table/change.js',
             'gis_data_editor.js',

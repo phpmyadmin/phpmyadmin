@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const CopyPlugin = require('copy-webpack-plugin');
-const WebpackConcatPlugin = require('webpack-concat-files-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RtlCssPlugin = require('rtlcss-webpack-plugin');
 
@@ -18,7 +17,6 @@ module.exports = [
         mode: 'none',
         devtool: 'source-map',
         entry: {
-            'chart': rootPath + '/resources/js/src/chart.ts',
             'codemirror/addon/lint/sql-lint': rootPath + '/resources/js/src/codemirror/addon/lint/sql-lint.ts',
             'console': { import: rootPath + '/resources/js/src/console.ts', library: { name: 'Console', type: 'window', export: 'Console' } },
             'datetimepicker': rootPath + '/resources/js/src/datetimepicker.ts',
@@ -39,7 +37,6 @@ module.exports = [
             'gis_data_editor': rootPath + '/resources/js/src/gis_data_editor.ts',
             'home': rootPath + '/resources/js/src/home.ts',
             'import': rootPath + '/resources/js/src/import.ts',
-            'jqplot/plugins/jqplot.byteFormatter': rootPath + '/resources/js/src/jqplot/plugins/jqplot.byteFormatter.ts',
             'jquery.sortable-table': rootPath + '/resources/js/src/jquery.sortable-table.ts',
             'main': rootPath + '/resources/js/src/main.ts',
             'makegrid': rootPath + '/resources/js/src/makegrid.ts',
@@ -69,7 +66,7 @@ module.exports = [
             'table/select': rootPath + '/resources/js/src/table/select.ts',
             'table/structure': rootPath + '/resources/js/src/table/structure.ts',
             'table/tracking': rootPath + '/resources/js/src/table/tracking.ts',
-            'table/zoom_plot_jqplot': rootPath + '/resources/js/src/table/zoom_plot_jqplot.ts',
+            'table/zoom_search': rootPath + '/resources/js/src/table/zoom_search.ts',
             'transformations/image_upload': rootPath + '/resources/js/src/transformations/image_upload.ts',
             'transformations/json': rootPath + '/resources/js/src/transformations/json.ts',
             'transformations/json_editor': rootPath + '/resources/js/src/transformations/json_editor.ts',
@@ -149,49 +146,11 @@ module.exports = [
                     { from: rootPath + '/node_modules/jquery-ui-timepicker-addon/dist/jquery-ui-timepicker-addon.js', to: publicPath + '/js/vendor/jquery/jquery-ui-timepicker-addon.js' },
                     { from: rootPath + '/node_modules/ol/ol.css', to: publicPath + '/js/vendor/openlayers/theme/ol.css' },
                     { from: rootPath + '/node_modules/locutus.sprintf/src/php/strings/sprintf.browser.js', to: publicPath + '/js/vendor/sprintf.js' },
-                    { from: rootPath + '/node_modules/updated-jqplot/build/plugins/jqplot.pieRenderer.js', to: publicPath + '/js/vendor/jqplot/plugins/jqplot.pieRenderer.js' },
-                    { from: rootPath + '/node_modules/updated-jqplot/build/plugins/jqplot.barRenderer.js', to: publicPath + '/js/vendor/jqplot/plugins/jqplot.barRenderer.js' },
-                    { from: rootPath + '/node_modules/updated-jqplot/build/plugins/jqplot.pointLabels.js', to: publicPath + '/js/vendor/jqplot/plugins/jqplot.pointLabels.js' },
-                    { from: rootPath + '/node_modules/updated-jqplot/build/plugins/jqplot.enhancedPieLegendRenderer.js', to: publicPath + '/js/vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js' },
-                    { from: rootPath + '/node_modules/updated-jqplot/build/plugins/jqplot.dateAxisRenderer.js', to: publicPath + '/js/vendor/jqplot/plugins/jqplot.dateAxisRenderer.js' },
-                    { from: rootPath + '/node_modules/updated-jqplot/build/plugins/jqplot.categoryAxisRenderer.js', to: publicPath + '/js/vendor/jqplot/plugins/jqplot.categoryAxisRenderer.js' },
-                    { from: rootPath + '/node_modules/updated-jqplot/build/plugins/jqplot.canvasTextRenderer.js', to: publicPath + '/js/vendor/jqplot/plugins/jqplot.canvasTextRenderer.js' },
-                    { from: rootPath + '/node_modules/updated-jqplot/build/plugins/jqplot.canvasAxisLabelRenderer.js', to: publicPath + '/js/vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js' },
-                    { from: rootPath + '/node_modules/updated-jqplot/build/plugins/jqplot.cursor.js', to: publicPath + '/js/vendor/jqplot/plugins/jqplot.cursor.js' },
-                    { from: rootPath + '/node_modules/updated-jqplot/build/plugins/jqplot.highlighter.js', to: publicPath + '/js/vendor/jqplot/plugins/jqplot.highlighter.js' },
                     { from: rootPath + '/node_modules/chart.js/dist/chart.umd.js', to: publicPath + '/js/vendor/chart.umd.js' },
                     { from: rootPath + '/node_modules/chart.js/dist/chart.umd.js.map', to: publicPath + '/js/vendor/chart.umd.js.map' },
                     { from: rootPath + '/node_modules/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.js', to: publicPath + '/js/vendor/chartjs-adapter-date-fns.bundle.js' },
                     { from: rootPath + '/node_modules/chartjs-plugin-zoom/dist/chartjs-plugin-zoom.js', to: publicPath + '/js/vendor/chartjs-plugin-zoom.js' },
                     { from: rootPath + '/node_modules/hammerjs/hammer.js', to: publicPath + '/js/vendor/hammer.js' },
-                ],
-            }),
-            new WebpackConcatPlugin({
-                bundles: [
-                    {
-                        dest: publicPath + '/js/vendor/jqplot/jquery.jqplot.js',
-                        src: [
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.core.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.axisLabelRenderer.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.axisTickRenderer.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.canvasGridRenderer.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.divTitleRenderer.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.linePattern.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.lineRenderer.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.linearAxisRenderer.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.linearTickGenerator.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.markerRenderer.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.shadowRenderer.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.shapeRenderer.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.tableLegendRenderer.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.themeEngine.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.toImage.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jsdate.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.sprintf.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.effects.core.js',
-                            rootPath + '/node_modules/updated-jqplot/build/jqplot.effects.blind.js',
-                        ],
-                    },
                 ],
             }),
         ],
