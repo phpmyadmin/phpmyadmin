@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-06-23 00:20+0000\n"
+"POT-Creation-Date: 2024-06-30 00:21+0000\n"
 "PO-Revision-Date: 2024-05-20 08:01+0000\n"
 "Last-Translator: Mohsen Bakhshande <waltonmohsen@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -218,7 +218,7 @@ msgstr "بعد از %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:220
-#: src/Display/Results.php:935 src/Plugins/Export/ExportSql.php:2071
+#: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:2071
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "هیچ یک"
@@ -367,7 +367,7 @@ msgstr ""
 #: resources/templates/table/insert/actions_panel.twig:8
 #: resources/templates/table/relation/common_form.twig:142
 #: resources/templates/table/structure/partition_definition_form.twig:13
-#: resources/templates/table/zoom_search/result_form.twig:79
+#: resources/templates/table/zoom_search/result_form.twig:80
 #: src/Controllers/JavaScriptMessagesController.php:455
 msgid "Save"
 msgstr "ذخيره"
@@ -388,8 +388,8 @@ msgstr ""
 #: resources/templates/modals/preview_sql_modal.twig:5
 #: resources/templates/table/insert/actions_panel.twig:48
 #: resources/templates/table/relation/common_form.twig:150
-#: resources/templates/table/zoom_search/result_form.twig:26
-#: resources/templates/table/zoom_search/result_form.twig:95
+#: resources/templates/table/zoom_search/result_form.twig:24
+#: resources/templates/table/zoom_search/result_form.twig:96
 #, fuzzy
 #| msgid "Loading…"
 msgid "Loading"
@@ -439,9 +439,9 @@ msgstr "در حال بارگیری…"
 #: resources/templates/table/structure/display_structure.twig:335
 #: resources/templates/table/structure/display_structure.twig:345
 #: resources/templates/table/structure/display_structure.twig:363
-#: resources/templates/table/zoom_search/result_form.twig:27
-#: resources/templates/table/zoom_search/result_form.twig:80
-#: resources/templates/table/zoom_search/result_form.twig:96
+#: resources/templates/table/zoom_search/result_form.twig:25
+#: resources/templates/table/zoom_search/result_form.twig:81
+#: resources/templates/table/zoom_search/result_form.twig:97
 #: src/Controllers/JavaScriptMessagesController.php:147
 #: src/Tracking/Tracking.php:206 src/Tracking/Tracking.php:546
 msgid "Close"
@@ -478,7 +478,7 @@ msgstr "انتخاب کلید خارجی"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:6
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:9
 #: resources/templates/table/zoom_search/index.twig:36
-#: resources/templates/table/zoom_search/result_form.twig:35
+#: resources/templates/table/zoom_search/result_form.twig:33
 #: src/Navigation/Nodes/NodeColumn.php:28
 #: src/Plugins/Export/ExportHtmlword.php:259
 #: src/Plugins/Export/ExportHtmlword.php:352
@@ -771,7 +771,7 @@ msgstr "ويژگيها"
 #: resources/templates/table/structure/display_structure.twig:472
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:9
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:12
-#: resources/templates/table/zoom_search/result_form.twig:36
+#: resources/templates/table/zoom_search/result_form.twig:34
 #: src/Plugins/Export/ExportHtmlword.php:265
 #: src/Plugins/Export/ExportHtmlword.php:358
 #: src/Plugins/Export/ExportLatex.php:508 src/Plugins/Export/ExportOdt.php:367
@@ -1063,7 +1063,7 @@ msgstr "کوئری داخلی"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:401
-#: src/Display/Results.php:2478 src/Html/Generator.php:517
+#: src/Display/Results.php:2477 src/Html/Generator.php:517
 #: src/Html/Generator.php:783
 msgid "Edit"
 msgstr "ويرايش"
@@ -1082,7 +1082,7 @@ msgstr "ويرايش"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:188
 #: src/Controllers/JavaScriptMessagesController.php:403
-#: src/Display/Results.php:2537 src/Tracking/Tracking.php:230
+#: src/Display/Results.php:2536 src/Tracking/Tracking.php:230
 msgid "Delete"
 msgstr "حذف"
 
@@ -1840,7 +1840,7 @@ msgstr "به جز"
 #: resources/templates/table/insert/get_head_and_foot_of_insert_row_table.twig:9
 #: resources/templates/table/search/index.twig:42
 #: resources/templates/table/zoom_search/index.twig:40
-#: resources/templates/table/zoom_search/result_form.twig:37
+#: resources/templates/table/zoom_search/result_form.twig:35
 msgid "Value"
 msgstr "مقدار"
 
@@ -2265,8 +2265,8 @@ msgstr "ترتيب"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1463
-#: src/Display/Results.php:1470 src/Util.php:1983 src/Util.php:2000
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1462
+#: src/Display/Results.php:1469 src/Util.php:1983 src/Util.php:2000
 msgid "Ascending"
 msgstr "صعودي"
 
@@ -2277,8 +2277,8 @@ msgstr "صعودي"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1458
-#: src/Display/Results.php:1475 src/Util.php:1988 src/Util.php:2005
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1457
+#: src/Display/Results.php:1474 src/Util.php:1988 src/Util.php:2005
 msgid "Descending"
 msgstr "نزولي"
 
@@ -3292,13 +3292,13 @@ msgid "Extra options"
 msgstr "آمار پايگاههاي داده"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1117
+#: src/Display/Results.php:1116
 #, fuzzy
 msgid "Partial texts"
 msgstr "متغییر"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1121
+#: src/Display/Results.php:1120
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
@@ -3344,7 +3344,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:491
-#: src/Display/Results.php:2482 src/Html/Generator.php:78
+#: src/Display/Results.php:2481 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "کپی"
 
@@ -6229,10 +6229,9 @@ msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:77
 msgid ""
-"To display queries from the logs, select the relevant time span on any chart "
-"by holding down the left mouse button and panning over the chart. Once "
-"confirmed, this will load a table of grouped queries, there you may click on "
-"any occurring SELECT statements to further analyze them."
+"To display queries from the logs, click on any chart. Once confirmed, this "
+"will load a table of grouped queries, there you may click on any occurring "
+"SELECT statements to further analyze them."
 msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:81
@@ -6374,7 +6373,7 @@ msgid "Start auto refresh"
 msgstr ""
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2556
+#: src/Display/Results.php:2555
 msgid "Kill"
 msgstr "از کار انداختن"
 
@@ -6794,7 +6793,7 @@ msgstr "دسته بندی نتایج"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:995 src/Display/Results.php:3140
+#: src/Database/Routines.php:995 src/Display/Results.php:3139
 #: src/Message.php:122
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -6996,6 +6995,7 @@ msgid "Value Column:"
 msgstr "تعداد ستون ها %s"
 
 #: resources/templates/table/chart/tbl_chart.twig:145
+#: resources/templates/table/zoom_search/result_form.twig:16
 msgid "The generated chart"
 msgstr ""
 
@@ -7874,11 +7874,11 @@ msgstr ""
 msgid "Browse/Edit the points"
 msgstr ""
 
-#: resources/templates/table/zoom_search/result_form.twig:14
+#: resources/templates/table/zoom_search/result_form.twig:11
 msgid "How to use"
 msgstr ""
 
-#: resources/templates/table/zoom_search/result_form.twig:17
+#: resources/templates/table/zoom_search/result_form.twig:12
 #, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
@@ -12506,11 +12506,11 @@ msgstr ""
 #: src/Controllers/Table/AddFieldController.php:169
 #: src/Controllers/Table/ChangeController.php:69
 #: src/Controllers/Table/ChangeController.php:74
-#: src/Controllers/Table/ChartController.php:107
-#: src/Controllers/Table/ChartController.php:112
-#: src/Controllers/Table/ChartController.php:149
-#: src/Controllers/Table/ChartController.php:154
-#: src/Controllers/Table/ChartController.php:236
+#: src/Controllers/Table/ChartController.php:96
+#: src/Controllers/Table/ChartController.php:101
+#: src/Controllers/Table/ChartController.php:138
+#: src/Controllers/Table/ChartController.php:143
+#: src/Controllers/Table/ChartController.php:225
 #: src/Controllers/Table/DeleteConfirmController.php:61
 #: src/Controllers/Table/DeleteConfirmController.php:66
 #: src/Controllers/Table/DropColumnConfirmationController.php:50
@@ -12535,8 +12535,8 @@ msgstr ""
 #: src/Controllers/Table/Structure/PrimaryController.php:79
 #: src/Controllers/Table/TrackingController.php:72
 #: src/Controllers/Table/TrackingController.php:77
-#: src/Controllers/Table/ZoomSearchController.php:99
-#: src/Controllers/Table/ZoomSearchController.php:104
+#: src/Controllers/Table/ZoomSearchController.php:100
+#: src/Controllers/Table/ZoomSearchController.php:105
 #: src/Controllers/Triggers/IndexController.php:73
 #: src/Controllers/Triggers/IndexController.php:102
 #: src/Controllers/View/CreateController.php:75
@@ -12627,9 +12627,9 @@ msgstr ""
 #: src/Controllers/Table/AddFieldController.php:183
 #: src/Controllers/Table/ChangeController.php:83
 #: src/Controllers/Table/ChangeController.php:88
-#: src/Controllers/Table/ChartController.php:121
-#: src/Controllers/Table/ChartController.php:126
-#: src/Controllers/Table/ChartController.php:244
+#: src/Controllers/Table/ChartController.php:110
+#: src/Controllers/Table/ChartController.php:115
+#: src/Controllers/Table/ChartController.php:233
 #: src/Controllers/Table/DeleteConfirmController.php:75
 #: src/Controllers/Table/DeleteConfirmController.php:80
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
@@ -12655,8 +12655,8 @@ msgstr ""
 #: src/Controllers/Table/StructureController.php:114
 #: src/Controllers/Table/Structure/PrimaryController.php:88
 #: src/Controllers/Table/Structure/PrimaryController.php:93
-#: src/Controllers/Table/ZoomSearchController.php:113
-#: src/Controllers/Table/ZoomSearchController.php:118
+#: src/Controllers/Table/ZoomSearchController.php:114
+#: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:81
 #, fuzzy
 #| msgid "No tables selected."
@@ -12717,7 +12717,7 @@ msgid "Success!"
 msgstr "موفق!"
 
 #: src/Controllers/Database/StructureController.php:578
-#: src/Display/Results.php:3418
+#: src/Display/Results.php:3417
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15998,11 +15998,11 @@ msgstr "هیچ سطری انتخاب نشده است"
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: src/Controllers/Table/ChartController.php:193
+#: src/Controllers/Table/ChartController.php:182
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
-#: src/Controllers/Table/ChartController.php:271
+#: src/Controllers/Table/ChartController.php:260
 #, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
@@ -16461,34 +16461,34 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2513 src/Display/Results.php:2528
+#: src/Display/Results.php:2512 src/Display/Results.php:2527
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "سطر حذف گرديد"
 
-#: src/Display/Results.php:3427
+#: src/Display/Results.php:3426
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr ""
 
-#: src/Display/Results.php:3441
+#: src/Display/Results.php:3440
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3446
+#: src/Display/Results.php:3445
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%s total"
 msgstr "جمع كل"
 
-#: src/Display/Results.php:3459 src/Sql.php:865
+#: src/Display/Results.php:3458 src/Sql.php:865
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
 
-#: src/Display/Results.php:3765
+#: src/Display/Results.php:3764
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
