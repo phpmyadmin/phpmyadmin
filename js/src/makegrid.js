@@ -1522,7 +1522,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     isValueUpdated = thisFieldParams[fieldName] !== Functions.getCellValue(g.currentEditCell);
                 } else {
                     const JSONString = Functions.stringifyJSON(thisFieldParams[fieldName]);
-                    isValueUpdated = JSONString !== JSON.stringify(JSON.parse(Functions.getCellValue(g.currentEditCell)));
+                    isValueUpdated = JSONString !== Functions.stringifyJSON(Functions.getCellValue(g.currentEditCell));
                 }
 
                 if (g.wasEditedCellNull || isValueUpdated) {
