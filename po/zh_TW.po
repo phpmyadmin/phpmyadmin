@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2024-06-27 08:10+0000\n"
+"PO-Revision-Date: 2024-07-02 13:24+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/zh_Hant/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6-rc\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6624,7 +6624,7 @@ msgstr "加密金鑰"
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
-msgstr ""
+msgstr "HEX函數在計算十六進制值時會將整數視為字串"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:497
 msgid ""
@@ -6707,7 +6707,7 @@ msgstr "刪除頁面"
 #. l10n: When the user opens a page saved in the Designer
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:530
 msgid "Some tables saved in this page might have been renamed or deleted."
-msgstr ""
+msgstr "某些儲存在此頁面中的資料表可能已重新命名或已刪除。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:531
 #: templates/database/designer/main.twig:10
@@ -7066,10 +7066,9 @@ msgstr "等候啟用安全金鑰逾時。"
 
 #. l10n: error code 2 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:685
-#, fuzzy
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr "無效的匯出類型。"
+msgstr "發送安全鑰匙請求無效。"
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:687
@@ -7081,7 +7080,7 @@ msgstr "未知的安全金鑰錯誤。"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "客戶端不支援安全金鑰。"
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:691
