@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-06-30 00:21+0000\n"
-"PO-Revision-Date: 2024-03-08 08:41+0000\n"
-"Last-Translator: Nova <luna.bowley@gmail.com>\n"
+"PO-Revision-Date: 2024-07-03 07:27+0000\n"
+"Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2487,13 +2487,11 @@ msgid "Browse"
 msgstr "Browse"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<strong>Total:</strong> <em>%count%</em> match"
-#| msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<strong>Total:</strong> <em>%count%</em> match"
-msgstr[1] "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<strong>Total:</strong> <em>%s</em> match"
+msgstr[1] "<strong>Total:</strong> <em>%s</em> matches"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
@@ -5622,21 +5620,19 @@ msgstr "Refresh rate"
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
-#, fuzzy, php-format
-#| msgid "%d second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d second"
-msgstr[1] "%d second"
+msgstr[1] "%d seconds"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
-#, fuzzy, php-format
-#| msgid "%d minute"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minute"
-msgstr[1] "%d minute"
+msgstr[1] "%d minutes"
 
 #: resources/templates/server/status/monitor/index.twig:38
 msgid "Chart columns"
@@ -5850,24 +5846,21 @@ msgstr "Questions since startup:"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
-#| msgid "ø per hour"
+#, php-format
 msgid "ø per hour: %s"
-msgstr "ø per hour"
+msgstr "ø per hour: %s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
-#| msgid "per minute:"
+#, php-format
 msgid "ø per minute: %s"
-msgstr "per minute:"
+msgstr "ø per minute: %s"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
-#| msgid "per second:"
+#, php-format
 msgid "ø per second: %s"
-msgstr "per second:"
+msgstr "ø per second: %s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -16046,10 +16039,8 @@ msgid "Report"
 msgstr "Report"
 
 #: src/Exceptions/AuthenticationFailure.php:35
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Cannot log in to the database server."
-msgstr "Cannot log in to the MySQL server"
+msgstr "Cannot log in to the database server."
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
@@ -16059,14 +16050,11 @@ msgid "Access denied!"
 msgstr "Access denied!"
 
 #: src/Exceptions/AuthenticationFailure.php:61
-#, fuzzy
-#| msgid ""
-#| "Login without a password is forbidden by configuration (see "
-#| "AllowNoPassword)"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
 msgstr ""
-"Log-in without a password is forbidden by configuration (see AllowNoPassword)"
+"Log-in without a password is forbidden by configuration (see "
+"AllowNoPassword)."
 
 #: src/Exceptions/AuthenticationFailure.php:73
 #, php-format
@@ -16957,10 +16945,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Wrong username/password. Access denied."
 
 #: src/Plugins/Auth/AuthenticationSignon.php:130
-#, fuzzy, php-format
-#| msgid "Can not find signon authentication script:"
+#, php-format
 msgid "Can not find signon authentication script: %s"
-msgstr "Cannot find signon authentication script:"
+msgstr "Cannot find signon authentication script: %s"
 
 #: src/Plugins/AuthenticationPluginFactory.php:31
 msgid "Invalid authentication method set in configuration:"
@@ -17920,10 +17907,8 @@ msgid "For testing purposes only!"
 msgstr "For testing purposes only!"
 
 #: src/Plugins/TwoFactor/WebAuthn.php:176
-#, fuzzy
-#| msgid "Hardware Security Key (FIDO U2F)"
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "Hardware Sicherheitsschlüssel (FIDO U2F)"
+msgstr "Hardware Security Key (WebAuthn/FIDO2)"
 
 #: src/Plugins/TwoFactor/WebAuthn.php:182
 #, fuzzy
