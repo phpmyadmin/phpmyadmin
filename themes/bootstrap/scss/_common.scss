@@ -1714,6 +1714,7 @@ input#auto_increment_opt {
     overflow-y: scroll;
     padding: 0;
     margin: 0;
+    resize: both;
   }
 
   .edit_box_posting {
@@ -1862,10 +1863,6 @@ table.show_create {
   bottom: 0;
   left: 0;
   z-index: 100;
-}
-
-textarea {
-  resize: both;
 }
 
 #pma_console {
