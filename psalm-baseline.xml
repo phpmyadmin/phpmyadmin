@@ -6066,7 +6066,7 @@
       <code>$sortExpression</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="68">
+    <MixedArrayAccess occurrences="69">
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
@@ -6112,7 +6112,8 @@
       <code>$displayParams['data'][$rowNumber]</code>
       <code>$displayParts['nav_bar']</code>
       <code>$displayParts['nav_bar']</code>
-      <code>$displayParts['nav_bar']</code>
+      <code>$displayParts['query_stats']</code>
+      <code>$displayParts['query_stats']</code>
       <code>$displayParts['sort_lnk']</code>
       <code>$oneKey['index_list']</code>
       <code>$oneKey['ref_db_name']</code>
@@ -13141,7 +13142,7 @@
     <LessSpecificReturnStatement occurrences="1">
       <code>$unlimNumRows</code>
     </LessSpecificReturnStatement>
-    <MixedArgument occurrences="41">
+    <MixedArgument occurrences="43">
       <code>$analyzedSqlResults</code>
       <code>$analyzedSqlResults['is_affected']</code>
       <code>$analyzedSqlResults['is_analyse']</code>
@@ -13154,6 +13155,8 @@
       <code>$analyzedSqlResults['is_export']</code>
       <code>$analyzedSqlResults['is_func']</code>
       <code>$analyzedSqlResults['is_func']</code>
+      <code>$analyzedSqlResults['is_group']</code>
+      <code>$analyzedSqlResults['is_group']</code>
       <code>$analyzedSqlResults['is_maint']</code>
       <code>$analyzedSqlResults['is_maint']</code>
       <code>$analyzedSqlResults['is_show']</code>
@@ -15276,7 +15279,7 @@
     <DocblockTypeContradiction occurrences="1">
       <code>assertSame</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="16">
+    <MixedArgument occurrences="17">
       <code>$actual</code>
       <code>$analyzedSqlResults</code>
       <code>$analyzedSqlResults</code>
@@ -15287,18 +15290,20 @@
       <code>$analyzedSqlResults['is_explain']</code>
       <code>$analyzedSqlResults['is_export']</code>
       <code>$analyzedSqlResults['is_func']</code>
+      <code>$analyzedSqlResults['is_group']</code>
       <code>$analyzedSqlResults['is_maint']</code>
       <code>$analyzedSqlResults['is_show']</code>
       <code>$output</code>
       <code>$output</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="8">
+    <MixedArrayAccess occurrences="9">
       <code>$_SESSION['tmpval']['pftext']</code>
       <code>$analyzedSqlResults['is_analyse']</code>
       <code>$analyzedSqlResults['is_count']</code>
       <code>$analyzedSqlResults['is_explain']</code>
       <code>$analyzedSqlResults['is_export']</code>
       <code>$analyzedSqlResults['is_func']</code>
+      <code>$analyzedSqlResults['is_group']</code>
       <code>$analyzedSqlResults['is_maint']</code>
       <code>$analyzedSqlResults['is_show']</code>
     </MixedArrayAccess>
