@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-06-30 00:21+0000\n"
-"PO-Revision-Date: 2024-07-03 07:27+0000\n"
+"PO-Revision-Date: 2024-07-03 09:16+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
@@ -1207,10 +1207,8 @@ msgid "OK"
 msgstr "OK"
 
 #: resources/templates/console/display.twig:178
-#, fuzzy
-#| msgid "Restore default value"
 msgid "Restore default values"
-msgstr "Restore default value"
+msgstr "Restore default values"
 
 #: resources/templates/console/display.twig:185 src/Config/Descriptions.php:958
 msgid "Always expand query messages"
@@ -3336,14 +3334,13 @@ msgid "Containing the word:"
 msgstr "Containing the word:"
 
 #: resources/templates/gis_data_editor_form.twig:26
-#, fuzzy
-#| msgid "Geometry %d:"
 msgid "Geometry type:"
-msgstr "Geometry %d:"
+msgstr "Geometry type:"
 
 #: resources/templates/gis_data_editor_form.twig:41
+#, fuzzy
 msgid "Spatial Reference System Identifier"
-msgstr ""
+msgstr "Spatial Reference System Identifier"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgctxt "Spatial Reference System Identifier"
@@ -3925,10 +3922,8 @@ msgid "Clear fast filter"
 msgstr "Clear fast filter"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
-#, fuzzy
-#| msgid "Recently used tables"
 msgid "Recently visited tables"
-msgstr "Recently used tables"
+msgstr "Recently visited tables"
 
 #: resources/templates/navigation/tree/quick_warp.twig:6
 msgid "Recent"
@@ -4584,10 +4579,8 @@ msgid "Grant all privileges on database %s."
 msgstr "Grant all privileges on database %s."
 
 #: resources/templates/server/privileges/add_user.twig:38
-#, fuzzy
-#| msgid "Create %s"
 msgid "Create user"
-msgstr "Create %s"
+msgstr "Create user"
 
 #: resources/templates/server/privileges/change_password.twig:18
 msgid "No Password"
@@ -5156,7 +5149,7 @@ msgstr "Requires that a valid X509 certificate with this subject be presented."
 #, fuzzy
 #| msgid "Adjust privileges"
 msgid "Update user privileges"
-msgstr "Adjust privileges"
+msgstr "Update user privileges"
 
 #: resources/templates/server/privileges/subnav.twig:5
 #: resources/templates/server/privileges/user_overview.twig:5
@@ -5586,16 +5579,12 @@ msgid "Advisor"
 msgstr "Advisor"
 
 #: resources/templates/server/status/monitor/index.twig:4
-#, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
-msgstr "System memory"
+msgstr "System monitor"
 
 #: resources/templates/server/status/monitor/index.twig:7
-#, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
-msgstr "Start Monitor"
+msgstr "Start monitor"
 
 #: resources/templates/server/status/monitor/index.twig:9
 msgid "Instructions/Setup"
@@ -6139,10 +6128,8 @@ msgid "Let every user access this bookmark"
 msgstr "Let every user access this bookmark"
 
 #: resources/templates/sql/bookmark.twig:26
-#, fuzzy
-#| msgid "Create bookmark"
 msgid "Create new bookmark"
-msgstr "Create bookmark"
+msgstr "Create new bookmark"
 
 #: resources/templates/sql/profiling_chart.twig:7
 msgid "Detailed profile"
@@ -6383,7 +6370,7 @@ msgstr "Value Column:"
 #: resources/templates/table/chart/tbl_chart.twig:145
 #: resources/templates/table/zoom_search/result_form.twig:16
 msgid "The generated chart"
-msgstr ""
+msgstr "The generated chart"
 
 #: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
@@ -6622,10 +6609,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Third step of normalisation (1NF+2NF+3NF)"
 
 #: resources/templates/table/operations/index.twig:2
-#, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
-msgstr "Table options"
+msgstr "Table operations"
 
 #: resources/templates/table/operations/index.twig:10
 msgid "Alter table order by"
@@ -7074,10 +7059,8 @@ msgid "Next autoindex"
 msgstr "Next autoindex"
 
 #: resources/templates/table/structure/drop_confirm.twig:2
-#, fuzzy
-#| msgid "DROP columns %s from the table %s"
 msgid "Dropping columns from the table"
-msgstr "DROP columns %s from the table %s"
+msgstr "Dropping columns from the table"
 
 #: resources/templates/table/tracking/main.twig:64
 #: resources/templates/table/tracking/main.twig:91
@@ -8835,56 +8818,42 @@ msgstr "Closed"
 
 #: src/Config/ConfigFile.php:607
 #: src/Controllers/JavaScriptMessagesController.php:745
-#, fuzzy
-#| msgid "Monday"
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "Monday"
 
 #: src/Config/ConfigFile.php:608
 #: src/Controllers/JavaScriptMessagesController.php:746
-#, fuzzy
-#| msgid "Tuesday"
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Tuesday"
 
 #: src/Config/ConfigFile.php:609
 #: src/Controllers/JavaScriptMessagesController.php:747
-#, fuzzy
-#| msgid "Wednesday"
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Wednesday"
 
 #: src/Config/ConfigFile.php:610
 #: src/Controllers/JavaScriptMessagesController.php:748
-#, fuzzy
-#| msgid "Thursday"
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Thursday"
 
 #: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:749
-#, fuzzy
-#| msgid "Friday"
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "Friday"
 
 #: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:750
-#, fuzzy
-#| msgid "Saturday"
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Saturday"
 
 #: src/Config/ConfigFile.php:613
 #: src/Controllers/JavaScriptMessagesController.php:744
-#, fuzzy
-#| msgid "Sunday"
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Sunday"
@@ -10483,10 +10452,8 @@ msgid "Remember filename template"
 msgstr "Remember filename template"
 
 #: src/Config/Descriptions.php:686
-#, fuzzy
-#| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
-msgstr "Remove columns from central list"
+msgstr "Remove DEFINER clause from definitions"
 
 #: src/Config/Descriptions.php:688
 msgid "Enclose table and column names with backquotes"
