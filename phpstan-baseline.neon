@@ -14421,6 +14421,16 @@ parameters:
 			path: src/VersionInformation.php
 
 		-
+			message: "#^Match arm comparison between 7 and 7 is always true\\.$#"
+			count: 1
+			path: src/WebAuthn/CBORDecoder.php
+
+		-
+			message: "#^Match arm is unreachable because previous comparison is always true\\.$#"
+			count: 1
+			path: src/WebAuthn/CBORDecoder.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\ZipExtension\\:\\:getContents\\(\\) should return array\\{error\\: string, data\\: string\\} but returns array\\{error\\: '', data\\: string\\|false\\}\\.$#"
 			count: 1
 			path: src/ZipExtension.php
