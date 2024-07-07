@@ -570,12 +570,31 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
+      <code><![CDATA[$args]]></code>
       <code><![CDATA[$ip]]></code>
       <code><![CDATA[$password]]></code>
       <code><![CDATA[$uv[$i]]]></code>
       <code><![CDATA[$uv[$i]]]></code>
       <code><![CDATA[$values[$path]]]></code>
-      <code><![CDATA[$vid]]></code>
       <code><![CDATA[empty($values['Servers/1/controlpass']) ? '' : $values['Servers/1/controlpass']]]></code>
       <code><![CDATA[empty($values['Servers/1/controluser']) ? '' : $values['Servers/1/controluser']]]></code>
       <code><![CDATA[empty($values['Servers/1/host']) ? '' : $values['Servers/1/host']]]></code>
@@ -602,7 +621,6 @@
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$arguments[$k2]]]></code>
-      <code><![CDATA[$errorList]]></code>
       <code><![CDATA[$field]]></code>
       <code><![CDATA[$ip]]></code>
       <code><![CDATA[$password]]></code>
@@ -614,7 +632,6 @@
       <code><![CDATA[$v]]></code>
       <code><![CDATA[$validator]]></code>
       <code><![CDATA[$validators]]></code>
-      <code><![CDATA[$vid]]></code>
       <code><![CDATA[$vname]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
@@ -622,7 +639,6 @@
     </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$ip]]></code>
-      <code><![CDATA[$vname]]></code>
     </MixedOperand>
     <MixedReturnStatement>
       <code><![CDATA[$validators]]></code>
@@ -638,30 +654,38 @@
       <code><![CDATA[$k2]]></code>
       <code><![CDATA[$k2]]></code>
     </PossiblyInvalidCast>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[validateByRegex]]></code>
-      <code><![CDATA[validateNonNegativeNumber]]></code>
-      <code><![CDATA[validatePMAStorage]]></code>
-      <code><![CDATA[validatePortNumber]]></code>
-      <code><![CDATA[validatePositiveNumber]]></code>
-      <code><![CDATA[validateRegex]]></code>
-      <code><![CDATA[validateServer]]></code>
-      <code><![CDATA[validateTrustedProxies]]></code>
-      <code><![CDATA[validateUpperBound]]></code>
-    </PossiblyUnusedMethod>
-    <PossiblyUnusedParam>
-      <code><![CDATA[$path]]></code>
-      <code><![CDATA[$path]]></code>
-    </PossiblyUnusedParam>
     <ReferenceReusedFromConfusingScope>
       <code><![CDATA[$vid]]></code>
     </ReferenceReusedFromConfusingScope>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$config->get('is_setup')]]></code>
+      <code><![CDATA[empty($errorList)]]></code>
       <code><![CDATA[empty($values['Servers/1/controlpass'])]]></code>
       <code><![CDATA[empty($values['Servers/1/controluser'])]]></code>
       <code><![CDATA[mb_strpos($k2, '/')]]></code>
     </RiskyTruthyFalsyComparison>
+    <TooFewArguments>
+      <code><![CDATA[self::validateByRegex(...$args)]]></code>
+      <code><![CDATA[self::validateByRegex(...$args)]]></code>
+      <code><![CDATA[self::validateByRegex(...$args)]]></code>
+      <code><![CDATA[self::validateNonNegativeNumber(...$args)]]></code>
+      <code><![CDATA[self::validateNonNegativeNumber(...$args)]]></code>
+      <code><![CDATA[self::validatePMAStorage(...$args)]]></code>
+      <code><![CDATA[self::validatePMAStorage(...$args)]]></code>
+      <code><![CDATA[self::validatePortNumber(...$args)]]></code>
+      <code><![CDATA[self::validatePortNumber(...$args)]]></code>
+      <code><![CDATA[self::validatePositiveNumber(...$args)]]></code>
+      <code><![CDATA[self::validatePositiveNumber(...$args)]]></code>
+      <code><![CDATA[self::validateRegex(...$args)]]></code>
+      <code><![CDATA[self::validateRegex(...$args)]]></code>
+      <code><![CDATA[self::validateServer(...$args)]]></code>
+      <code><![CDATA[self::validateServer(...$args)]]></code>
+      <code><![CDATA[self::validateTrustedProxies(...$args)]]></code>
+      <code><![CDATA[self::validateTrustedProxies(...$args)]]></code>
+      <code><![CDATA[self::validateUpperBound(...$args)]]></code>
+      <code><![CDATA[self::validateUpperBound(...$args)]]></code>
+      <code><![CDATA[self::validateUpperBound(...$args)]]></code>
+    </TooFewArguments>
   </file>
   <file src="src/ConfigStorage/Relation.php">
     <DeprecatedMethod>
