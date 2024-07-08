@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-04-18 20:03+0000\n"
-"Last-Translator: Sebastian <stomczyk145@gmail.com>\n"
+"PO-Revision-Date: 2024-07-09 14:09+0000\n"
+"Last-Translator: sebastians17 <sebastians117.ss@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-9/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -1915,7 +1915,6 @@ msgid "Values for a new column"
 msgstr "Wartości dla nowej kolumny"
 
 #: js/messages.php:411
-#, fuzzy
 msgid "Enter each value in a separate field."
 msgstr "Wprowadź każdą wartość do osobnego pola."
 
@@ -1930,7 +1929,6 @@ msgid ""
 msgstr "Uwaga: Jeśli plik zawiera wiele tabel, będzie połączony w jeden."
 
 #: js/messages.php:420
-#, fuzzy
 msgid "Hide query box"
 msgstr "Ukryj okno zapytań"
 
@@ -1964,13 +1962,12 @@ msgstr "Edytuj"
 #: templates/console/bookmark_content.twig:7
 #: templates/display/export/template_loading.twig:22
 #: templates/database/search/results.twig:43
-#, fuzzy
 msgid "Delete"
 msgstr "Usuń"
 
 #: js/messages.php:424 libraries/classes/Display/Results.php:934
 #: libraries/classes/Display/Results.php:942
-#, fuzzy, php-format
+#, php-format
 msgid "%d is not valid row number."
 msgstr "%d nie jest prawidłowym numerem wiersza."
 
@@ -1978,7 +1975,6 @@ msgstr "%d nie jest prawidłowym numerem wiersza."
 #: libraries/classes/Controllers/Table/TableSearchController.php:368
 #: libraries/classes/Controllers/Table/TableSearchController.php:868
 #: libraries/classes/Sql.php:232 tbl_change.php:142
-#, fuzzy
 msgid "Browse foreign values"
 msgstr "Przeglądaj zewnętrzne wartości"
 
@@ -2067,12 +2063,10 @@ msgstr "Drugi etap dostosowywania (2NF)"
 #. l10n: Display text for calendar close link
 #: js/messages.php:453 js/messages.php:782
 #: libraries/classes/Normalization.php:340
-#, fuzzy
 msgid "Done"
-msgstr "Zrobione"
+msgstr "Zakończ"
 
 #: js/messages.php:454
-#, fuzzy
 msgid "Confirm partial dependencies"
 msgstr "Potwierdź częściowe zależności"
 
@@ -2097,7 +2091,6 @@ msgid "Show me the possible partial dependencies based on data in the table"
 msgstr "Pokaż możliwe zależności częściowe na podstawie danych w tabeli"
 
 #: js/messages.php:464
-#, fuzzy
 msgid "Hide partial dependencies list"
 msgstr "Ukryj listę częściowych zależności"
 
@@ -2192,7 +2185,6 @@ msgid "Show find and replace criteria"
 msgstr "Pokaż kryteria wyszukiwania i zamiany"
 
 #: js/messages.php:499
-#, fuzzy
 msgid "Each point represents a data row."
 msgstr "Każdy punkt reprezentuje wiersz danych."
 
@@ -2242,7 +2234,6 @@ msgstr "Ignoruj"
 
 #: js/messages.php:520 libraries/classes/Display/Results.php:3344
 #: libraries/classes/Display/Results.php:4705
-#, fuzzy
 msgid "Copy"
 msgstr "Kopiuj"
 
@@ -2259,7 +2250,6 @@ msgid "Polygon"
 msgstr "Wielokąt"
 
 #: js/messages.php:527 templates/display/results/options_block.twig:79
-#, fuzzy
 msgid "Geometry"
 msgstr "Geometria"
 
@@ -2272,12 +2262,10 @@ msgid "Outer ring"
 msgstr "Pierścień zewnętrzny"
 
 #: js/messages.php:533
-#, fuzzy
 msgid "Do you want to copy encryption key?"
 msgstr "Czy chcesz skopiować klucz szyfrowania?"
 
 #: js/messages.php:534
-#, fuzzy
 msgid "Encryption key"
 msgstr "Klucz szyfrowania"
 
@@ -2359,7 +2347,6 @@ msgid "Open page"
 msgstr "Otwórz stronę"
 
 #: js/messages.php:570
-#, fuzzy
 msgid "Delete page"
 msgstr "Usuń stronę"
 
