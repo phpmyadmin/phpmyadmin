@@ -97,7 +97,7 @@ jobs:
           coverage: xdebug
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
         with:
           dependency-versions: ${{ matrix.composer-dependency }}
           composer-options: ${{ matrix.composer-options }}
@@ -157,7 +157,7 @@ jobs:
           coverage: xdebug
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
 
       - name: Run PHP tests
         run: composer run phpunit -- --testsuite unit

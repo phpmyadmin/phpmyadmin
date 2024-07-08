@@ -101,7 +101,7 @@ jobs:
           extensions: :opcache, mbstring, iconv, mysqli, zip, gd, bz2
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
 
       - name: Set up Node
         uses: actions/setup-node@v4
