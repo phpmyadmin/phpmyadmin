@@ -931,21 +931,6 @@ parameters:
 			path: src/Config/Validator.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Config\\\\Validator\\:\\:testDBConnection\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Config/Validator.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Config\\\\Validator\\:\\:validate\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Config/Validator.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Config\\\\Validator\\:\\:validateByRegex\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Config/Validator.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
 			path: src/Config/Validator.php
@@ -971,11 +956,6 @@ parameters:
 			path: src/Config/Validator.php
 
 		-
-			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(mixed\\)\\: mixed\\)\\|null, Closure\\(string, bool\\=\\)\\: string given\\.$#"
-			count: 1
-			path: src/Config/Validator.php
-
-		-
 			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: src/Config/Validator.php
@@ -996,7 +976,47 @@ parameters:
 			path: src/Config/Validator.php
 
 		-
-			message: "#^Parameter \\#1 \\$path of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getCanonicalPath\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Config\\\\Validator\\:\\:validateByRegex\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Config/Validator.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Config\\\\Validator\\:\\:validateNonNegativeNumber\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Config/Validator.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Config\\\\Validator\\:\\:validatePMAStorage\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Config/Validator.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Config\\\\Validator\\:\\:validatePortNumber\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Config/Validator.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Config\\\\Validator\\:\\:validatePositiveNumber\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Config/Validator.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Config\\\\Validator\\:\\:validateRegex\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Config/Validator.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Config\\\\Validator\\:\\:validateServer\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Config/Validator.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Config\\\\Validator\\:\\:validateTrustedProxies\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Config/Validator.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Config\\\\Validator\\:\\:validateUpperBound\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Config/Validator.php
 
