@@ -42,7 +42,7 @@ jobs:
           tools: composer:v2, infection
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
         with:
           dependency-versions: highest
 
