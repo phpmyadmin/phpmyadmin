@@ -141,7 +141,6 @@ class StructureControllerTest extends AbstractTestCase
             'show_stats' => false,
             'mysql_int_version' => $this->dbi->getVersion(),
             'is_mariadb' => $this->dbi->isMariaDB(),
-            'text_dir' => 'ltr',
             'is_active' => false,
             'have_partitioning' => true,
             'partitions' => [],

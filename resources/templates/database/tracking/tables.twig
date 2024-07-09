@@ -45,7 +45,7 @@
                               <div class="wrapper toggleAjax hide">
                                 <div class="toggleButton">
                                   <div title="{{ t('Click to toggle') }}" class="toggle-container {{ version.tracking_active == 1 ? 'on' : 'off' }}">
-                                    <img src="{{ image('toggle-' ~ text_dir ~ '.png') }}">
+                                    <img src="{{ image('toggle-' ~ pma.text_dir ~ '.png') }}">
                                     <table>
                                       <tbody>
                                       <tr>
@@ -76,7 +76,7 @@
                                       </tbody>
                                     </table>
                                     <span class="hide callback"></span>
-                                    <span class="hide text_direction">{{ text_dir }}</span>
+                                    <span class="hide text_direction">{{ pma.text_dir }}</span>
                                   </div>
                                 </div>
                               </div>
@@ -131,7 +131,6 @@
                 </tbody>
             </table>
             {% include 'select_all.twig' with {
-                'text_dir': text_dir,
                 'form_name': 'trackedForm'
             } only %}
             <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="delete_tracking"
@@ -180,7 +179,6 @@
             </tbody>
         </table>
         {% include 'select_all.twig' with {
-            'text_dir': text_dir,
             'form_name': 'untrackedForm'
         } only %}
         <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="track" title="{{ t('Track table') }}">

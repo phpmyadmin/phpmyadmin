@@ -127,8 +127,6 @@ class Results
     /* time taken for execute the SQL query */
     private float|null $queryTime = null;
 
-    private string|null $textDirection = null;
-
     /**
      * the total number of rows returned by the SQL query
      *
@@ -324,7 +322,6 @@ class Results
      * @param bool            $isAnalyse        statement contains PROCEDURE ANALYSE
      * @param int|string      $numRows          total no. of rows returned by SQL query
      * @param float           $queryTime        time taken for execute the SQL query
-     * @param string          $textDirection    text direction
      * @param bool            $isMaintenance    statement contains a maintenance command
      * @param bool            $isExplain        statement contains EXPLAIN
      * @param bool            $isShow           statement contains SHOW
@@ -343,7 +340,6 @@ class Results
         bool $isAnalyse,
         int|string $numRows,
         float $queryTime,
-        string $textDirection,
         bool $isMaintenance,
         bool $isExplain,
         bool $isShow,
@@ -359,7 +355,6 @@ class Results
         $this->isAnalyse = $isAnalyse;
         $this->numRows = $numRows;
         $this->queryTime = $queryTime;
-        $this->textDirection = $textDirection;
         $this->isMaintenance = $isMaintenance;
         $this->isExplain = $isExplain;
         $this->isShow = $isShow;
@@ -3237,7 +3232,6 @@ class Results
             'relwork' => $relationParameters->relationFeature !== null,
             'save_cells_at_once' => $this->config->settings['SaveCellsAtOnce'],
             'default_sliders_state' => $this->config->settings['InitialSlidersState'],
-            'text_dir' => $this->textDirection,
             'is_browse_distinct' => $this->isBrowseDistinct,
         ]);
     }

@@ -9,7 +9,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
 use Psr\Http\Message\ResponseInterface;
@@ -41,7 +40,6 @@ final class SessionHandling implements MiddlewareInterface
 
             return $response->write($this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => LanguageManager::$textDir,
                 'error_message' => $exception->getMessage(),
             ]));
         }

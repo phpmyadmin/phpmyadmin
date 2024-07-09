@@ -364,7 +364,6 @@ class InsertEdit
      * @param string           $backupField         hidden input field
      * @param string           $columnNameAppendix  the name attribute
      * @param string           $onChangeClause      onchange clause for fields
-     * @param string           $textDir             text direction
      * @param string           $specialCharsEncoded replaced char if the string starts
      *                                                with a \r\n pair (0x0d0a) add an extra \n
      * @param string           $dataType            the html5 data-* attribute type
@@ -376,7 +375,6 @@ class InsertEdit
         string $backupField,
         string $columnNameAppendix,
         string $onChangeClause,
-        string $textDir,
         string $specialCharsEncoded,
         string $dataType,
     ): string {
@@ -405,7 +403,7 @@ class InsertEdit
             . (isset($maxlength) ? ' data-maxlength="' . $maxlength . '"' : '')
             . ' rows="' . $textAreaRows . '"'
             . ' cols="' . $textareaCols . '"'
-            . ' dir="' . $textDir . '"'
+            . ' dir="' . LanguageManager::$textDir . '"'
             . ' id="field_' . $this->fieldIndex . '_3"'
             . ($onChangeClause !== '' ? ' onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"' : '')
             . ' tabindex="' . $this->fieldIndex . '"'
@@ -537,7 +535,6 @@ class InsertEdit
      * @param string           $columnNameAppendix  the name attribute
      * @param string           $onChangeClause      onchange clause for fields
      * @param string           $specialChars        special characters
-     * @param string           $textDir             text direction
      * @param string           $specialCharsEncoded replaced char if the string starts
      *                                                with a \r\n pair (0x0d0a) add an extra \n
      * @param string           $data                data to edit
@@ -554,7 +551,6 @@ class InsertEdit
         string $columnNameAppendix,
         string $onChangeClause,
         string $specialChars,
-        string $textDir,
         string $specialCharsEncoded,
         string $data,
         array $extractedColumnspec,
@@ -572,7 +568,6 @@ class InsertEdit
                 $backupField,
                 $columnNameAppendix,
                 $onChangeClause,
-                $textDir,
                 $specialCharsEncoded,
                 $dataType,
             );
@@ -1553,7 +1548,6 @@ class InsertEdit
      * @param string     $db                 database
      * @param int        $rowId              row id
      * @param string     $defaultCharEditing default char editing mode which is stored in the config.inc.php script
-     * @param string     $textDir            text direction
      * @param mixed[]    $repopulate         the data to be repopulated
      * @param mixed[]    $columnMime         the mime information of column
      * @param string     $whereClause        the where clause
@@ -1572,7 +1566,6 @@ class InsertEdit
         string $db,
         int $rowId,
         string $defaultCharEditing,
-        string $textDir,
         array $repopulate,
         array $columnMime,
         string $whereClause,
@@ -1699,7 +1692,6 @@ class InsertEdit
                     $columnNameAppendix,
                     $transformationOptions,
                     $currentRow[$column->field] ?? '',
-                    $textDir,
                     $this->fieldIndex,
                 );
 
@@ -1801,7 +1793,6 @@ class InsertEdit
                     $columnNameAppendix,
                     $onChangeClause,
                     $specialChars,
-                    $textDir,
                     $specialCharsEncoded,
                     $data,
                     $extractedColumnspec,
@@ -1834,7 +1825,6 @@ class InsertEdit
             'data_type' => $dataType,
             'textarea_cols' => $textareaCols,
             'textarea_rows' => $textAreaRows,
-            'text_dir' => $textDir,
             'max_length' => $maxlength,
             'longtext_double_textarea' => $this->config->settings['LongtextDoubleTextarea'],
             'enum_selected_value' => $enumSelectedValue,
@@ -1878,7 +1868,6 @@ class InsertEdit
      * @param string           $table            table
      * @param string           $db               database
      * @param int              $rowId            row id
-     * @param string           $textDir          text direction
      * @param mixed[]          $repopulate       the data to be repopulated
      * @param mixed[]          $whereClauseArray the array of where clauses
      */
@@ -1894,7 +1883,6 @@ class InsertEdit
         string $table,
         string $db,
         int $rowId,
-        string $textDir,
         array $repopulate,
         array $whereClauseArray,
     ): string {
@@ -1930,7 +1918,6 @@ class InsertEdit
                 $db,
                 $rowId,
                 $defaultCharEditing,
-                $textDir,
                 $repopulate,
                 $columnMime,
                 $whereClause,

@@ -15,7 +15,6 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
@@ -189,7 +188,6 @@ final class CreateController implements InvocableController
 
         $this->response->render('view_create', [
             'ajax_dialog' => $ajaxdialog,
-            'text_dir' => LanguageManager::$textDir,
             'url_params' => $GLOBALS['urlParams'],
             'view' => $viewData,
             'view_algorithm_options' => self::VIEW_ALGORITHM_OPTIONS,

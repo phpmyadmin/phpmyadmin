@@ -42,7 +42,6 @@ final class HomeController implements InvocableController
 
             return $response->write($this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => LanguageManager::$textDir,
                 'error_message' => __('Configuration already exists, setup is disabled!'),
             ]));
         }

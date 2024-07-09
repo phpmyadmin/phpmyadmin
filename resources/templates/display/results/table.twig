@@ -311,7 +311,7 @@
 
 {% if has_bulk_links is defined and has_bulk_links %}
     <div class="d-print-none">
-      {{ get_image('select_all_arrow', t('With selected:'), {'dir': text_dir, 'width': '38', 'height': '22'}) }}
+      {{ get_image('select_all_arrow', t('With selected:'), {'dir': pma.text_dir, 'width': '38', 'height': '22'}) }}
       <input type="checkbox" id="resultsForm_{{ unique_id }}_checkall" class="checkall_box" title="{{ t('Check all') }}">
       <label for="resultsForm_{{ unique_id }}_checkall">{{ t('Check all') }}</label>
       <em class="with-selected">{{ t('With selected:') }}</em>

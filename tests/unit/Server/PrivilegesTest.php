@@ -1236,9 +1236,8 @@ class PrivilegesTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
         $dbRights = [];
-        $textDir = 'text_dir';
 
-        $html = $serverPrivileges->getUsersOverview($resultStub, $dbRights, $textDir);
+        $html = $serverPrivileges->getUsersOverview($resultStub, $dbRights);
 
         //Url::getHiddenInputs
         self::assertStringContainsString(
@@ -1285,9 +1284,6 @@ class PrivilegesTest extends AbstractTestCase
             __('Action'),
             $html,
         );
-
-        //$text_dir
-        self::assertStringContainsString($textDir, $html);
 
         self::assertStringContainsString(
             Url::getCommon(['adduser' => 1], ''),
@@ -1547,7 +1543,7 @@ class PrivilegesTest extends AbstractTestCase
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
 
         $_REQUEST = ['ajax_page_request' => '1'];
-        $actual = $serverPrivileges->getHtmlForUserOverview($userPrivileges, 'ltr', null);
+        $actual = $serverPrivileges->getHtmlForUserOverview($userPrivileges, null);
         self::assertStringContainsString('Note: MySQL privilege names are expressed in English.', $actual);
         self::assertStringContainsString(
             'Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege tables.',
@@ -1567,7 +1563,7 @@ class PrivilegesTest extends AbstractTestCase
         );
         $dummyDbi->addResult('SELECT 1 FROM `mysql`.`user`', false);
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
-        $html = $serverPrivileges->getHtmlForUserOverview($userPrivileges, 'ltr', null);
+        $html = $serverPrivileges->getHtmlForUserOverview($userPrivileges, null);
 
         self::assertStringContainsString(
             Url::getCommon(['adduser' => 1], ''),
@@ -1595,7 +1591,7 @@ class PrivilegesTest extends AbstractTestCase
         );
         $dummyDbi->addResult('SELECT 1 FROM `mysql`.`user`', [[1]]);
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
-        $actual = $serverPrivileges->getHtmlForUserOverview($userPrivileges, 'ltr', null);
+        $actual = $serverPrivileges->getHtmlForUserOverview($userPrivileges, null);
 
         self::assertStringContainsString('Your privilege table structure seems to be older than'
             . ' this MySQL version!<br>'

@@ -1183,7 +1183,6 @@ class ResultsTest extends AbstractTestCase
             $statementInfo->flags->isAnalyse,
             3,
             1.234,
-            'ltr',
             $statementInfo->flags->isMaint,
             $statementInfo->flags->queryType === StatementType::Explain,
             $statementInfo->flags->queryType === StatementType::Show,
@@ -1429,7 +1428,6 @@ class ResultsTest extends AbstractTestCase
             'relwork' => false,
             'save_cells_at_once' => false,
             'default_sliders_state' => 'closed',
-            'text_dir' => 'ltr',
         ]);
 
         self::assertSame($tableTemplate, $actual);
@@ -1477,7 +1475,6 @@ class ResultsTest extends AbstractTestCase
             $statementInfo->flags->isAnalyse,
             2,
             1.234,
-            'ltr',
             $statementInfo->flags->isMaint,
             $statementInfo->flags->queryType === StatementType::Explain,
             $statementInfo->flags->queryType === StatementType::Show,
@@ -1665,7 +1662,6 @@ class ResultsTest extends AbstractTestCase
             'relwork' => false,
             'save_cells_at_once' => false,
             'default_sliders_state' => 'closed',
-            'text_dir' => 'ltr',
         ]);
 
         self::assertSame($tableTemplate, $actual);

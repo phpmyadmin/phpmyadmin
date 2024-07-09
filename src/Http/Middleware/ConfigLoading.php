@@ -36,7 +36,6 @@ final class ConfigLoading implements MiddlewareInterface
 
             return $response->write($this->template->render('error/generic', [
                 'lang' => 'en',
-                'dir' => 'ltr',
                 'error_message' => $exception->getMessage(),
             ]));
         }

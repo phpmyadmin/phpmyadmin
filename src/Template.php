@@ -10,6 +10,7 @@ use PhpMyAdmin\Twig\CoreExtension;
 use PhpMyAdmin\Twig\FlashMessengerExtension;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
+use PhpMyAdmin\Twig\PmaGlobalVariable;
 use PhpMyAdmin\Twig\SanitizeExtension;
 use PhpMyAdmin\Twig\TransformationsExtension;
 use PhpMyAdmin\Twig\UrlExtension;
@@ -65,6 +66,7 @@ class Template
             $twig->disableStrictVariables();
         }
 
+        $twig->addGlobal('pma', new PmaGlobalVariable());
         $twig->addExtension(new AssetExtension());
         $twig->addExtension(new CoreExtension());
         $twig->addExtension(new FlashMessengerExtension());

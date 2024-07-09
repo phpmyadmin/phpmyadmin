@@ -46,7 +46,6 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
      * @param string  $columnNameAppendix the name attribute
      * @param mixed[] $options            transformation options
      * @param string  $value              Current field value
-     * @param string  $textDir            text direction
      * @param int     $fieldIndex         field index
      *
      * @return string the html for input field
@@ -55,7 +54,6 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
         string $columnNameAppendix,
         array $options,
         string $value,
-        string $textDir,
         int $fieldIndex,
     ): string {
         $html = '';

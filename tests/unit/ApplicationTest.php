@@ -37,7 +37,6 @@ final class ApplicationTest extends AbstractTestCase
         $template = new Template($config);
         $expected = $template->render('error/generic', [
             'lang' => 'en',
-            'dir' => 'ltr',
             'error_message' => 'Failed to load phpMyAdmin configuration.',
         ]);
 

@@ -16,7 +16,6 @@ use PhpMyAdmin\Exceptions\AuthenticationPluginException;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\ResponseRenderer;
@@ -55,7 +54,6 @@ final class Authentication implements MiddlewareInterface
 
             return $response->write($this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => LanguageManager::$textDir,
                 'error_message' => $exception->getMessage(),
             ]));
         }
@@ -73,7 +71,6 @@ final class Authentication implements MiddlewareInterface
 
                 return $response->write($this->template->render('error/generic', [
                     'lang' => $GLOBALS['lang'] ?? 'en',
-                    'dir' => LanguageManager::$textDir,
                     'error_message' => $exception->getMessage(),
                 ]));
             }

@@ -806,16 +806,11 @@ class CentralColumns
      * @param string $db        current database
      * @param int    $totalRows number of rows in central columns
      * @param int    $pos       offset of first result with complete result set
-     * @param string $textDir   table footer arrow direction
      *
-     * @return mixed[]
+     * @return array<string, mixed>
      */
-    public function getTemplateVariablesForMain(
-        string $db,
-        int $totalRows,
-        int $pos,
-        string $textDir,
-    ): array {
+    public function getTemplateVariablesForMain(string $db, int $totalRows, int $pos): array
+    {
         $maxRows = $this->maxRows;
         $attributeTypes = $this->dbi->types->getAttributes();
 
@@ -894,7 +889,6 @@ class CentralColumns
             'rows_meta' => $rowsMeta,
             'default_values' => $defaultValues,
             'types_upper' => $typesUpper,
-            'text_dir' => $textDir,
             'charsets' => $charsetsList,
         ];
     }

@@ -12,7 +12,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Util;
@@ -47,7 +46,6 @@ class AuthenticationSignon extends AuthenticationPlugin
         if (empty($config->selectedServer['SignonURL'])) {
             $responseRenderer->addHTML($this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => LanguageManager::$textDir,
                 'error_message' => 'You must set SignonURL!',
             ]));
 

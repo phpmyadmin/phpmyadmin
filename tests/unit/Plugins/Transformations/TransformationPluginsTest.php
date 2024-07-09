@@ -144,7 +144,7 @@ class TransformationPluginsTest extends AbstractTestCase
                 '<img src="" width="150" height="100" '
                 . 'alt="Image preview here"><br><input type="file" '
                 . 'name="fields_uploadtest" accept="image/*" class="image-upload">',
-                ['test', ['150'], '', 'ltr', 0, 0],
+                ['test', ['150'], '', 0, 0],
             ],
             [
                 new Image_JPEG_Upload(),
@@ -160,7 +160,6 @@ class TransformationPluginsTest extends AbstractTestCase
                     '2ndtest',
                     ['wrapper_link' => '?table=a', 'wrapper_params' => ['key' => 'value']],
                     'something',
-                    'ltr',
                     0,
                     0,
                 ],
@@ -179,7 +178,7 @@ class TransformationPluginsTest extends AbstractTestCase
                 new Text_Plain_FileUpload(),
                 'getInputHtml',
                 '<input type="file" name="fields_uploadtest">',
-                ['test', [], '', 'ltr', 0, 0],
+                ['test', [], '', 0, 0],
             ],
             [
                 new Text_Plain_FileUpload(),
@@ -188,7 +187,7 @@ class TransformationPluginsTest extends AbstractTestCase
                 . 'value="something"><input type="hidden" name="fields2ndtest" '
                 . 'value="something"><input type="file" '
                 . 'name="fields_upload2ndtest">',
-                ['2ndtest', [], 'something', 'ltr', 0, 0],
+                ['2ndtest', [], 'something', 0, 0],
             ],
             // Test data for Text_Plain_Regexvalidation plugin
             [new Text_Plain_RegexValidation(), 'getName', 'Regex Validation'],
@@ -201,7 +200,7 @@ class TransformationPluginsTest extends AbstractTestCase
             ],
             [new Text_Plain_RegexValidation(), 'getMIMEType', 'Text'],
             [new Text_Plain_RegexValidation(), 'getMIMESubtype', 'Plain'],
-            [new Text_Plain_RegexValidation(), 'getInputHtml', '', ['', [], '', 'ltr', 0, 0]],
+            [new Text_Plain_RegexValidation(), 'getInputHtml', '', ['', [], '', 0, 0]],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Download plugin
             [new Application_Octetstream_Download(), 'getName', 'Download'],
             [

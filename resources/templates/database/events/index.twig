@@ -117,7 +117,7 @@
         <div class="wrapper toggleAjax hide">
           <div class="toggleButton">
             <div title="{{ t('Click to toggle') }}" class="toggle-container {{ scheduler_state ? 'on' : 'off' }}">
-              <img src="{{ image('toggle-' ~ text_dir ~ '.png') }}">
+              <img src="{{ image('toggle-' ~ pma.text_dir ~ '.png') }}">
               <table>
                 <tbody>
                 <tr>
@@ -146,7 +146,7 @@
                 </tbody>
               </table>
               <span class="hide callback">Functions.slidingMessage(data.sql_query);</span>
-              <span class="hide text_direction">{{ text_dir }}</span>
+              <span class="hide text_direction">{{ pma.text_dir }}</span>
             </div>
           </div>
         </div>

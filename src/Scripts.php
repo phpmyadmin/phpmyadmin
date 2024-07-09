@@ -126,7 +126,6 @@ class Scripts
         return $this->template->render('scripts', [
             'base_dir' => $baseDir,
             'files' => $this->files,
-            'version' => Version::VERSION,
             'code' => $this->code,
         ]);
     }

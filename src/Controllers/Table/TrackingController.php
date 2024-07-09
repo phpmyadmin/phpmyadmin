@@ -14,7 +14,6 @@ use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tracking\LogType;
@@ -248,12 +247,7 @@ final class TrackingController implements InvocableController
             );
         }
 
-        $main = $this->tracking->getHtmlForMainPage(
-            Current::$database,
-            Current::$table,
-            $GLOBALS['urlParams'],
-            LanguageManager::$textDir,
-        );
+        $main = $this->tracking->getHtmlForMainPage(Current::$database, Current::$table, $GLOBALS['urlParams']);
 
         $this->response->render('table/tracking/index', [
             'active_message' => $activeMessage,

@@ -21,7 +21,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Replication\Replication;
@@ -514,7 +513,6 @@ final class StructureController implements InvocableController
                 'show_last_check' => $config->settings['ShowDbStructureLastCheck'],
             ],
             'check_all_tables' => [
-                'text_dir' => LanguageManager::$textDir,
                 'overhead_check' => $overheadCheck,
                 'db_is_system_schema' => $this->dbIsSystemSchema,
                 'hidden_fields' => $hiddenFields,

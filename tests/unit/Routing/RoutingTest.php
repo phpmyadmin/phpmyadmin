@@ -138,7 +138,6 @@ final class RoutingTest extends AbstractTestCase
 
         $expected = $template->render('error/generic', [
             'lang' => 'en',
-            'dir' => 'ltr',
             'error_message' => 'Error 404! The page <code>/setup/invalid-route</code> was not found.',
         ]);
 

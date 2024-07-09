@@ -1,5 +1,5 @@
 <div class="clearfloat d-print-none">
-    {{ get_image('select_all_arrow', t('With selected:'), {'dir': text_dir, 'width': '38', 'height': '22'}) }}
+    {{ get_image('select_all_arrow', t('With selected:'), {'dir': pma.text_dir, 'width': '38', 'height': '22'}) }}
     <input type="checkbox" id="tablesForm_checkall" class="checkall_box" title="{{ t('Check all') }}">
     <label for="tablesForm_checkall">{{ t('Check all') }}</label>
     {% if overhead_check != '' %}

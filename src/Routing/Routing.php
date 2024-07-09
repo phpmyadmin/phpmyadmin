@@ -20,7 +20,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
@@ -198,7 +197,6 @@ class Routing
 
             return $response->write($template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => LanguageManager::$textDir,
                 'error_message' => Sanitize::convertBBCode(sprintf(
                     __('Error 404! The page %s was not found.'),
                     '[code]' . htmlspecialchars($route) . '[/code]',

@@ -17,7 +17,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\InsertEdit;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -256,7 +255,6 @@ class ChangeController implements InvocableController
                 Current::$table,
                 Current::$database,
                 $rowId,
-                LanguageManager::$textDir,
                 $repopulate,
                 $whereClauseArray,
             );
