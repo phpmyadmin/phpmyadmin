@@ -121,6 +121,8 @@ jobs:
           FPM_PATH: php-fpm${{ env.php-version }}
           SKIP_STANDALONE: 1
         run: |
+          sudo chown -R runner:docker /var/lib/nginx/
+          sudo chown -R runner:docker /var/log/nginx/
           ./tests/start-local-server
           echo "SELENIUM_TEMPDIR=$(cat /tmp/last_temp_dir_phpMyAdminTests)" >> $GITHUB_OUTPUT
         id: start-local-server
