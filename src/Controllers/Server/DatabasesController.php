@@ -12,7 +12,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
@@ -163,7 +162,6 @@ final class DatabasesController implements InvocableController
             'has_primary_replication' => $primaryInfo['status'],
             'has_replica_replication' => $replicaInfo['status'],
             'is_drop_allowed' => $this->dbi->isSuperUser() || $config->settings['AllowUserDropDatabase'],
-            'text_dir' => LanguageManager::$textDir,
         ]);
 
         return $this->response->response();

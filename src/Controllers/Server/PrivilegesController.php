@@ -11,7 +11,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Plugins;
@@ -356,13 +355,10 @@ final class PrivilegesController implements InvocableController
 
             if (! isset($GLOBALS['username'])) {
                 // No username is given --> display the overview
-                $this->response->addHTML(
-                    $serverPrivileges->getHtmlForUserOverview(
-                        $userPrivileges,
-                        LanguageManager::$textDir,
-                        $request->getQueryParam('initial'),
-                    ),
-                );
+                $this->response->addHTML($serverPrivileges->getHtmlForUserOverview(
+                    $userPrivileges,
+                    $request->getQueryParam('initial'),
+                ));
             } elseif (! empty($routinename)) {
                 $this->response->addHTML(
                     $serverPrivileges->getHtmlForRoutineSpecificPrivileges(

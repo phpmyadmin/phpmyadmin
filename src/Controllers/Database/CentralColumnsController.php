@@ -13,7 +13,6 @@ use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use Webmozart\Assert\Assert;
@@ -171,12 +170,7 @@ final class CentralColumnsController implements InvocableController
             $pos = (int) $position;
         }
 
-        $variables = $this->centralColumns->getTemplateVariablesForMain(
-            $db->getName(),
-            $totalRows,
-            $pos,
-            LanguageManager::$textDir,
-        );
+        $variables = $this->centralColumns->getTemplateVariablesForMain($db->getName(), $totalRows, $pos);
 
         $this->response->render('database/central_columns/main', $variables);
     }

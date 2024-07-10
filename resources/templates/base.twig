@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ header.lang }}" dir="{{ header.text_dir }}" data-bs-theme="{{ header.theme_color_mode }}">
+<html lang="{{ header.lang }}" dir="{{ pma.text_dir }}" data-bs-theme="{{ header.theme_color_mode }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,10 +14,10 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="{{ header.theme_path }}/jquery/jquery-ui.css">
-  <link rel="stylesheet" type="text/css" href="{{ header.base_dir }}js/vendor/codemirror/lib/codemirror.css?{{ header.version }}">
-  <link rel="stylesheet" type="text/css" href="{{ header.base_dir }}js/vendor/codemirror/addon/hint/show-hint.css?{{ header.version }}">
-  <link rel="stylesheet" type="text/css" href="{{ header.base_dir }}js/vendor/codemirror/addon/lint/lint.css?{{ header.version }}">
-  <link rel="stylesheet" type="text/css" href="{{ header.theme_path }}/css/theme{{ header.text_dir == 'rtl' ? '.rtl' }}.css?{{ header.version }}">
+  <link rel="stylesheet" type="text/css" href="{{ header.base_dir }}js/vendor/codemirror/lib/codemirror.css?v={{ pma.version|url_encode }}">
+  <link rel="stylesheet" type="text/css" href="{{ header.base_dir }}js/vendor/codemirror/addon/hint/show-hint.css?v={{ pma.version|url_encode }}">
+  <link rel="stylesheet" type="text/css" href="{{ header.base_dir }}js/vendor/codemirror/addon/lint/lint.css?v={{ pma.version|url_encode }}">
+  <link rel="stylesheet" type="text/css" href="{{ header.theme_path }}/css/theme{{ pma.text_dir == 'rtl' ? '.rtl' }}.css?v={{ pma.version|url_encode }}">
   <title>{{ header.title }}</title>
   {{ header.scripts|raw }}
   <noscript><style>html{display:block}</style></noscript>

@@ -1466,11 +1466,6 @@ parameters:
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#2 \\$templateData of method PhpMyAdmin\\\\ResponseRenderer\\:\\:render\\(\\) expects array\\<string, mixed\\>, array given\\.$#"
-			count: 1
-			path: src/Controllers/Database/CentralColumnsController.php
-
-		-
 			message: "#^Parameter \\#3 \\$colDefault of method PhpMyAdmin\\\\Controllers\\\\Database\\\\CentralColumnsController\\:\\:editSave\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/CentralColumnsController.php
@@ -3271,6 +3266,11 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
+			message: "#^Parameter \\#2 \\$initial of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getHtmlForUserOverview\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Server/PrivilegesController.php
+
+		-
 			message: "#^Parameter \\#2 \\$oldHostname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDataForChangeOrCopyUser\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
@@ -3317,11 +3317,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$hostname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:updatePassword\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: "#^Parameter \\#3 \\$initial of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getHtmlForUserOverview\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
 
@@ -3896,7 +3891,7 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: "#^Parameter \\#13 \\$repopulate of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForInsertEditRow\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#12 \\$repopulate of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForInsertEditRow\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
 
@@ -8516,7 +8511,7 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#17 \\$whereClause of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForInsertEditFormColumn\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#16 \\$whereClause of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForInsertEditFormColumn\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/InsertEdit.php
 

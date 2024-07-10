@@ -14,7 +14,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Scripts;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Version;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 
@@ -136,8 +135,6 @@ final class ResponseRendererTest extends AbstractTestCase
                     'allow_third_party_framing' => false,
                     'base_dir' => '',
                     'theme_path' => '',
-                    'version' => 'v=' . Version::VERSION,
-                    'text_dir' => 'ltr',
                     'server' => 0,
                     'title' => 'phpMyAdmin',
                     'scripts' => $header->getScripts()->getDisplay(),

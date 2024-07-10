@@ -23,7 +23,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Index;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Query\Utilities;
@@ -269,7 +268,6 @@ class StructureController implements InvocableController
             'show_stats' => $config->settings['ShowStats'],
             'mysql_int_version' => $this->dbi->getVersion(),
             'is_mariadb' => $this->dbi->isMariaDB(),
-            'text_dir' => LanguageManager::$textDir,
             'is_active' => Tracker::isActive(),
             'have_partitioning' => Partition::havePartitioning(),
             'partitions' => Partition::getPartitions(Current::$database, Current::$table),

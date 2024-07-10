@@ -20,7 +20,6 @@ use function ini_get;
 use function json_encode;
 use function sprintf;
 use function strtolower;
-use function urlencode;
 
 use const JSON_HEX_TAG;
 
@@ -214,8 +213,6 @@ class Header
         $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
         $theme = $themeManager->theme;
 
-        $version = self::getVersionParameter();
-
         // The user preferences have been merged at this point
         // so we can conditionally add CodeMirror, other scripts and settings
         if ($this->config->settings['CodemirrorEnable']) {
@@ -281,8 +278,6 @@ class Header
             'allow_third_party_framing' => $this->config->settings['AllowThirdPartyFraming'],
             'base_dir' => $baseDir,
             'theme_path' => $theme->getPath(),
-            'version' => $version,
-            'text_dir' => LanguageManager::$textDir,
             'server' => Current::$server,
             'title' => $this->getPageTitle(),
             'scripts' => $this->scripts->getDisplay(),
@@ -492,17 +487,6 @@ class Header
         );
 
         return $headers;
-    }
-
-    /**
-     * Returns the phpMyAdmin version to be appended to the url to avoid caching
-     * between versions
-     *
-     * @return string urlencoded pma version as a parameter
-     */
-    public static function getVersionParameter(): string
-    {
-        return 'v=' . urlencode(Version::VERSION);
     }
 
     private function getVariablesForJavaScript(): string

@@ -89,7 +89,6 @@ class TrackingControllerTest extends AbstractTestCase
             'versions' => [],
             'type' => 'table',
             'default_statements' => $config->selectedServer['tracking_default_statements'],
-            'text_dir' => 'ltr',
         ]);
         $expected = $template->render('table/tracking/index', [
             'active_message' => '',

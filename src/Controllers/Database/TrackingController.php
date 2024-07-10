@@ -13,7 +13,6 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
@@ -140,7 +139,6 @@ final class TrackingController implements InvocableController
         $this->response->addHTML($this->tracking->getHtmlForDbTrackingTables(
             Current::$database,
             $GLOBALS['urlParams'],
-            LanguageManager::$textDir,
         ));
 
         // If available print out database log

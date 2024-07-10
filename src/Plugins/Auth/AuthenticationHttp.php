@@ -14,7 +14,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Http\Response;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
@@ -191,7 +190,6 @@ class AuthenticationHttp extends AuthenticationPlugin
             $responseRenderer = ResponseRenderer::getInstance();
             $responseRenderer->addHTML($this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => LanguageManager::$textDir,
                 'error_message' => $error,
             ]));
 

@@ -13,7 +13,6 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -68,7 +67,6 @@ final class DesignerController implements InvocableController
 
                 $html = $this->template->render('database/designer/database_tables', [
                     'db' => Current::$database,
-                    'text_dir' => LanguageManager::$textDir,
                     'has_query' => isset($_REQUEST['query']),
                     'tab_pos' => [],
                     'display_page' => -1,
@@ -236,7 +234,6 @@ final class DesignerController implements InvocableController
 
         $mainHtml = $this->template->render('database/designer/main', [
             'db' => Current::$database,
-            'text_dir' => LanguageManager::$textDir,
             'hidden_input_fields' => Url::getHiddenInputs($request->getQueryParam('db')),
             'designer_config' => json_encode($designerConfig),
             'display_page' => $displayPage,

@@ -604,14 +604,14 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getTextarea',
-            [$column, 'a', 'b', '', 'abc/', 'foobar', 'CHAR'],
+            [$column, 'a', 'b', '', 'foobar', 'CHAR'],
         );
 
         $result = $this->parseString($result);
 
         self::assertStringContainsString(
             '<textarea name="fieldsb" class="char charField" '
-            . 'data-maxlength="10" rows="7" cols="1" dir="abc/" '
+            . 'data-maxlength="10" rows="7" cols="1" dir="ltr" '
             . 'id="field_2_3" tabindex="2" data-type="CHAR">',
             $result,
         );
@@ -742,7 +742,6 @@ class InsertEditTest extends AbstractTestCase
                 'b',
                 'c',
                 '&lt;',
-                '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
@@ -752,7 +751,7 @@ class InsertEditTest extends AbstractTestCase
         self::assertSame(
             "a\na\n"
             . '<textarea name="fieldsb" class="char charField" '
-            . 'data-maxlength="25" rows="7" cols="1" dir="/" '
+            . 'data-maxlength="25" rows="7" cols="1" dir="ltr" '
             . 'id="field_22_3" onchange="c" tabindex="22" data-type="CHAR">'
             . '&lt;</textarea>',
             $result,
@@ -783,7 +782,6 @@ class InsertEditTest extends AbstractTestCase
                 'b',
                 'c',
                 '&lt;',
-                '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
@@ -824,7 +822,6 @@ class InsertEditTest extends AbstractTestCase
                 'b',
                 'c',
                 '&lt;',
-                '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
@@ -848,7 +845,6 @@ class InsertEditTest extends AbstractTestCase
                 'b',
                 'c',
                 '&lt;',
-                '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
@@ -872,7 +868,6 @@ class InsertEditTest extends AbstractTestCase
                 'b',
                 'c',
                 '&lt;',
-                '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
@@ -896,7 +891,6 @@ class InsertEditTest extends AbstractTestCase
                 'b',
                 'c',
                 '&lt;',
-                '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
@@ -2496,7 +2490,6 @@ class InsertEditTest extends AbstractTestCase
                 'db',
                 0,
                 '',
-                '',
                 $repopulate,
                 $columnMime,
                 '',
@@ -2540,7 +2533,6 @@ class InsertEditTest extends AbstractTestCase
                 'table',
                 'db',
                 0,
-                '',
                 '',
                 $repopulate,
                 [],
@@ -2631,7 +2623,6 @@ class InsertEditTest extends AbstractTestCase
             'table',
             'db',
             0,
-            'ltr',
             [],
             ['wc'],
         );
@@ -2685,7 +2676,6 @@ class InsertEditTest extends AbstractTestCase
             'table',
             'db',
             0,
-            '',
             [],
             ['wc'],
         );
@@ -2710,7 +2700,6 @@ class InsertEditTest extends AbstractTestCase
             'table',
             'db',
             0,
-            '',
             [],
             ['wc'],
         );

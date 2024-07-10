@@ -33,7 +33,6 @@ final class PhpExtensionsChecking implements MiddlewareInterface
             $this->template->disableCache();
             $output = $this->template->render('error/generic', [
                 'lang' => 'en',
-                'dir' => 'ltr',
                 'error_message' => $exception->getMessage(),
             ]);
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);

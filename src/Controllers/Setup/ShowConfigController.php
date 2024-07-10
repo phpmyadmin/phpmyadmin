@@ -12,7 +12,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Setup\ConfigGenerator;
 use PhpMyAdmin\Setup\SetupHelper;
 use PhpMyAdmin\Template;
@@ -40,7 +39,6 @@ final class ShowConfigController implements InvocableController
 
             return $response->write($this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => LanguageManager::$textDir,
                 'error_message' => __('Configuration already exists, setup is disabled!'),
             ]));
         }

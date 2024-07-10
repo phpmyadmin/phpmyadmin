@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Input;
 
 use PhpMyAdmin\FieldMetadata;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Utils\FormatConverter;
 
@@ -53,7 +54,6 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      * @param string  $columnNameAppendix the name attribute
      * @param mixed[] $options            transformation options
      * @param string  $value              Current field value
-     * @param string  $textDir            text direction
      * @param int     $fieldIndex         field index
      *
      * @return string the html for input field
@@ -62,7 +62,6 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
         string $columnNameAppendix,
         array $options,
         string $value,
-        string $textDir,
         int $fieldIndex,
     ): string {
         $html = '';
@@ -85,7 +84,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
         return $html . '<input type="text" name="fields' . $columnNameAppendix . '"'
             . ' value="' . htmlspecialchars($val) . '"'
             . ' size="40"'
-            . ' dir="' . $textDir . '"'
+            . ' dir="' . LanguageManager::$textDir . '"'
             . ' class="' . $class . '"'
             . ' id="field_' . $fieldIndex . '_3"'
             . ' tabindex="' . $fieldIndex . '">';

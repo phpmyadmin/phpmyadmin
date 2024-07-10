@@ -242,7 +242,6 @@ final class HomeController implements InvocableController
             'web_server' => $webServer,
             'show_php_info' => $config->settings['ShowPhpInfo'],
             'is_version_checked' => $config->settings['VersionCheck'],
-            'phpmyadmin_version' => Version::VERSION,
             'phpmyadmin_major_version' => Version::SERIES,
             'config_storage_message' => $configStorageMessage ?? '',
             'has_theme_manager' => $config->settings['ThemeManager'],

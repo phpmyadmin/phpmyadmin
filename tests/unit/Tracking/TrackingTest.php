@@ -100,7 +100,7 @@ class TrackingTest extends AbstractTestCase
 
     public function testGetHtmlForMain(): void
     {
-        $html = $this->tracking->getHtmlForMainPage('PMA_db', 'PMA_table', [], 'ltr');
+        $html = $this->tracking->getHtmlForMainPage('PMA_db', 'PMA_table', []);
 
         self::assertStringContainsString('PMA_db.PMA_table', $html);
         self::assertStringContainsString('<td>date_created</td>', $html);

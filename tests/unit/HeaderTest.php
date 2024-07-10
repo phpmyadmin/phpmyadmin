@@ -12,7 +12,6 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Version;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
@@ -88,8 +87,6 @@ class HeaderTest extends AbstractTestCase
             'allow_third_party_framing' => false,
             'base_dir' => '',
             'theme_path' => '',
-            'version' => 'v=' . Version::VERSION,
-            'text_dir' => 'ltr',
             'server' => 0,
             'title' => 'phpMyAdmin',
             'scripts' => $header->getScripts()->getDisplay(),

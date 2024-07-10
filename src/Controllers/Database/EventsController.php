@@ -13,7 +13,6 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -262,7 +261,6 @@ final class EventsController implements InvocableController
             'items' => $items,
             'has_privilege' => Util::currentUserHasPrivilege('EVENT', Current::$database),
             'scheduler_state' => $this->events->getEventSchedulerStatus(),
-            'text_dir' => LanguageManager::$textDir,
             'is_ajax' => $request->isAjax() && empty($_REQUEST['ajax_page_request']),
         ]);
 

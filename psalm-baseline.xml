@@ -905,7 +905,6 @@
       <code><![CDATA[$request->getParsedBodyParam('total_rows', '')]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$variables]]></code>
       <code><![CDATA[[$request->getParsedBodyParam('column-select')]]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
@@ -11600,6 +11599,11 @@
       <code><![CDATA[empty($_POST['item_table'])]]></code>
       <code><![CDATA[empty($_POST['item_timing'])]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Twig/PmaGlobalVariable.php">
+    <UnusedParam>
+      <code><![CDATA[$arguments]]></code>
+    </UnusedParam>
   </file>
   <file src="src/TwoFactor.php">
     <DeprecatedMethod>

@@ -145,14 +145,9 @@ class Tracking
      * Function to get html for main page parts that do not use $_REQUEST
      *
      * @param mixed[] $urlParams url parameters
-     * @param string  $textDir   text direction
      */
-    public function getHtmlForMainPage(
-        string $db,
-        string $table,
-        array $urlParams,
-        string $textDir,
-    ): string {
+    public function getHtmlForMainPage(string $db, string $table, array $urlParams): string
+    {
         $versionSqlResult = $this->getListOfVersionsOfTable($db, $table);
         $lastVersion = null;
         $versions = [];
@@ -173,7 +168,6 @@ class Tracking
             'versions' => $versions,
             'type' => $type,
             'default_statements' => Config::getInstance()->selectedServer['tracking_default_statements'],
-            'text_dir' => $textDir,
         ]);
     }
 
@@ -1074,15 +1068,11 @@ class Tracking
      *
      * @param string  $db        current database
      * @param mixed[] $urlParams url parameters
-     * @param string  $textDir   text direction
      *
      * @return string HTML
      */
-    public function getHtmlForDbTrackingTables(
-        string $db,
-        array $urlParams,
-        string $textDir,
-    ): string {
+    public function getHtmlForDbTrackingTables(string $db, array $urlParams): string
+    {
         $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
         if ($trackingFeature === null) {
             return '';
@@ -1116,7 +1106,6 @@ class Tracking
             'untracked_tables_exists' => $untrackedTables !== [],
             'versions' => $versions,
             'url_params' => $urlParams,
-            'text_dir' => $textDir,
             'untracked_tables' => $untrackedTables,
         ]);
     }

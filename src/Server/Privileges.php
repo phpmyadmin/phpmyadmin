@@ -1738,11 +1738,10 @@ class Privileges
      *
      * @param ResultInterface $result   ran sql query
      * @param mixed[]         $dbRights user's database rights array
-     * @param string          $textDir  text directory
      *
      * @return string HTML snippet
      */
-    public function getUsersOverview(ResultInterface $result, array $dbRights, string $textDir): string
+    public function getUsersOverview(ResultInterface $result, array $dbRights): string
     {
         $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
 
@@ -1803,7 +1802,6 @@ class Privileges
         return $this->template->render('server/privileges/users_overview', [
             'menus_work' => $configurableMenusFeature !== null,
             'user_group_count' => $userGroupCount,
-            'text_dir' => $textDir,
             'initial' => $_GET['initial'] ?? '',
             'hosts' => $hosts,
             'is_grantuser' => $this->dbi->isGrantUser(),
@@ -2565,14 +2563,9 @@ class Privileges
 
     /**
      * Get HTML snippet for display user overview page
-     *
-     * @param string $textDir text directory
      */
-    public function getHtmlForUserOverview(
-        UserPrivileges $userPrivileges,
-        string $textDir,
-        string|null $initial,
-    ): string {
+    public function getHtmlForUserOverview(UserPrivileges $userPrivileges, string|null $initial): string
+    {
         $serverVersion = $this->dbi->getVersion();
         $passwordColumn = Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50706
             ? 'authentication_string'
@@ -2592,7 +2585,7 @@ class Privileges
 
             // Display the user overview (if less than 50 users, display them immediately)
             if (isset($_GET['initial']) || isset($_GET['showall']) || $res->numRows() < 50) {
-                $usersOverview = $this->getUsersOverview($res, $dbRights, $textDir) .
+                $usersOverview = $this->getUsersOverview($res, $dbRights) .
                     $this->template->render('export_modal');
             }
 

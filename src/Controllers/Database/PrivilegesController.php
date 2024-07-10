@@ -14,7 +14,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidDatabaseName;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Privileges;
@@ -83,7 +82,6 @@ final class PrivilegesController implements InvocableController
             'is_superuser' => $this->dbi->isSuperUser(),
             'db' => $db->getName(),
             'database_url' => $scriptName,
-            'text_dir' => LanguageManager::$textDir,
             'is_createuser' => $this->dbi->isCreateUser(),
             'is_grantuser' => $this->dbi->isGrantUser(),
             'privileges' => $privileges,
