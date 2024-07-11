@@ -55,7 +55,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
           coverage: pcov
-          tools: composer:v2, infection
+          tools: composer:v2, infection:0.27.11
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v3
