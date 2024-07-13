@@ -128,6 +128,8 @@ validateExtension() {
         ;;
         vendor/pragmarx/google2fa-qrcode/composer.lock)
         ;;
+        vendor/williamdes/mariadb-mysql-kbs/cliff.toml)
+        ;;
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-ultraslim.json)
         ;;
         vendor/composer/installed.json)
