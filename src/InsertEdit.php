@@ -1326,7 +1326,7 @@ class InsertEdit
 
         if (
             ($editField->type !== 'datetime' && $editField->type !== 'timestamp' && $editField->type !== 'date')
-            || ($editField->value !== 'CURRENT_TIMESTAMP' && $editField->value !== 'current_timestamp()')
+            || preg_match('/^current_timestamp(\([0-6]?\))?$/i', $editField->value) < 1
         ) {
             return $this->dbi->quoteString($editField->value);
         }

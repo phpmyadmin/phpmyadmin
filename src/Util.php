@@ -1504,7 +1504,7 @@ class Util
      */
     public static function addMicroseconds(string $value): string
     {
-        if ($value === '' || $value === 'CURRENT_TIMESTAMP' || $value === 'current_timestamp()') {
+        if ($value === '' || preg_match('/^current_timestamp(\([0-6]?\))?$/i', $value) > 0) {
             return $value;
         }
 
