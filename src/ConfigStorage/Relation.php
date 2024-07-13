@@ -750,7 +750,10 @@ class Relation
             $key = (string) $key;
             $value = (string) $value;
 
-            if (mb_check_encoding($key, 'utf-8') && ! preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $key)) {
+            if (
+                mb_check_encoding($key, 'utf-8')
+                && preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $key) !== 1
+            ) {
                 $selected = $key === $data;
                 // show as text if it's valid utf-8
                 $key = htmlspecialchars($key);
@@ -765,7 +768,7 @@ class Relation
 
             if (
                 mb_check_encoding($value, 'utf-8')
-                && ! preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $value)
+                && preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $value) !== 1
             ) {
                 if (mb_strlen($value) <= $this->config->settings['LimitChars']) {
                     // show as text if it's valid utf-8
@@ -1375,7 +1378,7 @@ class Relation
         $queries = explode(';', $createTablesFile);
 
         foreach ($queries as $query) {
-            if (! preg_match('/CREATE TABLE IF NOT EXISTS `(.*)` \(/', $query, $table)) {
+            if (preg_match('/CREATE TABLE IF NOT EXISTS `(.*)` \(/', $query, $table) !== 1) {
                 continue;
             }
 

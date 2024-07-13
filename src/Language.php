@@ -122,7 +122,7 @@ class Language
             . addcslashes($this->regex, '/')
             . ')(;q=[0-9]\\.[0-9])?$/i';
 
-        return (bool) preg_match($pattern, $header);
+        return preg_match($pattern, $header) === 1;
     }
 
     /**
@@ -136,7 +136,7 @@ class Language
             . addcslashes($this->regex, '/')
             . ')(;|\]|\))/i';
 
-        return (bool) preg_match($pattern, $header);
+        return preg_match($pattern, $header) === 1;
     }
 
     /**

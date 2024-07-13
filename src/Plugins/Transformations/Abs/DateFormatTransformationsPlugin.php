@@ -76,7 +76,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             // TIMESTAMP (2 | 4) not supported here.
             // (Note: prior to MySQL 4.1, TIMESTAMP has a display size
             // for example TIMESTAMP(8) means YYYYMMDD)
-        } elseif (preg_match('/^(\d{2}){3,7}$/', $buffer)) {
+        } elseif (preg_match('/^(\d{2}){3,7}$/', $buffer) === 1) {
             if (mb_strlen($buffer) == 14 || mb_strlen($buffer) == 8) {
                 $offset = 4;
             } else {
@@ -103,14 +103,14 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
 
             // If all fails, assume one of the dozens of valid strtime() syntaxes
             // (https://www.gnu.org/manual/tar-1.12/html_chapter/tar_7.html)
-        } elseif (preg_match('/^[0-9]\d{1,9}$/', $buffer)) {
+        } elseif (preg_match('/^[0-9]\d{1,9}$/', $buffer) === 1) {
             $timestamp = (int) $buffer;
         } else {
             $timestamp = strtotime($buffer);
         }
 
         // If all above failed, maybe it's a Unix timestamp already?
-        if ($timestamp < 0 && preg_match('/^[1-9]\d{1,9}$/', $buffer)) {
+        if ($timestamp < 0 && preg_match('/^[1-9]\d{1,9}$/', $buffer) === 1) {
             $timestamp = $buffer;
         }
 

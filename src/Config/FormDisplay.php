@@ -408,7 +408,7 @@ class FormDisplay
         // TrustedProxies requires changes before displaying
         if ($systemPath === 'TrustedProxies') {
             foreach ($value as $ip => &$v) {
-                if (preg_match('/^-\d+$/', $ip)) {
+                if (preg_match('/^-\d+$/', $ip) === 1) {
                     continue;
                 }
 
@@ -667,8 +667,7 @@ class FormDisplay
                 $i = 0;
                 foreach ($values[$path] as $value) {
                     $matches = [];
-                    $match = preg_match('/^(.+):(?:[ ]?)(\\w+)$/', $value, $matches);
-                    if ($match) {
+                    if (preg_match('/^(.+):(?:[ ]?)(\\w+)$/', $value, $matches) === 1) {
                         // correct 'IP: HTTP header' pair
                         $ip = trim($matches[1]);
                         $proxies[$ip] = trim($matches[2]);

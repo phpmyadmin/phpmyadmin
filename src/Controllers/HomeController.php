@@ -179,7 +179,7 @@ final class HomeController implements InvocableController
 
             if (Current::$server > 0) {
                 $clientVersion = $this->dbi->getClientInfo();
-                if (preg_match('#\d+\.\d+\.\d+#', $clientVersion)) {
+                if (preg_match('#\d+\.\d+\.\d+#', $clientVersion) === 1) {
                     $clientVersion = 'libmysql - ' . $clientVersion;
                 }
 

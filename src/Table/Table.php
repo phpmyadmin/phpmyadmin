@@ -446,7 +446,7 @@ class Table implements Stringable
         $dbi = DatabaseInterface::getInstance();
         if (
             $length !== ''
-            && ! preg_match($pattern, $type)
+            && preg_match($pattern, $type) !== 1
             && Compatibility::isIntegersSupportLength($type, $length, $dbi)
         ) {
             // Note: The variable $length here can contain several other things
@@ -470,7 +470,7 @@ class Table implements Stringable
         // supports no extra virtual column properties except CHARACTER SET for text column types
         $isVirtualColMariaDB = $virtuality && Compatibility::isMariaDb();
 
-        $matches = preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i', $type);
+        $matches = preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i', $type) === 1;
         if ($collation !== '' && $collation !== 'NULL' && $matches) {
             $query .= Util::getCharsetQueryPart(
                 $isVirtualColMariaDB ? (string) preg_replace('~_.+~s', '', $collation) : $collation,
@@ -500,7 +500,7 @@ class Table implements Stringable
                             $query .= ' DEFAULT 0';
                         } elseif (
                             $isTimestamp
-                            && preg_match('/^\'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d(\.\d{1,6})?\'$/', $defaultValue)
+                            && preg_match('/^\'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d(\.\d{1,6})?\'$/', $defaultValue) === 1
                         ) {
                             $query .= ' DEFAULT ' . $defaultValue;
                         } elseif ($type === 'BIT') {
@@ -508,9 +508,9 @@ class Table implements Stringable
                             . preg_replace('/[^01]/', '0', $defaultValue)
                             . '\'';
                         } elseif ($type === 'BOOLEAN') {
-                            if (preg_match('/^1|T|TRUE|YES$/i', $defaultValue)) {
+                            if (preg_match('/^1|T|TRUE|YES$/i', $defaultValue) === 1) {
                                 $query .= ' DEFAULT TRUE';
-                            } elseif (preg_match('/^0|F|FALSE|NO$/i', $defaultValue)) {
+                            } elseif (preg_match('/^0|F|FALSE|NO$/i', $defaultValue) === 1) {
                                 $query .= ' DEFAULT FALSE';
                             } else {
                                 // Invalid BOOLEAN value
@@ -781,7 +781,7 @@ class Table implements Stringable
             return false;
         }
 
-        if (! $isBackquoted && preg_match('/^[a-zA-Z0-9_$]+$/', $tableName)) {
+        if (! $isBackquoted && preg_match('/^[a-zA-Z0-9_$]+$/', $tableName) === 1) {
             // only allow the above regex in unquoted identifiers
             // see : https://dev.mysql.com/doc/refman/5.7/en/identifiers.html
             return true;
@@ -1327,7 +1327,7 @@ class Table implements Stringable
         foreach (
             $this->dbi->getColumnsFull($this->dbName, $this->name) as $row
         ) {
-            if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
+            if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp) === 1) {
                 $tmp[2] = mb_substr(
                     (string) preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]),
                     1,

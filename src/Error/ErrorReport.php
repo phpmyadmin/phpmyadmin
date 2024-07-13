@@ -168,7 +168,7 @@ class ErrorReport
             $components = [];
         }
 
-        if (isset($components['fragment']) && preg_match('<PMAURL-\d+:>', $components['fragment'], $matches)) {
+        if (isset($components['fragment']) && preg_match('<PMAURL-\d+:>', $components['fragment'], $matches) === 1) {
             $uri = str_replace($matches[0], '', $components['fragment']);
             $url = 'https://example.com/' . $uri;
             $components = parse_url($url);

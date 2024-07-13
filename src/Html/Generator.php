@@ -480,7 +480,7 @@ class Generator
         /* SQL-Parser-Analyzer */
         $explainLink = '';
         $queryTooBig = mb_strlen($sqlQuery) > $config->settings['MaxCharactersInDisplayedSQL'];
-        $isSelect = preg_match('@^SELECT[[:space:]]+@i', $sqlQuery);
+        $isSelect = preg_match('@^SELECT[[:space:]]+@i', $sqlQuery) === 1;
         if (! empty($config->settings['SQLQuery']['Explain']) && ! $queryTooBig) {
             $explainParams = $urlParams;
             if ($isSelect) {
@@ -492,7 +492,7 @@ class Generator
                         __('Explain SQL'),
                         ['class' => 'btn btn-link'],
                     ) . '</div>' . "\n";
-            } elseif (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sqlQuery)) {
+            } elseif (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sqlQuery) === 1) {
                 $explainParams['sql_query'] = mb_substr($sqlQuery, 8);
                 $explainLink = '<div class="col-auto">'
                     . self::linkOrButton(
@@ -563,7 +563,7 @@ class Generator
         if (
             ! empty($config->settings['SQLQuery']['Refresh'])
             && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
-            && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sqlQuery)
+            && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sqlQuery) === 1
         ) {
             $refreshLink = Url::getFromRoute('/sql', $urlParams);
             $refreshLink = '<div class="col-auto">'

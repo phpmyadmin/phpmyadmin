@@ -158,7 +158,7 @@ final class Search
             // (like INT), for a LIKE we always quote the value. MySQL converts
             // strings to numbers and numbers to strings as necessary
             // during the comparison
-            $needsQuoting = preg_match('@char|binary|blob|text|set|date|time|year|uuid@i', $types)
+            $needsQuoting = preg_match('@char|binary|blob|text|set|date|time|year|uuid@i', $types) === 1
                 || str_contains($funcType, 'LIKE');
 
             // LIKE %...%

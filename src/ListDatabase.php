@@ -61,7 +61,7 @@ class ListDatabase extends ArrayObject
         }
 
         foreach ($this->getArrayCopy() as $key => $db) {
-            if (! preg_match('/' . $this->config->selectedServer['hide_db'] . '/', $db)) {
+            if (preg_match('/' . $this->config->selectedServer['hide_db'] . '/', $db) !== 1) {
                 continue;
             }
 
@@ -147,7 +147,7 @@ class ListDatabase extends ArrayObject
         foreach ($this->config->selectedServer['only_db'] as $eachOnlyDb) {
             // check if the db name contains wildcard,
             // thus containing not escaped _ or %
-            if (! preg_match('/(^|[^\\\\])(_|%)/', $eachOnlyDb)) {
+            if (preg_match('/(^|[^\\\\])(_|%)/', $eachOnlyDb) !== 1) {
                 // ... not contains wildcard
                 $items[] = strtr($eachOnlyDb, ['\\\\' => '\\', '\\_' => '_', '\\%' => '%']);
                 continue;

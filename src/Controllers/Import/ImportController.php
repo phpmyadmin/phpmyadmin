@@ -129,20 +129,24 @@ final class ImportController implements InvocableController
             }
 
             // refresh navigation and main panels
-            if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $GLOBALS['sql_query'])) {
+            if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $GLOBALS['sql_query']) === 1) {
                 $GLOBALS['reload'] = true;
                 $GLOBALS['ajax_reload']['reload'] = true;
             }
 
             // refresh navigation panel only
-            if (preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $GLOBALS['sql_query'])) {
+            if (preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $GLOBALS['sql_query']) === 1) {
                 $GLOBALS['ajax_reload']['reload'] = true;
             }
 
             // do a dynamic reload if table is RENAMED
             // (by sending the instruction to the AJAX response handler)
             if (
-                preg_match('/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i', $GLOBALS['sql_query'], $renameTableNames)
+                preg_match(
+                    '/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i',
+                    $GLOBALS['sql_query'],
+                    $renameTableNames,
+                ) === 1
             ) {
                 $GLOBALS['ajax_reload']['reload'] = true;
                 $GLOBALS['ajax_reload']['table_name'] = Util::unQuote($renameTableNames[2]);
@@ -209,7 +213,7 @@ final class ImportController implements InvocableController
             $GLOBALS['goto'] = Url::getFromRoute('/database/import');
         } elseif (ImportSettings::$importType === 'server') {
             $GLOBALS['goto'] = Url::getFromRoute('/server/import');
-        } elseif (empty($GLOBALS['goto']) || ! preg_match('@^index\.php$@i', $GLOBALS['goto'])) {
+        } elseif (empty($GLOBALS['goto']) || preg_match('@^index\.php$@i', $GLOBALS['goto']) !== 1) {
             if (Current::$table !== '' && Current::$database !== '') {
                 $GLOBALS['goto'] = Url::getFromRoute('/table/structure');
             } elseif (Current::$database !== '') {
@@ -279,13 +283,18 @@ final class ImportController implements InvocableController
                     }
 
                     // refresh navigation and main panels
-                    if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $GLOBALS['import_text'])) {
+                    if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $GLOBALS['import_text']) === 1) {
                         $GLOBALS['reload'] = true;
                         $GLOBALS['ajax_reload']['reload'] = true;
                     }
 
                     // refresh navigation panel only
-                    if (preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $GLOBALS['import_text'])) {
+                    if (
+                        preg_match(
+                            '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
+                            $GLOBALS['import_text'],
+                        ) === 1
+                    ) {
                         $GLOBALS['ajax_reload']['reload'] = true;
                     }
 

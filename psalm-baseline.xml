@@ -154,7 +154,7 @@
       <code><![CDATA[static function (int $level, string $message, string $file, int $line) use (&$prevErrorHandler) {
                     if ($level === E_USER_DEPRECATED) {
                         $templateLine = 0;
-                        if (preg_match('/ at line (\d+)[ .]/', $message, $matches)) {
+                        if (preg_match('/ at line (\d+)[ .]/', $message, $matches) === 1) {
                             $templateLine = (int) $matches[1];
                         }
 
@@ -7548,7 +7548,6 @@
       <code><![CDATA[$subgroupHeader->getName()]]></code>
     </PossiblyNullOperand>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! preg_match_all('/(str[A-Z][A-Za-z0-9]*)/', (string) $config->settings[$section][$opt], $matches)]]></code>
       <code><![CDATA[empty(Config::getInstance()->settings[$section][$opt])]]></code>
     </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>

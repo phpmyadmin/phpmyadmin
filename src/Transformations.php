@@ -151,7 +151,7 @@ class Transformations
             sort($filestack);
 
             foreach ($filestack as $file) {
-                if (preg_match('|^[^.].*_.*_.*\.php$|', $file)) {
+                if (preg_match('|^[^.].*_.*_.*\.php$|', $file) === 1) {
                     // File contains transformation functions.
                     $parts = explode('_', str_replace('.php', '', $file));
                     $mimetype = $parts[0] . '/' . $parts[1];
@@ -163,7 +163,7 @@ class Transformations
                         $stack['input_transformation'][] = $mimetype . ': ' . $parts[2];
                         $stack['input_transformation_file'][] = $sd . $file;
                     }
-                } elseif (preg_match('|^[^.].*\.php$|', $file)) {
+                } elseif (preg_match('|^[^.].*\.php$|', $file) === 1) {
                     // File is a plain mimetype, no functions.
                     $base = str_replace('.php', '', $file);
 

@@ -296,7 +296,7 @@ PHP;
         phpinfo(INFO_MODULES); /* Only modules */
         $a = strip_tags((string) ob_get_clean());
 
-        if (! preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
+        if (preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v) !== 1) {
             return;
         }
 

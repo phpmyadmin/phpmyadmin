@@ -236,11 +236,6 @@ parameters:
 			path: src/Command/TwigLintCommand.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 1
-			path: src/Command/TwigLintCommand.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
 			count: 2
 			path: src/Command/TwigLintCommand.php
@@ -336,16 +331,6 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the left side\\.$#"
-			count: 3
-			path: src/Config.php
-
-		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
-			count: 4
-			path: src/Config.php
-
-		-
 			message: "#^Only booleans are allowed in &&, string\\|null given on the right side\\.$#"
 			count: 1
 			path: src/Config.php
@@ -363,16 +348,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in a negated boolean, string\\|false given\\.$#"
 			count: 2
-			path: src/Config.php
-
-		-
-			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
-			count: 6
-			path: src/Config.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 1
 			path: src/Config.php
 
 		-
@@ -633,11 +608,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in a ternary operator condition, mixed given\\.$#"
 			count: 1
-			path: src/Config/FormDisplay.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 2
 			path: src/Config/FormDisplay.php
 
 		-
@@ -931,11 +901,6 @@ parameters:
 			path: src/Config/Validator.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/Config/Validator.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, mysqli\\|false given\\.$#"
 			count: 1
 			path: src/Config/Validator.php
@@ -943,11 +908,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in a ternary operator condition, int\\<0, max\\>\\|false given\\.$#"
 			count: 1
-			path: src/Config/Validator.php
-
-		-
-			message: "#^Only booleans are allowed in a ternary operator condition, int\\|false given\\.$#"
-			count: 2
 			path: src/Config/Validator.php
 
 		-
@@ -1278,11 +1238,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in &&, string given on the left side\\.$#"
 			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 3
 			path: src/ConfigStorage/Relation.php
 
 		-
@@ -2051,11 +2006,6 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Database/StructureController.php
@@ -2426,11 +2376,6 @@ parameters:
 			path: src/Controllers/GisDataEditorController.php
 
 		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
-			count: 1
-			path: src/Controllers/GisDataEditorController.php
-
-		-
 			message: "#^PHPDoc tag @var for variable \\$gisDataParam has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Controllers/GisDataEditorController.php
@@ -2452,11 +2397,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in &&, string\\|false given on the right side\\.$#"
-			count: 1
-			path: src/Controllers/HomeController.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
 			count: 1
 			path: src/Controllers/HomeController.php
 
@@ -2558,16 +2498,6 @@ parameters:
 		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 5
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -3556,16 +3486,6 @@ parameters:
 			path: src/Controllers/Server/Variables/SetVariableController.php
 
 		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
-			count: 1
-			path: src/Controllers/Server/Variables/SetVariableController.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/Controllers/Server/Variables/SetVariableController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, int\\|string given\\.$#"
 			count: 1
 			path: src/Controllers/Server/Variables/SetVariableController.php
@@ -4161,11 +4081,6 @@ parameters:
 			path: src/Controllers/Table/FindReplaceController.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/Controllers/Table/FindReplaceController.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 16
 			path: src/Controllers/Table/FindReplaceController.php
@@ -4736,11 +4651,6 @@ parameters:
 			path: src/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/SearchController.php
@@ -5211,11 +5121,6 @@ parameters:
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
@@ -5486,17 +5391,7 @@ parameters:
 			path: src/Core.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/Core.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|string given\\.$#"
-			count: 1
-			path: src/Core.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
 			count: 1
 			path: src/Core.php
 
@@ -6101,18 +5996,8 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
-			count: 2
-			path: src/Database/Routines.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 4
-			path: src/Database/Routines.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 2
 			path: src/Database/Routines.php
 
 		-
@@ -6671,11 +6556,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|string\\|null given\\.$#"
 			count: 1
 			path: src/Display/Results.php
@@ -6693,11 +6573,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in a ternary operator condition, mixed given\\.$#"
 			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 2
 			path: src/Display/Results.php
 
 		-
@@ -6906,11 +6781,6 @@ parameters:
 			path: src/Engines/Innodb.php
 
 		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
-			count: 1
-			path: src/Engines/Pbxt.php
-
-		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 3
 			path: src/Error/Error.php
@@ -7036,11 +6906,6 @@ parameters:
 			path: src/Error/ErrorReport.php
 
 		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
-			count: 1
-			path: src/Error/ErrorReport.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int given\\.$#"
 			count: 1
 			path: src/Error/ErrorReport.php
@@ -7117,11 +6982,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Export\\\\Export\\:\\:compress\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Export/Export.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
 			path: src/Export/Export.php
 
@@ -7361,11 +7221,6 @@ parameters:
 			path: src/File.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/FileListing.php
-
-		-
 			message: "#^Cannot access an offset on mixed\\.$#"
 			count: 1
 			path: src/FlashMessenger.php
@@ -7414,16 +7269,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: src/Footer.php
-
-		-
-			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
-			count: 1
-			path: src/Gis/GisGeometry.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 1
-			path: src/Gis/GisGeometry.php
 
 		-
 			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
@@ -7806,11 +7651,6 @@ parameters:
 			path: src/Git.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 2
-			path: src/Git.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
 			count: 1
 			path: src/Git.php
@@ -7931,21 +7771,6 @@ parameters:
 			path: src/Html/Generator.php
 
 		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
-			count: 1
-			path: src/Html/Generator.php
-
-		-
-			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
-			count: 1
-			path: src/Html/Generator.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 1
-			path: src/Html/Generator.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
 			count: 1
 			path: src/Html/Generator.php
@@ -7984,11 +7809,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$method of method PhpMyAdmin\\\\Http\\\\Factory\\\\ServerRequestFactory\\:\\:createServerRequest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Http/Factory/ServerRequestFactory.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 1
-			path: src/Http/Factory/UriFactory.php
 
 		-
 			message: "#^Parameter \\#1 \\$source of method PhpMyAdmin\\\\Config\\:\\:loadAndCheck\\(\\) expects string\\|null, mixed given\\.$#"
@@ -8157,16 +7977,6 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
 			count: 1
 			path: src/Import/Import.php
 
@@ -8396,18 +8206,8 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/InsertEdit.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
 			count: 2
-			path: src/InsertEdit.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 1
 			path: src/InsertEdit.php
 
 		-
@@ -8556,11 +8356,6 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: "#^Only booleans are allowed in a ternary operator condition, int\\|false given\\.$#"
-			count: 1
-			path: src/InsertEditColumn.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\InsertEditColumn\\:\\:\\$trueType \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
 			path: src/InsertEditColumn.php
@@ -8568,11 +8363,6 @@ parameters:
 		-
 			message: "#^Binary operation \"\\-\" between string and 1 results in an error\\.$#"
 			count: 1
-			path: src/IpAllowDeny.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 3
 			path: src/IpAllowDeny.php
 
 		-
@@ -8648,11 +8438,6 @@ parameters:
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
-			path: src/ListDatabase.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 2
 			path: src/ListDatabase.php
 
 		-
@@ -8892,11 +8677,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:getDatabasesToSearch\\(\\) should return array but returns array\\<int, string\\>\\|string\\.$#"
-			count: 1
-			path: src/Navigation/Nodes/Node.php
-
-		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
 			count: 1
 			path: src/Navigation/Nodes/Node.php
 
@@ -9471,11 +9251,6 @@ parameters:
 			path: src/Plugins.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\<0, max\\>\\|false given\\.$#"
-			count: 1
-			path: src/Plugins.php
-
-		-
 			message: "#^Parameter \\#1 \\$link of static method PhpMyAdmin\\\\Html\\\\MySQLDocumentation\\:\\:show\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Plugins.php
@@ -9582,11 +9357,6 @@ parameters:
 
 		-
 			message: "#^Offset 'CaptchaSiteVerifyURL' on array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\} on left side of \\?\\? always exists and is not nullable\\.$#"
-			count: 1
-			path: src/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
@@ -9762,11 +9532,6 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportCodegen.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
 			path: src/Plugins/Export/ExportCodegen.php
 
@@ -10132,11 +9897,6 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportPhparray.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
 			path: src/Plugins/Export/ExportPhparray.php
 
@@ -10848,16 +10608,6 @@ parameters:
 		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 1
-			path: src/Plugins/Import/ImportMediawiki.php
-
-		-
-			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
-			count: 1
-			path: src/Plugins/Import/ImportMediawiki.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 2
 			path: src/Plugins/Import/ImportMediawiki.php
 
 		-
@@ -11581,16 +11331,6 @@ parameters:
 			path: src/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php
 
 		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
-			count: 1
-			path: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
-
-		-
-			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
-			count: 2
-			path: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
-
-		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php
@@ -11667,11 +11407,6 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
 			count: 1
 			path: src/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php
 
@@ -12196,11 +11931,6 @@ parameters:
 			path: src/Sanitize.php
 
 		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
-			count: 1
-			path: src/Sanitize.php
-
-		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\Server\\\\Plugin constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Server/Plugin.php
@@ -12391,11 +12121,6 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 13
 			path: src/Server/Privileges.php
@@ -12403,11 +12128,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 5
-			path: src/Server/Privileges.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 1
 			path: src/Server/Privileges.php
 
 		-
@@ -12693,16 +12413,6 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Monitor\\:\\:getJsonForLogDataTypeSlow\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Server/Status/Monitor.php
-
-		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
-			count: 1
-			path: src/Server/Status/Monitor.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 3
 			path: src/Server/Status/Monitor.php
 
 		-
@@ -13331,11 +13041,6 @@ parameters:
 			path: src/Table/Search.php
 
 		-
-			message: "#^Only booleans are allowed in \\|\\|, int\\|false given on the left side\\.$#"
-			count: 1
-			path: src/Table/Search.php
-
-		-
 			message: "#^Parameter \\#1 \\$gisString of static method PhpMyAdmin\\\\Utils\\\\Gis\\:\\:createData\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Table/Search.php
@@ -13536,11 +13241,6 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
-			count: 3
-			path: src/Table/Table.php
-
-		-
 			message: "#^Only booleans are allowed in &&, string given on the left side\\.$#"
 			count: 2
 			path: src/Table/Table.php
@@ -13551,28 +13251,13 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/Table/Table.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\|null given\\.$#"
-			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
 			count: 1
 			path: src/Table/Table.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 2
 			path: src/Table/Table.php
 
 		-
@@ -13911,16 +13596,6 @@ parameters:
 			path: src/Transformations.php
 
 		-
-			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
-			count: 1
-			path: src/Transformations.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 1
-			path: src/Transformations.php
-
-		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Triggers/Triggers.php
@@ -14021,11 +13696,6 @@ parameters:
 			path: src/Url.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/UrlRedirector.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
 			path: src/UserPassword.php
@@ -14101,17 +13771,7 @@ parameters:
 			path: src/UserPrivilegesFactory.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/UserPrivilegesFactory.php
-
-		-
 			message: "#^Only booleans are allowed in \\|\\|, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given on the left side\\.$#"
-			count: 1
-			path: src/UserPrivilegesFactory.php
-
-		-
-			message: "#^Only booleans are allowed in \\|\\|, int\\|false given on the right side\\.$#"
 			count: 1
 			path: src/UserPrivilegesFactory.php
 
@@ -14256,32 +13916,12 @@ parameters:
 			path: src/Util.php
 
 		-
-			message: "#^Only booleans are allowed in &&, int\\|false given on the right side\\.$#"
-			count: 1
-			path: src/Util.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\<0, 2\\> given\\.$#"
 			count: 1
 			path: src/Util.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
-			path: src/Util.php
-
-		-
-			message: "#^Only booleans are allowed in an elseif condition, int\\|false given\\.$#"
-			count: 2
-			path: src/Util.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, int\\<0, max\\>\\|false given\\.$#"
-			count: 1
-			path: src/Util.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
 			count: 1
 			path: src/Util.php
 
@@ -14376,11 +14016,6 @@ parameters:
 			path: src/Utils/Gis.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 2
-			path: src/Utils/Gis.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Utils\\\\HttpRequest\\:\\:response\\(\\) should return bool\\|string\\|null but returns mixed\\.$#"
 			count: 1
 			path: src/Utils/HttpRequest.php
@@ -14421,11 +14056,6 @@ parameters:
 			path: src/VersionInformation.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 1
-			path: src/VersionInformation.php
-
-		-
 			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
 			count: 1
 			path: src/VersionInformation.php
@@ -14453,11 +14083,6 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\ZipExtension\\:\\:getContents\\(\\) should return array\\{error\\: string, data\\: string\\} but returns array\\{error\\: string, data\\: string\\|false\\}\\.$#"
 			count: 1
-			path: src/ZipExtension.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
-			count: 2
 			path: src/ZipExtension.php
 
 		-
@@ -14558,11 +14183,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in a negated boolean, int given\\.$#"
 			count: 2
-			path: tests/end-to-end/TestBase.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
 			path: tests/end-to-end/TestBase.php
 
 		-
@@ -14933,11 +14553,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in &&, int\\<0, 2\\> given on the right side\\.$#"
 			count: 2
-			path: tests/unit/ConfigTest.php
-
-		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
-			count: 1
 			path: tests/unit/ConfigTest.php
 
 		-

@@ -114,7 +114,7 @@ class TwigLintCommand extends Command
                 static function (int $level, string $message, string $file, int $line) use (&$prevErrorHandler) {
                     if ($level === E_USER_DEPRECATED) {
                         $templateLine = 0;
-                        if (preg_match('/ at line (\d+)[ .]/', $message, $matches)) {
+                        if (preg_match('/ at line (\d+)[ .]/', $message, $matches) === 1) {
                             $templateLine = (int) $matches[1];
                         }
 

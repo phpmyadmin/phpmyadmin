@@ -238,7 +238,7 @@ class Plugins
 
         $matches = [];
         /* Possibly replace localised texts */
-        if (! preg_match_all('/(str[A-Z][A-Za-z0-9]*)/', (string) $config->settings[$section][$opt], $matches)) {
+        if (preg_match_all('/(str[A-Z][A-Za-z0-9]*)/', (string) $config->settings[$section][$opt], $matches) < 1) {
             return htmlspecialchars((string) $config->settings[$section][$opt]);
         }
 

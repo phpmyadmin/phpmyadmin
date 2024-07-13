@@ -143,7 +143,7 @@ class Core
             'k' => 1024,
         ];
 
-        if (preg_match('/^([0-9]+)([KMGT])/i', (string) $size, $matches)) {
+        if (preg_match('/^([0-9]+)([KMGT])/i', (string) $size, $matches) === 1) {
             return (int) ($matches[1] * $binaryprefixes[$matches[2]]);
         }
 
@@ -396,7 +396,7 @@ class Core
      */
     public static function linkURL(string $url): string
     {
-        if (! preg_match('#^https?://#', $url)) {
+        if (preg_match('#^https?://#', $url) !== 1) {
             return $url;
         }
 

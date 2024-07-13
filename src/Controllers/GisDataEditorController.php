@@ -132,7 +132,7 @@ final class GisDataEditorController implements InvocableController
                 $gisType = mb_strtoupper($type);
             }
 
-            if ($value !== null && trim($value) !== '' && preg_match('/^\'?(\w+)\b/', $value, $matches)) {
+            if ($value !== null && trim($value) !== '' && preg_match('/^\'?(\w+)\b/', $value, $matches) === 1) {
                 $gisType = $matches[1];
             }
 
