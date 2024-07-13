@@ -440,9 +440,7 @@ class Validator
             $lines = [];
             foreach ($values[$path] as $ip => $v) {
                 $v = Util::requestString($v);
-                $lines[] = preg_match('/^-\d+$/', $ip)
-                    ? $v
-                    : $ip . ': ' . $v;
+                $lines[] = preg_match('/^-\d+$/', $ip) === 1 ? $v : $ip . ': ' . $v;
             }
         } else {
             // AJAX validation
@@ -453,7 +451,7 @@ class Validator
             $line = trim($line);
             $matches = [];
             // we catch anything that may (or may not) be an IP
-            if (! preg_match('/^(.+):(?:[ ]?)\\w+$/', $line, $matches)) {
+            if (preg_match('/^(.+):(?:[ ]?)\\w+$/', $line, $matches) !== 1) {
                 $result[$path][] = __('Incorrect value:') . ' '
                     . htmlspecialchars($line);
                 continue;
@@ -593,9 +591,7 @@ class Validator
             return '';
         }
 
-        $result = preg_match($regex, Util::requestString($values[$path]));
-
-        return [$path => $result ? '' : __('Incorrect value!')];
+        return [$path => preg_match($regex, Util::requestString($values[$path])) === 1 ? '' : __('Incorrect value!')];
     }
 
     /**

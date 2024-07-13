@@ -71,8 +71,7 @@ class IpAllowDeny
     public function ipv4MaskTest(string $testRange, string $ipToTest): bool
     {
         $result = true;
-        $match = preg_match('|([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)|', $testRange, $regs);
-        if ($match) {
+        if (preg_match('|([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)|', $testRange, $regs) === 1) {
             // performs a mask match
             $ipl = ip2long($ipToTest);
             $rangel = ip2long($regs[1] . '.' . $regs[2] . '.' . $regs[3] . '.' . $regs[4]);
@@ -97,7 +96,7 @@ class IpAllowDeny
 
         // perform a range match
         for ($i = 0; $i < 4; $i++) {
-            if (preg_match('|\[([0-9]+)\-([0-9]+)\]|', $maskocts[$i], $regs)) {
+            if (preg_match('|\[([0-9]+)\-([0-9]+)\]|', $maskocts[$i], $regs) === 1) {
                 if ($ipocts[$i] > $regs[2] || $ipocts[$i] < $regs[1]) {
                     $result = false;
                 }
@@ -152,8 +151,7 @@ class IpAllowDeny
         if ($isRange) {
             // what range do we operate on?
             $rangeMatch = [];
-            $match = preg_match('/\[([0-9a-f]+)\-([0-9a-f]+)\]/', $testRange, $rangeMatch);
-            if ($match) {
+            if (preg_match('/\[([0-9a-f]+)\-([0-9a-f]+)\]/', $testRange, $rangeMatch) === 1) {
                 $rangeStart = $rangeMatch[1];
                 $rangeEnd = $rangeMatch[2];
 

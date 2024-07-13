@@ -114,7 +114,7 @@ class VersionInformation
 
         if ($suffix !== '') {
             $matches = [];
-            if (preg_match('/^(\D+)(\d+)$/', $suffix, $matches)) {
+            if (preg_match('/^(\D+)(\d+)$/', $suffix, $matches) === 1) {
                 $suffix = $matches[1];
                 $result += (int) $matches[2];
             }

@@ -442,7 +442,7 @@ abstract class TestBase extends TestCase
     {
         $this->navigateTo('index.php?route=/check-relations');
         $pageContent = $this->waitForElement('id', 'page_content');
-        if (! preg_match('/Configuration of pmadb… not OK/i', $pageContent->getText())) {
+        if (preg_match('/Configuration of pmadb… not OK/i', $pageContent->getText()) !== 1) {
             return;
         }
 

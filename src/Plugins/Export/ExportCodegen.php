@@ -167,7 +167,7 @@ class ExportCodegen extends ExportPlugin
         // remove unsafe characters
         $str = (string) preg_replace('/[^\p{L}\p{Nl}_]/u', '', $str);
         // make sure first character is a letter or _
-        if (! preg_match('/^\pL/u', $str)) {
+        if (preg_match('/^\pL/u', $str) !== 1) {
             $str = '_' . $str;
         }
 

@@ -175,7 +175,7 @@ class ExportPhparray extends ExportPlugin
 
         // fix variable names (based on
         // https://www.php.net/manual/en/language.variables.basics.php)
-        if (! preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $tableAlias)) {
+        if (preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $tableAlias) !== 1) {
             // fix invalid characters in variable names by replacing them with
             // underscores
             $tableFixed = preg_replace('/[^a-zA-Z0-9_\x7f-\xff]/', '_', $tableAlias);

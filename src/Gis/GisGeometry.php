@@ -186,11 +186,11 @@ abstract class GisGeometry
         $srid = 0;
         $wkt = '';
 
-        if (preg_match("/^'" . $geomTypes . "\(.*\)',[0-9]*$/i", $value)) {
+        if (preg_match("/^'" . $geomTypes . "\(.*\)',[0-9]*$/i", $value) === 1) {
             $lastComma = mb_strripos($value, ',');
             $srid = (int) trim(mb_substr($value, $lastComma + 1));
             $wkt = trim(mb_substr($value, 1, $lastComma - 2));
-        } elseif (preg_match('/^' . $geomTypes . '\(.*\)$/i', $value)) {
+        } elseif (preg_match('/^' . $geomTypes . '\(.*\)$/i', $value) === 1) {
             $wkt = $value;
         }
 

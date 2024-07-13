@@ -99,7 +99,7 @@ class Sanitize
         }
 
         /* a-z and _ allowed in target */
-        if (! empty($found[3]) && preg_match('/[^a-z_]+/i', $found[3])) {
+        if (! empty($found[3]) && preg_match('/[^a-z_]+/i', $found[3]) === 1) {
             return $found[0];
         }
 

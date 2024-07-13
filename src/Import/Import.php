@@ -151,7 +151,7 @@ class Import
         }
 
         $pattern = '@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im';
-        if ($GLOBALS['result'] == false || ! preg_match($pattern, $sql)) {
+        if ($GLOBALS['result'] == false || preg_match($pattern, $sql) !== 1) {
             return;
         }
 
@@ -253,7 +253,7 @@ class Import
      */
     public function lookForUse(string $buffer): string
     {
-        if (preg_match('@^[\s]*USE[[:space:]]+([\S]+)@i', $buffer, $match)) {
+        if (preg_match('@^[\s]*USE[[:space:]]+([\S]+)@i', $buffer, $match) === 1) {
             $db = trim($match[1]);
             $db = trim($db, ';'); // for example, USE abc;
 

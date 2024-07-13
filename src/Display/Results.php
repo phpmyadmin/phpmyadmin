@@ -906,7 +906,7 @@ class Results
                     '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@is',
                     $unsortedSqlQuery,
                     $myReg,
-                )
+                ) === 1
             ) {
                 $unsortedSqlQueryFirstPart = $myReg[1];
                 $unsortedSqlQuerySecondPart = $myReg[2];
@@ -2041,7 +2041,7 @@ class Results
                     ];
                 }
 
-                $isShowCreateTable = preg_match('@CREATE[[:space:]]+TABLE@i', $this->sqlQuery);
+                $isShowCreateTable = preg_match('@CREATE[[:space:]]+TABLE@i', $this->sqlQuery) === 1;
                 if ($isShowCreateTable) {
                     $mediaTypeMap['..Create Table'] = [
                         'mimetype' => 'Text_Plain',
@@ -3705,7 +3705,7 @@ class Results
             // in this case, restart from the original $content
             if (
                 mb_check_encoding($content, 'utf-8')
-                && ! preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $content)
+                && preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $content) !== 1
             ) {
                 // show as text if it's valid utf-8
                 $result = htmlspecialchars($content);

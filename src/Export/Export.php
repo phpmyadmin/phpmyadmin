@@ -1201,7 +1201,7 @@ class Export
         /**
          * default is PDF, otherwise validate it's only letters a-z
          */
-        if (! preg_match('/^[a-zA-Z]+$/', $exportType)) {
+        if (preg_match('/^[a-zA-Z]+$/', $exportType) !== 1) {
             $exportType = 'pdf';
         }
 

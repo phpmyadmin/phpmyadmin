@@ -53,7 +53,7 @@ final class InsertEditColumn
             $columnLength = 30;
         }
 
-        $this->length = preg_match('@float|double@', $this->type) ? 100 : $columnLength;
+        $this->length = preg_match('@float|double@', $this->type) === 1 ? 100 : $columnLength;
         $this->pmaType = match ($this->trueType) {
             'set', 'enum' => $this->trueType,
             default => $this->type,

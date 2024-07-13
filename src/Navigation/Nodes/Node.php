@@ -486,7 +486,7 @@ class Node
     private function isHideDb(string $db): bool
     {
         return ! empty($this->config->selectedServer['hide_db'])
-            && preg_match('/' . $this->config->selectedServer['hide_db'] . '/', $db);
+            && preg_match('/' . $this->config->selectedServer['hide_db'] . '/', $db) === 1;
     }
 
     /**

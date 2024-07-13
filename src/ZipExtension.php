@@ -93,7 +93,7 @@ class ZipExtension
 
         /* Return the correct contents, not just the first entry */
         for ($i = 0; $i < $this->zip->numFiles; $i++) {
-            if (preg_match($specificEntry, (string) $this->zip->getNameIndex($i))) {
+            if (preg_match($specificEntry, (string) $this->zip->getNameIndex($i)) === 1) {
                 $fileData = $this->zip->getFromIndex($i);
                 break;
             }
@@ -129,7 +129,7 @@ class ZipExtension
 
         if ($res === true) {
             for ($i = 0; $i < $this->zip->numFiles; $i++) {
-                if (preg_match($regex, (string) $this->zip->getNameIndex($i))) {
+                if (preg_match($regex, (string) $this->zip->getNameIndex($i)) === 1) {
                     $filename = $this->zip->getNameIndex($i);
                     $this->zip->close();
 

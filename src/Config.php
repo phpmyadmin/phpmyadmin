@@ -218,45 +218,45 @@ class Config
         // 2. browser and version
         // (must check everything else before Mozilla)
 
-        $isMozilla = preg_match('@Mozilla/([0-9]\.[0-9]{1,2})@', $httpUserAgent, $mozillaVersion);
+        $isMozilla = preg_match('@Mozilla/([0-9]\.[0-9]{1,2})@', $httpUserAgent, $mozillaVersion) === 1;
 
-        if (preg_match('@Opera(/| )([0-9]\.[0-9]{1,2})@', $httpUserAgent, $logVersion)) {
+        if (preg_match('@Opera(/| )([0-9]\.[0-9]{1,2})@', $httpUserAgent, $logVersion) === 1) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OPERA');
-        } elseif (preg_match('@(MS)?IE ([0-9]{1,2}\.[0-9]{1,2})@', $httpUserAgent, $logVersion)) {
+        } elseif (preg_match('@(MS)?IE ([0-9]{1,2}\.[0-9]{1,2})@', $httpUserAgent, $logVersion) === 1) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
-        } elseif (preg_match('@Trident/(7)\.0@', $httpUserAgent, $logVersion)) {
+        } elseif (preg_match('@Trident/(7)\.0@', $httpUserAgent, $logVersion) === 1) {
             $this->set('PMA_USR_BROWSER_VER', (int) $logVersion[1] + 4);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
-        } elseif (preg_match('@OmniWeb/([0-9]{1,3})@', $httpUserAgent, $logVersion)) {
+        } elseif (preg_match('@OmniWeb/([0-9]{1,3})@', $httpUserAgent, $logVersion) === 1) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OMNIWEB');
             // Konqueror 2.2.2 says Konqueror/2.2.2
             // Konqueror 3.0.3 says Konqueror/3
-        } elseif (preg_match('@(Konqueror/)(.*)(;)@', $httpUserAgent, $logVersion)) {
+        } elseif (preg_match('@(Konqueror/)(.*)(;)@', $httpUserAgent, $logVersion) === 1) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'KONQUEROR');
             // must check Chrome before Safari
-        } elseif ($isMozilla && preg_match('@Chrome/([0-9.]*)@', $httpUserAgent, $logVersion)) {
+        } elseif ($isMozilla && preg_match('@Chrome/([0-9.]*)@', $httpUserAgent, $logVersion) === 1) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'CHROME');
             // newer Safari
-        } elseif ($isMozilla && preg_match('@Version/(.*) Safari@', $httpUserAgent, $logVersion)) {
+        } elseif ($isMozilla && preg_match('@Version/(.*) Safari@', $httpUserAgent, $logVersion) === 1) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // older Safari
-        } elseif ($isMozilla && preg_match('@Safari/([0-9]*)@', $httpUserAgent, $logVersion)) {
+        } elseif ($isMozilla && preg_match('@Safari/([0-9]*)@', $httpUserAgent, $logVersion) === 1) {
             $this->set('PMA_USR_BROWSER_VER', $mozillaVersion[1] . '.' . $logVersion[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // Firefox
         } elseif (
             ! str_contains($httpUserAgent, 'compatible')
-            && preg_match('@Firefox/([\w.]+)@', $httpUserAgent, $logVersion)
+            && preg_match('@Firefox/([\w.]+)@', $httpUserAgent, $logVersion) === 1
         ) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
-        } elseif (preg_match('@rv:1\.9(.*)Gecko@', $httpUserAgent)) {
+        } elseif (preg_match('@rv:1\.9(.*)Gecko@', $httpUserAgent) === 1) {
             $this->set('PMA_USR_BROWSER_VER', '1.9');
             $this->set('PMA_USR_BROWSER_AGENT', 'GECKO');
         } elseif ($isMozilla) {

@@ -149,7 +149,7 @@ final class FindReplaceController implements InvocableController
             } else {
                 // strip the "BINARY" attribute, except if we find "BINARY(" because
                 // this would be a BINARY or VARBINARY column type
-                if (! preg_match('@BINARY[\(]@i', $type)) {
+                if (preg_match('@BINARY[\(]@i', $type) !== 1) {
                     $type = str_ireplace('BINARY', '', $type);
                 }
 

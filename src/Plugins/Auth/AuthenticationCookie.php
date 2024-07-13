@@ -304,8 +304,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                         $tmpHost = $_REQUEST['pma_servername'];
                     }
 
-                    $match = preg_match($config->settings['ArbitraryServerRegexp'], $tmpHost);
-                    if (! $match) {
+                    if (preg_match($config->settings['ArbitraryServerRegexp'], $tmpHost) !== 1) {
                         $GLOBALS['conn_error'] = __('You are not allowed to log in to this MySQL server!');
 
                         return false;

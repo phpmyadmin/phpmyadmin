@@ -633,7 +633,7 @@ final class StructureController implements InvocableController
                     '@^' .
                     preg_quote(mb_substr($this->replication->extractDbOrTable($dbTable, 'table'), 0, -1), '@') . '@',
                     $truename,
-                )
+                ) === 1
             ) {
                 return true;
             }

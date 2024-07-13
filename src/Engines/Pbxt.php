@@ -148,7 +148,7 @@ class Pbxt extends StorageEngine
      */
     public function resolveTypeSize(int|string $value): array
     {
-        if (is_string($value) && preg_match('/^[0-9]+[a-zA-Z]+$/', $value)) {
+        if (is_string($value) && preg_match('/^[0-9]+[a-zA-Z]+$/', $value) === 1) {
             $value = Util::extractValueFromFormattedSize($value);
         }
 

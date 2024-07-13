@@ -472,11 +472,11 @@ class Util
 
         $formattedSize = (string) $formattedSize;
 
-        if (preg_match('/^[0-9]+GB$/', $formattedSize)) {
+        if (preg_match('/^[0-9]+GB$/', $formattedSize) === 1) {
             $returnValue = (int) mb_substr($formattedSize, 0, -2) * 1024 ** 3;
-        } elseif (preg_match('/^[0-9]+MB$/', $formattedSize)) {
+        } elseif (preg_match('/^[0-9]+MB$/', $formattedSize) === 1) {
             $returnValue = (int) mb_substr($formattedSize, 0, -2) * 1024 ** 2;
-        } elseif (preg_match('/^[0-9]+K$/', $formattedSize)) {
+        } elseif (preg_match('/^[0-9]+K$/', $formattedSize) === 1) {
             $returnValue = (int) mb_substr($formattedSize, 0, -1) * 1024 ** 1;
         }
 
@@ -937,7 +937,7 @@ class Util
             // this would be a BINARY or VARBINARY column type;
             // by the way, a BLOB should not show the BINARY attribute
             // because this is not accepted in MySQL syntax.
-            if (str_contains($printType, 'binary') && ! preg_match('@binary[\(]@', $printType)) {
+            if (str_contains($printType, 'binary') && preg_match('@binary[\(]@', $printType) !== 1) {
                 $printType = str_replace('binary', '', $printType);
                 $binary = true;
             } else {
@@ -975,7 +975,7 @@ class Util
         }
 
         $canContainCollation = false;
-        if (! $binary && preg_match('@^(char|varchar|text|tinytext|mediumtext|longtext|set|enum)@', $type)) {
+        if (! $binary && preg_match('@^(char|varchar|text|tinytext|mediumtext|longtext|set|enum)@', $type) === 1) {
             $canContainCollation = true;
         }
 
@@ -1504,7 +1504,7 @@ class Util
      */
     public static function addMicroseconds(string $value): string
     {
-        if ($value === '' || preg_match('/^current_timestamp(\([0-6]?\))?$/i', $value) > 0) {
+        if ($value === '' || preg_match('/^current_timestamp(\([0-6]?\))?$/i', $value) === 1) {
             return $value;
         }
 

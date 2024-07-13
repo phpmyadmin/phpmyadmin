@@ -868,7 +868,7 @@ class InsertEdit
         }
 
         if (! empty($GLOBALS['goto'])) {
-            if (! preg_match('@^[a-z_]+\.php$@', $GLOBALS['goto'])) {
+            if (preg_match('@^[a-z_]+\.php$@', $GLOBALS['goto']) !== 1) {
                 // this should NOT happen
                 //$GLOBALS['goto'] = false;
                 $gotoInclude = str_contains($GLOBALS['goto'], 'index.php?route=/sql') ? '/sql' : false;
@@ -1326,7 +1326,7 @@ class InsertEdit
 
         if (
             ($editField->type !== 'datetime' && $editField->type !== 'timestamp' && $editField->type !== 'date')
-            || preg_match('/^current_timestamp(\([0-6]?\))?$/i', $editField->value) < 1
+            || preg_match('/^current_timestamp(\([0-6]?\))?$/i', $editField->value) !== 1
         ) {
             return $this->dbi->quoteString($editField->value);
         }
@@ -1664,7 +1664,7 @@ class InsertEdit
         //add data attributes "no of decimals" and "data type"
         $noDecimals = 0;
         $type = current(explode('(', $column->pmaType));
-        if (preg_match('/\(([^()]+)\)/', $column->pmaType, $match)) {
+        if (preg_match('/\(([^()]+)\)/', $column->pmaType, $match) === 1) {
             $match[0] = trim($match[0], '()');
             $noDecimals = $match[0];
         }

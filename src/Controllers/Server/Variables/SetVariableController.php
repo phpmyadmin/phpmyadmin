@@ -51,7 +51,7 @@ final class SetVariableController implements InvocableController
                 '/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i',
                 $value,
                 $matches,
-            )
+            ) === 1
         ) {
             $exp = ['kb' => 1, 'kib' => 1, 'mb' => 2, 'mib' => 2, 'gb' => 3, 'gib' => 3];
             $value = (float) $matches[1] * 1024 ** $exp[mb_strtolower($matches[3])];
@@ -64,7 +64,7 @@ final class SetVariableController implements InvocableController
         }
 
         $json = [];
-        if (! preg_match('/[^a-zA-Z0-9_]+/', $variableName)) {
+        if (preg_match('/[^a-zA-Z0-9_]+/', $variableName) !== 1) {
             $this->dbi->query('SET GLOBAL ' . $variableName . ' = ' . $value);
             // Some values are rounded down etc.
             $varValue = $this->dbi->fetchSingleRow(

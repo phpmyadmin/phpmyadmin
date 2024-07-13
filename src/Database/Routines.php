@@ -637,15 +637,15 @@ class Routines
 
             if (
                 $itemParamLength[$i] != ''
-                && ! preg_match(
+                && preg_match(
                     '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
                     $itemParamType[$i],
-                )
+                ) !== 1
             ) {
                 $params .= '(' . $itemParamLength[$i] . ')';
             } elseif (
                 $itemParamLength[$i] == ''
-                && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $itemParamType[$i])
+                && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $itemParamType[$i]) === 1
             ) {
                 if (! $warnedAboutLength) {
                     $warnedAboutLength = true;
@@ -704,16 +704,16 @@ class Routines
 
         if (
             ! empty($_POST['item_returnlength'])
-            && ! preg_match(
+            && preg_match(
                 '@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|'
                 . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
                 $itemReturnType,
-            )
+            ) !== 1
         ) {
             $query .= '(' . $_POST['item_returnlength'] . ')';
         } elseif (
             empty($_POST['item_returnlength'])
-            && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $itemReturnType)
+            && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $itemReturnType) === 1
         ) {
             if (! $warnedAboutLength) {
                 $GLOBALS['errors'][] = __(

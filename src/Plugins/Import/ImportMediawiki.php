@@ -177,12 +177,12 @@ class ImportMediawiki extends ImportPlugin
                     } else {
                         // Check table name
                         $matchTableName = [];
-                        if (preg_match('/^Table data for `(.*)`$/', $curBufferLine, $matchTableName)) {
+                        if (preg_match('/^Table data for `(.*)`$/', $curBufferLine, $matchTableName) === 1) {
                             $curTableName = $matchTableName[1];
                             $insideDataComment = true;
 
                             $insideStructureComment = false;
-                        } elseif (preg_match('/^Table structure for `(.*)`$/', $curBufferLine, $matchTableName)) {
+                        } elseif (preg_match('/^Table structure for `(.*)`$/', $curBufferLine, $matchTableName) === 1) {
                             // The structure comments will be ignored
                             $insideStructureComment = true;
                         }
@@ -191,7 +191,7 @@ class ImportMediawiki extends ImportPlugin
                     continue;
                 }
 
-                if (preg_match('/^\{\|(.*)$/', $curBufferLine)) {
+                if (preg_match('/^\{\|(.*)$/', $curBufferLine) === 1) {
                     // Check start of table
 
                     // This will store all the column info on all rows from

@@ -105,7 +105,7 @@ class Git
             $contents = (string) file_get_contents($git);
             $gitmatch = [];
             // Matches expected format
-            if (! preg_match('/^gitdir: (.*)$/', $contents, $gitmatch)) {
+            if (preg_match('/^gitdir: (.*)$/', $contents, $gitmatch) !== 1) {
                 $_SESSION['git_location'] = null;
                 $_SESSION['is_git_revision'] = false;
 
@@ -560,7 +560,7 @@ class Git
         }
 
         $commit = false;
-        if (! preg_match('/^[0-9a-f]{40}$/i', $hash)) {
+        if (preg_match('/^[0-9a-f]{40}$/i', $hash) !== 1) {
             $commit = false;
         } elseif (isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
             $commit = $_SESSION['PMA_VERSION_COMMITDATA_' . $hash];
