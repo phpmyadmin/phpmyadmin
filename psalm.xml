@@ -67,6 +67,7 @@
             import_file: string,
             import_file_name: string,
             import_text: string,
+            isSetupPage?: bool,
             knjenc: string,
             lang: string,
             latex_data_caption: string,

@@ -28,4 +28,4 @@ if (! @is_readable(AUTOLOAD_FILE)) {
 
 require AUTOLOAD_FILE;
 
-Application::init()->run();
+Application::init()->run(isset($GLOBALS['isSetupPage']) && $GLOBALS['isSetupPage'] === true);

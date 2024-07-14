@@ -71,11 +71,6 @@ parameters:
 			path: public/index.php
 
 		-
-			message: "#^Parameter \\#1 \\$filename of function is_readable expects string, mixed given\\.$#"
-			count: 1
-			path: public/setup/index.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
 			count: 1
 			path: src/Advisory/Advisor.php
