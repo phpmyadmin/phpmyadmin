@@ -2,10 +2,6 @@
 
 declare(strict_types=1);
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 $vendorConfig = require_once ROOT_PATH . 'app/vendor_config.php';
 if (
     ! is_array($vendorConfig) || ! isset(

@@ -9,10 +9,6 @@
 
 declare(strict_types=1);
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 return [
     /**
      * Path to vendor autoload file. Useful when you want to have vendor dependencies somewhere else.

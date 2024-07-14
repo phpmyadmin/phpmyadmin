@@ -9,7 +9,6 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 }
 
-define('PHPMYADMIN', true);
 // phpcs:enable
 
 if (PHP_VERSION_ID < 80102) {

@@ -3,8 +3,6 @@
 declare(strict_types=1);
 
 // phpcs:disable PSR1.Files.SideEffects
-
-define('PHPMYADMIN', true);
 define('TESTSUITE', true);
 
 if (! defined('ROOT_PATH')) {

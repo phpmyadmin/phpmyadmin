@@ -16,7 +16,6 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 }
 
-define('PHPMYADMIN', true);
 require_once ROOT_PATH . 'app/constants.php';
 require_once AUTOLOAD_FILE;
 
