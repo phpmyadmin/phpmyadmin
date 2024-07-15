@@ -5,7 +5,6 @@ declare(strict_types=1);
 $vendorConfig = require_once ROOT_PATH . 'app/vendor_config.php';
 if (
     ! is_array($vendorConfig) || ! isset(
-        $vendorConfig['autoloadFile'],
         $vendorConfig['tempDir'],
         $vendorConfig['changeLogFile'],
         $vendorConfig['licenseFile'],
@@ -23,7 +22,6 @@ if (
 }
 
 // phpcs:disable PSR1.Files.SideEffects
-define('AUTOLOAD_FILE', (string) $vendorConfig['autoloadFile']);
 define('TEMP_DIR', (string) $vendorConfig['tempDir']);
 define('CHANGELOG_FILE', (string) $vendorConfig['changeLogFile']);
 define('LICENSE_FILE', (string) $vendorConfig['licenseFile']);

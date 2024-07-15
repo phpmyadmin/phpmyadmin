@@ -2,7 +2,7 @@ parameters:
 	ignoreErrors:
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 11
+			count: 10
 			path: app/constants.php
 
 		-
@@ -64,11 +64,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$class of method Symfony\\\\Component\\\\DependencyInjection\\\\Loader\\\\Configurator\\\\ServicesConfigurator\\:\\:set\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: app/services_loader.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function is_readable expects string, mixed given\\.$#"
-			count: 1
-			path: public/index.php
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"

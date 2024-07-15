@@ -903,8 +903,6 @@ PHP;
     {
         $vendorConfig = include ROOT_PATH . 'app/vendor_config.php';
         self::assertIsArray($vendorConfig);
-        self::assertIsString($vendorConfig['autoloadFile']);
-        self::assertFileExists($vendorConfig['autoloadFile']);
         self::assertIsString($vendorConfig['tempDir']);
         self::assertIsString($vendorConfig['changeLogFile']);
         self::assertFileExists($vendorConfig['changeLogFile']);

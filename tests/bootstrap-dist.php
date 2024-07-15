@@ -28,5 +28,6 @@ error_reporting(E_ALL);
 // Ensure PHP has set timezone
 date_default_timezone_set('UTC');
 
+require ROOT_PATH . 'app/autoload.php'; // Some phpunit configurations will need it
+
 require_once ROOT_PATH . 'app/constants.php';
-require_once AUTOLOAD_FILE;// Some phpunit configurations will need it

@@ -11,11 +11,6 @@ declare(strict_types=1);
 
 return [
     /**
-     * Path to vendor autoload file. Useful when you want to have vendor dependencies somewhere else.
-     */
-    'autoloadFile' => ROOT_PATH . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php',
-
-    /**
      * Directory where cache files are stored.
      */
     'tempDir' => ROOT_PATH . 'tmp' . DIRECTORY_SEPARATOR,

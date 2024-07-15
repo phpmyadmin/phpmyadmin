@@ -16,14 +16,15 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 }
 
-require_once ROOT_PATH . 'app/constants.php';
-require_once AUTOLOAD_FILE;
+require ROOT_PATH . 'app/autoload.php';
 
 if (! class_exists(Application::class)) {
     echo 'Be sure to have dev-dependencies installed.' . PHP_EOL;
     echo 'Command aborted.' . PHP_EOL;
     exit(1);
 }
+
+require_once ROOT_PATH . 'app/constants.php';
 
 $containerBuilder = ContainerBuilder::getContainer();
 $cfg['environment'] = 'production';
