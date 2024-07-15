@@ -11,6 +11,7 @@ use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Theme\ThemeManager;
+use RuntimeException;
 use Throwable;
 
 use function __;
@@ -18,6 +19,7 @@ use function array_key_last;
 use function array_replace_recursive;
 use function array_slice;
 use function count;
+use function define;
 use function defined;
 use function error_reporting;
 use function explode;
@@ -64,6 +66,7 @@ use const DIRECTORY_SEPARATOR;
 use const PHP_OS;
 use const PHP_URL_PATH;
 use const PHP_URL_SCHEME;
+use const ROOT_PATH;
 
 /**
  * Configuration handling
@@ -1208,5 +1211,52 @@ class Config
     public function getChangeLogFilePath(): string
     {
         return CHANGELOG_FILE;
+    }
+
+    public static function defineVendorConstants(): void
+    {
+        if (defined('VERSION_SUFFIX')) {
+            return;
+        }
+
+        $vendorConfig = require ROOT_PATH . 'app/vendor_config.php';
+        if (
+            ! is_array($vendorConfig) || ! isset(
+                $vendorConfig['tempDir'],
+                $vendorConfig['changeLogFile'],
+                $vendorConfig['licenseFile'],
+                $vendorConfig['sqlDir'],
+                $vendorConfig['configFile'],
+                $vendorConfig['customHeaderFile'],
+                $vendorConfig['customFooterFile'],
+                $vendorConfig['versionCheckDefault'],
+                $vendorConfig['localePath'],
+                $vendorConfig['cacheDir'],
+                $vendorConfig['versionSuffix'],
+            )
+        ) {
+            throw new RuntimeException('Invalid "app/vendor_config.php" file.');
+        }
+
+        define('TEMP_DIR', (string) $vendorConfig['tempDir']);
+        define('CHANGELOG_FILE', (string) $vendorConfig['changeLogFile']);
+        define('LICENSE_FILE', (string) $vendorConfig['licenseFile']);
+        define('SQL_DIR', (string) $vendorConfig['sqlDir']);
+        define('CONFIG_FILE', (string) $vendorConfig['configFile']);
+        define('CUSTOM_HEADER_FILE', (string) $vendorConfig['customHeaderFile']);
+        define('CUSTOM_FOOTER_FILE', (string) $vendorConfig['customFooterFile']);
+        define('VERSION_CHECK_DEFAULT', (bool) $vendorConfig['versionCheckDefault']);
+        define('LOCALE_PATH', (string) $vendorConfig['localePath']);
+        define('CACHE_DIR', (string) $vendorConfig['cacheDir']);
+        define('VERSION_SUFFIX', (string) $vendorConfig['versionSuffix']);
+
+        /**
+         * TCPDF workaround. Avoid referring to nonexistent files (causes warnings when open_basedir is used).
+         * This is defined to avoid the TCPDF code to search for a directory outside of open_basedir.
+         * This value if not used but is useful, no header logic is used for PDF exports.
+         *
+         * @see https://github.com/phpmyadmin/phpmyadmin/issues/16709
+         */
+        define('K_PATH_IMAGES', ROOT_PATH);
     }
 }

@@ -24,7 +24,7 @@ if (! class_exists(Application::class)) {
     exit(1);
 }
 
-require_once ROOT_PATH . 'app/constants.php';
+Config::defineVendorConstants();
 
 $containerBuilder = ContainerBuilder::getContainer();
 $cfg['environment'] = 'production';

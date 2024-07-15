@@ -8,7 +8,6 @@ parameters:
         - src
         - tests
     scanFiles:
-        - app/constants.php
         - examples/signon-script.php
     bootstrapFiles:
         - tests/phpstan-constants.php

@@ -22,6 +22,4 @@ if (! class_exists(Application::class)) {
     );
 }
 
-require_once ROOT_PATH . 'app/constants.php';
-
 Application::init()->run(isset($GLOBALS['isSetupPage']) && $GLOBALS['isSetupPage'] === true);

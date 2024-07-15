@@ -75,6 +75,8 @@ class Application
 
     public function run(bool $isSetupPage = false): void
     {
+        Config::defineVendorConstants();
+
         $requestHandler = new QueueRequestHandler(new ApplicationHandler($this));
         $requestHandler->add(new ErrorHandling($this->errorHandler));
         $requestHandler->add(new OutputBuffering());

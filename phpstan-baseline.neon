@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 10
-			path: app/constants.php
-
-		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 2
 			path: app/services_loader.php
@@ -156,16 +151,6 @@ parameters:
 			path: src/Charsets.php
 
 		-
-			message: "#^Parameter \\#1 \\$source of method PhpMyAdmin\\\\Config\\:\\:loadAndCheck\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Command/CacheWarmupCommand.php
-
-		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Command/CacheWarmupCommand.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\.$#"
 			count: 1
 			path: src/Command/CacheWarmupCommand.php
@@ -302,17 +287,12 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 2
+			count: 12
 			path: src/Config.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 7
-			path: src/Config.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Config\\:\\:getChangeLogFilePath\\(\\) should return string but returns mixed\\.$#"
-			count: 1
 			path: src/Config.php
 
 		-
@@ -363,11 +343,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$collation of method PhpMyAdmin\\\\DatabaseInterface\\:\\:setCollation\\(\\) expects string, mixed given\\.$#"
 			count: 1
-			path: src/Config.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of static method PhpMyAdmin\\\\Config\\:\\:renderCustom\\(\\) expects string, mixed given\\.$#"
-			count: 2
 			path: src/Config.php
 
 		-
@@ -788,16 +763,6 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 45
-			path: src/Config/Settings.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Config\\\\Settings\\:\\:setTempDir\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: src/Config/Settings.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Config\\\\Settings\\:\\:setVersionCheck\\(\\) should return bool but returns mixed\\.$#"
-			count: 1
 			path: src/Config/Settings.php
 
 		-
@@ -2616,21 +2581,6 @@ parameters:
 			path: src/Controllers/Import/StatusController.php
 
 		-
-			message: "#^Parameter \\#1 \\$filename of function is_readable expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/LicenseController.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function readfile expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/LicenseController.php
-
-		-
-			message: "#^Parameter \\#1 \\$path of function basename expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/LicenseController.php
-
-		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:getItemUnhideDialog\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/NavigationController.php
@@ -2902,11 +2852,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$fileName of method PhpMyAdmin\\\\UserPreferences\\:\\:redirect\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: src/Controllers/Preferences/ManageController.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Preferences/ManageController.php
 
@@ -3486,22 +3431,7 @@ parameters:
 			path: src/Controllers/Server/Variables/SetVariableController.php
 
 		-
-			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Setup/ConfigController.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Setup/FormController.php
-
-		-
 			message: "#^Only booleans are allowed in a ternary operator condition, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Setup/HomeController.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Setup/HomeController.php
 
@@ -3514,26 +3444,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$server of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getServerDSN\\(\\) expects int, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: src/Controllers/Setup/HomeController.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Setup/ServerDestroyController.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Setup/ServersController.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Setup/ShowConfigController.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Setup/ValidateController.php
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
@@ -7801,11 +7711,6 @@ parameters:
 			path: src/Http/Factory/ServerRequestFactory.php
 
 		-
-			message: "#^Parameter \\#1 \\$source of method PhpMyAdmin\\\\Config\\:\\:loadAndCheck\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Http/Middleware/ConfigLoading.php
-
-		-
 			message: "#^Cannot access offset 'server' on mixed\\.$#"
 			count: 1
 			path: src/Http/Middleware/CurrentServerGlobalSetting.php
@@ -8376,11 +8281,6 @@ parameters:
 			path: src/Language.php
 
 		-
-			message: "#^Parameter \\#2 \\$path of function _bindtextdomain expects string, mixed given\\.$#"
-			count: 1
-			path: src/Language.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 5
 			path: src/LanguageManager.php
@@ -8393,16 +8293,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$code of method PhpMyAdmin\\\\LanguageManager\\:\\:getLanguage\\(\\) expects string, mixed given\\.$#"
 			count: 4
-			path: src/LanguageManager.php
-
-		-
-			message: "#^Parameter \\#1 \\$directory of function opendir expects string, mixed given\\.$#"
-			count: 1
-			path: src/LanguageManager.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function is_dir expects string, mixed given\\.$#"
-			count: 1
 			path: src/LanguageManager.php
 
 		-
@@ -11891,16 +11781,6 @@ parameters:
 			path: src/ResponseRenderer.php
 
 		-
-			message: "#^Parameter \\#1 \\$filename of function is_readable expects string, mixed given\\.$#"
-			count: 1
-			path: src/Routing/Routing.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function is_writable expects string, mixed given\\.$#"
-			count: 1
-			path: src/Routing/Routing.php
-
-		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 1
 			path: src/Sanitize.php
@@ -14566,11 +14446,6 @@ parameters:
 			path: tests/unit/ConfigTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$source of method PhpMyAdmin\\\\Config\\:\\:loadAndCheck\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: tests/unit/ConfigTest.php
-
-		-
 			message: "#^Cannot access offset 'COUNTED' on mixed\\.$#"
 			count: 4
 			path: tests/unit/Controllers/Database/StructureControllerTest.php
@@ -15401,11 +15276,6 @@ parameters:
 			path: tests/unit/Routing/RoutingTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$directory of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertDirectoryIsWritable\\(\\) expects string, mixed given\\.$#"
-			count: 3
-			path: tests/unit/Routing/RoutingTest.php
-
-		-
 			message: "#^Class PhpMyAdmin\\\\Tests\\\\Server\\\\PluginsTest has an uninitialized property \\$plugins\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
 			path: tests/unit/Server/PluginsTest.php
@@ -15727,6 +15597,11 @@ parameters:
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\) with non\\-falsy\\-string will always evaluate to true\\.$#"
+			count: 1
+			path: tests/unit/VersionTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\) with string will always evaluate to true\\.$#"
 			count: 1
 			path: tests/unit/VersionTest.php
 

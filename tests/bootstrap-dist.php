@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use PhpMyAdmin\Config;
+
 // phpcs:disable PSR1.Files.SideEffects
 define('TESTSUITE', true);
 
@@ -30,4 +32,4 @@ date_default_timezone_set('UTC');
 
 require ROOT_PATH . 'app/autoload.php'; // Some phpunit configurations will need it
 
-require_once ROOT_PATH . 'app/constants.php';
+Config::defineVendorConstants();

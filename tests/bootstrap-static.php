@@ -7,6 +7,8 @@
 
 declare(strict_types=1);
 
+use PhpMyAdmin\Config;
+
 if (! defined('ROOT_PATH')) {
     // phpcs:disable PSR1.Files.SideEffects
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
@@ -28,7 +30,8 @@ if (! defined('TESTSUITE')) {
 
 include_once ROOT_PATH . 'examples/signon-script.php';
 require ROOT_PATH . 'app/autoload.php';
-require_once ROOT_PATH . 'app/constants.php';
+
+Config::defineVendorConstants();
 
 // phpcs:disable PSR1.Files.SideEffects
 if (! defined('PMA_PATH_TO_BASEDIR')) {
