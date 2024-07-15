@@ -155,6 +155,7 @@
         },
         "platform": {
             "php": "8.1.99"
-        }
+        },
+        "platform-check": false
     }
 }

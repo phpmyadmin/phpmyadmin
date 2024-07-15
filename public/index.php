@@ -11,10 +11,7 @@ if (! defined('ROOT_PATH')) {
 
 // phpcs:enable
 
-if (PHP_VERSION_ID < 80102) {
-    die('<p>PHP 8.1.2+ is required.</p><p>Currently installed version is: ' . PHP_VERSION . '</p>');
-}
-
+require ROOT_PATH . 'app/platform_check.php';
 require ROOT_PATH . 'app/autoload.php';
 
 if (! class_exists(Application::class)) {
