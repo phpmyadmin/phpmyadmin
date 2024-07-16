@@ -13,8 +13,6 @@ use function array_values;
 use function extension_loaded;
 use function is_bool;
 
-use const TEST_PATH;
-
 #[CoversClass(FileListing::class)]
 class FileListingTest extends AbstractTestCase
 {
@@ -31,7 +29,7 @@ class FileListingTest extends AbstractTestCase
     {
         self::assertFalse($this->fileListing->getDirContent('nonexistent directory'));
 
-        $fixturesDir = TEST_PATH . 'tests/unit/_data/file_listing';
+        $fixturesDir = __DIR__ . '/_data/file_listing';
 
         $dirContent = $this->fileListing->getDirContent($fixturesDir);
         if (is_bool($dirContent)) {
@@ -46,7 +44,7 @@ class FileListingTest extends AbstractTestCase
 
     public function testGetFileSelectOptions(): void
     {
-        $fixturesDir = TEST_PATH . 'tests/unit/_data/file_listing';
+        $fixturesDir = __DIR__ . '/_data/file_listing';
 
         self::assertFalse($this->fileListing->getFileSelectOptions('nonexistent directory'));
 

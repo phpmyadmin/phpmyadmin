@@ -15,15 +15,13 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
-use const TEST_PATH;
-
 #[CoversClass(ChangeLogController::class)]
 final class ChangeLogControllerTest extends AbstractTestCase
 {
     public function testWithValidFile(): void
     {
         $config = self::createStub(Config::class);
-        $config->method('getChangeLogFilePath')->willReturn(TEST_PATH . 'tests/test_data/changelog/ChangeLog');
+        $config->method('getChangeLogFilePath')->willReturn(__DIR__ . '/../../test_data/changelog/ChangeLog');
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/');
 
@@ -62,7 +60,7 @@ final class ChangeLogControllerTest extends AbstractTestCase
     public function testWithCompressedFile(): void
     {
         $config = self::createStub(Config::class);
-        $config->method('getChangeLogFilePath')->willReturn(TEST_PATH . 'tests/test_data/changelog/ChangeLog.gz');
+        $config->method('getChangeLogFilePath')->willReturn(__DIR__ . '/../../test_data/changelog/ChangeLog.gz');
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/');
 
@@ -85,7 +83,7 @@ final class ChangeLogControllerTest extends AbstractTestCase
     public function testWithInvalidFile(): void
     {
         $config = self::createStub(Config::class);
-        $config->method('getChangeLogFilePath')->willReturn(TEST_PATH . 'tests/test_data/changelog/InvalidChangeLog');
+        $config->method('getChangeLogFilePath')->willReturn(__DIR__ . '/../../test_data/changelog/InvalidChangeLog');
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/');
 

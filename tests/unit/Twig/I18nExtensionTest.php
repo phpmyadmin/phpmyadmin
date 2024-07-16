@@ -13,8 +13,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 use Twig\Loader\FilesystemLoader;
 
-use const TEST_PATH;
-
 #[CoversClass(I18nExtension::class)]
 #[CoversClass(TransExpression::class)]
 final class I18nExtensionTest extends AbstractTestCase
@@ -24,7 +22,7 @@ final class I18nExtensionTest extends AbstractTestCase
         parent::setUp();
 
         $twigEnvironment = Template::getTwigEnvironment(null, true);
-        $twigEnvironment->setLoader(new FilesystemLoader(TEST_PATH . 'tests/unit/_data/templates'));
+        $twigEnvironment->setLoader(new FilesystemLoader(__DIR__ . '/../_data/templates'));
         (new ReflectionProperty(Template::class, 'twig'))->setValue(null, $twigEnvironment);
     }
 

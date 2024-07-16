@@ -18,7 +18,6 @@ use function sort;
 use const DIRECTORY_SEPARATOR;
 use const SORT_NATURAL;
 use const SORT_REGULAR;
-use const TEST_PATH;
 
 #[CoversClass(TwigLintCommand::class)]
 class TwigLintCommandTest extends AbstractTestCase
@@ -41,7 +40,7 @@ class TwigLintCommandTest extends AbstractTestCase
     public function testGetTemplateContents(): void
     {
         $contents = $this->callFunction($this->command, TwigLintCommand::class, 'getTemplateContents', [
-            TEST_PATH . 'tests/unit/_data/file_listing/subfolder/one.ini',
+            __DIR__ . '/../_data/file_listing/subfolder/one.ini',
         ]);
 
         self::assertSame('key=value' . "\n", $contents);
@@ -49,7 +48,7 @@ class TwigLintCommandTest extends AbstractTestCase
 
     public function testFindFiles(): void
     {
-        $path = TEST_PATH . 'tests/unit/_data/file_listing';
+        $path = __DIR__ . '/../_data/file_listing';
         $filesFound = $this->callFunction($this->command, TwigLintCommand::class, 'findFiles', [$path]);
 
         // Sort results to avoid file system test specific failures
@@ -65,7 +64,7 @@ class TwigLintCommandTest extends AbstractTestCase
 
     public function testGetFilesInfo(): void
     {
-        $path = TEST_PATH . 'tests/unit/_data/file_listing';
+        $path = __DIR__ . '/../_data/file_listing';
         $filesInfos = $this->callFunction($this->command, TwigLintCommand::class, 'getFilesInfo', [$path]);
 
         // Sort results to avoid file system test specific failures
@@ -105,7 +104,7 @@ class TwigLintCommandTest extends AbstractTestCase
         ]);
 
         $filesFound = $this->callFunction($command, TwigLintCommand::class, 'getFilesInfo', [
-            TEST_PATH . 'tests/unit/_data/file_listing',
+            __DIR__ . '/../_data/file_listing',
         ]);
 
         self::assertEquals([
