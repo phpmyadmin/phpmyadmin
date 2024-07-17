@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-07-14 00:22+0000\n"
-"PO-Revision-Date: 2024-05-31 17:34+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2024-07-17 09:55+0000\n"
+"Last-Translator: lin ber <linber865@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -40,14 +40,13 @@ msgstr "MySQL 문서"
 
 #: resources/templates/base.twig:73
 msgid "Appearance:"
-msgstr "외관 설정"
+msgstr "외관 설정:"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
 msgstr "테마용 컬러 모드"
 
 #: resources/templates/base.twig:80 resources/templates/home/index.twig:154
-#, fuzzy
 msgctxt "Light color mode of the theme"
 msgid "Light"
 msgstr "라이트"
@@ -1203,8 +1202,6 @@ msgid "OK"
 msgstr "확인"
 
 #: resources/templates/console/display.twig:178
-#, fuzzy
-#| msgid "Restore default value"
 msgid "Restore default values"
 msgstr "기본값으로 복원"
 
@@ -1707,9 +1704,8 @@ msgid "Select page"
 msgstr "페이지를 선택하세요"
 
 #: resources/templates/database/designer/schema_export.twig:6
-#, fuzzy
 msgid "Select export relational type:"
-msgstr "내보내기할 관계 타입 선택:"
+msgstr "내보낼 관계 형식 선택:"
 
 #: resources/templates/database/events/editor_form.twig:10
 #: resources/templates/database/routines/editor_form.twig:11
@@ -3333,7 +3329,7 @@ msgstr "기하데이터 %d:"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
-msgstr ""
+msgstr "공간기준계 좌표 (SRID)"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgctxt "Spatial Reference System Identifier"
@@ -6083,7 +6079,7 @@ msgstr "이 SQL 쿼리를 북마크하기"
 
 #: resources/templates/sql/bookmark.twig:14
 msgid "Bookmark label:"
-msgstr "테이블 즐겨찾기"
+msgstr "테이블 즐겨찾기:"
 
 #: resources/templates/sql/bookmark.twig:21
 #: resources/templates/sql/query.twig:94
@@ -6140,9 +6136,8 @@ msgid "ø Time"
 msgstr "ø 시간"
 
 #: resources/templates/sql/profiling_chart.twig:66
-#, fuzzy
 msgid "Pie chart with profiling results."
-msgstr "프로파일링 결과로 파이 차트"
+msgstr "프로파일링 결과로 파이 차트."
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:116
@@ -6334,7 +6329,7 @@ msgstr "값 열:"
 #: resources/templates/table/chart/tbl_chart.twig:145
 #: resources/templates/table/zoom_search/result_form.twig:16
 msgid "The generated chart"
-msgstr ""
+msgstr "생성된 차트"
 
 #: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
@@ -11601,9 +11596,8 @@ msgstr "콘솔 설정이 성공적으로 업데이트되었습니다."
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:28
-#, fuzzy
 msgid "Unexpected parameter value."
-msgstr "기대하지 않은 파라미터 값"
+msgstr "예기치 않은 파라미터 값."
 
 #: src/Controllers/Database/CentralColumnsController.php:149
 #, php-format
@@ -12399,7 +12393,7 @@ msgstr "연결 / 프로세스"
 #: src/Controllers/JavaScriptMessagesController.php:168
 #, fuzzy
 msgid "Number of statements"
-msgstr "테이블 갯수:"
+msgstr "구문 수"
 
 #: src/Controllers/JavaScriptMessagesController.php:171
 msgid "Local monitor configuration incompatible!"
@@ -14204,9 +14198,8 @@ msgstr ""
 "을 것입니다."
 
 #: src/Controllers/Server/Status/QueriesController.php:92
-#, fuzzy
 msgid "Other statements"
-msgstr "구문 추가:"
+msgstr "다른 구문"
 
 #: src/Controllers/Server/Status/StatusController.php:132
 msgid "Received"
