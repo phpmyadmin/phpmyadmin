@@ -48,6 +48,9 @@ use function ucwords;
  */
 class Transformations
 {
+    /** @var string[][]|null */
+    private static array|null $availableMimeTypesStack = null;
+
     /**
      * Returns array of options from string with options separated by comma,
      * removes quotes
@@ -109,15 +112,11 @@ class Transformations
      * Gets all available MIME-types
      *
      * @return string[][]    array[mimetype], array[transformation]
-     *
-     * @staticvar array $stack
      */
     public function getAvailableMimeTypes(): array
     {
-        static $stack = null;
-
-        if ($stack !== null) {
-            return $stack;
+        if (self::$availableMimeTypesStack !== null) {
+            return self::$availableMimeTypesStack;
         }
 
         $stack = [];
@@ -176,7 +175,9 @@ class Transformations
             }
         }
 
-        return $stack;
+        self::$availableMimeTypesStack = $stack;
+
+        return self::$availableMimeTypesStack;
     }
 
     /**

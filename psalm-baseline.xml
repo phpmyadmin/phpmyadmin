@@ -609,15 +609,15 @@
       <code><![CDATA[$k]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
-      <code><![CDATA[$validators[$field]]]></code>
+      <code><![CDATA[self::$validators[$field]]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[$validators[$field]]]></code>
+      <code><![CDATA[self::$validators[$field]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
-      <code><![CDATA[$validators[$field]]]></code>
-      <code><![CDATA[$validators[$field]]]></code>
-      <code><![CDATA[$validators[$field]]]></code>
+      <code><![CDATA[self::$validators[$field]]]></code>
+      <code><![CDATA[self::$validators[$field]]]></code>
+      <code><![CDATA[self::$validators[$field]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$arguments[$k2]]]></code>
@@ -631,8 +631,8 @@
       <code><![CDATA[$v]]></code>
       <code><![CDATA[$v]]></code>
       <code><![CDATA[$validator]]></code>
-      <code><![CDATA[$validators]]></code>
       <code><![CDATA[$vname]]></code>
+      <code><![CDATA[self::$validators]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code><![CDATA[mixed[]]]></code>
@@ -641,10 +641,9 @@
       <code><![CDATA[$ip]]></code>
     </MixedOperand>
     <MixedReturnStatement>
-      <code><![CDATA[$validators]]></code>
-      <code><![CDATA[$validators]]></code>
-      <code><![CDATA[$validators]]></code>
-      <code><![CDATA[$validators]]></code>
+      <code><![CDATA[self::$validators]]></code>
+      <code><![CDATA[self::$validators]]></code>
+      <code><![CDATA[self::$validators]]></code>
     </MixedReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[$k2]]></code>
@@ -7388,12 +7387,9 @@
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code><![CDATA[bool]]></code>
       <code><![CDATA[string|null]]></code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
-      <code><![CDATA[$havePartitioning]]></code>
-      <code><![CDATA[$havePartitioning]]></code>
       <code><![CDATA[$partitionMethod[0]]]></code>
     </MixedReturnStatement>
     <PossiblyUnusedMethod>
@@ -10892,7 +10888,6 @@
       <code><![CDATA[$mysqlVars[$row['Variable_name']]]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code><![CDATA[array<string, array{Engine: string, Comment: string, Support: string}>]]></code>
       <code><![CDATA[string]]></code>
     </MixedInferredReturnType>
     <MixedOperand>
@@ -10900,8 +10895,6 @@
       <code><![CDATA[$decodedData['disk_usage']]]></code>
     </MixedOperand>
     <MixedReturnStatement>
-      <code><![CDATA[$storageEngines]]></code>
-      <code><![CDATA[$storageEngines]]></code>
       <code><![CDATA[$this->$id()]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
@@ -11527,12 +11520,6 @@
     <MixedArgument>
       <code><![CDATA[$updQuery]]></code>
     </MixedArgument>
-    <MixedInferredReturnType>
-      <code><![CDATA[string[][]]]></code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement>
-      <code><![CDATA[$stack]]></code>
-    </MixedReturnStatement>
     <MoreSpecificReturnType>
       <code><![CDATA[class-string<TransformationsInterface>]]></code>
     </MoreSpecificReturnType>

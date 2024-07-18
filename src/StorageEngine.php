@@ -63,6 +63,9 @@ class StorageEngine
      */
     public int $support = self::SUPPORT_NO;
 
+    /** @psalm-var array<string, array{Engine: string, Comment: string, Support: string}>|null */
+    private static array|null $storageEngines = null;
+
     /** @param string $engine The engine ID */
     public function __construct(string $engine)
     {
@@ -86,14 +89,10 @@ class StorageEngine
      * Returns array of storage engines
      *
      * @return array<string, array{Engine: string, Comment: string, Support: string}>
-     *
-     * @staticvar array $storage_engines storage engines
      */
     public static function getStorageEngines(): array
     {
-        static $storageEngines = null;
-
-        if ($storageEngines == null) {
+        if (self::$storageEngines === null) {
             $dbi = DatabaseInterface::getInstance();
             /** @var array<string, array{Engine: string, Comment: string, Support: string}> $storageEngines */
             $storageEngines = $dbi->fetchResult('SHOW STORAGE ENGINES', 'Engine');
@@ -113,9 +112,11 @@ class StorageEngine
                     $storageEngines[$engine]['Support'] = 'DISABLED';
                 }
             }
+
+            self::$storageEngines = $storageEngines;
         }
 
-        return $storageEngines;
+        return self::$storageEngines;
     }
 
     /**

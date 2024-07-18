@@ -27,6 +27,8 @@ use const CONFIG_FILE;
 
 final class HomeController implements InvocableController
 {
+    private static bool $hasCheckPageRefresh = false;
+
     public function __construct(
         private readonly ResponseFactory $responseFactory,
         private readonly ResponseRenderer $responseRenderer,
@@ -108,9 +110,8 @@ final class HomeController implements InvocableController
             ];
         }
 
-        static $hasCheckPageRefresh = false;
-        if (! $hasCheckPageRefresh) {
-            $hasCheckPageRefresh = true;
+        if (! self::$hasCheckPageRefresh) {
+            self::$hasCheckPageRefresh = true;
         }
 
         return $response->write($this->template->render('setup/home/index', [
@@ -120,7 +121,7 @@ final class HomeController implements InvocableController
             'server_count' => $configFile->getServerCount(),
             'servers' => $servers,
             'pages' => $pages,
-            'has_check_page_refresh' => $hasCheckPageRefresh,
+            'has_check_page_refresh' => self::$hasCheckPageRefresh,
             'eol' => isset($_SESSION['eol']) && is_scalar($_SESSION['eol'])
                 ? $_SESSION['eol']
                 : ($this->config->get('PMA_IS_WINDOWS') ? 'win' : 'unix'),

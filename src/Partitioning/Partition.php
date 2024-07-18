@@ -13,6 +13,9 @@ use function array_values;
 
 class Partition extends SubPartition
 {
+    private static bool $havePartitioning = false;
+    private static bool $alreadyChecked = false;
+
     protected string|null $description = null;
     /** @var SubPartition[] */
     protected array $subPartitions = [];
@@ -221,37 +224,31 @@ class Partition extends SubPartition
 
     /**
      * checks if MySQL server supports partitioning
-     *
-     * @staticvar bool $have_partitioning
-     * @staticvar bool $already_checked
      */
     public static function havePartitioning(): bool
     {
-        static $havePartitioning = false;
-        static $alreadyChecked = false;
-
-        if (! $alreadyChecked) {
+        if (! self::$alreadyChecked) {
             $dbi = DatabaseInterface::getInstance();
             if ($dbi->getVersion() < 50600) {
                 if ($dbi->fetchValue('SELECT @@have_partitioning;')) {
-                    $havePartitioning = true;
+                    self::$havePartitioning = true;
                 }
             } elseif ($dbi->getVersion() >= 80000) {
-                $havePartitioning = true;
+                self::$havePartitioning = true;
             } else {
                 // see https://dev.mysql.com/doc/refman/5.6/en/partitioning.html
                 $plugins = $dbi->fetchResult('SHOW PLUGINS');
                 foreach ($plugins as $value) {
                     if ($value['Name'] === 'partition') {
-                        $havePartitioning = true;
+                        self::$havePartitioning = true;
                         break;
                     }
                 }
             }
 
-            $alreadyChecked = true;
+            self::$alreadyChecked = true;
         }
 
-        return $havePartitioning;
+        return self::$havePartitioning;
     }
 }

@@ -100,6 +100,8 @@ class FormDisplay
 
     private bool $isSetupScript;
 
+    private static bool $hasCheckPageRefresh = false;
+
     public function __construct(private ConfigFile $configFile)
     {
         $this->formDisplayTemplate = new FormDisplayTemplate(Config::getInstance());
@@ -221,9 +223,8 @@ class FormDisplay
          * We do validation on page refresh when browser remembers field values,
          * add a field with known value which will be used for checks.
          */
-        static $hasCheckPageRefresh = false;
-        if (! $hasCheckPageRefresh) {
-            $hasCheckPageRefresh = true;
+        if (! self::$hasCheckPageRefresh) {
+            self::$hasCheckPageRefresh = true;
         }
 
         $tabs = [];
@@ -291,7 +292,7 @@ class FormDisplay
 
         return $this->formDisplayTemplate->display([
             'action' => $formAction,
-            'has_check_page_refresh' => $hasCheckPageRefresh,
+            'has_check_page_refresh' => self::$hasCheckPageRefresh,
             'hidden_fields' => (array) $hiddenFields,
             'tabs' => $tabs,
             'forms' => $forms,

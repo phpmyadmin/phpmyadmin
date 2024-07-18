@@ -897,7 +897,7 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Config\\\\Validator\\:\\:getValidators\\(\\) should return array but returns mixed\\.$#"
-			count: 3
+			count: 2
 			path: src/Config/Validator.php
 
 		-
@@ -1018,6 +1018,11 @@ parameters:
 		-
 			message: "#^Parameter \\#5 \\$pass of static method PhpMyAdmin\\\\Config\\\\Validator\\:\\:testDBConnection\\(\\) expects string, mixed given\\.$#"
 			count: 2
+			path: src/Config/Validator.php
+
+		-
+			message: "#^Static property PhpMyAdmin\\\\Config\\\\Validator\\:\\:\\$validators \\(array\\|null\\) does not accept mixed\\.$#"
+			count: 1
 			path: src/Config/Validator.php
 
 		-
@@ -9066,11 +9071,6 @@ parameters:
 			path: src/Partitioning/Partition.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Partitioning\\\\Partition\\:\\:havePartitioning\\(\\) should return bool but returns mixed\\.$#"
-			count: 1
-			path: src/Partitioning/Partition.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false\\|null given\\.$#"
 			count: 1
 			path: src/Partitioning/Partition.php
@@ -12901,11 +12901,6 @@ parameters:
 			path: src/StorageEngine.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\StorageEngine\\:\\:getStorageEngines\\(\\) should return array\\<string, array\\{Engine\\: string, Comment\\: string, Support\\: string\\}\\> but returns mixed\\.$#"
-			count: 1
-			path: src/StorageEngine.php
-
-		-
 			message: "#^Parameter \\#1 \\$haystack of function mb_stripos expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/StorageEngine.php
@@ -13579,11 +13574,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$tableName of static method PhpMyAdmin\\\\Tracking\\\\Tracker\\:\\:createVersion\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Tracking/Tracking.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:getAvailableMimeTypes\\(\\) should return array\\<array\\<string\\>\\> but returns mixed\\.$#"
-			count: 1
-			path: src/Transformations.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:getClassName\\(\\) should return class\\-string\\<PhpMyAdmin\\\\Plugins\\\\TransformationsInterface\\> but returns string\\.$#"

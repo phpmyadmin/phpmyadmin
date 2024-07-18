@@ -23,6 +23,8 @@ use const CONFIG_FILE;
 
 final class ConfigController implements InvocableController
 {
+    private static bool $hasCheckPageRefresh = false;
+
     public function __construct(
         private readonly ResponseFactory $responseFactory,
         private readonly ResponseRenderer $responseRenderer,
@@ -49,9 +51,8 @@ final class ConfigController implements InvocableController
 
         $pages = SetupHelper::getPages();
 
-        static $hasCheckPageRefresh = false;
-        if (! $hasCheckPageRefresh) {
-            $hasCheckPageRefresh = true;
+        if (! self::$hasCheckPageRefresh) {
+            self::$hasCheckPageRefresh = true;
         }
 
         $configFile = SetupHelper::createConfigFile();
@@ -63,7 +64,7 @@ final class ConfigController implements InvocableController
             'pages' => $pages,
             'eol' => $this->getEolParam($request->getQueryParam('eol')),
             'config' => $config,
-            'has_check_page_refresh' => $hasCheckPageRefresh,
+            'has_check_page_refresh' => self::$hasCheckPageRefresh,
         ]));
     }
 
