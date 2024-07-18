@@ -1977,14 +1977,9 @@
     <DocblockTypeContradiction occurrences="1">
       <code>empty($export_plugin)</code>
     </DocblockTypeContradiction>
-    <InvalidArgument occurrences="7">
+    <InvalidArgument occurrences="2">
+      <code>$GLOBALS['charset']</code>
       <code>$asfile</code>
-      <code>$whatStrucOrData</code>
-      <code>$whatStrucOrData</code>
-      <code>$whatStrucOrData</code>
-      <code>$whatStrucOrData</code>
-      <code>$whatStrucOrData</code>
-      <code>$whatStrucOrData</code>
     </InvalidArgument>
     <MixedArgument occurrences="47">
       <code>$allrows</code>
@@ -2046,13 +2041,8 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$file_handle</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="6">
-      <code>$whatStrucOrData</code>
-      <code>$whatStrucOrData</code>
-      <code>$whatStrucOrData</code>
-      <code>$whatStrucOrData</code>
-      <code>$whatStrucOrData</code>
-      <code>$whatStrucOrData</code>
+    <PossiblyInvalidCast occurrences="1">
+      <code>$GLOBALS['charset']</code>
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/GitInfoController.php">
