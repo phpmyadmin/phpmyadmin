@@ -52,6 +52,9 @@ use const PHP_INT_MAX;
  */
 class Validator
 {
+    /** @var mixed[]|null */
+    private static array|null $validators = null;
+
     /**
      * Returns validator list
      *
@@ -61,16 +64,14 @@ class Validator
      */
     public static function getValidators(ConfigFile $cf): array
     {
-        static $validators = null;
-
-        if ($validators !== null) {
-            return $validators;
+        if (self::$validators !== null) {
+            return self::$validators;
         }
 
-        $validators = $cf->getDbEntry('_validators', []);
+        self::$validators = $cf->getDbEntry('_validators', []);
         $config = Config::getInstance();
         if ($config->get('is_setup')) {
-            return $validators;
+            return self::$validators;
         }
 
         // not in setup script: load additional validators for user
@@ -97,12 +98,12 @@ class Validator
                 }
             }
 
-            $validators[$field] = isset($validators[$field])
-                ? array_merge((array) $validators[$field], $uvList)
+            self::$validators[$field] = isset(self::$validators[$field])
+                ? array_merge((array) self::$validators[$field], $uvList)
                 : $uvList;
         }
 
-        return $validators;
+        return self::$validators;
     }
 
     /**

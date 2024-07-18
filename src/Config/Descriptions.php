@@ -18,6 +18,15 @@ use function str_replace;
  */
 class Descriptions
 {
+    /** @var array<string, string> $commentsMap */
+    private static array $commentsMap = [];
+
+    /** @var array<string, string> $descriptionsMap */
+    private static array $descriptionsMap = [];
+
+    /** @var array<string, string> $namesMap */
+    private static array $namesMap = [];
+
     /**
      * Return name or description for a configuration path.
      *
@@ -44,14 +53,11 @@ class Descriptions
     /** @return array<string, string> */
     private static function getComments(): array
     {
-        /** @var array<string, string> $commentsMap */
-        static $commentsMap = [];
-
-        if ($commentsMap !== []) {
-            return $commentsMap;
+        if (self::$commentsMap !== []) {
+            return self::$commentsMap;
         }
 
-        return $commentsMap = [
+        return self::$commentsMap = [
             'MaxDbList_cmt' => __('Users cannot set a higher value'),
             'MaxTableList_cmt' => __('Users cannot set a higher value'),
             'QueryHistoryMax_cmt' => __('Users cannot set a higher value'),
@@ -61,14 +67,11 @@ class Descriptions
     /** @return array<string, string> */
     private static function getDescriptions(): array
     {
-        /** @var array<string, string> $descriptionsMap */
-        static $descriptionsMap = [];
-
-        if ($descriptionsMap !== []) {
-            return $descriptionsMap;
+        if (self::$descriptionsMap !== []) {
+            return self::$descriptionsMap;
         }
 
-        return $descriptionsMap = [
+        return self::$descriptionsMap = [
             'AllowArbitraryServer_desc' => __(
                 'If enabled, user can enter any MySQL server in login form for cookie auth.',
             ),
@@ -586,14 +589,11 @@ class Descriptions
     /** @return array<string, string> */
     private static function getNames(): array
     {
-        /** @var array<string, string> $namesMap */
-        static $namesMap = [];
-
-        if ($namesMap !== []) {
-            return $namesMap;
+        if (self::$namesMap !== []) {
+            return self::$namesMap;
         }
 
-        return $namesMap = [
+        return self::$namesMap = [
             'AllowArbitraryServer_name' => __('Allow login to any MySQL server'),
             'ArbitraryServerRegexp_name' => __('Restrict login to MySQL server'),
             'AllowThirdPartyFraming_name' => __('Allow third party framing'),

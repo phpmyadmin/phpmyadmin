@@ -31,6 +31,13 @@ use const JSON_HEX_TAG;
 class Sanitize
 {
     /**
+     * Interpret bb code
+     *
+     * @var array<string, string>
+     */
+    private static array $replacePairs = [];
+
+    /**
      * Checks whether given link is valid
      *
      * @param string $url   URL to check
@@ -163,14 +170,8 @@ class Sanitize
             $message = strtr($message, ['<' => '&lt;', '>' => '&gt;', '"' => '&quot;', "'" => '&#039;']);
         }
 
-        /**
-         * Interpret bb code
-         *
-         * @var array<string, string> $replacePairs
-         */
-        static $replacePairs = [];
-        if ($replacePairs === []) {
-            $replacePairs = [
+        if (self::$replacePairs === []) {
+            self::$replacePairs = [
                 '[em]' => '<em>',
                 '[/em]' => '</em>',
                 '[strong]' => '<strong>',
@@ -189,7 +190,7 @@ class Sanitize
             ];
         }
 
-        $message = strtr($message, $replacePairs);
+        $message = strtr($message, self::$replacePairs);
 
         /* Match links in bb code ([a@url@target], where @target is options) */
         $pattern = '/\[a@([^]"@]*)(@([^]"]*))?\]/';
