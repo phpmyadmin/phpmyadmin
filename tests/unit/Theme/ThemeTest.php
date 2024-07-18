@@ -16,7 +16,6 @@ use function filemtime;
 
 use const DIRECTORY_SEPARATOR;
 use const ROOT_PATH;
-use const TEST_PATH;
 
 #[CoversClass(Theme::class)]
 class ThemeTest extends AbstractTestCase
@@ -51,7 +50,7 @@ class ThemeTest extends AbstractTestCase
      */
     public function testCheckImgPathIncorrect(): void
     {
-        $this->object->setPath(TEST_PATH . 'tests/unit/_data/incorrect_theme');
+        $this->object->setPath(__DIR__ . '/../_data/incorrect_theme');
         self::assertFalse(
             $this->object->loadInfo(),
             'Theme name is not properly set',
@@ -63,7 +62,7 @@ class ThemeTest extends AbstractTestCase
      */
     public function testCheckImgPathFull(): void
     {
-        $this->object->setFsPath(TEST_PATH . 'tests/unit/_data/gen_version_info/');
+        $this->object->setFsPath(__DIR__ . '/../_data/gen_version_info/');
         self::assertTrue($this->object->loadInfo());
         self::assertSame('Test Theme', $this->object->getName());
         self::assertSame('6.0', $this->object->getVersion());

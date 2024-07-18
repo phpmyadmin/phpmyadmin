@@ -11,8 +11,6 @@ use PHPUnit\Framework\Attributes\DataProvider;
 
 use function preg_match;
 
-use const DIRECTORY_SEPARATOR;
-
 #[CoversClass(Error::class)]
 class ErrorTest extends AbstractTestCase
 {
@@ -60,34 +58,44 @@ class ErrorTest extends AbstractTestCase
         self::assertSame(15, $this->object->getLine());
     }
 
-    /**
-     * Test for setFile
-     *
-     * @param string $file     actual
-     * @param string $expected expected
-     */
-    #[DataProvider('filePathProvider')]
-    public function testSetFile(string $file, string $expected): void
+    /** @psalm-param non-empty-string $expected */
+    #[DataProvider('validFilePathsProvider')]
+    public function testSetFileWithValidFiles(string $file, string $expected): void
     {
         $this->object->setFile($file);
-        self::assertSame($expected, $this->object->getFile());
+        $filePath = $this->object->getFile();
+        self::assertStringStartsWith('./', $filePath);
+        self::assertStringEndsWith($expected, $filePath);
     }
 
-    /**
-     * Data provider for setFile
-     *
-     * @return mixed[]
-     */
-    public static function filePathProvider(): array
+    /** @psalm-return non-empty-string[][] */
+    public static function validFilePathsProvider(): array
     {
         return [
-            ['./ChangeLog', '.' . DIRECTORY_SEPARATOR . 'ChangeLog'],
-            [
-                __FILE__,
-                '.' . DIRECTORY_SEPARATOR . 'tests' . DIRECTORY_SEPARATOR
-                    . 'unit' . DIRECTORY_SEPARATOR . 'Error' . DIRECTORY_SEPARATOR . 'ErrorTest.php',
-            ],
+            ['./ChangeLog', '/ChangeLog'],
+            [__FILE__, '/tests/unit/Error/ErrorTest.php'],
+            [__DIR__ . '/ErrorTest.php', '/tests/unit/Error/ErrorTest.php'],
+            [__DIR__ . '/../Error/ErrorTest.php', '/tests/unit/Error/ErrorTest.php'],
+        ];
+    }
+
+    #[DataProvider('invalidFilePathsProvider')]
+    public function testSetFileWithInvalidFiles(string $file, string $expected): void
+    {
+        $this->object->setFile($file);
+        $filePath = $this->object->getFile();
+        self::assertStringStartsNotWith('./', $filePath);
+        self::assertSame($expected, $filePath);
+    }
+
+    /** @psalm-return non-empty-string[][] */
+    public static function invalidFilePathsProvider(): array
+    {
+        return [
             ['./NONEXISTING', 'NONEXISTING'],
+            [__FILE__ . '.invalid', 'ErrorTest.php.invalid'],
+            [__DIR__ . '/NONEXISTING', 'NONEXISTING'],
+            [__DIR__ . '/../Error/NONEXISTING', 'NONEXISTING'],
         ];
     }
 

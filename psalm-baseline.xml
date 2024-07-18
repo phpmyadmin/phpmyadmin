@@ -13540,7 +13540,8 @@
   </file>
   <file src="tests/unit/Error/ErrorTest.php">
     <PossiblyUnusedMethod>
-      <code><![CDATA[filePathProvider]]></code>
+      <code><![CDATA[invalidFilePathsProvider]]></code>
+      <code><![CDATA[validFilePathsProvider]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/Export/ExportTest.php">

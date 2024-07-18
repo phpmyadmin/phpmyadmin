@@ -19,7 +19,6 @@ parameters:
         - tests/doctum-config.php
     dynamicConstantNames:
         - ROOT_PATH
-        - TEST_PATH
         - VERSION_SUFFIX
     checkBenevolentUnionTypes: true
     checkUninitializedProperties: true

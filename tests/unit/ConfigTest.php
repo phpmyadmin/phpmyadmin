@@ -39,7 +39,6 @@ use const CONFIG_FILE;
 use const DIRECTORY_SEPARATOR;
 use const INFO_MODULES;
 use const PHP_OS;
-use const TEST_PATH;
 
 #[CoversClass(Config::class)]
 class ConfigTest extends AbstractTestCase
@@ -364,7 +363,7 @@ PHP;
         self::assertFalse($this->object->checkConfigSource());
         self::assertSame(0, $this->object->sourceMtime);
 
-        $this->object->setSource(TEST_PATH . 'tests/test_data/config.inc.php');
+        $this->object->setSource(__DIR__ . '/../test_data/config.inc.php');
 
         self::assertNotEmpty($this->object->getSource());
         self::assertTrue($this->object->checkConfigSource());
@@ -545,8 +544,8 @@ PHP;
     public static function configPaths(): array
     {
         return [
-            [TEST_PATH . 'tests/test_data/config.inc.php', true],
-            [TEST_PATH . 'tests/test_data/config-nonexisting.inc.php', false],
+            [__DIR__ . '/../test_data/config.inc.php', true],
+            [__DIR__ . '/../test_data/config-nonexisting.inc.php', false],
         ];
     }
 
