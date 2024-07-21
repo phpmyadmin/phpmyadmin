@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-07-14 00:22+0000\n"
+"POT-Creation-Date: 2024-07-21 00:22+0000\n"
 "PO-Revision-Date: 2024-04-19 15:55+0000\n"
 "Last-Translator: Niilo Poutanen <Niilo.poutanen@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -893,7 +893,7 @@ msgstr "Palauta"
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
 #: src/Html/Generator.php:668 src/Html/MySQLDocumentation.php:49
-#: src/Sanitize.php:188
+#: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "Ohjeet"
 
@@ -2769,7 +2769,7 @@ msgid "Sum"
 msgstr "Summa"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:415
+#: src/StorageEngine.php:416
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s on tämän MySQL-palvelimen oletustallennusmoottori."
@@ -9850,19 +9850,19 @@ msgstr "molemmat yltä"
 msgid "neither of the above"
 msgstr "ei kumpikaan yltä"
 
-#: src/Config/Descriptions.php:55 src/Config/Descriptions.php:56
-#: src/Config/Descriptions.php:57
+#: src/Config/Descriptions.php:61 src/Config/Descriptions.php:62
+#: src/Config/Descriptions.php:63
 msgid "Users cannot set a higher value"
 msgstr "Käyttäjät eivät voi määrittää suurempaa arvoa"
 
-#: src/Config/Descriptions.php:73
+#: src/Config/Descriptions.php:76
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Jos käytössä, käyttäjä voi syöttää minkä tahansa MySQL-palvelimen "
 "kirjautumislomakkeeseen evästetodennusta varten."
 
-#: src/Config/Descriptions.php:76
+#: src/Config/Descriptions.php:79
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
@@ -9872,7 +9872,7 @@ msgstr ""
 "mielivaltaiseen MySQL-palvelimeen sovittamalla IP-osoitteen tai isäntänimen "
 "MySQL-palvelimeen säännöllisellä lausekkeella."
 
-#: src/Config/Descriptions.php:81
+#: src/Config/Descriptions.php:84
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
@@ -9882,23 +9882,23 @@ msgstr ""
 "phpMyAdminia kehyksen sisältä. Tämä voi olla [strong]turva-aukko[/strong], "
 "joka mahdollistaa kehystenväliset komentosarjahyökkäykset."
 
-#: src/Config/Descriptions.php:86
+#: src/Config/Descriptions.php:89
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr "Evästeiden salausavain [kbd]cookie[/kbd]-todennuksessa."
 
-#: src/Config/Descriptions.php:88
+#: src/Config/Descriptions.php:91
 msgid "Enable bzip2 compression for import operations."
 msgstr "Käytä tuontitoiminnoissa bzip2-pakkausta."
 
-#: src/Config/Descriptions.php:89
+#: src/Config/Descriptions.php:92
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "Anna yksityinen avain verkkotunnuksesi reCaptcha-palvelulle."
 
-#: src/Config/Descriptions.php:90
+#: src/Config/Descriptions.php:93
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid ""
@@ -9906,37 +9906,37 @@ msgid ""
 "API."
 msgstr "Anna yksityinen avain verkkotunnuksesi reCaptcha-palvelulle."
 
-#: src/Config/Descriptions.php:91
+#: src/Config/Descriptions.php:94
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr "Anna yksityinen avain verkkotunnuksesi reCaptcha-palvelulle."
 
-#: src/Config/Descriptions.php:92
+#: src/Config/Descriptions.php:95
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr "Anna yksityinen avain verkkotunnuksesi reCaptcha-palvelulle."
 
-#: src/Config/Descriptions.php:93
+#: src/Config/Descriptions.php:96
 #, fuzzy
 #| msgid "Enter your public key for your domain reCaptcha service."
 msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "Anna julkinen avain verkkotunnuksesi reCaptcha-palvelulle."
 
-#: src/Config/Descriptions.php:94
+#: src/Config/Descriptions.php:97
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "Anna yksityinen avain verkkotunnuksesi reCaptcha-palvelulle."
 
-#: src/Config/Descriptions.php:95
+#: src/Config/Descriptions.php:98
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr "Anna yksityinen avain verkkotunnuksesi reCaptcha-palvelulle."
 
-#: src/Config/Descriptions.php:97
+#: src/Config/Descriptions.php:100
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -9946,7 +9946,7 @@ msgstr ""
 "kentissä; [kbd]input[/kbd] - sallii syötön pituuden rajoittamisen, "
 "[kbd]textarea[/kbd] - sallii kentissä uudet rivit."
 
-#: src/Config/Descriptions.php:102
+#: src/Config/Descriptions.php:105
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
@@ -9954,7 +9954,7 @@ msgstr ""
 "Käytä käyttäjäystävällistä editoria SQL-kyselyiden (CodeMirror) "
 "muokkaamiseen syntaksin korostuksella ja rivinumeroilla."
 
-#: src/Config/Descriptions.php:107
+#: src/Config/Descriptions.php:110
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
@@ -9962,7 +9962,7 @@ msgstr ""
 "Etsii virheet hakulausekkeesta ennen hakulausekkeen suorittamista. Vaatii "
 "CodeMirror - toiminnon kytkemistä päälle."
 
-#: src/Config/Descriptions.php:110
+#: src/Config/Descriptions.php:113
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9970,7 +9970,7 @@ msgstr ""
 "Määrittää CHAR- ja VARCHAR -sarakkeista muodostettujen syötekenttien "
 "vähimmäiskoon."
 
-#: src/Config/Descriptions.php:113
+#: src/Config/Descriptions.php:116
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9978,7 +9978,7 @@ msgstr ""
 "Määrittää CHAR- ja VARCHAR-sarakkeista muodostettujen syötekenttien "
 "enimmäiskoon."
 
-#: src/Config/Descriptions.php:116
+#: src/Config/Descriptions.php:119
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
@@ -9986,7 +9986,7 @@ msgstr ""
 "Pakkaa gzip-viennit lennossa käyttämättä paljon muistia; jos kohtaat "
 "ongelmia luoduissa gzip-tiedostoissa, poista tämä ominaisuus käytöstä."
 
-#: src/Config/Descriptions.php:120
+#: src/Config/Descriptions.php:123
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
@@ -9994,22 +9994,22 @@ msgstr ""
 "Pitäisikö näyttää varoitus (”Haluatko varmasti…”), kun tietoja aiotaan "
 "kadottaa."
 
-#: src/Config/Descriptions.php:123
+#: src/Config/Descriptions.php:126
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr ""
 "Täydennä taulun ja sarakkeiden nimet automaattisesti SQL-hakukyselyissä."
 
-#: src/Config/Descriptions.php:126 src/Config/Descriptions.php:130
-#: src/Config/Descriptions.php:134 src/Config/Descriptions.php:138
-#: src/Config/Descriptions.php:142 src/Config/Descriptions.php:146
-#: src/Config/Descriptions.php:150 src/Config/Descriptions.php:154
-#: src/Config/Descriptions.php:158
+#: src/Config/Descriptions.php:129 src/Config/Descriptions.php:133
+#: src/Config/Descriptions.php:137 src/Config/Descriptions.php:141
+#: src/Config/Descriptions.php:145 src/Config/Descriptions.php:149
+#: src/Config/Descriptions.php:153 src/Config/Descriptions.php:157
+#: src/Config/Descriptions.php:161
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
 
-#: src/Config/Descriptions.php:162
+#: src/Config/Descriptions.php:165
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
@@ -10017,7 +10017,7 @@ msgstr ""
 "Estä taulun massahallintatoiminnot, esimerkiksi optionti tai korjaus "
 "tietokannan valituille tauluille."
 
-#: src/Config/Descriptions.php:166
+#: src/Config/Descriptions.php:169
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
@@ -10025,12 +10025,12 @@ msgstr ""
 "Määritä suurin sallittu skriptin suorittamiseen käytettävä sekuntimäärä "
 "([kbd]0[/kbd], jos ei rajoitusta)."
 
-#: src/Config/Descriptions.php:168 src/Config/Descriptions.php:708
+#: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
 #: src/Plugins/Export/ExportSql.php:321
 msgid "Exclude definition of current user"
 msgstr ""
 
-#: src/Config/Descriptions.php:170
+#: src/Config/Descriptions.php:173
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
@@ -10038,7 +10038,7 @@ msgstr ""
 "Lajittelujärjestys viiteavaimen pudotusvalikon kohteille; [kbd]content[/kbd] "
 "on viitattu tieto, [kbd]id[/kbd] on avainarvo."
 
-#: src/Config/Descriptions.php:174
+#: src/Config/Descriptions.php:177
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
@@ -10046,7 +10046,7 @@ msgstr ""
 "Täsmentää selaimen otsikkorivin tekstin. Katso [doc@faq6-27]dokumentaatio[/"
 "doc] maagisille merkkijonoille, jonka avulla voidaan saada erityisiä arvoja."
 
-#: src/Config/Descriptions.php:179
+#: src/Config/Descriptions.php:182
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
@@ -10054,7 +10054,7 @@ msgstr ""
 "Huomaa, että phpMyAdmin on vain käyttöliittymä, ja sen ominaisuuksia ei ole "
 "rajoitettu MySQL-tietokantaan."
 
-#: src/Config/Descriptions.php:182
+#: src/Config/Descriptions.php:185
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
@@ -10062,7 +10062,7 @@ msgstr ""
 "Palvelimen konfiguraation lisäasetukset, älä muuta näitä valintoja ellet "
 "tiedä mihin niitä käytetään."
 
-#: src/Config/Descriptions.php:185
+#: src/Config/Descriptions.php:188
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -10071,7 +10071,7 @@ msgstr ""
 "Määritä phpMyAdmin määritysten tallennus käyttääksesi lisäasetuksia, katso "
 "ohjeista [doc@linked-tables]phpMyAdmin määritysten tallennus[/doc]."
 
-#: src/Config/Descriptions.php:190
+#: src/Config/Descriptions.php:193
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
@@ -10079,115 +10079,115 @@ msgstr ""
 "Tietokantaan tehtyjen muutosten seuranta. Vaatii phpMyAdminin "
 "konfiguraatiomuistin."
 
-#: src/Config/Descriptions.php:193
+#: src/Config/Descriptions.php:196
 msgid "Customize browse mode."
 msgstr "Mukauta selaustilaa."
 
-#: src/Config/Descriptions.php:194 src/Config/Descriptions.php:195
-#: src/Config/Descriptions.php:202 src/Config/Descriptions.php:208
-#: src/Config/Descriptions.php:209 src/Config/Descriptions.php:214
+#: src/Config/Descriptions.php:197 src/Config/Descriptions.php:198
+#: src/Config/Descriptions.php:205 src/Config/Descriptions.php:211
+#: src/Config/Descriptions.php:212 src/Config/Descriptions.php:217
 msgid "Customize default options."
 msgstr "Mukauta oletusvalintoja."
 
-#: src/Config/Descriptions.php:196
+#: src/Config/Descriptions.php:199
 msgid "Settings for phpMyAdmin developers."
 msgstr "Asetukset phpMyAdmin-kehittäjille."
 
-#: src/Config/Descriptions.php:197
+#: src/Config/Descriptions.php:200
 msgid "Customize edit mode."
 msgstr "Mukauta muokkaustilaa."
 
-#: src/Config/Descriptions.php:198
+#: src/Config/Descriptions.php:201
 msgid "Customize default export options."
 msgstr "Mukauta viennin oletusasetuksia."
 
-#: src/Config/Descriptions.php:199
+#: src/Config/Descriptions.php:202
 msgid "Set some commonly used options."
 msgstr "Aseta muutamia usein käytettyjä asetuksia."
 
-#: src/Config/Descriptions.php:200
+#: src/Config/Descriptions.php:203
 msgid "Customize default common import options."
 msgstr "Mukauta yleisiä viennin oletusasetuksia."
 
-#: src/Config/Descriptions.php:201
+#: src/Config/Descriptions.php:204
 msgid "Set import and export directories and compression options."
 msgstr "Aseta tuonti- ja vientihakemistot sekä pakkauksen asetukset."
 
-#: src/Config/Descriptions.php:203
+#: src/Config/Descriptions.php:206
 msgid "Databases display options."
 msgstr "Tietokantojen näyttöasetukset."
 
-#: src/Config/Descriptions.php:204
+#: src/Config/Descriptions.php:207
 msgid "Customize appearance of the navigation panel."
 msgstr "Mukauta navigointipalkin näkymää."
 
-#: src/Config/Descriptions.php:205
+#: src/Config/Descriptions.php:208
 msgid "Customize the navigation tree."
 msgstr "Mukauta navigointipuuta."
 
-#: src/Config/Descriptions.php:206
+#: src/Config/Descriptions.php:209
 msgid "Servers display options."
 msgstr "Palvelinten näyttöasetukset."
 
-#: src/Config/Descriptions.php:207
+#: src/Config/Descriptions.php:210
 msgid "Tables display options."
 msgstr "Taulujen näyttöasetukset."
 
-#: src/Config/Descriptions.php:210
+#: src/Config/Descriptions.php:213
 msgid "Settings that didn't fit anywhere else."
 msgstr "Asetukset jotka eivät sovi mihinkään muualle."
 
-#: src/Config/Descriptions.php:211
+#: src/Config/Descriptions.php:214
 msgid "Authentication settings."
 msgstr "Todennuksen valinnat."
 
-#: src/Config/Descriptions.php:212
+#: src/Config/Descriptions.php:215
 msgid "Enter server connection parameters."
 msgstr "Anna palvelimen yhteysparametrit."
 
-#: src/Config/Descriptions.php:213
+#: src/Config/Descriptions.php:216
 msgid "Customize links shown in SQL Query boxes."
 msgstr "Mukauta SQL-hakukyselykentässä näytettäviä linkkejä."
 
-#: src/Config/Descriptions.php:215
+#: src/Config/Descriptions.php:218
 msgid "SQL queries settings."
 msgstr "SQL-hakukyselyiden asetukset."
 
-#: src/Config/Descriptions.php:216
+#: src/Config/Descriptions.php:219
 msgid "Customize startup page."
 msgstr "Mukauta käynnistyssivua."
 
-#: src/Config/Descriptions.php:217
+#: src/Config/Descriptions.php:220
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 "Valitse, mitkä tiedot näytetään tietokannan rakenteessa (taulujen luettelo)."
 
-#: src/Config/Descriptions.php:218
+#: src/Config/Descriptions.php:221
 msgid "Settings for the table structure (list of columns)."
 msgstr "Taulurakenteen asetukset (sarakkeiden luettelo)."
 
-#: src/Config/Descriptions.php:219
+#: src/Config/Descriptions.php:222
 msgid "Choose how you want tabs to work."
 msgstr "Valitse miten haluat välilehtien toimivan."
 
-#: src/Config/Descriptions.php:220
+#: src/Config/Descriptions.php:223
 msgid "Customize text input fields."
 msgstr "Mukauta tekstikenttiä."
 
-#: src/Config/Descriptions.php:221
+#: src/Config/Descriptions.php:224
 msgid "Customize default options"
 msgstr "Mukauta oletusvalintoja"
 
-#: src/Config/Descriptions.php:222
+#: src/Config/Descriptions.php:225
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Kytke osa phpMyAdminin näyttämistä varoituksista pois päältä."
 
-#: src/Config/Descriptions.php:224
+#: src/Config/Descriptions.php:227
 msgid "Enable gzip compression for import and export operations."
 msgstr "Käytä tuonti- ja vientitoiminnoissa gzip-pakkausta."
 
-#: src/Config/Descriptions.php:226
+#: src/Config/Descriptions.php:229
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
@@ -10195,7 +10195,7 @@ msgstr ""
 "Jos käytössä, phpMyAdmin jatkaa monilausekyselyjen laskemista, vaikka yksi "
 "hakukyselyistä epäonnistui."
 
-#: src/Config/Descriptions.php:230
+#: src/Config/Descriptions.php:233
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -10205,7 +10205,7 @@ msgstr ""
 "Tätä kannattaa käyttää tuotaessa suuria tiedostoja; se saattaa kuitenkin "
 "katkaista transaktiot."
 
-#: src/Config/Descriptions.php:235
+#: src/Config/Descriptions.php:238
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
@@ -10213,15 +10213,15 @@ msgstr ""
 "Oletusmuoto; huomaa, että tämä luettelo riippu sijainnista (tietokanta, "
 "taulu), ja käytettävissä on vain SQL."
 
-#: src/Config/Descriptions.php:238 src/Config/Descriptions.php:239
+#: src/Config/Descriptions.php:241 src/Config/Descriptions.php:242
 msgid "Update data when duplicate keys found on import"
 msgstr "Päivitä tiedot kun duplikaattiavain on löytynyt tuonnissa"
 
-#: src/Config/Descriptions.php:240
+#: src/Config/Descriptions.php:243
 msgid "Number of queries to skip from start."
 msgstr "Alusta ohitettavien hakukyselyiden lukumäärä."
 
-#: src/Config/Descriptions.php:242
+#: src/Config/Descriptions.php:245
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -10232,7 +10232,7 @@ msgstr ""
 "asetetaan FALSE:ksi, saattaa helposti unohtaa kirjata muut palvelimet ulos, "
 "mikäli yhteyksiä on muodostettu useisiin palvelimiin."
 
-#: src/Config/Descriptions.php:247
+#: src/Config/Descriptions.php:250
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
@@ -10240,7 +10240,7 @@ msgstr ""
 "Määritä, onko [kbd]evästetodennustilassa[/kbd] muistettava edellinen "
 "kirjautuminen."
 
-#: src/Config/Descriptions.php:251
+#: src/Config/Descriptions.php:254
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -10252,11 +10252,11 @@ msgstr ""
 "ajan ja poistetaan, kun selainikkuna suljetaan. Tätä suositellaan "
 "epäluotetuille ympäristöille."
 
-#: src/Config/Descriptions.php:257
+#: src/Config/Descriptions.php:260
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr "Näytettävän SQL-hakukyselyn enimmäispituus."
 
-#: src/Config/Descriptions.php:260
+#: src/Config/Descriptions.php:263
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
@@ -10264,13 +10264,13 @@ msgstr ""
 "Nimikkeiden määrä jotka voidaan näyttää navigointipuun ensimmäisen tason eri "
 "sivuilla."
 
-#: src/Config/Descriptions.php:263
+#: src/Config/Descriptions.php:266
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr "Nimikkeiden määrä jotka voidaan näyttää navigointipuun eri sivuilla."
 
-#: src/Config/Descriptions.php:266
+#: src/Config/Descriptions.php:269
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -10278,7 +10278,7 @@ msgstr ""
 "Näytettävien rivien määrä selattaessa tulostaulua. Jos tulostaulussa on "
 "enemmän rivejä, näytetään \"Edellinen\"- ja \"Seuraava\"-linkit."
 
-#: src/Config/Descriptions.php:271
+#: src/Config/Descriptions.php:274
 #, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
@@ -10290,15 +10290,15 @@ msgstr ""
 "Skriptin varaama enimmäistavumäärä, esim. [kbd]32M[/kbd] ([kbd]-1[/kbd] ei "
 "rajoitusta ja [kbd]0[/kbd] ei muutosta)."
 
-#: src/Config/Descriptions.php:275
+#: src/Config/Descriptions.php:278
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr "Korvaa navigaatiopaneelin tietokantapuun valitsimella"
 
-#: src/Config/Descriptions.php:278
+#: src/Config/Descriptions.php:281
 msgid "Link with main panel by highlighting the current database or table."
 msgstr "Yhdistä pääpaneelin kanssa korostamalla nykyinen tietokanta tai taulu."
 
-#: src/Config/Descriptions.php:281
+#: src/Config/Descriptions.php:284
 #, fuzzy
 #| msgid ""
 #| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
@@ -10310,7 +10310,7 @@ msgstr ""
 "Avaa linkitetty sivu pääikkunassa ([kbd]pääikkuna[/kbd]) tai uudessa "
 "ikkunassa ([kbd]uusi ikkuna[/kbd])."
 
-#: src/Config/Descriptions.php:284
+#: src/Config/Descriptions.php:287
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -10318,7 +10318,7 @@ msgstr ""
 "Määrittää kohteiden (taulukot, näkymät, rutiinit ja tapahtumat) suodattimen "
 "vähimmäismäärän."
 
-#: src/Config/Descriptions.php:287
+#: src/Config/Descriptions.php:290
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
@@ -10326,68 +10326,68 @@ msgstr ""
 "Ryhmitä kohteet navigointipuussa (puu määritellään alla osoitetulla "
 "erottimella yllä olevissa tietokannoissa ja tauluissa)."
 
-#: src/Config/Descriptions.php:291
+#: src/Config/Descriptions.php:294
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr "Mikäli tarjotaan mahdollisuus puun laajennukseen navigointipaneelissa."
 
-#: src/Config/Descriptions.php:294
+#: src/Config/Descriptions.php:297
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr "Mikäli haluat näyttää tietokannan prosessit navigaatiopuussa"
 
-#: src/Config/Descriptions.php:297
+#: src/Config/Descriptions.php:300
 #, fuzzy
 #| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr "Mikäli haluat näyttää tietokannan tapahtumat navigaatiopuussa"
 
-#: src/Config/Descriptions.php:299
+#: src/Config/Descriptions.php:302
 #, fuzzy
 #| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
 msgstr "Näytä logo navigaatiopaneelissa."
 
-#: src/Config/Descriptions.php:300
+#: src/Config/Descriptions.php:303
 msgid "Show logo in navigation panel."
 msgstr "Näytä logo navigaatiopaneelissa."
 
-#: src/Config/Descriptions.php:301
+#: src/Config/Descriptions.php:304
 msgid "URL where logo in the navigation panel will point to."
 msgstr "URL-osoite, johon logo navigointipaneelissa osoittaa."
 
-#: src/Config/Descriptions.php:302
+#: src/Config/Descriptions.php:305
 msgid "Display server choice at the top of the navigation panel."
 msgstr "Näytä palvelimen valinta navigointipaneelin yläreunassa."
 
-#: src/Config/Descriptions.php:303
+#: src/Config/Descriptions.php:306
 msgid "String that separates databases into different tree levels."
 msgstr "Merkkijono, joka jakaa tietokannat eri puutasoille."
 
-#: src/Config/Descriptions.php:304
+#: src/Config/Descriptions.php:307
 msgid "String that separates tables into different tree levels."
 msgstr "Merkkijono, joka jakaa taulut eri puutasoille."
 
-#: src/Config/Descriptions.php:305
+#: src/Config/Descriptions.php:308
 msgid "Highlight server under the mouse cursor."
 msgstr "Korosta hiire kohdistimen alla oleva palvelin."
 
-#: src/Config/Descriptions.php:306
+#: src/Config/Descriptions.php:309
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "Mikäli haluat näyttää tietokannan taulut navigointipuussa"
 
-#: src/Config/Descriptions.php:307
+#: src/Config/Descriptions.php:310
 msgid "Whether to show views under database in the navigation tree"
 msgstr "Mikäli haluat näyttää tietokannan näkymät navigaatiopuussa"
 
-#: src/Config/Descriptions.php:308
+#: src/Config/Descriptions.php:311
 msgid "Whether to show functions under database in the navigation tree"
 msgstr "Mikäli haluat näyttää tietokannan funktiot navigaatiopuussa"
 
-#: src/Config/Descriptions.php:309
+#: src/Config/Descriptions.php:312
 msgid "Whether to show events under database in the navigation tree"
 msgstr "Mikäli haluat näyttää tietokannan tapahtumat navigaatiopuussa"
 
-#: src/Config/Descriptions.php:311
+#: src/Config/Descriptions.php:314
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -10395,7 +10395,7 @@ msgstr ""
 "[kbd]SMART[/kbd] - eli laskeva järjestys kentille joiden tyyppi on TIME, "
 "DATE, DATETIME ja TIMESTAMP, muulloin nouseva järjestys."
 
-#: src/Config/Descriptions.php:315
+#: src/Config/Descriptions.php:318
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -10405,7 +10405,7 @@ msgstr ""
 "rakennesivulla mikäli joku pakollisista tauluista joka vaaditaan "
 "konfiguraatiomuistia varten ei ole olemassa pois päältä."
 
-#: src/Config/Descriptions.php:320
+#: src/Config/Descriptions.php:323
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -10413,7 +10413,7 @@ msgstr ""
 "Poistaa oletusvaroituksen joka näytetään jos rakennesivulla mikäli "
 "sarakenimet taulussa ovat MySQL:n varattuja sanoja."
 
-#: src/Config/Descriptions.php:324
+#: src/Config/Descriptions.php:327
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -10423,11 +10423,11 @@ msgstr ""
 "määritykset). Jos poistettu käytöstä, tämä käyttää JavaScript-rutiineja "
 "kyselyhistorian näyttämisessä (katoaa, kun ikkuna suljetaan)."
 
-#: src/Config/Descriptions.php:328
+#: src/Config/Descriptions.php:331
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
 
-#: src/Config/Descriptions.php:330
+#: src/Config/Descriptions.php:333
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
@@ -10435,7 +10435,7 @@ msgstr ""
 "Asettaa varsinaisen aikavyöhykkeen; mahdollisesti eri aikavyöhyke kuin "
 "tietokantapalvelimella"
 
-#: src/Config/Descriptions.php:333
+#: src/Config/Descriptions.php:336
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
@@ -10443,7 +10443,7 @@ msgstr ""
 "Jätä tyhjäksi, jos et halua [doc@bookmarks@]kirjanmerkki[/doc]tukea, "
 "oletusarvo: [kbd]pma__bookmark[/kbd]"
 
-#: src/Config/Descriptions.php:336
+#: src/Config/Descriptions.php:339
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: "
@@ -10455,7 +10455,7 @@ msgstr ""
 "Jätä tyhjäksi jos et halua sarakkeiden kommentteja ja mime-tyyppejä, "
 "oletusarvo: [kbd]pma_column__info[/kbd]."
 
-#: src/Config/Descriptions.php:339
+#: src/Config/Descriptions.php:342
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
@@ -10463,7 +10463,7 @@ msgstr ""
 "Erityinen MySQL-käyttäjä, jolle on määritetty rajatut käyttöoikeudet, "
 "lisätietoja saatavilla [doc@linked-tables]dokumentaatiossa[/doc]."
 
-#: src/Config/Descriptions.php:343
+#: src/Config/Descriptions.php:346
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
@@ -10471,7 +10471,7 @@ msgstr ""
 "Vaihtoehtoinen isäntä konfiguraatiomuistille; jätä tyhjästä käyttääksesi jo "
 "määriteltyä isäntää."
 
-#: src/Config/Descriptions.php:346
+#: src/Config/Descriptions.php:349
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -10481,7 +10481,7 @@ msgstr ""
 "tyhjäksi käyttääksesi oletusporttia, mikäli olet jo määritellyt portin tai "
 "mikäli ohjausisäntä on sama kuin isäntä."
 
-#: src/Config/Descriptions.php:351
+#: src/Config/Descriptions.php:354
 #, fuzzy
 #| msgid ""
 #| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
@@ -10496,7 +10496,7 @@ msgstr ""
 "virheenjäljittimestä[/a] ja [a@https://bugs.mysql.com/19588]MySQL:n "
 "ohjelmavirheistä[/a]"
 
-#: src/Config/Descriptions.php:355
+#: src/Config/Descriptions.php:358
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -10504,7 +10504,7 @@ msgstr ""
 "Jätä tyhjäksi, jos et halua SQL-hakukyselyhistorian tukea, oletusarvo: "
 "[kbd]pma__history[/kbd]."
 
-#: src/Config/Descriptions.php:358
+#: src/Config/Descriptions.php:361
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
@@ -10512,7 +10512,7 @@ msgstr ""
 "Rajoittaa tietokantaan tallennettujen taulun asetuksien lukumäärää, "
 "vanhimmat kirjaukset poistetaan automaattisesti."
 
-#: src/Config/Descriptions.php:362
+#: src/Config/Descriptions.php:365
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
@@ -10520,7 +10520,7 @@ msgstr ""
 "Jätä tyhjäksi jos et halua vietyjen mallien tukea, oletusarvo: "
 "[kbd]pma__pdf_pages[/kbd]."
 
-#: src/Config/Descriptions.php:365
+#: src/Config/Descriptions.php:368
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
@@ -10528,7 +10528,7 @@ msgstr ""
 "Jätä tyhjäksi jos et halua keskisarakkeiden tukea, oletusarvo: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: src/Config/Descriptions.php:368
+#: src/Config/Descriptions.php:371
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -10538,14 +10538,14 @@ msgstr ""
 "koodinvaihtomerkin, mikäli haluat käyttää niiden todellista ilmentymää, "
 "käytä esimerkiksi [kbd]'my\\_db'[/kbd] mutta ei [kbd]'my_db'[/kbd]."
 
-#: src/Config/Descriptions.php:373
+#: src/Config/Descriptions.php:376
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "Jätä tyhjäksi jos et halua PDF-kaavioiden tukea, oletusarvo: "
 "[kbd]pma__pdf_pages[/kbd]."
 
-#: src/Config/Descriptions.php:376
+#: src/Config/Descriptions.php:379
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
@@ -10555,7 +10555,7 @@ msgstr ""
 "Katso täydet tiedot aiheesta [doc@linked-tables]pmadb[/doc]. Jätä tyhjäksi "
 "jos et halua tukea. Oletusarvo: [kbd]phpmyadmin[/kbd]."
 
-#: src/Config/Descriptions.php:381
+#: src/Config/Descriptions.php:384
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -10563,7 +10563,7 @@ msgstr ""
 "Jätä tyhjäksi jos et halua \"pysyvää\" viimeksi käytettyjä tauluja yli "
 "kaikkien sessioiden, oletusarvo: [kbd]pma__recent[/kbd]."
 
-#: src/Config/Descriptions.php:385
+#: src/Config/Descriptions.php:388
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
@@ -10571,7 +10571,7 @@ msgstr ""
 "Jätä tyhjäksi jos et halua pysyvää suosikkitaulujen luetteloa yli kaikkien "
 "sessioiden, oletusarvo: [kbd]pma__recent[/kbd]."
 
-#: src/Config/Descriptions.php:389
+#: src/Config/Descriptions.php:392
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
@@ -10579,12 +10579,12 @@ msgstr ""
 "Jätä tyhjäksi jos et halua [doc@relations@]relaatiolinkkien[/doc]tukea, "
 "oletusarvo: [kbd]pma__relation[/kbd]."
 
-#: src/Config/Descriptions.php:394
+#: src/Config/Descriptions.php:397
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr "Katso [doc@authentication-modes]todennustyypit[/doc] esimerkkinä."
 
-#: src/Config/Descriptions.php:397
+#: src/Config/Descriptions.php:400
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -10592,7 +10592,7 @@ msgstr ""
 "Jätä tyhjäksi jos et halua PDF-kaavioiden tukea, oletusarvo: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: src/Config/Descriptions.php:400
+#: src/Config/Descriptions.php:403
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
@@ -10600,7 +10600,7 @@ msgstr ""
 "Taulukko kuvaamaan näytettäviä sarakkeita, jätä tyhjäksi jos et halua tukea; "
 "oletusarvo: [kbd]pma__table_info[/kbd]."
 
-#: src/Config/Descriptions.php:404
+#: src/Config/Descriptions.php:407
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -10608,7 +10608,7 @@ msgstr ""
 "Jätä tyhjäksi, ei \"pysyviä\" taulukoita käyttöliittymäasetuksiin eri "
 "istuntoihin, oletusarvo: [kbd]pma__table_uiprefs[/kbd]."
 
-#: src/Config/Descriptions.php:408
+#: src/Config/Descriptions.php:411
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -10616,7 +10616,7 @@ msgstr ""
 "Mikäli DROP DATABASE IF EXISTS lauseke lisätään ensimmäiseksi riviksi lokiin "
 "tietokantaa luotaessa."
 
-#: src/Config/Descriptions.php:412
+#: src/Config/Descriptions.php:415
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -10624,7 +10624,7 @@ msgstr ""
 "Mikäli DROP TABLE IF EXISTS lauseke lisätään ensimmäiseksi riviksi lokiin "
 "taulua luotaessa."
 
-#: src/Config/Descriptions.php:416
+#: src/Config/Descriptions.php:419
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -10632,11 +10632,11 @@ msgstr ""
 "Mikäli DROP VIEW IF EXISTS lauseke lisätään ensimmäiseksi riviksi lokiin "
 "näkymää luotaessa."
 
-#: src/Config/Descriptions.php:420
+#: src/Config/Descriptions.php:423
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr "Määrittää listan lausekkeista joita käytetään uusissa versioissa."
 
-#: src/Config/Descriptions.php:423
+#: src/Config/Descriptions.php:426
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
@@ -10644,14 +10644,14 @@ msgstr ""
 "Jätä tyhjäksi jos et halua SQL-kyselyiden seurantatukea, oletusarvo: "
 "[kbd]pma__tracking[/kbd]."
 
-#: src/Config/Descriptions.php:426
+#: src/Config/Descriptions.php:429
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 "Mikäli seurantamekanismi luo versiot tauluille ja näkymille automaattisesti."
 
-#: src/Config/Descriptions.php:429
+#: src/Config/Descriptions.php:432
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
@@ -10659,7 +10659,7 @@ msgstr ""
 "Jätä tyhjäksi jos käyttäjän asetuksia ei varastoida tietokantaan, "
 "oletusarvo: [kbd]pma__userconfig[/kbd]."
 
-#: src/Config/Descriptions.php:432
+#: src/Config/Descriptions.php:435
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
@@ -10669,7 +10669,7 @@ msgstr ""
 "konfiguroitavien valikoiden ominaisuus; jättämällä jompi kumpi tyhjäksi "
 "kytkee ominaisuuden pois päältä, oletusarvo: [kbd]pma__users[/kbd]."
 
-#: src/Config/Descriptions.php:437
+#: src/Config/Descriptions.php:440
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
@@ -10679,7 +10679,7 @@ msgstr ""
 "käyttäjätaulua; jos jompi kumpi näistä jätetään tyhjäksi, poistuu tämä "
 "toiminto käytöstä, ehdotus: [kbd]pma__usergroups[/kbd]."
 
-#: src/Config/Descriptions.php:442
+#: src/Config/Descriptions.php:445
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -10687,7 +10687,7 @@ msgstr ""
 "Jätä tyhjäksi, jos haluat poistaa käytöstä navigointikohteiden piilotus- ja "
 "näyttötoiminnon, ehdotus: [kbd]pma__navigationhiding[/kbd]."
 
-#: src/Config/Descriptions.php:446
+#: src/Config/Descriptions.php:449
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -10695,54 +10695,54 @@ msgstr ""
 "Käyttäjäystävällinen kuvaus tästä palvelimesta. Jätä tyhjäksi, jos haluat, "
 "että tässä lukee sen sijaan palvelimen verkkonimi."
 
-#: src/Config/Descriptions.php:448
+#: src/Config/Descriptions.php:451
 msgid "Leave blank if not used."
 msgstr "Jätä tyhjäksi, jos tätä ei käytetä."
 
-#: src/Config/Descriptions.php:449
+#: src/Config/Descriptions.php:452
 msgid "Leave blank for defaults."
 msgstr "Käytä oletusarvoja jättämällä tyhjäksi."
 
-#: src/Config/Descriptions.php:450
+#: src/Config/Descriptions.php:453
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr "HTTP Basic Auth Realm nimi joka näytetään HTTP Auth - todennuksessa."
 
-#: src/Config/Descriptions.php:451
+#: src/Config/Descriptions.php:454
 msgid "Authentication method to use."
 msgstr "Käytettävä todennustyyppi."
 
-#: src/Config/Descriptions.php:452
+#: src/Config/Descriptions.php:455
 msgid "Compress connection to MySQL server."
 msgstr "Pakkaa yhteys MySQL-palvelimeen."
 
-#: src/Config/Descriptions.php:453
+#: src/Config/Descriptions.php:456
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Piilota tietokannat, jotka vastaavat säännöllistä lauseketta (PCRE)."
 
-#: src/Config/Descriptions.php:454
+#: src/Config/Descriptions.php:457
 msgid "Hostname where MySQL server is running."
 msgstr "MySQL-palvelimen verkkonimi."
 
-#: src/Config/Descriptions.php:455 src/Config/Descriptions.php:459
+#: src/Config/Descriptions.php:458 src/Config/Descriptions.php:462
 msgid "Leave empty if not using config auth."
 msgstr "Jätä tyhjäksi, jot et käytä config-todennusta."
 
-#: src/Config/Descriptions.php:456
+#: src/Config/Descriptions.php:459
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Portti jota MySQL-palvelin kuuntelee, käytä oletusarvoa jättämällä tyhjäksi."
 
-#: src/Config/Descriptions.php:457
+#: src/Config/Descriptions.php:460
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Palvelinpistoke jota MySQL-palvelin kuuntelee, käytä oletusarvoa jättämällä "
 "tyhjäksi."
 
-#: src/Config/Descriptions.php:458
+#: src/Config/Descriptions.php:461
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Yhdistä MySQL-palvelimeen käyttäen SSL-yhteyttä."
 
-#: src/Config/Descriptions.php:461
+#: src/Config/Descriptions.php:464
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -10752,32 +10752,32 @@ msgstr ""
 "käytettäessä, koska salasana lukee suoraan asetustiedostossa; tämä ei "
 "rajoita saman komennon suoraan suorittamisen mahdollisuutta."
 
-#: src/Config/Descriptions.php:466
+#: src/Config/Descriptions.php:469
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 "Näytä tai piilota sarake, joka näyttää kaikkien taulujen luontiajankohdan."
 
-#: src/Config/Descriptions.php:469
+#: src/Config/Descriptions.php:472
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 "Näytä tai piilota sarake, joka näyttää kaikkien taulujen viime päivityksen "
 "ajankohdan."
 
-#: src/Config/Descriptions.php:472
+#: src/Config/Descriptions.php:475
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 "Näytä tai piilota sarake joka näyttää viimeisen aikaleiman kaikille "
 "tauluille."
 
-#: src/Config/Descriptions.php:475
+#: src/Config/Descriptions.php:478
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr "Määrittelee tuleeko tyyppikentät näyttää muokkaus/lisäys-tilassa."
 
-#: src/Config/Descriptions.php:478
+#: src/Config/Descriptions.php:481
 #, fuzzy
 #| msgid ""
 #| "Shows link to [a@https://www.php.net/manual/function.phpinfo.php]phpinfo()"
@@ -10789,45 +10789,45 @@ msgstr ""
 "Näyttää linkin [a@https://www.php.net/manual/function.phpinfo.php]phpinfo()[/"
 "a]-käskyn tulosteeseen."
 
-#: src/Config/Descriptions.php:480
+#: src/Config/Descriptions.php:483
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "Näytetäänkö käyttäjälle \"Näytä kaikki (rivit)\" -painike."
 
-#: src/Config/Descriptions.php:481
+#: src/Config/Descriptions.php:484
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr "Näytä tai piilota kommentti -sarake kaikista tauluista."
 
-#: src/Config/Descriptions.php:482
+#: src/Config/Descriptions.php:485
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr "Näytä tai piilota merkkisarake kaikista tauluista."
 
-#: src/Config/Descriptions.php:483
+#: src/Config/Descriptions.php:486
 msgid "Display the function fields in edit/insert mode."
 msgstr "Näytä funktiokentät muokkaus- ja lisäystilassa."
 
-#: src/Config/Descriptions.php:484
+#: src/Config/Descriptions.php:487
 msgid "Whether to show hint or not."
 msgstr "Näytetäänkö vihjeet."
 
-#: src/Config/Descriptions.php:485
+#: src/Config/Descriptions.php:488
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr "Määrittelee pitääkö phpMyAdminin luomat SQL-kyselyt näyttää."
 
-#: src/Config/Descriptions.php:486
+#: src/Config/Descriptions.php:489
 #, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr "Salli tietokannan ja taulun tilastojen (eli tilankäytön) näyttäminen."
 
-#: src/Config/Descriptions.php:488
+#: src/Config/Descriptions.php:491
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Merkitse käytetyt taulut ja mahdollista lukittuja tauluja sisältävien "
 "tietokantojen näyttäminen."
 
-#: src/Config/Descriptions.php:491
+#: src/Config/Descriptions.php:494
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
@@ -10835,7 +10835,7 @@ msgstr ""
 "Poistaa oletus varoituksen, joka näytetään mikäli Suhosin-laajennus "
 "havaitaan."
 
-#: src/Config/Descriptions.php:494
+#: src/Config/Descriptions.php:497
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
@@ -10844,7 +10844,7 @@ msgstr ""
 "Poistaa oletus varoituksen, joka näytetään pääsivulla mikäli PHP-asetus "
 "session.gc_maxlifetime alittaa `LoginCookieValidity` - parametrin arvon."
 
-#: src/Config/Descriptions.php:499
+#: src/Config/Descriptions.php:502
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10852,7 +10852,7 @@ msgstr ""
 "Tekstialueen koko (sarakkeita) muokkaustilassa, tälle arvolle annetaan "
 "erityinen paino SQL-hakukyselyiden tekstialueilla (*2)."
 
-#: src/Config/Descriptions.php:502
+#: src/Config/Descriptions.php:505
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10860,7 +10860,7 @@ msgstr ""
 "Tekstialueen koko (rivejä) muokkaustilassa, tälle arvolle annetaan erityinen "
 "paino SQL-hakukyselyiden tekstialueilla (*2)."
 
-#: src/Config/Descriptions.php:505
+#: src/Config/Descriptions.php:508
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -10872,7 +10872,7 @@ msgstr ""
 "HTTP_X_FORWARDED_FOR (X-Forwarded-For) -otsakkeeseen, joka tulee "
 "välipalvelimelta 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
 
-#: src/Config/Descriptions.php:511
+#: src/Config/Descriptions.php:514
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -10880,7 +10880,7 @@ msgstr ""
 "Kun tämä on poistettu käytöstä, käyttäjät eivät voi asettaa mitään "
 "allaolevista valinnoista, riippumatta oikealla olevan valintaruudun arvosta."
 
-#: src/Config/Descriptions.php:514
+#: src/Config/Descriptions.php:517
 #, fuzzy
 #| msgid ""
 #| "The url of the proxy to be used when retrieving the information about the "
@@ -10898,7 +10898,7 @@ msgstr ""
 "palvelimella johon phpMyAdmin on asennettu ei ole suoraa pääsyä internetiin. "
 "Muoto on: \"isäntänimi:porttinumero\"."
 
-#: src/Config/Descriptions.php:520
+#: src/Config/Descriptions.php:523
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -10908,7 +10908,7 @@ msgstr ""
 "suoriteta. Jos käyttäjänimi annettu, käytetään yksinkertaista  kirjautumista "
 "(Basic Authentication). Muita kirjautumistyylejä ei tällä hetkellä tueta."
 
-#: src/Config/Descriptions.php:526
+#: src/Config/Descriptions.php:529
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
@@ -10916,7 +10916,7 @@ msgstr ""
 "Hakykyselyt suoritetaan painamalla Enter (Ctrl+Enter - yhdistelmän sijaan). "
 "Uudet rivit asetetaan painamalla Shift+Enter."
 
-#: src/Config/Descriptions.php:530
+#: src/Config/Descriptions.php:533
 #, fuzzy
 #| msgid ""
 #| "Enable Zero Configuration mode which lets you setup phpMyAdmin "
@@ -10928,211 +10928,211 @@ msgstr ""
 "Aktivoi nollakonfiguraatiotila joka mahdollistaa phpMyAdminin "
 "konfiguraatioasetustaulujen asentamisen automaattisesti."
 
-#: src/Config/Descriptions.php:533
+#: src/Config/Descriptions.php:536
 msgid "Highlight selected rows."
 msgstr "Korosta valitut rivit."
 
-#: src/Config/Descriptions.php:534
+#: src/Config/Descriptions.php:537
 msgid "Highlight row pointed by the mouse cursor."
 msgstr "Korosta kohdistimen osoittama rivi."
 
-#: src/Config/Descriptions.php:535
+#: src/Config/Descriptions.php:538
 msgid "Number of columns for CHAR/VARCHAR textareas."
 msgstr "CHAR- ja VARCHAR-tekstialueiden sarakemäärä."
 
-#: src/Config/Descriptions.php:536
+#: src/Config/Descriptions.php:539
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "CHAR- ja VARCHAR-tekstialueiden rivimäärä."
 
-#: src/Config/Descriptions.php:537
+#: src/Config/Descriptions.php:540
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
 "Kirjaa SQL-hakulausekkeet ja niiden suoritusajat lokiin, näytetään konsolissa"
 
-#: src/Config/Descriptions.php:538
+#: src/Config/Descriptions.php:541
 msgid "Tab that is displayed when entering a database."
 msgstr "Tietokantaa syötettäessä näytettävä välilehti."
 
-#: src/Config/Descriptions.php:539
+#: src/Config/Descriptions.php:542
 msgid "Tab that is displayed when entering a server."
 msgstr "Palvelinta syötettäessä näytettävä välilehti."
 
-#: src/Config/Descriptions.php:540
+#: src/Config/Descriptions.php:543
 msgid "Tab that is displayed when entering a table."
 msgstr "Taulua syötettäessä näytettävä välilehti."
 
-#: src/Config/Descriptions.php:541
+#: src/Config/Descriptions.php:544
 msgid "Whether the table structure actions should be hidden."
 msgstr "Mikäli taulun rakenteiden toiminnot pitäisi olla piilossa."
 
-#: src/Config/Descriptions.php:542
+#: src/Config/Descriptions.php:545
 msgid "Whether column comments should be shown in table structure view"
 msgstr "Pitääkö sarakekommentit näyttää taulurakennenäkymässä"
 
-#: src/Config/Descriptions.php:543
+#: src/Config/Descriptions.php:546
 msgid "Show server listing as a list instead of a drop down."
 msgstr "Näytä palvelimet luettelona eikä pudotusvalikkona."
 
-#: src/Config/Descriptions.php:544
+#: src/Config/Descriptions.php:547
 msgid "A dropdown will be used if fewer items are present."
 msgstr "Pudotusvalikkoa käytetään, jos kohteita on vähemmän."
 
-#: src/Config/Descriptions.php:545
+#: src/Config/Descriptions.php:548
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 "Viiteavaimen oletusarvo tarkistaa valintaruudun joillekin hakulausekkeille."
 
-#: src/Config/Descriptions.php:546
+#: src/Config/Descriptions.php:549
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
 
-#: src/Config/Descriptions.php:547
+#: src/Config/Descriptions.php:550
 msgid "How many rows can be inserted at one time."
 msgstr "Kuinka monta riviä voi lisätä kerrallaan."
 
-#: src/Config/Descriptions.php:548
+#: src/Config/Descriptions.php:551
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
 "Selainnäkymässä näytettävien merkkien määrä missä tahansa ei numeerisessa "
 "sarakkeessa."
 
-#: src/Config/Descriptions.php:549
+#: src/Config/Descriptions.php:552
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr ""
 "Määrittele sekunteina, kuinka pitkään kirjautumiseväste on kelvollinen."
 
-#: src/Config/Descriptions.php:550
+#: src/Config/Descriptions.php:553
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "Kaksinkertainen tekstialue LONGTEXT sarakkeille."
 
-#: src/Config/Descriptions.php:551
+#: src/Config/Descriptions.php:554
 msgid "Maximum number of databases displayed in database list."
 msgstr "Tietokantaluettelossa näkyvien tietokantojen enimmäismäärä."
 
-#: src/Config/Descriptions.php:552
+#: src/Config/Descriptions.php:555
 msgid "Maximum number of tables displayed in table list."
 msgstr "Taululuettelossa näkyvien taulujen enimmäismäärä."
 
-#: src/Config/Descriptions.php:553
+#: src/Config/Descriptions.php:556
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr ""
 "Taulujen maksimimäärä viimeksi käytettyjen taulujen luettelossa, 0 poistaa "
 "käytöstä."
 
-#: src/Config/Descriptions.php:554
+#: src/Config/Descriptions.php:557
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "Suosikkitaulujen maksimimäärä, 0 poistaa käytöstä."
 
-#: src/Config/Descriptions.php:555
+#: src/Config/Descriptions.php:558
 msgid "These are Edit, Copy and Delete links."
 msgstr "Nämä ovat Muokkaa, Kopioi ja Poista linkit."
 
-#: src/Config/Descriptions.php:556
+#: src/Config/Descriptions.php:559
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 "Mikäli haluat näyttää rivilinkit silloinkin kun uniikkia perusavainta ei ole."
 
-#: src/Config/Descriptions.php:557 src/Config/Descriptions.php:838
+#: src/Config/Descriptions.php:560 src/Config/Descriptions.php:838
 msgid "Disable shortcut keys"
 msgstr "Poista oikotieavaimet käytöstä"
 
-#: src/Config/Descriptions.php:558
+#: src/Config/Descriptions.php:561
 msgid "Use natural order for sorting table and database names."
 msgstr ""
 "Näytä luonnollista järjestystä lajittelutaululle ja tietokantojen nimille."
 
-#: src/Config/Descriptions.php:559 src/Config/Descriptions.php:562
-#: src/Config/Descriptions.php:563
+#: src/Config/Descriptions.php:562 src/Config/Descriptions.php:565
+#: src/Config/Descriptions.php:566
 msgid "Use only icons, only text or both."
 msgstr "Käytä vain kuvakkeita, vain tekstiä tai molempia."
 
-#: src/Config/Descriptions.php:560
+#: src/Config/Descriptions.php:563
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr "Käytä Gzip-tulosteen puskurointia nopeuttaaksesi HTTP-siirtoja."
 
-#: src/Config/Descriptions.php:561
+#: src/Config/Descriptions.php:564
 msgid "Use persistent connections to MySQL databases."
 msgstr "Käytä jatkuvia yhteyksiä MySQL-tietokantoihin."
 
-#: src/Config/Descriptions.php:564
+#: src/Config/Descriptions.php:567
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "Poista BLOB ja BINARY sarakkeet muokkauksesta."
 
-#: src/Config/Descriptions.php:565
+#: src/Config/Descriptions.php:568
 msgid "How many queries are kept in history."
 msgstr "Kuinka monta hakukyselyä historiassa pidetään."
 
-#: src/Config/Descriptions.php:566
+#: src/Config/Descriptions.php:569
 msgid "Select which functions will be used for character set conversion."
 msgstr "Valitse mitä funktioita käytetään merkistömuunnoksessa."
 
-#: src/Config/Descriptions.php:567
+#: src/Config/Descriptions.php:570
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "Kun selataan tauluja, jokaisen taulun järjestys pidetään muistissa."
 
-#: src/Config/Descriptions.php:568
+#: src/Config/Descriptions.php:571
 msgid "Default sort order for tables with a primary key."
 msgstr "Oletusjärjestys tauluille joilla on perusavain."
 
-#: src/Config/Descriptions.php:569
+#: src/Config/Descriptions.php:572
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr "Toista ylätunnisteet joka X solulle, [kbd]0[/kbd] poistaa käytöstä."
 
-#: src/Config/Descriptions.php:570
+#: src/Config/Descriptions.php:573
 msgid "For display Options"
 msgstr "Näyttöasetuksille"
 
-#: src/Config/Descriptions.php:571
+#: src/Config/Descriptions.php:574
 msgid "Directory where exports can be saved on server."
 msgstr "Hakemisto, jonne viennit voi tallentaa palvelimella."
 
-#: src/Config/Descriptions.php:572
+#: src/Config/Descriptions.php:575
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
 "Määrittelee mikäli kyselylaatikon tulisi pysyä ruudulla kyselyn lähettämisen "
 "jälkeen."
 
-#: src/Config/Descriptions.php:573
+#: src/Config/Descriptions.php:576
 msgid "Title of browser window when a database is selected."
 msgstr "Selainikkunan otsikko mikäli tietokanta on valittu."
 
-#: src/Config/Descriptions.php:574
+#: src/Config/Descriptions.php:577
 msgid "Title of browser window when nothing is selected."
 msgstr "Selainikkunan otsikko kun mitään ei olla valittu."
 
-#: src/Config/Descriptions.php:575
+#: src/Config/Descriptions.php:578
 msgid "Title of browser window when a server is selected."
 msgstr "Selainikkunan otsikko kun palvelin on valittu."
 
-#: src/Config/Descriptions.php:576
+#: src/Config/Descriptions.php:579
 msgid "Title of browser window when a table is selected."
 msgstr "Selainikkunan otsikko kun taulu on valittu."
 
-#: src/Config/Descriptions.php:577
+#: src/Config/Descriptions.php:580
 msgid "Directory on server where you can upload files for import."
 msgstr "Palvelimen hakemisto, jonne tuotavia tiedostoja voi lähettää."
 
-#: src/Config/Descriptions.php:578
+#: src/Config/Descriptions.php:581
 msgid "Allow for searching inside the entire database."
 msgstr "Antaa hakea koko tietokannasta."
 
-#: src/Config/Descriptions.php:579
+#: src/Config/Descriptions.php:582
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "Aktivoi uusimman version tarkistuksen phpMyAdmin-pääsivulla."
 
-#: src/Config/Descriptions.php:580
+#: src/Config/Descriptions.php:583
 msgid "The password for authenticating with the proxy."
 msgstr "Välityspalvelimelle kirjautumiseen käytettävä salasana."
 
-#: src/Config/Descriptions.php:581
+#: src/Config/Descriptions.php:584
 msgid "Enable ZIP compression for import and export operations."
 msgstr "Käytä tuonti- ja vientitoiminnoissa ZIP-pakkausta."
 
-#: src/Config/Descriptions.php:582
+#: src/Config/Descriptions.php:585
 msgid "Choose the default action when sending error reports."
 msgstr "Valitse oletustoiminto virheraportteja lähetettäessä."
 
@@ -12341,36 +12341,36 @@ msgstr "Järjestä mukaan:"
 msgid "Server connection collation"
 msgstr "Palvelinyhteyden aakkosjärjestys"
 
-#: src/Config/FormDisplay.php:580
+#: src/Config/FormDisplay.php:581
 #, php-format
 msgid "Missing data for %s"
 msgstr "Kohteesta %s puuttuu tiedot"
 
-#: src/Config/FormDisplay.php:620 src/Config/Validator.php:594
+#: src/Config/FormDisplay.php:621 src/Config/Validator.php:595
 #: src/Controllers/JavaScriptMessagesController.php:828
 msgid "Incorrect value!"
 msgstr "Virheellinen arvo!"
 
-#: src/Config/FormDisplay.php:766
+#: src/Config/FormDisplay.php:767
 msgid "unavailable"
 msgstr "Ei saatavilla"
 
-#: src/Config/FormDisplay.php:768
+#: src/Config/FormDisplay.php:769
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" vaatii laajennuksen %s"
 
-#: src/Config/FormDisplay.php:790
+#: src/Config/FormDisplay.php:791
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "Pakattu tuonti ei toimi, puuttuvan funktion %s takia."
 
-#: src/Config/FormDisplay.php:799
+#: src/Config/FormDisplay.php:800
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Pakattu vienti ei toimi, johtuu puuttuvasta funktioista %s."
 
-#: src/Config/FormDisplay.php:819
+#: src/Config/FormDisplay.php:820
 #, php-format
 msgid "maximum %s"
 msgstr "Enintään %s"
@@ -12655,19 +12655,19 @@ msgstr "Tietokantapalvelin"
 msgid "Table-level tabs"
 msgstr "Taulun kommentit"
 
-#: src/Config/Validator.php:252
+#: src/Config/Validator.php:253
 msgid "Could not connect to the database server!"
 msgstr "Ei voida yhdistää tietokantapalvelimeen!"
 
-#: src/Config/Validator.php:288
+#: src/Config/Validator.php:289
 msgid "Invalid authentication type!"
 msgstr "Virheellinen todennustyyppi!"
 
-#: src/Config/Validator.php:293
+#: src/Config/Validator.php:294
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "Tyhjennä käyttäjänimi käytettäessä [kbd]config[/kbd]-todennustapaa!"
 
-#: src/Config/Validator.php:299
+#: src/Config/Validator.php:300
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -12675,20 +12675,20 @@ msgstr ""
 "Tyhjennä kirjautumisistunnon nimi käytettäessä [kbd]signon[/kbd]-"
 "todennustapaa!"
 
-#: src/Config/Validator.php:306
+#: src/Config/Validator.php:307
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "Tyhjennä kirjautumisen URL-osoite käytettäessä [kbd]signon[/kbd]-"
 "todennustapaa!"
 
-#: src/Config/Validator.php:359
+#: src/Config/Validator.php:360
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Tyhjennä phpMyAdminin hallintakäyttäjä käytettäessä phpMyAdmin configuration "
 "storage-kantaa!"
 
-#: src/Config/Validator.php:366
+#: src/Config/Validator.php:367
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -12696,31 +12696,31 @@ msgstr ""
 "Tyhjennä phpMyAdminin hallintakäyttäjän salasana käytettäessä phpMyAdmin "
 "configuration storage-kantaa!"
 
-#: src/Config/Validator.php:455
+#: src/Config/Validator.php:456
 msgid "Incorrect value:"
 msgstr "Virheellinen arvo:"
 
-#: src/Config/Validator.php:466
+#: src/Config/Validator.php:467
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Virheellinen IP-osoite: %s"
 
-#: src/Config/Validator.php:529
+#: src/Config/Validator.php:530
 #: src/Controllers/JavaScriptMessagesController.php:827
 msgid "Not a valid port number!"
 msgstr "Virheellinen porttinumero!"
 
-#: src/Config/Validator.php:551
+#: src/Config/Validator.php:552
 #: src/Controllers/JavaScriptMessagesController.php:825
 msgid "Not a positive number!"
 msgstr "Ei positiivinen luku!"
 
-#: src/Config/Validator.php:573
+#: src/Config/Validator.php:574
 #: src/Controllers/JavaScriptMessagesController.php:826
 msgid "Not a non-negative number!"
 msgstr "Ei epänegatiivinen luku!"
 
-#: src/Config/Validator.php:612
+#: src/Config/Validator.php:613
 #: src/Controllers/JavaScriptMessagesController.php:829
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -16261,9 +16261,9 @@ msgstr "Palvelin ei vastaa"
 msgid "Setting variable failed"
 msgstr "Muuttujan asettaminen epäonnistui"
 
-#: src/Controllers/Setup/ConfigController.php:41
+#: src/Controllers/Setup/ConfigController.php:43
 #: src/Controllers/Setup/FormController.php:44
-#: src/Controllers/Setup/HomeController.php:45
+#: src/Controllers/Setup/HomeController.php:47
 #: src/Controllers/Setup/ServerDestroyController.php:41
 #: src/Controllers/Setup/ServersController.php:44
 #: src/Controllers/Setup/ShowConfigController.php:42
@@ -16275,7 +16275,7 @@ msgstr ""
 msgid "Incorrect form specified!"
 msgstr ""
 
-#: src/Controllers/Setup/HomeController.php:71
+#: src/Controllers/Setup/HomeController.php:73
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
@@ -16283,7 +16283,7 @@ msgstr ""
 "Käytössäsi ei ole salattua yhteyttä; kaikki tiedot (mukaan lukien "
 "mahdollisesti arkaa tietoa kuten salasanoja) siirretään salaamattomana!"
 
-#: src/Controllers/Setup/HomeController.php:76
+#: src/Controllers/Setup/HomeController.php:78
 #, fuzzy
 #| msgid ""
 #| "If your server is also configured to accept HTTPS requests follow "
@@ -16295,7 +16295,7 @@ msgstr ""
 "Jos palvelimen asetukset on määritetty hyväksymään HTTPS-pyynnöt, [a@%s]ota "
 "käyttöön[/a] salattu yhteys."
 
-#: src/Controllers/Setup/HomeController.php:80
+#: src/Controllers/Setup/HomeController.php:82
 msgid "Insecure connection"
 msgstr "Salaamaton yhteys"
 
@@ -19575,23 +19575,23 @@ msgstr "Suorita SQL-kyselyjä tietokannassa %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "Suorita SQL-kyselyjä tietokannassa %s"
 
-#: src/StorageEngine.php:319
+#: src/StorageEngine.php:320
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "Tämän tallennusmoottorin tilasta ei ole saatavilla yksityiskohtaisia tietoja."
 
-#: src/StorageEngine.php:416
+#: src/StorageEngine.php:417
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s on käytettävissä tällä MySQL-palvelimella."
 
-#: src/StorageEngine.php:417
+#: src/StorageEngine.php:418
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s ei ole käytettävissä tällä MySQL-palvelimella."
 
-#: src/StorageEngine.php:418
+#: src/StorageEngine.php:419
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Tämä MySQL-palvelin ei tue %s-tallennusmoottoria."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-07-14 00:22+0000\n"
+"POT-Creation-Date: 2024-07-21 00:22+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Uzbek (latin) <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -912,7 +912,7 @@ msgstr "Tozalash"
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
 #: src/Html/Generator.php:668 src/Html/MySQLDocumentation.php:49
-#: src/Sanitize.php:188
+#: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "Dokumentatsiya"
 
@@ -2882,7 +2882,7 @@ msgid "Sum"
 msgstr "Jami"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:415
+#: src/StorageEngine.php:416
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "\"%s\" - MySQL serveridagi andozaviy ma`lumotlar jadvali turi."
@@ -10274,12 +10274,12 @@ msgstr ""
 msgid "neither of the above"
 msgstr ""
 
-#: src/Config/Descriptions.php:55 src/Config/Descriptions.php:56
-#: src/Config/Descriptions.php:57
+#: src/Config/Descriptions.php:61 src/Config/Descriptions.php:62
+#: src/Config/Descriptions.php:63
 msgid "Users cannot set a higher value"
 msgstr ""
 
-#: src/Config/Descriptions.php:73
+#: src/Config/Descriptions.php:76
 #, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth"
@@ -10289,21 +10289,21 @@ msgstr ""
 "Agar yoqilgan bo‘lsa, foydalanuvchi cookie-autentifikatsiya vaqtida login "
 "formasiga istalgan MySQL-servernikiritishi mumkin"
 
-#: src/Config/Descriptions.php:76
+#: src/Config/Descriptions.php:79
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
 
-#: src/Config/Descriptions.php:81
+#: src/Config/Descriptions.php:84
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 
-#: src/Config/Descriptions.php:86
+#: src/Config/Descriptions.php:89
 #, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
@@ -10315,7 +10315,7 @@ msgstr ""
 "[kbd]cookie[/kbd]-autentifikatsiya usulida cookie-larni shifrlash uchun "
 "ishlatiladigan sirli ibora"
 
-#: src/Config/Descriptions.php:88
+#: src/Config/Descriptions.php:91
 #, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
@@ -10325,37 +10325,37 @@ msgstr ""
 "Import va eksport operatsiyalarida    [a@https://en.wikipedia.org/wiki/"
 "Bzip2]bzip2[/a] yordamida siqishni yoqish"
 
-#: src/Config/Descriptions.php:89
+#: src/Config/Descriptions.php:92
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr ""
 
-#: src/Config/Descriptions.php:90
+#: src/Config/Descriptions.php:93
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
 msgstr ""
 
-#: src/Config/Descriptions.php:91
+#: src/Config/Descriptions.php:94
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 
-#: src/Config/Descriptions.php:92
+#: src/Config/Descriptions.php:95
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 
-#: src/Config/Descriptions.php:93
+#: src/Config/Descriptions.php:96
 msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr ""
 
-#: src/Config/Descriptions.php:94
+#: src/Config/Descriptions.php:97
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr ""
 
-#: src/Config/Descriptions.php:95
+#: src/Config/Descriptions.php:98
 msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr ""
 
-#: src/Config/Descriptions.php:97
+#: src/Config/Descriptions.php:100
 #, fuzzy
 #| msgid ""
 #| "ines which type of editing controls should be used for CHAR and CHAR "
@@ -10371,31 +10371,31 @@ msgstr ""
 "cheklashga imkon beradi, [kbd]textarea[/kbd] - maydonlarda bir necha "
 "qatorlar ishlatish imkonini beradi"
 
-#: src/Config/Descriptions.php:102
+#: src/Config/Descriptions.php:105
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
 
-#: src/Config/Descriptions.php:107
+#: src/Config/Descriptions.php:110
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
 
-#: src/Config/Descriptions.php:110
+#: src/Config/Descriptions.php:113
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
 
-#: src/Config/Descriptions.php:113
+#: src/Config/Descriptions.php:116
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
 
-#: src/Config/Descriptions.php:116
+#: src/Config/Descriptions.php:119
 #, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
@@ -10409,7 +10409,7 @@ msgstr ""
 "miqdordagi xotira talab etmaydi; agar Sizda gzip/bzip2 fayllari tuzishda "
 "muammo yuzaga kelsa, ushbu xususiyatni o‘chirib qo‘ying"
 
-#: src/Config/Descriptions.php:120
+#: src/Config/Descriptions.php:123
 #, fuzzy
 #| msgid ""
 #| "Whether a warning (\"Are your really sure…\") should be displayed when "
@@ -10421,29 +10421,29 @@ msgstr ""
 "Ma`lumot yo‘qolishi mumkin bo‘lgan vaziyatlarda ogohlantirish (\"Siz "
 "haqiqatdan ham …\") ko‘rsatish kerakmi"
 
-#: src/Config/Descriptions.php:123
+#: src/Config/Descriptions.php:126
 #, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr "Jadval va maydon nomlarini teskari qo‘shtirnoqqa olish"
 
-#: src/Config/Descriptions.php:126 src/Config/Descriptions.php:130
-#: src/Config/Descriptions.php:134 src/Config/Descriptions.php:138
-#: src/Config/Descriptions.php:142 src/Config/Descriptions.php:146
-#: src/Config/Descriptions.php:150 src/Config/Descriptions.php:154
-#: src/Config/Descriptions.php:158
+#: src/Config/Descriptions.php:129 src/Config/Descriptions.php:133
+#: src/Config/Descriptions.php:137 src/Config/Descriptions.php:141
+#: src/Config/Descriptions.php:145 src/Config/Descriptions.php:149
+#: src/Config/Descriptions.php:153 src/Config/Descriptions.php:157
+#: src/Config/Descriptions.php:161
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
 
-#: src/Config/Descriptions.php:162
+#: src/Config/Descriptions.php:165
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
 
-#: src/Config/Descriptions.php:166
+#: src/Config/Descriptions.php:169
 #, fuzzy
 #| msgid ""
 #| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
@@ -10455,12 +10455,12 @@ msgstr ""
 "Skript ishlashi mumkin bo‘lgan sekundlar soni (chegaramaslik uchun [kbd]0[/"
 "kbd] kiriting)"
 
-#: src/Config/Descriptions.php:168 src/Config/Descriptions.php:708
+#: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
 #: src/Plugins/Export/ExportSql.php:321
 msgid "Exclude definition of current user"
 msgstr ""
 
-#: src/Config/Descriptions.php:170
+#: src/Config/Descriptions.php:173
 #, fuzzy
 #| msgid ""
 #| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
@@ -10472,13 +10472,13 @@ msgstr ""
 "Tashqi kalit menyusining tartiblash usuli: [kbd]content[/kbd] - murojaat "
 "ma`lumotlari bo‘yicha, [kbd]id[/kbd] - kalit qiymatlar bo‘yicha"
 
-#: src/Config/Descriptions.php:174
+#: src/Config/Descriptions.php:177
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
 
-#: src/Config/Descriptions.php:179
+#: src/Config/Descriptions.php:182
 #, fuzzy
 #| msgid ""
 #| "Please note that phpMyAdmin is just a user interface and its features do "
@@ -10490,7 +10490,7 @@ msgstr ""
 "Esda tuting, phpMyAdmin - bu faqatgina foydalanuvchi interfeysi bo‘lib, "
 "uning xususiyatlari MySQL-serverining funksiyalarini chegaralamaydi"
 
-#: src/Config/Descriptions.php:182
+#: src/Config/Descriptions.php:185
 #, fuzzy
 #| msgid ""
 #| "Advanced server configuration, do not change these options unless you "
@@ -10502,7 +10502,7 @@ msgstr ""
 "Kengaytirilgan server konfiguarsiyasi, agar ularning ma`nosini aniq "
 "bilmasangiz, yaxshisi, ularga tegmang"
 
-#: src/Config/Descriptions.php:185
+#: src/Config/Descriptions.php:188
 #, fuzzy
 #| msgid ""
 #| "figure phpMyAdmin database to gain access to additional features, see ../"
@@ -10518,156 +10518,156 @@ msgstr ""
 "Documentation.html#linked-tables]ulangan jadvallar infratuzilmasini[/a] "
 "qarab chiqing"
 
-#: src/Config/Descriptions.php:190
+#: src/Config/Descriptions.php:193
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
 
-#: src/Config/Descriptions.php:193
+#: src/Config/Descriptions.php:196
 #, fuzzy
 #| msgid "Customize browse mode"
 msgid "Customize browse mode."
 msgstr "Ko‘rib chiqish usulini sozlash"
 
-#: src/Config/Descriptions.php:194 src/Config/Descriptions.php:195
-#: src/Config/Descriptions.php:202 src/Config/Descriptions.php:208
-#: src/Config/Descriptions.php:209 src/Config/Descriptions.php:214
+#: src/Config/Descriptions.php:197 src/Config/Descriptions.php:198
+#: src/Config/Descriptions.php:205 src/Config/Descriptions.php:211
+#: src/Config/Descriptions.php:212 src/Config/Descriptions.php:217
 #, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default options."
 msgstr "Eksport afzalliklarini sozlash"
 
-#: src/Config/Descriptions.php:196
+#: src/Config/Descriptions.php:199
 msgid "Settings for phpMyAdmin developers."
 msgstr ""
 
-#: src/Config/Descriptions.php:197
+#: src/Config/Descriptions.php:200
 #, fuzzy
 #| msgid "Customize edit mode"
 msgid "Customize edit mode."
 msgstr "Tahrirlash usulini sozlash"
 
-#: src/Config/Descriptions.php:198
+#: src/Config/Descriptions.php:201
 #, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default export options."
 msgstr "Eksport afzalliklarini sozlash"
 
-#: src/Config/Descriptions.php:199
+#: src/Config/Descriptions.php:202
 msgid "Set some commonly used options."
 msgstr ""
 
-#: src/Config/Descriptions.php:200
+#: src/Config/Descriptions.php:203
 #, fuzzy
 #| msgid "Customize default common import options"
 msgid "Customize default common import options."
 msgstr "Import afzalliklarini sozlash"
 
-#: src/Config/Descriptions.php:201
+#: src/Config/Descriptions.php:204
 #, fuzzy
 #| msgid "Set import and export directories and compression options"
 msgid "Set import and export directories and compression options."
 msgstr "Import va eksport kataloglari va qisish usullarini belgilash"
 
-#: src/Config/Descriptions.php:203
+#: src/Config/Descriptions.php:206
 #, fuzzy
 #| msgid "Databases display options"
 msgid "Databases display options."
 msgstr "Ma`lumotlar bazalarini ko‘rsatish afzalliklari"
 
-#: src/Config/Descriptions.php:204
+#: src/Config/Descriptions.php:207
 #, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel."
 msgstr "Navigatsiya paneli ko‘rinishini sozlash"
 
-#: src/Config/Descriptions.php:205
+#: src/Config/Descriptions.php:208
 #, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize the navigation tree."
 msgstr "Navigatsiya panelini moslashtirish"
 
-#: src/Config/Descriptions.php:206
+#: src/Config/Descriptions.php:209
 #, fuzzy
 #| msgid "Servers display options"
 msgid "Servers display options."
 msgstr "Serverlar ko‘rinishini sozlash"
 
-#: src/Config/Descriptions.php:207
+#: src/Config/Descriptions.php:210
 #, fuzzy
 #| msgid "Tables display options"
 msgid "Tables display options."
 msgstr "Jadvallar ko‘rinishini sozlash"
 
-#: src/Config/Descriptions.php:210
+#: src/Config/Descriptions.php:213
 #, fuzzy
 #| msgid "Settings that didn't fit anywhere else"
 msgid "Settings that didn't fit anywhere else."
 msgstr "Boshqa joyga sig‘magan sozlanishlar"
 
-#: src/Config/Descriptions.php:211
+#: src/Config/Descriptions.php:214
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication settings."
 msgstr "Autentifikatsiya usuli"
 
-#: src/Config/Descriptions.php:212
+#: src/Config/Descriptions.php:215
 #, fuzzy
 #| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
 msgstr "Serverning ulanish parametrlarini kiritish"
 
-#: src/Config/Descriptions.php:213
+#: src/Config/Descriptions.php:216
 #, fuzzy
 #| msgid "Customize links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes."
 msgstr "SQL so‘rovlari qutisida ko‘rsatiladigan bog‘larni sozlash"
 
-#: src/Config/Descriptions.php:215
+#: src/Config/Descriptions.php:218
 #, fuzzy
 #| msgid "SQL queries"
 msgid "SQL queries settings."
 msgstr "SQL so‘rovlari"
 
-#: src/Config/Descriptions.php:216
+#: src/Config/Descriptions.php:219
 #, fuzzy
 #| msgid "Customize startup page"
 msgid "Customize startup page."
 msgstr "Boshlang‘ich sahifani sozlash"
 
-#: src/Config/Descriptions.php:217
+#: src/Config/Descriptions.php:220
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 
-#: src/Config/Descriptions.php:218
+#: src/Config/Descriptions.php:221
 msgid "Settings for the table structure (list of columns)."
 msgstr ""
 
-#: src/Config/Descriptions.php:219
+#: src/Config/Descriptions.php:222
 #, fuzzy
 #| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
 msgstr "Yorliqlar qanday ishlashini tanlang"
 
-#: src/Config/Descriptions.php:220
+#: src/Config/Descriptions.php:223
 #, fuzzy
 #| msgid "Customize export options"
 msgid "Customize text input fields."
 msgstr "Eksport tanlovlarini moslashtirish"
 
-#: src/Config/Descriptions.php:221
+#: src/Config/Descriptions.php:224
 #, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default options"
 msgstr "Eksport afzalliklarini sozlash"
 
-#: src/Config/Descriptions.php:222
+#: src/Config/Descriptions.php:225
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr ""
 
-#: src/Config/Descriptions.php:224
+#: src/Config/Descriptions.php:227
 #, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
@@ -10677,7 +10677,7 @@ msgstr ""
 "Import va eksport operatsiyalarida    [a@https://en.wikipedia.org/wiki/"
 "Gzip]gzip[/a] yordamida siqishni yoqish"
 
-#: src/Config/Descriptions.php:226
+#: src/Config/Descriptions.php:229
 #, fuzzy
 #| msgid ""
 #| "If enabled, phpMyAdmin continues computing multiple-statement queries "
@@ -10689,7 +10689,7 @@ msgstr ""
 "Agar yoqilgan bo‘lsa, phpMyAdmin, hatto so‘rovlardan biri barbod bo‘lganda "
 "ham, ko‘p qismli so‘rovlarni hisoblashni davom etadi"
 
-#: src/Config/Descriptions.php:230
+#: src/Config/Descriptions.php:233
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -10699,7 +10699,7 @@ msgstr ""
 "ruxsat berish. Bu katta fayllarni yuklash uchun yaxshi usul, lekin u "
 "tranzaksiyalarni buzishi mumkin."
 
-#: src/Config/Descriptions.php:235
+#: src/Config/Descriptions.php:238
 #, fuzzy
 #| msgid ""
 #| "Default format; be aware that this list depends on location (database, "
@@ -10711,18 +10711,18 @@ msgstr ""
 "Import fayl formati; yodda tutingki, ushbu ro‘yxat (ma`lumotlar bazasi, "
 "jadval) joylashishiga bog‘liq va faqat SQL ishlaydi"
 
-#: src/Config/Descriptions.php:238 src/Config/Descriptions.php:239
+#: src/Config/Descriptions.php:241 src/Config/Descriptions.php:242
 msgid "Update data when duplicate keys found on import"
 msgstr ""
 
-#: src/Config/Descriptions.php:240
+#: src/Config/Descriptions.php:243
 #, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start."
 msgstr ""
 "Fayl boshidagi e`tibor berish kerak bo‘lmagan qatorlar (so‘rovlar) soni"
 
-#: src/Config/Descriptions.php:242
+#: src/Config/Descriptions.php:245
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -10734,7 +10734,7 @@ msgstr ""
 "ulanganbo‘lsa, unda YOLG‘ON (FALSE) tanlovi boshqa serverlardan chiqish "
 "unitilishiga olib kelishi mumkin."
 
-#: src/Config/Descriptions.php:247
+#: src/Config/Descriptions.php:250
 #, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
@@ -10746,7 +10746,7 @@ msgstr ""
 "cookie-autentifikatsiya usulidan foydalanilganda oldingi login sessiyasi "
 "qayta chaqirilib olinishi kerakmi"
 
-#: src/Config/Descriptions.php:251
+#: src/Config/Descriptions.php:254
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -10758,13 +10758,13 @@ msgstr ""
 "sessiya uchun saqlanadi va brauzer oynasi yopilgan zahoti o‘chiriladi. Bu "
 "qiymat ishonchsiz muhitlar uchun tavsiya etiladi."
 
-#: src/Config/Descriptions.php:257
+#: src/Config/Descriptions.php:260
 #, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr "SQL so‘rovi ko‘rsatilganda ishlatiladigan belgilarning maksimal soni"
 
-#: src/Config/Descriptions.php:260
+#: src/Config/Descriptions.php:263
 #, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
@@ -10774,7 +10774,7 @@ msgstr ""
 "Birinchi jadvalga nisbatan to‘laligicha qidiruv ishlatgan holda bajarilgan "
 "birlashma so‘rovlar soni."
 
-#: src/Config/Descriptions.php:263
+#: src/Config/Descriptions.php:266
 #, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
@@ -10784,7 +10784,7 @@ msgstr ""
 "Birinchi jadvalga nisbatan to‘laligicha qidiruv ishlatgan holda bajarilgan "
 "birlashma so‘rovlar soni."
 
-#: src/Config/Descriptions.php:266
+#: src/Config/Descriptions.php:269
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -10793,7 +10793,7 @@ msgstr ""
 "ko‘rsatilgan qiymatdan ko‘p bo‘lsa, \"Oldingi\" va \"Keyingi\" bog‘lanishlar "
 "ko‘rsatiladi."
 
-#: src/Config/Descriptions.php:271
+#: src/Config/Descriptions.php:274
 #, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
@@ -10805,15 +10805,15 @@ msgstr ""
 "Skript uchun ajratiladigan baylardagi xotira miqdori, masalan [kbd]32M[/kbd] "
 "([kbd]0[/kbd] - chegaralanmagan)"
 
-#: src/Config/Descriptions.php:275
+#: src/Config/Descriptions.php:278
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
-#: src/Config/Descriptions.php:278
+#: src/Config/Descriptions.php:281
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 
-#: src/Config/Descriptions.php:281
+#: src/Config/Descriptions.php:284
 #, fuzzy
 #| msgid ""
 #| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
@@ -10825,7 +10825,7 @@ msgstr ""
 "Bog‘langan sahifani bosh oynada ([kbd]bosh[/kbd]) yoki yangi oynada "
 "([kbd]yangi[/kbd]) ochish"
 
-#: src/Config/Descriptions.php:284
+#: src/Config/Descriptions.php:287
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid ""
@@ -10833,7 +10833,7 @@ msgid ""
 "display a filter box."
 msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
 
-#: src/Config/Descriptions.php:287
+#: src/Config/Descriptions.php:290
 #, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
@@ -10845,86 +10845,86 @@ msgstr ""
 "Yengil versiya; ma`lumotlar bazalarini daraxtda ko‘rsatish (quyida "
 "belgilangan satr bilan bo‘linadi)"
 
-#: src/Config/Descriptions.php:291
+#: src/Config/Descriptions.php:294
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr ""
 
-#: src/Config/Descriptions.php:294
+#: src/Config/Descriptions.php:297
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
-#: src/Config/Descriptions.php:297
+#: src/Config/Descriptions.php:300
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr "Chap ramkada logotipni ko‘rsatish"
 
-#: src/Config/Descriptions.php:299
+#: src/Config/Descriptions.php:302
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Set to 0 to collapse navigation panel."
 msgstr "Chap ramkada logotipni ko‘rsatish"
 
-#: src/Config/Descriptions.php:300
+#: src/Config/Descriptions.php:303
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel."
 msgstr "Chap ramkada logotipni ko‘rsatish"
 
-#: src/Config/Descriptions.php:301
+#: src/Config/Descriptions.php:304
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "URL where logo in the navigation panel will point to."
 msgstr "Chap ramkada logotipni ko‘rsatish"
 
-#: src/Config/Descriptions.php:302
+#: src/Config/Descriptions.php:305
 #, fuzzy
 #| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel."
 msgstr "Chap ramkaning yuqori qismida server tanlovini ko‘rsatish"
 
-#: src/Config/Descriptions.php:303
+#: src/Config/Descriptions.php:306
 #, fuzzy
 #| msgid "String that separates databases into different tree levels"
 msgid "String that separates databases into different tree levels."
 msgstr "Ma`lumotlar bazalarini daraxtning turli darajalariga bo‘luvchi satr"
 
-#: src/Config/Descriptions.php:304
+#: src/Config/Descriptions.php:307
 #, fuzzy
 #| msgid "String that separates tables into different tree levels"
 msgid "String that separates tables into different tree levels."
 msgstr "Jadvallarni daraxtning turli darajalariga bo‘luvchi satr"
 
-#: src/Config/Descriptions.php:305
+#: src/Config/Descriptions.php:308
 #, fuzzy
 #| msgid "Highlight server under the mouse cursor"
 msgid "Highlight server under the mouse cursor."
 msgstr "Sichqoncha kursori turgan serverni belgilash"
 
-#: src/Config/Descriptions.php:306
+#: src/Config/Descriptions.php:309
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "Chap ramkada logotipni ko‘rsatish"
 
-#: src/Config/Descriptions.php:307
+#: src/Config/Descriptions.php:310
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Whether to show views under database in the navigation tree"
 msgstr "Chap ramkada logotipni ko‘rsatish"
 
-#: src/Config/Descriptions.php:308
+#: src/Config/Descriptions.php:311
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
-#: src/Config/Descriptions.php:309
+#: src/Config/Descriptions.php:312
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Whether to show events under database in the navigation tree"
 msgstr "Chap ramkada logotipni ko‘rsatish"
 
-#: src/Config/Descriptions.php:311
+#: src/Config/Descriptions.php:314
 #, fuzzy
 #| msgid ""
 #| "d]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
@@ -10936,20 +10936,20 @@ msgstr ""
 "[kbd]SMART[/kbd] – ya`ni, TIME, DATE, DATETIME va TIMESTAMP turidagi "
 "maydonlar uchun kamayish tartibida, aks holda ko‘payish tartibida"
 
-#: src/Config/Descriptions.php:315
+#: src/Config/Descriptions.php:318
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found."
 msgstr ""
 
-#: src/Config/Descriptions.php:320
+#: src/Config/Descriptions.php:323
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
 msgstr ""
 
-#: src/Config/Descriptions.php:324
+#: src/Config/Descriptions.php:327
 #, fuzzy
 #| msgid ""
 #| "ble if you want DB-based query history (requires phpMyAdmin configuration "
@@ -10964,17 +10964,17 @@ msgstr ""
 "tanlovni yoqing (pmadb talab etiladi). Ushbu tanlov o‘chirilgan bo‘lsa, oyna "
 "yopilgan zahoti so‘rovlar tarixi yo‘qoladi."
 
-#: src/Config/Descriptions.php:328
+#: src/Config/Descriptions.php:331
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
 
-#: src/Config/Descriptions.php:330
+#: src/Config/Descriptions.php:333
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
 
-#: src/Config/Descriptions.php:333
+#: src/Config/Descriptions.php:336
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
@@ -10986,7 +10986,7 @@ msgstr ""
 "[a@https://wiki.phpmyadmin.net/pma/bookmark]Xatcho‘p[/a] ishlatmaslik uchun "
 "bo‘sh qoldiring, asli: [kbd]pma_bookmark[/kbd]"
 
-#: src/Config/Descriptions.php:336
+#: src/Config/Descriptions.php:339
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: "
@@ -10998,7 +10998,7 @@ msgstr ""
 "Ustun izohlari/\"mime\"-turlari haqidagi ma`lumotlarni ishlatmaslik uchun "
 "bo‘sh qoldiring, asli: [kbd]pma_column_info[/kbd]"
 
-#: src/Config/Descriptions.php:339
+#: src/Config/Descriptions.php:342
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
@@ -11012,20 +11012,20 @@ msgstr ""
 "batafsil ma`lumot [a@https://wiki.phpmyadmin.net/pma/controluser]\"wiki\"[/"
 "a]da mavjud"
 
-#: src/Config/Descriptions.php:343
+#: src/Config/Descriptions.php:346
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr ""
 
-#: src/Config/Descriptions.php:346
+#: src/Config/Descriptions.php:349
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
 
-#: src/Config/Descriptions.php:351
+#: src/Config/Descriptions.php:354
 #, fuzzy
 #| msgid ""
 #| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
@@ -11040,7 +11040,7 @@ msgstr ""
 "bugs/2606/]\"PMA bug tracker\"[/a] va [a@https://bugs.mysql."
 "com/19588]\"MySQL Bugs\"[/a]larga qarang"
 
-#: src/Config/Descriptions.php:355
+#: src/Config/Descriptions.php:358
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: "
@@ -11052,13 +11052,13 @@ msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#: src/Config/Descriptions.php:358
+#: src/Config/Descriptions.php:361
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
 
-#: src/Config/Descriptions.php:362
+#: src/Config/Descriptions.php:365
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
@@ -11069,7 +11069,7 @@ msgstr ""
 "Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: "
 "[kbd]\"pma_pdf_pages\"[/kbd]"
 
-#: src/Config/Descriptions.php:365
+#: src/Config/Descriptions.php:368
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
@@ -11081,7 +11081,7 @@ msgstr ""
 "PDF-sxemadan foydalanmaslik uchun bo‘sh qoldiring, asl qiymati: "
 "[kbd]\"pma_table_coords\"[/kbd]"
 
-#: src/Config/Descriptions.php:368
+#: src/Config/Descriptions.php:371
 #, fuzzy
 #| msgid ""
 #| " can use MySQL wildcard characters (% and _), escape them if you want use "
@@ -11095,7 +11095,7 @@ msgstr ""
 "oldiga teskari egri chiziq (\\) qo‘yishingiz kerak, masalan \\\"my\\_db\\"
 "\" (lekin \"my_db\" emas)"
 
-#: src/Config/Descriptions.php:373
+#: src/Config/Descriptions.php:376
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
@@ -11105,7 +11105,7 @@ msgstr ""
 "Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: "
 "[kbd]\"pma_pdf_pages\"[/kbd]"
 
-#: src/Config/Descriptions.php:376
+#: src/Config/Descriptions.php:379
 #, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@https://"
@@ -11121,7 +11121,7 @@ msgstr ""
 "a]ga qarang. Agar foydalanmasangiz, bo‘sh qoldiring. Asl qiymati: "
 "[kbd]\"phpmyadmin\"[/kbd]"
 
-#: src/Config/Descriptions.php:381
+#: src/Config/Descriptions.php:384
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -11132,7 +11132,7 @@ msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#: src/Config/Descriptions.php:385
+#: src/Config/Descriptions.php:388
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -11143,7 +11143,7 @@ msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#: src/Config/Descriptions.php:389
+#: src/Config/Descriptions.php:392
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
@@ -11155,7 +11155,7 @@ msgstr ""
 "[a@https://wiki.phpmyadmin.net/pma/relation]Aloqa bog‘lanishlari[/a]ni "
 "ishlatmaslik uchun, bo‘sh qoldiring, asl qiymati: [kbd]\"pma_relation\"[/kbd]"
 
-#: src/Config/Descriptions.php:394
+#: src/Config/Descriptions.php:397
 #, fuzzy
 #| msgid ""
 #| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
@@ -11166,7 +11166,7 @@ msgstr ""
 "Namuna  uchun [a@https://wiki.phpmyadmin.net/pma/"
 "auth_types#signon]autentifikatsiya usullari[/a]ga qarang"
 
-#: src/Config/Descriptions.php:397
+#: src/Config/Descriptions.php:400
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
@@ -11178,7 +11178,7 @@ msgstr ""
 "PDF-sxemadan foydalanmaslik uchun bo‘sh qoldiring, asl qiymati: "
 "[kbd]\"pma_table_coords\"[/kbd]"
 
-#: src/Config/Descriptions.php:400
+#: src/Config/Descriptions.php:403
 #, fuzzy
 #| msgid ""
 #| "le to describe the display fields, leave blank for no support; gested: "
@@ -11190,7 +11190,7 @@ msgstr ""
 "Ko‘rsatiladigan maydonlar sharhlari saqlanadigan jadval, ishlatmaslik uchun "
 "bo‘sh qoldiring, asl qiymati: [kbd]\"pma_table_info\"[/kbd]"
 
-#: src/Config/Descriptions.php:404
+#: src/Config/Descriptions.php:407
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -11201,29 +11201,29 @@ msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#: src/Config/Descriptions.php:408
+#: src/Config/Descriptions.php:411
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
 
-#: src/Config/Descriptions.php:412
+#: src/Config/Descriptions.php:415
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 
-#: src/Config/Descriptions.php:416
+#: src/Config/Descriptions.php:419
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 
-#: src/Config/Descriptions.php:420
+#: src/Config/Descriptions.php:423
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
-#: src/Config/Descriptions.php:423
+#: src/Config/Descriptions.php:426
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -11234,13 +11234,13 @@ msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#: src/Config/Descriptions.php:426
+#: src/Config/Descriptions.php:429
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 
-#: src/Config/Descriptions.php:429
+#: src/Config/Descriptions.php:432
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -11251,21 +11251,21 @@ msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#: src/Config/Descriptions.php:432
+#: src/Config/Descriptions.php:435
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:437
+#: src/Config/Descriptions.php:440
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:442
+#: src/Config/Descriptions.php:445
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -11276,25 +11276,25 @@ msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#: src/Config/Descriptions.php:446
+#: src/Config/Descriptions.php:449
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr "MySQL serveri ishlayotgan xost server nomi."
 
-#: src/Config/Descriptions.php:448
+#: src/Config/Descriptions.php:451
 #, fuzzy
 #| msgid "Leave blank if not used"
 msgid "Leave blank if not used."
 msgstr "Agar ishlatilmasa bo‘sh qoldiring"
 
-#: src/Config/Descriptions.php:449
+#: src/Config/Descriptions.php:452
 #, fuzzy
 #| msgid "Leave blank for defaults"
 msgid "Leave blank for defaults."
 msgstr "Asl qoidalarni ishlatish uchun bo‘sh qoldiring"
 
-#: src/Config/Descriptions.php:450
+#: src/Config/Descriptions.php:453
 #, fuzzy
 #| msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -11302,52 +11302,52 @@ msgstr ""
 "HTTP Avtorizatsiya vaqtida ko‘rsatiladigan Oddiy HTTP Avtorizatsiya Bo‘limi "
 "nomi"
 
-#: src/Config/Descriptions.php:451
+#: src/Config/Descriptions.php:454
 #, fuzzy
 #| msgid "Authentication method to use"
 msgid "Authentication method to use."
 msgstr "Foydalaniladigan autentifikatsiya usuli"
 
-#: src/Config/Descriptions.php:452
+#: src/Config/Descriptions.php:455
 #, fuzzy
 #| msgid "Compress connection to MySQL server"
 msgid "Compress connection to MySQL server."
 msgstr "MySQL serveiga ulanishni qisish"
 
-#: src/Config/Descriptions.php:453
+#: src/Config/Descriptions.php:456
 #, fuzzy
 #| msgid "Hide databases matching regular expression (PCRE)"
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr ""
 "Muntazam iboralar(PCRE)ga to‘g‘ri keladigan ma`lumotlar bazalarini yashirish"
 
-#: src/Config/Descriptions.php:454
+#: src/Config/Descriptions.php:457
 #, fuzzy
 #| msgid "Hostname where MySQL server is running"
 msgid "Hostname where MySQL server is running."
 msgstr "MySQL sеrvеri ishlayotgan xost nomi"
 
-#: src/Config/Descriptions.php:455 src/Config/Descriptions.php:459
+#: src/Config/Descriptions.php:458 src/Config/Descriptions.php:462
 #, fuzzy
 #| msgid "Leave empty if not using config auth"
 msgid "Leave empty if not using config auth."
 msgstr ""
 "Agar \"config\" autentifikatsiya usulidan foydalanmasangiz, bo‘sh qoldiring"
 
-#: src/Config/Descriptions.php:456
+#: src/Config/Descriptions.php:459
 #, fuzzy
 #| msgid "Port on which MySQL server is listening, leave empty for default"
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "MySQL serveri tinglaydigan port, asl qiymatni qoldirish uchun bo‘sh qoldiring"
 
-#: src/Config/Descriptions.php:457
+#: src/Config/Descriptions.php:460
 #, fuzzy
 #| msgid "Socket on which MySQL server is listening, leave empty for default"
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr "MySQL serveri tinglaydigan soket, asl qiymati uchun bo‘sh qoldiring"
 
-#: src/Config/Descriptions.php:458
+#: src/Config/Descriptions.php:461
 #, fuzzy
 #| msgid "Enable SSL for connection to MySQL server"
 msgid "Enable SSL for connection to MySQL server."
@@ -11355,7 +11355,7 @@ msgstr ""
 "SSL (Secure Sockets Layer - himoyalangan soketlar protokoli) ulanishdan "
 "foydalanish"
 
-#: src/Config/Descriptions.php:461
+#: src/Config/Descriptions.php:464
 #, fuzzy
 #| msgid ""
 #| "Please note that enabling this has no effect with [kbd]config[/kbd] "
@@ -11370,27 +11370,27 @@ msgstr ""
 "Esda tuting, ushbu tanlovni yoqishingiz [kbd]\"config\"[/kbd] "
 "autentifikatsiya usulidagi parolga ta`sir etmaydi"
 
-#: src/Config/Descriptions.php:466
-msgid "Show or hide a column displaying the Creation timestamp for all tables."
-msgstr ""
-
 #: src/Config/Descriptions.php:469
-msgid ""
-"Show or hide a column displaying the Last update timestamp for all tables."
+msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 
 #: src/Config/Descriptions.php:472
 msgid ""
-"Show or hide a column displaying the Last check timestamp for all tables."
+"Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 
 #: src/Config/Descriptions.php:475
+msgid ""
+"Show or hide a column displaying the Last check timestamp for all tables."
+msgstr ""
+
+#: src/Config/Descriptions.php:478
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr ""
 
-#: src/Config/Descriptions.php:478
+#: src/Config/Descriptions.php:481
 #, fuzzy
 #| msgid ""
 #| "Shows link to [a@https://www.php.net/manual/function.phpinfo.php]phpinfo()"
@@ -11402,32 +11402,32 @@ msgstr ""
 "[a@https://www.php.net/manual/function.phpinfo.php]\"phpinfo()\"[/a] "
 "funksiyasi natijasiga bog‘ ko‘rsatish"
 
-#: src/Config/Descriptions.php:480
+#: src/Config/Descriptions.php:483
 #, fuzzy
 #| msgid "ther a user should be displayed a \"show all (records)\" button"
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 "Foydalanuvchiga \"barcha (yozuvlar)ni ko‘rsatish\" tugmasi ko‘rsatilsinmi?"
 
-#: src/Config/Descriptions.php:481
+#: src/Config/Descriptions.php:484
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
 
-#: src/Config/Descriptions.php:482
+#: src/Config/Descriptions.php:485
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
 
-#: src/Config/Descriptions.php:483
+#: src/Config/Descriptions.php:486
 #, fuzzy
 #| msgid "Display the function fields in edit/insert mode"
 msgid "Display the function fields in edit/insert mode."
 msgstr "Tahrirlash/qo‘yish rejimida funksiyalar maydonini ko‘rsatish"
 
-#: src/Config/Descriptions.php:484
+#: src/Config/Descriptions.php:487
 msgid "Whether to show hint or not."
 msgstr ""
 
-#: src/Config/Descriptions.php:485
+#: src/Config/Descriptions.php:488
 #, fuzzy
 #| msgid ""
 #| "Defines whether SQL queries generated by phpMyAdmin should be displayed"
@@ -11436,7 +11436,7 @@ msgid ""
 msgstr ""
 "phpMyAdmin tomonidan generatsiya qilingan SQL so‘rovlarini ko‘rsatish kerakmi"
 
-#: src/Config/Descriptions.php:486
+#: src/Config/Descriptions.php:489
 #, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)"
 msgid "Allow to display database and table statistics (e.g. space usage)."
@@ -11444,7 +11444,7 @@ msgstr ""
 "Ma`lumotlar bazalari va jadvallar statiskasini (masalan, diskda egallagan "
 "joyi) ko‘rsatish"
 
-#: src/Config/Descriptions.php:488
+#: src/Config/Descriptions.php:491
 #, fuzzy
 #| msgid ""
 #| "Mark used tables and make it possible to show databases with locked tables"
@@ -11454,7 +11454,7 @@ msgstr ""
 "Ishlatilayotgan jadvallarni belgilash va qulflangan jadvallari mavjud "
 "bo‘lgan ma`lumotlar bazalarini ko‘rishga imkon berish"
 
-#: src/Config/Descriptions.php:491
+#: src/Config/Descriptions.php:494
 #, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
@@ -11466,7 +11466,7 @@ msgstr ""
 "[kbd]cookie[/kbd]-autentifikatsiya usulida cookie-larni shifrlash uchun "
 "ishlatiladigan sirli ibora"
 
-#: src/Config/Descriptions.php:494
+#: src/Config/Descriptions.php:497
 #, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
@@ -11479,19 +11479,19 @@ msgstr ""
 "[kbd]cookie[/kbd]-autentifikatsiya usulida cookie-larni shifrlash uchun "
 "ishlatiladigan sirli ibora"
 
-#: src/Config/Descriptions.php:499
+#: src/Config/Descriptions.php:502
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
 
-#: src/Config/Descriptions.php:502
+#: src/Config/Descriptions.php:505
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
 
-#: src/Config/Descriptions.php:505
+#: src/Config/Descriptions.php:508
 #, fuzzy
 #| msgid ""
 #| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
@@ -11509,13 +11509,13 @@ msgstr ""
 "kelayotgan HTTP_X_FORWARDED_FOR (X-Forwarded-For) sarlavhani ishonchli deb "
 "qabul qilishini ta`minlaydi: [br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
-#: src/Config/Descriptions.php:511
+#: src/Config/Descriptions.php:514
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr ""
 
-#: src/Config/Descriptions.php:514
+#: src/Config/Descriptions.php:517
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
@@ -11523,20 +11523,20 @@ msgid ""
 "to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
 
-#: src/Config/Descriptions.php:520
+#: src/Config/Descriptions.php:523
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
 
-#: src/Config/Descriptions.php:526
+#: src/Config/Descriptions.php:529
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
 
-#: src/Config/Descriptions.php:530
+#: src/Config/Descriptions.php:533
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
@@ -11547,155 +11547,155 @@ msgstr ""
 "pmadb usuli ishlatilmoqda, lekin phpMyAdmin konfiguratsion faylida "
 "foydalanuvchi belgilanmagan"
 
-#: src/Config/Descriptions.php:533
+#: src/Config/Descriptions.php:536
 msgid "Highlight selected rows."
 msgstr "Tanlangan qatorlarni belgilash."
 
-#: src/Config/Descriptions.php:534
+#: src/Config/Descriptions.php:537
 #, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
 msgstr "Sichqoncha kursori ko‘rsatib turgan qatorni belgilash"
 
-#: src/Config/Descriptions.php:535
+#: src/Config/Descriptions.php:538
 #, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
 msgstr "CHAR/VARCHAR maydonlaridagi ustunlar soni"
 
-#: src/Config/Descriptions.php:536
+#: src/Config/Descriptions.php:539
 #, fuzzy
 #| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "CHAR/VARCHAR maydonlaridagi qatorlar soni"
 
-#: src/Config/Descriptions.php:537
+#: src/Config/Descriptions.php:540
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
 
-#: src/Config/Descriptions.php:538
+#: src/Config/Descriptions.php:541
 #, fuzzy
 #| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
 msgstr "Ma`lumotlar bazasiga kirishda ko‘rsatiladigan yorliq"
 
-#: src/Config/Descriptions.php:539
+#: src/Config/Descriptions.php:542
 #, fuzzy
 #| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
 msgstr "Serverga kirishda ko‘rsatiladigan yorliq"
 
-#: src/Config/Descriptions.php:540
+#: src/Config/Descriptions.php:543
 #, fuzzy
 #| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
 msgstr "Jadvalga kirishda ko‘rsatiladigan yorliq"
 
-#: src/Config/Descriptions.php:541
+#: src/Config/Descriptions.php:544
 #, fuzzy
 #| msgid "Propose table structure"
 msgid "Whether the table structure actions should be hidden."
 msgstr "Jadval tuzilishi tahlili"
 
-#: src/Config/Descriptions.php:542
+#: src/Config/Descriptions.php:545
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
 
-#: src/Config/Descriptions.php:543
+#: src/Config/Descriptions.php:546
 msgid "Show server listing as a list instead of a drop down."
 msgstr ""
 "Serverlar ro‘yxatini pastga tushadigan menyu o‘rniga oddiy ro‘yxat shaklida "
 "ko‘rsatish."
 
-#: src/Config/Descriptions.php:544
+#: src/Config/Descriptions.php:547
 #, fuzzy
 #| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
 msgstr "Agar kamroq qiymat bo‘lsa, pastga tushuvchi menyu ishlatiladi"
 
-#: src/Config/Descriptions.php:545
+#: src/Config/Descriptions.php:548
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
-#: src/Config/Descriptions.php:546
+#: src/Config/Descriptions.php:549
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
 
-#: src/Config/Descriptions.php:547
+#: src/Config/Descriptions.php:550
 #, fuzzy
 #| msgid "How many rows can be inserted at one time"
 msgid "How many rows can be inserted at one time."
 msgstr "Bir vaqtning o‘zidanechta qator qo‘yilishi mumkin"
 
-#: src/Config/Descriptions.php:548
+#: src/Config/Descriptions.php:551
 #, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr "SQL so‘rovi ko‘rsatilganda ishlatiladigan belgilarning maksimal soni"
 
-#: src/Config/Descriptions.php:549
+#: src/Config/Descriptions.php:552
 #, fuzzy
 #| msgid "Define how long (in seconds) a login cookie is valid"
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr ""
 "cookie-login usuli qancha vaqt (sekundlarda) yaroqli bo‘lishini belgilang"
 
-#: src/Config/Descriptions.php:550
+#: src/Config/Descriptions.php:553
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr ""
 
-#: src/Config/Descriptions.php:551
+#: src/Config/Descriptions.php:554
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list."
 msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
 
-#: src/Config/Descriptions.php:552
+#: src/Config/Descriptions.php:555
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of tables displayed in table list."
 msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
 
-#: src/Config/Descriptions.php:553
+#: src/Config/Descriptions.php:556
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
 
-#: src/Config/Descriptions.php:554
+#: src/Config/Descriptions.php:557
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
 
-#: src/Config/Descriptions.php:555
+#: src/Config/Descriptions.php:558
 msgid "These are Edit, Copy and Delete links."
 msgstr ""
 
-#: src/Config/Descriptions.php:556
+#: src/Config/Descriptions.php:559
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 
-#: src/Config/Descriptions.php:557 src/Config/Descriptions.php:838
+#: src/Config/Descriptions.php:560 src/Config/Descriptions.php:838
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
 msgstr "Tashqi kalitlarni tekshirishni o‘chirish"
 
-#: src/Config/Descriptions.php:558
+#: src/Config/Descriptions.php:561
 msgid "Use natural order for sorting table and database names."
 msgstr ""
 
-#: src/Config/Descriptions.php:559 src/Config/Descriptions.php:562
-#: src/Config/Descriptions.php:563
+#: src/Config/Descriptions.php:562 src/Config/Descriptions.php:565
+#: src/Config/Descriptions.php:566
 #, fuzzy
 #| msgid "Use only icons, only text or both"
 msgid "Use only icons, only text or both."
 msgstr "Faqat piktogramma, faqat matn yoki har ikkisini ishlatish"
 
-#: src/Config/Descriptions.php:560
+#: src/Config/Descriptions.php:563
 #, fuzzy
 #| msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
@@ -11703,84 +11703,84 @@ msgstr ""
 "HTTP orqali ma`lumot uzatishda yuqori tezlikka erishish uchun GZip "
 "buferizatsiyadan foydalaning"
 
-#: src/Config/Descriptions.php:561
+#: src/Config/Descriptions.php:564
 #, fuzzy
 #| msgid "Use persistent connections to MySQL databases"
 msgid "Use persistent connections to MySQL databases."
 msgstr "MySQL ma`lumotlar bazalarida doimiy ulanishlardan foydalanish"
 
-#: src/Config/Descriptions.php:564
+#: src/Config/Descriptions.php:567
 #, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "BLOB va BINARY maydonlarini tahirlashni man etish"
 
-#: src/Config/Descriptions.php:565
+#: src/Config/Descriptions.php:568
 #, fuzzy
 #| msgid "How many queries are kept in history"
 msgid "How many queries are kept in history."
 msgstr "Jurnalda saqlanadigan so‘rovlar soni"
 
-#: src/Config/Descriptions.php:566
+#: src/Config/Descriptions.php:569
 #, fuzzy
 #| msgid "Select which functions will be used for character set conversion"
 msgid "Select which functions will be used for character set conversion."
 msgstr ""
 "Kodirovkalarni bir-biriga o‘tkazishda foydalaniladigan funksiyalarni tanlang"
 
-#: src/Config/Descriptions.php:567
+#: src/Config/Descriptions.php:570
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr ""
 
-#: src/Config/Descriptions.php:568
+#: src/Config/Descriptions.php:571
 msgid "Default sort order for tables with a primary key."
 msgstr ""
 
-#: src/Config/Descriptions.php:569
+#: src/Config/Descriptions.php:572
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr ""
 
-#: src/Config/Descriptions.php:570
+#: src/Config/Descriptions.php:573
 #, fuzzy
 #| msgid "Servers display options"
 msgid "For display Options"
 msgstr "Serverlar ko‘rinishini sozlash"
 
-#: src/Config/Descriptions.php:571
+#: src/Config/Descriptions.php:574
 #, fuzzy
 #| msgid "Directory where exports can be saved on server"
 msgid "Directory where exports can be saved on server."
 msgstr "Serverdagi eksport fayllar saqlanadigan direktoriya"
 
-#: src/Config/Descriptions.php:572
+#: src/Config/Descriptions.php:575
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
 
-#: src/Config/Descriptions.php:573
+#: src/Config/Descriptions.php:576
 msgid "Title of browser window when a database is selected."
 msgstr ""
 
-#: src/Config/Descriptions.php:574
+#: src/Config/Descriptions.php:577
 msgid "Title of browser window when nothing is selected."
 msgstr ""
 
-#: src/Config/Descriptions.php:575
+#: src/Config/Descriptions.php:578
 msgid "Title of browser window when a server is selected."
 msgstr ""
 
-#: src/Config/Descriptions.php:576
+#: src/Config/Descriptions.php:579
 msgid "Title of browser window when a table is selected."
 msgstr ""
 
-#: src/Config/Descriptions.php:577
+#: src/Config/Descriptions.php:580
 #, fuzzy
 #| msgid "Directory on server where you can upload files for import"
 msgid "Directory on server where you can upload files for import."
 msgstr "Serverda import fayllari saqlanadigan direktoriya"
 
-#: src/Config/Descriptions.php:578
+#: src/Config/Descriptions.php:581
 #, fuzzy
 #| msgid "Allow for searching inside the entire database"
 msgid "Allow for searching inside the entire database."
@@ -11788,15 +11788,15 @@ msgstr ""
 "Ma`lumotlar bazasi ichidagi ma`lumotlarni to‘laligicha qidirishga ruxsat "
 "berish"
 
-#: src/Config/Descriptions.php:579
+#: src/Config/Descriptions.php:582
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr ""
 
-#: src/Config/Descriptions.php:580
+#: src/Config/Descriptions.php:583
 msgid "The password for authenticating with the proxy."
 msgstr ""
 
-#: src/Config/Descriptions.php:581
+#: src/Config/Descriptions.php:584
 #, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
@@ -11806,7 +11806,7 @@ msgstr ""
 "Import va eksport operatsiyalarida    [a@https://en.wikipedia.org/wiki/"
 "Gzip]gzip[/a] yordamida siqishni yoqish"
 
-#: src/Config/Descriptions.php:582
+#: src/Config/Descriptions.php:585
 msgid "Choose the default action when sending error reports."
 msgstr ""
 
@@ -13192,40 +13192,40 @@ msgstr ""
 msgid "Server connection collation"
 msgstr "MySQL bilan ulanishni chog‘ishtirish"
 
-#: src/Config/FormDisplay.php:580
+#: src/Config/FormDisplay.php:581
 #, php-format
 msgid "Missing data for %s"
 msgstr "\"%s\" maydonida ma`lumot yo‘q"
 
-#: src/Config/FormDisplay.php:620 src/Config/Validator.php:594
+#: src/Config/FormDisplay.php:621 src/Config/Validator.php:595
 #: src/Controllers/JavaScriptMessagesController.php:828
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
 msgstr "Noto‘g‘ri qiymat"
 
-#: src/Config/FormDisplay.php:766
+#: src/Config/FormDisplay.php:767
 #, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
 msgstr "O‘zgaruvchi"
 
-#: src/Config/FormDisplay.php:768
+#: src/Config/FormDisplay.php:769
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr ""
 
-#: src/Config/FormDisplay.php:790
+#: src/Config/FormDisplay.php:791
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr ""
 
-#: src/Config/FormDisplay.php:799
+#: src/Config/FormDisplay.php:800
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr ""
 
-#: src/Config/FormDisplay.php:819
+#: src/Config/FormDisplay.php:820
 #, fuzzy, php-format
 #| msgid "Maximum tables"
 msgid "maximum %s"
@@ -13545,19 +13545,19 @@ msgstr "Foydalanuvchi uchun ma`lumotlar bazasi"
 msgid "Table-level tabs"
 msgstr "Jadval nomi"
 
-#: src/Config/Validator.php:252
+#: src/Config/Validator.php:253
 #, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
 msgstr "Nishonga ulanib bo‘lmadi"
 
-#: src/Config/Validator.php:288
+#: src/Config/Validator.php:289
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
 msgstr "Autentifikatsiya usuli"
 
-#: src/Config/Validator.php:293
+#: src/Config/Validator.php:294
 #, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -13565,7 +13565,7 @@ msgstr ""
 "config autentifikatsiya usuli ishlatilmoqda, lekin phpMyAdmin konfiguratsion "
 "faylida foydalanuvchi nomi belgilanmagan"
 
-#: src/Config/Validator.php:299
+#: src/Config/Validator.php:300
 #, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid ""
@@ -13575,7 +13575,7 @@ msgstr ""
 "signon autentifikatsiya usuli ishlatilmoqda, lekin phpMyAdmin konfiguratsion "
 "faylida sessiya nomi belgilanmagan"
 
-#: src/Config/Validator.php:306
+#: src/Config/Validator.php:307
 #, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
@@ -13583,7 +13583,7 @@ msgstr ""
 "signon autentifikatsiya usuli ishlatilmoqda, lekin phpMyAdmin konfiguratsion "
 "faylida URL (unifikatsiya qilingan axborot resurs ko‘rsatgichi) belgilanmagan"
 
-#: src/Config/Validator.php:359
+#: src/Config/Validator.php:360
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
@@ -13593,7 +13593,7 @@ msgstr ""
 "pmadb usuli ishlatilmoqda, lekin phpMyAdmin konfiguratsion faylida "
 "foydalanuvchi belgilanmagan"
 
-#: src/Config/Validator.php:366
+#: src/Config/Validator.php:367
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user password while using phpMyAdmin "
@@ -13605,39 +13605,39 @@ msgstr ""
 "pmadb usuli ishlatilmoqda, lekin phpMyAdmin konfiguratsion faylida parol "
 "belgilanmagan"
 
-#: src/Config/Validator.php:455
+#: src/Config/Validator.php:456
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
 msgstr "Noto‘g‘ri qiymat"
 
-#: src/Config/Validator.php:466
+#: src/Config/Validator.php:467
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Noto‘g‘ri IP-adres: \"%s\""
 
-#: src/Config/Validator.php:529
+#: src/Config/Validator.php:530
 #: src/Controllers/JavaScriptMessagesController.php:827
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
 msgstr "Noto‘g‘ri port nomeri"
 
-#: src/Config/Validator.php:551
+#: src/Config/Validator.php:552
 #: src/Controllers/JavaScriptMessagesController.php:825
 #, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
 msgstr "Musbat son emas"
 
-#: src/Config/Validator.php:573
+#: src/Config/Validator.php:574
 #: src/Controllers/JavaScriptMessagesController.php:826
 #, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
 msgstr "Nomanfiy son emas"
 
-#: src/Config/Validator.php:612
+#: src/Config/Validator.php:613
 #: src/Controllers/JavaScriptMessagesController.php:829
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -17427,9 +17427,9 @@ msgstr "Server javob bermayapti"
 msgid "Setting variable failed"
 msgstr ""
 
-#: src/Controllers/Setup/ConfigController.php:41
+#: src/Controllers/Setup/ConfigController.php:43
 #: src/Controllers/Setup/FormController.php:44
-#: src/Controllers/Setup/HomeController.php:45
+#: src/Controllers/Setup/HomeController.php:47
 #: src/Controllers/Setup/ServerDestroyController.php:41
 #: src/Controllers/Setup/ServersController.php:44
 #: src/Controllers/Setup/ShowConfigController.php:42
@@ -17441,7 +17441,7 @@ msgstr ""
 msgid "Incorrect form specified!"
 msgstr ""
 
-#: src/Controllers/Setup/HomeController.php:71
+#: src/Controllers/Setup/HomeController.php:73
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
@@ -17449,7 +17449,7 @@ msgstr ""
 "Sizning ulanishingiz xavfsiz emas; barcha ma`lumotlar (shu jumladan, sirli "
 "ma`lumotlar, masalan, parollar) shifrlanmagan holda uzatiladi!"
 
-#: src/Controllers/Setup/HomeController.php:76
+#: src/Controllers/Setup/HomeController.php:78
 #, fuzzy
 #| msgid ""
 #| "If your server is also configured to accept HTTPS requests follow "
@@ -17461,7 +17461,7 @@ msgstr ""
 "Agar serveringiz HTTPS talablariga javob bera olsa, unda xavfsiz ulanishni "
 "ishlatish uchun [a@\"%s\"]ushbu bog‘dan[/a] foydalaning."
 
-#: src/Controllers/Setup/HomeController.php:80
+#: src/Controllers/Setup/HomeController.php:82
 msgid "Insecure connection"
 msgstr "Noxavfsiz ulanish"
 
@@ -20819,22 +20819,22 @@ msgstr "\"%s\" ma`lumotlar bazasida SQL-so‘rov(lar)ni bajarish"
 msgid "Run SQL query/queries on table %s"
 msgstr "\"%s\" ma`lumotlar bazasida SQL-so‘rov(lar)ni bajarish"
 
-#: src/StorageEngine.php:319
+#: src/StorageEngine.php:320
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "Ushbu turdagi jadvallar haqida qo‘shimcha ma`lumot mavjud emas."
 
-#: src/StorageEngine.php:416
+#: src/StorageEngine.php:417
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "Ushbu MySQL serveri \"%s\" turdagi jadvallar bilan ishlay oladi."
 
-#: src/StorageEngine.php:417
+#: src/StorageEngine.php:418
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "\"%s\" turidagi jadvallar ushbu MySQL serverda faolsizlantirilgan."
 
-#: src/StorageEngine.php:418
+#: src/StorageEngine.php:419
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Ushbu MySQL serveri \"%s\" turdagi jadvallar bilan ishlay olmaydi."

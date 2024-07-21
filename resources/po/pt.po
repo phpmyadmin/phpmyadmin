@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-07-14 00:22+0000\n"
+"POT-Creation-Date: 2024-07-21 00:22+0000\n"
 "PO-Revision-Date: 2024-05-02 18:18+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -812,7 +812,7 @@ msgstr "Reiniciar"
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
 #: src/Html/Generator.php:668 src/Html/MySQLDocumentation.php:49
-#: src/Sanitize.php:188
+#: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "Documentação"
 
@@ -2523,7 +2523,7 @@ msgid "Sum"
 msgstr "Soma"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:415
+#: src/StorageEngine.php:416
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s é o storage engine por defeito neste MySQL server."
@@ -9120,19 +9120,19 @@ msgstr "ambos acima"
 msgid "neither of the above"
 msgstr "nenhuma das acima"
 
-#: src/Config/Descriptions.php:55 src/Config/Descriptions.php:56
-#: src/Config/Descriptions.php:57
+#: src/Config/Descriptions.php:61 src/Config/Descriptions.php:62
+#: src/Config/Descriptions.php:63
 msgid "Users cannot set a higher value"
 msgstr "Os utilizadores não podem definir um valor maior"
 
-#: src/Config/Descriptions.php:73
+#: src/Config/Descriptions.php:76
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Se for activado, o utilizador pode entrar em qualquer servidor MySQL através "
 "de um formulário de início de sessão para a autenticação com cookies."
 
-#: src/Config/Descriptions.php:76
+#: src/Config/Descriptions.php:79
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
@@ -9142,7 +9142,7 @@ msgstr ""
 "início de sessão a um servidor MySQL arbitrário é ativado ao combinar o "
 "endereço IP ou nome de anfitrião do servidor MySQL à expressão regular dada."
 
-#: src/Config/Descriptions.php:81
+#: src/Config/Descriptions.php:84
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
@@ -9152,7 +9152,7 @@ msgstr ""
 "chame o phpMyAdmin dentro de uma frame, e poderá ser uma potencial [strong] "
 "falha de segurança [/strong], que permite ataques de script cross-frame(XSS)."
 
-#: src/Config/Descriptions.php:86
+#: src/Config/Descriptions.php:89
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
@@ -9160,15 +9160,15 @@ msgstr ""
 "Frase secreta utilizada para encriptar cookies na autenticação por "
 "[kbd]cookie[/kbd]."
 
-#: src/Config/Descriptions.php:88
+#: src/Config/Descriptions.php:91
 msgid "Enable bzip2 compression for import operations."
 msgstr "Activar compressão bzip2 para operações de importação."
 
-#: src/Config/Descriptions.php:89
+#: src/Config/Descriptions.php:92
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "Digite a URL para a sua API compatível com reCAPTCHA v2."
 
-#: src/Config/Descriptions.php:90
+#: src/Config/Descriptions.php:93
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
@@ -9176,31 +9176,31 @@ msgstr ""
 "Introduza o snippet Content-Security-Policy para a sua API compatível com o "
 "reCAPTCHA v2."
 
-#: src/Config/Descriptions.php:91
+#: src/Config/Descriptions.php:94
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 "Introduza o parâmetro de requisição utilizado pela sua API compatível com o "
 "reCAPTCHA v2."
 
-#: src/Config/Descriptions.php:92
+#: src/Config/Descriptions.php:95
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 "Introduza o parâmetro de resposta utilizado pela sua API compatível com o "
 "reCAPTCHA v2."
 
-#: src/Config/Descriptions.php:93
+#: src/Config/Descriptions.php:96
 msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "Introduza a sua chave pública para o serviço reCAPTCHA no seu domínio."
 
-#: src/Config/Descriptions.php:94
+#: src/Config/Descriptions.php:97
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "Introduza a sua chave privada para o serviço reCAPTCHA do seu domínio."
 
-#: src/Config/Descriptions.php:95
+#: src/Config/Descriptions.php:98
 msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr "Digite o URL do seu siteverify para o seu serviço reCAPTCHA."
 
-#: src/Config/Descriptions.php:97
+#: src/Config/Descriptions.php:100
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -9210,7 +9210,7 @@ msgstr ""
 "CHAR e VARCHAR; [kbd]input[/kbd] - permite limitar o tamanho do campo, "
 "[kbd]textarea[/kbd] - permite quebra de linhas em colunas."
 
-#: src/Config/Descriptions.php:102
+#: src/Config/Descriptions.php:105
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
@@ -9218,7 +9218,7 @@ msgstr ""
 "Use o nosso editor amigável para editar consultas SQL (CodeMirror) com "
 "realce de sintaxe e número de linhas."
 
-#: src/Config/Descriptions.php:107
+#: src/Config/Descriptions.php:110
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
@@ -9226,7 +9226,7 @@ msgstr ""
 "Encontra quaisquer erros na consulta antes da sua execução. Requer que "
 "CodeMirror seja ativado."
 
-#: src/Config/Descriptions.php:110
+#: src/Config/Descriptions.php:113
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9234,7 +9234,7 @@ msgstr ""
 "Define o tamanho mínimo para campos de entrada gerados para as colunas CHAR "
 "e VARCHAR."
 
-#: src/Config/Descriptions.php:113
+#: src/Config/Descriptions.php:116
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9242,7 +9242,7 @@ msgstr ""
 "Define o tamanho máximo para os campos de entrada gerados para as colunas "
 "CHAR e VARCHAR."
 
-#: src/Config/Descriptions.php:116
+#: src/Config/Descriptions.php:119
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
@@ -9251,7 +9251,7 @@ msgstr ""
 "se encontrar problemas com ficheiros gzip criados desative esta "
 "funcionalidade."
 
-#: src/Config/Descriptions.php:120
+#: src/Config/Descriptions.php:123
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
@@ -9259,16 +9259,16 @@ msgstr ""
 "Exibir aviso (\"Tem mesmo a certeza…\") quando estiver prestes a perder "
 "dados."
 
-#: src/Config/Descriptions.php:123
+#: src/Config/Descriptions.php:126
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr ""
 "Preenchimento automático dos nomes de tabelas e colunas nas consultas SQL."
 
-#: src/Config/Descriptions.php:126 src/Config/Descriptions.php:130
-#: src/Config/Descriptions.php:134 src/Config/Descriptions.php:138
-#: src/Config/Descriptions.php:142 src/Config/Descriptions.php:146
-#: src/Config/Descriptions.php:150 src/Config/Descriptions.php:154
-#: src/Config/Descriptions.php:158
+#: src/Config/Descriptions.php:129 src/Config/Descriptions.php:133
+#: src/Config/Descriptions.php:137 src/Config/Descriptions.php:141
+#: src/Config/Descriptions.php:145 src/Config/Descriptions.php:149
+#: src/Config/Descriptions.php:153 src/Config/Descriptions.php:157
+#: src/Config/Descriptions.php:161
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
@@ -9277,7 +9277,7 @@ msgstr ""
 "substituídas se a transformação for preenchida na pagina da estrutura da "
 "tabela."
 
-#: src/Config/Descriptions.php:162
+#: src/Config/Descriptions.php:165
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
@@ -9285,7 +9285,7 @@ msgstr ""
 "Desativar operações em massa de manutenção de tabelas, como optimizar ou "
 "reparar as tabelas seleccionadas de uma base de dados."
 
-#: src/Config/Descriptions.php:166
+#: src/Config/Descriptions.php:169
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
@@ -9293,12 +9293,12 @@ msgstr ""
 "Define a quantidade máxima de segundos que um script tem para executar "
 "([kbd]0[/kbd] para sem limite)."
 
-#: src/Config/Descriptions.php:168 src/Config/Descriptions.php:708
+#: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
 #: src/Plugins/Export/ExportSql.php:321
 msgid "Exclude definition of current user"
 msgstr "Excluir definição do utilizador atual"
 
-#: src/Config/Descriptions.php:170
+#: src/Config/Descriptions.php:173
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
@@ -9307,7 +9307,7 @@ msgstr ""
 "o [kbd]conteúdo[/kbd] é o dado referenciado, e o [kbd]id[/kbd] é o valor "
 "chave."
 
-#: src/Config/Descriptions.php:174
+#: src/Config/Descriptions.php:177
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
@@ -9316,7 +9316,7 @@ msgstr ""
 "[doc@faq6-27]documentação[/doc] para cadeias mágicas que podem ser usadas "
 "para conseguir valores especiais."
 
-#: src/Config/Descriptions.php:179
+#: src/Config/Descriptions.php:182
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
@@ -9324,7 +9324,7 @@ msgstr ""
 "Por favor repare que o phpMyAdmin é uma interface de utilizador e as suas "
 "funcionalidades não limitam o MySQL."
 
-#: src/Config/Descriptions.php:182
+#: src/Config/Descriptions.php:185
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
@@ -9332,7 +9332,7 @@ msgstr ""
 "Configurações avançadas do servidor, não altere estas opções a menos que "
 "saiba para que são."
 
-#: src/Config/Descriptions.php:185
+#: src/Config/Descriptions.php:188
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -9342,7 +9342,7 @@ msgstr ""
 "funcionalidades adicionais, consulte [doc@linked-tables]phpMyAdmin "
 "configuration storage[/doc] na documentação."
 
-#: src/Config/Descriptions.php:190
+#: src/Config/Descriptions.php:193
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
@@ -9350,116 +9350,116 @@ msgstr ""
 "Rastreamento das mudanças feitas na base de dados. Requerem o armazenamento "
 "da configuração do phpMyAdmin."
 
-#: src/Config/Descriptions.php:193
+#: src/Config/Descriptions.php:196
 msgid "Customize browse mode."
 msgstr "Personalizar modo de navegação."
 
-#: src/Config/Descriptions.php:194 src/Config/Descriptions.php:195
-#: src/Config/Descriptions.php:202 src/Config/Descriptions.php:208
-#: src/Config/Descriptions.php:209 src/Config/Descriptions.php:214
+#: src/Config/Descriptions.php:197 src/Config/Descriptions.php:198
+#: src/Config/Descriptions.php:205 src/Config/Descriptions.php:211
+#: src/Config/Descriptions.php:212 src/Config/Descriptions.php:217
 msgid "Customize default options."
 msgstr "Personalizar as opções por defeito."
 
-#: src/Config/Descriptions.php:196
+#: src/Config/Descriptions.php:199
 msgid "Settings for phpMyAdmin developers."
 msgstr "Definições para programadores phpMyAdmin."
 
-#: src/Config/Descriptions.php:197
+#: src/Config/Descriptions.php:200
 msgid "Customize edit mode."
 msgstr "Personalizar modo de edição."
 
-#: src/Config/Descriptions.php:198
+#: src/Config/Descriptions.php:201
 msgid "Customize default export options."
 msgstr "Personalizar as opções de exportação por defeito."
 
-#: src/Config/Descriptions.php:199
+#: src/Config/Descriptions.php:202
 msgid "Set some commonly used options."
 msgstr "Define algumas opções usadas frequentemente."
 
-#: src/Config/Descriptions.php:200
+#: src/Config/Descriptions.php:203
 msgid "Customize default common import options."
 msgstr "Personalizar opções de importação por defeito comuns."
 
-#: src/Config/Descriptions.php:201
+#: src/Config/Descriptions.php:204
 msgid "Set import and export directories and compression options."
 msgstr "Define diretórios de importação e exportação e opções de compressão."
 
-#: src/Config/Descriptions.php:203
+#: src/Config/Descriptions.php:206
 msgid "Databases display options."
 msgstr "Opções de visualização das Bases de dados."
 
-#: src/Config/Descriptions.php:204
+#: src/Config/Descriptions.php:207
 msgid "Customize appearance of the navigation panel."
 msgstr "Personalizar a aparência do painel de navegação."
 
-#: src/Config/Descriptions.php:205
+#: src/Config/Descriptions.php:208
 msgid "Customize the navigation tree."
 msgstr "Personalizar a árvore de navegação."
 
-#: src/Config/Descriptions.php:206
+#: src/Config/Descriptions.php:209
 msgid "Servers display options."
 msgstr "Exibir as opções dos servidores."
 
-#: src/Config/Descriptions.php:207
+#: src/Config/Descriptions.php:210
 msgid "Tables display options."
 msgstr "Opções de exibição de tabelas."
 
-#: src/Config/Descriptions.php:210
+#: src/Config/Descriptions.php:213
 msgid "Settings that didn't fit anywhere else."
 msgstr "Definições que não se encaixavam em nenhum outro lugar."
 
-#: src/Config/Descriptions.php:211
+#: src/Config/Descriptions.php:214
 msgid "Authentication settings."
 msgstr "Definições de autenticação."
 
-#: src/Config/Descriptions.php:212
+#: src/Config/Descriptions.php:215
 msgid "Enter server connection parameters."
 msgstr "Digite os parâmetros de ligação ao servidor."
 
-#: src/Config/Descriptions.php:213
+#: src/Config/Descriptions.php:216
 msgid "Customize links shown in SQL Query boxes."
 msgstr "Personaliza links mostrados nas caixas de consulta SQL."
 
-#: src/Config/Descriptions.php:215
+#: src/Config/Descriptions.php:218
 msgid "SQL queries settings."
 msgstr "Definições de consultas SQL."
 
-#: src/Config/Descriptions.php:216
+#: src/Config/Descriptions.php:219
 msgid "Customize startup page."
 msgstr "Personalizar página inicial."
 
-#: src/Config/Descriptions.php:217
+#: src/Config/Descriptions.php:220
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 "Escolha que detalhes mostrar na estrutura da base de dados (lista de "
 "tabelas)."
 
-#: src/Config/Descriptions.php:218
+#: src/Config/Descriptions.php:221
 msgid "Settings for the table structure (list of columns)."
 msgstr "Definições para a estrutura da tabela (lista de colunas)."
 
-#: src/Config/Descriptions.php:219
+#: src/Config/Descriptions.php:222
 msgid "Choose how you want tabs to work."
 msgstr "Escolha como quer que as abas funcionem."
 
-#: src/Config/Descriptions.php:220
+#: src/Config/Descriptions.php:223
 msgid "Customize text input fields."
 msgstr "Personalizar campos de entrada de texto."
 
-#: src/Config/Descriptions.php:221
+#: src/Config/Descriptions.php:224
 msgid "Customize default options"
 msgstr "Personalizar as opções predefinidas"
 
-#: src/Config/Descriptions.php:222
+#: src/Config/Descriptions.php:225
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Desative alguns dos avisos mostrados pelo phpMyAdmin."
 
-#: src/Config/Descriptions.php:224
+#: src/Config/Descriptions.php:227
 msgid "Enable gzip compression for import and export operations."
 msgstr "Ativar a compressão gzip nas operações de importação e exportação."
 
-#: src/Config/Descriptions.php:226
+#: src/Config/Descriptions.php:229
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
@@ -9467,7 +9467,7 @@ msgstr ""
 "Se ativado, phpMyAdmin continua a processar consultas com múltiplas "
 "instruções mesmo se uma das consultas falhar."
 
-#: src/Config/Descriptions.php:230
+#: src/Config/Descriptions.php:233
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -9477,7 +9477,7 @@ msgstr ""
 "limite de tempo. Esta pode ser uma boa maneira de importar ficheiros "
 "grandes, mas pode quebrar as transações."
 
-#: src/Config/Descriptions.php:235
+#: src/Config/Descriptions.php:238
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
@@ -9485,16 +9485,16 @@ msgstr ""
 "Formato predefinido; esteja ciente que esta lista depende da localização "
 "(base de dados, tabela) e somente o SQL está sempre disponível."
 
-#: src/Config/Descriptions.php:238 src/Config/Descriptions.php:239
+#: src/Config/Descriptions.php:241 src/Config/Descriptions.php:242
 msgid "Update data when duplicate keys found on import"
 msgstr ""
 "Atualiza os dados quando chaves duplicadas forem encontradas na importação"
 
-#: src/Config/Descriptions.php:240
+#: src/Config/Descriptions.php:243
 msgid "Number of queries to skip from start."
 msgstr "Número de queries a saltar desde o início."
 
-#: src/Config/Descriptions.php:242
+#: src/Config/Descriptions.php:245
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -9505,7 +9505,7 @@ msgstr ""
 "o como FALSO facilita o esquecimento de sair de outros servidores quando "
 "conectado a vários servidores."
 
-#: src/Config/Descriptions.php:247
+#: src/Config/Descriptions.php:250
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
@@ -9513,7 +9513,7 @@ msgstr ""
 "Define se o login anterior deve ser recordado ou não no modo de autenticação "
 "de [kbd]cookie[/kbd]."
 
-#: src/Config/Descriptions.php:251
+#: src/Config/Descriptions.php:254
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -9525,11 +9525,11 @@ msgstr ""
 "sessão actual e será apagado assim que fechar a janela do navegador. Isto é "
 "recomendado para ambientes não-confiáveis."
 
-#: src/Config/Descriptions.php:257
+#: src/Config/Descriptions.php:260
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr "Número máximo de caracteres usados quando uma consulta SQL é mostrada."
 
-#: src/Config/Descriptions.php:260
+#: src/Config/Descriptions.php:263
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
@@ -9537,7 +9537,7 @@ msgstr ""
 "A quantidade de itens que podem ser mostrados em cada página no primeiro "
 "nível da árvore de navegação."
 
-#: src/Config/Descriptions.php:263
+#: src/Config/Descriptions.php:266
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
@@ -9545,7 +9545,7 @@ msgstr ""
 "A quantidade de itens que podem ser mostradas em cada página da árvore de "
 "navegação."
 
-#: src/Config/Descriptions.php:266
+#: src/Config/Descriptions.php:269
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -9553,7 +9553,7 @@ msgstr ""
 "Número de linhas exibidas ao navegar o resultado encontrado. Se o resultado "
 "tiver mais linhas, \"Anteriores\" e \"Próximas\" ligações serão apresentadas."
 
-#: src/Config/Descriptions.php:271
+#: src/Config/Descriptions.php:274
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
@@ -9561,17 +9561,17 @@ msgstr ""
 "A quantidade de bytes que um script pode alocar, ex. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] para nenhum limite e [kbd]0[/kbd] para nehnuma alteração)."
 
-#: src/Config/Descriptions.php:275
+#: src/Config/Descriptions.php:278
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 "No painel de navegação, substitui a árvore da base de dados por um seletor"
 
-#: src/Config/Descriptions.php:278
+#: src/Config/Descriptions.php:281
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 "Liga com o painel principal destacando a base de dados ou tabela actual."
 
-#: src/Config/Descriptions.php:281
+#: src/Config/Descriptions.php:284
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
@@ -9579,7 +9579,7 @@ msgstr ""
 "Abre a página ligada na janela principal ([code]principal[/code]) ou numa "
 "nova janela ([code]nova[/code])."
 
-#: src/Config/Descriptions.php:284
+#: src/Config/Descriptions.php:287
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -9587,7 +9587,7 @@ msgstr ""
 "Define a quantidade mínima de itens (tabelas, vistas, rotinas e eventos) a "
 "apresentar numa caixa de filtragem."
 
-#: src/Config/Descriptions.php:287
+#: src/Config/Descriptions.php:290
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
@@ -9595,72 +9595,72 @@ msgstr ""
 "Agrupar itens na árvore de navegação (determinado pelo separador definido "
 "nos separadores Bases de dados e Tabelas acima)."
 
-#: src/Config/Descriptions.php:291
+#: src/Config/Descriptions.php:294
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr ""
 "Se deseja oferecer a possibilidade de expansão de árvore no painel de "
 "navegação."
 
-#: src/Config/Descriptions.php:294
+#: src/Config/Descriptions.php:297
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 "Se para mostrar procedimentos abaixo da base de dados na árvore de navegação"
 
-#: src/Config/Descriptions.php:297
+#: src/Config/Descriptions.php:300
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr ""
 "Se a base de dados individual deve ser expandida automaticamente na árvore "
 "de navegação."
 
-#: src/Config/Descriptions.php:299
+#: src/Config/Descriptions.php:302
 msgid "Set to 0 to collapse navigation panel."
 msgstr "Configurar como 0 para colapsar o painel de navegação."
 
-#: src/Config/Descriptions.php:300
+#: src/Config/Descriptions.php:303
 msgid "Show logo in navigation panel."
 msgstr "Mostrar o logótipo no painel de navegação."
 
-#: src/Config/Descriptions.php:301
+#: src/Config/Descriptions.php:304
 msgid "URL where logo in the navigation panel will point to."
 msgstr "URL para onde irá apontar o logótipo do painel de navegação."
 
-#: src/Config/Descriptions.php:302
+#: src/Config/Descriptions.php:305
 msgid "Display server choice at the top of the navigation panel."
 msgstr "Apresentar o servidor escolhido no topo do painel de navegação."
 
-#: src/Config/Descriptions.php:303
+#: src/Config/Descriptions.php:306
 msgid "String that separates databases into different tree levels."
 msgstr ""
 "Cadeia de caracteres que separa bases de dados em diferentes níveis de "
 "árvore."
 
-#: src/Config/Descriptions.php:304
+#: src/Config/Descriptions.php:307
 msgid "String that separates tables into different tree levels."
 msgstr ""
 "Cadeia de caracteres que separa tabelas em níveis diferentes de árvores."
 
-#: src/Config/Descriptions.php:305
+#: src/Config/Descriptions.php:308
 msgid "Highlight server under the mouse cursor."
 msgstr "Destaque servidor sob o cursor do rato."
 
-#: src/Config/Descriptions.php:306
+#: src/Config/Descriptions.php:309
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "Mostrar ou não as tabelas da base de dados na árvore de navegação"
 
-#: src/Config/Descriptions.php:307
+#: src/Config/Descriptions.php:310
 msgid "Whether to show views under database in the navigation tree"
 msgstr "Mostrar ou não as vistas da base de dados na árvore de navegação"
 
-#: src/Config/Descriptions.php:308
+#: src/Config/Descriptions.php:311
 msgid "Whether to show functions under database in the navigation tree"
 msgstr "Se para mostrar funções abaixo da base de dados na árvore de navegação"
 
-#: src/Config/Descriptions.php:309
+#: src/Config/Descriptions.php:312
 msgid "Whether to show events under database in the navigation tree"
 msgstr "Mostrar ou não eventos na base de dados na árvore de navegação"
 
-#: src/Config/Descriptions.php:311
+#: src/Config/Descriptions.php:314
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -9668,7 +9668,7 @@ msgstr ""
 "[kbd]SMART[/kbd] - i.e. ordem decrescente para colunas do tipo TIME, DATE, "
 "DATETIME e TIMESTAMP, caso contrário, ordem ascendente."
 
-#: src/Config/Descriptions.php:315
+#: src/Config/Descriptions.php:318
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -9678,7 +9678,7 @@ msgstr ""
 "Estrutura da base de dados se alguma das tabelas requeridas para a "
 "configuração do armazenamento do phpMyAdmin não for encontrada."
 
-#: src/Config/Descriptions.php:320
+#: src/Config/Descriptions.php:323
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -9687,7 +9687,7 @@ msgstr ""
 "estrutura da base de dados se algum dos nomes de coluna numa tabela forem "
 "palavras reservadas do MySQL."
 
-#: src/Config/Descriptions.php:324
+#: src/Config/Descriptions.php:327
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -9697,11 +9697,11 @@ msgstr ""
 "configuração de armazenamento phpMyAdmin). Se estiver desativado, utiliza as "
 "rotinas JS para mostrar o histórico de consulta (perdido fechando da janela)."
 
-#: src/Config/Descriptions.php:328
+#: src/Config/Descriptions.php:331
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
 
-#: src/Config/Descriptions.php:330
+#: src/Config/Descriptions.php:333
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
@@ -9709,7 +9709,7 @@ msgstr ""
 "Define o fuso horário efectivo; possivelmente diferente do da sua base de "
 "dados"
 
-#: src/Config/Descriptions.php:333
+#: src/Config/Descriptions.php:336
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
@@ -9717,7 +9717,7 @@ msgstr ""
 "Deixe em branco para nenhumas [doc@bookmarks@]marcações[/doc], sugerido: "
 "[kbd]pma_bookmark[/kbd]"
 
-#: src/Config/Descriptions.php:336
+#: src/Config/Descriptions.php:339
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
@@ -9725,7 +9725,7 @@ msgstr ""
 "Deixe em branco quando não houver colunas de comentário/tipos de mídia, "
 "sugeridas: [kbd]pma__column_info[/kbd]."
 
-#: src/Config/Descriptions.php:339
+#: src/Config/Descriptions.php:342
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
@@ -9733,7 +9733,7 @@ msgstr ""
 "Um utilizador especial do MySQL configurado com permissões limitadas, mais "
 "informações disponíveis na [doc@linked-tables]documentação[/doc]."
 
-#: src/Config/Descriptions.php:343
+#: src/Config/Descriptions.php:346
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
@@ -9741,7 +9741,7 @@ msgstr ""
 "Um servidor alternativo para armazenar a configuração; deixe em branco para "
 "utilizar um servidor já definido."
 
-#: src/Config/Descriptions.php:346
+#: src/Config/Descriptions.php:349
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -9751,7 +9751,7 @@ msgstr ""
 "configuração; deixe em branco para utilizar a porta predefinida ou a porta "
 "pré-definida, se o servidor de controlo for igual ao servidor."
 
-#: src/Config/Descriptions.php:351
+#: src/Config/Descriptions.php:354
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
@@ -9761,7 +9761,7 @@ msgstr ""
 "issues/8970]issue tracker do phpMyAdmin[/a] e no [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 
-#: src/Config/Descriptions.php:355
+#: src/Config/Descriptions.php:358
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -9769,7 +9769,7 @@ msgstr ""
 "Deixe em branco se não houver/quiser suporte a histórico de consulta SQL, "
 "sugerido: [kbd]pma__history[/kbd]."
 
-#: src/Config/Descriptions.php:358
+#: src/Config/Descriptions.php:361
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
@@ -9777,7 +9777,7 @@ msgstr ""
 "Limita a quantidade de preferências de tabela armazenadas na base de dados, "
 "os registos mais antigos são automaticamente removidos."
 
-#: src/Config/Descriptions.php:362
+#: src/Config/Descriptions.php:365
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
@@ -9785,7 +9785,7 @@ msgstr ""
 "Deixe em branco para não ter suporte para modelos de exportação, sugestão: "
 "[kbd]pma__export_templates[/kbd]."
 
-#: src/Config/Descriptions.php:365
+#: src/Config/Descriptions.php:368
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
@@ -9793,7 +9793,7 @@ msgstr ""
 "Deixe em branco para desativar o suporte para colunas centrais, sugestão: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: src/Config/Descriptions.php:368
+#: src/Config/Descriptions.php:371
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -9803,14 +9803,14 @@ msgstr ""
 "invertida se quiser utilizar as suas instâncias literais, ou seja, utilize "
 "[kbd]'my\\_db'[/kbd] e não [kbd]'my_db'[/kbd]."
 
-#: src/Config/Descriptions.php:373
+#: src/Config/Descriptions.php:376
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "Deixe em branco se não houver/quiser suporte de esquema PDF, sugerido: "
 "[kbd]pma__pdf_pages[/kbd]."
 
-#: src/Config/Descriptions.php:376
+#: src/Config/Descriptions.php:379
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
@@ -9820,7 +9820,7 @@ msgstr ""
 "Consulte [doc@linked-tables]pmadb[/doc] para obter informações completas. "
 "Deixar em branco para não haver suporte. Sugerido: [kbd]phpmyadmin[/kbd]."
 
-#: src/Config/Descriptions.php:381
+#: src/Config/Descriptions.php:384
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -9828,7 +9828,7 @@ msgstr ""
 "Deixe em branco para que não hajam tabelas recentes \"persistentes\" ao "
 "longo das sessões, sugeridas: [kbd]pma_column_info[/kbd]."
 
-#: src/Config/Descriptions.php:385
+#: src/Config/Descriptions.php:388
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
@@ -9836,7 +9836,7 @@ msgstr ""
 "Deixe em branco para nenhumas tabelas \"persistentes\" favoritas entre "
 "sessões, sugestão: [kbd]pma__favorite[/kbd]."
 
-#: src/Config/Descriptions.php:389
+#: src/Config/Descriptions.php:392
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
@@ -9844,14 +9844,14 @@ msgstr ""
 "Deixe em branco se não houver suporte para [doc@relations@]links de relação[/"
 "doc], sugestão: [kbd]pma__relation[/kbd]."
 
-#: src/Config/Descriptions.php:394
+#: src/Config/Descriptions.php:397
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
 "Veja os [doc@authentication-modes]tipos de autenticação[/doc] para um "
 "exemplo."
 
-#: src/Config/Descriptions.php:397
+#: src/Config/Descriptions.php:400
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -9859,7 +9859,7 @@ msgstr ""
 "Deixe em branco se não houver/quiser suporte de esquema PDF, sugerido: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: src/Config/Descriptions.php:400
+#: src/Config/Descriptions.php:403
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
@@ -9867,7 +9867,7 @@ msgstr ""
 "Tabela para descrever as colunas mostradas, deixe em branco se não houver/"
 "quiser suporte, sugerido: [kbd]pma__table_info[/kbd]."
 
-#: src/Config/Descriptions.php:404
+#: src/Config/Descriptions.php:407
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -9875,7 +9875,7 @@ msgstr ""
 "Deixe em branco para que não hajam tabelas \"persistentes\"com preferências "
 "ao longo das sessões, sugerido: [kbd]pma_pdf_pages[/kbd]."
 
-#: src/Config/Descriptions.php:408
+#: src/Config/Descriptions.php:411
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -9883,7 +9883,7 @@ msgstr ""
 "Se será acrescentada uma instrução DROP DATABASE IF EXISTS como primeira "
 "linha para o log ao criar uma base de dados."
 
-#: src/Config/Descriptions.php:412
+#: src/Config/Descriptions.php:415
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -9891,7 +9891,7 @@ msgstr ""
 "Será acrescentada uma instrução DROP TABLE IF EXISTS na primeira linha para "
 "o registo ao criar uma tabela."
 
-#: src/Config/Descriptions.php:416
+#: src/Config/Descriptions.php:419
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -9899,12 +9899,12 @@ msgstr ""
 "Se uma instrução DROP VIEW IF EXISTS será adicionada como primeira linha ao "
 "log, quando se cria um view."
 
-#: src/Config/Descriptions.php:420
+#: src/Config/Descriptions.php:423
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Define a lista de instruções que o auto-creation usa para novas versões."
 
-#: src/Config/Descriptions.php:423
+#: src/Config/Descriptions.php:426
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
@@ -9912,7 +9912,7 @@ msgstr ""
 "Deixe em branco se não há suporte ao rastreamento de consulta SQL, sugerido: "
 "[kbd]pma_history[/kbd]."
 
-#: src/Config/Descriptions.php:426
+#: src/Config/Descriptions.php:429
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -9920,7 +9920,7 @@ msgstr ""
 "Se o mecanismo de rastreamento cria versões para tabelas e vistas "
 "automaticamente."
 
-#: src/Config/Descriptions.php:429
+#: src/Config/Descriptions.php:432
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
@@ -9928,7 +9928,7 @@ msgstr ""
 "Deixe em branco para não armazenar na base de dados as preferências de "
 "utilizadores, sugerido: [kbd]pma_designer_coords[/kbd]."
 
-#: src/Config/Descriptions.php:432
+#: src/Config/Descriptions.php:435
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
@@ -9938,7 +9938,7 @@ msgstr ""
 "para ativar a funcionalidade de menus configuráveis; Deixando uma delas em "
 "branco, irá desativar esta funcionalidade; sugerido: [kbd]pma__users[/kbd]."
 
-#: src/Config/Descriptions.php:437
+#: src/Config/Descriptions.php:440
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
@@ -9949,7 +9949,7 @@ msgstr ""
 "branco irá desativar esta funcionalidade, sugerido: [kbd]pma__usergroups[/"
 "kbd]."
 
-#: src/Config/Descriptions.php:442
+#: src/Config/Descriptions.php:445
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -9957,7 +9957,7 @@ msgstr ""
 "Deixe em branco para desativar a funcionalidade de esconder ou mostrar os "
 "itens de navegação, sugerido: [kbd]pma_navigationhiding[/kbd]."
 
-#: src/Config/Descriptions.php:446
+#: src/Config/Descriptions.php:449
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -9965,54 +9965,54 @@ msgstr ""
 "Uma descrição de fácil compreensão deste servidor. Deixe em branco para "
 "mostrar o nome do servidor (hostname)."
 
-#: src/Config/Descriptions.php:448
+#: src/Config/Descriptions.php:451
 msgid "Leave blank if not used."
 msgstr "Deixar em branco se não for usado."
 
-#: src/Config/Descriptions.php:449
+#: src/Config/Descriptions.php:452
 msgid "Leave blank for defaults."
 msgstr "Deixe em branco por defeito."
 
-#: src/Config/Descriptions.php:450
+#: src/Config/Descriptions.php:453
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr "Nome do Domínio a apresentar quando é feita autenticação HTTP."
 
-#: src/Config/Descriptions.php:451
+#: src/Config/Descriptions.php:454
 msgid "Authentication method to use."
 msgstr "Método de autenticação a utilizar."
 
-#: src/Config/Descriptions.php:452
+#: src/Config/Descriptions.php:455
 msgid "Compress connection to MySQL server."
 msgstr "Comprimir ligação ao servidor MySQL."
 
-#: src/Config/Descriptions.php:453
+#: src/Config/Descriptions.php:456
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Ocultar bases de dados correspondentes a expressão regular (PCRE)."
 
-#: src/Config/Descriptions.php:454
+#: src/Config/Descriptions.php:457
 msgid "Hostname where MySQL server is running."
 msgstr "Nome do Servidor onde o MYSQL está a ser executado."
 
-#: src/Config/Descriptions.php:455 src/Config/Descriptions.php:459
+#: src/Config/Descriptions.php:458 src/Config/Descriptions.php:462
 msgid "Leave empty if not using config auth."
 msgstr "Deixar vazio se não utilizar autenticação por config."
 
-#: src/Config/Descriptions.php:456
+#: src/Config/Descriptions.php:459
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Porta na qual o servidor Mysql está atento, deixe em branco por defeito."
 
-#: src/Config/Descriptions.php:457
+#: src/Config/Descriptions.php:460
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 "O socket no qual MySQL server está atento, deixe em branco para a "
 "predefinição."
 
-#: src/Config/Descriptions.php:458
+#: src/Config/Descriptions.php:461
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Ative o SSL para as ligações com o servidor de MySQL."
 
-#: src/Config/Descriptions.php:461
+#: src/Config/Descriptions.php:464
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -10023,27 +10023,27 @@ msgstr ""
 "escrita no ficheiro de configuração; isto não impossibilita que o mesmo "
 "comando seja executado diretamente."
 
-#: src/Config/Descriptions.php:466
+#: src/Config/Descriptions.php:469
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 "Mostrar ou esconder a coluna que exibe a Criação de timestamp em todas as "
 "tabelas."
 
-#: src/Config/Descriptions.php:469
+#: src/Config/Descriptions.php:472
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 "Mostra ou esconde uma coluna com a data(timestamp) da última atualização em "
 "todas as tabelas."
 
-#: src/Config/Descriptions.php:472
+#: src/Config/Descriptions.php:475
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 "Mostra ou esconde uma coluna com a data(timestamp) da última verificação em "
 "todas as tabelas."
 
-#: src/Config/Descriptions.php:475
+#: src/Config/Descriptions.php:478
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
@@ -10051,7 +10051,7 @@ msgstr ""
 "Define se os tipos de campo devem ser mostrados inicialmente no modo editar/"
 "inserir, ou não."
 
-#: src/Config/Descriptions.php:478
+#: src/Config/Descriptions.php:481
 msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
@@ -10059,49 +10059,49 @@ msgstr ""
 "Exibe o link para a saída de [a@https://php.net/manual/function.phpinfo."
 "php]phpinfo()[/a]."
 
-#: src/Config/Descriptions.php:480
+#: src/Config/Descriptions.php:483
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 "Se um utilizador deve visualizar um botão \"mostrar todos (registos)\"."
 
-#: src/Config/Descriptions.php:481
+#: src/Config/Descriptions.php:484
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
 "Mostrar ou ocultar uma coluna que exiba os comentários para todas as tabelas."
 
-#: src/Config/Descriptions.php:482
+#: src/Config/Descriptions.php:485
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
 "Mostrar ou ocultar uma coluna que exiba o conjunto de caracteres para todas "
 "tabelas."
 
-#: src/Config/Descriptions.php:483
+#: src/Config/Descriptions.php:486
 msgid "Display the function fields in edit/insert mode."
 msgstr "Mostrar os campos de função no modo editar/inserir."
 
-#: src/Config/Descriptions.php:484
+#: src/Config/Descriptions.php:487
 msgid "Whether to show hint or not."
 msgstr "Se mostra sugestão ou não."
 
-#: src/Config/Descriptions.php:485
+#: src/Config/Descriptions.php:488
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr "Define se as consultas SQL geradas pelo phpMyAdmin devem ser exibidas."
 
-#: src/Config/Descriptions.php:486
+#: src/Config/Descriptions.php:489
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
 "Permitir exibir estatísticas da base de dados e tabelas (por exemplo, uso de "
 "espaço)."
 
-#: src/Config/Descriptions.php:488
+#: src/Config/Descriptions.php:491
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Marca tabelas utilizadas e torna possível mostrar bases de dados com tabelas "
 "bloqueadas."
 
-#: src/Config/Descriptions.php:491
+#: src/Config/Descriptions.php:494
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
@@ -10109,7 +10109,7 @@ msgstr ""
 "Desativa o alerta predefinido que é exibido na página principal se o pacote "
 "Suhosin foi detectado."
 
-#: src/Config/Descriptions.php:494
+#: src/Config/Descriptions.php:497
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
@@ -10119,7 +10119,7 @@ msgstr ""
 "da configuração do PHP 'session.gc_maxlifetime' é menor que o valor de "
 "`LoginCookieValidity`."
 
-#: src/Config/Descriptions.php:499
+#: src/Config/Descriptions.php:502
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10127,7 +10127,7 @@ msgstr ""
 "Tamanho do campo (colunas) em modo edição, o valor será enfatizado (*2) para "
 "textareas de consulta SQL."
 
-#: src/Config/Descriptions.php:502
+#: src/Config/Descriptions.php:505
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10135,7 +10135,7 @@ msgstr ""
 "Tamanho da textarea (linhas) no modo de edição, esse valor será enfatizado "
 "(*2) para as textareas de consulta SQL."
 
-#: src/Config/Descriptions.php:505
+#: src/Config/Descriptions.php:508
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -10147,7 +10147,7 @@ msgstr ""
 "HTTP_X_FORWARDED_FOR (X-Forwarded-For) vindo do proxy 1.2.3.4:[br]"
 "[kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
 
-#: src/Config/Descriptions.php:511
+#: src/Config/Descriptions.php:514
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -10155,7 +10155,7 @@ msgstr ""
 "Quando desativado, os utilizadores não podem definir nenhuma das opções em "
 "baixo, independentemente da caixa de verificação à direita."
 
-#: src/Config/Descriptions.php:514
+#: src/Config/Descriptions.php:517
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
@@ -10167,7 +10167,7 @@ msgstr ""
 "isto se o servidor onde o phpMyAdmin está instalado não tem acesso direto à "
 "Internet. O formato é: \"nomeservidor:númeroporta\"."
 
-#: src/Config/Descriptions.php:520
+#: src/Config/Descriptions.php:523
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -10178,7 +10178,7 @@ msgstr ""
 "feita a Autenticação Básica. Não é possível efetuar mais nenhum tipo de "
 "autenticação de momento."
 
-#: src/Config/Descriptions.php:526
+#: src/Config/Descriptions.php:529
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
@@ -10186,7 +10186,7 @@ msgstr ""
 "Consultas são executadas ao pressionar Enter (ao invés de Ctrl+Enter). Novas "
 "linhas serão inseridas com Shift+Enter."
 
-#: src/Config/Descriptions.php:530
+#: src/Config/Descriptions.php:533
 msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
@@ -10194,220 +10194,220 @@ msgstr ""
 "Ativa o modo de Configuração Zero que o permite configurar automaticamente "
 "as tabelas de armazenamento de configuração do phpMyAdmin."
 
-#: src/Config/Descriptions.php:533
+#: src/Config/Descriptions.php:536
 msgid "Highlight selected rows."
 msgstr "Destacar as linhas seleccionadas."
 
-#: src/Config/Descriptions.php:534
+#: src/Config/Descriptions.php:537
 msgid "Highlight row pointed by the mouse cursor."
 msgstr "Destacar o registo apontado pelo cursor do rato."
 
-#: src/Config/Descriptions.php:535
+#: src/Config/Descriptions.php:538
 msgid "Number of columns for CHAR/VARCHAR textareas."
 msgstr "Número de colunas para caixas de texto CHAR/VARCHAR."
 
-#: src/Config/Descriptions.php:536
+#: src/Config/Descriptions.php:539
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "Número de linhas para caixas de texto CHAR/VARCHAR."
 
-#: src/Config/Descriptions.php:537
+#: src/Config/Descriptions.php:540
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
 "Regista as consultas SQL e o seu tempo de execução, para visualização na "
 "consola"
 
-#: src/Config/Descriptions.php:538
+#: src/Config/Descriptions.php:541
 msgid "Tab that is displayed when entering a database."
 msgstr "Separador que é exibido quando entrar numa base de dados."
 
-#: src/Config/Descriptions.php:539
+#: src/Config/Descriptions.php:542
 msgid "Tab that is displayed when entering a server."
 msgstr "Separador que é mostrado quando entrar num servidor."
 
-#: src/Config/Descriptions.php:540
+#: src/Config/Descriptions.php:543
 msgid "Tab that is displayed when entering a table."
 msgstr "Separador que é mostrado quando se entra numa tabela."
 
-#: src/Config/Descriptions.php:541
+#: src/Config/Descriptions.php:544
 msgid "Whether the table structure actions should be hidden."
 msgstr "Se as ações da estrutura da tabela devem ser escondidas."
 
-#: src/Config/Descriptions.php:542
+#: src/Config/Descriptions.php:545
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
 "Se os comentários de coluna devem ser exibidas na vista de estrutura da "
 "tabela"
 
-#: src/Config/Descriptions.php:543
+#: src/Config/Descriptions.php:546
 msgid "Show server listing as a list instead of a drop down."
 msgstr ""
 "Mostrar lista de servidores como uma lista ao invés de um menu drop down."
 
-#: src/Config/Descriptions.php:544
+#: src/Config/Descriptions.php:547
 msgid "A dropdown will be used if fewer items are present."
 msgstr ""
 "Uma caixa de seleção será utilizada se poucos itens estiverem presentes."
 
-#: src/Config/Descriptions.php:545
+#: src/Config/Descriptions.php:548
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 "Valor predefinido para checkbox de chaves estrangeiras para algumas "
 "consultas."
 
-#: src/Config/Descriptions.php:546
+#: src/Config/Descriptions.php:549
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr "Demarque o checkbox para desativar a importação por arrastar e soltar"
 
-#: src/Config/Descriptions.php:547
+#: src/Config/Descriptions.php:550
 msgid "How many rows can be inserted at one time."
 msgstr "Quantas linhas podem ser inseridas de uma vez."
 
-#: src/Config/Descriptions.php:548
+#: src/Config/Descriptions.php:551
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
 "Número máximo de caracteres apresentados em qualquer coluna não-numérica na "
 "vista de navegação."
 
-#: src/Config/Descriptions.php:549
+#: src/Config/Descriptions.php:552
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr ""
 "Definir a duração (em segundos) da validade do cookie de inicio de sessão."
 
-#: src/Config/Descriptions.php:550
+#: src/Config/Descriptions.php:553
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "Duplicar o tamanho da área de texto para colunas LONGTEXT."
 
-#: src/Config/Descriptions.php:551
+#: src/Config/Descriptions.php:554
 msgid "Maximum number of databases displayed in database list."
 msgstr "Número máximo de base de dados exibidas na lista de base de dados."
 
-#: src/Config/Descriptions.php:552
+#: src/Config/Descriptions.php:555
 msgid "Maximum number of tables displayed in table list."
 msgstr "Número máximo de tabelas exibidas na lista de tabelas."
 
-#: src/Config/Descriptions.php:553
+#: src/Config/Descriptions.php:556
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr ""
 "Número máximo de tabelas utilizadas recentemente, definir 0 para desativar."
 
-#: src/Config/Descriptions.php:554
+#: src/Config/Descriptions.php:557
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "Número máximo de tabelas favoritas, definir 0 para desativar."
 
-#: src/Config/Descriptions.php:555
+#: src/Config/Descriptions.php:558
 msgid "These are Edit, Copy and Delete links."
 msgstr "Estas são ligações Editar, Copiar e Apagar."
 
-#: src/Config/Descriptions.php:556
+#: src/Config/Descriptions.php:559
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr "Se para mostrar ligações de linhas na ausência de uma chave única."
 
-#: src/Config/Descriptions.php:557 src/Config/Descriptions.php:838
+#: src/Config/Descriptions.php:560 src/Config/Descriptions.php:838
 msgid "Disable shortcut keys"
 msgstr "Desativar teclas de atalho"
 
-#: src/Config/Descriptions.php:558
+#: src/Config/Descriptions.php:561
 msgid "Use natural order for sorting table and database names."
 msgstr "Usar ordem natural para ordenar nomes de tabelas e bases de dados."
 
-#: src/Config/Descriptions.php:559 src/Config/Descriptions.php:562
-#: src/Config/Descriptions.php:563
+#: src/Config/Descriptions.php:562 src/Config/Descriptions.php:565
+#: src/Config/Descriptions.php:566
 msgid "Use only icons, only text or both."
 msgstr "Usar apenas ícones, apenas texto ou ambos."
 
-#: src/Config/Descriptions.php:560
+#: src/Config/Descriptions.php:563
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr "Use o buffer de saída GZip para acelerar as transferências HTTP."
 
-#: src/Config/Descriptions.php:561
+#: src/Config/Descriptions.php:564
 msgid "Use persistent connections to MySQL databases."
 msgstr "Usar ligações persistentes para bases de dados MySQL."
 
-#: src/Config/Descriptions.php:564
+#: src/Config/Descriptions.php:567
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "Não permitir edição de colunas BLOB e BINARY."
 
-#: src/Config/Descriptions.php:565
+#: src/Config/Descriptions.php:568
 msgid "How many queries are kept in history."
 msgstr "Quantas consultas são mantidas no histórico."
 
-#: src/Config/Descriptions.php:566
+#: src/Config/Descriptions.php:569
 msgid "Select which functions will be used for character set conversion."
 msgstr ""
 "Selecione quais funções serão usadas para conversão do conjunto de "
 "caracteres."
 
-#: src/Config/Descriptions.php:567
+#: src/Config/Descriptions.php:570
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "Ao navegar nas tabelas, a ordenação de cada tabela é memorizada."
 
-#: src/Config/Descriptions.php:568
+#: src/Config/Descriptions.php:571
 msgid "Default sort order for tables with a primary key."
 msgstr "Ordem predefinida de ordenação para tabelas com chave primária."
 
-#: src/Config/Descriptions.php:569
+#: src/Config/Descriptions.php:572
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr ""
 "Repetir cabeçalhos a cada X células, [kbd]0[/kbd] desativa esta "
 "funcionalidade."
 
-#: src/Config/Descriptions.php:570
+#: src/Config/Descriptions.php:573
 msgid "For display Options"
 msgstr "Para exibir as Opções"
 
-#: src/Config/Descriptions.php:571
+#: src/Config/Descriptions.php:574
 msgid "Directory where exports can be saved on server."
 msgstr "Pasta onde as exportações serão guardadas no servidor."
 
-#: src/Config/Descriptions.php:572
+#: src/Config/Descriptions.php:575
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
 "Define se a caixa de consultas deve permanecer aberta depois da sua "
 "submissão."
 
-#: src/Config/Descriptions.php:573
+#: src/Config/Descriptions.php:576
 msgid "Title of browser window when a database is selected."
 msgstr ""
 "Título da janela do navegador quando uma base de dados estiver selecionada."
 
-#: src/Config/Descriptions.php:574
+#: src/Config/Descriptions.php:577
 msgid "Title of browser window when nothing is selected."
 msgstr "Título da janela do navegador quando nada estiver selecionado."
 
-#: src/Config/Descriptions.php:575
+#: src/Config/Descriptions.php:578
 msgid "Title of browser window when a server is selected."
 msgstr "Título da janela do navegador quando um servidor estiver selecionado."
 
-#: src/Config/Descriptions.php:576
+#: src/Config/Descriptions.php:579
 msgid "Title of browser window when a table is selected."
 msgstr "Título da janela do navegador quando uma tabela estiver selecionada."
 
-#: src/Config/Descriptions.php:577
+#: src/Config/Descriptions.php:580
 msgid "Directory on server where you can upload files for import."
 msgstr "Directório no servidor onde pode carregar ficheiros para importar."
 
-#: src/Config/Descriptions.php:578
+#: src/Config/Descriptions.php:581
 msgid "Allow for searching inside the entire database."
 msgstr "Permitir pesquisas dentro da base de dados."
 
-#: src/Config/Descriptions.php:579
+#: src/Config/Descriptions.php:582
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr ""
 "Possibilita a verificação da última versão na página inicial do phpMyAdmin."
 
-#: src/Config/Descriptions.php:580
+#: src/Config/Descriptions.php:583
 msgid "The password for authenticating with the proxy."
 msgstr "A palavra-passe para se autenticar na proxy."
 
-#: src/Config/Descriptions.php:581
+#: src/Config/Descriptions.php:584
 msgid "Enable ZIP compression for import and export operations."
 msgstr "Activar compressão ZIP nas operações de importação e exportação."
 
-#: src/Config/Descriptions.php:582
+#: src/Config/Descriptions.php:585
 msgid "Choose the default action when sending error reports."
 msgstr "Escolhe a opção por defeito ao enviar relatórios de erros."
 
@@ -11575,36 +11575,36 @@ msgstr "Ordenar por"
 msgid "Server connection collation"
 msgstr "Ordenação de caracteres da ligação ao servidor"
 
-#: src/Config/FormDisplay.php:580
+#: src/Config/FormDisplay.php:581
 #, php-format
 msgid "Missing data for %s"
 msgstr "Dados em falta para %s"
 
-#: src/Config/FormDisplay.php:620 src/Config/Validator.php:594
+#: src/Config/FormDisplay.php:621 src/Config/Validator.php:595
 #: src/Controllers/JavaScriptMessagesController.php:828
 msgid "Incorrect value!"
 msgstr "Valor incorrecto!"
 
-#: src/Config/FormDisplay.php:766
+#: src/Config/FormDisplay.php:767
 msgid "unavailable"
 msgstr "indisponível"
 
-#: src/Config/FormDisplay.php:768
+#: src/Config/FormDisplay.php:769
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" requer a extenção %s"
 
-#: src/Config/FormDisplay.php:790
+#: src/Config/FormDisplay.php:791
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "A importação comprimida não funcionará devido à falta da função %s."
 
-#: src/Config/FormDisplay.php:799
+#: src/Config/FormDisplay.php:800
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "A exportação comprimida não funcionará devido à falta da função %s."
 
-#: src/Config/FormDisplay.php:819
+#: src/Config/FormDisplay.php:820
 #, php-format
 msgid "maximum %s"
 msgstr "máximo %s"
@@ -11859,39 +11859,39 @@ msgstr "Abas de nível de base de dados"
 msgid "Table-level tabs"
 msgstr "Abas de nível de tabela"
 
-#: src/Config/Validator.php:252
+#: src/Config/Validator.php:253
 msgid "Could not connect to the database server!"
 msgstr "Não conseguiu criar ligação ao servidor da base de dados!"
 
-#: src/Config/Validator.php:288
+#: src/Config/Validator.php:289
 msgid "Invalid authentication type!"
 msgstr "Tipo de autenticação inválida!"
 
-#: src/Config/Validator.php:293
+#: src/Config/Validator.php:294
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Nome de utilizador vazio ao usar método de autenticação por [kbd]config[/"
 "kbd]!"
 
-#: src/Config/Validator.php:299
+#: src/Config/Validator.php:300
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
 "Nome de sessão signon vazia ao usar método de autenticação [kbd]signon[/kbd]!"
 
-#: src/Config/Validator.php:306
+#: src/Config/Validator.php:307
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "URL signon vazia ao usar método de autenticação [kbd]signon[/kbd]!"
 
-#: src/Config/Validator.php:359
+#: src/Config/Validator.php:360
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Utilizador de controlo phpMyAdmin vazio ao aceder ao armazenamento de "
 "configuração do phpMyAdmin!"
 
-#: src/Config/Validator.php:366
+#: src/Config/Validator.php:367
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -11899,31 +11899,31 @@ msgstr ""
 "Palavra-passe do utilizador de controlo phpMyAdmin vazia ao aceder ao "
 "armazenamento de configuração do phpMyAdmin!"
 
-#: src/Config/Validator.php:455
+#: src/Config/Validator.php:456
 msgid "Incorrect value:"
 msgstr "Valor incorrecto:"
 
-#: src/Config/Validator.php:466
+#: src/Config/Validator.php:467
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Endereço IP incorrecto: %s"
 
-#: src/Config/Validator.php:529
+#: src/Config/Validator.php:530
 #: src/Controllers/JavaScriptMessagesController.php:827
 msgid "Not a valid port number!"
 msgstr "Número de porta inválido!"
 
-#: src/Config/Validator.php:551
+#: src/Config/Validator.php:552
 #: src/Controllers/JavaScriptMessagesController.php:825
 msgid "Not a positive number!"
 msgstr "Número não positivo!"
 
-#: src/Config/Validator.php:573
+#: src/Config/Validator.php:574
 #: src/Controllers/JavaScriptMessagesController.php:826
 msgid "Not a non-negative number!"
 msgstr "Não é um número não-negativo!"
 
-#: src/Config/Validator.php:612
+#: src/Config/Validator.php:613
 #: src/Controllers/JavaScriptMessagesController.php:829
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -15390,9 +15390,9 @@ msgstr "A gestão de grupos de utilizadores não está ativada."
 msgid "Setting variable failed"
 msgstr "Variável de configuração falhou"
 
-#: src/Controllers/Setup/ConfigController.php:41
+#: src/Controllers/Setup/ConfigController.php:43
 #: src/Controllers/Setup/FormController.php:44
-#: src/Controllers/Setup/HomeController.php:45
+#: src/Controllers/Setup/HomeController.php:47
 #: src/Controllers/Setup/ServerDestroyController.php:41
 #: src/Controllers/Setup/ServersController.php:44
 #: src/Controllers/Setup/ShowConfigController.php:42
@@ -15404,7 +15404,7 @@ msgstr "A configuração já existe, a configuração está desativada!"
 msgid "Incorrect form specified!"
 msgstr "O formulário fornecido está incorreto!"
 
-#: src/Controllers/Setup/HomeController.php:71
+#: src/Controllers/Setup/HomeController.php:73
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
@@ -15413,7 +15413,7 @@ msgstr ""
 "informações potencialmente sigilosas, como palavras-passe) são transferidos "
 "sem criptografia!"
 
-#: src/Controllers/Setup/HomeController.php:76
+#: src/Controllers/Setup/HomeController.php:78
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
@@ -15421,7 +15421,7 @@ msgstr ""
 "Se o seu servidor também está configurado para aceitar requisições HTTPS "
 "siga este link para usar uma conexão segura."
 
-#: src/Controllers/Setup/HomeController.php:80
+#: src/Controllers/Setup/HomeController.php:82
 msgid "Insecure connection"
 msgstr "Conexão insegura"
 
@@ -18533,24 +18533,24 @@ msgstr "Executa comando(s) SQL na base de dados %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "Executar consulta(s) SQL na tabela %s"
 
-#: src/StorageEngine.php:319
+#: src/StorageEngine.php:320
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "Não está disponível nenhuma informação detalhada para este mecanismo de "
 "armazenamento."
 
-#: src/StorageEngine.php:416
+#: src/StorageEngine.php:417
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s está disponível neste servidor MySQL."
 
-#: src/StorageEngine.php:417
+#: src/StorageEngine.php:418
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s está desactivado neste servidor MySQL."
 
-#: src/StorageEngine.php:418
+#: src/StorageEngine.php:419
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Este servidor MySQL não suporta o mecanismo de armazenamento %s."

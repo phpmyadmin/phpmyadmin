@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-07-14 00:22+0000\n"
+"POT-Creation-Date: 2024-07-21 00:22+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -883,7 +883,7 @@ msgstr "পূর্বাবস্থায়"
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
 #: src/Html/Generator.php:668 src/Html/MySQLDocumentation.php:49
-#: src/Sanitize.php:188
+#: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "সহায়িকা"
 
@@ -2763,7 +2763,7 @@ msgid "Sum"
 msgstr "যোগ"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:415
+#: src/StorageEngine.php:416
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s এই মাইএসকিউএল সার্ভার এর স্বাভাবিক মজুদ ব্যবস্থা।"
@@ -9716,40 +9716,40 @@ msgstr "উপরের দুটিই"
 msgid "neither of the above"
 msgstr "উপরের কোনটি নয়"
 
-#: src/Config/Descriptions.php:55 src/Config/Descriptions.php:56
-#: src/Config/Descriptions.php:57
+#: src/Config/Descriptions.php:61 src/Config/Descriptions.php:62
+#: src/Config/Descriptions.php:63
 msgid "Users cannot set a higher value"
 msgstr "ব্যবহারকারী উচ্চতর মান নির্ধারন করতে পারবে না"
 
-#: src/Config/Descriptions.php:73
+#: src/Config/Descriptions.php:76
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "কার্যকর করা হলে ব্যবহারকারীরা লগইন র্ফমে যে কোন MySQL server দিতে পারবে কুকি "
 "প্রমাণীকরণের জন্য।"
 
-#: src/Config/Descriptions.php:76
+#: src/Config/Descriptions.php:79
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
 
-#: src/Config/Descriptions.php:81
+#: src/Config/Descriptions.php:84
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 
-#: src/Config/Descriptions.php:86
+#: src/Config/Descriptions.php:89
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
 "[kbd]cookie[/kbd] প্রমাণীকরণে গোপন passphrase এর মাধ্যমে কুকি এনক্রীপট করা হয়।"
 
-#: src/Config/Descriptions.php:88
+#: src/Config/Descriptions.php:91
 #, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
@@ -9759,37 +9759,37 @@ msgstr ""
 "[a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] সংকোচন আমদানির জন্য কার্যকর "
 "করুন।"
 
-#: src/Config/Descriptions.php:89
+#: src/Config/Descriptions.php:92
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr ""
 
-#: src/Config/Descriptions.php:90
+#: src/Config/Descriptions.php:93
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
 msgstr ""
 
-#: src/Config/Descriptions.php:91
+#: src/Config/Descriptions.php:94
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 
-#: src/Config/Descriptions.php:92
+#: src/Config/Descriptions.php:95
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 
-#: src/Config/Descriptions.php:93
+#: src/Config/Descriptions.php:96
 msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr ""
 
-#: src/Config/Descriptions.php:94
+#: src/Config/Descriptions.php:97
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr ""
 
-#: src/Config/Descriptions.php:95
+#: src/Config/Descriptions.php:98
 msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr ""
 
-#: src/Config/Descriptions.php:97
+#: src/Config/Descriptions.php:100
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -9799,7 +9799,7 @@ msgstr ""
 "[kbd]input[/kbd] ইনপুটের দৈর্ঘ সীমিত করবে, [kbd]textarea[/kbd] স্তম্ভের নতুন লাইন "
 "যোগ করবে।"
 
-#: src/Config/Descriptions.php:102
+#: src/Config/Descriptions.php:105
 #, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
@@ -9811,25 +9811,25 @@ msgstr ""
 "SQL অনুসন্ধান সম্পাদনার জন্য ব্যবহারকারীর জন্য সহজ সফটওয়ার ব্যবহার করুন ([a@https://"
 "codemirror.net/]CodeMirror[/a]), লাইন চিহ্নিতকরন এবং লাইন নাম্বার সহ।"
 
-#: src/Config/Descriptions.php:107
+#: src/Config/Descriptions.php:110
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
 
-#: src/Config/Descriptions.php:110
+#: src/Config/Descriptions.php:113
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr "প্রস্তুতকৃত CHAR and VARCHAR স্তম্ভের ইনপুট ক্ষেত্রের সর্বনিন্ম আকার নির্ধারন করুন।"
 
-#: src/Config/Descriptions.php:113
+#: src/Config/Descriptions.php:116
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr "প্রস্তুতকৃত CHAR এবং VARCHAR ইনপুট ক্ষেত্রের সর্বোচ্চ আকার নির্ধারণ করুন।"
 
-#: src/Config/Descriptions.php:116
+#: src/Config/Descriptions.php:119
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
@@ -9837,7 +9837,7 @@ msgstr ""
 "কাজের মধ্যই gzip সংকুচিত ফাইল রফতানী যা বেশী মেমোরী ব্যবহার করে না; যদি প্রস্তুতকৃত "
 "gzip ফাইল ঠিকমত কাজ না করে তবে ইহা অকার্যকর করুন।"
 
-#: src/Config/Descriptions.php:120
+#: src/Config/Descriptions.php:123
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
@@ -9845,23 +9845,23 @@ msgstr ""
 "আপনি যখন তথ্য নষ্ট করতে বা হারাতে যাচ্ছেন তখন একটি সর্তক বার্তা (\"আপনি কি সম্পূর্ন "
 "নিশ্চিত…\")দেখাবে।"
 
-#: src/Config/Descriptions.php:123
+#: src/Config/Descriptions.php:126
 #, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr "টেবিল এবং স্তম্ভের নাম backquotes দ্বারা আবদ্ধ কর।"
 
-#: src/Config/Descriptions.php:126 src/Config/Descriptions.php:130
-#: src/Config/Descriptions.php:134 src/Config/Descriptions.php:138
-#: src/Config/Descriptions.php:142 src/Config/Descriptions.php:146
-#: src/Config/Descriptions.php:150 src/Config/Descriptions.php:154
-#: src/Config/Descriptions.php:158
+#: src/Config/Descriptions.php:129 src/Config/Descriptions.php:133
+#: src/Config/Descriptions.php:137 src/Config/Descriptions.php:141
+#: src/Config/Descriptions.php:145 src/Config/Descriptions.php:149
+#: src/Config/Descriptions.php:153 src/Config/Descriptions.php:157
+#: src/Config/Descriptions.php:161
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
 
-#: src/Config/Descriptions.php:162
+#: src/Config/Descriptions.php:165
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
@@ -9869,18 +9869,18 @@ msgstr ""
 "টেবল রক্ষণাবেক্ষনের কাজগুলো অকার্যকর কর, যেমন ডাটাবেইজের নির্বাচিত টেবলগুলো "
 "অপটিমাইজ বা মেরামত করা।"
 
-#: src/Config/Descriptions.php:166
+#: src/Config/Descriptions.php:169
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
 msgstr "একটি স্ক্রীপট চলার সময় (সেকেন্ডে)নির্ধারন করুন ([kbd]০[/kbd] সীমাহীন)।"
 
-#: src/Config/Descriptions.php:168 src/Config/Descriptions.php:708
+#: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
 #: src/Plugins/Export/ExportSql.php:321
 msgid "Exclude definition of current user"
 msgstr ""
 
-#: src/Config/Descriptions.php:170
+#: src/Config/Descriptions.php:173
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
@@ -9888,7 +9888,7 @@ msgstr ""
 "ফরেন কী ড্রপডাউনের বিষয়গুলো গুছানোর পদ্ধতি [kbd]content[/kbd] হলো তথ্য এবং "
 "[kbd]id[/kbd] কী মান।"
 
-#: src/Config/Descriptions.php:174
+#: src/Config/Descriptions.php:177
 #, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to "
@@ -9901,7 +9901,7 @@ msgstr ""
 "ব্রাউজারের শিরোনামের লেখাটি দিন। বিশেষ মান নেওয়ার জন্য কি ব্যবহার করতে হবে "
 "জানার জন্য [doc@cfg_TitleTable]documentation[/doc] দেখুন।"
 
-#: src/Config/Descriptions.php:179
+#: src/Config/Descriptions.php:182
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
@@ -9909,13 +9909,13 @@ msgstr ""
 "মনে রাখবেন phpMyAdmin শুধুই একটি ব্যবহারকারীর সঙ্গে সংযোগ উপায় এবং এটি কোনভাবেই "
 "MySQL এর বিষয়াদি নির্দিষ্ট করে না।"
 
-#: src/Config/Descriptions.php:182
+#: src/Config/Descriptions.php:185
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
 msgstr "উন্নত সার্ভার কনফিগারেশন, এগুলো কি তা না জেনে পরিবর্তন করবেন না।"
 
-#: src/Config/Descriptions.php:185
+#: src/Config/Descriptions.php:188
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -9924,119 +9924,119 @@ msgstr ""
 "অন্যান্য অতিরিক্ত সুবিধাদির জন্য phpMyAdmin কনফিগারেশন মজুদ ব্যবস্থা কনফিগার করন, "
 "সহায়িকার [doc@linked-tables]phpMyAdmin configuration storage[/doc]দেখুন।"
 
-#: src/Config/Descriptions.php:190
+#: src/Config/Descriptions.php:193
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
 "ডাটাবেইজের পরিবর্তন ট্রেকিং করার জন্য phpMyAdmin কনফিগারেশন মজুদ ব্যবস্থা প্রয়োজন।"
 
-#: src/Config/Descriptions.php:193
+#: src/Config/Descriptions.php:196
 msgid "Customize browse mode."
 msgstr "ব্রাউজ পদ্ধতি পরিবর্তন।"
 
-#: src/Config/Descriptions.php:194 src/Config/Descriptions.php:195
-#: src/Config/Descriptions.php:202 src/Config/Descriptions.php:208
-#: src/Config/Descriptions.php:209 src/Config/Descriptions.php:214
+#: src/Config/Descriptions.php:197 src/Config/Descriptions.php:198
+#: src/Config/Descriptions.php:205 src/Config/Descriptions.php:211
+#: src/Config/Descriptions.php:212 src/Config/Descriptions.php:217
 msgid "Customize default options."
 msgstr "স্বাভাবিক অপশনগুলো পরিবর্তন।"
 
-#: src/Config/Descriptions.php:196
+#: src/Config/Descriptions.php:199
 msgid "Settings for phpMyAdmin developers."
 msgstr "phpMyAdmin উন্নয়নকারীদের জন্য সেটিংস।"
 
-#: src/Config/Descriptions.php:197
+#: src/Config/Descriptions.php:200
 msgid "Customize edit mode."
 msgstr "সম্পাদনা পদ্ধতি পরিবর্তন।"
 
-#: src/Config/Descriptions.php:198
+#: src/Config/Descriptions.php:201
 msgid "Customize default export options."
 msgstr "স্বাভাবিক রফতানী অপশনগুলো পরিবর্তন।"
 
-#: src/Config/Descriptions.php:199
+#: src/Config/Descriptions.php:202
 msgid "Set some commonly used options."
 msgstr "কিছু সাধারনভাবে ব্যবহৃত অপশন নির্ধারন করুন।"
 
-#: src/Config/Descriptions.php:200
+#: src/Config/Descriptions.php:203
 msgid "Customize default common import options."
 msgstr "স্বাভাবিক প্রচলিত আমদানি অপশন পরিবর্তন।"
 
-#: src/Config/Descriptions.php:201
+#: src/Config/Descriptions.php:204
 msgid "Set import and export directories and compression options."
 msgstr "আমদানি এবং রফতানী ডিরেক্টরি এবং সংকোচন নির্ধারন করুন।"
 
-#: src/Config/Descriptions.php:203
+#: src/Config/Descriptions.php:206
 msgid "Databases display options."
 msgstr "ডাটাবেইজ দেখার অপশন।"
 
-#: src/Config/Descriptions.php:204
+#: src/Config/Descriptions.php:207
 msgid "Customize appearance of the navigation panel."
 msgstr "চলাচলের ফ্রেম দেখার বিষয়গুলো পরিবর্তন।"
 
-#: src/Config/Descriptions.php:205
+#: src/Config/Descriptions.php:208
 #, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
 msgstr "চলাচলের ফ্রেম পরিবর্তন"
 
-#: src/Config/Descriptions.php:206
+#: src/Config/Descriptions.php:209
 msgid "Servers display options."
 msgstr "সার্ভারের প্রর্দশন অপশনগুলো।"
 
-#: src/Config/Descriptions.php:207
+#: src/Config/Descriptions.php:210
 msgid "Tables display options."
 msgstr "টেবল প্রর্দশনের অপশনগুলো।"
 
-#: src/Config/Descriptions.php:210
+#: src/Config/Descriptions.php:213
 msgid "Settings that didn't fit anywhere else."
 msgstr "যে সেটিংগুলো অন্য কোথাও খাপ খায় না।"
 
-#: src/Config/Descriptions.php:211
+#: src/Config/Descriptions.php:214
 msgid "Authentication settings."
 msgstr "প্রমানীকরণ সেটিংস।"
 
-#: src/Config/Descriptions.php:212
+#: src/Config/Descriptions.php:215
 msgid "Enter server connection parameters."
 msgstr "সার্ভার সংযোগের তথ্যগুলো দিন।"
 
-#: src/Config/Descriptions.php:213
+#: src/Config/Descriptions.php:216
 msgid "Customize links shown in SQL Query boxes."
 msgstr "পরিবর্তিত সংযোগগুলো SQL অনুসন্ধান বক্সে দেখাচ্ছে।"
 
-#: src/Config/Descriptions.php:215
+#: src/Config/Descriptions.php:218
 msgid "SQL queries settings."
 msgstr "SQL অনুসন্ধান সেটিংস।"
 
-#: src/Config/Descriptions.php:216
+#: src/Config/Descriptions.php:219
 msgid "Customize startup page."
 msgstr "প্রথম পাতাটি পরিবর্তন কর।"
 
-#: src/Config/Descriptions.php:217
+#: src/Config/Descriptions.php:220
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr "ডাটাবেইজ গঠনের সাথে বিশদ কি দেখাবে তা পছন্দ করুন (টেবলের তালিকা)।"
 
-#: src/Config/Descriptions.php:218
+#: src/Config/Descriptions.php:221
 msgid "Settings for the table structure (list of columns)."
 msgstr "টেবল গঠনের সেটিংস (স্তম্ভের তালিকা)।"
 
-#: src/Config/Descriptions.php:219
+#: src/Config/Descriptions.php:222
 msgid "Choose how you want tabs to work."
 msgstr "ট্যাবগুলো কিভাবে কাজ করবে পছন্দ করুন।"
 
-#: src/Config/Descriptions.php:220
+#: src/Config/Descriptions.php:223
 msgid "Customize text input fields."
 msgstr "অক্ষর দেওয়ার ক্ষেত্রটি পরিবর্তন করুন।"
 
-#: src/Config/Descriptions.php:221
+#: src/Config/Descriptions.php:224
 msgid "Customize default options"
 msgstr "স্বাভাবিক অপশনগুলো পরিবর্তন"
 
-#: src/Config/Descriptions.php:222
+#: src/Config/Descriptions.php:225
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "phpMyAdmin এর দেখানো কিছু সতর্কবার্তা অকার্যকর কর।"
 
-#: src/Config/Descriptions.php:224
+#: src/Config/Descriptions.php:227
 #, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
@@ -10046,7 +10046,7 @@ msgstr ""
 "আমদানি রফতানীর জন্য [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] সংকুচন "
 "কার্যকর কর।"
 
-#: src/Config/Descriptions.php:226
+#: src/Config/Descriptions.php:229
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
@@ -10054,7 +10054,7 @@ msgstr ""
 "যদি কার্যকর করা হয় phpMyAdmin multiple-statement অনুসন্ধানগুলো গননা করবে যদি কোন "
 "একটি অনুসন্ধান ব্যার্থও হয়।"
 
-#: src/Config/Descriptions.php:230
+#: src/Config/Descriptions.php:233
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -10063,7 +10063,7 @@ msgstr ""
 "নিধারিত শেষ হয়ে এলে আমদানি বন্ধ করার অনুমোদন। এটা বড় ফাইল আমদানির একটি ভাল "
 "উপায়, যদিও এটি কাজ বন্ধ রাখতে পারে।"
 
-#: src/Config/Descriptions.php:235
+#: src/Config/Descriptions.php:238
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
@@ -10071,15 +10071,15 @@ msgstr ""
 "স্বাভাবিক গঠন: মনে রাখবেন এই তালিকাটি স্থানের উপর নির্ভরশীল (ডাটাবেইজ,টেবল)) "
 "এবং শুধু SQL কার্যকর।"
 
-#: src/Config/Descriptions.php:238 src/Config/Descriptions.php:239
+#: src/Config/Descriptions.php:241 src/Config/Descriptions.php:242
 msgid "Update data when duplicate keys found on import"
 msgstr ""
 
-#: src/Config/Descriptions.php:240
+#: src/Config/Descriptions.php:243
 msgid "Number of queries to skip from start."
 msgstr "আরম্ভ থেকে এড়িয়ে যাওয়ার অনুসন্ধানের সংখ্যা।"
 
-#: src/Config/Descriptions.php:242
+#: src/Config/Descriptions.php:245
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -10090,7 +10090,7 @@ msgstr ""
 "অনেকগুলো সার্ভারে সংযুক্ত থাকে তখন অন্যান্য সার্ভার থেকে লগাউট হতে ভুলে যাওয়া সহজ "
 "হতে পারে।"
 
-#: src/Config/Descriptions.php:247
+#: src/Config/Descriptions.php:250
 #, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
@@ -10101,7 +10101,7 @@ msgid ""
 msgstr ""
 "নির্ধারন করুন পূর্বের লগইন পুনরায় ব্যবহার করা হবে অথবা কুকিহীন প্রমাণীকরণ পদ্ধতি।"
 
-#: src/Config/Descriptions.php:251
+#: src/Config/Descriptions.php:254
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -10112,11 +10112,11 @@ msgstr ""
 "স্বাভাবিকভাবে ০ যার মানে হলো এটা শুধুমাত্র বর্তমান সেশসনের জন্য, এবং ব্রাউজার বন্ধ "
 "করা হলে এটা মুছে ফেলা হবে। অবিশ্বস্ত পরিবেশের জন্য এটা উপযোগী।"
 
-#: src/Config/Descriptions.php:257
+#: src/Config/Descriptions.php:260
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr "SQL অনুসন্ধান দেখানোর জন্য সর্বোচ্চ সংখ্যক বর্ণের সংখ্যা।"
 
-#: src/Config/Descriptions.php:260
+#: src/Config/Descriptions.php:263
 #, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page of the navigation "
@@ -10126,13 +10126,13 @@ msgid ""
 "the navigation tree."
 msgstr "চলাচলের ট্রির প্রতি পাতায় কতগুলো জিনিস দেখাবে।"
 
-#: src/Config/Descriptions.php:263
+#: src/Config/Descriptions.php:266
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr "চলাচলের ট্রির প্রতি পাতায় কতগুলো জিনিস দেখাবে।"
 
-#: src/Config/Descriptions.php:266
+#: src/Config/Descriptions.php:269
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -10140,7 +10140,7 @@ msgstr ""
 "ব্রাউজিংয়ের সময় প্রর্দশিত ফলাফলে রো'র সংখ্যা। এতে যদি অনেক বেশী রো থাকে "
 "\"পূর্ববর্তী \" এবং \"পরবর্তী\" দেখাবে।"
 
-#: src/Config/Descriptions.php:271
+#: src/Config/Descriptions.php:274
 #, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
@@ -10152,15 +10152,15 @@ msgstr ""
 "একটি স্ক্রীপটের জন্য নির্ধারিত বাইটের সংখ্যা যেমন [kbd]৩২মে[/kbd] ([kbd]০[/"
 "kbd]কোন সীমা নির্দষ্ট না করার জন্য।"
 
-#: src/Config/Descriptions.php:275
+#: src/Config/Descriptions.php:278
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
-#: src/Config/Descriptions.php:278
+#: src/Config/Descriptions.php:281
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 
-#: src/Config/Descriptions.php:281
+#: src/Config/Descriptions.php:284
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
@@ -10168,13 +10168,13 @@ msgstr ""
 "সংযুক্ত পাতাটি একটি নতুন উইন্ডোতে ([code]new[/code]) খোল বা প্রধান উইন্ডোটিতে "
 "([code]main[/code]) খোল।"
 
-#: src/Config/Descriptions.php:284
+#: src/Config/Descriptions.php:287
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr "টেবল ফিল্টার বক্সে প্রদর্শনের জন্য নুন্যতম সংখ্যা।"
 
-#: src/Config/Descriptions.php:287
+#: src/Config/Descriptions.php:290
 #, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
@@ -10184,74 +10184,74 @@ msgid ""
 "the Databases and Tables tabs above)."
 msgstr "চলাচলের ট্রিতে বিষযগুলো দলবদ্ধ কর।"
 
-#: src/Config/Descriptions.php:291
+#: src/Config/Descriptions.php:294
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr ""
 
-#: src/Config/Descriptions.php:294
+#: src/Config/Descriptions.php:297
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
-#: src/Config/Descriptions.php:297
+#: src/Config/Descriptions.php:300
 #, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr "চলাচল ফ্রেইমে লোগো দেখাও"
 
-#: src/Config/Descriptions.php:299
+#: src/Config/Descriptions.php:302
 #, fuzzy
 #| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
 msgstr "চলাচল ফ্রেইমে লোগো দেখাও।"
 
-#: src/Config/Descriptions.php:300
+#: src/Config/Descriptions.php:303
 msgid "Show logo in navigation panel."
 msgstr "চলাচল ফ্রেইমে লোগো দেখাও।"
 
-#: src/Config/Descriptions.php:301
+#: src/Config/Descriptions.php:304
 msgid "URL where logo in the navigation panel will point to."
 msgstr "চলাচলের ফ্রেইমে যেখানে লোগোটি থাকবে তার URL।"
 
-#: src/Config/Descriptions.php:302
+#: src/Config/Descriptions.php:305
 msgid "Display server choice at the top of the navigation panel."
 msgstr "পছন্দের সার্ভারটি উপরের বামদিকের কোণার ফ্রেইমে দেখাও।"
 
-#: src/Config/Descriptions.php:303
+#: src/Config/Descriptions.php:306
 msgid "String that separates databases into different tree levels."
 msgstr "বিভিন্ন পর্যায়ে ডাটাবেইজ ট্রি পৃথককারী ট্রিং।"
 
-#: src/Config/Descriptions.php:304
+#: src/Config/Descriptions.php:307
 msgid "String that separates tables into different tree levels."
 msgstr "বর্ণ যার দ্বারা টেবলগুলো ট্রি'র বিভিন্ন ক্ষেত্রে পৃথক হবে।"
 
-#: src/Config/Descriptions.php:305
+#: src/Config/Descriptions.php:308
 msgid "Highlight server under the mouse cursor."
 msgstr "মাউস কার্সরের নীচে সার্ভার চিহ্নিত কর।"
 
-#: src/Config/Descriptions.php:306
+#: src/Config/Descriptions.php:309
 #, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "চলাচল ফ্রেইমে লোগো দেখাও"
 
-#: src/Config/Descriptions.php:307
+#: src/Config/Descriptions.php:310
 #, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Whether to show views under database in the navigation tree"
 msgstr "চলাচল ফ্রেইমে লোগো দেখাও"
 
-#: src/Config/Descriptions.php:308
+#: src/Config/Descriptions.php:311
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
-#: src/Config/Descriptions.php:309
+#: src/Config/Descriptions.php:312
 #, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Whether to show events under database in the navigation tree"
 msgstr "চলাচল ফ্রেইমে লোগো দেখাও"
 
-#: src/Config/Descriptions.php:311
+#: src/Config/Descriptions.php:314
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -10259,7 +10259,7 @@ msgstr ""
 "[kbd]দক্ষ[/kbd]- যেমন স্তম্ভ যদি সময়,দিন, দিনসময়্ এবং সময়কাল হয় তবে অধমূখী অন্যথায় "
 "উর্দ্ধ মুখী।"
 
-#: src/Config/Descriptions.php:315
+#: src/Config/Descriptions.php:318
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -10268,7 +10268,7 @@ msgstr ""
 "phpMyAdmin কনফিগারেশনের কোন একটি storage table পাওয়া না গেলে ডাটাবেইজের বিশদ "
 "গঠন যেখানে দেখানো হয় সেখানে প্রদর্শিত সর্তকতা অকার্যকর কর।"
 
-#: src/Config/Descriptions.php:320
+#: src/Config/Descriptions.php:323
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -10276,7 +10276,7 @@ msgstr ""
 "যদি কোন টেবলের স্তম্ভের নামে MySQL এর রির্জাভড ওর্য়াড ব্যবহার করা হয় তবে গঠন "
 "পাতায় যে সর্তকবার্তা প্রদর্শন করা হয় তা অকার্যকর কর।"
 
-#: src/Config/Descriptions.php:324
+#: src/Config/Descriptions.php:327
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -10286,17 +10286,17 @@ msgstr ""
 "storage)লাগবে, অন্যথায় অনুসন্ধান হিস্টোরী দেখানোর জন্য JS-routines ব্যবহৃত হবে। "
 "( উইন্ডো বন্ধ করলে যা নষ্ট হয়ে যাবে)।"
 
-#: src/Config/Descriptions.php:328
+#: src/Config/Descriptions.php:331
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
 
-#: src/Config/Descriptions.php:330
+#: src/Config/Descriptions.php:333
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
 
-#: src/Config/Descriptions.php:333
+#: src/Config/Descriptions.php:336
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
@@ -10308,7 +10308,7 @@ msgstr ""
 "না করার জন্য খালি রাখুন [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 "a] সাহায্যের জন্য, দেখুন:[kbd]pma_bookmark[/kbd]"
 
-#: src/Config/Descriptions.php:336
+#: src/Config/Descriptions.php:339
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: "
@@ -10320,7 +10320,7 @@ msgstr ""
 "স্তম্ভের মন্তব্য/মাইমের ধরন না দেখানোর জন্য খালি রাখুন, দেখুন:[kbd]pma_column_info[/"
 "kbd]।"
 
-#: src/Config/Descriptions.php:339
+#: src/Config/Descriptions.php:342
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
@@ -10333,7 +10333,7 @@ msgstr ""
 "একটি বিশেষ MySQL ব্যবহারকারী সীমিত অধিকার সহ কনফিগার করা হয়েছে, আরো তথ্যের জন্য "
 "দেখুন [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]।"
 
-#: src/Config/Descriptions.php:343
+#: src/Config/Descriptions.php:346
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
@@ -10341,7 +10341,7 @@ msgstr ""
 "কনফিগারেশন মজুদ (configuration storage) করার জন্য অন্য একটি হোস্ট; না থাকলে খালি "
 "রাখুন।"
 
-#: src/Config/Descriptions.php:346
+#: src/Config/Descriptions.php:349
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -10350,7 +10350,7 @@ msgstr ""
 "কনফিগারেশন মজুদ (configuration storage) করার জন্য অন্য একটি হোস্ট; না থাকলে খালি "
 "রাখুন।"
 
-#: src/Config/Descriptions.php:351
+#: src/Config/Descriptions.php:354
 #, fuzzy
 #| msgid ""
 #| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
@@ -10364,7 +10364,7 @@ msgstr ""
 "আরো তথ্যের জন্য [a@https://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] এবং [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
-#: src/Config/Descriptions.php:355
+#: src/Config/Descriptions.php:358
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -10372,7 +10372,7 @@ msgstr ""
 "SQL অনুসন্ধানের হিস্টোরী সুবিধা দিতে না চাইলে খালি রাখুন, দেখুন: [kbd]pma_history[/"
 "kbd]।"
 
-#: src/Config/Descriptions.php:358
+#: src/Config/Descriptions.php:361
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
@@ -10380,7 +10380,7 @@ msgstr ""
 "ডাটাবেইজে রক্ষিত টেবলের তথ্যের সংখ্যা সীমিত করন, পুরাতন তথ্য স্বয়ংক্রীয়ভাবে মুছে "
 "যাবে।"
 
-#: src/Config/Descriptions.php:362
+#: src/Config/Descriptions.php:365
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
@@ -10391,7 +10391,7 @@ msgid ""
 msgstr ""
 "পিডিএফ গঠনের সমর্থন না দেওয়ার জন্য খালি রাখুন, দেখুন:[kbd]pma_pdf_pages[/kbd]।"
 
-#: src/Config/Descriptions.php:365
+#: src/Config/Descriptions.php:368
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
@@ -10401,7 +10401,7 @@ msgid ""
 "[kbd]pma__central_columns[/kbd]."
 msgstr "পিডিএফ গঠন সমর্থনের জন্য খালি রাখুন, দেখুন: [kbd]pma_table_coords[/kbd]।"
 
-#: src/Config/Descriptions.php:368
+#: src/Config/Descriptions.php:371
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -10412,13 +10412,13 @@ msgstr ""
 "kbd]'টি নয়। এই অপশন ব্যবহার করে ডাটাবেইজের তালিকা গুছানো যাবে, শুধু ওগুলোর নাম "
 "দেন এবং শেষে[kbd]*[/kbd] ব্যবহার করুন alphabetical ভাবে সাজানোর জন্য।"
 
-#: src/Config/Descriptions.php:373
+#: src/Config/Descriptions.php:376
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "পিডিএফ গঠনের সমর্থন না দেওয়ার জন্য খালি রাখুন, দেখুন:[kbd]pma_pdf_pages[/kbd]।"
 
-#: src/Config/Descriptions.php:376
+#: src/Config/Descriptions.php:379
 #, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@https://"
@@ -10433,7 +10433,7 @@ msgstr ""
 "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] দেখুন। সমর্থন না করলে খালি রাখুন। দেখুন: "
 "[kbd]phpmyadmin[/kbd]।"
 
-#: src/Config/Descriptions.php:381
+#: src/Config/Descriptions.php:384
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -10441,7 +10441,7 @@ msgstr ""
 "যদি টেবলের পছন্দগুলো বি্ভিন্ন সেশনে \"persistent\" স্থায়ীভাবে রাখতে না চান খালি "
 "রাখুন, দেখুন: [kbd]pma_table_uiprefs[/kbd]।"
 
-#: src/Config/Descriptions.php:385
+#: src/Config/Descriptions.php:388
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
@@ -10453,7 +10453,7 @@ msgstr ""
 "যদি টেবলের পছন্দগুলো বি্ভিন্ন সেশনে \"persistent\" স্থায়ীভাবে রাখতে না চান খালি "
 "রাখুন, দেখুন: [kbd]pma_table_uiprefs[/kbd]।"
 
-#: src/Config/Descriptions.php:389
+#: src/Config/Descriptions.php:392
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
@@ -10465,7 +10465,7 @@ msgstr ""
 "না করার জন্য খালি রাখুন [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a]সাহায্যের জন্য, দেখুন:[kbd]pma__relation[/kbd]।"
 
-#: src/Config/Descriptions.php:394
+#: src/Config/Descriptions.php:397
 #, fuzzy
 #| msgid ""
 #| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
@@ -10476,13 +10476,13 @@ msgstr ""
 "উদাহরণের জন্য [a@https://wiki.phpmyadmin.net/pma/"
 "auth_types#signon]authentication types [/a] দেখুন।"
 
-#: src/Config/Descriptions.php:397
+#: src/Config/Descriptions.php:400
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr "পিডিএফ গঠন সমর্থনের জন্য খালি রাখুন, দেখুন: [kbd]pma_table_coords[/kbd]।"
 
-#: src/Config/Descriptions.php:400
+#: src/Config/Descriptions.php:403
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
@@ -10490,7 +10490,7 @@ msgstr ""
 "স্তম্ভ বর্ণনার টেবল, সমর্থন দিতে না চাইলে খালি রাখুন; দেখুন: [kbd]pma_table_info[/"
 "kbd]।"
 
-#: src/Config/Descriptions.php:404
+#: src/Config/Descriptions.php:407
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -10498,7 +10498,7 @@ msgstr ""
 "যদি টেবলের পছন্দগুলো বি্ভিন্ন সেশনে \"persistent\" স্থায়ীভাবে রাখতে না চান খালি "
 "রাখুন, দেখুন: [kbd]pma_table_uiprefs[/kbd]।"
 
-#: src/Config/Descriptions.php:408
+#: src/Config/Descriptions.php:411
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -10506,7 +10506,7 @@ msgstr ""
 "যখন একটি ডাটাবেইজ তৈরী হবে তখন একটি DROP DATABASE IF EXISTS লেখা লগের প্রথম "
 "লাইনে যুক্ত হবে।"
 
-#: src/Config/Descriptions.php:412
+#: src/Config/Descriptions.php:415
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -10514,7 +10514,7 @@ msgstr ""
 "যখন লগ একটি টেবল তৈরী হবে তখন একটি DROP TABLE IF EXISTS লেখা লগের প্রথম লাইনে "
 "যুক্ত হবে।"
 
-#: src/Config/Descriptions.php:416
+#: src/Config/Descriptions.php:419
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -10522,13 +10522,13 @@ msgstr ""
 "যখন একটি ভিউ তৈরী হবে তখন একটি DROP VIEW IF EXISTS লেখা লগের প্রথম লাইনে যুক্ত "
 "হবে।"
 
-#: src/Config/Descriptions.php:420
+#: src/Config/Descriptions.php:423
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "একটি statements এর তালিকা তৈরী করুন যা সংস্করন তৈরীর জন্য স্বয়ংক্রীয় ভাবে ব্যবহৃত "
 "হবে।"
 
-#: src/Config/Descriptions.php:423
+#: src/Config/Descriptions.php:426
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
@@ -10536,13 +10536,13 @@ msgstr ""
 "SQL অনুসন্ধান ট্রেকিং সমর্থন না দেওয়ার জন্য খালি রাখুন, দেখুন: [kbd]pma_tracking[/"
 "kbd]।"
 
-#: src/Config/Descriptions.php:426
+#: src/Config/Descriptions.php:429
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr "ট্রেকিং ব্যবস্থা টেবল এবং ভিউ এর সংস্করন স্বয়ংক্রীয় ভাবে তৈরী করবে।"
 
-#: src/Config/Descriptions.php:429
+#: src/Config/Descriptions.php:432
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
@@ -10550,21 +10550,21 @@ msgstr ""
 "ব্যবহারকারীর নির্ধারন (preferences) ডাটাবেইজে মজুদ করতে না চাইলে খালি রাখুন, "
 "দেখুন:[kbd]pma_userconfig[/kbd]।"
 
-#: src/Config/Descriptions.php:432
+#: src/Config/Descriptions.php:435
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:437
+#: src/Config/Descriptions.php:440
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
 
-#: src/Config/Descriptions.php:442
+#: src/Config/Descriptions.php:445
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -10572,7 +10572,7 @@ msgstr ""
 "ব্যবহারকারীর নির্ধারন (preferences) ডাটাবেইজে মজুদ করতে না চাইলে খালি রাখুন, "
 "দেখুন:[kbd]pma_userconfig[/kbd]।"
 
-#: src/Config/Descriptions.php:446
+#: src/Config/Descriptions.php:449
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -10580,53 +10580,53 @@ msgstr ""
 "ব্যবহারকারীর জন্য সার্ভারের সহজবোধ্য বিবরণ। হোস্ট নামটি দেখাবার জন্য খালি রাখতে "
 "পারেন।"
 
-#: src/Config/Descriptions.php:448
+#: src/Config/Descriptions.php:451
 msgid "Leave blank if not used."
 msgstr "ব্যবহৃত না হলে থালি রাখ।"
 
-#: src/Config/Descriptions.php:449
+#: src/Config/Descriptions.php:452
 msgid "Leave blank for defaults."
 msgstr "স্বাভাবিকভাবে থাকার জন্য খালি রাখুন।"
 
-#: src/Config/Descriptions.php:450
+#: src/Config/Descriptions.php:453
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
 "যথন এইছটিটিপি প্রমানীকরণ ব্যবহার হবে তখন প্রদর্শনের জন্য প্রাথমিক এইছটিটিপি "
 "প্রমানীকরণ নাম।"
 
-#: src/Config/Descriptions.php:451
+#: src/Config/Descriptions.php:454
 msgid "Authentication method to use."
 msgstr "ব্যবহারের জন্য প্রমাণীকরনের পদ্ধতী।"
 
-#: src/Config/Descriptions.php:452
+#: src/Config/Descriptions.php:455
 msgid "Compress connection to MySQL server."
 msgstr "সংকুচিত MySQL সার্ভারের সংযোগ।"
 
-#: src/Config/Descriptions.php:453
+#: src/Config/Descriptions.php:456
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "ডাটাবেইজের regular expression (PCRE) মিলকরন লুকাও।"
 
-#: src/Config/Descriptions.php:454
+#: src/Config/Descriptions.php:457
 msgid "Hostname where MySQL server is running."
 msgstr "MySQL সার্ভারের হোস্ট নাম।"
 
-#: src/Config/Descriptions.php:455 src/Config/Descriptions.php:459
+#: src/Config/Descriptions.php:458 src/Config/Descriptions.php:462
 msgid "Leave empty if not using config auth."
 msgstr "খালি রাখুন যদি কনফিগ প্রমাণীকরণ ব্যবহার না করেন।"
 
-#: src/Config/Descriptions.php:456
+#: src/Config/Descriptions.php:459
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr "যে পোর্টে MySQL সার্ভার শুনছে, স্বাভাবিকটির জন্য খালি রাখুন।"
 
-#: src/Config/Descriptions.php:457
+#: src/Config/Descriptions.php:460
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr "কোন সকেটে MySQL সার্ভার শুনছে, স্বাভাবিকটির জন্য।"
 
-#: src/Config/Descriptions.php:458
+#: src/Config/Descriptions.php:461
 msgid "Enable SSL for connection to MySQL server."
 msgstr "MySQL সার্ভারে সংযোগের জন্য SSL কার্যকর কর।"
 
-#: src/Config/Descriptions.php:461
+#: src/Config/Descriptions.php:464
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -10636,27 +10636,27 @@ msgstr ""
 "কারন পাসওয়ার্ডটি কনফিগারেশন ফাইলে লেখা আছে; এটা একই কমান্ড সরাসরি কার্যকর করার "
 "ক্ষমতা খর্ব করে না।"
 
-#: src/Config/Descriptions.php:466
+#: src/Config/Descriptions.php:469
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr "সব টেবলের প্রস্তুত সময় প্রর্দশনের স্তম্ভ দেখাবে বা লুকাবে।"
 
-#: src/Config/Descriptions.php:469
+#: src/Config/Descriptions.php:472
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr "সব টেবলের আপডেট সময় প্রর্দশনের স্তম্ভ দেখাবে বা লুকাবে।"
 
-#: src/Config/Descriptions.php:472
+#: src/Config/Descriptions.php:475
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr "সব টেবলের সর্বশেষ পরীক্ষার সময় প্রর্দশনের স্তম্ভ দেখাবে বা লুকাবে।"
 
-#: src/Config/Descriptions.php:475
+#: src/Config/Descriptions.php:478
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr "সম্পাদনা/ইনর্সাটের সময় টাইপ ফিল্ড দেখাবে কিনা তা নির্ধারন করুন।"
 
-#: src/Config/Descriptions.php:478
+#: src/Config/Descriptions.php:481
 #, fuzzy
 #| msgid ""
 #| "Shows link to [a@https://www.php.net/manual/function.phpinfo.php]phpinfo()"
@@ -10668,51 +10668,51 @@ msgstr ""
 "[a@https://www.php.net/manual/function.phpinfo.php]phpinfo()[/a] আউটপুট সংযোগ "
 "দেখাও।"
 
-#: src/Config/Descriptions.php:480
+#: src/Config/Descriptions.php:483
 #, fuzzy
 #| msgid "Whether a user should be displayed a \"show all (rows)\" button"
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "ব্যবহারকারীকে \"সব দেখাও রো)\" বাটন দেখাবে"
 
-#: src/Config/Descriptions.php:481
+#: src/Config/Descriptions.php:484
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr "সব টেবলের প্রস্তুত সময় প্রর্দশনের স্তম্ভ দেখাবে বা লুকাবে।"
 
-#: src/Config/Descriptions.php:482
+#: src/Config/Descriptions.php:485
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr "সব টেবলের প্রস্তুত সময় প্রর্দশনের স্তম্ভ দেখাবে বা লুকাবে।"
 
-#: src/Config/Descriptions.php:483
+#: src/Config/Descriptions.php:486
 msgid "Display the function fields in edit/insert mode."
 msgstr "ফাংশন ক্ষেত্রটি সম্পাদনা/ইনর্সাট অবস্থায় দেখাবে।"
 
-#: src/Config/Descriptions.php:484
+#: src/Config/Descriptions.php:487
 msgid "Whether to show hint or not."
 msgstr "আভাস দেখাবে অথবা না।"
 
-#: src/Config/Descriptions.php:485
+#: src/Config/Descriptions.php:488
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr "নিধার্রণ করুন phpMyAdmin দ্বারা প্রস্তুতকৃত SQL অনুসন্ধান প্রদর্শন করবে কিনা।"
 
-#: src/Config/Descriptions.php:486
+#: src/Config/Descriptions.php:489
 #, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr "ডাটাবেইজ এবং টেবলের পরিসংখ্যান দেখাও (জায়গা ব্যবহৃত হবে)।"
 
-#: src/Config/Descriptions.php:488
+#: src/Config/Descriptions.php:491
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr "ব্যবহৃত টেবল চিহ্নিত কর এবং লক্ড টেবল সহ ডাটাবেইজগুলো দেখাবার ব্যবস্থা কর।"
 
-#: src/Config/Descriptions.php:491
+#: src/Config/Descriptions.php:494
 #, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
@@ -10720,7 +10720,7 @@ msgid ""
 "detected."
 msgstr "যদি Suhosin পাওয়া যায় তবে একটি সর্তক বার্তা প্রদর্শন করবে।"
 
-#: src/Config/Descriptions.php:494
+#: src/Config/Descriptions.php:497
 #, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
@@ -10733,7 +10733,7 @@ msgstr ""
 "যদি কোন টেবলের স্তম্ভের নামে MySQL এর রির্জাভড ওর্য়াড ব্যবহার করা হয় তবে গঠন "
 "পাতায় যে সর্তকবার্তা প্রদর্শন করা হয় তা অকার্যকর কর।"
 
-#: src/Config/Descriptions.php:499
+#: src/Config/Descriptions.php:502
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10741,7 +10741,7 @@ msgstr ""
 "সম্পাদনার সময়, টেক্সটএরিয়া (স্তম্ভ) আকৃতি এই মানটি SQL অনুসন্ধানের টেক্সটএরিয়া (*২) "
 "এবং অনুসন্ধান উইন্ডো (*১.২৫) প্রভাব ফেলবে।"
 
-#: src/Config/Descriptions.php:502
+#: src/Config/Descriptions.php:505
 #, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
@@ -10753,7 +10753,7 @@ msgstr ""
 "সম্পাদনের সময়, টেক্সটএরিয়ার আকৃতি (রো) এই মানটি SQL অনুসন্ধানের টেক্সটএরিয়া (*২) "
 "এবং অনুসন্ধান উইন্ডো (*১.২৫) প্রভাব ফেলবে।"
 
-#: src/Config/Descriptions.php:505
+#: src/Config/Descriptions.php:508
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -10764,7 +10764,7 @@ msgstr ""
 "1.2.3.4:[br][kbd]1.2.3.4:HTTP_X_FORWARDED_FOR[/kbd] থেকে আসা শিরোনামে "
 "HTTP_X_FORWARDED_FOR (X-Forwarded-For) বিশ্বাস করবে।"
 
-#: src/Config/Descriptions.php:511
+#: src/Config/Descriptions.php:514
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -10772,7 +10772,7 @@ msgstr ""
 "যদি অকার্যকর থাবে, ব্যবহারকারী নীচের কোন অপশন সেট করতে পারেব না, ডান দিকের "
 "চেকবক্স পর্যন্ত।"
 
-#: src/Config/Descriptions.php:514
+#: src/Config/Descriptions.php:517
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
@@ -10780,20 +10780,20 @@ msgid ""
 "to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
 
-#: src/Config/Descriptions.php:520
+#: src/Config/Descriptions.php:523
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
 
-#: src/Config/Descriptions.php:526
+#: src/Config/Descriptions.php:529
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
 
-#: src/Config/Descriptions.php:530
+#: src/Config/Descriptions.php:533
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
@@ -10801,202 +10801,202 @@ msgid ""
 "configuration storage tables automatically."
 msgstr "phpMyAdmin কনফিগারেশনের storage table পাওয়া যাচ্ছে না"
 
-#: src/Config/Descriptions.php:533
+#: src/Config/Descriptions.php:536
 msgid "Highlight selected rows."
 msgstr "নির্বাচিত রোগুলো উজ্জ্বল কর।"
 
-#: src/Config/Descriptions.php:534
+#: src/Config/Descriptions.php:537
 msgid "Highlight row pointed by the mouse cursor."
 msgstr "মাউস দ্বার পয়েন্টড রো উজ্জ্বল কর।"
 
-#: src/Config/Descriptions.php:535
+#: src/Config/Descriptions.php:538
 msgid "Number of columns for CHAR/VARCHAR textareas."
 msgstr "CHAR/VARCHAR textarea'র জন্য স্তম্ভের সংখ্যা।"
 
-#: src/Config/Descriptions.php:536
+#: src/Config/Descriptions.php:539
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "CHAR/VARCHAR textarea'র রো সংখ্যা।"
 
-#: src/Config/Descriptions.php:537
+#: src/Config/Descriptions.php:540
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
 
-#: src/Config/Descriptions.php:538
+#: src/Config/Descriptions.php:541
 msgid "Tab that is displayed when entering a database."
 msgstr "কোন ডাটাবেইজে প্রবেশ কালে প্রদর্শনের ট্যাব।"
 
-#: src/Config/Descriptions.php:539
+#: src/Config/Descriptions.php:542
 msgid "Tab that is displayed when entering a server."
 msgstr "কোন সার্ভারে প্রবেশ কালে প্রদর্শনের ট্যাব।"
 
-#: src/Config/Descriptions.php:540
+#: src/Config/Descriptions.php:543
 msgid "Tab that is displayed when entering a table."
 msgstr "কোন টেবলে প্রবেশকালে প্রর্দশনের ট্যাব।"
 
-#: src/Config/Descriptions.php:541
+#: src/Config/Descriptions.php:544
 msgid "Whether the table structure actions should be hidden."
 msgstr "টেবল গঠনের কার্যাবলী লুকানো থাকবে।"
 
-#: src/Config/Descriptions.php:542
+#: src/Config/Descriptions.php:545
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
 
-#: src/Config/Descriptions.php:543
+#: src/Config/Descriptions.php:546
 msgid "Show server listing as a list instead of a drop down."
 msgstr "সার্ভারের তালিকা ড্রপ ডাউনের পরিবর্তে একটি তালিকা হিসাবে দেখাবে।"
 
-#: src/Config/Descriptions.php:544
+#: src/Config/Descriptions.php:547
 msgid "A dropdown will be used if fewer items are present."
 msgstr "যদি অল্প সংখ্যক বিষয় থাকে তবে ড্রপডাউন ব্যবহৃত হবে।"
 
-#: src/Config/Descriptions.php:545
+#: src/Config/Descriptions.php:548
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
-#: src/Config/Descriptions.php:546
+#: src/Config/Descriptions.php:549
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
 
-#: src/Config/Descriptions.php:547
+#: src/Config/Descriptions.php:550
 msgid "How many rows can be inserted at one time."
 msgstr "এক সংগে কতগুলো রো ইনসার্ট করবে।"
 
-#: src/Config/Descriptions.php:548
+#: src/Config/Descriptions.php:551
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr "সংখ্যা নয় এমন স্তম্ভে প্রদর্শনের জন্য সবোর্চ্চ অক্ষরের সংখ্যা।"
 
-#: src/Config/Descriptions.php:549
+#: src/Config/Descriptions.php:552
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "একটি লগইন কুকি কতক্ষন (সেকেন্ডে) কার্যকর থাকবে তা নির্ধারণ করুন।"
 
-#: src/Config/Descriptions.php:550
+#: src/Config/Descriptions.php:553
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "LONGTEXT স্তম্ভের জন্য টেক্সটএরিয়া দ্বিগুন কর।"
 
-#: src/Config/Descriptions.php:551
+#: src/Config/Descriptions.php:554
 msgid "Maximum number of databases displayed in database list."
 msgstr "টেবল তালিকায় প্রদর্শনের জন্য টেবলের সর্বোচ্চ সংখ্যা।"
 
-#: src/Config/Descriptions.php:552
+#: src/Config/Descriptions.php:555
 msgid "Maximum number of tables displayed in table list."
 msgstr "টেবল তালিকায় প্রদর্শনের জন্য টেবলের সর্বোচ্চ সংখ্যা।"
 
-#: src/Config/Descriptions.php:553
+#: src/Config/Descriptions.php:556
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr "সম্প্রতি ব্যবহৃত টেবলের সর্বো্চ্চ সংখ্যা; অকার্যকর করার জন্য ০ নির্ধারন করুন।"
 
-#: src/Config/Descriptions.php:554
+#: src/Config/Descriptions.php:557
 #, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable."
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "সম্প্রতি ব্যবহৃত টেবলের সর্বো্চ্চ সংখ্যা; অকার্যকর করার জন্য ০ নির্ধারন করুন।"
 
-#: src/Config/Descriptions.php:555
+#: src/Config/Descriptions.php:558
 msgid "These are Edit, Copy and Delete links."
 msgstr "এগুলো সম্পাদনা, প্রতিলিপি এবং মুছা সংযোগ।"
 
-#: src/Config/Descriptions.php:556
+#: src/Config/Descriptions.php:559
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 
-#: src/Config/Descriptions.php:557 src/Config/Descriptions.php:838
+#: src/Config/Descriptions.php:560 src/Config/Descriptions.php:838
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
 msgstr "foreign key পরীক্ষা অকার্যকর কর"
 
-#: src/Config/Descriptions.php:558
+#: src/Config/Descriptions.php:561
 msgid "Use natural order for sorting table and database names."
 msgstr "টেবল এবং ডাটাবেইজের নাম সাজানোর জন্য স্বাভাবিক বিন্যাস ব্যবহার কর।"
 
-#: src/Config/Descriptions.php:559 src/Config/Descriptions.php:562
-#: src/Config/Descriptions.php:563
+#: src/Config/Descriptions.php:562 src/Config/Descriptions.php:565
+#: src/Config/Descriptions.php:566
 msgid "Use only icons, only text or both."
 msgstr "শুধু আইকন, শুধু মাত্র টেক্সট বা উভয়ই ব্যবহার কর।"
 
-#: src/Config/Descriptions.php:560
+#: src/Config/Descriptions.php:563
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr "HTTP স্থানান্তরের গতি বাড়ানোর জন্য জিজিপ আউটপুট বাফারিং ব্যবহার কর।"
 
-#: src/Config/Descriptions.php:561
+#: src/Config/Descriptions.php:564
 msgid "Use persistent connections to MySQL databases."
 msgstr "MySQL ডাটাবেইজে স্থীর সংযোগ ব্যবহার কর।"
 
-#: src/Config/Descriptions.php:564
+#: src/Config/Descriptions.php:567
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "BLOB এবং BINARY টেবল সম্পাদনা অ-অনুমোদিত।"
 
-#: src/Config/Descriptions.php:565
+#: src/Config/Descriptions.php:568
 msgid "How many queries are kept in history."
 msgstr "হিস্টোরীতে কতগুলো অনুসন্ধান থাকবে।"
 
-#: src/Config/Descriptions.php:566
+#: src/Config/Descriptions.php:569
 msgid "Select which functions will be used for character set conversion."
 msgstr "বর্ণরাশি পরিবর্তনে কোন ফাংশন ব্যবহৃত হবে তা নির্বাচন করুন।"
 
-#: src/Config/Descriptions.php:567
+#: src/Config/Descriptions.php:570
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "যখন টেবল ব্রাউজ করা হবে, টেবলের সজ্জা মনে রাখবে।"
 
-#: src/Config/Descriptions.php:568
+#: src/Config/Descriptions.php:571
 msgid "Default sort order for tables with a primary key."
 msgstr ""
 
-#: src/Config/Descriptions.php:569
+#: src/Config/Descriptions.php:572
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr "প্রতি X cells শিরোনাম পুনরায় দেখাবে, [kbd]০[/kbd] এটি অকার্যকর করবে।"
 
-#: src/Config/Descriptions.php:570
+#: src/Config/Descriptions.php:573
 #, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
 msgstr "সার্ভারের প্রর্দশন অপশনগুলো।"
 
-#: src/Config/Descriptions.php:571
+#: src/Config/Descriptions.php:574
 msgid "Directory where exports can be saved on server."
 msgstr "সার্ভারে রফতানী সংরক্ষনের ডিরেক্টরী।"
 
-#: src/Config/Descriptions.php:572
+#: src/Config/Descriptions.php:575
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr "পেশ করার পর অনুসন্ধান বক্সটি পর্দায় থাকবে কিনা।"
 
-#: src/Config/Descriptions.php:573
+#: src/Config/Descriptions.php:576
 msgid "Title of browser window when a database is selected."
 msgstr "একটি ডাটাবেইজ নিবার্চন করা হলে ব্রাউজার উইন্ডোর শিরোনাম।"
 
-#: src/Config/Descriptions.php:574
+#: src/Config/Descriptions.php:577
 msgid "Title of browser window when nothing is selected."
 msgstr "কিছু নির্বাচিত না থাকলে ব্রাউজার উইন্ডোর শিরোনাম।"
 
-#: src/Config/Descriptions.php:575
+#: src/Config/Descriptions.php:578
 msgid "Title of browser window when a server is selected."
 msgstr "একটি সার্ভার নিবার্চন করা হলে ব্রাউজারের শিরোনাম।"
 
-#: src/Config/Descriptions.php:576
+#: src/Config/Descriptions.php:579
 msgid "Title of browser window when a table is selected."
 msgstr "একটি টেবল নির্বাচন করা হবে ব্রাউজার উইন্ডোর শিরোনাম।"
 
-#: src/Config/Descriptions.php:577
+#: src/Config/Descriptions.php:580
 msgid "Directory on server where you can upload files for import."
 msgstr "সার্ভরের আপলোড ডিরেক্টরি যেখানে আমদানির ফাইল রাখা যাবে।"
 
-#: src/Config/Descriptions.php:578
+#: src/Config/Descriptions.php:581
 msgid "Allow for searching inside the entire database."
 msgstr "সমস্ত ডাটাবেইজের ভিতর খোঁজার অনুমতি।"
 
-#: src/Config/Descriptions.php:579
+#: src/Config/Descriptions.php:582
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "নতুন কোন সংস্করন আছে কিনা তা phpMyAdmin page এ পরীক্ষা করে দেখবে।"
 
-#: src/Config/Descriptions.php:580
+#: src/Config/Descriptions.php:583
 msgid "The password for authenticating with the proxy."
 msgstr ""
 
-#: src/Config/Descriptions.php:581
+#: src/Config/Descriptions.php:584
 #, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
@@ -11006,7 +11006,7 @@ msgstr ""
 "আমদানি রফতানীর জন্য [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] সংকুচন "
 "কার্যকর কর।"
 
-#: src/Config/Descriptions.php:582
+#: src/Config/Descriptions.php:585
 msgid "Choose the default action when sending error reports."
 msgstr ""
 
@@ -12265,38 +12265,38 @@ msgstr "বিন্যাস"
 msgid "Server connection collation"
 msgstr "সার্ভার সংযোগে ব্যবহৃত ভাষা"
 
-#: src/Config/FormDisplay.php:580
+#: src/Config/FormDisplay.php:581
 #, php-format
 msgid "Missing data for %s"
 msgstr "%s এর তথ্য নাই"
 
-#: src/Config/FormDisplay.php:620 src/Config/Validator.php:594
+#: src/Config/FormDisplay.php:621 src/Config/Validator.php:595
 #: src/Controllers/JavaScriptMessagesController.php:828
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
 msgstr "মানটি সঠিক নয়"
 
-#: src/Config/FormDisplay.php:766
+#: src/Config/FormDisplay.php:767
 msgid "unavailable"
 msgstr "পাওয়া যাচ্ছে না"
 
-#: src/Config/FormDisplay.php:768
+#: src/Config/FormDisplay.php:769
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" এর %s সংযোজক প্রয়োজন"
 
-#: src/Config/FormDisplay.php:790
+#: src/Config/FormDisplay.php:791
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "ফাংশন %s না পাওয়ায় সংকোচিত আমদানি কাজ করবে না।"
 
-#: src/Config/FormDisplay.php:799
+#: src/Config/FormDisplay.php:800
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "ফাংশন %s না পাওয়ায় সংকোচিত রফতানি কাজ করবে না।"
 
-#: src/Config/FormDisplay.php:819
+#: src/Config/FormDisplay.php:820
 #, php-format
 msgid "maximum %s"
 msgstr "সর্বোচ্চ %s"
@@ -12568,23 +12568,23 @@ msgstr "ডাটাবেইজ লেভেল ট্যাব"
 msgid "Table-level tabs"
 msgstr "টেবলের লেবেল ট্যাব"
 
-#: src/Config/Validator.php:252
+#: src/Config/Validator.php:253
 msgid "Could not connect to the database server!"
 msgstr "ডাটাবেইজ সার্ভারে সংযোগ করা যায়নি"
 
-#: src/Config/Validator.php:288
+#: src/Config/Validator.php:289
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
 msgstr "প্রমাণীকরণের ধরন"
 
-#: src/Config/Validator.php:293
+#: src/Config/Validator.php:294
 #, fuzzy
 #| msgid "Empty username while using config authentication method!"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "কনফিগ প্রমাণীকরণের ক্ষেত্রে ব্যবহারকারীর নাম খালি পাওয়াগেছে!"
 
-#: src/Config/Validator.php:299
+#: src/Config/Validator.php:300
 #, fuzzy
 #| msgid "Empty signon session name while using signon authentication method!"
 msgid ""
@@ -12592,13 +12592,13 @@ msgid ""
 "method!"
 msgstr "সাইনঅন প্রমাণীকরণের ক্ষেত্রে সাইনঅন সেশনের নাম খালি পাওয়াগেছে!"
 
-#: src/Config/Validator.php:306
+#: src/Config/Validator.php:307
 #, fuzzy
 #| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "শুন্য signon URL যখন signon প্রমাণীকরণ ব্যবহার করছেন।"
 
-#: src/Config/Validator.php:359
+#: src/Config/Validator.php:360
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
@@ -12608,7 +12608,7 @@ msgstr ""
 "যখন phpMyAdmin configuration storage ব্যবহৃত হচ্ছে তখন phpMyAdmin নিয়ন্ত্রক "
 "ব্যবহারকারী শুন্য"
 
-#: src/Config/Validator.php:366
+#: src/Config/Validator.php:367
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user password while using phpMyAdmin "
@@ -12620,37 +12620,37 @@ msgstr ""
 "যখন phpMyAdmin configuration storage ব্যবহৃত হচ্ছে তখন phpMyAdmin নিয়ন্ত্রক "
 "ব্যবহারকারী পাসওর্য়াড শুন্য"
 
-#: src/Config/Validator.php:455
+#: src/Config/Validator.php:456
 msgid "Incorrect value:"
 msgstr "ভুল মান:"
 
-#: src/Config/Validator.php:466
+#: src/Config/Validator.php:467
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "অসত্য IP address: %s"
 
-#: src/Config/Validator.php:529
+#: src/Config/Validator.php:530
 #: src/Controllers/JavaScriptMessagesController.php:827
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
 msgstr "কার্যকর পোর্ট নাম্বার নয়"
 
-#: src/Config/Validator.php:551
+#: src/Config/Validator.php:552
 #: src/Controllers/JavaScriptMessagesController.php:825
 #, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
 msgstr "নাম্বারটি পজেটিভ নয়"
 
-#: src/Config/Validator.php:573
+#: src/Config/Validator.php:574
 #: src/Controllers/JavaScriptMessagesController.php:826
 #, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
 msgstr "নেগেটিভ নয় এমন নাম্বার না"
 
-#: src/Config/Validator.php:612
+#: src/Config/Validator.php:613
 #: src/Controllers/JavaScriptMessagesController.php:829
 #, fuzzy, php-format
 #| msgid "Value must be less than or equal to %s"
@@ -16257,9 +16257,9 @@ msgstr "অনুসন্ধান ক্যাশ অকার্যকর র
 msgid "Setting variable failed"
 msgstr "চলক সেটিং ব্যার্থ হয়েছে"
 
-#: src/Controllers/Setup/ConfigController.php:41
+#: src/Controllers/Setup/ConfigController.php:43
 #: src/Controllers/Setup/FormController.php:44
-#: src/Controllers/Setup/HomeController.php:45
+#: src/Controllers/Setup/HomeController.php:47
 #: src/Controllers/Setup/ServerDestroyController.php:41
 #: src/Controllers/Setup/ServersController.php:44
 #: src/Controllers/Setup/ShowConfigController.php:42
@@ -16271,7 +16271,7 @@ msgstr ""
 msgid "Incorrect form specified!"
 msgstr ""
 
-#: src/Controllers/Setup/HomeController.php:71
+#: src/Controllers/Setup/HomeController.php:73
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
@@ -16279,7 +16279,7 @@ msgstr ""
 "আপনি নিরাপদ সংযোগ ব্যবহার করছেন না; সমস্ত তথ্য (গুরুত্বপূর্ণ তথ্য, যেমন "
 "পাসওয়ার্ড)আনএনক্রিপটেড স্থানান্তর করা হবে।"
 
-#: src/Controllers/Setup/HomeController.php:76
+#: src/Controllers/Setup/HomeController.php:78
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
@@ -16287,7 +16287,7 @@ msgstr ""
 "আপনার সার্ভার যদি HTTPS সংযোগের জন্য কনফিগারড হয় তবে নিরাপদ সংযোগের জন্য এই "
 "লিংক ব্যবহার করেন।"
 
-#: src/Controllers/Setup/HomeController.php:80
+#: src/Controllers/Setup/HomeController.php:82
 msgid "Insecure connection"
 msgstr "নিরাপত্তাহীন সংযোগ"
 
@@ -19465,22 +19465,22 @@ msgstr "ডাটাবেইজ %s এ SQL অনুসন্ধান/অন�
 msgid "Run SQL query/queries on table %s"
 msgstr "ডাটাবেইজ %s এ SQL অনুসন্ধান/অনুসন্ধানসমূহ চালাও"
 
-#: src/StorageEngine.php:319
+#: src/StorageEngine.php:320
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "মজুদ ব্যবস্থার অবস্থা সর্ম্পকে বিশদ তথ্য নাই।"
 
-#: src/StorageEngine.php:416
+#: src/StorageEngine.php:417
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s এই সার্ভারে আছে।"
 
-#: src/StorageEngine.php:417
+#: src/StorageEngine.php:418
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s এই সার্ভারে অকার্যকর।"
 
-#: src/StorageEngine.php:418
+#: src/StorageEngine.php:419
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "এই MySQL সার্ভারটি %s মজুদ ব্যবস্থা সমর্থন করে না।"

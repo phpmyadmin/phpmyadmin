@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-07-14 00:22+0000\n"
+"POT-Creation-Date: 2024-07-21 00:22+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -824,7 +824,7 @@ msgstr "Επαναφορά"
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
 #: src/Html/Generator.php:668 src/Html/MySQLDocumentation.php:49
-#: src/Sanitize.php:188
+#: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "Τεκμηρίωση"
 
@@ -2574,7 +2574,7 @@ msgid "Sum"
 msgstr "Σύνολο"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:415
+#: src/StorageEngine.php:416
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr ""
@@ -9571,19 +9571,19 @@ msgstr "αμφότερα τα παραπάνω"
 msgid "neither of the above"
 msgstr "κανένα από τα παραπάνω"
 
-#: src/Config/Descriptions.php:55 src/Config/Descriptions.php:56
-#: src/Config/Descriptions.php:57
+#: src/Config/Descriptions.php:61 src/Config/Descriptions.php:62
+#: src/Config/Descriptions.php:63
 msgid "Users cannot set a higher value"
 msgstr "Οι χρήστες δεν μπορούν να ορίσουν μεγαλύτερη τιμή"
 
-#: src/Config/Descriptions.php:73
+#: src/Config/Descriptions.php:76
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Αν ενεργοποιηθεί, ο χρήστης μπορεί να συνδεθεί σε οποιοδήποτε διακομιστή "
 "MySQL μέσω φόρμας σύνδεσης για επικύρωση cookie."
 
-#: src/Config/Descriptions.php:76
+#: src/Config/Descriptions.php:79
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
@@ -9594,7 +9594,7 @@ msgstr ""
 "την IP ή το όνομα φιλοξενητή του διακομιστή MySQL στην δοθείσα κανονική "
 "έκφραση."
 
-#: src/Config/Descriptions.php:81
+#: src/Config/Descriptions.php:84
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
@@ -9604,7 +9604,7 @@ msgstr ""
 "να καλεί το phpMyAdmin μέσα σε ένα πλαίσιο, κάτι που είναι [strong]τρύπα "
 "ασφαλείας[/strong] που επιτρέπει  (XSS) εισβολές στον κώδικα μέσω πλαισίων."
 
-#: src/Config/Descriptions.php:86
+#: src/Config/Descriptions.php:89
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
@@ -9612,17 +9612,17 @@ msgstr ""
 "Μυστική φράση πρόσβασης χρησιμοποιήθηκε για την κρυπτογράφηση των cookies "
 "στην επικύρωση του [kbd]cookie[/kbd]."
 
-#: src/Config/Descriptions.php:88
+#: src/Config/Descriptions.php:91
 msgid "Enable bzip2 compression for import operations."
 msgstr "Ενεργοποίηση της συμπίεσης bzip2 για λειτουργίες εισαγωγής."
 
-#: src/Config/Descriptions.php:89
+#: src/Config/Descriptions.php:92
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "Εισάγετε το ιδιωτικό κλειδί σας για τη βασική υπηρεσία reCaptcha σας."
 
-#: src/Config/Descriptions.php:90
+#: src/Config/Descriptions.php:93
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid ""
@@ -9630,37 +9630,37 @@ msgid ""
 "API."
 msgstr "Εισάγετε το ιδιωτικό κλειδί σας για τη βασική υπηρεσία reCaptcha σας."
 
-#: src/Config/Descriptions.php:91
+#: src/Config/Descriptions.php:94
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr "Εισάγετε το ιδιωτικό κλειδί σας για τη βασική υπηρεσία reCaptcha σας."
 
-#: src/Config/Descriptions.php:92
+#: src/Config/Descriptions.php:95
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr "Εισάγετε το ιδιωτικό κλειδί σας για τη βασική υπηρεσία reCaptcha σας."
 
-#: src/Config/Descriptions.php:93
+#: src/Config/Descriptions.php:96
 #, fuzzy
 #| msgid "Enter your public key for your domain reCaptcha service."
 msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "Εισάγετε το δημόσιο κλειδί σας για τη βασική υπηρεσία reCaptcha σας."
 
-#: src/Config/Descriptions.php:94
+#: src/Config/Descriptions.php:97
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "Εισάγετε το ιδιωτικό κλειδί σας για τη βασική υπηρεσία reCaptcha σας."
 
-#: src/Config/Descriptions.php:95
+#: src/Config/Descriptions.php:98
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr "Εισάγετε το ιδιωτικό κλειδί σας για τη βασική υπηρεσία reCaptcha σας."
 
-#: src/Config/Descriptions.php:97
+#: src/Config/Descriptions.php:100
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -9670,7 +9670,7 @@ msgstr ""
 "VARCHAR: [kbd]input[/kbd] - επιτρέπει περιορισμό του μήκους, [kbd]textarea[/"
 "kbd] - επιτρέπει αλλαγή γραμμών στα πεδία."
 
-#: src/Config/Descriptions.php:102
+#: src/Config/Descriptions.php:105
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
@@ -9679,7 +9679,7 @@ msgstr ""
 "επεξεργασία ερωτημάτων SQL (CodeMirror) με επισήμανση σύνταξης και αρίθμηση "
 "γραμμών."
 
-#: src/Config/Descriptions.php:107
+#: src/Config/Descriptions.php:110
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
@@ -9687,13 +9687,13 @@ msgstr ""
 "Βρίσκει οποιαδήποτε σφάλματα στο ερώτημα πριν την εκτέλεσή του. Απαιτείται η "
 "ενεργοποίηση του CodeMirror."
 
-#: src/Config/Descriptions.php:110
+#: src/Config/Descriptions.php:113
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr "Ορίζεται το ελάχιστο μέγεθος για τις στήλες CHAR και VARCHAR."
 
-#: src/Config/Descriptions.php:113
+#: src/Config/Descriptions.php:116
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9701,7 +9701,7 @@ msgstr ""
 "Ορίζεται το ελάχιστο μέγεθος για τα πεδία εισαγωγής για τις στήλες CHAR και "
 "VARCHAR."
 
-#: src/Config/Descriptions.php:116
+#: src/Config/Descriptions.php:119
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
@@ -9710,7 +9710,7 @@ msgstr ""
 "παρουσιάστηκαν προβλήματα με τα δημιουργηθέντα αρχεία gzip απενεργοποιήστε "
 "αυτό το χαρακτηριστικό."
 
-#: src/Config/Descriptions.php:120
+#: src/Config/Descriptions.php:123
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
@@ -9718,15 +9718,15 @@ msgstr ""
 "Όταν μια προειδοποίηση («Είστε σίγουρος/η…») πρέπει να προβάλετε αν "
 "πρόκειται να χαθούν δεδομένα."
 
-#: src/Config/Descriptions.php:123
+#: src/Config/Descriptions.php:126
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr "Αυτόματη συμπλήρωση του ονόματος πίνακα και στηλών στα ερωτήματα SQL."
 
-#: src/Config/Descriptions.php:126 src/Config/Descriptions.php:130
-#: src/Config/Descriptions.php:134 src/Config/Descriptions.php:138
-#: src/Config/Descriptions.php:142 src/Config/Descriptions.php:146
-#: src/Config/Descriptions.php:150 src/Config/Descriptions.php:154
-#: src/Config/Descriptions.php:158
+#: src/Config/Descriptions.php:129 src/Config/Descriptions.php:133
+#: src/Config/Descriptions.php:137 src/Config/Descriptions.php:141
+#: src/Config/Descriptions.php:145 src/Config/Descriptions.php:149
+#: src/Config/Descriptions.php:153 src/Config/Descriptions.php:157
+#: src/Config/Descriptions.php:161
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
@@ -9734,7 +9734,7 @@ msgstr ""
 "Τιμές για τη λίστα επιλογών για τις προεπιλεγμένες μετατροπές. Αυτά θα "
 "αντικατασταθούν η μετατροπή έχει συμπληρωθεί στη σελίδα δομής πίνακα."
 
-#: src/Config/Descriptions.php:162
+#: src/Config/Descriptions.php:165
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
@@ -9742,7 +9742,7 @@ msgstr ""
 "Απενεργοποιεί τις λειτουργίες μαζικής συντήρησης πινάκων, όλως "
 "βελτιστοποίηση ή επισκευή των επιλεγμένων πινάκων μιας βάσης δεδομένων."
 
-#: src/Config/Descriptions.php:166
+#: src/Config/Descriptions.php:169
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
@@ -9750,12 +9750,12 @@ msgstr ""
 "Ορίστε τον αριθμό των δευτερολέπτων που επιτρέπεται να εκτελεστεί κώδικας "
 "([kbd]0[/kbd] για εκτέλεση χωρίς όριο)."
 
-#: src/Config/Descriptions.php:168 src/Config/Descriptions.php:708
+#: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
 #: src/Plugins/Export/ExportSql.php:321
 msgid "Exclude definition of current user"
 msgstr ""
 
-#: src/Config/Descriptions.php:170
+#: src/Config/Descriptions.php:173
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
@@ -9763,7 +9763,7 @@ msgstr ""
 "Ταξινόμηση για αντικείμενα σε αναδυόμενο μενού foreing key; [kbd]content[/"
 "kbd] είναι τα αναφερθέντα δεδομένα, [kbd]id[/kbd] είναι η τιμή κλειδιού."
 
-#: src/Config/Descriptions.php:174
+#: src/Config/Descriptions.php:177
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
@@ -9772,7 +9772,7 @@ msgstr ""
 "[doc@faq6-27]τεκμηρίωση[/doc] για μαγικά κείμενα που μπορούν να "
 "χρησιμοποιηθούν για ειδικές τιμές."
 
-#: src/Config/Descriptions.php:179
+#: src/Config/Descriptions.php:182
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
@@ -9780,7 +9780,7 @@ msgstr ""
 "Σημειώστε ότι το phpMyAdmin είναι απλά ένα περιβάλλον εργασίας και τα "
 "χαρακτηριστικά του δεν περιορίζουν τη MySQL."
 
-#: src/Config/Descriptions.php:182
+#: src/Config/Descriptions.php:185
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
@@ -9788,7 +9788,7 @@ msgstr ""
 "Προχωρημένη ρύθμιση διακομιστή, μην αλλάξετε αυτές τις ρυθμίσεις εκτός και "
 "αν ξέρετε που παραπέμπουν."
 
-#: src/Config/Descriptions.php:185
+#: src/Config/Descriptions.php:188
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -9798,7 +9798,7 @@ msgstr ""
 "χαρακτηριστικά. Δείτε την [doc@linked-tables]υποδομή συνδεδεμένων πινάκων[/"
 "doc] στην τεκμηρίωση."
 
-#: src/Config/Descriptions.php:190
+#: src/Config/Descriptions.php:193
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
@@ -9806,118 +9806,118 @@ msgstr ""
 "Η παρακολούθηση των αλλαγών έγινε στη βάση δεδομένων. Απαιτεί το χώρο "
 "αποθήκευσης ρυθμίσεων του phpMyAdmin."
 
-#: src/Config/Descriptions.php:193
+#: src/Config/Descriptions.php:196
 msgid "Customize browse mode."
 msgstr "Προσαρμοσμένη κατάσταση αναζήτησης."
 
-#: src/Config/Descriptions.php:194 src/Config/Descriptions.php:195
-#: src/Config/Descriptions.php:202 src/Config/Descriptions.php:208
-#: src/Config/Descriptions.php:209 src/Config/Descriptions.php:214
+#: src/Config/Descriptions.php:197 src/Config/Descriptions.php:198
+#: src/Config/Descriptions.php:205 src/Config/Descriptions.php:211
+#: src/Config/Descriptions.php:212 src/Config/Descriptions.php:217
 msgid "Customize default options."
 msgstr "Προσαρμογή προεπιλεγμένων επιλογών."
 
-#: src/Config/Descriptions.php:196
+#: src/Config/Descriptions.php:199
 msgid "Settings for phpMyAdmin developers."
 msgstr "Ρυθμίσεις για δημιουργούς του phpMyAdmin."
 
-#: src/Config/Descriptions.php:197
+#: src/Config/Descriptions.php:200
 msgid "Customize edit mode."
 msgstr "Προσαρμοσμένη κατάσταση επεξεργασίας."
 
-#: src/Config/Descriptions.php:198
+#: src/Config/Descriptions.php:201
 msgid "Customize default export options."
 msgstr "Προσαρμογή προεπιλεγμένων επιλογών εξαγωγής."
 
-#: src/Config/Descriptions.php:199
+#: src/Config/Descriptions.php:202
 msgid "Set some commonly used options."
 msgstr "Ορίστε ορισμένες κοινώς χρησιμοποιούμενες επιλογές."
 
-#: src/Config/Descriptions.php:200
+#: src/Config/Descriptions.php:203
 msgid "Customize default common import options."
 msgstr "Προσαρμογή προεπιλεγμένων επιλογών εισαγωγής."
 
-#: src/Config/Descriptions.php:201
+#: src/Config/Descriptions.php:204
 msgid "Set import and export directories and compression options."
 msgstr "Ορισμός φακέλων εισαγωγής-εξαγωγής και επιλογές συμπίεσης."
 
-#: src/Config/Descriptions.php:203
+#: src/Config/Descriptions.php:206
 msgid "Databases display options."
 msgstr "Επιλογές προβολής βάσεων δεδομένων."
 
-#: src/Config/Descriptions.php:204
+#: src/Config/Descriptions.php:207
 msgid "Customize appearance of the navigation panel."
 msgstr "Προσαρμογή εμφάνισης του πίνακα πλοήγησης."
 
-#: src/Config/Descriptions.php:205
+#: src/Config/Descriptions.php:208
 msgid "Customize the navigation tree."
 msgstr "Προσαρμογή δέντρου πλοήγησης."
 
-#: src/Config/Descriptions.php:206
+#: src/Config/Descriptions.php:209
 msgid "Servers display options."
 msgstr "Επιλογές προβολής διακομιστών."
 
-#: src/Config/Descriptions.php:207
+#: src/Config/Descriptions.php:210
 msgid "Tables display options."
 msgstr "Επιλογές προβολής πινάκων."
 
-#: src/Config/Descriptions.php:210
+#: src/Config/Descriptions.php:213
 msgid "Settings that didn't fit anywhere else."
 msgstr "Ρυθμίσεις που δεν ανήκουν κάπου αλλού."
 
-#: src/Config/Descriptions.php:211
+#: src/Config/Descriptions.php:214
 msgid "Authentication settings."
 msgstr "Ρυθμίσεις πιστοποίησης."
 
-#: src/Config/Descriptions.php:212
+#: src/Config/Descriptions.php:215
 msgid "Enter server connection parameters."
 msgstr "Εισάγετε παραμέτρους σύνδεσης διακομιστή."
 
-#: src/Config/Descriptions.php:213
+#: src/Config/Descriptions.php:216
 msgid "Customize links shown in SQL Query boxes."
 msgstr "Προσαρμογή εμφανιζόμενων συνδέσμων στους χώρους ερωτημάτων SQL."
 
-#: src/Config/Descriptions.php:215
+#: src/Config/Descriptions.php:218
 msgid "SQL queries settings."
 msgstr "Ρυθμίσεις ερωτημάτων SQL."
 
-#: src/Config/Descriptions.php:216
+#: src/Config/Descriptions.php:219
 msgid "Customize startup page."
 msgstr "Προσαρμογή σελίδας εκκίνησης."
 
-#: src/Config/Descriptions.php:217
+#: src/Config/Descriptions.php:220
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 "Επιλέξτε ποιες λεπτομέρειες θα προβάλονται στη δομή της βάσης δεδομένων "
 "(λίστα πινάκων)."
 
-#: src/Config/Descriptions.php:218
+#: src/Config/Descriptions.php:221
 msgid "Settings for the table structure (list of columns)."
 msgstr "Ρυθμίσεις για τη δομή του πίνακα (λίστα στηλών)."
 
-#: src/Config/Descriptions.php:219
+#: src/Config/Descriptions.php:222
 msgid "Choose how you want tabs to work."
 msgstr "Επιλέξτε πως θα λειτουργούν οι καρτέλες."
 
-#: src/Config/Descriptions.php:220
+#: src/Config/Descriptions.php:223
 msgid "Customize text input fields."
 msgstr "Προσαρμογή πεδίων εισαγωγής κειμένου."
 
-#: src/Config/Descriptions.php:221
+#: src/Config/Descriptions.php:224
 msgid "Customize default options"
 msgstr "Προσαρμογή προεπιλεγμένων επιλογών"
 
-#: src/Config/Descriptions.php:222
+#: src/Config/Descriptions.php:225
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr ""
 "Απενεργοποίηση ορισμένων προειδοποιήσεων που εμφανίζονται στο phpMyAdmin."
 
-#: src/Config/Descriptions.php:224
+#: src/Config/Descriptions.php:227
 msgid "Enable gzip compression for import and export operations."
 msgstr ""
 "Ενεργοποιήστε τη συμπίεση gzip για τις λειτουργίες εισαγωγής και εξαγωγής."
 
-#: src/Config/Descriptions.php:226
+#: src/Config/Descriptions.php:229
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
@@ -9925,7 +9925,7 @@ msgstr ""
 "Αν ενεργοποιηθεί, το phpMyAdmin συνεχίζει να υπολογίζει ερωτήματα πολλαπλών "
 "δηλώσεων ακόμα και αν ένα από τα ερωτήματα αποτύχει."
 
-#: src/Config/Descriptions.php:230
+#: src/Config/Descriptions.php:233
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -9936,7 +9936,7 @@ msgstr ""
 "την εισαγωγή μεγάλων αρχείων, αν και μπορεί να μπορεί να διακόψει τις "
 "διαδικασίες."
 
-#: src/Config/Descriptions.php:235
+#: src/Config/Descriptions.php:238
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
@@ -9944,16 +9944,16 @@ msgstr ""
 "Προεπιλεγμένη μορφή; να ληφθεί υπόψη ότι αυτή η λίστα εξαρτάται από την "
 "τοποθεσία (βάση δεδομένων, πίνακας) και ότι μόνο η SQL είναι πάντα διαθέσιμη."
 
-#: src/Config/Descriptions.php:238 src/Config/Descriptions.php:239
+#: src/Config/Descriptions.php:241 src/Config/Descriptions.php:242
 msgid "Update data when duplicate keys found on import"
 msgstr ""
 "Ενημερώνει τα δεδομένα όταν βρεθούν διπλοεγγραφές κλειδιών στην εισαγωγή"
 
-#: src/Config/Descriptions.php:240
+#: src/Config/Descriptions.php:243
 msgid "Number of queries to skip from start."
 msgstr "Αριθμός ερωτημάτων που θα παραβλεφθούν από την αρχή."
 
-#: src/Config/Descriptions.php:242
+#: src/Config/Descriptions.php:245
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -9964,7 +9964,7 @@ msgstr ""
 "διακομιστή. Ορίζοντάς το σε FALSE είναι εύκολο να ξεχάσετε να αποσυνδεθείτε "
 "από άλλους διακομιστές όταν συνδέεστε σε πολλούς."
 
-#: src/Config/Descriptions.php:247
+#: src/Config/Descriptions.php:250
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
@@ -9972,7 +9972,7 @@ msgstr ""
 "Ορίζει αν η προηγούμενη σύνδεση πρέπει να επανακληθεί ή όχι σε κατάσταση "
 "επικύρωσης [kbd]cookie[/kbd]."
 
-#: src/Config/Descriptions.php:251
+#: src/Config/Descriptions.php:254
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -9984,11 +9984,11 @@ msgstr ""
 "για την τρέχουσα συνεδρία και θα διαγραφεί μόλις κλείσετε τον φυλλομετρητή. "
 "Αυτό προτείνεται για μη αξιόπιστα περιβάλλοντα."
 
-#: src/Config/Descriptions.php:257
+#: src/Config/Descriptions.php:260
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr "Μέγιστος αριθμός χαρακτήρων όταν προβάλεται ένα ερώτημα SQL."
 
-#: src/Config/Descriptions.php:260
+#: src/Config/Descriptions.php:263
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
@@ -9996,7 +9996,7 @@ msgstr ""
 "Ο αριθμός των αντικειμένων που μπορούν να προβληθούν σε κάθε σελίδα στο "
 "πρώτο επίπεδο του δέντρου πλοήγησης."
 
-#: src/Config/Descriptions.php:263
+#: src/Config/Descriptions.php:266
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
@@ -10004,7 +10004,7 @@ msgstr ""
 "Ο αριθμός των αντικειμένων που μπορούν να προβληθούν σε κάθε σελίδα στο "
 "δέντρο πλοήγησης."
 
-#: src/Config/Descriptions.php:266
+#: src/Config/Descriptions.php:269
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -10013,7 +10013,7 @@ msgstr ""
 "αποτέλεσμα. Αν το αποτέλεσμα περιέχει περισσότερες γραμμές, θα εμφανίζονται "
 "σύνδεσμοι «Προηγούμενο» και «Επόμενο»."
 
-#: src/Config/Descriptions.php:271
+#: src/Config/Descriptions.php:274
 #, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
@@ -10026,19 +10026,19 @@ msgstr ""
 "[kbd]32M[/kbd] ([kbd]-1[/kbd] για απεριόριστη και [kbd]0[/kbd] για καμιά "
 "αλλαγή)."
 
-#: src/Config/Descriptions.php:275
+#: src/Config/Descriptions.php:278
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 "Στον πίνακα πλοήγησης, αντικαθιστά το δέντρο της βάσης δεδομένων με έναν "
 "επιλογέα"
 
-#: src/Config/Descriptions.php:278
+#: src/Config/Descriptions.php:281
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 "Σύνδεση με τον βασικό πίνακα επισημαίνοντας την τρέχουσα βάση δεδομένων ή "
 "πίνακα."
 
-#: src/Config/Descriptions.php:281
+#: src/Config/Descriptions.php:284
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
@@ -10046,7 +10046,7 @@ msgstr ""
 "Ανοίγει τη συνδεδεμένη σελίδα στο κύριο παράθυρο ([code]main[/code]) ή σε "
 "νέο ([code]new[/code])."
 
-#: src/Config/Descriptions.php:284
+#: src/Config/Descriptions.php:287
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -10054,7 +10054,7 @@ msgstr ""
 "Ορίζει τον ελάχιστο αριθμό αντικειμένων (πίνακες, προβολές, ρουτίνες και "
 "συμβάντα) για προβολή σε πλαίσιο φίλτρου."
 
-#: src/Config/Descriptions.php:287
+#: src/Config/Descriptions.php:290
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
@@ -10062,75 +10062,75 @@ msgstr ""
 "Ομαδοποιήση αντικειμένων στο δέντρο πλοήγησης (προσδορίζεται από το "
 "διαχωριστικό στις Βάσεις Δεδομένων και τους Πίνακες παραπάνω)."
 
-#: src/Config/Descriptions.php:291
+#: src/Config/Descriptions.php:294
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr ""
 "Αν θα προσφέρεται η πιθανότητα επέκτασης του δέντρου στον πίνακα πλοήγησης."
 
-#: src/Config/Descriptions.php:294
+#: src/Config/Descriptions.php:297
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 "Αν θα προβάλονται διεργασίες κάτω από τη βάση δεδομένων στο δέντρο πλοήγησης"
 
-#: src/Config/Descriptions.php:297
+#: src/Config/Descriptions.php:300
 #, fuzzy
 #| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr ""
 "Αν θα θα προβάλονται συμβάντα κάτω από τη βάση δεδομένων στο δέντρο πλοήγησης"
 
-#: src/Config/Descriptions.php:299
+#: src/Config/Descriptions.php:302
 msgid "Set to 0 to collapse navigation panel."
 msgstr "Ορισμός σε 0 για σύμπτυξη του πίνακα πλοήγησης."
 
-#: src/Config/Descriptions.php:300
+#: src/Config/Descriptions.php:303
 msgid "Show logo in navigation panel."
 msgstr "Προβολή λογοτύπου στον πίνακα πλοήγησης."
 
-#: src/Config/Descriptions.php:301
+#: src/Config/Descriptions.php:304
 msgid "URL where logo in the navigation panel will point to."
 msgstr ""
 "Ο Σϋνδεσμος URL όπου θα τοποθετηθεί στο λογότυπο στον πίνακα πλοήγησης."
 
-#: src/Config/Descriptions.php:302
+#: src/Config/Descriptions.php:305
 msgid "Display server choice at the top of the navigation panel."
 msgstr "Προβολή επιλογής διακομιστή επάνω στον πίνακα πλοήγησης."
 
-#: src/Config/Descriptions.php:303
+#: src/Config/Descriptions.php:306
 msgid "String that separates databases into different tree levels."
 msgstr "Κείμενο που διαχωρίζει τις βάσεις δεδομένων σε διαφορετικά επίπεδα."
 
-#: src/Config/Descriptions.php:304
+#: src/Config/Descriptions.php:307
 msgid "String that separates tables into different tree levels."
 msgstr "Κείμενο που διαχωρίζει τους πίνακες σε διαφορετικά επίπεδα."
 
-#: src/Config/Descriptions.php:305
+#: src/Config/Descriptions.php:308
 msgid "Highlight server under the mouse cursor."
 msgstr "Επισήμανση διακομιστή με τον δείκτη του ποντικιού."
 
-#: src/Config/Descriptions.php:306
+#: src/Config/Descriptions.php:309
 msgid "Whether to show tables under database in the navigation tree"
 msgstr ""
 "Αν θα προβάλονται πίνακες κάτω από τη βάση δεδομένων στο δέντρο πλοήγησης"
 
-#: src/Config/Descriptions.php:307
+#: src/Config/Descriptions.php:310
 msgid "Whether to show views under database in the navigation tree"
 msgstr ""
 "Αν θα προβάλονται εμφανίσεις κάτω από τη βάση δεδομένων στο δέντρο πλοήγησης"
 
-#: src/Config/Descriptions.php:308
+#: src/Config/Descriptions.php:311
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 "Αν θα εμφανίζονται συναρτήσεις κάτω από τη βάση δεδομένων στο δέντρο "
 "πλοήγησης"
 
-#: src/Config/Descriptions.php:309
+#: src/Config/Descriptions.php:312
 msgid "Whether to show events under database in the navigation tree"
 msgstr ""
 "Αν θα θα προβάλονται συμβάντα κάτω από τη βάση δεδομένων στο δέντρο πλοήγησης"
 
-#: src/Config/Descriptions.php:311
+#: src/Config/Descriptions.php:314
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -10138,7 +10138,7 @@ msgstr ""
 "[kbd]SMART[/kbd] - π.χ. φθίνουσα ταξινόμηση για στήλες τύπου TIME, DATE, "
 "DATETIME και TIMESTAMP, αύξουσα ταξινόμηση στα υπόλοιπα."
 
-#: src/Config/Descriptions.php:315
+#: src/Config/Descriptions.php:318
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -10148,7 +10148,7 @@ msgstr ""
 "λεπτομερούς δομής της βάσης δεδομένων, αν κάποιο από τους απαραίτητους "
 "πίνακες για την αποθήκευση ρυθμίσεων του phpMyAdmin δεν βρεθεί."
 
-#: src/Config/Descriptions.php:320
+#: src/Config/Descriptions.php:323
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -10156,7 +10156,7 @@ msgstr ""
 "Απενεργοποiήστε την προεπιλεγμένη προειδοποίηση που εμφανίζεται στη σελίδα "
 "Δομής, αν τα ονόματα στηλών είναι δεσμευμένες λέξεις της MySQL."
 
-#: src/Config/Descriptions.php:324
+#: src/Config/Descriptions.php:327
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -10166,18 +10166,18 @@ msgstr ""
 "ρυθμίσεων phpMyAdmin). Αν απενεργοποιηθεί, λειτουργούν ρουτίνες JS για "
 "προβολή του ιστορικού ερωτημάτων (χάνεται με το κλείσιμο του παραθύρου)."
 
-#: src/Config/Descriptions.php:328
+#: src/Config/Descriptions.php:331
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
 
-#: src/Config/Descriptions.php:330
+#: src/Config/Descriptions.php:333
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
 "Ορίζει την ενεργή ζώνη ώρας, πιθανά διαφορετική από αυτή του διακομιστή σας"
 
-#: src/Config/Descriptions.php:333
+#: src/Config/Descriptions.php:336
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
@@ -10185,7 +10185,7 @@ msgstr ""
 "Αφήστε κενό αν δεν υπάρχει υποστήριξη[doc@bookmarks@]σελιδοδείκτη[/doc], "
 "προτείνεται: [kbd]pma__bookmark[/kbd]"
 
-#: src/Config/Descriptions.php:336
+#: src/Config/Descriptions.php:339
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: "
@@ -10197,7 +10197,7 @@ msgstr ""
 "Αφήστε κενό για να μη υπάρχουν σχόλια/τύποι mime στις στήλες, προτείνεται: "
 "[kbd]pma_column_info[/kbd]."
 
-#: src/Config/Descriptions.php:339
+#: src/Config/Descriptions.php:342
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
@@ -10206,7 +10206,7 @@ msgstr ""
 "Περισσότερες πληροφορίες είναι διαθέσιμες στην [doc@linked-"
 "tables]τεκμηρίωση[/doc]."
 
-#: src/Config/Descriptions.php:343
+#: src/Config/Descriptions.php:346
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
@@ -10214,7 +10214,7 @@ msgstr ""
 "Ένας εναλλακτικός φιλοξενητής για αποθήκευση των ρυθμίσεων, αφήστε το κενό "
 "για χρήση του ήδη ορισμένου."
 
-#: src/Config/Descriptions.php:346
+#: src/Config/Descriptions.php:349
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -10224,7 +10224,7 @@ msgstr ""
 "αποθήκευση των ρυθμίσεων, αφήστε το κενό για χρήση της προεπιλεγμένης θύρας "
 "ή της ήδη ορισμένης θύρας αν το controlhost ισούται με το φιλοξενητή."
 
-#: src/Config/Descriptions.php:351
+#: src/Config/Descriptions.php:354
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
@@ -10234,7 +10234,7 @@ msgstr ""
 "issues/8970]phpMyAdmin issue tracker[/a] και [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 
-#: src/Config/Descriptions.php:355
+#: src/Config/Descriptions.php:358
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -10242,7 +10242,7 @@ msgstr ""
 "Αφήστε το κενό για μη υποστήριξη ιστορικού ερωτημάτων SQL, προτείνεται: "
 "[kbd]pma_history[/kbd]."
 
-#: src/Config/Descriptions.php:358
+#: src/Config/Descriptions.php:361
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
@@ -10250,7 +10250,7 @@ msgstr ""
 "Περιορίζει τον αριθμό των προτιμήσεων πινάκων που αποθηκεύονται στη βάση "
 "δεδομένων, οι παλαιές εγγραφές απομακρύνονται αυτόματα."
 
-#: src/Config/Descriptions.php:362
+#: src/Config/Descriptions.php:365
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
@@ -10258,7 +10258,7 @@ msgstr ""
 "Αφήστε το κενό για μη υποστήριξη εξαγωγής προτύπου, προτείνεται: "
 "[kbd]pma__export_templates[/kbd]."
 
-#: src/Config/Descriptions.php:365
+#: src/Config/Descriptions.php:368
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
@@ -10266,7 +10266,7 @@ msgstr ""
 "Αφήστε το κενό για να μην υποστηρίζονται κεντρικές στήλες. Προτείνεται: "
 "[kbd]pma__central_columns[/kbd]."
 
-#: src/Config/Descriptions.php:368
+#: src/Config/Descriptions.php:371
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -10276,14 +10276,14 @@ msgstr ""
 "κάθετο χρησιμοποιήστε τα ως κανονικούς χαρακτήρες, π.χ. χρησιμοποιήστε "
 "[kbd]'my\\_db[/kbd]' και όχι [kbd]'my_db[/kbd]'."
 
-#: src/Config/Descriptions.php:373
+#: src/Config/Descriptions.php:376
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "Αφήστε το κενό για μη υποστήριξη σχεδίου PDF, προτείνεται: "
 "[kbd]pma__pdf_pages[/kbd]."
 
-#: src/Config/Descriptions.php:376
+#: src/Config/Descriptions.php:379
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
@@ -10294,7 +10294,7 @@ msgstr ""
 "λεπτομέρειες. Αφήστε κενό για να μην υπάρχει υποστήριξη. Προτείνεται: "
 "[kbd]phpmyadmin[/kbd]."
 
-#: src/Config/Descriptions.php:381
+#: src/Config/Descriptions.php:384
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -10302,7 +10302,7 @@ msgstr ""
 "Αφήστε το κενό για μη «μόνιμους» πρόσφατα χρησιμοποιημένους πίνακες μεταξύ "
 "συνεδριών, προτείνεται: [kbd]pma__recent[/kbd]."
 
-#: src/Config/Descriptions.php:385
+#: src/Config/Descriptions.php:388
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
@@ -10310,7 +10310,7 @@ msgstr ""
 "Αφήστε το κενό για μη «μόνιμους» αγαπημένους πίνακες μεταξύ συνεδριών, "
 "προτείνεται: [kbd]pma__favorite[/kbd]."
 
-#: src/Config/Descriptions.php:389
+#: src/Config/Descriptions.php:392
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
@@ -10318,14 +10318,14 @@ msgstr ""
 "Αφήστε το κενό για να μην υπάρχει υποστήριξη [doc@relations@]συνδέσμων-"
 "συσχετίσεων[/doc], προτείνεται: [kbd]pma__relation[/kbd]."
 
-#: src/Config/Descriptions.php:394
+#: src/Config/Descriptions.php:397
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
 "Δείτε τους [doc@authentication-modes]τύπους επικύρωσης[/doc] για ένα "
 "παράδειγμα."
 
-#: src/Config/Descriptions.php:397
+#: src/Config/Descriptions.php:400
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -10333,7 +10333,7 @@ msgstr ""
 "Αφήστε το κενό για να μην υποστηρίζεται σχέδιο PDF. Προτείνεται: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: src/Config/Descriptions.php:400
+#: src/Config/Descriptions.php:403
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
@@ -10341,7 +10341,7 @@ msgstr ""
 "Ο πίνακας που περιγράφει τις προβαλλόμενες στήλες - αφήστε το κενό για να "
 "μην υποστηρίζεται, προτείνεται: [kbd]pma__table_info[/kbd]."
 
-#: src/Config/Descriptions.php:404
+#: src/Config/Descriptions.php:407
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -10349,7 +10349,7 @@ msgstr ""
 "Αφήστε το κενό για μη «μόνιμο» περιβάλλον εργασίας ρυθμίσεων πινάκων μεταξύ "
 "συνεδριών, προτείνεται: [kbd]pma__table_uiprefs[/kbd]."
 
-#: src/Config/Descriptions.php:408
+#: src/Config/Descriptions.php:411
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -10357,7 +10357,7 @@ msgstr ""
 "Όταν δηλωθεί DROP DATABASE IF EXISTS θα προστεθεί ως πρώτη γραμμή στην "
 "καταγραφή κατά τη δημιουργία βάσης δεδομένων."
 
-#: src/Config/Descriptions.php:412
+#: src/Config/Descriptions.php:415
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -10365,7 +10365,7 @@ msgstr ""
 "Όταν δηλωθεί DROP TABLE IF EXISTS θα προστεθεί ως πρώτη γραμμή στην "
 "καταγραφή κατά τη δημιουργία πίνακα."
 
-#: src/Config/Descriptions.php:416
+#: src/Config/Descriptions.php:419
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -10373,13 +10373,13 @@ msgstr ""
 "Όταν δηλωθεί DROP VIEW IF EXISTS θα προστεθεί ως πρώτη γραμμή στην καταγραφή "
 "κατά τη δημιουργία προβολής."
 
-#: src/Config/Descriptions.php:420
+#: src/Config/Descriptions.php:423
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Ορίζει τη λίστα των δηλώσεων που χρησιμοποιεί η αυτόματη δημιουργία για νέες "
 "εκδόσεις."
 
-#: src/Config/Descriptions.php:423
+#: src/Config/Descriptions.php:426
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
@@ -10387,7 +10387,7 @@ msgstr ""
 "Αφήστε το κενό για μη υποστήριξη ιστορικού ερωτημάτων SQL , προτείνεται: "
 "[kbd]pma__tracking[/kbd]."
 
-#: src/Config/Descriptions.php:426
+#: src/Config/Descriptions.php:429
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -10395,7 +10395,7 @@ msgstr ""
 "Αν ο μηχανισμός παρακολούθησης δημιουργεί εκδόσεις για πίνακες και προβολές "
 "αυτόματα."
 
-#: src/Config/Descriptions.php:429
+#: src/Config/Descriptions.php:432
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
@@ -10403,7 +10403,7 @@ msgstr ""
 "Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: "
 "[kbd]pma__userconfig[/kbd]."
 
-#: src/Config/Descriptions.php:432
+#: src/Config/Descriptions.php:435
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
@@ -10414,7 +10414,7 @@ msgstr ""
 "κενό απενεργοποιείται\n"
 " το χαρακτηριστικό, προτείνεται: [kbd]pma__users[/kbd]."
 
-#: src/Config/Descriptions.php:437
+#: src/Config/Descriptions.php:440
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
@@ -10425,7 +10425,7 @@ msgstr ""
 "κενό απενεργοποιείται το χαρακτηριστικό, προτείνεται: [kbd]pma__usergroups[/"
 "kbd]."
 
-#: src/Config/Descriptions.php:442
+#: src/Config/Descriptions.php:445
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -10433,7 +10433,7 @@ msgstr ""
 "Αφήστε το κενό για απενεργοποίηση του χαρακτηριστικού προσαρμόσιμων μενού, "
 "προτείνεται: [kbd]pma__navigationhiding[/kbd]."
 
-#: src/Config/Descriptions.php:446
+#: src/Config/Descriptions.php:449
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -10441,55 +10441,55 @@ msgstr ""
 "Μια φιλοχρηστική περιγραφή αυτού του διακομιστή. Αφήστε το κενό για να "
 "εμφανίζεται το όνομα."
 
-#: src/Config/Descriptions.php:448
+#: src/Config/Descriptions.php:451
 msgid "Leave blank if not used."
 msgstr "Αφήστε το άδειο αν δεν χρησιμοποιηθεί."
 
-#: src/Config/Descriptions.php:449
+#: src/Config/Descriptions.php:452
 msgid "Leave blank for defaults."
 msgstr "Αφήστε κενό για προεπιλογές."
 
-#: src/Config/Descriptions.php:450
+#: src/Config/Descriptions.php:453
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
 "Το βασίλειο του HTTP Basic Auth εμφανίζεται όταν γίνεται πιστοποίηση HTTP."
 
-#: src/Config/Descriptions.php:451
+#: src/Config/Descriptions.php:454
 msgid "Authentication method to use."
 msgstr "Μέθοδος επικύρωσης για χρήση."
 
-#: src/Config/Descriptions.php:452
+#: src/Config/Descriptions.php:455
 msgid "Compress connection to MySQL server."
 msgstr "Συνδεση συμπίεσης στο διακομιστή MySQL."
 
-#: src/Config/Descriptions.php:453
+#: src/Config/Descriptions.php:456
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Απόκρυψη βάσεων δεδομένων που ταιριάζουν την κανονική έκφραση (PCRE)."
 
-#: src/Config/Descriptions.php:454
+#: src/Config/Descriptions.php:457
 msgid "Hostname where MySQL server is running."
 msgstr "Ονομασία θέσης όπου εκτελείται ο διακομιστής MySQL."
 
-#: src/Config/Descriptions.php:455 src/Config/Descriptions.php:459
+#: src/Config/Descriptions.php:458 src/Config/Descriptions.php:462
 msgid "Leave empty if not using config auth."
 msgstr "Αφήστε το άδειο αν δεν χρησιμοποιείτε ρύθμισμένη επικύρωση."
 
-#: src/Config/Descriptions.php:456
+#: src/Config/Descriptions.php:459
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Θύρα που αποκρίνεται ο διακομιστής MySQL. Αφήστε το άδειο για προεπιλογή."
 
-#: src/Config/Descriptions.php:457
+#: src/Config/Descriptions.php:460
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Η υποδοχή στην οποία ο διακομιστής MySQL αποκρίνεται. Αφήστε το κενό για "
 "προεπιλογή."
 
-#: src/Config/Descriptions.php:458
+#: src/Config/Descriptions.php:461
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Ενεργοποιήση SSL για σύνδεση στο διακομιστή MySQL."
 
-#: src/Config/Descriptions.php:461
+#: src/Config/Descriptions.php:464
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -10500,27 +10500,27 @@ msgstr ""
 "ρυθμίσεων και αυτό δεν περιορίζει τη δυνατότητα άμεσης εκτέλεσης της ίδιας "
 "εντολής."
 
-#: src/Config/Descriptions.php:466
+#: src/Config/Descriptions.php:469
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 "Εμφάνιση ή απόκρυψη μιας στήλης εμφανίζοντας τη χρονοσφραγίδα Δημιουργίας "
 "για όλους τους πίνακες."
 
-#: src/Config/Descriptions.php:469
+#: src/Config/Descriptions.php:472
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 "Εμφάνιση ή απόκρυψη μιας στήλης που θα εμφανίζει τη χρονοσφραγίδα Τελευταίας "
 "ενημέρωσης για όλους τους πίνακες."
 
-#: src/Config/Descriptions.php:472
+#: src/Config/Descriptions.php:475
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 "Εμφάνιση ή απόκρυψη μιας στήλης που θα εμφανίζει τη χρονοσφραγίδα Τελευταίου "
 "ελέγχου για όλους τους πίνακες."
 
-#: src/Config/Descriptions.php:475
+#: src/Config/Descriptions.php:478
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
@@ -10528,7 +10528,7 @@ msgstr ""
 "Ορίζει αν θα εμφανίζονται οι τύποι των πεδίων σε κατάσταση επεξεργασίας/"
 "εισαγωγής."
 
-#: src/Config/Descriptions.php:478
+#: src/Config/Descriptions.php:481
 msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
@@ -10536,39 +10536,39 @@ msgstr ""
 "Εμφανίζει σύνδεσμο για το προϊόν του [a@https://php.net/manual/function."
 "phpinfo.php]phpinfo()[/a]."
 
-#: src/Config/Descriptions.php:480
+#: src/Config/Descriptions.php:483
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 "Αν θα εμφανίζεται στο χρήστη ένα κουμπί «εμφάνιση όλων (των εγγραφών)»."
 
-#: src/Config/Descriptions.php:481
+#: src/Config/Descriptions.php:484
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
 "Εμφάνιση ή απόκρυψη μιας στήλης που εμφανίζει τα σχόλια για όλους του "
 "πίνακες."
 
-#: src/Config/Descriptions.php:482
+#: src/Config/Descriptions.php:485
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
 "Εμφάνιση ή απόκρυψη μιας στήλης που εμφανίζει το σύνολο χαρακτήρων για όλους "
 "του πίνακες."
 
-#: src/Config/Descriptions.php:483
+#: src/Config/Descriptions.php:486
 msgid "Display the function fields in edit/insert mode."
 msgstr "Προβολή των πεδίων συναρτήσεων σε κατάσταση επεξεργασίας εισαγωγής."
 
-#: src/Config/Descriptions.php:484
+#: src/Config/Descriptions.php:487
 msgid "Whether to show hint or not."
 msgstr "Αν θα εμφανίζεται επεξήγηση ή όχι."
 
-#: src/Config/Descriptions.php:485
+#: src/Config/Descriptions.php:488
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr ""
 "Ορίζει αν τα δημιουργημένα ερωτήματα SQL από το phpMyAdmin πρέπει να "
 "προβάλονται."
 
-#: src/Config/Descriptions.php:486
+#: src/Config/Descriptions.php:489
 #, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
@@ -10576,14 +10576,14 @@ msgstr ""
 "Δικαίωμα προβολής στατιστικών βάσης δεδομένων και πινάκων (π.χ. χρήση χώρου "
 "στο δίσκο)."
 
-#: src/Config/Descriptions.php:488
+#: src/Config/Descriptions.php:491
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Επισήμανση χρησιμοποιημένων πινάκων και ενεργοποίηση της δυνατότητας "
 "προβολής των βάσεων δεδομένων με κλειδωμένους πίνακες."
 
-#: src/Config/Descriptions.php:491
+#: src/Config/Descriptions.php:494
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
@@ -10591,7 +10591,7 @@ msgstr ""
 "Απενεργοποίηση της προεπιλεγμένης προειδοποίησης που εμφανίζεται στη βασική "
 "σελίδα αν βρεθεί το Suhosin."
 
-#: src/Config/Descriptions.php:494
+#: src/Config/Descriptions.php:497
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
@@ -10601,7 +10601,7 @@ msgstr ""
 "σελίδα αν η τιμή της ρύθμισης PHP session.gc_maxlifetime είναι λιγότερο από "
 "την τιμή του «LoginCookieValidity»."
 
-#: src/Config/Descriptions.php:499
+#: src/Config/Descriptions.php:502
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10609,7 +10609,7 @@ msgstr ""
 "Το μέγεθος του textarea (στήλες) σε κατάσταση επεξεργασίας. Αυτή η τιμή "
 "πολλαπλασιαστεί για τα textareas των ερωτημάτων (x2)."
 
-#: src/Config/Descriptions.php:502
+#: src/Config/Descriptions.php:505
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10617,7 +10617,7 @@ msgstr ""
 "Το μέγεθος του textarea (γραμμές) σε κατάσταση επεξεργασίας. Αυτή η τιμή "
 "πολλαπλασιαστεί για τα textareas των ερωτημάτων (x2)."
 
-#: src/Config/Descriptions.php:505
+#: src/Config/Descriptions.php:508
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -10629,7 +10629,7 @@ msgstr ""
 "HTTP_X_FORWARDED_FOR (X-Forwarded-For) προερχόμενη από τη διεύθυνση 1.2.3.4:"
 "[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
 
-#: src/Config/Descriptions.php:511
+#: src/Config/Descriptions.php:514
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -10637,7 +10637,7 @@ msgstr ""
 "Όταν απενεργοποιηθεί, οι χρήστες δεν μπορούν να ορίσουν καμιά από τις "
 "παρακάτω επιλογές, ανεξάρτητα από την επιλογή στα δεξιά."
 
-#: src/Config/Descriptions.php:514
+#: src/Config/Descriptions.php:517
 #, fuzzy
 #| msgid ""
 #| "The url of the proxy to be used when retrieving the information about the "
@@ -10656,7 +10656,7 @@ msgstr ""
 "άμεση πρόσβαση στο διαδίκτυο. Η σύνταξη είναι: «όνομαδιακομιστή:"
 "αριθμόςθύρας»."
 
-#: src/Config/Descriptions.php:520
+#: src/Config/Descriptions.php:523
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -10667,7 +10667,7 @@ msgstr ""
 "Πιστοποίηση. Κανένας άλλος τύπος πιστοποίησης δεν υποστηρίζεται προς το "
 "παρόν."
 
-#: src/Config/Descriptions.php:526
+#: src/Config/Descriptions.php:529
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
@@ -10675,7 +10675,7 @@ msgstr ""
 "Τα ερωτήματα εκτελούνται πατώντας το Enter (αντί του Ctrl+Enter). Οι νέες "
 "γραμμές θα εισαχθούν με το Shift+Enter."
 
-#: src/Config/Descriptions.php:530
+#: src/Config/Descriptions.php:533
 #, fuzzy
 #| msgid ""
 #| "Enable Zero Configuration mode which lets you setup phpMyAdmin "
@@ -10687,228 +10687,228 @@ msgstr ""
 "Ενεργοποιεί την κατάσταση Μηδενικής Ρύθμισης που σας επιτρέπει να ρυθμίσετε "
 "τους πίνακες αποθήκευσης ρυθμίσεων του phpMyAdmin αυτόματα."
 
-#: src/Config/Descriptions.php:533
+#: src/Config/Descriptions.php:536
 msgid "Highlight selected rows."
 msgstr "Επισήμανση επιλεγμένων γραμμών."
 
-#: src/Config/Descriptions.php:534
+#: src/Config/Descriptions.php:537
 msgid "Highlight row pointed by the mouse cursor."
 msgstr "Επισήμανση γραμμής που δείχνει ο δείκτης του ποντικιού."
 
-#: src/Config/Descriptions.php:535
+#: src/Config/Descriptions.php:538
 msgid "Number of columns for CHAR/VARCHAR textareas."
 msgstr "Αριθμός στηλών για περιοχές κειμένου CHAR/VARCHAR."
 
-#: src/Config/Descriptions.php:536
+#: src/Config/Descriptions.php:539
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "Αριθμός γραμμών για περιοχές κειμένου CHAR/VARCHAR."
 
-#: src/Config/Descriptions.php:537
+#: src/Config/Descriptions.php:540
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
 "Καταγραφή ερωτημάτων SQL και του χρόνου εκτέλεσής τους για να εμφανίζονται "
 "στην κονσόλα"
 
-#: src/Config/Descriptions.php:538
+#: src/Config/Descriptions.php:541
 msgid "Tab that is displayed when entering a database."
 msgstr "Προβαλόμενη καρτέλα κατά το άνοιγμα της βάσης δεδομένων."
 
-#: src/Config/Descriptions.php:539
+#: src/Config/Descriptions.php:542
 msgid "Tab that is displayed when entering a server."
 msgstr "Προβαλόμενη καρτέλα κατά το άνοιγμα του διακομιστή."
 
-#: src/Config/Descriptions.php:540
+#: src/Config/Descriptions.php:543
 msgid "Tab that is displayed when entering a table."
 msgstr "Προβαλόμενη καρτέλα κατά το άνοιγμα ενός πίνακα."
 
-#: src/Config/Descriptions.php:541
+#: src/Config/Descriptions.php:544
 msgid "Whether the table structure actions should be hidden."
 msgstr "Αν θα πρέπει να αποκρυφτούν οι ενέργειες δομής πίνακα."
 
-#: src/Config/Descriptions.php:542
+#: src/Config/Descriptions.php:545
 msgid "Whether column comments should be shown in table structure view"
 msgstr "Αν τα σχόλια στήλης θα εμφανίζονται στην προβολή δομής πίνακα"
 
-#: src/Config/Descriptions.php:543
+#: src/Config/Descriptions.php:546
 msgid "Show server listing as a list instead of a drop down."
 msgstr "Εμφάνιση λίστας διακομιστών ως λίστα και όχι ως αναδυόμενο μενού."
 
-#: src/Config/Descriptions.php:544
+#: src/Config/Descriptions.php:547
 msgid "A dropdown will be used if fewer items are present."
 msgstr "Μια αναδυόμενη λίστα θα χρησιμοποιηθεί, αν υπάρχουν λίγα αντικείμενα."
 
-#: src/Config/Descriptions.php:545
+#: src/Config/Descriptions.php:548
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 "Προεπιλεγμένη τιμή για ελέγχους μη διακριτών κλειδιών για ορισμένα ερωτήματα."
 
-#: src/Config/Descriptions.php:546
+#: src/Config/Descriptions.php:549
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
 
-#: src/Config/Descriptions.php:547
+#: src/Config/Descriptions.php:550
 msgid "How many rows can be inserted at one time."
 msgstr "Πόσες γραμμές μπορούν να εισαχθούν μονομιάς."
 
-#: src/Config/Descriptions.php:548
+#: src/Config/Descriptions.php:551
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
 "Μέγιστος αριθμός χαρακτήρων που φαίνεται σε μη αριθμητική στήλη στην προβολή "
 "φυλλομετρητή."
 
-#: src/Config/Descriptions.php:549
+#: src/Config/Descriptions.php:552
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "Ορίστε χρονικά (σε δευτερόλεπτα) την ισχύ ενός cookie σύνδεσης."
 
-#: src/Config/Descriptions.php:550
+#: src/Config/Descriptions.php:553
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "Διπλό μέγεθος του textarea για στήλες LONGTEXT."
 
-#: src/Config/Descriptions.php:551
+#: src/Config/Descriptions.php:554
 msgid "Maximum number of databases displayed in database list."
 msgstr ""
 "Μέγιστος αριθμός βάσεων δεδομένων που θα προβάλονται στη λίστα βάσεων "
 "δεδομένων."
 
-#: src/Config/Descriptions.php:552
+#: src/Config/Descriptions.php:555
 msgid "Maximum number of tables displayed in table list."
 msgstr "Μέγιστος αριθμός πινάκες που θα προβάλονται σε λίστα πινάκων."
 
-#: src/Config/Descriptions.php:553
+#: src/Config/Descriptions.php:556
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr ""
 "Μέγιστος αριθμός πρόσφατα χρησιμοποιημένων πινάκων. ορίστε το σε 0 για "
 "απενεργοποιήση."
 
-#: src/Config/Descriptions.php:554
+#: src/Config/Descriptions.php:557
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr ""
 "Μέγιστος αριθμός αγαπημένων πινάκων. ορίστε το σε 0 για απενεργοποιήση."
 
-#: src/Config/Descriptions.php:555
+#: src/Config/Descriptions.php:558
 msgid "These are Edit, Copy and Delete links."
 msgstr "Αυτοί είναι οι σύνδεσμοι Επεξεργασία, Αντιγραφή και Διαγραφή."
 
-#: src/Config/Descriptions.php:556
+#: src/Config/Descriptions.php:559
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 "Αν θα προβάλονται σύνδεσμοι εγγραφής ακόμα και κατά την απουσία μοναδικού "
 "κλειδιού."
 
-#: src/Config/Descriptions.php:557 src/Config/Descriptions.php:838
+#: src/Config/Descriptions.php:560 src/Config/Descriptions.php:838
 msgid "Disable shortcut keys"
 msgstr "Απενεργοποίηση κλειδιών συντομεύσεων"
 
-#: src/Config/Descriptions.php:558
+#: src/Config/Descriptions.php:561
 msgid "Use natural order for sorting table and database names."
 msgstr ""
 "Χρήση φυσικής ταξινόμησης για την ταξινόμηση ονομάτων πινάκων και βάσεων "
 "δεδομένων."
 
-#: src/Config/Descriptions.php:559 src/Config/Descriptions.php:562
-#: src/Config/Descriptions.php:563
+#: src/Config/Descriptions.php:562 src/Config/Descriptions.php:565
+#: src/Config/Descriptions.php:566
 msgid "Use only icons, only text or both."
 msgstr "Χρήση μόνο εικονιδίων, μόνο κειμένου ή και τα δύο."
 
-#: src/Config/Descriptions.php:560
+#: src/Config/Descriptions.php:563
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr ""
 "Χρήση εξαγόμενου GZip buffering για αυξημένη ταχύτητα σε μεταφορές HTTP."
 
-#: src/Config/Descriptions.php:561
+#: src/Config/Descriptions.php:564
 msgid "Use persistent connections to MySQL databases."
 msgstr "Χρήση εξαναγκασμένων συνδέσεων στις βάσεις δεδομένων MySQL."
 
-#: src/Config/Descriptions.php:564
+#: src/Config/Descriptions.php:567
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "Αποτροπή επεξεργασίας στηλών BLOB και BINARY."
 
-#: src/Config/Descriptions.php:565
+#: src/Config/Descriptions.php:568
 msgid "How many queries are kept in history."
 msgstr "Πόσα ερωτήματα παραμένουν στο ιστορικό."
 
-#: src/Config/Descriptions.php:566
+#: src/Config/Descriptions.php:569
 msgid "Select which functions will be used for character set conversion."
 msgstr ""
 "Επιλέξτε ποιες συναρτήσεις θα χρησιμοποιηθούν για μετατροπή συνόλων "
 "χαρακτήρων."
 
-#: src/Config/Descriptions.php:567
+#: src/Config/Descriptions.php:570
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr ""
 "Όταν μεταικινήστε μταξύ πινάκων, η ταξινόμηση για κάθε πίανακα "
 "απομνημονεύεται."
 
-#: src/Config/Descriptions.php:568
+#: src/Config/Descriptions.php:571
 msgid "Default sort order for tables with a primary key."
 msgstr "Προεπιλεγμένη ταξινόμηση για πίνακες με πρωτεύον κλειδί."
 
-#: src/Config/Descriptions.php:569
+#: src/Config/Descriptions.php:572
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr ""
 "Επανάληψη κεφαλίδων κάθε Χ κελιά. Το [kbd]0[/kbd] απενεργοποιεί το "
 "χαρακτηριστικό."
 
-#: src/Config/Descriptions.php:570
+#: src/Config/Descriptions.php:573
 msgid "For display Options"
 msgstr "Για Επιλογές προβολής"
 
-#: src/Config/Descriptions.php:571
+#: src/Config/Descriptions.php:574
 msgid "Directory where exports can be saved on server."
 msgstr "Ο φάκελος στον διακομιστή όπου οι εξαγωγές μπορούν να αποθηκευτούν."
 
-#: src/Config/Descriptions.php:572
+#: src/Config/Descriptions.php:575
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
 "Ορίζεται αν το ερώτημα πρέπει να παραμείνει στην οθόνη μετά την υποβολή του."
 
-#: src/Config/Descriptions.php:573
+#: src/Config/Descriptions.php:576
 msgid "Title of browser window when a database is selected."
 msgstr ""
 "Τίτλος του παραθύρου του φυλλομετρητή όταν επιλέγεται μια βάση δεδομένων."
 
-#: src/Config/Descriptions.php:574
+#: src/Config/Descriptions.php:577
 msgid "Title of browser window when nothing is selected."
 msgstr "Τίτλος του παραθύρου του φυλλομετρητή όταν δεν επιλέγεται τίποτα."
 
-#: src/Config/Descriptions.php:575
+#: src/Config/Descriptions.php:578
 msgid "Title of browser window when a server is selected."
 msgstr ""
 "Τίτλος του παραθύρου του φυλλομετρητή όταν επιλέγεται ένας διακομιστής."
 
-#: src/Config/Descriptions.php:576
+#: src/Config/Descriptions.php:579
 msgid "Title of browser window when a table is selected."
 msgstr "Τίτλος του παραθύρου του φυλλομετρητή όταν επιλέγεται ένας πίνακας."
 
-#: src/Config/Descriptions.php:577
+#: src/Config/Descriptions.php:580
 msgid "Directory on server where you can upload files for import."
 msgstr ""
 "Φάκελος στο διακομιστή όπου μπορείτε να αποστείλετε αρχεία για εισαγωγή."
 
-#: src/Config/Descriptions.php:578
+#: src/Config/Descriptions.php:581
 msgid "Allow for searching inside the entire database."
 msgstr "Επιτρέπει την αναζήτηση εντός ολόκληρης της βάσης δεδομένων."
 
-#: src/Config/Descriptions.php:579
+#: src/Config/Descriptions.php:582
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr ""
 "Ενεργοποιεί τον έλεγχο για τη τελευταία έκδοση στη κεντρική σελίδα του "
 "phpMyAdmin."
 
-#: src/Config/Descriptions.php:580
+#: src/Config/Descriptions.php:583
 msgid "The password for authenticating with the proxy."
 msgstr "Ο κωδικός πρόσβασης για πιστοποίηση με τον διακομιστή."
 
-#: src/Config/Descriptions.php:581
+#: src/Config/Descriptions.php:584
 msgid "Enable ZIP compression for import and export operations."
 msgstr ""
 "Ενεργοποιήστε τη συμπίεση ZIP για τις λειτουργίες εισαγωγής και εξαγωγής."
 
-#: src/Config/Descriptions.php:582
+#: src/Config/Descriptions.php:585
 msgid "Choose the default action when sending error reports."
 msgstr ""
 "Επιλέξτε την προεπιλεγμένη ενέργεια όταν αποστέλετε αναφορές σφάλματος."
@@ -12088,37 +12088,37 @@ msgstr "Ταξινόμηση κατά"
 msgid "Server connection collation"
 msgstr "Σύνθεση σύνδεσης διακομιστή"
 
-#: src/Config/FormDisplay.php:580
+#: src/Config/FormDisplay.php:581
 #, php-format
 msgid "Missing data for %s"
 msgstr "Απολεσθέντα δεδομένα για %s"
 
-#: src/Config/FormDisplay.php:620 src/Config/Validator.php:594
+#: src/Config/FormDisplay.php:621 src/Config/Validator.php:595
 #: src/Controllers/JavaScriptMessagesController.php:828
 msgid "Incorrect value!"
 msgstr "Εσφαλμένη τιμή!"
 
-#: src/Config/FormDisplay.php:766
+#: src/Config/FormDisplay.php:767
 msgid "unavailable"
 msgstr "μη διαθέσιμο"
 
-#: src/Config/FormDisplay.php:768
+#: src/Config/FormDisplay.php:769
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "το «%s» απαιτεί την επέκταση %s"
 
-#: src/Config/FormDisplay.php:790
+#: src/Config/FormDisplay.php:791
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr ""
 "η συμπιεσμένη εισαγωγή δεν θα λειτουργήσει γιατί λείπει η συνάρτηση %s."
 
-#: src/Config/FormDisplay.php:799
+#: src/Config/FormDisplay.php:800
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Η συμπιεσμένη εξαγωγή δεν θα λειτουργήσει γιατί λείπει η συνάρτηση %s."
 
-#: src/Config/FormDisplay.php:819
+#: src/Config/FormDisplay.php:820
 #, php-format
 msgid "maximum %s"
 msgstr "μέγιστος αριθμός %s"
@@ -12376,21 +12376,21 @@ msgstr "Καρτέλες επιπέδου βάσης δεδομένων"
 msgid "Table-level tabs"
 msgstr "Καρτέλες επιπέδου πίνακα"
 
-#: src/Config/Validator.php:252
+#: src/Config/Validator.php:253
 msgid "Could not connect to the database server!"
 msgstr "Αδύνατη η σύνδεση με τον διακομιστή βάσης δεδομένων!"
 
-#: src/Config/Validator.php:288
+#: src/Config/Validator.php:289
 msgid "Invalid authentication type!"
 msgstr "Μη έγκυρος τύπος επικύρωσης!"
 
-#: src/Config/Validator.php:293
+#: src/Config/Validator.php:294
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Άδειασμα ονόματος χρήστη ενώ χρησιμοποιείτε μέθοδο επικύρωσης [kbd]config[/"
 "kbd]!"
 
-#: src/Config/Validator.php:299
+#: src/Config/Validator.php:300
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -12398,20 +12398,20 @@ msgstr ""
 "Άδειασμα ονομασίας συνεδρίας σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης "
 "[kbd]signon[/kbd]!"
 
-#: src/Config/Validator.php:306
+#: src/Config/Validator.php:307
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης "
 "[kbd]signon[/kbd]!"
 
-#: src/Config/Validator.php:359
+#: src/Config/Validator.php:360
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Άδειασμα ελέγχου χρήστη του phpMyAdmin ενώ χρησιμοποιείτε phpMyAdmin "
 "configuration storage!"
 
-#: src/Config/Validator.php:366
+#: src/Config/Validator.php:367
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -12419,31 +12419,31 @@ msgstr ""
 "Άδειασμα ελέγχου κωδικού πρόσβασης του phpMyAdmin ενώ χρησιμοποιείτε την "
 "αποθήκευση ρυθμίσεων του phpMyAdmin!"
 
-#: src/Config/Validator.php:455
+#: src/Config/Validator.php:456
 msgid "Incorrect value:"
 msgstr "Εσφαλμένη τιμή:"
 
-#: src/Config/Validator.php:466
+#: src/Config/Validator.php:467
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Εσφαλμένη διεύθυνση IP: %s"
 
-#: src/Config/Validator.php:529
+#: src/Config/Validator.php:530
 #: src/Controllers/JavaScriptMessagesController.php:827
 msgid "Not a valid port number!"
 msgstr "Μη έγκυρος αριθμός θύρας!"
 
-#: src/Config/Validator.php:551
+#: src/Config/Validator.php:552
 #: src/Controllers/JavaScriptMessagesController.php:825
 msgid "Not a positive number!"
 msgstr "Δεν είναι θετικός αριθμός!"
 
-#: src/Config/Validator.php:573
+#: src/Config/Validator.php:574
 #: src/Controllers/JavaScriptMessagesController.php:826
 msgid "Not a non-negative number!"
 msgstr "Δεν είναι μη αρνητικός αριθμός!"
 
-#: src/Config/Validator.php:612
+#: src/Config/Validator.php:613
 #: src/Controllers/JavaScriptMessagesController.php:829
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -16016,9 +16016,9 @@ msgstr "Η λανθάνουσα μνήμη ερωτήματος δεν είνα�
 msgid "Setting variable failed"
 msgstr "Ο ορισμός της μεταβλητής απέτυχε"
 
-#: src/Controllers/Setup/ConfigController.php:41
+#: src/Controllers/Setup/ConfigController.php:43
 #: src/Controllers/Setup/FormController.php:44
-#: src/Controllers/Setup/HomeController.php:45
+#: src/Controllers/Setup/HomeController.php:47
 #: src/Controllers/Setup/ServerDestroyController.php:41
 #: src/Controllers/Setup/ServersController.php:44
 #: src/Controllers/Setup/ShowConfigController.php:42
@@ -16030,7 +16030,7 @@ msgstr "Η ρύθμιση υπάρχει ήδη, η εγκατάσταση εί�
 msgid "Incorrect form specified!"
 msgstr "Ορίστηκε λάθος φόρμα!"
 
-#: src/Controllers/Setup/HomeController.php:71
+#: src/Controllers/Setup/HomeController.php:73
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
@@ -16039,7 +16039,7 @@ msgstr ""
 "ευαίσθητες πληροφορίες, όπως οι κωδικοί πρόσβασης) διακινούνται "
 "ακρυπτογράφητα!"
 
-#: src/Controllers/Setup/HomeController.php:76
+#: src/Controllers/Setup/HomeController.php:78
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
@@ -16047,7 +16047,7 @@ msgstr ""
 "Αν ο διακομιστής σας έχει ρυθμιστεί να δέχεται αιτήσεις HTTPS πατήστε αυτόν "
 "τον σύνδεσμο για χρήση ασφαλούς σύνδεσης."
 
-#: src/Controllers/Setup/HomeController.php:80
+#: src/Controllers/Setup/HomeController.php:82
 msgid "Insecure connection"
 msgstr "Μη ασφαλής σύνδεση"
 
@@ -19228,24 +19228,24 @@ msgstr "Εκτέλεση εντολής/εντολών SQL στη βάση δε�
 msgid "Run SQL query/queries on table %s"
 msgstr "Εκτέλεση ερωτήματος/ερωτημάτων SQL στον πίνακα %s"
 
-#: src/StorageEngine.php:319
+#: src/StorageEngine.php:320
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "Δεν υπάρχουν λεπτομερείς πληροφορίες κατάστασης για αυτή τη μηχανή "
 "αποθήκευσης."
 
-#: src/StorageEngine.php:416
+#: src/StorageEngine.php:417
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "Η %s είναι διαθέσιμη σε αυτό το διακομιστή MySQL."
 
-#: src/StorageEngine.php:417
+#: src/StorageEngine.php:418
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "Η %s έχει απενεργοποιήθεί σε αυτό το διακομιστή MySQL."
 
-#: src/StorageEngine.php:418
+#: src/StorageEngine.php:419
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Αύτος ο διακομιστής MySQL δεν υποστηρίζει τη μηχανή αποθήκευσης %s."

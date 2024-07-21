@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-07-14 00:22+0000\n"
+"POT-Creation-Date: 2024-07-21 00:22+0000\n"
 "PO-Revision-Date: 2024-06-30 09:27+0000\n"
 "Last-Translator: Hotripak <hotr1pak@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -809,7 +809,7 @@ msgstr "Скинути"
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
 #: src/Html/Generator.php:668 src/Html/MySQLDocumentation.php:49
-#: src/Sanitize.php:188
+#: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "Документація"
 
@@ -2514,7 +2514,7 @@ msgid "Sum"
 msgstr "Всього"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:415
+#: src/StorageEngine.php:416
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s механізм зберігання за замовчуванням на цьому MySQL сервері."
@@ -8997,19 +8997,19 @@ msgstr "обидва попередні"
 msgid "neither of the above"
 msgstr "жоден з попередніх"
 
-#: src/Config/Descriptions.php:55 src/Config/Descriptions.php:56
-#: src/Config/Descriptions.php:57
+#: src/Config/Descriptions.php:61 src/Config/Descriptions.php:62
+#: src/Config/Descriptions.php:63
 msgid "Users cannot set a higher value"
 msgstr "Користувач не може встановити більше значення"
 
-#: src/Config/Descriptions.php:73
+#: src/Config/Descriptions.php:76
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "При включенні дозволяє ввести будь-який MySQL сервер в формі авторизації для "
 "cookie ідентифікації."
 
-#: src/Config/Descriptions.php:76
+#: src/Config/Descriptions.php:79
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
@@ -9019,7 +9019,7 @@ msgstr ""
 "довільному MySQL сервері доступна при спідставленні IP-адресу чи на "
 "основному MySQL сервері задано регулярного виразу."
 
-#: src/Config/Descriptions.php:81
+#: src/Config/Descriptions.php:84
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
@@ -9029,7 +9029,7 @@ msgstr ""
 "викликати phpMyAdmin всередині фрейму, що є потенційною [strong]дірою в "
 "безпеці[/strong] , допускаючи можливість XFS атак."
 
-#: src/Config/Descriptions.php:86
+#: src/Config/Descriptions.php:89
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
@@ -9037,15 +9037,15 @@ msgstr ""
 "Секретна фраза використовується для шифрування cookies в [kbd]cookie[/kbd] "
 "аутентифікації."
 
-#: src/Config/Descriptions.php:88
+#: src/Config/Descriptions.php:91
 msgid "Enable bzip2 compression for import operations."
 msgstr "Увімкнути стиснення bzip2 для імпортних операцій."
 
-#: src/Config/Descriptions.php:89
+#: src/Config/Descriptions.php:92
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "Введіть URL-адресу вашого API, сумісного з reCAPTCHA v2."
 
-#: src/Config/Descriptions.php:90
+#: src/Config/Descriptions.php:93
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
@@ -9053,31 +9053,31 @@ msgstr ""
 "Введіть фрагмент Content-Security-Policy для вашого API, сумісного з "
 "reCAPTCHA v2."
 
-#: src/Config/Descriptions.php:91
+#: src/Config/Descriptions.php:94
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 "Введіть параметр запиту, який використовує ваш API, сумісний з reCAPTCHA v2."
 
-#: src/Config/Descriptions.php:92
+#: src/Config/Descriptions.php:95
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 "Введіть параметр відповіді, який використовує ваш API, сумісний з reCAPTCHA "
 "v2."
 
-#: src/Config/Descriptions.php:93
+#: src/Config/Descriptions.php:96
 msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "Введіть ваш відкритий ключ для сервісу reCaptcha на вашому домені."
 
-#: src/Config/Descriptions.php:94
+#: src/Config/Descriptions.php:97
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "Введіть ваш приватний ключ для сервісу reCAPTCHA вашого домена."
 
-#: src/Config/Descriptions.php:95
+#: src/Config/Descriptions.php:98
 msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr ""
 "Введіть вашу URL-адресу перевірки сайту для сервісу reCAPTCHA вашого домена."
 
-#: src/Config/Descriptions.php:97
+#: src/Config/Descriptions.php:100
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -9087,7 +9087,7 @@ msgstr ""
 "VARCHAR стовпців; [kbd]input[/kbd] - довжина тексту, [kbd]textarea[/kbd] - "
 "дозволена кількість рядків в стовпцях."
 
-#: src/Config/Descriptions.php:102
+#: src/Config/Descriptions.php:105
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
@@ -9095,7 +9095,7 @@ msgstr ""
 "Використовувати візуальний редактор для редагування запитів SQL (CodeMirror) "
 "з підсвічуванням синтаксису і нумерацією рядків."
 
-#: src/Config/Descriptions.php:107
+#: src/Config/Descriptions.php:110
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
@@ -9103,7 +9103,7 @@ msgstr ""
 "Перевірити запит на помилки перед його виконанням. Потрібно увімкнути "
 "CodeMirror."
 
-#: src/Config/Descriptions.php:110
+#: src/Config/Descriptions.php:113
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9111,7 +9111,7 @@ msgstr ""
 "Визначає мінімальний розмір для полів вводу що були згенеровані атрибутами "
 "CHAR та VARCHAR."
 
-#: src/Config/Descriptions.php:113
+#: src/Config/Descriptions.php:116
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9119,7 +9119,7 @@ msgstr ""
 "Визначає максимальний розмір для полів вводу що були згенеровані атрибутами "
 "CHAR та VARCHAR."
 
-#: src/Config/Descriptions.php:116
+#: src/Config/Descriptions.php:119
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
@@ -9127,7 +9127,7 @@ msgstr ""
 "Стиснути gzip експорт на льоту, що не потребує багато пам'яті; якщо виникли "
 "проблеми при створенні gzip файлів відключіть цю властивість."
 
-#: src/Config/Descriptions.php:120
+#: src/Config/Descriptions.php:123
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
@@ -9135,15 +9135,15 @@ msgstr ""
 "Чи попередження (\"Ви дійсно впевнені…\") повинно бути відображене коли ви "
 "можете втратити дані."
 
-#: src/Config/Descriptions.php:123
+#: src/Config/Descriptions.php:126
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr "Автозаповнення імен таблиць і стовпців в SQL запитах."
 
-#: src/Config/Descriptions.php:126 src/Config/Descriptions.php:130
-#: src/Config/Descriptions.php:134 src/Config/Descriptions.php:138
-#: src/Config/Descriptions.php:142 src/Config/Descriptions.php:146
-#: src/Config/Descriptions.php:150 src/Config/Descriptions.php:154
-#: src/Config/Descriptions.php:158
+#: src/Config/Descriptions.php:129 src/Config/Descriptions.php:133
+#: src/Config/Descriptions.php:137 src/Config/Descriptions.php:141
+#: src/Config/Descriptions.php:145 src/Config/Descriptions.php:149
+#: src/Config/Descriptions.php:153 src/Config/Descriptions.php:157
+#: src/Config/Descriptions.php:161
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
@@ -9152,7 +9152,7 @@ msgstr ""
 "перезаписані, якщо переформатування буде заповнено на сторінці структури "
 "таблиці."
 
-#: src/Config/Descriptions.php:162
+#: src/Config/Descriptions.php:165
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
@@ -9160,7 +9160,7 @@ msgstr ""
 "Вимкнути обслуговування операцій у таблиці, таких як оптимізація або "
 "відновлення вибраних таблиць бази даних."
 
-#: src/Config/Descriptions.php:166
+#: src/Config/Descriptions.php:169
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
@@ -9168,12 +9168,12 @@ msgstr ""
 "Встановіть обмеження у секундах для виконання скріпта ([kbd]0[/kbd] - не "
 "обмежено)."
 
-#: src/Config/Descriptions.php:168 src/Config/Descriptions.php:708
+#: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
 #: src/Plugins/Export/ExportSql.php:321
 msgid "Exclude definition of current user"
 msgstr "Виключити визначення поточного користувача"
 
-#: src/Config/Descriptions.php:170
+#: src/Config/Descriptions.php:173
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
@@ -9181,7 +9181,7 @@ msgstr ""
 "Порядок сортування елементів у випадаючому списку зовнішніх ключів; "
 "[kbd]вміст[/kbd] - пов'язані дані, [kbd]id[/kbd] - ключі."
 
-#: src/Config/Descriptions.php:174
+#: src/Config/Descriptions.php:177
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
@@ -9190,7 +9190,7 @@ msgstr ""
 "використовуйте підставні рядки, які описані в [doc@faq6-27]документація[/"
 "doc]."
 
-#: src/Config/Descriptions.php:179
+#: src/Config/Descriptions.php:182
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
@@ -9198,7 +9198,7 @@ msgstr ""
 "Будь ласка зверніть увагу, що phpMyAdmin лише інтерфейс користувача і його "
 "можливості не обмежують MySQL."
 
-#: src/Config/Descriptions.php:182
+#: src/Config/Descriptions.php:185
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
@@ -9206,7 +9206,7 @@ msgstr ""
 "Розширена конфігурація сервера, не змінюйте ці параметри, якщо не знаєте для "
 "чого вони потрібні."
 
-#: src/Config/Descriptions.php:185
+#: src/Config/Descriptions.php:188
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -9216,7 +9216,7 @@ msgstr ""
 "до додаткових властивостей, дивись [doc@linked-tables]PhpMyAdmin "
 "конфігурація пам'яті[/doc] в документації."
 
-#: src/Config/Descriptions.php:190
+#: src/Config/Descriptions.php:193
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
@@ -9224,115 +9224,115 @@ msgstr ""
 "Відстеження змін, зроблених у базі даних. Вимагає PhpMyAdmin сховища "
 "конфігурації."
 
-#: src/Config/Descriptions.php:193
+#: src/Config/Descriptions.php:196
 msgid "Customize browse mode."
 msgstr "Налаштувати режим перегляду."
 
-#: src/Config/Descriptions.php:194 src/Config/Descriptions.php:195
-#: src/Config/Descriptions.php:202 src/Config/Descriptions.php:208
-#: src/Config/Descriptions.php:209 src/Config/Descriptions.php:214
+#: src/Config/Descriptions.php:197 src/Config/Descriptions.php:198
+#: src/Config/Descriptions.php:205 src/Config/Descriptions.php:211
+#: src/Config/Descriptions.php:212 src/Config/Descriptions.php:217
 msgid "Customize default options."
 msgstr "Налаштувати опції за замовчуванням."
 
-#: src/Config/Descriptions.php:196
+#: src/Config/Descriptions.php:199
 msgid "Settings for phpMyAdmin developers."
 msgstr "Налаштування для розробників phpMyAdmin."
 
-#: src/Config/Descriptions.php:197
+#: src/Config/Descriptions.php:200
 msgid "Customize edit mode."
 msgstr "Налаштувати режим редагування."
 
-#: src/Config/Descriptions.php:198
+#: src/Config/Descriptions.php:201
 msgid "Customize default export options."
 msgstr "Налаштувати параметри експорту за замовчуванням."
 
-#: src/Config/Descriptions.php:199
+#: src/Config/Descriptions.php:202
 msgid "Set some commonly used options."
 msgstr "Встановити деякі загальновживані властивості."
 
-#: src/Config/Descriptions.php:200
+#: src/Config/Descriptions.php:203
 msgid "Customize default common import options."
 msgstr "Налаштувати за замовчуванням загальні параметри імпорту."
 
-#: src/Config/Descriptions.php:201
+#: src/Config/Descriptions.php:204
 msgid "Set import and export directories and compression options."
 msgstr "Встанови теки імпорту та експорту та параметри стискання."
 
-#: src/Config/Descriptions.php:203
+#: src/Config/Descriptions.php:206
 msgid "Databases display options."
 msgstr "Параметри відображення баз даних."
 
-#: src/Config/Descriptions.php:204
+#: src/Config/Descriptions.php:207
 msgid "Customize appearance of the navigation panel."
 msgstr "Налаштувати вигляд панелі навігації."
 
-#: src/Config/Descriptions.php:205
+#: src/Config/Descriptions.php:208
 msgid "Customize the navigation tree."
 msgstr "Налаштувати дерево навігації."
 
-#: src/Config/Descriptions.php:206
+#: src/Config/Descriptions.php:209
 msgid "Servers display options."
 msgstr "Параметри відображення серверів."
 
-#: src/Config/Descriptions.php:207
+#: src/Config/Descriptions.php:210
 msgid "Tables display options."
 msgstr "Параметри відображення таблиць."
 
-#: src/Config/Descriptions.php:210
+#: src/Config/Descriptions.php:213
 msgid "Settings that didn't fit anywhere else."
 msgstr "Налаштування які не вписуються більш ніде."
 
-#: src/Config/Descriptions.php:211
+#: src/Config/Descriptions.php:214
 msgid "Authentication settings."
 msgstr "Параметри аутентифікації."
 
-#: src/Config/Descriptions.php:212
+#: src/Config/Descriptions.php:215
 msgid "Enter server connection parameters."
 msgstr "Введіть параметри з'єднання сервера."
 
-#: src/Config/Descriptions.php:213
+#: src/Config/Descriptions.php:216
 msgid "Customize links shown in SQL Query boxes."
 msgstr "Налаштувати показ посилань в вікнах SQL запиту."
 
-#: src/Config/Descriptions.php:215
+#: src/Config/Descriptions.php:218
 msgid "SQL queries settings."
 msgstr "Налаштування SQL запитів."
 
-#: src/Config/Descriptions.php:216
+#: src/Config/Descriptions.php:219
 msgid "Customize startup page."
 msgstr "Налаштувати початкову сторінку."
 
-#: src/Config/Descriptions.php:217
+#: src/Config/Descriptions.php:220
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 "Оберіть, які деталі відображати у структурі бази даних (список таблиць)."
 
-#: src/Config/Descriptions.php:218
+#: src/Config/Descriptions.php:221
 msgid "Settings for the table structure (list of columns)."
 msgstr "Налаштування структури таблиці (список стовпців)."
 
-#: src/Config/Descriptions.php:219
+#: src/Config/Descriptions.php:222
 msgid "Choose how you want tabs to work."
 msgstr "Налаштуйте відображення вкладок."
 
-#: src/Config/Descriptions.php:220
+#: src/Config/Descriptions.php:223
 msgid "Customize text input fields."
 msgstr "Налаштувати текстові поля вводу."
 
-#: src/Config/Descriptions.php:221
+#: src/Config/Descriptions.php:224
 msgid "Customize default options"
 msgstr "Налаштувати опції за замовчувань"
 
-#: src/Config/Descriptions.php:222
+#: src/Config/Descriptions.php:225
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Відключити деякі попередження що показуються у phpMyAdmin."
 
-#: src/Config/Descriptions.php:224
+#: src/Config/Descriptions.php:227
 msgid "Enable gzip compression for import and export operations."
 msgstr "Увімкнути GZIP стиснення для операцій імпорту та експорту."
 
-#: src/Config/Descriptions.php:226
+#: src/Config/Descriptions.php:229
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
@@ -9340,7 +9340,7 @@ msgstr ""
 "Якщо включено, PhpMyAdmin продовжує обчислення декількох запитів навіть якщо "
 "один із запитів не вдалий."
 
-#: src/Config/Descriptions.php:230
+#: src/Config/Descriptions.php:233
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -9351,7 +9351,7 @@ msgstr ""
 "імпорту файлів великого розміру, проте це може призвести до переривання "
 "транзакції."
 
-#: src/Config/Descriptions.php:235
+#: src/Config/Descriptions.php:238
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
@@ -9359,15 +9359,15 @@ msgstr ""
 "Формат за замовчувань; майте на увазі, що цей список залежить від місця "
 "розміщення (бази даних, таблиці), і тільки SQL завжди доступний."
 
-#: src/Config/Descriptions.php:238 src/Config/Descriptions.php:239
+#: src/Config/Descriptions.php:241 src/Config/Descriptions.php:242
 msgid "Update data when duplicate keys found on import"
 msgstr "Оновлення даних, коли знайдено дублікати ключів імпорту"
 
-#: src/Config/Descriptions.php:240
+#: src/Config/Descriptions.php:243
 msgid "Number of queries to skip from start."
 msgstr "Число запитів що будуть пропущені від початку."
 
-#: src/Config/Descriptions.php:242
+#: src/Config/Descriptions.php:245
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -9377,7 +9377,7 @@ msgstr ""
 "то лише для поточного сервера. При установці даного значення в FALSE можна "
 "легко забути відключитися від інших серверів при множині підключень."
 
-#: src/Config/Descriptions.php:247
+#: src/Config/Descriptions.php:250
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
@@ -9385,7 +9385,7 @@ msgstr ""
 "Визначте чи використати попередні дані для входу в режимі аутентифікації "
 "[kbd]cookie[/kbd]."
 
-#: src/Config/Descriptions.php:251
+#: src/Config/Descriptions.php:254
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -9397,11 +9397,11 @@ msgstr ""
 "протягом поточної сесії, і будуть видалені при закриті вікна браузера. Цей "
 "режим рекомендується для роботи у ненадійних умовах."
 
-#: src/Config/Descriptions.php:257
+#: src/Config/Descriptions.php:260
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr "При відображенні SQL запиту використано максимальне число символів."
 
-#: src/Config/Descriptions.php:260
+#: src/Config/Descriptions.php:263
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
@@ -9409,7 +9409,7 @@ msgstr ""
 "Кількість елементів, які можуть бути відображені на кожній сторінці першого "
 "рівня дерева навігації."
 
-#: src/Config/Descriptions.php:263
+#: src/Config/Descriptions.php:266
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
@@ -9417,7 +9417,7 @@ msgstr ""
 "Кількість елементів, які можуть бути відображені на кожній сторінці дерева "
 "навігації."
 
-#: src/Config/Descriptions.php:266
+#: src/Config/Descriptions.php:269
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -9425,7 +9425,7 @@ msgstr ""
 "Кількість рядків при виведенні результату запиту. Якщо результат містить "
 "декілька рядків, посилання \"Previous\" та \"Next\" будуть показані."
 
-#: src/Config/Descriptions.php:271
+#: src/Config/Descriptions.php:274
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
@@ -9433,15 +9433,15 @@ msgstr ""
 "Кількість байтів, що виділяється під сценарій, наприклад: [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] без обмежень і [kbd]0[/kbd] без змін)."
 
-#: src/Config/Descriptions.php:275
+#: src/Config/Descriptions.php:278
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr "В панель навігації, дерево бази даних замінюються селектором"
 
-#: src/Config/Descriptions.php:278
+#: src/Config/Descriptions.php:281
 msgid "Link with main panel by highlighting the current database or table."
 msgstr "Перехід з головної панелі, виділивши поточну базу даних або таблицю."
 
-#: src/Config/Descriptions.php:281
+#: src/Config/Descriptions.php:284
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
@@ -9449,7 +9449,7 @@ msgstr ""
 "Відкрити сторінку у головному вікні ([code]main[/code]) або у новому "
 "([code]new[/code])."
 
-#: src/Config/Descriptions.php:284
+#: src/Config/Descriptions.php:287
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -9457,7 +9457,7 @@ msgstr ""
 "Мінімальна кількість елементів (таблиць, видів, процедур та подій) для "
 "відображення вікна фільтру."
 
-#: src/Config/Descriptions.php:287
+#: src/Config/Descriptions.php:290
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
@@ -9465,65 +9465,65 @@ msgstr ""
 "Угруповання елементів в дереві навігації (залежить від розділювача, що "
 "визначений в закладках баз даних і таблиць вище)."
 
-#: src/Config/Descriptions.php:291
+#: src/Config/Descriptions.php:294
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr "Чи потрібно надати можливість розкриття дерева в панелі навігації."
 
-#: src/Config/Descriptions.php:294
+#: src/Config/Descriptions.php:297
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr "Чи відображати процедури бази даних в дереві навігації"
 
-#: src/Config/Descriptions.php:297
+#: src/Config/Descriptions.php:300
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr ""
 "Чи потрібно автоматично розширювати єдину базу даних в навігаційному дереві."
 
-#: src/Config/Descriptions.php:299
+#: src/Config/Descriptions.php:302
 msgid "Set to 0 to collapse navigation panel."
 msgstr "Встановити 0, щоб згорнути панель навігації."
 
-#: src/Config/Descriptions.php:300
+#: src/Config/Descriptions.php:303
 msgid "Show logo in navigation panel."
 msgstr "Показати логотип у панелі навігації."
 
-#: src/Config/Descriptions.php:301
+#: src/Config/Descriptions.php:304
 msgid "URL where logo in the navigation panel will point to."
 msgstr "URL, на який веде логотип у панелі навігації."
 
-#: src/Config/Descriptions.php:302
+#: src/Config/Descriptions.php:305
 msgid "Display server choice at the top of the navigation panel."
 msgstr "Показати вибір сервера у верхній частині панелі навігації."
 
-#: src/Config/Descriptions.php:303
+#: src/Config/Descriptions.php:306
 msgid "String that separates databases into different tree levels."
 msgstr "Стрічка яка розділяє бази даних на різні рівні дерева."
 
-#: src/Config/Descriptions.php:304
+#: src/Config/Descriptions.php:307
 msgid "String that separates tables into different tree levels."
 msgstr "Стрічка, що розділяє таблиці на різні рівні дерева."
 
-#: src/Config/Descriptions.php:305
+#: src/Config/Descriptions.php:308
 msgid "Highlight server under the mouse cursor."
 msgstr "Підсвітити сервер під курсором миші."
 
-#: src/Config/Descriptions.php:306
+#: src/Config/Descriptions.php:309
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "Чи відображати таблиці під базою даних в дереві навігації"
 
-#: src/Config/Descriptions.php:307
+#: src/Config/Descriptions.php:310
 msgid "Whether to show views under database in the navigation tree"
 msgstr "Чи відображати перегляди бази даних в дереві навігації"
 
-#: src/Config/Descriptions.php:308
+#: src/Config/Descriptions.php:311
 msgid "Whether to show functions under database in the navigation tree"
 msgstr "Чи потрібно відображати функції під базою даних в дереві навігації"
 
-#: src/Config/Descriptions.php:309
+#: src/Config/Descriptions.php:312
 msgid "Whether to show events under database in the navigation tree"
 msgstr "Чи відображати події бази даних в дереві навігації"
 
-#: src/Config/Descriptions.php:311
+#: src/Config/Descriptions.php:314
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -9531,7 +9531,7 @@ msgstr ""
 "[kbd]SMART[/kbd] - тобто зворотній порядок сортування для полів, що мають "
 "тип TIME, DATE, DATETIME та TIMESTAMP; у іншому випадку порядок буде прямим."
 
-#: src/Config/Descriptions.php:315
+#: src/Config/Descriptions.php:318
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -9540,7 +9540,7 @@ msgstr ""
 "Вимкнути сповіщення, що відображається на сторінці структури бази даних за "
 "відсутності необхідних для зберігання конфігурації phpMyAdmin таблиць."
 
-#: src/Config/Descriptions.php:320
+#: src/Config/Descriptions.php:323
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -9548,7 +9548,7 @@ msgstr ""
 "Вимкнути сповіщення, що відображається на сторінці структури бази даних за "
 "наявності стовпців таблиці з іменами, які є зарезервованими словами MySQL."
 
-#: src/Config/Descriptions.php:324
+#: src/Config/Descriptions.php:327
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -9559,13 +9559,13 @@ msgstr ""
 "використовуватись JavaScript (історію запитів буде втрачено при закритті "
 "вікна)."
 
-#: src/Config/Descriptions.php:328
+#: src/Config/Descriptions.php:331
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
 "Дозволити користувачам створювати закладки, доступні для всіх інших "
 "користувачів"
 
-#: src/Config/Descriptions.php:330
+#: src/Config/Descriptions.php:333
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
@@ -9573,7 +9573,7 @@ msgstr ""
 "Встановити реальний часовий пояс; можна відмінний, чим на твоєму сервері "
 "бази даних"
 
-#: src/Config/Descriptions.php:333
+#: src/Config/Descriptions.php:336
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
@@ -9581,7 +9581,7 @@ msgstr ""
 "Залиште поле пустим для вимкнення підтримки [doc@bookmarks@]закладки[/doc] "
 "рекомендується: [kbd]pma__bookmark[/kbd]"
 
-#: src/Config/Descriptions.php:336
+#: src/Config/Descriptions.php:339
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
@@ -9589,7 +9589,7 @@ msgstr ""
 "Для відключення коментарів / типів медіа, залиште поле порожнім, "
 "рекомендується: [kbd]pma__column_info[/kbd]."
 
-#: src/Config/Descriptions.php:339
+#: src/Config/Descriptions.php:342
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
@@ -9597,7 +9597,7 @@ msgstr ""
 "Спеціальний користувач MySQL з обмеженими правами, більш детальна інформація "
 "доступна на [doc@linked-tables]документація[/doc]."
 
-#: src/Config/Descriptions.php:343
+#: src/Config/Descriptions.php:346
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
@@ -9605,7 +9605,7 @@ msgstr ""
 "Альтернативний хост для збереження налаштувань, залиште порожнім для "
 "використання вже вказаного хоста."
 
-#: src/Config/Descriptions.php:346
+#: src/Config/Descriptions.php:349
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -9615,7 +9615,7 @@ msgstr ""
 "залиште порожнім для порта за-замовчуванням, якщо контрольний хост "
 "ідентичний хосту."
 
-#: src/Config/Descriptions.php:351
+#: src/Config/Descriptions.php:354
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
@@ -9625,7 +9625,7 @@ msgstr ""
 "issues/8970]трекер помилок phpMyAdmin [/a] і [a@https://bugs.mysql."
 "com/19588]MySQL помилок[/a]"
 
-#: src/Config/Descriptions.php:355
+#: src/Config/Descriptions.php:358
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -9633,7 +9633,7 @@ msgstr ""
 "Залиште порожнім для відключення підтримки історії SQL запитів, "
 "пропонується: [kbd]pma__history[/kbd]."
 
-#: src/Config/Descriptions.php:358
+#: src/Config/Descriptions.php:361
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
@@ -9641,7 +9641,7 @@ msgstr ""
 "Обмежує кількість властивостей таблиці, що зберігаються в базі даних, "
 "застарілі записи автоматично видаляються."
 
-#: src/Config/Descriptions.php:362
+#: src/Config/Descriptions.php:365
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
@@ -9649,7 +9649,7 @@ msgstr ""
 "Залиште поле пустим, щоб вимкнути експорт шаблону, пропонується: "
 "[kbd]pma__export_templates[/kbd]."
 
-#: src/Config/Descriptions.php:365
+#: src/Config/Descriptions.php:368
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
@@ -9657,7 +9657,7 @@ msgstr ""
 "Залиште поле пустим, щоб вимкнути підтримку основних стовпців, пропонується: "
 "[kbd]pma__central_columns[/kbd]."
 
-#: src/Config/Descriptions.php:368
+#: src/Config/Descriptions.php:371
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -9667,14 +9667,14 @@ msgstr ""
 "хочете використовувати, як звичайні літературні символи, тобто "
 "використовуйте [kbd]'my\\_db'[/kbd] а не [kbd]'my_db'[/kbd]."
 
-#: src/Config/Descriptions.php:373
+#: src/Config/Descriptions.php:376
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "Для відключення підтримки PDF схеми, залишіть поле пустим, рекомендується: "
 "[kbd]pma__pdf_pages[/kbd]."
 
-#: src/Config/Descriptions.php:376
+#: src/Config/Descriptions.php:379
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
@@ -9685,7 +9685,7 @@ msgstr ""
 "інформації. Залишіть поле пустим для відключення підтримки. Рекомендується: "
 "[kbd]phpmyadmin[/kbd]."
 
-#: src/Config/Descriptions.php:381
+#: src/Config/Descriptions.php:384
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -9693,7 +9693,7 @@ msgstr ""
 "Для відключення збереження списку недавно використаних таблиць залиште поле "
 "порожнім, рекомендується: [kbd]pma__recen[/kbd]."
 
-#: src/Config/Descriptions.php:385
+#: src/Config/Descriptions.php:388
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
@@ -9701,7 +9701,7 @@ msgstr ""
 "Для відключення збереження списку обраних таблиць залиште поле порожнім, "
 "рекомендується:: [kbd]pma__favorite[/kbd]."
 
-#: src/Config/Descriptions.php:389
+#: src/Config/Descriptions.php:392
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
@@ -9709,13 +9709,13 @@ msgstr ""
 "Залишіть поле пустим, щоб вимкнути підтримку [doc@relations@]relation-links[/"
 "doc], рекомендується: [kbd]pma__relation[/kbd]."
 
-#: src/Config/Descriptions.php:394
+#: src/Config/Descriptions.php:397
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
 "Дивіться [doc@authentication-modes]authentication types[/doc] для прикладу."
 
-#: src/Config/Descriptions.php:397
+#: src/Config/Descriptions.php:400
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -9723,7 +9723,7 @@ msgstr ""
 "Для відключення підтримки PDF схеми залиште поле порожнім, рекомендується: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: src/Config/Descriptions.php:400
+#: src/Config/Descriptions.php:403
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
@@ -9731,7 +9731,7 @@ msgstr ""
 "Таблиця для опису відображення стовпців, залиште порожнім для вимкнення "
 "підтримки; рекомендовано: [kbd]pma__table_info[/kbd]."
 
-#: src/Config/Descriptions.php:404
+#: src/Config/Descriptions.php:407
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -9739,7 +9739,7 @@ msgstr ""
 "Для відключення можливості зберігання налаштувань інтерфейсу таблиць через "
 "сесії залиште поле порожнім, рекомендується: [kbd]pma__table_uiprefs[/kbd]."
 
-#: src/Config/Descriptions.php:408
+#: src/Config/Descriptions.php:411
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -9747,7 +9747,7 @@ msgstr ""
 "Чи буде при створенні бази даних, в журнал першим рядком додано вираз DROP "
 "DATABASE IF EXISTS."
 
-#: src/Config/Descriptions.php:412
+#: src/Config/Descriptions.php:415
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -9755,7 +9755,7 @@ msgstr ""
 "Чи буде при створенні бази даних, в журнал першим рядком додано вираз DROP "
 "DATABASE IF EXISTS."
 
-#: src/Config/Descriptions.php:416
+#: src/Config/Descriptions.php:419
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -9763,13 +9763,13 @@ msgstr ""
 "Чи буде при створенні подання, в журнал першим рядком додано вираз DROP VIEW "
 "IF EXISTS."
 
-#: src/Config/Descriptions.php:420
+#: src/Config/Descriptions.php:423
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Визначити список виразів, які використовуються для автоматичного створення "
 "нових версій."
 
-#: src/Config/Descriptions.php:423
+#: src/Config/Descriptions.php:426
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
@@ -9777,14 +9777,14 @@ msgstr ""
 "Залиште порожнім, щоб вимкнути функцію відстеження SQL запитів, "
 "пропонується: [kbd]pma__tracking[/kbd]."
 
-#: src/Config/Descriptions.php:426
+#: src/Config/Descriptions.php:429
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 "Чи механізм відстеження створює версії для таблиць і подань автоматично."
 
-#: src/Config/Descriptions.php:429
+#: src/Config/Descriptions.php:432
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
@@ -9792,7 +9792,7 @@ msgstr ""
 "Для відключення можливості зберігати налаштування користувача в базі даних "
 "залиште поле порожнім, рекомендується: [kbd]pma__userconfig[/kbd]."
 
-#: src/Config/Descriptions.php:432
+#: src/Config/Descriptions.php:435
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
@@ -9802,7 +9802,7 @@ msgstr ""
 "можливості налаштувань меню; якщо хоча б одне поле залишите порожнім, то ця "
 "можливість буде відключена, рекомендується: [kbd]pma__users[/kbd]."
 
-#: src/Config/Descriptions.php:437
+#: src/Config/Descriptions.php:440
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
@@ -9812,7 +9812,7 @@ msgstr ""
 "можливості налаштувань меню; якщо хоча б одне поле залишите порожнім, то ця "
 "можливість буде відключена, рекомендується: [kbd]pma__usergroups[/kbd]."
 
-#: src/Config/Descriptions.php:442
+#: src/Config/Descriptions.php:445
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -9820,61 +9820,61 @@ msgstr ""
 "Залиште порожнім, щоб вимкнути функцію приховування/відображення "
 "навігаційних елементів, пропонується: [kbd]pma__navigationhiding[/kbd]."
 
-#: src/Config/Descriptions.php:446
+#: src/Config/Descriptions.php:449
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr "Користувацький опис сервера. Залиште пустим, щоб вивести назву хоста."
 
-#: src/Config/Descriptions.php:448
+#: src/Config/Descriptions.php:451
 msgid "Leave blank if not used."
 msgstr "Залиште порожнім, якщо не використовується."
 
-#: src/Config/Descriptions.php:449
+#: src/Config/Descriptions.php:452
 msgid "Leave blank for defaults."
 msgstr "Залиште порожнім для налаштувань за замовчуванням."
 
-#: src/Config/Descriptions.php:450
+#: src/Config/Descriptions.php:453
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr "Рядок, що відображається при ідентифікації з допомогою HTTP."
 
-#: src/Config/Descriptions.php:451
+#: src/Config/Descriptions.php:454
 msgid "Authentication method to use."
 msgstr "Потрібний метод автентифікації."
 
-#: src/Config/Descriptions.php:452
+#: src/Config/Descriptions.php:455
 msgid "Compress connection to MySQL server."
 msgstr "Стискати з'єднання до MySQL сервера."
 
-#: src/Config/Descriptions.php:453
+#: src/Config/Descriptions.php:456
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Cховати бази даних, що відповідають регулярному виразу (PCRE)."
 
-#: src/Config/Descriptions.php:454
+#: src/Config/Descriptions.php:457
 msgid "Hostname where MySQL server is running."
 msgstr "Ім'я хоста, на якому працює MySQL сервер."
 
-#: src/Config/Descriptions.php:455 src/Config/Descriptions.php:459
+#: src/Config/Descriptions.php:458 src/Config/Descriptions.php:462
 msgid "Leave empty if not using config auth."
 msgstr "Залиште порожнім, якщо не використовується config auth."
 
-#: src/Config/Descriptions.php:456
+#: src/Config/Descriptions.php:459
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Порт, на якому працює MySQL сервер, залиште порожнім для значення за "
 "замовчуванням."
 
-#: src/Config/Descriptions.php:457
+#: src/Config/Descriptions.php:460
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Сокет, на якому працює MySQL сервер, залиште порожнім для значення за-"
 "замовчуванням."
 
-#: src/Config/Descriptions.php:458
+#: src/Config/Descriptions.php:461
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Активувати SSL для з'єднання з MySQL сервером."
 
-#: src/Config/Descriptions.php:461
+#: src/Config/Descriptions.php:464
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -9884,21 +9884,21 @@ msgstr ""
 "при ідентифікації методом [kbd]config[/kbd] із жорстко прописаним паролем; "
 "це не обмежує можливість виконання команди беспосередньо."
 
-#: src/Config/Descriptions.php:466
+#: src/Config/Descriptions.php:469
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr "Показати або приховати стовпець \"Час створення\" для всіх таблиць."
 
-#: src/Config/Descriptions.php:469
+#: src/Config/Descriptions.php:472
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr "Показати або приховати стовпець \"Час оновлення\" для всіх таблиць."
 
-#: src/Config/Descriptions.php:472
+#: src/Config/Descriptions.php:475
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr "Показати або приховати стовпець \"Час перевірки\" для всіх таблиць."
 
-#: src/Config/Descriptions.php:475
+#: src/Config/Descriptions.php:478
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
@@ -9906,7 +9906,7 @@ msgstr ""
 "Визначає чи в режимі редагування/вставки має на початку відображатися тип "
 "поля."
 
-#: src/Config/Descriptions.php:478
+#: src/Config/Descriptions.php:481
 msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
@@ -9914,48 +9914,48 @@ msgstr ""
 "Показує посилання на [a@https://www.php.net/manual/en/function.phpinfo."
 "php]phpinfo()[/a]."
 
-#: src/Config/Descriptions.php:480
+#: src/Config/Descriptions.php:483
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "Чи слід відображати кнопку \"показати всі (рядки)\"."
 
-#: src/Config/Descriptions.php:481
+#: src/Config/Descriptions.php:484
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
 "Показати або приховати стовпець відображення коментарів для всіх таблиць."
 
-#: src/Config/Descriptions.php:482
+#: src/Config/Descriptions.php:485
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
 "Показати або приховати стовпець, що відображає кодування для всіх таблиць."
 
-#: src/Config/Descriptions.php:483
+#: src/Config/Descriptions.php:486
 msgid "Display the function fields in edit/insert mode."
 msgstr "Відображати поля функції у режимі редагування/вставки."
 
-#: src/Config/Descriptions.php:484
+#: src/Config/Descriptions.php:487
 msgid "Whether to show hint or not."
 msgstr "Показати/приховати підказки."
 
-#: src/Config/Descriptions.php:485
+#: src/Config/Descriptions.php:488
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr ""
 "Визначає, чи потрібно відображати SQL запити, що згенеровані phpMyAdmin."
 
-#: src/Config/Descriptions.php:486
+#: src/Config/Descriptions.php:489
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
 "Дозволити відображення статистики бази даних і таблиць (наприклад, "
 "використання простору)."
 
-#: src/Config/Descriptions.php:488
+#: src/Config/Descriptions.php:491
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Позначити використані таблиці та зробити можливим відображення баз даних із "
 "заблокованими таблицями."
 
-#: src/Config/Descriptions.php:491
+#: src/Config/Descriptions.php:494
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
@@ -9963,7 +9963,7 @@ msgstr ""
 "Вимкнути за замовчанням попередження, яке відображається на головній "
 "сторінці, у разі виявлення Suhosin."
 
-#: src/Config/Descriptions.php:494
+#: src/Config/Descriptions.php:497
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
@@ -9973,7 +9973,7 @@ msgstr ""
 "сторінці, якщо значення налаштувань PHP session.gc_maxlifetime менше, ніж "
 "значення `LoginCookieValidity`."
 
-#: src/Config/Descriptions.php:499
+#: src/Config/Descriptions.php:502
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -9981,7 +9981,7 @@ msgstr ""
 "Розмір (стовпців) текстового поля в режимі редагування, дане значення буде "
 "пріоритетним для текстових полів SQL запиту (* 2)."
 
-#: src/Config/Descriptions.php:502
+#: src/Config/Descriptions.php:505
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -9989,7 +9989,7 @@ msgstr ""
 "Розмір (рядків) текстового поля в режимі редагування, дане значення буде "
 "пріоритетним для текстових полів SQL запиту (* 2)."
 
-#: src/Config/Descriptions.php:505
+#: src/Config/Descriptions.php:508
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -10001,7 +10001,7 @@ msgstr ""
 "Forwarded-For) заголовку, що прийшов з проксі 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 
-#: src/Config/Descriptions.php:511
+#: src/Config/Descriptions.php:514
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -10009,7 +10009,7 @@ msgstr ""
 "Коли вимкнено, користувачі не зможуть встановити жоден із зазначених нижче "
 "параметрів незалежно від значення прапорця праворуч."
 
-#: src/Config/Descriptions.php:514
+#: src/Config/Descriptions.php:517
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
@@ -10021,7 +10021,7 @@ msgstr ""
 "помилки. Вам це потрібно, якщо сервер, на якому встановлений PhpMyAdmin не "
 "має прямого доступу до Інтернету. Формат: «hostname:portnumber»."
 
-#: src/Config/Descriptions.php:520
+#: src/Config/Descriptions.php:523
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -10032,7 +10032,7 @@ msgstr ""
 "автентифікація буде виконуватися. Ніякі інші типи аутентифікації в даний час "
 "не підтримується."
 
-#: src/Config/Descriptions.php:526
+#: src/Config/Descriptions.php:529
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
@@ -10040,7 +10040,7 @@ msgstr ""
 "Запити виконуються натисканням Enter (замість Ctrl+Enter). Нові лінії "
 "вставляються натисканням Shift+Enter."
 
-#: src/Config/Descriptions.php:530
+#: src/Config/Descriptions.php:533
 msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
@@ -10048,218 +10048,218 @@ msgstr ""
 "Увімкнути режим нульової конфігурації, що дозволяє налаштувати конфігурацію "
 "phpMyAdmin для зберігання таблиць автоматично."
 
-#: src/Config/Descriptions.php:533
+#: src/Config/Descriptions.php:536
 msgid "Highlight selected rows."
 msgstr "Підсвічувати обрані рядки."
 
-#: src/Config/Descriptions.php:534
+#: src/Config/Descriptions.php:537
 msgid "Highlight row pointed by the mouse cursor."
 msgstr "Підсвічувати рядок наведенням курсора миші."
 
-#: src/Config/Descriptions.php:535
+#: src/Config/Descriptions.php:538
 msgid "Number of columns for CHAR/VARCHAR textareas."
 msgstr "Число атрибутів для CHAR/VARCHAR полів типу textarea."
 
-#: src/Config/Descriptions.php:536
+#: src/Config/Descriptions.php:539
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "Число рядків для CHAR/VARCHAR полів типу textarea."
 
-#: src/Config/Descriptions.php:537
+#: src/Config/Descriptions.php:540
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr "Журнал SQL запитів і час виконання, який буде відображатися в консолі"
 
-#: src/Config/Descriptions.php:538
+#: src/Config/Descriptions.php:541
 msgid "Tab that is displayed when entering a database."
 msgstr "Вкладка що показується коли увійшли у базу даних."
 
-#: src/Config/Descriptions.php:539
+#: src/Config/Descriptions.php:542
 msgid "Tab that is displayed when entering a server."
 msgstr "Вкладка що відображається коли увійшли на сервер."
 
-#: src/Config/Descriptions.php:540
+#: src/Config/Descriptions.php:543
 msgid "Tab that is displayed when entering a table."
 msgstr "Вкладка що відображається при вході у таблицю."
 
-#: src/Config/Descriptions.php:541
+#: src/Config/Descriptions.php:544
 msgid "Whether the table structure actions should be hidden."
 msgstr "Дії над структурою таблиці повинні бути приховані."
 
-#: src/Config/Descriptions.php:542
+#: src/Config/Descriptions.php:545
 msgid "Whether column comments should be shown in table structure view"
 msgstr "Чи показувати коментарі сповпця в структурі таблиці"
 
-#: src/Config/Descriptions.php:543
+#: src/Config/Descriptions.php:546
 msgid "Show server listing as a list instead of a drop down."
 msgstr "Показати список сервера у вигляді списку, а не випадаючого меню."
 
-#: src/Config/Descriptions.php:544
+#: src/Config/Descriptions.php:547
 msgid "A dropdown will be used if fewer items are present."
 msgstr ""
 "Випадаючий список буде використовуватись, якщо буде представлено менше "
 "елементів."
 
-#: src/Config/Descriptions.php:545
+#: src/Config/Descriptions.php:548
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 "Значення за замовчанням для зовнішнього ключа деяких запитів відзначається "
 "прапорцями."
 
-#: src/Config/Descriptions.php:546
+#: src/Config/Descriptions.php:549
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr "Зніміть прапорець, щоб вимкнути перетягування імпорту"
 
-#: src/Config/Descriptions.php:547
+#: src/Config/Descriptions.php:550
 msgid "How many rows can be inserted at one time."
 msgstr "Кількість рядків, що може бути вставлено за раз."
 
-#: src/Config/Descriptions.php:548
+#: src/Config/Descriptions.php:551
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
 "Максимальне число символів, що показується у будь-якому не числовому стовпці "
 "у режимі перегляду."
 
-#: src/Config/Descriptions.php:549
+#: src/Config/Descriptions.php:552
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "Визначити, скільки часу (в секундах) дійсні cookie авторизації."
 
-#: src/Config/Descriptions.php:550
+#: src/Config/Descriptions.php:553
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "Подвійний розмір поля вводу тексту для LONGTEXT стовпців."
 
-#: src/Config/Descriptions.php:551
+#: src/Config/Descriptions.php:554
 msgid "Maximum number of databases displayed in database list."
 msgstr ""
 "Максимальна кількість баз даних, які відображається у списку баз даних."
 
-#: src/Config/Descriptions.php:552
+#: src/Config/Descriptions.php:555
 msgid "Maximum number of tables displayed in table list."
 msgstr "Максимальне число таблиць, які відображаються в списку таблиці."
 
-#: src/Config/Descriptions.php:553
+#: src/Config/Descriptions.php:556
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr ""
 "Максимальна кількість нещодавно використаних таблиць; встановіть 0 для "
 "відключення."
 
-#: src/Config/Descriptions.php:554
+#: src/Config/Descriptions.php:557
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "Максимальна кількість улюблених таблиць; встановіть 0 для відключення."
 
-#: src/Config/Descriptions.php:555
+#: src/Config/Descriptions.php:558
 msgid "These are Edit, Copy and Delete links."
 msgstr "Посилання для редагування, копіювання та видалення."
 
-#: src/Config/Descriptions.php:556
+#: src/Config/Descriptions.php:559
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 "Чи відображати рядок посилань навіть при відсутності унікального ключа."
 
-#: src/Config/Descriptions.php:557 src/Config/Descriptions.php:838
+#: src/Config/Descriptions.php:560 src/Config/Descriptions.php:838
 msgid "Disable shortcut keys"
 msgstr "Вимкнути скорі клавіші"
 
-#: src/Config/Descriptions.php:558
+#: src/Config/Descriptions.php:561
 msgid "Use natural order for sorting table and database names."
 msgstr "Використати природний порядок сортування імен таблиць та баз даних."
 
-#: src/Config/Descriptions.php:559 src/Config/Descriptions.php:562
-#: src/Config/Descriptions.php:563
+#: src/Config/Descriptions.php:562 src/Config/Descriptions.php:565
+#: src/Config/Descriptions.php:566
 msgid "Use only icons, only text or both."
 msgstr "Використовувати лише піктограми, лише текст або все."
 
-#: src/Config/Descriptions.php:560
+#: src/Config/Descriptions.php:563
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr ""
 "Використовувати GZip буферизацію виводу для збільшення швидкості HTTP "
 "передачі."
 
-#: src/Config/Descriptions.php:561
+#: src/Config/Descriptions.php:564
 msgid "Use persistent connections to MySQL databases."
 msgstr "Використовувати постійне з'єднання з MySQL."
 
-#: src/Config/Descriptions.php:564
+#: src/Config/Descriptions.php:567
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "Заборонити редагування стовпців BLOB та BINARY."
 
-#: src/Config/Descriptions.php:565
+#: src/Config/Descriptions.php:568
 msgid "How many queries are kept in history."
 msgstr "Скільки запитів зберігати в історії."
 
-#: src/Config/Descriptions.php:566
+#: src/Config/Descriptions.php:569
 msgid "Select which functions will be used for character set conversion."
 msgstr "Виберіть функції, які буде використано для перекодування."
 
-#: src/Config/Descriptions.php:567
+#: src/Config/Descriptions.php:570
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr ""
 "Коли переглядаєте таблиці, порядок сортування кожної таблиці зберігається."
 
-#: src/Config/Descriptions.php:568
+#: src/Config/Descriptions.php:571
 msgid "Default sort order for tables with a primary key."
 msgstr "За замовчанням порядок сортування таблиць з первинним ключем."
 
-#: src/Config/Descriptions.php:569
+#: src/Config/Descriptions.php:572
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr ""
 "Повторити заголовки кожних X комірок, [kbd]0[/kbd] відключає цю властивість."
 
-#: src/Config/Descriptions.php:570
+#: src/Config/Descriptions.php:573
 msgid "For display Options"
 msgstr "Для відображення Параметри"
 
-#: src/Config/Descriptions.php:571
+#: src/Config/Descriptions.php:574
 msgid "Directory where exports can be saved on server."
 msgstr "Каталог на сервері для збереження експорту."
 
-#: src/Config/Descriptions.php:572
+#: src/Config/Descriptions.php:575
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
 "Визначає, чи має залишатися вікно запиту на екрані після надсилання запиту."
 
-#: src/Config/Descriptions.php:573
+#: src/Config/Descriptions.php:576
 msgid "Title of browser window when a database is selected."
 msgstr "Заголовок вікна браузера при виборі бази даних."
 
-#: src/Config/Descriptions.php:574
+#: src/Config/Descriptions.php:577
 msgid "Title of browser window when nothing is selected."
 msgstr "Заголовок вікна браузера за замовчуванням."
 
-#: src/Config/Descriptions.php:575
+#: src/Config/Descriptions.php:578
 msgid "Title of browser window when a server is selected."
 msgstr "Заголовок вікна браузера при виборі сервера."
 
-#: src/Config/Descriptions.php:576
+#: src/Config/Descriptions.php:579
 msgid "Title of browser window when a table is selected."
 msgstr "Заголовок вікна браузера при виборі таблиці."
 
-#: src/Config/Descriptions.php:577
+#: src/Config/Descriptions.php:580
 msgid "Directory on server where you can upload files for import."
 msgstr ""
 "Каталог на сервері, до якого ви можете завантажити файли для подальшого "
 "імпорту."
 
-#: src/Config/Descriptions.php:578
+#: src/Config/Descriptions.php:581
 msgid "Allow for searching inside the entire database."
 msgstr "Дозволити пошук по всій базі даних."
 
-#: src/Config/Descriptions.php:579
+#: src/Config/Descriptions.php:582
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr ""
 "Вмикає можливість перевірки останньої версії phpMyAdmin на головній сторінці."
 
-#: src/Config/Descriptions.php:580
+#: src/Config/Descriptions.php:583
 msgid "The password for authenticating with the proxy."
 msgstr "Пароль для аутентифікації на проксі."
 
-#: src/Config/Descriptions.php:581
+#: src/Config/Descriptions.php:584
 msgid "Enable ZIP compression for import and export operations."
 msgstr "Включити ZIP стиснення для операцій імпорту та експорту."
 
-#: src/Config/Descriptions.php:582
+#: src/Config/Descriptions.php:585
 msgid "Choose the default action when sending error reports."
 msgstr "Оберіть дію за замовчуванням під час надсилання звітів про помилки."
 
@@ -11423,36 +11423,36 @@ msgstr "Сортувати за"
 msgid "Server connection collation"
 msgstr "Зіставлення підключення сервера"
 
-#: src/Config/FormDisplay.php:580
+#: src/Config/FormDisplay.php:581
 #, php-format
 msgid "Missing data for %s"
 msgstr "Відсутні дані для %s"
 
-#: src/Config/FormDisplay.php:620 src/Config/Validator.php:594
+#: src/Config/FormDisplay.php:621 src/Config/Validator.php:595
 #: src/Controllers/JavaScriptMessagesController.php:828
 msgid "Incorrect value!"
 msgstr "Некоректне значення!"
 
-#: src/Config/FormDisplay.php:766
+#: src/Config/FormDisplay.php:767
 msgid "unavailable"
 msgstr "недоступний"
 
-#: src/Config/FormDisplay.php:768
+#: src/Config/FormDisplay.php:769
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" потребує %s розширення"
 
-#: src/Config/FormDisplay.php:790
+#: src/Config/FormDisplay.php:791
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "Стиснутий імпорт не буде працювати через відсутність функції %s."
 
-#: src/Config/FormDisplay.php:799
+#: src/Config/FormDisplay.php:800
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Стиснутий експорт не буде працювати через відсутність функції %s."
 
-#: src/Config/FormDisplay.php:819
+#: src/Config/FormDisplay.php:820
 #, php-format
 msgid "maximum %s"
 msgstr "максимум %s"
@@ -11706,20 +11706,20 @@ msgstr "Вкладки рівня бази даних"
 msgid "Table-level tabs"
 msgstr "Вкладки рівня таблиці"
 
-#: src/Config/Validator.php:252
+#: src/Config/Validator.php:253
 msgid "Could not connect to the database server!"
 msgstr "Не вдалося з'єднатися з сервером бази даних!"
 
-#: src/Config/Validator.php:288
+#: src/Config/Validator.php:289
 msgid "Invalid authentication type!"
 msgstr "Невірний тип аутентифікації!"
 
-#: src/Config/Validator.php:293
+#: src/Config/Validator.php:294
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "При використанні ідентифікації [kbd]config[/kbd] порожнє ім'я користувача!"
 
-#: src/Config/Validator.php:299
+#: src/Config/Validator.php:300
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -11727,19 +11727,19 @@ msgstr ""
 "При використанні методу ідентифікації [kbd]signon[/kbd] не встановлено ім'я "
 "сесії!"
 
-#: src/Config/Validator.php:306
+#: src/Config/Validator.php:307
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "При використанні методу ідентифікації [kbd]signon[/kbd] не встановлений URL!"
 
-#: src/Config/Validator.php:359
+#: src/Config/Validator.php:360
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Відсутнє ім'я адміністратора phpMyAdmin при використанні сховища "
 "конфігурації!"
 
-#: src/Config/Validator.php:366
+#: src/Config/Validator.php:367
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -11747,31 +11747,31 @@ msgstr ""
 "Відсутній пароль адміністратора phpMyAdmin при використанні сховища "
 "конфігурації!"
 
-#: src/Config/Validator.php:455
+#: src/Config/Validator.php:456
 msgid "Incorrect value:"
 msgstr "Некоректне значення:"
 
-#: src/Config/Validator.php:466
+#: src/Config/Validator.php:467
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Некоректно введена IP адреса: %s"
 
-#: src/Config/Validator.php:529
+#: src/Config/Validator.php:530
 #: src/Controllers/JavaScriptMessagesController.php:827
 msgid "Not a valid port number!"
 msgstr "Не припустимим номер порту!"
 
-#: src/Config/Validator.php:551
+#: src/Config/Validator.php:552
 #: src/Controllers/JavaScriptMessagesController.php:825
 msgid "Not a positive number!"
 msgstr "Не додатнє число!"
 
-#: src/Config/Validator.php:573
+#: src/Config/Validator.php:574
 #: src/Controllers/JavaScriptMessagesController.php:826
 msgid "Not a non-negative number!"
 msgstr "Не від'ємне число!"
 
-#: src/Config/Validator.php:612
+#: src/Config/Validator.php:613
 #: src/Controllers/JavaScriptMessagesController.php:829
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -15137,9 +15137,9 @@ msgstr "Керування групами користувачів не ввім
 msgid "Setting variable failed"
 msgstr "Помилка встановлення змінної"
 
-#: src/Controllers/Setup/ConfigController.php:41
+#: src/Controllers/Setup/ConfigController.php:43
 #: src/Controllers/Setup/FormController.php:44
-#: src/Controllers/Setup/HomeController.php:45
+#: src/Controllers/Setup/HomeController.php:47
 #: src/Controllers/Setup/ServerDestroyController.php:41
 #: src/Controllers/Setup/ServersController.php:44
 #: src/Controllers/Setup/ShowConfigController.php:42
@@ -15151,7 +15151,7 @@ msgstr "Конфігурації вже існує, установка відк�
 msgid "Incorrect form specified!"
 msgstr "Вказана неправильна форма!"
 
-#: src/Controllers/Setup/HomeController.php:71
+#: src/Controllers/Setup/HomeController.php:73
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
@@ -15159,7 +15159,7 @@ msgstr ""
 "Ви використовуєте незахищене з'єднання; всі дані (у тому числі потенційно "
 "чутлива інформація, на кшталт паролей) передаються в незашифрованому вигляді!"
 
-#: src/Controllers/Setup/HomeController.php:76
+#: src/Controllers/Setup/HomeController.php:78
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
@@ -15167,7 +15167,7 @@ msgstr ""
 "Якщо ваш сервер також налаштований на прийом HTTPS запитів, щоб "
 "використовувати захищене з'єднання, перейдіть за посиланням."
 
-#: src/Controllers/Setup/HomeController.php:80
+#: src/Controllers/Setup/HomeController.php:82
 msgid "Insecure connection"
 msgstr "Незахищене з'єднання"
 
@@ -18234,22 +18234,22 @@ msgstr "Виконати SQL запит/запити у базі даних %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "Виконати SQL запит(и) у базі даних %s"
 
-#: src/StorageEngine.php:319
+#: src/StorageEngine.php:320
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "Немає докладної інформації про статус для даного механізму зберігання."
 
-#: src/StorageEngine.php:416
+#: src/StorageEngine.php:417
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s доступне на цьому MySQL сервері."
 
-#: src/StorageEngine.php:417
+#: src/StorageEngine.php:418
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s було вимкнене для цього MySQL серверу."
 
-#: src/StorageEngine.php:418
+#: src/StorageEngine.php:419
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Цей MySQL сервер не підтримує %s кодування."

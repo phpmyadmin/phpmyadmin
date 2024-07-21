@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-07-14 00:22+0000\n"
+"POT-Creation-Date: 2024-07-21 00:22+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -830,7 +830,7 @@ msgstr "Restableix"
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
 #: src/Html/Generator.php:668 src/Html/MySQLDocumentation.php:49
-#: src/Sanitize.php:188
+#: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "Documentació"
 
@@ -2571,7 +2571,7 @@ msgid "Sum"
 msgstr "Suma"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:415
+#: src/StorageEngine.php:416
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s és el motor d'emmagatzematge per defecte en aquest servidor MySQL."
@@ -9533,19 +9533,19 @@ msgstr "ambdós anteriors"
 msgid "neither of the above"
 msgstr "cap dels anteriors"
 
-#: src/Config/Descriptions.php:55 src/Config/Descriptions.php:56
-#: src/Config/Descriptions.php:57
+#: src/Config/Descriptions.php:61 src/Config/Descriptions.php:62
+#: src/Config/Descriptions.php:63
 msgid "Users cannot set a higher value"
 msgstr "Els usuaris no poden establir un valor més gran"
 
-#: src/Config/Descriptions.php:73
+#: src/Config/Descriptions.php:76
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Si està habilitat, l'usuari pot introduir qualsevol servidor MySQL al "
 "formulari de connexió mitjançant l'autenticació per galetes."
 
-#: src/Config/Descriptions.php:76
+#: src/Config/Descriptions.php:79
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
@@ -9555,7 +9555,7 @@ msgstr ""
 "connexió a un servidor MySQL arbitrari fent coincidir l'adreça IP o el nom "
 "d'amfitrió del servidor MySQL mitjançant una expressió regular."
 
-#: src/Config/Descriptions.php:81
+#: src/Config/Descriptions.php:84
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
@@ -9565,7 +9565,7 @@ msgstr ""
 "a phpMyADMIN dins d'un marc, i és un potencial [strong]forat de seguretat[/"
 "strong] que permet atacs del tipus XSS (Cross-site scripting)."
 
-#: src/Config/Descriptions.php:86
+#: src/Config/Descriptions.php:89
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
@@ -9573,18 +9573,18 @@ msgstr ""
 "Frase de pas secreta que s'utilitza per xifrar les galetes amb "
 "l'autenticació [kbd]cookie[/kbd]."
 
-#: src/Config/Descriptions.php:88
+#: src/Config/Descriptions.php:91
 msgid "Enable bzip2 compression for import operations."
 msgstr "Habilita la compressió bzip2 per a les operacions d'importació."
 
-#: src/Config/Descriptions.php:89
+#: src/Config/Descriptions.php:92
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr ""
 "Introduïu la vostra clau privada per al servei reCaptcha del vostre domini."
 
-#: src/Config/Descriptions.php:90
+#: src/Config/Descriptions.php:93
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid ""
@@ -9593,42 +9593,42 @@ msgid ""
 msgstr ""
 "Introduïu la vostra clau privada per al servei reCaptcha del vostre domini."
 
-#: src/Config/Descriptions.php:91
+#: src/Config/Descriptions.php:94
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 "Introduïu la vostra clau privada per al servei reCaptcha del vostre domini."
 
-#: src/Config/Descriptions.php:92
+#: src/Config/Descriptions.php:95
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 "Introduïu la vostra clau privada per al servei reCaptcha del vostre domini."
 
-#: src/Config/Descriptions.php:93
+#: src/Config/Descriptions.php:96
 #, fuzzy
 #| msgid "Enter your public key for your domain reCaptcha service."
 msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr ""
 "Introduïu la vostra clau pública per al servei reCaptcha del vostre domini."
 
-#: src/Config/Descriptions.php:94
+#: src/Config/Descriptions.php:97
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr ""
 "Introduïu la vostra clau privada per al servei reCaptcha del vostre domini."
 
-#: src/Config/Descriptions.php:95
+#: src/Config/Descriptions.php:98
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr ""
 "Introduïu la vostra clau privada per al servei reCaptcha del vostre domini."
 
-#: src/Config/Descriptions.php:97
+#: src/Config/Descriptions.php:100
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -9638,7 +9638,7 @@ msgstr ""
 "columnes CHAR i VARCHAR; [kbd]input[/kbd] - permet limitar la llargada de "
 "l'entrada, [kbd]textarea[/kbd] - permet salts de línia a les columnes."
 
-#: src/Config/Descriptions.php:102
+#: src/Config/Descriptions.php:105
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
@@ -9646,7 +9646,7 @@ msgstr ""
 "Utilitza l'editor per a l'edició de les consultes SQL (CodeMirror) amb "
 "ressaltat de sintaxi i números de línia."
 
-#: src/Config/Descriptions.php:107
+#: src/Config/Descriptions.php:110
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
@@ -9654,7 +9654,7 @@ msgstr ""
 "Troba qualsevol error a la consulta abans d'executar-la. Requereix que "
 "CodeMirror estigui habilitat."
 
-#: src/Config/Descriptions.php:110
+#: src/Config/Descriptions.php:113
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9662,7 +9662,7 @@ msgstr ""
 "Defineix la mida mínima per als camps d'entrada generats per a les columnes "
 "CHAR i VARCHAR."
 
-#: src/Config/Descriptions.php:113
+#: src/Config/Descriptions.php:116
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -9670,7 +9670,7 @@ msgstr ""
 "Defineix la mida màxima per als camps d'entrada generats per a les columnes "
 "CHAR i VARCHAR."
 
-#: src/Config/Descriptions.php:116
+#: src/Config/Descriptions.php:119
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
@@ -9679,7 +9679,7 @@ msgstr ""
 "memòria; si teniu problemes amb els fitxers gzip creats, inhabiliteu aquesta "
 "funcionalitat."
 
-#: src/Config/Descriptions.php:120
+#: src/Config/Descriptions.php:123
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
@@ -9687,16 +9687,16 @@ msgstr ""
 "Si s'hauria de visualitzar un avís (\"Realment esteu segur…\") quan estigueu "
 "a punt de perdre dades."
 
-#: src/Config/Descriptions.php:123
+#: src/Config/Descriptions.php:126
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr ""
 "Compleció automàtica dels noms de les taules i columnes en les consultes SQL."
 
-#: src/Config/Descriptions.php:126 src/Config/Descriptions.php:130
-#: src/Config/Descriptions.php:134 src/Config/Descriptions.php:138
-#: src/Config/Descriptions.php:142 src/Config/Descriptions.php:146
-#: src/Config/Descriptions.php:150 src/Config/Descriptions.php:154
-#: src/Config/Descriptions.php:158
+#: src/Config/Descriptions.php:129 src/Config/Descriptions.php:133
+#: src/Config/Descriptions.php:137 src/Config/Descriptions.php:141
+#: src/Config/Descriptions.php:145 src/Config/Descriptions.php:149
+#: src/Config/Descriptions.php:153 src/Config/Descriptions.php:157
+#: src/Config/Descriptions.php:161
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
@@ -9705,7 +9705,7 @@ msgstr ""
 "predeterminades. Aquests se sobreescriuran si la transformació s'omple a la "
 "pàgina d'estructura de taula."
 
-#: src/Config/Descriptions.php:162
+#: src/Config/Descriptions.php:165
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
@@ -9714,7 +9714,7 @@ msgstr ""
 "l'optimització o la reparació de les taules seleccionades d'una base de "
 "dades."
 
-#: src/Config/Descriptions.php:166
+#: src/Config/Descriptions.php:169
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
@@ -9722,12 +9722,12 @@ msgstr ""
 "Estableix el temps en segons que es permet per executar ordres, ([kbd]0[/"
 "kbd] per no posar límit)."
 
-#: src/Config/Descriptions.php:168 src/Config/Descriptions.php:708
+#: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
 #: src/Plugins/Export/ExportSql.php:321
 msgid "Exclude definition of current user"
 msgstr "Exclou la definició de l'usuari actual"
 
-#: src/Config/Descriptions.php:170
+#: src/Config/Descriptions.php:173
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
@@ -9736,7 +9736,7 @@ msgstr ""
 "foranes; [kbd]content[/kbd] és la dada referenciada, [kbd]id[/kbd] és el "
 "valor de la clau."
 
-#: src/Config/Descriptions.php:174
+#: src/Config/Descriptions.php:177
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
@@ -9745,7 +9745,7 @@ msgstr ""
 "[doc@faq6-27]la documentació[/doc] per a les cadenes màgiques que es poden "
 "utilitzar per a l'obtenció de valors especials."
 
-#: src/Config/Descriptions.php:179
+#: src/Config/Descriptions.php:182
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
@@ -9753,7 +9753,7 @@ msgstr ""
 "Tingueu en compte que phpMyAdmin només és una interfície d'usuari i les "
 "seves característiques no limiten a MySQL."
 
-#: src/Config/Descriptions.php:182
+#: src/Config/Descriptions.php:185
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
@@ -9761,7 +9761,7 @@ msgstr ""
 "Configuració avançada del servidor, no canvieu aquestes opcions si no sabeu "
 "el que fan."
 
-#: src/Config/Descriptions.php:185
+#: src/Config/Descriptions.php:188
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -9772,7 +9772,7 @@ msgstr ""
 "tables]emmagatzematge de la configuració de phpMyAdmin[/doc] a la "
 "documentació."
 
-#: src/Config/Descriptions.php:190
+#: src/Config/Descriptions.php:193
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
@@ -9780,119 +9780,119 @@ msgstr ""
 "Seguiment de canvis fets a la base de dades. Requereix l'emmagatzematge de "
 "la configuració de phpMyAdmin."
 
-#: src/Config/Descriptions.php:193
+#: src/Config/Descriptions.php:196
 msgid "Customize browse mode."
 msgstr "Personalitzeu el mode de navegació."
 
-#: src/Config/Descriptions.php:194 src/Config/Descriptions.php:195
-#: src/Config/Descriptions.php:202 src/Config/Descriptions.php:208
-#: src/Config/Descriptions.php:209 src/Config/Descriptions.php:214
+#: src/Config/Descriptions.php:197 src/Config/Descriptions.php:198
+#: src/Config/Descriptions.php:205 src/Config/Descriptions.php:211
+#: src/Config/Descriptions.php:212 src/Config/Descriptions.php:217
 msgid "Customize default options."
 msgstr "Personalitzeu les opcions predeterminades."
 
-#: src/Config/Descriptions.php:196
+#: src/Config/Descriptions.php:199
 msgid "Settings for phpMyAdmin developers."
 msgstr "Paràmetres per als desenvolupadors de phpMyAdmin."
 
-#: src/Config/Descriptions.php:197
+#: src/Config/Descriptions.php:200
 msgid "Customize edit mode."
 msgstr "Personalitzeu el mode d'edició."
 
-#: src/Config/Descriptions.php:198
+#: src/Config/Descriptions.php:201
 msgid "Customize default export options."
 msgstr "Personalitzeu les opcions predeterminades de l'exportació."
 
-#: src/Config/Descriptions.php:199
+#: src/Config/Descriptions.php:202
 msgid "Set some commonly used options."
 msgstr "Establiu algunes de les opcions més utilitzades."
 
-#: src/Config/Descriptions.php:200
+#: src/Config/Descriptions.php:203
 msgid "Customize default common import options."
 msgstr "Personalitzeu les opcions predeterminades habituals de la importació."
 
-#: src/Config/Descriptions.php:201
+#: src/Config/Descriptions.php:204
 msgid "Set import and export directories and compression options."
 msgstr ""
 "Establiu els directoris d'importació i exportació i les opcions de "
 "compressió."
 
-#: src/Config/Descriptions.php:203
+#: src/Config/Descriptions.php:206
 msgid "Databases display options."
 msgstr "Opcions de visualització de les bases de dades."
 
-#: src/Config/Descriptions.php:204
+#: src/Config/Descriptions.php:207
 msgid "Customize appearance of the navigation panel."
 msgstr "Personalitzeu l'aspecte del tauler de navegació."
 
-#: src/Config/Descriptions.php:205
+#: src/Config/Descriptions.php:208
 msgid "Customize the navigation tree."
 msgstr "Personalitzeu l'arbre de navegació."
 
-#: src/Config/Descriptions.php:206
+#: src/Config/Descriptions.php:209
 msgid "Servers display options."
 msgstr "Opcions de visualització dels servidors."
 
-#: src/Config/Descriptions.php:207
+#: src/Config/Descriptions.php:210
 msgid "Tables display options."
 msgstr "Opcions de visualització de les taules."
 
-#: src/Config/Descriptions.php:210
+#: src/Config/Descriptions.php:213
 msgid "Settings that didn't fit anywhere else."
 msgstr "Paràmetres que no encaixaven en cap altre lloc."
 
-#: src/Config/Descriptions.php:211
+#: src/Config/Descriptions.php:214
 msgid "Authentication settings."
 msgstr "Paràmetres de l'autenticació."
 
-#: src/Config/Descriptions.php:212
+#: src/Config/Descriptions.php:215
 msgid "Enter server connection parameters."
 msgstr "Introduïu els paràmetres de connexió del servidor."
 
-#: src/Config/Descriptions.php:213
+#: src/Config/Descriptions.php:216
 msgid "Customize links shown in SQL Query boxes."
 msgstr "Personalitzeu els enllaços mostrats als quadres de consultes SQL."
 
-#: src/Config/Descriptions.php:215
+#: src/Config/Descriptions.php:218
 msgid "SQL queries settings."
 msgstr "Paràmetres de les consultes SQL."
 
-#: src/Config/Descriptions.php:216
+#: src/Config/Descriptions.php:219
 msgid "Customize startup page."
 msgstr "Personalitzeu la pàgina d'inici."
 
-#: src/Config/Descriptions.php:217
+#: src/Config/Descriptions.php:220
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 "Trieu quins detalls es mostren a l'estructura de base de dades (llista de "
 "taules)."
 
-#: src/Config/Descriptions.php:218
+#: src/Config/Descriptions.php:221
 msgid "Settings for the table structure (list of columns)."
 msgstr "Paràmetres per a l'estructura de la taula (llista de columnes)."
 
-#: src/Config/Descriptions.php:219
+#: src/Config/Descriptions.php:222
 msgid "Choose how you want tabs to work."
 msgstr "Trieu com voleu que treballin les pestanyes."
 
-#: src/Config/Descriptions.php:220
+#: src/Config/Descriptions.php:223
 msgid "Customize text input fields."
 msgstr "Personalitzeu els camps d'entrada de text."
 
-#: src/Config/Descriptions.php:221
+#: src/Config/Descriptions.php:224
 msgid "Customize default options"
 msgstr "Personalitzeu les opcions predeterminades"
 
-#: src/Config/Descriptions.php:222
+#: src/Config/Descriptions.php:225
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Inhabiliteu alguns dels avisos mostrats per phpMyAdmin."
 
-#: src/Config/Descriptions.php:224
+#: src/Config/Descriptions.php:227
 msgid "Enable gzip compression for import and export operations."
 msgstr ""
 "Habilita la compressió gzip per a les operacions d'importació i exportació."
 
-#: src/Config/Descriptions.php:226
+#: src/Config/Descriptions.php:229
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
@@ -9900,7 +9900,7 @@ msgstr ""
 "Si està habilitat, phpMyAdmin continuarà processant les consultes de "
 "diverses sentències fins i tot si ha fallat alguna de les consultes."
 
-#: src/Config/Descriptions.php:230
+#: src/Config/Descriptions.php:233
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -9910,7 +9910,7 @@ msgstr ""
 "límit de temps. Pot ser una bona opció per importar fitxers grans, tanmateix "
 "pot trencar les transaccions."
 
-#: src/Config/Descriptions.php:235
+#: src/Config/Descriptions.php:238
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
@@ -9918,17 +9918,17 @@ msgstr ""
 "Format predeterminat; tingueu en compte que la llista depèn de la ubicació "
 "(base de dades, taula) i només l'SQL està sempre disponible."
 
-#: src/Config/Descriptions.php:238 src/Config/Descriptions.php:239
+#: src/Config/Descriptions.php:241 src/Config/Descriptions.php:242
 msgid "Update data when duplicate keys found on import"
 msgstr ""
 "Actualitza amb les dades noves quan es trobin claus duplicades en la "
 "importació"
 
-#: src/Config/Descriptions.php:240
+#: src/Config/Descriptions.php:243
 msgid "Number of queries to skip from start."
 msgstr "Nombre de consultes a ometre des de l'inici."
 
-#: src/Config/Descriptions.php:242
+#: src/Config/Descriptions.php:245
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -9939,7 +9939,7 @@ msgstr ""
 "servidor actual. Si s'estableix això a FALSE és més fàcil que oblideu "
 "desconnectar-vos dels altres servidors quan esteu connectat a més d'un."
 
-#: src/Config/Descriptions.php:247
+#: src/Config/Descriptions.php:250
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
@@ -9947,7 +9947,7 @@ msgstr ""
 "Defineix si l'anterior autenticació s'ha de recuperar o no al mode "
 "d'autenticació per [kbd]galetes [/kbd]."
 
-#: src/Config/Descriptions.php:251
+#: src/Config/Descriptions.php:254
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -9960,12 +9960,12 @@ msgstr ""
 "tanqueu la finestra del navegador. Això es recomana per als entorns no "
 "confiables."
 
-#: src/Config/Descriptions.php:257
+#: src/Config/Descriptions.php:260
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr ""
 "Nombre màxim de caràcters utilitzats quan es visualitza una consulta SQL."
 
-#: src/Config/Descriptions.php:260
+#: src/Config/Descriptions.php:263
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
@@ -9973,7 +9973,7 @@ msgstr ""
 "El nombre d'ítems que es poden visualitzar a cada pàgina en el primer nivell "
 "de l'arbre de navegació."
 
-#: src/Config/Descriptions.php:263
+#: src/Config/Descriptions.php:266
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
@@ -9981,7 +9981,7 @@ msgstr ""
 "El nombre d'ítems que es poden visualitzar a cada pàgina de l'arbre de "
 "navegació."
 
-#: src/Config/Descriptions.php:266
+#: src/Config/Descriptions.php:269
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -9990,7 +9990,7 @@ msgstr ""
 "Si el conjunt de resultats conté més files, es mostraran els enllaços "
 "\"Anterior\" i \"Següent\"."
 
-#: src/Config/Descriptions.php:271
+#: src/Config/Descriptions.php:274
 #, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
@@ -10002,17 +10002,17 @@ msgstr ""
 "El nombre de bytes que un script pot reservar, p. ex. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] per no posar límit i [kbd]0[/kbd] per no canviar)."
 
-#: src/Config/Descriptions.php:275
+#: src/Config/Descriptions.php:278
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 "Al tauler de navegació, substitueix l'arbre de bases de dades amb un selector"
 
-#: src/Config/Descriptions.php:278
+#: src/Config/Descriptions.php:281
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 "Enllaç amb el tauler principal destacant l'actual base de dades o taula."
 
-#: src/Config/Descriptions.php:281
+#: src/Config/Descriptions.php:284
 #, fuzzy
 #| msgid ""
 #| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
@@ -10024,7 +10024,7 @@ msgstr ""
 "Obre la pàgina enllaçada a la finestra principal ([code]main[/code]) o bé a "
 "una de nova ([code]new[/code])."
 
-#: src/Config/Descriptions.php:284
+#: src/Config/Descriptions.php:287
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -10032,7 +10032,7 @@ msgstr ""
 "Defineix el nombre mínim d'ítems (taules, vistes, rutines i esdeveniments) a "
 "visualitzar en un quadre de filtratge."
 
-#: src/Config/Descriptions.php:287
+#: src/Config/Descriptions.php:290
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
@@ -10040,70 +10040,70 @@ msgstr ""
 "Agrupa els ítems a l'arbre de navegació (determinat pel separador definit a "
 "les pestanyes de dalt: bases de dades, taules)."
 
-#: src/Config/Descriptions.php:291
+#: src/Config/Descriptions.php:294
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr ""
 "Si s'ofereix la possibilitat d'expandir l'arbre al tauler de navegació."
 
-#: src/Config/Descriptions.php:294
+#: src/Config/Descriptions.php:297
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 "Si es mostren els procediments sota la base de dades a l'arbre de navegació"
 
-#: src/Config/Descriptions.php:297
+#: src/Config/Descriptions.php:300
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr ""
 "Si s'expandeixen les bases de dades individuals a l'arbre de navegació "
 "automàticament."
 
-#: src/Config/Descriptions.php:299
+#: src/Config/Descriptions.php:302
 msgid "Set to 0 to collapse navigation panel."
 msgstr "Establiu-ho a 0 per contreure el tauler de navegació."
 
-#: src/Config/Descriptions.php:300
+#: src/Config/Descriptions.php:303
 msgid "Show logo in navigation panel."
 msgstr "Mostra el logo al tauler de navegació."
 
-#: src/Config/Descriptions.php:301
+#: src/Config/Descriptions.php:304
 msgid "URL where logo in the navigation panel will point to."
 msgstr "URL on apuntarà el logo al tauler de navegació."
 
-#: src/Config/Descriptions.php:302
+#: src/Config/Descriptions.php:305
 msgid "Display server choice at the top of the navigation panel."
 msgstr "Mostra el servidor triat a dalt del tauler de navegació."
 
-#: src/Config/Descriptions.php:303
+#: src/Config/Descriptions.php:306
 msgid "String that separates databases into different tree levels."
 msgstr "Cadena que separa les bases de dades en diferents nivells de l'arbre."
 
-#: src/Config/Descriptions.php:304
+#: src/Config/Descriptions.php:307
 msgid "String that separates tables into different tree levels."
 msgstr "Text que separa les taules en diferents nivells de l'arbre."
 
-#: src/Config/Descriptions.php:305
+#: src/Config/Descriptions.php:308
 msgid "Highlight server under the mouse cursor."
 msgstr "Ressalta el servidor sota el cursor del ratolí."
 
-#: src/Config/Descriptions.php:306
+#: src/Config/Descriptions.php:309
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "Si es mostren les taules sota la base de dades a l'arbre de navegació"
 
-#: src/Config/Descriptions.php:307
+#: src/Config/Descriptions.php:310
 msgid "Whether to show views under database in the navigation tree"
 msgstr "Si es mostren les vistes sobre la base de dades a l'arbre de navegació"
 
-#: src/Config/Descriptions.php:308
+#: src/Config/Descriptions.php:311
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 "Si es mostren les funcions sota la base de dades a l'arbre de navegació"
 
-#: src/Config/Descriptions.php:309
+#: src/Config/Descriptions.php:312
 msgid "Whether to show events under database in the navigation tree"
 msgstr ""
 "Si es mostren els esdeveniments sota la base de dades a l'arbre de navegació"
 
-#: src/Config/Descriptions.php:311
+#: src/Config/Descriptions.php:314
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -10111,7 +10111,7 @@ msgstr ""
 "[kbd]SMART[/kbd] - és a dir, ordre descendent per a les columnes de tipus "
 "TIME, DATE, DATETIME i TIMESTAMP, altrament ordre ascendent."
 
-#: src/Config/Descriptions.php:315
+#: src/Config/Descriptions.php:318
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -10121,7 +10121,7 @@ msgstr ""
 "l'estructura de la base de dades, si no s'han pogut trobar les taules "
 "necessàries per a l'emmagatzematge de la configuració de phpMyAdmin."
 
-#: src/Config/Descriptions.php:320
+#: src/Config/Descriptions.php:323
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -10129,7 +10129,7 @@ msgstr ""
 "Inhabilita l'avís predeterminat que es mostra a la pàgina de l'estructura si "
 "els noms de les columnes a la taula són paraules reservades de MySQL."
 
-#: src/Config/Descriptions.php:324
+#: src/Config/Descriptions.php:327
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -10140,11 +10140,11 @@ msgstr ""
 "s'utilitzen rutines JS per mostrar l'historial de consultes (es perd amb el "
 "tancament de la finestra)."
 
-#: src/Config/Descriptions.php:328
+#: src/Config/Descriptions.php:331
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
 
-#: src/Config/Descriptions.php:330
+#: src/Config/Descriptions.php:333
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
@@ -10152,7 +10152,7 @@ msgstr ""
 "Estableix la zona horària efectiva; és possible que sigui diferent de la "
 "zona horària del vostre servidor de base de dades"
 
-#: src/Config/Descriptions.php:333
+#: src/Config/Descriptions.php:336
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
@@ -10160,7 +10160,7 @@ msgstr ""
 "Deixeu-ho en blanc per sense suport per a les [doc@bookmarks@]consultes "
 "desades[/doc], suggerit: [kbd]pma__bookmark[/kbd]"
 
-#: src/Config/Descriptions.php:336
+#: src/Config/Descriptions.php:339
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: "
@@ -10172,7 +10172,7 @@ msgstr ""
 "Deixeu-ho en blanc per no utilitzar els comentaris de columna o els tipus "
 "mime, suggerit: [kbd]pma__column_info[/kbd]."
 
-#: src/Config/Descriptions.php:339
+#: src/Config/Descriptions.php:342
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
@@ -10180,7 +10180,7 @@ msgstr ""
 "Usuari MySQL especial configurat amb permisos restringits, més informació "
 "disponible a la [doc@linked-tables]documentació[/doc]."
 
-#: src/Config/Descriptions.php:343
+#: src/Config/Descriptions.php:346
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
@@ -10188,7 +10188,7 @@ msgstr ""
 "Un amfitrió alternatiu per mantenir l'emmagatzematge de la configuració, "
 "deixeu-ho en blanc per utilitzar l'amfitrió ja definit."
 
-#: src/Config/Descriptions.php:346
+#: src/Config/Descriptions.php:349
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -10198,7 +10198,7 @@ msgstr ""
 "la configuració, deixeu-ho en blanc per utilitzar el port predeterminat, o "
 "el port ja definit, si l'amfitrió de control és el mateix."
 
-#: src/Config/Descriptions.php:351
+#: src/Config/Descriptions.php:354
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
@@ -10208,7 +10208,7 @@ msgstr ""
 "issues/8970]phpMyAdmin issue tracker[/a] i [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 
-#: src/Config/Descriptions.php:355
+#: src/Config/Descriptions.php:358
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -10216,7 +10216,7 @@ msgstr ""
 "Deixeu-ho en blanc per sense suport per a l'historial de consultes SQL, "
 "suggerit: [kbd]pma__history[/kbd]."
 
-#: src/Config/Descriptions.php:358
+#: src/Config/Descriptions.php:361
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
@@ -10224,7 +10224,7 @@ msgstr ""
 "Limita el nombre de preferències de taula que s'emmagatzemen a la base de "
 "dades, els registres més antics s'eliminen automàticament."
 
-#: src/Config/Descriptions.php:362
+#: src/Config/Descriptions.php:365
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
@@ -10232,7 +10232,7 @@ msgstr ""
 "Deixeu-ho en blanc per sense suport per a les plantilles d'exportació, "
 "suggerit: [kbd]pma__export_templates[/kbd]."
 
-#: src/Config/Descriptions.php:365
+#: src/Config/Descriptions.php:368
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
@@ -10240,7 +10240,7 @@ msgstr ""
 "Deixeu-ho en blanc per sense suport per a les columnes centrals, suggerit: "
 "[kbd]pma__central_colums[/kbd]."
 
-#: src/Config/Descriptions.php:368
+#: src/Config/Descriptions.php:371
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -10250,14 +10250,14 @@ msgstr ""
 "voleu utilitzar les seves instàncies literals, p. ex. utilitzeu "
 "[kbd]'my\\_db'[/kbd]  i no [kbd]'my_db'[/kbd]."
 
-#: src/Config/Descriptions.php:373
+#: src/Config/Descriptions.php:376
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "Deixeu-ho en blanc per sense suport per als esquemes PDF, suggerit: "
 "[kbd]pma__pdf_pages[/kbd]."
 
-#: src/Config/Descriptions.php:376
+#: src/Config/Descriptions.php:379
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
@@ -10268,7 +10268,7 @@ msgstr ""
 "tenir informació més completa. Deixeu-ho en blanc per no utilitzar. "
 "Suggerit: [kbd]phpmyadmin[/kbd]."
 
-#: src/Config/Descriptions.php:381
+#: src/Config/Descriptions.php:384
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -10276,7 +10276,7 @@ msgstr ""
 "Deixeu-ho en blanc per treure la \"persistència\" de taules utilitzades "
 "recentment entre sessions, suggerit: [kbd]pma__recent[/kbd]."
 
-#: src/Config/Descriptions.php:385
+#: src/Config/Descriptions.php:388
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
@@ -10284,7 +10284,7 @@ msgstr ""
 "Deixeu-ho en blanc per treure la \"persistència\" de taules preferides entre "
 "sessions, suggerit: [kbd]pma__favorite[/kbd]."
 
-#: src/Config/Descriptions.php:389
+#: src/Config/Descriptions.php:392
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
@@ -10292,13 +10292,13 @@ msgstr ""
 "Deixeu-ho en blanc per sense suport per als [doc@relations@]enllaços de "
 "relacions[/doc], suggerit: [kbd]pma__relation[/kbd]."
 
-#: src/Config/Descriptions.php:394
+#: src/Config/Descriptions.php:397
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
 "Vegeu el [doc@authentication-modes]tipus d'autenticació[/doc] per un exemple."
 
-#: src/Config/Descriptions.php:397
+#: src/Config/Descriptions.php:400
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -10306,7 +10306,7 @@ msgstr ""
 "Deixeu-ho en blanc per sense suport per als esquemes PDF, suggerit: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: src/Config/Descriptions.php:400
+#: src/Config/Descriptions.php:403
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
@@ -10314,7 +10314,7 @@ msgstr ""
 "Taula per descriure les columnes a mostrar, deixeu-ho en blanc per sense "
 "suport; suggerit: [kbd]pma__table_info[/kbd]."
 
-#: src/Config/Descriptions.php:404
+#: src/Config/Descriptions.php:407
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -10323,7 +10323,7 @@ msgstr ""
 "d'interfase de taules entre sessions, suggerit: [kbd]pma__table_uiprefs[/"
 "kbd]."
 
-#: src/Config/Descriptions.php:408
+#: src/Config/Descriptions.php:411
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -10331,7 +10331,7 @@ msgstr ""
 "Si una sentència DROP DATABASE IF EXISTS s'afegirà com a primera línia en el "
 "registre quan es crea una base de dades."
 
-#: src/Config/Descriptions.php:412
+#: src/Config/Descriptions.php:415
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -10339,7 +10339,7 @@ msgstr ""
 "Si una sentència DROP TABLE IF EXISTS s'afegirà com a primera línia en el "
 "registre quan es crea una taula."
 
-#: src/Config/Descriptions.php:416
+#: src/Config/Descriptions.php:419
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -10347,13 +10347,13 @@ msgstr ""
 "Si una sentència DROP VIEW IF EXISTS s'afegirà com a primera línia en el "
 "registre quan es crea una vista."
 
-#: src/Config/Descriptions.php:420
+#: src/Config/Descriptions.php:423
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Defineix la llista de sentències que l'autocreació utilitza per a les "
 "versions noves."
 
-#: src/Config/Descriptions.php:423
+#: src/Config/Descriptions.php:426
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
@@ -10361,7 +10361,7 @@ msgstr ""
 "Deixeu-ho en blanc per sense suport per al seguiment de consultes SQL, "
 "suggerit: [kbd]pma__tracking[/kbd]."
 
-#: src/Config/Descriptions.php:426
+#: src/Config/Descriptions.php:429
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -10369,7 +10369,7 @@ msgstr ""
 "SI el mecanisme de seguiment crearà versions per a taules i vistes "
 "automàticament."
 
-#: src/Config/Descriptions.php:429
+#: src/Config/Descriptions.php:432
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
@@ -10377,7 +10377,7 @@ msgstr ""
 "Deixeu-ho en blanc per sense emmagatzematge de les preferències de l'usuari "
 "a la base de dades, suggerit: [kbd]pma__userconfig[/kbd]."
 
-#: src/Config/Descriptions.php:432
+#: src/Config/Descriptions.php:435
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
@@ -10388,7 +10388,7 @@ msgstr ""
 "desactivarà\n"
 " aquesta funcionalitat, suggerit: [kbd]pma__users[/kbd]."
 
-#: src/Config/Descriptions.php:437
+#: src/Config/Descriptions.php:440
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
@@ -10398,7 +10398,7 @@ msgstr ""
 "funcionalitat de menús configurables; deixant una d'ambdues en blanc "
 "desactivarà aquesta funcionalitat, suggerit: [kbd]pma__usergroups[/kbd]."
 
-#: src/Config/Descriptions.php:442
+#: src/Config/Descriptions.php:445
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -10406,7 +10406,7 @@ msgstr ""
 "Deixeu-ho en blanc per inhabilitar la funcionalitat oculta i mostra els "
 "ítems de navegació, suggerit: [kbd]pma__navigationhiding[/kbd]."
 
-#: src/Config/Descriptions.php:446
+#: src/Config/Descriptions.php:449
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -10414,58 +10414,58 @@ msgstr ""
 "Una descripció amigable a l'usuari d'aquest servidor. Deixeu-ho en blanc per "
 "mostrar el nom d'amfitrió en lloc seu."
 
-#: src/Config/Descriptions.php:448
+#: src/Config/Descriptions.php:451
 msgid "Leave blank if not used."
 msgstr "Deixeu-ho en blanc si no s'utilitza."
 
-#: src/Config/Descriptions.php:449
+#: src/Config/Descriptions.php:452
 msgid "Leave blank for defaults."
 msgstr "Deixeu-ho en blanc per als valors predeterminats."
 
-#: src/Config/Descriptions.php:450
+#: src/Config/Descriptions.php:453
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
 "Nom de l'HTTP Basic Auth Realm que s'ha de mostrar quan es realitza "
 "l'autenticació HTTP."
 
-#: src/Config/Descriptions.php:451
+#: src/Config/Descriptions.php:454
 msgid "Authentication method to use."
 msgstr "Mètode d'autenticació a utilitzar."
 
-#: src/Config/Descriptions.php:452
+#: src/Config/Descriptions.php:455
 msgid "Compress connection to MySQL server."
 msgstr "Comprimeix la connexió al servidor MySQL."
 
-#: src/Config/Descriptions.php:453
+#: src/Config/Descriptions.php:456
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr ""
 "Oculta les bases de dades que coincideixin amb una expressió regular (PCRE)."
 
-#: src/Config/Descriptions.php:454
+#: src/Config/Descriptions.php:457
 msgid "Hostname where MySQL server is running."
 msgstr "Nom d'amfitrió on el servidor MySQL està en execució."
 
-#: src/Config/Descriptions.php:455 src/Config/Descriptions.php:459
+#: src/Config/Descriptions.php:458 src/Config/Descriptions.php:462
 msgid "Leave empty if not using config auth."
 msgstr "Deixeu-ho en blanc si no utilitzeu l'autenticació config."
 
-#: src/Config/Descriptions.php:456
+#: src/Config/Descriptions.php:459
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Port on escolta el servidor MySQL, deixeu-ho en blanc per al valor "
 "predeterminat."
 
-#: src/Config/Descriptions.php:457
+#: src/Config/Descriptions.php:460
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Sòcol on escolta el servidor MySQL, deixeu-ho en blanc per al valor "
 "predeterminat."
 
-#: src/Config/Descriptions.php:458
+#: src/Config/Descriptions.php:461
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Habilita SSL per a la connexió al servidor MySQL."
 
-#: src/Config/Descriptions.php:461
+#: src/Config/Descriptions.php:464
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -10476,27 +10476,27 @@ msgstr ""
 "de configuració; això no limita la possibilitat d'executar la mateixa ordre "
 "directament."
 
-#: src/Config/Descriptions.php:466
+#: src/Config/Descriptions.php:469
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 "Mostra o oculta una columna que visualitza la marca de temps de creació per "
 "a totes les taules."
 
-#: src/Config/Descriptions.php:469
+#: src/Config/Descriptions.php:472
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 "Mostra o oculta una columna que visualitza la marca de temps de l'última "
 "actualització per a totes les taules."
 
-#: src/Config/Descriptions.php:472
+#: src/Config/Descriptions.php:475
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 "Mostra o oculta una columna que visualitza la marca de temps de l'última "
 "comprovació per a totes les taules."
 
-#: src/Config/Descriptions.php:475
+#: src/Config/Descriptions.php:478
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
@@ -10504,7 +10504,7 @@ msgstr ""
 "Defineix si els camps dels tipus han de visualitzar-se inicialment al mode "
 "d'edició o inserció."
 
-#: src/Config/Descriptions.php:478
+#: src/Config/Descriptions.php:481
 msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
@@ -10512,37 +10512,37 @@ msgstr ""
 "Mostra l'enllaç a la sortida de [a@https://php.net/manual/function.phpinfo."
 "php]phpinfo()[/a]."
 
-#: src/Config/Descriptions.php:480
+#: src/Config/Descriptions.php:483
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 "Si a un usuari se l'hi hauria de mostrar el botó \"mostra-ho tot (files)\"."
 
-#: src/Config/Descriptions.php:481
+#: src/Config/Descriptions.php:484
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
 "Mostra o oculta una columna que visualitza els comentaris de totes les "
 "taules."
 
-#: src/Config/Descriptions.php:482
+#: src/Config/Descriptions.php:485
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
 "Mostra o oculta una columna que visualitza el joc de caràcters per a totes "
 "les taules."
 
-#: src/Config/Descriptions.php:483
+#: src/Config/Descriptions.php:486
 msgid "Display the function fields in edit/insert mode."
 msgstr "Mostra els camps de funció al mode d'edició o inserció."
 
-#: src/Config/Descriptions.php:484
+#: src/Config/Descriptions.php:487
 msgid "Whether to show hint or not."
 msgstr "Si es mostren o no els consells."
 
-#: src/Config/Descriptions.php:485
+#: src/Config/Descriptions.php:488
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr "Defineix si s'han de mostrar les consultes SQL creades per phpMyAdmin."
 
-#: src/Config/Descriptions.php:486
+#: src/Config/Descriptions.php:489
 #, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
@@ -10550,14 +10550,14 @@ msgstr ""
 "Permet visualitzar les estadístiques de les bases de dades i de les taules "
 "(p. ex. l'espai utilitzat)."
 
-#: src/Config/Descriptions.php:488
+#: src/Config/Descriptions.php:491
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Marca les taules utilitzades i permet mostrar les bases de dades amb taules "
 "bloquejades."
 
-#: src/Config/Descriptions.php:491
+#: src/Config/Descriptions.php:494
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
@@ -10565,7 +10565,7 @@ msgstr ""
 "Inhabilita l'avís predeterminat que es mostra a la pàgina principal si es "
 "detecta Suoshin."
 
-#: src/Config/Descriptions.php:494
+#: src/Config/Descriptions.php:497
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
@@ -10575,7 +10575,7 @@ msgstr ""
 "valor establert de la variable de PHP session.gc_maxlifetime és menor que el "
 "de `LoginCookieValidity`."
 
-#: src/Config/Descriptions.php:499
+#: src/Config/Descriptions.php:502
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10583,7 +10583,7 @@ msgstr ""
 "Mida de l'àrea de text (columnes) en mode d'edició, aquest valor "
 "s'augmentarà per a les àrees de text de les consultes SQL (*2)."
 
-#: src/Config/Descriptions.php:502
+#: src/Config/Descriptions.php:505
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -10591,7 +10591,7 @@ msgstr ""
 "Mida de l'àrea de text (files) en mode d'edició, aquest valor s'augmentarà "
 "per a les àrees de text de les consultes SQL (*2)."
 
-#: src/Config/Descriptions.php:505
+#: src/Config/Descriptions.php:508
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -10603,7 +10603,7 @@ msgstr ""
 "capçalera HTTP_X_FORWARDED_FOR (X-Forwarded-For) procedent del servidor "
 "intermediari 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
 
-#: src/Config/Descriptions.php:511
+#: src/Config/Descriptions.php:514
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -10611,7 +10611,7 @@ msgstr ""
 "Quan està inhabilitat, els usuaris no poden configurar cap de les següents "
 "opcions, independentment de la casella de selecció de la dreta."
 
-#: src/Config/Descriptions.php:514
+#: src/Config/Descriptions.php:517
 #, fuzzy
 #| msgid ""
 #| "The url of the proxy to be used when retrieving the information about the "
@@ -10629,7 +10629,7 @@ msgstr ""
 "informes d'error. Ho necessiteu si el servidor on phpMyAdmin està instal·lat "
 "no té accés directe a Internet. El format és: \"servidor:port\"."
 
-#: src/Config/Descriptions.php:520
+#: src/Config/Descriptions.php:523
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -10640,7 +10640,7 @@ msgstr ""
 "es farà una autenticació bàsica. Actualment no hi ha compatibilitat amb "
 "altres tipus d'autenticació."
 
-#: src/Config/Descriptions.php:526
+#: src/Config/Descriptions.php:529
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
@@ -10648,7 +10648,7 @@ msgstr ""
 "Les consultes s'executen en prémer Retorn (en lloc de Ctrl+Retorn). Els "
 "salts de línia s'afegiran amb Majúscules+Retorn."
 
-#: src/Config/Descriptions.php:530
+#: src/Config/Descriptions.php:533
 #, fuzzy
 #| msgid ""
 #| "Enable Zero Configuration mode which lets you setup phpMyAdmin "
@@ -10661,229 +10661,229 @@ msgstr ""
 "automàticament les taules de l'emmagatzematge de la configuració de "
 "phpMyAdmin."
 
-#: src/Config/Descriptions.php:533
+#: src/Config/Descriptions.php:536
 msgid "Highlight selected rows."
 msgstr "Ressalta les files seleccionades."
 
-#: src/Config/Descriptions.php:534
+#: src/Config/Descriptions.php:537
 msgid "Highlight row pointed by the mouse cursor."
 msgstr "Ressalta la fila apuntada pel cursor del ratolí."
 
-#: src/Config/Descriptions.php:535
+#: src/Config/Descriptions.php:538
 msgid "Number of columns for CHAR/VARCHAR textareas."
 msgstr "Nombre de columnes per a les àrees de text CHAR/VARCHAR."
 
-#: src/Config/Descriptions.php:536
+#: src/Config/Descriptions.php:539
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "Nombre de files per a l'àrea de text CHAR/VARCHAR."
 
-#: src/Config/Descriptions.php:537
+#: src/Config/Descriptions.php:540
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
 "Registra les consultes SQL i el seu temps d'execució, que es visualitzarà a "
 "la consola"
 
-#: src/Config/Descriptions.php:538
+#: src/Config/Descriptions.php:541
 msgid "Tab that is displayed when entering a database."
 msgstr "Pestanya que es visualitza quan s'entra a una base de dades."
 
-#: src/Config/Descriptions.php:539
+#: src/Config/Descriptions.php:542
 msgid "Tab that is displayed when entering a server."
 msgstr "Pestanya que es visualitza quan s'entra a un servidor."
 
-#: src/Config/Descriptions.php:540
+#: src/Config/Descriptions.php:543
 msgid "Tab that is displayed when entering a table."
 msgstr "Pestanya que es visualitza quan s'entra a una taula."
 
-#: src/Config/Descriptions.php:541
+#: src/Config/Descriptions.php:544
 msgid "Whether the table structure actions should be hidden."
 msgstr "Si s'han d'ocultar les accions d'estructura de taula."
 
-#: src/Config/Descriptions.php:542
+#: src/Config/Descriptions.php:545
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
 "Si s'han de mostrar els comentaris de les columnes a la vista d'estructura "
 "de taula"
 
-#: src/Config/Descriptions.php:543
+#: src/Config/Descriptions.php:546
 msgid "Show server listing as a list instead of a drop down."
 msgstr "Mostra els servidors com a llista en lloc de llista desplegable."
 
-#: src/Config/Descriptions.php:544
+#: src/Config/Descriptions.php:547
 msgid "A dropdown will be used if fewer items are present."
 msgstr "S'utilitzarà una llista desplegable si hi ha menys ítems."
 
-#: src/Config/Descriptions.php:545
+#: src/Config/Descriptions.php:548
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 "El valor predeterminat per a la clau forana marca la casella de selecció per "
 "algunes consultes."
 
-#: src/Config/Descriptions.php:546
+#: src/Config/Descriptions.php:549
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
 "Desmarqueu la casella per inhabilitar la importació d'arrossegar i deixar "
 "anar"
 
-#: src/Config/Descriptions.php:547
+#: src/Config/Descriptions.php:550
 msgid "How many rows can be inserted at one time."
 msgstr "Quantes files es poden inserir alhora."
 
-#: src/Config/Descriptions.php:548
+#: src/Config/Descriptions.php:551
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
 "Nombre màxim de caràcters mostrats a qualsevol columna no numèrica a la "
 "vista de navegació."
 
-#: src/Config/Descriptions.php:549
+#: src/Config/Descriptions.php:552
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr ""
 "Defineix durant quant de temps (en segons) una galeta d'autenticació és "
 "vàlida."
 
-#: src/Config/Descriptions.php:550
+#: src/Config/Descriptions.php:553
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "Mida doble de l'àrea de text per a les columnes LONGTEXT."
 
-#: src/Config/Descriptions.php:551
+#: src/Config/Descriptions.php:554
 msgid "Maximum number of databases displayed in database list."
 msgstr ""
 "Nombre màxim de bases de dades visualitzades a la llista de bases de dades."
 
-#: src/Config/Descriptions.php:552
+#: src/Config/Descriptions.php:555
 msgid "Maximum number of tables displayed in table list."
 msgstr "Nombre màxim de taules mostrades a la llista de taules."
 
-#: src/Config/Descriptions.php:553
+#: src/Config/Descriptions.php:556
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr ""
 "Nombre màxim de taules utilitzades recentment; Establiu-ho a 0 per "
 "inhabilitar-ho."
 
-#: src/Config/Descriptions.php:554
+#: src/Config/Descriptions.php:557
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "Nombre màxim de taules preferides; Establiu-ho a 0 per inhabilitar-ho."
 
-#: src/Config/Descriptions.php:555
+#: src/Config/Descriptions.php:558
 msgid "These are Edit, Copy and Delete links."
 msgstr "Aquests són els enllaços Edita, Copia i Esborra."
 
-#: src/Config/Descriptions.php:556
+#: src/Config/Descriptions.php:559
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 "Si es mostren els enllaços de fila fins i tot en absència d'una clau única."
 
-#: src/Config/Descriptions.php:557 src/Config/Descriptions.php:838
+#: src/Config/Descriptions.php:560 src/Config/Descriptions.php:838
 msgid "Disable shortcut keys"
 msgstr "Desactiva les tecles d'accés directe"
 
-#: src/Config/Descriptions.php:558
+#: src/Config/Descriptions.php:561
 msgid "Use natural order for sorting table and database names."
 msgstr ""
 "Utilitza l'ordre natural per ordenar els noms de taules i bases de dades."
 
-#: src/Config/Descriptions.php:559 src/Config/Descriptions.php:562
-#: src/Config/Descriptions.php:563
+#: src/Config/Descriptions.php:562 src/Config/Descriptions.php:565
+#: src/Config/Descriptions.php:566
 msgid "Use only icons, only text or both."
 msgstr "Utilitza només les icones, només el text o bé ambdós."
 
-#: src/Config/Descriptions.php:560
+#: src/Config/Descriptions.php:563
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr ""
 "Utilitza la memòria intermèdia de la sortida de GZip per incrementar la "
 "velocitat a les transferències HTTP."
 
-#: src/Config/Descriptions.php:561
+#: src/Config/Descriptions.php:564
 msgid "Use persistent connections to MySQL databases."
 msgstr "Utilitza connexions persistents a bases de dades MySQL."
 
-#: src/Config/Descriptions.php:564
+#: src/Config/Descriptions.php:567
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "No permet l'edició en les columnes BLOB i BINARY."
 
-#: src/Config/Descriptions.php:565
+#: src/Config/Descriptions.php:568
 msgid "How many queries are kept in history."
 msgstr "Quantes consultes s'han de desar a l'historial."
 
-#: src/Config/Descriptions.php:566
+#: src/Config/Descriptions.php:569
 msgid "Select which functions will be used for character set conversion."
 msgstr ""
 "Seleccioneu quines funcions s'utilitzaran per a les conversions de jocs de "
 "caràcters."
 
-#: src/Config/Descriptions.php:567
+#: src/Config/Descriptions.php:570
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "Quan es navega per les taules, es recorda l'ordenació de cada taula."
 
-#: src/Config/Descriptions.php:568
+#: src/Config/Descriptions.php:571
 msgid "Default sort order for tables with a primary key."
 msgstr ""
 "Ordre d'ordenació predeterminat per a les taules amb una clau primària."
 
-#: src/Config/Descriptions.php:569
+#: src/Config/Descriptions.php:572
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr ""
 "Repeteix les capçaleres cada X cel·les, [kbd]0[/kbd] inhabilita aquesta "
 "funcionalitat."
 
-#: src/Config/Descriptions.php:570
+#: src/Config/Descriptions.php:573
 msgid "For display Options"
 msgstr "Per a les opcions de la visualització"
 
-#: src/Config/Descriptions.php:571
+#: src/Config/Descriptions.php:574
 msgid "Directory where exports can be saved on server."
 msgstr "Directori on es poden desar les exportacions al servidor."
 
-#: src/Config/Descriptions.php:572
+#: src/Config/Descriptions.php:575
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
 "Defineix si el quadre de consultes s'ha de mantenir en pantalla després de "
 "l'enviament."
 
-#: src/Config/Descriptions.php:573
+#: src/Config/Descriptions.php:576
 msgid "Title of browser window when a database is selected."
 msgstr ""
 "Títol de la finestra del navegador quan se selecciona una base de dades."
 
-#: src/Config/Descriptions.php:574
+#: src/Config/Descriptions.php:577
 msgid "Title of browser window when nothing is selected."
 msgstr "Títol de la finestra del navegador quan no hi ha res seleccionat."
 
-#: src/Config/Descriptions.php:575
+#: src/Config/Descriptions.php:578
 msgid "Title of browser window when a server is selected."
 msgstr "Títol de la finestra del navegador quan se selecciona un servidor."
 
-#: src/Config/Descriptions.php:576
+#: src/Config/Descriptions.php:579
 msgid "Title of browser window when a table is selected."
 msgstr "Títol de la finestra del navegador quan se selecciona una taula."
 
-#: src/Config/Descriptions.php:577
+#: src/Config/Descriptions.php:580
 msgid "Directory on server where you can upload files for import."
 msgstr "Directori al servidor on podeu pujar els fitxers per importar."
 
-#: src/Config/Descriptions.php:578
+#: src/Config/Descriptions.php:581
 msgid "Allow for searching inside the entire database."
 msgstr "Permet cercar dins de tota la base de dades."
 
-#: src/Config/Descriptions.php:579
+#: src/Config/Descriptions.php:582
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr ""
 "Permet comprovar la versió més recent a la pàgina principal de phpMyAdmin."
 
-#: src/Config/Descriptions.php:580
+#: src/Config/Descriptions.php:583
 msgid "The password for authenticating with the proxy."
 msgstr "La contrasenya per a l'autenticació amb el servidor intermediari."
 
-#: src/Config/Descriptions.php:581
+#: src/Config/Descriptions.php:584
 msgid "Enable ZIP compression for import and export operations."
 msgstr ""
 "Habilita la compressió ZIP per a les operacions d'importació i exportació."
 
-#: src/Config/Descriptions.php:582
+#: src/Config/Descriptions.php:585
 msgid "Choose the default action when sending error reports."
 msgstr "Trieu l'acció predeterminada quan s'enviïn els informes d'error."
 
@@ -12063,36 +12063,36 @@ msgstr "Ordena per"
 msgid "Server connection collation"
 msgstr "Col·lació de la connexió del servidor"
 
-#: src/Config/FormDisplay.php:580
+#: src/Config/FormDisplay.php:581
 #, php-format
 msgid "Missing data for %s"
 msgstr "Falten dades a %s"
 
-#: src/Config/FormDisplay.php:620 src/Config/Validator.php:594
+#: src/Config/FormDisplay.php:621 src/Config/Validator.php:595
 #: src/Controllers/JavaScriptMessagesController.php:828
 msgid "Incorrect value!"
 msgstr "Valor incorrecte!"
 
-#: src/Config/FormDisplay.php:766
+#: src/Config/FormDisplay.php:767
 msgid "unavailable"
 msgstr "no disponible"
 
-#: src/Config/FormDisplay.php:768
+#: src/Config/FormDisplay.php:769
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" requereix l'extensió %s"
 
-#: src/Config/FormDisplay.php:790
+#: src/Config/FormDisplay.php:791
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "La importació comprimida no funcionarà perquè falta la funció %s."
 
-#: src/Config/FormDisplay.php:799
+#: src/Config/FormDisplay.php:800
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "L'exportació comprimida no funciona perquè falta la funció (%s)."
 
-#: src/Config/FormDisplay.php:819
+#: src/Config/FormDisplay.php:820
 #, php-format
 msgid "maximum %s"
 msgstr "màxim %s"
@@ -12352,21 +12352,21 @@ msgstr "Pestanyes pel que fa a les bases de dades"
 msgid "Table-level tabs"
 msgstr "Pestanyes pel que fa a les taules"
 
-#: src/Config/Validator.php:252
+#: src/Config/Validator.php:253
 msgid "Could not connect to the database server!"
 msgstr "No s'ha pogut connectar amb el servidor de dades!"
 
-#: src/Config/Validator.php:288
+#: src/Config/Validator.php:289
 msgid "Invalid authentication type!"
 msgstr "Tipus d'autenticació incorrecte!"
 
-#: src/Config/Validator.php:293
+#: src/Config/Validator.php:294
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Nom d'usuari buit mentre s'utilitzava el mètode d'autenticació [kbd]config[/"
 "kbd]!"
 
-#: src/Config/Validator.php:299
+#: src/Config/Validator.php:300
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -12374,20 +12374,20 @@ msgstr ""
 "Nom de sessió de signon en blanc mentre s'utilitzava el mètode "
 "d'autenticació [kbd]signon[/kbd]!"
 
-#: src/Config/Validator.php:306
+#: src/Config/Validator.php:307
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "URL de signon en blanc mentre s'utilitzava el mètode d'autenticació "
 "[kbd]signon[/kbd]!"
 
-#: src/Config/Validator.php:359
+#: src/Config/Validator.php:360
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Usuari de control buit de phpMyAdmin mentre s'utilitzava l'emmagatzematge de "
 "la configuració de phpMyAdmin!"
 
-#: src/Config/Validator.php:366
+#: src/Config/Validator.php:367
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -12395,31 +12395,31 @@ msgstr ""
 "Contrasenya buida de l'usuari de control de phpMyAdmin mentre s'utilitzava "
 "l'emmagatzematge de la configuració de phpMyAdmin!"
 
-#: src/Config/Validator.php:455
+#: src/Config/Validator.php:456
 msgid "Incorrect value:"
 msgstr "Valor incorrecte:"
 
-#: src/Config/Validator.php:466
+#: src/Config/Validator.php:467
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Adreça IP incorrecta: %s"
 
-#: src/Config/Validator.php:529
+#: src/Config/Validator.php:530
 #: src/Controllers/JavaScriptMessagesController.php:827
 msgid "Not a valid port number!"
 msgstr "No és un número de port vàlid!"
 
-#: src/Config/Validator.php:551
+#: src/Config/Validator.php:552
 #: src/Controllers/JavaScriptMessagesController.php:825
 msgid "Not a positive number!"
 msgstr "No és un nombre positiu!"
 
-#: src/Config/Validator.php:573
+#: src/Config/Validator.php:574
 #: src/Controllers/JavaScriptMessagesController.php:826
 msgid "Not a non-negative number!"
 msgstr "No és un nombre no-negatiu!"
 
-#: src/Config/Validator.php:612
+#: src/Config/Validator.php:613
 #: src/Controllers/JavaScriptMessagesController.php:829
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -15976,9 +15976,9 @@ msgstr "La memòria cau de consultes no està habilitada."
 msgid "Setting variable failed"
 msgstr "Ha fallat l'establiment de la variable"
 
-#: src/Controllers/Setup/ConfigController.php:41
+#: src/Controllers/Setup/ConfigController.php:43
 #: src/Controllers/Setup/FormController.php:44
-#: src/Controllers/Setup/HomeController.php:45
+#: src/Controllers/Setup/HomeController.php:47
 #: src/Controllers/Setup/ServerDestroyController.php:41
 #: src/Controllers/Setup/ServersController.php:44
 #: src/Controllers/Setup/ShowConfigController.php:42
@@ -15990,7 +15990,7 @@ msgstr "Ja existeix la configuració i s'ha inhabilitat la preparació!"
 msgid "Incorrect form specified!"
 msgstr "S'ha especificat un formulari incorrecte!"
 
-#: src/Controllers/Setup/HomeController.php:71
+#: src/Controllers/Setup/HomeController.php:73
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
@@ -15999,7 +15999,7 @@ msgstr ""
 "informació potencialment sensible, com ara les contrasenyes) s'estan "
 "transferint sense xifrar!"
 
-#: src/Controllers/Setup/HomeController.php:76
+#: src/Controllers/Setup/HomeController.php:78
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
@@ -16007,7 +16007,7 @@ msgstr ""
 "Si el vostre servidor també està configurat per acceptar peticions HTTPS, "
 "seguiu aquest enllaç per a utilitzar una connexió segura."
 
-#: src/Controllers/Setup/HomeController.php:80
+#: src/Controllers/Setup/HomeController.php:82
 msgid "Insecure connection"
 msgstr "Connexió insegura"
 
@@ -19193,24 +19193,24 @@ msgstr "Executa la consulta o les consultes SQL a la base de dades %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "Executa la consulta o les consultes SQL a la taula %s"
 
-#: src/StorageEngine.php:319
+#: src/StorageEngine.php:320
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "No hi ha disponible cap informació detallada de l'estat per a aquest motor "
 "d'emmagatzematge."
 
-#: src/StorageEngine.php:416
+#: src/StorageEngine.php:417
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s està disponible en aquest servidor MySQL."
 
-#: src/StorageEngine.php:417
+#: src/StorageEngine.php:418
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s s'ha desactivat en aquest servidor MySQL."
 
-#: src/StorageEngine.php:418
+#: src/StorageEngine.php:419
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Aquest servidor MySQL no suporta el motor d'emmagatzematge %s."
