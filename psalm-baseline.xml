@@ -1634,6 +1634,15 @@
       <code><![CDATA[$GLOBALS['what']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
+      <code><![CDATA[$GLOBALS['charset']]]></code>
+      <code><![CDATA[$GLOBALS['compression']]]></code>
+      <code><![CDATA[$GLOBALS['compression']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
@@ -1641,6 +1650,11 @@
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
+      <code><![CDATA[$GLOBALS['file_handle']]]></code>
+      <code><![CDATA[$GLOBALS['save_filename']]]></code>
+      <code><![CDATA[$GLOBALS['sql_query']]]></code>
+      <code><![CDATA[$GLOBALS['sql_query']]]></code>
+      <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$allrows]]></code>
       <code><![CDATA[$allrows]]></code>
       <code><![CDATA[$dbSelect]]></code>
@@ -1650,12 +1664,6 @@
       <code><![CDATA[$limitTo]]></code>
       <code><![CDATA[$rememberTemplate]]></code>
       <code><![CDATA[$request->getParsedBodyParam('filename_template')]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
@@ -1782,32 +1790,55 @@
       <code><![CDATA[$rememberTemplate]]></code>
       <code><![CDATA[$tableNames]]></code>
       <code><![CDATA[$tableStructure]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
     </MixedAssignment>
     <MixedMethodCall>
       <code><![CDATA[exportFooter]]></code>
       <code><![CDATA[exportHeader]]></code>
     </MixedMethodCall>
     <PossiblyInvalidArgument>
+      <code><![CDATA[$GLOBALS['charset']]]></code>
+      <code><![CDATA[$GLOBALS['compression']]]></code>
+      <code><![CDATA[$GLOBALS['compression']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['export_type']]]></code>
+      <code><![CDATA[$GLOBALS['export_type']]]></code>
+      <code><![CDATA[$GLOBALS['export_type']]]></code>
+      <code><![CDATA[$GLOBALS['export_type']]]></code>
+      <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['file_handle']]]></code>
+      <code><![CDATA[$GLOBALS['save_filename']]]></code>
+      <code><![CDATA[$GLOBALS['sql_query']]]></code>
+      <code><![CDATA[$GLOBALS['sql_query']]]></code>
+      <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
+      <code><![CDATA[$GLOBALS['charset']]]></code>
+      <code><![CDATA[$GLOBALS['compression']]]></code>
+      <code><![CDATA[$GLOBALS['compression']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code><![CDATA[$GLOBALS['export_type']]]></code>
+      <code><![CDATA[$GLOBALS['export_type']]]></code>
+      <code><![CDATA[$GLOBALS['export_type']]]></code>
+      <code><![CDATA[$GLOBALS['export_type']]]></code>
+      <code><![CDATA[$GLOBALS['export_type']]]></code>
+      <code><![CDATA[$GLOBALS['save_filename']]]></code>
+      <code><![CDATA[$GLOBALS['sql_query']]]></code>
+      <code><![CDATA[$GLOBALS['sql_query']]]></code>
+      <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
-      <code><![CDATA[$whatStrucOrData]]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidPropertyAssignmentValue>
       <code><![CDATA[$this->export->compress(
@@ -1822,19 +1853,18 @@
                 )]]></code>
     </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['charset']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
     </PossiblyNullArgument>
     <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$GLOBALS['compression']]]></code>
+      <code><![CDATA[$GLOBALS['output_charset_conversion']]]></code>
+      <code><![CDATA[$GLOBALS['save_on_server']]]></code>
+      <code><![CDATA[$GLOBALS['save_on_server']]]></code>
       <code><![CDATA[$asSeparateFiles]]></code>
       <code><![CDATA[$onServerParam]]></code>
       <code><![CDATA[$quickExportOnServer]]></code>
+      <code><![CDATA[empty($GLOBALS['asfile'])]]></code>
       <code><![CDATA[empty($config->settings['MemoryLimit'])]]></code>
       <code><![CDATA[empty($config->settings['SaveDir'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -12714,6 +12744,7 @@
   </file>
   <file src="tests/unit/Controllers/Export/ExportControllerTest.php">
     <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>

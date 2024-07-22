@@ -15,6 +15,7 @@ final class DisplayParts
         public readonly bool $hasBookmarkForm,
         public readonly bool $hasTextButton,
         public readonly bool $hasPrintLink,
+        public readonly bool $hasQueryStats,
     ) {
     }
 
@@ -27,7 +28,8 @@ final class DisplayParts
      *     hasNavigationBar?: bool,
      *     hasBookmarkForm?: bool,
      *     hasTextButton?: bool,
-     *     hasPrintLink?: bool
+     *     hasPrintLink?: bool,
+     *     hasQueryStats?: bool
      * } $parts
      */
     public static function fromArray(array $parts): self
@@ -40,6 +42,7 @@ final class DisplayParts
             $parts['hasBookmarkForm'] ?? false,
             $parts['hasTextButton'] ?? false,
             $parts['hasPrintLink'] ?? false,
+            $parts['hasQueryStats'] ?? false,
         );
     }
 
@@ -52,7 +55,8 @@ final class DisplayParts
      *     hasNavigationBar?: bool,
      *     hasBookmarkForm?: bool,
      *     hasTextButton?: bool,
-     *     hasPrintLink?: bool
+     *     hasPrintLink?: bool,
+     *     hasQueryStats?: bool
      * } $parts
      */
     public function with(array $parts): self
@@ -65,6 +69,7 @@ final class DisplayParts
             $parts['hasBookmarkForm'] ?? $this->hasBookmarkForm,
             $parts['hasTextButton'] ?? $this->hasTextButton,
             $parts['hasPrintLink'] ?? $this->hasPrintLink,
+            $parts['hasQueryStats'] ?? $this->hasQueryStats,
         );
     }
 }

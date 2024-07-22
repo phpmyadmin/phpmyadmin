@@ -335,7 +335,19 @@ final class ExportController implements InvocableController
             // Include dates in export?
             $doDates = isset($GLOBALS[$GLOBALS['what'] . '_dates']);
 
-            $whatStrucOrData = $GLOBALS[$GLOBALS['what'] . '_structure_or_data'];
+            /** @var mixed $whatStrucOrData */
+            $whatStrucOrData = $GLOBALS[$GLOBALS['what'] . '_structure_or_data'] ?? null;
+            if (! in_array($whatStrucOrData, ['structure', 'data', 'structure_and_data'], true)) {
+                $whatStrucOrData = 'data';
+                /** @var mixed $whatStrucOrDataDefaultValue */
+                $whatStrucOrDataDefaultValue = $config->settings['Export'][$GLOBALS['what'] . '_structure_or_data']
+                    ?? null;
+                if (in_array($whatStrucOrDataDefaultValue, ['structure', 'data', 'structure_and_data'], true)) {
+                    $whatStrucOrData = $whatStrucOrDataDefaultValue;
+                }
+
+                $GLOBALS[$GLOBALS['what'] . '_structure_or_data'] = $whatStrucOrData;
+            }
 
             if ($GLOBALS['export_type'] === 'raw') {
                 $whatStrucOrData = 'raw';

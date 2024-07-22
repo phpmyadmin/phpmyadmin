@@ -29,6 +29,10 @@ AJAX.registerTeardown('database/multi_table_query.js', function () {
         $(this).off('change');
     });
 
+    $('.criteria_op').each(function () {
+        $(this).off('change');
+    });
+
     $('#update_query_button').off('click');
     $('#add_column_button').off('click');
 });
@@ -40,6 +44,13 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
 
     var columnCount = 3;
     addNewColumnCallbacks();
+
+    function theHints () {
+        return {
+            'IN (...)': 'Separate the values by commas',
+            'NOT IN (...)': 'Separate the values by commas',
+        };
+    }
 
     $('#update_query_button').on('click', function () {
         var columns = [];
@@ -189,18 +200,38 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         });
     });
 
+    $('.criteria_op').each(function () {
+        $(this).on('change', function () {
+            showHint($(this));
+        });
+    });
+
+    function showHint (opSelect) {
+        const hints = theHints();
+        const value = opSelect.val();
+        const criteriaInputCol = opSelect.closest('table').find('.rhs_text_val').parent();
+
+        criteriaInputCol.find('.rhs_hint').remove();
+
+        Object.keys(hints).includes(value) && criteriaInputCol.append(`<p class="rhs_hint">${hints[value]}</p>`);
+    }
+
     function addNewColumnCallbacks () {
         $('.tableNameSelect').each(function () {
             $(this).on('change', function () {
-                var $sibs = $(this).siblings('.columnNameSelect');
-                const $alias = $(this).siblings('.col_alias');
+                const $table = $(this);
+                const $alias = $table.siblings('.col_alias');
+                const $colsSelect = $table.parent().find('.columnNameSelect');
 
-                if ($sibs.length === 0) {
-                    $sibs = $(this).parent().parent().find('.columnNameSelect');
-                }
-
-                $sibs.first().html($('#' + $(this).find(':selected').data('hash')).html());
                 $alias.prop('disabled', true);
+
+                $colsSelect.each(function () {
+                    $(this).show();
+                    $(this).first().html($('#' + $table.find(':selected').data('hash')).html());
+                    if ($(this).hasClass('opColumn')) {
+                        $(this).find('option[value="*"]').remove();
+                    }
+                });
             });
         });
 
