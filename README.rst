@@ -16,8 +16,8 @@ Code status
     :alt: End-to-End tests
     :target: https://github.com/phpmyadmin/phpmyadmin/actions/workflows/test-selenium.yml?query=branch%3Amaster
 
-.. image:: https://readthedocs.org/projects/phpmyadmin/badge/?version=latest
-    :target: https://docs.phpmyadmin.net/en/latest/
+.. image:: https://readthedocs.org/projects/phpmyadmin/badge/?version=master
+    :target: https://docs.phpmyadmin.net/en/master/
     :alt: Documentation build status
 
 .. image:: https://hosted.weblate.org/widgets/phpmyadmin/-/master/svg-badge.svg
