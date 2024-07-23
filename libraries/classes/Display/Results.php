@@ -3683,7 +3683,7 @@ class Results
 
         // 2.1 Prepares a messages with position information
         $sqlQueryMessage = '';
-        if ($displayParts['query_stats'] == '1') {
+        if ($displayParts['query_stats'] == '1' && $total > 0) {
             $message = $this->setMessageInformation(
                 $sortedColumnMessage,
                 $analyzedSqlResults,
