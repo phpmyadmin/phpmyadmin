@@ -13820,6 +13820,13 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/Http/Factory/ServerRequestFactoryTest.php">
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$_SERVER['PHP_SELF']]]></code>
+      <code><![CDATA[$_SERVER['REQUEST_TIME']]]></code>
+      <code><![CDATA[$_SERVER['REQUEST_TIME_FLOAT']]]></code>
+      <code><![CDATA[$_SERVER['SCRIPT_NAME']]]></code>
+      <code><![CDATA[$_SERVER['argv']]]></code>
+    </PossiblyUndefinedArrayOffset>
     <PossiblyUnusedMethod>
       <code><![CDATA[providerForTestCreate]]></code>
       <code><![CDATA[providerForTestCreateServerRequest]]></code>
