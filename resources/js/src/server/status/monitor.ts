@@ -1209,7 +1209,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
         chartSize = {
             width: Math.floor(wdt),
-            height: Math.floor(0.75 * wdt)
+            height: Math.floor(0.55 * wdt)
         };
     }
 
