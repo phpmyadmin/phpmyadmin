@@ -14,10 +14,6 @@ if (! defined('ROOT_PATH')) {
 }
 
 // phpcs:disable PSR1.Files.SideEffects
-if (! defined('PHPMYADMIN')) {
-    define('PHPMYADMIN', true);
-}
-
 if (! defined('TESTSUITE')) {
     define('TESTSUITE', true);
 }
