@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2022-02-17 10:34+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2024-07-26 06:05+0000\n"
+"Last-Translator: Moha684 <nahil82466@gmail.com>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/5-2/br/"
 ">\n"
 "Language: br\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -16149,10 +16149,8 @@ msgid "Protocol version:"
 msgstr "Stumm diwezhañ"
 
 #: templates/home/index.twig:183
-#, fuzzy
-#| msgid "Username:"
 msgid "User:"
-msgstr "Anv implijer :"
+msgstr "Anv implijer:"
 
 #: templates/home/index.twig:187
 #, fuzzy
@@ -16165,48 +16163,44 @@ msgid "Web server"
 msgstr ""
 
 #: templates/home/index.twig:209
-#, fuzzy
-#| msgid "Database comment"
 msgid "Database client version:"
-msgstr "Evezhiadenn diwar-benn an diaz roadennoù : "
+msgstr "Doare arval an diazoù roadennoù:"
 
 #: templates/home/index.twig:213
 msgid "PHP extension:"
-msgstr ""
+msgstr "Astenn PHP:"
 
 #: templates/home/index.twig:220
-#, fuzzy
-#| msgid "Versions"
 msgid "PHP version:"
-msgstr "Stummoù"
+msgstr "PHP darvez:"
 
 #: templates/home/index.twig:227
 msgid "Show PHP information"
-msgstr ""
+msgstr "Diskouez an titouroù PHP"
 
 #: templates/home/index.twig:241
 msgid "Version information:"
-msgstr ""
+msgstr "Stumm titouroù:"
 
 #: templates/home/index.twig:251
 msgid "Official Homepage"
-msgstr ""
+msgstr "Pajenn degemer ofisiel"
 
 #: templates/home/index.twig:256
 msgid "Contribute"
-msgstr ""
+msgstr "Kemer perzh"
 
 #: templates/home/index.twig:261
 msgid "Get support"
-msgstr ""
+msgstr "Kaout skoazell"
 
 #: templates/home/index.twig:266
 msgid "List of changes"
-msgstr ""
+msgstr "Roll ar c'hemmoù"
 
 #: templates/home/index.twig:271 templates/server/plugins/index.twig:30
 msgid "License"
-msgstr ""
+msgstr "Aotreegezh"
 
 #: templates/home/index.twig:282 templates/setup/error.twig:2
 msgid "Warning"
