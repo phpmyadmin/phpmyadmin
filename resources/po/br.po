@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-07-21 00:22+0000\n"
-"PO-Revision-Date: 2022-02-15 16:21+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2024-07-26 06:05+0000\n"
+"Last-Translator: Moha684 <nahil82466@gmail.com>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "br/>\n"
 "Language: br\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 #, fuzzy
@@ -3817,10 +3817,8 @@ msgid "Protocol version:"
 msgstr "Stumm diwezhañ"
 
 #: resources/templates/home/index.twig:202
-#, fuzzy
-#| msgid "Username:"
 msgid "User:"
-msgstr "Anv implijer :"
+msgstr "Anv implijer:"
 
 #: resources/templates/home/index.twig:206
 #, fuzzy
@@ -3833,49 +3831,45 @@ msgid "Web server"
 msgstr ""
 
 #: resources/templates/home/index.twig:228
-#, fuzzy
-#| msgid "Database comment"
 msgid "Database client version:"
-msgstr "Evezhiadenn diwar-benn an diaz roadennoù : "
+msgstr "Doare arval an diazoù roadennoù:"
 
 #: resources/templates/home/index.twig:232
 msgid "PHP extension:"
-msgstr ""
+msgstr "Astenn PHP:"
 
 #: resources/templates/home/index.twig:239
-#, fuzzy
-#| msgid "Versions"
 msgid "PHP version:"
-msgstr "Stummoù"
+msgstr "PHP darvez:"
 
 #: resources/templates/home/index.twig:246
 msgid "Show PHP information"
-msgstr ""
+msgstr "Diskouez an titouroù PHP"
 
 #: resources/templates/home/index.twig:260
 msgid "Version information:"
-msgstr ""
+msgstr "Stumm titouroù:"
 
 #: resources/templates/home/index.twig:270
 msgid "Official Homepage"
-msgstr ""
+msgstr "Pajenn degemer ofisiel"
 
 #: resources/templates/home/index.twig:275
 msgid "Contribute"
-msgstr ""
+msgstr "Kemer perzh"
 
 #: resources/templates/home/index.twig:280
 msgid "Get support"
-msgstr ""
+msgstr "Kaout skoazell"
 
 #: resources/templates/home/index.twig:285
 msgid "List of changes"
-msgstr ""
+msgstr "Roll ar c'hemmoù"
 
 #: resources/templates/home/index.twig:290
 #: resources/templates/server/plugins/index.twig:30
 msgid "License"
-msgstr ""
+msgstr "Aotreegezh"
 
 #: resources/templates/home/index.twig:301
 #: resources/templates/setup/error.twig:2
