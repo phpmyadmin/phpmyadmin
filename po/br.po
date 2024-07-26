@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-02-17 10:35+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2024-07-26 06:05+0000\n"
+"Last-Translator: Moha684 <nahil82466@gmail.com>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/4-9/br/"
 ">\n"
 "Language: br\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -34,18 +34,16 @@ msgstr ""
 
 #: db_central_columns.php:129
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Goullo eo roll kreiz ar bannoù evit an diaz roadennoù red."
 
 #: db_central_columns.php:158
-#, fuzzy
-#| msgid "Click to select"
 msgid "Click to sort."
-msgstr "Klikañ evit diuzañ"
+msgstr "Klikañ evit rummañ"
 
 #: db_central_columns.php:177
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr ""
+msgstr "Gwel al linennoù %1$s - %2$s."
 
 #: db_datadict.php:61 libraries/classes/Operations.php:60
 msgid "Database comment"
@@ -188,7 +186,7 @@ msgstr "Evezhiadennoù"
 #: templates/table/tracking/structure_snapshot_columns.twig:25
 #: templates/table/structure/check_all_table_column.twig:33
 msgid "Primary"
-msgstr ""
+msgstr "Kentañ"
 
 #: db_datadict.php:166 js/messages.php:384
 #: libraries/classes/CentralColumns.php:998
@@ -308,8 +306,6 @@ msgstr "Roadennoù"
 #: templates/database/designer/database_tables.twig:31
 #: templates/display/export/select_options.twig:4
 #: templates/database/search/selection_form.twig:32
-#, fuzzy
-#| msgid "Select All"
 msgid "Select all"
 msgstr "Diuzañ pep tra"
 
@@ -320,24 +316,21 @@ msgstr "Goullo eo anv an diaz roadennoù !"
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"Ne c'haller ket eilañ an diaz roadennoù war ar memes titl. Cheñch a ra an "
+"titl ha klaskit en-dro war-lerc'h."
 
 #: db_operations.php:156
-#, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s."
+#, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Deuet eo anv an diaz roadennoù %1$s da vezañ %2$s"
 
 #: db_operations.php:168
-#, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s."
+#, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Eilet eo bet an diaz roadennoù %1$s war %2$s"
+msgstr "Eilet eo bet an diaz roadennoù %1$s war %2$s."
 
 #: db_operations.php:297
-#, fuzzy, php-format
-#| msgid ""
-#| "The phpMyAdmin configuration storage has been deactivated. To find out "
-#| "why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
@@ -345,22 +338,16 @@ msgstr ""
 "perak klikañ %samañ%s."
 
 #: db_qbe.php:133
-#, fuzzy
-#| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Ret eo deoc'h dibab da nebeutañ ur bann da vezañ diskwelet"
+msgstr "Ret eo deoc'h dibab da nebeutañ ur bann da vezañ diskwelet!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Update Query"
 msgid "Multi-table query"
-msgstr "Hizivaat ar reked"
+msgstr "Kaoz-tablel war un daveoù"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query \"%s\" failed"
 msgid "Query by example"
-msgstr "C'hwitet eo bet ar reked \"%s\""
+msgstr "Skouer dre reked"
 
 #: db_qbe.php:168
 #, php-format
@@ -375,22 +362,20 @@ msgid "Access denied!"
 msgstr "Moned nac'het !"
 
 #: db_tracking.php:55 db_tracking.php:80
-#, fuzzy
-#| msgid "Database %s has been dropped."
 msgid "Tracking data deleted successfully."
-msgstr "Diverket eo bet an diaz roadennoù %s."
+msgstr "Ar roadennoù heuliañ zo bet dilamet gant berzh."
 
 #: db_tracking.php:64
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Krouet eo bet ar stumm %1$s evit an taolennoù diuzet, gweredekaet eo "
+"evezhiañ evit homañ."
 
 #: db_tracking.php:95
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No tables selected."
-msgstr "N'eus bet diuzet linenn ebet"
+msgstr "N'eus bet diuzet taolennoù ebet."
 
 #: db_tracking.php:153
 msgid "Database Log"
@@ -481,10 +466,8 @@ msgid "Linestring %d:"
 msgstr "Aradennad linennoù %d :"
 
 #: gis_data_editor.php:280 gis_data_editor.php:357
-#, fuzzy
-#| msgid "Outer Ring:"
 msgid "Outer ring:"
-msgstr "Kelc'h diavaez :"
+msgstr "Kelc'h diavaez:"
 
 #: gis_data_editor.php:282 gis_data_editor.php:359
 #, php-format
@@ -563,30 +546,24 @@ msgid "Output"
 msgstr "Disoc'h"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
-#| "string into the \"Value\" field"
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
 "Dibab \"GeomFromText\" er bann \"Arc'hwel\" ha pegañ an neudennad er "
-"vaezienn \"Talvoud\" a-is"
+"vaezienn \"Talvoud\" a-is."
 
 #: import.php:73
 msgid "Succeeded"
-msgstr "Moned nac'het !"
+msgstr "Moned deuet a-benn"
 
 #: import.php:77 js/messages.php:619
 msgid "Failed"
-msgstr ""
+msgstr "Moned nac'het"
 
 #: import.php:81
-#, fuzzy
-#| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "Ensoc'hadennoù sevenet"
+msgstr "N'eo ket klok arventennoù"
 
 #: import.php:205
 #, php-format
@@ -620,30 +597,25 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "Dibosupl enporzhiañ an adveziantoù. Gwiriit ho staliadur !"
 
 #: import.php:587 libraries/classes/Sql.php:827 libraries/classes/Sql.php:1631
-#, fuzzy, php-format
-#| msgid "Bookmark %s created"
+#, php-format
 msgid "Bookmark %s has been created."
 msgstr "Krouet eo bet ar sined %s"
 
 #: import.php:597
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Enporzhiet eo bet an traoù ervat, %d rek zo bet kaset da benn."
 msgstr[1] "Enporzhiet eo bet an traoù ervat, %d reked zo bet kaset da benn."
 
 #: import.php:628
-#, fuzzy, php-format
-#| msgid ""
-#| "Script timeout passed, if you want to finish import, please resubmit same "
-#| "file and import will resume."
+#, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
 "Aet eur dreist d'ar vevenn amzer. Mar fell deoc'h kenderc'hel gant an "
-"enporzhiañ, adkasit ar restr hag e kendalc'ho an argerzh."
+"enporzhiañ, %sadkasit ar restr hag%s e kendalc'ho an argerzh."
 
 #: import.php:638
 msgid ""
@@ -660,7 +632,7 @@ msgstr "Diweredekaet eo an urzhad ''DROP DATABASE'."
 
 #: import_status.php:108
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Ne c'haller ket kargañ stad lañs an enporzhiañ."
 
 #: import_status.php:117 js/messages.php:461 js/messages.php:627
 #: libraries/classes/Export.php:509
@@ -674,11 +646,13 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Digennasket oc'h bet diouzh ur servijer, evit digennasket penn-da-benn eus "
+"phpMyAdmin, ret eo dit digennaskañ ac'hanout diouzh ar servijer a-b."
 
 #: index.php:202 libraries/classes/Footer.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
 msgid "phpMyAdmin Demo Server"
-msgstr ""
+msgstr "phpMyAdmin Servijer stummadur"
 
 #: index.php:206 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
 #, php-format
@@ -687,39 +661,33 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Ar servijer stummañ eo, arabat kemmañ implijer root, debian-sys-maint ha pma "
+"users muioc'h a ditouroù war %s met gallout a rez ober kement tra ho peus."
 
 #: index.php:216
-#, fuzzy
-#| msgid "Change settings"
 msgid "General settings"
-msgstr "Kemmañ an arventennoù"
+msgstr "Arventennoù hollek"
 
 #: index.php:245 js/messages.php:652
 #: libraries/classes/Display/ChangePassword.php:58
 #: libraries/classes/Display/ChangePassword.php:61
 #: libraries/classes/UserPassword.php:244
 msgid "Change password"
-msgstr ""
+msgstr "Ger-tremen da gemmañ"
 
 #: index.php:262 libraries/classes/Config/Descriptions.php:1488
-#, fuzzy
-#| msgid "Server configuration"
 msgid "Server connection collation"
-msgstr "Kefluniadur ar servijer"
+msgstr "Etrerummadur evit kevreañ ouzh ar servijer"
 
 #: index.php:285
-#, fuzzy
-#| msgid "Change settings"
 msgid "Appearance settings"
-msgstr "Kemmañ an arventennoù"
+msgstr "Arventennoù neuz"
 
 #: index.php:318 prefs_manage.php:276
 msgid "More settings"
-msgstr ""
+msgstr "Arventennit muioc'h c'hoazh"
 
 #: index.php:340
-#, fuzzy
-#| msgid "Databases"
 msgid "Database server"
 msgstr "Diazoù roadennoù"
 
@@ -728,70 +696,54 @@ msgid "Server:"
 msgstr "Servijer :"
 
 #: index.php:347
-#, fuzzy
-#| msgid "Server"
 msgid "Server type:"
-msgstr "Servijer"
+msgstr "Servijer seurt:"
 
 #: index.php:351
-#, fuzzy
-#| msgid "Force SSL connection"
 msgid "Server connection:"
-msgstr "Rediañ ar c'hevreadennoù SSL"
+msgstr "Kevreadurioù ar servijer:"
 
 #: index.php:355 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:705
 #: libraries/classes/Plugins/Export/ExportXml.php:245
-#, fuzzy
-#| msgid "Last version"
 msgid "Server version:"
-msgstr "Stumm diwezhañ"
+msgstr "Stumm servijer:"
 
 #: index.php:361
-#, fuzzy
-#| msgid "Last version"
 msgid "Protocol version:"
-msgstr "Stumm diwezhañ"
+msgstr "Stumm protokol:"
 
 #: index.php:365
-#, fuzzy
-#| msgid "Username:"
 msgid "User:"
-msgstr "Anv implijer :"
+msgstr "Anv implijer:"
 
 #: index.php:370
-#, fuzzy
-#| msgid "Remove chart"
 msgid "Server charset:"
-msgstr "Dilemel ar grafik"
+msgstr "Perzhioù ar servijer:"
 
 #: index.php:388
 msgid "Web server"
-msgstr ""
+msgstr "Servijer-web"
 
 #: index.php:399
-#, fuzzy
-#| msgid "Database comment"
 msgid "Database client version:"
-msgstr "Evezhiadenn diwar-benn an diaz roadennoù : "
+msgstr "Doare arval an diazoù roadennoù:"
 
 #: index.php:403
 msgid "PHP extension:"
-msgstr ""
+msgstr "Astenn PHP:"
 
 #: index.php:417
-#, fuzzy
-#| msgid "Versions"
 msgid "PHP version:"
-msgstr "Stummoù"
+msgstr "PHP darvez:"
 
 #: index.php:428
 msgid "Show PHP information"
-msgstr ""
+msgstr "Diskouez an titouroù PHP"
 
 #: index.php:447
 msgid "Version information:"
-msgstr ""
+msgstr "Stumm titouroù:"
 
 #: index.php:456 libraries/classes/Config/FormDisplayTemplate.php:164
 #: libraries/classes/Display/Export.php:350
@@ -805,23 +757,23 @@ msgstr "Teuliadur"
 
 #: index.php:465
 msgid "Official Homepage"
-msgstr ""
+msgstr "Pajenn degemer ofisiel"
 
 #: index.php:472
 msgid "Contribute"
-msgstr ""
+msgstr "Kemer perzh"
 
 #: index.php:479
 msgid "Get support"
-msgstr ""
+msgstr "Kaout skoazell"
 
 #: index.php:486
 msgid "List of changes"
-msgstr ""
+msgstr "Roll ar c'hemmoù"
 
 #: index.php:493 templates/server/plugins/section.twig:13
 msgid "License"
-msgstr ""
+msgstr "Aotreegezh"
 
 #: index.php:513
 msgid ""
