@@ -2170,8 +2170,6 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         var query = rowData.argument || rowData.sql_text;
 
         if (window.codeMirrorEditor) {
-            // TODO: somehow Functions.sqlPrettyPrint messes up the query, needs be fixed
-            // query = Functions.sqlPrettyPrint(query);
             window.codeMirrorEditor.setValue(query);
             // Codemirror is bugged, it doesn't refresh properly sometimes.
             // Following lines seem to fix that
