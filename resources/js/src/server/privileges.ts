@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { Functions } from '../modules/functions.ts';
+import { checkPassword, checkPasswordStrength, checkboxesSel, displayPasswordGenerateButton, getSqlEditor } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
@@ -26,7 +26,7 @@ function exportPrivilegesModalHandler (data, msgbox) {
             $('#exportPrivilegesModalLabel').first().html(data.title);
             ajaxRemoveMessage(msgbox);
             // Attach syntax highlighted editor to export dialog
-            Functions.getSqlEditor(modal.find('textarea'));
+            getSqlEditor(modal.find('textarea'));
         });
 
         return;
@@ -175,7 +175,7 @@ const PasswordStrength = {
         var meterObj = $('#password_strength_meter');
         var meterObjLabel = $('#password_strength');
         var username = $('input[name="username"]');
-        Functions.checkPasswordStrength($(this).val(), meterObj, meterObjLabel, username.val());
+        checkPasswordStrength($(this).val(), meterObj, meterObjLabel, username.val());
     }
 };
 
@@ -199,7 +199,7 @@ const ChangePasswordStrength = {
     handleEvent: function () {
         var meterObj = $('#change_password_strength_meter');
         var meterObjLabel = $('#change_password_strength');
-        Functions.checkPasswordStrength($(this).val(), meterObj, meterObjLabel, CommonParams.get('user'));
+        checkPasswordStrength($(this).val(), meterObj, meterObjLabel, CommonParams.get('user'));
     }
 };
 
@@ -279,7 +279,7 @@ const RevokeUser = {
                             });
 
                         // update the checkall checkbox
-                        $(Functions.checkboxesSel).trigger('change');
+                        $(checkboxesSel).trigger('change');
                     });
                 } else {
                     ajaxShowMessage(data.error, false);
@@ -471,7 +471,7 @@ const CheckAddUser = {
             return false;
         }
 
-        return Functions.checkPassword($(theForm));
+        return checkPassword($(theForm));
     }
 };
 
@@ -538,7 +538,7 @@ AJAX.registerOnload('server/privileges.js', function () {
     $(document).on('click', 'button.mult_submit[value=export]', ExportPrivileges.handleEvent);
 
     // if exporting non-ajax, highlight anyways
-    Functions.getSqlEditor($('textarea.export'));
+    getSqlEditor($('textarea.export'));
 
     $(document).on('click', 'a.export_user_anchor.ajax', ExportUser.handleEvent);
     $('button.jsAccountLocking').on('click', AccountLocking.handleEvent);
@@ -548,8 +548,8 @@ AJAX.registerOnload('server/privileges.js', function () {
     $('#checkbox_SSL_priv').trigger('change');
 
     $('input.autofocus').trigger('focus');
-    $(Functions.checkboxesSel).trigger('change');
-    Functions.displayPasswordGenerateButton();
+    $(checkboxesSel).trigger('change');
+    displayPasswordGenerateButton();
     addOrUpdateSubmenu();
 
     $('#select_priv_all').on('click', SelectAllPrivileges.handleEvent);

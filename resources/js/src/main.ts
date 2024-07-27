@@ -1,6 +1,12 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.ts';
-import { Functions } from './modules/functions.ts';
+import {
+    addNoCacheToAjaxRequests,
+    breadcrumbScrollToTop,
+    dismissNotifications,
+    floatingMenuBar,
+    initializeMenuResizer
+} from './modules/functions.ts';
 import { KeyHandlerEvents } from './modules/keyhandler.ts';
 import { PageSettings } from './modules/page_settings.ts';
 import { crossFramingProtection } from './modules/cross_framing_protection.ts';
@@ -30,15 +36,15 @@ crossFramingProtection();
 AJAX.registerTeardown('main.js', Config.off());
 AJAX.registerOnload('main.js', Config.on());
 
-$.ajaxPrefilter(Functions.addNoCacheToAjaxRequests);
+$.ajaxPrefilter(addNoCacheToAjaxRequests);
 
 AJAX.registerTeardown('main.js', teardownFunctions());
 AJAX.registerOnload('main.js', onloadFunctions());
 
-$(Functions.dismissNotifications());
-$(Functions.initializeMenuResizer());
-$(Functions.floatingMenuBar());
-$(Functions.breadcrumbScrollToTop());
+$(dismissNotifications());
+$(initializeMenuResizer());
+$(floatingMenuBar());
+$(breadcrumbScrollToTop());
 
 $(onloadNavigation());
 

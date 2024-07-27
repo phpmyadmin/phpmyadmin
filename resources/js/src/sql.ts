@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.ts';
-import { Functions } from './modules/functions.ts';
+import { checkFormElementInRange, checkSqlQuery, prepareForAjaxRequest } from './modules/functions.ts';
 import { Navigation } from './modules/navigation.ts';
 import { CommonParams } from './modules/common.ts';
 import highlightSql from './modules/sql-highlight.ts';
@@ -792,7 +792,7 @@ AJAX.registerOnload('sql.js', function () {
             $form[0].elements.sql_query.value = window.codeMirrorEditor.getValue();
         }
 
-        if (! Functions.checkSqlQuery($form[0])) {
+        if (! checkSqlQuery($form[0])) {
             return false;
         }
 
@@ -802,7 +802,7 @@ AJAX.registerOnload('sql.js', function () {
         var $msgbox = ajaxShowMessage();
         var $sqlqueryresultsouter = $('#sqlqueryresultsouter');
 
-        Functions.prepareForAjaxRequest($form);
+        prepareForAjaxRequest($form);
 
         var argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'ajax_page_request=true', function (data) {
@@ -1093,13 +1093,13 @@ AJAX.registerOnload('sql.js', function () {
     $(document).on('submit', '.maxRowsForm', function () {
         var unlimNumRows = Number($(this).find('input[name="unlim_num_rows"]').val());
 
-        var maxRowsCheck = Functions.checkFormElementInRange(
+        var maxRowsCheck = checkFormElementInRange(
             this,
             'session_max_rows',
             window.Messages.strNotValidRowNumber,
             1
         );
-        var posCheck = Functions.checkFormElementInRange(
+        var posCheck = checkFormElementInRange(
             this,
             'pos',
             window.Messages.strNotValidRowNumber,

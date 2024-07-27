@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { Functions } from '../modules/functions.ts';
+import { checkSqlQuery, prepareForAjaxRequest } from '../modules/functions.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
 import { ColumnType, DataTable } from '../modules/chart.ts';
@@ -440,12 +440,12 @@ AJAX.registerOnload('table/chart.js', function () {
             $form[0].elements.sql_query.value = window.codeMirrorEditor.getValue();
         }
 
-        if (! Functions.checkSqlQuery($form[0])) {
+        if (! checkSqlQuery($form[0])) {
             return false;
         }
 
         var $msgbox = ajaxShowMessage();
-        Functions.prepareForAjaxRequest($form);
+        prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (typeof data !== 'undefined' &&
                 data.success === true &&

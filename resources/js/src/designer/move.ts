@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { Functions } from '../modules/functions.ts';
+import { prepareForAjaxRequest } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import refreshMainContent from '../modules/functions/refreshMainContent.ts';
@@ -800,7 +800,7 @@ const submitSaveDialogAndClose = function (callback, modal) {
 
     if (DesignerConfig.designerTablesEnabled) {
         var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
-        Functions.prepareForAjaxRequest($form);
+        prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize() + DesignerMove.getUrlPos(), function (data) {
             if (data.success === false) {
                 ajaxShowMessage(data.error, false);
@@ -931,7 +931,7 @@ const deletePages = function () {
 
                 var $messageBox = ajaxShowMessage(window.Messages.strProcessingRequest);
                 var deletingCurrentPage = parseInt(selected) === DesignerConfig.selectedPage;
-                Functions.prepareForAjaxRequest($form);
+                prepareForAjaxRequest($form);
 
                 if (DesignerConfig.designerTablesEnabled) {
                     $.post($form.attr('action'), $form.serialize(), function (data) {
@@ -1016,7 +1016,7 @@ const saveAs = function () {
 
                 var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
                 if (DesignerConfig.designerTablesEnabled) {
-                    Functions.prepareForAjaxRequest($form);
+                    prepareForAjaxRequest($form);
                     $.post($form.attr('action'), $form.serialize() + DesignerMove.getUrlPos(), function (data) {
                         if (data.success === false) {
                             ajaxShowMessage(data.error, false);

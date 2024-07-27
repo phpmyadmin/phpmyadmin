@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../../modules/ajax.ts';
-import { Functions } from '../../modules/functions.ts';
+import { addDatepicker, prettyProfilingNum } from '../../modules/functions.ts';
 import { CommonParams } from '../../modules/common.ts';
 import tooltip from '../../modules/tooltip.ts';
 import createProfilingChart from '../../modules/functions/createProfilingChart.ts';
@@ -159,7 +159,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     // Timepicker is loaded on demand so we need to initialize
     // datetime fields from the 'load log' dialog
     $('#logAnalyseDialog').find('.datetimefield').each(function () {
-        Functions.addDatepicker($(this));
+        addDatepicker($(this));
     });
 
     /** ** Monitor charting implementation ****/
@@ -1479,14 +1479,14 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             buttons: dlgBtns
         });
 
-        Functions.addDatepicker($dateStart, 'datetime', {
+        addDatepicker($dateStart, 'datetime', {
             showMillisec: false,
             showMicrosec: false,
             timeFormat: 'HH:mm:ss',
             firstDay: window.firstDayOfCalendar
         });
 
-        Functions.addDatepicker($dateEnd, 'datetime', {
+        addDatepicker($dateEnd, 'datetime', {
             showMillisec: false,
             showMicrosec: false,
             timeFormat: 'HH:mm:ss',
@@ -2320,7 +2320,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
                     totalTime += duration;
 
-                    numberTable += '<tr><td>' + data.profiling[i].state + ' </td><td> ' + Functions.prettyProfilingNum(duration, 2) + '</td></tr>';
+                    numberTable += '<tr><td>' + data.profiling[i].state + ' </td><td> ' + prettyProfilingNum(duration, 2) + '</td></tr>';
                 }
 
                 // Only put those values in the pie which are > 2%
@@ -2328,17 +2328,17 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     duration = parseFloat(data.profiling[i].duration);
 
                     if (duration / totalTime > 0.02) {
-                        chartData.push([Functions.prettyProfilingNum(duration, 2) + ' ' + data.profiling[i].state, duration]);
+                        chartData.push([prettyProfilingNum(duration, 2) + ' ' + data.profiling[i].state, duration]);
                     } else {
                         otherTime += duration;
                     }
                 }
 
                 if (otherTime > 0) {
-                    chartData.push([Functions.prettyProfilingNum(otherTime, 2) + ' ' + window.Messages.strOther, otherTime]);
+                    chartData.push([prettyProfilingNum(otherTime, 2) + ' ' + window.Messages.strOther, otherTime]);
                 }
 
-                numberTable += '<tr><td><b>' + window.Messages.strTotalTime + '</b></td><td>' + Functions.prettyProfilingNum(totalTime, 2) + '</td></tr>';
+                numberTable += '<tr><td><b>' + window.Messages.strTotalTime + '</b></td><td>' + prettyProfilingNum(totalTime, 2) + '</td></tr>';
                 numberTable += '</tbody></table>';
 
                 $('#queryAnalyzerDialog').find('div.placeHolder td.chart').append(

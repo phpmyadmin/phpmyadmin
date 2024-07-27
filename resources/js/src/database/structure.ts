@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { Functions } from '../modules/functions.ts';
+import { getForeignKeyCheckboxLoader, loadForeignKeyCheckbox } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { CommonParams } from '../modules/common.ts';
 import tooltip from '../modules/tooltip.ts';
@@ -342,7 +342,7 @@ AJAX.registerOnload('database/structure.js', function () {
          */
         var question = window.Messages.strTruncateTableStrongWarning + ' ' +
             window.sprintf(window.Messages.strDoYouReally, 'TRUNCATE `' + escapeHtml(currTableName) + '`') +
-            Functions.getForeignKeyCheckboxLoader();
+            getForeignKeyCheckboxLoader();
 
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
             ajaxShowMessage(window.Messages.strProcessingRequest);
@@ -361,7 +361,7 @@ AJAX.registerOnload('database/structure.js', function () {
                     ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
-        }, Functions.loadForeignKeyCheckbox);
+        }, loadForeignKeyCheckbox);
     }); // end of Truncate Table Ajax action
 
     /**
@@ -397,7 +397,7 @@ AJAX.registerOnload('database/structure.js', function () {
                 window.sprintf(window.Messages.strDoYouReally, 'DROP VIEW `' + escapeHtml(currTableName) + '`');
         }
 
-        question += Functions.getForeignKeyCheckboxLoader();
+        question += getForeignKeyCheckboxLoader();
 
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
             var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
@@ -415,7 +415,7 @@ AJAX.registerOnload('database/structure.js', function () {
                     ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
-        }, Functions.loadForeignKeyCheckbox);
+        }, loadForeignKeyCheckbox);
     }); // end of Drop Table Ajax action
 
     // Add tooltip to favorite icons.

@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { Functions } from '../modules/functions.ts';
+import { getSqlEditor } from '../modules/functions.ts';
 import getImageTag from '../modules/functions/getImageTag.ts';
 import { DesignerConfig } from './config.ts';
 
@@ -856,7 +856,7 @@ const buildQuery = function () {
          */
         var $elm = $('#buildQueryModal').find('textarea');
         if (! DesignerHistory.vqbEditor) {
-            DesignerHistory.vqbEditor = Functions.getSqlEditor($elm);
+            DesignerHistory.vqbEditor = getSqlEditor($elm);
         }
 
         if (DesignerHistory.vqbEditor) {

@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../ajax-message.ts';
 import { CommonParams } from '../common.ts';
-import { Functions } from '../functions.ts';
+import { getSqlEditor } from '../functions.ts';
 import { Navigation } from '../navigation.ts';
 import getJsConfirmCommonParam from './getJsConfirmCommonParam.ts';
 
@@ -37,7 +37,7 @@ export default function handleCreateViewModal ($this): void {
             $('#createViewModal').find('.modal-body').first().html(data.message);
             // Attach syntax highlighted editor
             $('#createViewModal').on('shown.bs.modal', function () {
-                window.codeMirrorEditor = Functions.getSqlEditor($('#createViewModal').find('textarea'));
+                window.codeMirrorEditor = getSqlEditor($('#createViewModal').find('textarea'));
                 $('input:visible[type=text]', $('#createViewModal')).first().trigger('focus');
                 $('#createViewModal').off('shown.bs.modal');
             });

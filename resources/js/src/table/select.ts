@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { Functions } from '../modules/functions.ts';
+import { addDatepicker, prepareForAjaxRequest } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import highlightSql from '../modules/sql-highlight.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
@@ -114,7 +114,7 @@ AJAX.registerOnload('table/select.js', function () {
         $('#sqlqueryresultsouter').empty();
         var $msgbox = ajaxShowMessage(window.Messages.strSearching, false);
 
-        Functions.prepareForAjaxRequest($searchForm);
+        prepareForAjaxRequest($searchForm);
 
         var values: { [k: string]: any } = {};
         ($searchForm.find(':input') as JQuery<HTMLInputElement>).each(function () {
@@ -334,8 +334,8 @@ AJAX.registerOnload('table/select.js', function () {
                         $('#min_value').first().val('');
                         $('#max_value').first().val('');
                         // Add datepicker wherever required.
-                        Functions.addDatepicker($('#min_value'), dataType);
-                        Functions.addDatepicker($('#max_value'), dataType);
+                        addDatepicker($('#min_value'), dataType);
+                        addDatepicker($('#max_value'), dataType);
                         $('#rangeSearchModalGo').on('click', function () {
                             var minValue = ($('#min_value').val() as string);
                             var maxValue = ($('#max_value').val() as string);
