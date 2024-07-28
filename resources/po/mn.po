@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-07-21 00:22+0000\n"
+"POT-Creation-Date: 2024-07-28 00:22+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -222,7 +222,7 @@ msgstr "%s-ы дараа"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:220
-#: src/Display/Results.php:929 src/Plugins/Export/ExportSql.php:2071
+#: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:2071
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Байхгүй"
@@ -1078,7 +1078,7 @@ msgstr "асуултад"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:401
-#: src/Display/Results.php:2472 src/Html/Generator.php:517
+#: src/Display/Results.php:2477 src/Html/Generator.php:517
 #: src/Html/Generator.php:783
 msgid "Edit"
 msgstr "Засах"
@@ -1097,7 +1097,7 @@ msgstr "Засах"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:188
 #: src/Controllers/JavaScriptMessagesController.php:403
-#: src/Display/Results.php:2531 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2536 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "Устгах"
 
@@ -2239,14 +2239,15 @@ msgid "Query window"
 msgstr "Асуултын цонх"
 
 #: resources/templates/database/multi_table_query/form.twig:27
-#: resources/templates/database/multi_table_query/form.twig:117
+#: resources/templates/database/multi_table_query/form.twig:126
 #, fuzzy
 #| msgid "Select Tables"
 msgid "select table"
 msgstr "Хүснэгтүүд сонго"
 
 #: resources/templates/database/multi_table_query/form.twig:34
-#: resources/templates/database/multi_table_query/form.twig:125
+#: resources/templates/database/multi_table_query/form.twig:84
+#: resources/templates/database/multi_table_query/form.twig:134
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "select column"
@@ -2294,8 +2295,8 @@ msgstr "Эрэмбэлэх"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1457
-#: src/Display/Results.php:1464 src/Util.php:1983 src/Util.php:2000
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1462
+#: src/Display/Results.php:1469 src/Util.php:1983 src/Util.php:2000
 msgid "Ascending"
 msgstr "Өсөхөөр"
 
@@ -2306,8 +2307,8 @@ msgstr "Өсөхөөр"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1452
-#: src/Display/Results.php:1469 src/Util.php:1988 src/Util.php:2005
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1457
+#: src/Display/Results.php:1474 src/Util.php:1988 src/Util.php:2005
 msgid "Descending"
 msgstr "Буурахаар"
 
@@ -2317,7 +2318,7 @@ msgstr "Буурахаар"
 msgid "Add as"
 msgstr "Нэмэх %s"
 
-#: resources/templates/database/multi_table_query/form.twig:107
+#: resources/templates/database/multi_table_query/form.twig:116
 #: src/Config/ConfigFile.php:544 src/Config/ConfigFile.php:556
 #: src/Config/ConfigFile.php:564
 #, fuzzy
@@ -2325,36 +2326,36 @@ msgstr "Нэмэх %s"
 msgid "Text"
 msgstr "Цааш"
 
-#: resources/templates/database/multi_table_query/form.twig:108
+#: resources/templates/database/multi_table_query/form.twig:117
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Another column"
 msgstr "Багана нэмэх/устгах"
 
-#: resources/templates/database/multi_table_query/form.twig:135
+#: resources/templates/database/multi_table_query/form.twig:144
 msgid "Enter criteria as free text"
 msgstr ""
 
-#: resources/templates/database/multi_table_query/form.twig:142
+#: resources/templates/database/multi_table_query/form.twig:151
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove this column"
 msgstr "Өгөгдлийн санг д.нэрлэх нь"
 
-#: resources/templates/database/multi_table_query/form.twig:150
+#: resources/templates/database/multi_table_query/form.twig:159
 #: resources/templates/table/relation/foreign_key_row.twig:85
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "+ Add column"
 msgstr "%s талбар(ууд) нэмэх"
 
-#: resources/templates/database/multi_table_query/form.twig:165
+#: resources/templates/database/multi_table_query/form.twig:174
 #, fuzzy
 #| msgid "Update Query"
 msgid "Update query"
 msgstr "Update асуулт"
 
-#: resources/templates/database/multi_table_query/form.twig:166
+#: resources/templates/database/multi_table_query/form.twig:175
 #: src/Html/Generator.php:542
 #, fuzzy
 #| msgid "Submit Query"
@@ -3371,14 +3372,14 @@ msgid "Extra options"
 msgstr "Хүснэгтийн сонголтууд"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1111
+#: src/Display/Results.php:1116
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Бичвэрийн зарим хэсэг"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1115
+#: src/Display/Results.php:1120
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
@@ -3425,7 +3426,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:491
-#: src/Display/Results.php:2476 src/Html/Generator.php:78
+#: src/Display/Results.php:2481 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "Хуулах"
 
@@ -6565,7 +6566,7 @@ msgid "Start auto refresh"
 msgstr ""
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2550
+#: src/Display/Results.php:2555
 msgid "Kill"
 msgstr "Алах"
 
@@ -6983,7 +6984,7 @@ msgstr "Асуудлын үр дүнгийн үйлдэл"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:995 src/Display/Results.php:3134
+#: src/Database/Routines.php:995 src/Display/Results.php:3139
 #: src/Message.php:122
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -13071,7 +13072,7 @@ msgid "Success!"
 msgstr "Амжилттай!"
 
 #: src/Controllers/Database/StructureController.php:576
-#: src/Display/Results.php:3411
+#: src/Display/Results.php:3416
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -16399,7 +16400,7 @@ msgstr "ӨС байхгүй"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1049
+#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1050
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -16908,36 +16909,36 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2507 src/Display/Results.php:2522
+#: src/Display/Results.php:2512 src/Display/Results.php:2527
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Мөр устгагдсан"
 
-#: src/Display/Results.php:3420
+#: src/Display/Results.php:3425
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Мөрүүдийг харуулж байна"
 
-#: src/Display/Results.php:3434
+#: src/Display/Results.php:3439
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3439
+#: src/Display/Results.php:3444
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%s total"
 msgstr "Нийт"
 
-#: src/Display/Results.php:3452 src/Sql.php:865
+#: src/Display/Results.php:3457 src/Sql.php:865
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Асуулт нь %01.4f сек авлаа"
 
-#: src/Display/Results.php:3758
+#: src/Display/Results.php:3763
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -19559,14 +19560,14 @@ msgstr ""
 msgid "Showing as PHP code"
 msgstr "PHP кодоор харуулах"
 
-#: src/Sql.php:1215
+#: src/Sql.php:1219
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: src/Sql.php:1229
+#: src/Sql.php:1233
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

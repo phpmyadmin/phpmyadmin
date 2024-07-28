@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-07-21 00:22+0000\n"
+"POT-Creation-Date: 2024-07-28 00:22+0000\n"
 "PO-Revision-Date: 2024-02-01 15:01+0000\n"
 "Last-Translator: Mohammed Al Otaibi <mopes.03.belle@icloud.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -208,7 +208,7 @@ msgstr "بعد %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:220
-#: src/Display/Results.php:929 src/Plugins/Export/ExportSql.php:2071
+#: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:2071
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "لا شيء"
@@ -1006,7 +1006,7 @@ msgstr "في الاستعلام"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:401
-#: src/Display/Results.php:2472 src/Html/Generator.php:517
+#: src/Display/Results.php:2477 src/Html/Generator.php:517
 #: src/Html/Generator.php:783
 msgid "Edit"
 msgstr "تعديل"
@@ -1025,7 +1025,7 @@ msgstr "تعديل"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:188
 #: src/Controllers/JavaScriptMessagesController.php:403
-#: src/Display/Results.php:2531 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2536 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "حذف"
 
@@ -2062,13 +2062,14 @@ msgid "Query window"
 msgstr "نافذة الاستعلام"
 
 #: resources/templates/database/multi_table_query/form.twig:27
-#: resources/templates/database/multi_table_query/form.twig:117
+#: resources/templates/database/multi_table_query/form.twig:126
 #, fuzzy
 msgid "select table"
 msgstr "اختر الجداول"
 
 #: resources/templates/database/multi_table_query/form.twig:34
-#: resources/templates/database/multi_table_query/form.twig:125
+#: resources/templates/database/multi_table_query/form.twig:84
+#: resources/templates/database/multi_table_query/form.twig:134
 #, fuzzy
 msgid "select column"
 msgstr "إختر عمودين"
@@ -2111,8 +2112,8 @@ msgstr "ترتيب"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1457
-#: src/Display/Results.php:1464 src/Util.php:1983 src/Util.php:2000
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1462
+#: src/Display/Results.php:1469 src/Util.php:1983 src/Util.php:2000
 msgid "Ascending"
 msgstr "تصاعديا"
 
@@ -2123,8 +2124,8 @@ msgstr "تصاعديا"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1452
-#: src/Display/Results.php:1469 src/Util.php:1988 src/Util.php:2005
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1457
+#: src/Display/Results.php:1474 src/Util.php:1988 src/Util.php:2005
 msgid "Descending"
 msgstr "تنازليا"
 
@@ -2132,37 +2133,37 @@ msgstr "تنازليا"
 msgid "Add as"
 msgstr "إضافة كـ"
 
-#: resources/templates/database/multi_table_query/form.twig:107
+#: resources/templates/database/multi_table_query/form.twig:116
 #: src/Config/ConfigFile.php:544 src/Config/ConfigFile.php:556
 #: src/Config/ConfigFile.php:564
 msgid "Text"
 msgstr "نص"
 
-#: resources/templates/database/multi_table_query/form.twig:108
+#: resources/templates/database/multi_table_query/form.twig:117
 #, fuzzy
 msgid "Another column"
 msgstr "إضافه/حذف عمود حقل"
 
-#: resources/templates/database/multi_table_query/form.twig:135
+#: resources/templates/database/multi_table_query/form.twig:144
 msgid "Enter criteria as free text"
 msgstr ""
 
-#: resources/templates/database/multi_table_query/form.twig:142
+#: resources/templates/database/multi_table_query/form.twig:151
 #, fuzzy
 msgid "Remove this column"
 msgstr "حذف الرسم البياني"
 
-#: resources/templates/database/multi_table_query/form.twig:150
+#: resources/templates/database/multi_table_query/form.twig:159
 #: resources/templates/table/relation/foreign_key_row.twig:85
 msgid "+ Add column"
 msgstr "+ إضافة عمود"
 
-#: resources/templates/database/multi_table_query/form.twig:165
+#: resources/templates/database/multi_table_query/form.twig:174
 #, fuzzy
 msgid "Update query"
 msgstr "تجديد الإستعلام"
 
-#: resources/templates/database/multi_table_query/form.twig:166
+#: resources/templates/database/multi_table_query/form.twig:175
 #: src/Html/Generator.php:542
 msgid "Submit query"
 msgstr "إرسال الإستعلام"
@@ -3097,12 +3098,12 @@ msgid "Extra options"
 msgstr "خيارات الجدول"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1111
+#: src/Display/Results.php:1116
 msgid "Partial texts"
 msgstr "نصوص جزئيّة"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1115
+#: src/Display/Results.php:1120
 msgid "Full texts"
 msgstr "نصوص كاملة"
 
@@ -3143,7 +3144,7 @@ msgstr "ثنائي معروف جيّداً"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:491
-#: src/Display/Results.php:2476 src/Html/Generator.php:78
+#: src/Display/Results.php:2481 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "نسخ"
 
@@ -5941,7 +5942,7 @@ msgid "Start auto refresh"
 msgstr "بدء التحديث التلقائي"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2550
+#: src/Display/Results.php:2555
 msgid "Kill"
 msgstr "حذف"
 
@@ -6326,7 +6327,7 @@ msgstr "نتائج التنميط"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:995 src/Display/Results.php:3134
+#: src/Database/Routines.php:995 src/Display/Results.php:3139
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "تم تنفيذ استعلام SQL الخاص بك بنجاح."
@@ -11867,7 +11868,7 @@ msgid "Success!"
 msgstr "نجاح!"
 
 #: src/Controllers/Database/StructureController.php:576
-#: src/Display/Results.php:3411
+#: src/Display/Results.php:3416
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -14862,7 +14863,7 @@ msgstr "لايوجد بيانات"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1049
+#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1050
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "تم إنشاء العلامة المرجعية %s."
@@ -15318,33 +15319,33 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2507 src/Display/Results.php:2522
+#: src/Display/Results.php:2512 src/Display/Results.php:2527
 msgid "The row has been deleted."
 msgstr "تم حذف الصف."
 
-#: src/Display/Results.php:3420
+#: src/Display/Results.php:3425
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "عرض الصفوف من %1s إلى %2s"
 
-#: src/Display/Results.php:3434
+#: src/Display/Results.php:3439
 #, fuzzy, php-format
 #| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "%1$d جملة %2$d طلب بحث"
 
-#: src/Display/Results.php:3439
+#: src/Display/Results.php:3444
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "المجموع %d"
 
-#: src/Display/Results.php:3452 src/Sql.php:865
+#: src/Display/Results.php:3457 src/Sql.php:865
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "استغرق الاستعلام %01.4f ثانية."
 
-#: src/Display/Results.php:3758
+#: src/Display/Results.php:3763
 msgid "Link not found!"
 msgstr "لم يتم العثور على الرابط!"
 
@@ -17749,14 +17750,14 @@ msgstr ""
 msgid "Showing as PHP code"
 msgstr "تظهر كملف PHP"
 
-#: src/Sql.php:1215
+#: src/Sql.php:1219
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: src/Sql.php:1229
+#: src/Sql.php:1233
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

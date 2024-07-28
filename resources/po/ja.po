@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-07-21 00:22+0000\n"
+"POT-Creation-Date: 2024-07-28 00:22+0000\n"
 "PO-Revision-Date: 2024-06-03 04:09+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -199,7 +199,7 @@ msgstr "%s の後へ"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:220
-#: src/Display/Results.php:929 src/Plugins/Export/ExportSql.php:2071
+#: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:2071
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "なし"
@@ -975,7 +975,7 @@ msgstr "再クエリ"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:401
-#: src/Display/Results.php:2472 src/Html/Generator.php:517
+#: src/Display/Results.php:2477 src/Html/Generator.php:517
 #: src/Html/Generator.php:783
 msgid "Edit"
 msgstr "編集"
@@ -994,7 +994,7 @@ msgstr "編集"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:188
 #: src/Controllers/JavaScriptMessagesController.php:403
-#: src/Display/Results.php:2531 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2536 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "削除"
 
@@ -1972,12 +1972,13 @@ msgid "Query window"
 msgstr "クエリウィンドウ"
 
 #: resources/templates/database/multi_table_query/form.twig:27
-#: resources/templates/database/multi_table_query/form.twig:117
+#: resources/templates/database/multi_table_query/form.twig:126
 msgid "select table"
 msgstr "テーブルを選択してください"
 
 #: resources/templates/database/multi_table_query/form.twig:34
-#: resources/templates/database/multi_table_query/form.twig:125
+#: resources/templates/database/multi_table_query/form.twig:84
+#: resources/templates/database/multi_table_query/form.twig:134
 msgid "select column"
 msgstr "カラムを選択してください"
 
@@ -2017,8 +2018,8 @@ msgstr "ソート"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1457
-#: src/Display/Results.php:1464 src/Util.php:1983 src/Util.php:2000
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1462
+#: src/Display/Results.php:1469 src/Util.php:1983 src/Util.php:2000
 msgid "Ascending"
 msgstr "昇順"
 
@@ -2029,8 +2030,8 @@ msgstr "昇順"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1452
-#: src/Display/Results.php:1469 src/Util.php:1988 src/Util.php:2005
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1457
+#: src/Display/Results.php:1474 src/Util.php:1988 src/Util.php:2005
 msgid "Descending"
 msgstr "降順"
 
@@ -2038,34 +2039,34 @@ msgstr "降順"
 msgid "Add as"
 msgstr "次の値として追加する"
 
-#: resources/templates/database/multi_table_query/form.twig:107
+#: resources/templates/database/multi_table_query/form.twig:116
 #: src/Config/ConfigFile.php:544 src/Config/ConfigFile.php:556
 #: src/Config/ConfigFile.php:564
 msgid "Text"
 msgstr "テキスト"
 
-#: resources/templates/database/multi_table_query/form.twig:108
+#: resources/templates/database/multi_table_query/form.twig:117
 msgid "Another column"
 msgstr "別のカラム"
 
-#: resources/templates/database/multi_table_query/form.twig:135
+#: resources/templates/database/multi_table_query/form.twig:144
 msgid "Enter criteria as free text"
 msgstr "条件を入力してください"
 
-#: resources/templates/database/multi_table_query/form.twig:142
+#: resources/templates/database/multi_table_query/form.twig:151
 msgid "Remove this column"
 msgstr "このカラムを削除"
 
-#: resources/templates/database/multi_table_query/form.twig:150
+#: resources/templates/database/multi_table_query/form.twig:159
 #: resources/templates/table/relation/foreign_key_row.twig:85
 msgid "+ Add column"
 msgstr "+ カラムを追加"
 
-#: resources/templates/database/multi_table_query/form.twig:165
+#: resources/templates/database/multi_table_query/form.twig:174
 msgid "Update query"
 msgstr "クエリを更新する"
 
-#: resources/templates/database/multi_table_query/form.twig:166
+#: resources/templates/database/multi_table_query/form.twig:175
 #: src/Html/Generator.php:542
 msgid "Submit query"
 msgstr "クエリを実行する"
@@ -2951,12 +2952,12 @@ msgid "Extra options"
 msgstr "拡張オプション"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1111
+#: src/Display/Results.php:1116
 msgid "Partial texts"
 msgstr "部分テキスト"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1115
+#: src/Display/Results.php:1120
 msgid "Full texts"
 msgstr "全文"
 
@@ -2997,7 +2998,7 @@ msgstr "空間データをバイナリで表示"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:491
-#: src/Display/Results.php:2476 src/Html/Generator.php:78
+#: src/Display/Results.php:2481 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "コピー"
 
@@ -5807,7 +5808,7 @@ msgid "Start auto refresh"
 msgstr "自動更新を開始"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2550
+#: src/Display/Results.php:2555
 msgid "Kill"
 msgstr "停止"
 
@@ -6186,7 +6187,7 @@ msgstr "プロファイリング結果の円グラフ。"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:995 src/Display/Results.php:3134
+#: src/Database/Routines.php:995 src/Display/Results.php:3139
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL は正常に実行されました。"
@@ -11992,7 +11993,7 @@ msgid "Success!"
 msgstr "成功！"
 
 #: src/Controllers/Database/StructureController.php:576
-#: src/Display/Results.php:3411
+#: src/Display/Results.php:3416
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15042,7 +15043,7 @@ msgstr "データが正しくありません"
 msgid "Wrong data or no validation for %s"
 msgstr "「%s」のデータが間違っているか、検証されていません"
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1049
+#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1050
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "ブックマーク %s を作成しました。"
@@ -15485,31 +15486,31 @@ msgstr ""
 "エラー1045：ユーザのアクセスが拒否されました。追加のエラー情報が利用できる場"
 "合がありますが、%s 構成ディレクティブによって隠されています。"
 
-#: src/Display/Results.php:2507 src/Display/Results.php:2522
+#: src/Display/Results.php:2512 src/Display/Results.php:2527
 msgid "The row has been deleted."
 msgstr "行を削除しました。"
 
-#: src/Display/Results.php:3420
+#: src/Display/Results.php:3425
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "行 %1s - %2s の表示"
 
-#: src/Display/Results.php:3434
+#: src/Display/Results.php:3439
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "合計 %1$s, クエリで %2$s"
 
-#: src/Display/Results.php:3439
+#: src/Display/Results.php:3444
 #, php-format
 msgid "%s total"
 msgstr "合計 %s"
 
-#: src/Display/Results.php:3452 src/Sql.php:865
+#: src/Display/Results.php:3457 src/Sql.php:865
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "クエリの実行時間： %01.4f 秒。"
 
-#: src/Display/Results.php:3758
+#: src/Display/Results.php:3763
 msgid "Link not found!"
 msgstr "リンクが見つかりません！"
 
@@ -18019,7 +18020,7 @@ msgstr "デフォルトの表示クエリとしてブックマーク \"%s\" を�
 msgid "Showing as PHP code"
 msgstr "PHP コードとして表示"
 
-#: src/Sql.php:1215
+#: src/Sql.php:1219
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18028,7 +18029,7 @@ msgstr ""
 "現在の選択には、ユニークなカラムが含まれていません。グリッド編集、チェック"
 "ボックス、編集、コピー、削除機能は利用できません。%s"
 
-#: src/Sql.php:1229
+#: src/Sql.php:1233
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

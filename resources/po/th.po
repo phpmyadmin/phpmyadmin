@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-07-21 00:22+0000\n"
+"POT-Creation-Date: 2024-07-28 00:22+0000\n"
 "PO-Revision-Date: 2022-11-07 12:02+0000\n"
 "Last-Translator: AefghThreenine <aefgh39622@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -216,7 +216,7 @@ msgstr "หลัง %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:220
-#: src/Display/Results.php:929 src/Plugins/Export/ExportSql.php:2071
+#: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:2071
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "ไม่มี"
@@ -1053,7 +1053,7 @@ msgstr "ในคำค้น"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:401
-#: src/Display/Results.php:2472 src/Html/Generator.php:517
+#: src/Display/Results.php:2477 src/Html/Generator.php:517
 #: src/Html/Generator.php:783
 msgid "Edit"
 msgstr "แก้ไข"
@@ -1072,7 +1072,7 @@ msgstr "แก้ไข"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:188
 #: src/Controllers/JavaScriptMessagesController.php:403
-#: src/Display/Results.php:2531 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2536 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "ลบ"
 
@@ -2185,14 +2185,15 @@ msgid "Query window"
 msgstr "หน้าต่างแบบสอบถาม"
 
 #: resources/templates/database/multi_table_query/form.twig:27
-#: resources/templates/database/multi_table_query/form.twig:117
+#: resources/templates/database/multi_table_query/form.twig:126
 #, fuzzy
 #| msgid "Select Tables"
 msgid "select table"
 msgstr "เลือกตาราง"
 
 #: resources/templates/database/multi_table_query/form.twig:34
-#: resources/templates/database/multi_table_query/form.twig:125
+#: resources/templates/database/multi_table_query/form.twig:84
+#: resources/templates/database/multi_table_query/form.twig:134
 msgid "select column"
 msgstr "เลือกคอลัมน์"
 
@@ -2238,8 +2239,8 @@ msgstr "เรียง"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1457
-#: src/Display/Results.php:1464 src/Util.php:1983 src/Util.php:2000
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1462
+#: src/Display/Results.php:1469 src/Util.php:1983 src/Util.php:2000
 msgid "Ascending"
 msgstr "น้อยไปมาก"
 
@@ -2250,8 +2251,8 @@ msgstr "น้อยไปมาก"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1452
-#: src/Display/Results.php:1469 src/Util.php:1988 src/Util.php:2005
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1457
+#: src/Display/Results.php:1474 src/Util.php:1988 src/Util.php:2005
 msgid "Descending"
 msgstr "มากไปน้อย"
 
@@ -2261,7 +2262,7 @@ msgstr "มากไปน้อย"
 msgid "Add as"
 msgstr "เพิ่ม %s"
 
-#: resources/templates/database/multi_table_query/form.twig:107
+#: resources/templates/database/multi_table_query/form.twig:116
 #: src/Config/ConfigFile.php:544 src/Config/ConfigFile.php:556
 #: src/Config/ConfigFile.php:564
 #, fuzzy
@@ -2269,35 +2270,35 @@ msgstr "เพิ่ม %s"
 msgid "Text"
 msgstr "ทดสอบ"
 
-#: resources/templates/database/multi_table_query/form.twig:108
+#: resources/templates/database/multi_table_query/form.twig:117
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Another column"
 msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
 
-#: resources/templates/database/multi_table_query/form.twig:135
+#: resources/templates/database/multi_table_query/form.twig:144
 msgid "Enter criteria as free text"
 msgstr ""
 
-#: resources/templates/database/multi_table_query/form.twig:142
+#: resources/templates/database/multi_table_query/form.twig:151
 #, fuzzy
 #| msgid "Remove chart"
 msgid "Remove this column"
 msgstr "เอาการแสดงผลออก"
 
-#: resources/templates/database/multi_table_query/form.twig:150
+#: resources/templates/database/multi_table_query/form.twig:159
 #: resources/templates/table/relation/foreign_key_row.twig:85
 #, fuzzy
 msgid "+ Add column"
 msgstr "เพิ่มฟิลด์ใหม่"
 
-#: resources/templates/database/multi_table_query/form.twig:165
+#: resources/templates/database/multi_table_query/form.twig:174
 #, fuzzy
 #| msgid "Update Query"
 msgid "Update query"
 msgstr "ปรับปรุงคำค้น"
 
-#: resources/templates/database/multi_table_query/form.twig:166
+#: resources/templates/database/multi_table_query/form.twig:175
 #: src/Html/Generator.php:542
 #, fuzzy
 #| msgid "Submit Query"
@@ -3287,14 +3288,14 @@ msgid "Extra options"
 msgstr "ตัวเลือกตาราง"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1111
+#: src/Display/Results.php:1116
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "ข้อความบางส่วน"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1115
+#: src/Display/Results.php:1120
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
@@ -3341,7 +3342,7 @@ msgstr "ไบนารีที่รู้จักกันดี"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:491
-#: src/Display/Results.php:2476 src/Html/Generator.php:78
+#: src/Display/Results.php:2481 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "คัดลอก"
 
@@ -6415,7 +6416,7 @@ msgid "Start auto refresh"
 msgstr "เริ่มการรีเฟรชอัตโนมัติ"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2550
+#: src/Display/Results.php:2555
 msgid "Kill"
 msgstr "ฆ่าทิ้ง"
 
@@ -6836,7 +6837,7 @@ msgstr "ผลลัพธ์"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:995 src/Display/Results.php:3134
+#: src/Database/Routines.php:995 src/Display/Results.php:3139
 #: src/Message.php:122
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -12833,7 +12834,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:576
-#: src/Display/Results.php:3411
+#: src/Display/Results.php:3416
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15866,7 +15867,7 @@ msgstr "ไม่มีฐานข้อมูล"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1049
+#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1050
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "บุ๊คมาร์ค %s ได้ถูกสร้างขึ้น"
@@ -16356,36 +16357,36 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2507 src/Display/Results.php:2522
+#: src/Display/Results.php:2512 src/Display/Results.php:2527
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "ลบเรียบร้อยแล้ว"
 
-#: src/Display/Results.php:3420
+#: src/Display/Results.php:3425
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "กำลังแสดงแถวที่ %1s - %2s"
 
-#: src/Display/Results.php:3434
+#: src/Display/Results.php:3439
 #, fuzzy, php-format
 #| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "ทั้งหมด %1$d, %2$d ในคำค้น"
 
-#: src/Display/Results.php:3439
+#: src/Display/Results.php:3444
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "ทั้งหมด %d"
 
-#: src/Display/Results.php:3452 src/Sql.php:865
+#: src/Display/Results.php:3457 src/Sql.php:865
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "คำค้นใช้เวลา %01.4f วินาที"
 
-#: src/Display/Results.php:3758
+#: src/Display/Results.php:3763
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -18909,7 +18910,7 @@ msgstr ""
 msgid "Showing as PHP code"
 msgstr ""
 
-#: src/Sql.php:1215
+#: src/Sql.php:1219
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -18920,7 +18921,7 @@ msgid ""
 msgstr ""
 "ตารางนี้ไม่มีสดมภ์ไหนที่เก็บค่าที่แตกต่างกันเสมอ การแก้ไขหรือเพิ่มผ่านตารางจะไม่สามารถบันทึกได้"
 
-#: src/Sql.php:1229
+#: src/Sql.php:1233
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
