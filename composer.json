@@ -47,7 +47,7 @@
         }
     ],
     "require": {
-        "php": "^8.1.2",
+        "php": "^8.2",
         "ext-hash": "*",
         "ext-iconv": "*",
         "ext-json": "*",
@@ -75,7 +75,6 @@
         "symfony/expression-language": "^6.2",
         "symfony/polyfill-ctype": "^1.24",
         "symfony/polyfill-mbstring": "^1.24",
-        "symfony/polyfill-php82": "^1.29",
         "twig/twig": "^3.9",
         "webmozart/assert": "^1.10",
         "williamdes/mariadb-mysql-kbs": "^1.2"
@@ -154,7 +153,7 @@
             "composer/package-versions-deprecated": true
         },
         "platform": {
-            "php": "8.1.99"
+            "php": "8.2.99"
         }
     }
 }

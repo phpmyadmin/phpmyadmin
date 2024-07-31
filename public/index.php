@@ -11,8 +11,8 @@ if (! defined('ROOT_PATH')) {
 
 // phpcs:enable
 
-if (PHP_VERSION_ID < 80102) {
-    die('<p>PHP 8.1.2+ is required.</p><p>Currently installed version is: ' . PHP_VERSION . '</p>');
+if (PHP_VERSION_ID < 80200) {
+    die('<p>PHP 8.2.0+ is required.</p><p>Currently installed version is: ' . PHP_VERSION . '</p>');
 }
 
 require_once ROOT_PATH . 'app/constants.php';
