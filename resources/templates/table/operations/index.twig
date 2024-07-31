@@ -42,7 +42,7 @@
   </form>
 {% endif %}
 
-<form method="post" action="{{ url('/table/operations') }}" id="moveTableForm" class="ajax" onsubmit="return Functions.emptyCheckTheField(this, 'new_name')">
+<form method="post" action="{{ url('/table/operations') }}" id="moveTableForm" class="ajax" onsubmit="return window.pmaEmptyCheckTheField(this, 'new_name')">
   {{ get_hidden_inputs(db, table) }}
   <input type="hidden" name="reload" value="1">
   <input type="hidden" name="what" value="data">
@@ -244,7 +244,7 @@
   </div>
 </form>
 
-<form method="post" action="{{ url('/table/operations') }}" name="copyTable" id="copyTable" class="ajax" onsubmit="return Functions.emptyCheckTheField(this, 'new_name')">
+<form method="post" action="{{ url('/table/operations') }}" name="copyTable" id="copyTable" class="ajax" onsubmit="return window.pmaEmptyCheckTheField(this, 'new_name')">
   {{ get_hidden_inputs(db, table) }}
   <input type="hidden" name="reload" value="1">
 

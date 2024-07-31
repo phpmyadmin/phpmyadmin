@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { Functions } from '../modules/functions.ts';
+import { addDateTimePicker } from '../modules/functions.ts';
 
 /**
  * @fileoverview    function used in table data manipulation pages
@@ -944,7 +944,7 @@ function addNewContinueInsertionFields (event) {
     }
 
     // Add all the required datepickers back
-    Functions.addDateTimePicker();
+    addDateTimePicker();
 }
 
 function changeValueFieldType (elem, searchIndex) {

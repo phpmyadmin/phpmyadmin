@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { Functions } from '../modules/functions.ts';
+import { emptyCheckTheField, prepareForAjaxRequest } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { CommonParams } from '../modules/common.ts';
 import { ajaxShowMessage } from '../modules/ajax-message.ts';
@@ -42,7 +42,7 @@ AJAX.registerOnload('database/operations.js', function () {
     $(document).on('submit', '#rename_db_form.ajax', function (event) {
         event.preventDefault();
 
-        if (Functions.emptyCheckTheField(this, 'newname')) {
+        if (emptyCheckTheField(this, 'newname')) {
             ajaxShowMessage(window.Messages.strFormEmpty, false, 'error');
 
             return false;
@@ -61,7 +61,7 @@ AJAX.registerOnload('database/operations.js', function () {
 
         var question = escapeHtml('CREATE DATABASE ' + newDbName + ' / DROP DATABASE ' + oldDbName);
 
-        Functions.prepareForAjaxRequest($form);
+        prepareForAjaxRequest($form);
 
         $form.confirm(question, $form.attr('action'), function (url) {
             ajaxShowMessage(window.Messages.strRenamingDatabases, false);
@@ -94,7 +94,7 @@ AJAX.registerOnload('database/operations.js', function () {
     $(document).on('submit', '#copy_db_form.ajax', function (event) {
         event.preventDefault();
 
-        if (Functions.emptyCheckTheField(this, 'newname')) {
+        if (emptyCheckTheField(this, 'newname')) {
             ajaxShowMessage(window.Messages.strFormEmpty, false, 'error');
 
             return false;
@@ -102,7 +102,7 @@ AJAX.registerOnload('database/operations.js', function () {
 
         ajaxShowMessage(window.Messages.strCopyingDatabase, false);
         var $form = $(this);
-        Functions.prepareForAjaxRequest($form);
+        prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize(), function (data) {
             // use messages that stay on screen
             $('.alert-success, .alert-danger').fadeOut();
@@ -139,7 +139,7 @@ AJAX.registerOnload('database/operations.js', function () {
     $(document).on('submit', '#change_db_charset_form.ajax', function (event) {
         event.preventDefault();
         var $form = $(this);
-        Functions.prepareForAjaxRequest($form);
+        prepareForAjaxRequest($form);
         ajaxShowMessage(window.Messages.strChangingCharset);
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (typeof data !== 'undefined' && data.success === true) {

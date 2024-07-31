@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.ts';
-import { Functions } from './modules/functions.ts';
+import { formatBytes } from './modules/functions.ts';
 import { Navigation } from './modules/navigation.ts';
 import { CommonParams } from './modules/common.ts';
 import { ajaxShowMessage } from './modules/ajax-message.ts';
@@ -217,10 +217,10 @@ AJAX.registerOnload('import.js', function () {
 
                             var statusText = window.sprintf(
                                 window.Messages.uploadProgressStatusText,
-                                Functions.formatBytes(
+                                formatBytes(
                                     complete, 1, window.Messages.strDecimalSeparator
                                 ),
-                                Functions.formatBytes(
+                                formatBytes(
                                     total, 1, window.Messages.strDecimalSeparator
                                 )
                             );
@@ -243,7 +243,7 @@ AJAX.registerOnload('import.js', function () {
                                 var seconds = parseInt((((total - complete) / complete) * usedTime / 1000).toString());
                                 var speed = window.sprintf(
                                     window.Messages.uploadProgressPerSecond,
-                                    Functions.formatBytes(complete / usedTime * 1000, 1, window.Messages.strDecimalSeparator)
+                                    formatBytes(complete / usedTime * 1000, 1, window.Messages.strDecimalSeparator)
                                 );
 
                                 var minutes = parseInt((seconds / 60).toString());

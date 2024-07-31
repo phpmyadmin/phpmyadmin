@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.ts';
-import { Functions } from './modules/functions.ts';
+import { addDatepicker, getSqlEditor, slidingMessage } from './modules/functions.ts';
 import { Navigation } from './modules/navigation.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from './modules/ajax-message.ts';
 import getJsConfirmCommonParam from './modules/functions/getJsConfirmCommonParam.ts';
@@ -155,7 +155,7 @@ const DatabaseTriggers = {
              *           to the Export textarea.
              */
             var $elm = $ajaxDialog.find('textarea');
-            Functions.getSqlEditor($elm);
+            getSqlEditor($elm);
         } // end showExport()
     },  // end exportDialog()
     editorDialog: function (isNew, $this) {
@@ -230,7 +230,7 @@ const DatabaseTriggers = {
 
                     // Item created successfully
                     ajaxRemoveMessage($msg);
-                    Functions.slidingMessage(data.message);
+                    slidingMessage(data.message);
                     that.$ajaxDialog.dialog('close');
                     // If we are in 'edit' mode, we must
                     // remove the reference to the old row.
@@ -358,11 +358,11 @@ const DatabaseTriggers = {
 
                     $(this).find('input[name=item_name]').trigger('focus');
                     $(this).find('input.datefield').each(function () {
-                        Functions.addDatepicker($(this).css('width', '95%'), 'date');
+                        addDatepicker($(this).css('width', '95%'), 'date');
                     });
 
                     $(this).find('input.datetimefield').each(function () {
-                        Functions.addDatepicker($(this).css('width', '95%'), 'datetime');
+                        addDatepicker($(this).css('width', '95%'), 'datetime');
                     });
 
                     // @ts-ignore
@@ -391,7 +391,7 @@ const DatabaseTriggers = {
             var linterOptions = {
                 editorType: 'trigger',
             };
-            that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'vertical', linterOptions);
+            that.syntaxHiglighter = getSqlEditor($elm, {}, 'vertical', linterOptions);
             window.codeMirrorEditor = that.syntaxHiglighter;
         }); // end $.get()
     },
@@ -465,7 +465,7 @@ const DatabaseTriggers = {
                 // Get rid of the "Loading" message
                 ajaxRemoveMessage($msg);
                 // Show the query that we just executed
-                Functions.slidingMessage(data.sql_query);
+                slidingMessage(data.sql_query);
                 Navigation.reload();
             }); // end $.post()
         });

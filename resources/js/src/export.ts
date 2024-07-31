@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.ts';
-import { Functions } from './modules/functions.ts';
+import { setSelectOptions } from './modules/functions.ts';
 import { CommonParams } from './modules/common.ts';
 import highlightSql from './modules/sql-highlight.ts';
 import { ajaxShowMessage } from './modules/ajax-message.ts';
@@ -1072,18 +1072,18 @@ AJAX.registerOnload('export.js', function () {
         $('#column_alias_name').val('');
     });
 
-    var setSelectOptions = function (doCheck) {
-        Functions.setSelectOptions('dump', 'db_select[]', doCheck);
+    var setDbSelectOptions = function (doCheck) {
+        setSelectOptions('dump', 'db_select[]', doCheck);
     };
 
     $('#db_select_all').on('click', function (e) {
         e.preventDefault();
-        setSelectOptions(true);
+        setDbSelectOptions(true);
     });
 
     $('#db_unselect_all').on('click', function (e) {
         e.preventDefault();
-        setSelectOptions(false);
+        setDbSelectOptions(false);
     });
 
     $('#buttonGo').on('click', function () {

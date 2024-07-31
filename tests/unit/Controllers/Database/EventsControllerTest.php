@@ -174,7 +174,7 @@ final class EventsControllerTest extends AbstractTestCase
                 </tr>
                 </tbody>
               </table>
-              <span class="hide callback">Functions.slidingMessage(data.sql_query);</span>
+              <span class="hide callback">window.pmaSlidingMessage(data.sql_query);</span>
               <span class="hide text_direction">ltr</span>
             </div>
           </div>
@@ -301,7 +301,7 @@ HTML;
                 </tr>
                 </tbody>
               </table>
-              <span class="hide callback">Functions.slidingMessage(data.sql_query);</span>
+              <span class="hide callback">window.pmaSlidingMessage(data.sql_query);</span>
               <span class="hide text_direction">ltr</span>
             </div>
           </div>

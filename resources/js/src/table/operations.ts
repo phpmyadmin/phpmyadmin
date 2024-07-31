@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { Functions } from '../modules/functions.ts';
+import { getForeignKeyCheckboxLoader, loadForeignKeyCheckbox, prepareForAjaxRequest } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { CommonParams } from '../modules/common.ts';
 import highlightSql from '../modules/sql-highlight.ts';
@@ -42,7 +42,7 @@ var confirmAndPost = function (linkObject, action): void {
     }
 
     question += window.sprintf(window.Messages.strDoYouReally, linkObject.data('query'));
-    question += Functions.getForeignKeyCheckboxLoader();
+    question += getForeignKeyCheckboxLoader();
     linkObject.confirm(question, linkObject.attr('href'), function (url) {
         ajaxShowMessage(window.Messages.strProcessingRequest);
 
@@ -66,7 +66,7 @@ var confirmAndPost = function (linkObject, action): void {
                 ajaxShowMessage(data.error, false);
             }
         });
-    }, Functions.loadForeignKeyCheckbox);
+    }, loadForeignKeyCheckbox);
 };
 
 /**
@@ -80,7 +80,7 @@ AJAX.registerOnload('table/operations.js', function () {
     $(document).on('submit', '#copyTable.ajax', function (event) {
         event.preventDefault();
         var $form = $(this);
-        Functions.prepareForAjaxRequest($form);
+        prepareForAjaxRequest($form);
         var argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_copy=Go', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
@@ -117,7 +117,7 @@ AJAX.registerOnload('table/operations.js', function () {
     $(document).on('submit', '#moveTableForm', function (event) {
         event.preventDefault();
         var $form = $(this);
-        Functions.prepareForAjaxRequest($form);
+        prepareForAjaxRequest($form);
         var argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_move=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
@@ -151,7 +151,7 @@ AJAX.registerOnload('table/operations.js', function () {
 
         if ($tblNameField.val() !== $tblNameField[0].defaultValue) {
             // reload page and navigation if the table has been renamed
-            Functions.prepareForAjaxRequest($form);
+            prepareForAjaxRequest($form);
 
             if ($tblCollationField.val() !== collationOrigValue && $changeAllColumnCollationsCheckBox.is(':checked')) {
                 $form.confirm(question, $form.attr('action'), function () {
@@ -289,7 +289,7 @@ AJAX.registerOnload('table/operations.js', function () {
          */
         var question = window.Messages.strDropTableStrongWarning + ' ';
         question += window.sprintf(window.Messages.strDoYouReally, $link[0].getAttribute('data-query'));
-        question += Functions.getForeignKeyCheckboxLoader();
+        question += getForeignKeyCheckboxLoader();
 
         $(this).confirm(question, $(this).attr('href'), function (url) {
             var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
@@ -310,7 +310,7 @@ AJAX.registerOnload('table/operations.js', function () {
                     ajaxShowMessage(data.error, false);
                 }
             });
-        }, Functions.loadForeignKeyCheckbox);
+        }, loadForeignKeyCheckbox);
     }); // end of Drop Table Ajax action
 
     $(document).on('click', '#drop_view_anchor.ajax', function (event) {

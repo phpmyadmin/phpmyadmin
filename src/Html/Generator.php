@@ -930,7 +930,7 @@ class Generator
 
         if (is_string($tagParams)) {
             $tagParams = $tagParams !== '' ?
-                ['onclick' => 'return Functions.confirmLink(this, ' . json_encode($tagParams, JSON_HEX_TAG) . ')'] :
+                ['onclick' => 'return window.pmaConfirmLink(this, ' . json_encode($tagParams, JSON_HEX_TAG) . ')'] :
                 [];
         }
 

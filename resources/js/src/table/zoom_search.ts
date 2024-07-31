@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { Functions } from '../modules/functions.ts';
+import { addDateTimePicker } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import highlightSql from '../modules/sql-highlight.ts';
 import { ajaxShowMessage } from '../modules/ajax-message.ts';
@@ -174,7 +174,7 @@ AJAX.registerOnload('table/zoom_search.js', function () {
             xType = data.field_type;
             $('#collations_0').val(data.field_collations);
             comparisonOperatorOnChange();
-            Functions.addDateTimePicker();
+            addDateTimePicker();
         });
     });
 
@@ -199,7 +199,7 @@ AJAX.registerOnload('table/zoom_search.js', function () {
             yType = data.field_type;
             $('#collations_1').val(data.field_collations);
             comparisonOperatorOnChange();
-            Functions.addDateTimePicker();
+            addDateTimePicker();
         });
     });
 
@@ -221,7 +221,7 @@ AJAX.registerOnload('table/zoom_search.js', function () {
             $('#types_2').val(data.field_type);
             $('#collations_2').val(data.field_collations);
             comparisonOperatorOnChange();
-            Functions.addDateTimePicker();
+            addDateTimePicker();
         });
     });
 
@@ -243,7 +243,7 @@ AJAX.registerOnload('table/zoom_search.js', function () {
             $('#types_3').val(data.field_type);
             $('#collations_3').val(data.field_collations);
             comparisonOperatorOnChange();
-            Functions.addDateTimePicker();
+            addDateTimePicker();
         });
     });
 

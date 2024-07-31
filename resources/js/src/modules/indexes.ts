@@ -1,6 +1,15 @@
 import $ from 'jquery';
 import { AJAX } from './ajax.ts';
-import { Functions } from './functions.ts';
+import {
+    checkFormElementInRange,
+    confirmPreviewSql,
+    hideShowConnection,
+    indexEditorDialog,
+    indexRenameDialog,
+    previewSql,
+    showHints,
+    showIndexEditDialog
+} from './functions.ts';
 import { Navigation } from './navigation.ts';
 import { CommonParams } from './common.ts';
 import highlightSql from './sql-highlight.ts';
@@ -375,7 +384,7 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
                 $('#addIndexModalLabel').first().text(window.Messages.strAddIndex);
                 $('#addIndexModal').find('.modal-body').first().html(data.message);
                 checkIndexName('index_frm');
-                Functions.showHints($div);
+                showHints($div);
                 $('#index_columns').find('td').each(function () {
                     $(this).css('width', $(this).width() + 'px');
                 });
@@ -580,12 +589,12 @@ function on () {
         // for table creation form
         var $engineSelector = $('.create_table_form select[name=tbl_storage_engine]');
         if ($engineSelector.length) {
-            Functions.hideShowConnection($engineSelector);
+            hideShowConnection($engineSelector);
         }
 
         var $form = $('#index_frm');
         if ($form.length > 0) {
-            Functions.showIndexEditDialog($form);
+            showIndexEditDialog($form);
         }
 
         $(document).on('click', '#save_index_frm', function (event) {
@@ -600,7 +609,7 @@ function on () {
 
         $(document).on('click', '#preview_index_frm', function (event) {
             event.preventDefault();
-            Functions.previewSql($('#index_frm'));
+            previewSql($('#index_frm'));
         });
 
         $(document).on('change', '#select_index_choice', function (event) {
@@ -631,7 +640,7 @@ function on () {
                 .children('.drop_primary_key_index_msg')
                 .val();
 
-            Functions.confirmPreviewSql(question, $anchor.attr('href'), function (url) {
+            confirmPreviewSql(question, $anchor.attr('href'), function (url) {
                 var $msg = ajaxShowMessage(window.Messages.strDroppingPrimaryKeyIndex, false);
                 var params = getJsConfirmCommonParam(this, $anchor.getPostData());
                 $.post(url, params, function (data) {
@@ -683,7 +692,7 @@ function on () {
             var title;
             if ($(this).find('a').length === 0) {
                 // Add index
-                var valid = Functions.checkFormElementInRange(
+                var valid = checkFormElementInRange(
                     $(this).closest('form')[0],
                     'added_fields',
                     'Column count has to be larger than zero.'
@@ -701,7 +710,7 @@ function on () {
             }
 
             url += CommonParams.get('arg_separator') + 'ajax_request=true';
-            Functions.indexEditorDialog(url, title, function (data) {
+            indexEditorDialog(url, title, function (data) {
                 Navigation.update(CommonParams.set('db', data.params.db));
                 Navigation.update(CommonParams.set('table', data.params.table));
                 refreshMainContent('index.php?route=/table/structure');
@@ -716,7 +725,7 @@ function on () {
             var url = $(this).find('a').getPostData();
             var title = window.Messages.strRenameIndex;
             url += CommonParams.get('arg_separator') + 'ajax_request=true';
-            Functions.indexRenameDialog(url, title, function (data) {
+            indexRenameDialog(url, title, function (data) {
                 Navigation.update(CommonParams.set('db', data.params.db));
                 Navigation.update(CommonParams.set('table', data.params.table));
                 refreshMainContent('index.php?route=/table/structure');

@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { Functions } from '../modules/functions.ts';
+import { getSqlEditor } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import { ajaxShowMessage } from '../modules/ajax-message.ts';
 import { escapeBacktick } from '../modules/functions/escape.ts';
@@ -38,7 +38,7 @@ AJAX.registerTeardown('database/multi_table_query.js', function () {
 });
 
 AJAX.registerOnload('database/multi_table_query.js', function () {
-    var editor = Functions.getSqlEditor($('#MultiSqlquery'), {}, 'vertical');
+    var editor = getSqlEditor($('#MultiSqlquery'), {}, 'vertical');
     $('.CodeMirror-line').css('text-align', 'left');
     editor.setSize(-1, 50);
 

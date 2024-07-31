@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import CodeMirror from 'codemirror';
 import { AJAX } from './ajax.ts';
-import { Functions } from './functions.ts';
+import { codeMirrorAutoCompleteOnInputRead, confirmQuery } from './functions.ts';
 import { CommonParams } from './common.ts';
 import { Navigation } from './navigation.ts';
 import Config from './console/config.ts';
@@ -280,7 +280,7 @@ var Console = {
             Console.$requestForm.append('<input name="profiling" value="on">');
         }
 
-        if (! Functions.confirmQuery(Console.$requestForm[0], Console.$requestForm.children('textarea')[0].value)) {
+        if (! confirmQuery(Console.$requestForm[0], Console.$requestForm.children('textarea')[0].value)) {
             return;
         }
 
@@ -545,7 +545,7 @@ var ConsoleInput = {
                 }
             });
 
-            ConsoleInput.inputs.console.on('inputRead', Functions.codeMirrorAutoCompleteOnInputRead);
+            ConsoleInput.inputs.console.on('inputRead', codeMirrorAutoCompleteOnInputRead);
             ConsoleInput.inputs.console.on('keydown', function (instance, event) {
                 ConsoleInput.historyNavigate(event);
             });
@@ -568,7 +568,7 @@ var ConsoleInput = {
                     }
                 });
 
-                ConsoleInput.inputs.bookmark.on('inputRead', Functions.codeMirrorAutoCompleteOnInputRead);
+                ConsoleInput.inputs.bookmark.on('inputRead', codeMirrorAutoCompleteOnInputRead);
             }
         } else {
             ConsoleInput.inputs.console =
