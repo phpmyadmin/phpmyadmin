@@ -12,7 +12,7 @@ permissions:
   contents: read
 
 env:
-  php-version: "8.1"
+  php-version: "8.2"
 
 jobs:
   selenium:

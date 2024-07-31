@@ -1967,6 +1967,9 @@
     </UnusedVariable>
   </file>
   <file src="src/Controllers/Import/ImportController.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$memoryLimit]]></code>
+    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
@@ -5704,6 +5707,9 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Export/Export.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[(string) ini_get('memory_limit')]]></code>
+    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
