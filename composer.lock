@@ -313,16 +313,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmyadmin/motranslator.git",
-                "reference": "29ab5aa7815910dd18160f23f5c43aa02874277e"
+                "reference": "afbfffe07c40ae7c21fde44510469e4deef64bb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmyadmin/motranslator/zipball/29ab5aa7815910dd18160f23f5c43aa02874277e",
-                "reference": "29ab5aa7815910dd18160f23f5c43aa02874277e",
+                "url": "https://api.github.com/repos/phpmyadmin/motranslator/zipball/afbfffe07c40ae7c21fde44510469e4deef64bb3",
+                "reference": "afbfffe07c40ae7c21fde44510469e4deef64bb3",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.1",
+                "php": "^8.2",
                 "symfony/expression-language": "^6.2"
             },
             "require-dev": {
@@ -376,7 +376,7 @@
                 "issues": "https://github.com/phpmyadmin/motranslator/issues",
                 "source": "https://github.com/phpmyadmin/motranslator"
             },
-            "time": "2024-01-24T16:26:52+00:00"
+            "time": "2024-08-01T00:04:58+00:00"
         },
         {
             "name": "phpmyadmin/shapefile",
@@ -384,16 +384,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmyadmin/shapefile.git",
-                "reference": "4b64f4e0a086e821c1ec658eb5d3f19a402184a4"
+                "reference": "f825d8f2c38f74742d9a8b727e7c5fd760c76893"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmyadmin/shapefile/zipball/4b64f4e0a086e821c1ec658eb5d3f19a402184a4",
-                "reference": "4b64f4e0a086e821c1ec658eb5d3f19a402184a4",
+                "url": "https://api.github.com/repos/phpmyadmin/shapefile/zipball/f825d8f2c38f74742d9a8b727e7c5fd760c76893",
+                "reference": "f825d8f2c38f74742d9a8b727e7c5fd760c76893",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.1"
+                "php": "^8.2"
             },
             "require-dev": {
                 "phpmyadmin/coding-standard": "^4.0",
@@ -446,7 +446,7 @@
                 "issues": "https://github.com/phpmyadmin/shapefile/issues",
                 "source": "https://github.com/phpmyadmin/shapefile"
             },
-            "time": "2023-09-19T14:23:56+00:00"
+            "time": "2024-08-01T00:05:18+00:00"
         },
         {
             "name": "phpmyadmin/sql-parser",
@@ -454,16 +454,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmyadmin/sql-parser.git",
-                "reference": "417ad4cf2eaa13d61dfd67dacf0458c9b586be5d"
+                "reference": "3bc8d0dde4daaee6d074349655a248f3ee88937b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmyadmin/sql-parser/zipball/417ad4cf2eaa13d61dfd67dacf0458c9b586be5d",
-                "reference": "417ad4cf2eaa13d61dfd67dacf0458c9b586be5d",
+                "url": "https://api.github.com/repos/phpmyadmin/sql-parser/zipball/3bc8d0dde4daaee6d074349655a248f3ee88937b",
+                "reference": "3bc8d0dde4daaee6d074349655a248f3ee88937b",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.1",
+                "php": "^8.2",
                 "symfony/polyfill-mbstring": "^1.24"
             },
             "conflict": {
@@ -538,7 +538,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2024-06-14T13:09:20+00:00"
+            "time": "2024-08-01T00:10:53+00:00"
         },
         {
             "name": "psr/cache",
