@@ -13,6 +13,7 @@ import checkIndexType from './indexes/checkIndexType.ts';
 import checkIndexName from './indexes/checkIndexName.ts';
 import mainMenuResizerCallback from './functions/mainMenuResizerCallback.ts';
 import isStorageSupported from './functions/isStorageSupported.ts';
+import adjustTotals from './functions/adjustTotals.ts';
 
 /**
  * Object containing CodeMirror editor of the query editor in SQL tab.
@@ -1829,7 +1830,7 @@ export function onloadCreateTableEvents (): void {
                     $(tablesTable).sortTable('th');
 
                     // Adjust summary row
-                    window.DatabaseStructure.adjustTotals();
+                    adjustTotals();
                 }
 
                 // Refresh navigation as a new table has been added

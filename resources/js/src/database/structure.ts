@@ -7,6 +7,7 @@ import tooltip from '../modules/tooltip.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
+import adjustTotals from '../modules/functions/adjustTotals.ts';
 
 /**
  * @fileoverview    functions used on the database structure page
@@ -38,125 +39,10 @@ AJAX.registerTeardown('database/structure.js', function () {
 });
 
 /**
- * Adjust number of rows and total size in the summary
- * when truncating, creating, dropping or inserting into a table
- */
-const adjustTotals = function () {
-    var byteUnits = [
-        window.Messages.strB,
-        window.Messages.strKiB,
-        window.Messages.strMiB,
-        window.Messages.strGiB,
-        window.Messages.strTiB,
-        window.Messages.strPiB,
-        window.Messages.strEiB
-    ];
-    /**
-     * @var $allTr jQuery object that references all the rows in the list of tables
-     */
-    var $allTr = $('#tablesForm').find('table.data tbody').first().find('tr');
-    // New summary values for the table
-    var tableSum = $allTr.length;
-    var rowsSum = 0;
-    var sizeSum = 0;
-    var overheadSum = 0;
-    var rowSumApproximated = false;
-
-    $allTr.each(function () {
-        var $this = $(this);
-        var i;
-        var tmpVal;
-        // Get the number of rows for this SQL table
-        var strRows = $this.find('.tbl_rows').text();
-        // If the value is approximated
-        if (strRows.indexOf('~') === 0) {
-            rowSumApproximated = true;
-            // The approximated value contains a preceding ~ (Eg 100 --> ~100)
-            strRows = strRows.substring(1, strRows.length);
-        }
-
-        strRows = strRows.replace(/[,.\s]/g, '');
-        var intRow = parseInt(strRows, 10);
-        if (! isNaN(intRow)) {
-            rowsSum += intRow;
-        }
-
-        // Extract the size and overhead
-        var valSize = 0;
-        var valOverhead = 0;
-        var strSize = $this.find('.tbl_size span:not(.unit)').text().trim();
-        var strSizeUnit = $this.find('.tbl_size span.unit').text().trim();
-        var strOverhead = $this.find('.tbl_overhead span:not(.unit)').text().trim();
-        var strOverheadUnit = $this.find('.tbl_overhead span.unit').text().trim();
-        // Given a value and a unit, such as 100 and KiB, for the table size
-        // and overhead calculate their numeric values in bytes, such as 102400
-        for (i = 0; i < byteUnits.length; i++) {
-            if (strSizeUnit === byteUnits[i]) {
-                tmpVal = parseFloat(strSize);
-                valSize = tmpVal * Math.pow(1024, i);
-                break;
-            }
-        }
-
-        for (i = 0; i < byteUnits.length; i++) {
-            if (strOverheadUnit === byteUnits[i]) {
-                tmpVal = parseFloat(strOverhead);
-                valOverhead = tmpVal * Math.pow(1024, i);
-                break;
-            }
-        }
-
-        sizeSum += valSize;
-        overheadSum += valOverhead;
-    });
-
-    // Add some commas for readability:
-    // 1000000 becomes 1,000,000
-    var strRowSum = rowsSum + '';
-    var regex = /(\d+)(\d{3})/;
-    while (regex.test(strRowSum)) {
-        strRowSum = strRowSum.replace(regex, '$1' + ',' + '$2');
-    }
-
-    // If approximated total value add ~ in front
-    if (rowSumApproximated) {
-        strRowSum = '~' + strRowSum;
-    }
-
-    // Calculate the magnitude for the size and overhead values
-    var sizeMagnitude = 0;
-    var overheadMagnitude = 0;
-    while (sizeSum >= 1024) {
-        sizeSum /= 1024;
-        sizeMagnitude++;
-    }
-
-    while (overheadSum >= 1024) {
-        overheadSum /= 1024;
-        overheadMagnitude++;
-    }
-
-    sizeSum = Math.round(sizeSum * 10) / 10;
-    overheadSum = Math.round(overheadSum * 10) / 10;
-
-    // Update summary with new data
-    var $summary = $('#tbl_summary_row');
-    $summary.find('.tbl_num').text(window.sprintf(window.Messages.strNTables, tableSum));
-    if (rowSumApproximated) {
-        $summary.find('.row_count_sum').text(strRowSum);
-    } else {
-        $summary.find('.tbl_rows').text(strRowSum);
-    }
-
-    $summary.find('.tbl_size').text(sizeSum + ' ' + byteUnits[sizeMagnitude]);
-    $summary.find('.tbl_overhead').text(overheadSum + ' ' + byteUnits[overheadMagnitude]);
-};
-
-/**
  * Gets the real row count for a table or DB.
  * @param {object} $target Target for appending the real count value.
  */
-const fetchRealRowCount = function ($target) {
+function fetchRealRowCount ($target) {
     var $throbber = $('#pma_navigation').find('.throbber')
         .first()
         .clone()
@@ -177,7 +63,7 @@ const fetchRealRowCount = function ($target) {
                             // Update each table row count.
                             $('table.data td[data-table*="' + table.table + '"]')
                                 .text(table.row_count);
-                        }
+                        },
                     );
                 }
 
@@ -188,16 +74,16 @@ const fetchRealRowCount = function ($target) {
                 }
 
                 // Adjust the 'Sum' displayed at the bottom.
-                DatabaseStructure.adjustTotals();
+                adjustTotals();
             } else {
                 ajaxShowMessage(window.Messages.strErrorRealRowCount);
             }
         },
         error: function () {
             ajaxShowMessage(window.Messages.strErrorRealRowCount);
-        }
+        },
     });
-};
+}
 
 AJAX.registerOnload('database/structure.js', function () {
     /**
@@ -356,7 +242,7 @@ AJAX.registerOnload('database/structure.js', function () {
                     var $tr = $thisAnchor.closest('tr');
                     $tr.find('.tbl_rows').text('0');
                     $tr.find('.tbl_size, .tbl_overhead').text('-');
-                    DatabaseStructure.adjustTotals();
+                    adjustTotals();
                 } else {
                     ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
@@ -408,7 +294,7 @@ AJAX.registerOnload('database/structure.js', function () {
                 if (typeof data !== 'undefined' && data.success === true) {
                     ajaxShowMessage(data.message);
                     $currRow.hide('medium').remove();
-                    DatabaseStructure.adjustTotals();
+                    adjustTotals();
                     Navigation.reload();
                     ajaxRemoveMessage($msg);
                 } else {
@@ -426,25 +312,12 @@ AJAX.registerOnload('database/structure.js', function () {
     // Get real row count via Ajax.
     $('a.real_row_count').on('click', function (event) {
         event.preventDefault();
-        DatabaseStructure.fetchRealRowCount($(this));
+        fetchRealRowCount($(this));
     });
 
     // Get all real row count.
     $('a.row_count_sum').on('click', function (event) {
         event.preventDefault();
-        DatabaseStructure.fetchRealRowCount($(this));
+        fetchRealRowCount($(this));
     });
 });
-
-const DatabaseStructure = {
-    adjustTotals: adjustTotals,
-    fetchRealRowCount: fetchRealRowCount,
-};
-
-declare global {
-    interface Window {
-        DatabaseStructure: typeof DatabaseStructure;
-    }
-}
-
-window.DatabaseStructure = DatabaseStructure;
