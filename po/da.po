@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-03-13 13:05+0000\n"
+"PO-Revision-Date: 2024-08-07 17:09+0000\n"
 "Last-Translator: Henrik Dankvardt <dankvardt@gmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/4-9/da/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -2301,7 +2301,7 @@ msgstr ""
 
 #: js/messages.php:564
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "value/subQuery er tom"
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -2365,10 +2365,8 @@ msgid "%d object(s) created."
 msgstr "%d objekt(er) oprettet."
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Kolonnenavne"
+msgstr "Kolonnenavn"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -2710,7 +2708,7 @@ msgstr "Stærk"
 
 #: js/messages.php:751
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Ventende på sikkerhedsnøgle-aktivering løb tiden ud."
 
 #: js/messages.php:752
 #, php-format
@@ -5318,18 +5316,14 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Gem databaser som matcher regulært udtryk (PCRE)."
 
 #: libraries/classes/Config/Descriptions.php:1041
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Mere information om [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] og [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"Mere information på [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]"
+"phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:1045
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -6171,10 +6165,8 @@ msgid "Console height"
 msgstr "Konsolhøjde"
 
 #: libraries/classes/Config/Descriptions.php:1478
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
-msgstr "Konsol"
+msgstr "Konsol tilstand"
 
 #: libraries/classes/Config/Descriptions.php:1480
 #: templates/console/display.twig:64
@@ -6186,10 +6178,8 @@ msgid "Order"
 msgstr "Rækkefølge"
 
 #: libraries/classes/Config/Descriptions.php:1484
-#, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
-msgstr "Rækkefølge:"
+msgstr "Sorter efter:"
 
 #: libraries/classes/Config/FormDisplay.php:99
 #: libraries/classes/Config/Validator.php:528
