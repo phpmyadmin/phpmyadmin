@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-08-04 00:21+0000\n"
-"PO-Revision-Date: 2024-05-20 08:01+0000\n"
-"Last-Translator: Mohsen Bakhshande <waltonmohsen@gmail.com>\n"
+"PO-Revision-Date: 2024-08-09 14:09+0000\n"
+"Last-Translator: Hojat Ghanad <hojat.ghanad@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fa/>\n"
 "Language: fa\n"
@@ -13,19 +13,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
-#, fuzzy
-#| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point!"
-msgstr "از اینجا نیاز به فعال سازی کوکی ها دارید."
+msgstr "برای عبور ازین مرحله باید جاوا اسکریپت فعال باشد!"
 
 #: resources/templates/base.twig:46
-#, fuzzy
-#| msgid "Add user"
 msgid "Open user account menu"
-msgstr "افزودن کاربر"
+msgstr "باز کردن منوی حساب کاربری"
 
 #: resources/templates/base.twig:57 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
@@ -33,45 +29,37 @@ msgid "phpMyAdmin documentation"
 msgstr "مستندات phpMyAdmin"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB documentation"
-msgstr "مستندات"
+msgstr "مستندات MariaDB"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL documentation"
-msgstr "مستندات"
+msgstr "مستندات MySQL"
 
 #: resources/templates/base.twig:73
-#, fuzzy
-#| msgid "Appearance settings"
 msgid "Appearance:"
-msgstr "تنظیمات ظاهری"
+msgstr "تنظیمات ظاهر"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "حالت رنگی پوسته"
 
 #: resources/templates/base.twig:80 resources/templates/home/index.twig:154
-#, fuzzy
-#| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr "راست"
+msgstr "روشن"
 
 #: resources/templates/base.twig:82 resources/templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "تاریک"
 
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:474
 #: src/Util.php:1456
 msgid "Settings"
-msgstr "تنظیم"
+msgstr "تنظیمات"
 
 #: resources/templates/base.twig:99 resources/templates/navigation/main.twig:30
 #: resources/templates/navigation/main.twig:31
@@ -80,14 +68,12 @@ msgstr "خروج"
 
 #: resources/templates/base.twig:108
 #: src/Controllers/JavaScriptMessagesController.php:340
-#, fuzzy
-#| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "تغيير تنظیمات"
+msgstr "تنظیمات برگه‌های مرتبط"
 
 #: resources/templates/base.twig:110
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "روی میله کلک کنید تا به بالای برگه بروید"
 
 #: resources/templates/base.twig:132 resources/templates/base.twig:134
 #: resources/templates/base.twig:136
@@ -102,13 +88,11 @@ msgstr "سرور دموی phpMyAdmin"
 #: resources/templates/base.twig:159
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "در حال اجرای رونوشت گیت %1$s از شاخه%2$s ."
 
 #: resources/templates/base.twig:161
-#, fuzzy
-#| msgid "Version information"
 msgid "Git information missing!"
-msgstr "اطلاعات نسخه"
+msgstr "اطلاعات گیت در دسترس نیست!"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
@@ -185,14 +169,12 @@ msgstr "كاملا متن"
 #: resources/templates/table/structure/display_structure.twig:192
 #: resources/templates/table/structure/display_structure.twig:293
 msgid "Spatial"
-msgstr ""
+msgstr "فضایی"
 
 #: resources/templates/columns_definitions/column_attributes.twig:165
 #: resources/templates/table/structure/display_partitions.twig:27
-#, fuzzy
-#| msgid "Compression"
 msgid "Expression"
-msgstr "فشرده‌سازي"
+msgstr "عبارت"
 
 #: resources/templates/columns_definitions/column_attributes.twig:185
 msgid "first"
@@ -221,7 +203,7 @@ msgstr "بعد از %s"
 #: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:2071
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
-msgstr "هیچ یک"
+msgstr "هیچ"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:22
 #: resources/templates/database/create_table.twig:6
@@ -234,16 +216,12 @@ msgstr "نام جدول"
 #: resources/templates/database/central_columns/main.twig:202
 #: resources/templates/export.twig:281 resources/templates/export.twig:297
 #: resources/templates/export.twig:313
-#, fuzzy
-#| msgid "And"
 msgid "Add"
-msgstr "و"
+msgstr "افزودن"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:39
-#, fuzzy
-#| msgid "Column names"
 msgid "column(s)"
-msgstr "نام ستونها"
+msgstr "ستون‌ها"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:42
 #: resources/templates/database/designer/main.twig:1099
@@ -299,7 +277,7 @@ msgstr "نام ستونها"
 #: src/Normalization.php:229 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
-msgstr "تاييد"
+msgstr "برو"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:71
 #: resources/templates/database/data_dictionary/index.twig:16
@@ -309,22 +287,16 @@ msgid "Table comments:"
 msgstr "توضيحات جدول:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:73
-#, fuzzy
-#| msgid "Collation"
 msgid "Collation:"
-msgstr "مقایسه"
+msgstr "گردآوری"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:76
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage Engine:"
-msgstr "موتور ذخیره سازی"
+msgstr "موتور ذخیره سازی:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:81
-#, fuzzy
-#| msgid "Connections"
 msgid "Connection:"
-msgstr "اتصالات"
+msgstr "اتصالات:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:112
 #: resources/templates/columns_definitions/partitions.twig:137
@@ -336,14 +308,12 @@ msgstr "موتور ذخیره سازی"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:135
 msgid "PARTITION definition:"
-msgstr "تعریف پارتیشن"
+msgstr "تعریف پارتیشن:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:154
-#, fuzzy
-#| msgid "Information"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "اطلاعات"
+msgstr "تراکنش آنلاین"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:157
 #: resources/templates/modals/index_dialog_modal.twig:11
@@ -356,7 +326,7 @@ msgstr "اطلاعات"
 #: resources/templates/table/structure/display_structure.twig:343
 #: src/Controllers/JavaScriptMessagesController.php:128
 msgid "Preview SQL"
-msgstr ""
+msgstr "پیش نمایش SQL"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:160
 #: resources/templates/database/central_columns/edit.twig:22
@@ -390,10 +360,8 @@ msgstr ""
 #: resources/templates/table/relation/common_form.twig:150
 #: resources/templates/table/zoom_search/result_form.twig:24
 #: resources/templates/table/zoom_search/result_form.twig:96
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "در حال بارگیری…"
+msgstr "در حال بارگیری"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:177
 #: resources/templates/columns_definitions/column_definitions_form.twig:182
@@ -448,16 +416,13 @@ msgid "Close"
 msgstr "بستن"
 
 #: resources/templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
+#, php-format
 msgid "Referenced by %s."
-msgstr "انتخاب کلید اشاره"
+msgstr "ارجاع شده به %s ."
 
 #: resources/templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "انتخاب کلید خارجی"
+msgstr "یک کلید خارجی است."
 
 #: resources/templates/columns_definitions/column_name.twig:16
 #: resources/templates/database/data_dictionary/index.twig:22
@@ -493,10 +458,8 @@ msgid "Column"
 msgstr "ستون"
 
 #: resources/templates/columns_definitions/column_name.twig:39
-#, fuzzy
-#| msgid "Remove chart"
 msgid "Pick from Central Columns"
-msgstr "حذف نمودار"
+msgstr "از ستون‌های مرکزی بردارید"
 
 #: resources/templates/columns_definitions/partitions.twig:17
 #, fuzzy
@@ -506,16 +469,12 @@ msgstr "موقعیت"
 
 #: resources/templates/columns_definitions/partitions.twig:32
 #: resources/templates/columns_definitions/partitions.twig:60
-#, fuzzy
-#| msgid "Values for column %s"
 msgid "Expression or column list"
-msgstr "تعداد ستون ها %s"
+msgstr "لیست ستون یا عبارت"
 
 #: resources/templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Position"
 msgid "Partitions:"
-msgstr "موقعیت"
+msgstr "پارتیشن‌ها:"
 
 #: resources/templates/columns_definitions/partitions.twig:45
 #, fuzzy
@@ -532,16 +491,12 @@ msgstr "موقعیت"
 #: resources/templates/columns_definitions/partitions.twig:76
 #: resources/templates/table/operations/index.twig:481
 #: resources/templates/table/structure/display_partitions.twig:25
-#, fuzzy
-#| msgid "Position"
 msgid "Partition"
-msgstr "موقعیت"
+msgstr "پارتیشن"
 
 #: resources/templates/columns_definitions/partitions.twig:78
-#, fuzzy
-#| msgid "Value"
 msgid "Values"
-msgstr "مقدار"
+msgstr "مقادیر"
 
 #: resources/templates/columns_definitions/partitions.twig:82
 #, fuzzy
@@ -567,7 +522,7 @@ msgstr "موتور"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:12
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:13
 msgid "Comment"
-msgstr "توضيحات"
+msgstr "نظر"
 
 #: resources/templates/columns_definitions/partitions.twig:86
 #, fuzzy
@@ -576,28 +531,20 @@ msgid "Data directory"
 msgstr "دیکشنری داده‌ها"
 
 #: resources/templates/columns_definitions/partitions.twig:87
-#, fuzzy
-#| msgid "Save directory"
 msgid "Index directory"
-msgstr "ذخیره ی پوشه"
+msgstr "پوشه فهرست"
 
 #: resources/templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Affected rows:"
 msgid "Max rows"
-msgstr "سطر تحت تاثیر قرار گرفته:"
+msgstr "بیشترین سطرها"
 
 #: resources/templates/columns_definitions/partitions.twig:89
-#, fuzzy
-#| msgid "rows"
 msgid "Min rows"
-msgstr "مشاهده"
+msgstr "کمترین سطرها"
 
 #: resources/templates/columns_definitions/partitions.twig:90
-#, fuzzy
-#| msgid "Search"
 msgid "Table space"
-msgstr "جستجو"
+msgstr "فضای جدول"
 
 #: resources/templates/columns_definitions/partitions.twig:91
 #, fuzzy
@@ -680,7 +627,7 @@ msgstr "نوع"
 #: resources/templates/database/central_columns/edit.twig:10
 #: resources/templates/database/routines/editor_form.twig:57
 msgid "Length/Values"
-msgstr "طول/مقادير*"
+msgstr "طول/مقادير"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
