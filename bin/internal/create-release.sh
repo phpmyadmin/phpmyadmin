@@ -525,7 +525,7 @@ echo "* Installing composer packages '$PACKAGES_VERSIONS'"
 
 # Allows word splitting
 # shellcheck disable=SC2086
-composer require --no-interaction $PACKAGES_VERSIONS
+composer require --no-interaction --update-no-dev $PACKAGES_VERSIONS
 
 echo "* Running a security checkup"
 security_checkup
