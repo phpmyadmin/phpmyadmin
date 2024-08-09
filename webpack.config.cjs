@@ -186,15 +186,15 @@ module.exports = [
         mode: 'none',
         devtool: 'source-map',
         entry: {
-            'themes/bootstrap/css/theme': publicPath + '/themes/bootstrap/scss/theme.scss',
-            'themes/metro/css/theme': publicPath + '/themes/metro/scss/theme.scss',
-            'themes/original/css/theme': publicPath + '/themes/original/scss/theme.scss',
-            'themes/pmahomme/css/theme': publicPath + '/themes/pmahomme/scss/theme.scss',
-            'setup/styles': publicPath + '/setup/scss/styles.scss',
+            'public/themes/bootstrap/css/theme': publicPath + '/themes/bootstrap/scss/theme.scss',
+            'public/themes/metro/css/theme': publicPath + '/themes/metro/scss/theme.scss',
+            'public/themes/original/css/theme': publicPath + '/themes/original/scss/theme.scss',
+            'public/themes/pmahomme/css/theme': publicPath + '/themes/pmahomme/scss/theme.scss',
+            'public/setup/styles': publicPath + '/setup/scss/styles.scss',
         },
         output: {
             filename: 'build/css/[name].js',
-            path: publicPath,
+            path: rootPath,
         },
         module: {
             rules: [
