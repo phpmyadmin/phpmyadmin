@@ -36,7 +36,7 @@ validateExtension() {
     extension="${filename##*.}"
 
     case $pathWithoutFirst in
-        docs/*)
+        public/docs/*)
             if [ "${extension}" != "png" ] && [ "${extension}" != "txt" ] &&
                 [ "${extension}" != "html" ] && [ "${extension}" != "js" ] &&
                 [ "${extension}" != "css" ] && [ "${extension}" != "gif" ]; then
@@ -139,7 +139,8 @@ validateExtension() {
                 [ "${filename}" != "README.md" ] && [ "${filename}" != "BACKERS.md" ] &&
                 [ "${filename}" != "LICENSE.md" ] && [ "${filename}" != "ARCHITECTURE.md" ] &&
                 [ "${filename}" != "LICENSE.txt" ] && [ "${filename}" != "AUTHORS" ] &&
-                [ "${filename}" != "LICENCE.md" ] && [ "${filename}" != "LICENCE" ]; then
+                [ "${filename}" != "LICENCE.md" ] && [ "${filename}" != "LICENCE" ] &&
+                [ "${filename}" != "COPYRIGHT.md" ]; then
                 foundFileExt
             fi
         ;;

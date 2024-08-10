@@ -243,7 +243,11 @@ cleanup_composer_vendors() {
         vendor/spomky-labs/cbor-php/infection.json.dist \
         vendor/spomky-labs/cbor-php/phpstan.neon \
         vendor/thecodingmachine/safe/generated/Exceptions/.gitkeep \
-        vendor/thecodingmachine/safe/rector-migrate-0.7.php
+        vendor/thecodingmachine/safe/rector-migrate-0.7.php \
+        vendor/phpmyadmin/motranslator/psalm-baseline.xml \
+        vendor/phpmyadmin/motranslator/psalm.xml \
+        vendor/slim/psr7/phpunit.xml.dist \
+        vendor/slim/psr7/tests/
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
         -not -name 'dejavusansb.*' \
@@ -525,7 +529,7 @@ echo "* Installing composer packages '$PACKAGES_VERSIONS'"
 
 # Allows word splitting
 # shellcheck disable=SC2086
-composer require --no-interaction $PACKAGES_VERSIONS
+composer require --no-interaction --update-no-dev $PACKAGES_VERSIONS
 
 echo "* Running a security checkup"
 security_checkup
