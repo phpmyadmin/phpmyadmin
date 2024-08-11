@@ -23,8 +23,8 @@ function disposeGISEditorVisualization () {
 /**
  * Initialize the visualization in the GIS data editor.
  */
-function initGISEditorVisualization () {
-    visualizationController = new window.GisVisualizationController();
+function initGISEditorVisualization (olData: any[]) {
+    visualizationController = new window.GisVisualizationController(olData);
 }
 
 function withIndex (prefix: string, ...index: Array<string|number>): string {
@@ -304,7 +304,9 @@ function loadGISEditor (value, field, type, inputName) {
 
         $gisEditorModal.find('.modal-title').first().html(data.gis_editor_title);
         $gisEditorModal.find('.modal-body').first().html(data.gis_editor);
-        initGISEditorVisualization();
+        initGISEditorVisualization(
+            JSON.parse($('#visualization-placeholder').attr('data-ol-data')),
+        );
 
         const gisData = $('#gis_data').data('gisData');
         if (gisData) {
@@ -369,8 +371,7 @@ function onCoordinateEdit (data) {
     $('#visualization-placeholder > .visualization-target-svg').html(data.visualization);
     $('#gis_data_textarea').val(data.result);
 
-    initGISEditorVisualization();
-    visualizationController.setOpenLayersData(data.openLayersData);
+    initGISEditorVisualization(data.openLayersData);
 }
 
 /**
