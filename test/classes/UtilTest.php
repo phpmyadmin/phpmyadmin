@@ -290,7 +290,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array<string, array{FieldMetadata[], array<int, mixed>, array{string, bool, array<string, string>}}>
      */
-    public function providerGetUniqueConditionForGroupFlag(): array
+    public static function providerGetUniqueConditionForGroupFlag(): array
     {
         return [
             'field type is integer, value is number - not escape string' => [
@@ -432,7 +432,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array test data
      */
-    public function charsetQueryData(): array
+    public static function charsetQueryData(): array
     {
         return [
             [
@@ -546,7 +546,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerConvertBitDefaultValue(): array
+    public static function providerConvertBitDefaultValue(): array
     {
         return [
             [
@@ -589,7 +589,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerUnEscapeMysqlWildcards(): array
+    public static function providerUnEscapeMysqlWildcards(): array
     {
         return [
             [
@@ -698,7 +698,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerExpandUserString(): array
+    public static function providerExpandUserString(): array
     {
         return [
             [
@@ -751,7 +751,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerExtractColumnSpec(): array
+    public static function providerExtractColumnSpec(): array
     {
         return [
             [
@@ -910,7 +910,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return iterable<int, array{string, bool, string[]}>
      */
-    public function providerParseEnumSetValues(): iterable
+    public static function providerParseEnumSetValues(): iterable
     {
         $enumSpec = "enum('a&b','b''c''d','e\\f')";
 
@@ -1031,7 +1031,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerExtractValueFromFormattedSize(): array
+    public static function providerExtractValueFromFormattedSize(): array
     {
         return [
             [
@@ -1076,7 +1076,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerFormatByteDown(): array
+    public static function providerFormatByteDown(): array
     {
         return [
             [
@@ -1323,7 +1323,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerFormatNumber(): array
+    public static function providerFormatNumber(): array
     {
         return [
             [
@@ -1459,7 +1459,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetFormattedMaximumUploadSize(): array
+    public static function providerGetFormattedMaximumUploadSize(): array
     {
         return [
             [
@@ -1538,7 +1538,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetTitleForTarget(): array
+    public static function providerGetTitleForTarget(): array
     {
         return [
             [
@@ -1601,7 +1601,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerLocalisedDate(): array
+    public static function providerLocalisedDate(): array
     {
         $hasJaTranslations = file_exists(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo');
 
@@ -1734,7 +1734,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerTimespanFormat(): array
+    public static function providerTimespanFormat(): array
     {
         return [
             [
@@ -1770,7 +1770,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerPrintableBitValue(): array
+    public static function providerPrintableBitValue(): array
     {
         return [
             [
@@ -1807,7 +1807,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerUnQuote(): array
+    public static function providerUnQuote(): array
     {
         return [
             [
@@ -1850,7 +1850,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerUnQuoteSelectedChar(): array
+    public static function providerUnQuoteSelectedChar(): array
     {
         return [
             [
@@ -1887,7 +1887,7 @@ class UtilTest extends AbstractTestCase
     /**
      * @return array<int|string, string|null>[]
      */
-    public function providerForTestBackquote(): array
+    public static function providerForTestBackquote(): array
     {
         return [
             [
@@ -1968,7 +1968,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerUserDir(): array
+    public static function providerUserDir(): array
     {
         return [
             [
@@ -2003,7 +2003,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerDuplicateFirstNewline(): array
+    public static function providerDuplicateFirstNewline(): array
     {
         return [
             [
@@ -2061,7 +2061,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerIsInteger(): array
+    public static function providerIsInteger(): array
     {
         return [
             [
@@ -2109,7 +2109,7 @@ class UtilTest extends AbstractTestCase
      * @source https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded MDN docs
      * @source https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/ Nginx docs
      */
-    public function providerForwardedHeaders(): array
+    public static function providerForwardedHeaders(): array
     {
         return [
             [
@@ -2262,6 +2262,9 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['dbi'] = $oldDbi;
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testCurrentUserHasNotUserPrivilegeButDbPrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2293,6 +2296,9 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['dbi'] = $oldDbi;
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2324,6 +2330,9 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['dbi'] = $oldDbi;
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeButTablePrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2360,6 +2369,9 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['dbi'] = $oldDbi;
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeAndNotTablePrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2399,7 +2411,7 @@ class UtilTest extends AbstractTestCase
     /**
      * @return array[]
      */
-    public function dataProviderScriptNames(): array
+    public static function dataProviderScriptNames(): array
     {
         // target
         // location
@@ -2604,7 +2616,7 @@ class UtilTest extends AbstractTestCase
      * @return array
      * @psalm-return array<int, array{bool, int, bool}>
      */
-    public function provideForTestIsUUIDSupported(): array
+    public static function provideForTestIsUUIDSupported(): array
     {
         return [
             [

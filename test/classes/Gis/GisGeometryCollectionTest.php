@@ -57,7 +57,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testScaleRow() test case
      */
-    public function providerForScaleRow(): array
+    public static function providerForScaleRow(): array
     {
         return [
             [
@@ -95,7 +95,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testGenerateWkt() test case
      */
-    public function providerForGenerateWkt(): array
+    public static function providerForGenerateWkt(): array
     {
         $temp1 = [
             0 => [
@@ -208,7 +208,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testGenerateParams() test case
      */
-    public function providerForGenerateParams(): array
+    public static function providerForGenerateParams(): array
     {
         return [
             [
@@ -280,7 +280,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf(): array
+    public static function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -319,7 +319,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         $string = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
         $this->assertEquals(1, preg_match($output, $string));
 
-        $this->assertMatchesRegularExpression(
+        $this->assertMatchesRegularExpressionCompat(
             $output,
             $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData)
         );
@@ -330,7 +330,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg(): array
+    public static function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -388,7 +388,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl(): array
+    public static function providerForPrepareRowAsOl(): array
     {
         return [
             [

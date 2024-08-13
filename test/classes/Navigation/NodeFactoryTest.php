@@ -48,6 +48,7 @@ class NodeFactoryTest extends AbstractTestCase
 
     /**
      * @group with-trigger-error
+     * @requires PHPUnit < 10
      */
     public function testFileError(): void
     {
@@ -58,6 +59,7 @@ class NodeFactoryTest extends AbstractTestCase
 
     /**
      * @group with-trigger-error
+     * @requires PHPUnit < 10
      */
     public function testClassNameError(): void
     {

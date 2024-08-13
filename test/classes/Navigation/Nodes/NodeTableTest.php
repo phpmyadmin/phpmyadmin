@@ -70,7 +70,7 @@ class NodeTableTest extends AbstractTestCase
      *
      * @return array data for testIcon()
      */
-    public function providerForTestIcon(): array
+    public static function providerForTestIcon(): array
     {
         return [
             ['structure', 'b_props', 'Structure'],

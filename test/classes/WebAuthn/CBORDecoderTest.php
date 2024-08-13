@@ -36,7 +36,7 @@ class CBORDecoderTest extends TestCase
     /**
      * @psalm-return iterable<int, array{string, mixed}>
      */
-    public function dataProviderForTestDecode(): iterable
+    public static function dataProviderForTestDecode(): iterable
     {
         return [
             ['00', 0],
@@ -178,7 +178,7 @@ class CBORDecoderTest extends TestCase
     /**
      * @psalm-return iterable<int, array{string}>
      */
-    public function indefiniteLengthValuesProvider(): iterable
+    public static function indefiniteLengthValuesProvider(): iterable
     {
         return [
             ['5f42010243030405ff'], // (_ h'0102', h'030405')

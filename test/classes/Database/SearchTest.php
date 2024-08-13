@@ -90,7 +90,7 @@ class SearchTest extends AbstractTestCase
      *
      * @return array
      */
-    public function searchTypes(): array
+    public static function searchTypes(): array
     {
         return [
             [

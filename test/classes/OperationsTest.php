@@ -53,7 +53,7 @@ class OperationsTest extends AbstractTestCase
     /**
      * @psalm-return array<string, array{0: string, 1: array<string, string>}>
      */
-    public function providerGetPartitionMaintenanceChoices(): array
+    public static function providerGetPartitionMaintenanceChoices(): array
     {
         return [
             'no partition method' => ['no_partition_method', ['COALESCE' => 'Coalesce']],

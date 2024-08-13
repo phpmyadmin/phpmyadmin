@@ -68,7 +68,7 @@ class EventsTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetDataFromRequest(): array
+    public static function providerGetDataFromRequest(): array
     {
         return [
             [
@@ -162,7 +162,7 @@ class EventsTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorFormAdd(): array
+    public static function providerGetEditorFormAdd(): array
     {
         $data = [
             'item_name' => '',
@@ -217,7 +217,7 @@ class EventsTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorFormEdit(): array
+    public static function providerGetEditorFormEdit(): array
     {
         $data = [
             'item_name' => 'foo',
@@ -273,7 +273,7 @@ class EventsTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorFormAjax(): array
+    public static function providerGetEditorFormAjax(): array
     {
         $data = [
             'item_name' => '',
@@ -334,7 +334,7 @@ class EventsTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetQueryFromRequest(): array
+    public static function providerGetQueryFromRequest(): array
     {
         return [
             // Testing success

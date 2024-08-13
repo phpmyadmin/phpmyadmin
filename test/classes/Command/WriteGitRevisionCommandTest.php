@@ -19,6 +19,9 @@ class WriteGitRevisionCommandTest extends AbstractTestCase
     /** @var WriteGitRevisionCommand */
     private $command;
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testGetGeneratedClassValidVersion(): void
     {
         if (! class_exists(Command::class)) {

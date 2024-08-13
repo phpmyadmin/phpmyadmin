@@ -1700,23 +1700,23 @@ class PrivilegesTest extends AbstractTestCase
             '<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Z</a>',
             $actual
         );
-        $this->assertMatchesRegularExpression(
+        $this->assertMatchesRegularExpressionCompat(
             '/<a class="page-link" href="index.php\?route=\/server\/privileges&initial=-&lang=en">\s*-\s*<\/a>/',
             $actual
         );
-        $this->assertMatchesRegularExpression(
+        $this->assertMatchesRegularExpressionCompat(
             '/<a class="page-link" href="index.php\?route=\/server\/privileges&initial=%22&lang=en">\s*&quot;\s*<\/a>/',
             $actual
         );
-        $this->assertMatchesRegularExpression(
+        $this->assertMatchesRegularExpressionCompat(
             '/<a class="page-link" href="index.php\?route=\/server\/privileges&initial=%25&lang=en">\s*%\s*<\/a>/',
             $actual
         );
-        $this->assertMatchesRegularExpression(
+        $this->assertMatchesRegularExpressionCompat(
             '/<a class="page-link" href="index.php\?route=\/server\/privileges&initial=%5C&lang=en">\s*\\\\\s*<\/a>/',
             $actual
         );
-        $this->assertMatchesRegularExpression(
+        $this->assertMatchesRegularExpressionCompat(
             '/<a class="page-link" href="index.php\?route=\/server\/privileges&initial=&lang=en">\s*' .
                 '<span class="text-danger text-nowrap">' . preg_quote(__('Any')) . '<\/span>' .
                 '\s*<\/a>/',
@@ -1886,6 +1886,9 @@ class PrivilegesTest extends AbstractTestCase
         );
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testGetUserPrivileges(): void
     {
         $mysqliResultStub = $this->createMock(mysqli_result::class);

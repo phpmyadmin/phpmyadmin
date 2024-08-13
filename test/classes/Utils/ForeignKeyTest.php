@@ -36,7 +36,7 @@ class ForeignKeyTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerIsSupported(): array
+    public static function providerIsSupported(): array
     {
         return [
             ['MyISAM', false],
@@ -69,7 +69,7 @@ class ForeignKeyTest extends AbstractTestCase
     /**
      * @return array[]
      */
-    public function providerCheckInit(): array
+    public static function providerCheckInit(): array
     {
         return [
             ['', 'OFF'],
@@ -129,7 +129,7 @@ class ForeignKeyTest extends AbstractTestCase
     /**
      * @return array[]
      */
-    public function providerCheckCleanup(): array
+    public static function providerCheckCleanup(): array
     {
         return [
             [true, 'ON'],

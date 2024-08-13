@@ -150,7 +150,7 @@ class FormTest extends AbstractTestCase
         $this->assertIsString($result[1]);
 
         // needs regexp because the counter is static
-        $this->assertMatchesRegularExpression('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
+        $this->assertMatchesRegularExpressionCompat('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
     }
 
     /**
@@ -186,7 +186,7 @@ class FormTest extends AbstractTestCase
         $keys = array_keys($result);
         $key = $keys[0];
         $this->assertIsString($key);
-        $this->assertMatchesRegularExpression('/^\:group\:end\:(\d+)$/', $key);
+        $this->assertMatchesRegularExpressionCompat('/^\:group\:end\:(\d+)$/', $key);
 
         preg_match('/^\:group\:end\:(\d+)$/', $key, $matches);
         $digit = $matches[1];

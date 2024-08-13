@@ -30,7 +30,7 @@ class MessageTest extends TestCase
      * @return array<int|string, array<int, array<string, mixed>|string>>
      * @psalm-return array{mixed[], string, string, string, string}[]
      */
-    public function providerForTestFromArray(): array
+    public static function providerForTestFromArray(): array
     {
         return [
             [[], '', '', '', ''],

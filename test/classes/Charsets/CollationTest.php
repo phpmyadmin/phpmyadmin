@@ -54,7 +54,7 @@ class CollationTest extends AbstractTestCase
     /**
      * @return array
      */
-    public function providerTestBuildDescription(): array
+    public static function providerTestBuildDescription(): array
     {
         return [
             [

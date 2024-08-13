@@ -58,7 +58,7 @@ class ErrorHandlerTest extends AbstractTestCase
      *
      * @return array data for testHandleError
      */
-    public function providerForTestHandleError(): array
+    public static function providerForTestHandleError(): array
     {
         return [
             [
@@ -130,6 +130,7 @@ class ErrorHandlerTest extends AbstractTestCase
      *                            disabled
      *
      * @dataProvider providerForTestHandleError
+     * @requires PHPUnit < 10
      */
     public function testGetDispErrorsForDisplayTrue(
         int $errno,

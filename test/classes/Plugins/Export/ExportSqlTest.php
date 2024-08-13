@@ -748,6 +748,7 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * @group medium
+     * @requires PHPUnit < 10
      */
     public function testGetTableDef(): void
     {
@@ -872,6 +873,9 @@ class ExportSqlTest extends AbstractTestCase
         $this->assertStringContainsString('DROP FOREIGN KEY', $GLOBALS['sql_drop_foreign_keys']);
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testGetTableDefWithError(): void
     {
         $GLOBALS['sql_compatibility'] = '';

@@ -141,7 +141,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array array data for testGetTableNavigationButton
      */
-    public function providerForTestGetTableNavigationButton(): array
+    public static function providerForTestGetTableNavigationButton(): array
     {
         return [
             [
@@ -238,7 +238,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetSpecialLinkUrl(): array
+    public static function dataProviderForTestGetSpecialLinkUrl(): array
     {
         return [
             [
@@ -346,7 +346,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetRowInfoForSpecialLinks(): array
+    public static function dataProviderForTestGetRowInfoForSpecialLinks(): array
     {
         $column_names = [
             'host',
@@ -428,7 +428,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestSetHighlightedColumnGlobalField(): array
+    public static function dataProviderForTestSetHighlightedColumnGlobalField(): array
     {
         $parser = new Parser('SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10');
 
@@ -469,7 +469,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetPartialText(): array
+    public static function dataProviderForTestGetPartialText(): array
     {
         return [
             [
@@ -555,7 +555,7 @@ class ResultsTest extends AbstractTestCase
      *   string
      * }}
      */
-    public function dataProviderForTestHandleNonPrintableContents(): array
+    public static function dataProviderForTestHandleNonPrintableContents(): array
     {
         $transformation_plugin = new Text_Plain_Link();
         $meta = new FieldMetadata(MYSQLI_TYPE_BLOB, 0, (object) ['orgtable' => 'bar']);
@@ -692,7 +692,7 @@ class ResultsTest extends AbstractTestCase
      *   string
      * }}
      */
-    public function dataProviderForTestGetDataCellForNonNumericColumns(): array
+    public static function dataProviderForTestGetDataCellForNonNumericColumns(): array
     {
         $transformation_plugin = new Text_Plain_Link();
         $transformation_plugin_external = new Text_Plain_External();
@@ -971,7 +971,7 @@ class ResultsTest extends AbstractTestCase
         $this->assertStringContainsString('>T<', $output);
     }
 
-    public function dataProviderGetSortOrderHiddenInputs(): array
+    public static function dataProviderGetSortOrderHiddenInputs(): array
     {
         // SQL to add the column
         // SQL to remove the column
@@ -1180,7 +1180,7 @@ class ResultsTest extends AbstractTestCase
         $this->assertSame($expected, $_SESSION['tmpval']);
     }
 
-    public function providerSetConfigParamsForDisplayTable(): array
+    public static function providerSetConfigParamsForDisplayTable(): array
     {
         $cfg = ['RelationalDisplay' => DisplayResults::RELATIONAL_KEY, 'MaxRows' => 25, 'RepeatCells' => 100];
 
@@ -1671,7 +1671,7 @@ class ResultsTest extends AbstractTestCase
     /**
      * @return array[]
      */
-    public function dataProviderSortOrder(): array
+    public static function dataProviderSortOrder(): array
     {
         return [
             'Default date' => [

@@ -131,28 +131,17 @@ abstract class AbstractTestCase extends TestCase
     /**
      * PHPUnit 8 compatibility
      */
-    public static function assertMatchesRegularExpression(string $pattern, string $string, string $message = ''): void
-    {
+    public static function assertMatchesRegularExpressionCompat(
+        string $pattern,
+        string $string,
+        string $message = ''
+    ): void {
         if (method_exists(TestCase::class, 'assertMatchesRegularExpression')) {
             /** @phpstan-ignore-next-line */
             parent::assertMatchesRegularExpression($pattern, $string, $message);
         } else {
             /** @psalm-suppress DeprecatedMethod */
             self::assertRegExp($pattern, $string, $message);
-        }
-    }
-
-    /**
-     * PHPUnit 8 compatibility
-     */
-    public static function assertFileDoesNotExist(string $filename, string $message = ''): void
-    {
-        if (method_exists(TestCase::class, 'assertFileDoesNotExist')) {
-            /** @phpstan-ignore-next-line */
-            parent::assertFileDoesNotExist($filename, $message);
-        } else {
-            /** @psalm-suppress DeprecatedMethod */
-            parent::assertFileNotExists($filename, $message);
         }
     }
 

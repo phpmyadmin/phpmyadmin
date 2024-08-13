@@ -1941,11 +1941,6 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Right side of \\|\\| is always false\\.$#"
-			count: 1
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) has parameter \\$tab_column with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer.php
@@ -2931,7 +2926,17 @@ parameters:
 			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchAllAssoc\\(\\) should return array\\<int, array\\<string, string\\|null\\>\\> but returns array\\<int\\<0, max\\>, array\\<string, float\\|int\\|string\\|null\\>\\>\\.$#"
+			count: 1
+			path: libraries/classes/Dbal/MysqliResult.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchAllKeyPair\\(\\) should return array\\<string, string\\|null\\> but returns array\\<int\\|string, mixed\\>\\.$#"
+			count: 1
+			path: libraries/classes/Dbal/MysqliResult.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchAssoc\\(\\) should return array\\<string, string\\|null\\> but returns array\\<string, float\\|int\\|string\\|null\\>\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/MysqliResult.php
 
@@ -5366,11 +5371,6 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
-			message: "#^Right side of \\|\\| is always false\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\NodeFactory\\:\\:getInstance\\(\\) has parameter \\$name with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NodeFactory.php
@@ -5731,11 +5731,6 @@ parameters:
 			path: libraries/classes/Pdf.php
 
 		-
-			message: "#^Left side of \\|\\| is always false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\:\\:getExport\\(\\) should return array\\<PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\> but returns array\\<PhpMyAdmin\\\\Plugins\\\\Plugin\\>\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
@@ -5753,11 +5748,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$str2 of function strcmp expects string, class\\-string\\|false given\\.$#"
 			count: 1
-			path: libraries/classes/Plugins.php
-
-		-
-			message: "#^Right side of \\|\\| is always false\\.$#"
-			count: 3
 			path: libraries/classes/Plugins.php
 
 		-

@@ -69,7 +69,7 @@ class DbiDummyTest extends AbstractTestCase
     /**
      * Data provider for schema test
      */
-    public function schemaData(): array
+    public static function schemaData(): array
     {
         return [
             [
@@ -104,7 +104,7 @@ class DbiDummyTest extends AbstractTestCase
     /**
      * Data provider for error formatting test
      */
-    public function errorData(): array
+    public static function errorData(): array
     {
         return [
             [

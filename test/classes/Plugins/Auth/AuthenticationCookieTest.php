@@ -723,6 +723,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->object->rememberCredentials();
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testAuthFailsNoPass(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -745,7 +748,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    public function dataProviderPasswordLength(): array
+    public static function dataProviderPasswordLength(): array
     {
         return [
             [
@@ -794,6 +797,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->assertEquals($GLOBALS['conn_error'], $connError);
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testAuthFailsDeny(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -813,6 +819,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->assertEquals($GLOBALS['conn_error'], 'Access denied!');
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testAuthFailsActivity(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -838,6 +847,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testAuthFailsDBI(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -868,6 +880,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->assertEquals($GLOBALS['conn_error'], '#42 Cannot log in to the MySQL server');
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testAuthFailsErrno(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -1061,7 +1076,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         }
     }
 
-    public function checkRulesProvider(): array
+    public static function checkRulesProvider(): array
     {
         return [
             'nopass-ok' => [

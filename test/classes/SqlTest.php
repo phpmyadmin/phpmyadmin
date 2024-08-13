@@ -354,7 +354,7 @@ class SqlTest extends AbstractTestCase
         return $analyzedSqlResults;
     }
 
-    public function dataProviderCountQueryResults(): array
+    public static function dataProviderCountQueryResults(): array
     {
         // sql query
         // session tmpval

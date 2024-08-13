@@ -28,7 +28,7 @@ class CommonTest extends AbstractTestCase
         $this->assertEquals($expected, $GLOBALS['PMA_PHP_SELF']);
     }
 
-    public function providerForTestCleanupPathInfo(): array
+    public static function providerForTestCleanupPathInfo(): array
     {
         return [
             [

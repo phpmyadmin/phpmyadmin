@@ -103,7 +103,7 @@ class SelectTest extends AbstractTestCase
         $this->assertStringContainsString($server['user'], $html);
     }
 
-    public function renderDataProvider(): array
+    public static function renderDataProvider(): array
     {
         return [
             'only options, don\'t omit fieldset' => [

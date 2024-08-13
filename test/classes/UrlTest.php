@@ -218,7 +218,7 @@ class UrlTest extends AbstractTestCase
         $this->assertSame('0', $queryParams['pos']);
         $this->assertTrue(is_string($queryParams['eq']));
         $this->assertNotSame('', $queryParams['eq']);
-        $this->assertMatchesRegularExpression('/^[a-zA-Z0-9-_=]+$/', $queryParams['eq']);
+        $this->assertMatchesRegularExpressionCompat('/^[a-zA-Z0-9-_=]+$/', $queryParams['eq']);
 
         $decrypted = Url::decryptQuery($queryParams['eq']);
         $this->assertNotNull($decrypted);
@@ -241,7 +241,7 @@ class UrlTest extends AbstractTestCase
         $encrypted = Url::encryptQuery($query);
         $this->assertNotSame($query, $encrypted);
         $this->assertNotSame('', $encrypted);
-        $this->assertMatchesRegularExpression('/^[a-zA-Z0-9-_=]+$/', $encrypted);
+        $this->assertMatchesRegularExpressionCompat('/^[a-zA-Z0-9-_=]+$/', $encrypted);
 
         $decrypted = Url::decryptQuery($encrypted);
         $this->assertSame($query, $decrypted);

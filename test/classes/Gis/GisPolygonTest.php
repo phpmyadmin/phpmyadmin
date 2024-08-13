@@ -43,7 +43,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array common data for data providers
      */
-    private function getData(): array
+    private static function getData(): array
     {
         return [
             'POLYGON' => [
@@ -99,10 +99,10 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testGenerateWkt
      */
-    public function providerForTestGenerateWkt(): array
+    public static function providerForTestGenerateWkt(): array
     {
         $temp = [
-            0 => $this->getData(),
+            0 => self::getData(),
         ];
 
         $temp1 = $temp;
@@ -164,9 +164,9 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams(): array
+    public static function providerForTestGenerateParams(): array
     {
-        $temp = $this->getData();
+        $temp = self::getData();
 
         $temp1 = $temp;
         $temp1['gis_type'] = 'POLYGON';
@@ -206,7 +206,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testArea
      */
-    public function providerForTestArea(): array
+    public static function providerForTestArea(): array
     {
         return [
             [
@@ -291,7 +291,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testIsPointInsidePolygon
      */
-    public function providerForTestIsPointInsidePolygon(): array
+    public static function providerForTestIsPointInsidePolygon(): array
     {
         $ring = [
             0 => [
@@ -371,9 +371,9 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testGetPointOnSurface
      */
-    public function providerForTestGetPointOnSurface(): array
+    public static function providerForTestGetPointOnSurface(): array
     {
-        $temp = $this->getData();
+        $temp = self::getData();
         unset($temp['POLYGON'][0]['no_of_points']);
         unset($temp['POLYGON'][1]['no_of_points']);
 
@@ -392,7 +392,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testScaleRow
      */
-    public function providerForTestScaleRow(): array
+    public static function providerForTestScaleRow(): array
     {
         return [
             [
@@ -461,7 +461,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf(): array
+    public static function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -506,7 +506,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg(): array
+    public static function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -564,7 +564,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl(): array
+    public static function providerForPrepareRowAsOl(): array
     {
         return [
             [
@@ -614,7 +614,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testIsOuterRing() test case
      */
-    public function providerForIsOuterRing(): array
+    public static function providerForIsOuterRing(): array
     {
         return [
             [

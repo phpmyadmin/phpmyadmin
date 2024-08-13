@@ -48,7 +48,7 @@ class ZipExtensionTest extends AbstractTestCase
      *
      * @return array
      */
-    public function provideTestGetContents(): array
+    public static function provideTestGetContents(): array
     {
         return [
             'null as specific entry' => [
@@ -100,7 +100,7 @@ class ZipExtensionTest extends AbstractTestCase
      *
      * @return array Test data
      */
-    public function provideTestFindFile(): array
+    public static function provideTestFindFile(): array
     {
         return [
             [

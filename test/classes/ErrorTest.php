@@ -84,7 +84,7 @@ class ErrorTest extends AbstractTestCase
      *
      * @return array
      */
-    public function filePathProvider(): array
+    public static function filePathProvider(): array
     {
         return [
             [
@@ -116,6 +116,8 @@ class ErrorTest extends AbstractTestCase
 
     /**
      * Test for getBacktraceDisplay
+     *
+     * @requires PHPUnit < 10
      */
     public function testGetBacktraceDisplay(): void
     {

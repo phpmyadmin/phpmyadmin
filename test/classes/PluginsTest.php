@@ -79,7 +79,7 @@ class PluginsTest extends AbstractTestCase
      * @return array[]
      * @psalm-return array{array{string, string|int|null, string|null, 'Export'|'Import'|'Schema', string, bool|null}}
      */
-    public function providerForTestGetDefault(): array
+    public static function providerForTestGetDefault(): array
     {
         return [
             ['xml', 'xml', null, 'Export', 'format', null],

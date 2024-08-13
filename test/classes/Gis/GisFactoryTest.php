@@ -38,7 +38,7 @@ class GisFactoryTest extends AbstractTestCase
      *
      * @return array[] data for testFactory
      */
-    public function providerForTestFactory(): array
+    public static function providerForTestFactory(): array
     {
         return [
             [

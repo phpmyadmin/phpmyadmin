@@ -39,7 +39,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
         ],
     ];
 
-    public function dataProviderPsr7Implementations(): array
+    public static function dataProviderPsr7Implementations(): array
     {
         return self::IMPLEMENTATION_CLASSES;
     }
@@ -114,6 +114,9 @@ class ServerRequestFactoryTest extends AbstractTestCase
         ], $request->getQueryParams());
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testCreateServerRequestFromGlobals(): void
     {
         $_GET['foo'] = 'bar';

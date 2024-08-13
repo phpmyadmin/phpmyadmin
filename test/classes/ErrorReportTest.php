@@ -276,7 +276,7 @@ class ErrorReportTest extends AbstractTestCase
      *
      * @return array[]
      */
-    public function urlsToSanitize(): array
+    public static function urlsToSanitize(): array
     {
         return [
             [

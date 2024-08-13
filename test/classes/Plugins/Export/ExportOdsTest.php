@@ -167,6 +167,9 @@ class ExportOdsTest extends AbstractTestCase
         );
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testExportFooter(): void
     {
         $GLOBALS['ods_buffer'] = 'header';

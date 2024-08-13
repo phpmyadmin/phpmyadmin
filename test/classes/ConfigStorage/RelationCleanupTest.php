@@ -57,6 +57,8 @@ class RelationCleanupTest extends AbstractTestCase
 
     /**
      * Test for column method
+     *
+     * @requires PHPUnit < 10
      */
     public function testColumnWithRelations(): void
     {
@@ -117,6 +119,8 @@ class RelationCleanupTest extends AbstractTestCase
 
     /**
      * Test for table method
+     *
+     * @requires PHPUnit < 10
      */
     public function testTableWithRelations(): void
     {
@@ -196,6 +200,8 @@ class RelationCleanupTest extends AbstractTestCase
 
     /**
      * Test for database method
+     *
+     * @requires PHPUnit < 10
      */
     public function testDatabaseWithRelations(): void
     {
@@ -256,6 +262,8 @@ class RelationCleanupTest extends AbstractTestCase
 
     /**
      * Test for user method
+     *
+     * @requires PHPUnit < 10
      */
     public function testUserWithRelations(): void
     {

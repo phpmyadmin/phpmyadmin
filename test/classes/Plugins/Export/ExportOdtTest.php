@@ -290,6 +290,9 @@ class ExportOdtTest extends AbstractTestCase
         $this->assertStringContainsString('office:version', $GLOBALS['odt_buffer']);
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testExportFooter(): void
     {
         $GLOBALS['odt_buffer'] = 'header';
