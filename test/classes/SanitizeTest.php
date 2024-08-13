@@ -71,7 +71,7 @@ class SanitizeTest extends AbstractTestCase
      *
      * @return array
      */
-    public function docLinks(): array
+    public static function docLinks(): array
     {
         return [
             [
@@ -214,7 +214,7 @@ class SanitizeTest extends AbstractTestCase
      *
      * @return array
      */
-    public function variables(): array
+    public static function variables(): array
     {
         return [
             [
@@ -273,7 +273,7 @@ class SanitizeTest extends AbstractTestCase
      *
      * @return array data for testEscape test case
      */
-    public function escapeDataProvider(): array
+    public static function escapeDataProvider(): array
     {
         return [
             [
@@ -327,7 +327,7 @@ class SanitizeTest extends AbstractTestCase
      *
      * @return array
      */
-    public function dataProviderCheckLinks(): array
+    public static function dataProviderCheckLinks(): array
     {
         // Expected
         // The url

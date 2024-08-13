@@ -40,7 +40,7 @@ class DescriptionTest extends AbstractTestCase
     /**
      * @return array
      */
-    public function getValues(): array
+    public static function getValues(): array
     {
         return [
             [

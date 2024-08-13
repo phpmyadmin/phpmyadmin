@@ -257,7 +257,7 @@ class RelationParametersTest extends TestCase
     /**
      * @return array<string, array<int, array<string, mixed>>>
      */
-    public function providerForTestToArray(): array
+    public static function providerForTestToArray(): array
     {
         return [
             'default values' => [

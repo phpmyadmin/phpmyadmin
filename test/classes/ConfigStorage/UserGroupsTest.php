@@ -90,6 +90,8 @@ class UserGroupsTest extends AbstractTestCase
 
     /**
      * Tests UserGroups::delete() function
+     *
+     * @requires PHPUnit < 10
      */
     public function testDeleteUserGroup(): void
     {

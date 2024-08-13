@@ -98,6 +98,9 @@ class TwigLintCommandTest extends AbstractTestCase
         ], $filesInfos);
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testGetFilesInfoInvalidFile(): void
     {
         $command = $this->getMockBuilder(TwigLintCommand::class)

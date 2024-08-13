@@ -62,7 +62,7 @@ class TableNameTest extends TestCase
      * @return mixed[][]
      * @psalm-return non-empty-list<array{mixed, string}>
      */
-    public function providerForTestInvalidMixedNames(): array
+    public static function providerForTestInvalidMixedNames(): array
     {
         return [
             [null, 'Expected a string. Got: NULL'],

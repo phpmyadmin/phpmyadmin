@@ -9,7 +9,6 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
 
@@ -204,6 +203,8 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testLinkOrButton(array $params, int $limit, string $match): void
     {
+        parent::setGlobalConfig();
+
         $restore = $GLOBALS['cfg']['LinkLengthLimit'] ?? 1000;
         $GLOBALS['cfg']['LinkLengthLimit'] = $limit;
         try {
@@ -225,10 +226,8 @@ class GeneratorTest extends AbstractTestCase
      *
      * @return array
      */
-    public function linksOrButtons(): array
+    public static function linksOrButtons(): array
     {
-        parent::setGlobalConfig();
-
         return [
             [
                 [
@@ -298,7 +297,7 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
-                    Url::getFromRoute('/server/databases'),
+                    'index.php?route=/server/databases',
                     ['some' => 'parameter'],
                     'text',
                 ],
@@ -307,7 +306,7 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
-                    Url::getFromRoute('/server/databases'),
+                    'index.php?route=/server/databases',
                     null,
                     'text',
                 ],
@@ -316,7 +315,7 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
-                    Url::getFromRoute('/server/databases'),
+                    'index.php?route=/server/databases',
                     ['some' => 'parameter'],
                     'text',
                 ],
@@ -325,7 +324,7 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
-                    Url::getFromRoute('/server/databases'),
+                    'index.php?route=/server/databases',
                     null,
                     'text',
                 ],
@@ -493,7 +492,7 @@ class GeneratorTest extends AbstractTestCase
      * @return array
      * @psalm-return array<int, array{array<string, string|bool|null>, bool, string}>
      */
-    public function providerForTestGetDefaultFunctionForField(): array
+    public static function providerForTestGetDefaultFunctionForField(): array
     {
         return [
             [

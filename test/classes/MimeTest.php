@@ -34,7 +34,7 @@ class MimeTest extends AbstractTestCase
      *
      * @return array data for testDetect
      */
-    public function providerForTestDetect(): array
+    public static function providerForTestDetect(): array
     {
         return [
             [

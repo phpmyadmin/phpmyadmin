@@ -351,7 +351,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertFalse($result);
     }
 
-    public function dataProviderConfigValueInsertRows(): array
+    public static function dataProviderConfigValueInsertRows(): array
     {
         return [
             [
@@ -1661,7 +1661,7 @@ class InsertEditTest extends AbstractTestCase
      * @return array
      * @psalm-return array<string, array{array<string, string|bool|null>, array<bool|string>}>
      */
-    public function providerForTestGetSpecialCharsAndBackupFieldForInsertingMode(): array
+    public static function providerForTestGetSpecialCharsAndBackupFieldForInsertingMode(): array
     {
         return [
             'bit' => [

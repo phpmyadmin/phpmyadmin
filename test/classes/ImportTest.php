@@ -152,7 +152,7 @@ class ImportTest extends AbstractTestCase
      *
      * @return array
      */
-    public function provGetColumnAlphaName(): array
+    public static function provGetColumnAlphaName(): array
     {
         return [
             [
@@ -200,7 +200,7 @@ class ImportTest extends AbstractTestCase
      *
      * @return array
      */
-    public function provGetColumnNumberFromName(): array
+    public static function provGetColumnNumberFromName(): array
     {
         return [
             [
@@ -248,7 +248,7 @@ class ImportTest extends AbstractTestCase
      *
      * @return array
      */
-    public function provGetDecimalPrecision(): array
+    public static function provGetDecimalPrecision(): array
     {
         return [
             [
@@ -288,7 +288,7 @@ class ImportTest extends AbstractTestCase
      *
      * @return array
      */
-    public function provGetDecimalScale(): array
+    public static function provGetDecimalScale(): array
     {
         return [
             [
@@ -328,7 +328,7 @@ class ImportTest extends AbstractTestCase
      *
      * @return array
      */
-    public function provGetDecimalSize(): array
+    public static function provGetDecimalSize(): array
     {
         return [
             [
@@ -387,7 +387,7 @@ class ImportTest extends AbstractTestCase
      *
      * @return array
      */
-    public function provDetectType(): array
+    public static function provDetectType(): array
     {
         $data = [
             [
@@ -493,7 +493,7 @@ class ImportTest extends AbstractTestCase
      *
      * @return array[]
      */
-    public function providerContentWithByteOrderMarks(): array
+    public static function providerContentWithByteOrderMarks(): array
     {
         return [
             [
