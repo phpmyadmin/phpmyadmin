@@ -184,7 +184,7 @@ class HeaderTest extends AbstractTestCase
         $this->assertSame($expected, $headers);
     }
 
-    public function providerForTestGetHttpHeaders(): array
+    public static function providerForTestGetHttpHeaders(): array
     {
         return [
             [

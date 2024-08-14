@@ -89,7 +89,7 @@ class VersionInformationTest extends AbstractTestCase
     /**
      * Data provider for version parsing
      */
-    public function dataVersions(): array
+    public static function dataVersions(): array
     {
         return [
             [
@@ -173,6 +173,8 @@ class VersionInformationTest extends AbstractTestCase
 
     /**
      * Tests getLatestCompatibleVersion() when there is only one server configured
+     *
+     * @requires PHPUnit < 10
      */
     public function testGetLatestCompatibleVersionWithSingleServer(): void
     {
@@ -206,6 +208,8 @@ class VersionInformationTest extends AbstractTestCase
 
     /**
      * Tests getLatestCompatibleVersion() when there are multiple servers configured
+     *
+     * @requires PHPUnit < 10
      */
     public function testGetLatestCompatibleVersionWithMultipleServers(): void
     {
@@ -233,6 +237,8 @@ class VersionInformationTest extends AbstractTestCase
 
     /**
      * Tests getLatestCompatibleVersion() with an old PHP version
+     *
+     * @requires PHPUnit < 10
      */
     public function testGetLatestCompatibleVersionWithOldPHPVersion(): void
     {
@@ -268,6 +274,7 @@ class VersionInformationTest extends AbstractTestCase
      * @param string|null $matchedLastVersion The version that will be matched
      *
      * @dataProvider dataProviderVersionConditions
+     * @requires PHPUnit < 10
      */
     public function testGetLatestCompatibleVersionWithNewPHPVersion(
         array $versions,
@@ -306,7 +313,7 @@ class VersionInformationTest extends AbstractTestCase
      *
      * @return array[]
      */
-    public function dataProviderVersionConditions(): array
+    public static function dataProviderVersionConditions(): array
     {
         return [
             [

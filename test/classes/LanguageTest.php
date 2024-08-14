@@ -198,7 +198,7 @@ class LanguageTest extends AbstractTestCase
      *
      * @return string[][]
      */
-    public function selectDataProvider(): array
+    public static function selectDataProvider(): array
     {
         return [
             ['cs', 'en', '', '', '', '', '', 'cs'],
@@ -257,7 +257,7 @@ class LanguageTest extends AbstractTestCase
      *
      * @return array with arrays of available locales
      */
-    public function listLocales(): array
+    public static function listLocales(): array
     {
         $ret = [];
         foreach (LanguageManager::getInstance()->availableLanguages() as $language) {

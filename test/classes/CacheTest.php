@@ -20,7 +20,7 @@ class CacheTest extends AbstractTestCase
     /**
      * @return array[]
      */
-    public function dataProviderCacheKeyValues(): array
+    public static function dataProviderCacheKeyValues(): array
     {
         return [
             'normal key and false value' => [

@@ -2217,7 +2217,7 @@ class RelationTest extends AbstractTestCase
      * @return array<int, array<int, array<int|string, bool|string>>>
      * @psalm-return list<array{array<string, bool|string>, string[]}>
      */
-    public function providerForTestRenameTable(): array
+    public static function providerForTestRenameTable(): array
     {
         // phpcs:disable Generic.Files.LineLength.TooLong
         return [

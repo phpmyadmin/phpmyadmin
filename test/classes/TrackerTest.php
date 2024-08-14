@@ -117,7 +117,7 @@ class TrackerTest extends AbstractTestCase
      *
      * @return array Test data
      */
-    public function getTableNameData(): array
+    public static function getTableNameData(): array
     {
         return [
             [
@@ -189,6 +189,8 @@ class TrackerTest extends AbstractTestCase
 
     /**
      * Test for Tracker::createVersion()
+     *
+     * @requires PHPUnit < 10
      */
     public function testCreateVersion(): void
     {
@@ -524,7 +526,7 @@ class TrackerTest extends AbstractTestCase
      *
      * @return array Test data
      */
-    public function getTrackedDataProvider(): array
+    public static function getTrackedDataProvider(): array
     {
         $fetchArrayReturn = [
             [
@@ -654,7 +656,7 @@ class TrackerTest extends AbstractTestCase
      *
      * @return array Test data
      */
-    public function parseQueryData(): array
+    public static function parseQueryData(): array
     {
         // query
         // type

@@ -43,7 +43,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @return array data for testGenerateWkt
      */
-    public function providerForTestGenerateWkt(): array
+    public static function providerForTestGenerateWkt(): array
     {
         $temp1 = [
             0 => [
@@ -108,7 +108,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams(): array
+    public static function providerForTestGenerateParams(): array
     {
         $temp = [
             'LINESTRING' => [
@@ -148,7 +148,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @return array data for testScaleRow
      */
-    public function providerForTestScaleRow(): array
+    public static function providerForTestScaleRow(): array
     {
         return [
             [
@@ -208,7 +208,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf(): array
+    public static function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -253,7 +253,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg(): array
+    public static function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -310,7 +310,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl(): array
+    public static function providerForPrepareRowAsOl(): array
     {
         return [
             [

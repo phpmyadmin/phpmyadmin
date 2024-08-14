@@ -65,7 +65,7 @@ class FormListTest extends AbstractTestCase
      * @return string[][]
      * @psalm-return array{array{class-string<BaseFormList>, class-string<BaseForm>}}
      */
-    public function formObjects(): array
+    public static function formObjects(): array
     {
         return [
             [User\UserFormList::class, User\ExportForm::class],

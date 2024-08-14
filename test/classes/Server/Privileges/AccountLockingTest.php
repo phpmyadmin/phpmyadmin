@@ -14,6 +14,9 @@ use Throwable;
  */
 class AccountLockingTest extends TestCase
 {
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testLockWithValidAccount(): void
     {
         $dbi = $this->createMock(DatabaseInterface::class);
@@ -33,6 +36,9 @@ class AccountLockingTest extends TestCase
         $accountLocking->lock('test.user', 'test.host');
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testLockWithInvalidAccount(): void
     {
         $dbi = $this->createMock(DatabaseInterface::class);
@@ -73,6 +79,9 @@ class AccountLockingTest extends TestCase
         $accountLocking->lock('test.user', 'test.host');
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testUnlockWithValidAccount(): void
     {
         $dbi = $this->createMock(DatabaseInterface::class);
@@ -92,6 +101,9 @@ class AccountLockingTest extends TestCase
         $accountLocking->unlock('test.user', 'test.host');
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testUnlockWithInvalidAccount(): void
     {
         $dbi = $this->createMock(DatabaseInterface::class);
