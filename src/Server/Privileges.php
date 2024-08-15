@@ -217,20 +217,20 @@ class Privileges
         $privs = [];
         $allPrivileges = true;
         foreach ($grants as $currentGrant) {
-            if (
-                ($row === null || ! isset($row[$currentGrant[0]]))
-                && ($row !== null || ! isset($GLOBALS[$currentGrant[0]]))
-            ) {
+            if ($row !== null && isset($row[$currentGrant[0]])) {
+                $grantValue = $row[$currentGrant[0]];
+            } elseif ($row === null && isset($_POST[$currentGrant[0]])) {
+                $grantValue = $_POST[$currentGrant[0]];
+            } else {
                 continue;
             }
 
             if (
-                ($row !== null && $row[$currentGrant[0]] === 'Y')
+                ($grantValue === 'Y')
                 || ($row === null
-                && ($GLOBALS[$currentGrant[0]] === 'Y'
-                || (is_array($GLOBALS[$currentGrant[0]])
-                && count($GLOBALS[$currentGrant[0]]) == $_REQUEST['column_count']
-                && empty($GLOBALS[$currentGrant[0] . '_none']))))
+                && is_array($grantValue)
+                && count($grantValue) == $_REQUEST['column_count']
+                && empty($_POST[$currentGrant[0] . '_none']))
             ) {
                 if ($enableHTML) {
                     $privs[] = '<dfn title="' . $currentGrant[2] . '">'
@@ -239,14 +239,13 @@ class Privileges
                     $privs[] = $currentGrant[1];
                 }
             } elseif (
-                ! empty($GLOBALS[$currentGrant[0]])
-                && is_array($GLOBALS[$currentGrant[0]])
-                && empty($GLOBALS[$currentGrant[0] . '_none'])
+                is_array($grantValue) && $grantValue !== []
+                && empty($_POST[$currentGrant[0] . '_none'])
             ) {
                 // Required for proper escaping of ` (backtick) in a column name
                 $grantCols = array_map(
                     Util::backquote(...),
-                    $GLOBALS[$currentGrant[0]],
+                    $grantValue,
                 );
 
                 if ($enableHTML) {

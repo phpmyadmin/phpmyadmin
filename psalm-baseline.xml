@@ -10323,6 +10323,7 @@
       <code><![CDATA[$GLOBALS['pred_username']]]></code>
       <code><![CDATA[$extraData['db_wildcard_privs']]]></code>
       <code><![CDATA[$foundRows[]]]></code>
+      <code><![CDATA[$grantValue]]></code>
       <code><![CDATA[$host]]></code>
       <code><![CDATA[$hostnameLength]]></code>
       <code><![CDATA[$name]]></code>
@@ -10360,8 +10361,6 @@
       <code><![CDATA[mb_strrpos($exportUser, ';')]]></code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$GLOBALS[$currentGrant[0]]]]></code>
-      <code><![CDATA[$GLOBALS[$currentGrant[0]]]]></code>
       <code><![CDATA[$_GET['username']]]></code>
       <code><![CDATA[$_POST['authentication_plugin']]]></code>
       <code><![CDATA[$_POST['authentication_plugin']]]></code>
@@ -10380,6 +10379,9 @@
       <code><![CDATA[$hashedPassword]]></code>
       <code><![CDATA[$oldUserGroup]]></code>
     </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayOffset>
+      <code><![CDATA[$_POST[$currentGrant[0]]]]></code>
+    </PossiblyInvalidArrayOffset>
     <PossiblyInvalidCast>
       <code><![CDATA[$_GET['username']]]></code>
       <code><![CDATA[$_POST['authentication_plugin']]]></code>
@@ -10460,9 +10462,8 @@
       <code><![CDATA[$_POST['max_user_connections']]]></code>
     </RiskyCast>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS[$currentGrant[0] . '_none'])]]></code>
-      <code><![CDATA[empty($GLOBALS[$currentGrant[0] . '_none'])]]></code>
-      <code><![CDATA[empty($GLOBALS[$currentGrant[0]])]]></code>
+      <code><![CDATA[empty($_POST[$currentGrant[0] . '_none'])]]></code>
+      <code><![CDATA[empty($_POST[$currentGrant[0] . '_none'])]]></code>
       <code><![CDATA[empty($_POST['change_copy'])]]></code>
       <code><![CDATA[empty($_POST['nopass'])]]></code>
       <code><![CDATA[empty($_POST['pma_pw'])]]></code>
