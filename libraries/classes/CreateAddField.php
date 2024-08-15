@@ -170,7 +170,7 @@ class CreateAddField
 
         $indexFields = [];
         foreach ($index['columns'] as $key => $column) {
-            $indexFields[$key] = Util::backquote(trim($_POST['field_name'][$column['col_index']]));
+            $indexFields[$key] = Util::backquote(rtrim($_POST['field_name'][$column['col_index']]));
             if (! $column['size']) {
                 continue;
             }
