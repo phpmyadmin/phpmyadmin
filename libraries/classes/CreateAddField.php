@@ -81,7 +81,7 @@ class CreateAddField
             }
 
             $definition = $this->getStatementPrefix($isCreateTable) . Table::generateFieldSpec(
-                trim($_POST['field_name'][$i]),
+                rtrim($_POST['field_name'][$i]),
                 $_POST['field_type'][$i],
                 $_POST['field_length'][$i],
                 $_POST['field_attribute'][$i],
