@@ -219,7 +219,7 @@ class Privileges
         foreach ($grants as $currentGrant) {
             if (
                 ($row === null || ! isset($row[$currentGrant[0]]))
-                && ($row !== null || ! isset($GLOBALS[$currentGrant[0]]))
+                && ($row !== null || ! isset($_POST[$currentGrant[0]]))
             ) {
                 continue;
             }
@@ -227,10 +227,10 @@ class Privileges
             if (
                 ($row !== null && $row[$currentGrant[0]] === 'Y')
                 || ($row === null
-                && ($GLOBALS[$currentGrant[0]] === 'Y'
-                || (is_array($GLOBALS[$currentGrant[0]])
-                && count($GLOBALS[$currentGrant[0]]) == $_REQUEST['column_count']
-                && empty($GLOBALS[$currentGrant[0] . '_none']))))
+                && ($_POST[$currentGrant[0]] === 'Y'
+                || (is_array($_POST[$currentGrant[0]])
+                && count($_POST[$currentGrant[0]]) == $_REQUEST['column_count']
+                && empty($_POST[$currentGrant[0] . '_none']))))
             ) {
                 if ($enableHTML) {
                     $privs[] = '<dfn title="' . $currentGrant[2] . '">'
@@ -239,14 +239,14 @@ class Privileges
                     $privs[] = $currentGrant[1];
                 }
             } elseif (
-                ! empty($GLOBALS[$currentGrant[0]])
-                && is_array($GLOBALS[$currentGrant[0]])
-                && empty($GLOBALS[$currentGrant[0] . '_none'])
+                ! empty($_POST[$currentGrant[0]])
+                && is_array($_POST[$currentGrant[0]])
+                && empty($_POST[$currentGrant[0] . '_none'])
             ) {
                 // Required for proper escaping of ` (backtick) in a column name
                 $grantCols = array_map(
                     Util::backquote(...),
-                    $GLOBALS[$currentGrant[0]],
+                    $_POST[$currentGrant[0]],
                 );
 
                 if ($enableHTML) {
