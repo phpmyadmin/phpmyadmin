@@ -139,10 +139,8 @@ class RecentFavoriteTables
 
     /**
      * Save recent/favorite tables into phpMyAdmin database.
-     *
-     * @return true|Message
      */
-    private function saveToDb(): bool|Message
+    private function saveToDb(): true|Message
     {
         $username = Config::getInstance()->selectedServer['user'];
         $sqlQuery = ' REPLACE INTO ' . $this->getPmaTable() . ' (`username`, `tables`)'
@@ -218,12 +216,7 @@ class RecentFavoriteTables
         return $this->template->render('recent_favorite_table_favorite', ['tables' => $tables]);
     }
 
-    /**
-     * Add recently used or favorite tables.
-     *
-     * @return true|Message True if success, Message if not
-     */
-    public function add(RecentFavoriteTable $newTable): bool|Message
+    public function add(RecentFavoriteTable $newTable): true|Message
     {
         if (! $this->dbTableExists->hasTable($newTable->db, $newTable->table)) {
             return true;
@@ -266,12 +259,7 @@ class RecentFavoriteTables
         return false;
     }
 
-    /**
-     * Remove favorite tables.
-     *
-     * @return true|Message True if success, Message if not
-     */
-    public function remove(RecentFavoriteTable $tableToRemove): bool|Message
+    public function remove(RecentFavoriteTable $tableToRemove): true|Message
     {
         foreach ($this->tables as $key => $table) {
             if (

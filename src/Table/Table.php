@@ -1085,10 +1085,8 @@ class Table implements Stringable
 
     /**
      * Save this table's UI preferences into phpMyAdmin database.
-     *
-     * @return true|Message
      */
-    protected function saveUiPrefsToDb(UiPreferencesFeature $uiPreferencesFeature): bool|Message
+    protected function saveUiPrefsToDb(UiPreferencesFeature $uiPreferencesFeature): true|Message
     {
         $table = Util::backquote($uiPreferencesFeature->database) . '.'
             . Util::backquote($uiPreferencesFeature->tableUiPrefs);
@@ -1272,10 +1270,8 @@ class Table implements Stringable
 
     /**
      * Remove a property from UI preferences.
-     *
-     * @return true|Message
      */
-    public function removeUiProp(UiProperty $property): bool|Message
+    public function removeUiProp(UiProperty $property): true|Message
     {
         if ($this->uiprefs === []) {
             $this->loadUiPrefs();

@@ -174,12 +174,7 @@ class ThemeManager
         return false;
     }
 
-    /**
-     * save theme in cookie
-     *
-     * @return true
-     */
-    public function setThemeCookie(): bool
+    public function setThemeCookie(): true
     {
         $config = Config::getInstance();
         $config->setCookie(

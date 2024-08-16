@@ -260,15 +260,13 @@ class CentralColumns
      * @param string[] $fieldSelect     if $isTable is true selected tables list otherwise selected columns list
      * @param bool     $isTable         if passed array is of tables or columns
      * @param string   $containingTable if $isTable is false, then table name to which columns belong
-     *
-     * @return true|Message
      */
     public function syncUniqueColumns(
         DatabaseName $databaseName,
         array $fieldSelect,
         bool $isTable = true,
         string $containingTable = '',
-    ): bool|Message {
+    ): true|Message {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
             return $this->getStorageNotReadyMessage();
@@ -360,14 +358,12 @@ class CentralColumns
      * @param string[] $fieldSelect if $isTable selected list of tables otherwise
      *                            selected list of columns to remove from central list
      * @param bool     $isTable     if passed array is of tables or columns
-     *
-     * @return true|Message
      */
     public function deleteColumnsFromList(
         string $database,
         array $fieldSelect,
         bool $isTable = true,
-    ): bool|Message {
+    ): true|Message {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
             return $this->getStorageNotReadyMessage();
@@ -441,13 +437,11 @@ class CentralColumns
      *
      * @param string   $db             current database
      * @param string[] $selectedTables list of selected tables.
-     *
-     * @return true|Message
      */
     public function makeConsistentWithList(
         string $db,
         array $selectedTables,
-    ): bool|Message {
+    ): true|Message {
         $message = true;
         $this->dbi->selectDb($db);
         foreach ($selectedTables as $table) {
@@ -519,8 +513,6 @@ class CentralColumns
      * @param string $collation    new column collation
      * @param string $colExtra     new column extra property
      * @param string $colDefault   new column default value
-     *
-     * @return true|Message
      */
     public function updateOneColumn(
         string $db,
@@ -533,7 +525,7 @@ class CentralColumns
         string $collation,
         string $colExtra,
         string $colDefault,
-    ): bool|Message {
+    ): true|Message {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
             return $this->getStorageNotReadyMessage();
@@ -579,10 +571,8 @@ class CentralColumns
      * Update Multiple column in central columns list if a change is requested
      *
      * @param mixed[] $params Request parameters
-     *
-     * @return true|Message
      */
-    public function updateMultipleColumn(array $params): bool|Message
+    public function updateMultipleColumn(array $params): true|Message
     {
         $columnDefault = $params['field_default_type'];
         $columnIsNull = [];

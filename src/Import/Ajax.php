@@ -86,10 +86,8 @@ final class Ajax
     /**
      * Default plugin for handling import.
      * If no other plugin is available, noplugin is used.
-     *
-     * @return true
      */
-    public static function nopluginCheck(): bool
+    public static function nopluginCheck(): true
     {
         return true;
     }
