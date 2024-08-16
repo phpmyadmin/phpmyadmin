@@ -67,8 +67,9 @@ class ThemeManagerTest extends AbstractTestCase
     public function testSetThemeCookie(): void
     {
         $tm = new ThemeManager();
-        self::assertTrue(
-            $tm->setThemeCookie(),
+        $tm->setThemeCookie();
+        self::assertNotFalse(
+            $tm->getThemeCookie(),
         );
     }
 }

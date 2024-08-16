@@ -15516,11 +15516,6 @@ parameters:
 			path: tests/unit/Table/TableTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with true will always evaluate to true\\.$#"
-			count: 1
-			path: tests/unit/Theme/ThemeManagerTest.php
-
-		-
 			message: "#^Casting to int something that's already int\\.$#"
 			count: 1
 			path: tests/unit/Theme/ThemeTest.php

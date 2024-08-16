@@ -174,7 +174,7 @@ class ThemeManager
         return false;
     }
 
-    public function setThemeCookie(): true
+    public function setThemeCookie(): void
     {
         $config = Config::getInstance();
         $config->setCookie(
@@ -190,8 +190,6 @@ class ThemeManager
         // force a change of a dummy session variable to avoid problems
         // with the caching of phpmyadmin.css.php
         $config->set('theme-update', $this->theme->id);
-
-        return true;
     }
 
     public function loadThemes(): void
