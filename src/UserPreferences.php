@@ -110,10 +110,8 @@ class UserPreferences
      * Saves user preferences
      *
      * @param mixed[] $configArray configuration array
-     *
-     * @return true|Message
      */
-    public function save(array $configArray): bool|Message
+    public function save(array $configArray): true|Message
     {
         $relationParameters = $this->relation->getRelationParameters();
         $cacheKey = 'server_' . Current::$server;
@@ -232,10 +230,8 @@ class UserPreferences
      * @param string $path         configuration
      * @param mixed  $value        value
      * @param mixed  $defaultValue default value
-     *
-     * @return true|Message
      */
-    public function persistOption(string $path, mixed $value, mixed $defaultValue): bool|Message
+    public function persistOption(string $path, mixed $value, mixed $defaultValue): true|Message
     {
         $prefs = $this->load();
         if ($value === $defaultValue) {

@@ -175,7 +175,6 @@ final class CentralColumnsController implements InvocableController
         $this->response->render('database/central_columns/main', $variables);
     }
 
-    /** @return true|Message */
     public function editSave(
         string $colName,
         string $origColName,
@@ -188,7 +187,7 @@ final class CentralColumnsController implements InvocableController
         string $colType,
         string $collation,
         DatabaseName $db,
-    ): bool|Message {
+    ): true|Message {
         $columnDefault = $colDefault;
         if ($columnDefault === 'NONE' && $colDefaultSel !== 'USER_DEFINED') {
             $columnDefault = '';
@@ -208,7 +207,6 @@ final class CentralColumnsController implements InvocableController
         );
     }
 
-    /** @return true|Message */
     public function addNewColumn(
         string $colName,
         string $colDefault,
@@ -220,7 +218,7 @@ final class CentralColumnsController implements InvocableController
         string $colType,
         string $collation,
         DatabaseName $db,
-    ): bool|Message {
+    ): true|Message {
         $columnDefault = $colDefault;
         if ($columnDefault === 'NONE' && $colDefaultSel !== 'USER_DEFINED') {
             $columnDefault = '';
@@ -250,12 +248,8 @@ final class CentralColumnsController implements InvocableController
         $this->response->render('database/central_columns/edit', ['rows' => $rows]);
     }
 
-    /**
-     * @param mixed[] $params Request parameters
-     *
-     * @return true|Message
-     */
-    public function deleteSave(array $params): bool|Message
+    /** @param mixed[] $params Request parameters */
+    public function deleteSave(array $params): true|Message
     {
         $name = [];
         parse_str($params['col_name'], $name);

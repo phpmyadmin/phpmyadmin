@@ -507,15 +507,13 @@ class Config
      * @param string      $cfgPath      configuration path
      * @param mixed       $newCfgValue  new value
      * @param string|null $defaultValue default value
-     *
-     * @return true|Message
      */
     public function setUserValue(
         string|null $cookieName,
         string $cfgPath,
         mixed $newCfgValue,
         string|null $defaultValue = null,
-    ): bool|Message {
+    ): true|Message {
         $dbi = DatabaseInterface::getInstance();
         $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
         $result = true;

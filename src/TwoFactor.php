@@ -233,10 +233,8 @@ class TwoFactor
 
     /**
      * Saves current configuration.
-     *
-     * @return true|Message
      */
-    public function save(): bool|Message
+    public function save(): true|Message
     {
         return $this->userPreferences->persistOption('2fa', $this->config, null);
     }
