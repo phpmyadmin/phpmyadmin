@@ -927,7 +927,7 @@ class Import
         ImportSettings::$importNotice = $message;
     }
 
-    public function handleRollbackRequest(string $sqlQuery): void
+    public function handleTransactionOrRollbackRequest(string $sqlQuery): void
     {
         $sqlDelimiter = $_POST['sql_delimiter'];
         $queries = explode($sqlDelimiter, $sqlQuery);
