@@ -3123,7 +3123,7 @@ class Results
 
         // 2.1 Prepares a messages with position information
         $sqlQueryMessage = '';
-        if ($displayParts->hasQueryStats) {
+        if ($displayParts->hasQueryStats && $total > 0) {
             $message = $this->setMessageInformation(
                 $sortedColumnMessage,
                 $statementInfo,

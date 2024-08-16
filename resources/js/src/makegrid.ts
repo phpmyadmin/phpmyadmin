@@ -1604,7 +1604,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     isValueUpdated = thisFieldParams[fieldName] !== getCellValue(g.currentEditCell);
                 } else {
                     const JSONString = stringifyJSON(thisFieldParams[fieldName]);
-                    isValueUpdated = JSONString !== JSON.stringify(JSON.parse(getCellValue(g.currentEditCell)));
+                    isValueUpdated = JSONString !== stringifyJSON(getCellValue(g.currentEditCell));
                 }
 
                 if (g.wasEditedCellNull || isValueUpdated) {
