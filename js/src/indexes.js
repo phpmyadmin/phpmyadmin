@@ -232,7 +232,7 @@ Indexes.addColumnToIndex = function (sourceArray, arrayIndex, indexChoice, colIn
         $.each(columns, function () {
             columnNames.push($('input[name="field_name[' +  this.col_index + ']"]').val());
         });
-        displayName = '[' + columnNames.join(', ') + ']';
+        displayName = '[' + columnNames.join(', ').trimRight() + ']';
     }
     $.each(columns, function () {
         var id = 'index_name_' + this.col_index + '_8';
