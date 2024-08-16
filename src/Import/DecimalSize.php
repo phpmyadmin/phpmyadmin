@@ -9,9 +9,9 @@ use Stringable;
 use function mb_strlen;
 use function mb_strpos;
 
-final class DecimalSize implements Stringable
+final readonly class DecimalSize implements Stringable
 {
-    private function __construct(public readonly int $precision, public readonly int $scale)
+    private function __construct(public int $precision, public int $scale)
     {
     }
 

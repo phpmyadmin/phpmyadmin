@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-final class Release
+final readonly class Release
 {
     public function __construct(
-        public readonly string $version,
-        public readonly string $date,
-        public readonly string $phpVersions,
-        public readonly string $mysqlVersions,
+        public string $version,
+        public string $date,
+        public string $phpVersions,
+        public string $mysqlVersions,
     ) {
     }
 }

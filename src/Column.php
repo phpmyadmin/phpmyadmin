@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-final class Column
+final readonly class Column
 {
     public function __construct(
-        public readonly string $field,
-        public readonly string $type,
-        public readonly bool $isNull,
-        public readonly string $key,
-        public readonly string|null $default,
-        public readonly string $extra,
+        public string $field,
+        public string $type,
+        public bool $isNull,
+        public string $key,
+        public string|null $default,
+        public string $extra,
     ) {
     }
 }

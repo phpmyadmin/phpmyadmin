@@ -6,9 +6,9 @@ namespace PhpMyAdmin\Tracking;
 
 use PhpMyAdmin\Identifiers\TableName;
 
-final class TrackedTable
+final readonly class TrackedTable
 {
-    public function __construct(public readonly TableName $name, public readonly bool $active)
+    public function __construct(public TableName $name, public bool $active)
     {
     }
 }

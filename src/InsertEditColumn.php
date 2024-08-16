@@ -9,29 +9,29 @@ use function md5;
 use function preg_match;
 use function preg_replace;
 
-final class InsertEditColumn
+final readonly class InsertEditColumn
 {
-    public readonly string|null $default;
-    public readonly string $md5;
+    public string|null $default;
+    public string $md5;
     /**
      * trueType contains only the type (stops at first bracket)
      */
-    public readonly string $trueType;
-    public readonly string $pmaType;
-    public readonly int $length;
-    public readonly bool $firstTimestamp;
+    public string $trueType;
+    public string $pmaType;
+    public int $length;
+    public bool $firstTimestamp;
 
     public function __construct(
-        public readonly string $field,
-        public readonly string $type,
-        public readonly bool $isNull,
-        public readonly string $key,
+        public string $field,
+        public string $type,
+        public bool $isNull,
+        public string $key,
         string|null $default,
-        public readonly string $extra,
+        public string $extra,
         int $columnLength,
-        public readonly bool $isBinary,
-        public readonly bool $isBlob,
-        public readonly bool $isChar,
+        public bool $isBinary,
+        public bool $isBlob,
+        public bool $isChar,
         bool $insertMode,
     ) {
         if (

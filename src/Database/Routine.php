@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Database;
 
-final class Routine
+final readonly class Routine
 {
     public function __construct(
-        public readonly string $name,
-        public readonly string $type,
-        public readonly string $returns,
+        public string $name,
+        public string $type,
+        public string $returns,
     ) {
     }
 }

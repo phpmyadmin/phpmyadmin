@@ -30,30 +30,30 @@ use PhpMyAdmin\Version;
 use function is_string;
 
 /** @psalm-immutable */
-final class RelationParameters
+final readonly class RelationParameters
 {
     /** @param non-empty-string|null $user */
     public function __construct(
-        public readonly string|null $user,
-        public readonly DatabaseName|null $db = null,
-        public readonly BookmarkFeature|null $bookmarkFeature = null,
-        public readonly BrowserTransformationFeature|null $browserTransformationFeature = null,
-        public readonly CentralColumnsFeature|null $centralColumnsFeature = null,
-        public readonly ColumnCommentsFeature|null $columnCommentsFeature = null,
-        public readonly ConfigurableMenusFeature|null $configurableMenusFeature = null,
-        public readonly DatabaseDesignerSettingsFeature|null $databaseDesignerSettingsFeature = null,
-        public readonly DisplayFeature|null $displayFeature = null,
-        public readonly ExportTemplatesFeature|null $exportTemplatesFeature = null,
-        public readonly FavoriteTablesFeature|null $favoriteTablesFeature = null,
-        public readonly NavigationItemsHidingFeature|null $navigationItemsHidingFeature = null,
-        public readonly PdfFeature|null $pdfFeature = null,
-        public readonly RecentlyUsedTablesFeature|null $recentlyUsedTablesFeature = null,
-        public readonly RelationFeature|null $relationFeature = null,
-        public readonly SavedQueryByExampleSearchesFeature|null $savedQueryByExampleSearchesFeature = null,
-        public readonly SqlHistoryFeature|null $sqlHistoryFeature = null,
-        public readonly TrackingFeature|null $trackingFeature = null,
-        public readonly UiPreferencesFeature|null $uiPreferencesFeature = null,
-        public readonly UserPreferencesFeature|null $userPreferencesFeature = null,
+        public string|null $user,
+        public DatabaseName|null $db = null,
+        public BookmarkFeature|null $bookmarkFeature = null,
+        public BrowserTransformationFeature|null $browserTransformationFeature = null,
+        public CentralColumnsFeature|null $centralColumnsFeature = null,
+        public ColumnCommentsFeature|null $columnCommentsFeature = null,
+        public ConfigurableMenusFeature|null $configurableMenusFeature = null,
+        public DatabaseDesignerSettingsFeature|null $databaseDesignerSettingsFeature = null,
+        public DisplayFeature|null $displayFeature = null,
+        public ExportTemplatesFeature|null $exportTemplatesFeature = null,
+        public FavoriteTablesFeature|null $favoriteTablesFeature = null,
+        public NavigationItemsHidingFeature|null $navigationItemsHidingFeature = null,
+        public PdfFeature|null $pdfFeature = null,
+        public RecentlyUsedTablesFeature|null $recentlyUsedTablesFeature = null,
+        public RelationFeature|null $relationFeature = null,
+        public SavedQueryByExampleSearchesFeature|null $savedQueryByExampleSearchesFeature = null,
+        public SqlHistoryFeature|null $sqlHistoryFeature = null,
+        public TrackingFeature|null $trackingFeature = null,
+        public UiPreferencesFeature|null $uiPreferencesFeature = null,
+        public UserPreferencesFeature|null $userPreferencesFeature = null,
     ) {
     }
 
