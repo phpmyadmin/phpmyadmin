@@ -5,17 +5,17 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Display;
 
 /** @psalm-immutable */
-final class DisplayParts
+final readonly class DisplayParts
 {
     private function __construct(
-        public readonly bool $hasEditLink,
-        public readonly DeleteLinkEnum $deleteLink,
-        public readonly bool $hasSortLink,
-        public readonly bool $hasNavigationBar,
-        public readonly bool $hasBookmarkForm,
-        public readonly bool $hasTextButton,
-        public readonly bool $hasPrintLink,
-        public readonly bool $hasQueryStats,
+        public bool $hasEditLink,
+        public DeleteLinkEnum $deleteLink,
+        public bool $hasSortLink,
+        public bool $hasNavigationBar,
+        public bool $hasBookmarkForm,
+        public bool $hasTextButton,
+        public bool $hasPrintLink,
+        public bool $hasQueryStats,
     ) {
     }
 

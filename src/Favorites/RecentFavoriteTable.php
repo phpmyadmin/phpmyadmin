@@ -8,9 +8,9 @@ use JsonSerializable;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 
-final class RecentFavoriteTable implements JsonSerializable
+final readonly class RecentFavoriteTable implements JsonSerializable
 {
-    public function __construct(public readonly DatabaseName $db, public readonly TableName $table)
+    public function __construct(public DatabaseName $db, public TableName $table)
     {
     }
 

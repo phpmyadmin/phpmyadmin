@@ -11,15 +11,15 @@ use PhpMyAdmin\Util;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
-final class Trigger
+final readonly class Trigger
 {
     public function __construct(
-        public readonly TriggerName $name,
-        public readonly Timing $timing,
-        public readonly Event $event,
-        public readonly TableName $table,
-        public readonly string $statement,
-        public readonly string $definer,
+        public TriggerName $name,
+        public Timing $timing,
+        public Event $event,
+        public TableName $table,
+        public string $statement,
+        public string $definer,
     ) {
     }
 
