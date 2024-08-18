@@ -66,7 +66,7 @@ function makeCoordinateInputs (prefix: string, data): string {
 
 function makePointNInputs (prefix: string, index: number, data): string {
     return (
-        '<div class="gis-coordinates row gx-2 align-items-center mb-2"><div class="col-2">' +
+        '<div class="gis-coordinates row gx-2 align-items-center mb-2"><div class="col-3">' +
         window.Messages.strPoint + ' ' + (index + 1) + ':</div>' +
         makeCoordinateInputs(withIndex(prefix, index), data) +
         '</div>'
@@ -76,7 +76,7 @@ function makePointNInputs (prefix: string, index: number, data): string {
 function makePointInputs (prefix: string, data): string {
     return (
         '<div class="gis-coordinates-list card-body">' +
-        '<div class="gis-coordinates row gx-2 align-items-center"><div class="col-2">' +
+        '<div class="gis-coordinates row gx-2 align-items-center"><div class="col-3">' +
         window.Messages.strPoint + ':</div>' +
         makeCoordinateInputs(prefix, data) +
         '</div>' +
