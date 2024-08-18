@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-08-11 00:22+0000\n"
+"POT-Creation-Date: 2024-08-18 00:23+0000\n"
 "PO-Revision-Date: 2024-06-30 09:27+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1017,8 +1017,8 @@ msgstr "Sil"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1567
-#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1566
+#: src/Server/Privileges.php:1568 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "Database"
 
@@ -1855,7 +1855,7 @@ msgstr "Tümünü işaretle"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:386 src/Menu.php:240
-#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1284
+#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1283
 #: src/Util.php:1454 src/Util.php:1469 src/Util.php:1486
 msgid "Export"
 msgstr "Dışa aktar"
@@ -2261,13 +2261,13 @@ msgstr "yordam"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1276
+#: src/Server/Privileges.php:1275
 msgid "Edit privileges"
 msgstr "Yetkileri düzenle"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2061
+#: src/Server/Privileges.php:2060
 msgid "No user found."
 msgstr "Bulunan kullanıcı yok."
 
@@ -2287,7 +2287,7 @@ msgstr "Seçilileri:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1220
+#: src/Server/Privileges.php:1219
 msgid "Not enough privilege to view users."
 msgstr "Kullanıcıları görüntülemek için yetersiz yetki."
 
@@ -2711,8 +2711,8 @@ msgstr "Sorguları oluşturma gösteriliyor"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1573
-#: src/Server/Privileges.php:1575
+#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1572
+#: src/Server/Privileges.php:1574
 msgid "Table"
 msgstr "Tablo"
 
@@ -4647,7 +4647,7 @@ msgstr "Kullanıcı hesabı"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
-#: src/Server/Privileges.php:1579 src/Server/Privileges.php:1581
+#: src/Server/Privileges.php:1578 src/Server/Privileges.php:1580
 msgid "Routine"
 msgstr "Yordam"
 
@@ -4661,7 +4661,7 @@ msgstr ""
 "çalışıyorsunuz."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1579
 msgid "Routine-specific privileges"
 msgstr "Yordama özgü yetkiler"
 
@@ -4800,7 +4800,7 @@ msgstr "Kullanıcı grubunu düzenle"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1573
 msgid "Table-specific privileges"
 msgstr "Tabloya özgü yetkiler"
 
@@ -4827,7 +4827,7 @@ msgstr "Aşağıdaki yordama yetkileri ekle:"
 #: resources/templates/server/privileges/privileges_table.twig:16
 #: resources/templates/server/privileges/privileges_table.twig:287
 #: resources/templates/server/privileges/privileges_table.twig:290
-#: src/Server/Privileges.php:310
+#: src/Server/Privileges.php:309
 msgid "Allows reading data."
 msgstr "Veri okunmasına izin verir."
 
@@ -4854,20 +4854,20 @@ msgstr "Yok"
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
 #: resources/templates/server/privileges/privileges_table.twig:303
-#: src/Server/Privileges.php:311
+#: src/Server/Privileges.php:310
 msgid "Allows inserting and replacing data."
 msgstr "Verinin eklenmesine ve yerinin değiştirilmesine izin verir."
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
 #: resources/templates/server/privileges/privileges_table.twig:316
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:311
 msgid "Allows changing data."
 msgstr "Veri değiştirilmesine izin ver."
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
-#: src/Server/Privileges.php:320
+#: src/Server/Privileges.php:319
 msgid "Has no effect in this MySQL version."
 msgstr "Bu MySQL sürümünde etkisi yoktur."
 
@@ -4875,7 +4875,7 @@ msgstr "Bu MySQL sürümünde etkisi yoktur."
 #: resources/templates/server/privileges/privileges_table.twig:128
 #: resources/templates/server/privileges/privileges_table.twig:326
 #: resources/templates/server/privileges/privileges_table.twig:329
-#: src/Server/Privileges.php:290 src/Server/Privileges.php:313
+#: src/Server/Privileges.php:289 src/Server/Privileges.php:312
 msgid "Allows deleting data."
 msgstr "Veri silinmesine izin verir."
 
@@ -4883,7 +4883,7 @@ msgstr "Veri silinmesine izin verir."
 #: resources/templates/server/privileges/privileges_table.twig:140
 #: resources/templates/server/privileges/privileges_table.twig:367
 #: resources/templates/server/privileges/privileges_table.twig:375
-#: src/Server/Privileges.php:291
+#: src/Server/Privileges.php:290
 msgid "Allows creating new tables."
 msgstr "Yeni tabloların oluşturulmasına izin verir."
 
@@ -4891,7 +4891,7 @@ msgstr "Yeni tabloların oluşturulmasına izin verir."
 #: resources/templates/server/privileges/privileges_table.twig:152
 #: resources/templates/server/privileges/privileges_table.twig:415
 #: resources/templates/server/privileges/privileges_table.twig:423
-#: src/Server/Privileges.php:292
+#: src/Server/Privileges.php:291
 msgid "Allows dropping tables."
 msgstr "Tabloların kaldırılmasına izin verir."
 
@@ -4910,7 +4910,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:177
 #: resources/templates/server/privileges/privileges_table.twig:399
 #: resources/templates/server/privileges/privileges_table.twig:402
-#: src/Server/Privileges.php:293 src/Server/Privileges.php:321
+#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
 msgid "Allows creating and dropping indexes."
 msgstr "İndekslerin oluşturulmasına ve kaldırılmasına izin verir."
 
@@ -4918,7 +4918,7 @@ msgstr "İndekslerin oluşturulmasına ve kaldırılmasına izin verir."
 #: resources/templates/server/privileges/privileges_table.twig:189
 #: resources/templates/server/privileges/privileges_table.twig:386
 #: resources/templates/server/privileges/privileges_table.twig:389
-#: src/Server/Privileges.php:294 src/Server/Privileges.php:322
+#: src/Server/Privileges.php:293 src/Server/Privileges.php:321
 msgid "Allows altering the structure of existing tables."
 msgstr "Varolan tabloların yapısının değiştirilmesine izin verir."
 
@@ -4928,8 +4928,8 @@ msgstr "Varolan tabloların yapısının değiştirilmesine izin verir."
 #: resources/templates/server/privileges/privileges_table.twig:503
 #: resources/templates/server/privileges/privileges_table.twig:515
 #: resources/templates/server/privileges/privileges_table.twig:518
-#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
-#: src/Server/Privileges.php:345
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:340
+#: src/Server/Privileges.php:344
 msgid "Allows creating new views."
 msgstr "Yeni görünümlerin oluşturulmasına izin verir."
 
@@ -4937,8 +4937,8 @@ msgstr "Yeni görünümlerin oluşturulmasına izin verir."
 #: resources/templates/server/privileges/privileges_table.twig:213
 #: resources/templates/server/privileges/privileges_table.twig:447
 #: resources/templates/server/privileges/privileges_table.twig:450
-#: src/Server/Privileges.php:296 src/Server/Privileges.php:346
-#: src/Server/Privileges.php:348
+#: src/Server/Privileges.php:295 src/Server/Privileges.php:345
+#: src/Server/Privileges.php:347
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "SHOW CREATE VIEW sorgularının yapılmasına izin verir."
 
@@ -4946,14 +4946,14 @@ msgstr "SHOW CREATE VIEW sorgularının yapılmasına izin verir."
 #: resources/templates/server/privileges/privileges_table.twig:225
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: resources/templates/server/privileges/privileges_table.twig:546
-#: src/Server/Privileges.php:297 src/Server/Privileges.php:343
+#: src/Server/Privileges.php:296 src/Server/Privileges.php:342
 msgid "Allows creating and dropping triggers."
 msgstr "Tetikleyicileri oluşturmaya ve kaldırmaya izin verir."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
-#: src/Server/Privileges.php:354 src/Server/Privileges.php:363
+#: src/Server/Privileges.php:353 src/Server/Privileges.php:362
 msgid "Allows deleting historical rows."
 msgstr "Geçmişteki satırları silmeye izin verir."
 
@@ -4967,55 +4967,55 @@ msgid "Global privileges"
 msgstr "Genel yetkiler"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1568
+#: src/Server/Privileges.php:1567
 msgid "Database-specific privileges"
 msgstr "Veritabanına özgü yetkiler"
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
-#: src/Server/Privileges.php:319
+#: src/Server/Privileges.php:318
 msgid "Allows importing data from and exporting data into files."
 msgstr "Verinin içe ve dışa aktarılmasına izin verir."
 
 #: resources/templates/server/privileges/privileges_table.twig:365
 #: resources/templates/server/privileges/privileges_table.twig:373
-#: src/Server/Privileges.php:314
+#: src/Server/Privileges.php:313
 msgid "Allows creating new databases and tables."
 msgstr "Yeni veritabanları ve tabloların oluşturulmasına izin verir."
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
-#: src/Server/Privileges.php:315
+#: src/Server/Privileges.php:314
 msgid "Allows dropping databases and tables."
 msgstr "Veritabanları ve tabloların kaldırılmasına izin verir."
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
-#: src/Server/Privileges.php:333
+#: src/Server/Privileges.php:332
 msgid "Allows creating temporary tables."
 msgstr "Geçici tablolar oluşturulmasına izin verir."
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
-#: src/Server/Privileges.php:365
+#: src/Server/Privileges.php:364
 msgid "Allows creating stored routines."
 msgstr "Saklanan yordamların oluşturulmasına izin verir."
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
-#: src/Server/Privileges.php:366
+#: src/Server/Privileges.php:365
 msgid "Allows altering and dropping stored routines."
 msgstr "Saklanan yordamların değiştirilmesine ve kaldırılmasına izin verir."
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
-#: src/Server/Privileges.php:368
+#: src/Server/Privileges.php:367
 msgid "Allows executing stored routines."
 msgstr "Saklanan yordamların yürütülmesine izin verir."
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
-#: src/Server/Privileges.php:342
+#: src/Server/Privileges.php:341
 msgid "Allows to set up events for the event scheduler."
 msgstr "Olay zamanlayıcısı için olayları ayarlamaya izin verir."
 
@@ -5033,7 +5033,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
-#: src/Server/Privileges.php:328
+#: src/Server/Privileges.php:327
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5045,13 +5045,13 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
-#: src/Server/Privileges.php:318
+#: src/Server/Privileges.php:317
 msgid "Allows viewing processes of all users."
 msgstr "Tüm kullanıcıların işlemlerini görüntülemeye izin verir."
 
 #: resources/templates/server/privileges/privileges_table.twig:610
 #: resources/templates/server/privileges/privileges_table.twig:613
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:315
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Sunucu ayarlarının yeniden yüklenmesine ve sunucunun önbelleğinin "
@@ -5059,19 +5059,19 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:316
 msgid "Allows shutting down the server."
 msgstr "Sunucunun kapatılmasına izin ver."
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
-#: src/Server/Privileges.php:323
+#: src/Server/Privileges.php:322
 msgid "Gives access to the complete list of databases."
 msgstr "Bütün veritabanı listesine erişim verir."
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
-#: src/Server/Privileges.php:334
+#: src/Server/Privileges.php:333
 msgid "Allows locking tables for the current thread."
 msgstr "Şu anki iş parçacığı için tabloların kilitlenmesine izin verir."
 
@@ -5089,7 +5089,7 @@ msgstr "Bu MySQL sürümü için kullanılmaz."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
-#: src/Server/Privileges.php:339
+#: src/Server/Privileges.php:338
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr ""
 "Kullanıcının kopya / birincil sunucuların nerede olduğunu sormasına izin "
@@ -5097,13 +5097,13 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
-#: src/Server/Privileges.php:335
+#: src/Server/Privileges.php:334
 msgid "Needed for the replication replicas."
 msgstr "Kopyalama kopya sunucular için gerekli."
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
-#: src/Server/Privileges.php:367
+#: src/Server/Privileges.php:366
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 "Kullanıcı hesaplarının oluşturulmasına, kaldırılmasına ve yeniden "
@@ -11512,21 +11512,21 @@ msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 "Ayarlar kaydedilemiyor, gönderilmiş yapılandırma formu hatalar içeriyor!"
 
-#: src/Config.php:609
+#: src/Config.php:607
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Mevcut yapılandırma dosyası (%s) okunabilir değil."
 
-#: src/Config.php:645
+#: src/Config.php:643
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Yapılandırma dosyasında yanlış izinler, herkesçe yazılabilir olmamalıdır!"
 
-#: src/Config.php:659
+#: src/Config.php:657
 msgid "Failed to read configuration file!"
 msgstr "Yapılandırma dosyasını okuma başarısız!"
 
-#: src/Config.php:661
+#: src/Config.php:659
 msgid "This usually means there is a syntax error in it."
 msgstr "Bu genellikle bir sözdizimi hatası var anlamına gelir."
 
@@ -12580,12 +12580,12 @@ msgid "The user name is empty!"
 msgstr "Kullanıcı adı boş!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:767 src/UserPassword.php:39
+#: src/Server/Privileges.php:766 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Parola boş!"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:765 src/UserPassword.php:43
+#: src/Server/Privileges.php:764 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Parolalar birbiriyle aynı değil!"
 
@@ -15389,27 +15389,27 @@ msgstr "Görünüm adı boş olamaz!"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s uzantısı eksik. Lütfen PHP yapılandırmanızı denetleyin."
 
-#: src/Database/CentralColumns.php:328
+#: src/Database/CentralColumns.php:326
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr "Zaten merkezi listede mevcut olduğu için %1$s eklenemedi!"
 
-#: src/Database/CentralColumns.php:342
+#: src/Database/CentralColumns.php:340
 msgid "Could not add columns!"
 msgstr "Sütunlar eklenemedi!"
 
-#: src/Database/CentralColumns.php:415
+#: src/Database/CentralColumns.php:411
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
 "Merkezi sütunlar listesinde mevcut olmadığı için Sütun %1$s kaldırılamadı!"
 
-#: src/Database/CentralColumns.php:428
+#: src/Database/CentralColumns.php:424
 msgid "Could not remove columns!"
 msgstr "Sütunlar kaldırılamadı!"
 
-#: src/Database/CentralColumns.php:908
+#: src/Database/CentralColumns.php:898
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
@@ -16074,11 +16074,11 @@ msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 "Ham sorguyu dışa aktarmak, bu dışa aktarma yöntemi için desteklenmiyor."
 
-#: src/Favorites/RecentFavoriteTables.php:156
+#: src/Favorites/RecentFavoriteTables.php:154
 msgid "Could not save recent table!"
 msgstr "Son tablo kaydedilemedi!"
 
-#: src/Favorites/RecentFavoriteTables.php:157
+#: src/Favorites/RecentFavoriteTables.php:155
 msgid "Could not save favorite table!"
 msgstr "Sık kullanılan tablo kaydedilemedi!"
 
@@ -17982,8 +17982,8 @@ msgstr "Hata 404! Sayfa %s bulunamadı."
 msgid "Error 405! Request method not allowed."
 msgstr "Hata 405! İstek yöntemine izin verilmedi."
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:634
-#: src/Server/Privileges.php:3258
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:633
+#: src/Server/Privileges.php:3257
 msgid "Native MySQL authentication"
 msgstr "Yerel MySQL kimlik doğrulaması"
 
@@ -18008,65 +18008,65 @@ msgstr "Eski MySQL-4.0 kimlik doğrulaması"
 msgid "Account locking is not supported."
 msgstr "Hesap kilitleme desteklenmiyor."
 
-#: src/Server/Privileges.php:267
+#: src/Server/Privileges.php:266
 msgid "No privileges."
 msgstr "Yetkiniz yok."
 
-#: src/Server/Privileges.php:273
+#: src/Server/Privileges.php:272
 msgid "Includes all privileges except GRANT."
 msgstr "GRANT hariç tüm yetkileri içerir."
 
-#: src/Server/Privileges.php:894
+#: src/Server/Privileges.php:893
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s için parola başarılı olarak değiştirildi."
 
-#: src/Server/Privileges.php:942
+#: src/Server/Privileges.php:941
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "%s için yetkileri geri aldınız."
 
-#: src/Server/Privileges.php:1280
+#: src/Server/Privileges.php:1279
 msgid "Revoke"
 msgstr "Geri al"
 
-#: src/Server/Privileges.php:1883
+#: src/Server/Privileges.php:1882
 msgid "No users selected for deleting!"
 msgstr "Silmek için kullanıcı seçilmedi!"
 
-#: src/Server/Privileges.php:1886
+#: src/Server/Privileges.php:1885
 msgid "Reloading the privileges"
 msgstr "Yetkiler yeniden yükleniyor"
 
-#: src/Server/Privileges.php:1911
+#: src/Server/Privileges.php:1910
 msgid "The selected users have been deleted successfully."
 msgstr "Seçilen kullanıcılar başarılı olarak silindi."
 
-#: src/Server/Privileges.php:1985
+#: src/Server/Privileges.php:1984
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "%s için yetkileri güncellediniz."
 
-#: src/Server/Privileges.php:2142
+#: src/Server/Privileges.php:2141
 #, php-format
 msgid "Deleting %s"
 msgstr "%s siliniyor"
 
-#: src/Server/Privileges.php:2173
+#: src/Server/Privileges.php:2172
 msgid "The privileges were reloaded successfully."
 msgstr "Yetkiler başarılı olarak yüklendi."
 
-#: src/Server/Privileges.php:2274
+#: src/Server/Privileges.php:2273
 #, php-format
 msgid "The user %s already exists!"
 msgstr "%s kullanıcısı zaten var!"
 
-#: src/Server/Privileges.php:2511
+#: src/Server/Privileges.php:2510
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s için yetkiler"
 
-#: src/Server/Privileges.php:2597
+#: src/Server/Privileges.php:2596
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -18079,7 +18079,7 @@ msgstr ""
 "sunucunun kullandığı yetkilerden farklı olabilir. Bu durumda devam etmeden "
 "önce %syetkileri yeniden yüklemeniz%s gerekir."
 
-#: src/Server/Privileges.php:2613
+#: src/Server/Privileges.php:2612
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -18093,11 +18093,11 @@ msgstr ""
 "yeniden yüklenmek zorundadır ancak şu anda, yetkileri YENİDEN YÜKLEMENİZ "
 "gerekmez."
 
-#: src/Server/Privileges.php:2901
+#: src/Server/Privileges.php:2900
 msgid "You have added a new user."
 msgstr "Yeni bir kullanıcı eklediniz."
 
-#: src/Server/Privileges.php:3351
+#: src/Server/Privileges.php:3350
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -18299,11 +18299,11 @@ msgstr "Geçersiz tablo adı:"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s tablosu %2$s olarak yeniden adlandırıldı."
 
-#: src/Table/Table.php:1109
+#: src/Table/Table.php:1107
 msgid "Could not save table UI preferences!"
 msgstr "Tablo KA tercihleri kaydedilemedi!"
 
-#: src/Table/Table.php:1131
+#: src/Table/Table.php:1129
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -18312,7 +18312,7 @@ msgstr ""
 "Tablo KA tercihlerini temizleme başarısız ($cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s bakın)"
 
-#: src/Table/Table.php:1249
+#: src/Table/Table.php:1247
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18323,7 +18323,7 @@ msgstr ""
 "yenilemenizden sonra kalıcı olmayacaktır. Eğer tablo yapısı değiştirilmişse "
 "lütfen denetleyin."
 
-#: src/Table/Table.php:1601
+#: src/Table/Table.php:1597
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s üzerinde dış anahtar oluşturma hatası (veri türlerini denetleyin)"
@@ -18794,11 +18794,11 @@ msgstr "Profil güncellendi."
 msgid "Password is too long!"
 msgstr "Parola çok uzun!"
 
-#: src/UserPreferences.php:162
+#: src/UserPreferences.php:160
 msgid "Could not save configuration"
 msgstr "Yapılandırma kaydedilemedi"
 
-#: src/UserPreferences.php:173
+#: src/UserPreferences.php:171
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "phpMyAdmin yapılandırma depolama veritabanına erişilemedi."
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-08-11 00:22+0000\n"
+"POT-Creation-Date: 2024-08-18 00:23+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1040,8 +1040,8 @@ msgstr "Esborra"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1567
-#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1566
+#: src/Server/Privileges.php:1568 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "Base de dades"
 
@@ -1895,7 +1895,7 @@ msgstr "Marca-ho tot"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:386 src/Menu.php:240
-#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1284
+#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1283
 #: src/Util.php:1454 src/Util.php:1469 src/Util.php:1486
 msgid "Export"
 msgstr "Exporta"
@@ -2315,13 +2315,13 @@ msgstr "rutina"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1276
+#: src/Server/Privileges.php:1275
 msgid "Edit privileges"
 msgstr "Edita els privilegis"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2061
+#: src/Server/Privileges.php:2060
 msgid "No user found."
 msgstr "No s'han trobat usuaris."
 
@@ -2341,7 +2341,7 @@ msgstr "Amb els seleccionats:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1220
+#: src/Server/Privileges.php:1219
 msgid "Not enough privilege to view users."
 msgstr "No teniu prou privilegis per veure els usuaris."
 
@@ -2775,8 +2775,8 @@ msgstr "Es mostren les consultes de creació"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1573
-#: src/Server/Privileges.php:1575
+#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1572
+#: src/Server/Privileges.php:1574
 msgid "Table"
 msgstr "Taula"
 
@@ -4866,7 +4866,7 @@ msgstr "Compte d'usuari"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
-#: src/Server/Privileges.php:1579 src/Server/Privileges.php:1581
+#: src/Server/Privileges.php:1578 src/Server/Privileges.php:1580
 msgid "Routine"
 msgstr "Rutina"
 
@@ -4880,7 +4880,7 @@ msgstr ""
 "actualment iniciada la sessió."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1579
 msgid "Routine-specific privileges"
 msgstr "Privilegis específics de rutina"
 
@@ -5031,7 +5031,7 @@ msgstr "Edita el grup d'usuaris"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1573
 msgid "Table-specific privileges"
 msgstr "Privilegis específics de taula"
 
@@ -5059,7 +5059,7 @@ msgstr "Afegeix els privilegis a la rutina següent:"
 #: resources/templates/server/privileges/privileges_table.twig:16
 #: resources/templates/server/privileges/privileges_table.twig:287
 #: resources/templates/server/privileges/privileges_table.twig:290
-#: src/Server/Privileges.php:310
+#: src/Server/Privileges.php:309
 msgid "Allows reading data."
 msgstr "Permet llegir dades."
 
@@ -5086,20 +5086,20 @@ msgstr "Cap"
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
 #: resources/templates/server/privileges/privileges_table.twig:303
-#: src/Server/Privileges.php:311
+#: src/Server/Privileges.php:310
 msgid "Allows inserting and replacing data."
 msgstr "Permet inserir i modificar dades."
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
 #: resources/templates/server/privileges/privileges_table.twig:316
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:311
 msgid "Allows changing data."
 msgstr "Permet canviar dades."
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
-#: src/Server/Privileges.php:320
+#: src/Server/Privileges.php:319
 msgid "Has no effect in this MySQL version."
 msgstr "No té efecte en aquesta versió de MySQL."
 
@@ -5107,7 +5107,7 @@ msgstr "No té efecte en aquesta versió de MySQL."
 #: resources/templates/server/privileges/privileges_table.twig:128
 #: resources/templates/server/privileges/privileges_table.twig:326
 #: resources/templates/server/privileges/privileges_table.twig:329
-#: src/Server/Privileges.php:290 src/Server/Privileges.php:313
+#: src/Server/Privileges.php:289 src/Server/Privileges.php:312
 msgid "Allows deleting data."
 msgstr "Permet esborrar dades."
 
@@ -5115,7 +5115,7 @@ msgstr "Permet esborrar dades."
 #: resources/templates/server/privileges/privileges_table.twig:140
 #: resources/templates/server/privileges/privileges_table.twig:367
 #: resources/templates/server/privileges/privileges_table.twig:375
-#: src/Server/Privileges.php:291
+#: src/Server/Privileges.php:290
 msgid "Allows creating new tables."
 msgstr "Permet la creació de taules noves."
 
@@ -5123,7 +5123,7 @@ msgstr "Permet la creació de taules noves."
 #: resources/templates/server/privileges/privileges_table.twig:152
 #: resources/templates/server/privileges/privileges_table.twig:415
 #: resources/templates/server/privileges/privileges_table.twig:423
-#: src/Server/Privileges.php:292
+#: src/Server/Privileges.php:291
 msgid "Allows dropping tables."
 msgstr "Permet eliminar taules."
 
@@ -5142,7 +5142,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:177
 #: resources/templates/server/privileges/privileges_table.twig:399
 #: resources/templates/server/privileges/privileges_table.twig:402
-#: src/Server/Privileges.php:293 src/Server/Privileges.php:321
+#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
 msgid "Allows creating and dropping indexes."
 msgstr "Permet la creació i l'eliminació d'índexs."
 
@@ -5150,7 +5150,7 @@ msgstr "Permet la creació i l'eliminació d'índexs."
 #: resources/templates/server/privileges/privileges_table.twig:189
 #: resources/templates/server/privileges/privileges_table.twig:386
 #: resources/templates/server/privileges/privileges_table.twig:389
-#: src/Server/Privileges.php:294 src/Server/Privileges.php:322
+#: src/Server/Privileges.php:293 src/Server/Privileges.php:321
 msgid "Allows altering the structure of existing tables."
 msgstr "Permet alterar l'estructura de taules existents."
 
@@ -5160,8 +5160,8 @@ msgstr "Permet alterar l'estructura de taules existents."
 #: resources/templates/server/privileges/privileges_table.twig:503
 #: resources/templates/server/privileges/privileges_table.twig:515
 #: resources/templates/server/privileges/privileges_table.twig:518
-#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
-#: src/Server/Privileges.php:345
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:340
+#: src/Server/Privileges.php:344
 msgid "Allows creating new views."
 msgstr "Permet la creació de vistes noves."
 
@@ -5169,8 +5169,8 @@ msgstr "Permet la creació de vistes noves."
 #: resources/templates/server/privileges/privileges_table.twig:213
 #: resources/templates/server/privileges/privileges_table.twig:447
 #: resources/templates/server/privileges/privileges_table.twig:450
-#: src/Server/Privileges.php:296 src/Server/Privileges.php:346
-#: src/Server/Privileges.php:348
+#: src/Server/Privileges.php:295 src/Server/Privileges.php:345
+#: src/Server/Privileges.php:347
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Permet fer consultes de tipus SHOW CREATE VIEW."
 
@@ -5178,14 +5178,14 @@ msgstr "Permet fer consultes de tipus SHOW CREATE VIEW."
 #: resources/templates/server/privileges/privileges_table.twig:225
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: resources/templates/server/privileges/privileges_table.twig:546
-#: src/Server/Privileges.php:297 src/Server/Privileges.php:343
+#: src/Server/Privileges.php:296 src/Server/Privileges.php:342
 msgid "Allows creating and dropping triggers."
 msgstr "Permet la creació i l'eliminació de disparadors."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
-#: src/Server/Privileges.php:354 src/Server/Privileges.php:363
+#: src/Server/Privileges.php:353 src/Server/Privileges.php:362
 msgid "Allows deleting historical rows."
 msgstr "Permet esborrar files històriques."
 
@@ -5199,55 +5199,55 @@ msgid "Global privileges"
 msgstr "Privilegis globals"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1568
+#: src/Server/Privileges.php:1567
 msgid "Database-specific privileges"
 msgstr "Privilegis específics de base de dades"
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
-#: src/Server/Privileges.php:319
+#: src/Server/Privileges.php:318
 msgid "Allows importing data from and exporting data into files."
 msgstr "Permet importar i exportar dades amb fitxers."
 
 #: resources/templates/server/privileges/privileges_table.twig:365
 #: resources/templates/server/privileges/privileges_table.twig:373
-#: src/Server/Privileges.php:314
+#: src/Server/Privileges.php:313
 msgid "Allows creating new databases and tables."
 msgstr "Permet la creació de noves bases de dades i taules."
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
-#: src/Server/Privileges.php:315
+#: src/Server/Privileges.php:314
 msgid "Allows dropping databases and tables."
 msgstr "Permet eliminar bases de dades i taules."
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
-#: src/Server/Privileges.php:333
+#: src/Server/Privileges.php:332
 msgid "Allows creating temporary tables."
 msgstr "Permet la creació de taules temporals."
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
-#: src/Server/Privileges.php:365
+#: src/Server/Privileges.php:364
 msgid "Allows creating stored routines."
 msgstr "Permet la creació de rutines emmagatzemades."
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
-#: src/Server/Privileges.php:366
+#: src/Server/Privileges.php:365
 msgid "Allows altering and dropping stored routines."
 msgstr "Permet l'alteració i l'esborrament de rutines emmagatzemades."
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
-#: src/Server/Privileges.php:368
+#: src/Server/Privileges.php:367
 msgid "Allows executing stored routines."
 msgstr "Permet l'execució de rutines emmagatzemades."
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
-#: src/Server/Privileges.php:342
+#: src/Server/Privileges.php:341
 msgid "Allows to set up events for the event scheduler."
 msgstr "Permet preparar els esdeveniments per al planificador d'esdeveniments."
 
@@ -5265,7 +5265,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
-#: src/Server/Privileges.php:328
+#: src/Server/Privileges.php:327
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5277,13 +5277,13 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
-#: src/Server/Privileges.php:318
+#: src/Server/Privileges.php:317
 msgid "Allows viewing processes of all users."
 msgstr "Permet veure els processos de tots els usuaris."
 
 #: resources/templates/server/privileges/privileges_table.twig:610
 #: resources/templates/server/privileges/privileges_table.twig:613
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:315
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Permet recarregar els paràmetres del servidor i purgar les memòries cau del "
@@ -5291,19 +5291,19 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:316
 msgid "Allows shutting down the server."
 msgstr "Permet parar el servidor."
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
-#: src/Server/Privileges.php:323
+#: src/Server/Privileges.php:322
 msgid "Gives access to the complete list of databases."
 msgstr "Dóna accés a la llista completa de bases de dades."
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
-#: src/Server/Privileges.php:334
+#: src/Server/Privileges.php:333
 msgid "Allows locking tables for the current thread."
 msgstr "Permet bloquejar taules per l'actual fil d'execució."
 
@@ -5325,7 +5325,7 @@ msgstr "No té efecte en aquesta versió de MySQL."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
-#: src/Server/Privileges.php:339
+#: src/Server/Privileges.php:338
 #, fuzzy
 #| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
@@ -5334,7 +5334,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
-#: src/Server/Privileges.php:335
+#: src/Server/Privileges.php:334
 #, fuzzy
 #| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
@@ -5342,7 +5342,7 @@ msgstr "És necessari per als esclaus de replicació."
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
-#: src/Server/Privileges.php:367
+#: src/Server/Privileges.php:366
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Permet la creació, esborrament i canvi de nom dels comptes d'usuari."
 
@@ -12149,22 +12149,22 @@ msgstr ""
 "No es poden desar els paràmetres, el formulari de configuració enviat conté "
 "errors!"
 
-#: src/Config.php:609
+#: src/Config.php:607
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "No es pot llegir el fitxer de configuració existent (%s)."
 
-#: src/Config.php:645
+#: src/Config.php:643
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Permisos incorrectes al fitxer de configuració, no pot ser modificable per "
 "tothom!"
 
-#: src/Config.php:659
+#: src/Config.php:657
 msgid "Failed to read configuration file!"
 msgstr "No es pot llegir el fitxer de configuració!"
 
-#: src/Config.php:661
+#: src/Config.php:659
 #, fuzzy
 #| msgid ""
 #| "This usually means there is a syntax error in it, please check any errors "
@@ -13246,12 +13246,12 @@ msgid "The user name is empty!"
 msgstr "El nom d'usuari és buit!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:767 src/UserPassword.php:39
+#: src/Server/Privileges.php:766 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "La contrasenya és buida!"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:765 src/UserPassword.php:43
+#: src/Server/Privileges.php:764 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Les contrasenyes no coincideixen!"
 
@@ -16237,16 +16237,16 @@ msgstr "El nom de la vista no pot estar buit!"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "No es troba l'extensió %s. Comproveu la configuració de PHP."
 
-#: src/Database/CentralColumns.php:328
+#: src/Database/CentralColumns.php:326
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr "No s'ha pogut afegir %1$s perquè ja existeix a la llista central!"
 
-#: src/Database/CentralColumns.php:342
+#: src/Database/CentralColumns.php:340
 msgid "Could not add columns!"
 msgstr "No s'han pogut afegir les columnes!"
 
-#: src/Database/CentralColumns.php:415
+#: src/Database/CentralColumns.php:411
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
@@ -16254,11 +16254,11 @@ msgstr ""
 "No s'ha(n) pogut treure la/les columna(es) %1$s perquè no existeix(en) a la "
 "llista central de columnes!"
 
-#: src/Database/CentralColumns.php:428
+#: src/Database/CentralColumns.php:424
 msgid "Could not remove columns!"
 msgstr "No s'han pogut treure les columnes!"
 
-#: src/Database/CentralColumns.php:908
+#: src/Database/CentralColumns.php:898
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
@@ -16939,11 +16939,11 @@ msgstr "El bolcat s'ha desat amb el nom d'arxiu %s."
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
-#: src/Favorites/RecentFavoriteTables.php:156
+#: src/Favorites/RecentFavoriteTables.php:154
 msgid "Could not save recent table!"
 msgstr "No s'ha pogut desar la taula recent!"
 
-#: src/Favorites/RecentFavoriteTables.php:157
+#: src/Favorites/RecentFavoriteTables.php:155
 msgid "Could not save favorite table!"
 msgstr "No s'ha pogut desar la taula preferida!"
 
@@ -18925,8 +18925,8 @@ msgstr "No s'ha trobat la base de dades origen `%s`!"
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:634
-#: src/Server/Privileges.php:3258
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:633
+#: src/Server/Privileges.php:3257
 msgid "Native MySQL authentication"
 msgstr "Autenticació nativa MySQL"
 
@@ -18957,65 +18957,65 @@ msgstr "Autenticació nativa MySQL"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: src/Server/Privileges.php:267
+#: src/Server/Privileges.php:266
 msgid "No privileges."
 msgstr "Sense privilegis."
 
-#: src/Server/Privileges.php:273
+#: src/Server/Privileges.php:272
 msgid "Includes all privileges except GRANT."
 msgstr "Inclou tots els privilegis excepte GRANT."
 
-#: src/Server/Privileges.php:894
+#: src/Server/Privileges.php:893
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "S'ha canviat correctament la contrasenya per %s."
 
-#: src/Server/Privileges.php:942
+#: src/Server/Privileges.php:941
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Heu revocat els privilegis per %s."
 
-#: src/Server/Privileges.php:1280
+#: src/Server/Privileges.php:1279
 msgid "Revoke"
 msgstr "Revoca"
 
-#: src/Server/Privileges.php:1883
+#: src/Server/Privileges.php:1882
 msgid "No users selected for deleting!"
 msgstr "No s'han triat usuaris per esborrar!"
 
-#: src/Server/Privileges.php:1886
+#: src/Server/Privileges.php:1885
 msgid "Reloading the privileges"
 msgstr "Recàrrega dels privilegis"
 
-#: src/Server/Privileges.php:1911
+#: src/Server/Privileges.php:1910
 msgid "The selected users have been deleted successfully."
 msgstr "S'han esborrat correctament els usuaris seleccionats."
 
-#: src/Server/Privileges.php:1985
+#: src/Server/Privileges.php:1984
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Heu actualitzat els privilegis per %s."
 
-#: src/Server/Privileges.php:2142
+#: src/Server/Privileges.php:2141
 #, php-format
 msgid "Deleting %s"
 msgstr "Esborrant %s"
 
-#: src/Server/Privileges.php:2173
+#: src/Server/Privileges.php:2172
 msgid "The privileges were reloaded successfully."
 msgstr "S'han recarregat correctament els privilegis."
 
-#: src/Server/Privileges.php:2274
+#: src/Server/Privileges.php:2273
 #, php-format
 msgid "The user %s already exists!"
 msgstr "L'usuari %s ja existeix!"
 
-#: src/Server/Privileges.php:2511
+#: src/Server/Privileges.php:2510
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilegis per %s"
 
-#: src/Server/Privileges.php:2597
+#: src/Server/Privileges.php:2596
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -19028,7 +19028,7 @@ msgstr ""
 "privilegis que utilitza el servidor si s'han fet canvis manualment. En "
 "aquest cas, heu de %stornar a carregar els privilegis%s abans de continuar."
 
-#: src/Server/Privileges.php:2613
+#: src/Server/Privileges.php:2612
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -19042,11 +19042,11 @@ msgstr ""
 "aquest cas, s'han de tornar a carregar els privilegis però, actualment, no "
 "teniu el privilegi RELOAD."
 
-#: src/Server/Privileges.php:2901
+#: src/Server/Privileges.php:2900
 msgid "You have added a new user."
 msgstr "Heu afegit un usuari nou."
 
-#: src/Server/Privileges.php:3351
+#: src/Server/Privileges.php:3350
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -19256,12 +19256,12 @@ msgstr "Nom de taula incorrecte:"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "La taula %1$s ha canviat de nom a %2$s."
 
-#: src/Table/Table.php:1109
+#: src/Table/Table.php:1107
 msgid "Could not save table UI preferences!"
 msgstr ""
 "No s'ha pogut desar la taula de les preferències de la interfície d'usuari!"
 
-#: src/Table/Table.php:1131
+#: src/Table/Table.php:1129
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -19270,7 +19270,7 @@ msgstr ""
 "No s'ha pogut netejar la taula de preferències de la interfície d'usuari "
 "(vegeu $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1249
+#: src/Table/Table.php:1247
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -19281,7 +19281,7 @@ msgstr ""
 "no seran persistents després que refresqueu aquesta pàgina. Comproveu si "
 "l'estructura de la taula ha estat canviada."
 
-#: src/Table/Table.php:1601
+#: src/Table/Table.php:1597
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Error en crear la clau forana a %1$s (comproveu els tipus de dades)"
@@ -19753,11 +19753,11 @@ msgstr "S'ha actualitzat el perfil."
 msgid "Password is too long!"
 msgstr "Contrasenya massa llarga!"
 
-#: src/UserPreferences.php:162
+#: src/UserPreferences.php:160
 msgid "Could not save configuration"
 msgstr "No s'ha pogut desar la configuració"
 
-#: src/UserPreferences.php:173
+#: src/UserPreferences.php:171
 #, fuzzy
 #| msgid ""
 #| "%sCreate%s the phpMyAdmin configuration storage in the current database."

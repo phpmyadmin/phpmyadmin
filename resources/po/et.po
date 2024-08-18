@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-08-11 00:22+0000\n"
+"POT-Creation-Date: 2024-08-18 00:23+0000\n"
 "PO-Revision-Date: 2023-11-25 02:27+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1027,8 +1027,8 @@ msgstr "Kustuta"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1567
-#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1566
+#: src/Server/Privileges.php:1568 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "Andmebaas"
 
@@ -1867,7 +1867,7 @@ msgstr "Vali kõik"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:386 src/Menu.php:240
-#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1284
+#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1283
 #: src/Util.php:1454 src/Util.php:1469 src/Util.php:1486
 msgid "Export"
 msgstr "Ekspordi"
@@ -2273,13 +2273,13 @@ msgstr "funktsioon"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1276
+#: src/Server/Privileges.php:1275
 msgid "Edit privileges"
 msgstr "Muuda õiguseid"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2061
+#: src/Server/Privileges.php:2060
 msgid "No user found."
 msgstr "Kasutajat ei leitud."
 
@@ -2299,7 +2299,7 @@ msgstr "Valitutega:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1220
+#: src/Server/Privileges.php:1219
 msgid "Not enough privilege to view users."
 msgstr "Puuduvad õigused kasutajate kuvamiseks."
 
@@ -2725,8 +2725,8 @@ msgstr "Kuvatakse loomise päringuid"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1573
-#: src/Server/Privileges.php:1575
+#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1572
+#: src/Server/Privileges.php:1574
 msgid "Table"
 msgstr "Tabel"
 
@@ -4644,7 +4644,7 @@ msgstr "Kasutaja konto"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
-#: src/Server/Privileges.php:1579 src/Server/Privileges.php:1581
+#: src/Server/Privileges.php:1578 src/Server/Privileges.php:1580
 msgid "Routine"
 msgstr "Funktsioon"
 
@@ -4657,7 +4657,7 @@ msgstr ""
 "Märkus: sa proovid muuta õiguseid kontol, mida kasutasid sisse logimiseks."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1579
 msgid "Routine-specific privileges"
 msgstr "Funktsioonipõhised õigused"
 
@@ -4796,7 +4796,7 @@ msgstr "Muuda kasutaja grupp"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1573
 msgid "Table-specific privileges"
 msgstr "Tabelipõhised õigused"
 
@@ -4825,7 +4825,7 @@ msgstr "Lisa õiguseid järgnevale funktsioonile:"
 #: resources/templates/server/privileges/privileges_table.twig:16
 #: resources/templates/server/privileges/privileges_table.twig:287
 #: resources/templates/server/privileges/privileges_table.twig:290
-#: src/Server/Privileges.php:310
+#: src/Server/Privileges.php:309
 msgid "Allows reading data."
 msgstr "Lubab lugeda andmeid."
 
@@ -4852,20 +4852,20 @@ msgstr "Puudub"
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
 #: resources/templates/server/privileges/privileges_table.twig:303
-#: src/Server/Privileges.php:311
+#: src/Server/Privileges.php:310
 msgid "Allows inserting and replacing data."
 msgstr "Lubab lisada ja asendada andmeid."
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
 #: resources/templates/server/privileges/privileges_table.twig:316
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:311
 msgid "Allows changing data."
 msgstr "Lubab muuta andmeid."
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
-#: src/Server/Privileges.php:320
+#: src/Server/Privileges.php:319
 msgid "Has no effect in this MySQL version."
 msgstr "Muudatusi selles MySQL versioonis ei toimunud."
 
@@ -4873,7 +4873,7 @@ msgstr "Muudatusi selles MySQL versioonis ei toimunud."
 #: resources/templates/server/privileges/privileges_table.twig:128
 #: resources/templates/server/privileges/privileges_table.twig:326
 #: resources/templates/server/privileges/privileges_table.twig:329
-#: src/Server/Privileges.php:290 src/Server/Privileges.php:313
+#: src/Server/Privileges.php:289 src/Server/Privileges.php:312
 msgid "Allows deleting data."
 msgstr "Lubab kustutada andmeid."
 
@@ -4881,7 +4881,7 @@ msgstr "Lubab kustutada andmeid."
 #: resources/templates/server/privileges/privileges_table.twig:140
 #: resources/templates/server/privileges/privileges_table.twig:367
 #: resources/templates/server/privileges/privileges_table.twig:375
-#: src/Server/Privileges.php:291
+#: src/Server/Privileges.php:290
 msgid "Allows creating new tables."
 msgstr "Lubab luua uusi tabeleid."
 
@@ -4889,7 +4889,7 @@ msgstr "Lubab luua uusi tabeleid."
 #: resources/templates/server/privileges/privileges_table.twig:152
 #: resources/templates/server/privileges/privileges_table.twig:415
 #: resources/templates/server/privileges/privileges_table.twig:423
-#: src/Server/Privileges.php:292
+#: src/Server/Privileges.php:291
 msgid "Allows dropping tables."
 msgstr "Lubab kustutada tabeleid."
 
@@ -4908,7 +4908,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:177
 #: resources/templates/server/privileges/privileges_table.twig:399
 #: resources/templates/server/privileges/privileges_table.twig:402
-#: src/Server/Privileges.php:293 src/Server/Privileges.php:321
+#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
 msgid "Allows creating and dropping indexes."
 msgstr "Lubab luua ja kustutada indekseid."
 
@@ -4916,7 +4916,7 @@ msgstr "Lubab luua ja kustutada indekseid."
 #: resources/templates/server/privileges/privileges_table.twig:189
 #: resources/templates/server/privileges/privileges_table.twig:386
 #: resources/templates/server/privileges/privileges_table.twig:389
-#: src/Server/Privileges.php:294 src/Server/Privileges.php:322
+#: src/Server/Privileges.php:293 src/Server/Privileges.php:321
 msgid "Allows altering the structure of existing tables."
 msgstr "Lubab muuta olemasolevate tabelite struktuuri."
 
@@ -4926,8 +4926,8 @@ msgstr "Lubab muuta olemasolevate tabelite struktuuri."
 #: resources/templates/server/privileges/privileges_table.twig:503
 #: resources/templates/server/privileges/privileges_table.twig:515
 #: resources/templates/server/privileges/privileges_table.twig:518
-#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
-#: src/Server/Privileges.php:345
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:340
+#: src/Server/Privileges.php:344
 msgid "Allows creating new views."
 msgstr "Lubab luua uusi vaateid."
 
@@ -4935,8 +4935,8 @@ msgstr "Lubab luua uusi vaateid."
 #: resources/templates/server/privileges/privileges_table.twig:213
 #: resources/templates/server/privileges/privileges_table.twig:447
 #: resources/templates/server/privileges/privileges_table.twig:450
-#: src/Server/Privileges.php:296 src/Server/Privileges.php:346
-#: src/Server/Privileges.php:348
+#: src/Server/Privileges.php:295 src/Server/Privileges.php:345
+#: src/Server/Privileges.php:347
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Lubab teostada SHOW CREATE VIEW päringuid."
 
@@ -4944,14 +4944,14 @@ msgstr "Lubab teostada SHOW CREATE VIEW päringuid."
 #: resources/templates/server/privileges/privileges_table.twig:225
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: resources/templates/server/privileges/privileges_table.twig:546
-#: src/Server/Privileges.php:297 src/Server/Privileges.php:343
+#: src/Server/Privileges.php:296 src/Server/Privileges.php:342
 msgid "Allows creating and dropping triggers."
 msgstr "Lubab luua ja kustutada päästikuid."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
-#: src/Server/Privileges.php:354 src/Server/Privileges.php:363
+#: src/Server/Privileges.php:353 src/Server/Privileges.php:362
 msgid "Allows deleting historical rows."
 msgstr "Lubab ajalooliste ridade kustutamise."
 
@@ -4965,55 +4965,55 @@ msgid "Global privileges"
 msgstr "Globaalsed õigused"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1568
+#: src/Server/Privileges.php:1567
 msgid "Database-specific privileges"
 msgstr "Andmebaasipõhised õigused"
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
-#: src/Server/Privileges.php:319
+#: src/Server/Privileges.php:318
 msgid "Allows importing data from and exporting data into files."
 msgstr "Lubab andmeid failidest importida ja failideks eksportida."
 
 #: resources/templates/server/privileges/privileges_table.twig:365
 #: resources/templates/server/privileges/privileges_table.twig:373
-#: src/Server/Privileges.php:314
+#: src/Server/Privileges.php:313
 msgid "Allows creating new databases and tables."
 msgstr "Lubab luua uusi andmebaase ja tabeleid."
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
-#: src/Server/Privileges.php:315
+#: src/Server/Privileges.php:314
 msgid "Allows dropping databases and tables."
 msgstr "Lubab kustutada andmebaase ja tabeleid."
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
-#: src/Server/Privileges.php:333
+#: src/Server/Privileges.php:332
 msgid "Allows creating temporary tables."
 msgstr "Lubab luua ajutisi tabeleid."
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
-#: src/Server/Privileges.php:365
+#: src/Server/Privileges.php:364
 msgid "Allows creating stored routines."
 msgstr "Lubab luua salvestatud funktsioone."
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
-#: src/Server/Privileges.php:366
+#: src/Server/Privileges.php:365
 msgid "Allows altering and dropping stored routines."
 msgstr "Lubab muuta ja kustutada salvestatud funktsioone."
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
-#: src/Server/Privileges.php:368
+#: src/Server/Privileges.php:367
 msgid "Allows executing stored routines."
 msgstr "Lubab käivitada salvestatud funktsioone."
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
-#: src/Server/Privileges.php:342
+#: src/Server/Privileges.php:341
 msgid "Allows to set up events for the event scheduler."
 msgstr "Võimaldab luua sündmuste ajastajale sündmuseid."
 
@@ -5029,7 +5029,7 @@ msgstr "Lubab õiguste tabelit laadimata lisada kasutajaid ja õigusi."
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
-#: src/Server/Privileges.php:328
+#: src/Server/Privileges.php:327
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5041,31 +5041,31 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
-#: src/Server/Privileges.php:318
+#: src/Server/Privileges.php:317
 msgid "Allows viewing processes of all users."
 msgstr "Lubab kõikide kasutajate protsesside vaatamist."
 
 #: resources/templates/server/privileges/privileges_table.twig:610
 #: resources/templates/server/privileges/privileges_table.twig:613
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:315
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "Lubab serveri sätteid uuesti laadida ja tühjendada serveri vahemälu."
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:316
 msgid "Allows shutting down the server."
 msgstr "Lubab serveri välja lülitada."
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
-#: src/Server/Privileges.php:323
+#: src/Server/Privileges.php:322
 msgid "Gives access to the complete list of databases."
 msgstr "Annab ligipääsu kogu andmebaaside nimekirjale."
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
-#: src/Server/Privileges.php:334
+#: src/Server/Privileges.php:333
 msgid "Allows locking tables for the current thread."
 msgstr "Lubab käesoleva lõimu jaoks tabeleid lukustada."
 
@@ -5083,19 +5083,19 @@ msgstr "Pole kasutusel selles MySQLi versioonis."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
-#: src/Server/Privileges.php:339
+#: src/Server/Privileges.php:338
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "Lubab kasutajal küsida jäljendite ja originaalide asukohti."
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
-#: src/Server/Privileges.php:335
+#: src/Server/Privileges.php:334
 msgid "Needed for the replication replicas."
 msgstr "Vajalik tiražeerimiskoopiatele."
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
-#: src/Server/Privileges.php:367
+#: src/Server/Privileges.php:366
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Lubab luua, kustutada ja ümber nimetada kasutajakontosid."
 
@@ -11446,22 +11446,22 @@ msgstr "Vaikimisi teisendused"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "Sätete salvestamine nurjus; saadetud häälestus sisaldab vigu!"
 
-#: src/Config.php:609
+#: src/Config.php:607
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Olemasolev seadistusfail (%s) ei ole loetav."
 
-#: src/Config.php:645
+#: src/Config.php:643
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Seadistusfailil on valed õigused. See ei tohiks olla kõikide jaoks "
 "kirjutatav!"
 
-#: src/Config.php:659
+#: src/Config.php:657
 msgid "Failed to read configuration file!"
 msgstr "Seadistuse faili lugemine ebaõnnestus!"
 
-#: src/Config.php:661
+#: src/Config.php:659
 msgid "This usually means there is a syntax error in it."
 msgstr "See tähendab tavaliselt, et selles on süntaksi viga."
 
@@ -12510,12 +12510,12 @@ msgid "The user name is empty!"
 msgstr "Kasutajanimi on tühi!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:767 src/UserPassword.php:39
+#: src/Server/Privileges.php:766 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Parool on tühi!"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:765 src/UserPassword.php:43
+#: src/Server/Privileges.php:764 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Paroolid ei kattu!"
 
@@ -15305,27 +15305,27 @@ msgstr "Vaate nimi ei saa olla tühi!"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s laiend on puudu. Palun kontrolli oma PHP seadistust."
 
-#: src/Database/CentralColumns.php:328
+#: src/Database/CentralColumns.php:326
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr "%1$s lisamisest loobuti, sest ta on juba olemas keskses listis!"
 
-#: src/Database/CentralColumns.php:342
+#: src/Database/CentralColumns.php:340
 msgid "Could not add columns!"
 msgstr "Veerge ei saanud lisada!"
 
-#: src/Database/CentralColumns.php:415
+#: src/Database/CentralColumns.php:411
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
 "Veergu %1$s ei saanud kustutada, sest ta puudub keskses veergude loendis!"
 
-#: src/Database/CentralColumns.php:428
+#: src/Database/CentralColumns.php:424
 msgid "Could not remove columns!"
 msgstr "Veerge ei suudetud eemaldada!"
 
-#: src/Database/CentralColumns.php:908
+#: src/Database/CentralColumns.php:898
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
@@ -15983,11 +15983,11 @@ msgstr "Tõmmis salvestati %s faili."
 msgid "Exporting a raw query is not supported for this export method."
 msgstr "Valitud ekspordimeetodiga ei ole toorpäringute eksport toetatud."
 
-#: src/Favorites/RecentFavoriteTables.php:156
+#: src/Favorites/RecentFavoriteTables.php:154
 msgid "Could not save recent table!"
 msgstr "Hiljutise tabelit ei suudetud salvestada!"
 
-#: src/Favorites/RecentFavoriteTables.php:157
+#: src/Favorites/RecentFavoriteTables.php:155
 msgid "Could not save favorite table!"
 msgstr "Lemmikute tabelit ei suudetud salvestada!"
 
@@ -17884,8 +17884,8 @@ msgstr "Viga 404! Lehekülge %s ei leitud."
 msgid "Error 405! Request method not allowed."
 msgstr "Viga 405! Päringu meetod on keelatud."
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:634
-#: src/Server/Privileges.php:3258
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:633
+#: src/Server/Privileges.php:3257
 msgid "Native MySQL authentication"
 msgstr "MySQLi omavahenditega autentimine"
 
@@ -17910,65 +17910,65 @@ msgstr "Vana MySQL-4.0 autentimine"
 msgid "Account locking is not supported."
 msgstr "Konto lukustamist ei toetata."
 
-#: src/Server/Privileges.php:267
+#: src/Server/Privileges.php:266
 msgid "No privileges."
 msgstr "Õigused puuduvad."
 
-#: src/Server/Privileges.php:273
+#: src/Server/Privileges.php:272
 msgid "Includes all privileges except GRANT."
 msgstr "Sisaldab kõiki õigusi, v.a GRANT."
 
-#: src/Server/Privileges.php:894
+#: src/Server/Privileges.php:893
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s parool on edukalt vahetatud."
 
-#: src/Server/Privileges.php:942
+#: src/Server/Privileges.php:941
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Tühistasid %s õigused."
 
-#: src/Server/Privileges.php:1280
+#: src/Server/Privileges.php:1279
 msgid "Revoke"
 msgstr "Tühista"
 
-#: src/Server/Privileges.php:1883
+#: src/Server/Privileges.php:1882
 msgid "No users selected for deleting!"
 msgstr "Kustutavaid kasutajaid pole valitud!"
 
-#: src/Server/Privileges.php:1886
+#: src/Server/Privileges.php:1885
 msgid "Reloading the privileges"
 msgstr "Õiguste uuesti laadimine"
 
-#: src/Server/Privileges.php:1911
+#: src/Server/Privileges.php:1910
 msgid "The selected users have been deleted successfully."
 msgstr "Valitud kasutajad on edukalt kustutatud."
 
-#: src/Server/Privileges.php:1985
+#: src/Server/Privileges.php:1984
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Uuendasid %s õigusi."
 
-#: src/Server/Privileges.php:2142
+#: src/Server/Privileges.php:2141
 #, php-format
 msgid "Deleting %s"
 msgstr "%s kustutamine"
 
-#: src/Server/Privileges.php:2173
+#: src/Server/Privileges.php:2172
 msgid "The privileges were reloaded successfully."
 msgstr "Õigused on edukalt uuesti laetud."
 
-#: src/Server/Privileges.php:2274
+#: src/Server/Privileges.php:2273
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Kasutaja %s on juba olemas!"
 
-#: src/Server/Privileges.php:2511
+#: src/Server/Privileges.php:2510
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s õigused"
 
-#: src/Server/Privileges.php:2597
+#: src/Server/Privileges.php:2596
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -17980,7 +17980,7 @@ msgstr ""
 "Tabelite sisu võib erineda serveri kasutatavatest, kui neid on käsitsi "
 "muudetud. Sellisel juhul peaksid enne jätkamist %sõigused uuesti laadima%s."
 
-#: src/Server/Privileges.php:2613
+#: src/Server/Privileges.php:2612
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -17993,11 +17993,11 @@ msgstr ""
 "muudetud. Sellisel juhul peab õigused uuesti laadima, kuid hetkel puudub sul "
 "uuesti laadimise (RELOAD) õigus."
 
-#: src/Server/Privileges.php:2901
+#: src/Server/Privileges.php:2900
 msgid "You have added a new user."
 msgstr "Lisasid uue kasutaja."
 
-#: src/Server/Privileges.php:3351
+#: src/Server/Privileges.php:3350
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -18200,11 +18200,11 @@ msgstr "Vigane tabeli nimi:"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s tabeli uueks nimeks sai %2$s."
 
-#: src/Table/Table.php:1109
+#: src/Table/Table.php:1107
 msgid "Could not save table UI preferences!"
 msgstr "Tabeli kasutajaliidese eelistusi ei saanud salvestada!"
 
-#: src/Table/Table.php:1131
+#: src/Table/Table.php:1129
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -18213,7 +18213,7 @@ msgstr ""
 "Tabeli UI eelistuste puhastamine ebaõnnestus (vaata $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1249
+#: src/Table/Table.php:1247
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18223,7 +18223,7 @@ msgstr ""
 "Ei saanud salvestada UI muudatust \"%s\". Muudatused ei säili, kui "
 "värskendad seda lehte. Palun kontrolli, kas tabeli struktuuri on muudetud."
 
-#: src/Table/Table.php:1601
+#: src/Table/Table.php:1597
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Viga võõrvõtme loomisel kohas %1$s (kontrolli andmete tüüpe)"
@@ -18686,11 +18686,11 @@ msgstr "Profiil on uuendatud."
 msgid "Password is too long!"
 msgstr "Salasõna on liiga pikk!"
 
-#: src/UserPreferences.php:162
+#: src/UserPreferences.php:160
 msgid "Could not save configuration"
 msgstr "Ei saanud seadistust salvestada"
 
-#: src/UserPreferences.php:173
+#: src/UserPreferences.php:171
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "phpMyAdmini seadistuste salvestamise andmebaasile puudub juurdepääs."
 

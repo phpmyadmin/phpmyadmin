@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-08-11 00:22+0000\n"
+"POT-Creation-Date: 2024-08-18 00:23+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1118,8 +1118,8 @@ msgstr "Обриши"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1567
-#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1566
+#: src/Server/Privileges.php:1568 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "База података"
 
@@ -2095,7 +2095,7 @@ msgstr "Означи све"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:386 src/Menu.php:240
-#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1284
+#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1283
 #: src/Util.php:1454 src/Util.php:1469 src/Util.php:1486
 msgid "Export"
 msgstr "Извоз"
@@ -2553,7 +2553,7 @@ msgstr "Рутине"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1276
+#: src/Server/Privileges.php:1275
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges"
@@ -2561,7 +2561,7 @@ msgstr "Промени привилегије"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2061
+#: src/Server/Privileges.php:2060
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
@@ -2583,7 +2583,7 @@ msgstr "Означено:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1220
+#: src/Server/Privileges.php:1219
 msgid "Not enough privilege to view users."
 msgstr ""
 
@@ -3090,8 +3090,8 @@ msgstr "Прикажи комплетне упите"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1573
-#: src/Server/Privileges.php:1575
+#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1572
+#: src/Server/Privileges.php:1574
 msgid "Table"
 msgstr "Табела"
 
@@ -5284,7 +5284,7 @@ msgstr "Корисник"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
-#: src/Server/Privileges.php:1579 src/Server/Privileges.php:1581
+#: src/Server/Privileges.php:1578 src/Server/Privileges.php:1580
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine"
@@ -5298,7 +5298,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1579
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
@@ -5457,7 +5457,7 @@ msgstr "Уреди следећи ред"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1573
 msgid "Table-specific privileges"
 msgstr "Привилегије везане за табеле"
 
@@ -5490,7 +5490,7 @@ msgstr "Додај привилегије на следећој табели"
 #: resources/templates/server/privileges/privileges_table.twig:16
 #: resources/templates/server/privileges/privileges_table.twig:287
 #: resources/templates/server/privileges/privileges_table.twig:290
-#: src/Server/Privileges.php:310
+#: src/Server/Privileges.php:309
 msgid "Allows reading data."
 msgstr "Дозвољава читање података."
 
@@ -5519,20 +5519,20 @@ msgstr "нема"
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
 #: resources/templates/server/privileges/privileges_table.twig:303
-#: src/Server/Privileges.php:311
+#: src/Server/Privileges.php:310
 msgid "Allows inserting and replacing data."
 msgstr "Дозвољава уметање и замену података."
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
 #: resources/templates/server/privileges/privileges_table.twig:316
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:311
 msgid "Allows changing data."
 msgstr "Дозвољава измену података."
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
-#: src/Server/Privileges.php:320
+#: src/Server/Privileges.php:319
 msgid "Has no effect in this MySQL version."
 msgstr "Нема ефекта у овој верзији MySQL-a."
 
@@ -5540,7 +5540,7 @@ msgstr "Нема ефекта у овој верзији MySQL-a."
 #: resources/templates/server/privileges/privileges_table.twig:128
 #: resources/templates/server/privileges/privileges_table.twig:326
 #: resources/templates/server/privileges/privileges_table.twig:329
-#: src/Server/Privileges.php:290 src/Server/Privileges.php:313
+#: src/Server/Privileges.php:289 src/Server/Privileges.php:312
 msgid "Allows deleting data."
 msgstr "Дозвољава брисање података."
 
@@ -5548,7 +5548,7 @@ msgstr "Дозвољава брисање података."
 #: resources/templates/server/privileges/privileges_table.twig:140
 #: resources/templates/server/privileges/privileges_table.twig:367
 #: resources/templates/server/privileges/privileges_table.twig:375
-#: src/Server/Privileges.php:291
+#: src/Server/Privileges.php:290
 msgid "Allows creating new tables."
 msgstr "Дозвољава креирање нових табела."
 
@@ -5556,7 +5556,7 @@ msgstr "Дозвољава креирање нових табела."
 #: resources/templates/server/privileges/privileges_table.twig:152
 #: resources/templates/server/privileges/privileges_table.twig:415
 #: resources/templates/server/privileges/privileges_table.twig:423
-#: src/Server/Privileges.php:292
+#: src/Server/Privileges.php:291
 msgid "Allows dropping tables."
 msgstr "Дозвољава одбацивање табела."
 
@@ -5573,7 +5573,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:177
 #: resources/templates/server/privileges/privileges_table.twig:399
 #: resources/templates/server/privileges/privileges_table.twig:402
-#: src/Server/Privileges.php:293 src/Server/Privileges.php:321
+#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
 msgid "Allows creating and dropping indexes."
 msgstr "Дозвољава креирање и брисање кључева."
 
@@ -5581,7 +5581,7 @@ msgstr "Дозвољава креирање и брисање кључева."
 #: resources/templates/server/privileges/privileges_table.twig:189
 #: resources/templates/server/privileges/privileges_table.twig:386
 #: resources/templates/server/privileges/privileges_table.twig:389
-#: src/Server/Privileges.php:294 src/Server/Privileges.php:322
+#: src/Server/Privileges.php:293 src/Server/Privileges.php:321
 msgid "Allows altering the structure of existing tables."
 msgstr "Дозвољава измену структура постојећих табела."
 
@@ -5591,8 +5591,8 @@ msgstr "Дозвољава измену структура постојећих 
 #: resources/templates/server/privileges/privileges_table.twig:503
 #: resources/templates/server/privileges/privileges_table.twig:515
 #: resources/templates/server/privileges/privileges_table.twig:518
-#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
-#: src/Server/Privileges.php:345
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:340
+#: src/Server/Privileges.php:344
 msgid "Allows creating new views."
 msgstr "Дозволи креирање нових погледа."
 
@@ -5600,8 +5600,8 @@ msgstr "Дозволи креирање нових погледа."
 #: resources/templates/server/privileges/privileges_table.twig:213
 #: resources/templates/server/privileges/privileges_table.twig:447
 #: resources/templates/server/privileges/privileges_table.twig:450
-#: src/Server/Privileges.php:296 src/Server/Privileges.php:346
-#: src/Server/Privileges.php:348
+#: src/Server/Privileges.php:295 src/Server/Privileges.php:345
+#: src/Server/Privileges.php:347
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Дозвољава извршавање SHOW CREATE VIEW упита."
 
@@ -5609,7 +5609,7 @@ msgstr "Дозвољава извршавање SHOW CREATE VIEW упита."
 #: resources/templates/server/privileges/privileges_table.twig:225
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: resources/templates/server/privileges/privileges_table.twig:546
-#: src/Server/Privileges.php:297 src/Server/Privileges.php:343
+#: src/Server/Privileges.php:296 src/Server/Privileges.php:342
 #, fuzzy
 msgid "Allows creating and dropping triggers."
 msgstr "Дозвољава креирање и брисање кључева."
@@ -5617,7 +5617,7 @@ msgstr "Дозвољава креирање и брисање кључева."
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
-#: src/Server/Privileges.php:354 src/Server/Privileges.php:363
+#: src/Server/Privileges.php:353 src/Server/Privileges.php:362
 #, fuzzy
 #| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
@@ -5635,55 +5635,55 @@ msgid "Global privileges"
 msgstr "Глобалне привилегије"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1568
+#: src/Server/Privileges.php:1567
 msgid "Database-specific privileges"
 msgstr "Привилегије везане за базу"
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
-#: src/Server/Privileges.php:319
+#: src/Server/Privileges.php:318
 msgid "Allows importing data from and exporting data into files."
 msgstr "Дозвољава увоз података и њихов извоз у датотеке."
 
 #: resources/templates/server/privileges/privileges_table.twig:365
 #: resources/templates/server/privileges/privileges_table.twig:373
-#: src/Server/Privileges.php:314
+#: src/Server/Privileges.php:313
 msgid "Allows creating new databases and tables."
 msgstr "Дозвољава креирање нових база и табела."
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
-#: src/Server/Privileges.php:315
+#: src/Server/Privileges.php:314
 msgid "Allows dropping databases and tables."
 msgstr "Дозвољава одбацивање база и табела."
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
-#: src/Server/Privileges.php:333
+#: src/Server/Privileges.php:332
 msgid "Allows creating temporary tables."
 msgstr "Дозвољава креирање привремених табела.."
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
-#: src/Server/Privileges.php:365
+#: src/Server/Privileges.php:364
 msgid "Allows creating stored routines."
 msgstr "Дозвољава прављење сачуваних рутина."
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
-#: src/Server/Privileges.php:366
+#: src/Server/Privileges.php:365
 msgid "Allows altering and dropping stored routines."
 msgstr "Дозвољава измену и одбацивање сачуваних рутина."
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
-#: src/Server/Privileges.php:368
+#: src/Server/Privileges.php:367
 msgid "Allows executing stored routines."
 msgstr "Дозвољава извршавање сачуваних рутина."
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
-#: src/Server/Privileges.php:342
+#: src/Server/Privileges.php:341
 #, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Allows to set up events for the event scheduler."
@@ -5703,7 +5703,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
-#: src/Server/Privileges.php:328
+#: src/Server/Privileges.php:327
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5715,32 +5715,32 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
-#: src/Server/Privileges.php:318
+#: src/Server/Privileges.php:317
 msgid "Allows viewing processes of all users."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:610
 #: resources/templates/server/privileges/privileges_table.twig:613
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:315
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Дозвољава поновно учитавање подешавања сервера и пражњење кеша сервера."
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:316
 msgid "Allows shutting down the server."
 msgstr "Дозвољава гашење сервера."
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
-#: src/Server/Privileges.php:323
+#: src/Server/Privileges.php:322
 msgid "Gives access to the complete list of databases."
 msgstr "Даје приступ комплетној листи база."
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
-#: src/Server/Privileges.php:334
+#: src/Server/Privileges.php:333
 msgid "Allows locking tables for the current thread."
 msgstr "Дозвољава закључавање табела текућим процесима."
 
@@ -5762,7 +5762,7 @@ msgstr "Нема ефекта у овој верзији MySQL-a."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
-#: src/Server/Privileges.php:339
+#: src/Server/Privileges.php:338
 #, fuzzy
 #| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
@@ -5770,7 +5770,7 @@ msgstr "Даје право кориснику да пита где су гла�
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
-#: src/Server/Privileges.php:335
+#: src/Server/Privileges.php:334
 #, fuzzy
 #| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
@@ -5778,7 +5778,7 @@ msgstr "Потребно због помоћних сервера за репл�
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
-#: src/Server/Privileges.php:367
+#: src/Server/Privileges.php:366
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Дозвољава прављење, одбацивање и преименовање корисничких налога."
 
@@ -12546,22 +12546,22 @@ msgstr "Транформације читача"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 
-#: src/Config.php:609
+#: src/Config.php:607
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: src/Config.php:645
+#: src/Config.php:643
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: src/Config.php:659
+#: src/Config.php:657
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to read configuration file!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: src/Config.php:661
+#: src/Config.php:659
 msgid "This usually means there is a syntax error in it."
 msgstr ""
 
@@ -13608,12 +13608,12 @@ msgid "The user name is empty!"
 msgstr "Име корисника није унето!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:767 src/UserPassword.php:39
+#: src/Server/Privileges.php:766 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Лозинка је празна!"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:765 src/UserPassword.php:43
+#: src/Server/Privileges.php:764 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Лозинке нису идентичне!"
 
@@ -16726,30 +16726,30 @@ msgstr ""
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
-#: src/Database/CentralColumns.php:328
+#: src/Database/CentralColumns.php:326
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
-#: src/Database/CentralColumns.php:342
+#: src/Database/CentralColumns.php:340
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not add columns!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: src/Database/CentralColumns.php:415
+#: src/Database/CentralColumns.php:411
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
 
-#: src/Database/CentralColumns.php:428
+#: src/Database/CentralColumns.php:424
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not remove columns!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: src/Database/CentralColumns.php:908
+#: src/Database/CentralColumns.php:898
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
@@ -17416,13 +17416,13 @@ msgstr "Садржај базе је сачуван у датотеку %s."
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
-#: src/Favorites/RecentFavoriteTables.php:156
+#: src/Favorites/RecentFavoriteTables.php:154
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save recent table!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: src/Favorites/RecentFavoriteTables.php:157
+#: src/Favorites/RecentFavoriteTables.php:155
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save favorite table!"
@@ -19438,8 +19438,8 @@ msgstr "Претраживање базе"
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:634
-#: src/Server/Privileges.php:3258
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:633
+#: src/Server/Privileges.php:3257
 #, fuzzy
 #| msgid "Documentation"
 msgid "Native MySQL authentication"
@@ -19474,66 +19474,66 @@ msgstr "Документација"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: src/Server/Privileges.php:267
+#: src/Server/Privileges.php:266
 msgid "No privileges."
 msgstr "Нема привилегија."
 
-#: src/Server/Privileges.php:273
+#: src/Server/Privileges.php:272
 msgid "Includes all privileges except GRANT."
 msgstr "Укључује све привилегије осим GRANT."
 
-#: src/Server/Privileges.php:894
+#: src/Server/Privileges.php:893
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Лозинка за %s је успешно промењена."
 
-#: src/Server/Privileges.php:942
+#: src/Server/Privileges.php:941
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Забранили сте привилегије за %s."
 
-#: src/Server/Privileges.php:1280
+#: src/Server/Privileges.php:1279
 msgid "Revoke"
 msgstr "Забрани"
 
-#: src/Server/Privileges.php:1883
+#: src/Server/Privileges.php:1882
 msgid "No users selected for deleting!"
 msgstr "Ниједан корисник није одабран за брисање!"
 
-#: src/Server/Privileges.php:1886
+#: src/Server/Privileges.php:1885
 msgid "Reloading the privileges"
 msgstr "Поново учитавам привилегије"
 
-#: src/Server/Privileges.php:1911
+#: src/Server/Privileges.php:1910
 msgid "The selected users have been deleted successfully."
 msgstr "Изабрани корисници су успешно обрисани."
 
-#: src/Server/Privileges.php:1985
+#: src/Server/Privileges.php:1984
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Ажурирали сте привилегије за %s."
 
-#: src/Server/Privileges.php:2142
+#: src/Server/Privileges.php:2141
 #, php-format
 msgid "Deleting %s"
 msgstr "Бришем %s"
 
-#: src/Server/Privileges.php:2173
+#: src/Server/Privileges.php:2172
 msgid "The privileges were reloaded successfully."
 msgstr "Привилегије су успешно поново учитане."
 
-#: src/Server/Privileges.php:2274
+#: src/Server/Privileges.php:2273
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Корисник %s већ постоји!"
 
-#: src/Server/Privileges.php:2511
+#: src/Server/Privileges.php:2510
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Привилегије"
 
-#: src/Server/Privileges.php:2597
+#: src/Server/Privileges.php:2596
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -19551,7 +19551,7 @@ msgstr ""
 "сервер користи ако су вршене ручне измене. У том случају %sпоново учитајте "
 "привилегије%s пре него што наставите."
 
-#: src/Server/Privileges.php:2613
+#: src/Server/Privileges.php:2612
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -19570,11 +19570,11 @@ msgstr ""
 "сервер користи ако су вршене ручне измене. У том случају %sпоново учитајте "
 "привилегије%s пре него што наставите."
 
-#: src/Server/Privileges.php:2901
+#: src/Server/Privileges.php:2900
 msgid "You have added a new user."
 msgstr "Додали сте новог корисника."
 
-#: src/Server/Privileges.php:3351
+#: src/Server/Privileges.php:3350
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -19776,20 +19776,20 @@ msgstr "Неисправан назив табеле"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Табели %s промењено име у %s"
 
-#: src/Table/Table.php:1109
+#: src/Table/Table.php:1107
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save table UI preferences!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: src/Table/Table.php:1131
+#: src/Table/Table.php:1129
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: src/Table/Table.php:1249
+#: src/Table/Table.php:1247
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -19797,7 +19797,7 @@ msgid ""
 "changed."
 msgstr ""
 
-#: src/Table/Table.php:1601
+#: src/Table/Table.php:1597
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -20223,13 +20223,13 @@ msgstr "Профил је промењен."
 msgid "Password is too long!"
 msgstr "Хеширање лозинке"
 
-#: src/UserPreferences.php:162
+#: src/UserPreferences.php:160
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save configuration"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: src/UserPreferences.php:173
+#: src/UserPreferences.php:171
 #, fuzzy
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "

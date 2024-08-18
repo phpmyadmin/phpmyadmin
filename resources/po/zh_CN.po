@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-08-11 00:22+0000\n"
+"POT-Creation-Date: 2024-08-18 00:23+0000\n"
 "PO-Revision-Date: 2024-06-14 16:09+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -1008,8 +1008,8 @@ msgstr "删除"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1567
-#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1566
+#: src/Server/Privileges.php:1568 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "数据库"
 
@@ -1844,7 +1844,7 @@ msgstr "全选"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:386 src/Menu.php:240
-#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1284
+#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1283
 #: src/Util.php:1454 src/Util.php:1469 src/Util.php:1486
 msgid "Export"
 msgstr "导出"
@@ -2248,13 +2248,13 @@ msgstr "程序"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1276
+#: src/Server/Privileges.php:1275
 msgid "Edit privileges"
 msgstr "修改权限"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2061
+#: src/Server/Privileges.php:2060
 msgid "No user found."
 msgstr "未找到用户。"
 
@@ -2274,7 +2274,7 @@ msgstr "选中项："
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1220
+#: src/Server/Privileges.php:1219
 msgid "Not enough privilege to view users."
 msgstr "没有足够的权限来查看用户。"
 
@@ -2693,8 +2693,8 @@ msgstr "显示创建查询"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1573
-#: src/Server/Privileges.php:1575
+#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1572
+#: src/Server/Privileges.php:1574
 msgid "Table"
 msgstr "表"
 
@@ -4571,7 +4571,7 @@ msgstr "用户账户"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
-#: src/Server/Privileges.php:1579 src/Server/Privileges.php:1581
+#: src/Server/Privileges.php:1578 src/Server/Privileges.php:1580
 msgid "Routine"
 msgstr "例程"
 
@@ -4583,7 +4583,7 @@ msgid ""
 msgstr "注意：您正在尝试修改您正在使用的账号的权限。"
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1579
 msgid "Routine-specific privileges"
 msgstr "按例程指定权限"
 
@@ -4716,7 +4716,7 @@ msgstr "编辑用户组"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1573
 msgid "Table-specific privileges"
 msgstr "按表指定权限"
 
@@ -4743,7 +4743,7 @@ msgstr "在下列例程添加权限:"
 #: resources/templates/server/privileges/privileges_table.twig:16
 #: resources/templates/server/privileges/privileges_table.twig:287
 #: resources/templates/server/privileges/privileges_table.twig:290
-#: src/Server/Privileges.php:310
+#: src/Server/Privileges.php:309
 msgid "Allows reading data."
 msgstr "允许读取数据。"
 
@@ -4770,20 +4770,20 @@ msgstr "无"
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
 #: resources/templates/server/privileges/privileges_table.twig:303
-#: src/Server/Privileges.php:311
+#: src/Server/Privileges.php:310
 msgid "Allows inserting and replacing data."
 msgstr "允许插入和替换数据。"
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
 #: resources/templates/server/privileges/privileges_table.twig:316
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:311
 msgid "Allows changing data."
 msgstr "允许修改数据。"
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
-#: src/Server/Privileges.php:320
+#: src/Server/Privileges.php:319
 msgid "Has no effect in this MySQL version."
 msgstr "在此版本的 MySQL 中无效。"
 
@@ -4791,7 +4791,7 @@ msgstr "在此版本的 MySQL 中无效。"
 #: resources/templates/server/privileges/privileges_table.twig:128
 #: resources/templates/server/privileges/privileges_table.twig:326
 #: resources/templates/server/privileges/privileges_table.twig:329
-#: src/Server/Privileges.php:290 src/Server/Privileges.php:313
+#: src/Server/Privileges.php:289 src/Server/Privileges.php:312
 msgid "Allows deleting data."
 msgstr "允许删除数据。"
 
@@ -4799,7 +4799,7 @@ msgstr "允许删除数据。"
 #: resources/templates/server/privileges/privileges_table.twig:140
 #: resources/templates/server/privileges/privileges_table.twig:367
 #: resources/templates/server/privileges/privileges_table.twig:375
-#: src/Server/Privileges.php:291
+#: src/Server/Privileges.php:290
 msgid "Allows creating new tables."
 msgstr "允许创建新数据表。"
 
@@ -4807,7 +4807,7 @@ msgstr "允许创建新数据表。"
 #: resources/templates/server/privileges/privileges_table.twig:152
 #: resources/templates/server/privileges/privileges_table.twig:415
 #: resources/templates/server/privileges/privileges_table.twig:423
-#: src/Server/Privileges.php:292
+#: src/Server/Privileges.php:291
 msgid "Allows dropping tables."
 msgstr "允许删除数据表。"
 
@@ -4824,7 +4824,7 @@ msgstr "允许用户向其他用户提供或从其他用户中删除用户拥有
 #: resources/templates/server/privileges/privileges_table.twig:177
 #: resources/templates/server/privileges/privileges_table.twig:399
 #: resources/templates/server/privileges/privileges_table.twig:402
-#: src/Server/Privileges.php:293 src/Server/Privileges.php:321
+#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
 msgid "Allows creating and dropping indexes."
 msgstr "允许创建和删除索引。"
 
@@ -4832,7 +4832,7 @@ msgstr "允许创建和删除索引。"
 #: resources/templates/server/privileges/privileges_table.twig:189
 #: resources/templates/server/privileges/privileges_table.twig:386
 #: resources/templates/server/privileges/privileges_table.twig:389
-#: src/Server/Privileges.php:294 src/Server/Privileges.php:322
+#: src/Server/Privileges.php:293 src/Server/Privileges.php:321
 msgid "Allows altering the structure of existing tables."
 msgstr "允许修改现有数据表的结构。"
 
@@ -4842,8 +4842,8 @@ msgstr "允许修改现有数据表的结构。"
 #: resources/templates/server/privileges/privileges_table.twig:503
 #: resources/templates/server/privileges/privileges_table.twig:515
 #: resources/templates/server/privileges/privileges_table.twig:518
-#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
-#: src/Server/Privileges.php:345
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:340
+#: src/Server/Privileges.php:344
 msgid "Allows creating new views."
 msgstr "允许创建视图。"
 
@@ -4851,8 +4851,8 @@ msgstr "允许创建视图。"
 #: resources/templates/server/privileges/privileges_table.twig:213
 #: resources/templates/server/privileges/privileges_table.twig:447
 #: resources/templates/server/privileges/privileges_table.twig:450
-#: src/Server/Privileges.php:296 src/Server/Privileges.php:346
-#: src/Server/Privileges.php:348
+#: src/Server/Privileges.php:295 src/Server/Privileges.php:345
+#: src/Server/Privileges.php:347
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "允许执行 SHOW CREATE VIEW 查询。"
 
@@ -4860,14 +4860,14 @@ msgstr "允许执行 SHOW CREATE VIEW 查询。"
 #: resources/templates/server/privileges/privileges_table.twig:225
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: resources/templates/server/privileges/privileges_table.twig:546
-#: src/Server/Privileges.php:297 src/Server/Privileges.php:343
+#: src/Server/Privileges.php:296 src/Server/Privileges.php:342
 msgid "Allows creating and dropping triggers."
 msgstr "允许创建和删除触发器。"
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
-#: src/Server/Privileges.php:354 src/Server/Privileges.php:363
+#: src/Server/Privileges.php:353 src/Server/Privileges.php:362
 msgid "Allows deleting historical rows."
 msgstr "允许删除历史行。"
 
@@ -4881,55 +4881,55 @@ msgid "Global privileges"
 msgstr "全局权限"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1568
+#: src/Server/Privileges.php:1567
 msgid "Database-specific privileges"
 msgstr "按数据库指定权限"
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
-#: src/Server/Privileges.php:319
+#: src/Server/Privileges.php:318
 msgid "Allows importing data from and exporting data into files."
 msgstr "允许从文件中导入数据以及将数据导出至文件。"
 
 #: resources/templates/server/privileges/privileges_table.twig:365
 #: resources/templates/server/privileges/privileges_table.twig:373
-#: src/Server/Privileges.php:314
+#: src/Server/Privileges.php:313
 msgid "Allows creating new databases and tables."
 msgstr "允许创建新数据库和数据表。"
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
-#: src/Server/Privileges.php:315
+#: src/Server/Privileges.php:314
 msgid "Allows dropping databases and tables."
 msgstr "允许删除数据库和数据表。"
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
-#: src/Server/Privileges.php:333
+#: src/Server/Privileges.php:332
 msgid "Allows creating temporary tables."
 msgstr "允许创建临时表。"
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
-#: src/Server/Privileges.php:365
+#: src/Server/Privileges.php:364
 msgid "Allows creating stored routines."
 msgstr "允许创建存储过程。"
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
-#: src/Server/Privileges.php:366
+#: src/Server/Privileges.php:365
 msgid "Allows altering and dropping stored routines."
 msgstr "允许修改或删除储存过程。"
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
-#: src/Server/Privileges.php:368
+#: src/Server/Privileges.php:367
 msgid "Allows executing stored routines."
 msgstr "允许运行存储过程。"
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
-#: src/Server/Privileges.php:342
+#: src/Server/Privileges.php:341
 msgid "Allows to set up events for the event scheduler."
 msgstr "允许为事件触发器设置事件。"
 
@@ -4945,7 +4945,7 @@ msgstr "允许添加用户和权限而不重新载入权限表。"
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
-#: src/Server/Privileges.php:328
+#: src/Server/Privileges.php:327
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -4956,31 +4956,31 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
-#: src/Server/Privileges.php:318
+#: src/Server/Privileges.php:317
 msgid "Allows viewing processes of all users."
 msgstr "允许查看所有用户的进程。"
 
 #: resources/templates/server/privileges/privileges_table.twig:610
 #: resources/templates/server/privileges/privileges_table.twig:613
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:315
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "允许重新载入服务器设置并刷新服务器的缓存。"
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:316
 msgid "Allows shutting down the server."
 msgstr "允许关闭服务器。"
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
-#: src/Server/Privileges.php:323
+#: src/Server/Privileges.php:322
 msgid "Gives access to the complete list of databases."
 msgstr "允许访问完整的数据库列表。"
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
-#: src/Server/Privileges.php:334
+#: src/Server/Privileges.php:333
 msgid "Allows locking tables for the current thread."
 msgstr "允许锁定当前线程的表。"
 
@@ -4998,19 +4998,19 @@ msgstr "在此版本的 MySQL 中未使用。"
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
-#: src/Server/Privileges.php:339
+#: src/Server/Privileges.php:338
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "允许用户询问从服务器/主服务器在哪里。"
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
-#: src/Server/Privileges.php:335
+#: src/Server/Privileges.php:334
 msgid "Needed for the replication replicas."
 msgstr "回复从服务器所需。"
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
-#: src/Server/Privileges.php:367
+#: src/Server/Privileges.php:366
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "允许创建、删除和重命名用户账户。"
 
@@ -11057,20 +11057,20 @@ msgstr "默认转换"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "无法保存设置，提交的配置表单中存在错误！"
 
-#: src/Config.php:609
+#: src/Config.php:607
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "现有的配置文件（%s）是不可读的。"
 
-#: src/Config.php:645
+#: src/Config.php:643
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "配置文件权限错误，不应任何用户都能修改！"
 
-#: src/Config.php:659
+#: src/Config.php:657
 msgid "Failed to read configuration file!"
 msgstr "读取配置文件失败！"
 
-#: src/Config.php:661
+#: src/Config.php:659
 msgid "This usually means there is a syntax error in it."
 msgstr "这通常意味着文件中有语法错误。"
 
@@ -12044,12 +12044,12 @@ msgid "The user name is empty!"
 msgstr "用户名不能为空！"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:767 src/UserPassword.php:39
+#: src/Server/Privileges.php:766 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "密码不能为空！"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:765 src/UserPassword.php:43
+#: src/Server/Privileges.php:764 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "两次密码不一致！"
 
@@ -14718,26 +14718,26 @@ msgstr "视图名不可为空！"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "缺少 %s 扩展。请检查 PHP 配置。"
 
-#: src/Database/CentralColumns.php:328
+#: src/Database/CentralColumns.php:326
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr "%1$s 已存在中央列表无法添加！"
 
-#: src/Database/CentralColumns.php:342
+#: src/Database/CentralColumns.php:340
 msgid "Could not add columns!"
 msgstr "无法添加列！"
 
-#: src/Database/CentralColumns.php:415
+#: src/Database/CentralColumns.php:411
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr "无法删除不存在中央列的 %1$s 列！"
 
-#: src/Database/CentralColumns.php:428
+#: src/Database/CentralColumns.php:424
 msgid "Could not remove columns!"
 msgstr "无法移除列！"
 
-#: src/Database/CentralColumns.php:908
+#: src/Database/CentralColumns.php:898
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
@@ -15352,11 +15352,11 @@ msgstr "已保存转储到文件 %s 中。"
 msgid "Exporting a raw query is not supported for this export method."
 msgstr "此导出方法不支持导出原始查询。"
 
-#: src/Favorites/RecentFavoriteTables.php:156
+#: src/Favorites/RecentFavoriteTables.php:154
 msgid "Could not save recent table!"
 msgstr "无法保存最近使用的表！"
 
-#: src/Favorites/RecentFavoriteTables.php:157
+#: src/Favorites/RecentFavoriteTables.php:155
 msgid "Could not save favorite table!"
 msgstr "无法保存到表收藏夹！"
 
@@ -17153,8 +17153,8 @@ msgstr "404 错误！未找到页面 %s。"
 msgid "Error 405! Request method not allowed."
 msgstr "错误 405！请求的方法不被允许。"
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:634
-#: src/Server/Privileges.php:3258
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:633
+#: src/Server/Privileges.php:3257
 msgid "Native MySQL authentication"
 msgstr "MySQL自带身份验证"
 
@@ -17179,65 +17179,65 @@ msgstr "旧的 MySQL-4.0 的身份验证"
 msgid "Account locking is not supported."
 msgstr "不支持账户锁定。"
 
-#: src/Server/Privileges.php:267
+#: src/Server/Privileges.php:266
 msgid "No privileges."
 msgstr "无权限。"
 
-#: src/Server/Privileges.php:273
+#: src/Server/Privileges.php:272
 msgid "Includes all privileges except GRANT."
 msgstr "除了授权 (GRANT) 以外的所有权限。"
 
-#: src/Server/Privileges.php:894
+#: src/Server/Privileges.php:893
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s 的密码已修改。"
 
-#: src/Server/Privileges.php:942
+#: src/Server/Privileges.php:941
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "您已撤销 %s 的权限。"
 
-#: src/Server/Privileges.php:1280
+#: src/Server/Privileges.php:1279
 msgid "Revoke"
 msgstr "撤销"
 
-#: src/Server/Privileges.php:1883
+#: src/Server/Privileges.php:1882
 msgid "No users selected for deleting!"
 msgstr "没有选择要删除的用户！"
 
-#: src/Server/Privileges.php:1886
+#: src/Server/Privileges.php:1885
 msgid "Reloading the privileges"
 msgstr "重新载入权限"
 
-#: src/Server/Privileges.php:1911
+#: src/Server/Privileges.php:1910
 msgid "The selected users have been deleted successfully."
 msgstr "已成功删除选中的用户。"
 
-#: src/Server/Privileges.php:1985
+#: src/Server/Privileges.php:1984
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "您已更新了 %s 的权限。"
 
-#: src/Server/Privileges.php:2142
+#: src/Server/Privileges.php:2141
 #, php-format
 msgid "Deleting %s"
 msgstr "正在删除 %s"
 
-#: src/Server/Privileges.php:2173
+#: src/Server/Privileges.php:2172
 msgid "The privileges were reloaded successfully."
 msgstr "已成功重新载入权限。"
 
-#: src/Server/Privileges.php:2274
+#: src/Server/Privileges.php:2273
 #, php-format
 msgid "The user %s already exists!"
 msgstr "用户 %s 己存在！"
 
-#: src/Server/Privileges.php:2511
+#: src/Server/Privileges.php:2510
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s 的权限"
 
-#: src/Server/Privileges.php:2597
+#: src/Server/Privileges.php:2596
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -17249,7 +17249,7 @@ msgstr ""
 "将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
 "限%s。"
 
-#: src/Server/Privileges.php:2613
+#: src/Server/Privileges.php:2612
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -17261,11 +17261,11 @@ msgstr ""
 "内容将可能与服务器使用的用户权限有异。在这种情况下，应当重新载入权限表，但您"
 "没有RELOAD权限。"
 
-#: src/Server/Privileges.php:2901
+#: src/Server/Privileges.php:2900
 msgid "You have added a new user."
 msgstr "您已添加了一个新用户。"
 
-#: src/Server/Privileges.php:3351
+#: src/Server/Privileges.php:3350
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -17463,18 +17463,18 @@ msgstr "无效的数据表名："
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "已将表 %1$s 改名为 %2$s。"
 
-#: src/Table/Table.php:1109
+#: src/Table/Table.php:1107
 msgid "Could not save table UI preferences!"
 msgstr "无法保存表界面设置！"
 
-#: src/Table/Table.php:1131
+#: src/Table/Table.php:1129
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr "清除表界面设置失败（参见 $cfg['Servers'][$i]['MaxTableUiprefs'] %s）"
 
-#: src/Table/Table.php:1249
+#: src/Table/Table.php:1247
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -17483,7 +17483,7 @@ msgid ""
 msgstr ""
 "无法保存用户界面属性“%s”。修改将在刷新本页后丢失。请检查表结构是否已修改。"
 
-#: src/Table/Table.php:1601
+#: src/Table/Table.php:1597
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "在 %1$s 创建外键时发生错误 (检查数据类型)"
@@ -17919,11 +17919,11 @@ msgstr "配置文件己更新。"
 msgid "Password is too long!"
 msgstr "密码太长！"
 
-#: src/UserPreferences.php:162
+#: src/UserPreferences.php:160
 msgid "Could not save configuration"
 msgstr "无法保存设置"
 
-#: src/UserPreferences.php:173
+#: src/UserPreferences.php:171
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "无法访问phpMyAdmin配置存储数据库。"
 
