@@ -731,6 +731,7 @@ final class ImportController implements InvocableController
             if ($request->hasBodyParam('transaction_query')) {
                 $this->dbi->query('COMMIT');
             }
+
             $this->response->setRequestStatus(true);
             $this->response->addJSON('message', Message::success(ImportSettings::$message));
             $this->response->addJSON(
@@ -741,6 +742,7 @@ final class ImportController implements InvocableController
             if ($request->hasBodyParam('transaction_query')) {
                 $this->dbi->query('ROLLBACK');
             }
+
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(ImportSettings::$message));
         } else {
