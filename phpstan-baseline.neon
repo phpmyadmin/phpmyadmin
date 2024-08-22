@@ -6296,6 +6296,11 @@ parameters:
 			path: src/Dbal/MysqliResult.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchAssoc\\(\\) should return array\\<string\\|null\\> but returns array\\<string, float\\|int\\|string\\|null\\>\\.$#"
+			count: 1
+			path: src/Dbal/MysqliResult.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchRow\\(\\) should return array\\<int, string\\|null\\> but returns array\\.$#"
 			count: 1
 			path: src/Dbal/MysqliResult.php
