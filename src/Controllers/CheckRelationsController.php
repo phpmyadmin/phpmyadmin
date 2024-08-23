@@ -11,6 +11,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Tracking\Tracker;
 
 use const SQL_DIR;
 
@@ -28,6 +29,9 @@ final class CheckRelationsController implements InvocableController
         $cfgStorageDbName = $this->relation->getConfigurationStorageDbName();
 
         $db = DatabaseName::tryFrom(Current::$database);
+
+        // Disable tracking as it requires a working configuration storage.
+        Tracker::disable();
 
         // If request for creating the pmadb
         if ($request->hasBodyParam('create_pmadb') && $this->relation->createPmaDatabase($cfgStorageDbName)) {
@@ -47,6 +51,8 @@ final class CheckRelationsController implements InvocableController
 
         // Do not use any previous $relationParameters value as it could have changed after a successful fixPmaTables()
         $relationParameters = $this->relation->getRelationParameters();
+
+        Tracker::enable();
 
         $this->response->render('relation/check_relations', [
             'db' => $db?->getName() ?? '',

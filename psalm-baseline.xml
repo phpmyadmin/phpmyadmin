@@ -835,9 +835,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/CollationConnectionController.php">
     <PossiblyUnusedReturnValue>
@@ -12649,6 +12646,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[createConfigStorage]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/Controllers/Console/Bookmark/AddControllerTest.php">
     <DeprecatedMethod>
