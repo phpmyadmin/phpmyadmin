@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-08-18 00:23+0000\n"
-"PO-Revision-Date: 2024-07-03 09:16+0000\n"
-"Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
+"PO-Revision-Date: 2024-08-24 23:09+0000\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.7.1-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -3339,7 +3339,6 @@ msgid "Geometry type:"
 msgstr "Geometry type:"
 
 #: resources/templates/gis_data_editor_form.twig:41
-#, fuzzy
 msgid "Spatial Reference System Identifier"
 msgstr "Spatial Reference System Identifier"
 
@@ -5147,8 +5146,6 @@ msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr "Requires that a valid X509 certificate with this subject be presented."
 
 #: resources/templates/server/privileges/privileges_table.twig:877
-#, fuzzy
-#| msgid "Adjust privileges"
 msgid "Update user privileges"
 msgstr "Update user privileges"
 
@@ -5677,21 +5674,14 @@ msgstr ""
 "chart using the cog icon on each respective chart."
 
 #: resources/templates/server/status/monitor/index.twig:77
-#, fuzzy
-#| msgid ""
-#| "To display queries from the logs, select the relevant time span on any "
-#| "chart by holding down the left mouse button and panning over the chart. "
-#| "Once confirmed, this will load a table of grouped queries, there you may "
-#| "click on any occurring SELECT statements to further analyze them."
 msgid ""
 "To display queries from the logs, click on any chart. Once confirmed, this "
 "will load a table of grouped queries, there you may click on any occurring "
 "SELECT statements to further analyze them."
 msgstr ""
-"To display queries from the logs, select the relevant time span on any chart "
-"by holding down the left mouse button and panning over the chart. Once "
-"confirmed, this will load a table of grouped queries, there you may click on "
-"any occurring SELECT statements to further analyse them."
+"To display queries from the logs, click on any chart. Once confirmed, this "
+"will load a table of grouped queries, there you may click on any occurring "
+"SELECT statements to further analyse them."
 
 #: resources/templates/server/status/monitor/index.twig:81
 msgid "Please note:"
