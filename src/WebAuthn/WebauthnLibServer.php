@@ -36,6 +36,11 @@ use const SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
 
 final class WebauthnLibServer implements Server
 {
+    private int $timeout = 60000;
+
+    /** @phpstan-var int<1, max> */
+    private int $challengeSize = 32;
+
     private ManagerFactory $coseAlgorithmManagerFactory;
 
     /** @var string[] */
@@ -82,14 +87,14 @@ final class WebauthnLibServer implements Server
         $publicKeyCredentialCreationOptions = PublicKeyCredentialCreationOptions::create(
             $relyingPartyEntity,
             $userEntity,
-            random_bytes(32),
+            random_bytes($this->challengeSize),
             $publicKeyCredentialParametersList,
         )
             ->excludeCredentials([])
             ->setAuthenticatorSelection($criteria)
             ->setAttestation(PublicKeyCredentialCreationOptions::ATTESTATION_CONVEYANCE_PREFERENCE_NONE)
             ->setExtensions(new AuthenticationExtensionsClientInputs())
-            ->setTimeout(60000);
+            ->setTimeout($this->timeout);
 
         /** @psalm-var array{
          *   challenge: non-empty-string,
@@ -120,7 +125,6 @@ final class WebauthnLibServer implements Server
         $userEntity = new PublicKeyCredentialUserEntity($userName, $userId, $userName);
         $relyingPartyEntity = new PublicKeyCredentialRpEntity('phpMyAdmin (' . $relyingPartyId . ')', $relyingPartyId);
         $publicKeyCredentialSourceRepository = $this->createPublicKeyCredentialSourceRepository();
-        $server = new WebauthnServer($relyingPartyEntity, $publicKeyCredentialSourceRepository);
         $credentialSources = $publicKeyCredentialSourceRepository->findAllForUserEntity($userEntity);
         $allowedCredentials = array_map(
             static fn (
@@ -128,10 +132,15 @@ final class WebauthnLibServer implements Server
             ): PublicKeyCredentialDescriptor => $credential->getPublicKeyCredentialDescriptor(),
             $credentialSources,
         );
-        $publicKeyCredentialRequestOptions = $server->generatePublicKeyCredentialRequestOptions(
-            'discouraged',
-            $allowedCredentials,
-        );
+
+        $challenge = random_bytes($this->challengeSize);
+        $publicKeyCredentialRequestOptions = PublicKeyCredentialRequestOptions::create($challenge)
+            ->setRpId($relyingPartyEntity->getId())
+            ->setUserVerification(PublicKeyCredentialRequestOptions::USER_VERIFICATION_REQUIREMENT_DISCOURAGED)
+            ->allowCredentials($allowedCredentials)
+            ->setTimeout($this->timeout)
+            ->setExtensions(new AuthenticationExtensionsClientInputs());
+
         /**
          * @psalm-var array{
          *   challenge: string,
