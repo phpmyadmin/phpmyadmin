@@ -454,12 +454,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmyadmin/sql-parser.git",
-                "reference": "3bc8d0dde4daaee6d074349655a248f3ee88937b"
+                "reference": "f2bafbbe3160926b6e2a773bae790df4cd76ea9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmyadmin/sql-parser/zipball/3bc8d0dde4daaee6d074349655a248f3ee88937b",
-                "reference": "3bc8d0dde4daaee6d074349655a248f3ee88937b",
+                "url": "https://api.github.com/repos/phpmyadmin/sql-parser/zipball/f2bafbbe3160926b6e2a773bae790df4cd76ea9f",
+                "reference": "f2bafbbe3160926b6e2a773bae790df4cd76ea9f",
                 "shasum": ""
             },
             "require": {
@@ -538,7 +538,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2024-08-01T00:10:53+00:00"
+            "time": "2024-08-25T18:42:36+00:00"
         },
         {
             "name": "psr/cache",
@@ -5738,12 +5738,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "8938260885863ec2dd9f2aaf9a79ba14e58a92f6"
+                "reference": "f8de2a81061775002d96aea80b12f2ab3c5eeb8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/8938260885863ec2dd9f2aaf9a79ba14e58a92f6",
-                "reference": "8938260885863ec2dd9f2aaf9a79ba14e58a92f6",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/f8de2a81061775002d96aea80b12f2ab3c5eeb8d",
+                "reference": "f8de2a81061775002d96aea80b12f2ab3c5eeb8d",
                 "shasum": ""
             },
             "conflict": {
@@ -5954,7 +5954,7 @@
                 "friendsoftypo3/mediace": ">=7.6.2,<7.6.5",
                 "friendsoftypo3/openid": ">=4.5,<4.5.31|>=4.7,<4.7.16|>=6,<6.0.11|>=6.1,<6.1.6",
                 "froala/wysiwyg-editor": "<3.2.7|>=4.0.1,<=4.1.3",
-                "froxlor/froxlor": "<2.1.9",
+                "froxlor/froxlor": "<=2.2.0.0-RC3",
                 "frozennode/administrator": "<=5.0.12",
                 "fuel/core": "<1.8.1",
                 "funadmin/funadmin": "<=3.2|>=3.3.2,<=3.3.3",
@@ -6547,7 +6547,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-08-19T21:04:39+00:00"
+            "time": "2024-08-23T19:04:38+00:00"
         },
         {
             "name": "sebastian/cli-parser",
