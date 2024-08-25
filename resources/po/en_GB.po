@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-08-25 00:22+0000\n"
-"PO-Revision-Date: 2024-08-24 23:09+0000\n"
+"PO-Revision-Date: 2024-08-26 15:09+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
@@ -11426,14 +11426,8 @@ msgid "Failed to read configuration file!"
 msgstr "Failed to read configuration file!"
 
 #: src/Config.php:659
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
 msgid "This usually means there is a syntax error in it."
-msgstr ""
-"This usually means there is a syntax error in it, please check any errors "
-"shown below."
+msgstr "This usually means there is a syntax error in it."
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -11708,18 +11702,14 @@ msgid "Succeeded"
 msgstr "Succeeded"
 
 #: src/Controllers/Console/UpdateConfigController.php:49
-#, fuzzy
-#| msgid "Table %1$s has been altered successfully."
 msgid "Console settings has been updated successfully."
-msgstr "Table %1$s has been altered successfully."
+msgstr "Console settings has been updated successfully."
 
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:28
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected parameter value."
-msgstr "Unexpected characters on line %s."
+msgstr "Unexpected parameter value."
 
 #: src/Controllers/Database/CentralColumnsController.php:149
 #, php-format
