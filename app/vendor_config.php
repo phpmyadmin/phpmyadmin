@@ -55,7 +55,7 @@ return [
     /**
      * Default value for check for version upgrades.
      */
-    'versionCheckDefault' => true,
+    'versionCheckDefault' => FALSE,
 
     /**
      * Path to files with compiled locales (*.mo)
