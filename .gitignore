@@ -4,7 +4,6 @@
 /config.inc.php
 /config.header.inc.php
 /config.footer.inc.php
-/app/vendor_config.php
 # Upload/save dirs
 /upload/
 /save/
