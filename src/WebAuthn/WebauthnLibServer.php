@@ -10,10 +10,17 @@ use Cose\Algorithm\Signature\EdDSA;
 use Cose\Algorithm\Signature\RSA;
 use PhpMyAdmin\TwoFactor;
 use Psr\Http\Message\ServerRequestInterface;
+use Webauthn\AttestationStatement\AttestationObjectLoader;
+use Webauthn\AttestationStatement\AttestationStatementSupportManager;
+use Webauthn\AttestationStatement\NoneAttestationStatementSupport;
 use Webauthn\AuthenticationExtensions\AuthenticationExtensionsClientInputs;
+use Webauthn\AuthenticationExtensions\ExtensionOutputCheckerHandler;
+use Webauthn\AuthenticatorAssertionResponse;
+use Webauthn\AuthenticatorAssertionResponseValidator;
 use Webauthn\AuthenticatorSelectionCriteria;
 use Webauthn\PublicKeyCredentialCreationOptions;
 use Webauthn\PublicKeyCredentialDescriptor;
+use Webauthn\PublicKeyCredentialLoader;
 use Webauthn\PublicKeyCredentialParameters;
 use Webauthn\PublicKeyCredentialRequestOptions;
 use Webauthn\PublicKeyCredentialRpEntity;
@@ -21,6 +28,7 @@ use Webauthn\PublicKeyCredentialSource;
 use Webauthn\PublicKeyCredentialSourceRepository;
 use Webauthn\PublicKeyCredentialUserEntity;
 use Webauthn\Server as WebauthnServer;
+use Webauthn\TokenBinding\IgnoreTokenBindingHandler;
 use Webauthn\TrustPath\EmptyTrustPath;
 use Webmozart\Assert\Assert;
 
@@ -178,9 +186,7 @@ final class WebauthnLibServer implements Server
         );
         $userEntity = new PublicKeyCredentialUserEntity($this->twofactor->user, $userHandle, $this->twofactor->user);
         $host = $request->getUri()->getHost();
-        $relyingPartyEntity = new PublicKeyCredentialRpEntity('phpMyAdmin (' . $host . ')', $host);
         $publicKeyCredentialSourceRepository = $this->createPublicKeyCredentialSourceRepository();
-        $server = new WebauthnServer($relyingPartyEntity, $publicKeyCredentialSourceRepository);
         $requestOptions = PublicKeyCredentialRequestOptions::createFromArray([
             'challenge' => $challenge,
             'allowCredentials' => $allowedCredentials,
@@ -188,7 +194,34 @@ final class WebauthnLibServer implements Server
             'timeout' => 60000,
         ]);
         Assert::isInstanceOf($requestOptions, PublicKeyCredentialRequestOptions::class);
-        $server->loadAndCheckAssertionResponse($assertionResponseJson, $requestOptions, $userEntity, $request);
+
+        $attestationStatementSupportManager = new AttestationStatementSupportManager();
+        $attestationStatementSupportManager->add(new NoneAttestationStatementSupport());
+        $attestationObjectLoader = AttestationObjectLoader::create($attestationStatementSupportManager);
+        $publicKeyCredentialLoader = PublicKeyCredentialLoader::create($attestationObjectLoader);
+
+        $publicKeyCredential = $publicKeyCredentialLoader->load($assertionResponseJson);
+        $authenticatorResponse = $publicKeyCredential->getResponse();
+        Assert::isInstanceOf(
+            $authenticatorResponse,
+            AuthenticatorAssertionResponse::class,
+            'Not an authenticator assertion response',
+        );
+
+        $authenticatorAssertionResponseValidator = new AuthenticatorAssertionResponseValidator(
+            $publicKeyCredentialSourceRepository,
+            new IgnoreTokenBindingHandler(),
+            new ExtensionOutputCheckerHandler(),
+            $this->coseAlgorithmManagerFactory->create($this->selectedAlgorithms),
+        );
+
+        $authenticatorAssertionResponseValidator->check(
+            $publicKeyCredential->getRawId(),
+            $authenticatorResponse,
+            $requestOptions,
+            $request,
+            $userEntity->getId(),
+        );
     }
 
     /** @inheritDoc */
