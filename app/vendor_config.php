@@ -9,6 +9,7 @@
 
 declare(strict_types=1);
 
+
 return [
     /**
      * Path to vendor autoload file. Useful when you want to have vendor dependencies somewhere else.
@@ -18,7 +19,7 @@ return [
     /**
      * Directory where cache files are stored.
      */
-    'tempDir' => ROOT_PATH . 'tmp' . DIRECTORY_SEPARATOR,
+    'tempDir' => '/var/lib/phpmyadmin/tmp/',
 
     /**
      * Path to changelog file, can be gzip compressed.
@@ -39,7 +40,7 @@ return [
     /**
      * Filename of a configuration file.
      */
-    'configFile' => ROOT_PATH . 'config.inc.php',
+    'configFile' => '/etc/phpmyadmin/config.inc.php',
 
     /**
      * Filename of custom header file.
