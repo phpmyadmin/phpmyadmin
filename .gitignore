@@ -23,6 +23,7 @@ phpmyadmin.wpj
 .idea
 .netbeans
 .vscode
+.nvmrc
 *.sw[op]
 # Web server files
 web.config
