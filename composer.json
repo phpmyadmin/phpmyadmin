@@ -76,6 +76,7 @@
         "symfony/polyfill-ctype": "^1.24",
         "symfony/polyfill-mbstring": "^1.24",
         "twig/twig": "^3.9",
+        "web-auth/webauthn-lib": "^3.3",
         "webmozart/assert": "^1.10",
         "williamdes/mariadb-mysql-kbs": "^1.2"
     },
@@ -118,8 +119,7 @@
         "roave/security-advisories": "dev-latest",
         "symfony/console": "^6.2",
         "tecnickcom/tcpdf": "^6.4.4",
-        "vimeo/psalm": "^5.14",
-        "web-auth/webauthn-lib": "^3.3.12"
+        "vimeo/psalm": "^5.14"
     },
     "extra": {
         "branch-alias": {
