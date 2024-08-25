@@ -11,8 +11,12 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
+use PhpMyAdmin\Plugins\TwoFactor\Invalid;
+use PhpMyAdmin\Plugins\TwoFactor\Key;
+use PhpMyAdmin\Plugins\TwoFactor\Simple;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\TwoFactor;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -29,6 +33,10 @@ use function str_replace;
 use const JSON_UNESCAPED_SLASHES;
 
 #[CoversClass(TwoFactor::class)]
+#[CoversClass(Application::class)]
+#[CoversClass(Invalid::class)]
+#[CoversClass(Key::class)]
+#[CoversClass(Simple::class)]
 class TwoFactorTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -161,6 +169,9 @@ class TwoFactorTest extends AbstractTestCase
         self::assertTrue($object->check($request));
         self::assertSame('', $object->render($request));
 
+        $_SESSION['two_factor_check'] = false;
+        self::assertTrue($object->check($request));
+
         $this->dummyDbi->assertAllQueriesConsumed();
 
         $this->loadResultForConfig(['type' => 'db']);
@@ -170,9 +181,24 @@ class TwoFactorTest extends AbstractTestCase
         self::assertSame('', $object->setup($request));
     }
 
+    public function testInvalidBackend(): void
+    {
+        $object = $this->getTwoFactorAndLoadConfig('user', ['type' => 'db', 'backend' => 'unknown-backend']);
+        $backend = $object->getBackend();
+        self::assertSame('invalid', $backend::$id);
+        self::assertSame('Invalid two-factor authentication', $backend::getName());
+        self::assertSame('Error fallback only!', $backend::getDescription());
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
+        self::assertFalse($object->check($request, true));
+        self::assertStringContainsString(
+            'The configured two factor authentication is not available, please install missing dependencies.',
+            $object->render($request),
+        );
+        self::assertSame('', $object->setup($request));
+    }
+
     public function testSimple(): void
     {
-        $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
         $config = Config::getInstance();
         $config->config->debug->simple2fa = true;
         $object = $this->getTwoFactorAndLoadConfig('user', ['type' => 'db', 'backend' => 'simple']);
@@ -180,12 +206,15 @@ class TwoFactorTest extends AbstractTestCase
         self::assertSame('simple', $backend::$id);
         $config->config->debug->simple2fa = false;
 
-        unset($_POST['2fa_confirm']);
+        $serverRequestFactory = ServerRequestFactory::create();
+        $request = $serverRequestFactory->createServerRequest('POST', 'https://example.com/');
         self::assertFalse($object->check($request, true));
 
-        $_POST['2fa_confirm'] = 1;
+        $request = $serverRequestFactory->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['2fa_confirm' => '1']);
         self::assertTrue($object->check($request, true));
-        unset($_POST['2fa_confirm']);
+
+        $request = $serverRequestFactory->createServerRequest('POST', 'https://example.com/');
 
         /* Test rendering */
         self::assertNotEquals('', $object->render($request));

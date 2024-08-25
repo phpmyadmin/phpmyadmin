@@ -26,7 +26,7 @@ class Simple extends TwoFactorPlugin
      */
     public function check(ServerRequest $request): bool
     {
-        return isset($_POST['2fa_confirm']);
+        return $request->hasBodyParam('2fa_confirm');
     }
 
     /**

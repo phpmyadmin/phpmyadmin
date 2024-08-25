@@ -10002,11 +10002,6 @@
       <code><![CDATA[$_POST['u2f_registration_response']]]></code>
     </PossiblyInvalidCast>
   </file>
-  <file src="src/Plugins/TwoFactor/Simple.php">
-    <UnusedClass>
-      <code><![CDATA[Simple]]></code>
-    </UnusedClass>
-  </file>
   <file src="src/Plugins/TwoFactorPlugin.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
