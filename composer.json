@@ -56,6 +56,8 @@
         "ext-pcre": "*",
         "ext-sodium": "*",
         "ext-xml": "*",
+        "bacon/bacon-qr-code": "^3.0",
+        "code-lts/u2f-php-server": "^1.2",
         "composer/ca-bundle": "^1.2",
         "fig/http-message-util": "^1.1",
         "google/recaptcha": "^1.3",
@@ -64,6 +66,7 @@
         "phpmyadmin/motranslator": "^6.0-dev",
         "phpmyadmin/shapefile": "^4.0-dev",
         "phpmyadmin/sql-parser": "^6.0-dev",
+        "pragmarx/google2fa-qrcode": "^3.0",
         "psr/container": "^2.0",
         "psr/http-factory": "^1.0",
         "psr/http-message": "^1.1",
@@ -100,8 +103,6 @@
         "web-auth/webauthn-lib": "For better WebAuthn/FIDO2 authentication support"
     },
     "require-dev": {
-        "bacon/bacon-qr-code": "^2.0",
-        "code-lts/u2f-php-server": "^1.2",
         "guzzlehttp/psr7": "^2.5",
         "httpsoft/http-message": "^1.1",
         "laminas/laminas-diactoros": "^3.0",
@@ -114,7 +115,6 @@
         "phpstan/phpstan-strict-rules": "^1.5",
         "phpstan/phpstan-webmozart-assert": "^1.2",
         "phpunit/phpunit": "^10.4",
-        "pragmarx/google2fa-qrcode": "^3.0",
         "psalm/plugin-phpunit": "^0.18.4",
         "roave/security-advisories": "dev-latest",
         "symfony/console": "^6.2",

@@ -65,7 +65,7 @@ return [
     /**
      * Define the cache directory for routing cache and other cache files
      */
-    'cacheDir' => '/var/lib/phpmyadmin/cache',
+    'cacheDir' => '/var/lib/phpmyadmin/cache/',
 
     /**
      * Suffix to add to the phpMyAdmin version
