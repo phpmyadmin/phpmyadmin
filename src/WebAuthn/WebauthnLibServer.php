@@ -17,6 +17,8 @@ use Webauthn\AuthenticationExtensions\AuthenticationExtensionsClientInputs;
 use Webauthn\AuthenticationExtensions\ExtensionOutputCheckerHandler;
 use Webauthn\AuthenticatorAssertionResponse;
 use Webauthn\AuthenticatorAssertionResponseValidator;
+use Webauthn\AuthenticatorAttestationResponse;
+use Webauthn\AuthenticatorAttestationResponseValidator;
 use Webauthn\AuthenticatorSelectionCriteria;
 use Webauthn\PublicKeyCredentialCreationOptions;
 use Webauthn\PublicKeyCredentialDescriptor;
@@ -27,7 +29,6 @@ use Webauthn\PublicKeyCredentialRpEntity;
 use Webauthn\PublicKeyCredentialSource;
 use Webauthn\PublicKeyCredentialSourceRepository;
 use Webauthn\PublicKeyCredentialUserEntity;
-use Webauthn\Server as WebauthnServer;
 use Webauthn\TokenBinding\IgnoreTokenBindingHandler;
 use Webauthn\TrustPath\EmptyTrustPath;
 use Webmozart\Assert\Assert;
@@ -237,9 +238,7 @@ final class WebauthnLibServer implements Server
         Assert::isArray($creationOptions['user']);
         Assert::keyExists($creationOptions['user'], 'id');
         $host = $request->getUri()->getHost();
-        $relyingPartyEntity = new PublicKeyCredentialRpEntity('phpMyAdmin (' . $host . ')', $host);
         $publicKeyCredentialSourceRepository = $this->createPublicKeyCredentialSourceRepository();
-        $server = new WebauthnServer($relyingPartyEntity, $publicKeyCredentialSourceRepository);
         $creationOptionsArray = [
             'rp' => ['name' => 'phpMyAdmin (' . $host . ')', 'id' => $host],
             'pubKeyCredParams' => [
@@ -266,8 +265,29 @@ final class WebauthnLibServer implements Server
         ];
         $credentialCreationOptions = PublicKeyCredentialCreationOptions::createFromArray($creationOptionsArray);
         Assert::isInstanceOf($credentialCreationOptions, PublicKeyCredentialCreationOptions::class);
-        $publicKeyCredentialSource = $server->loadAndCheckAttestationResponse(
-            $attestationResponse,
+
+        $attestationStatementSupportManager = new AttestationStatementSupportManager();
+        $attestationStatementSupportManager->add(new NoneAttestationStatementSupport());
+        $attestationObjectLoader = AttestationObjectLoader::create($attestationStatementSupportManager);
+        $publicKeyCredentialLoader = PublicKeyCredentialLoader::create($attestationObjectLoader);
+
+        $publicKeyCredential = $publicKeyCredentialLoader->load($attestationResponse);
+        $authenticatorResponse = $publicKeyCredential->getResponse();
+        Assert::isInstanceOf(
+            $authenticatorResponse,
+            AuthenticatorAttestationResponse::class,
+            'Not an authenticator attestation response',
+        );
+
+        $authenticatorAttestationResponseValidator = new AuthenticatorAttestationResponseValidator(
+            $attestationStatementSupportManager,
+            $publicKeyCredentialSourceRepository,
+            new IgnoreTokenBindingHandler(),
+            new ExtensionOutputCheckerHandler(),
+        );
+
+        $publicKeyCredentialSource = $authenticatorAttestationResponseValidator->check(
+            $authenticatorResponse,
             $credentialCreationOptions,
             $request,
         );
