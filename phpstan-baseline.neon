@@ -1806,11 +1806,6 @@ parameters:
 			path: libraries/classes/Controllers/View/CreateController.php
 
 		-
-			message: "#^Binary operation \"\\*\" between string and 1024\\|1048576\\|1073741824\\|1099511627776 results in an error\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Core\\:\\:arrayRead\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
@@ -4381,6 +4376,21 @@ parameters:
 			path: libraries/classes/Git.php
 
 		-
+			message: "#^Offset 1 does not exist on array\\{0\\?\\: string, 1\\?\\: non\\-empty\\-string, 2\\?\\: non\\-empty\\-string, 3\\?\\: numeric\\-string, 4\\?\\: non\\-falsy\\-string\\}\\.$#"
+			count: 1
+			path: libraries/classes/Git.php
+
+		-
+			message: "#^Offset 2 does not exist on array\\{0\\?\\: string, 1\\?\\: non\\-empty\\-string, 2\\?\\: non\\-empty\\-string, 3\\?\\: numeric\\-string, 4\\?\\: non\\-falsy\\-string\\}\\.$#"
+			count: 1
+			path: libraries/classes/Git.php
+
+		-
+			message: "#^Offset 3 does not exist on array\\{0\\?\\: string, 1\\?\\: non\\-empty\\-string, 2\\?\\: non\\-empty\\-string, 3\\?\\: numeric\\-string, 4\\?\\: non\\-falsy\\-string\\}\\.$#"
+			count: 1
+			path: libraries/classes/Git.php
+
+		-
 			message: "#^Parameter \\#2 \\$length of function fread expects int\\<1, max\\>, int given\\.$#"
 			count: 1
 			path: libraries/classes/Git.php
@@ -5086,6 +5096,11 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
+			message: "#^Offset 2 does not exist on array\\{0\\?\\: string, 1\\?\\: string, 2\\?\\: string, 3\\?\\: numeric\\-string\\}\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
 			message: "#^Parameter \\#1 \\$data of function bin2hex expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
@@ -5134,11 +5149,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\InternalRelations\\:\\:\\$mysql type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/InternalRelations.php
-
-		-
-			message: "#^Binary operation \"\\-\" between string and 1 results in an error\\.$#"
-			count: 1
-			path: libraries/classes/IpAllowDeny.php
 
 		-
 			message: "#^Parameter \\#2 \\$ipToTest of method PhpMyAdmin\\\\IpAllowDeny\\:\\:ipMaskTest\\(\\) expects string, string\\|true given\\.$#"
@@ -7686,6 +7696,11 @@ parameters:
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
+			message: "#^Offset 1 does not exist on array\\{0\\?\\: string, 1\\?\\: non\\-empty\\-string\\}\\.$#"
+			count: 1
+			path: libraries/classes/Server/Status/Monitor.php
+
+		-
 			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Monitor.php
@@ -9001,6 +9016,11 @@ parameters:
 			path: libraries/classes/Util.php
 
 		-
+			message: "#^Offset 1 does not exist on array\\{0\\?\\: string, 1\\?\\: string\\}\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
+
+		-
 			message: "#^Offset int\\<1, 6\\> on array\\{string, string, string, string, string, string, string\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
@@ -9072,6 +9092,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Utils\\\\HttpRequest\\:\\:response\\(\\) should return bool\\|string\\|null but returns mixed\\.$#"
+			count: 1
+			path: libraries/classes/Utils/HttpRequest.php
+
+		-
+			message: "#^Offset 1 does not exist on array\\{0\\?\\: string, 1\\?\\: numeric\\-string\\}\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
 
@@ -9241,6 +9266,11 @@ parameters:
 			path: test/classes/Config/FormDisplayTest.php
 
 		-
+			message: "#^Offset 1 does not exist on array\\{0\\?\\: string, 1\\?\\: numeric\\-string\\}\\.$#"
+			count: 1
+			path: test/classes/Config/FormTest.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Config\\\\ServerConfigChecksTest\\:\\:\\$sessionID \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: test/classes/Config/ServerConfigChecksTest.php
@@ -9341,7 +9371,7 @@ parameters:
 			path: test/classes/ConfigTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strstr expects string, array\\<string\\> given\\.$#"
+			message: "#^Parameter \\#1 \\$haystack of function mb_strstr expects string, array\\<int, string\\> given\\.$#"
 			count: 1
 			path: test/classes/ConfigTest.php
 

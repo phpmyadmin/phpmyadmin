@@ -13,6 +13,7 @@ use function intval;
 use function json_decode;
 use function min;
 use function preg_replace;
+use function rtrim;
 use function strlen;
 use function trim;
 
