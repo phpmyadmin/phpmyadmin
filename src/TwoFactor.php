@@ -204,7 +204,11 @@ class TwoFactor
             return $this->backend->check($request);
         }
 
-        if (! isset($_SESSION['two_factor_check']) || ! is_bool($_SESSION['two_factor_check'])) {
+        if (
+            ! isset($_SESSION['two_factor_check'])
+            || ! is_bool($_SESSION['two_factor_check'])
+            || ! $_SESSION['two_factor_check']
+        ) {
             $_SESSION['two_factor_check'] = $this->backend->check($request);
         }
 
