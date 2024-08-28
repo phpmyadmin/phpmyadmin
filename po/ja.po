@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-06-03 04:09+0000\n"
+"PO-Revision-Date: 2024-08-28 14:01+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.7.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -30,7 +30,7 @@ msgstr ""
 
 #: db_central_columns.php:129
 msgid "The central list of columns for the current database is empty."
-msgstr "現在のデータベースのカラムのセントラルリストは空です。"
+msgstr "現在のデータベースの主要カラムリストは空です。"
 
 #: db_central_columns.php:158
 msgid "Click to sort."
@@ -14317,11 +14317,11 @@ msgstr "ブックマーク"
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Query failed"
-msgstr "問い合わせ失敗"
+msgstr "クエリ失敗"
 
 #: templates/console/display.twig:42 templates/console/display.twig:184
 msgid "Queried time"
-msgstr "問い合わせた時間"
+msgstr "クエリ時間"
 
 #: templates/console/display.twig:47
 msgid "During current session"
@@ -15083,11 +15083,11 @@ msgstr "最終検査"
 
 #: templates/table/search/selection_form.twig:12
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "異なる 2 つのカラムによる定型問い合わせ (ワイルドカード: \"%\")"
+msgstr "異なる 2 つのカラムによる「定型クエリ」 (ワイルドカード: \"%\") を実行"
 
 #: templates/table/search/selection_form.twig:42
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "定型問い合わせ (ワイルドカード: \"%\")"
+msgstr "「定型クエリ」を実行 (ワイルドカード: \"%\")"
 
 #: templates/table/tracking/activate_deactivate.twig:7
 #, php-format
