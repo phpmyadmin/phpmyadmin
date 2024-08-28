@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-06-03 04:09+0000\n"
+"PO-Revision-Date: 2024-08-29 03:09+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.7.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -14023,11 +14023,11 @@ msgstr "ブックマーク"
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Query failed"
-msgstr "問い合わせ失敗"
+msgstr "クエリ失敗"
 
 #: templates/console/display.twig:42 templates/console/display.twig:184
 msgid "Queried time"
-msgstr "問い合わせた時間"
+msgstr "クエリ時間"
 
 #: templates/console/display.twig:47
 msgid "During current session"
@@ -18118,7 +18118,7 @@ msgstr "制約名"
 
 #: templates/table/search/index.twig:29
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "定型問い合わせ (ワイルドカード: \"%\")"
+msgstr "「定型クエリ」を実行 (ワイルドカード: \"%\")"
 
 #: templates/table/search/index.twig:106
 msgid "Select columns (at least one):"
@@ -18332,7 +18332,7 @@ msgstr "ユーザ名"
 
 #: templates/table/zoom_search/index.twig:29
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "異なる 2 つのカラムによる定型問い合わせ (ワイルドカード: \"%\")"
+msgstr "異なる 2 つのカラムによる「定型クエリ」 (ワイルドカード: \"%\") を実行"
 
 #: templates/table/zoom_search/index.twig:56
 msgid "Additional search criteria"
