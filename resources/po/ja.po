@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-08-25 00:22+0000\n"
-"PO-Revision-Date: 2024-06-03 04:09+0000\n"
+"PO-Revision-Date: 2024-08-29 02:09+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.7.1-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1098,12 +1098,12 @@ msgstr "ブックマーク"
 #: resources/templates/console/display.twig:59
 #: resources/templates/console/display.twig:217
 msgid "Query failed"
-msgstr "問い合わせ失敗"
+msgstr "クエリ失敗"
 
 #: resources/templates/console/display.twig:61
 #: resources/templates/console/display.twig:219
 msgid "Queried time"
-msgstr "問い合わせた時間"
+msgstr "クエリ時間"
 
 #: resources/templates/console/display.twig:61
 msgid "During current session"
@@ -4313,7 +4313,7 @@ msgstr "ナビゲーション項目を表示/非表示:"
 
 #: resources/templates/relation/check_relations.twig:433
 msgid "Saving Query-By-Example searches:"
-msgstr "定型問い合わせ検索の保存:"
+msgstr "定型クエリ検索の保存:"
 
 #: resources/templates/relation/check_relations.twig:458
 msgid "Managing central list of columns:"
@@ -5662,22 +5662,15 @@ msgstr ""
 "る歯車のアイコンを通じて削除が行えます。"
 
 #: resources/templates/server/status/monitor/index.twig:77
-#, fuzzy
-#| msgid ""
-#| "To display queries from the logs, select the relevant time span on any "
-#| "chart by holding down the left mouse button and panning over the chart. "
-#| "Once confirmed, this will load a table of grouped queries, there you may "
-#| "click on any occurring SELECT statements to further analyze them."
 msgid ""
 "To display queries from the logs, click on any chart. Once confirmed, this "
 "will load a table of grouped queries, there you may click on any occurring "
 "SELECT statements to further analyze them."
 msgstr ""
-"ログからクエリ分析を行うには、グラフで該当期間を選択します。マウスの左ボタン"
-"を押したままグラフの上をドラッグするように移動させてください。こうすること"
-"で、グラフの任意の期間を選択できます。グループ毎に分類されたクエリが読み込ま"
-"れ表示されますので、実行されたクエリを確認することができます。SELECT 文の部分"
-"をクリックすることで、更なるクエリ解析が可能です。"
+"ログからクエリ分析を行うには、いずれかのグラフをクリックしてください。グルー"
+"プ毎に分類されたクエリが読み込まれ表示されますので、実行されたクエリを確認す"
+"ることができます。SELECT "
+"文の部分をクリックすることで、更なるクエリ解析が可能です。"
 
 #: resources/templates/server/status/monitor/index.twig:81
 msgid "Please note:"
@@ -6360,7 +6353,7 @@ msgstr "値カラム:"
 #: resources/templates/table/chart/tbl_chart.twig:145
 #: resources/templates/table/zoom_search/result_form.twig:16
 msgid "The generated chart"
-msgstr ""
+msgstr "生成されたグラフ"
 
 #: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
@@ -6820,7 +6813,7 @@ msgstr "制約名"
 
 #: resources/templates/table/search/index.twig:27
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "定型問い合わせ (ワイルドカード: \"%\")"
+msgstr "「定型クエリ」を実行 (ワイルドカード: \"%\")"
 
 #: resources/templates/table/search/index.twig:110
 msgid "Select columns (at least one):"
@@ -7092,7 +7085,7 @@ msgstr "ユーザ名"
 
 #: resources/templates/table/zoom_search/index.twig:27
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "異なる 2 つのカラムによる定型問い合わせ (ワイルドカード: \"%\")"
+msgstr "異なる 2 つのカラムによる「定型クエリ」 (ワイルドカード: \"%\") を実行"
 
 #: resources/templates/table/zoom_search/index.twig:54
 msgid "Additional search criteria"
