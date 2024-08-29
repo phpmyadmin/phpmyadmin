@@ -193,7 +193,7 @@ function addColumnToIndex (sourceArray, arrayIndex, indexChoice, colIndex): void
             columnNames.push($('input[name="field_name[' + this.col_index + ']"]').val());
         });
 
-        displayName = '[' + columnNames.join(', ') + ']';
+        displayName = '[' + columnNames.join(', ').trimRight() + ']';
     }
 
     $.each(columns, function () {

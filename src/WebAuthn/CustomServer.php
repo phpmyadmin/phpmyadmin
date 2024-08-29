@@ -120,8 +120,8 @@ final class CustomServer implements Server
     ): array {
         try {
             $attestationCredential = $this->getAttestationCredential($attestationResponse);
-        } catch (Throwable) {
-            throw new WebAuthnException('Invalid authenticator response.');
+        } catch (Throwable $exception) {
+            throw new WebAuthnException('Invalid authenticator response.', (int) $exception->getCode(), $exception);
         }
 
         $creationOptions = json_decode($credentialCreationOptions, true);

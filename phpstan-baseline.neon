@@ -5467,7 +5467,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 4
+			count: 3
 			path: src/CreateAddField.php
 
 		-
@@ -5491,8 +5491,8 @@ parameters:
 			path: src/CreateAddField.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
-			count: 1
+			message: "#^Parameter \\#1 \\$string of function rtrim expects string, mixed given\\.$#"
+			count: 2
 			path: src/CreateAddField.php
 
 		-
@@ -15714,4 +15714,39 @@ parameters:
 			message: "#^Call to function base64_decode\\(\\) requires parameter \\#2 to be set\\.$#"
 			count: 1
 			path: tests/unit/WebAuthn/CBORDecoderTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'attestation' and array\\{challenge\\: non\\-falsy\\-string, rp\\: array\\{name\\: string, id\\: string\\}, user\\: array\\{id\\: string, name\\: string, displayName\\: string\\}, pubKeyCredParams\\: non\\-empty\\-array\\<int, array\\{alg\\: int, type\\: 'public\\-key'\\}\\>, authenticatorSelection\\: array\\<string, string\\>, timeout\\: int\\<1, max\\>, attestation\\: non\\-empty\\-string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: tests/unit/WebAuthn/CustomServerTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'challenge' and array\\{challenge\\: non\\-empty\\-string, rp\\: array\\{name\\: string, id\\: string\\}, user\\: array\\{id\\: string, name\\: string, displayName\\: string\\}, pubKeyCredParams\\: array\\<int, array\\{alg\\: int, type\\: 'public\\-key'\\}\\>, authenticatorSelection\\: array\\<string, string\\>, timeout\\: int\\<1, max\\>, attestation\\: non\\-empty\\-string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: tests/unit/WebAuthn/CustomServerTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'pubKeyCredParams' and array\\{challenge\\: non\\-falsy\\-string, rp\\: array\\{name\\: string, id\\: string\\}, user\\: array\\{id\\: string, name\\: string, displayName\\: string\\}, pubKeyCredParams\\: array\\<int, array\\{alg\\: int, type\\: 'public\\-key'\\}\\>, authenticatorSelection\\: array\\<string, string\\>, timeout\\: int\\<1, max\\>, attestation\\: non\\-empty\\-string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: tests/unit/WebAuthn/CustomServerTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with null will always evaluate to true\\.$#"
+			count: 1
+			path: tests/unit/WebAuthn/CustomServerTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'attestation' and array\\{challenge\\: non\\-falsy\\-string, rp\\: array\\{name\\: string, id\\: string\\}, user\\: array\\{id\\: string, name\\: string, displayName\\: string\\}, pubKeyCredParams\\: non\\-empty\\-array\\<int, array\\{alg\\: int, type\\: 'public\\-key'\\}\\>, authenticatorSelection\\: array\\<string, string\\>, timeout\\: int\\<1, max\\>, attestation\\: non\\-empty\\-string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: tests/unit/WebAuthn/WebauthnLibServerTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'challenge' and array\\{challenge\\: non\\-empty\\-string, rp\\: array\\{name\\: string, id\\: string\\}, user\\: array\\{id\\: string, name\\: string, displayName\\: string\\}, pubKeyCredParams\\: array\\<int, array\\{alg\\: int, type\\: 'public\\-key'\\}\\>, authenticatorSelection\\: array\\<string, string\\>, timeout\\: int\\<1, max\\>, attestation\\: non\\-empty\\-string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: tests/unit/WebAuthn/WebauthnLibServerTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'pubKeyCredParams' and array\\{challenge\\: non\\-falsy\\-string, rp\\: array\\{name\\: string, id\\: string\\}, user\\: array\\{id\\: string, name\\: string, displayName\\: string\\}, pubKeyCredParams\\: array\\<int, array\\{alg\\: int, type\\: 'public\\-key'\\}\\>, authenticatorSelection\\: array\\<string, string\\>, timeout\\: int\\<1, max\\>, attestation\\: non\\-empty\\-string\\} will always evaluate to true\\.$#"
+			count: 1
+			path: tests/unit/WebAuthn/WebauthnLibServerTest.php
 

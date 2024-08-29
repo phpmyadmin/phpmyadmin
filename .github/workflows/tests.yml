@@ -42,7 +42,7 @@ jobs:
           apk add --update --no-cache \
           php\$V-cli php\$V-mysqli php\$V-session php\$V-mbstring php\$V-ctype php\$V-sodium \
           php\$V-iconv php\$V-xml php\$V-tokenizer php\$V-xmlwriter php\$V-simplexml \
-          php\$V-dom php\$V-json php\$V-bz2 php\$V-curl php\$V-gd php\$V-zip \
+          php\$V-dom php\$V-json php\$V-bz2 php\$V-curl php\$V-gd php\$V-zip php\$V-bcmath \
           musl-locales musl-locales-lang \
           gettext composer git && \
           composer config version "$(php -r "define('VERSION_SUFFIX', ''); require_once('src/Version.php'); echo \PhpMyAdmin\Version::VERSION;")" && \
