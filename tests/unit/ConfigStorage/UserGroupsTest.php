@@ -16,9 +16,10 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 
 #[CoversClass(UserGroups::class)]
+#[Medium]
 class UserGroupsTest extends AbstractTestCase
 {
     private ConfigurableMenusFeature $configurableMenusFeature;
@@ -44,7 +45,6 @@ class UserGroupsTest extends AbstractTestCase
     /**
      * Tests UserGroups::getHtmlForUserGroupsTable() function when there are no user groups
      */
-    #[Group('medium')]
     public function testGetHtmlForUserGroupsTableWithNoUserGroups(): void
     {
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups` ORDER BY `usergroup` ASC';

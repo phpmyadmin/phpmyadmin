@@ -8,13 +8,14 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use stdClass;
 
 use function array_keys;
 use function count;
 
 #[CoversClass(ConfigFile::class)]
+#[Medium]
 class ConfigFileTest extends AbstractTestCase
 {
     /**
@@ -275,7 +276,6 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::getFlatDefaultConfig
      */
-    #[Group('medium')]
     public function testGetFlatDefaultConfig(): void
     {
         $flatDefaultConfig = $this->object->getFlatDefaultConfig();

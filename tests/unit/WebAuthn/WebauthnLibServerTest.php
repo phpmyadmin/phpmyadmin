@@ -8,6 +8,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\WebAuthn\WebauthnLibServer;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriInterface;
 use Webauthn\Server as WebauthnServer;
@@ -89,11 +90,8 @@ final class WebauthnLibServerTest extends TestCase
         );
     }
 
-    /**
-     * @see https://github.com/web-auth/webauthn-framework/blob/v3.3.12/tests/library/Functional/AssertionTest.php#L46
-     *
-     * @requires extension bcmath
-     */
+    /** @see https://github.com/web-auth/webauthn-framework/blob/v3.3.12/tests/library/Functional/AssertionTest.php#L46 */
+    #[RequiresPhpExtension('bcmath')]
     public function testParseAndValidateAssertionResponse(): void
     {
         $twoFactor = self::createStub(TwoFactor::class);

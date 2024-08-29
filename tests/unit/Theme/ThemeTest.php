@@ -10,7 +10,7 @@ use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Depends;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function filemtime;
 
@@ -18,6 +18,7 @@ use const DIRECTORY_SEPARATOR;
 use const ROOT_PATH;
 
 #[CoversClass(Theme::class)]
+#[Medium]
 class ThemeTest extends AbstractTestCase
 {
     protected Theme $object;
@@ -38,7 +39,6 @@ class ThemeTest extends AbstractTestCase
     /**
      * Test for Theme::loadInfo
      */
-    #[Group('medium')]
     public function testCheckImgPathNotExisted(): void
     {
         $this->object->setPath('path/to/nowhere');

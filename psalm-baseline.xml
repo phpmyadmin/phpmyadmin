@@ -13188,6 +13188,11 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
+  <file src="tests/unit/Controllers/Table/Structure/MoveColumnsControllerTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[providerForTestGenerateAlterTableSql]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="tests/unit/Controllers/Table/Structure/SpatialControllerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
@@ -13895,6 +13900,8 @@
       <code><![CDATA[provGetColumnAlphaName]]></code>
       <code><![CDATA[provGetColumnNumberFromName]]></code>
       <code><![CDATA[provGetDecimalSize]]></code>
+      <code><![CDATA[provPMACheckIfRollbackPossibleNegative]]></code>
+      <code><![CDATA[provPMACheckIfRollbackPossiblePositive]]></code>
       <code><![CDATA[providerContentWithByteOrderMarks]]></code>
     </PossiblyUnusedMethod>
     <TypeDoesNotContainNull>

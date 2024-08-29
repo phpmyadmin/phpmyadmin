@@ -13,9 +13,10 @@ use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 
 #[CoversClass(ReplicationGui::class)]
+#[Medium]
 class ReplicationGuiTest extends AbstractTestCase
 {
     /**
@@ -52,7 +53,6 @@ class ReplicationGuiTest extends AbstractTestCase
         $this->replicationGui = new ReplicationGui(new Replication(DatabaseInterface::getInstance()), new Template());
     }
 
-    #[Group('medium')]
     public function testGetHtmlForPrimaryReplication(): void
     {
         $html = $this->replicationGui->getHtmlForPrimaryReplication(null, false, 'primary_add_user', null, null);

@@ -11,7 +11,7 @@ use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -19,6 +19,7 @@ use ReflectionProperty;
 use function function_exists;
 
 #[CoversClass(FormDisplay::class)]
+#[Medium]
 class FormDisplayTest extends AbstractTestCase
 {
     protected FormDisplay $object;
@@ -50,7 +51,6 @@ class FormDisplayTest extends AbstractTestCase
     /**
      * Test for FormDisplay::registerForm
      */
-    #[Group('medium')]
     public function testRegisterForm(): void
     {
         $reflection = new ReflectionClass(FormDisplay::class);
@@ -81,7 +81,6 @@ class FormDisplayTest extends AbstractTestCase
     /**
      * Test for FormDisplay::process
      */
-    #[Group('medium')]
     public function testProcess(): void
     {
         self::assertFalse(

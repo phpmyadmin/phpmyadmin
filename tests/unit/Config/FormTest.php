@@ -8,7 +8,7 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionClass;
 use ReflectionProperty;
 
@@ -16,6 +16,7 @@ use function array_keys;
 use function preg_match;
 
 #[CoversClass(Form::class)]
+#[Medium]
 class FormTest extends AbstractTestCase
 {
     protected Form $object;
@@ -50,7 +51,6 @@ class FormTest extends AbstractTestCase
     /**
      * Test for Form::__constructor
      */
-    #[Group('medium')]
     public function testContructor(): void
     {
         self::assertSame(1, $this->object->index);

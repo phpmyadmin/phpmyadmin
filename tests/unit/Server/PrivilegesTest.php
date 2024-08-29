@@ -25,7 +25,7 @@ use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -36,6 +36,7 @@ use function implode;
 use function preg_quote;
 
 #[CoversClass(Privileges::class)]
+#[Medium]
 class PrivilegesTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -567,7 +568,6 @@ class PrivilegesTest extends AbstractTestCase
         );
     }
 
-    #[Group('medium')]
     public function testGetHtmlToDisplayPrivilegesTable(): void
     {
         $GLOBALS['hostname'] = 'hostname';
@@ -950,7 +950,6 @@ class PrivilegesTest extends AbstractTestCase
         self::assertStringContainsString($expect, $sqlQuery);
     }
 
-    #[Group('medium')]
     public function testGetHtmlForAddUser(): void
     {
         $dbi = $this->createDatabaseInterface();
