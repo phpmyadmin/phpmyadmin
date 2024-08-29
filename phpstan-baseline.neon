@@ -14051,6 +14051,46 @@ parameters:
 			path: src/WebAuthn/CBORDecoder.php
 
 		-
+			message: "#^Call to static method Webmozart\\\\Assert\\\\Assert\\:\\:isInstanceOf\\(\\) with Webauthn\\\\PublicKeyCredentialCreationOptions and 'Webauthn\\\\\\\\PublicKeyCredentialCreationOptions' will always evaluate to true\\.$#"
+			count: 1
+			path: src/WebAuthn/WebauthnLibServer.php
+
+		-
+			message: "#^Call to static method Webmozart\\\\Assert\\\\Assert\\:\\:isInstanceOf\\(\\) with Webauthn\\\\PublicKeyCredentialRequestOptions and 'Webauthn\\\\\\\\PublicKeyCredentialRequestOptions' will always evaluate to true\\.$#"
+			count: 1
+			path: src/WebAuthn/WebauthnLibServer.php
+
+		-
+			message: "#^Cannot access offset 'authenticatorData' on mixed\\.$#"
+			count: 2
+			path: src/WebAuthn/WebauthnLibServer.php
+
+		-
+			message: "#^Cannot access offset 'clientDataJSON' on mixed\\.$#"
+			count: 4
+			path: src/WebAuthn/WebauthnLibServer.php
+
+		-
+			message: "#^Cannot access offset 'response' on mixed\\.$#"
+			count: 6
+			path: src/WebAuthn/WebauthnLibServer.php
+
+		-
+			message: "#^Parameter \\#1 \\$haystack of function str_ends_with expects string, mixed given\\.$#"
+			count: 1
+			path: src/WebAuthn/WebauthnLibServer.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function rtrim expects string, mixed given\\.$#"
+			count: 1
+			path: src/WebAuthn/WebauthnLibServer.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function sodium_base642bin expects string, mixed given\\.$#"
+			count: 3
+			path: src/WebAuthn/WebauthnLibServer.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\ZipExtension\\:\\:getContents\\(\\) should return array\\{error\\: string, data\\: string\\} but returns array\\{error\\: '', data\\: string\\|false\\}\\.$#"
 			count: 1
 			path: src/ZipExtension.php

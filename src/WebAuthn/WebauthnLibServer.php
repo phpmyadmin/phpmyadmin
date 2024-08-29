@@ -38,8 +38,10 @@ use function base64_encode;
 use function json_decode;
 use function json_encode;
 use function random_bytes;
+use function rtrim;
 use function sodium_base642bin;
 use function sodium_bin2base64;
+use function str_ends_with;
 
 use const JSON_THROW_ON_ERROR;
 use const SODIUM_BASE64_VARIANT_ORIGINAL;
@@ -82,7 +84,7 @@ final class WebauthnLibServer implements Server
         $userEntity = new PublicKeyCredentialUserEntity($userName, $userId, $userName);
         $relyingPartyEntity = new PublicKeyCredentialRpEntity('phpMyAdmin (' . $relyingPartyId . ')', $relyingPartyId);
 
-        $coseAlgorithmManager = $this->coseAlgorithmManagerFactory->create($this->selectedAlgorithms);
+        $coseAlgorithmManager = $this->coseAlgorithmManagerFactory->generate(...$this->selectedAlgorithms);
         $publicKeyCredentialParametersList = [];
         foreach ($coseAlgorithmManager->all() as $algorithm) {
             $publicKeyCredentialParametersList[] = new PublicKeyCredentialParameters(
@@ -101,7 +103,6 @@ final class WebauthnLibServer implements Server
             random_bytes($this->challengeSize),
             $publicKeyCredentialParametersList,
         )
-            ->excludeCredentials([])
             ->setAuthenticatorSelection($criteria)
             ->setAttestation(PublicKeyCredentialCreationOptions::ATTESTATION_CONVEYANCE_PREFERENCE_NONE)
             ->setExtensions(new AuthenticationExtensionsClientInputs())
@@ -148,7 +149,7 @@ final class WebauthnLibServer implements Server
         $publicKeyCredentialRequestOptions = PublicKeyCredentialRequestOptions::create($challenge)
             ->setRpId($relyingPartyEntity->getId())
             ->setUserVerification(PublicKeyCredentialRequestOptions::USER_VERIFICATION_REQUIREMENT_DISCOURAGED)
-            ->allowCredentials($allowedCredentials)
+            ->allowCredentials(...$allowedCredentials)
             ->setTimeout($this->timeout)
             ->setExtensions(new AuthenticationExtensionsClientInputs());
 
@@ -203,7 +204,25 @@ final class WebauthnLibServer implements Server
         $attestationObjectLoader = AttestationObjectLoader::create($attestationStatementSupportManager);
         $publicKeyCredentialLoader = PublicKeyCredentialLoader::create($attestationObjectLoader);
 
-        $publicKeyCredential = $publicKeyCredentialLoader->load($assertionResponseJson);
+        $assertionResponseDecoded = json_decode($assertionResponseJson, true, flags: JSON_THROW_ON_ERROR);
+        $assertionResponseDecoded['response']['authenticatorData'] = sodium_bin2base64(
+            sodium_base642bin(
+                $assertionResponseDecoded['response']['authenticatorData'],
+                SODIUM_BASE64_VARIANT_ORIGINAL,
+            ),
+            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING,
+        );
+        $assertionResponseDecoded['response']['clientDataJSON'] = sodium_bin2base64(
+            sodium_base642bin(
+                $assertionResponseDecoded['response']['clientDataJSON'],
+                SODIUM_BASE64_VARIANT_ORIGINAL,
+            ),
+            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING,
+        );
+
+        $publicKeyCredential = $publicKeyCredentialLoader->load(
+            json_encode($assertionResponseDecoded, JSON_THROW_ON_ERROR),
+        );
         $authenticatorResponse = $publicKeyCredential->getResponse();
         Assert::isInstanceOf(
             $authenticatorResponse,
@@ -215,7 +234,7 @@ final class WebauthnLibServer implements Server
             $publicKeyCredentialSourceRepository,
             new IgnoreTokenBindingHandler(),
             new ExtensionOutputCheckerHandler(),
-            $this->coseAlgorithmManagerFactory->create($this->selectedAlgorithms),
+            $this->coseAlgorithmManagerFactory->generate(...$this->selectedAlgorithms),
         );
 
         $authenticatorAssertionResponseValidator->check(
@@ -273,7 +292,18 @@ final class WebauthnLibServer implements Server
         $attestationObjectLoader = AttestationObjectLoader::create($attestationStatementSupportManager);
         $publicKeyCredentialLoader = PublicKeyCredentialLoader::create($attestationObjectLoader);
 
-        $publicKeyCredential = $publicKeyCredentialLoader->load($attestationResponse);
+        $attestationResponseDecoded = json_decode($attestationResponse, true, flags: JSON_THROW_ON_ERROR);
+        $attestationResponseDecoded['response']['clientDataJSON'] = sodium_bin2base64(
+            sodium_base642bin(
+                $attestationResponseDecoded['response']['clientDataJSON'],
+                SODIUM_BASE64_VARIANT_ORIGINAL,
+            ),
+            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING,
+        );
+
+        $publicKeyCredential = $publicKeyCredentialLoader->load(
+            json_encode($attestationResponseDecoded, JSON_THROW_ON_ERROR),
+        );
         $authenticatorResponse = $publicKeyCredential->getResponse();
         Assert::isInstanceOf(
             $authenticatorResponse,
@@ -348,6 +378,10 @@ final class WebauthnLibServer implements Server
                 /** @psalm-var list<mixed[]> $credentials */
                 $credentials = $this->twoFactor->config['settings']['credentials'];
                 foreach ($credentials as &$credential) {
+                    if (str_ends_with($credential['userHandle'], '=')) {
+                        $credential['userHandle'] = rtrim($credential['userHandle'], '=');
+                    }
+
                     if (isset($credential['trustPath'])) {
                         continue;
                     }

@@ -11989,6 +11989,84 @@
      * }]]></code>
     </MoreSpecificReturnType>
   </file>
+  <file src="src/WebAuthn/WebauthnLibServer.php">
+    <DeprecatedClass>
+      <code><![CDATA[PublicKeyCredentialLoader::create($attestationObjectLoader)]]></code>
+      <code><![CDATA[PublicKeyCredentialLoader::create($attestationObjectLoader)]]></code>
+      <code><![CDATA[PublicKeyCredentialLoader::create($attestationObjectLoader)]]></code>
+      <code><![CDATA[new AuthenticationExtensionsClientInputs()]]></code>
+      <code><![CDATA[new AuthenticationExtensionsClientInputs()]]></code>
+      <code><![CDATA[new IgnoreTokenBindingHandler()]]></code>
+      <code><![CDATA[new IgnoreTokenBindingHandler()]]></code>
+    </DeprecatedClass>
+    <DeprecatedInterface>
+      <code><![CDATA[PublicKeyCredentialSourceRepository]]></code>
+      <code><![CDATA[class ($this->twofactor) implements PublicKeyCredentialSourceRepository {]]></code>
+    </DeprecatedInterface>
+    <DeprecatedMethod>
+      <code><![CDATA[AuthenticatorSelectionCriteria::createFromArray([
+            'authenticatorAttachment' => 'cross-platform',
+            'userVerification' => 'discouraged',
+        ])]]></code>
+      <code><![CDATA[PublicKeyCredentialCreationOptions::createFromArray($creationOptionsArray)]]></code>
+      <code><![CDATA[PublicKeyCredentialRequestOptions::createFromArray([
+            'challenge' => $challenge,
+            'allowCredentials' => $allowedCredentials,
+            'rpId' => $host,
+            'timeout' => 60000,
+        ])]]></code>
+      <code><![CDATA[PublicKeyCredentialSource::createFromArray($data)]]></code>
+      <code><![CDATA[PublicKeyCredentialSource::createFromArray($data[base64_encode($publicKeyCredentialId)])]]></code>
+      <code><![CDATA[allowCredentials]]></code>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[getPublicKeyCredentialId]]></code>
+      <code><![CDATA[getRawId]]></code>
+      <code><![CDATA[getResponse]]></code>
+      <code><![CDATA[getResponse]]></code>
+      <code><![CDATA[getUserHandle]]></code>
+      <code><![CDATA[setAttestation]]></code>
+      <code><![CDATA[setAuthenticatorSelection]]></code>
+      <code><![CDATA[setExtensions]]></code>
+      <code><![CDATA[setExtensions]]></code>
+      <code><![CDATA[setRpId]]></code>
+      <code><![CDATA[setTimeout]]></code>
+      <code><![CDATA[setTimeout]]></code>
+      <code><![CDATA[setUserVerification]]></code>
+    </DeprecatedMethod>
+    <MixedArgument>
+      <code><![CDATA[$assertionResponseDecoded['response']['authenticatorData']]]></code>
+      <code><![CDATA[$assertionResponseDecoded['response']['clientDataJSON']]]></code>
+      <code><![CDATA[$attestationResponseDecoded['response']['clientDataJSON']]]></code>
+      <code><![CDATA[$credential['userHandle']]]></code>
+    </MixedArgument>
+    <MixedArrayAccess>
+      <code><![CDATA[$assertionResponseDecoded['response']]]></code>
+      <code><![CDATA[$assertionResponseDecoded['response']]]></code>
+      <code><![CDATA[$assertionResponseDecoded['response']['authenticatorData']]]></code>
+      <code><![CDATA[$assertionResponseDecoded['response']['clientDataJSON']]]></code>
+      <code><![CDATA[$attestationResponseDecoded['response']]]></code>
+      <code><![CDATA[$attestationResponseDecoded['response']]]></code>
+      <code><![CDATA[$attestationResponseDecoded['response']['clientDataJSON']]]></code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment>
+      <code><![CDATA[$assertionResponseDecoded['response']]]></code>
+      <code><![CDATA[$assertionResponseDecoded['response']]]></code>
+      <code><![CDATA[$assertionResponseDecoded['response']['authenticatorData']]]></code>
+      <code><![CDATA[$assertionResponseDecoded['response']['clientDataJSON']]]></code>
+      <code><![CDATA[$attestationResponseDecoded['response']]]></code>
+      <code><![CDATA[$attestationResponseDecoded['response']['clientDataJSON']]]></code>
+    </MixedArrayAssignment>
+    <MixedAssignment>
+      <code><![CDATA[$assertionResponseDecoded]]></code>
+      <code><![CDATA[$attestationResponseDecoded]]></code>
+    </MixedAssignment>
+    <RedundantCondition>
+      <code><![CDATA[isInstanceOf]]></code>
+      <code><![CDATA[isInstanceOf]]></code>
+    </RedundantCondition>
+  </file>
   <file src="src/ZipExtension.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$regex]]></code>
