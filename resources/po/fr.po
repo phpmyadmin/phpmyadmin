@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-08-25 00:22+0000\n"
-"PO-Revision-Date: 2023-12-06 11:04+0000\n"
-"Last-Translator: EGuillemot <Elouen.Guillemot@gmail.com>\n"
+"PO-Revision-Date: 2024-08-30 13:09+0000\n"
+"Last-Translator: kjo-sdds <kjo@domo-supply.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.7.1-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -29,8 +29,6 @@ msgid "phpMyAdmin documentation"
 msgstr "Documentation de phpMyAdmin"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "MariaDB Documentation"
 msgid "MariaDB documentation"
 msgstr "Documentation MariaDB"
 
@@ -1208,10 +1206,8 @@ msgid "OK"
 msgstr "OK"
 
 #: resources/templates/console/display.twig:178
-#, fuzzy
-#| msgid "Restore default value"
 msgid "Restore default values"
-msgstr "Restaurer la valeur par défaut"
+msgstr "Restaurer les valeurs par défaut"
 
 #: resources/templates/console/display.twig:185 src/Config/Descriptions.php:958
 msgid "Always expand query messages"
@@ -2491,13 +2487,11 @@ msgid "Browse"
 msgstr "Parcourir"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<strong>Total:</strong> <em>%count%</em> match"
-#| msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<strong>Total :</strong><em>%count%</em> correspondance"
-msgstr[1] "<strong>Total :</strong><em>%count%</em> correspondances"
+msgstr[0] "<strong>Total :</strong><em>%s</em> correspondance"
+msgstr[1] "<strong>Total :</strong><em>%s</em> correspondances"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
@@ -3946,10 +3940,8 @@ msgid "Clear fast filter"
 msgstr "Effacer le filtrage"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
-#, fuzzy
-#| msgid "Recently used tables"
 msgid "Recently visited tables"
-msgstr "Tables récemment utilisées"
+msgstr "Tables récemment visitées"
 
 #: resources/templates/navigation/tree/quick_warp.twig:6
 msgid "Recent"
@@ -5650,14 +5642,10 @@ msgid "Advisor"
 msgstr "Conseiller"
 
 #: resources/templates/server/status/monitor/index.twig:4
-#, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
-msgstr "Mémoire système"
+msgstr "Surveillance système"
 
 #: resources/templates/server/status/monitor/index.twig:7
-#, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "Démarrer la surveillance"
 
@@ -5684,21 +5672,19 @@ msgstr "Fréquence de rafraîchissement"
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
-#, fuzzy, php-format
-#| msgid "%d second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d seconde"
-msgstr[1] "%d seconde"
+msgstr[1] "%d secondes"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
-#, fuzzy, php-format
-#| msgid "%d minute"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minute"
-msgstr[1] "%d minute"
+msgstr[1] "%d minutes"
 
 #: resources/templates/server/status/monitor/index.twig:38
 msgid "Chart columns"
@@ -5754,23 +5740,15 @@ msgstr ""
 "d'options sur chaque graphique."
 
 #: resources/templates/server/status/monitor/index.twig:77
-#, fuzzy
-#| msgid ""
-#| "To display queries from the logs, select the relevant time span on any "
-#| "chart by holding down the left mouse button and panning over the chart. "
-#| "Once confirmed, this will load a table of grouped queries, there you may "
-#| "click on any occurring SELECT statements to further analyze them."
 msgid ""
 "To display queries from the logs, click on any chart. Once confirmed, this "
 "will load a table of grouped queries, there you may click on any occurring "
 "SELECT statements to further analyze them."
 msgstr ""
-"Pour afficher des requêtes à partir des journaux, sélectionner la portion de "
-"temps pertinente sur l'un des graphiques en tenant enfoncé le bouton gauche "
-"de la souris et en la déplaçant sur le graphique. Ceci va charger les "
-"statistiques sous forme de requêtes groupées, et par la suite il sera "
-"possible de cliquer sur toute instruction SELECT pour une analyse plus "
-"poussée."
+"Pour afficher des requêtes à partir des journaux, cliquer sur un graphique. "
+"Ceci va charger les statistiques sous forme de requêtes groupées, et par la "
+"suite il sera possible de cliquer sur toute instruction SELECT pour une "
+"analyse plus poussée."
 
 #: resources/templates/server/status/monitor/index.twig:81
 msgid "Please note:"
@@ -5919,24 +5897,21 @@ msgstr "Nombre d'instructions exécutées depuis le démarrage :"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
-#| msgid "ø per hour"
+#, php-format
 msgid "ø per hour: %s"
-msgstr "ø par heure"
+msgstr "ø par heure: %s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
-#| msgid "per minute:"
+#, php-format
 msgid "ø per minute: %s"
-msgstr "par minute :"
+msgstr "ø par minute : %s"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
-#| msgid "per second:"
+#, php-format
 msgid "ø per second: %s"
-msgstr "par seconde :"
+msgstr "ø par seconde : %s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -5956,7 +5931,7 @@ msgstr "ø par heure"
 
 #: resources/templates/server/status/queries/index.twig:52
 msgid "Pie chart with the most frequent statements."
-msgstr ""
+msgstr "Diagramme camembert avec les instructions les plus fréquentes."
 
 #: resources/templates/server/status/status/index.twig:6
 #, php-format
@@ -6269,10 +6244,8 @@ msgid "ø Time"
 msgstr "Temps moyen"
 
 #: resources/templates/sql/profiling_chart.twig:66
-#, fuzzy
-#| msgid "Profiling results"
 msgid "Pie chart with profiling results."
-msgstr "Profilage des résultats"
+msgstr "Profilage des résultats."
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:116
@@ -11674,14 +11647,8 @@ msgid "Failed to read configuration file!"
 msgstr "Impossible de lire le fichier de configuration !"
 
 #: src/Config.php:659
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
 msgid "This usually means there is a syntax error in it."
-msgstr ""
-"Ceci indique habituellement qu'il y a une erreur de syntaxe, merci de "
-"vérifier si une erreur s'affiche plus bas."
+msgstr "Ceci indique habituellement qu'il y a une erreur de syntaxe."
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -11969,18 +11936,14 @@ msgid "Succeeded"
 msgstr "Succès"
 
 #: src/Controllers/Console/UpdateConfigController.php:49
-#, fuzzy
-#| msgid "Table %1$s has been altered successfully."
 msgid "Console settings has been updated successfully."
-msgstr "La table %1$s a été modifiée avec succès."
+msgstr "Les paramètres de console ont modifiés avec succès."
 
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:28
-#, fuzzy
-#| msgid "Unexpected character."
 msgid "Unexpected parameter value."
-msgstr "Caractère inattendu."
+msgstr "Valeur de paramètre inattendue."
 
 #: src/Controllers/Database/CentralColumnsController.php:149
 #, php-format
@@ -12546,13 +12509,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Une base de données est sur le point d'être DÉTRUITE !"
 
 #: src/Controllers/JavaScriptMessagesController.php:56
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "Impossible de donner le même nom à la base de données. Modifier le nom et "
-"réessayer"
+"réessayer."
 
 #: src/Controllers/JavaScriptMessagesController.php:58
 msgid "You are about to DESTROY a complete table!"
@@ -12817,10 +12777,8 @@ msgid "Connections / Processes"
 msgstr "Connexions/Processus"
 
 #: src/Controllers/JavaScriptMessagesController.php:168
-#, fuzzy
-#| msgid "Number of tables:"
 msgid "Number of statements"
-msgstr "Nombre de tables :"
+msgstr "Nombre d'instructions"
 
 #: src/Controllers/JavaScriptMessagesController.php:171
 msgid "Local monitor configuration incompatible!"
@@ -13391,10 +13349,8 @@ msgid "Show query box"
 msgstr "Afficher la zone SQL"
 
 #: src/Controllers/JavaScriptMessagesController.php:402
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "Soumettre la requête"
+msgstr "Éditer la requête"
 
 #: src/Controllers/JavaScriptMessagesController.php:404
 #, php-format
@@ -13911,7 +13867,7 @@ msgstr "à jour"
 
 #: src/Controllers/JavaScriptMessagesController.php:621
 msgid "There was an error in loading the Git information."
-msgstr "Erreur lors du chargement d'information Git."
+msgstr "Erreur lors du chargement des informations Git."
 
 #: src/Controllers/JavaScriptMessagesController.php:624
 msgid ""
@@ -14331,8 +14287,6 @@ msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #: src/Controllers/JavaScriptMessagesController.php:768
-#, fuzzy
-#| msgid "none"
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "aucun(e)"
@@ -14636,10 +14590,8 @@ msgstr ""
 "phpMyAdmin n'a pu éliminer le processus %s. Il était probablement déjà fermé."
 
 #: src/Controllers/Server/Status/QueriesController.php:92
-#, fuzzy
-#| msgid "Add statements:"
 msgid "Other statements"
-msgstr "Ajouter les instructions :"
+msgstr "Autres instructions"
 
 #: src/Controllers/Server/Status/StatusController.php:132
 msgid "Received"
@@ -15524,10 +15476,8 @@ msgid "The partition name must be a non-empty string."
 msgstr "Le nom de la partition doit être une chaîne non vide."
 
 #: src/Controllers/Table/RecentFavoriteController.php:35
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "Invalid database or table name."
-msgstr "Nom de table invalide"
+msgstr "Nom de base de données ou de table invalide."
 
 #: src/Controllers/Table/RelationController.php:326
 msgid "Display column was successfully updated."
@@ -15543,11 +15493,8 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Ligne : %1$s, Colonne : %2$s, Erreur : %3$s"
 
 #: src/Controllers/Table/Structure/AddKeyController.php:23
-#, fuzzy
-#| msgctxt "U2F error"
-#| msgid "Invalid request sent to security key."
 msgid "Invalid request parameter."
-msgstr "Requête invalide envoyée à la clé de sécurité."
+msgstr "Paramètre de requête invalide."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:80
 msgid "The columns have been moved successfully."
@@ -15888,16 +15835,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "Affichage des lignes %1s - %2s"
 
 #: src/Display/Results.php:3439
-#, fuzzy, php-format
-#| msgid "%1$d total, %2$d in query"
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "%1$d au total, %2$d dans la requête"
+msgstr "%1$s au total, %2$s dans la requête"
 
 #: src/Display/Results.php:3444
-#, fuzzy, php-format
-#| msgid "%d total"
+#, php-format
 msgid "%s total"
-msgstr "total de %d"
+msgstr "total de %s"
 
 #: src/Display/Results.php:3457 src/Sql.php:865
 #, php-format
@@ -16267,10 +16212,8 @@ msgid "Report"
 msgstr "Rapporter"
 
 #: src/Exceptions/AuthenticationFailure.php:35
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Cannot log in to the database server."
-msgstr "Impossible de se connecter au serveur MySQL"
+msgstr "Impossible de se connecter au serveur de base de données."
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
@@ -16280,15 +16223,11 @@ msgid "Access denied!"
 msgstr "Accès refusé !"
 
 #: src/Exceptions/AuthenticationFailure.php:61
-#, fuzzy
-#| msgid ""
-#| "Login without a password is forbidden by configuration (see "
-#| "AllowNoPassword)"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
 msgstr ""
 "La configuration interdit une connexion sans mot de passe (voir "
-"AllowNoPassword)"
+"AllowNoPassword)."
 
 #: src/Exceptions/AuthenticationFailure.php:73
 #, php-format
@@ -16549,16 +16488,13 @@ msgid "The trigger name cannot end with a space character."
 msgstr "Le nom de la table ne peut pas se terminer par une espace."
 
 #: src/Import/Import.php:947
-#, fuzzy
-#| msgid ""
-#| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
-#| "transactional engine tables can be rolled back."
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
-"Seules les requêtes SQL INSERT, UPDATE, DELETE et REPLACE portant sur des "
-"tables d'un moteur transactionnel peuvent être annulées."
+"Seules les requêtes SQL INSERT, UPDATE, DELETE, REPLACE et SET (sans options "
+"telles que GLOBAL) portant sur des tables d'un moteur transactionnel peuvent "
+"être annulées."
 
 #: src/Import/Import.php:1169
 #, php-format
@@ -17128,7 +17064,7 @@ msgstr "Le nom de la table est vide !"
 
 #: src/Partitioning/Maintenance.php:142
 msgid "This table is a view, it can not be truncated."
-msgstr "Cette table est une vue, elle ne peut pas être tronquée."
+msgstr "Cette table est une vue, elle ne peut être tronquée."
 
 #: src/Pdf.php:139
 msgid "Error while creating PDF:"
@@ -17168,11 +17104,8 @@ msgid "Your session has expired. Please log in again."
 msgstr "La session a expiré. Merci de se connecter à nouveau."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:241
-#, fuzzy
-#| msgid ""
-#| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
-msgstr "Vérification reCAPTCHA manquante, peut-être bloquée par AdBlock ?"
+msgstr "Vérification Captcha manquante, peut-être bloquée par AdBlock ?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:276
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -17199,11 +17132,10 @@ msgid "Wrong username/password. Access denied."
 msgstr "Erreur de nom d'utilisateur/mot de passe. Accès refusé."
 
 #: src/Plugins/Auth/AuthenticationSignon.php:128
-#, fuzzy, php-format
-#| msgid "Can not find signon authentication script:"
+#, php-format
 msgid "Can not find signon authentication script: %s"
 msgstr ""
-"Impossible de trouver le script d'authentification pour le mode signon :"
+"Impossible de trouver le script d'authentification pour le mode signon : %s"
 
 #: src/Plugins/AuthenticationPluginFactory.php:31
 msgid "Invalid authentication method set in configuration:"
@@ -17922,18 +17854,6 @@ msgstr ""
 "utilisée, merci de laisser la première option vide."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Abs/ExternalTransformationsPlugin.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use. The second option should be blank for historical reasons. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -17946,18 +17866,17 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"LINUX UNIQUEMENT : Exécute un programme externe et lui envoie le contenu de "
+"LINUX UNIQUEMENT : Exécute un programme externe et lui envoie le contenu de "
 "la colonne via l'entrée standard. Puis capture la sortie standard de ce "
 "programme externe. Le programme par défaut est Tidy, pour un affichage "
-"embelli du code HTML. Pour des raisons de sécurité, il faut éditer le "
-"script /libraries/classes/Plugins/Transformations/Abs/"
-"ExternalTransformationsPlugin.php et y insérer les noms de programmes "
-"externes à rendre disponibles. La première option est le numéro du programme "
-"à utiliser. La deuxième option devrait être vide pour des raisons "
-"historiques. En 3ème option, une valeur de 1 va convertir le résultat avec "
-"la fonction htmlspecialchars() (par défaut, 1). En option 4, une valeur de 1 "
-"va interdire tout retour à la ligne pour afficher sur une seule ligne (par "
-"défaut, 1)."
+"embelli du code HTML. Pour des raisons de sécurité, il faut éditer le script "
+"/src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php et y "
+"insérer les noms de programmes externes à rendre disponibles. La première "
+"option est le numéro du programme à utiliser. La deuxième option devrait "
+"être vide pour des raisons historiques. En 3ème option, une valeur de 1 va "
+"convertir le résultat avec la fonction htmlspecialchars() (par défaut, 1). "
+"En option 4, une valeur de 1 va interdire tout retour à la ligne pour "
+"afficher sur une seule ligne (par défaut, 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
