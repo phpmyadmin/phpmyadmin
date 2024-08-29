@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
-import {get as getProjection} from 'ol/proj.js';
+import { get as getProjection } from 'ol/proj.js';
 
 /**
  * @fileoverview    functions used for visualizing GIS data
@@ -528,10 +528,10 @@ function getFeaturesFromOpenLayersData (geometries: any[]): any[] {
         }
 
         if (geometry.geometry.srid !== 3857) {
-            let source  = 'EPSG:' + (geometry.geometry.srid !== 0 ? geometry.geometry.srid : 4326);
+            const source  = 'EPSG:' + (geometry.geometry.srid !== 0 ? geometry.geometry.srid : 4326);
             const sourceProj = getProjection(source);
 
-            if(sourceProj){
+            if (sourceProj) {
                 olGeometry = olGeometry.transform(
                     source,
                     'EPSG:3857'
