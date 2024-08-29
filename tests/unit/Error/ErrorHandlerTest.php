@@ -13,7 +13,7 @@ use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use Throwable;
 
 use function array_keys;
@@ -26,6 +26,7 @@ use const E_USER_WARNING;
 use const E_WARNING;
 
 #[CoversClass(ErrorHandler::class)]
+#[Medium]
 class ErrorHandlerTest extends AbstractTestCase
 {
     protected ErrorHandler $object;
@@ -121,7 +122,6 @@ class ErrorHandlerTest extends AbstractTestCase
     /**
      * Test for countErrors
      */
-    #[Group('medium')]
     public function testCountErrors(): void
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
@@ -134,7 +134,6 @@ class ErrorHandlerTest extends AbstractTestCase
     /**
      * Test for sliceErrors
      */
-    #[Group('medium')]
     public function testSliceErrors(): void
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
@@ -164,7 +163,6 @@ class ErrorHandlerTest extends AbstractTestCase
     /**
      * Test for sliceErrors with 10 elements as an example
      */
-    #[Group('medium')]
     public function testSliceErrorsOtherExample(): void
     {
         for ($i = 0; $i < 10; $i++) {

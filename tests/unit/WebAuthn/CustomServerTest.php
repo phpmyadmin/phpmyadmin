@@ -5,18 +5,19 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\WebAuthn;
 
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\WebAuthn\CBORDecoder;
 use PhpMyAdmin\WebAuthn\CustomServer;
+use PhpMyAdmin\WebAuthn\DataStream;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriInterface;
 use Throwable;
 
 use function hex2bin;
 
-/**
- * @covers \PhpMyAdmin\WebAuthn\CustomServer
- * @covers \PhpMyAdmin\WebAuthn\CBORDecoder
- * @covers \PhpMyAdmin\WebAuthn\DataStream
- */
+#[CoversClass(CustomServer::class)]
+#[CoversClass(CBORDecoder::class)]
+#[CoversClass(DataStream::class)]
 final class CustomServerTest extends TestCase
 {
     public function testGetCredentialCreationOptions(): void

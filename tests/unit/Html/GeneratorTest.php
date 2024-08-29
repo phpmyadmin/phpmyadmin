@@ -15,7 +15,7 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function __;
 use function _pgettext;
@@ -23,6 +23,7 @@ use function htmlspecialchars;
 use function urlencode;
 
 #[CoversClass(Generator::class)]
+#[Medium]
 class GeneratorTest extends AbstractTestCase
 {
     /**
@@ -38,7 +39,6 @@ class GeneratorTest extends AbstractTestCase
     /**
      * Test for getDbLink
      */
-    #[Group('medium')]
     public function testGetDbLinkNull(): void
     {
         Current::$database = 'test_db';

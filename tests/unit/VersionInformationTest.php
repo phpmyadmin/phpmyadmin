@@ -10,9 +10,11 @@ use PhpMyAdmin\VersionInformation;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 #[CoversClass(VersionInformation::class)]
 #[CoversClass(Release::class)]
+#[Large]
 class VersionInformationTest extends AbstractTestCase
 {
     /** @var Release[] */
@@ -43,7 +45,6 @@ class VersionInformationTest extends AbstractTestCase
     /**
      * Test version checking
      */
-    #[Group('large')]
     #[Group('network')]
     public function testGetLatestVersion(): void
     {

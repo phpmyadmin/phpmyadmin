@@ -9,7 +9,7 @@ use PhpMyAdmin\Language;
 use PhpMyAdmin\LanguageManager;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 use function _ngettext;
 use function count;
@@ -19,6 +19,7 @@ use function strtolower;
 
 #[CoversClass(Language::class)]
 #[CoversClass(LanguageManager::class)]
+#[Large]
 class LanguageTest extends AbstractTestCase
 {
     private LanguageManager $manager;
@@ -237,7 +238,6 @@ class LanguageTest extends AbstractTestCase
      * @param string $locale locale name
      */
     #[DataProvider('listLocales')]
-    #[Group('large')]
     public function testGettext(string $locale): void
     {
         Config::getInstance()->set('FilterLanguages', '');

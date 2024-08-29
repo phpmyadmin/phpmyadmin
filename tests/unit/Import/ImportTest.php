@@ -222,9 +222,8 @@ class ImportTest extends AbstractTestCase
      * Test for checkIfRollbackPossible
      *
      * @param string $sqlQuery SQL Query for which rollback is possible
-     *
-     * @dataProvider provPMACheckIfRollbackPossiblePositive
      */
+    #[DataProvider('provPMACheckIfRollbackPossiblePositive')]
     public function testCheckIfRollbackPossiblePositive(string $sqlQuery): void
     {
         Current::$database = 'PMA';
@@ -258,9 +257,8 @@ class ImportTest extends AbstractTestCase
      * Negative test for checkIfRollbackPossible
      *
      * @param string $sqlQuery SQL Query for which rollback is possible
-     *
-     * @dataProvider provPMACheckIfRollbackPossibleNegative
      */
+    #[DataProvider('provPMACheckIfRollbackPossibleNegative')]
     public function testCheckIfRollbackPossibleNegative(string $sqlQuery): void
     {
         Current::$database = 'PMA';

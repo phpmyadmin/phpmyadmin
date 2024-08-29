@@ -11,11 +11,12 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function json_encode;
 
 #[CoversClass(Footer::class)]
+#[Medium]
 class FooterTest extends AbstractTestCase
 {
     /** @var mixed[] store private attributes of PhpMyAdmin\Footer */
@@ -64,7 +65,6 @@ class FooterTest extends AbstractTestCase
     /**
      * Test for getDebugMessage
      */
-    #[Group('medium')]
     public function testGetDebugMessage(): void
     {
         $config = Config::getInstance();
@@ -114,7 +114,6 @@ class FooterTest extends AbstractTestCase
     /**
      * Test for displaying footer
      */
-    #[Group('medium')]
     public function testDisplay(): void
     {
         $footer = new Footer(new Template(), Config::getInstance());
