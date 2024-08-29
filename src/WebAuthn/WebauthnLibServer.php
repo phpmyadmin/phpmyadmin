@@ -36,10 +36,12 @@ use Webmozart\Assert\Assert;
 use function array_map;
 use function base64_encode;
 use function json_decode;
+use function json_encode;
 use function random_bytes;
 use function sodium_base642bin;
 use function sodium_bin2base64;
 
+use const JSON_THROW_ON_ERROR;
 use const SODIUM_BASE64_VARIANT_ORIGINAL;
 use const SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
 
@@ -114,7 +116,7 @@ final class WebauthnLibServer implements Server
          *   timeout: positive-int,
          *   attestation: non-empty-string
          * } $creationOptions */
-        $creationOptions = $publicKeyCredentialCreationOptions->jsonSerialize();
+        $creationOptions = $this->normalize($publicKeyCredentialCreationOptions);
         $creationOptions['challenge'] = sodium_bin2base64(
             sodium_base642bin($creationOptions['challenge'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING),
             SODIUM_BASE64_VARIANT_ORIGINAL,
@@ -156,7 +158,7 @@ final class WebauthnLibServer implements Server
          *   allowCredentials?: list<array{id: non-empty-string, type: non-empty-string}>
          * } $requestOptions
          */
-        $requestOptions = $publicKeyCredentialRequestOptions->jsonSerialize();
+        $requestOptions = $this->normalize($publicKeyCredentialRequestOptions);
         $requestOptions['challenge'] = sodium_bin2base64(
             sodium_base642bin($requestOptions['challenge'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING),
             SODIUM_BASE64_VARIANT_ORIGINAL,
@@ -231,7 +233,7 @@ final class WebauthnLibServer implements Server
         string $credentialCreationOptions,
         ServerRequestInterface $request,
     ): array {
-        $creationOptions = json_decode($credentialCreationOptions, true);
+        $creationOptions = json_decode($credentialCreationOptions, true, flags: JSON_THROW_ON_ERROR);
         Assert::isArray($creationOptions);
         Assert::keyExists($creationOptions, 'challenge');
         Assert::keyExists($creationOptions, 'user');
@@ -292,7 +294,7 @@ final class WebauthnLibServer implements Server
             $request,
         );
 
-        return $publicKeyCredentialSource->jsonSerialize();
+        return $this->normalize($publicKeyCredentialSource);
     }
 
     /** @infection-ignore-all */
@@ -333,7 +335,10 @@ final class WebauthnLibServer implements Server
             {
                 $data = $this->read();
                 $id = $publicKeyCredentialSource->getPublicKeyCredentialId();
-                $data[base64_encode($id)] = $publicKeyCredentialSource->jsonSerialize();
+                $encoded = json_encode($publicKeyCredentialSource, JSON_THROW_ON_ERROR);
+                $normalized = json_decode($encoded, true, flags: JSON_THROW_ON_ERROR);
+                Assert::isArray($normalized);
+                $data[base64_encode($id)] = $normalized;
                 $this->write($data);
             }
 
@@ -359,5 +364,15 @@ final class WebauthnLibServer implements Server
                 $this->twoFactor->config['settings']['credentials'] = $data;
             }
         };
+    }
+
+    /** @return mixed[] */
+    private function normalize(object $object): array
+    {
+        $encoded = json_encode($object, JSON_THROW_ON_ERROR);
+        $normalized = json_decode($encoded, true, flags: JSON_THROW_ON_ERROR);
+        Assert::isArray($normalized);
+
+        return $normalized;
     }
 }
