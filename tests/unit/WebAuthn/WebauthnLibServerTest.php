@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriInterface;
-use Webauthn\Server as WebauthnServer;
+use Webauthn\PublicKeyCredential;
 use Webauthn\TrustPath\EmptyTrustPath;
 
 use function base64_encode;
@@ -24,7 +24,7 @@ final class WebauthnLibServerTest extends TestCase
     {
         parent::setUp();
 
-        if (class_exists(WebauthnServer::class)) {
+        if (class_exists(PublicKeyCredential::class)) {
             return;
         }
 

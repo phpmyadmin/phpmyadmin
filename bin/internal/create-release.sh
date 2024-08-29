@@ -295,7 +295,7 @@ security_checkup() {
         echo 'TCPDF should be installed, detection failed !'
         exit 1;
     fi
-    if [ ! -f vendor/web-auth/webauthn-lib/src/Server.php ]; then
+    if [ ! -f vendor/web-auth/webauthn-lib/src/PublicKeyCredential.php ]; then
         echo 'Webauthn-lib should be installed, detection failed !'
         exit 1;
     fi
