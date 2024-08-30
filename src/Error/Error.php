@@ -396,7 +396,7 @@ class Error extends Message
             '_realConnect',
         ];
 
-        if (in_array($function, $includeFunctions, true)) {
+        if (in_array($function, $includeFunctions, true) && is_string($arg)) {
             $retval .= self::relPath($arg);
         } elseif (in_array($function, $connectFunctions, true) && is_string($arg)) {
             $retval .= gettype($arg) . ' ********';
