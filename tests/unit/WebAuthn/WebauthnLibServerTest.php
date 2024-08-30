@@ -11,10 +11,9 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriInterface;
-use Webauthn\Server as WebauthnServer;
+use Webauthn\PublicKeyCredential;
 use Webauthn\TrustPath\EmptyTrustPath;
 
-use function base64_encode;
 use function class_exists;
 
 #[CoversClass(WebauthnLibServer::class)]
@@ -24,7 +23,7 @@ final class WebauthnLibServerTest extends TestCase
     {
         parent::setUp();
 
-        if (class_exists(WebauthnServer::class)) {
+        if (class_exists(PublicKeyCredential::class)) {
             return;
         }
 
@@ -45,7 +44,7 @@ final class WebauthnLibServerTest extends TestCase
         self::assertSame('test.localhost', $options['rp']['id']);
         self::assertSame('user_name', $options['user']['name']);
         self::assertSame('user_name', $options['user']['displayName']);
-        self::assertSame(base64_encode('user_id'), $options['user']['id']);
+        self::assertSame('dXNlcl9pZA', $options['user']['id']);
         self::assertArrayHasKey('authenticatorAttachment', $options['authenticatorSelection']);
         self::assertSame('cross-platform', $options['authenticatorSelection']['authenticatorAttachment']);
     }
@@ -156,7 +155,8 @@ final class WebauthnLibServerTest extends TestCase
                     'credentialPublicKey' => 'pQECAyYgASFYIJV56vRrFusoDf9hm3iDmllcxxXzzKyO9WruKw4kWx7zIlgg_nq63l8IMJcIdKDJcXRh9hoz0L-nVwP1Oxil3_oNQYs',
                     'userHandle' => 'Zm9v',
                     'counter' => 123,
-                    'otherUI' => null,
+                    'backupEligible' => false,
+                    'backupStatus' => false,
                 ],
             ],
             $twoFactor->config['settings']['credentials'],
@@ -196,7 +196,9 @@ final class WebauthnLibServerTest extends TestCase
                 'credentialPublicKey' => 'pQECAyYgASFYIBw_HArIcANWNOBOxq3hH8lrHo9a17nQDxlqwybjDpHEIlggu3QUKIbALqsGuHfJI3LTKJSNmk0YCFb5oz1hjJidRMk',
                 'userHandle' => 'MJr5sD0WitVwZM0eoSO6kWhyseT67vc3oQdk_k1VdZQ',
                 'counter' => 0,
-                'otherUI' => null,
+                'backupEligible' => false,
+                'backupStatus' => false,
+                'uvInitialized' => false,
             ],
             $credential,
         );

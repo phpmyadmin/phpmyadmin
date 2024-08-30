@@ -13,7 +13,7 @@ use PhpMyAdmin\WebAuthn\Server;
 use PhpMyAdmin\WebAuthn\WebauthnLibServer;
 use SodiumException;
 use Throwable;
-use Webauthn\Server as WebauthnServer;
+use Webauthn\PublicKeyCredential;
 use Webmozart\Assert\Assert;
 
 use function __;
@@ -61,7 +61,7 @@ class WebAuthn extends TwoFactorPlugin
 
     private function createServer(): Server
     {
-        return class_exists(WebauthnServer::class) ? new WebauthnLibServer($this->twofactor) : new CustomServer();
+        return class_exists(PublicKeyCredential::class) ? new WebauthnLibServer($this->twofactor) : new CustomServer();
     }
 
     public function setServer(Server $server): void
