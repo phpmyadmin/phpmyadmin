@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2024-03-18 04:02+0000\n"
+"PO-Revision-Date: 2024-09-01 05:09+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ka/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1749,6 +1749,9 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
+"მოირგეთ phpMyAdmin-ი კონფიგურაციის საცავი დამატებით ფუნქციებთან წვდომისთვის. "
+"იხილეთ [doc@linked-tables]phpMyAdmin-ის კონფიგურაციის საცავი[/doc] "
+"დოკუმენტაციაში."
 
 #: libraries/classes/Config/Descriptions.php:206
 msgid ""
@@ -1819,7 +1822,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:227
 msgid "Authentication settings."
-msgstr "ავთენტიფიკაციის პარამეტრები."
+msgstr "ავთენტიფიკაციის მორგება."
 
 #: libraries/classes/Config/Descriptions.php:228
 msgid "Enter server connection parameters."
@@ -2056,6 +2059,9 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"ჩართეთ, თუ გნებავთ ბაზაზე-დაყრდნობილი მოთხოვნების ისტორია იქონიოთ (სჭირდება "
+"phpMyAdmin-ის კონფიგურაციის საცავი). თუ გათიშულია, ეს მოთხოვნების ისტორიის "
+"საჩვენებლად JS-ს იყენებს (დაიკარგება ფანჯრის დახურვისას)."
 
 #: libraries/classes/Config/Descriptions.php:345
 msgid ""
@@ -2068,6 +2074,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
+"დატოვეთ ცარიელი, რომ [doc@bookmarks@]სანიშნეების[/doc] მხარდაჭერის გარეშე "
+"იმუშაოთ. გირჩევთ: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:351
 msgid ""
@@ -2904,7 +2912,7 @@ msgstr "ხაზები მთავრდება"
 
 #: libraries/classes/Config/Descriptions.php:668
 msgid "Excel edition"
-msgstr ""
+msgstr "Excel-ის ვერსია"
 
 #: libraries/classes/Config/Descriptions.php:671
 msgid "Database name template"
@@ -4172,7 +4180,7 @@ msgstr ""
 #: libraries/classes/Config/FormDisplay.php:867
 #, php-format
 msgid "maximum %s"
-msgstr "მაქსიმუმ %s"
+msgstr "მაქსიმალური %s"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:39
 msgid "Config authentication"
@@ -4330,10 +4338,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config.php:1234
-#, fuzzy, php-format
-#| msgid "Invalid server index: \"%s\""
+#, php-format
 msgid "Invalid server index: %s"
-msgstr "Invalid server index: \"%s\""
+msgstr "არასწორი სერვერის ინდექსი: %s"
 
 #: libraries/classes/Config.php:1247
 #, php-format
@@ -5191,7 +5198,7 @@ msgstr "კომპოზიტური ინდექსის შექმ�
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:113
 msgid "Composite with:"
-msgstr "შედგენადია:"
+msgstr "აწყობილია:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:114
 msgid "Please select column(s) for the index."
@@ -7042,10 +7049,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:405
-#, fuzzy
-#| msgid "View %s has been dropped."
 msgid "User has been added."
-msgstr "View %s has been dropped"
+msgstr "მომხმარებელი დაემატა."
 
 #: libraries/classes/Controllers/Server/Status/Processes/KillController.php:42
 #, php-format
@@ -9341,10 +9346,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/classes/Navigation/NodeFactory.php:73
-#, fuzzy, php-format
-#| msgid "Cannot load or save configuration"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "კონფიგურაციის შენახვა ან ჩატვირთვა ვერ მოხერხდა"
+msgstr "ვერ ჩავტვირთე კლასი \"%1$s\""
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:26
@@ -10170,7 +10174,7 @@ msgstr "ცხრილის წარწერა (გაგრძელებ
 #: libraries/classes/Plugins/Export/ExportLatex.php:125
 #: libraries/classes/Plugins/Export/ExportLatex.php:181
 msgid "Label key:"
-msgstr "ჭდის გასაღები:"
+msgstr "ჭდის იდენტიფიკატორი:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:133
 #: libraries/classes/Plugins/Export/ExportOdt.php:96
@@ -10205,7 +10209,7 @@ msgstr "ჰოსტი:"
 #: libraries/classes/Plugins/Export/ExportSql.php:761
 #: libraries/classes/Plugins/Export/ExportXml.php:238
 msgid "Generation Time:"
-msgstr "გენერირების დრო:"
+msgstr "გენერაციის დრო:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:218
 #: libraries/classes/Plugins/Export/ExportSql.php:765
@@ -10298,7 +10302,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:265
 msgid "Add statements:"
-msgstr "გამოსახულებების დამატება:"
+msgstr "პროცედურები დამატება:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:273
 #: libraries/classes/Plugins/Export/ExportSql.php:282
@@ -11731,7 +11735,7 @@ msgstr "სამიზნე ბაზა `%s` აღმოჩენილი �
 
 #: libraries/classes/Table.php:1487
 msgid "Invalid database:"
-msgstr "არასწორი ბაზა:"
+msgstr "არასწორი მონაცემთა ბაზა:"
 
 #: libraries/classes/Table.php:1505
 msgid "Invalid table name:"
@@ -13020,9 +13024,8 @@ msgstr ""
 
 #: templates/database/central_columns/main.twig:166
 #: templates/display/results/table.twig:62
-#, fuzzy
 msgid "Filter rows"
-msgstr "ფაილები"
+msgstr "მწკრივების გაფიტვრა"
 
 #: templates/database/central_columns/main.twig:167
 #: templates/display/results/table.twig:64
@@ -13083,7 +13086,7 @@ msgstr "შექმნა"
 
 #: templates/database/data_dictionary/index.twig:4
 msgid "Database comment:"
-msgstr "ბაზის კომენტარი:"
+msgstr "მონაცემთა ბაზის კომენტარი:"
 
 #: templates/database/data_dictionary/index.twig:8
 #: templates/database/data_dictionary/index.twig:124
@@ -13132,7 +13135,7 @@ msgstr "იხილეთ ცხრილის სტრუქტურა"
 #: templates/database/designer/database_tables.twig:91
 #, php-format
 msgid "Select \"%s\""
-msgstr "აირჩიეთ \"%s\""
+msgstr "მონიშნეთ \"%s\""
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
@@ -16401,11 +16404,11 @@ msgstr "პრობლემა:"
 
 #: templates/server/status/advisor/index.twig:79
 msgid "Recommendation:"
-msgstr "რეკომენდაციები:"
+msgstr "რეკომენდაცია:"
 
 #: templates/server/status/advisor/index.twig:82
 msgid "Justification:"
-msgstr "დამტკიცება:"
+msgstr "ახსნა:"
 
 #: templates/server/status/advisor/index.twig:85
 msgid "Used variable / formula:"
@@ -16956,7 +16959,7 @@ msgstr ""
 
 #: templates/sql/query.twig:160
 msgid "Bookmark:"
-msgstr "სანიშნი:"
+msgstr "სანიშნე:"
 
 #: templates/sql/query.twig:169
 msgid "shared"
