@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-08-25 00:22+0000\n"
-"PO-Revision-Date: 2024-04-18 08:29+0000\n"
+"PO-Revision-Date: 2024-09-01 00:26+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ka/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1363,7 +1363,7 @@ msgstr "შექმნა"
 
 #: resources/templates/database/data_dictionary/index.twig:4
 msgid "Database comment:"
-msgstr "ბაზის კომენტარი:"
+msgstr "მონაცემთა ბაზის კომენტარი:"
 
 #: resources/templates/database/data_dictionary/index.twig:8
 #: resources/templates/database/data_dictionary/index.twig:124
@@ -1444,7 +1444,7 @@ msgstr "იხილეთ ცხრილის სტრუქტურა"
 #: resources/templates/database/designer/database_tables.twig:93
 #, php-format
 msgid "Select \"%s\""
-msgstr "აირჩიეთ \"%s\""
+msgstr "მონიშნეთ \"%s\""
 
 #: resources/templates/database/designer/database_tables.twig:111
 #, php-format
@@ -5404,11 +5404,11 @@ msgstr "პრობლემა:"
 
 #: resources/templates/server/status/advisor/index.twig:71
 msgid "Recommendation:"
-msgstr "რეკომენდაციები:"
+msgstr "რეკომენდაცია:"
 
 #: resources/templates/server/status/advisor/index.twig:74
 msgid "Justification:"
-msgstr "დამტკიცება:"
+msgstr "ახსნა:"
 
 #: resources/templates/server/status/advisor/index.twig:77
 msgid "Used variable / formula:"
@@ -6094,7 +6094,7 @@ msgstr ""
 
 #: resources/templates/sql/query.twig:162
 msgid "Bookmark:"
-msgstr "სანიშნი:"
+msgstr "სანიშნე:"
 
 #: resources/templates/sql/query.twig:171
 msgid "shared"
@@ -8843,7 +8843,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:214
 msgid "Authentication settings."
-msgstr "ავთენტიფიკაციის პარამეტრები."
+msgstr "ავთენტიფიკაციის მორგება."
 
 #: src/Config/Descriptions.php:215
 msgid "Enter server connection parameters."
@@ -9890,7 +9890,7 @@ msgstr "ხაზები მთავრდება"
 
 #: src/Config/Descriptions.php:648
 msgid "Excel edition"
-msgstr ""
+msgstr "Excel-ის ვერსია"
 
 #: src/Config/Descriptions.php:651
 msgid "Database name template"
@@ -10869,7 +10869,7 @@ msgstr ""
 #: src/Config/FormDisplay.php:820
 #, php-format
 msgid "maximum %s"
-msgstr "მაქსიმუმ %s"
+msgstr "მაქსიმალური %s"
 
 #: src/Config/Forms/Setup/ServersForm.php:26
 msgid "Config authentication"
@@ -11850,7 +11850,7 @@ msgstr "კომპოზიტური ინდექსის შექმ�
 
 #: src/Controllers/JavaScriptMessagesController.php:124
 msgid "Composite with:"
-msgstr "შედგენადია:"
+msgstr "აწყობილია:"
 
 #: src/Controllers/JavaScriptMessagesController.php:125
 msgid "Please select column(s) for the index."
@@ -15961,7 +15961,7 @@ msgstr "ცხრილის წარწერა (გაგრძელებ
 #: src/Plugins/Export/ExportLatex.php:123
 #: src/Plugins/Export/ExportLatex.php:179
 msgid "Label key:"
-msgstr "ჭდის გასაღები:"
+msgstr "ჭდის იდენტიფიკატორი:"
 
 #: src/Plugins/Export/ExportLatex.php:131 src/Plugins/Export/ExportOdt.php:93
 #: src/Plugins/Export/ExportSql.php:158
@@ -15984,7 +15984,7 @@ msgstr "პირველ მწკრივში სვეტის სახ
 #: src/Plugins/Export/ExportLatex.php:213 src/Plugins/Export/ExportSql.php:723
 #: src/Plugins/Export/ExportXml.php:203
 msgid "Generation Time:"
-msgstr "გენერირების დრო:"
+msgstr "გენერაციის დრო:"
 
 #: src/Plugins/Export/ExportLatex.php:216 src/Plugins/Export/ExportSql.php:729
 #: src/Plugins/Export/ExportXml.php:206
@@ -16054,7 +16054,7 @@ msgstr "მეტამონაცემების გატანა"
 
 #: src/Plugins/Export/ExportSql.php:241
 msgid "Add statements:"
-msgstr "გამოსახულებების დამატება:"
+msgstr "პროცედურები დამატება:"
 
 #: src/Plugins/Export/ExportSql.php:249 src/Plugins/Export/ExportSql.php:258
 #: src/Plugins/Export/ExportSql.php:275 src/Plugins/Export/ExportSql.php:284
@@ -17091,7 +17091,7 @@ msgstr "სამიზნე ბაზა `%s` აღმოჩენილი �
 
 #: src/Table/Table.php:809
 msgid "Invalid database:"
-msgstr "არასწორი ბაზა:"
+msgstr "არასწორი მონაცემთა ბაზა:"
 
 #: src/Table/Table.php:827
 msgid "Invalid table name:"
