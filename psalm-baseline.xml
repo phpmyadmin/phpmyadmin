@@ -6414,8 +6414,7 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$this-&gt;hash === null</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="7">
-      <code>$arg</code>
+    <MixedArgument occurrences="6">
       <code>$step</code>
       <code>$step['args']</code>
       <code>$step['args']</code>

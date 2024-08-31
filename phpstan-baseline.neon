@@ -3436,11 +3436,6 @@ parameters:
 			path: libraries/classes/Error.php
 
 		-
-			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Error\\:\\:relPath\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Error.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Error\\:\\:\\$backtrace type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Error.php
