@@ -5602,7 +5602,6 @@
   </file>
   <file src="src/Error/Error.php">
     <MixedArgument>
-      <code><![CDATA[$arg]]></code>
       <code><![CDATA[$step]]></code>
       <code><![CDATA[$step['args']]]></code>
       <code><![CDATA[$step['args']]]></code>

@@ -5351,18 +5351,8 @@ parameters:
 			path: src/Controllers/View/CreateController.php
 
 		-
-			message: "#^Binary operation \"\\*\" between string and 1024\\|1048576\\|1073741824\\|1099511627776 results in an error\\.$#"
-			count: 1
-			path: src/Core.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
 			count: 8
-			path: src/Core.php
-
-		-
-			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
 			path: src/Core.php
 
 		-
@@ -6822,7 +6812,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Error\\\\Error\\:\\:relPath\\(\\) expects string, mixed given\\.$#"
-			count: 3
+			count: 2
 			path: src/Error/Error.php
 
 		-
@@ -7641,6 +7631,21 @@ parameters:
 			path: src/Git.php
 
 		-
+			message: "#^Offset 1 does not exist on array\\{0\\?\\: string, 1\\?\\: non\\-empty\\-string, 2\\?\\: non\\-empty\\-string, 3\\?\\: numeric\\-string, 4\\?\\: non\\-falsy\\-string\\}\\.$#"
+			count: 1
+			path: src/Git.php
+
+		-
+			message: "#^Offset 2 does not exist on array\\{0\\?\\: string, 1\\?\\: non\\-empty\\-string, 2\\?\\: non\\-empty\\-string, 3\\?\\: numeric\\-string, 4\\?\\: non\\-falsy\\-string\\}\\.$#"
+			count: 1
+			path: src/Git.php
+
+		-
+			message: "#^Offset 3 does not exist on array\\{0\\?\\: string, 1\\?\\: non\\-empty\\-string, 2\\?\\: non\\-empty\\-string, 3\\?\\: numeric\\-string, 4\\?\\: non\\-falsy\\-string\\}\\.$#"
+			count: 1
+			path: src/Git.php
+
+		-
 			message: "#^Only booleans are allowed in an if condition, string\\|false given\\.$#"
 			count: 1
 			path: src/Git.php
@@ -8181,6 +8186,11 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
+			message: "#^Offset 2 does not exist on array\\{0\\?\\: string, 1\\?\\: string, 2\\?\\: string, 3\\?\\: numeric\\-string\\}\\.$#"
+			count: 1
+			path: src/InsertEdit.php
+
+		-
 			message: "#^Only booleans are allowed in &&, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given on the left side\\.$#"
 			count: 1
 			path: src/InsertEdit.php
@@ -8349,11 +8359,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\InsertEditColumn\\:\\:\\$trueType \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
 			path: src/InsertEditColumn.php
-
-		-
-			message: "#^Binary operation \"\\-\" between string and 1 results in an error\\.$#"
-			count: 1
-			path: src/IpAllowDeny.php
 
 		-
 			message: "#^Parameter \\#2 \\$ipToTest of method PhpMyAdmin\\\\IpAllowDeny\\:\\:ipMaskTest\\(\\) expects string, string\\|true given\\.$#"
@@ -12401,6 +12406,11 @@ parameters:
 			path: src/Server/Status/Monitor.php
 
 		-
+			message: "#^Offset 1 does not exist on array\\{0\\?\\: string, 1\\?\\: non\\-empty\\-string\\}\\.$#"
+			count: 1
+			path: src/Server/Status/Monitor.php
+
+		-
 			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
 			count: 4
 			path: src/Server/Status/Monitor.php
@@ -13886,6 +13896,11 @@ parameters:
 			path: src/Util.php
 
 		-
+			message: "#^Offset 1 does not exist on array\\{0\\?\\: string, 1\\?\\: string\\}\\.$#"
+			count: 1
+			path: src/Util.php
+
+		-
 			message: "#^Offset int\\<1, 6\\> on array\\{string, string, string, string, string, string, string\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: src/Util.php
@@ -13992,6 +14007,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Utils\\\\HttpRequest\\:\\:response\\(\\) should return bool\\|string\\|null but returns mixed\\.$#"
+			count: 1
+			path: src/Utils/HttpRequest.php
+
+		-
+			message: "#^Offset 1 does not exist on array\\{0\\?\\: string, 1\\?\\: numeric\\-string\\}\\.$#"
 			count: 1
 			path: src/Utils/HttpRequest.php
 
@@ -14416,6 +14436,11 @@ parameters:
 			path: tests/unit/Config/FormDisplayTest.php
 
 		-
+			message: "#^Offset 1 does not exist on array\\{0\\?\\: string, 1\\?\\: numeric\\-string\\}\\.$#"
+			count: 1
+			path: tests/unit/Config/FormTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Config\\\\\\\\Forms\\\\\\\\BaseFormList' and PhpMyAdmin\\\\Config\\\\Forms\\\\BaseFormList will always evaluate to true\\.$#"
 			count: 1
 			path: tests/unit/Config/Forms/FormListTest.php
@@ -14581,7 +14606,7 @@ parameters:
 			path: tests/unit/ConfigTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, array\\<string\\> given\\.$#"
+			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, array\\<int, string\\> given\\.$#"
 			count: 1
 			path: tests/unit/ConfigTest.php
 
