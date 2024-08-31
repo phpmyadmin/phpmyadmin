@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-08-25 00:22+0000\n"
-"PO-Revision-Date: 2024-08-26 15:09+0000\n"
+"PO-Revision-Date: 2024-09-01 00:26+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.7.1-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -12262,10 +12262,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "You are about to TRUNCATE a complete table!"
 
 #: src/Controllers/JavaScriptMessagesController.php:60
-#, fuzzy
-#| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "You are about to DESTROY a complete table!"
+msgstr "You are about to DELETE all the rows of the table!"
 
 #: src/Controllers/JavaScriptMessagesController.php:61
 msgid "Delete tracking data for this table?"
@@ -12345,10 +12343,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Do you really want to remove partitioning?"
 
 #: src/Controllers/JavaScriptMessagesController.php:84
-#, fuzzy
-#| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
-msgstr "Do you really want to revoke the selected user(s)?"
+msgstr "Do you really want to reset the replica (RESET REPLICA)?"
 
 #: src/Controllers/JavaScriptMessagesController.php:86
 msgid ""
@@ -13077,10 +13073,8 @@ msgid "Show query box"
 msgstr "Show query box"
 
 #: src/Controllers/JavaScriptMessagesController.php:402
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "Submit query"
+msgstr "Edit query"
 
 #: src/Controllers/JavaScriptMessagesController.php:404
 #, php-format
@@ -13580,10 +13574,8 @@ msgid "up to date"
 msgstr "up to date"
 
 #: src/Controllers/JavaScriptMessagesController.php:621
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "There was an error importing the ESRI shape file: \"%s\"."
+msgstr "There was an error in loading the Git information."
 
 #: src/Controllers/JavaScriptMessagesController.php:624
 msgid ""
@@ -13797,22 +13789,16 @@ msgid "Hide"
 msgstr "Hide"
 
 #: src/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
-#| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "January"
 
 #: src/Controllers/JavaScriptMessagesController.php:721
-#, fuzzy
-#| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "February"
 
 #: src/Controllers/JavaScriptMessagesController.php:722
-#, fuzzy
-#| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "March"
