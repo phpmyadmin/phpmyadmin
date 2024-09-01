@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-06-06 22:17+0000\n"
+"PO-Revision-Date: 2024-09-01 05:09+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ka/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -1022,7 +1022,7 @@ msgstr "კომპოზიტური ინდექსის შექმ�
 
 #: js/messages.php:126
 msgid "Composite with:"
-msgstr "შედგენადია:"
+msgstr "აწყობილია:"
 
 #: js/messages.php:127
 msgid "Please select column(s) for the index."
@@ -3460,10 +3460,9 @@ msgid "Font size"
 msgstr "შრიფტის ზომა"
 
 #: libraries/classes/Config.php:1871
-#, fuzzy, php-format
-#| msgid "Invalid server index: \"%s\""
+#, php-format
 msgid "Invalid server index: %s"
-msgstr "Invalid server index: \"%s\""
+msgstr "არასწორი სერვერის ინდექსი: %s"
 
 #: libraries/classes/Config.php:1884
 #, php-format
@@ -3856,7 +3855,7 @@ msgstr "ხაზები მთავრდება"
 
 #: libraries/classes/Config/Descriptions.php:278
 msgid "Excel edition"
-msgstr ""
+msgstr "Excel-ის ვერსია"
 
 #: libraries/classes/Config/Descriptions.php:284
 msgid "Database name template"
@@ -4219,7 +4218,7 @@ msgstr "ავთენტიფიკაცია"
 
 #: libraries/classes/Config/Descriptions.php:527
 msgid "Authentication settings."
-msgstr "ავთენტიფიკაციის პარამეტრები."
+msgstr "ავთენტიფიკაციის მორგება."
 
 #: libraries/classes/Config/Descriptions.php:529
 msgid "Server configuration"
@@ -4245,6 +4244,9 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
+"მოირგეთ phpMyAdmin-ი კონფიგურაციის საცავი დამატებით ფუნქციებთან წვდომისთვის. "
+"იხილეთ [doc@linked-tables]phpMyAdmin-ის კონფიგურაციის საცავი[/doc] "
+"დოკუმენტაციაში."
 
 #: libraries/classes/Config/Descriptions.php:546
 msgid "Changes tracking"
@@ -4892,6 +4894,9 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"ჩართეთ, თუ გნებავთ ბაზაზე-დაყრდნობილი მოთხოვნების ისტორია იქონიოთ (სჭირდება "
+"phpMyAdmin-ის კონფიგურაციის საცავი). თუ გათიშულია, ეს მოთხოვნების ისტორიის "
+"საჩვენებლად JS-ს იყენებს (დაიკარგება ფანჯრის დახურვისას)."
 
 #: libraries/classes/Config/Descriptions.php:933
 msgid "Permanent query history"
@@ -5017,21 +5022,20 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
+"დატოვეთ ცარიელი, რომ [doc@bookmarks@]სანიშნეების[/doc] მხარდაჭერის გარეშე "
+"იმუშაოთ. გირჩევთ: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1001
 msgid "Bookmark table"
 msgstr "ცხრილის ჩანიშვნა"
 
 #: libraries/classes/Config/Descriptions.php:1004
-#, fuzzy
-#| msgid ""
-#| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
-"kbd]"
+"დატოვეთ ცარიელი სვეტის კომენტარების/mime ტიპების გარეშე სამუშაოდ. მინიშნება: "
+"[kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1008
 msgid "Column information table"
@@ -5936,7 +5940,7 @@ msgstr ""
 #: libraries/classes/Config/FormDisplay.php:857
 #, php-format
 msgid "maximum %s"
-msgstr "მაქსიმუმ %s"
+msgstr "მაქსიმალური %s"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:233
 msgid "This setting is disabled, it will not be applied to your configuration."
@@ -6103,16 +6107,13 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:372
-#, fuzzy
-#| msgid "Key is too short, it should have at least 8 characters"
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "Key is too short, it should have at least 8 characters"
+msgstr "გასაღები მეტისმეტად მოკლეა. 32 სიმბოლოს მაინც უნდა შეიცავდეს."
 
 #: libraries/classes/Config/ServerConfigChecks.php:382
-#, fuzzy
-#| msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "Key should contain letters, numbers [em]and[/em] special characters"
+msgstr ""
+"გასაღები უნდა შეიცავდეს ასოებს, რიცხვებს [em]და[/em] სპეციალურ სიმბოლოებს."
 
 #: libraries/classes/Config/ServerConfigChecks.php:418
 #, php-format
@@ -6591,10 +6592,8 @@ msgid "FOREIGN KEY relationship has been removed."
 msgstr "გარე გასაღების ურთიერთობა წაიშალა."
 
 #: libraries/classes/Database/Designer/Common.php:699
-#, fuzzy
-#| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "ფაილის წაკითხვა ვერ მოხერხდა"
+msgstr "შეცდომა: ურთიერთობას FOREIGN KEY ვერ წაშლით!"
 
 #: libraries/classes/Database/Designer/Common.php:726
 msgid "Error: Internal relationship could not be removed!"
@@ -6836,19 +6835,16 @@ msgid ", @TABLE@ will become the table name"
 msgstr ""
 
 #: libraries/classes/Display/Export.php:342
-#, fuzzy, php-format
-#| msgid ""
-#| "s value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "matting strings. Additionally the following transformations will pen: "
-#| "%3$s. Other text will be kept as is."
+#, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"ამ მნიშვნელობის გადაყვანა %1$sstrftime%2$s ფუნქციით ხდება, ასე რომ, აქ "
+"დაფორმატება შეგიძლიათ, გამოიყენოთ. დამატებით შეიძლება, შემდეგი "
+"ტრანსფორმაციები მოხდეს: %3$s. სხვა ტექსტი დარჩება ისე, როგორიც არის. "
+"დეტალებისთვის იხილეთ ჩვენი %4$sხდკ%5$s."
 
 #: libraries/classes/Display/Export.php:571
 msgid "Defined aliases"
@@ -6877,14 +6873,14 @@ msgid "Git revision:"
 msgstr ""
 
 #: libraries/classes/Display/GitRevision.php:82
-#, fuzzy, php-format
+#, php-format
 msgid "committed on %1$s by %2$s"
-msgstr "Create relation"
+msgstr "გადაცემის დრო: %1$s. ავტორი: %2$s"
 
 #: libraries/classes/Display/GitRevision.php:92
-#, fuzzy, php-format
+#, php-format
 msgid "authored on %1$s by %2$s"
-msgstr "Create relation"
+msgstr "ავტორობის დრო %1$s. ავტორი: %2$s"
 
 #: libraries/classes/Display/Results.php:911
 msgid "Save edited data"
@@ -6896,9 +6892,8 @@ msgstr "სვეტის მიმდევრობის აღდგენ�
 
 #: libraries/classes/Display/Results.php:965
 #: templates/database/central_columns/table_navigation.twig:37
-#, fuzzy
 msgid "Filter rows"
-msgstr "ფაილები"
+msgstr "მწკრივების გაფიტვრა"
 
 #: libraries/classes/Display/Results.php:967
 #: templates/database/central_columns/table_navigation.twig:38
@@ -7605,10 +7600,8 @@ msgid "Binary"
 msgstr "ბინარული"
 
 #: libraries/classes/InsertEdit.php:729
-#, fuzzy
-#| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable."
-msgstr "Because of its length,<br /> this field might not be editable "
+msgstr "მისი სიგრძის გამო<br />ამ სვეტს ვერ ჩაასწორებთ."
 
 #: libraries/classes/InsertEdit.php:1337
 msgid "Binary - do not edit"
@@ -8020,10 +8013,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/classes/Navigation/NodeFactory.php:61
-#, fuzzy, php-format
-#| msgid "Cannot load or save configuration"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "კონფიგურაციის შენახვა ან ჩატვირთვა ვერ მოხერხდა"
+msgstr "ვერ ჩავტვირთე კლასი \"%1$s\""
 
 #: libraries/classes/Navigation/Nodes/Node.php:802
 msgid "Expand/Collapse"
@@ -8890,7 +8882,7 @@ msgstr "ცხრილის წარწერა (გაგრძელებ
 #: libraries/classes/Plugins/Export/ExportLatex.php:133
 #: libraries/classes/Plugins/Export/ExportLatex.php:185
 msgid "Label key:"
-msgstr "ჭდის გასაღები:"
+msgstr "ჭდის იდენტიფიკატორი:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:140
 #: libraries/classes/Plugins/Export/ExportOdt.php:101
@@ -8927,7 +8919,7 @@ msgstr "ჰოსტი:"
 #: libraries/classes/Plugins/Export/ExportSql.php:701
 #: libraries/classes/Plugins/Export/ExportXml.php:243
 msgid "Generation Time:"
-msgstr "გენერირების დრო:"
+msgstr "გენერაციის დრო:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:224
 #: libraries/classes/Plugins/Export/ExportSql.php:707
@@ -9004,7 +8996,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:236
 msgid "Add statements:"
-msgstr "გამოსახულებების დამატება:"
+msgstr "პროცედურები დამატება:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:244
 #: libraries/classes/Plugins/Export/ExportSql.php:253
@@ -9279,10 +9271,9 @@ msgid "MediaWiki Table"
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:276
-#, fuzzy, php-format
-#| msgid "Invalid field count in CSV input on line %d."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Invalid field count in CSV input on line %d."
+msgstr "Mediawiki-ზე შეყვანილი ინფორმაციის არასწორი ფორმატი ხაზზე: <br />%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:78
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -9936,9 +9927,8 @@ msgid "See slave status table"
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:250
-#, fuzzy
 msgid "Control slave:"
-msgstr "Control user"
+msgstr "მორჩილი სერვერის მართვა:"
 
 #: libraries/classes/ReplicationGui.php:256
 #, fuzzy
@@ -10186,10 +10176,9 @@ msgid "Unable to change master!"
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:1029
-#, fuzzy, php-format
-#| msgid "The privileges were reloaded successfully."
+#, php-format
 msgid "Master server changed successfully to %s."
-msgstr "The privileges were reloaded successfully."
+msgstr "მთავარი სერვერი წარმატებით შეიცვალა მნიშვნელობაზე %s."
 
 #: libraries/classes/Rte/Events.php:122 libraries/classes/Rte/Events.php:131
 #: libraries/classes/Rte/Events.php:162 libraries/classes/Rte/Routines.php:240
@@ -10527,10 +10516,8 @@ msgid "routine"
 msgstr "პროცედურა"
 
 #: libraries/classes/Rte/Words.php:37
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "You don't have sufficient privileges to be here right now!"
+msgstr "პროცედურის შესაქმნელად საკმარისი პრივილეგიები არ გაგაჩნიათ."
 
 #: libraries/classes/Rte/Words.php:40
 #, php-format
@@ -10571,10 +10558,8 @@ msgid "trigger"
 msgstr "ტრიგერები"
 
 #: libraries/classes/Rte/Words.php:59
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "You don't have sufficient privileges to be here right now!"
+msgstr "ტრიგერის შესაქმნელად საკმარისი პრივილეგიები არ გაქვთ."
 
 #: libraries/classes/Rte/Words.php:61
 #, php-format
@@ -10601,10 +10586,8 @@ msgid "event"
 msgstr "მოვლენა"
 
 #: libraries/classes/Rte/Words.php:73
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "You don't have sufficient privileges to be here right now!"
+msgstr "მოვლენის შესაქმნელად საკმარისი პრივილეგიები არ გაქვთ."
 
 #: libraries/classes/Rte/Words.php:75
 #, php-format
@@ -11002,10 +10985,8 @@ msgid "Users having access to \"%s\""
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2432
-#, fuzzy
-#| msgid "View %s has been dropped."
 msgid "User has been added."
-msgstr "View %s has been dropped"
+msgstr "მომხმარებელი დაემატა."
 
 #: libraries/classes/Server/Privileges.php:2585
 #: libraries/classes/Server/Privileges.php:3570
@@ -11566,10 +11547,9 @@ msgid "Show only active"
 msgstr "მხოლოდ აქტიურის ჩვენება"
 
 #: libraries/classes/Server/Status/Queries.php:40
-#, fuzzy, php-format
-#| msgid "Customize startup page"
+#, php-format
 msgid "Questions since startup: %s"
-msgstr "Customize startup page"
+msgstr "კითხვები გაშვების შემდეგ: %s"
 
 #: libraries/classes/Server/Status/Queries.php:51
 msgid "per hour:"
@@ -12418,7 +12398,7 @@ msgstr "სამიზნე ბაზა `%s` აღმოჩენილი �
 
 #: libraries/classes/Table.php:1462
 msgid "Invalid database:"
-msgstr "არასწორი ბაზა:"
+msgstr "არასწორი მონაცემთა ბაზა:"
 
 #: libraries/classes/Table.php:1479
 msgid "Invalid table name:"
@@ -12958,16 +12938,13 @@ msgid "Browse your computer:"
 msgstr ""
 
 #: libraries/classes/Util.php:3284
-#, fuzzy, php-format
-#| msgid "web server upload directory"
+#, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "web server upload directory"
+msgstr "აირჩიეთ ვებსერვერის ატვირთვის საქაღალდე <b>%s</b>:"
 
 #: libraries/classes/Util.php:3324
-#, fuzzy
-#| msgid "There are no configured servers"
 msgid "There are no files to upload!"
-msgstr "There are no configured servers"
+msgstr "ასატვირთი ფაილები ვერ ვიპოვე!"
 
 #: libraries/classes/Util.php:3349 libraries/classes/Util.php:3350
 #: templates/database/structure/check_all_tables.twig:15
@@ -13341,10 +13318,8 @@ msgid "Insecure connection"
 msgstr "დაუცველი კავშირი"
 
 #: setup/frames/index.inc.php:84
-#, fuzzy
-#| msgid "Configuration file"
 msgid "Configuration saved."
-msgstr "კონფიგურაციის ფაილი"
+msgstr "კონფიგურაცია შენახულია."
 
 #: setup/frames/index.inc.php:87
 msgid ""
@@ -13353,10 +13328,8 @@ msgid ""
 msgstr ""
 
 #: setup/frames/index.inc.php:97
-#, fuzzy
-#| msgid "Configuration file"
 msgid "Configuration not saved!"
-msgstr "კონფიგურაციის ფაილი"
+msgstr "კონფიგურაცია არ შენახულა!"
 
 #: setup/frames/index.inc.php:100
 msgid ""
@@ -13885,7 +13858,7 @@ msgstr "იხილეთ ცხრილის სტრუქტურა"
 #: templates/database/designer/database_tables.twig:91
 #, php-format
 msgid "Select \"%s\""
-msgstr "აირჩიეთ \"%s\""
+msgstr "მონიშნეთ \"%s\""
 
 #: templates/database/designer/database_tables.twig:126
 #, php-format
@@ -14210,10 +14183,9 @@ msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
+#, php-format
 msgid "Create %s"
-msgstr "Create relation"
+msgstr "%s-ის შექმნა"
 
 #: templates/database/tracking/tracked_tables.twig:2
 msgid "Tracked tables"
@@ -14705,19 +14677,15 @@ msgid ""
 msgstr ""
 
 #: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "ow the interruption of an import in case the script detects it is se to "
-#| "the PHP timeout limit. This might be good way to import large es, however "
-#| "it can break transactions."
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. This might be a good way to import large files, "
-"however it can break transactions."
+"შემოტანის შეწყვეტის დაშვება იმ შემთხვევაში, თუ სკრიპტი აღმოაჩენს, რომ მალე "
+"PHP-ის მოლოდინის ვადა ამოიწურება. <em>(ეს შეიძლება, დიდი ფაილების "
+"შემოტანისას დაგეხმაროთ, მაგრამ, ამავე დროს, შეიძლება, ტრანზაქციები "
+"გააფუჭოს).</em>"
 
 #: templates/display/import/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -14725,10 +14693,8 @@ msgstr ""
 "პირველიდან დაწყებული მითითებული რაოდენობის (SQL-სთვის) ხაზების გამოტოვება:"
 
 #: templates/display/import/import.twig:161
-#, fuzzy
-#| msgid "Options"
 msgid "Other options:"
-msgstr "პარამეტრები"
+msgstr "სხვა პარამეტრები:"
 
 #: templates/table/gis_visualization/gis_visualization.twig:3
 msgid "Display GIS Visualization"
@@ -15968,10 +15934,10 @@ msgstr "Sort buffer size"
 
 #: libraries/advisory_rules_generic.txt:238
 #: libraries/advisory_rules_generic.txt:246
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Sort buffer size"
+msgstr ""
+"MyISAM-ის გამოყენებული გასაღების ბუფერი (ინდექსის ბუფერი) %% საკმარისი არაა."
 
 #: libraries/advisory_rules_generic.txt:239
 #: libraries/advisory_rules_generic.txt:247
@@ -16078,10 +16044,9 @@ msgstr ""
 "ფაილების გახსნის სიხშირე: %s. ეს მნიშვნელობა საათში 5-ზე ნაკლები უნდა იყოს"
 
 #: libraries/advisory_rules_generic.txt:280
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
+#, php-format
 msgid "Immediate table locks %%"
-msgstr "Create new table on database %s"
+msgstr "ცხრილის დაუყოვნებლივი დაბლოკვები %%"
 
 #: libraries/advisory_rules_generic.txt:283
 #: libraries/advisory_rules_generic.txt:290
