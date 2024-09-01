@@ -12262,10 +12262,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "You are about to TRUNCATE a complete table!"
 
 #: src/Controllers/JavaScriptMessagesController.php:60
-#, fuzzy
-#| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "You are about to DESTROY a complete table!"
+msgstr "You are about to DELETE all the rows of the table!"
 
 #: src/Controllers/JavaScriptMessagesController.php:61
 msgid "Delete tracking data for this table?"
@@ -12345,10 +12343,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Do you really want to remove partitioning?"
 
 #: src/Controllers/JavaScriptMessagesController.php:84
-#, fuzzy
-#| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
-msgstr "Do you really want to revoke the selected user(s)?"
+msgstr "Do you really want to reset the replica (RESET REPLICA)?"
 
 #: src/Controllers/JavaScriptMessagesController.php:86
 msgid ""
@@ -13077,10 +13073,8 @@ msgid "Show query box"
 msgstr "Show query box"
 
 #: src/Controllers/JavaScriptMessagesController.php:402
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "Submit query"
+msgstr "Edit query"
 
 #: src/Controllers/JavaScriptMessagesController.php:404
 #, php-format
@@ -13580,10 +13574,8 @@ msgid "up to date"
 msgstr "up to date"
 
 #: src/Controllers/JavaScriptMessagesController.php:621
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "There was an error importing the ESRI shape file: \"%s\"."
+msgstr "There was an error in loading the Git information."
 
 #: src/Controllers/JavaScriptMessagesController.php:624
 msgid ""
@@ -13797,169 +13789,142 @@ msgid "Hide"
 msgstr "Hide"
 
 #: src/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
-#| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "January"
 
 #: src/Controllers/JavaScriptMessagesController.php:721
-#, fuzzy
-#| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "February"
 
 #: src/Controllers/JavaScriptMessagesController.php:722
-#, fuzzy
-#| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "March"
 
 #: src/Controllers/JavaScriptMessagesController.php:723
 #, fuzzy
-#| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "April"
 
 #: src/Controllers/JavaScriptMessagesController.php:724
 #, fuzzy
-#| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "May"
 
 #: src/Controllers/JavaScriptMessagesController.php:725
 #, fuzzy
-#| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "June"
 
 #: src/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy
-#| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "July"
 
 #: src/Controllers/JavaScriptMessagesController.php:727
 #, fuzzy
-#| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "August"
 
 #: src/Controllers/JavaScriptMessagesController.php:728
 #, fuzzy
-#| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "September"
 
 #: src/Controllers/JavaScriptMessagesController.php:729
 #, fuzzy
-#| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "October"
 
 #: src/Controllers/JavaScriptMessagesController.php:730
 #, fuzzy
-#| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "November"
 
 #: src/Controllers/JavaScriptMessagesController.php:731
 #, fuzzy
-#| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "December"
 
 #: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:494
 #, fuzzy
-#| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Jan"
 
 #: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:495
 #, fuzzy
-#| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Feb"
 
 #: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:496
 #, fuzzy
-#| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Mar"
 
 #: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:497
 #, fuzzy
-#| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Apr"
 
 #: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:498
 #, fuzzy
-#| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "May"
 
 #: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:499
 #, fuzzy
-#| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Jun"
 
 #: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:500
 #, fuzzy
-#| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Jul"
 
 #: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:501
 #, fuzzy
-#| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Aug"
 
 #: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:502
 #, fuzzy
-#| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Sep"
 
 #: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:503
 #, fuzzy
-#| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Oct"
 
 #: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:504
 #, fuzzy
-#| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Nov"
 
 #: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:505
 #, fuzzy
-#| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Dec"
@@ -13971,98 +13936,84 @@ msgstr "Sun"
 
 #: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:509
 #, fuzzy
-#| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Mon"
 
 #: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:510
 #, fuzzy
-#| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Tue"
 
 #: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:511
 #, fuzzy
-#| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Wed"
 
 #: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:512
 #, fuzzy
-#| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Thu"
 
 #: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:513
 #, fuzzy
-#| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Fri"
 
 #: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:514
 #, fuzzy
-#| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Sat"
 
 #: src/Controllers/JavaScriptMessagesController.php:758
 #, fuzzy
-#| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Su"
 
 #: src/Controllers/JavaScriptMessagesController.php:759
 #, fuzzy
-#| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Mo"
 
 #: src/Controllers/JavaScriptMessagesController.php:760
 #, fuzzy
-#| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Tu"
 
 #: src/Controllers/JavaScriptMessagesController.php:761
 #, fuzzy
-#| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "We"
 
 #: src/Controllers/JavaScriptMessagesController.php:762
 #, fuzzy
-#| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Th"
 
 #: src/Controllers/JavaScriptMessagesController.php:763
 #, fuzzy
-#| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Fr"
 
 #: src/Controllers/JavaScriptMessagesController.php:764
 #, fuzzy
-#| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Sa"
 
 #: src/Controllers/JavaScriptMessagesController.php:765
 #, fuzzy
-#| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "Wk"
@@ -14070,64 +14021,54 @@ msgstr "Wk"
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
 #: src/Controllers/JavaScriptMessagesController.php:767
 #, fuzzy
-#| msgid "calendar-month-year"
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #: src/Controllers/JavaScriptMessagesController.php:768
 #, fuzzy
-#| msgid "none"
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "none"
 
 #: src/Controllers/JavaScriptMessagesController.php:769
 #, fuzzy
-#| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Time"
 
 #: src/Controllers/JavaScriptMessagesController.php:770
 #, fuzzy
-#| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Hour"
 
 #: src/Controllers/JavaScriptMessagesController.php:771
 #, fuzzy
-#| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Minute"
 
 #: src/Controllers/JavaScriptMessagesController.php:772
 #, fuzzy
-#| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Second"
 
 #: src/Controllers/JavaScriptMessagesController.php:773
 #, fuzzy
-#| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "seconds"
 
 #: src/Controllers/JavaScriptMessagesController.php:774
 #, fuzzy
-#| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "per second"
 
 #: src/Controllers/JavaScriptMessagesController.php:775
 #, fuzzy
-#| msgctxt "Chart type"
-#| msgid "Timeline"
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
 msgstr "Timeline"
@@ -14135,7 +14076,6 @@ msgstr "Timeline"
 #. l10n: Display text for previous month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:779
 #, fuzzy
-#| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Prev"
@@ -14238,10 +14178,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:813
 #, fuzzy
-#| msgid ""
-#| "The file being uploaded is probably larger than the maximum allowed size "
-#| "or this is a known bug in webkit based (Safari, Google Chrome, Arora "
-#| "etc.) browsers."
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
@@ -15104,7 +15040,6 @@ msgstr "The number of threads that are not sleeping."
 
 #: src/Controllers/Server/UserGroupsFormController.php:53
 #, fuzzy
-#| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
 msgstr "The query cache is not enabled."
 
@@ -15220,8 +15155,6 @@ msgstr "No column selected."
 
 #: src/Controllers/Table/DropColumnController.php:67
 #, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] "%1$d database has been dropped successfully."
@@ -15245,7 +15178,6 @@ msgstr "MySQL returned an empty result set (i.e. zero rows)."
 
 #: src/Controllers/Table/GisVisualizationController.php:102
 #, fuzzy
-#| msgid "Not used for this MySQL version."
 msgid "No spatial column found for this SQL query."
 msgstr "Not used for this MySQL version."
 
@@ -15286,8 +15218,6 @@ msgstr "Row: %1$s, Column: %2$s, Error: %3$s"
 
 #: src/Controllers/Table/Structure/AddKeyController.php:23
 #, fuzzy
-#| msgctxt "U2F error"
-#| msgid "Invalid request sent to security key."
 msgid "Invalid request parameter."
 msgstr "Invalid request sent to security key."
 
@@ -16219,7 +16149,6 @@ msgstr "The database name cannot be longer than %d characters."
 
 #: src/Identifiers/InvalidDatabaseName.php:25
 #, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The database name cannot end with a space character."
 msgstr "Words are separated by a space character (\" \")."
 
@@ -16234,7 +16163,6 @@ msgstr "The table name cannot be longer than %d characters."
 
 #: src/Identifiers/InvalidTableName.php:25
 #, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The table name cannot end with a space character."
 msgstr "Words are separated by a space character (\" \")."
 
@@ -16249,15 +16177,11 @@ msgstr "The trigger name cannot be longer than %d characters."
 
 #: src/Identifiers/InvalidTriggerName.php:25
 #, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The trigger name cannot end with a space character."
 msgstr "Words are separated by a space character (\" \")."
 
 #: src/Import/Import.php:947
 #, fuzzy
-#| msgid ""
-#| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
-#| "transactional engine tables can be rolled back."
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
@@ -16505,7 +16429,6 @@ msgstr "New"
 
 #: src/Navigation/Nodes/NodeTrigger.php:24
 #, fuzzy
-#| msgid "Triggers"
 msgid "Trigger"
 msgstr "Triggers"
 
@@ -16863,8 +16786,6 @@ msgstr "Your session has expired. Please log in again."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:241
 #, fuzzy
-#| msgid ""
-#| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 
@@ -17599,17 +17520,6 @@ msgstr ""
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
 #, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Abs/ExternalTransformationsPlugin.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use. The second option should be blank for historical reasons. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -17820,9 +17730,6 @@ msgstr "Hardware Sicherheitsschlüssel (FIDO U2F)"
 
 #: src/Plugins/TwoFactor/Key.php:211
 #, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
@@ -17860,9 +17767,6 @@ msgstr "Hardware Security Key (WebAuthn/FIDO2)"
 
 #: src/Plugins/TwoFactor/WebAuthn.php:182
 #, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F."
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
@@ -17950,7 +17854,6 @@ msgstr "Unable to change primary!"
 
 #: src/Replication/ReplicationGui.php:518
 #, fuzzy, php-format
-#| msgid "Master server changed successfully to %s."
 msgid "Primary server changed successfully to %s."
 msgstr "Master server changed successfully to %s."
 
@@ -18751,7 +18654,6 @@ msgstr ""
 
 #: src/Types.php:326
 #, fuzzy
-#| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "Stores a Universally Unique Identifier (UUID)"
 
@@ -18948,7 +18850,6 @@ msgstr "No files found inside ZIP archive!"
 #~ "corrupted!"
 
 #, fuzzy
-#~| msgid "Slave configuration"
 #~ msgid "Replica configuration"
 #~ msgstr "Slave configuration"
 
@@ -19133,8 +19034,6 @@ msgstr "No files found inside ZIP archive!"
 #~ "The configuration file now needs a secret passphrase (blowfish_secret)."
 
 #, fuzzy
-#~| msgid ""
-#~| "The secret passphrase in configuration (blowfish_secret) is too short."
 #~ msgid ""
 #~ "The secret passphrase in configuration (blowfish_secret) is not the "
 #~ "correct length. It should be %d bytes long."
@@ -19334,7 +19233,6 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "Use Host Table"
 
 #, fuzzy
-#~| msgid "Description"
 #~ msgctxt "for media (MIME) type transformation"
 #~ msgid "Description"
 #~ msgstr "Description"
@@ -19359,16 +19257,12 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "Wrong GET file attribute value"
 
 #, fuzzy
-#~| msgid "%d second"
-#~| msgid_plural "%d seconds"
 #~ msgid "%count% second"
 #~ msgid_plural "%count% seconds"
 #~ msgstr[0] "%d second"
 #~ msgstr[1] "%d seconds"
 
 #, fuzzy
-#~| msgid "%d minute"
-#~| msgid_plural "%d minutes"
 #~ msgid "%count% minute"
 #~ msgid_plural "%count% minutes"
 #~ msgstr[0] "%d minute"
@@ -19381,7 +19275,6 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "Show Full Queries"
 
 #, fuzzy
-#~| msgid "No databases"
 #~ msgid "%count% database"
 #~ msgid_plural "%count% databases"
 #~ msgstr[0] "No databases"
@@ -19457,13 +19350,11 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "Global value"
 
 #, fuzzy
-#~| msgid "Height"
 #~ msgctxt "Collation variant"
 #~ msgid "weight=2"
 #~ msgstr "Height"
 
 #, fuzzy
-#~| msgid "Copy column name"
 #~ msgid "Old column name"
 #~ msgstr "Copy column name"
 
@@ -19486,17 +19377,14 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "Traditional Spanish"
 
 #, fuzzy
-#~| msgid "Collation"
 #~ msgid "binary collation"
 #~ msgstr "Collation"
 
 #, fuzzy
-#~| msgid "case-insensitive"
 #~ msgid "case-insensitive collation"
 #~ msgstr "case-insensitive"
 
 #, fuzzy
-#~| msgid "case-sensitive"
 #~ msgid "case-sensitive collation"
 #~ msgstr "case-sensitive"
 
@@ -19504,7 +19392,6 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "all words"
 
 #, fuzzy
-#~| msgid "Propose table structure"
 #~ msgid "Improve table structure"
 #~ msgstr "Propose table structure"
 
@@ -19541,112 +19428,90 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "Load"
 
 #, fuzzy
-#~| msgid "Column names"
 #~ msgid "Column parser"
 #~ msgstr "Column names"
 
 #, fuzzy
-#~| msgid "Iconic table operations"
 #~ msgid "Unrecognized alter operation."
 #~ msgstr "Iconic table operations"
 
 #, fuzzy
-#~| msgid "Unexpected characters on line %s."
 #~ msgid "Unexpected keyword."
 #~ msgstr "Unexpected characters on line %s."
 
 #, fuzzy
-#~| msgid "Table name template"
 #~ msgid "A symbol name was expected!"
 #~ msgstr "Table name template"
 
 #, fuzzy
-#~| msgid "No databases selected."
 #~ msgid "A comma or a closing bracket was expected."
 #~ msgstr "No databases selected."
 
 #, fuzzy
-#~| msgid "No databases selected."
 #~ msgid "An alias was expected."
 #~ msgstr "No databases selected."
 
 #, fuzzy
-#~| msgid "No rows selected"
 #~ msgid "An expression was expected."
 #~ msgstr "No rows selected"
 
 #, fuzzy
-#~| msgid "Event %1$s has been created."
 #~ msgid "Value/Expression for the option %1$s was expected"
 #~ msgstr "Event %1$s has been created."
 
 #, fuzzy
-#~| msgid "The number of tables that are open."
 #~ msgid "The old name of the table was expected."
 #~ msgstr "The number of tables that are open."
 
 #, fuzzy
-#~| msgid "The number of tables that are open."
 #~ msgid "The new name of the table was expected."
 #~ msgstr "The number of tables that are open."
 
 #, fuzzy
-#~| msgid "The row has been deleted."
 #~ msgid "A rename operation was expected."
 #~ msgstr "The row has been deleted."
 
 #, fuzzy
-#~| msgid "Event %1$s has been created."
 #~ msgid "Ending quote %1$s was expected."
 #~ msgstr "Event %1$s has been created."
 
 #, fuzzy
-#~| msgid "Table name template"
 #~ msgid "Variable name was expected."
 #~ msgstr "Table name template"
 
 #, fuzzy
-#~| msgid "At Beginning of Table"
 #~ msgid "Unexpected beginning of statement."
 #~ msgstr "At Beginning of Table"
 
 #, fuzzy
-#~| msgid "Unexpected characters on line %s."
 #~ msgid "Unexpected token."
 #~ msgstr "Unexpected characters on line %s."
 
 #, fuzzy
-#~| msgid "At Beginning of Table"
 #~ msgid "Unexpected ordering of clauses."
 #~ msgstr "At Beginning of Table"
 
 #, fuzzy
-#~| msgid "The number of tables that are open."
 #~ msgid "The name of the entity was expected."
 #~ msgstr "The number of tables that are open."
 
 #, fuzzy
-#~| msgid "Table name template"
 #~ msgid "A table name was expected."
 #~ msgstr "Table name template"
 
 #, fuzzy
-#~| msgid "The row has been deleted."
 #~ msgid "At least one column definition was expected."
 #~ msgstr "The row has been deleted."
 
 #, fuzzy
-#~| msgid "errors."
 #~ msgid "error #1"
 #~ msgstr "errors."
 
 #, fuzzy
-#~| msgid "Gather errors"
 #~ msgid "strict error"
 #~ msgstr "Gather errors"
 
 #, fuzzy
-#~| msgid "Cookie authentication"
 #~ msgid "Native MySQL Authentication"
 #~ msgstr "Cookie authentication"
 
@@ -19717,14 +19582,12 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "Please explain the steps that lead to the error:"
 
 #, fuzzy
-#~| msgid "Delete relation"
 #~ msgid "Total %d bookmark"
 #~ msgid_plural "Total %d bookmarks"
 #~ msgstr[0] "Delete relation"
 #~ msgstr[1] "Delete relation"
 
 #, fuzzy
-#~| msgid "The bookmark has been deleted."
 #~ msgid "%1$s, %2$s and %3$s bookmarks included"
 #~ msgstr "The bookmark has been deleted."
 
@@ -19790,11 +19653,6 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "possible deep recursion attack"
 
 #, fuzzy
-#~| msgid ""
-#~| "Your configuration file contains settings (root with no password) that "
-#~| "correspond to the default MySQL privileged account. Your MySQL server is "
-#~| "running with this default, is open to intrusion, and you really should "
-#~| "fix this security hole by setting a password for user 'root'."
 #~ msgid ""
 #~ "You are connected as 'root' with no password, which corresponds to the "
 #~ "default MySQL privileged account. Your MySQL server is running with this "
@@ -19810,27 +19668,22 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "Create database:"
 
 #, fuzzy
-#~| msgid "Tables"
 #~ msgid "tables"
 #~ msgstr "Tables"
 
 #, fuzzy
-#~| msgid "Views"
 #~ msgid "views"
 #~ msgstr "Views"
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "procedures"
 #~ msgstr "Procedures"
 
 #, fuzzy
-#~| msgid "event"
 #~ msgid "events"
 #~ msgstr "event"
 
 #, fuzzy
-#~| msgid "Functions"
 #~ msgid "functions"
 #~ msgstr "Functions"
 
@@ -19847,17 +19700,14 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "Taking you to %s."
 
 #, fuzzy
-#~| msgid "Authentication"
 #~ msgid "MySQL Native Authentication"
 #~ msgstr "Authentication"
 
 #, fuzzy
-#~| msgid "Generate password"
 #~ msgid "MySQL native password"
 #~ msgstr "Generate password"
 
 #, fuzzy
-#~| msgid "Change password"
 #~ msgid "SHA256 password"
 #~ msgstr "Change password"
 
@@ -20051,17 +19901,14 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "(Disabled)"
 
 #, fuzzy
-#~| msgid "Disable foreign key checks"
 #~ msgid "Temporarily disable foreign key checks while importing"
 #~ msgstr "Disable foreign key checks"
 
 #, fuzzy
-#~| msgid "Disable foreign key checks"
 #~ msgid "Disable foreign key check"
 #~ msgstr "Disable foreign key checks"
 
 #, fuzzy
-#~| msgid "Reloading Privileges"
 #~ msgid "Realign Privileges"
 #~ msgstr "Reloading Privileges"
 
@@ -20081,12 +19928,10 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "(Generates a report containing the data of a single table)"
 
 #, fuzzy
-#~| msgid "Please select a database"
 #~ msgid "Please select a database."
 #~ msgstr "Please select a database"
 
 #, fuzzy
-#~| msgid "Autoextend increment"
 #~ msgid "auto_increment"
 #~ msgstr "Autoextend increment"
 
@@ -20094,7 +19939,6 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "Save position"
 
 #, fuzzy
-#~| msgid "Save position"
 #~ msgid "Save positions as"
 #~ msgstr "Save position"
 
@@ -20108,7 +19952,6 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "Delete tracking data for this table"
 
 #, fuzzy
-#~| msgid "Table structure"
 #~ msgid "Table Structure"
 #~ msgstr "Table structure"
 
@@ -20123,7 +19966,6 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "Inline"
 
 #, fuzzy
-#~| msgid "after %s"
 #~ msgid "after"
 #~ msgstr "after %s"
 
@@ -20171,17 +20013,14 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "This page does not contain any tables!"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "Dia export page"
 #~ msgstr "Invalid export type"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "EPS export page"
 #~ msgstr "Invalid export type"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "SVG export page"
 #~ msgstr "Invalid export type"
 
@@ -20191,28 +20030,24 @@ msgstr "No files found inside ZIP archive!"
 #~ msgid "Error saving coordinates for Designer."
 #~ msgstr "Error saving coordinates for Designer."
 
-#~| msgid "Edit SQL queries in popup window"
 #~ msgid "Edit SQL queries in popup window."
 #~ msgstr "Edit SQL queries in popup window."
 
 #~ msgid "Edit in window"
 #~ msgstr "Edit in window"
 
-#~| msgid "Tab displayed when opening a new query window"
 #~ msgid "Tab displayed when opening a new query window."
 #~ msgstr "Tab displayed when opening a new query window."
 
 #~ msgid "Default query window tab"
 #~ msgstr "Default query window tab"
 
-#~| msgid "Query window height (in pixels)"
 #~ msgid "Query window height (in pixels)."
 #~ msgstr "Query window height (in pixels)."
 
 #~ msgid "Query window height"
 #~ msgstr "Query window height"
 
-#~| msgid "Query window width (in pixels)"
 #~ msgid "Query window width (in pixels)."
 #~ msgstr "Query window width (in pixels)."
 
@@ -20235,7 +20070,6 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "Plug-in is disabled"
 
 #, fuzzy
-#~| msgid "Customize main panel"
 #~ msgid "Unlink with main panel"
 #~ msgstr "Customise main panel"
 
@@ -20243,12 +20077,10 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "No index defined! Create one below"
 
 #, fuzzy
-#~| msgid "Export type"
 #~ msgid "eps export page"
 #~ msgstr "Export type"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "pdf export page"
 #~ msgstr "Invalid export type"
 
@@ -20264,37 +20096,30 @@ msgstr "No files found inside ZIP archive!"
 #~ "use the server charting features however."
 
 #, fuzzy
-#~| msgid "Click to sort"
 #~ msgid "Click to sort"
 #~ msgstr "Click to sort"
 
 #, fuzzy
-#~| msgid "Total"
 #~ msgid "Total "
 #~ msgstr "Total"
 
 #, fuzzy
-#~| msgid "Delete relation"
 #~ msgid " bookmarks, "
 #~ msgstr "Delete relation"
 
 #, fuzzy
-#~| msgid "Select two columns"
 #~ msgid "Select one ..."
 #~ msgstr "Select two columns"
 
 #, fuzzy
-#~| msgid "Add unique index"
 #~ msgid "Add unique/primary index"
 #~ msgstr "Add unique index"
 
 #, fuzzy
-#~| msgid "Move columns"
 #~ msgid "Have unique columns"
 #~ msgstr "Move columns"
 
 #, fuzzy
-#~| msgid "The user %s already exists!"
 #~ msgid "Unique column(s) already exist"
 #~ msgstr "The user %s already exists!"
 
@@ -20330,9 +20155,6 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "<b>%s</b> table not found or not set in %s"
 
 #, fuzzy
-#~| msgid ""
-#~| "Disable the default warning that is displayed if mcrypt is missing for "
-#~| "cookie authentication."
 #~ msgid ""
 #~ "Disable the default warning that is displayed if mcrypt is missing for "
 #~ "[kbd]cookie[/kbd] authentication."
@@ -20346,21 +20168,18 @@ msgstr "No files found inside ZIP archive!"
 #~ msgid "Designer table"
 #~ msgstr "Designer table"
 
-#~| msgid "Import/Export coordinates for PDF schema"
 #~ msgid "Import/Export coordinates for relational schema"
 #~ msgstr "Import/Export coordinates for relational schema"
 
 #~ msgid "Page has been created."
 #~ msgstr "Page has been created."
 
-#~| msgid "Page creation failed"
 #~ msgid "Page creation has failed!"
 #~ msgstr "Page creation has failed!"
 
 #~ msgid "Page:"
 #~ msgstr "Page:"
 
-#~| msgid "Import from selected page"
 #~ msgid "Import from selected page."
 #~ msgstr "Import from selected page."
 
@@ -20388,7 +20207,6 @@ msgstr "No files found inside ZIP archive!"
 #~ "parent window, or your browser's security settings are configured to "
 #~ "block cross-window updates."
 
-#~| msgid "Show binary contents as HEX by default"
 #~ msgid "Show binary contents as HEX by default."
 #~ msgstr "Show binary contents as HEX by default."
 
@@ -20421,14 +20239,10 @@ msgstr "No files found inside ZIP archive!"
 #~ "reserved.[/em]"
 
 #, fuzzy
-#~| msgid "Requires SQL Validator to be enabled"
 #~ msgid "Requires SQL Validator to be enabled."
 #~ msgstr "Requires SQL Validator to be enabled"
 
 #, fuzzy
-#~| msgid ""
-#~| "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
-#~| "installed"
 #~ msgid ""
 #~ "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 #~ "installed."
@@ -20437,9 +20251,6 @@ msgstr "No files found inside ZIP archive!"
 #~ "installed"
 
 #, fuzzy
-#~| msgid ""
-#~| "If you have a custom username, specify it here (defaults to "
-#~| "[kbd]anonymous[/kbd])"
 #~ msgid ""
 #~ "If you have a custom username, specify it here (defaults to "
 #~ "[kbd]anonymous[/kbd])."
@@ -20460,22 +20271,16 @@ msgstr "No files found inside ZIP archive!"
 #~ "%sdocumentation%s."
 
 #, fuzzy
-#~| msgid "Error: Relation not added."
 #~ msgid "Error: Relation could not be added."
 #~ msgstr "Error: Relation not added."
 
 #, fuzzy
-#~| msgid ""
-#~| "<b>One or more errors have occured while processing your request:</b>"
 #~ msgid ""
 #~ "<b>One or more errors have occurred while processing your request:</b>"
 #~ msgstr ""
 #~ "<b>One or more errors have occurred while processing your request:</b>"
 
 #, fuzzy
-#~| msgid ""
-#~| "Leave blank to disable configurable menus feature, suggested: "
-#~| "[kbd]pma__users[/kbd]"
 #~ msgid ""
 #~ "Leave blank to disable configurable menus feature, suggested: "
 #~ "[kbd]pma__users[/kbd]."
@@ -20484,9 +20289,6 @@ msgstr "No files found inside ZIP archive!"
 #~ "[kbd]pma__users[/kbd]"
 
 #, fuzzy
-#~| msgid ""
-#~| "Leave blank to disable configurable menus feature, suggested: "
-#~| "[kbd]pma__usergroups[/kbd]"
 #~ msgid ""
 #~ "Leave blank to disable configurable menus feature, suggested: "
 #~ "[kbd]pma__usergroups[/kbd]."
@@ -20604,7 +20406,6 @@ msgstr "No files found inside ZIP archive!"
 #~ "Neither URL wrapper nor CURL is available. Version check is not possible."
 
 #, fuzzy
-#~| msgid "Find:"
 #~ msgid "Find"
 #~ msgstr "Find:"
 
@@ -20615,7 +20416,6 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "Headers every %s rows"
 
 #, fuzzy
-#~| msgid "Table Search"
 #~ msgid "Enable reCaptcha"
 #~ msgstr "Table Search"
 
@@ -20806,7 +20606,6 @@ msgstr "No files found inside ZIP archive!"
 #~ "Source database will remain unchanged."
 
 #, fuzzy
-#~| msgid "New"
 #~ msgctxt "Crate new trigger"
 #~ msgid "New"
 #~ msgstr "New"
@@ -20917,7 +20716,6 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "Strings are converted into integer for plotting"
 
 #, fuzzy
-#~| msgid "Linestring"
 #~ msgid "String"
 #~ msgstr "Linestring"
 
@@ -20946,7 +20744,6 @@ msgstr "No files found inside ZIP archive!"
 #~ msgstr "Verbose multiple statements"
 
 #, fuzzy
-#~| msgid "Data only"
 #~ msgid "Dates only."
 #~ msgstr "Data only"
 
