@@ -84,6 +84,7 @@ class SqlControllerTest extends AbstractTestCase
             'bookmarks' => [],
             'can_convert_kanji' => false,
             'is_foreign_key_check' => true,
+            'hideSQLEditorControls' => false,
         ]);
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
