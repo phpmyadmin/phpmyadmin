@@ -345,8 +345,7 @@ class Operations
         $this->dbi->query($query_proc_specific);
 
         // Finally FLUSH the new privileges
-        $flush_query = 'FLUSH PRIVILEGES;';
-        $this->dbi->query($flush_query);
+        $this->dbi->tryQuery('FLUSH PRIVILEGES;');
     }
 
     /**
@@ -442,8 +441,7 @@ class Operations
         }
 
         // Finally FLUSH the new privileges
-        $flush_query = 'FLUSH PRIVILEGES;';
-        $this->dbi->query($flush_query);
+        $this->dbi->tryQuery('FLUSH PRIVILEGES;');
     }
 
     /**
@@ -816,8 +814,7 @@ class Operations
         $this->dbi->query($query_col_specific);
 
         // Finally FLUSH the new privileges
-        $flush_query = 'FLUSH PRIVILEGES;';
-        $this->dbi->query($flush_query);
+        $this->dbi->tryQuery('FLUSH PRIVILEGES;');
     }
 
     /**
@@ -871,8 +868,7 @@ class Operations
         }
 
         // Finally FLUSH the new privileges
-        $flush_query = 'FLUSH PRIVILEGES;';
-        $this->dbi->query($flush_query);
+        $this->dbi->tryQuery('FLUSH PRIVILEGES;');
     }
 
     /**
