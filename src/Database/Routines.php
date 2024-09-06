@@ -262,8 +262,7 @@ class Routines
     {
         if ($flushPrivileges) {
             // Flush the Privileges
-            $flushPrivQuery = 'FLUSH PRIVILEGES;';
-            $this->dbi->query($flushPrivQuery);
+            $this->dbi->tryQuery('FLUSH PRIVILEGES;');
 
             $message = Message::success(
                 __(

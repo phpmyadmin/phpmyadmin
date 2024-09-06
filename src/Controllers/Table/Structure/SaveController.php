@@ -391,7 +391,7 @@ final class SaveController implements InvocableController
 
             if ($changed) {
                 // Finally FLUSH the new privileges
-                $this->dbi->query('FLUSH PRIVILEGES;');
+                $this->dbi->tryQuery('FLUSH PRIVILEGES;');
             }
         }
 

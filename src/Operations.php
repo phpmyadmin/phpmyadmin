@@ -333,7 +333,7 @@ class Operations
             . ' where Db = ' . $this->dbi->quoteString($oldDb) . ';');
 
         // Finally FLUSH the new privileges
-        $this->dbi->query('FLUSH PRIVILEGES;');
+        $this->dbi->tryQuery('FLUSH PRIVILEGES;');
     }
 
     /**
@@ -431,7 +431,7 @@ class Operations
         }
 
         // Finally FLUSH the new privileges
-        $this->dbi->query('FLUSH PRIVILEGES;');
+        $this->dbi->tryQuery('FLUSH PRIVILEGES;');
     }
 
     /**
@@ -774,7 +774,7 @@ class Operations
             . ';');
 
         // Finally FLUSH the new privileges
-        $this->dbi->query('FLUSH PRIVILEGES;');
+        $this->dbi->tryQuery('FLUSH PRIVILEGES;');
     }
 
     /**
@@ -833,7 +833,7 @@ class Operations
         }
 
         // Finally FLUSH the new privileges
-        $this->dbi->query('FLUSH PRIVILEGES;');
+        $this->dbi->tryQuery('FLUSH PRIVILEGES;');
     }
 
     /**

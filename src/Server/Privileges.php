@@ -2166,8 +2166,7 @@ class Privileges
     {
         $message = null;
         if (isset($_GET['flush_privileges'])) {
-            $sqlQuery = 'FLUSH PRIVILEGES;';
-            $this->dbi->query($sqlQuery);
+            $this->dbi->tryQuery('FLUSH PRIVILEGES;');
             $message = Message::success(
                 __('The privileges were reloaded successfully.'),
             );
