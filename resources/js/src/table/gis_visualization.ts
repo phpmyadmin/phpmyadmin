@@ -1,7 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
-import { get as getProjection } from 'ol/proj.js';
 
 /**
  * @fileoverview    functions used for visualizing GIS data
@@ -529,7 +528,7 @@ function getFeaturesFromOpenLayersData (geometries: any[]): any[] {
 
         if (geometry.geometry.srid !== 3857) {
             const source  = 'EPSG:' + (geometry.geometry.srid !== 0 ? geometry.geometry.srid : 4326);
-            const sourceProj = getProjection(source);
+            const sourceProj = window.ol.getProjection(source);
 
             if (sourceProj) {
                 olGeometry = olGeometry.transform(
