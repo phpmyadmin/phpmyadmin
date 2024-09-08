@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-09-08 00:23+0000\n"
-"PO-Revision-Date: 2024-06-03 04:09+0000\n"
+"PO-Revision-Date: 2024-09-09 15:09+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -4176,16 +4176,12 @@ msgid "Clear fast filter"
 msgstr "פינוי המסנן המהיר"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
-#, fuzzy
-#| msgid "Recently used tables"
 msgid "Recently visited tables"
-msgstr "טבלאות שהיו בשימוש לאחרונה"
+msgstr "הטבלאות האחרונות שביקרת בהן"
 
 #: resources/templates/navigation/tree/quick_warp.twig:6
-#, fuzzy
-#| msgid "Reset"
 msgid "Recent"
-msgstr "איפוס"
+msgstr "אחרונות"
 
 #: resources/templates/navigation/tree/quick_warp.twig:16
 #: src/Config/Descriptions.php:835
