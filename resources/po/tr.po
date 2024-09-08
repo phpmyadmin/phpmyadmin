@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-09-01 00:25+0000\n"
+"POT-Creation-Date: 2024-09-08 00:23+0000\n"
 "PO-Revision-Date: 2024-06-30 09:27+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -6220,7 +6220,7 @@ msgstr "Sonuçların çıkarılan profilini içeren dilim çizelgesi."
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:995 src/Display/Results.php:3139
+#: src/Database/Routines.php:994 src/Display/Results.php:3139
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL sorgunuz başarılı olarak çalıştırıldı."
@@ -15266,7 +15266,7 @@ msgid "There is an issue with your request."
 msgstr "İsteğinizle ilgili bir sorun var."
 
 #: src/Controllers/Table/GetFieldController.php:81
-#: src/Database/Routines.php:1012 src/Import/Import.php:131
+#: src/Database/Routines.php:1011 src/Import/Import.php:131
 #: src/InsertEdit.php:199 src/Sql.php:859
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL boş bir sonuç kümesi döndürdü (yani sıfır satır)."
@@ -15474,7 +15474,7 @@ msgstr "Şema eklentileri yüklenemedi, lütfen kurulumunuzu denetleyin!"
 #: src/Database/Events.php:89 src/Database/Events.php:98
 #: src/Database/Events.php:132 src/Database/Routines.php:101
 #: src/Database/Routines.php:127 src/Database/Routines.php:205
-#: src/Database/Routines.php:972 src/Triggers/Triggers.php:82
+#: src/Database/Routines.php:971 src/Triggers/Triggers.php:82
 #: src/Triggers/Triggers.php:91 src/Triggers/Triggers.php:126
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -15484,7 +15484,7 @@ msgstr "Şurada belirtilen sorgu başarısız oldu: \"%s\""
 #: src/Database/Events.php:115 src/Database/Events.php:136
 #: src/Database/Routines.php:105 src/Database/Routines.php:131
 #: src/Database/Routines.php:209 src/Database/Routines.php:223
-#: src/Database/Routines.php:976 src/Html/Generator.php:799
+#: src/Database/Routines.php:975 src/Html/Generator.php:799
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:109 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
@@ -15514,7 +15514,7 @@ msgstr "Olay %1$s oluşturuldu."
 msgid "One or more errors have occurred while processing your request:"
 msgstr "İsteğiniz işlenirken bir ya da daha fazla hata meydana geldi:"
 
-#: src/Database/Events.php:268 src/Database/Routines.php:774
+#: src/Database/Events.php:268 src/Database/Routines.php:773
 #: src/Triggers/Triggers.php:191
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Tanımlayıcı \"kullanıcıadı@anamakineadı\" biçiminde olmak zorundadır!"
@@ -15561,7 +15561,7 @@ msgstr ""
 "Yapılandırma dosyanız içinde tanımlanmış denetim kullanıcısı için bağlantı "
 "başarısız oldu."
 
-#: src/Database/Routines.php:82 src/Database/Routines.php:782
+#: src/Database/Routines.php:82 src/Database/Routines.php:781
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Geçersiz yordam türü: \"%s\""
@@ -15575,26 +15575,26 @@ msgstr "Yordam %1$s oluşturuldu."
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Üzgünüm, kaldırılmış yordamı geri yükleme başarısız oldu."
 
-#: src/Database/Routines.php:270
+#: src/Database/Routines.php:269
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Yordam %1$s değiştirildi. Yetkiler ayarlandı."
 
-#: src/Database/Routines.php:275
+#: src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Yordam %1$s değiştirildi."
 
-#: src/Database/Routines.php:615
+#: src/Database/Routines.php:614
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Her yordam parametresi için bir ad ve bir tür vermek zorundasınız."
 
-#: src/Database/Routines.php:633
+#: src/Database/Routines.php:632
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Parametre için geçersiz yön \"%s\" verilmiş."
 
-#: src/Database/Routines.php:653 src/Database/Routines.php:720
+#: src/Database/Routines.php:652 src/Database/Routines.php:719
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15602,24 +15602,24 @@ msgstr ""
 "ENUM, SET, VARCHAR ve VARBINARY türünün yordam parametreleri için uzunluk/"
 "değerler vermek zorundasınız."
 
-#: src/Database/Routines.php:702
+#: src/Database/Routines.php:701
 msgid "You must provide a valid return type for the routine."
 msgstr "Yordam için geçerli bir dönüş türü vermek zorundasınız."
 
-#: src/Database/Routines.php:790
+#: src/Database/Routines.php:789
 msgid "You must provide a routine name!"
 msgstr "Bir yordam adı vermek zorundasınız!"
 
-#: src/Database/Routines.php:854
+#: src/Database/Routines.php:853
 msgid "You must provide a routine definition."
 msgstr "Bir yordam tanımı vermek zorundasınız."
 
-#: src/Database/Routines.php:988
+#: src/Database/Routines.php:987
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "%s yordamı yürütme sonuçları"
 
-#: src/Database/Routines.php:1003
+#: src/Database/Routines.php:1002
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -17983,7 +17983,7 @@ msgid "Error 405! Request method not allowed."
 msgstr "Hata 405! İstek yöntemine izin verilmedi."
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3257
+#: src/Server/Privileges.php:3256
 msgid "Native MySQL authentication"
 msgstr "Yerel MySQL kimlik doğrulaması"
 
@@ -18052,21 +18052,21 @@ msgstr "%s için yetkileri güncellediniz."
 msgid "Deleting %s"
 msgstr "%s siliniyor"
 
-#: src/Server/Privileges.php:2172
+#: src/Server/Privileges.php:2171
 msgid "The privileges were reloaded successfully."
 msgstr "Yetkiler başarılı olarak yüklendi."
 
-#: src/Server/Privileges.php:2273
+#: src/Server/Privileges.php:2272
 #, php-format
 msgid "The user %s already exists!"
 msgstr "%s kullanıcısı zaten var!"
 
-#: src/Server/Privileges.php:2510
+#: src/Server/Privileges.php:2509
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s için yetkiler"
 
-#: src/Server/Privileges.php:2596
+#: src/Server/Privileges.php:2595
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -18079,7 +18079,7 @@ msgstr ""
 "sunucunun kullandığı yetkilerden farklı olabilir. Bu durumda devam etmeden "
 "önce %syetkileri yeniden yüklemeniz%s gerekir."
 
-#: src/Server/Privileges.php:2612
+#: src/Server/Privileges.php:2611
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -18093,11 +18093,11 @@ msgstr ""
 "yeniden yüklenmek zorundadır ancak şu anda, yetkileri YENİDEN YÜKLEMENİZ "
 "gerekmez."
 
-#: src/Server/Privileges.php:2900
+#: src/Server/Privileges.php:2899
 msgid "You have added a new user."
 msgstr "Yeni bir kullanıcı eklediniz."
 
-#: src/Server/Privileges.php:3350
+#: src/Server/Privileges.php:3349
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "

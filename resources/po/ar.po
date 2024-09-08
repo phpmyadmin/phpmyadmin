@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-09-01 00:25+0000\n"
+"POT-Creation-Date: 2024-09-08 00:23+0000\n"
 "PO-Revision-Date: 2024-02-01 15:01+0000\n"
 "Last-Translator: Mohammed Al Otaibi <mopes.03.belle@icloud.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -6327,7 +6327,7 @@ msgstr "نتائج التنميط"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:995 src/Display/Results.php:3139
+#: src/Database/Routines.php:994 src/Display/Results.php:3139
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "تم تنفيذ استعلام SQL الخاص بك بنجاح."
@@ -14948,7 +14948,7 @@ msgid "There is an issue with your request."
 msgstr ""
 
 #: src/Controllers/Table/GetFieldController.php:81
-#: src/Database/Routines.php:1012 src/Import/Import.php:131
+#: src/Database/Routines.php:1011 src/Import/Import.php:131
 #: src/InsertEdit.php:199 src/Sql.php:859
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "قام MySQL بإرجاع نتيجة فارغة."
@@ -15164,7 +15164,7 @@ msgstr "لم أتمكن من تحميل قوابس الاستيراد، الرج
 #: src/Database/Events.php:89 src/Database/Events.php:98
 #: src/Database/Events.php:132 src/Database/Routines.php:101
 #: src/Database/Routines.php:127 src/Database/Routines.php:205
-#: src/Database/Routines.php:972 src/Triggers/Triggers.php:82
+#: src/Database/Routines.php:971 src/Triggers/Triggers.php:82
 #: src/Triggers/Triggers.php:91 src/Triggers/Triggers.php:126
 #, fuzzy, php-format
 msgid "The following query has failed: \"%s\""
@@ -15174,7 +15174,7 @@ msgstr "فشل الإستعلام \"%s\""
 #: src/Database/Events.php:115 src/Database/Events.php:136
 #: src/Database/Routines.php:105 src/Database/Routines.php:131
 #: src/Database/Routines.php:209 src/Database/Routines.php:223
-#: src/Database/Routines.php:976 src/Html/Generator.php:799
+#: src/Database/Routines.php:975 src/Html/Generator.php:799
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:109 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
@@ -15204,7 +15204,7 @@ msgstr "تم إنشاء الإجراء %1$s."
 msgid "One or more errors have occurred while processing your request:"
 msgstr "حدث خطأ واحد أو أكثر أثناء معالجة طلبك:"
 
-#: src/Database/Events.php:268 src/Database/Routines.php:774
+#: src/Database/Events.php:268 src/Database/Routines.php:773
 #: src/Triggers/Triggers.php:191
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
@@ -15245,7 +15245,7 @@ msgstr "فشل في تعيين اتصال ترتيب التكوين!"
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "أخفق الاتصال بمستخدم التحكم كما هو معرف في التهيئة."
 
-#: src/Database/Routines.php:82 src/Database/Routines.php:782
+#: src/Database/Routines.php:82 src/Database/Routines.php:781
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "نوع الإجراء غير صحيح: %s"
@@ -15259,49 +15259,49 @@ msgstr "تم إنشاء الإجراء %1$s."
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "معذرة، فشلنا في استعادة الروتين الذي تم إسقاطه."
 
-#: src/Database/Routines.php:270
+#: src/Database/Routines.php:269
 #, fuzzy, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "تم تعديل الإجراء %1$s."
 
-#: src/Database/Routines.php:275
+#: src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "تم تعديل الإجراء %1$s."
 
-#: src/Database/Routines.php:615
+#: src/Database/Routines.php:614
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: src/Database/Routines.php:633
+#: src/Database/Routines.php:632
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: src/Database/Routines.php:653 src/Database/Routines.php:720
+#: src/Database/Routines.php:652 src/Database/Routines.php:719
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: src/Database/Routines.php:702
+#: src/Database/Routines.php:701
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: src/Database/Routines.php:790
+#: src/Database/Routines.php:789
 msgid "You must provide a routine name!"
 msgstr "يجب عليك تقديم اسم روتيني!"
 
-#: src/Database/Routines.php:854
+#: src/Database/Routines.php:853
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: src/Database/Routines.php:988
+#: src/Database/Routines.php:987
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "نتائج تنفيذ الإجراء %s"
 
-#: src/Database/Routines.php:1003
+#: src/Database/Routines.php:1002
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -17528,7 +17528,7 @@ msgid "Error 405! Request method not allowed."
 msgstr "خطأ 405! طريقة الطلب غير مسموح بها."
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3257
+#: src/Server/Privileges.php:3256
 #, fuzzy
 msgid "Native MySQL authentication"
 msgstr "المصادقة"
@@ -17602,21 +17602,21 @@ msgstr "لقد جددت وحدثت الإمتيازات لـ %s."
 msgid "Deleting %s"
 msgstr "قيد حذف %s"
 
-#: src/Server/Privileges.php:2172
+#: src/Server/Privileges.php:2171
 msgid "The privileges were reloaded successfully."
 msgstr "تم إعادة قراءة الصلاحيات بنجاح."
 
-#: src/Server/Privileges.php:2273
+#: src/Server/Privileges.php:2272
 #, php-format
 msgid "The user %s already exists!"
 msgstr "اسم المستخدم %s موجود مسبقاً!"
 
-#: src/Server/Privileges.php:2510
+#: src/Server/Privileges.php:2509
 #, php-format
 msgid "Privileges for %s"
 msgstr "امتيازات %s"
 
-#: src/Server/Privileges.php:2596
+#: src/Server/Privileges.php:2595
 #, fuzzy, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -17629,7 +17629,7 @@ msgstr ""
 "ما تم التعديل عليها يدويا. في هذه الحالة، عليك %s بإعادة قراءة الصلاحيات %s "
 "قبل أن تكمل."
 
-#: src/Server/Privileges.php:2612
+#: src/Server/Privileges.php:2611
 #, fuzzy
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -17643,11 +17643,11 @@ msgstr ""
 "ما تم التعديل عليها يدويا. في هذه الحالة، عليك %s بإعادة قراءة الصلاحيات %s "
 "قبل أن تكمل."
 
-#: src/Server/Privileges.php:2900
+#: src/Server/Privileges.php:2899
 msgid "You have added a new user."
 msgstr "لقد أضفت مستخدم جديد."
 
-#: src/Server/Privileges.php:3350
+#: src/Server/Privileges.php:3349
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "

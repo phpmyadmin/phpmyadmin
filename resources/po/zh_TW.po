@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-09-01 00:25+0000\n"
+"POT-Creation-Date: 2024-09-08 00:23+0000\n"
 "PO-Revision-Date: 2024-07-03 07:27+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -6227,7 +6227,7 @@ msgstr "研判結果。"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:995 src/Display/Results.php:3139
+#: src/Database/Routines.php:994 src/Display/Results.php:3139
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL 查詢已順利執行。"
@@ -14969,7 +14969,7 @@ msgid "There is an issue with your request."
 msgstr "請求發生問題。"
 
 #: src/Controllers/Table/GetFieldController.php:81
-#: src/Database/Routines.php:1012 src/Import/Import.php:131
+#: src/Database/Routines.php:1011 src/Import/Import.php:131
 #: src/InsertEdit.php:199 src/Sql.php:859
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 傳回空的查詢結果 (即0列資料)。"
@@ -15171,7 +15171,7 @@ msgstr "無法載入綱要外掛程式，請檢查您的安裝！"
 #: src/Database/Events.php:89 src/Database/Events.php:98
 #: src/Database/Events.php:132 src/Database/Routines.php:101
 #: src/Database/Routines.php:127 src/Database/Routines.php:205
-#: src/Database/Routines.php:972 src/Triggers/Triggers.php:82
+#: src/Database/Routines.php:971 src/Triggers/Triggers.php:82
 #: src/Triggers/Triggers.php:91 src/Triggers/Triggers.php:126
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -15181,7 +15181,7 @@ msgstr "執行以下的查詢時發生錯誤：「%s」"
 #: src/Database/Events.php:115 src/Database/Events.php:136
 #: src/Database/Routines.php:105 src/Database/Routines.php:131
 #: src/Database/Routines.php:209 src/Database/Routines.php:223
-#: src/Database/Routines.php:976 src/Html/Generator.php:799
+#: src/Database/Routines.php:975 src/Html/Generator.php:799
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:109 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
@@ -15211,7 +15211,7 @@ msgstr "建立了 %1$s 事件。"
 msgid "One or more errors have occurred while processing your request:"
 msgstr "在處理請求時，發生一個或以上的錯誤："
 
-#: src/Database/Events.php:268 src/Database/Routines.php:774
+#: src/Database/Events.php:268 src/Database/Routines.php:773
 #: src/Triggers/Triggers.php:191
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "定義者必須是 username@hostname 格式！"
@@ -15255,7 +15255,7 @@ msgstr "設定編碼與排序連線失敗！"
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "使用設定檔案定義的控制使用者連線失敗。"
 
-#: src/Database/Routines.php:82 src/Database/Routines.php:782
+#: src/Database/Routines.php:82 src/Database/Routines.php:781
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "預存程序類型無效：「%s」"
@@ -15269,26 +15269,26 @@ msgstr "已建立預存程序 %1$s。"
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "很抱歉，未能還原被刪除的預存程序。"
 
-#: src/Database/Routines.php:270
+#: src/Database/Routines.php:269
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "已修改預存程序 %1$s 。已調整權限。"
 
-#: src/Database/Routines.php:275
+#: src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "已修改預存程序 %1$s。"
 
-#: src/Database/Routines.php:615
+#: src/Database/Routines.php:614
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "必須提供每個預存程序的參數名稱和類型。"
 
-#: src/Database/Routines.php:633
+#: src/Database/Routines.php:632
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "提供的參數方向「%s」無效。"
 
-#: src/Database/Routines.php:653 src/Database/Routines.php:720
+#: src/Database/Routines.php:652 src/Database/Routines.php:719
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15296,24 +15296,24 @@ msgstr ""
 "必須為此等類型的預存程序參數，提供長度或值：列舉(ENUM)、集合(SET)、VARCHAR "
 "和 VARBINARY。"
 
-#: src/Database/Routines.php:702
+#: src/Database/Routines.php:701
 msgid "You must provide a valid return type for the routine."
 msgstr "必須為預存程序提供有效的回傳類型。"
 
-#: src/Database/Routines.php:790
+#: src/Database/Routines.php:789
 msgid "You must provide a routine name!"
 msgstr "必須填寫預存程序名稱！"
 
-#: src/Database/Routines.php:854
+#: src/Database/Routines.php:853
 msgid "You must provide a routine definition."
 msgstr "必須提供預存程序的定義。"
 
-#: src/Database/Routines.php:988
+#: src/Database/Routines.php:987
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "執行預存程序 %s 的結果"
 
-#: src/Database/Routines.php:1003
+#: src/Database/Routines.php:1002
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -17578,7 +17578,7 @@ msgid "Error 405! Request method not allowed."
 msgstr "錯誤405！請求方法不允許。"
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3257
+#: src/Server/Privileges.php:3256
 msgid "Native MySQL authentication"
 msgstr "原生 MySQL 認證"
 
@@ -17653,21 +17653,21 @@ msgstr "已更新了 %s 的權限。"
 msgid "Deleting %s"
 msgstr "正在刪除 %s"
 
-#: src/Server/Privileges.php:2172
+#: src/Server/Privileges.php:2171
 msgid "The privileges were reloaded successfully."
 msgstr "已成功重新載入權限。"
 
-#: src/Server/Privileges.php:2273
+#: src/Server/Privileges.php:2272
 #, php-format
 msgid "The user %s already exists!"
 msgstr "已有 %s 使用者！"
 
-#: src/Server/Privileges.php:2510
+#: src/Server/Privileges.php:2509
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s 的權限"
 
-#: src/Server/Privileges.php:2596
+#: src/Server/Privileges.php:2595
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -17679,7 +17679,7 @@ msgstr ""
 "限，則表中顯示的內容可能與伺服器實際使用的使用者權限有異。在這種情況下，您應"
 "在繼續前 %s重新載入權限%s。"
 
-#: src/Server/Privileges.php:2612
+#: src/Server/Privileges.php:2611
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -17691,11 +17691,11 @@ msgstr ""
 "動的修改，這些資料表的內容可能將與伺服器實際使用的權限有所不同。 在此情況下才"
 "需要重新整理權限，目前您並不需要重新整理 (RELOAD) 權限。"
 
-#: src/Server/Privileges.php:2900
+#: src/Server/Privileges.php:2899
 msgid "You have added a new user."
 msgstr "已新增了新的使用者。"
 
-#: src/Server/Privileges.php:3350
+#: src/Server/Privileges.php:3349
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "

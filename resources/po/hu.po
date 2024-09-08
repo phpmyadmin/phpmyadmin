@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-09-01 00:25+0000\n"
+"POT-Creation-Date: 2024-09-08 00:23+0000\n"
 "PO-Revision-Date: 2022-02-17 10:35+0000\n"
 "Last-Translator: Péter Báthory <bathory86p@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -6600,7 +6600,7 @@ msgstr "Eredmények elemzése"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:141
-#: src/Database/Routines.php:995 src/Display/Results.php:3139
+#: src/Database/Routines.php:994 src/Display/Results.php:3139
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Az SQL-lekérdezés végrehajtása sikerült."
@@ -16074,7 +16074,7 @@ msgid "There is an issue with your request."
 msgstr "Túl sok kapcsolat van indexek nélkül."
 
 #: src/Controllers/Table/GetFieldController.php:81
-#: src/Database/Routines.php:1012 src/Import/Import.php:131
+#: src/Database/Routines.php:1011 src/Import/Import.php:131
 #: src/InsertEdit.php:199 src/Sql.php:859
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "A MySQL üres eredményhalmazt adott vissza (pl. nulla sorok)."
@@ -16297,7 +16297,7 @@ msgstr "Nem sikerült betölteni a séma bővítményeket, ellenőrizze a telep�
 #: src/Database/Events.php:89 src/Database/Events.php:98
 #: src/Database/Events.php:132 src/Database/Routines.php:101
 #: src/Database/Routines.php:127 src/Database/Routines.php:205
-#: src/Database/Routines.php:972 src/Triggers/Triggers.php:82
+#: src/Database/Routines.php:971 src/Triggers/Triggers.php:82
 #: src/Triggers/Triggers.php:91 src/Triggers/Triggers.php:126
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -16307,7 +16307,7 @@ msgstr "A következő lekérdezés meghiúsult: \"%s\""
 #: src/Database/Events.php:115 src/Database/Events.php:136
 #: src/Database/Routines.php:105 src/Database/Routines.php:131
 #: src/Database/Routines.php:209 src/Database/Routines.php:223
-#: src/Database/Routines.php:976 src/Html/Generator.php:799
+#: src/Database/Routines.php:975 src/Html/Generator.php:799
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:109 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
@@ -16337,7 +16337,7 @@ msgstr "A(z) %1$s esemény létrejött."
 msgid "One or more errors have occurred while processing your request:"
 msgstr "Egy vagy több hiba történt a kérés feldolgozása közben:"
 
-#: src/Database/Events.php:268 src/Database/Routines.php:774
+#: src/Database/Events.php:268 src/Database/Routines.php:773
 #: src/Triggers/Triggers.php:191
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "A meghatározónak „felhasznalonev@gepnev” formátumban kell lennie!"
@@ -16389,7 +16389,7 @@ msgstr ""
 "A konfigurációban meghatározott kapcsolat a kontrollfelhasználó számára nem "
 "sikerült."
 
-#: src/Database/Routines.php:82 src/Database/Routines.php:782
+#: src/Database/Routines.php:82 src/Database/Routines.php:781
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Érvénytelen eljárástípus: \"%s\""
@@ -16403,27 +16403,27 @@ msgstr "A(z) %1$s eljárás létrejött."
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Elnézést, nem sikerült visszaállítani az eldobott eljárást."
 
-#: src/Database/Routines.php:270
+#: src/Database/Routines.php:269
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr ""
 "A(z) %1$s eljárás módosítása megtörtént. A jogosultságok módosítva lettek."
 
-#: src/Database/Routines.php:275
+#: src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "A(z) %1$s eljárás módosítása megtörtént."
 
-#: src/Database/Routines.php:615
+#: src/Database/Routines.php:614
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Meg kell adnia egy nevet és egy típust minden rutin paraméterhez."
 
-#: src/Database/Routines.php:633
+#: src/Database/Routines.php:632
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Érvénytelen rendezés lett a paraméternek adva: \"%s\"."
 
-#: src/Database/Routines.php:653 src/Database/Routines.php:720
+#: src/Database/Routines.php:652 src/Database/Routines.php:719
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -16431,24 +16431,24 @@ msgstr ""
 "Meg kell adnia hosszat/értékeket az ENUM, SET, VARCHAR és VARBINARY rutin "
 "paramétereihez."
 
-#: src/Database/Routines.php:702
+#: src/Database/Routines.php:701
 msgid "You must provide a valid return type for the routine."
 msgstr "Meg kell adnia egy érvényes visszatérési típust a rutinhoz."
 
-#: src/Database/Routines.php:790
+#: src/Database/Routines.php:789
 msgid "You must provide a routine name!"
 msgstr "Meg kell adnia egy eljárásnevet!"
 
-#: src/Database/Routines.php:854
+#: src/Database/Routines.php:853
 msgid "You must provide a routine definition."
 msgstr "Meg kell adnia a rutin leírását."
 
-#: src/Database/Routines.php:988
+#: src/Database/Routines.php:987
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "A(z) %s eljárás végrehajtási eredményei"
 
-#: src/Database/Routines.php:1003
+#: src/Database/Routines.php:1002
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -18888,7 +18888,7 @@ msgid "Error 405! Request method not allowed."
 msgstr ""
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3257
+#: src/Server/Privileges.php:3256
 msgid "Native MySQL authentication"
 msgstr "Natív MySQL hitelesítés"
 
@@ -18963,21 +18963,21 @@ msgstr "Ön frissítette %s jogait."
 msgid "Deleting %s"
 msgstr "%s törlése"
 
-#: src/Server/Privileges.php:2172
+#: src/Server/Privileges.php:2171
 msgid "The privileges were reloaded successfully."
 msgstr "A jogok újratöltése sikerült."
 
-#: src/Server/Privileges.php:2273
+#: src/Server/Privileges.php:2272
 #, php-format
 msgid "The user %s already exists!"
 msgstr "%s felhasználó már létezik!"
 
-#: src/Server/Privileges.php:2510
+#: src/Server/Privileges.php:2509
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s jogosultságai"
 
-#: src/Server/Privileges.php:2596
+#: src/Server/Privileges.php:2595
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -18990,7 +18990,7 @@ msgstr ""
 "használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben "
 "%stöltse be újra a jogokat%s a folytatás előtt."
 
-#: src/Server/Privileges.php:2612
+#: src/Server/Privileges.php:2611
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -19003,11 +19003,11 @@ msgstr ""
 "által használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben a "
 "jogokat újra kell tölteni, de jelenleg nincs RELOAD joga."
 
-#: src/Server/Privileges.php:2900
+#: src/Server/Privileges.php:2899
 msgid "You have added a new user."
 msgstr "Az új felhasználó hozzáadása megtörtént."
 
-#: src/Server/Privileges.php:3350
+#: src/Server/Privileges.php:3349
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
