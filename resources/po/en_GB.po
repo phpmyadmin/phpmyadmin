@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-09-08 00:23+0000\n"
-"PO-Revision-Date: 2024-08-26 15:09+0000\n"
+"PO-Revision-Date: 2024-09-14 20:10+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.7.1-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -13804,85 +13804,71 @@ msgid "March"
 msgstr "March"
 
 #: src/Controllers/JavaScriptMessagesController.php:723
-#, fuzzy
 msgctxt "Month name"
 msgid "April"
 msgstr "April"
 
 #: src/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
 msgctxt "Month name"
 msgid "May"
 msgstr "May"
 
 #: src/Controllers/JavaScriptMessagesController.php:725
-#, fuzzy
 msgctxt "Month name"
 msgid "June"
 msgstr "June"
 
 #: src/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
 msgctxt "Month name"
 msgid "July"
 msgstr "July"
 
 #: src/Controllers/JavaScriptMessagesController.php:727
-#, fuzzy
 msgctxt "Month name"
 msgid "August"
 msgstr "August"
 
 #: src/Controllers/JavaScriptMessagesController.php:728
-#, fuzzy
 msgctxt "Month name"
 msgid "September"
 msgstr "September"
 
 #: src/Controllers/JavaScriptMessagesController.php:729
-#, fuzzy
 msgctxt "Month name"
 msgid "October"
 msgstr "October"
 
 #: src/Controllers/JavaScriptMessagesController.php:730
-#, fuzzy
 msgctxt "Month name"
 msgid "November"
 msgstr "November"
 
 #: src/Controllers/JavaScriptMessagesController.php:731
-#, fuzzy
 msgctxt "Month name"
 msgid "December"
 msgstr "December"
 
 #: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:494
-#, fuzzy
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Jan"
 
 #: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:495
-#, fuzzy
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Feb"
 
 #: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:496
-#, fuzzy
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Mar"
 
 #: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:497
-#, fuzzy
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Apr"
 
 #: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:498
-#, fuzzy
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "May"
