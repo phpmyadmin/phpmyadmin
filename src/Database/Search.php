@@ -45,6 +45,13 @@ class Search
     private int $criteriaSearchType;
 
     /**
+     * Options to apply to search
+     *
+     * @var bool criteriaSearchOptionsIncludeHex
+     */
+    private bool $criteriaSearchOptionsIncludeHex;
+
+    /**
      * Already set search type's description
      */
     private string $searchTypeDescription = '';
@@ -75,6 +82,7 @@ class Search
             4 => __('the exact phrase as whole field'),
             5 => __('as regular expression'),
         ];
+        $this->criteriaSearchOptionsIncludeHex = false;
         // Sets criteria parameters
         $this->setSearchParams();
     }
@@ -115,6 +123,11 @@ class Search
             $this->criteriaColumnName = '';
         } else {
             $this->criteriaColumnName = $_POST['criteriaColumnName'];
+        }
+
+        //phpcs:ignore SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed
+        if (isset($_POST['criteriaSearchOptionIncludeHex']) && $_POST['criteriaSearchOptionIncludeHex'] === '1') {
+            $this->criteriaSearchOptionsIncludeHex = true;
         }
     }
 
@@ -189,6 +202,14 @@ class Search
                 $likeClausesPerColumn[] = 'CONVERT(' . Util::backquote($column->field) . ' USING utf8)'
                     . ' ' . $likeOrRegex . ' '
                     . $this->dbi->quoteString($automaticWildcard . $searchWord . $automaticWildcard);
+
+                if (! $this->criteriaSearchOptionsIncludeHex) {
+                    continue;
+                }
+
+                $likeClausesPerColumn[] = 'HEX(' . Util::backquote($column->field) . ')'
+                    . ' ' . $likeOrRegex . ' '
+                    . $this->dbi->quoteString($automaticWildcard . $searchWord . $automaticWildcard);
             }
 
             if ($likeClausesPerColumn === []) {
@@ -237,6 +258,7 @@ class Search
             'criteria_tables' => $this->criteriaTables,
             'criteria_search_string' => $this->criteriaSearchString,
             'search_type_description' => $this->searchTypeDescription,
+            'criteria_search_options_include_hex' => $this->criteriaSearchOptionsIncludeHex,
         ]);
     }
 
@@ -254,6 +276,7 @@ class Search
             'criteria_tables' => $this->criteriaTables,
             'tables_names_only' => $this->tablesNamesOnly,
             'criteria_column_name' => $this->criteriaColumnName,
+            'criteria_search_options_include_hex' => $this->criteriaSearchOptionsIncludeHex,
         ]);
     }
 }
