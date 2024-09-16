@@ -3,7 +3,12 @@ $textarea-rows: 15;
 
 .CodeMirror {
   height: 20rem;
+
+  /* rtl:begin:ignore */
   direction: ltr;
+  text-align: left;
+  
+  /* rtl:end:ignore */
 }
 
 // Code mirror default style (do not affect the console style)
