@@ -12,6 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Gis\GisVisualization;
+use PhpMyAdmin\Gis\GisVisualizationSettings;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
@@ -107,8 +108,6 @@ final class GisVisualizationController implements InvocableController
 
         // Get settings if any posted
         $visualizationSettings = $this->getVisualizationSettings($spatialCandidates, $labelCandidates);
-        $visualizationSettings['width'] = 600;
-        $visualizationSettings['height'] = 450;
 
         $rows = $this->getRows();
         $pos = $this->getPos();
@@ -200,12 +199,11 @@ final class GisVisualizationController implements InvocableController
      * @param string[] $labelCandidates
      * @psalm-param non-empty-list<string> $spatialCandidates
      * @psalm-param list<string> $labelCandidates
-     *
-     * @return string[]
-     * @psalm-return array{spatialColumn:string,labelColumn?:string}
      */
-    private function getVisualizationSettings(array $spatialCandidates, array $labelCandidates): array
-    {
+    private function getVisualizationSettings(
+        array $spatialCandidates,
+        array $labelCandidates,
+    ): GisVisualizationSettings {
         $settingsIn = [];
         // Download as PNG/SVG/PDF use _GET and the normal form uses _POST
         if (is_array($_POST['visualizationSettings'] ?? null)) {
@@ -216,12 +214,12 @@ final class GisVisualizationController implements InvocableController
             $settingsIn = $_GET['visualizationSettings'];
         }
 
-        $settings = [];
+        $labelColumn = null;
         if (
             isset($settingsIn['labelColumn']) &&
             in_array($settingsIn['labelColumn'], $labelCandidates, true)
         ) {
-            $settings['labelColumn'] = $settingsIn['labelColumn'];
+            $labelColumn = $settingsIn['labelColumn'];
         }
 
         // If spatial column is not set, use first geometric column as spatial column
@@ -229,12 +227,12 @@ final class GisVisualizationController implements InvocableController
             isset($settingsIn['spatialColumn']) &&
             in_array($settingsIn['spatialColumn'], $spatialCandidates, true)
         ) {
-            $settings['spatialColumn'] = $settingsIn['spatialColumn'];
+            $spatialColumn = $settingsIn['spatialColumn'];
         } else {
-            $settings['spatialColumn'] = $spatialCandidates[0];
+            $spatialColumn = $spatialCandidates[0];
         }
 
-        return $settings;
+        return new GisVisualizationSettings(600, 450, $spatialColumn, $labelColumn);
     }
 
     private function getPos(): int

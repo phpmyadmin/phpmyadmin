@@ -100,36 +100,26 @@ class GisVisualization
     /**
      * Factory
      *
-     * @param string                        $sqlQuery SQL to fetch raw data for visualization
-     * @param array<string,string|int|null> $options  Users specified options
-     * @param int                           $rows     number of rows
-     * @param int                           $pos      start position
-     * @psalm-param array{
-     *   spatialColumn: string,
-     *   labelColumn?: string,
-     *   width: positive-int,
-     *   height: positive-int,
-     * } $options
+     * @param string $sqlQuery SQL to fetch raw data for visualization
+     * @param int    $rows     number of rows
+     * @param int    $pos      start position
      */
-    public static function get(string $sqlQuery, array $options, int $rows, int $pos): GisVisualization
-    {
+    public static function get(
+        string $sqlQuery,
+        GisVisualizationSettings $options,
+        int $rows,
+        int $pos,
+    ): GisVisualization {
         return new GisVisualization($sqlQuery, $options, $rows, $pos);
     }
 
     /**
      * Get visualization
      *
-     * @param mixed[][]                $data    Raw data, if set, parameters other
-     *                                          than $options will be ignored
-     * @param array<string,string|int> $options Users specified options
-     * @psalm-param array{
-     *     spatialColumn: string,
-     *     labelColumn?: string,
-     *     width: positive-int,
-     *     height: positive-int,
-     * } $options
+     * @param mixed[][] $data Raw data, if set, parameters other
+     *                        than $options will be ignored
      */
-    public static function getByData(array $data, array $options): GisVisualization
+    public static function getByData(array $data, GisVisualizationSettings $options): GisVisualization
     {
         return new GisVisualization($data, $options);
     }
@@ -151,32 +141,25 @@ class GisVisualization
     /**
      * Stores user specified options.
      *
-     * @param mixed[][]|string         $sqlOrData SQL to fetch raw data for visualization
-     *                                            or an array with data.
-     *                                            If it is an array row and pos are ignored
-     * @param array<string,string|int> $options   Users specified options
-     * @param int                      $rows      Number of rows
-     * @param int                      $pos       Start position
-     * @psalm-param array{
-     *   spatialColumn: string,
-     *   labelColumn?: string,
-     *   width: positive-int,
-     *   height: positive-int,
-     * } $options
+     * @param mixed[][]|string $sqlOrData SQL to fetch raw data for visualization
+     *                                    or an array with data.
+     *                                    If it is an array row and pos are ignored
+     * @param int              $rows      Number of rows
+     * @param int              $pos       Start position
      */
     private function __construct(
         array|string $sqlOrData,
-        array $options,
+        GisVisualizationSettings $options,
         private int $rows = 0,
         private int $pos = 0,
     ) {
-        $this->width = $options['width'];
+        $this->width = $options->width;
 
-        $this->height = $options['height'];
+        $this->height = $options->height;
 
-        $this->spatialColumn = $options['spatialColumn'];
+        $this->spatialColumn = $options->spatialColumn;
 
-        $this->labelColumn = $options['labelColumn'] ?? null;
+        $this->labelColumn = $options->labelColumn;
 
         $this->data = is_string($sqlOrData)
             ? $this->modifyQueryAndFetch($sqlOrData)

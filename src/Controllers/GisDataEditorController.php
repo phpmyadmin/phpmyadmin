@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Gis\GisFactory;
 use PhpMyAdmin\Gis\GisVisualization;
+use PhpMyAdmin\Gis\GisVisualizationSettings;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
@@ -82,7 +83,7 @@ final class GisDataEditorController implements InvocableController
         $result = "'" . $wkt . "'," . $srid;
 
         // Generate SVG based visualization
-        $visualizationSettings = ['width' => 450, 'height' => 300, 'spatialColumn' => 'wkt'];
+        $visualizationSettings = new GisVisualizationSettings(450, 300, 'wkt');
         $data = [['wkt' => $wktWithZero, 'srid' => $srid]];
 
         $visualization = GisVisualization::getByData($data, $visualizationSettings);
