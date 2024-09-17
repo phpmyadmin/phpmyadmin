@@ -117,8 +117,6 @@ final class FieldMetadata
 
     /**
      * The column name
-     *
-     * @psalm-var non-empty-string
      */
     public string $name;
 
@@ -165,7 +163,7 @@ final class FieldMetadata
 
     /**
      * @psalm-param object{
-     *     name: non-empty-string,
+     *     name: string,
      *     orgname: string,
      *     table: string,
      *     orgtable: string,

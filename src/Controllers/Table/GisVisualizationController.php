@@ -12,6 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Gis\GisVisualization;
+use PhpMyAdmin\Gis\GisVisualizationSettings;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
@@ -24,6 +25,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_search;
 use function in_array;
 use function is_array;
 use function is_string;
@@ -106,9 +108,11 @@ final class GisVisualizationController implements InvocableController
         }
 
         // Get settings if any posted
-        $visualizationSettings = $this->getVisualizationSettings($spatialCandidates, $labelCandidates);
-        $visualizationSettings['width'] = 600;
-        $visualizationSettings['height'] = 450;
+        $visualizationSettings = $this->getVisualizationSettings(
+            $spatialCandidates,
+            $labelCandidates,
+            $request->getParam('visualizationSettings'),
+        );
 
         $rows = $this->getRows();
         $pos = $this->getPos();
@@ -198,38 +202,34 @@ final class GisVisualizationController implements InvocableController
     /**
      * @param string[] $spatialCandidates
      * @param string[] $labelCandidates
-     * @psalm-param non-empty-list<non-empty-string> $spatialCandidates
-     * @psalm-param list<non-empty-string> $labelCandidates
-     *
-     * @return mixed[];
-     * @psalm-return array{spatialColumn:non-empty-string,labelColumn?:non-empty-string}
+     * @psalm-param non-empty-list<string> $spatialCandidates
+     * @psalm-param list<string> $labelCandidates
      */
-    private function getVisualizationSettings(array $spatialCandidates, array $labelCandidates): array
-    {
-        $settingsIn = [];
-        // Download as PNG/SVG/PDF use _GET and the normal form uses _POST
-        if (is_array($_POST['visualizationSettings'] ?? null)) {
-            /** @var mixed[] $settingsIn */
-            $settingsIn = $_POST['visualizationSettings'];
-        } elseif (is_array($_GET['visualizationSettings'] ?? null)) {
-            /** @var mixed[] $settingsIn */
-            $settingsIn = $_GET['visualizationSettings'];
+    private function getVisualizationSettings(
+        array $spatialCandidates,
+        array $labelCandidates,
+        mixed $settingsIn,
+    ): GisVisualizationSettings {
+        if (! is_array($settingsIn)) {
+            return new GisVisualizationSettings(600, 450, $spatialCandidates[0]);
         }
 
-        $settings = [];
+        $labelColumn = null;
         if (
             isset($settingsIn['labelColumn']) &&
             in_array($settingsIn['labelColumn'], $labelCandidates, true)
         ) {
-            $settings['labelColumn'] = $settingsIn['labelColumn'];
+            $labelColumn = $settingsIn['labelColumn'];
         }
 
         // If spatial column is not set, use first geometric column as spatial column
-        $spatialColumnValid = isset($settingsIn['spatialColumn']) &&
-            in_array($settingsIn['spatialColumn'], $spatialCandidates, true);
-        $settings['spatialColumn'] = $spatialColumnValid ? $settingsIn['spatialColumn'] : $spatialCandidates[0];
+        $spatialColumn = $spatialCandidates[array_search(
+            $settingsIn['spatialColumn'] ?? null,
+            $spatialCandidates,
+            true,
+        )];
 
-        return $settings;
+        return new GisVisualizationSettings(600, 450, $spatialColumn, $labelColumn);
     }
 
     private function getPos(): int

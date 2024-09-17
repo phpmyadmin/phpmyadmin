@@ -4126,11 +4126,6 @@ parameters:
 			path: src/Controllers/Table/GisVisualizationController.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\GisVisualizationController\\:\\:getVisualizationSettings\\(\\) should return array\\{spatialColumn\\: non\\-empty\\-string, labelColumn\\?\\: non\\-empty\\-string\\} but returns array\\{labelColumn\\?\\: non\\-empty\\-string, spatialColumn\\: mixed\\}\\.$#"
-			count: 1
-			path: src/Controllers/Table/GisVisualizationController.php
-
-		-
 			message: "#^Parameter \\#2 \\$format of method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:toFile\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/GisVisualizationController.php
@@ -6296,12 +6291,7 @@ parameters:
 			path: src/Dbal/MysqliResult.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:getFieldNames\\(\\) should return array\\<int, non\\-empty\\-string\\> but returns array\\<int, string\\>\\.$#"
-			count: 1
-			path: src/Dbal/MysqliResult.php
-
-		-
-			message: "#^Parameter \\#1 \\$field of class PhpMyAdmin\\\\FieldMetadata constructor expects object\\{name\\: non\\-empty\\-string, orgname\\: string, table\\: string, orgtable\\: string, max_length\\: int, length\\: int, charsetnr\\: int, flags\\: int, type\\: int, decimals\\: int, db\\: string, def\\: string, catalog\\: string\\}, object\\{name\\: string, orgname\\: string, table\\: string, orgtable\\: string, def\\: string, db\\: string, catalog\\: 'def', max_length\\: 0, length\\: int, charsetnr\\: string, flags\\: int, type\\: int, decimals\\: int\\}&stdClass given\\.$#"
+			message: "#^Parameter \\#1 \\$field of class PhpMyAdmin\\\\FieldMetadata constructor expects object\\{name\\: string, orgname\\: string, table\\: string, orgtable\\: string, max_length\\: int, length\\: int, charsetnr\\: int, flags\\: int, type\\: int, decimals\\: int, db\\: string, def\\: string, catalog\\: string\\}, object\\{name\\: string, orgname\\: string, table\\: string, orgtable\\: string, def\\: string, db\\: string, catalog\\: string, max_length\\: int, length\\: int, charsetnr\\: string, flags\\: int, type\\: int, decimals\\: int\\}&stdClass given\\.$#"
 			count: 1
 			path: src/Dbal/MysqliResult.php
 
@@ -6701,7 +6691,7 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$name \\(non\\-empty\\-string\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Display/Results.php
 
@@ -9221,12 +9211,12 @@ parameters:
 			path: src/Plugins.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:getProperties\\(\\)\\.$#"
+			message: "#^Call to function method_exists\\(\\) with PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem and 'getText' will always evaluate to true\\.$#"
 			count: 1
 			path: src/Plugins.php
 
 		-
-			message: "#^Call to function method_exists\\(\\) with PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem and 'getText' will always evaluate to true\\.$#"
+			message: "#^Cannot call method getProperties\\(\\) on mixed\\.$#"
 			count: 1
 			path: src/Plugins.php
 
@@ -9267,6 +9257,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$replace of function str_replace expects array\\|string, mixed given\\.$#"
+			count: 1
+			path: src/Plugins.php
+
+		-
+			message: "#^Parameter \\#3 \\$propertyGroup of static method PhpMyAdmin\\\\Plugins\\:\\:getOneOption\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, mixed given\\.$#"
 			count: 1
 			path: src/Plugins.php
 
@@ -9546,13 +9541,8 @@ parameters:
 			path: src/Plugins/Export/ExportCsv.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 1
+			count: 2
 			path: src/Plugins/Export/ExportCsv.php
 
 		-
@@ -9596,13 +9586,8 @@ parameters:
 			path: src/Plugins/Export/ExportHtmlword.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportHtmlword.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 5
+			count: 6
 			path: src/Plugins/Export/ExportHtmlword.php
 
 		-
@@ -9656,13 +9641,8 @@ parameters:
 			path: src/Plugins/Export/ExportLatex.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 3
+			count: 4
 			path: src/Plugins/Export/ExportLatex.php
 
 		-
@@ -9736,13 +9716,8 @@ parameters:
 			path: src/Plugins/Export/ExportOds.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportOds.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 1
+			count: 2
 			path: src/Plugins/Export/ExportOds.php
 
 		-
@@ -9796,13 +9771,8 @@ parameters:
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 5
+			count: 6
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
@@ -9876,13 +9846,8 @@ parameters:
 			path: src/Plugins/Export/ExportPhparray.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportPhparray.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 1
+			count: 2
 			path: src/Plugins/Export/ExportPhparray.php
 
 		-
@@ -9986,13 +9951,8 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 9
+			count: 10
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -10181,13 +10141,8 @@ parameters:
 			path: src/Plugins/Export/ExportTexytext.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportTexytext.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 5
+			count: 6
 			path: src/Plugins/Export/ExportTexytext.php
 
 		-
@@ -10231,13 +10186,8 @@ parameters:
 			path: src/Plugins/Export/ExportXml.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 1
+			count: 2
 			path: src/Plugins/Export/ExportXml.php
 
 		-
@@ -10276,13 +10226,8 @@ parameters:
 			path: src/Plugins/Export/ExportYaml.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportYaml.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 1
+			count: 2
 			path: src/Plugins/Export/ExportYaml.php
 
 		-
@@ -10331,13 +10276,8 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 1
+			count: 2
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -14248,6 +14188,26 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$by of static method Facebook\\\\WebDriver\\\\WebDriverExpectedCondition\\:\\:visibilityOfElementLocated\\(\\) expects Facebook\\\\WebDriver\\\\WebDriverBy, mixed given\\.$#"
 			count: 1
+			path: tests/end-to-end/TestBase.php
+
+		-
+			message: "#^Parameter \\#1 \\$handle of function curl_errno expects CurlHandle, \\(CurlHandle\\|false\\) given\\.$#"
+			count: 2
+			path: tests/end-to-end/TestBase.php
+
+		-
+			message: "#^Parameter \\#1 \\$handle of function curl_error expects CurlHandle, \\(CurlHandle\\|false\\) given\\.$#"
+			count: 3
+			path: tests/end-to-end/TestBase.php
+
+		-
+			message: "#^Parameter \\#1 \\$handle of function curl_exec expects CurlHandle, \\(CurlHandle\\|false\\) given\\.$#"
+			count: 2
+			path: tests/end-to-end/TestBase.php
+
+		-
+			message: "#^Parameter \\#1 \\$handle of function curl_setopt expects CurlHandle, \\(CurlHandle\\|false\\) given\\.$#"
+			count: 9
 			path: tests/end-to-end/TestBase.php
 
 		-
