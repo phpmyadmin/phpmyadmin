@@ -4126,11 +4126,6 @@ parameters:
 			path: src/Controllers/Table/GisVisualizationController.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\GisVisualizationController\\:\\:getVisualizationSettings\\(\\) should return array\\{spatialColumn\\: string, labelColumn\\?\\: string\\} but returns array\\{labelColumn\\?\\: string, spatialColumn\\: mixed\\}\\.$#"
-			count: 1
-			path: src/Controllers/Table/GisVisualizationController.php
-
-		-
 			message: "#^Parameter \\#2 \\$format of method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:toFile\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/GisVisualizationController.php

@@ -225,9 +225,14 @@ final class GisVisualizationController implements InvocableController
         }
 
         // If spatial column is not set, use first geometric column as spatial column
-        $spatialColumnValid = isset($settingsIn['spatialColumn']) &&
-            in_array($settingsIn['spatialColumn'], $spatialCandidates, true);
-        $settings['spatialColumn'] = $spatialColumnValid ? $settingsIn['spatialColumn'] : $spatialCandidates[0];
+        if (
+            isset($settingsIn['spatialColumn']) &&
+            in_array($settingsIn['spatialColumn'], $spatialCandidates, true)
+        ) {
+            $settings['spatialColumn'] = $settingsIn['spatialColumn'];
+        } else {
+            $settings['spatialColumn'] = $spatialCandidates[0];
+        }
 
         return $settings;
     }
