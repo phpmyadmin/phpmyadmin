@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-09-15 00:24+0000\n"
-"PO-Revision-Date: 2024-09-14 20:10+0000\n"
+"PO-Revision-Date: 2024-09-18 11:41+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
@@ -13874,43 +13874,36 @@ msgid "May"
 msgstr "May"
 
 #: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:499
-#, fuzzy
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Jun"
 
 #: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:500
-#, fuzzy
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Jul"
 
 #: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:501
-#, fuzzy
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Aug"
 
 #: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:502
-#, fuzzy
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Sep"
 
 #: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:503
-#, fuzzy
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Oct"
 
 #: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:504
-#, fuzzy
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Nov"
 
 #: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:505
-#, fuzzy
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Dec"
@@ -13921,147 +13914,123 @@ msgid "Sun"
 msgstr "Sun"
 
 #: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:509
-#, fuzzy
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Mon"
 
 #: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:510
-#, fuzzy
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Tue"
 
 #: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:511
-#, fuzzy
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Wed"
 
 #: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:512
-#, fuzzy
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Thu"
 
 #: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:513
-#, fuzzy
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Fri"
 
 #: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:514
-#, fuzzy
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Sat"
 
 #: src/Controllers/JavaScriptMessagesController.php:758
-#, fuzzy
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Su"
 
 #: src/Controllers/JavaScriptMessagesController.php:759
-#, fuzzy
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Mo"
 
 #: src/Controllers/JavaScriptMessagesController.php:760
-#, fuzzy
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Tu"
 
 #: src/Controllers/JavaScriptMessagesController.php:761
-#, fuzzy
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "We"
 
 #: src/Controllers/JavaScriptMessagesController.php:762
-#, fuzzy
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Th"
 
 #: src/Controllers/JavaScriptMessagesController.php:763
-#, fuzzy
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Fr"
 
 #: src/Controllers/JavaScriptMessagesController.php:764
-#, fuzzy
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Sa"
 
 #: src/Controllers/JavaScriptMessagesController.php:765
-#, fuzzy
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "Wk"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
 #: src/Controllers/JavaScriptMessagesController.php:767
-#, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #: src/Controllers/JavaScriptMessagesController.php:768
-#, fuzzy
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "none"
 
 #: src/Controllers/JavaScriptMessagesController.php:769
-#, fuzzy
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Time"
 
 #: src/Controllers/JavaScriptMessagesController.php:770
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Hour"
 
 #: src/Controllers/JavaScriptMessagesController.php:771
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Minute"
 
 #: src/Controllers/JavaScriptMessagesController.php:772
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Second"
 
 #: src/Controllers/JavaScriptMessagesController.php:773
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Millisecond"
-msgstr "seconds"
+msgstr "Millisecond"
 
 #: src/Controllers/JavaScriptMessagesController.php:774
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Microsecond"
-msgstr "per second"
+msgstr "Microsecond"
 
 #: src/Controllers/JavaScriptMessagesController.php:775
-#, fuzzy
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
-msgstr "Timeline"
+msgstr "Time zone"
 
 #. l10n: Display text for previous month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:779
-#, fuzzy
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Prev"
@@ -14163,13 +14132,10 @@ msgstr ""
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 
 #: src/Controllers/JavaScriptMessagesController.php:813
-#, fuzzy
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
+"The file being uploaded is probably larger than the maximum allowed size."
 
 #: src/Controllers/JavaScriptMessagesController.php:815
 #, php-format
@@ -15025,9 +14991,8 @@ msgid "The number of threads that are not sleeping."
 msgstr "The number of threads that are not sleeping."
 
 #: src/Controllers/Server/UserGroupsFormController.php:53
-#, fuzzy
 msgid "User groups management is not enabled."
-msgstr "The query cache is not enabled."
+msgstr "User groups management is not enabled."
 
 #: src/Controllers/Server/Variables/SetVariableController.php:81
 msgid "Setting variable failed"
@@ -15140,11 +15105,11 @@ msgid "No column selected."
 msgstr "No column selected."
 
 #: src/Controllers/Table/DropColumnController.php:67
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "%1$d database has been dropped successfully."
-msgstr[1] "%1$d databases have been dropped successfully."
+msgstr[0] "%1$d column has been dropped successfully."
+msgstr[1] "%1$d columns have been dropped successfully."
 
 #: src/Controllers/Table/GetFieldController.php:55
 msgid "Invalid table name"
@@ -15163,9 +15128,8 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returned an empty result set (i.e. zero rows)."
 
 #: src/Controllers/Table/GisVisualizationController.php:102
-#, fuzzy
 msgid "No spatial column found for this SQL query."
-msgstr "Not used for this MySQL version."
+msgstr "No spatial column found for this SQL query."
 
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:65
 #: src/Controllers/Table/Maintenance/CheckController.php:65
@@ -15203,9 +15167,8 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Row: %1$s, Column: %2$s, Error: %3$s"
 
 #: src/Controllers/Table/Structure/AddKeyController.php:23
-#, fuzzy
 msgid "Invalid request parameter."
-msgstr "Invalid request sent to security key."
+msgstr "Invalid request parameter."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:80
 msgid "The columns have been moved successfully."
@@ -16134,9 +16097,8 @@ msgid "The database name cannot be longer than %d characters."
 msgstr "The database name cannot be longer than %d characters."
 
 #: src/Identifiers/InvalidDatabaseName.php:25
-#, fuzzy
 msgid "The database name cannot end with a space character."
-msgstr "Words are separated by a space character (\" \")."
+msgstr "The database name cannot end with a space character."
 
 #: src/Identifiers/InvalidTableName.php:14
 msgid "The table name must be a non-empty string."
@@ -16148,9 +16110,8 @@ msgid "The table name cannot be longer than %d characters."
 msgstr "The table name cannot be longer than %d characters."
 
 #: src/Identifiers/InvalidTableName.php:25
-#, fuzzy
 msgid "The table name cannot end with a space character."
-msgstr "Words are separated by a space character (\" \")."
+msgstr "The table name cannot end with a space character."
 
 #: src/Identifiers/InvalidTriggerName.php:14
 msgid "The trigger name must not be empty."
@@ -16162,18 +16123,16 @@ msgid "The trigger name cannot be longer than %d characters."
 msgstr "The trigger name cannot be longer than %d characters."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
 msgid "The trigger name cannot end with a space character."
-msgstr "Words are separated by a space character (\" \")."
+msgstr "The trigger name cannot end with a space character."
 
 #: src/Import/Import.php:947
-#, fuzzy
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
-"Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
-"engine tables can be rolled back."
+"Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
+"SQL queries containing transactional engine tables can be rolled back."
 
 #: src/Import/Import.php:1169
 #, php-format
@@ -16414,9 +16373,8 @@ msgid "New"
 msgstr "New"
 
 #: src/Navigation/Nodes/NodeTrigger.php:24
-#, fuzzy
 msgid "Trigger"
-msgstr "Triggers"
+msgstr "Trigger"
 
 #: src/Navigation/Nodes/NodeViewContainer.php:32
 msgctxt "Create new view"
@@ -16771,9 +16729,8 @@ msgid "Your session has expired. Please log in again."
 msgstr "Your session has expired. Please log in again."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:241
-#, fuzzy
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
-msgstr "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
+msgstr "Missing Captcha verification, maybe it has been blocked by adblock?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:276
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -17505,7 +17462,6 @@ msgstr ""
 "need to set the first option to the empty string."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
-#, fuzzy
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -17521,13 +17477,13 @@ msgstr ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
 "default is Tidy, to pretty-print HTML code. For security reasons, you have "
-"to manually edit the file libraries/classes/Plugins/Transformations/Abs/"
+"to manually edit the file src/Plugins/Transformations/Abs/"
 "ExternalTransformationsPlugin.php and list the tools you want to make "
 "available. The first option is then the number of the program you want to "
 "use. The second option should be blank for historical reasons. The third "
-"option, if set to 1, will convert the output using htmlspecialchars() "
-"(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-"ensure that the output appears all on one line (Default 1)."
+"option, if set to 1, will convert the output using htmlspecialchars() ("
+"Default 1). The fourth option, if set to 1, will prevent wrapping and ensure "
+"that the output appears all on one line (Default 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
@@ -17715,12 +17671,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Hardware Sicherheitsschlüssel (FIDO U2F)"
 
 #: src/Plugins/TwoFactor/Key.php:211
-#, fuzzy
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
-"Provides authentication using hardware security tokens supporting FIDO U2F."
+"Provides authentication using hardware security tokens supporting FIDO U2F, "
+"such as a YubiKey."
 
 #: src/Plugins/TwoFactorPlugin.php:57
 #, php-format
@@ -17752,12 +17708,12 @@ msgid "Hardware Security Key (WebAuthn/FIDO2)"
 msgstr "Hardware Security Key (WebAuthn/FIDO2)"
 
 #: src/Plugins/TwoFactor/WebAuthn.php:182
-#, fuzzy
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
-"Provides authentication using hardware security tokens supporting FIDO U2F."
+"Provides authentication using hardware security tokens supporting the "
+"WebAuthn/FIDO2 protocol, such as a YubiKey."
 
 #: src/Query/Utilities.php:93
 msgid ""
@@ -17839,9 +17795,9 @@ msgid "Unable to change primary!"
 msgstr "Unable to change primary!"
 
 #: src/Replication/ReplicationGui.php:518
-#, fuzzy, php-format
+#, php-format
 msgid "Primary server changed successfully to %s."
-msgstr "Master server changed successfully to %s."
+msgstr "Primary server changed successfully to %s."
 
 #: src/Routing/Routing.php:124
 #, php-format
@@ -18639,9 +18595,8 @@ msgstr ""
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 
 #: src/Types.php:326
-#, fuzzy
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "Stores a Universally Unique Identifier (UUID)"
+msgstr "128-bit UUID (Universally Unique Identifier)"
 
 #: src/Types.php:650
 msgctxt "numeric types"
