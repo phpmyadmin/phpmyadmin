@@ -16,7 +16,6 @@ use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 use TCPDF;
-use Webmozart\Assert\Assert;
 
 use function assert;
 use function count;
@@ -106,10 +105,10 @@ class GisVisualization
      * @param int                           $rows     number of rows
      * @param int                           $pos      start position
      * @psalm-param array{
-     *   spatialColumn: non-empty-string,
-     *   labelColumn?: non-empty-string|null,
-     *   width: int,
-     *   height: int,
+     *   spatialColumn: string,
+     *   labelColumn?: string,
+     *   width: positive-int,
+     *   height: positive-int,
      * } $options
      */
     public static function get(string $sqlQuery, array $options, int $rows, int $pos): GisVisualization
@@ -120,14 +119,14 @@ class GisVisualization
     /**
      * Get visualization
      *
-     * @param mixed[][]                     $data    Raw data, if set, parameters other
-     *                                               than $options will be ignored
-     * @param array<string,string|int|null> $options Users specified options
+     * @param mixed[][]                $data    Raw data, if set, parameters other
+     *                                          than $options will be ignored
+     * @param array<string,string|int> $options Users specified options
      * @psalm-param array{
-     *     spatialColumn: non-empty-string,
-     *     labelColumn?: non-empty-string|null,
-     *     width: int,
-     *     height: int,
+     *     spatialColumn: string,
+     *     labelColumn?: string,
+     *     width: positive-int,
+     *     height: positive-int,
      * } $options
      */
     public static function getByData(array $data, array $options): GisVisualization
@@ -152,12 +151,18 @@ class GisVisualization
     /**
      * Stores user specified options.
      *
-     * @param mixed[][]|string    $sqlOrData SQL to fetch raw data for visualization
-     *                                       or an array with data.
-     *                                       If it is an array row and pos are ignored
-     * @param array<string,mixed> $options   Users specified options
-     * @param int                 $rows      Number of rows
-     * @param int                 $pos       Start position
+     * @param mixed[][]|string         $sqlOrData SQL to fetch raw data for visualization
+     *                                            or an array with data.
+     *                                            If it is an array row and pos are ignored
+     * @param array<string,string|int> $options   Users specified options
+     * @param int                      $rows      Number of rows
+     * @param int                      $pos       Start position
+     * @psalm-param array{
+     *   spatialColumn: string,
+     *   labelColumn?: string,
+     *   width: positive-int,
+     *   height: positive-int,
+     * } $options
      */
     private function __construct(
         array|string $sqlOrData,
@@ -165,21 +170,13 @@ class GisVisualization
         private int $rows = 0,
         private int $pos = 0,
     ) {
-        $width = $options['width'] ?? null;
-        Assert::positiveInteger($width);
-        $this->width = $width;
+        $this->width = $options['width'];
 
-        $height = $options['height'] ?? null;
-        Assert::positiveInteger($height);
-        $this->height = $height;
+        $this->height = $options['height'];
 
-        $spatialColumn = $options['spatialColumn'] ?? null;
-        Assert::stringNotEmpty($spatialColumn);
-        $this->spatialColumn = $spatialColumn;
+        $this->spatialColumn = $options['spatialColumn'];
 
-        $labelColumn = $options['labelColumn'] ?? null;
-        Assert::nullOrStringNotEmpty($labelColumn);
-        $this->labelColumn = $labelColumn;
+        $this->labelColumn = $options['labelColumn'] ?? null;
 
         $this->data = is_string($sqlOrData)
             ? $this->modifyQueryAndFetch($sqlOrData)

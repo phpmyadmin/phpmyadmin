@@ -198,11 +198,11 @@ final class GisVisualizationController implements InvocableController
     /**
      * @param string[] $spatialCandidates
      * @param string[] $labelCandidates
-     * @psalm-param non-empty-list<non-empty-string> $spatialCandidates
-     * @psalm-param list<non-empty-string> $labelCandidates
+     * @psalm-param non-empty-list<string> $spatialCandidates
+     * @psalm-param list<string> $labelCandidates
      *
-     * @return mixed[];
-     * @psalm-return array{spatialColumn:non-empty-string,labelColumn?:non-empty-string}
+     * @return string[]
+     * @psalm-return array{spatialColumn:string,labelColumn?:string}
      */
     private function getVisualizationSettings(array $spatialCandidates, array $labelCandidates): array
     {

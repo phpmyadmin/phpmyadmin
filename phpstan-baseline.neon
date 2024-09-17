@@ -4126,7 +4126,7 @@ parameters:
 			path: src/Controllers/Table/GisVisualizationController.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\GisVisualizationController\\:\\:getVisualizationSettings\\(\\) should return array\\{spatialColumn\\: non\\-empty\\-string, labelColumn\\?\\: non\\-empty\\-string\\} but returns array\\{labelColumn\\?\\: non\\-empty\\-string, spatialColumn\\: mixed\\}\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\GisVisualizationController\\:\\:getVisualizationSettings\\(\\) should return array\\{spatialColumn\\: string, labelColumn\\?\\: string\\} but returns array\\{labelColumn\\?\\: string, spatialColumn\\: mixed\\}\\.$#"
 			count: 1
 			path: src/Controllers/Table/GisVisualizationController.php
 
@@ -6296,7 +6296,7 @@ parameters:
 			path: src/Dbal/MysqliResult.php
 
 		-
-			message: "#^Parameter \\#1 \\$field of class PhpMyAdmin\\\\FieldMetadata constructor expects object\\{name\\: non\\-empty\\-string, orgname\\: string, table\\: string, orgtable\\: string, max_length\\: int, length\\: int, charsetnr\\: int, flags\\: int, type\\: int, decimals\\: int, db\\: string, def\\: string, catalog\\: string\\}, object\\{name\\: string, orgname\\: string, table\\: string, orgtable\\: string, def\\: string, db\\: string, catalog\\: 'def', max_length\\: 0, length\\: int, charsetnr\\: string, flags\\: int, type\\: int, decimals\\: int\\}&stdClass given\\.$#"
+			message: "#^Parameter \\#1 \\$field of class PhpMyAdmin\\\\FieldMetadata constructor expects object\\{name\\: string, orgname\\: string, table\\: string, orgtable\\: string, max_length\\: int, length\\: int, charsetnr\\: int, flags\\: int, type\\: int, decimals\\: int, db\\: string, def\\: string, catalog\\: string\\}, object\\{name\\: string, orgname\\: string, table\\: string, orgtable\\: string, def\\: string, db\\: string, catalog\\: string, max_length\\: int, length\\: int, charsetnr\\: string, flags\\: int, type\\: int, decimals\\: int\\}&stdClass given\\.$#"
 			count: 1
 			path: src/Dbal/MysqliResult.php
 
@@ -6696,7 +6696,7 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$name \\(non\\-empty\\-string\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Display/Results.php
 
@@ -9721,13 +9721,8 @@ parameters:
 			path: src/Plugins/Export/ExportOds.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportOds.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 1
+			count: 2
 			path: src/Plugins/Export/ExportOds.php
 
 		-
@@ -9781,13 +9776,8 @@ parameters:
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 5
+			count: 6
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
@@ -9966,13 +9956,8 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 9
+			count: 10
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -10246,13 +10231,8 @@ parameters:
 			path: src/Plugins/Export/ExportYaml.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportYaml.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 1
+			count: 2
 			path: src/Plugins/Export/ExportYaml.php
 
 		-
@@ -10301,13 +10281,8 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 1
+			count: 2
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-

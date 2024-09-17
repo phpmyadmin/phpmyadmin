@@ -5214,9 +5214,6 @@
     </DeprecatedMethod>
   </file>
   <file src="src/Dbal/MysqliResult.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$field]]></code>
-    </ArgumentTypeCoercion>
     <InvalidReturnStatement>
       <code><![CDATA[$this->result->fetch_all(MYSQLI_ASSOC)]]></code>
       <code><![CDATA[is_array($row) ? $row : []]]></code>
