@@ -5227,18 +5227,12 @@
       <code><![CDATA[list<array<array-key, string|null>>]]></code>
       <code><![CDATA[list<string|null>]]></code>
     </InvalidReturnType>
-    <LessSpecificReturnStatement>
-      <code><![CDATA[array_column($this->result->fetch_fields(), 'name')]]></code>
-    </LessSpecificReturnStatement>
     <MixedReturnTypeCoercion>
       <code><![CDATA[array<array-key, string|null>]]></code>
       <code><![CDATA[array_column($result, $column)]]></code>
       <code><![CDATA[array_column($this->result->fetch_all(), 1, 0)]]></code>
       <code><![CDATA[list<string|null>]]></code>
     </MixedReturnTypeCoercion>
-    <MoreSpecificReturnType>
-      <code><![CDATA[list<non-empty-string>]]></code>
-    </MoreSpecificReturnType>
   </file>
   <file src="src/Display/Results.php">
     <InvalidArgument>

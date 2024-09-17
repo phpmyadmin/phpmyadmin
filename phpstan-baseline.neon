@@ -6296,11 +6296,6 @@ parameters:
 			path: src/Dbal/MysqliResult.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:getFieldNames\\(\\) should return array\\<int, non\\-empty\\-string\\> but returns array\\<int, string\\>\\.$#"
-			count: 1
-			path: src/Dbal/MysqliResult.php
-
-		-
 			message: "#^Parameter \\#1 \\$field of class PhpMyAdmin\\\\FieldMetadata constructor expects object\\{name\\: non\\-empty\\-string, orgname\\: string, table\\: string, orgtable\\: string, max_length\\: int, length\\: int, charsetnr\\: int, flags\\: int, type\\: int, decimals\\: int, db\\: string, def\\: string, catalog\\: string\\}, object\\{name\\: string, orgname\\: string, table\\: string, orgtable\\: string, def\\: string, db\\: string, catalog\\: 'def', max_length\\: 0, length\\: int, charsetnr\\: string, flags\\: int, type\\: int, decimals\\: int\\}&stdClass given\\.$#"
 			count: 1
 			path: src/Dbal/MysqliResult.php
@@ -9551,13 +9546,8 @@ parameters:
 			path: src/Plugins/Export/ExportCsv.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 1
+			count: 2
 			path: src/Plugins/Export/ExportCsv.php
 
 		-
@@ -9601,13 +9591,8 @@ parameters:
 			path: src/Plugins/Export/ExportHtmlword.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportHtmlword.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 5
+			count: 6
 			path: src/Plugins/Export/ExportHtmlword.php
 
 		-
@@ -9661,13 +9646,8 @@ parameters:
 			path: src/Plugins/Export/ExportLatex.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 3
+			count: 4
 			path: src/Plugins/Export/ExportLatex.php
 
 		-
@@ -9881,13 +9861,8 @@ parameters:
 			path: src/Plugins/Export/ExportPhparray.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportPhparray.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 1
+			count: 2
 			path: src/Plugins/Export/ExportPhparray.php
 
 		-
@@ -10186,13 +10161,8 @@ parameters:
 			path: src/Plugins/Export/ExportTexytext.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportTexytext.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 5
+			count: 6
 			path: src/Plugins/Export/ExportTexytext.php
 
 		-
@@ -10236,13 +10206,8 @@ parameters:
 			path: src/Plugins/Export/ExportXml.php
 
 		-
-			message: "#^Cannot access offset non\\-empty\\-string on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 1
+			count: 2
 			path: src/Plugins/Export/ExportXml.php
 
 		-
