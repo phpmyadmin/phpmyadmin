@@ -9221,12 +9221,12 @@ parameters:
 			path: src/Plugins.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:getProperties\\(\\)\\.$#"
+			message: "#^Call to function method_exists\\(\\) with PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem and 'getText' will always evaluate to true\\.$#"
 			count: 1
 			path: src/Plugins.php
 
 		-
-			message: "#^Call to function method_exists\\(\\) with PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem and 'getText' will always evaluate to true\\.$#"
+			message: "#^Cannot call method getProperties\\(\\) on mixed\\.$#"
 			count: 1
 			path: src/Plugins.php
 
@@ -9267,6 +9267,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$replace of function str_replace expects array\\|string, mixed given\\.$#"
+			count: 1
+			path: src/Plugins.php
+
+		-
+			message: "#^Parameter \\#3 \\$propertyGroup of static method PhpMyAdmin\\\\Plugins\\:\\:getOneOption\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, mixed given\\.$#"
 			count: 1
 			path: src/Plugins.php
 
@@ -14248,6 +14253,26 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$by of static method Facebook\\\\WebDriver\\\\WebDriverExpectedCondition\\:\\:visibilityOfElementLocated\\(\\) expects Facebook\\\\WebDriver\\\\WebDriverBy, mixed given\\.$#"
 			count: 1
+			path: tests/end-to-end/TestBase.php
+
+		-
+			message: "#^Parameter \\#1 \\$handle of function curl_errno expects CurlHandle, \\(CurlHandle\\|false\\) given\\.$#"
+			count: 2
+			path: tests/end-to-end/TestBase.php
+
+		-
+			message: "#^Parameter \\#1 \\$handle of function curl_error expects CurlHandle, \\(CurlHandle\\|false\\) given\\.$#"
+			count: 3
+			path: tests/end-to-end/TestBase.php
+
+		-
+			message: "#^Parameter \\#1 \\$handle of function curl_exec expects CurlHandle, \\(CurlHandle\\|false\\) given\\.$#"
+			count: 2
+			path: tests/end-to-end/TestBase.php
+
+		-
+			message: "#^Parameter \\#1 \\$handle of function curl_setopt expects CurlHandle, \\(CurlHandle\\|false\\) given\\.$#"
+			count: 9
 			path: tests/end-to-end/TestBase.php
 
 		-

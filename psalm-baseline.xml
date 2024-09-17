@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.25.0@01a8eb06b9e9cc6cfb6a320bf9fb14331919d505">
+<files psalm-version="5.26.1@d747f6500b38ac4f7dfc5edbcae6e4b637d7add0">
   <file src="app/services_loader.php">
     <MixedArgument>
       <code><![CDATA[$argumentName]]></code>
@@ -5214,6 +5214,9 @@
     </DeprecatedMethod>
   </file>
   <file src="src/Dbal/MysqliResult.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$field]]></code>
+    </ArgumentTypeCoercion>
     <InvalidReturnStatement>
       <code><![CDATA[$this->result->fetch_all(MYSQLI_ASSOC)]]></code>
       <code><![CDATA[is_array($row) ? $row : []]]></code>
@@ -5224,12 +5227,18 @@
       <code><![CDATA[list<array<array-key, string|null>>]]></code>
       <code><![CDATA[list<string|null>]]></code>
     </InvalidReturnType>
+    <LessSpecificReturnStatement>
+      <code><![CDATA[array_column($this->result->fetch_fields(), 'name')]]></code>
+    </LessSpecificReturnStatement>
     <MixedReturnTypeCoercion>
       <code><![CDATA[array<array-key, string|null>]]></code>
       <code><![CDATA[array_column($result, $column)]]></code>
       <code><![CDATA[array_column($this->result->fetch_all(), 1, 0)]]></code>
       <code><![CDATA[list<string|null>]]></code>
     </MixedReturnTypeCoercion>
+    <MoreSpecificReturnType>
+      <code><![CDATA[list<non-empty-string>]]></code>
+    </MoreSpecificReturnType>
   </file>
   <file src="src/Display/Results.php">
     <InvalidArgument>
