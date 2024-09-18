@@ -33,6 +33,12 @@
           <input class="form-check-input" type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio5" value="5"{{ criteria_search_type == '5' ? ' checked' }}>
           <label class="form-check-label" for="criteriaSearchTypeRadio5">{{ t('as regular expression') }} {{ show_mysql_docu('Regexp') }}</label>
         </div>
+        <legend>{{ t('Options:') }}</legend>
+        <div class="form-check">
+          <input class="form-check-input" value='0' type="hidden" name="criteriaSearchOptionIncludeHex" id="criteriaSearchOptionHidden1">
+          <input class="form-check-input" value='1' type="checkbox" name="criteriaSearchOptionIncludeHex" id="criteriaSearchOptionCheckbox1" {{ criteria_search_options_include_hex ? ' checked' }}>
+          <label class="form-check-label" for="criteriaSearchOptionCheckbox1">{{ t('include hex matches') }} {{ show_mysql_docu('string-functions',false,null,null,'function_hex') }}</label>
+        </div>
       </fieldset>
 
       <fieldset class="mb-3">

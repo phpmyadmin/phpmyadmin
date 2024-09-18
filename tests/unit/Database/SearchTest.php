@@ -64,14 +64,16 @@ class SearchTest extends AbstractTestCase
     /**
      * Test for generating where clause for different search types
      *
-     * @param string $type     type
-     * @param string $expected expected result
+     * @param string $type       type
+     * @param string $includeHex includeHex
+     * @param string $expected   expected
      */
-    #[DataProvider('searchTypes')]
-    public function testGetWhereClause(string $type, string $expected): void
+    #[DataProvider('searchTypesAndOptions')]
+    public function testGetWhereClause(string $type, string $includeHex, string $expected): void
     {
         $_POST['criteriaSearchType'] = $type;
         $_POST['criteriaSearchString'] = 'search string';
+        $_POST['criteriaSearchOptionIncludeHex'] = $includeHex;
 
         $this->object = new Search(DatabaseInterface::getInstance(), 'pma_test', new Template());
         self::assertSame(
@@ -88,13 +90,14 @@ class SearchTest extends AbstractTestCase
     /**
      * Data provider for testGetWhereClause
      *
-     * @return array<array{string, string}>
+     * @return array<array<string>>
      */
-    public static function searchTypes(): array
+    public static function searchTypesAndOptions(): array
     {
         return [
             [
                 '1',
+                '0',
                 " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%'"
                 . " OR CONVERT(`column2` USING utf8) LIKE '%search%') "
                 . " OR  (CONVERT(`column1` USING utf8) LIKE '%string%'"
@@ -102,6 +105,7 @@ class SearchTest extends AbstractTestCase
             ],
             [
                 '2',
+                '0',
                 " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%'"
                 . " OR CONVERT(`column2` USING utf8) LIKE '%search%') "
                 . " AND  (CONVERT(`column1` USING utf8) LIKE '%string%'"
@@ -109,18 +113,70 @@ class SearchTest extends AbstractTestCase
             ],
             [
                 '3',
+                '0',
                 " WHERE (CONVERT(`column1` USING utf8) LIKE '%search string%'"
                 . " OR CONVERT(`column2` USING utf8) LIKE '%search string%')",
             ],
             [
                 '4',
+                '0',
                 " WHERE (CONVERT(`column1` USING utf8) LIKE 'search string'"
                 . " OR CONVERT(`column2` USING utf8) LIKE 'search string')",
             ],
             [
                 '5',
+                '0',
                 " WHERE (CONVERT(`column1` USING utf8) REGEXP 'search string'"
                 . " OR CONVERT(`column2` USING utf8) REGEXP 'search string')",
+            ],
+            [
+                '1',
+                '1',
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%'"
+                . " OR HEX(`column1`) LIKE '%search%'"
+                . " OR CONVERT(`column2` USING utf8) LIKE '%search%'"
+                . " OR HEX(`column2`) LIKE '%search%') "
+                . " OR  (CONVERT(`column1` USING utf8) LIKE '%string%'"
+                . " OR HEX(`column1`) LIKE '%string%'"
+                . " OR CONVERT(`column2` USING utf8) LIKE '%string%'"
+                . " OR HEX(`column2`) LIKE '%string%')",
+            ],
+            [
+                '2',
+                '1',
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%'"
+                . " OR HEX(`column1`) LIKE '%search%'"
+                . " OR CONVERT(`column2` USING utf8) LIKE '%search%'"
+                . " OR HEX(`column2`) LIKE '%search%') "
+                . " AND  (CONVERT(`column1` USING utf8) LIKE '%string%'"
+                . " OR HEX(`column1`) LIKE '%string%'"
+                . " OR CONVERT(`column2` USING utf8) LIKE '%string%'"
+                . " OR HEX(`column2`) LIKE '%string%')",
+            ],
+            [
+                '3',
+                '1',
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search string%'"
+                . " OR HEX(`column1`) LIKE '%search string%'"
+                . " OR CONVERT(`column2` USING utf8) LIKE '%search string%'"
+                . " OR HEX(`column2`) LIKE '%search string%')",
+                'on',
+            ],
+            [
+                '4',
+                '1',
+                " WHERE (CONVERT(`column1` USING utf8) LIKE 'search string'"
+                . " OR HEX(`column1`) LIKE 'search string'"
+                . " OR CONVERT(`column2` USING utf8) LIKE 'search string'"
+                . " OR HEX(`column2`) LIKE 'search string')",
+            ],
+            [
+                '5',
+                '1',
+                " WHERE (CONVERT(`column1` USING utf8) REGEXP 'search string'"
+                . " OR HEX(`column1`) REGEXP 'search string'"
+                . " OR CONVERT(`column2` USING utf8) REGEXP 'search string'"
+                . " OR HEX(`column2`) REGEXP 'search string')",
             ],
         ];
     }

@@ -13481,7 +13481,7 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUnusedMethod>
-      <code><![CDATA[searchTypes]]></code>
+      <code><![CDATA[searchTypesAndOptions]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/DatabaseInterfaceTest.php">
