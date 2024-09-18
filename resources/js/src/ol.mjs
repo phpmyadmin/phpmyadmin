@@ -6,6 +6,7 @@ import { Tile, Vector as VectorLayer } from 'ol/layer.js';
 import { OSM, Vector as VectorSource } from 'ol/source.js';
 import { Circle, Fill, Stroke, Style, Text } from 'ol/style.js';
 import { Feature, Map, View } from 'ol';
+import { get as getProjection } from 'ol/proj.js';
 
 const ol = {
     control: {
@@ -29,7 +30,7 @@ const ol = {
     style: {
         Circle, Fill, Stroke, Style, Text
     },
-    Feature, Map, View
+    Feature, Map, View, getProjection
 };
 
 export default ol;

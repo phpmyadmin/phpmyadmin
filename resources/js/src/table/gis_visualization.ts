@@ -527,10 +527,15 @@ function getFeaturesFromOpenLayersData (geometries: any[]): any[] {
         }
 
         if (geometry.geometry.srid !== 3857) {
-            olGeometry = olGeometry.transform(
-                'EPSG:' + (geometry.geometry.srid !== 0 ? geometry.geometry.srid : 4326),
-                'EPSG:3857'
-            );
+            const source  = 'EPSG:' + (geometry.geometry.srid !== 0 ? geometry.geometry.srid : 4326);
+            const sourceProj = window.ol.getProjection(source);
+
+            if (sourceProj) {
+                olGeometry = olGeometry.transform(
+                    source,
+                    'EPSG:3857'
+                );
+            }
         }
 
         if (geometry.style.text) {
