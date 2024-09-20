@@ -18,6 +18,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey as UtilsForeignKey;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -183,18 +184,17 @@ final class RelationController implements InvocableController
         }
 
         $foreignKeyRow = '';
+        /** @var list<UtilsForeignKey> $existrelForeign */
         $existrelForeign = array_key_exists('foreign_keys_data', $relationsForeign)
             ? $relationsForeign['foreign_keys_data']
             : [];
         $i = 0;
 
         foreach ($existrelForeign as $oneKey) {
-            /** @var string $foreignDb */
-            $foreignDb = $oneKey['ref_db_name'] ?? Current::$database;
+            $foreignDb = $oneKey->refDbName ?? Current::$database;
             $foreignTable = false;
             if ($foreignDb !== '') {
-                /** @var string|false $foreignTable */
-                $foreignTable = $oneKey['ref_table_name'] ?? false;
+                $foreignTable = $oneKey->refTableName ?? false;
                 $tables = $this->relation->getTables($foreignDb, $storageEngine);
             } else {
                 $tables = $this->relation->getTables(Current::$database, $storageEngine);

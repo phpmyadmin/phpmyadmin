@@ -22,6 +22,7 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
 use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\Util;
@@ -1459,13 +1460,13 @@ class Table implements Stringable
     /**
      * Function to handle foreign key updates
      *
-     * @param mixed[]  $destinationForeignDb     destination foreign database
-     * @param mixed[]  $multiEditColumnsName     multi edit column names
-     * @param mixed[]  $destinationForeignTable  destination foreign table
-     * @param mixed[]  $destinationForeignColumn destination foreign column
-     * @param string[] $optionsArray             options array
-     * @param string   $table                    current table
-     * @param mixed[]  $existrelForeign          db, table, column
+     * @param mixed[]      $destinationForeignDb     destination foreign database
+     * @param mixed[]      $multiEditColumnsName     multi edit column names
+     * @param mixed[]      $destinationForeignTable  destination foreign table
+     * @param mixed[]      $destinationForeignColumn destination foreign column
+     * @param string[]     $optionsArray             options array
+     * @param string       $table                    current table
+     * @param ForeignKey[] $existrelForeign          db, table, column
      *
      * @return array{string, string, string, bool}
      */
@@ -1493,7 +1494,7 @@ class Table implements Stringable
             $foreignTable = $destinationForeignTable[$masterFieldMd5];
             $foreignField = $destinationForeignColumn[$masterFieldMd5];
 
-            $refDbName = $existrelForeign[$masterFieldMd5]['ref_db_name'] ?? Current::$database;
+            $refDbName = $existrelForeign[$masterFieldMd5]->refDbName ?? Current::$database;
 
             $emptyFields = false;
             foreach ($masterField as $key => $oneField) {
@@ -1513,23 +1514,19 @@ class Table implements Stringable
 
             if (! empty($foreignDb) && ! empty($foreignTable) && ! $emptyFields) {
                 if (isset($existrelForeign[$masterFieldMd5])) {
-                    $constraintName = $existrelForeign[$masterFieldMd5]['constraint'];
-                    $onDelete = ! empty(
-                        $existrelForeign[$masterFieldMd5]['on_delete']
-                    )
-                        ? $existrelForeign[$masterFieldMd5]['on_delete']
+                    $constraintName = $existrelForeign[$masterFieldMd5]->constraint;
+                    $onDelete = ! empty($existrelForeign[$masterFieldMd5]->onDelete)
+                        ? $existrelForeign[$masterFieldMd5]->onDelete
                         : 'RESTRICT';
-                    $onUpdate = ! empty(
-                        $existrelForeign[$masterFieldMd5]['on_update']
-                    )
-                        ? $existrelForeign[$masterFieldMd5]['on_update']
+                    $onUpdate = ! empty($existrelForeign[$masterFieldMd5]->onUpdate)
+                        ? $existrelForeign[$masterFieldMd5]->onUpdate
                         : 'RESTRICT';
 
                     if (
                         $refDbName != $foreignDb
-                        || $existrelForeign[$masterFieldMd5]['ref_table_name'] != $foreignTable
-                        || $existrelForeign[$masterFieldMd5]['ref_index_list'] != $foreignField
-                        || $existrelForeign[$masterFieldMd5]['index_list'] != $masterField
+                        || $existrelForeign[$masterFieldMd5]->refTableName != $foreignTable
+                        || $existrelForeign[$masterFieldMd5]->refIndexList != $foreignField
+                        || $existrelForeign[$masterFieldMd5]->indexList != $masterField
                         || $_POST['constraint_name'][$masterFieldMd5] != $constraintName
                         || ($_POST['on_delete'][$masterFieldMd5] != $onDelete)
                         || ($_POST['on_update'][$masterFieldMd5] != $onUpdate)
@@ -1550,7 +1547,7 @@ class Table implements Stringable
             if ($drop) {
                 $dropQuery = 'ALTER TABLE ' . Util::backquote($table)
                     . ' DROP FOREIGN KEY '
-                    . Util::backquote($existrelForeign[$masterFieldMd5]['constraint'])
+                    . Util::backquote($existrelForeign[$masterFieldMd5]->constraint)
                     . ';';
 
                 if (! isset($_POST['preview_sql'])) {
@@ -1620,12 +1617,12 @@ class Table implements Stringable
             $sqlQueryRecreate .= $this->getSQLToCreateForeignKey(
                 $table,
                 $masterField,
-                $existrelForeign[$masterFieldMd5]['ref_db_name'],
-                $existrelForeign[$masterFieldMd5]['ref_table_name'],
-                $existrelForeign[$masterFieldMd5]['ref_index_list'],
-                $existrelForeign[$masterFieldMd5]['constraint'],
-                $optionsArray[$existrelForeign[$masterFieldMd5]['on_delete'] ?? ''] ?? null,
-                $optionsArray[$existrelForeign[$masterFieldMd5]['on_update'] ?? ''] ?? null,
+                $existrelForeign[$masterFieldMd5]->refDbName,
+                $existrelForeign[$masterFieldMd5]->refTableName,
+                $existrelForeign[$masterFieldMd5]->refIndexList,
+                $existrelForeign[$masterFieldMd5]->constraint,
+                $optionsArray[$existrelForeign[$masterFieldMd5]->onDelete ?? ''] ?? null,
+                $optionsArray[$existrelForeign[$masterFieldMd5]->onUpdate ?? ''] ?? null,
             );
             if (! isset($_POST['preview_sql'])) {
                 $displayQuery .= $sqlQueryRecreate . "\n";

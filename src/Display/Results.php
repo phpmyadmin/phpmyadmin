@@ -26,6 +26,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\SqlParser\Utils\StatementInfo;
 use PhpMyAdmin\SqlParser\Utils\StatementType;
@@ -3493,18 +3494,19 @@ class Results
                     $rel['foreign_db'],
                 );
             } else {
+                /** @var ForeignKey $oneKey */
                 foreach ($rel as $oneKey) {
-                    foreach ($oneKey['index_list'] as $index => $oneField) {
+                    foreach ($oneKey->indexList as $index => $oneField) {
                         $displayField = $this->relation->getDisplayField(
-                            $oneKey['ref_db_name'] ?? Current::$database,
-                            $oneKey['ref_table_name'],
+                            $oneKey->refDbName ?? Current::$database,
+                            $oneKey->refTableName,
                         );
 
                         $map[$oneField] = new ForeignKeyRelatedTable(
-                            $oneKey['ref_table_name'],
-                            $oneKey['ref_index_list'][$index],
+                            $oneKey->refTableName,
+                            $oneKey->refIndexList[$index],
                             $displayField,
-                            $oneKey['ref_db_name'] ?? Current::$database,
+                            $oneKey->refDbName ?? Current::$database,
                         );
                     }
                 }

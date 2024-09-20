@@ -32,6 +32,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokenType;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\UniqueCondition;
 use PhpMyAdmin\Util;
@@ -1819,8 +1820,9 @@ class ExportSql extends ExportPlugin
                         ),
                     );
                 } else {
+                    /** @var ForeignKey $oneKey */
                     foreach ($rel as $oneKey) {
-                        foreach ($oneKey['index_list'] as $index => $field) {
+                        foreach ($oneKey->indexList as $index => $field) {
                             $relFieldAlias = ! empty(
                                 $aliases[$db]['tables'][$table]['columns'][$field]
                             ) ? $aliases[$db]['tables'][$table]['columns'][$field]
@@ -1836,13 +1838,13 @@ class ExportSql extends ExportPlugin
                             . $this->exportComment(
                                 '      '
                                 . Util::backquoteCompat(
-                                    $oneKey['ref_table_name'],
+                                    $oneKey->refTableName,
                                     'NONE',
                                     $this->useSqlBackquotes,
                                 )
                                 . ' -> '
                                 . Util::backquoteCompat(
-                                    $oneKey['ref_index_list'][$index],
+                                    $oneKey->refIndexList[$index],
                                     'NONE',
                                     $this->useSqlBackquotes,
                                 ),

@@ -3,10 +3,10 @@
     <td>
         {% set js_msg = '' %}
         {% set this_params = null %}
-        {% if one_key['constraint'] is defined %}
+        {% if one_key.constraint is defined %}
             {% set drop_fk_query = 'ALTER TABLE ' ~ backquote(db) ~ '.' ~ backquote(table)
                 ~ ' DROP FOREIGN KEY '
-                ~ backquote(one_key['constraint']) ~ ';'
+                ~ backquote(one_key.constraint) ~ ';'
             %}
             {% set this_params = url_params %}
             {% set this_params = {
@@ -14,12 +14,12 @@
                 'back': url('/table/relation'),
                 'sql_query': drop_fk_query,
                 'message_to_show': t('Foreign key constraint %s has been dropped')|format(
-                    one_key['constraint']
+                    one_key.constraint
                 )
             } %}
-            {% set js_msg = 'ALTER TABLE ' ~ db ~ '.' ~ table ~ ' DROP FOREIGN KEY ' ~ one_key['constraint'] ~ ';' %}
+            {% set js_msg = 'ALTER TABLE ' ~ db ~ '.' ~ table ~ ' DROP FOREIGN KEY ' ~ one_key.constraint ~ ';' %}
         {% endif %}
-        {% if one_key['constraint'] is defined %}
+        {% if one_key.constraint is defined %}
             <input type="hidden" class="drop_foreign_key_msg" value="
                 {{- js_msg }}">
             {% set drop_str = get_icon('b_drop', t('Drop')) %}
@@ -29,17 +29,17 @@
     <td>
         <span class="clearfloat">
             <input type="text" name="constraint_name[{{ i }}]" value="
-                {{- one_key['constraint'] is defined ? one_key['constraint'] -}}
+                {{- one_key.constraint is defined ? one_key.constraint -}}
                 " placeholder="{{ t('Constraint name') }}" maxlength="64">
         </span>
         <div class="float-start">
             {# For ON DELETE and ON UPDATE, the default action
                is RESTRICT as per MySQL doc; however, a SHOW CREATE TABLE
                won't display the clause if it's set as RESTRICT. #}
-            {% set on_delete = one_key['on_delete'] is defined
-                ? one_key['on_delete'] : 'RESTRICT' %}
-            {% set on_update = one_key['on_update'] is defined
-                ? one_key['on_update'] : 'RESTRICT' %}
+            {% set on_delete = one_key.onDelete is defined
+                ? one_key.onDelete : 'RESTRICT' %}
+            {% set on_update = one_key.onUpdate is defined
+                ? one_key.onUpdate : 'RESTRICT' %}
             <span>
                 {% include 'table/relation/dropdown_generate.twig' with {
                     'dropdown_question': 'ON DELETE',
@@ -59,8 +59,8 @@
         </div>
     </td>
     <td>
-        {% if one_key['index_list'] is defined %}
-            {% for key, column in one_key['index_list'] %}
+        {% if one_key.indexList is defined %}
+            {% for key, column in one_key.indexList %}
                 <span class="clearfloat">
                     {% include 'table/relation/dropdown_generate.twig' with {
                         'dropdown_question': '',
@@ -108,7 +108,7 @@
     </td>
     <td>
         {% if foreign_db and foreign_table %}
-            {% for foreign_column in one_key['ref_index_list'] %}
+            {% for foreign_column in one_key.refIndexList %}
                 <span class="clearfloat">
                     {% include 'table/relation/relational_dropdown.twig' with {
                         'name': 'destination_foreign_column[' ~ i ~ '][]',

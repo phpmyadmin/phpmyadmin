@@ -11,6 +11,7 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -148,6 +149,13 @@ class RelationTest extends AbstractTestCase
      */
     public function testPMASearchColumnInForeigners(): void
     {
+        $foreignerKey = new ForeignKey('ad', ['id', 'value']);
+        $foreignerKey->refDbName = 'GSoC14';
+        $foreignerKey->refTableName = 'table_1';
+        $foreignerKey->refIndexList = ['id', 'value'];
+        $foreignerKey->onDelete = 'CASCADE';
+        $foreignerKey->onUpdate = 'CASCADE';
+
         $foreigners = [
             'value' => [
                 'master_field' => 'value',
@@ -155,17 +163,7 @@ class RelationTest extends AbstractTestCase
                 'foreign_table' => 'test',
                 'foreign_field' => 'value',
             ],
-            'foreign_keys_data' => [
-                [
-                    'constraint' => 'ad',
-                    'index_list' => ['id', 'value'],
-                    'ref_db_name' => 'GSoC14',
-                    'ref_table_name' => 'table_1',
-                    'ref_index_list' => ['id', 'value'],
-                    'on_delete' => 'CASCADE',
-                    'on_update' => 'CASCADE',
-                ],
-            ],
+            'foreign_keys_data' => [$foreignerKey],
         ];
 
         $relation = new Relation($this->createDatabaseInterface());

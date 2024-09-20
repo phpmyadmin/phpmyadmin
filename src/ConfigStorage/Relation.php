@@ -14,7 +14,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\InternalRelations;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
-use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
@@ -390,7 +390,7 @@ class Relation
                 $relQuery .= ' AND `master_field` = ' . $this->dbi->quoteString($column);
             }
 
-            /** @var array<array<string|null>> */
+            /** @var array<array<string|null>> $foreign */
             $foreign = $this->dbi->fetchResult($relQuery, 'master_field', null, ConnectionType::ControlUser);
         }
 
@@ -401,7 +401,10 @@ class Relation
         /**
          * Emulating relations for some information_schema tables
          */
-        if (in_array(strtolower($db), ['information_schema', 'mysql'], true) && ($source === 'internal' || $source === 'both')) {
+        if (
+            in_array(strtolower($db), ['information_schema', 'mysql'], true)
+            && ($source === 'internal' || $source === 'both')
+        ) {
             $internalRelations = strtolower($db) === 'information_schema'
                 ? InternalRelations::INFORMATION_SCHEMA
                 : InternalRelations::MYSQL;
@@ -423,7 +426,7 @@ class Relation
         return $foreign;
     }
 
-    /** @return list<array<string, array<int|string>|string|null>> */
+    /** @return list<ForeignKey> */
     private function getForeignKeysData(string $table, string $db): array
     {
         $tableObj = new Table($table, $db, $this->dbi);
@@ -432,7 +435,7 @@ class Relation
             $parser = new Parser($showCreateTable);
             $stmt = $parser->statements[0];
             if ($stmt instanceof CreateStatement) {
-                return TableUtils::getForeignKeys($stmt);
+                return $stmt->getForeignKeys();
             }
         }
 
@@ -1350,15 +1353,16 @@ class Relation
         }
 
         $foreigner = [];
+        /** @var ForeignKey $oneKey */
         foreach ($foreigners['foreign_keys_data'] as $oneKey) {
-            $columnIndex = array_search($column, $oneKey['index_list']);
+            $columnIndex = array_search($column, $oneKey->indexList);
             if ($columnIndex !== false) {
-                $foreigner['foreign_field'] = $oneKey['ref_index_list'][$columnIndex];
-                $foreigner['foreign_db'] = $oneKey['ref_db_name'] ?? Current::$database;
-                $foreigner['foreign_table'] = $oneKey['ref_table_name'];
-                $foreigner['constraint'] = $oneKey['constraint'];
-                $foreigner['on_update'] = $oneKey['on_update'] ?? 'RESTRICT';
-                $foreigner['on_delete'] = $oneKey['on_delete'] ?? 'RESTRICT';
+                $foreigner['foreign_field'] = $oneKey->refIndexList[$columnIndex];
+                $foreigner['foreign_db'] = $oneKey->refDbName ?? Current::$database;
+                $foreigner['foreign_table'] = $oneKey->refTableName;
+                $foreigner['constraint'] = $oneKey->constraint;
+                $foreigner['on_update'] = $oneKey->onUpdate ?? 'RESTRICT';
+                $foreigner['on_delete'] = $oneKey->onDelete ?? 'RESTRICT';
 
                 return $foreigner;
             }

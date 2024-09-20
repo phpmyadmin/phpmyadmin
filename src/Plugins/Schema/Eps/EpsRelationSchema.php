@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Schema\Eps;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\Version;
 
 use function __;
@@ -126,19 +127,20 @@ class EpsRelationSchema extends ExportRelationSchema
                     continue;
                 }
 
+                /** @var ForeignKey $oneKey */
                 foreach ($rel as $oneKey) {
-                    if (! in_array($oneKey['ref_table_name'], $alltables, true)) {
+                    if (! in_array($oneKey->refTableName, $alltables, true)) {
                         continue;
                     }
 
-                    foreach ($oneKey['index_list'] as $index => $oneField) {
+                    foreach ($oneKey->indexList as $index => $oneField) {
                         $this->addRelation(
                             $oneTable,
                             $this->eps->getFont(),
                             $this->eps->getFontSize(),
                             $oneField,
-                            $oneKey['ref_table_name'],
-                            $oneKey['ref_index_list'][$index],
+                            $oneKey->refTableName,
+                            $oneKey->refIndexList[$index],
                             $this->tableDimension,
                         );
                     }
