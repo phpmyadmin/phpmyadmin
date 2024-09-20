@@ -130,11 +130,6 @@ class Common
 
             $row = $this->relation->getForeigners(Current::$database, $val, '', 'foreign');
 
-            // We do not have access to the foreign keys if the user has partial access to the columns
-            if (! isset($row['foreign_keys_data'])) {
-                continue;
-            }
-
             foreach ($row['foreign_keys_data'] as $oneKey) {
                 foreach ($oneKey['index_list'] as $index => $oneField) {
                     $con['C_NAME'][$i] = rawurlencode($oneKey['constraint']);

@@ -4281,26 +4281,6 @@ parameters:
 			path: src/Controllers/Table/Partition/RepairController.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Cannot access offset 'foreign_db' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
 			message: "#^Cannot access offset 'ref_db_name' on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
@@ -4382,11 +4362,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$destinationForeignColumn of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateForeignKeys\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Parameter \\#7 \\$existrelForeign of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateForeignKeys\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
@@ -5722,26 +5697,11 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 3
+			count: 2
 			path: src/Database/Designer/Common.php
 
 		-
 			message: "#^Cannot access offset 'constraint' on mixed\\.$#"
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'foreign_db' on mixed\\.$#"
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
 			count: 1
 			path: src/Database/Designer/Common.php
 
@@ -6337,7 +6297,7 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 6
+			count: 5
 			path: src/Display/Results.php
 
 		-
@@ -6348,21 +6308,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'display_blob' on mixed\\.$#"
 			count: 6
-			path: src/Display/Results.php
-
-		-
-			message: "#^Cannot access offset 'foreign_db' on mixed\\.$#"
-			count: 2
-			path: src/Display/Results.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 2
 			path: src/Display/Results.php
 
 		-
@@ -8926,21 +8871,6 @@ parameters:
 			path: src/Normalization.php
 
 		-
-			message: "#^Cannot access offset 'foreign_db' on mixed\\.$#"
-			count: 4
-			path: src/Operations.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 3
-			path: src/Operations.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 4
-			path: src/Operations.php
-
-		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
 			count: 6
 			path: src/Operations.php
@@ -10256,16 +10186,6 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: "#^Cannot access offset 'olm' on mixed\\.$#"
 			count: 2
 			path: src/Plugins/Export/Helpers/Pdf.php
@@ -10792,16 +10712,6 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
 			count: 1
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
 
@@ -10867,16 +10777,6 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
 			count: 1
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
 
@@ -10992,7 +10892,7 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -11003,16 +10903,6 @@ parameters:
 		-
 			message: "#^Cannot access offset '\\-' on mixed\\.$#"
 			count: 10
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 1
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -11187,16 +11077,6 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
 			count: 1
 			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
 

@@ -37,7 +37,6 @@ use function is_string;
 use function ksort;
 use function mb_check_encoding;
 use function mb_strlen;
-use function mb_strtolower;
 use function mb_strtoupper;
 use function mb_substr;
 use function natcasesort;
@@ -46,6 +45,7 @@ use function sprintf;
 use function str_contains;
 use function str_replace;
 use function strnatcasecmp;
+use function strtolower;
 use function trim;
 use function uksort;
 use function usort;
@@ -370,8 +370,9 @@ class Relation
      * @param string $table  the name of the table to check for
      * @param string $column the name of the column to check for
      * @param string $source the source for foreign key information
+     * @psalm-param 'both'|'internal'|'foreign' $source
      *
-     * @return mixed[]    db,table,column
+     * @return array<array<mixed>>
      */
     public function getForeigners(string $db, string $table, string $column = '', string $source = 'both'): array
     {
@@ -389,40 +390,27 @@ class Relation
                 $relQuery .= ' AND `master_field` = ' . $this->dbi->quoteString($column);
             }
 
+            /** @var array<array<string|null>> */
             $foreign = $this->dbi->fetchResult($relQuery, 'master_field', null, ConnectionType::ControlUser);
         }
 
         if (($source === 'both' || $source === 'foreign') && $table !== '') {
-            $tableObj = new Table($table, $db, $this->dbi);
-            $showCreateTable = $tableObj->showCreate();
-            if ($showCreateTable !== '') {
-                $parser = new Parser($showCreateTable);
-                $stmt = $parser->statements[0];
-                $foreign['foreign_keys_data'] = [];
-                if ($stmt instanceof CreateStatement) {
-                    $foreign['foreign_keys_data'] = TableUtils::getForeignKeys($stmt);
-                }
-            }
+            $foreign['foreign_keys_data'] = $this->getForeignKeysData($table, $db);
         }
 
         /**
          * Emulating relations for some information_schema tables
          */
-        $isInformationSchema = mb_strtolower($db) === 'information_schema';
-        $isMysql = mb_strtolower($db) === 'mysql';
-        if (($isInformationSchema || $isMysql) && ($source === 'internal' || $source === 'both')) {
-            if ($isInformationSchema) {
-                $internalRelations = InternalRelations::INFORMATION_SCHEMA;
-            } else {
-                $internalRelations = InternalRelations::MYSQL;
-            }
+        if (in_array(strtolower($db), ['information_schema', 'mysql'], true) && ($source === 'internal' || $source === 'both')) {
+            $internalRelations = strtolower($db) === 'information_schema'
+                ? InternalRelations::INFORMATION_SCHEMA
+                : InternalRelations::MYSQL;
 
             if (isset($internalRelations[$table])) {
                 foreach ($internalRelations[$table] as $field => $relations) {
                     if (
-                        ($column !== '' && $column != $field)
-                        || (isset($foreign[$field])
-                        && $foreign[$field] != '')
+                        ($column !== '' && $column !== $field)
+                        || (isset($foreign[$field]) && $foreign[$field] != '')
                     ) {
                         continue;
                     }
@@ -433,6 +421,22 @@ class Relation
         }
 
         return $foreign;
+    }
+
+    /** @return list<array<string, array<int|string>|string|null>> */
+    private function getForeignKeysData(string $table, string $db): array
+    {
+        $tableObj = new Table($table, $db, $this->dbi);
+        $showCreateTable = $tableObj->showCreate();
+        if ($showCreateTable !== '') {
+            $parser = new Parser($showCreateTable);
+            $stmt = $parser->statements[0];
+            if ($stmt instanceof CreateStatement) {
+                return TableUtils::getForeignKeys($stmt);
+            }
+        }
+
+        return [];
     }
 
     /**
