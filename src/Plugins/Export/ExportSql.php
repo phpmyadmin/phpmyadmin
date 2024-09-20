@@ -1747,11 +1747,9 @@ class ExportSql extends ExportPlugin
         $schemaCreate = '';
 
         // Check if we can use Relations
-        $foreigners = $this->relation->getRelationsAndStatus(
-            $doRelation && $relationParameters->relationFeature !== null,
-            $db,
-            $table,
-        );
+        $foreigners = $doRelation && $relationParameters->relationFeature !== null ?
+            $this->relation->getForeigners($db, $table)
+            : [];
 
         $mimeMap = null;
         if ($doMime && $relationParameters->browserTransformationFeature !== null) {

@@ -1533,25 +1533,6 @@ class Relation
     }
 
     /**
-     * Gets the relations info and status, depending on the condition
-     *
-     * @param bool   $condition whether to look for foreigners or not
-     * @param string $db        database name
-     * @param string $table     table name
-     *
-     * @return mixed[]
-     */
-    public function getRelationsAndStatus(bool $condition, string $db, string $table): array
-    {
-        if ($condition) {
-            // Find which tables are related with the current one and write it in an array
-            return $this->getForeigners($db, $table);
-        }
-
-        return [];
-    }
-
-    /**
      * Verifies that all pmadb features are disabled
      */
     public function arePmadbTablesAllDisabled(): bool
