@@ -231,6 +231,7 @@ cleanup_composer_vendors() {
         vendor/paragonie/sodium_compat/composer-php52.json \
         vendor/paragonie/sodium_compat/src/PHP52/SplFixedArray.php \
         vendor/paragonie/sodium_compat/src/PHP52 \
+        vendor/pragmarx/google2fa/.github/ \
         vendor/pragmarx/google2fa/phpstan.neon \
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
