@@ -426,6 +426,11 @@ parameters:
 			path: src/Config.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Config.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$settings \\(array\\{PmaAbsoluteUri\\: string, AuthLog\\: string, AuthLogSuccess\\: bool, PmaNoRelation_DisableWarning\\: bool, SuhosinDisableWarning\\: bool, LoginCookieValidityDisableWarning\\: bool, ReservedWordDisableWarning\\: bool, TranslationWarningThreshold\\: int, \\.\\.\\.\\}\\) does not accept non\\-empty\\-array\\<string, mixed\\>\\.$#"
 			count: 1
 			path: src/Config.php
@@ -6666,6 +6671,11 @@ parameters:
 			path: src/Display/Results.php
 
 		-
+			message: "#^Parameter \\#5 \\$expressions of class PhpMyAdmin\\\\UniqueCondition constructor expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\> given\\.$#"
+			count: 2
+			path: src/Display/Results.php
+
+		-
 			message: "#^Parameter \\#5 \\$isFieldTruncated of method PhpMyAdmin\\\\Display\\\\Results\\:\\:addClass\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: src/Display/Results.php
@@ -6687,6 +6697,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#9 \\$colVisibElement of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOrderLinkAndSortedHeaderHtml\\(\\) expects int\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Display/Results.php
+
+		-
+			message: "#^Parameter \\$expressions of class PhpMyAdmin\\\\UniqueCondition constructor expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\> given\\.$#"
 			count: 1
 			path: src/Display/Results.php
 
@@ -9211,12 +9226,12 @@ parameters:
 			path: src/Plugins.php
 
 		-
-			message: "#^Call to function method_exists\\(\\) with PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem and 'getText' will always evaluate to true\\.$#"
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:getProperties\\(\\)\\.$#"
 			count: 1
 			path: src/Plugins.php
 
 		-
-			message: "#^Cannot call method getProperties\\(\\) on mixed\\.$#"
+			message: "#^Call to function method_exists\\(\\) with PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem and 'getText' will always evaluate to true\\.$#"
 			count: 1
 			path: src/Plugins.php
 
@@ -9257,11 +9272,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$replace of function str_replace expects array\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins.php
-
-		-
-			message: "#^Parameter \\#3 \\$propertyGroup of static method PhpMyAdmin\\\\Plugins\\:\\:getOneOption\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, mixed given\\.$#"
 			count: 1
 			path: src/Plugins.php
 
@@ -12641,7 +12651,7 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: "#^Only booleans are allowed in &&, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\> given on the left side\\.$#"
+			message: "#^Only booleans are allowed in &&, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\> given on the left side\\.$#"
 			count: 1
 			path: src/Sql.php
 
