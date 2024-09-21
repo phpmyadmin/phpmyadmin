@@ -248,7 +248,11 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/motranslator/psalm-baseline.xml \
         vendor/phpmyadmin/motranslator/psalm.xml \
         vendor/slim/psr7/phpunit.xml.dist \
-        vendor/slim/psr7/tests/
+        vendor/slim/psr7/tests/ \
+        vendor/psr/event-dispatcher/.editorconfig \
+        vendor/spomky-labs/cbor-php/SECURITY.md \
+        vendor/spomky-labs/pki-framework/SECURITY.md \
+        vendor/web-auth/cose-lib/SECURITY.md
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
         -not -name 'dejavusansb.*' \
