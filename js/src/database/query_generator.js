@@ -43,8 +43,16 @@ function opsWithoutArg () {
     return ['IS NULL', 'IS NOT NULL'];
 }
 
+function opsWithMultipleArgs () {
+    return ['IN (...)', 'NOT IN (...)'];
+}
+
 function isOpWithoutArg (op) {
     return opsWithoutArg().includes(op);
+}
+
+function acceptsMultipleValues (op) {
+    return opsWithMultipleArgs().includes(op);
 }
 
 function generateCondition (criteriaDiv, table) {
@@ -58,12 +66,24 @@ function generateCondition (criteriaDiv, table) {
     if (criteriaDiv.find('.criteria_rhs').first().val() === 'text') {
         if (isOpWithoutArg(criteriaOp)) {
             query += ' ' + criteriaOp;
+        } else if (acceptsMultipleValues(criteriaOp)) {
+            criteriaText = Functions.escapeSingleQuote(criteriaText);
+
+            const formatsText = getFormatsText();
+            const critertiaTextArray = criteriaText.split(',');
+            criteriaText = "";
+
+            critertiaTextArray.forEach(function(option, index) {
+                criteriaText += Functions.wrap(option, '"');
+
+                if (index != critertiaTextArray.length - 1) {
+                    criteriaText += ",";
+                }
+            });
+
+            query += sprintf(formatsText[criteriaOp], criteriaText);
         } else {
             const formatsText = getFormatsText();
-
-            if (!['IN (...)', 'NOT IN (...)'].includes(criteriaOp)) {
-                criteriaText = Functions.escapeSingleQuote(criteriaText);
-            }
 
             query += sprintf(formatsText[criteriaOp], criteriaText);
         }
