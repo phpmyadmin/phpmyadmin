@@ -74,7 +74,7 @@ function generateCondition (criteriaDiv, table) {
             criteriaText = "";
 
             critertiaTextArray.forEach(function(option, index) {
-                criteriaText += Functions.wrap(option, '"');
+                criteriaText += Functions.wrap(option, "'");
 
                 if (index != critertiaTextArray.length - 1) {
                     criteriaText += ",";
