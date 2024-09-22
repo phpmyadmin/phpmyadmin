@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-09-15 00:24+0000\n"
+"POT-Creation-Date: 2024-09-22 00:24+0000\n"
 "PO-Revision-Date: 2024-05-13 01:02+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1481,7 +1481,7 @@ msgstr "Клучот не е дефиниран!"
 
 #: resources/templates/database/designer/database_tables.twig:31
 #: resources/templates/database/export/index.twig:28
-#: resources/templates/database/search/main.twig:42
+#: resources/templates/database/search/main.twig:48
 #: resources/templates/server/export/index.twig:10
 #: resources/templates/server/privileges/privileges_table.twig:29
 #: resources/templates/server/privileges/privileges_table.twig:56
@@ -2492,7 +2492,7 @@ msgstr "Рутини"
 
 #: resources/templates/database/routines/index.twig:28
 #: resources/templates/database/routines/index.twig:29
-#: resources/templates/database/search/main.twig:66
+#: resources/templates/database/search/main.twig:72
 #: resources/templates/database/structure/structure_table_row.twig:53
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
@@ -2542,7 +2542,7 @@ msgstr "Зборови или вредности кои се бараат (џо�
 msgid "Find:"
 msgstr "Барај:"
 
-#: resources/templates/database/search/main.twig:18 src/Database/Search.php:72
+#: resources/templates/database/search/main.twig:18 src/Database/Search.php:79
 msgid "at least one of the words"
 msgstr "барем еден од зборовите"
 
@@ -2551,38 +2551,47 @@ msgstr "барем еден од зборовите"
 msgid "Words are separated by a space character (\" \")."
 msgstr "Зборовите се одвојуваат со празно место (\" \")."
 
-#: resources/templates/database/search/main.twig:22 src/Database/Search.php:73
+#: resources/templates/database/search/main.twig:22 src/Database/Search.php:80
 #, fuzzy
 msgid "all of the words"
 msgstr "барем еден од зборовите"
 
-#: resources/templates/database/search/main.twig:26 src/Database/Search.php:74
+#: resources/templates/database/search/main.twig:26 src/Database/Search.php:81
 #, fuzzy
 msgid "the exact phrase as substring"
 msgstr "точен израз"
 
-#: resources/templates/database/search/main.twig:30 src/Database/Search.php:75
+#: resources/templates/database/search/main.twig:30 src/Database/Search.php:82
 #, fuzzy
 msgid "the exact phrase as whole field"
 msgstr "точен израз"
 
-#: resources/templates/database/search/main.twig:34 src/Database/Search.php:76
+#: resources/templates/database/search/main.twig:34 src/Database/Search.php:83
 msgid "as regular expression"
 msgstr "како регуларен израз"
 
-#: resources/templates/database/search/main.twig:39
+#: resources/templates/database/search/main.twig:36
+#: resources/templates/database/structure/copy_form.twig:14
+msgid "Options:"
+msgstr "Опции:"
+
+#: resources/templates/database/search/main.twig:40
+msgid "include hex matches"
+msgstr ""
+
+#: resources/templates/database/search/main.twig:45
 #, fuzzy
 msgid "Inside tables:"
 msgstr "во табела(и):"
 
-#: resources/templates/database/search/main.twig:43
+#: resources/templates/database/search/main.twig:49
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/replication/database_multibox.twig:8
 #, fuzzy
 msgid "Unselect all"
 msgstr "ништо"
 
-#: resources/templates/database/search/main.twig:61
+#: resources/templates/database/search/main.twig:67
 #, fuzzy
 msgid "Inside column:"
 msgstr "во табела(и):"
@@ -2771,10 +2780,6 @@ msgstr ""
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "База на податоци:"
-
-#: resources/templates/database/structure/copy_form.twig:14
-msgid "Options:"
-msgstr "Опции:"
 
 #: resources/templates/database/structure/copy_form.twig:31
 #: src/Config/Descriptions.php:898
@@ -11885,8 +11890,8 @@ msgstr ""
 #: src/Controllers/Table/DropColumnConfirmationController.php:55
 #: src/Controllers/Table/FindReplaceController.php:74
 #: src/Controllers/Table/FindReplaceController.php:79
-#: src/Controllers/Table/GisVisualizationController.php:63
-#: src/Controllers/Table/GisVisualizationController.php:68
+#: src/Controllers/Table/GisVisualizationController.php:65
+#: src/Controllers/Table/GisVisualizationController.php:70
 #: src/Controllers/Table/ImportController.php:67
 #: src/Controllers/Table/ImportController.php:72
 #: src/Controllers/Table/IndexesController.php:69
@@ -12154,7 +12159,7 @@ msgstr "Лош тип!"
 msgid "Bad parameters!"
 msgstr "Неправилни параметри!"
 
-#: src/Controllers/GisDataEditorController.php:119
+#: src/Controllers/GisDataEditorController.php:120
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "Вредност за колоната \"%s\""
@@ -15080,7 +15085,7 @@ msgid "No row selected."
 msgstr "Нема избран ред."
 
 #: src/Controllers/Table/ChartController.php:65
-#: src/Controllers/Table/GisVisualizationController.php:80
+#: src/Controllers/Table/GisVisualizationController.php:82
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
@@ -15142,7 +15147,7 @@ msgstr ""
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL врати празен резултат (нула записи)."
 
-#: src/Controllers/Table/GisVisualizationController.php:102
+#: src/Controllers/Table/GisVisualizationController.php:104
 #, fuzzy
 msgid "No spatial column found for this SQL query."
 msgstr "Нема ефект во оваа верзији на MySQL."

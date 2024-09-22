@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-09-15 00:24+0000\n"
+"POT-Creation-Date: 2024-09-22 00:24+0000\n"
 "PO-Revision-Date: 2024-08-01 16:01+0000\n"
 "Last-Translator: Moha684 <nahil82466@gmail.com>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1570,7 +1570,7 @@ msgstr "N'eus bet termenet meneger ebet !"
 
 #: resources/templates/database/designer/database_tables.twig:31
 #: resources/templates/database/export/index.twig:28
-#: resources/templates/database/search/main.twig:42
+#: resources/templates/database/search/main.twig:48
 #: resources/templates/server/export/index.twig:10
 #: resources/templates/server/privileges/privileges_table.twig:29
 #: resources/templates/server/privileges/privileges_table.twig:56
@@ -2618,7 +2618,7 @@ msgstr ""
 
 #: resources/templates/database/routines/index.twig:28
 #: resources/templates/database/routines/index.twig:29
-#: resources/templates/database/search/main.twig:66
+#: resources/templates/database/search/main.twig:72
 #: resources/templates/database/structure/structure_table_row.twig:53
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
@@ -2667,7 +2667,7 @@ msgstr "Gerioù pe dalvoudoù da glask (Joker: \"%\") :"
 msgid "Find:"
 msgstr "Kavout :"
 
-#: resources/templates/database/search/main.twig:18 src/Database/Search.php:72
+#: resources/templates/database/search/main.twig:18 src/Database/Search.php:79
 msgid "at least one of the words"
 msgstr "unan eus ar gerioù da nebeutañ"
 
@@ -2676,33 +2676,44 @@ msgstr "unan eus ar gerioù da nebeutañ"
 msgid "Words are separated by a space character (\" \")."
 msgstr "Dispartiet e vez ar gerioù gant un esaouenn (\" \")."
 
-#: resources/templates/database/search/main.twig:22 src/Database/Search.php:73
+#: resources/templates/database/search/main.twig:22 src/Database/Search.php:80
 #, fuzzy
 #| msgid "at least one of the words"
 msgid "all of the words"
 msgstr "unan eus ar gerioù da nebeutañ"
 
-#: resources/templates/database/search/main.twig:26 src/Database/Search.php:74
+#: resources/templates/database/search/main.twig:26 src/Database/Search.php:81
 #, fuzzy
 #| msgid "the exact phrase"
 msgid "the exact phrase as substring"
 msgstr "ar frazenn-rik"
 
-#: resources/templates/database/search/main.twig:30 src/Database/Search.php:75
+#: resources/templates/database/search/main.twig:30 src/Database/Search.php:82
 #, fuzzy
 #| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
 msgstr "ar frazenn-rik"
 
-#: resources/templates/database/search/main.twig:34 src/Database/Search.php:76
+#: resources/templates/database/search/main.twig:34 src/Database/Search.php:83
 msgid "as regular expression"
 msgstr "evel un droienn reoliek"
 
-#: resources/templates/database/search/main.twig:39
+#: resources/templates/database/search/main.twig:36
+#: resources/templates/database/structure/copy_form.twig:14
+#, fuzzy
+#| msgid "Operations"
+msgid "Options:"
+msgstr "Oberiadennoù"
+
+#: resources/templates/database/search/main.twig:40
+msgid "include hex matches"
+msgstr ""
+
+#: resources/templates/database/search/main.twig:45
 msgid "Inside tables:"
 msgstr "E diabarzh an taolennoù :"
 
-#: resources/templates/database/search/main.twig:43
+#: resources/templates/database/search/main.twig:49
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/replication/database_multibox.twig:8
 #, fuzzy
@@ -2710,7 +2721,7 @@ msgstr "E diabarzh an taolennoù :"
 msgid "Unselect all"
 msgstr "Diziuzañ pep tra"
 
-#: resources/templates/database/search/main.twig:61
+#: resources/templates/database/search/main.twig:67
 msgid "Inside column:"
 msgstr "Er bann :"
 
@@ -2907,12 +2918,6 @@ msgstr ""
 #| msgid "Database"
 msgid "Database:"
 msgstr "Diaz roadennoù"
-
-#: resources/templates/database/structure/copy_form.twig:14
-#, fuzzy
-#| msgid "Operations"
-msgid "Options:"
-msgstr "Oberiadennoù"
 
 #: resources/templates/database/structure/copy_form.twig:31
 #: src/Config/Descriptions.php:898
@@ -12605,8 +12610,8 @@ msgstr ""
 #: src/Controllers/Table/DropColumnConfirmationController.php:55
 #: src/Controllers/Table/FindReplaceController.php:74
 #: src/Controllers/Table/FindReplaceController.php:79
-#: src/Controllers/Table/GisVisualizationController.php:63
-#: src/Controllers/Table/GisVisualizationController.php:68
+#: src/Controllers/Table/GisVisualizationController.php:65
+#: src/Controllers/Table/GisVisualizationController.php:70
 #: src/Controllers/Table/ImportController.php:67
 #: src/Controllers/Table/ImportController.php:72
 #: src/Controllers/Table/IndexesController.php:69
@@ -12883,7 +12888,7 @@ msgstr "Seurt faziek !"
 msgid "Bad parameters!"
 msgstr "Arventennoù fall !"
 
-#: src/Controllers/GisDataEditorController.php:119
+#: src/Controllers/GisDataEditorController.php:120
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "Talvoud evit ar bann \"%s\""
@@ -16077,7 +16082,7 @@ msgid "No row selected."
 msgstr "N'eus bet diuzet linenn ebet"
 
 #: src/Controllers/Table/ChartController.php:65
-#: src/Controllers/Table/GisVisualizationController.php:80
+#: src/Controllers/Table/GisVisualizationController.php:82
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
@@ -16143,7 +16148,7 @@ msgstr ""
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "Distroet ez eus un disoc'h goullo gant MySQL (linenn ebet)."
 
-#: src/Controllers/Table/GisVisualizationController.php:102
+#: src/Controllers/Table/GisVisualizationController.php:104
 #, fuzzy
 #| msgid "%s has been disabled for this MySQL server."
 msgid "No spatial column found for this SQL query."

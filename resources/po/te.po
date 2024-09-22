@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-09-15 00:24+0000\n"
+"POT-Creation-Date: 2024-09-22 00:24+0000\n"
 "PO-Revision-Date: 2024-03-15 15:17+0000\n"
 "Last-Translator: Prasanth-k <prasanthpra.k@gmail.com>\n"
 "Language-Team: Telugu <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1567,7 +1567,7 @@ msgstr ""
 
 #: resources/templates/database/designer/database_tables.twig:31
 #: resources/templates/database/export/index.twig:28
-#: resources/templates/database/search/main.twig:42
+#: resources/templates/database/search/main.twig:48
 #: resources/templates/server/export/index.twig:10
 #: resources/templates/server/privileges/privileges_table.twig:29
 #: resources/templates/server/privileges/privileges_table.twig:56
@@ -2660,7 +2660,7 @@ msgstr ""
 # Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
 #: resources/templates/database/routines/index.twig:28
 #: resources/templates/database/routines/index.twig:29
-#: resources/templates/database/search/main.twig:66
+#: resources/templates/database/search/main.twig:72
 #: resources/templates/database/structure/structure_table_row.twig:53
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
@@ -2712,7 +2712,7 @@ msgstr ""
 msgid "Find:"
 msgstr "వెతుకు:"
 
-#: resources/templates/database/search/main.twig:18 src/Database/Search.php:72
+#: resources/templates/database/search/main.twig:18 src/Database/Search.php:79
 msgid "at least one of the words"
 msgstr "కనీసం ఒక్క పదం"
 
@@ -2721,31 +2721,42 @@ msgstr "కనీసం ఒక్క పదం"
 msgid "Words are separated by a space character (\" \")."
 msgstr ""
 
-#: resources/templates/database/search/main.twig:22 src/Database/Search.php:73
+#: resources/templates/database/search/main.twig:22 src/Database/Search.php:80
 #, fuzzy
 #| msgid "at least one of the words"
 msgid "all of the words"
 msgstr "కనీసం ఒక్క పదం"
 
-#: resources/templates/database/search/main.twig:26 src/Database/Search.php:74
+#: resources/templates/database/search/main.twig:26 src/Database/Search.php:81
 msgid "the exact phrase as substring"
 msgstr ""
 
-#: resources/templates/database/search/main.twig:30 src/Database/Search.php:75
+#: resources/templates/database/search/main.twig:30 src/Database/Search.php:82
 msgid "the exact phrase as whole field"
 msgstr ""
 
-#: resources/templates/database/search/main.twig:34 src/Database/Search.php:76
+#: resources/templates/database/search/main.twig:34 src/Database/Search.php:83
 msgid "as regular expression"
 msgstr ""
 
-#: resources/templates/database/search/main.twig:39
+#: resources/templates/database/search/main.twig:36
+#: resources/templates/database/structure/copy_form.twig:14
+#, fuzzy
+#| msgid "Options"
+msgid "Options:"
+msgstr "ఎంపికలు"
+
+#: resources/templates/database/search/main.twig:40
+msgid "include hex matches"
+msgstr ""
+
+#: resources/templates/database/search/main.twig:45
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Inside tables:"
 msgstr "పట్టికల్ని వాడు"
 
-#: resources/templates/database/search/main.twig:43
+#: resources/templates/database/search/main.twig:49
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/replication/database_multibox.twig:8
 #, fuzzy
@@ -2753,7 +2764,7 @@ msgstr "పట్టికల్ని వాడు"
 msgid "Unselect all"
 msgstr "అన్నీ ఎంచుకోవద్దు"
 
-#: resources/templates/database/search/main.twig:61
+#: resources/templates/database/search/main.twig:67
 msgid "Inside column:"
 msgstr ""
 
@@ -2958,12 +2969,6 @@ msgstr ""
 #| msgid "Database"
 msgid "Database:"
 msgstr "డేటాబేస్"
-
-#: resources/templates/database/structure/copy_form.twig:14
-#, fuzzy
-#| msgid "Options"
-msgid "Options:"
-msgstr "ఎంపికలు"
 
 #: resources/templates/database/structure/copy_form.twig:31
 #: src/Config/Descriptions.php:898
@@ -12508,8 +12513,8 @@ msgstr ""
 #: src/Controllers/Table/DropColumnConfirmationController.php:55
 #: src/Controllers/Table/FindReplaceController.php:74
 #: src/Controllers/Table/FindReplaceController.php:79
-#: src/Controllers/Table/GisVisualizationController.php:63
-#: src/Controllers/Table/GisVisualizationController.php:68
+#: src/Controllers/Table/GisVisualizationController.php:65
+#: src/Controllers/Table/GisVisualizationController.php:70
 #: src/Controllers/Table/ImportController.php:67
 #: src/Controllers/Table/ImportController.php:72
 #: src/Controllers/Table/IndexesController.php:69
@@ -12781,7 +12786,7 @@ msgstr "తప్పు రకం!"
 msgid "Bad parameters!"
 msgstr "చెల్లని పరామితులు!"
 
-#: src/Controllers/GisDataEditorController.php:119
+#: src/Controllers/GisDataEditorController.php:120
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr ""
@@ -15882,7 +15887,7 @@ msgid "No row selected."
 msgstr "పట్టిక పేరు"
 
 #: src/Controllers/Table/ChartController.php:65
-#: src/Controllers/Table/GisVisualizationController.php:80
+#: src/Controllers/Table/GisVisualizationController.php:82
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
@@ -15947,7 +15952,7 @@ msgstr ""
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
-#: src/Controllers/Table/GisVisualizationController.php:102
+#: src/Controllers/Table/GisVisualizationController.php:104
 msgid "No spatial column found for this SQL query."
 msgstr ""
 

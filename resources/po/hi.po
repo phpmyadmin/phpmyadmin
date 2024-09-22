@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-09-15 00:24+0000\n"
+"POT-Creation-Date: 2024-09-22 00:24+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1585,7 +1585,7 @@ msgstr "परिभाषित सूचकांक  नहीं पाए �
 
 #: resources/templates/database/designer/database_tables.twig:31
 #: resources/templates/database/export/index.twig:28
-#: resources/templates/database/search/main.twig:42
+#: resources/templates/database/search/main.twig:48
 #: resources/templates/server/export/index.twig:10
 #: resources/templates/server/privileges/privileges_table.twig:29
 #: resources/templates/server/privileges/privileges_table.twig:56
@@ -2685,7 +2685,7 @@ msgstr "नियमित कार्य"
 
 #: resources/templates/database/routines/index.twig:28
 #: resources/templates/database/routines/index.twig:29
-#: resources/templates/database/search/main.twig:66
+#: resources/templates/database/search/main.twig:72
 #: resources/templates/database/structure/structure_table_row.twig:53
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
@@ -2738,7 +2738,7 @@ msgstr "शब्द अथवा वेल्यु जिसे सर्च �
 msgid "Find:"
 msgstr "खोजो:"
 
-#: resources/templates/database/search/main.twig:18 src/Database/Search.php:72
+#: resources/templates/database/search/main.twig:18 src/Database/Search.php:79
 msgid "at least one of the words"
 msgstr "कोई भी एक शब्द"
 
@@ -2747,33 +2747,44 @@ msgstr "कोई भी एक शब्द"
 msgid "Words are separated by a space character (\" \")."
 msgstr "शब्द स्पेस(\" \") करक्टेर से अलग किये गए हैं."
 
-#: resources/templates/database/search/main.twig:22 src/Database/Search.php:73
+#: resources/templates/database/search/main.twig:22 src/Database/Search.php:80
 #, fuzzy
 #| msgid "at least one of the words"
 msgid "all of the words"
 msgstr "कोई भी एक शब्द"
 
-#: resources/templates/database/search/main.twig:26 src/Database/Search.php:74
+#: resources/templates/database/search/main.twig:26 src/Database/Search.php:81
 #, fuzzy
 #| msgid "the exact phrase"
 msgid "the exact phrase as substring"
 msgstr "यथार्थ वाक्यांश"
 
-#: resources/templates/database/search/main.twig:30 src/Database/Search.php:75
+#: resources/templates/database/search/main.twig:30 src/Database/Search.php:82
 #, fuzzy
 #| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
 msgstr "यथार्थ वाक्यांश"
 
-#: resources/templates/database/search/main.twig:34 src/Database/Search.php:76
+#: resources/templates/database/search/main.twig:34 src/Database/Search.php:83
 msgid "as regular expression"
 msgstr "नियमित अभिव्यक्ति के रूप में"
 
-#: resources/templates/database/search/main.twig:39
+#: resources/templates/database/search/main.twig:36
+#: resources/templates/database/structure/copy_form.twig:14
+#, fuzzy
+#| msgid "Options"
+msgid "Options:"
+msgstr "विकल्प"
+
+#: resources/templates/database/search/main.twig:40
+msgid "include hex matches"
+msgstr ""
+
+#: resources/templates/database/search/main.twig:45
 msgid "Inside tables:"
 msgstr "टेबल में:"
 
-#: resources/templates/database/search/main.twig:43
+#: resources/templates/database/search/main.twig:49
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/replication/database_multibox.twig:8
 #, fuzzy
@@ -2781,7 +2792,7 @@ msgstr "टेबल में:"
 msgid "Unselect all"
 msgstr "सभी को रद्द करें"
 
-#: resources/templates/database/search/main.twig:61
+#: resources/templates/database/search/main.twig:67
 msgid "Inside column:"
 msgstr "काँलम के अंदर:"
 
@@ -2985,12 +2996,6 @@ msgstr ""
 #| msgid "Database"
 msgid "Database:"
 msgstr "डाटाबेस"
-
-#: resources/templates/database/structure/copy_form.twig:14
-#, fuzzy
-#| msgid "Options"
-msgid "Options:"
-msgstr "विकल्प"
 
 #: resources/templates/database/structure/copy_form.twig:31
 #: src/Config/Descriptions.php:898
@@ -13136,8 +13141,8 @@ msgstr ""
 #: src/Controllers/Table/DropColumnConfirmationController.php:55
 #: src/Controllers/Table/FindReplaceController.php:74
 #: src/Controllers/Table/FindReplaceController.php:79
-#: src/Controllers/Table/GisVisualizationController.php:63
-#: src/Controllers/Table/GisVisualizationController.php:68
+#: src/Controllers/Table/GisVisualizationController.php:65
+#: src/Controllers/Table/GisVisualizationController.php:70
 #: src/Controllers/Table/ImportController.php:67
 #: src/Controllers/Table/ImportController.php:72
 #: src/Controllers/Table/IndexesController.php:69
@@ -13414,7 +13419,7 @@ msgstr "खोटा प्रकार!"
 msgid "Bad parameters!"
 msgstr "गलत पैरामीटर्स!"
 
-#: src/Controllers/GisDataEditorController.php:119
+#: src/Controllers/GisDataEditorController.php:120
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "\"%s\" काँलम के लिए मूल्य"
@@ -16643,7 +16648,7 @@ msgid "No row selected."
 msgstr "कोई पंक्ति चयनित नहीं"
 
 #: src/Controllers/Table/ChartController.php:65
-#: src/Controllers/Table/GisVisualizationController.php:80
+#: src/Controllers/Table/GisVisualizationController.php:82
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
@@ -16711,7 +16716,7 @@ msgstr "अपलोड करने के लिए फाइल उपलब�
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ने एक खाली परिणाम सेट लोताया।"
 
-#: src/Controllers/Table/GisVisualizationController.php:102
+#: src/Controllers/Table/GisVisualizationController.php:104
 #, fuzzy
 #| msgid "Has no effect in this MySQL version."
 msgid "No spatial column found for this SQL query."

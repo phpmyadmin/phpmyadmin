@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-09-15 00:24+0000\n"
+"POT-Creation-Date: 2024-09-22 00:24+0000\n"
 "PO-Revision-Date: 2024-08-29 02:09+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1433,7 +1433,7 @@ msgstr "インデックスが定義されていません!"
 
 #: resources/templates/database/designer/database_tables.twig:31
 #: resources/templates/database/export/index.twig:28
-#: resources/templates/database/search/main.twig:42
+#: resources/templates/database/search/main.twig:48
 #: resources/templates/server/export/index.twig:10
 #: resources/templates/server/privileges/privileges_table.twig:29
 #: resources/templates/server/privileges/privileges_table.twig:56
@@ -2376,7 +2376,7 @@ msgstr "ルーチン"
 
 #: resources/templates/database/routines/index.twig:28
 #: resources/templates/database/routines/index.twig:29
-#: resources/templates/database/search/main.twig:66
+#: resources/templates/database/search/main.twig:72
 #: resources/templates/database/structure/structure_table_row.twig:53
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
@@ -2423,7 +2423,7 @@ msgstr "検索する単語や値 (ワイルドカード: \"%\"):"
 msgid "Find:"
 msgstr "検索条件:"
 
-#: resources/templates/database/search/main.twig:18 src/Database/Search.php:72
+#: resources/templates/database/search/main.twig:18 src/Database/Search.php:79
 msgid "at least one of the words"
 msgstr "いずれかの単語を含む"
 
@@ -2432,33 +2432,42 @@ msgstr "いずれかの単語を含む"
 msgid "Words are separated by a space character (\" \")."
 msgstr "各単語は空白文字 (\" \") で区切ってください。"
 
-#: resources/templates/database/search/main.twig:22 src/Database/Search.php:73
+#: resources/templates/database/search/main.twig:22 src/Database/Search.php:80
 msgid "all of the words"
 msgstr "AND検索"
 
-#: resources/templates/database/search/main.twig:26 src/Database/Search.php:74
+#: resources/templates/database/search/main.twig:26 src/Database/Search.php:81
 msgid "the exact phrase as substring"
 msgstr "部分文字列としての正確な句"
 
-#: resources/templates/database/search/main.twig:30 src/Database/Search.php:75
+#: resources/templates/database/search/main.twig:30 src/Database/Search.php:82
 msgid "the exact phrase as whole field"
 msgstr "完全一致"
 
-#: resources/templates/database/search/main.twig:34 src/Database/Search.php:76
+#: resources/templates/database/search/main.twig:34 src/Database/Search.php:83
 msgid "as regular expression"
 msgstr "正規表現"
 
-#: resources/templates/database/search/main.twig:39
+#: resources/templates/database/search/main.twig:36
+#: resources/templates/database/structure/copy_form.twig:14
+msgid "Options:"
+msgstr "オプション:"
+
+#: resources/templates/database/search/main.twig:40
+msgid "include hex matches"
+msgstr ""
+
+#: resources/templates/database/search/main.twig:45
 msgid "Inside tables:"
 msgstr "検索するテーブル:"
 
-#: resources/templates/database/search/main.twig:43
+#: resources/templates/database/search/main.twig:49
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/replication/database_multibox.twig:8
 msgid "Unselect all"
 msgstr "全選択解除"
 
-#: resources/templates/database/search/main.twig:61
+#: resources/templates/database/search/main.twig:67
 msgid "Inside column:"
 msgstr "検索するカラム:"
 
@@ -2632,10 +2641,6 @@ msgstr "この操作はいくつかのカラム定義を変更します。[br]�
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "データベース:"
-
-#: resources/templates/database/structure/copy_form.twig:14
-msgid "Options:"
-msgstr "オプション:"
 
 #: resources/templates/database/structure/copy_form.twig:31
 #: src/Config/Descriptions.php:898
@@ -11783,8 +11788,8 @@ msgstr "\"%s\" という名前のページが既にあるので、他の名前�
 #: src/Controllers/Table/DropColumnConfirmationController.php:55
 #: src/Controllers/Table/FindReplaceController.php:74
 #: src/Controllers/Table/FindReplaceController.php:79
-#: src/Controllers/Table/GisVisualizationController.php:63
-#: src/Controllers/Table/GisVisualizationController.php:68
+#: src/Controllers/Table/GisVisualizationController.php:65
+#: src/Controllers/Table/GisVisualizationController.php:70
 #: src/Controllers/Table/ImportController.php:67
 #: src/Controllers/Table/ImportController.php:72
 #: src/Controllers/Table/IndexesController.php:69
@@ -12054,7 +12059,7 @@ msgstr "エクスポート形式が正しくありません！"
 msgid "Bad parameters!"
 msgstr "パラメータが正しくありません！"
 
-#: src/Controllers/GisDataEditorController.php:119
+#: src/Controllers/GisDataEditorController.php:120
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "カラム \"%s\" に対しての値"
@@ -15061,7 +15066,7 @@ msgid "No row selected."
 msgstr "行が選択されていません。"
 
 #: src/Controllers/Table/ChartController.php:65
-#: src/Controllers/Table/GisVisualizationController.php:80
+#: src/Controllers/Table/GisVisualizationController.php:82
 msgid "No SQL query was set to fetch data."
 msgstr "SQLクエリはデータを取得するために設定されませんでした。"
 
@@ -15122,7 +15127,7 @@ msgstr "リクエストに問題があります。"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "返り値が空でした (行数 0)。"
 
-#: src/Controllers/Table/GisVisualizationController.php:102
+#: src/Controllers/Table/GisVisualizationController.php:104
 msgid "No spatial column found for this SQL query."
 msgstr "この SQL クエリの空間カラムが見つかりませんでした。"
 
