@@ -71,13 +71,13 @@ function generateCondition (criteriaDiv, table) {
 
             const formatsText = getFormatsText();
             const critertiaTextArray = criteriaText.split(',');
-            criteriaText = "";
+            criteriaText = '';
 
-            critertiaTextArray.forEach(function(option, index) {
-                criteriaText += Functions.wrap(option, "'");
+            critertiaTextArray.forEach(function (option, index) {
+                criteriaText += Functions.wrap(option, '\'');
 
-                if (index != critertiaTextArray.length - 1) {
-                    criteriaText += ",";
+                if (index !== critertiaTextArray.length - 1) {
+                    criteriaText += ',';
                 }
             });
 
