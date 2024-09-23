@@ -10,6 +10,9 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 use function preg_match;
+use function str_replace;
+
+use const DIRECTORY_SEPARATOR;
 
 #[CoversClass(Error::class)]
 class ErrorTest extends AbstractTestCase
@@ -64,7 +67,9 @@ class ErrorTest extends AbstractTestCase
     {
         $this->object->setFile($file);
         $filePath = $this->object->getFile();
-        self::assertStringStartsWith('./', $filePath);
+        self::assertStringStartsWith('.' . DIRECTORY_SEPARATOR, $filePath);
+        /** @psalm-var non-empty-string $expected */
+        $expected = str_replace('/', DIRECTORY_SEPARATOR, $expected);
         self::assertStringEndsWith($expected, $filePath);
     }
 
