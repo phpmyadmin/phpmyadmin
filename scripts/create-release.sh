@@ -148,12 +148,6 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/twig-i18n-extension/README.rst \
         vendor/phpmyadmin/twig-i18n-extension/phpunit.xml.dist \
         vendor/phpmyadmin/twig-i18n-extension/test/ \
-        vendor/phpseclib/phpseclib/phpseclib/File/ \
-        vendor/phpseclib/phpseclib/phpseclib/Math/ \
-        vendor/phpseclib/phpseclib/phpseclib/Net/ \
-        vendor/phpseclib/phpseclib/phpseclib/System/ \
-        vendor/phpseclib/phpseclib/appveyor.yml \
-        vendor/phpseclib/phpseclib/.github \
         vendor/symfony/cache/Tests/ \
         vendor/symfony/service-contracts/Test/ \
         vendor/symfony/expression-language/Tests/ \
