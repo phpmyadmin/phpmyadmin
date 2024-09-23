@@ -14,7 +14,6 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\TokensList;
-use PhpMyAdmin\SqlParser\Utils\Routine as RoutineUtils;
 use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
@@ -459,15 +458,8 @@ class Routines
             $body = (string) $routine['ROUTINE_DEFINITION'];
         }
 
-        $params = RoutineUtils::getParameters($stmt);
-        $retval['item_num_params'] = $params['num'];
-        $retval['item_param_dir'] = $params['dir'];
-        $retval['item_param_name'] = $params['name'];
-        $retval['item_param_type'] = $params['type'];
-        $retval['item_param_length'] = $params['length'];
-        $retval['item_param_length_arr'] = $params['length_arr'];
-        $retval['item_param_opts_num'] = $params['opts'];
-        $retval['item_param_opts_text'] = $params['opts'];
+        $retval = array_merge($retval, $this->getParameters($stmt));
+        $retval['item_param_opts_text'] = $retval['item_param_opts_num'];
 
         // Get extra data
         if (! $all) {
@@ -514,6 +506,49 @@ class Routines
 
         $retval['item_sqldataaccess'] = $routine['SQL_DATA_ACCESS'];
         $retval['item_comment'] = $routine['ROUTINE_COMMENT'];
+
+        return $retval;
+    }
+
+    /**
+     * Gets the parameters of a routine from the parse tree.
+     *
+     * @param CreateStatement $statement the statement to be processed
+     *
+     * @return array<string, int|array<int, mixed[]|string|null>>
+     */
+    private function getParameters(CreateStatement $statement): array
+    {
+        $retval = [
+            'item_num_params' => 0,
+            'item_param_dir' => [],
+            'item_param_name' => [],
+            'item_param_type' => [],
+            'item_param_length' => [],
+            'item_param_length_arr' => [],
+            'item_param_opts_num' => [],
+        ];
+
+        if ($statement->parameters !== null) {
+            $idx = 0;
+            foreach ($statement->parameters as $param) {
+                $retval['item_param_dir'][$idx] = $param->inOut;
+                $retval['item_param_name'][$idx] = $param->name;
+                $retval['item_param_type'][$idx] = $param->type->name;
+                $retval['item_param_length'][$idx] = implode(',', $param->type->parameters);
+                $retval['item_param_length_arr'][$idx] = $param->type->parameters;
+                $retval['item_param_opts_num'][$idx] = [];
+                foreach ($param->type->options->options as $opt) {
+                    $retval['item_param_opts_num'][$idx][] = is_string($opt) ?
+                        $opt : $opt['value'];
+                }
+
+                $retval['item_param_opts_num'][$idx] = implode(' ', $retval['item_param_opts_num'][$idx]);
+                ++$idx;
+            }
+
+            $retval['item_num_params'] = $idx;
+        }
 
         return $retval;
     }
@@ -1169,18 +1204,16 @@ class Routines
 
         $executeAction = '';
 
-        if ($definition !== null) {
+        if ($definition !== null && $hasExecutePrivilege) {
             $parser = new Parser('DELIMITER $$' . "\n" . $definition);
 
             /** @var CreateStatement $stmt */
             $stmt = $parser->statements[0];
 
-            $params = RoutineUtils::getParameters($stmt);
-
-            if ($hasExecutePrivilege) {
-                $executeAction = 'execute_routine';
-                for ($i = 0; $i < $params['num']; $i++) {
-                    if ($routine->type === 'PROCEDURE' && $params['dir'][$i] === 'OUT') {
+            $executeAction = 'execute_routine';
+            if ($stmt->parameters !== null) {
+                foreach ($stmt->parameters as $param) {
+                    if ($routine->type === 'PROCEDURE' && $param->inOut === 'OUT') {
                         continue;
                     }
 
