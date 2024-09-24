@@ -5263,7 +5263,7 @@
     <InvalidArrayOffset occurrences="1">
       <code>$retval['item_param_dir'][$key]</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="46">
+    <MixedArgument occurrences="47">
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -5292,6 +5292,7 @@
       <code>$routine['item_param_name'][$i]</code>
       <code>$routine['item_param_name'][$i]</code>
       <code>$routine['item_param_name'][$i]</code>
+      <code>$routine['item_param_opts_text'][$i]</code>
       <code>$routine['item_param_type'][$i]</code>
       <code>$routine['item_param_type'][$i]</code>
       <code>$routine['item_param_type'][$i]</code>
