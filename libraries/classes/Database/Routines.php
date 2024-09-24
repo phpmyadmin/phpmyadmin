@@ -699,7 +699,7 @@ class Routines
             $charsets[] = [
                 'name' => $charset->getName(),
                 'description' => $charset->getDescription(),
-                'is_selected' => $charset->getName() === $routine['item_param_opts_text'][$i],
+                'is_selected' => $charset->getName() === mb_strtolower($routine['item_param_opts_text'][$i]),
             ];
         }
 
