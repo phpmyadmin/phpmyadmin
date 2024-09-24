@@ -32,6 +32,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokenType;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\UniqueCondition;
 use PhpMyAdmin\Util;
@@ -1747,11 +1748,9 @@ class ExportSql extends ExportPlugin
         $schemaCreate = '';
 
         // Check if we can use Relations
-        $foreigners = $this->relation->getRelationsAndStatus(
-            $doRelation && $relationParameters->relationFeature !== null,
-            $db,
-            $table,
-        );
+        $foreigners = $doRelation && $relationParameters->relationFeature !== null ?
+            $this->relation->getForeigners($db, $table)
+            : [];
 
         $mimeMap = null;
         if ($doMime && $relationParameters->browserTransformationFeature !== null) {
@@ -1821,8 +1820,9 @@ class ExportSql extends ExportPlugin
                         ),
                     );
                 } else {
+                    /** @var ForeignKey $oneKey */
                     foreach ($rel as $oneKey) {
-                        foreach ($oneKey['index_list'] as $index => $field) {
+                        foreach ($oneKey->indexList as $index => $field) {
                             $relFieldAlias = ! empty(
                                 $aliases[$db]['tables'][$table]['columns'][$field]
                             ) ? $aliases[$db]['tables'][$table]['columns'][$field]
@@ -1838,13 +1838,13 @@ class ExportSql extends ExportPlugin
                             . $this->exportComment(
                                 '      '
                                 . Util::backquoteCompat(
-                                    $oneKey['ref_table_name'],
+                                    $oneKey->refTableName,
                                     'NONE',
                                     $this->useSqlBackquotes,
                                 )
                                 . ' -> '
                                 . Util::backquoteCompat(
-                                    $oneKey['ref_index_list'][$index],
+                                    $oneKey->refIndexList[$index],
                                     'NONE',
                                     $this->useSqlBackquotes,
                                 ),

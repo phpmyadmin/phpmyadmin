@@ -14,7 +14,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\InternalRelations;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
-use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
@@ -37,7 +37,6 @@ use function is_string;
 use function ksort;
 use function mb_check_encoding;
 use function mb_strlen;
-use function mb_strtolower;
 use function mb_strtoupper;
 use function mb_substr;
 use function natcasesort;
@@ -46,6 +45,7 @@ use function sprintf;
 use function str_contains;
 use function str_replace;
 use function strnatcasecmp;
+use function strtolower;
 use function trim;
 use function uksort;
 use function usort;
@@ -370,8 +370,9 @@ class Relation
      * @param string $table  the name of the table to check for
      * @param string $column the name of the column to check for
      * @param string $source the source for foreign key information
+     * @psalm-param 'both'|'internal'|'foreign' $source
      *
-     * @return mixed[]    db,table,column
+     * @return array<array<mixed>>
      */
     public function getForeigners(string $db, string $table, string $column = '', string $source = 'both'): array
     {
@@ -389,40 +390,30 @@ class Relation
                 $relQuery .= ' AND `master_field` = ' . $this->dbi->quoteString($column);
             }
 
+            /** @var array<array<string|null>> $foreign */
             $foreign = $this->dbi->fetchResult($relQuery, 'master_field', null, ConnectionType::ControlUser);
         }
 
         if (($source === 'both' || $source === 'foreign') && $table !== '') {
-            $tableObj = new Table($table, $db, $this->dbi);
-            $showCreateTable = $tableObj->showCreate();
-            if ($showCreateTable !== '') {
-                $parser = new Parser($showCreateTable);
-                $stmt = $parser->statements[0];
-                $foreign['foreign_keys_data'] = [];
-                if ($stmt instanceof CreateStatement) {
-                    $foreign['foreign_keys_data'] = TableUtils::getForeignKeys($stmt);
-                }
-            }
+            $foreign['foreign_keys_data'] = $this->getForeignKeysData($table, $db);
         }
 
         /**
          * Emulating relations for some information_schema tables
          */
-        $isInformationSchema = mb_strtolower($db) === 'information_schema';
-        $isMysql = mb_strtolower($db) === 'mysql';
-        if (($isInformationSchema || $isMysql) && ($source === 'internal' || $source === 'both')) {
-            if ($isInformationSchema) {
-                $internalRelations = InternalRelations::INFORMATION_SCHEMA;
-            } else {
-                $internalRelations = InternalRelations::MYSQL;
-            }
+        if (
+            in_array(strtolower($db), ['information_schema', 'mysql'], true)
+            && ($source === 'internal' || $source === 'both')
+        ) {
+            $internalRelations = strtolower($db) === 'information_schema'
+                ? InternalRelations::INFORMATION_SCHEMA
+                : InternalRelations::MYSQL;
 
             if (isset($internalRelations[$table])) {
                 foreach ($internalRelations[$table] as $field => $relations) {
                     if (
-                        ($column !== '' && $column != $field)
-                        || (isset($foreign[$field])
-                        && $foreign[$field] != '')
+                        ($column !== '' && $column !== $field)
+                        || (isset($foreign[$field]) && $foreign[$field] != '')
                     ) {
                         continue;
                     }
@@ -433,6 +424,22 @@ class Relation
         }
 
         return $foreign;
+    }
+
+    /** @return list<ForeignKey> */
+    private function getForeignKeysData(string $table, string $db): array
+    {
+        $tableObj = new Table($table, $db, $this->dbi);
+        $showCreateTable = $tableObj->showCreate();
+        if ($showCreateTable !== '') {
+            $parser = new Parser($showCreateTable);
+            $stmt = $parser->statements[0];
+            if ($stmt instanceof CreateStatement) {
+                return $stmt->getForeignKeys();
+            }
+        }
+
+        return [];
     }
 
     /**
@@ -1346,15 +1353,16 @@ class Relation
         }
 
         $foreigner = [];
+        /** @var ForeignKey $oneKey */
         foreach ($foreigners['foreign_keys_data'] as $oneKey) {
-            $columnIndex = array_search($column, $oneKey['index_list']);
+            $columnIndex = array_search($column, $oneKey->indexList);
             if ($columnIndex !== false) {
-                $foreigner['foreign_field'] = $oneKey['ref_index_list'][$columnIndex];
-                $foreigner['foreign_db'] = $oneKey['ref_db_name'] ?? Current::$database;
-                $foreigner['foreign_table'] = $oneKey['ref_table_name'];
-                $foreigner['constraint'] = $oneKey['constraint'];
-                $foreigner['on_update'] = $oneKey['on_update'] ?? 'RESTRICT';
-                $foreigner['on_delete'] = $oneKey['on_delete'] ?? 'RESTRICT';
+                $foreigner['foreign_field'] = $oneKey->refIndexList[$columnIndex];
+                $foreigner['foreign_db'] = $oneKey->refDbName ?? Current::$database;
+                $foreigner['foreign_table'] = $oneKey->refTableName;
+                $foreigner['constraint'] = $oneKey->constraint;
+                $foreigner['on_update'] = $oneKey->onUpdate ?? 'RESTRICT';
+                $foreigner['on_delete'] = $oneKey->onDelete ?? 'RESTRICT';
 
                 return $foreigner;
             }
@@ -1526,25 +1534,6 @@ class Relation
         self::$cache = null;
         // Fill back the cache
         $this->getRelationParameters();
-    }
-
-    /**
-     * Gets the relations info and status, depending on the condition
-     *
-     * @param bool   $condition whether to look for foreigners or not
-     * @param string $db        database name
-     * @param string $table     table name
-     *
-     * @return mixed[]
-     */
-    public function getRelationsAndStatus(bool $condition, string $db, string $table): array
-    {
-        if ($condition) {
-            // Find which tables are related with the current one and write it in an array
-            return $this->getForeigners($db, $table);
-        }
-
-        return [];
     }
 
     /**

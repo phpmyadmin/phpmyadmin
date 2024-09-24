@@ -1056,52 +1056,12 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: "#^Cannot access offset 'constraint' on mixed\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'index_list' on mixed\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'on_delete' on mixed\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'on_update' on mixed\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'ref_db_name' on mixed\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'ref_index_list' on mixed\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: "#^Cannot access offset 'table_name' on mixed\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
 
 		-
 			message: "#^Cannot access offset 'table_schema' on mixed\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
 
@@ -1322,11 +1282,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(string\\|null, string\\|null\\)\\: int, Closure\\(string, string\\)\\: int\\<\\-1, 1\\> given\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of function array_search expects array, mixed given\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
 
@@ -4281,36 +4236,6 @@ parameters:
 			path: src/Controllers/Table/Partition/RepairController.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Cannot access offset 'foreign_db' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Cannot access offset 'ref_db_name' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
@@ -4386,7 +4311,7 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#7 \\$existrelForeign of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateForeignKeys\\(\\) expects array, mixed given\\.$#"
+			message: "#^Parameter \\#7 \\$existrelForeign of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateForeignKeys\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Utils\\\\ForeignKey\\>, array given\\.$#"
 			count: 1
 			path: src/Controllers/Table/RelationController.php
 
@@ -5722,52 +5647,12 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 3
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'constraint' on mixed\\.$#"
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'foreign_db' on mixed\\.$#"
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'index_list' on mixed\\.$#"
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'ref_db_name' on mixed\\.$#"
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'ref_index_list' on mixed\\.$#"
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
 			count: 1
 			path: src/Database/Designer/Common.php
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 5
+			count: 4
 			path: src/Database/Designer/Common.php
 
 		-
@@ -5821,8 +5706,18 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
+			message: "#^Parameter \\#1 \\$string of function rawurlencode expects string, int\\|string given\\.$#"
+			count: 1
+			path: src/Database/Designer/Common.php
+
+		-
 			message: "#^Parameter \\#1 \\$string of function rawurlencode expects string, mixed given\\.$#"
-			count: 4
+			count: 1
+			path: src/Database/Designer/Common.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function rawurlencode expects string, string\\|null given\\.$#"
+			count: 1
 			path: src/Database/Designer/Common.php
 
 		-
@@ -6337,7 +6232,7 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 6
+			count: 4
 			path: src/Display/Results.php
 
 		-
@@ -6351,21 +6246,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: "#^Cannot access offset 'foreign_db' on mixed\\.$#"
-			count: 2
-			path: src/Display/Results.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 2
-			path: src/Display/Results.php
-
-		-
 			message: "#^Cannot access offset 'geoOption' on mixed\\.$#"
 			count: 8
 			path: src/Display/Results.php
@@ -6373,11 +6253,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'hide_transformation' on mixed\\.$#"
 			count: 8
-			path: src/Display/Results.php
-
-		-
-			message: "#^Cannot access offset 'index_list' on mixed\\.$#"
-			count: 1
 			path: src/Display/Results.php
 
 		-
@@ -6406,21 +6281,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: "#^Cannot access offset 'ref_db_name' on mixed\\.$#"
-			count: 2
-			path: src/Display/Results.php
-
-		-
-			message: "#^Cannot access offset 'ref_index_list' on mixed\\.$#"
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
-			count: 2
-			path: src/Display/Results.php
-
-		-
 			message: "#^Cannot access offset 'relational_display' on mixed\\.$#"
 			count: 7
 			path: src/Display/Results.php
@@ -6443,11 +6303,6 @@ parameters:
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
 			count: 2
-			path: src/Display/Results.php
-
-		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 1
 			path: src/Display/Results.php
 
 		-
@@ -6572,7 +6427,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Display/Results.php
 
 		-
@@ -6602,7 +6457,12 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$table of class PhpMyAdmin\\\\Display\\\\ForeignKeyRelatedTable constructor expects string, mixed given\\.$#"
-			count: 2
+			count: 1
+			path: src/Display/Results.php
+
+		-
+			message: "#^Parameter \\#1 \\$table of class PhpMyAdmin\\\\Display\\\\ForeignKeyRelatedTable constructor expects string, string\\|null given\\.$#"
+			count: 1
 			path: src/Display/Results.php
 
 		-
@@ -6617,7 +6477,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$field of class PhpMyAdmin\\\\Display\\\\ForeignKeyRelatedTable constructor expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Display/Results.php
 
 		-
@@ -6652,7 +6512,12 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
+			path: src/Display/Results.php
+
+		-
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDisplayField\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
 			path: src/Display/Results.php
 
 		-
@@ -6667,7 +6532,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$database of class PhpMyAdmin\\\\Display\\\\ForeignKeyRelatedTable constructor expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Display/Results.php
 
 		-
@@ -8926,21 +8791,6 @@ parameters:
 			path: src/Normalization.php
 
 		-
-			message: "#^Cannot access offset 'foreign_db' on mixed\\.$#"
-			count: 4
-			path: src/Operations.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 3
-			path: src/Operations.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 4
-			path: src/Operations.php
-
-		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
 			count: 6
 			path: src/Operations.php
@@ -9891,11 +9741,6 @@ parameters:
 			path: src/Plugins/Export/ExportPhparray.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 2
 			path: src/Plugins/Export/ExportSql.php
@@ -9921,31 +9766,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Cannot access offset 'index_list' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Cannot access offset 'ref_index_list' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Cannot access offset 'single_table' on mixed\\.$#"
 			count: 1
 			path: src/Plugins/Export/ExportSql.php
@@ -9961,8 +9781,8 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 2
+			message: "#^Cannot access offset int\\|string on mixed\\.$#"
+			count: 1
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -10067,7 +9887,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquoteCompat\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 19
+			count: 17
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -10252,16 +10072,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'columns' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
 			count: 1
 			path: src/Plugins/Export/Helpers/Pdf.php
 
@@ -10791,41 +10601,6 @@ parameters:
 			path: src/Plugins/Import/Upload/UploadSession.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'index_list' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'ref_index_list' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 2
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
@@ -10836,13 +10611,13 @@ parameters:
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
-			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:addRelation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
 			message: "#^Parameter \\#4 \\$foreignField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:addRelation\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
@@ -10866,41 +10641,6 @@ parameters:
 			path: src/Plugins/Schema/Dia/TableStatsDia.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'index_list' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'ref_index_list' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
@@ -10911,13 +10651,13 @@ parameters:
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
-			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:addRelation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
 			message: "#^Parameter \\#6 \\$foreignField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:addRelation\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
@@ -10991,11 +10731,6 @@ parameters:
 			path: src/Plugins/Schema/Pdf/Pdf.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
 			message: "#^Call to method TCPDF\\:\\:Line\\(\\) with incorrect case\\: line$#"
 			count: 2
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
@@ -11006,33 +10741,8 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'index_list' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'ref_index_list' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 14
+			count: 13
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -11086,7 +10796,7 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:addRelation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
@@ -11117,7 +10827,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$foreignField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:addRelation\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -11186,53 +10896,18 @@ parameters:
 			path: src/Plugins/Schema/Svg/RelationStatsSvg.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'index_list' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'ref_index_list' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
 			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:addRelation\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:addRelation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
 			message: "#^Parameter \\#6 \\$foreignField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:addRelation\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
@@ -13061,11 +12736,6 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: "#^Cannot access offset 'constraint' on mixed\\.$#"
-			count: 3
-			path: src/Table/Table.php
-
-		-
 			message: "#^Cannot access offset 'foreign_db' on mixed\\.$#"
 			count: 1
 			path: src/Table/Table.php
@@ -13078,36 +12748,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'foreign_table' on mixed\\.$#"
 			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: "#^Cannot access offset 'index_list' on mixed\\.$#"
-			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: "#^Cannot access offset 'on_delete' on mixed\\.$#"
-			count: 2
-			path: src/Table/Table.php
-
-		-
-			message: "#^Cannot access offset 'on_update' on mixed\\.$#"
-			count: 2
-			path: src/Table/Table.php
-
-		-
-			message: "#^Cannot access offset 'ref_db_name' on mixed\\.$#"
-			count: 2
-			path: src/Table/Table.php
-
-		-
-			message: "#^Cannot access offset 'ref_index_list' on mixed\\.$#"
-			count: 2
-			path: src/Table/Table.php
-
-		-
-			message: "#^Cannot access offset 'ref_table_name' on mixed\\.$#"
-			count: 2
 			path: src/Table/Table.php
 
 		-
@@ -13217,7 +12857,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 6
+			count: 5
 			path: src/Table/Table.php
 
 		-
@@ -13267,22 +12907,32 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$foreignDb of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#3 \\$foreignDb of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
 			path: src/Table/Table.php
 
 		-
 			message: "#^Parameter \\#4 \\$foreignTable of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
+			path: src/Table/Table.php
+
+		-
+			message: "#^Parameter \\#4 \\$foreignTable of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
 			path: src/Table/Table.php
 
 		-
 			message: "#^Parameter \\#5 \\$foreignField of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects array, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Table/Table.php
 
 		-
 			message: "#^Parameter \\#6 \\$name of method PhpMyAdmin\\\\Table\\\\Table\\:\\:getSQLToCreateForeignKey\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Table/Table.php
 
 		-

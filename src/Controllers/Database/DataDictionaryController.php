@@ -50,11 +50,9 @@ final class DataDictionaryController implements InvocableController
                 $this->dbi->getTableIndexes(Current::$database, $tableName),
             );
 
-            $foreigners = $this->relation->getRelationsAndStatus(
-                $relationParameters->relationFeature !== null,
-                Current::$database,
-                $tableName,
-            );
+            $foreigners = $relationParameters->relationFeature !== null
+                ? $this->relation->getForeigners(Current::$database, $tableName)
+                : [];
 
             $columnsComments = $this->relation->getComments(Current::$database, $tableName);
 

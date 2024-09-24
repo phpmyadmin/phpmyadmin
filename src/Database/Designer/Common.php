@@ -11,6 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey as UtilsForeignKey;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
@@ -130,21 +131,17 @@ class Common
 
             $row = $this->relation->getForeigners(Current::$database, $val, '', 'foreign');
 
-            // We do not have access to the foreign keys if the user has partial access to the columns
-            if (! isset($row['foreign_keys_data'])) {
-                continue;
-            }
-
+            /** @var UtilsForeignKey $oneKey */
             foreach ($row['foreign_keys_data'] as $oneKey) {
-                foreach ($oneKey['index_list'] as $index => $oneField) {
-                    $con['C_NAME'][$i] = rawurlencode($oneKey['constraint']);
+                foreach ($oneKey->indexList as $index => $oneField) {
+                    $con['C_NAME'][$i] = rawurlencode($oneKey->constraint);
                     $con['DTN'][$i] = rawurlencode(Current::$database . '.' . $val);
                     $con['DCN'][$i] = rawurlencode($oneField);
                     $con['STN'][$i] = rawurlencode(
-                        ($oneKey['ref_db_name'] ?? Current::$database)
-                        . '.' . $oneKey['ref_table_name'],
+                        ($oneKey->refDbName ?? Current::$database)
+                        . '.' . $oneKey->refTableName,
                     );
-                    $con['SCN'][$i] = rawurlencode($oneKey['ref_index_list'][$index]);
+                    $con['SCN'][$i] = rawurlencode($oneKey->refIndexList[$index]);
                     $i++;
                 }
             }
