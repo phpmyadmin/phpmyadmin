@@ -4862,9 +4862,11 @@
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$options]]></code>
       <code><![CDATA[$options]]></code>
+      <code><![CDATA[$retval['item_param_opts_num'][$idx]]]></code>
       <code><![CDATA[$value]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
+      <code><![CDATA[$opt['value']]]></code>
       <code><![CDATA[$opt['value']]]></code>
       <code><![CDATA[$routine['item_param_dir'][$i]]]></code>
       <code><![CDATA[$routine['item_param_dir'][$i]]]></code>
@@ -4922,8 +4924,10 @@
       <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$opt]]></code>
+      <code><![CDATA[$opt]]></code>
       <code><![CDATA[$options[]]]></code>
       <code><![CDATA[$retval['item_definer']]]></code>
+      <code><![CDATA[$retval['item_param_opts_num'][$idx][]]]></code>
       <code><![CDATA[$string]]></code>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
@@ -4964,9 +4968,6 @@
       <code><![CDATA[$itemType]]></code>
       <code><![CDATA[$itemType]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess>
-      <code><![CDATA[$params['dir'][$i]]]></code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_isdeterministic']]]></code>
@@ -4995,18 +4996,24 @@
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['message']]]></code>
       <code><![CDATA[$createRoutine]]></code>
+      <code><![CDATA[$param->type->parameters]]></code>
       <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
       <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
       <code><![CDATA[$stmt->return->parameters]]></code>
     </PossiblyNullArgument>
     <PossiblyNullIterator>
       <code><![CDATA[$GLOBALS['errors']]]></code>
+      <code><![CDATA[$param->type->options->options]]></code>
       <code><![CDATA[$stmt->return->options->options]]></code>
     </PossiblyNullIterator>
     <PossiblyNullOperand>
       <code><![CDATA[$_POST['item_original_type']]]></code>
     </PossiblyNullOperand>
     <PossiblyNullPropertyFetch>
+      <code><![CDATA[$param->type->name]]></code>
+      <code><![CDATA[$param->type->options]]></code>
+      <code><![CDATA[$param->type->options->options]]></code>
+      <code><![CDATA[$param->type->parameters]]></code>
       <code><![CDATA[$stmt->return->name]]></code>
       <code><![CDATA[$stmt->return->options]]></code>
       <code><![CDATA[$stmt->return->options->options]]></code>
