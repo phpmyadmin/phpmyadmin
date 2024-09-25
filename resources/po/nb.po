@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-09-22 00:24+0000\n"
-"PO-Revision-Date: 2022-02-15 16:21+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2024-09-26 08:15+0000\n"
+"Last-Translator: Sebastian Kålås Møller <sebastianmollerkalas@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/nb_NO/>\n"
 "Language: nb\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -127,12 +127,12 @@ msgid "As defined:"
 msgstr "Som definert:"
 
 #: resources/templates/columns_definitions/column_attributes.twig:102
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "Du har ikke nok rettigheter til å være her nå!"
+msgstr ""
+"Du har ikke nok rettigheter til å gjøre denne handlingen! Vennligst referer "
+"til dokumentasjonen for mer informasjon"
 
 #: resources/templates/columns_definitions/column_attributes.twig:112
 #: resources/templates/database/data_dictionary/index.twig:41
@@ -190,7 +190,7 @@ msgstr "Kompresjon"
 
 #: resources/templates/columns_definitions/column_attributes.twig:185
 msgid "first"
-msgstr ""
+msgstr "først"
 
 #: resources/templates/columns_definitions/column_attributes.twig:190
 #: resources/templates/table/structure/display_structure.twig:439
