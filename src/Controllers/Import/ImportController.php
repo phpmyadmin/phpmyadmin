@@ -123,9 +123,26 @@ final class ImportController implements InvocableController
             $format = 'sql';
             $_SESSION['sql_from_query_box'] = true;
 
-            // If there is a request to ROLLBACK when finished.
-            if ($request->hasBodyParam('rollback_query')) {
-                $this->import->handleRollbackRequest($GLOBALS['import_text']);
+            if ($request->hasBodyParam('transaction_query') && $request->hasBodyParam('rollback_query')) {
+                $GLOBALS['message'] = Message::error(
+                    __(
+                        'Only one of "Wrap in One Transaction" or "Rollback when finished" options can be selected.',
+                    ),
+                );
+
+                // so we can obtain the message
+                $_SESSION['Import_message']['message'] = $GLOBALS['message']->getDisplay();
+                $_SESSION['Import_message']['go_back_url'] = $GLOBALS['goto'];
+
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $GLOBALS['message']);
+
+                return $this->response->response();
+            }
+
+            // If there is a request to wrap into one transaction or rollback
+            if ($request->hasBodyParam('transaction_query') || $request->hasBodyParam('rollback_query')) {
+                $this->import->handleTransactionOrRollbackRequest($GLOBALS['import_text']);
             }
 
             // refresh navigation and main panels
@@ -711,6 +728,10 @@ final class ImportController implements InvocableController
                 );
             }
 
+            if ($request->hasBodyParam('transaction_query')) {
+                $this->dbi->query('COMMIT');
+            }
+
             $this->response->setRequestStatus(true);
             $this->response->addJSON('message', Message::success(ImportSettings::$message));
             $this->response->addJSON(
@@ -718,6 +739,10 @@ final class ImportController implements InvocableController
                 Generator::getMessage(ImportSettings::$message, $GLOBALS['sql_query'], MessageType::Success),
             );
         } elseif ($GLOBALS['result'] === false) {
+            if ($request->hasBodyParam('transaction_query')) {
+                $this->dbi->query('ROLLBACK');
+            }
+
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(ImportSettings::$message));
         } else {
