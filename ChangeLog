@@ -14,40 +14,43 @@ phpMyAdmin - ChangeLog
 - issue #18529 Add copy to clipboard for export as text
 
 5.2.2 (not yet released)
-- issue #17028 Fix total count of rows in not accurate
-- issue #17683 Fix total count of rows in not accurate
+- issue #17851 Fix total count of rows in not accurate
 - issue #17766 Allow to open in a new tab copy and edit row actions
 - issue #17599 Fix error when handling an user that is not in privileges table
 - issue #17364 Fix error when trying to import a status monitor chart arrangement
 - issue #18106 Fix renaming database with a view
 - issue #18120 Fix bug with numerical tables during renaming database
 - issue #16851 Fix ($cfg['Order']) default column order doesn't have have any effect since phpMyAdmin 4.2.0
+- issue #18138 Fix some issues with numerical table names
 - issue #18112 Fix open base dir warning on git version class
+- issue #18211 Fix the themes route missing the server ID
 - issue        Do not show "Original length undefined" on binary hex columns
 - issue        Fix wrong time zone when handling Git information
-- issue        Do not show "Original length undefined" on binary hex columns
-- issue        Fix warning on non-existent table for XML export
+- issue #18195 Fix warning on non-existent table for XML export
 - issue #18196 Fix errors of import notification
 - issue #18093 Fix JS errors around "new user account" in some edge cases
 - issue #16451 Increase password characters limit to 2000 during login
-- issue        Fix "IS NULL" is shown for non-nullable columns on search page
+- issue #18177 Fix "IS NULL" is shown for non-nullable columns on search page
 - issue #16199 Fix dragging of tables in designer
+- issue #18268 Fix UI issue the theme manager is disabled
+- issue #18258 Speed improvements when exporting a database
 - issue #17702 Fix performance issue when handling large number of tables in a single database
-- issue        Fix UI defect on tracking versions table first column
+- issue #18324 Fix UI defect on tracking versions table first column
 - issue #18266 Fix disabling features (like `$cfg['Servers'][$i]['tracking'] = false;`) did not work
-- issue        Fixed query time measurement - measure time only for user queries
+- issue #18296 Fixed query time measurement - measure time only for user queries
 - issue #18235 Fix columns are misaligned for the "sys" database
 - issue #18249 Speed improvements when browsing a database with multiple tables
 - issue #18060 Fix Console height "Not a non-negative number" error
+- issue #18188 Fix issue when editing GIS data
 - issue        Fix width/height of create routines modal and width of routines/triggers/events modals
 - issue        Stop pmadb database detection when all features are disabled
 - issue        Upgrade slim/psr7 to 1.4.1 for CVE-2023-30536 - GHSA-q2qj-628g-vhfw
 - issue #17654 Fix unprivileged user cannot change password on MySQL >= 5.7.37
-- issue        Add CVE MITRE link to allowed domains and use cve.org
+- issue #18385 Add CVE MITRE link to allowed domains and use cve.org
 - issue #18330 Fix TypeError when no-datetime field is modified
 - issue #18212 Fix Query Builder doesn't replace a table name with it's alias in the `WHERE` block
-- issue        Keep the criteria box collapsed by the user when un-checking the criteria checkbox
-- issue        Fix colspan for actions column on database table list
+- issue #18221 Keep the criteria box collapsed by the user when un-checking the criteria checkbox
+- issue #18363 Fix colspan for actions column on database table list
 - issue        Fix double encoding on User Groups pages
 - issue        Fix list of users of an user group not showing up
 - issue        Fix duplicate query params in the SQL message card
@@ -68,22 +71,43 @@ phpMyAdmin - ChangeLog
 - issue #14411 Fixed double tap to edit on mobile devices
 - issue        Update documentation to reflect that Node >= 12 is required to compile the JS and CSS files
 - issue #18578 Fixed PDF export NULL values gives a type error
+- issue #18605 Fixed issue when executing a stored procedure
 - issue #18650 Fixed double escaping on foreign key relation link title
 - issue #18533 Fixed wrong count for simulated queries
 - issue #18611 Fixed an error when searching a table without conditions
+- issue #18663 Fixed case where triggers are dropped when moving a table
+- issue #17404 Fixed an error message after dropping a database
+- issue #18714 Fixed incorrect formatting of the amount of table rows
+- issue #18717 Fixed issue when deleting bookmarks
+- issue #18713 Fixed some issues with the GIS editor
+- issue #18722 Fixed generic error message in the home page
+- issue #18693 Fixed enum/set value escaping
+- issue #18769 Improved collations support for MariaDB 10.10
 - issue #17381 Fixed JS errors when editing indexes on create table
 - issue #14402 Fix the PRIMARY label still shown when using two columns for a PK on create table
 - issue #17347 Fixed JS errors when changing index settings on create table
+- issue #18762 Fixed truncating tables when a VIEW is included
 - issue        Fix BETWEEN search does not validate input because of spaces
 - issue        Fix JS number validation does not validate when the input is empty or emptied
 - issue #18561 Fix issue when adding System Monitor charts
 - issue #17363 Fix duplicate route parameter after logging in
 - issue #15670 Fix case where the data is truncated after changing a longtext column's collation
+- issue #18797 Fixed support for ampersand as a arg separator
+- issue #18834 Fixed case where column hash is empty in table relation page
+- issue #17538 Fixed error when renaming an index
 - issue #18865 Fix missing text-nowrap for timestamps columns
+- issue #18613 Fixed routine editor showing wrong parameter type
+- issue #18890 Fixed wrong row count when query has UNION
+- issue #18949 Fixed natural sorting for items in the navigation section
+- issue #18930 Fixed import of empty tables from MediaWiki
+- issue #18940 Fixed issue when creating an unique key
 - issue #19022 Fix case where tables from wrong database is loaded in navigation tree
+- issue #18782 Fixed issue with role based auth for MySQL 8
 - issue #18593 Fix drop db line included in server export if exporting only data
 - issue #18049 Also check that curl_exec is enabled for the new version check
+- issue #19023 Fixed table size for ROCKSDB engine showing as unknown
 - issue #18451 Fix when editing inline central column, Null is always preselected
+- issue #18495 Fixed database export missing routines
 - issue #19117 Allow changing the virtuality of a column without any other changes
 - issue #18566 Fixed error when importing exported view with USE INDEX hint
 - issue #17920 Fixed moving column with empty default value will replace it with ''
@@ -95,6 +119,7 @@ phpMyAdmin - ChangeLog
 - issue #18674 Fix formatted sql in browse table result has a linebreak after each token
 - issue #18210 Fixed add replica replication user on MariaDB doesn't work (SQL syntax)
 - issue #19041 Fix footer.twig gets printed to Binary File Download
+- issue #19091 Fix to stop processing queries on error
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
