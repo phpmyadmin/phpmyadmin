@@ -976,18 +976,18 @@ class InsertEdit
      * Column to display from the foreign table?
      *
      * @param string  $whereComparison string that contain relation field value
-     * @param mixed[] $map             all Relations to foreign tables for a given
-     *                                            table or optionally a given column in a table
+     * @param mixed[] $foreigners      all Relations to foreign tables for a given
+     *                                     table or optionally a given column in a table
      * @param string  $relationField   relation field
      *
      * @return string display value from the foreign table
      */
     public function getDisplayValueForForeignTableColumn(
         string $whereComparison,
-        array $map,
+        array $foreigners,
         string $relationField,
     ): string {
-        $foreigner = $this->relation->searchColumnInForeigners($map, $relationField);
+        $foreigner = $this->relation->searchColumnInForeigners($foreigners, $relationField);
 
         if (! is_array($foreigner)) {
             return '';
@@ -1013,8 +1013,8 @@ class InsertEdit
     /**
      * Display option in the cell according to user choices
      *
-     * @param mixed[] $map                all Relations to foreign tables for a given
-     *                                                  table or optionally a given column in a table
+     * @param mixed[] $foreigners         all Relations to foreign tables for a given
+     *                                           table or optionally a given column in a table
      * @param string  $relationField      relation field
      * @param string  $whereComparison    string that contain relation field value
      * @param string  $dispval            display value from the foreign table
@@ -1023,13 +1023,13 @@ class InsertEdit
      * @return string HTML <a> tag
      */
     public function getLinkForRelationalDisplayField(
-        array $map,
+        array $foreigners,
         string $relationField,
         string $whereComparison,
         string $dispval,
         string $relationFieldValue,
     ): string {
-        $foreigner = $this->relation->searchColumnInForeigners($map, $relationField);
+        $foreigner = $this->relation->searchColumnInForeigners($foreigners, $relationField);
 
         if (! is_array($foreigner)) {
             return '';
