@@ -4421,7 +4421,7 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: "#^Parameter \\#1 \\$array of function array_values expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$array of function array_values expects array\\<T\\>, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
 
