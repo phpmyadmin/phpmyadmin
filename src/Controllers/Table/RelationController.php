@@ -299,8 +299,6 @@ final class RelationController implements InvocableController
             'table' => Current::$table,
             'relation_parameters' => $relationParameters,
             'tbl_storage_engine' => $storageEngine,
-            'existrel' => $relations,
-            'existrel_foreign' => $existrelForeign,
             'options_array' => $options,
             'internal_relation_columns' => $internalRelationColumns,
             'url_params' => $GLOBALS['urlParams'],
