@@ -441,15 +441,6 @@ Functions.escapeSingleQuote = function (s) {
     return s.replaceAll('\\', '\\\\').replaceAll('\'', '\\\'');
 };
 
-/**
- * @param {string} s
- * @param {string} char
- * @return {string}
- */
-Functions.wrap = function (s, char) {
-    return char + s + char;
-};
-
 Functions.sprintf = function () {
     return sprintf.apply(this, arguments);
 };
