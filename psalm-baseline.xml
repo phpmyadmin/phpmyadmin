@@ -755,9 +755,6 @@
       <code><![CDATA[$this->config->selectedServer['column_info']]]></code>
       <code><![CDATA[$this->config->selectedServer['column_info']]]></code>
     </PossiblyFalseArgument>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$foreigners]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>

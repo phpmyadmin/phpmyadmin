@@ -887,17 +887,17 @@ class Relation
     /**
      * Gets foreign keys in preparation for a drop-down selector
      *
-     * @param mixed[]|bool $foreigners    array of the foreign keys
-     * @param string       $field         the foreign field name
-     * @param bool         $overrideTotal whether to override the total
-     * @param string       $foreignFilter a possible filter
-     * @param string       $foreignLimit  a possible LIMIT clause
-     * @param bool         $getTotal      optional, whether to get total num of rows
-     *                                    in $foreignData['the_total;]
-     *                                    (has an effect of performance)
+     * @param mixed[] $foreigners    array of the foreign keys
+     * @param string  $field         the foreign field name
+     * @param bool    $overrideTotal whether to override the total
+     * @param string  $foreignFilter a possible filter
+     * @param string  $foreignLimit  a possible LIMIT clause
+     * @param bool    $getTotal      optional, whether to get total num of rows
+     *                               in $foreignData['the_total;]
+     *                               (has an effect of performance)
      */
     public function getForeignData(
-        array|bool $foreigners,
+        array $foreigners,
         string $field,
         bool $overrideTotal,
         string $foreignFilter,
@@ -909,7 +909,7 @@ class Relation
         $foreignLink = false;
         $dispRow = $foreignDisplay = $theTotal = $foreignField = null;
         do {
-            if ($foreigners === false || $foreigners === []) {
+            if ($foreigners === []) {
                 break;
             }
 
