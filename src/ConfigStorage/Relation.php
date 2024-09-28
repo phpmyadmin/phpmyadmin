@@ -1351,7 +1351,14 @@ class Relation
     /**
      * @param list<ForeignKey> $foreignKeysData
      *
-     * @return non-empty-array<string, string|null>|false
+     * @return false|array{
+     *  foreign_field: string,
+     *  foreign_db: string,
+     *  foreign_table: string|null,
+     *  constraint: string|null,
+     *  on_update: string,
+     *  on_delete: string
+     * }
      */
     public function getColumnFromForeignKeysData(array $foreignKeysData, string $column): array|false
     {
