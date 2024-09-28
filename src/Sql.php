@@ -223,9 +223,13 @@ class Sql
         string $column,
         string $currentValue,
     ): string {
-        $foreigners = $this->relation->getForeigners($db, $table, $column);
-
-        $foreignData = $this->relation->getForeignData($foreigners, $column, false, '', '');
+        $foreignData = $this->relation->getForeignData(
+            $this->relation->getForeigners($db, $table, $column),
+            $column,
+            false,
+            '',
+            '',
+        );
 
         if ($foreignData->dispRow === null) {
             //Handle the case when number of values

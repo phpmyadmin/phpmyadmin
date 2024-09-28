@@ -32,7 +32,6 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokenType;
-use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\UniqueCondition;
 use PhpMyAdmin\Util;
@@ -1747,11 +1746,6 @@ class ExportSql extends ExportPlugin
 
         $schemaCreate = '';
 
-        // Check if we can use Relations
-        $foreigners = $doRelation && $relationParameters->relationFeature !== null ?
-            $this->relation->getForeigners($db, $table)
-            : [];
-
         $mimeMap = null;
         if ($doMime && $relationParameters->browserTransformationFeature !== null) {
             $mimeMap = $this->transformations->getMime($db, $table, true);
@@ -1782,6 +1776,11 @@ class ExportSql extends ExportPlugin
             $schemaCreate .= $this->exportComment();
         }
 
+        // Check if we can use Relations
+        $foreigners = $doRelation && $relationParameters->relationFeature !== null ?
+            $this->relation->getForeigners($db, $table, '', 'internal')
+            : [];
+
         if ($foreigners !== []) {
             $schemaCreate .= $this->possibleCRLF()
                 . $this->exportComment()
@@ -1792,11 +1791,40 @@ class ExportSql extends ExportPlugin
                 );
 
             foreach ($foreigners as $relField => $rel) {
-                if ($relField !== 'foreign_keys_data') {
+                $relFieldAlias = ! empty(
+                    $aliases[$db]['tables'][$table]['columns'][$relField]
+                ) ? $aliases[$db]['tables'][$table]['columns'][$relField]
+                    : $relField;
+                $schemaCreate .= $this->exportComment(
+                    '  '
+                    . Util::backquoteCompat(
+                        $relFieldAlias,
+                        'NONE',
+                        $this->useSqlBackquotes,
+                    ),
+                )
+                . $this->exportComment(
+                    '      '
+                    . Util::backquoteCompat(
+                        $rel['foreign_table'],
+                        'NONE',
+                        $this->useSqlBackquotes,
+                    )
+                    . ' -> '
+                    . Util::backquoteCompat(
+                        $rel['foreign_field'],
+                        'NONE',
+                        $this->useSqlBackquotes,
+                    ),
+                );
+            }
+
+            foreach ($this->relation->getForeignKeysData($db, $table) as $oneKey) {
+                foreach ($oneKey->indexList as $index => $field) {
                     $relFieldAlias = ! empty(
-                        $aliases[$db]['tables'][$table]['columns'][$relField]
-                    ) ? $aliases[$db]['tables'][$table]['columns'][$relField]
-                        : $relField;
+                        $aliases[$db]['tables'][$table]['columns'][$field]
+                    ) ? $aliases[$db]['tables'][$table]['columns'][$field]
+                        : $field;
                     $schemaCreate .= $this->exportComment(
                         '  '
                         . Util::backquoteCompat(
@@ -1808,49 +1836,17 @@ class ExportSql extends ExportPlugin
                     . $this->exportComment(
                         '      '
                         . Util::backquoteCompat(
-                            $rel['foreign_table'],
+                            $oneKey->refTableName,
                             'NONE',
                             $this->useSqlBackquotes,
                         )
                         . ' -> '
                         . Util::backquoteCompat(
-                            $rel['foreign_field'],
+                            $oneKey->refIndexList[$index],
                             'NONE',
                             $this->useSqlBackquotes,
                         ),
                     );
-                } else {
-                    /** @var ForeignKey $oneKey */
-                    foreach ($rel as $oneKey) {
-                        foreach ($oneKey->indexList as $index => $field) {
-                            $relFieldAlias = ! empty(
-                                $aliases[$db]['tables'][$table]['columns'][$field]
-                            ) ? $aliases[$db]['tables'][$table]['columns'][$field]
-                                : $field;
-                            $schemaCreate .= $this->exportComment(
-                                '  '
-                                . Util::backquoteCompat(
-                                    $relFieldAlias,
-                                    'NONE',
-                                    $this->useSqlBackquotes,
-                                ),
-                            )
-                            . $this->exportComment(
-                                '      '
-                                . Util::backquoteCompat(
-                                    $oneKey->refTableName,
-                                    'NONE',
-                                    $this->useSqlBackquotes,
-                                )
-                                . ' -> '
-                                . Util::backquoteCompat(
-                                    $oneKey->refIndexList[$index],
-                                    'NONE',
-                                    $this->useSqlBackquotes,
-                                ),
-                            );
-                        }
-                    }
                 }
             }
 

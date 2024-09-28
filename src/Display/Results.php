@@ -3476,14 +3476,9 @@ class Results
         // configuration storage. If no PMA storage, we won't be able
         // to use the "column to display" notion (for example show
         // the name related to a numeric id).
-        $existRel = $this->relation->getForeigners($this->db, $this->table, '', self::POSITION_BOTH);
 
         $map = [];
-        foreach ($existRel as $masterField => $rel) {
-            if ($masterField === 'foreign_keys_data') {
-                continue;
-            }
-
+        foreach ($this->relation->getForeigners($this->db, $this->table, '', 'internal') as $masterField => $rel) {
             $map[$masterField] = new ForeignKeyRelatedTable(
                 $rel['foreign_table'],
                 $rel['foreign_field'],

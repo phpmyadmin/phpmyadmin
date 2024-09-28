@@ -72,6 +72,11 @@ class TableControllerTest extends AbstractTestCase
             [[null]],
             ['PARTITION_NAME'],
         );
+        $this->dummyDbi->addResult(
+            'SHOW CREATE TABLE `test_db`.`test_table`',
+            [['test_table', 'CREATE TABLE `test_table` (`ref` int(11) NOT NULL, CONSTRAINT `ref` FOREIGN KEY (`ref`) REFERENCES `refT` (`refC`) ON DELETE CASCADE ON UPDATE CASCADE )']],
+            ['Table', 'Create Table'],
+        );
         // phpcs:enable
 
         $storageEngines = StorageEngine::getArray();

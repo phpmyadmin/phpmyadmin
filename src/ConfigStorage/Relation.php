@@ -1295,14 +1295,9 @@ class Relation
     ): array {
         $columnStatus = ['isEditable' => true, 'isReferenced' => false, 'isForeignKey' => false, 'references' => []];
 
-        $foreigners = [];
-        if ($foreignersFull !== null) {
-            $foreigners['foreign_keys_data'] = $foreignersFull;
-        } else {
-            $foreigners['foreign_keys_data'] = $this->getForeignKeysData($db, $table);
-        }
+        $foreigners = $foreignersFull ?? $this->getForeignKeysData($db, $table);
 
-        $foreigner = $this->searchColumnInForeigners($foreigners, $column);
+        $foreigner = $this->getColumnFromForeignKeysData($foreigners, $column);
 
         $childReferences = [];
         if ($childReferencesFull !== null) {
@@ -1313,7 +1308,7 @@ class Relation
             $childReferences = $this->getChildReferences($db, $table, $column);
         }
 
-        if ($childReferences !== [] || $foreigner) {
+        if ($childReferences !== [] || $foreigner !== false) {
             $columnStatus['isEditable'] = false;
             if ($childReferences !== []) {
                 $columnStatus['isReferenced'] = true;
@@ -1323,7 +1318,7 @@ class Relation
                 }
             }
 
-            if ($foreigner) {
+            if ($foreigner !== false) {
                 $columnStatus['isForeignKey'] = true;
             }
         }
@@ -1347,9 +1342,21 @@ class Relation
             return false;
         }
 
+        /** @var list<ForeignKey> $foreignKeysData */
+        $foreignKeysData = $foreigners['foreign_keys_data'];
+
+        return $this->getColumnFromForeignKeysData($foreignKeysData, $column);
+    }
+
+    /**
+     * @param list<ForeignKey> $foreignKeysData
+     *
+     * @return non-empty-array<string, string|null>|false
+     */
+    public function getColumnFromForeignKeysData(array $foreignKeysData, string $column): array|false
+    {
         $foreigner = [];
-        /** @var ForeignKey $oneKey */
-        foreach ($foreigners['foreign_keys_data'] as $oneKey) {
+        foreach ($foreignKeysData as $oneKey) {
             $columnIndex = array_search($column, $oneKey->indexList);
             if ($columnIndex !== false) {
                 $foreigner['foreign_field'] = $oneKey->refIndexList[$columnIndex];

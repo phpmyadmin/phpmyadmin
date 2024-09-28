@@ -759,8 +759,6 @@
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $maxTime]]></code>
-      <code><![CDATA[$foreigner]]></code>
-      <code><![CDATA[$foreigner]]></code>
       <code><![CDATA[$relationParams[$work]]]></code>
       <code><![CDATA[empty($this->config->selectedServer[$feature])]]></code>
       <code><![CDATA[empty($this->config->selectedServer['bookmarktable'])]]></code>
@@ -4610,7 +4608,6 @@
       <code><![CDATA[$_POST['t_x'][$key]]]></code>
       <code><![CDATA[$_POST['t_y'][$key]]]></code>
       <code><![CDATA[$db]]></code>
-      <code><![CDATA[$foreigner['constraint']]]></code>
       <code><![CDATA[$tab]]></code>
       <code><![CDATA[$value['foreign_field']]]></code>
     </MixedArgument>
@@ -4662,9 +4659,6 @@
     <PossiblyNullOperand>
       <code><![CDATA[$oneKey->refTableName]]></code>
     </PossiblyNullOperand>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$foreigner]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Database/Designer/DesignerTable.php">
     <PossiblyUnusedMethod>

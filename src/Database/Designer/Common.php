@@ -21,7 +21,6 @@ use function array_keys;
 use function count;
 use function explode;
 use function in_array;
-use function is_array;
 use function is_string;
 use function json_decode;
 use function json_encode;
@@ -489,8 +488,8 @@ class Common
         if (ForeignKey::isSupported($typeT1) && $typeT1 === $typeT2) {
             // relation exists?
             $existRelForeign = $this->relation->getForeignKeysData($db2, $t2);
-            $foreigner = $this->relation->searchColumnInForeigners(['foreign_keys_data' => $existRelForeign], $f2);
-            if ($foreigner && isset($foreigner['constraint'])) {
+            $foreigner = $this->relation->getColumnFromForeignKeysData($existRelForeign, $f2);
+            if ($foreigner !== false && isset($foreigner['constraint'])) {
                 return [false, __('Error: relationship already exists.')];
             }
 
@@ -603,9 +602,9 @@ class Common
         if (ForeignKey::isSupported($typeT1) && $typeT1 === $typeT2) {
             // InnoDB
             $existRelForeign = $this->relation->getForeignKeysData($db2, $t2);
-            $foreigner = $this->relation->searchColumnInForeigners(['foreign_keys_data' => $existRelForeign], $f2);
+            $foreigner = $this->relation->getColumnFromForeignKeysData($existRelForeign, $f2);
 
-            if (is_array($foreigner) && isset($foreigner['constraint'])) {
+            if ($foreigner !== false && isset($foreigner['constraint'])) {
                 $updQuery = 'ALTER TABLE ' . Util::backquote($db2)
                     . '.' . Util::backquote($t2) . ' DROP FOREIGN KEY '
                     . Util::backquote($foreigner['constraint']) . ';';
