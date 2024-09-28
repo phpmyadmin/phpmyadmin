@@ -3479,10 +3479,6 @@ class Results
         // the name related to a numeric id).
         $existRel = $this->relation->getForeigners($this->db, $this->table, '', self::POSITION_BOTH);
 
-        if ($existRel === []) {
-            return [];
-        }
-
         $map = [];
         foreach ($existRel as $masterField => $rel) {
             if ($masterField !== 'foreign_keys_data') {

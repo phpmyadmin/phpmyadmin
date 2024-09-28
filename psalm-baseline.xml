@@ -8454,12 +8454,12 @@
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$comments[$fieldName]]]></code>
+      <code><![CDATA[$foreigners[$fieldName]]]></code>
+      <code><![CDATA[$foreigners[$fieldName]]]></code>
+      <code><![CDATA[$foreigners[$fieldName]['foreign_field']]]></code>
+      <code><![CDATA[$foreigners[$fieldName]['foreign_table']]]></code>
       <code><![CDATA[$mimeMap[$fieldName]]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
-      <code><![CDATA[$resRel[$fieldName]]]></code>
-      <code><![CDATA[$resRel[$fieldName]]]></code>
-      <code><![CDATA[$resRel[$fieldName]['foreign_field']]]></code>
-      <code><![CDATA[$resRel[$fieldName]['foreign_table']]]></code>
       <code><![CDATA[$this->pagedim[$oldpage]]]></code>
       <code><![CDATA[$this->pagedim[$oldpage]]]></code>
       <code><![CDATA[$this->pagedim[$oldpage]['olm']]]></code>
@@ -8561,6 +8561,8 @@
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$availableWidth]]></code>
+      <code><![CDATA[$foreigners[$fieldName]['foreign_field']]]></code>
+      <code><![CDATA[$foreigners[$fieldName]['foreign_table']]]></code>
       <code><![CDATA[$fullwidth]]></code>
       <code><![CDATA[$fullwidth]]></code>
       <code><![CDATA[$fullwidth]]></code>
@@ -8581,8 +8583,6 @@
       <code><![CDATA[$maxpage]]></code>
       <code><![CDATA[$maxpage]]></code>
       <code><![CDATA[$maxpage]]></code>
-      <code><![CDATA[$resRel[$fieldName]['foreign_field']]]></code>
-      <code><![CDATA[$resRel[$fieldName]['foreign_table']]]></code>
       <code><![CDATA[$sColWidth]]></code>
       <code><![CDATA[$sColWidth]]></code>
       <code><![CDATA[$sColWidth]]></code>
@@ -8625,9 +8625,9 @@
       <code><![CDATA[$comments]]></code>
       <code><![CDATA[$data]]></code>
       <code><![CDATA[$data]]></code>
+      <code><![CDATA[$foreigners]]></code>
+      <code><![CDATA[$foreigners]]></code>
       <code><![CDATA[$mimeMap]]></code>
-      <code><![CDATA[$resRel]]></code>
-      <code><![CDATA[$resRel]]></code>
     </PossiblyUndefinedVariable>
     <PropertyNotSetInConstructor>
       <code><![CDATA[$results]]></code>

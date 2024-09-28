@@ -550,7 +550,7 @@ class PdfRelationSchema extends ExportRelationSchema
 
             // Find which tables are related with the current one and write it in
             // an array
-            $resRel = $this->relation->getForeigners($this->db->getName(), $table);
+            $foreigners = $this->relation->getForeigners($this->db->getName(), $table);
 
             /**
              * Displays the comments of the table if MySQL >= 3.23
@@ -654,7 +654,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->pdf->customLinks['RT'][$table][$fieldName] = $this->pdf->AddLink();
                 $this->pdf->Bookmark($fieldName, 1, -1);
                 $this->pdf->setLink($this->pdf->customLinks['doc'][$table][$fieldName], -1);
-                $foreigner = $this->relation->searchColumnInForeigners($resRel, $fieldName);
+                $foreigner = $this->relation->searchColumnInForeigners($foreigners, $fieldName);
 
                 $linksTo = '';
                 if ($foreigner) {
