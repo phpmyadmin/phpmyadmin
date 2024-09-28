@@ -737,8 +737,6 @@
       <code><![CDATA[$foreignField]]></code>
       <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$foreign[$key]]]></code>
-      <code><![CDATA[$foreigners[$column]]]></code>
-      <code><![CDATA[$foreigners['foreign_keys_data']]]></code>
       <code><![CDATA[$key]]></code>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
@@ -3657,11 +3655,6 @@
     <InvalidArgument>
       <code><![CDATA[usort($tables, strnatcasecmp(...))]]></code>
     </InvalidArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[array_key_exists('foreign_keys_data', $relationsForeign)
-                    ? $relationsForeign['foreign_keys_data']
-                    : []]]></code>
-    </MixedArgumentTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['destination_column']]]></code>
       <code><![CDATA[$_POST['destination_db']]]></code>

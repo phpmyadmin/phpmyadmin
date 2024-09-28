@@ -140,7 +140,7 @@ final class ColumnsDefinition
             $regenerate = true;
         }
 
-        $foreigners = $this->relation->getForeigners(Current::$database, Current::$table, '', 'foreign');
+        $foreigners = $this->relation->getForeignKeysData(Current::$database, Current::$table);
         $childReferences = null;
         // From MySQL 5.6.6 onwards columns with foreign keys can be renamed.
         // Hence, no need to get child references

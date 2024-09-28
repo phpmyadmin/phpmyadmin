@@ -466,7 +466,7 @@ final class TableController implements InvocableController
             $databaseList = $listDatabase->getList();
         }
 
-        $hasForeignKeys = $this->relation->getForeigners(Current::$database, Current::$table, '', 'foreign') !== [];
+        $hasForeignKeys = $this->relation->getForeignKeysData(Current::$database, Current::$table) !== [];
         $hasPrivileges = $userPrivileges->table && $userPrivileges->column && $userPrivileges->isReload;
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 

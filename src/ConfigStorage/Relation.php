@@ -370,7 +370,7 @@ class Relation
      * @param string $table  the name of the table to check for
      * @param string $column the name of the column to check for
      * @param string $source the source for foreign key information
-     * @psalm-param 'both'|'internal'|'foreign' $source
+     * @psalm-param 'both'|'internal' $source
      *
      * @return array<array<mixed>>
      */
@@ -379,7 +379,7 @@ class Relation
         $relationFeature = $this->getRelationParameters()->relationFeature;
         $foreign = [];
 
-        if ($relationFeature !== null && ($source === 'both' || $source === 'internal')) {
+        if ($relationFeature !== null) {
             $relQuery = 'SELECT `master_field`, `foreign_db`, '
                 . '`foreign_table`, `foreign_field`'
                 . ' FROM ' . Util::backquote($relationFeature->database)
@@ -394,17 +394,14 @@ class Relation
             $foreign = $this->dbi->fetchResult($relQuery, 'master_field', null, ConnectionType::ControlUser);
         }
 
-        if (($source === 'both' || $source === 'foreign') && $table !== '') {
-            $foreign['foreign_keys_data'] = $this->getForeignKeysData($table, $db);
+        if ($source === 'both' && $table !== '') {
+            $foreign['foreign_keys_data'] = $this->getForeignKeysData($db, $table);
         }
 
         /**
          * Emulating relations for some information_schema tables
          */
-        if (
-            in_array(strtolower($db), ['information_schema', 'mysql'], true)
-            && ($source === 'internal' || $source === 'both')
-        ) {
+        if (in_array(strtolower($db), ['information_schema', 'mysql'], true)) {
             $internalRelations = strtolower($db) === 'information_schema'
                 ? InternalRelations::INFORMATION_SCHEMA
                 : InternalRelations::MYSQL;
@@ -427,8 +424,12 @@ class Relation
     }
 
     /** @return list<ForeignKey> */
-    private function getForeignKeysData(string $table, string $db): array
+    public function getForeignKeysData(string $db, string $table): array
     {
+        if ($table === '') {
+            return [];
+        }
+
         $tableObj = new Table($table, $db, $this->dbi);
         $showCreateTable = $tableObj->showCreate();
         if ($showCreateTable !== '') {
@@ -1276,11 +1277,11 @@ class Relation
     /**
      * Check child table references and foreign key for a table column.
      *
-     * @param string       $db                  name of master table db.
-     * @param string       $table               name of master table.
-     * @param string       $column              name of master table column.
-     * @param mixed[]|null $foreignersFull      foreigners array for the whole table.
-     * @param mixed[]|null $childReferencesFull child references for the whole table.
+     * @param string                $db                  name of master table db.
+     * @param string                $table               name of master table.
+     * @param string                $column              name of master table column.
+     * @param list<ForeignKey>|null $foreignersFull      foreigners array for the whole table.
+     * @param mixed[]|null          $childReferencesFull child references for the whole table.
      *
      * @return array<string, mixed> telling about references if foreign key.
      * @psalm-return array{isEditable: bool, isForeignKey: bool, isReferenced: bool, references: string[]}
@@ -1296,15 +1297,9 @@ class Relation
 
         $foreigners = [];
         if ($foreignersFull !== null) {
-            if (isset($foreignersFull[$column])) {
-                $foreigners[$column] = $foreignersFull[$column];
-            }
-
-            if (isset($foreignersFull['foreign_keys_data'])) {
-                $foreigners['foreign_keys_data'] = $foreignersFull['foreign_keys_data'];
-            }
+            $foreigners['foreign_keys_data'] = $foreignersFull;
         } else {
-            $foreigners = $this->getForeigners($db, $table, $column, 'foreign');
+            $foreigners['foreign_keys_data'] = $this->getForeignKeysData($db, $table);
         }
 
         $foreigner = $this->searchColumnInForeigners($foreigners, $column);

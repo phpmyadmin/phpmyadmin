@@ -18,14 +18,12 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\SqlParser\Utils\ForeignKey as UtilsForeignKey;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
-use function array_key_exists;
 use function array_keys;
 use function mb_strtoupper;
 use function md5;
@@ -73,7 +71,7 @@ final class RelationController implements InvocableController
 
         $relationsForeign = [];
         if (ForeignKey::isSupported($storageEngine)) {
-            $relationsForeign = $this->relation->getForeigners(Current::$database, Current::$table, '', 'foreign');
+            $relationsForeign = $this->relation->getForeignKeysData(Current::$database, Current::$table);
         }
 
         // Send table of column names to populate corresponding dropdowns depending
@@ -121,9 +119,7 @@ final class RelationController implements InvocableController
                 $_POST['destination_foreign_column'],
                 $options,
                 Current::$table,
-                array_key_exists('foreign_keys_data', $relationsForeign)
-                    ? $relationsForeign['foreign_keys_data']
-                    : [],
+                $relationsForeign,
             );
             $this->response->addHTML($html);
         }
@@ -157,7 +153,7 @@ final class RelationController implements InvocableController
         }
 
         if (isset($_POST['destination_foreign_db']) && ForeignKey::isSupported($storageEngine)) {
-            $relationsForeign = $this->relation->getForeigners(Current::$database, Current::$table, '', 'foreign');
+            $relationsForeign = $this->relation->getForeignKeysData(Current::$database, Current::$table);
         }
 
         /**
@@ -184,13 +180,9 @@ final class RelationController implements InvocableController
         }
 
         $foreignKeyRow = '';
-        /** @var list<UtilsForeignKey> $existrelForeign */
-        $existrelForeign = array_key_exists('foreign_keys_data', $relationsForeign)
-            ? $relationsForeign['foreign_keys_data']
-            : [];
         $i = 0;
 
-        foreach ($existrelForeign as $oneKey) {
+        foreach ($relationsForeign as $oneKey) {
             $foreignDb = $oneKey->refDbName ?? Current::$database;
             $foreignTable = false;
             if ($foreignDb !== '') {

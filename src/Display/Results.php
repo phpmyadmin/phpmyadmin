@@ -26,7 +26,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
-use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\SqlParser\Utils\StatementInfo;
 use PhpMyAdmin\SqlParser\Utils\StatementType;
@@ -3481,31 +3480,31 @@ class Results
 
         $map = [];
         foreach ($existRel as $masterField => $rel) {
-            if ($masterField !== 'foreign_keys_data') {
-                $displayField = $this->relation->getDisplayField($rel['foreign_db'], $rel['foreign_table']);
-                $map[$masterField] = new ForeignKeyRelatedTable(
-                    $rel['foreign_table'],
-                    $rel['foreign_field'],
-                    $displayField,
-                    $rel['foreign_db'],
-                );
-            } else {
-                /** @var ForeignKey $oneKey */
-                foreach ($rel as $oneKey) {
-                    foreach ($oneKey->indexList as $index => $oneField) {
-                        $displayField = $this->relation->getDisplayField(
-                            $oneKey->refDbName ?? Current::$database,
-                            $oneKey->refTableName,
-                        );
+            if ($masterField === 'foreign_keys_data') {
+                continue;
+            }
 
-                        $map[$oneField] = new ForeignKeyRelatedTable(
-                            $oneKey->refTableName,
-                            $oneKey->refIndexList[$index],
-                            $displayField,
-                            $oneKey->refDbName ?? Current::$database,
-                        );
-                    }
-                }
+            $map[$masterField] = new ForeignKeyRelatedTable(
+                $rel['foreign_table'],
+                $rel['foreign_field'],
+                $this->relation->getDisplayField($rel['foreign_db'], $rel['foreign_table']),
+                $rel['foreign_db'],
+            );
+        }
+
+        foreach ($this->relation->getForeignKeysData($this->db, $this->table) as $oneKey) {
+            foreach ($oneKey->indexList as $index => $oneField) {
+                $displayField = $this->relation->getDisplayField(
+                    $oneKey->refDbName ?? Current::$database,
+                    $oneKey->refTableName,
+                );
+
+                $map[$oneField] = new ForeignKeyRelatedTable(
+                    $oneKey->refTableName,
+                    $oneKey->refIndexList[$index],
+                    $displayField,
+                    $oneKey->refDbName ?? Current::$database,
+                );
             }
         }
 

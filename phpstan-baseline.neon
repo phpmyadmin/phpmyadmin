@@ -4306,11 +4306,6 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#7 \\$existrelForeign of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateForeignKeys\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Utils\\\\ForeignKey\\>, array given\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
 			message: "#^Argument of an invalid type array\\|string supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
