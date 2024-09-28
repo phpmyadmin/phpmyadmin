@@ -1248,7 +1248,7 @@ class Relation
      * @param string $table  name of master table.
      * @param string $column name of master table column.
      *
-     * @return mixed[]
+     * @return array<list<mixed[]>>
      */
     public function getChildReferences(string $db, string $table, string $column = ''): array
     {
@@ -1277,11 +1277,11 @@ class Relation
     /**
      * Check child table references and foreign key for a table column.
      *
-     * @param string                $db                  name of master table db.
-     * @param string                $table               name of master table.
-     * @param string                $column              name of master table column.
-     * @param list<ForeignKey>|null $foreignersFull      foreigners array for the whole table.
-     * @param mixed[]|null          $childReferencesFull child references for the whole table.
+     * @param string                    $db                  name of master table db.
+     * @param string                    $table               name of master table.
+     * @param string                    $column              name of master table column.
+     * @param list<ForeignKey>|null     $foreignersFull      foreigners array for the whole table.
+     * @param array<list<mixed[]>>|null $childReferencesFull child references for the whole table.
      *
      * @return array<string, mixed> telling about references if foreign key.
      * @psalm-return array{isEditable: bool, isForeignKey: bool, isReferenced: bool, references: string[]}
@@ -1313,9 +1313,9 @@ class Relation
             $childReferences = $this->getChildReferences($db, $table, $column);
         }
 
-        if (count($childReferences) > 0 || $foreigner) {
+        if ($childReferences !== [] || $foreigner) {
             $columnStatus['isEditable'] = false;
-            if (count($childReferences) > 0) {
+            if ($childReferences !== []) {
                 $columnStatus['isReferenced'] = true;
                 foreach ($childReferences as $columns) {
                     $columnStatus['references'][] = Util::backquote($columns['table_schema'])

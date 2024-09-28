@@ -1032,7 +1032,7 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 2
+			count: 1
 			path: src/ConfigStorage/Relation.php
 
 		-
@@ -1056,16 +1056,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: "#^Cannot access offset 'table_name' on mixed\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'table_schema' on mixed\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
@@ -1077,6 +1067,11 @@ parameters:
 
 		-
 			message: "#^Do\\-while loop condition is always false\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getChildReferences\\(\\) should return array\\<array\\<int, array\\>\\> but returns array\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
 
@@ -1272,7 +1267,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 3
+			count: 1
 			path: src/ConfigStorage/Relation.php
 
 		-

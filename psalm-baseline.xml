@@ -703,8 +703,6 @@
       <code><![CDATA[$_SESSION['sql_history']]]></code>
       <code><![CDATA[$_SESSION['sql_history']]]></code>
       <code><![CDATA[$_SESSION['sql_history']]]></code>
-      <code><![CDATA[$childReferences]]></code>
-      <code><![CDATA[$childReferences]]></code>
       <code><![CDATA[$column['DATA_TYPE']]]></code>
       <code><![CDATA[$columns['table_name']]]></code>
       <code><![CDATA[$columns['table_schema']]]></code>
@@ -720,8 +718,6 @@
     <MixedArrayAccess>
       <code><![CDATA[$column['COLUMN_NAME']]]></code>
       <code><![CDATA[$column['DATA_TYPE']]]></code>
-      <code><![CDATA[$columns['table_name']]]></code>
-      <code><![CDATA[$columns['table_schema']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['sql_history'][]]]></code>
@@ -730,9 +726,7 @@
       <code><![CDATA[$foreign[$key]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$childReferences]]></code>
       <code><![CDATA[$column]]></code>
-      <code><![CDATA[$columns]]></code>
       <code><![CDATA[$foreignDb]]></code>
       <code><![CDATA[$foreignField]]></code>
       <code><![CDATA[$foreignTable]]></code>
@@ -749,6 +743,13 @@
       <code><![CDATA[$column['COLUMN_NAME']]]></code>
       <code><![CDATA[$foreigners[$column]]]></code>
     </MixedReturnStatement>
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[$this->dbi->fetchResult(
+                $relQuery,
+                ['referenced_column_name', null],
+            )]]></code>
+      <code><![CDATA[array<list<mixed[]>>]]></code>
+    </MixedReturnTypeCoercion>
     <PossiblyFalseArgument>
       <code><![CDATA[$this->config->selectedServer['column_info']]]></code>
       <code><![CDATA[$this->config->selectedServer['column_info']]]></code>
