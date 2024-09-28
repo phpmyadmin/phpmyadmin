@@ -395,8 +395,7 @@ final class ZoomSearchController implements InvocableController
                 $columnName,
             );
             if (
-                $this->foreigners === []
-                || $searchColumnInForeigners[$columnIndex] === []
+                $searchColumnInForeigners[$columnIndex] === []
                 || $searchColumnInForeigners[$columnIndex] === false
                 || $foreignData[$columnIndex]->dispRow === null
             ) {
@@ -427,7 +426,6 @@ final class ZoomSearchController implements InvocableController
             'table' => Current::$table,
             'column_names' => $this->columnNames,
             'column_names_hashes' => $columnNamesHashes,
-            'foreigners' => $this->foreigners,
             'column_null_flags' => $this->columnNullFlags,
             'column_types' => $this->columnTypes,
             'column_data_types' => $columnDataTypes,
@@ -490,22 +488,22 @@ final class ZoomSearchController implements InvocableController
         $htmlAttributes .= ' onfocus="return '
                         . 'verifyAfterSearchFieldChange(' . $searchIndex . ', \'#zoom_search_form\')"';
 
-        $searchColumnInForeigners = false;
         $foreignDropdown = '';
-        if ($this->foreigners) {
-            $searchColumnInForeigners = $this->relation->searchColumnInForeigners(
-                $this->foreigners,
-                $this->columnNames[$columnIndex],
+        $searchColumnInForeigners = $this->relation->searchColumnInForeigners(
+            $this->foreigners,
+            $this->columnNames[$columnIndex],
+        );
+
+        $hasForeigner = $searchColumnInForeigners !== false && $searchColumnInForeigners !== [];
+
+        if ($hasForeigner && $foreignData->dispRow !== null) {
+            $foreignDropdown = $this->relation->foreignDropdown(
+                $foreignData->dispRow,
+                $foreignData->foreignField,
+                $foreignData->foreignDisplay,
+                '',
+                Config::getInstance()->settings['ForeignKeyMaxLimit'],
             );
-            if ($searchColumnInForeigners && $foreignData->dispRow !== null) {
-                $foreignDropdown = $this->relation->foreignDropdown(
-                    $foreignData->dispRow,
-                    $foreignData->foreignField,
-                    $foreignData->foreignDisplay,
-                    '',
-                    Config::getInstance()->settings['ForeignKeyMaxLimit'],
-                );
-            }
         }
 
         $value = $this->template->render('table/search/input_box', [
@@ -515,7 +513,6 @@ final class ZoomSearchController implements InvocableController
             'html_attributes' => $htmlAttributes,
             'column_id' => 'fieldID_',
             'in_zoom_search_edit' => false,
-            'foreigners' => $this->foreigners,
             'column_name' => $this->columnNames[$columnIndex],
             'column_name_hash' => md5($this->columnNames[$columnIndex]),
             'foreign_data' => $foreignData,
@@ -525,7 +522,7 @@ final class ZoomSearchController implements InvocableController
             'db' => Current::$database,
             'in_fbs' => true,
             'foreign_dropdown' => $foreignDropdown,
-            'search_column_in_foreigners' => $searchColumnInForeigners,
+            'has_foreigner' => $hasForeigner,
             'is_integer' => $isInteger,
             'is_float' => $isFloat,
         ]);

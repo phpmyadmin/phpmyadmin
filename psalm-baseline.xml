@@ -3813,7 +3813,6 @@
       <code><![CDATA[(int) $config->settings['MaxRows']]]></code>
     </RedundantCastGivenDocblockType>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$searchColumnInForeigners]]></code>
       <code><![CDATA[empty($row->collation)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -4153,7 +4152,6 @@
       <code><![CDATA[$_POST['maxPlotLimit']]]></code>
     </RiskyCast>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$searchColumnInForeigners]]></code>
       <code><![CDATA[empty($_POST['maxPlotLimit'])]]></code>
       <code><![CDATA[empty($row->collation)]]></code>
     </RiskyTruthyFalsyComparison>

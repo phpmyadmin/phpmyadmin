@@ -373,11 +373,9 @@ final class SearchController implements InvocableController
             $this->columnNames[$columnIndex],
         );
 
-        if (
-            $this->foreigners
-            && $searchColumnInForeigners
-            && $foreignData->dispRow !== null
-        ) {
+        $hasForeigner = $searchColumnInForeigners !== false && $searchColumnInForeigners !== [];
+
+        if ($hasForeigner && $foreignData->dispRow !== null) {
             $foreignDropdown = $this->relation->foreignDropdown(
                 $foreignData->dispRow,
                 $foreignData->foreignField,
@@ -394,7 +392,6 @@ final class SearchController implements InvocableController
             'html_attributes' => $htmlAttributes,
             'column_id' => 'fieldID_',
             'in_zoom_search_edit' => false,
-            'foreigners' => $this->foreigners,
             'column_name' => $this->columnNames[$columnIndex],
             'column_name_hash' => md5($this->columnNames[$columnIndex]),
             'foreign_data' => $foreignData,
@@ -404,7 +401,7 @@ final class SearchController implements InvocableController
             'db' => Current::$database,
             'in_fbs' => true,
             'foreign_dropdown' => $foreignDropdown,
-            'search_column_in_foreigners' => $searchColumnInForeigners,
+            'has_foreigner' => $hasForeigner,
             'is_integer' => $isInteger,
             'is_float' => $isFloat,
         ]);
