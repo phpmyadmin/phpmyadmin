@@ -8,7 +8,7 @@ We appreciate your effort to improve phpMyAdmin by submitting a bug report. Befo
 
 1. Check whether the bug you face **hasn't been already reported**. Duplicate reports take us time, that we could be used to fix other bugs or make improvements.
 
-2. Specify the phpMyAdmin, server, PHP, MySQL and browser information that may be helpful to fix the problem, especially exact **version numbers**.
+2. Please specify the phpMyAdmin, server, PHP, MySQL, and browser information that may be helpful in resolving the issue, especially the exact **version numbers**.
 
 3. If you got some error, please **describe what happened** and add an error message. Reports like "I get an error when I clicked on some link" are useless.
 
