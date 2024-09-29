@@ -868,8 +868,8 @@ SQL;
         $dbi->expects(self::exactly(2))
             ->method('fetchResult')
             ->willReturn(
-                ['foo' => ['foreign_table' => 'ftable', 'foreign_field' => 'ffield']],
                 ['fieldname' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
+                ['foo' => ['foreign_table' => 'ftable', 'foreign_field' => 'ffield']],
             );
 
         DatabaseInterface::$instance = $dbi;

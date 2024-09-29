@@ -13,7 +13,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
-use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
@@ -197,34 +196,25 @@ class PdfRelationSchema extends ExportRelationSchema
         // and finding its foreigns is OK (then we can support innodb)
         $seenARelation = false;
         foreach ($alltables as $oneTable) {
-            $existRel = $this->relation->getForeigners($this->db->getName(), $oneTable);
-            if ($existRel === []) {
-                continue;
-            }
+            $existRel = $this->relation->getForeigners($this->db->getName(), $oneTable, '', 'internal');
 
             $seenARelation = true;
             foreach ($existRel as $masterField => $rel) {
-                // put the foreign table on the schema only if selected
-                // by the user
-                // (do not use array_search() because we would have to
-                // to do a === false and this is not PHP3 compatible)
-                if ($masterField !== 'foreign_keys_data') {
-                    if (in_array($rel['foreign_table'], $alltables, true)) {
-                        $this->addRelation($oneTable, $masterField, $rel['foreign_table'], $rel['foreign_field']);
-                    }
-
+                // put the foreign table on the schema only if selected by the user
+                if (! in_array($rel['foreign_table'], $alltables, true)) {
                     continue;
                 }
 
-                /** @var ForeignKey $oneKey */
-                foreach ($rel as $oneKey) {
-                    if (! in_array($oneKey->refTableName, $alltables, true)) {
-                        continue;
-                    }
+                $this->addRelation($oneTable, $masterField, $rel['foreign_table'], $rel['foreign_field']);
+            }
 
-                    foreach ($oneKey->indexList as $index => $oneField) {
-                        $this->addRelation($oneTable, $oneField, $oneKey->refTableName, $oneKey->refIndexList[$index]);
-                    }
+            foreach ($this->relation->getForeignKeysData($this->db->getName(), $oneTable) as $oneKey) {
+                if (! in_array($oneKey->refTableName, $alltables, true)) {
+                    continue;
+                }
+
+                foreach ($oneKey->indexList as $index => $oneField) {
+                    $this->addRelation($oneTable, $oneField, $oneKey->refTableName, $oneKey->refIndexList[$index]);
                 }
             }
         }
@@ -550,7 +540,7 @@ class PdfRelationSchema extends ExportRelationSchema
 
             // Find which tables are related with the current one and write it in
             // an array
-            $resRel = $this->relation->getForeigners($this->db->getName(), $table);
+            $foreigners = $this->relation->getForeigners($this->db->getName(), $table);
 
             /**
              * Displays the comments of the table if MySQL >= 3.23
@@ -654,7 +644,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->pdf->customLinks['RT'][$table][$fieldName] = $this->pdf->AddLink();
                 $this->pdf->Bookmark($fieldName, 1, -1);
                 $this->pdf->setLink($this->pdf->customLinks['doc'][$table][$fieldName], -1);
-                $foreigner = $this->relation->searchColumnInForeigners($resRel, $fieldName);
+                $foreigner = $this->relation->searchColumnInForeigners($foreigners, $fieldName);
 
                 $linksTo = '';
                 if ($foreigner) {

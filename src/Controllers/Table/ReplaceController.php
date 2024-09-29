@@ -381,7 +381,7 @@ final class ReplaceController implements InvocableController
     {
         $relFieldsList = $request->getParsedBodyParam('rel_fields_list', '');
         if ($relFieldsList !== '') {
-            $map = $this->relation->getForeigners(Current::$database, Current::$table);
+            $foreigners = $this->relation->getForeigners(Current::$database, Current::$table);
 
             /** @var array<int,array> $relationFields */
             $relationFields = [];
@@ -393,12 +393,12 @@ final class ReplaceController implements InvocableController
                     $whereComparison = "='" . $relationFieldValue . "'";
                     $dispval = $this->insertEdit->getDisplayValueForForeignTableColumn(
                         $whereComparison,
-                        $map,
+                        $foreigners,
                         $relationField,
                     );
 
                     $extraData['relations'][$cellIndex] = $this->insertEdit->getLinkForRelationalDisplayField(
-                        $map,
+                        $foreigners,
                         $relationField,
                         $whereComparison,
                         $dispval,

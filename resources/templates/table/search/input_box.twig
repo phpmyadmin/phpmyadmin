@@ -1,5 +1,5 @@
 {# Get inputbox based on different column types (Foreign key, geometrical, enum) #}
-{% if foreigners and search_column_in_foreigners %}
+{% if has_foreigner %}
     {% if foreign_data.dispRow is iterable %}
         <select name="criteriaValues[{{ column_index }}]"
             id="{{ column_id }}{{ column_index }}">

@@ -55,7 +55,6 @@
                           'html_attributes': '',
                           'column_id': column_types[column_index] ? 'edit_fieldID_' : 'fieldID_',
                           'in_zoom_search_edit': true,
-                          'foreigners': foreigners,
                           'column_name': field_popup,
                           'column_name_hash': column_names_hashes[field_popup],
                           'foreign_data': foreign_data[column_index],
@@ -65,7 +64,7 @@
                           'db': db,
                           'in_fbs': false,
                           'foreign_dropdown': foreign_dropdown[column_index] ?? '',
-                          'search_column_in_foreigners': search_columns_in_foreigners[column_index],
+                          'has_foreigner': search_columns_in_foreigners[column_index],
                           'is_integer': column_data_types[column_index] == 'INT',
                           'is_float': column_data_types[column_index] == 'FLOAT',
                         } only %}

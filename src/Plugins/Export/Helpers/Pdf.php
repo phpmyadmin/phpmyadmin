@@ -475,13 +475,12 @@ class Pdf extends PdfLib
          * it will be of use
          */
         // Check if we can use Relations
+        $haveRel = false;
         if ($doRelation) {
             // Find which tables are related with the current one and write it in
             // an array
-            $resRel = $this->relation->getForeigners($db, $table);
-            $haveRel = $resRel !== [];
-        } else {
-            $haveRel = false;
+            $foreigners = $this->relation->getForeigners($db, $table);
+            $haveRel = $foreigners !== [];
         }
 
         //column count and table heading
@@ -573,9 +572,9 @@ class Pdf extends PdfLib
             $fieldName = $column->field;
 
             if ($doRelation && $haveRel) {
-                $data[] = isset($resRel[$fieldName])
-                    ? $resRel[$fieldName]['foreign_table']
-                    . ' (' . $resRel[$fieldName]['foreign_field']
+                $data[] = isset($foreigners[$fieldName])
+                    ? $foreigners[$fieldName]['foreign_table']
+                    . ' (' . $foreigners[$fieldName]['foreign_field']
                     . ')'
                     : '';
             }

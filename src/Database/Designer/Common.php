@@ -11,7 +11,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
-use PhpMyAdmin\SqlParser\Utils\ForeignKey as UtilsForeignKey;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
@@ -22,7 +21,6 @@ use function array_keys;
 use function count;
 use function explode;
 use function in_array;
-use function is_array;
 use function is_string;
 use function json_decode;
 use function json_encode;
@@ -129,10 +127,7 @@ class Common
                 $i++;
             }
 
-            $row = $this->relation->getForeigners(Current::$database, $val, '', 'foreign');
-
-            /** @var UtilsForeignKey $oneKey */
-            foreach ($row['foreign_keys_data'] as $oneKey) {
+            foreach ($this->relation->getForeignKeysData(Current::$database, $val) as $oneKey) {
                 foreach ($oneKey->indexList as $index => $oneField) {
                     $con['C_NAME'][$i] = rawurlencode($oneKey->constraint);
                     $con['DTN'][$i] = rawurlencode(Current::$database . '.' . $val);
@@ -492,9 +487,9 @@ class Common
         // native foreign key
         if (ForeignKey::isSupported($typeT1) && $typeT1 === $typeT2) {
             // relation exists?
-            $existRelForeign = $this->relation->getForeigners($db2, $t2, '', 'foreign');
-            $foreigner = $this->relation->searchColumnInForeigners($existRelForeign, $f2);
-            if ($foreigner && isset($foreigner['constraint'])) {
+            $existRelForeign = $this->relation->getForeignKeysData($db2, $t2);
+            $foreigner = $this->relation->getColumnFromForeignKeysData($existRelForeign, $f2);
+            if ($foreigner !== false && isset($foreigner['constraint'])) {
                 return [false, __('Error: relationship already exists.')];
             }
 
@@ -606,10 +601,10 @@ class Common
 
         if (ForeignKey::isSupported($typeT1) && $typeT1 === $typeT2) {
             // InnoDB
-            $existRelForeign = $this->relation->getForeigners($db2, $t2, '', 'foreign');
-            $foreigner = $this->relation->searchColumnInForeigners($existRelForeign, $f2);
+            $existRelForeign = $this->relation->getForeignKeysData($db2, $t2);
+            $foreigner = $this->relation->getColumnFromForeignKeysData($existRelForeign, $f2);
 
-            if (is_array($foreigner) && isset($foreigner['constraint'])) {
+            if ($foreigner !== false && isset($foreigner['constraint'])) {
                 $updQuery = 'ALTER TABLE ' . Util::backquote($db2)
                     . '.' . Util::backquote($t2) . ' DROP FOREIGN KEY '
                     . Util::backquote($foreigner['constraint']) . ';';

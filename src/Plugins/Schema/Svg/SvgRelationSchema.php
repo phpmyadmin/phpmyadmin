@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Plugins\Schema\Svg;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
-use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\Version;
 
 use function __;
@@ -114,51 +113,44 @@ class SvgRelationSchema extends ExportRelationSchema
 
         $seenARelation = false;
         foreach ($alltables as $oneTable) {
-            $existRel = $this->relation->getForeigners($this->db->getName(), $oneTable);
+            $existRel = $this->relation->getForeigners($this->db->getName(), $oneTable, '', 'internal');
             if ($existRel === []) {
                 continue;
             }
 
             $seenARelation = true;
             foreach ($existRel as $masterField => $rel) {
-                /* put the foreign table on the schema only if selected
-                * by the user
-                * (do not use array_search() because we would have to
-                * to do a === false and this is not PHP3 compatible)
-                */
-                if ($masterField !== 'foreign_keys_data') {
-                    if (in_array($rel['foreign_table'], $alltables, true)) {
-                        $this->addRelation(
-                            $oneTable,
-                            $this->svg->getFont(),
-                            $this->svg->getFontSize(),
-                            $masterField,
-                            $rel['foreign_table'],
-                            $rel['foreign_field'],
-                            $this->tableDimension,
-                        );
-                    }
-
+                // put the foreign table on the schema only if selected by the user
+                if (! in_array($rel['foreign_table'], $alltables, true)) {
                     continue;
                 }
 
-                /** @var ForeignKey $oneKey */
-                foreach ($rel as $oneKey) {
-                    if (! in_array($oneKey->refTableName, $alltables, true)) {
-                        continue;
-                    }
+                $this->addRelation(
+                    $oneTable,
+                    $this->svg->getFont(),
+                    $this->svg->getFontSize(),
+                    $masterField,
+                    $rel['foreign_table'],
+                    $rel['foreign_field'],
+                    $this->tableDimension,
+                );
+            }
 
-                    foreach ($oneKey->indexList as $index => $oneField) {
-                        $this->addRelation(
-                            $oneTable,
-                            $this->svg->getFont(),
-                            $this->svg->getFontSize(),
-                            $oneField,
-                            $oneKey->refTableName,
-                            $oneKey->refIndexList[$index],
-                            $this->tableDimension,
-                        );
-                    }
+            foreach ($this->relation->getForeignKeysData($this->db->getName(), $oneTable) as $oneKey) {
+                if (! in_array($oneKey->refTableName, $alltables, true)) {
+                    continue;
+                }
+
+                foreach ($oneKey->indexList as $index => $oneField) {
+                    $this->addRelation(
+                        $oneTable,
+                        $this->svg->getFont(),
+                        $this->svg->getFontSize(),
+                        $oneField,
+                        $oneKey->refTableName,
+                        $oneKey->refIndexList[$index],
+                        $this->tableDimension,
+                    );
                 }
             }
         }

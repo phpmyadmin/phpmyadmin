@@ -1031,11 +1031,6 @@ parameters:
 			path: src/Config/Validator.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: "#^Call to function array_search\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
@@ -1056,16 +1051,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: "#^Cannot access offset 'table_name' on mixed\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'table_schema' on mixed\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
@@ -1077,6 +1062,11 @@ parameters:
 
 		-
 			message: "#^Do\\-while loop condition is always false\\.$#"
+			count: 1
+			path: src/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getChildReferences\\(\\) should return array\\<array\\<int, array\\>\\> but returns array\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
 
@@ -1221,17 +1211,7 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: "#^Only booleans are allowed in an if condition, array\\|false given\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, bool\\|string\\|null given\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: "#^Only booleans are allowed in \\|\\|, array\\|false given on the right side\\.$#"
 			count: 1
 			path: src/ConfigStorage/Relation.php
 
@@ -1256,11 +1236,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: "#^Parameter \\#1 \\$foreigners of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects array, array\\|true given\\.$#"
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 7
 			path: src/ConfigStorage/Relation.php
@@ -1277,7 +1252,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
-			count: 3
+			count: 1
 			path: src/ConfigStorage/Relation.php
 
 		-
@@ -4311,11 +4286,6 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#7 \\$existrelForeign of method PhpMyAdmin\\\\Table\\\\Table\\:\\:updateForeignKeys\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Utils\\\\ForeignKey\\>, array given\\.$#"
-			count: 1
-			path: src/Controllers/Table/RelationController.php
-
-		-
 			message: "#^Argument of an invalid type array\\|string supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
@@ -4421,7 +4391,7 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: "#^Parameter \\#1 \\$array of function array_values expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$array of function array_values expects array\\<T\\>, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
 
@@ -4547,16 +4517,6 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Only booleans are allowed in &&, array given on the left side\\.$#"
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Only booleans are allowed in &&, array\\|false given on the right side\\.$#"
 			count: 1
 			path: src/Controllers/Table/SearchController.php
 
@@ -5026,17 +4986,7 @@ parameters:
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Only booleans are allowed in &&, array\\|false given on the left side\\.$#"
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Only booleans are allowed in an if condition, array given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
 
@@ -5671,11 +5621,6 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: "#^Only booleans are allowed in &&, array\\|false given on the left side\\.$#"
-			count: 1
-			path: src/Database/Designer/Common.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 1
 			path: src/Database/Designer/Common.php
@@ -5683,11 +5628,6 @@ parameters:
 		-
 			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 2
-			path: src/Database/Designer/Common.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 1
 			path: src/Database/Designer/Common.php
 
 		-
