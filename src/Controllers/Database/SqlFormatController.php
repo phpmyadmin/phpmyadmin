@@ -23,7 +23,11 @@ final class SqlFormatController implements InvocableController
     {
         /** @var string $query */
         $query = $request->getParsedBodyParam('sql', '');
-        $this->response->addJSON(['sql' => Formatter::format($query)]);
+        if ($request->getParsedBodyParam('formatSingleLine') === 'true') {
+            $this->response->addJSON(['sql' => Formatter::format($query, ['line_ending' => ' ', 'indentation' => ''])]);
+        } else {
+            $this->response->addJSON(['sql' => Formatter::format($query)]);
+        }
 
         return $this->response->response();
     }
