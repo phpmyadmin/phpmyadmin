@@ -130,7 +130,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
         $_SERVER['HTTP_HOST'] = 'phpmyadmin.local';
 
         $creator = $this->getMockBuilder(ServerRequestFactory::class)
-            ->setMethods(['getallheaders'])
+            ->onlyMethods(['getallheaders'])
             ->getMock();
 
         $creator

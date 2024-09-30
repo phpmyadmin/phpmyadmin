@@ -8565,8 +8565,7 @@
       <code>(int) $GLOBALS['cfg']['NavigationTreeDisplayDbFilterMinimum']</code>
       <code>(int) $GLOBALS['cfg']['NavigationTreeDisplayItemFilterMinimum']</code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType occurrences="6">
-      <code>(string) $child-&gt;name</code>
+    <RedundantCastGivenDocblockType occurrences="5">
       <code>(string) $child-&gt;name</code>
       <code>(string) $key</code>
       <code>(string) $key</code>
@@ -15537,9 +15536,6 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Http/Factory/ServerRequestFactoryTest.php">
-    <DeprecatedMethod occurrences="1">
-      <code>setMethods</code>
-    </DeprecatedMethod>
     <MixedArgument occurrences="1">
       <code>$serverRequest</code>
     </MixedArgument>
