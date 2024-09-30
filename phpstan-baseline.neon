@@ -8921,6 +8921,11 @@ parameters:
 			path: libraries/classes/UserPreferences.php
 
 		-
+			message: "#^Cannot access offset non\\-falsy\\-string on array\\{\\}\\|float\\|int\\|non\\-falsy\\-string\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
+
+		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
