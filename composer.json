@@ -109,6 +109,7 @@
         "phpmyadmin/coding-standard": "^4.0",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^1.12",
+        "phpstan/phpstan-deprecation-rules": "^1.2",
         "phpstan/phpstan-phpunit": "^1.4",
         "phpstan/phpstan-strict-rules": "^1.6",
         "phpstan/phpstan-webmozart-assert": "^1.2",
