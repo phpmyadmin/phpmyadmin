@@ -10682,12 +10682,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset mixed on mixed\\.$#"
-			count: 13
+			count: 3
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
-			count: 4
+			count: 14
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -10721,11 +10721,6 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Parameter \\#1 \\$txt of method TCPDF\\:\\:Bookmark\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:setTableOrder\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
@@ -10737,31 +10732,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getComments\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Transformations\\:\\:getMime\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Parameter \\#2 \\$tableName of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 

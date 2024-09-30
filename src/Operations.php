@@ -555,7 +555,7 @@ class Operations
 
         $foreigners = [];
         $this->dbi->selectDb(Current::$database);
-        $foreign = $this->relation->getForeigners(Current::$database, Current::$table, '', 'internal');
+        $foreign = $this->relation->getForeignersInternal(Current::$database, Current::$table);
 
         foreach ($foreign as $master => $arr) {
             $joinQuery = 'SELECT '

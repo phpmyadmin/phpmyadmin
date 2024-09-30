@@ -66,7 +66,7 @@ final class RelationController implements InvocableController
 
         $relations = [];
         if ($relationParameters->relationFeature !== null) {
-            $relations = $this->relation->getForeigners(Current::$database, Current::$table, '', 'internal');
+            $relations = $this->relation->getForeignersInternal(Current::$database, Current::$table);
         }
 
         $relationsForeign = [];
@@ -149,7 +149,7 @@ final class RelationController implements InvocableController
 
         // If we did an update, refresh our data
         if (isset($_POST['destination_db']) && $relationParameters->relationFeature !== null) {
-            $relations = $this->relation->getForeigners(Current::$database, Current::$table, '', 'internal');
+            $relations = $this->relation->getForeignersInternal(Current::$database, Current::$table);
         }
 
         if (isset($_POST['destination_foreign_db']) && ForeignKey::isSupported($storageEngine)) {

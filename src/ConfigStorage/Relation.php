@@ -369,12 +369,27 @@ class Relation
      * @param string $db     the name of the db to check for
      * @param string $table  the name of the table to check for
      * @param string $column the name of the column to check for
-     * @param string $source the source for foreign key information
-     * @psalm-param 'both'|'internal' $source
      *
      * @return array<array<mixed>>
      */
-    public function getForeigners(string $db, string $table, string $column = '', string $source = 'both'): array
+    public function getForeigners(string $db, string $table, string $column = ''): array
+    {
+        $foreign = $this->getForeignersInternal($db, $table, $column);
+
+        if ($table !== '') {
+            $foreign['foreign_keys_data'] = $this->getForeignKeysData($db, $table);
+        }
+
+        return $foreign;
+    }
+
+    /**
+     * Gets all Relations to foreign tables for a given table or
+     * optionally a given column in a table
+     *
+     * @return array<array<mixed>>
+     */
+    public function getForeignersInternal(string $db, string $table, string $column = ''): array
     {
         $relationFeature = $this->getRelationParameters()->relationFeature;
         $foreign = [];
@@ -392,10 +407,6 @@ class Relation
 
             /** @var array<array<string|null>> $foreign */
             $foreign = $this->dbi->fetchResult($relQuery, 'master_field', null, ConnectionType::ControlUser);
-        }
-
-        if ($source === 'both' && $table !== '') {
-            $foreign['foreign_keys_data'] = $this->getForeignKeysData($db, $table);
         }
 
         /**

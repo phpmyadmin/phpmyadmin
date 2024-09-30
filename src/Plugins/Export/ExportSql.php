@@ -1778,7 +1778,7 @@ class ExportSql extends ExportPlugin
 
         // Check if we can use Relations
         $foreigners = $doRelation && $relationParameters->relationFeature !== null ?
-            $this->relation->getForeigners($db, $table, '', 'internal')
+            $this->relation->getForeignersInternal($db, $table)
             : [];
 
         if ($foreigners !== []) {

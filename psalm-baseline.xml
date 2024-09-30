@@ -9238,9 +9238,6 @@
     <MixedArgument>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
       <code><![CDATA[$rel['foreign_field']]]></code>
-      <code><![CDATA[$table]]></code>
-      <code><![CDATA[$table]]></code>
-      <code><![CDATA[$table]]></code>
       <code><![CDATA[$this->pdf->customLinks['RT']['-']]]></code>
       <code><![CDATA[$this->pdf->customLinks['doc'][$table][$fieldName]]]></code>
       <code><![CDATA[$this->pdf->customLinks['doc'][$table]['-']]]></code>
@@ -9272,20 +9269,15 @@
     </MixedArrayAssignment>
     <MixedArrayOffset>
       <code><![CDATA[$foreignTable[$foreigner['foreign_field']]]]></code>
-      <code><![CDATA[$this->pdf->customLinks['RT'][$table]]]></code>
       <code><![CDATA[$this->pdf->customLinks['doc'][$foreigner['foreign_table']]]]></code>
       <code><![CDATA[$this->pdf->customLinks['doc'][$foreigner['foreign_table']]]]></code>
       <code><![CDATA[$this->pdf->customLinks['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']]]]></code>
-      <code><![CDATA[$this->pdf->customLinks['doc'][$table]]]></code>
-      <code><![CDATA[$this->pdf->customLinks['doc'][$table]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$attribute]]></code>
       <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$links[0]]]></code>
       <code><![CDATA[$links[6]]]></code>
-      <code><![CDATA[$table]]></code>
-      <code><![CDATA[$table]]></code>
       <code><![CDATA[$type]]></code>
     </MixedAssignment>
     <MixedOperand>
@@ -9294,8 +9286,6 @@
       <code><![CDATA[$foreigner['foreign_table']]]></code>
       <code><![CDATA[$foreigner['on_delete']]]></code>
       <code><![CDATA[$foreigner['on_update']]]></code>
-      <code><![CDATA[$table]]></code>
-      <code><![CDATA[$table]]></code>
     </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_REQUEST['pdf_table_order']]]></code>

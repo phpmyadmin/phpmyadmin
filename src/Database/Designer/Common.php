@@ -116,7 +116,7 @@ class Common
         while ($val = $allTabRs->fetchRow()) {
             $val = (string) $val[0];
 
-            $row = $this->relation->getForeigners(Current::$database, $val, '', 'internal');
+            $row = $this->relation->getForeignersInternal(Current::$database, $val);
 
             foreach ($row as $field => $value) {
                 $con['C_NAME'][$i] = '';

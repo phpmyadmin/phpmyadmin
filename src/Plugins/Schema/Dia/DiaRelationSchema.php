@@ -92,7 +92,7 @@ class DiaRelationSchema extends ExportRelationSchema
 
         $seenARelation = false;
         foreach ($alltables as $oneTable) {
-            $existRel = $this->relation->getForeigners($this->db->getName(), $oneTable, '', 'internal');
+            $existRel = $this->relation->getForeignersInternal($this->db->getName(), $oneTable);
 
             $seenARelation = true;
             foreach ($existRel as $masterField => $rel) {

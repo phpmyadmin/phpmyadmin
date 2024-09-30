@@ -113,7 +113,7 @@ class SvgRelationSchema extends ExportRelationSchema
 
         $seenARelation = false;
         foreach ($alltables as $oneTable) {
-            $existRel = $this->relation->getForeigners($this->db->getName(), $oneTable, '', 'internal');
+            $existRel = $this->relation->getForeignersInternal($this->db->getName(), $oneTable);
             if ($existRel === []) {
                 continue;
             }
