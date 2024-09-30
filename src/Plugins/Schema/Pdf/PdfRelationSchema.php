@@ -196,7 +196,7 @@ class PdfRelationSchema extends ExportRelationSchema
         // and finding its foreigns is OK (then we can support innodb)
         $seenARelation = false;
         foreach ($alltables as $oneTable) {
-            $existRel = $this->relation->getForeigners($this->db->getName(), $oneTable, '', 'internal');
+            $existRel = $this->relation->getForeignersInternal($this->db->getName(), $oneTable);
 
             $seenARelation = true;
             foreach ($existRel as $masterField => $rel) {
@@ -438,7 +438,7 @@ class PdfRelationSchema extends ExportRelationSchema
     /**
      * Generates data dictionary pages.
      *
-     * @param mixed[] $alltables Tables to document.
+     * @param string[] $alltables Tables to document.
      */
     public function dataDictionaryDoc(array $alltables): void
     {

@@ -3478,7 +3478,7 @@ class Results
         // the name related to a numeric id).
 
         $map = [];
-        foreach ($this->relation->getForeigners($this->db, $this->table, '', 'internal') as $masterField => $rel) {
+        foreach ($this->relation->getForeignersInternal($this->db, $this->table) as $masterField => $rel) {
             $map[$masterField] = new ForeignKeyRelatedTable(
                 $rel['foreign_table'],
                 $rel['foreign_field'],
