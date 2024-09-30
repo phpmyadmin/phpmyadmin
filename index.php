@@ -20,5 +20,3 @@ document.write('<p>Redirecting to <a href="./public/">phpMyAdmin public interfac
 </script>
 </body>
 </html>
-
-
