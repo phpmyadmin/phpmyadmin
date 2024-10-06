@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-09-29 00:25+0000\n"
+"POT-Creation-Date: 2024-10-06 00:24+0000\n"
 "PO-Revision-Date: 2022-02-17 10:35+0000\n"
 "Last-Translator: Péter Báthory <bathory86p@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -209,7 +209,7 @@ msgstr "%s után"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:220
-#: src/Display/Results.php:935 src/Plugins/Export/ExportSql.php:2071
+#: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:2067
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Nincs"
@@ -291,7 +291,7 @@ msgstr "Indítás"
 #: resources/templates/columns_definitions/column_definitions_form.twig:71
 #: resources/templates/database/data_dictionary/index.twig:16
 #: resources/templates/table/structure/display_table_stats.twig:6
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:564
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:554
 msgid "Table comments:"
 msgstr "Tábla megjegyzések:"
 
@@ -348,7 +348,7 @@ msgstr "SQL előnézete"
 #: resources/templates/table/insert/actions_panel.twig:8
 #: resources/templates/table/relation/common_form.twig:142
 #: resources/templates/table/structure/partition_definition_form.twig:13
-#: resources/templates/table/zoom_search/result_form.twig:80
+#: resources/templates/table/zoom_search/result_form.twig:79
 #: src/Controllers/JavaScriptMessagesController.php:455
 msgid "Save"
 msgstr "Mentés"
@@ -370,7 +370,7 @@ msgstr ""
 #: resources/templates/table/insert/actions_panel.twig:48
 #: resources/templates/table/relation/common_form.twig:150
 #: resources/templates/table/zoom_search/result_form.twig:24
-#: resources/templates/table/zoom_search/result_form.twig:96
+#: resources/templates/table/zoom_search/result_form.twig:95
 #, fuzzy
 #| msgid "Loading…"
 msgid "Loading"
@@ -421,8 +421,8 @@ msgstr "Betöltés…"
 #: resources/templates/table/structure/display_structure.twig:344
 #: resources/templates/table/structure/display_structure.twig:362
 #: resources/templates/table/zoom_search/result_form.twig:25
-#: resources/templates/table/zoom_search/result_form.twig:81
-#: resources/templates/table/zoom_search/result_form.twig:97
+#: resources/templates/table/zoom_search/result_form.twig:80
+#: resources/templates/table/zoom_search/result_form.twig:96
 #: src/Controllers/JavaScriptMessagesController.php:147
 #: src/Tracking/Tracking.php:200 src/Tracking/Tracking.php:540
 msgid "Close"
@@ -464,9 +464,9 @@ msgstr "Egy idegen kulcs-e."
 #: src/Plugins/Export/ExportOdt.php:452
 #: src/Plugins/Export/ExportTexytext.php:285
 #: src/Plugins/Export/ExportTexytext.php:364
-#: src/Plugins/Export/Helpers/Pdf.php:489
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:611
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:633
+#: src/Plugins/Export/Helpers/Pdf.php:488
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:601
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:623
 msgid "Column"
 msgstr "Oszlop"
 
@@ -616,9 +616,9 @@ msgstr "Név"
 #: src/Plugins/Export/ExportOdt.php:455
 #: src/Plugins/Export/ExportTexytext.php:286
 #: src/Plugins/Export/ExportTexytext.php:365
-#: src/Plugins/Export/Helpers/Pdf.php:491
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:612
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:634
+#: src/Plugins/Export/Helpers/Pdf.php:490
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
 msgid "Type"
 msgstr "Típus"
 
@@ -655,9 +655,9 @@ msgstr ""
 #: src/Plugins/Export/ExportOdt.php:461
 #: src/Plugins/Export/ExportTexytext.php:288
 #: src/Plugins/Export/ExportTexytext.php:367
-#: src/Plugins/Export/Helpers/Pdf.php:495
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:615
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:637
+#: src/Plugins/Export/Helpers/Pdf.php:494
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
 msgid "Default"
 msgstr "Alapértelmezett"
 
@@ -695,8 +695,8 @@ msgstr "Illesztés"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:27
 #: resources/templates/database/central_columns/edit.twig:13
 #: resources/templates/table/structure/display_structure.twig:24
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:613
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:635
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
 msgid "Attributes"
 msgstr "Tulajdonságok"
 
@@ -719,9 +719,9 @@ msgstr "Tulajdonságok"
 #: src/Plugins/Export/ExportOdt.php:458
 #: src/Plugins/Export/ExportTexytext.php:287
 #: src/Plugins/Export/ExportTexytext.php:366
-#: src/Plugins/Export/Helpers/Pdf.php:493
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:614
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:636
+#: src/Plugins/Export/Helpers/Pdf.php:492
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
 msgid "Null"
 msgstr "Nulla"
 
@@ -743,9 +743,9 @@ msgstr "Jogosultságok módosítása"
 #: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:369
 #: src/Plugins/Export/ExportLatex.php:513 src/Plugins/Export/ExportOdt.php:471
 #: src/Plugins/Export/ExportTexytext.php:373
-#: src/Plugins/Export/Helpers/Pdf.php:512
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:640
+#: src/Plugins/Export/Helpers/Pdf.php:511
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:617
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
 msgid "Comments"
 msgstr "Megjegyzések"
 
@@ -763,7 +763,7 @@ msgstr "Oszlop mozgatása"
 #: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:376
 #: src/Plugins/Export/ExportOdt.php:478
 #: src/Plugins/Export/ExportTexytext.php:378
-#: src/Plugins/Export/Helpers/Pdf.php:520
+#: src/Plugins/Export/Helpers/Pdf.php:519
 #, fuzzy
 #| msgid "MIME type"
 msgid "Media type"
@@ -894,7 +894,7 @@ msgstr "Letiltott"
 #: src/Plugins/Export/ExportHtmlword.php:595
 #: src/Plugins/Export/ExportLatex.php:572 src/Plugins/Export/ExportOdt.php:714
 #: src/Plugins/Export/ExportTexytext.php:553
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:679
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 msgid "Yes"
 msgstr "Igen"
 
@@ -930,7 +930,7 @@ msgstr "Igen"
 #: src/Plugins/Export/ExportHtmlword.php:595
 #: src/Plugins/Export/ExportLatex.php:572 src/Plugins/Export/ExportOdt.php:714
 #: src/Plugins/Export/ExportTexytext.php:553
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:679
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 msgid "No"
 msgstr "Nem"
 
@@ -994,7 +994,7 @@ msgstr "Újra lekérdezés"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:401
-#: src/Display/Results.php:2478 src/Html/Generator.php:517
+#: src/Display/Results.php:2477 src/Html/Generator.php:517
 #: src/Html/Generator.php:783
 msgid "Edit"
 msgstr "Módosítás"
@@ -1013,7 +1013,7 @@ msgstr "Módosítás"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:188
 #: src/Controllers/JavaScriptMessagesController.php:403
-#: src/Display/Results.php:2537 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2536 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "Törlés"
 
@@ -1070,7 +1070,7 @@ msgstr "Előzmények"
 #: src/Plugins/Export/ExportMediawiki.php:43
 #: src/Plugins/Export/ExportOds.php:51 src/Plugins/Export/ExportOdt.php:60
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
-#: src/Plugins/Export/ExportSql.php:123
+#: src/Plugins/Export/ExportSql.php:122
 #: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:61
 #: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:86
 #: src/Plugins/Import/ImportLdi.php:61
@@ -1424,9 +1424,9 @@ msgstr "Nyomtatás"
 #: src/Plugins/Export/ExportHtmlword.php:363
 #: src/Plugins/Export/ExportLatex.php:509 src/Plugins/Export/ExportOdt.php:465
 #: src/Plugins/Export/ExportTexytext.php:369
-#: src/Plugins/Export/Helpers/Pdf.php:504
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:617
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:639
+#: src/Plugins/Export/Helpers/Pdf.php:503
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:607
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 msgid "Links to"
 msgstr "Hivatkozás"
 
@@ -1833,7 +1833,7 @@ msgstr "Meghatározó"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:376
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:967 src/Plugins/Export/ExportXml.php:85
+#: src/Plugins/Export/ExportSql.php:966 src/Plugins/Export/ExportXml.php:85
 #: src/Util.php:1474
 msgid "Events"
 msgstr "Események"
@@ -2082,8 +2082,8 @@ msgstr "Rendezés"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1463
-#: src/Display/Results.php:1470 src/Util.php:1983 src/Util.php:2000
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1462
+#: src/Display/Results.php:1469 src/Util.php:1983 src/Util.php:2000
 msgid "Ascending"
 msgstr "Növekvő"
 
@@ -2094,8 +2094,8 @@ msgstr "Növekvő"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1458
-#: src/Display/Results.php:1475 src/Util.php:1988 src/Util.php:2005
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1457
+#: src/Display/Results.php:1474 src/Util.php:1988 src/Util.php:2005
 msgid "Descending"
 msgstr "Csökkenő"
 
@@ -2732,7 +2732,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:242
-#: src/Plugins/Export/ExportSql.php:898 src/Plugins/Export/ExportXml.php:358
+#: src/Plugins/Export/ExportSql.php:897 src/Plugins/Export/ExportXml.php:358
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "Adatbázis:"
@@ -3061,12 +3061,12 @@ msgid "Extra options"
 msgstr "Visszatérés beállításai"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1117
+#: src/Display/Results.php:1116
 msgid "Partial texts"
 msgstr "Részleges szövegek"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1121
+#: src/Display/Results.php:1120
 msgid "Full texts"
 msgstr "Teljes szövegek"
 
@@ -3107,7 +3107,7 @@ msgstr "Jól ismert bináris"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:491
-#: src/Display/Results.php:2482 src/Html/Generator.php:78
+#: src/Display/Results.php:2481 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "Másolás"
 
@@ -3582,7 +3582,7 @@ msgid "Server connection:"
 msgstr "Szerver kapcsolat:"
 
 #: resources/templates/home/index.twig:194
-#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:728
+#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:727
 #: src/Plugins/Export/ExportXml.php:205
 msgid "Server version:"
 msgstr "Kiszolgáló verziója:"
@@ -3842,8 +3842,8 @@ msgstr "Átvitel a céloldalra."
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:279
 #: src/Language.php:178 src/Pdf.php:84
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:468
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:493
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
 msgid "Page number:"
 msgstr "Oldalszám:"
 
@@ -5546,7 +5546,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:207 src/Plugins/Export/ExportSql.php:717
+#: src/Plugins/Export/ExportLatex.php:207 src/Plugins/Export/ExportSql.php:716
 #: src/Plugins/Export/ExportXml.php:196
 msgid "Host:"
 msgstr "Gép:"
@@ -6192,7 +6192,7 @@ msgid "Start auto refresh"
 msgstr "Automatikus frissítés indítása"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2556
+#: src/Display/Results.php:2555
 msgid "Kill"
 msgstr "Leállít"
 
@@ -6604,8 +6604,8 @@ msgstr "Eredmények elemzése"
 #: src/Controllers/Table/Partition/RebuildController.php:48
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
-#: src/Controllers/Table/RelationController.php:142
-#: src/Database/Routines.php:1029 src/Display/Results.php:3140
+#: src/Controllers/Table/RelationController.php:138
+#: src/Database/Routines.php:1029 src/Display/Results.php:3139
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Az SQL-lekérdezés végrehajtása sikerült."
@@ -7374,8 +7374,8 @@ msgstr "Particionálás szerkesztése"
 
 #: resources/templates/table/structure/display_structure.twig:30
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:11
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:616
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:638
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
 msgid "Extra"
 msgstr "Extra"
 
@@ -7633,7 +7633,7 @@ msgstr "%s eseményindító exportálása"
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Plugins/Export/ExportHtmlword.php:528
 #: src/Plugins/Export/ExportOdt.php:655 src/Plugins/Export/ExportPdf.php:251
-#: src/Plugins/Export/ExportSql.php:1936
+#: src/Plugins/Export/ExportSql.php:1932
 #: src/Plugins/Export/ExportTexytext.php:496
 #: src/Plugins/Export/ExportXml.php:105 src/Util.php:1475 src/Util.php:1491
 msgid "Triggers"
@@ -9467,7 +9467,7 @@ msgstr "Letiltás"
 #: src/Plugins/Export/ExportLatex.php:95
 #: src/Plugins/Export/ExportMediawiki.php:63
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:222
+#: src/Plugins/Export/ExportSql.php:221
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "structure"
 msgstr "szerkezet"
@@ -9478,7 +9478,7 @@ msgstr "szerkezet"
 #: src/Plugins/Export/ExportLatex.php:95
 #: src/Plugins/Export/ExportMediawiki.php:63
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:222
+#: src/Plugins/Export/ExportSql.php:221
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "data"
 msgstr "adat"
@@ -9489,7 +9489,7 @@ msgstr "adat"
 #: src/Plugins/Export/ExportLatex.php:95
 #: src/Plugins/Export/ExportMediawiki.php:63
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:222
+#: src/Plugins/Export/ExportSql.php:221
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "structure and data"
 msgstr "szerkezet és adatok"
@@ -9700,7 +9700,7 @@ msgstr ""
 "([kbd]0[/kbd], ha korlátlan)."
 
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
-#: src/Plugins/Export/ExportSql.php:322
+#: src/Plugins/Export/ExportSql.php:321
 msgid "Exclude definition of current user"
 msgstr ""
 
@@ -11092,7 +11092,7 @@ msgstr "Táblanév sablon"
 #: src/Plugins/Export/ExportMediawiki.php:53
 #: src/Plugins/Export/ExportMediawiki.php:59
 #: src/Plugins/Export/ExportOdt.php:70 src/Plugins/Export/ExportPdf.php:81
-#: src/Plugins/Export/ExportSql.php:218
+#: src/Plugins/Export/ExportSql.php:217
 #: src/Plugins/Export/ExportTexytext.php:56
 msgid "Dump table"
 msgstr "Tábla kiírása"
@@ -11158,11 +11158,11 @@ msgstr "Létrehozás/módosítás/ellenőrzés dátuma"
 msgid "Use delayed inserts"
 msgstr "Késleltetett beszúrások használata"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:187
+#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:186
 msgid "Disable foreign key checks"
 msgstr "Az idegen kulcsok ellenőrzésének letiltása"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:197
+#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:196
 msgid "Export views as tables"
 msgstr "Nézetek exportálása táblaként"
 
@@ -11182,7 +11182,7 @@ msgstr ""
 "IF NOT EXISTS hozzáadása (kevésbé hatékony, mivel a tábla létrehozása idején "
 "indexeket generálunk)"
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:328
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:327
 #, fuzzy, php-format
 #| msgid "%s value"
 msgid "%s view"
@@ -11196,7 +11196,7 @@ msgstr "Mellőző beszúrások használata"
 msgid "Syntax to use when inserting data"
 msgstr "Adat beillesztésére vonatkozó szintaxis"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:455
+#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:454
 msgid "Maximal length of created query"
 msgstr "A létrehozott lekérdezés hossza legfeljebb"
 
@@ -11204,7 +11204,7 @@ msgstr "A létrehozott lekérdezés hossza legfeljebb"
 msgid "Export type"
 msgstr "Exportálás típusa"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:177
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:176
 msgid "Enclose export in a transaction"
 msgstr "Az exportálás befoglalása egy tranzakcióban"
 
@@ -12326,11 +12326,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "Kiszolgáló %d"
 
-#: src/ConfigStorage/Relation.php:1234
+#: src/ConfigStorage/Relation.php:1246
 msgid "no description"
 msgstr "nincs leírás"
 
-#: src/ConfigStorage/Relation.php:1432
+#: src/ConfigStorage/Relation.php:1452
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -12730,7 +12730,7 @@ msgid "Success!"
 msgstr "Sikerült!"
 
 #: src/Controllers/Database/StructureController.php:576
-#: src/Display/Results.php:3417
+#: src/Display/Results.php:3416
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12989,7 +12989,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "A \"DROP DATABASE\" utasítást letiltották."
 
-#: src/Controllers/Import/ImportController.php:696 src/Sql.php:873
+#: src/Controllers/Import/ImportController.php:696 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK történt.]"
 
@@ -15994,7 +15994,7 @@ msgstr "Hibás adat"
 msgid "Wrong data or no validation for %s"
 msgstr "Hibás adatok vagy nincs ellenőrzés ehhez: %s"
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1050
+#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1054
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "A(z) %s könyvjelző létrejött."
@@ -16080,7 +16080,7 @@ msgstr "Túl sok kapcsolat van indexek nélkül."
 
 #: src/Controllers/Table/GetFieldController.php:81
 #: src/Database/Routines.php:1046 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:859
+#: src/InsertEdit.php:199 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "A MySQL üres eredményhalmazt adott vissza (pl. nulla sorok)."
 
@@ -16116,11 +16116,11 @@ msgstr "Üres a tábla neve!"
 msgid "Invalid database or table name."
 msgstr "Érvénytelen táblanév"
 
-#: src/Controllers/Table/RelationController.php:326
+#: src/Controllers/Table/RelationController.php:316
 msgid "Display column was successfully updated."
 msgstr "A megjelenített oszlop sikeresen frissítve."
 
-#: src/Controllers/Table/RelationController.php:360
+#: src/Controllers/Table/RelationController.php:350
 msgid "Internal relationships were successfully updated."
 msgstr "A belső kapcsolatok sikeresen frissítve."
 
@@ -16241,7 +16241,7 @@ msgstr ""
 "A beállítástároló nem áll készen az oszlopok központi listája "
 "szolgáltatáshoz."
 
-#: src/Database/Designer/Common.php:453
+#: src/Database/Designer/Common.php:448
 #, fuzzy
 #| msgid ""
 #| "The configuration storage is not ready for the central list of columns "
@@ -16255,43 +16255,43 @@ msgstr ""
 "A beállítástároló nem áll készen az oszlopok központi listája "
 "szolgáltatáshoz."
 
-#: src/Database/Designer/Common.php:498
+#: src/Database/Designer/Common.php:493
 msgid "Error: relationship already exists."
 msgstr "Hiba: a kapcsolat már létezik."
 
-#: src/Database/Designer/Common.php:547
+#: src/Database/Designer/Common.php:542
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Az IDEGEN KULCS kapcsolat hozzáadása megtörtént."
 
-#: src/Database/Designer/Common.php:552
+#: src/Database/Designer/Common.php:547
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Hiba: nem sikerült hozzáadni az IDEGEN KULCS kapcsolatot!"
 
-#: src/Database/Designer/Common.php:555
+#: src/Database/Designer/Common.php:550
 msgid "Error: Missing index on column(s)."
 msgstr "Hiba: hiányzó index az oszlopokról."
 
-#: src/Database/Designer/Common.php:560 src/Database/Designer/Common.php:624
+#: src/Database/Designer/Common.php:555 src/Database/Designer/Common.php:619
 msgid "Error: Relational features are disabled!"
 msgstr "Hiba: a relációs szolgáltatások le vannak tiltva!"
 
-#: src/Database/Designer/Common.php:581
+#: src/Database/Designer/Common.php:576
 msgid "Internal relationship has been added."
 msgstr "A belső kapcsolat hozzáadása megtörtént."
 
-#: src/Database/Designer/Common.php:586
+#: src/Database/Designer/Common.php:581
 msgid "Error: Internal relationship could not be added!"
 msgstr "Hiba: nem sikerült hozzáadni a belső kapcsolatot!"
 
-#: src/Database/Designer/Common.php:618
+#: src/Database/Designer/Common.php:613
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Az IDEGEN KULCS kapcsolat eltávolítása megtörtént."
 
-#: src/Database/Designer/Common.php:643
+#: src/Database/Designer/Common.php:638
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Hiba: nem sikerült eltávolítani a belső kapcsolatot!"
 
-#: src/Database/Designer/Common.php:646
+#: src/Database/Designer/Common.php:641
 msgid "Internal relationship has been removed."
 msgstr "A belső kapcsolat eltávolítása megtörtént."
 
@@ -16467,33 +16467,33 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2513 src/Display/Results.php:2528
+#: src/Display/Results.php:2512 src/Display/Results.php:2527
 msgid "The row has been deleted."
 msgstr "A sor törlése megtörtént."
 
-#: src/Display/Results.php:3426
+#: src/Display/Results.php:3425
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Sorok megjelenítése %1s-%2s"
 
-#: src/Display/Results.php:3440
+#: src/Display/Results.php:3439
 #, fuzzy, php-format
 #| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "%1$d összesen, %2$d a lekérdezésben"
 
-#: src/Display/Results.php:3445
+#: src/Display/Results.php:3444
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "összesen %d"
 
-#: src/Display/Results.php:3458 src/Sql.php:865
+#: src/Display/Results.php:3457 src/Sql.php:869
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "A lekérdezés %01.4f másodpercig tartott."
 
-#: src/Display/Results.php:3765
+#: src/Display/Results.php:3755
 msgid "Link not found!"
 msgstr "Nem található a hivatkozás!"
 
@@ -17202,11 +17202,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "webszerver feltöltési könyvtár:"
 
-#: src/InsertEdit.php:924 src/Sql.php:856
+#: src/InsertEdit.php:924 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "Megjelenítés SQL lekérdezésként"
 
-#: src/InsertEdit.php:948 src/Sql.php:836
+#: src/InsertEdit.php:948 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "A beszúrt sor azonosítószáma: %1$d"
@@ -17343,7 +17343,7 @@ msgstr "új"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:24
-#: src/Plugins/Export/ExportSql.php:599 src/Plugins/Export/ExportXml.php:90
+#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportXml.php:90
 msgid "Functions"
 msgstr "Függvények"
 
@@ -17363,7 +17363,7 @@ msgstr "Kinyitás / összecsukás"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:24
-#: src/Plugins/Export/ExportSql.php:588 src/Plugins/Export/ExportXml.php:95
+#: src/Plugins/Export/ExportSql.php:587 src/Plugins/Export/ExportXml.php:95
 msgid "Procedures"
 msgstr "Eljárások"
 
@@ -17844,25 +17844,25 @@ msgid "Data dump options"
 msgstr "Adatkiírási beállítások"
 
 #: src/Plugins/Export/ExportHtmlword.php:189
-#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2191
+#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2187
 #: src/Plugins/Export/ExportTexytext.php:173
 msgid "Dumping data for table"
 msgstr "A tábla adatainak kiíratása"
 
 #: src/Plugins/Export/ExportHtmlword.php:519
-#: src/Plugins/Export/ExportOdt.php:645 src/Plugins/Export/ExportSql.php:1922
+#: src/Plugins/Export/ExportOdt.php:645 src/Plugins/Export/ExportSql.php:1918
 #: src/Plugins/Export/ExportTexytext.php:489
 msgid "Table structure for table"
 msgstr "Tábla szerkezet ehhez a táblához"
 
 #: src/Plugins/Export/ExportHtmlword.php:536
-#: src/Plugins/Export/ExportOdt.php:665 src/Plugins/Export/ExportSql.php:1979
+#: src/Plugins/Export/ExportOdt.php:665 src/Plugins/Export/ExportSql.php:1975
 #: src/Plugins/Export/ExportTexytext.php:502
 msgid "Structure for view"
 msgstr "Nézet szerkezete"
 
 #: src/Plugins/Export/ExportHtmlword.php:542
-#: src/Plugins/Export/ExportOdt.php:673 src/Plugins/Export/ExportSql.php:2018
+#: src/Plugins/Export/ExportOdt.php:673 src/Plugins/Export/ExportSql.php:2014
 #: src/Plugins/Export/ExportTexytext.php:506
 msgid "Stand-in structure for view"
 msgstr "A nézet helyettes szerkezete"
@@ -17889,7 +17889,7 @@ msgid "Structure of table @TABLE@"
 msgstr "@TABLE@ tábla szerkezete"
 
 #: src/Plugins/Export/ExportLatex.php:105 src/Plugins/Export/ExportOdt.php:85
-#: src/Plugins/Export/ExportSql.php:234
+#: src/Plugins/Export/ExportSql.php:233
 msgid "Object creation options"
 msgstr "Objektum-létrehozási beállítások"
 
@@ -17909,7 +17909,7 @@ msgid "Label key:"
 msgstr "Címkekulcs:"
 
 #: src/Plugins/Export/ExportLatex.php:131 src/Plugins/Export/ExportOdt.php:93
-#: src/Plugins/Export/ExportSql.php:159
+#: src/Plugins/Export/ExportSql.php:158
 msgid "Display foreign key relationships"
 msgstr "Idegen kulcsok kapcsolatainak megjelenítése"
 
@@ -17918,7 +17918,7 @@ msgid "Display comments"
 msgstr "Megjegyzések megjelenítése"
 
 #: src/Plugins/Export/ExportLatex.php:144 src/Plugins/Export/ExportOdt.php:106
-#: src/Plugins/Export/ExportSql.php:167
+#: src/Plugins/Export/ExportSql.php:166
 #, fuzzy
 #| msgid "Display MIME types"
 msgid "Display media types"
@@ -17928,17 +17928,17 @@ msgstr "MIME-típusok megjelenítése"
 msgid "Put columns names in the first row:"
 msgstr "A mezőneveket tegye az első sorba:"
 
-#: src/Plugins/Export/ExportLatex.php:213 src/Plugins/Export/ExportSql.php:724
+#: src/Plugins/Export/ExportLatex.php:213 src/Plugins/Export/ExportSql.php:723
 #: src/Plugins/Export/ExportXml.php:203
 msgid "Generation Time:"
 msgstr "Létrehozás ideje:"
 
-#: src/Plugins/Export/ExportLatex.php:216 src/Plugins/Export/ExportSql.php:730
+#: src/Plugins/Export/ExportLatex.php:216 src/Plugins/Export/ExportSql.php:729
 #: src/Plugins/Export/ExportXml.php:206
 msgid "PHP Version:"
 msgstr "PHP verzió:"
 
-#: src/Plugins/Export/ExportLatex.php:305 src/Plugins/Export/ExportSql.php:2071
+#: src/Plugins/Export/ExportLatex.php:305 src/Plugins/Export/ExportSql.php:2067
 msgid "Data:"
 msgstr "Adatok:"
 
@@ -17983,7 +17983,7 @@ msgstr "Szerkezet megtekintése"
 msgid "Stand in"
 msgstr "Ebből áll"
 
-#: src/Plugins/Export/ExportSql.php:138
+#: src/Plugins/Export/ExportSql.php:137
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -17991,12 +17991,12 @@ msgstr ""
 "Megjegyzések megjelenítése <i>(olyan információk, mint az exportálás "
 "időbélyege, a PHP verziója és a szerver verziója)</i>"
 
-#: src/Plugins/Export/ExportSql.php:145
+#: src/Plugins/Export/ExportSql.php:144
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
 "További egyéni megjegyzés hozzáadása a fejléchez (a \\n töri a sorokat):"
 
-#: src/Plugins/Export/ExportSql.php:151
+#: src/Plugins/Export/ExportSql.php:150
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
@@ -18004,38 +18004,38 @@ msgstr ""
 "Tartalmazza azokat az időbélyegeket, amikor az adatbázis létrejött, utoljára "
 "frissült és utoljára ellenőrizve lett"
 
-#: src/Plugins/Export/ExportSql.php:204
+#: src/Plugins/Export/ExportSql.php:203
 msgid "Export metadata"
 msgstr "Metaadatok exportálása"
 
-#: src/Plugins/Export/ExportSql.php:242
+#: src/Plugins/Export/ExportSql.php:241
 msgid "Add statements:"
 msgstr "Utasítások hozzáadása:"
 
-#: src/Plugins/Export/ExportSql.php:250 src/Plugins/Export/ExportSql.php:259
-#: src/Plugins/Export/ExportSql.php:276 src/Plugins/Export/ExportSql.php:285
-#: src/Plugins/Export/ExportSql.php:309 src/Plugins/Export/ExportSql.php:337
-#: src/Plugins/Export/ExportSql.php:346
+#: src/Plugins/Export/ExportSql.php:249 src/Plugins/Export/ExportSql.php:258
+#: src/Plugins/Export/ExportSql.php:275 src/Plugins/Export/ExportSql.php:284
+#: src/Plugins/Export/ExportSql.php:308 src/Plugins/Export/ExportSql.php:336
+#: src/Plugins/Export/ExportSql.php:345
 #, php-format
 msgid "Add %s statement"
 msgstr "%s utasítások hozzáadása"
 
-#: src/Plugins/Export/ExportSql.php:292
+#: src/Plugins/Export/ExportSql.php:291
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 "(kevésbé hatékony, mivel az indexek a tábla létrehozása közben generálódnak)"
 
-#: src/Plugins/Export/ExportSql.php:299
+#: src/Plugins/Export/ExportSql.php:298
 #, php-format
 msgid "%s value"
 msgstr "%s érték"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: src/Plugins/Export/ExportSql.php:316
+#: src/Plugins/Export/ExportSql.php:315
 msgid "Use simple view export"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:355
+#: src/Plugins/Export/ExportSql.php:354
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -18043,35 +18043,35 @@ msgstr ""
 "Tábla és oszlopnevek idézőjelek közé rakása <i>(Védi az oszlop és tábla "
 "neveket a speciális karakterektől vagy a kulcsszavaktól)</i>"
 
-#: src/Plugins/Export/ExportSql.php:370
+#: src/Plugins/Export/ExportSql.php:369
 msgid "Data creation options"
 msgstr "Adatlétrehozási beállítások"
 
-#: src/Plugins/Export/ExportSql.php:375 src/Plugins/Export/ExportSql.php:2149
+#: src/Plugins/Export/ExportSql.php:374 src/Plugins/Export/ExportSql.php:2145
 msgid "Truncate table before insert"
 msgstr "Tábla csonkolása beszúrás előtt"
 
-#: src/Plugins/Export/ExportSql.php:382
+#: src/Plugins/Export/ExportSql.php:381
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Az <code>INSERT</code> utasítás helyett használjon:"
 
-#: src/Plugins/Export/ExportSql.php:388
+#: src/Plugins/Export/ExportSql.php:387
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code> utasítások"
 
-#: src/Plugins/Export/ExportSql.php:397 src/Plugins/Export/ExportSql.php:424
+#: src/Plugins/Export/ExportSql.php:396 src/Plugins/Export/ExportSql.php:423
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code> utasítások"
 
-#: src/Plugins/Export/ExportSql.php:408
+#: src/Plugins/Export/ExportSql.php:407
 msgid "Function to use when dumping data:"
 msgstr "Adatkiíráskor használt függvények:"
 
-#: src/Plugins/Export/ExportSql.php:419
+#: src/Plugins/Export/ExportSql.php:418
 msgid "Syntax to use when inserting data:"
 msgstr "Adatbeszúrás során használandó szintaxis:"
 
-#: src/Plugins/Export/ExportSql.php:429
+#: src/Plugins/Export/ExportSql.php:428
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -18081,7 +18081,7 @@ msgstr ""
 "&nbsp; &nbsp; Példa: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:434
+#: src/Plugins/Export/ExportSql.php:433
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -18091,7 +18091,7 @@ msgstr ""
 "&nbsp; Példa: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</"
 "code>"
 
-#: src/Plugins/Export/ExportSql.php:439
+#: src/Plugins/Export/ExportSql.php:438
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -18099,7 +18099,7 @@ msgstr ""
 "mindkettő a fentiek közül<br> &nbsp; &nbsp; &nbsp; Példa:<code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:444
+#: src/Plugins/Export/ExportSql.php:443
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -18107,7 +18107,7 @@ msgstr ""
 "egyik sem a fentiek közül<br> &nbsp; &nbsp; &nbsp; Példa: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:463
+#: src/Plugins/Export/ExportSql.php:462
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -18115,7 +18115,7 @@ msgstr ""
 "Bináris oszlopok kiírása hexadecimális átírással <i>(például, \"abc\" "
 "helyett 0x616263)</i>"
 
-#: src/Plugins/Export/ExportSql.php:472
+#: src/Plugins/Export/ExportSql.php:471
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -18123,106 +18123,106 @@ msgstr ""
 "A TIMESTAMP oszlopok kiírása UTC-ben <i>(engedélyezi a TIMESTAMP oszlopok "
 "kiírását és újratölti a különböző időzónában lévő szerverek között)</i>"
 
-#: src/Plugins/Export/ExportSql.php:548
+#: src/Plugins/Export/ExportSql.php:547
 msgid "It appears your database uses routines;"
 msgstr "Úgy tűnik, az adatbázis rutinokat használ;"
 
-#: src/Plugins/Export/ExportSql.php:551 src/Plugins/Export/ExportSql.php:1492
-#: src/Plugins/Export/ExportSql.php:1967
+#: src/Plugins/Export/ExportSql.php:550 src/Plugins/Export/ExportSql.php:1491
+#: src/Plugins/Export/ExportSql.php:1963
 msgid "alias export may not work reliably in all cases."
 msgstr "az álnév exportálás nem minden esetben működhet megbízhatóan."
 
-#: src/Plugins/Export/ExportSql.php:1023
+#: src/Plugins/Export/ExportSql.php:1022
 msgid "Metadata"
 msgstr "Metaadat"
 
-#: src/Plugins/Export/ExportSql.php:1084
+#: src/Plugins/Export/ExportSql.php:1083
 #, php-format
 msgid "Metadata for table %s"
 msgstr "A(z) %s tábla metaadatai"
 
-#: src/Plugins/Export/ExportSql.php:1091
+#: src/Plugins/Export/ExportSql.php:1090
 #, php-format
 msgid "Metadata for database %s"
 msgstr "A(z) %s adatbázis metaadatai"
 
-#: src/Plugins/Export/ExportSql.php:1404
+#: src/Plugins/Export/ExportSql.php:1403
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Hiba a(z) %s tábla szerkezetének olvasásakor:"
 
-#: src/Plugins/Export/ExportSql.php:1489
+#: src/Plugins/Export/ExportSql.php:1488
 msgid "It appears your database uses views;"
 msgstr "Úgy tűnik, az adatbázis nézeteket használ;"
 
-#: src/Plugins/Export/ExportSql.php:1635
+#: src/Plugins/Export/ExportSql.php:1634
 msgid "Constraints for dumped tables"
 msgstr "Megkötések a kiírt táblákhoz"
 
-#: src/Plugins/Export/ExportSql.php:1636
+#: src/Plugins/Export/ExportSql.php:1635
 msgid "Constraints for table"
 msgstr "Megkötések a táblához"
 
-#: src/Plugins/Export/ExportSql.php:1663
+#: src/Plugins/Export/ExportSql.php:1662
 msgid "Indexes for dumped tables"
 msgstr "Indexek a kiírt táblákhoz"
 
-#: src/Plugins/Export/ExportSql.php:1664
+#: src/Plugins/Export/ExportSql.php:1663
 msgid "Indexes for table"
 msgstr "A tábla indexei"
 
-#: src/Plugins/Export/ExportSql.php:1694
+#: src/Plugins/Export/ExportSql.php:1693
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "A kiírt táblák AUTO_INCREMENT értéke"
 
-#: src/Plugins/Export/ExportSql.php:1695
+#: src/Plugins/Export/ExportSql.php:1694
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT a táblához"
 
-#: src/Plugins/Export/ExportSql.php:1764
+#: src/Plugins/Export/ExportSql.php:1758
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "Tábla MIME-típusok"
 
-#: src/Plugins/Export/ExportSql.php:1789
+#: src/Plugins/Export/ExportSql.php:1788
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "TÁBLA KAPCSOLATAI"
 
-#: src/Plugins/Export/ExportSql.php:1964
+#: src/Plugins/Export/ExportSql.php:1960
 msgid "It appears your table uses triggers;"
 msgstr "Úgy tűnik, a tábla eseményindítókat használ;"
 
-#: src/Plugins/Export/ExportSql.php:1994
+#: src/Plugins/Export/ExportSql.php:1990
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "%s nézet struktúrája táblaként exportálva"
 
-#: src/Plugins/Export/ExportSql.php:2021
+#: src/Plugins/Export/ExportSql.php:2017
 msgid "(See below for the actual view)"
 msgstr "(Lásd alább az aktuális nézetet)"
 
-#: src/Plugins/Export/ExportSql.php:2082
+#: src/Plugins/Export/ExportSql.php:2078
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Hiba a(z) %s tábla adatainak olvasásakor:"
 
-#: src/Plugins/Export/ExportSql.php:2677
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:575
+#: src/Plugins/Export/ExportSql.php:2673
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:565
 msgid "Creation:"
 msgstr "Létrehozva:"
 
-#: src/Plugins/Export/ExportSql.php:2685
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:586
+#: src/Plugins/Export/ExportSql.php:2681
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
 msgid "Last update:"
 msgstr "Utolsó frissítés:"
 
-#: src/Plugins/Export/ExportSql.php:2693
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:597
+#: src/Plugins/Export/ExportSql.php:2689
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:587
 msgid "Last check:"
 msgstr "Utolsó ellenőrzés:"
 
-#: src/Plugins/Export/ExportSql.php:2714
+#: src/Plugins/Export/ExportSql.php:2710
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -18391,8 +18391,8 @@ msgstr "Ennek a formátumnak nincsenek beállításai"
 msgid "The %s table doesn't exist!"
 msgstr "A(z) %s tábla nem létezik!"
 
-#: src/Plugins/Schema/Eps/EpsRelationSchema.php:65
-#: src/Plugins/Schema/Svg/SvgRelationSchema.php:73
+#: src/Plugins/Schema/Eps/EpsRelationSchema.php:64
+#: src/Plugins/Schema/Svg/SvgRelationSchema.php:72
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr "A(z) \"%s\" adatbázis sémája - %s. oldal"
@@ -18405,17 +18405,17 @@ msgstr "SÉMA HIBA: "
 msgid "PDF export page"
 msgstr "PDF exportálás oldal"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:118
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:117
 #, php-format
 msgid "Schema of the %s database"
 msgstr "A(z) „%s” adatbázis sémája"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:146
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:504
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:145
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:494
 msgid "Relational schema"
 msgstr "Kapcsolati séma"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:457
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:447
 msgid "Table of contents"
 msgstr "Tartalomjegyzék"
 
@@ -19116,17 +19116,17 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Nem jelent meg újabb stabil verzió"
 
-#: src/Sql.php:432
+#: src/Sql.php:436
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 "A(z) „%s” könyvjelző használata alapértelmezett tallózás lekérdezésként."
 
-#: src/Sql.php:853
+#: src/Sql.php:857
 msgid "Showing as PHP code"
 msgstr "Megjelenítés PHP kódként"
 
-#: src/Sql.php:1219
+#: src/Sql.php:1223
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -19135,7 +19135,7 @@ msgstr ""
 "A jelenlegi kijelölés nem tartalmaz egyedi oszlopot. A Rács szerkesztése, "
 "jelölőnégyzet, Szerkesztés, Másolás és Törlés funkciók nem érhetők el. %s"
 
-#: src/Sql.php:1233
+#: src/Sql.php:1237
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

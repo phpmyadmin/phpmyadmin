@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-09-29 00:25+0000\n"
+"POT-Creation-Date: 2024-10-06 00:24+0000\n"
 "PO-Revision-Date: 2024-09-28 12:15+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -200,7 +200,7 @@ msgstr "после %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:220
-#: src/Display/Results.php:935 src/Plugins/Export/ExportSql.php:2071
+#: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:2067
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Нет"
@@ -282,7 +282,7 @@ msgstr "Вперёд"
 #: resources/templates/columns_definitions/column_definitions_form.twig:71
 #: resources/templates/database/data_dictionary/index.twig:16
 #: resources/templates/table/structure/display_table_stats.twig:6
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:564
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:554
 msgid "Table comments:"
 msgstr "Комментарии к таблице:"
 
@@ -335,7 +335,7 @@ msgstr "Предпросмотр SQL"
 #: resources/templates/table/insert/actions_panel.twig:8
 #: resources/templates/table/relation/common_form.twig:142
 #: resources/templates/table/structure/partition_definition_form.twig:13
-#: resources/templates/table/zoom_search/result_form.twig:80
+#: resources/templates/table/zoom_search/result_form.twig:79
 #: src/Controllers/JavaScriptMessagesController.php:455
 msgid "Save"
 msgstr "Сохранить"
@@ -359,7 +359,7 @@ msgstr ""
 #: resources/templates/table/insert/actions_panel.twig:48
 #: resources/templates/table/relation/common_form.twig:150
 #: resources/templates/table/zoom_search/result_form.twig:24
-#: resources/templates/table/zoom_search/result_form.twig:96
+#: resources/templates/table/zoom_search/result_form.twig:95
 msgid "Loading"
 msgstr "Загрузка"
 
@@ -408,8 +408,8 @@ msgstr "Загрузка"
 #: resources/templates/table/structure/display_structure.twig:344
 #: resources/templates/table/structure/display_structure.twig:362
 #: resources/templates/table/zoom_search/result_form.twig:25
-#: resources/templates/table/zoom_search/result_form.twig:81
-#: resources/templates/table/zoom_search/result_form.twig:97
+#: resources/templates/table/zoom_search/result_form.twig:80
+#: resources/templates/table/zoom_search/result_form.twig:96
 #: src/Controllers/JavaScriptMessagesController.php:147
 #: src/Tracking/Tracking.php:200 src/Tracking/Tracking.php:540
 msgid "Close"
@@ -451,9 +451,9 @@ msgstr "Это внешний ключ."
 #: src/Plugins/Export/ExportOdt.php:452
 #: src/Plugins/Export/ExportTexytext.php:285
 #: src/Plugins/Export/ExportTexytext.php:364
-#: src/Plugins/Export/Helpers/Pdf.php:489
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:611
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:633
+#: src/Plugins/Export/Helpers/Pdf.php:488
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:601
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:623
 msgid "Column"
 msgstr "Столбец"
 
@@ -603,9 +603,9 @@ msgstr "Имя"
 #: src/Plugins/Export/ExportOdt.php:455
 #: src/Plugins/Export/ExportTexytext.php:286
 #: src/Plugins/Export/ExportTexytext.php:365
-#: src/Plugins/Export/Helpers/Pdf.php:491
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:612
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:634
+#: src/Plugins/Export/Helpers/Pdf.php:490
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
 msgid "Type"
 msgstr "Тип"
 
@@ -642,9 +642,9 @@ msgstr ""
 #: src/Plugins/Export/ExportOdt.php:461
 #: src/Plugins/Export/ExportTexytext.php:288
 #: src/Plugins/Export/ExportTexytext.php:367
-#: src/Plugins/Export/Helpers/Pdf.php:495
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:615
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:637
+#: src/Plugins/Export/Helpers/Pdf.php:494
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
 msgid "Default"
 msgstr "По умолчанию"
 
@@ -682,8 +682,8 @@ msgstr "Схема сравнения"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:27
 #: resources/templates/database/central_columns/edit.twig:13
 #: resources/templates/table/structure/display_structure.twig:24
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:613
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:635
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
 msgid "Attributes"
 msgstr "Атрибуты"
 
@@ -706,9 +706,9 @@ msgstr "Атрибуты"
 #: src/Plugins/Export/ExportOdt.php:458
 #: src/Plugins/Export/ExportTexytext.php:287
 #: src/Plugins/Export/ExportTexytext.php:366
-#: src/Plugins/Export/Helpers/Pdf.php:493
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:614
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:636
+#: src/Plugins/Export/Helpers/Pdf.php:492
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
 msgid "Null"
 msgstr "Null"
 
@@ -730,9 +730,9 @@ msgstr "Настроить привилегии"
 #: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:369
 #: src/Plugins/Export/ExportLatex.php:513 src/Plugins/Export/ExportOdt.php:471
 #: src/Plugins/Export/ExportTexytext.php:373
-#: src/Plugins/Export/Helpers/Pdf.php:512
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:640
+#: src/Plugins/Export/Helpers/Pdf.php:511
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:617
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
 msgid "Comments"
 msgstr "Комментарии"
 
@@ -750,7 +750,7 @@ msgstr "Переместить поле"
 #: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:376
 #: src/Plugins/Export/ExportOdt.php:478
 #: src/Plugins/Export/ExportTexytext.php:378
-#: src/Plugins/Export/Helpers/Pdf.php:520
+#: src/Plugins/Export/Helpers/Pdf.php:519
 msgid "Media type"
 msgstr "Медиатип"
 
@@ -878,7 +878,7 @@ msgstr "Недоступно"
 #: src/Plugins/Export/ExportHtmlword.php:595
 #: src/Plugins/Export/ExportLatex.php:572 src/Plugins/Export/ExportOdt.php:714
 #: src/Plugins/Export/ExportTexytext.php:553
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:679
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 msgid "Yes"
 msgstr "Да"
 
@@ -914,7 +914,7 @@ msgstr "Да"
 #: src/Plugins/Export/ExportHtmlword.php:595
 #: src/Plugins/Export/ExportLatex.php:572 src/Plugins/Export/ExportOdt.php:714
 #: src/Plugins/Export/ExportTexytext.php:553
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:679
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 msgid "No"
 msgstr "Нет"
 
@@ -978,7 +978,7 @@ msgstr "Повторный запрос"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:401
-#: src/Display/Results.php:2478 src/Html/Generator.php:517
+#: src/Display/Results.php:2477 src/Html/Generator.php:517
 #: src/Html/Generator.php:783
 msgid "Edit"
 msgstr "Изменить"
@@ -997,7 +997,7 @@ msgstr "Изменить"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:188
 #: src/Controllers/JavaScriptMessagesController.php:403
-#: src/Display/Results.php:2537 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2536 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "Удалить"
 
@@ -1054,7 +1054,7 @@ msgstr "История"
 #: src/Plugins/Export/ExportMediawiki.php:43
 #: src/Plugins/Export/ExportOds.php:51 src/Plugins/Export/ExportOdt.php:60
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
-#: src/Plugins/Export/ExportSql.php:123
+#: src/Plugins/Export/ExportSql.php:122
 #: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:61
 #: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:86
 #: src/Plugins/Import/ImportLdi.php:61
@@ -1390,9 +1390,9 @@ msgstr "Печать"
 #: src/Plugins/Export/ExportHtmlword.php:363
 #: src/Plugins/Export/ExportLatex.php:509 src/Plugins/Export/ExportOdt.php:465
 #: src/Plugins/Export/ExportTexytext.php:369
-#: src/Plugins/Export/Helpers/Pdf.php:504
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:617
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:639
+#: src/Plugins/Export/Helpers/Pdf.php:503
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:607
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 msgid "Links to"
 msgstr "Ссылки на"
 
@@ -1794,7 +1794,7 @@ msgstr "Определитель"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:376
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:967 src/Plugins/Export/ExportXml.php:85
+#: src/Plugins/Export/ExportSql.php:966 src/Plugins/Export/ExportXml.php:85
 #: src/Util.php:1474
 msgid "Events"
 msgstr "События"
@@ -2021,8 +2021,8 @@ msgstr "Отсортировать"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1463
-#: src/Display/Results.php:1470 src/Util.php:1983 src/Util.php:2000
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1462
+#: src/Display/Results.php:1469 src/Util.php:1983 src/Util.php:2000
 msgid "Ascending"
 msgstr "По возрастанию"
 
@@ -2033,8 +2033,8 @@ msgstr "По возрастанию"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1458
-#: src/Display/Results.php:1475 src/Util.php:1988 src/Util.php:2005
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1457
+#: src/Display/Results.php:1474 src/Util.php:1988 src/Util.php:2005
 msgid "Descending"
 msgstr "По убыванию"
 
@@ -2648,7 +2648,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:242
-#: src/Plugins/Export/ExportSql.php:898 src/Plugins/Export/ExportXml.php:358
+#: src/Plugins/Export/ExportSql.php:897 src/Plugins/Export/ExportXml.php:358
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "База данных:"
@@ -2971,12 +2971,12 @@ msgid "Extra options"
 msgstr "Расширенные параметры"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1117
+#: src/Display/Results.php:1116
 msgid "Partial texts"
 msgstr "Сокращенные тексты"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1121
+#: src/Display/Results.php:1120
 msgid "Full texts"
 msgstr "Полные тексты"
 
@@ -3017,7 +3017,7 @@ msgstr "Бинарный (WKB)"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:491
-#: src/Display/Results.php:2482 src/Html/Generator.php:78
+#: src/Display/Results.php:2481 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "Копировать"
 
@@ -3460,7 +3460,7 @@ msgid "Server connection:"
 msgstr "Соединение сервера:"
 
 #: resources/templates/home/index.twig:194
-#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:728
+#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:727
 #: src/Plugins/Export/ExportXml.php:205
 msgid "Server version:"
 msgstr "Версия сервера:"
@@ -3688,8 +3688,8 @@ msgstr "Переход на целевой сайт."
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:279
 #: src/Language.php:178 src/Pdf.php:84
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:468
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:493
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
 msgid "Page number:"
 msgstr "Номер страницы:"
 
@@ -5284,7 +5284,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:207 src/Plugins/Export/ExportSql.php:717
+#: src/Plugins/Export/ExportLatex.php:207 src/Plugins/Export/ExportSql.php:716
 #: src/Plugins/Export/ExportXml.php:196
 msgid "Host:"
 msgstr "Хост:"
@@ -5848,7 +5848,7 @@ msgid "Start auto refresh"
 msgstr "Начать автообновление"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2556
+#: src/Display/Results.php:2555
 msgid "Kill"
 msgstr "Завершить"
 
@@ -6227,8 +6227,8 @@ msgstr "Круговая диаграмма с результатами проф
 #: src/Controllers/Table/Partition/RebuildController.php:48
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
-#: src/Controllers/Table/RelationController.php:142
-#: src/Database/Routines.php:1029 src/Display/Results.php:3140
+#: src/Controllers/Table/RelationController.php:138
+#: src/Database/Routines.php:1029 src/Display/Results.php:3139
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL-запрос успешно выполнен."
@@ -6962,8 +6962,8 @@ msgstr "Редактировать разбиение"
 
 #: resources/templates/table/structure/display_structure.twig:30
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:11
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:616
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:638
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
 msgid "Extra"
 msgstr "Дополнительно"
 
@@ -7210,7 +7210,7 @@ msgstr "Экспорт триггера %s"
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Plugins/Export/ExportHtmlword.php:528
 #: src/Plugins/Export/ExportOdt.php:655 src/Plugins/Export/ExportPdf.php:251
-#: src/Plugins/Export/ExportSql.php:1936
+#: src/Plugins/Export/ExportSql.php:1932
 #: src/Plugins/Export/ExportTexytext.php:496
 #: src/Plugins/Export/ExportXml.php:105 src/Util.php:1475 src/Util.php:1491
 msgid "Triggers"
@@ -8983,7 +8983,7 @@ msgstr "Отключить"
 #: src/Plugins/Export/ExportLatex.php:95
 #: src/Plugins/Export/ExportMediawiki.php:63
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:222
+#: src/Plugins/Export/ExportSql.php:221
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "structure"
 msgstr "структура"
@@ -8994,7 +8994,7 @@ msgstr "структура"
 #: src/Plugins/Export/ExportLatex.php:95
 #: src/Plugins/Export/ExportMediawiki.php:63
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:222
+#: src/Plugins/Export/ExportSql.php:221
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "data"
 msgstr "данные"
@@ -9005,7 +9005,7 @@ msgstr "данные"
 #: src/Plugins/Export/ExportLatex.php:95
 #: src/Plugins/Export/ExportMediawiki.php:63
 #: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:222
+#: src/Plugins/Export/ExportSql.php:221
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "structure and data"
 msgstr "структура и данные"
@@ -9210,7 +9210,7 @@ msgstr ""
 "может работать ([kbd]0[/kbd] - без ограничения)."
 
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
-#: src/Plugins/Export/ExportSql.php:322
+#: src/Plugins/Export/ExportSql.php:321
 msgid "Exclude definition of current user"
 msgstr "Исключить определение текущего пользователя"
 
@@ -10533,7 +10533,7 @@ msgstr "Шаблон имени таблицы"
 #: src/Plugins/Export/ExportMediawiki.php:53
 #: src/Plugins/Export/ExportMediawiki.php:59
 #: src/Plugins/Export/ExportOdt.php:70 src/Plugins/Export/ExportPdf.php:81
-#: src/Plugins/Export/ExportSql.php:218
+#: src/Plugins/Export/ExportSql.php:217
 #: src/Plugins/Export/ExportTexytext.php:56
 msgid "Dump table"
 msgstr "Сохранение таблицы"
@@ -10595,11 +10595,11 @@ msgstr "Даты создания, обновления и проверки"
 msgid "Use delayed inserts"
 msgstr "Использовать отложенные вставки (DELAYED)"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:187
+#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:186
 msgid "Disable foreign key checks"
 msgstr "Отключить проверку внешних ключей"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:197
+#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:196
 msgid "Export views as tables"
 msgstr "Экспортировать представления как таблицы"
 
@@ -10620,7 +10620,7 @@ msgstr ""
 "Добавить IF NOT EXISTS (менее эффективно, т.к. индексы будут созданы во "
 "время создания таблицы)"
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:328
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:327
 #, php-format
 msgid "%s view"
 msgstr "%s вид"
@@ -10633,7 +10633,7 @@ msgstr "Использовать игнорирующие вставки (IGNORE
 msgid "Syntax to use when inserting data"
 msgstr "Использовать синтаксис при вставке данных"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:455
+#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:454
 msgid "Maximal length of created query"
 msgstr "Максимальная длина создаваемого запроса"
 
@@ -10641,7 +10641,7 @@ msgstr "Максимальная длина создаваемого запро�
 msgid "Export type"
 msgstr "Тип экспорта"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:177
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:176
 msgid "Enclose export in a transaction"
 msgstr "Заключить экспорт в транзакцию"
 
@@ -11713,11 +11713,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "Сервер %d"
 
-#: src/ConfigStorage/Relation.php:1234
+#: src/ConfigStorage/Relation.php:1246
 msgid "no description"
 msgstr "нет описания"
 
-#: src/ConfigStorage/Relation.php:1432
+#: src/ConfigStorage/Relation.php:1452
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -12113,7 +12113,7 @@ msgid "Success!"
 msgstr "Успех!"
 
 #: src/Controllers/Database/StructureController.php:576
-#: src/Display/Results.php:3417
+#: src/Display/Results.php:3416
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12379,7 +12379,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Команда \"DROP DATABASE\" (удалить базу данных) отключена."
 
-#: src/Controllers/Import/ImportController.php:696 src/Sql.php:873
+#: src/Controllers/Import/ImportController.php:696 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr "[Произошел откат.]"
 
@@ -15233,7 +15233,7 @@ msgstr "Ошибочные данные"
 msgid "Wrong data or no validation for %s"
 msgstr "Неверные данные или отсутствие проверки для %s"
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1050
+#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1054
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Закладка %s создана."
@@ -15316,7 +15316,7 @@ msgstr "С вашим запросом возникла проблема."
 
 #: src/Controllers/Table/GetFieldController.php:81
 #: src/Database/Routines.php:1046 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:859
+#: src/InsertEdit.php:199 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вернула пустой результат (т.е. ноль строк)."
 
@@ -15346,11 +15346,11 @@ msgstr "Имя раздела должно быть непустой строк�
 msgid "Invalid database or table name."
 msgstr "Неверное имя базы данных или таблицы."
 
-#: src/Controllers/Table/RelationController.php:326
+#: src/Controllers/Table/RelationController.php:316
 msgid "Display column was successfully updated."
 msgstr "Отображаемый столбец был успешно обновлен."
 
-#: src/Controllers/Table/RelationController.php:360
+#: src/Controllers/Table/RelationController.php:350
 msgid "Internal relationships were successfully updated."
 msgstr "Внутренние связи были успешно обновлены."
 
@@ -15466,7 +15466,7 @@ msgid ""
 "feature."
 msgstr "Хранилище конфигурации ещё не готово для центрального списка столбцов."
 
-#: src/Database/Designer/Common.php:453
+#: src/Database/Designer/Common.php:448
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
@@ -15476,43 +15476,43 @@ msgstr ""
 "Хранилище конфигурации phpMyAdmin не настроено для использования функции "
 "«Показать возможности»."
 
-#: src/Database/Designer/Common.php:498
+#: src/Database/Designer/Common.php:493
 msgid "Error: relationship already exists."
 msgstr "Ошибка: Ссылка уже существует."
 
-#: src/Database/Designer/Common.php:547
+#: src/Database/Designer/Common.php:542
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Добавлена ссылка FOREIGN KEY."
 
-#: src/Database/Designer/Common.php:552
+#: src/Database/Designer/Common.php:547
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Ошибка: ссылку FOREIGN KEY невозможно добавить!"
 
-#: src/Database/Designer/Common.php:555
+#: src/Database/Designer/Common.php:550
 msgid "Error: Missing index on column(s)."
 msgstr "Ошибка: отсутствует индекс в столбце."
 
-#: src/Database/Designer/Common.php:560 src/Database/Designer/Common.php:624
+#: src/Database/Designer/Common.php:555 src/Database/Designer/Common.php:619
 msgid "Error: Relational features are disabled!"
 msgstr "Ошибка: Функция связи отключена!"
 
-#: src/Database/Designer/Common.php:581
+#: src/Database/Designer/Common.php:576
 msgid "Internal relationship has been added."
 msgstr "Добавлена внутренняя ссылка."
 
-#: src/Database/Designer/Common.php:586
+#: src/Database/Designer/Common.php:581
 msgid "Error: Internal relationship could not be added!"
 msgstr "Ошибка: внутреннюю ссылку невозможно добавить!"
 
-#: src/Database/Designer/Common.php:618
+#: src/Database/Designer/Common.php:613
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Ссылка FOREIGN KEY была удалена."
 
-#: src/Database/Designer/Common.php:643
+#: src/Database/Designer/Common.php:638
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Ошибка: внутреннюю ссылку невозможно удалить!"
 
-#: src/Database/Designer/Common.php:646
+#: src/Database/Designer/Common.php:641
 msgid "Internal relationship has been removed."
 msgstr "Внутренняя ссылка удалена."
 
@@ -15685,31 +15685,31 @@ msgstr ""
 "Ошибка 1045: пользователю отказано в доступе. Дополнительная информация об "
 "ошибке может быть доступна, но скрыта директивой конфигурации %s."
 
-#: src/Display/Results.php:2513 src/Display/Results.php:2528
+#: src/Display/Results.php:2512 src/Display/Results.php:2527
 msgid "The row has been deleted."
 msgstr "Строка была удалена."
 
-#: src/Display/Results.php:3426
+#: src/Display/Results.php:3425
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Отображение строк %1s - %2s"
 
-#: src/Display/Results.php:3440
+#: src/Display/Results.php:3439
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "%1$s всего, %2$s в запросе"
 
-#: src/Display/Results.php:3445
+#: src/Display/Results.php:3444
 #, php-format
 msgid "%s total"
 msgstr "%s всего"
 
-#: src/Display/Results.php:3458 src/Sql.php:865
+#: src/Display/Results.php:3457 src/Sql.php:869
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Запрос занял %01.4f с."
 
-#: src/Display/Results.php:3765
+#: src/Display/Results.php:3755
 msgid "Link not found!"
 msgstr "Связь не найдена!"
 
@@ -16397,11 +16397,11 @@ msgstr "Индексы %1$s и %2$s равнозначны и один из ни
 msgid "web server upload directory:"
 msgstr "Из каталога загрузки:"
 
-#: src/InsertEdit.php:924 src/Sql.php:856
+#: src/InsertEdit.php:924 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "Отображает SQL-запрос"
 
-#: src/InsertEdit.php:948 src/Sql.php:836
+#: src/InsertEdit.php:948 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Идентификатор вставленной строки: %1$d"
@@ -16539,7 +16539,7 @@ msgstr "Новое"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:24
-#: src/Plugins/Export/ExportSql.php:599 src/Plugins/Export/ExportXml.php:90
+#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportXml.php:90
 msgid "Functions"
 msgstr "Функции"
 
@@ -16559,7 +16559,7 @@ msgstr "Развернуть/Свернуть"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:24
-#: src/Plugins/Export/ExportSql.php:588 src/Plugins/Export/ExportXml.php:95
+#: src/Plugins/Export/ExportSql.php:587 src/Plugins/Export/ExportXml.php:95
 msgid "Procedures"
 msgstr "Процедуры"
 
@@ -17029,25 +17029,25 @@ msgid "Data dump options"
 msgstr "Параметры сохранения данных"
 
 #: src/Plugins/Export/ExportHtmlword.php:189
-#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2191
+#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2187
 #: src/Plugins/Export/ExportTexytext.php:173
 msgid "Dumping data for table"
 msgstr "Дамп данных таблицы"
 
 #: src/Plugins/Export/ExportHtmlword.php:519
-#: src/Plugins/Export/ExportOdt.php:645 src/Plugins/Export/ExportSql.php:1922
+#: src/Plugins/Export/ExportOdt.php:645 src/Plugins/Export/ExportSql.php:1918
 #: src/Plugins/Export/ExportTexytext.php:489
 msgid "Table structure for table"
 msgstr "Структура таблицы"
 
 #: src/Plugins/Export/ExportHtmlword.php:536
-#: src/Plugins/Export/ExportOdt.php:665 src/Plugins/Export/ExportSql.php:1979
+#: src/Plugins/Export/ExportOdt.php:665 src/Plugins/Export/ExportSql.php:1975
 #: src/Plugins/Export/ExportTexytext.php:502
 msgid "Structure for view"
 msgstr "Структура для представления"
 
 #: src/Plugins/Export/ExportHtmlword.php:542
-#: src/Plugins/Export/ExportOdt.php:673 src/Plugins/Export/ExportSql.php:2018
+#: src/Plugins/Export/ExportOdt.php:673 src/Plugins/Export/ExportSql.php:2014
 #: src/Plugins/Export/ExportTexytext.php:506
 msgid "Stand-in structure for view"
 msgstr "Дублирующая структура для представления"
@@ -17073,7 +17073,7 @@ msgid "Structure of table @TABLE@"
 msgstr "Структура таблицы @TABLE@"
 
 #: src/Plugins/Export/ExportLatex.php:105 src/Plugins/Export/ExportOdt.php:85
-#: src/Plugins/Export/ExportSql.php:234
+#: src/Plugins/Export/ExportSql.php:233
 msgid "Object creation options"
 msgstr "Параметры создания объектов"
 
@@ -17093,7 +17093,7 @@ msgid "Label key:"
 msgstr "Идентификатор метки:"
 
 #: src/Plugins/Export/ExportLatex.php:131 src/Plugins/Export/ExportOdt.php:93
-#: src/Plugins/Export/ExportSql.php:159
+#: src/Plugins/Export/ExportSql.php:158
 msgid "Display foreign key relationships"
 msgstr "Отобразить связи внешних ключей"
 
@@ -17102,7 +17102,7 @@ msgid "Display comments"
 msgstr "Отобразить комментарии"
 
 #: src/Plugins/Export/ExportLatex.php:144 src/Plugins/Export/ExportOdt.php:106
-#: src/Plugins/Export/ExportSql.php:167
+#: src/Plugins/Export/ExportSql.php:166
 msgid "Display media types"
 msgstr "Отобразить медиатипы"
 
@@ -17110,17 +17110,17 @@ msgstr "Отобразить медиатипы"
 msgid "Put columns names in the first row:"
 msgstr "Поместить названия полей в первой строке:"
 
-#: src/Plugins/Export/ExportLatex.php:213 src/Plugins/Export/ExportSql.php:724
+#: src/Plugins/Export/ExportLatex.php:213 src/Plugins/Export/ExportSql.php:723
 #: src/Plugins/Export/ExportXml.php:203
 msgid "Generation Time:"
 msgstr "Время создания:"
 
-#: src/Plugins/Export/ExportLatex.php:216 src/Plugins/Export/ExportSql.php:730
+#: src/Plugins/Export/ExportLatex.php:216 src/Plugins/Export/ExportSql.php:729
 #: src/Plugins/Export/ExportXml.php:206
 msgid "PHP Version:"
 msgstr "Версия PHP:"
 
-#: src/Plugins/Export/ExportLatex.php:305 src/Plugins/Export/ExportSql.php:2071
+#: src/Plugins/Export/ExportLatex.php:305 src/Plugins/Export/ExportSql.php:2067
 msgid "Data:"
 msgstr "Данные:"
 
@@ -17161,7 +17161,7 @@ msgstr "Просмотреть структуру"
 msgid "Stand in"
 msgstr "Замена"
 
-#: src/Plugins/Export/ExportSql.php:138
+#: src/Plugins/Export/ExportSql.php:137
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -17169,12 +17169,12 @@ msgstr ""
 "Вывести комментарии <i>(включает такую информацию, как: время экспорта, "
 "версия PHP, и версия MySQL сервера)</i>"
 
-#: src/Plugins/Export/ExportSql.php:145
+#: src/Plugins/Export/ExportSql.php:144
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
 "Добавить в заголовок собственный комментарий (\\n для разделения строк):"
 
-#: src/Plugins/Export/ExportSql.php:151
+#: src/Plugins/Export/ExportSql.php:150
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
@@ -17182,38 +17182,38 @@ msgstr ""
 "Включить время создания базы данных, время последнего обновления, и время "
 "последней проверки"
 
-#: src/Plugins/Export/ExportSql.php:204
+#: src/Plugins/Export/ExportSql.php:203
 msgid "Export metadata"
 msgstr "Экспорт метаданных"
 
-#: src/Plugins/Export/ExportSql.php:242
+#: src/Plugins/Export/ExportSql.php:241
 msgid "Add statements:"
 msgstr "Добавить выражения:"
 
-#: src/Plugins/Export/ExportSql.php:250 src/Plugins/Export/ExportSql.php:259
-#: src/Plugins/Export/ExportSql.php:276 src/Plugins/Export/ExportSql.php:285
-#: src/Plugins/Export/ExportSql.php:309 src/Plugins/Export/ExportSql.php:337
-#: src/Plugins/Export/ExportSql.php:346
+#: src/Plugins/Export/ExportSql.php:249 src/Plugins/Export/ExportSql.php:258
+#: src/Plugins/Export/ExportSql.php:275 src/Plugins/Export/ExportSql.php:284
+#: src/Plugins/Export/ExportSql.php:308 src/Plugins/Export/ExportSql.php:336
+#: src/Plugins/Export/ExportSql.php:345
 #, php-format
 msgid "Add %s statement"
 msgstr "Добавить выражение %s"
 
-#: src/Plugins/Export/ExportSql.php:292
+#: src/Plugins/Export/ExportSql.php:291
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 "(менее эффективно, т.к. индексы будут созданы во время создания таблицы)"
 
-#: src/Plugins/Export/ExportSql.php:299
+#: src/Plugins/Export/ExportSql.php:298
 #, php-format
 msgid "%s value"
 msgstr "%s значение"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: src/Plugins/Export/ExportSql.php:316
+#: src/Plugins/Export/ExportSql.php:315
 msgid "Use simple view export"
 msgstr "Использовать простой вид экспорта"
 
-#: src/Plugins/Export/ExportSql.php:355
+#: src/Plugins/Export/ExportSql.php:354
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -17221,35 +17221,35 @@ msgstr ""
 "Заключить имена таблиц и полей в обратные кавычки <i>(Защищает имена таблиц "
 "и полей содержащих специальные символы или зарезервированные слова)</i>"
 
-#: src/Plugins/Export/ExportSql.php:370
+#: src/Plugins/Export/ExportSql.php:369
 msgid "Data creation options"
 msgstr "Параметры создания данных"
 
-#: src/Plugins/Export/ExportSql.php:375 src/Plugins/Export/ExportSql.php:2149
+#: src/Plugins/Export/ExportSql.php:374 src/Plugins/Export/ExportSql.php:2145
 msgid "Truncate table before insert"
 msgstr "Очистить таблицу перед добавлением данных"
 
-#: src/Plugins/Export/ExportSql.php:382
+#: src/Plugins/Export/ExportSql.php:381
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Использовать вместо <code>INSERT</code> выражения:"
 
-#: src/Plugins/Export/ExportSql.php:388
+#: src/Plugins/Export/ExportSql.php:387
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code>"
 
-#: src/Plugins/Export/ExportSql.php:397 src/Plugins/Export/ExportSql.php:424
+#: src/Plugins/Export/ExportSql.php:396 src/Plugins/Export/ExportSql.php:423
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code>"
 
-#: src/Plugins/Export/ExportSql.php:408
+#: src/Plugins/Export/ExportSql.php:407
 msgid "Function to use when dumping data:"
 msgstr "Использовать оператор при сохранении данных:"
 
-#: src/Plugins/Export/ExportSql.php:419
+#: src/Plugins/Export/ExportSql.php:418
 msgid "Syntax to use when inserting data:"
 msgstr "Использовать синтаксис при вставке данных:"
 
-#: src/Plugins/Export/ExportSql.php:429
+#: src/Plugins/Export/ExportSql.php:428
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -17259,7 +17259,7 @@ msgstr ""
 "&nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:434
+#: src/Plugins/Export/ExportSql.php:433
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -17269,7 +17269,7 @@ msgstr ""
 "&nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:439
+#: src/Plugins/Export/ExportSql.php:438
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -17278,7 +17278,7 @@ msgstr ""
 "<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:444
+#: src/Plugins/Export/ExportSql.php:443
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -17286,7 +17286,7 @@ msgstr ""
 "ни один из выше перечисленных<br> &nbsp; &nbsp; &nbsp; Пример: <code>INSERT "
 "INTO tbl_name VALUES (1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:463
+#: src/Plugins/Export/ExportSql.php:462
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -17294,7 +17294,7 @@ msgstr ""
 "Сохранение бинарных полей в шестнадцатеричном виде <i>(к примеру, \"abc\" "
 "станет 0x616263)</i>"
 
-#: src/Plugins/Export/ExportSql.php:472
+#: src/Plugins/Export/ExportSql.php:471
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -17303,104 +17303,104 @@ msgstr ""
 "поля с типом TIMESTAMP между серверами находящимися в различных временных "
 "зонах)</i>"
 
-#: src/Plugins/Export/ExportSql.php:548
+#: src/Plugins/Export/ExportSql.php:547
 msgid "It appears your database uses routines;"
 msgstr "Кажется, ваша база данных использует подпрограммы;"
 
-#: src/Plugins/Export/ExportSql.php:551 src/Plugins/Export/ExportSql.php:1492
-#: src/Plugins/Export/ExportSql.php:1967
+#: src/Plugins/Export/ExportSql.php:550 src/Plugins/Export/ExportSql.php:1491
+#: src/Plugins/Export/ExportSql.php:1963
 msgid "alias export may not work reliably in all cases."
 msgstr "экспорт псевдонима не может надёжно работать во всех случаях."
 
-#: src/Plugins/Export/ExportSql.php:1023
+#: src/Plugins/Export/ExportSql.php:1022
 msgid "Metadata"
 msgstr "Метаданные"
 
-#: src/Plugins/Export/ExportSql.php:1084
+#: src/Plugins/Export/ExportSql.php:1083
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Метаданные для таблицы %s"
 
-#: src/Plugins/Export/ExportSql.php:1091
+#: src/Plugins/Export/ExportSql.php:1090
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Метаданные для базы данных %s"
 
-#: src/Plugins/Export/ExportSql.php:1404
+#: src/Plugins/Export/ExportSql.php:1403
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Структура чтения ошибок для таблицы %s:"
 
-#: src/Plugins/Export/ExportSql.php:1489
+#: src/Plugins/Export/ExportSql.php:1488
 msgid "It appears your database uses views;"
 msgstr "Похоже, что база данных использует представления;"
 
-#: src/Plugins/Export/ExportSql.php:1635
+#: src/Plugins/Export/ExportSql.php:1634
 msgid "Constraints for dumped tables"
 msgstr "Ограничения внешнего ключа сохраненных таблиц"
 
-#: src/Plugins/Export/ExportSql.php:1636
+#: src/Plugins/Export/ExportSql.php:1635
 msgid "Constraints for table"
 msgstr "Ограничения внешнего ключа таблицы"
 
-#: src/Plugins/Export/ExportSql.php:1663
+#: src/Plugins/Export/ExportSql.php:1662
 msgid "Indexes for dumped tables"
 msgstr "Индексы сохранённых таблиц"
 
-#: src/Plugins/Export/ExportSql.php:1664
+#: src/Plugins/Export/ExportSql.php:1663
 msgid "Indexes for table"
 msgstr "Индексы таблицы"
 
-#: src/Plugins/Export/ExportSql.php:1694
+#: src/Plugins/Export/ExportSql.php:1693
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT для сохранённых таблиц"
 
-#: src/Plugins/Export/ExportSql.php:1695
+#: src/Plugins/Export/ExportSql.php:1694
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT для таблицы"
 
-#: src/Plugins/Export/ExportSql.php:1764
+#: src/Plugins/Export/ExportSql.php:1758
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "МЕДИАТИПЫ ДЛЯ ТАБЛИЦЫ"
 
-#: src/Plugins/Export/ExportSql.php:1789
+#: src/Plugins/Export/ExportSql.php:1788
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "ССЫЛКИ ТАБЛИЦЫ"
 
-#: src/Plugins/Export/ExportSql.php:1964
+#: src/Plugins/Export/ExportSql.php:1960
 msgid "It appears your table uses triggers;"
 msgstr "Похоже, что ваша таблица использует триггеры;"
 
-#: src/Plugins/Export/ExportSql.php:1994
+#: src/Plugins/Export/ExportSql.php:1990
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Структура для представления %s экспортирована как таблица"
 
-#: src/Plugins/Export/ExportSql.php:2021
+#: src/Plugins/Export/ExportSql.php:2017
 msgid "(See below for the actual view)"
 msgstr "(См. Ниже фактическое представление)"
 
-#: src/Plugins/Export/ExportSql.php:2082
+#: src/Plugins/Export/ExportSql.php:2078
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Ошибка считывания данных таблицы %s:"
 
-#: src/Plugins/Export/ExportSql.php:2677
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:575
+#: src/Plugins/Export/ExportSql.php:2673
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:565
 msgid "Creation:"
 msgstr "Создание:"
 
-#: src/Plugins/Export/ExportSql.php:2685
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:586
+#: src/Plugins/Export/ExportSql.php:2681
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
 msgid "Last update:"
 msgstr "Последнее обновление:"
 
-#: src/Plugins/Export/ExportSql.php:2693
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:597
+#: src/Plugins/Export/ExportSql.php:2689
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:587
 msgid "Last check:"
 msgstr "Последняя проверка:"
 
-#: src/Plugins/Export/ExportSql.php:2714
+#: src/Plugins/Export/ExportSql.php:2710
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -17567,8 +17567,8 @@ msgstr "Для этого формата нет настраиваемых па�
 msgid "The %s table doesn't exist!"
 msgstr "Таблица %s не существует!"
 
-#: src/Plugins/Schema/Eps/EpsRelationSchema.php:65
-#: src/Plugins/Schema/Svg/SvgRelationSchema.php:73
+#: src/Plugins/Schema/Eps/EpsRelationSchema.php:64
+#: src/Plugins/Schema/Svg/SvgRelationSchema.php:72
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr "Схема базы данных %s - Страница %s"
@@ -17581,17 +17581,17 @@ msgstr "Ошибка при создании схемы: "
 msgid "PDF export page"
 msgstr "Страница экспорта PDF"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:118
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:117
 #, php-format
 msgid "Schema of the %s database"
 msgstr "Схема базы данных %s"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:146
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:504
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:145
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:494
 msgid "Relational schema"
 msgstr "Cхема связей"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:457
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:447
 msgid "Table of contents"
 msgstr "Содержание"
 
@@ -18257,16 +18257,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Обновление стабильной версии недоступно"
 
-#: src/Sql.php:432
+#: src/Sql.php:436
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Для обзора данных использован запрос из закладки \"%s\"."
 
-#: src/Sql.php:853
+#: src/Sql.php:857
 msgid "Showing as PHP code"
 msgstr "Отображает как PHP-код"
 
-#: src/Sql.php:1219
+#: src/Sql.php:1223
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18275,7 +18275,7 @@ msgstr ""
 "Данное выделение не содержит уникального столбца. Изменение сетки, "
 "выставление галочки, редактирование, копирование и удаление невозможно. %s"
 
-#: src/Sql.php:1233
+#: src/Sql.php:1237
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
