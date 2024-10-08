@@ -263,7 +263,7 @@ const insertQuery = function (queryType) {
         setQuery('');
 
         return;
-    } else if (queryType === 'format') {
+    } else if (queryType === 'format' || queryType === 'formatSingleLine') {
         if (window.codeMirrorEditor) {
             $('#querymessage').html(window.Messages.strFormatting +
                 '&nbsp;<img class="ajaxIcon" src="' +
@@ -272,7 +272,8 @@ const insertQuery = function (queryType) {
             var params = {
                 'ajax_request': true,
                 'sql': window.codeMirrorEditor.getValue(),
-                'server': CommonParams.get('server')
+                'server': CommonParams.get('server'),
+                'formatSingleLine': queryType === 'formatSingleLine'
             };
             $.ajax({
                 type: 'POST',
