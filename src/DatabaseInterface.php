@@ -2044,11 +2044,6 @@ class DatabaseInterface implements DbalInterface
         return $this->databaseList;
     }
 
-    public function getConfig(): Config
-    {
-        return $this->config;
-    }
-
     /**
      * Returns the number of warnings from the last query.
      */

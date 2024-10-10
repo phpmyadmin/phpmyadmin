@@ -76,6 +76,7 @@ class Privileges
         public Relation $relation,
         private RelationCleanup $relationCleanup,
         private Plugins $plugins,
+        private readonly Config $config,
     ) {
     }
 
@@ -3270,7 +3271,7 @@ class Privileges
             'has_more_auth_plugins' => $hasMoreAuthPlugins,
             'active_auth_plugins' => $activeAuthPlugins,
             'orig_auth_plugin' => $origAuthPlugin,
-            'allow_no_password' => $this->dbi->getConfig()->selectedServer['AllowNoPassword'],
+            'allow_no_password' => $this->config->selectedServer['AllowNoPassword'],
         ]);
     }
 
