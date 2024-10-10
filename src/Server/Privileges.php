@@ -3270,6 +3270,7 @@ class Privileges
             'has_more_auth_plugins' => $hasMoreAuthPlugins,
             'active_auth_plugins' => $activeAuthPlugins,
             'orig_auth_plugin' => $origAuthPlugin,
+            'allow_no_password' => $this->dbi->getConfig()->selectedServer['AllowNoPassword'],
         ]);
     }
 
