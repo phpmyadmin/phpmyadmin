@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Message;
@@ -35,6 +36,7 @@ class UserPasswordTest extends AbstractTestCase
             $relation,
             new RelationCleanup($dbi, $relation),
             new Plugins($dbi),
+            new Config(),
         );
         $this->object = new UserPassword(
             $serverPrivileges,

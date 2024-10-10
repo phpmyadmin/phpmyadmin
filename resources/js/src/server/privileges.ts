@@ -1,6 +1,13 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { checkPassword, checkPasswordStrength, checkboxesSel, displayPasswordGenerateButton, getSqlEditor } from '../modules/functions.ts';
+import {
+    checkPassword,
+    checkPasswordStrength,
+    checkboxesSel,
+    displayPasswordGenerateButton,
+    getSqlEditor,
+    shouldShowEmptyPasswordWarning
+} from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
@@ -475,6 +482,26 @@ const CheckAddUser = {
     }
 };
 
+const CheckEmptyPasswordWhenAllowNoPasswordIsEnabled = {
+    handleEvent: function () {
+        const theForm = this;
+
+        if (shouldShowEmptyPasswordWarning($(theForm))) {
+            $(this).confirm(window.Messages.strPasswordEmptyWhenAllowNoPasswordIsEnabled, '', function () {
+                theForm.submit();
+
+                return true;
+            });
+
+            return false;
+        } else {
+            theForm.submit();
+
+            return true;
+        }
+    }
+};
+
 const selectPasswordRadioWhenChangingPassword = () => {
     $('#nopass_0').prop('checked', true);
 };
@@ -561,4 +588,5 @@ AJAX.registerOnload('server/privileges.js', function () {
 
     $('#addUsersForm').on('submit', CheckAddUser.handleEvent);
     $('#copyUserForm').on('submit', CheckAddUser.handleEvent);
+    $('#change_password_form').on('submit', CheckEmptyPasswordWhenAllowNoPasswordIsEnabled.handleEvent);
 });

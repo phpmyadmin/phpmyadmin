@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\InvocableController;
@@ -38,6 +39,7 @@ final class PrivilegesController implements InvocableController
         private readonly Relation $relation,
         private readonly DatabaseInterface $dbi,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,
+        private readonly Config $config,
     ) {
     }
 
@@ -62,6 +64,7 @@ final class PrivilegesController implements InvocableController
             $this->relation,
             $relationCleanup,
             new Plugins($this->dbi),
+            $this->config,
         );
 
         $this->response->addHTML('<div class="container-fluid">');
