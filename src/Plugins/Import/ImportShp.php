@@ -24,6 +24,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\ShapeFile\ShapeType;
 use PhpMyAdmin\ZipExtension;
 use ZipArchive;
 
@@ -99,7 +100,7 @@ class ImportShp extends ImportPlugin
 
         $compression = $importHandle->getCompression();
 
-        $shp = new ShapeFileImport(1);
+        $shp = new ShapeFileImport(ShapeType::Point);
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
         if (
@@ -183,23 +184,18 @@ class ImportShp extends ImportPlugin
         }
 
         switch ($shp->shapeType) {
-            // ESRI Null Shape
-            case 0:
+            case ShapeType::Null:
                 break;
-            // ESRI Point
-            case 1:
+            case ShapeType::Point:
                 $gisType = 'point';
                 break;
-            // ESRI PolyLine
-            case 3:
+            case ShapeType::PolyLine:
                 $gisType = 'multilinestring';
                 break;
-            // ESRI Polygon
-            case 5:
+            case ShapeType::Polygon:
                 $gisType = 'multipolygon';
                 break;
-            // ESRI MultiPoint
-            case 8:
+            case ShapeType::MultiPoint:
                 $gisType = 'multipoint';
                 break;
             default:
