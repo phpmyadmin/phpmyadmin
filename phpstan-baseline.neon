@@ -2751,11 +2751,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Parameter \\#1 \\$eachTables of static method PhpMyAdmin\\\\Query\\\\Compatibility\\:\\:getISCompatForGetTablesFull\\(\\) expects array, array\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Parameter \\#1 \\$input of function array_slice expects array, array\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php

@@ -8100,7 +8100,7 @@
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
-      <code>min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars'])</code>
+      <code>min(max($column['len'] * 2, 4), $GLOBALS['cfg']['LimitChars'])</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="7">
       <code>$keyId</code>
@@ -8193,7 +8193,8 @@
       <code>new $className()</code>
       <code>new $className()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="7">
+    <MixedOperand occurrences="8">
+      <code>$column['len']</code>
       <code>$column['pma_type']</code>
       <code>$file</code>
       <code>$maxlength</code>
