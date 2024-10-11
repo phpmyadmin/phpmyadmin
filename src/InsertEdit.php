@@ -1780,7 +1780,7 @@ class InsertEdit
                         $column,
                         $columnNameAppendix,
                         $specialChars,
-                        min(max($column->length, 4), $this->config->settings['LimitChars']),
+                        min(max($column->length * 2, 4), $this->config->settings['LimitChars']),
                         $onChangeClause,
                         'HEX',
                     );
