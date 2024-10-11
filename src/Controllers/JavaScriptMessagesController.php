@@ -143,6 +143,11 @@ final class JavaScriptMessagesController implements InvocableController
             'strUserEmpty' => __('The user name is empty!'),
             'strPasswordEmpty' => __('The password is empty!'),
             'strPasswordNotSame' => __('The passwords aren\'t the same!'),
+            'strPasswordEmptyWhenAllowNoPasswordIsEnabled' => __(
+                'You are trying to set this account to log in with no password, but the configuration directive ' .
+                '<code>AllowNoPassword</code> is false. If you proceed, the account will not be able to log in ' .
+                'through phpMyAdmin.',
+            ),
             'strRemovingSelectedUsers' => __('Removing Selected Users'),
             'strClose' => __('Close'),
             'strLock' => _pgettext('Lock the account.', 'Lock'),

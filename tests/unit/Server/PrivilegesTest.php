@@ -1889,6 +1889,7 @@ class PrivilegesTest extends AbstractTestCase
             $relation,
             new RelationCleanup($this->dbi, $relation),
             new Plugins($this->dbi),
+            new Config(),
         );
         $method = new ReflectionMethod(Privileges::class, 'getUserPrivileges');
 
@@ -1902,7 +1903,14 @@ class PrivilegesTest extends AbstractTestCase
     {
         $relation = new Relation($dbi);
 
-        return new Privileges(new Template(), $dbi, $relation, new RelationCleanup($dbi, $relation), new Plugins($dbi));
+        return new Privileges(
+            new Template(),
+            $dbi,
+            $relation,
+            new RelationCleanup($dbi, $relation),
+            new Plugins($dbi),
+            new Config(),
+        );
     }
 
     /**

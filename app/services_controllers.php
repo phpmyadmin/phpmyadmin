@@ -700,6 +700,7 @@ return [
                 '$relation' => '@relation',
                 '$dbi' => '@dbi',
                 '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
+                '$config' => '@config',
             ],
         ],
         Server\ReplicationController::class => [

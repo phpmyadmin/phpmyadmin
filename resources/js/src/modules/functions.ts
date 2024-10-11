@@ -1974,6 +1974,10 @@ export function checkPassword ($theForm) {
     return true;
 }
 
+export function shouldShowEmptyPasswordWarning (form): boolean {
+    return (form.find('#nopass_1').is(':checked') && form.data('allowNoPassword') === 0);
+}
+
 export function onloadChangePasswordEvents (): void {
     /* Handler for hostname type */
     $(document).on('change', '#select_pred_hostname', function () {
@@ -2067,25 +2071,35 @@ export function onloadChangePasswordEvents (): void {
              */
             var thisValue = $(this).val();
 
-            var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
-            $theForm.append('<input type="hidden" name="ajax_request" value="true">');
+            var submitForm = function () {
+                var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
+                $theForm.append('<input type="hidden" name="ajax_request" value="true">');
 
-            $.post($theForm.attr('action'), $theForm.serialize() + CommonParams.get('arg_separator') + 'change_pw=' + thisValue, function (data) {
-                if (typeof data === 'undefined' || data.success !== true) {
-                    ajaxShowMessage(data.error, false);
+                $.post($theForm.attr('action'), $theForm.serialize() + CommonParams.get('arg_separator') + 'change_pw=' + thisValue, function (data) {
+                    if (typeof data === 'undefined' || data.success !== true) {
+                        ajaxShowMessage(data.error, false);
 
-                    return;
-                }
+                        return;
+                    }
 
-                var $pageContent = $('#page_content');
-                $pageContent.prepend(data.message);
-                highlightSql($pageContent);
-                $('#change_password_dialog').hide().remove();
-                $('#edit_user_dialog').dialog('close').remove();
-                ajaxRemoveMessage($msgbox);
-            }); // end $.post()
+                    var $pageContent = $('#page_content');
+                    $pageContent.prepend(data.message);
+                    highlightSql($pageContent);
+                    $('#change_password_dialog').hide().remove();
+                    $('#edit_user_dialog').dialog('close').remove();
+                    ajaxRemoveMessage($msgbox);
+                }); // end $.post()
 
-            $('#changePasswordModal').modal('hide');
+                $('#changePasswordModal').modal('hide');
+            };
+
+            if (shouldShowEmptyPasswordWarning($theForm)) {
+                $(this).confirm(window.Messages.strPasswordEmptyWhenAllowNoPasswordIsEnabled, '', function () {
+                    submitForm();
+                });
+            } else {
+                submitForm();
+            }
         });
 
         $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {

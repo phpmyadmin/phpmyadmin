@@ -158,7 +158,7 @@ return [
         'server_plugins' => ['class' => Plugins::class, 'arguments' => ['@dbi']],
         'server_privileges' => [
             'class' => Privileges::class,
-            'arguments' => ['@template', '@dbi', '@relation', '@relation_cleanup', '@server_plugins'],
+            'arguments' => ['@template', '@dbi', '@relation', '@relation_cleanup', '@server_plugins', '@config'],
         ],
         'server_privileges_account_locking' => [
             'class' => AccountLocking::class,

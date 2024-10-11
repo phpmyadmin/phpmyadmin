@@ -75,6 +75,7 @@ class PrivilegesControllerTest extends AbstractTestCase
             new Relation($this->dbi),
             $this->dbi,
             new UserPrivilegesFactory($this->dbi),
+            new Config(),
         ))($request);
 
         $actual = $response->getHTMLResult();
