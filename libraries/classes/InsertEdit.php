@@ -2327,7 +2327,7 @@ class InsertEdit
                         $column,
                         $columnNameAppendix,
                         $specialChars,
-                        min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']),
+                        min(max($column['len'] * 2, 4), $GLOBALS['cfg']['LimitChars']),
                         $onChangeClause,
                         $tabindex,
                         $tabindexForValue,
