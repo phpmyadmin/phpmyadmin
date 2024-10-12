@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-11-12 15:23-0300\n"
+"POT-Creation-Date: 2024-10-11 21:28-0300\n"
 "PO-Revision-Date: 2022-02-17 10:34+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Belarusian (latin) <https://hosted.weblate.org/projects/"
@@ -1299,7 +1299,7 @@ msgstr "Pošuk"
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
-#: templates/display/results/table.twig:190
+#: templates/display/results/table.twig:193
 #: templates/gis_data_editor_form.twig:236 templates/header_location.twig:18
 #: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
@@ -1365,7 +1365,7 @@ msgid "Page number:"
 msgstr "Staronka:"
 
 #: libraries/classes/BrowseForeigners.php:335
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:560
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:23
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -1944,7 +1944,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:184
 #: libraries/classes/Config/Descriptions.php:728
-#: libraries/classes/Plugins/Export/ExportSql.php:345
+#: libraries/classes/Plugins/Export/ExportSql.php:348
 msgid "Exclude definition of current user"
 msgstr ""
 
@@ -3240,7 +3240,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:61
 #: libraries/classes/Plugins/Export/ExportOdt.php:69
 #: libraries/classes/Plugins/Export/ExportPdf.php:86
-#: libraries/classes/Plugins/Export/ExportSql.php:237
+#: libraries/classes/Plugins/Export/ExportSql.php:240
 #: libraries/classes/Plugins/Export/ExportTexytext.php:55
 #, fuzzy
 #| msgid "%s table(s)"
@@ -3365,12 +3365,12 @@ msgid "Use delayed inserts"
 msgstr "Vykarystoŭvać adkładzienyja ŭstaŭki"
 
 #: libraries/classes/Config/Descriptions.php:712
-#: libraries/classes/Plugins/Export/ExportSql.php:183
+#: libraries/classes/Plugins/Export/ExportSql.php:186
 msgid "Disable foreign key checks"
 msgstr "Adklučyć pravierku źniešnich klučoŭ"
 
 #: libraries/classes/Config/Descriptions.php:713
-#: libraries/classes/Plugins/Export/ExportSql.php:197
+#: libraries/classes/Plugins/Export/ExportSql.php:200
 #, fuzzy
 #| msgid "Create table on database %s"
 msgid "Export views as tables"
@@ -3406,7 +3406,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:729
-#: libraries/classes/Plugins/Export/ExportSql.php:351
+#: libraries/classes/Plugins/Export/ExportSql.php:354
 #, fuzzy, php-format
 #| msgid "Session value"
 msgid "%s view"
@@ -3421,7 +3421,7 @@ msgid "Syntax to use when inserting data"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:733
-#: libraries/classes/Plugins/Export/ExportSql.php:488
+#: libraries/classes/Plugins/Export/ExportSql.php:491
 msgid "Maximal length of created query"
 msgstr "Maksymalnaja daŭžynia stvoranaha zapytu"
 
@@ -3432,7 +3432,7 @@ msgid "Export type"
 msgstr "Ekspart"
 
 #: libraries/classes/Config/Descriptions.php:739
-#: libraries/classes/Plugins/Export/ExportSql.php:169
+#: libraries/classes/Plugins/Export/ExportSql.php:172
 msgid "Enclose export in a transaction"
 msgstr "Ekspartavać za adnu tranzakcyju"
 
@@ -3460,7 +3460,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:748
 #: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:480
-#: libraries/classes/Util.php:1931 libraries/config.values.php:155
+#: libraries/classes/Util.php:1938 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
 #: templates/server/export/index.twig:14
@@ -3589,8 +3589,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:775 libraries/classes/Menu.php:255
 #: libraries/classes/Menu.php:362 libraries/classes/Menu.php:485
 #: libraries/classes/Navigation/Nodes/NodeTable.php:310
-#: libraries/classes/Util.php:1487 libraries/classes/Util.php:1932
-#: libraries/classes/Util.php:1947 libraries/classes/Util.php:1964
+#: libraries/classes/Util.php:1489 libraries/classes/Util.php:1939
+#: libraries/classes/Util.php:1954 libraries/classes/Util.php:1971
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -3804,7 +3804,7 @@ msgid "Navigation panel width"
 msgstr "Vykarystoŭvać tekstavaje pole"
 
 #: libraries/classes/Config/Descriptions.php:831
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:602
 #: libraries/classes/Navigation/NavigationTree.php:1352
 #, fuzzy
 #| msgid "Use text field"
@@ -4337,9 +4337,9 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:122
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:387
-#: libraries/classes/Display/Results.php:2974
+#: libraries/classes/Display/Results.php:2973
 #: libraries/classes/Html/Generator.php:614
-#: libraries/classes/Html/Generator.php:865
+#: libraries/classes/Html/Generator.php:868
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:265
@@ -4353,8 +4353,8 @@ msgstr ""
 #: templates/database/structure/structure_table_row.twig:66
 #: templates/database/triggers/row.twig:28
 #: templates/database/triggers/row.twig:31
-#: templates/display/results/table.twig:227
-#: templates/display/results/table.twig:228 templates/indexes.twig:34
+#: templates/display/results/table.twig:230
+#: templates/display/results/table.twig:231 templates/indexes.twig:34
 #: templates/server/variables/index.twig:41
 #: templates/server/variables/index.twig:44 templates/setup/home/index.twig:63
 #: templates/table/structure/display_structure.twig:497
@@ -4671,14 +4671,14 @@ msgstr "Inšy koler"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
-#: libraries/classes/Import.php:1299 libraries/classes/Menu.php:247
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
+#: libraries/classes/Import.php:1308 libraries/classes/Menu.php:247
 #: libraries/classes/Menu.php:357
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:51
 #: libraries/classes/Navigation/Nodes/NodeTable.php:301
-#: libraries/classes/Util.php:1486 libraries/classes/Util.php:1946
-#: libraries/classes/Util.php:1963 libraries/config.values.php:60
+#: libraries/classes/Util.php:1488 libraries/classes/Util.php:1953
+#: libraries/classes/Util.php:1970 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4726,8 +4726,8 @@ msgstr "Tekst Open Document"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:372
 #: libraries/classes/Menu.php:277 libraries/classes/Menu.php:382
 #: libraries/classes/Menu.php:513 libraries/classes/Server/Privileges.php:1513
-#: libraries/classes/Util.php:1935 libraries/classes/Util.php:1950
-#: libraries/classes/Util.php:1967 templates/database/events/index.twig:17
+#: libraries/classes/Util.php:1942 libraries/classes/Util.php:1957
+#: libraries/classes/Util.php:1974 templates/database/events/index.twig:17
 #: templates/database/events/index.twig:18
 #: templates/database/events/index.twig:88
 #: templates/database/events/row.twig:36
@@ -4742,9 +4742,9 @@ msgstr "Tekst Open Document"
 #: templates/database/triggers/list.twig:17
 #: templates/database/triggers/list.twig:18
 #: templates/database/triggers/row.twig:41
-#: templates/display/results/table.twig:240
-#: templates/display/results/table.twig:241
-#: templates/display/results/table.twig:272 templates/export.twig:3
+#: templates/display/results/table.twig:243
+#: templates/display/results/table.twig:244
+#: templates/display/results/table.twig:275 templates/export.twig:3
 #: templates/export.twig:499 templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
@@ -4770,8 +4770,8 @@ msgstr "CSV z vykarystańniem LOAD DATA"
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:309
 #: libraries/classes/Menu.php:286 libraries/classes/Menu.php:392
-#: libraries/classes/Menu.php:518 libraries/classes/Util.php:1936
-#: libraries/classes/Util.php:1951 libraries/classes/Util.php:1968
+#: libraries/classes/Menu.php:518 libraries/classes/Util.php:1943
+#: libraries/classes/Util.php:1958 libraries/classes/Util.php:1975
 #: templates/import.twig:3 templates/import.twig:199
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
@@ -5058,7 +5058,7 @@ msgstr "SQL-zapyt"
 msgid "No databases selected."
 msgstr "Nia vybranaja baza dadzienych."
 
-#: libraries/classes/Controllers/ChangeLogController.php:38
+#: libraries/classes/Controllers/ChangeLogController.php:41
 #: libraries/classes/Controllers/LicenseController.php:36
 #, php-format
 msgid ""
@@ -5199,7 +5199,7 @@ msgid "Table %s has been emptied."
 msgstr "Tablica %s była ačyščanaja."
 
 #: libraries/classes/Controllers/Database/StructureController.php:578
-#: libraries/classes/Display/Results.php:3987
+#: libraries/classes/Display/Results.php:3984
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -5208,13 +5208,13 @@ msgstr ""
 "Hety prahlad maje tolki takuju kolkaść radkoŭ. Kali łaska, źviarniciesia da "
 "%sdakumentacyi%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:765
+#: libraries/classes/Controllers/Database/StructureController.php:766
 msgid "unknown"
 msgstr "nieviadoma"
 
 #: libraries/classes/Controllers/Database/Structure/DropTableController.php:56
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:74
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
 #: libraries/classes/Controllers/Table/DeleteRowsController.php:56
 #: libraries/classes/Controllers/Table/DropColumnController.php:57
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:58
@@ -5333,7 +5333,7 @@ msgid ""
 "you need to logout from all servers."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:196
+#: libraries/classes/Controllers/HomeController.php:200
 #, fuzzy, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
@@ -5345,12 +5345,12 @@ msgstr ""
 "Dadatkovyja mahčymaści raboty z źviazanymi tablicami byli adklučanyja. Kab "
 "vyśvietlić čamu, naciśnicie %stut%s."
 
-#: libraries/classes/Controllers/HomeController.php:202
+#: libraries/classes/Controllers/HomeController.php:206
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:266
+#: libraries/classes/Controllers/HomeController.php:270
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -5358,27 +5358,27 @@ msgid ""
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:283
+#: libraries/classes/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:302
+#: libraries/classes/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:324
+#: libraries/classes/Controllers/HomeController.php:328
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:334
+#: libraries/classes/Controllers/HomeController.php:338
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -5386,7 +5386,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:352
+#: libraries/classes/Controllers/HomeController.php:356
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5394,7 +5394,7 @@ msgid ""
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:373
+#: libraries/classes/Controllers/HomeController.php:377
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5403,14 +5403,14 @@ msgstr ""
 "Na servery zapuščany Suhosin. Kali łaska, źviarniciesia da %sdakumentacyi%s "
 "dla atrymańnia apisańnia mahčymych prablemaŭ."
 
-#: libraries/classes/Controllers/HomeController.php:387
+#: libraries/classes/Controllers/HomeController.php:391
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:444
+#: libraries/classes/Controllers/HomeController.php:448
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5420,7 +5420,7 @@ msgstr ""
 "šmatbajtavuju kadyroŭku. Biez pašyreńnia mbstring phpMyAdmin nia moža "
 "padzialać radki karektna, i heta moža pryvieści da niečakanych vynikaŭ."
 
-#: libraries/classes/Controllers/HomeController.php:462
+#: libraries/classes/Controllers/HomeController.php:466
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5439,7 +5439,7 @@ msgid "Succeeded"
 msgstr "U dostupie admoŭlena!"
 
 #: libraries/classes/Controllers/Import/ImportController.php:127
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
 msgid "Failed"
 msgstr ""
 
@@ -5511,7 +5511,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Kamandy \"DROP DATABASE\" adklučanyja."
 
-#: libraries/classes/Controllers/Import/SimulateDmlController.php:38
+#: libraries/classes/Controllers/Import/SimulateDmlController.php:90
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
@@ -5817,7 +5817,7 @@ msgid "Simulate query"
 msgstr "pa zapytu"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:121
-#: libraries/classes/Html/Generator.php:837 templates/export.twig:67
+#: libraries/classes/Html/Generator.php:840 templates/export.twig:67
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -5902,8 +5902,8 @@ msgstr "Vydalić vybranych karystalnikaŭ"
 #: templates/table/structure/display_structure.twig:355
 #: templates/table/structure/display_structure.twig:373
 #: templates/table/zoom_search/result_form.twig:27
-#: templates/table/zoom_search/result_form.twig:79
-#: templates/table/zoom_search/result_form.twig:96
+#: templates/table/zoom_search/result_form.twig:81
+#: templates/table/zoom_search/result_form.twig:98
 msgid "Close"
 msgstr ""
 
@@ -5964,13 +5964,13 @@ msgstr ""
 
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:151
-#: libraries/classes/Util.php:550 libraries/classes/Util.php:582
+#: libraries/classes/Util.php:551 libraries/classes/Util.php:583
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:153
-#: libraries/classes/Util.php:548 libraries/classes/Util.php:580
+#: libraries/classes/Util.php:549 libraries/classes/Util.php:581
 msgid "."
 msgstr "."
 
@@ -6099,45 +6099,45 @@ msgstr "Pracesy"
 
 #. l10n: shortcuts for Byte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:192
-#: libraries/classes/Util.php:458
+#: libraries/classes/Util.php:459
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:193
-#: libraries/classes/Util.php:460
+#: libraries/classes/Util.php:461
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:194
-#: libraries/classes/Util.php:462
+#: libraries/classes/Util.php:463
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:195
-#: libraries/classes/Util.php:464
+#: libraries/classes/Util.php:465
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:196
-#: libraries/classes/Util.php:466
+#: libraries/classes/Util.php:467
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:197
-#: libraries/classes/Util.php:468
+#: libraries/classes/Util.php:469
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:198
-#: libraries/classes/Util.php:470
+#: libraries/classes/Util.php:471
 msgid "EiB"
 msgstr "EiB"
 
@@ -6160,7 +6160,7 @@ msgid "Traffic"
 msgstr "Trafik"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:204
-#: libraries/classes/Menu.php:523 libraries/classes/Util.php:1937
+#: libraries/classes/Menu.php:523 libraries/classes/Util.php:1944
 #: templates/server/status/monitor/index.twig:12
 #, fuzzy
 #| msgid "General relation features"
@@ -6179,8 +6179,8 @@ msgid "Please add at least one variable to the series!"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:207
-#: libraries/classes/Display/Results.php:1266
-#: libraries/classes/Plugins/Export/ExportSql.php:2233
+#: libraries/classes/Display/Results.php:1269
+#: libraries/classes/Plugins/Export/ExportSql.php:2259
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:217
@@ -6405,7 +6405,7 @@ msgstr "Tłumačyć SQL"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:274
 #: libraries/classes/Menu.php:490
 #: libraries/classes/Server/Status/Processes.php:134
-#: libraries/classes/Util.php:1933 libraries/config.values.php:157
+#: libraries/classes/Util.php:1940 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:46
 #: templates/database/tracking/tables.twig:17
@@ -6860,7 +6860,13 @@ msgid "Show query box"
 msgstr "U vyhladzie SQL-zapytu"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#: libraries/classes/Display/Results.php:3042
+#, fuzzy
+#| msgid "Submit Query"
+msgid "Edit query"
+msgstr "Vykanać zapyt"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
+#: libraries/classes/Display/Results.php:3041
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -6868,93 +6874,93 @@ msgstr "U vyhladzie SQL-zapytu"
 #: templates/database/designer/main.twig:388
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
-#: templates/display/results/table.twig:235
-#: templates/display/results/table.twig:236 templates/export.twig:54
+#: templates/display/results/table.twig:238
+#: templates/display/results/table.twig:239 templates/export.twig:54
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
 #: templates/setup/home/index.twig:68 templates/sql/query.twig:186
 msgid "Delete"
 msgstr "Vydalić"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/insert/column_row.twig:48
 #: templates/table/search/input_box.twig:27
 msgid "Browse foreign values"
 msgstr "Prahladzieć źniešnija značeńni"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:392
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:394
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:395
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:396
 #, fuzzy, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
 msgstr "Źmiennaja"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:398
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
 #: libraries/classes/Normalization.php:1051
 msgid "Pick"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
 #, fuzzy
 #| msgid "No rows selected"
 msgid "Column selector"
 msgstr "Nivodny radok nia vybrany"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:401
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
 msgstr "Pošuk u bazie dadzienych"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:402
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:403
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:406
 msgid "See more"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:408
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:409
 msgid "Add primary key"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:409
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
 #, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
 msgstr "Pieršasny kluč byŭ dadadzieny da %s."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:411
 #: libraries/classes/Normalization.php:282
 #, fuzzy
 #| msgid "Change"
 msgid "Taking you to next step…"
 msgstr "Źmianić"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:411
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:412
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:412
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
 #: libraries/classes/Normalization.php:540
 #: libraries/classes/Normalization.php:602
 #: libraries/classes/Normalization.php:699
@@ -6964,12 +6970,12 @@ msgstr ""
 msgid "End of step"
 msgstr "U kancy tablicy"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
 msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:415
 #: libraries/classes/Normalization.php:375
 #: templates/javascript/variables.twig:15
 #, fuzzy
@@ -6977,85 +6983,85 @@ msgstr ""
 msgid "Done"
 msgstr "Nijakaja"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:415
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
 msgid "Confirm partial dependencies"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:417
 msgid "Selected partial dependencies are as follows:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:418
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:419
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:421
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
 msgstr "Nia vybranaja baza dadzienych."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
-#: libraries/classes/Export.php:589 libraries/classes/Html/Generator.php:937
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
+#: libraries/classes/Export.php:589 libraries/classes/Html/Generator.php:940
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:292
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "Nazad"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:425
 msgid "Hide partial dependencies list"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:427
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
 msgid "Step"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 msgid "The following actions will be performed:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:432
 #, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Create the following table"
 msgstr "Dadać pryvilei na nastupnuju tablicu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:434
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
 msgid "Third step of normalization (3NF)"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
 msgid "Confirm transitive dependencies"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:437
 msgid "Selected dependencies are as follows:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:437
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:438
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
 msgstr "Nia vybranaja baza dadzienych."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:441
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:22
 #: templates/database/central_columns/main.twig:119
@@ -7065,102 +7071,107 @@ msgstr "Nia vybranaja baza dadzienych."
 #: templates/table/insert/actions_panel.twig:7
 #: templates/table/relation/common_form.twig:225
 #: templates/table/structure/partition_definition_form.twig:12
-#: templates/table/zoom_search/result_form.twig:78
+#: templates/table/zoom_search/result_form.twig:80
 msgid "Save"
 msgstr "Zachavać"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:443
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
 #, fuzzy
 #| msgid "in query"
 msgid "Hide search criteria"
 msgstr "pa zapytu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
 #, fuzzy
 #| msgid "Showing SQL query"
 msgid "Show search criteria"
 msgstr "U vyhladzie SQL-zapytu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:446
 #, fuzzy
 #| msgid "Column names"
 msgid "Column maximum:"
 msgstr "Nazvy kalonak"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:446
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:447
 #, fuzzy
 #| msgid "Column names"
 msgid "Column minimum:"
 msgstr "Nazvy kalonak"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:449
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
 #, fuzzy
 #| msgid "in query"
 msgid "Hide find and replace criteria"
 msgstr "pa zapytu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:451
 #, fuzzy
 #| msgid "Showing SQL query"
 msgid "Show find and replace criteria"
 msgstr "U vyhladzie SQL-zapytu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:455
 msgid "Each point represents a data row."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:456
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:457
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:458
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:459
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:460
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:461
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:462
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:463
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:464
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:465
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:467
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:468
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Select two columns"
 msgstr "Dadać/vydalić kalonku kryteru"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:469
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:470
 msgid "Select two different columns"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:471
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "Pamier ukazalnika na dadzienyja"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:423 libraries/classes/InsertEdit.php:2013
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:475
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:633
+#: libraries/classes/ErrorHandler.php:423 libraries/classes/InsertEdit.php:2012
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignaravać"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:475
-#: libraries/classes/Display/Results.php:2978
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
+#: templates/display/results/table.twig:263
+msgid "Copy to clipboard"
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:477
+#: libraries/classes/Display/Results.php:2977
 #: libraries/classes/Html/Generator.php:75
-#: templates/display/results/table.twig:231
-#: templates/display/results/table.twig:232
+#: templates/display/results/table.twig:234
+#: templates/display/results/table.twig:235
 msgid "Copy"
 msgstr "Skapijavać"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:478
 #: templates/gis_data_editor_form.twig:84
 #: templates/gis_data_editor_form.twig:108
 #: templates/gis_data_editor_form.twig:153
@@ -7168,7 +7179,7 @@ msgstr "Skapijavać"
 msgid "X"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:477
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: templates/gis_data_editor_form.twig:88
 #: templates/gis_data_editor_form.twig:112
 #: templates/gis_data_editor_form.twig:157
@@ -7176,43 +7187,43 @@ msgstr ""
 msgid "Y"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:478
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:480
 msgid "Point"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
 #, php-format
 msgid "Point %d"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:480
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:482
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "Radki padzielenyja"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
 msgid "Polygon"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:482
-#: templates/display/results/table.twig:174
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:484
+#: templates/display/results/table.twig:177
 msgid "Geometry"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Inner ring"
 msgstr "Radki padzielenyja"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:484
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Outer ring"
 msgstr "Radki padzielenyja"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
 #: templates/gis_data_editor_form.twig:116
 #: templates/gis_data_editor_form.twig:161
 #: templates/gis_data_editor_form.twig:217
@@ -7221,59 +7232,59 @@ msgstr "Radki padzielenyja"
 msgid "Add a point"
 msgstr "Dadać novaje pole"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
 #: templates/gis_data_editor_form.twig:165
 #: templates/gis_data_editor_form.twig:220
 msgid "Add an inner ring"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:490
 msgid "Do you want to copy encryption key?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
 msgid "Encryption key"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:499
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:503
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:505
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:509
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:511
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:514
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:516
 msgid "Select referenced key"
 msgstr "Vybierycie spasyłkavy kluč"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:515
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:517
 msgid "Select Foreign Key"
 msgstr "Vybierycie źniešni kluč"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:516
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:518
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
 msgstr "Kali łaska, vybierycie pieršasny (PRIMARY) albo ŭnikalny kluč (UNIQUE)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:517
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:519
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 #, fuzzy
@@ -7281,17 +7292,17 @@ msgstr "Kali łaska, vybierycie pieršasny (PRIMARY) albo ŭnikalny kluč (UNIQU
 msgid "Choose column to display"
 msgstr "Vybierycie pole dla adlustravańnia"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:519
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:521
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:522
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:524
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:523
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:525
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 #, fuzzy
@@ -7299,13 +7310,13 @@ msgstr ""
 msgid "Add tables from other databases"
 msgstr "U bazie dadzienych tablic nia vyjaŭlena."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:524
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:526
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
 msgstr "Staronka:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:525
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 #, fuzzy
@@ -7313,7 +7324,7 @@ msgstr "Staronka:"
 msgid "Save page"
 msgstr "Vybrać usio"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:526
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:528
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 #, fuzzy
@@ -7321,7 +7332,7 @@ msgstr "Vybrać usio"
 msgid "Save page as"
 msgstr "Vybrać usio"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:529
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 #, fuzzy
@@ -7329,223 +7340,223 @@ msgstr "Vybrać usio"
 msgid "Open page"
 msgstr "Volnych staronak"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:528
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:530
 #, fuzzy
 #| msgid "Select All"
 msgid "Delete page"
 msgstr "Vybrać usio"
 
 #. l10n: When the user opens a page saved in the Designer
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:530
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Kali łaska, vybierycie staronku dla redagavańnia"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid page name"
 msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Export relational schema"
 msgstr "Relacyjnaja schiema"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
 msgid "Modifications have been saved"
 msgstr "Madyfikacyi byli zachavanyja"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 #, fuzzy, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%d object(s) created."
 msgstr "Źmieniena radkoŭ: %1$d."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "Nazvy kalonak"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:178
 msgid "Submit"
 msgstr "Adpravić"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
 msgid "Drag to reorder."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:557
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
 msgid "Click to mark/unmark."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:560
 #, fuzzy
 #| msgid "Column names"
 msgid "Double-click to copy column name."
 msgstr "Nazvy kalonak"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:561
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:564
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:565
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:569
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:569
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:571
 #, fuzzy
 #| msgid "Original position"
 msgid "Original length"
 msgstr "Pieršapačatkovaja pazycyja"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "Skasavać"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:573
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
 #: libraries/classes/Controllers/Server/Status/StatusController.php:193
 msgid "Aborted"
 msgstr "Spyniena"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 msgid "Success"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:578
 #, fuzzy
 #| msgid "Import files"
 msgid "Import status"
 msgstr "Impartavać fajły"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 #: templates/navigation/main.twig:84
 #, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
 msgstr "Paroh fajła łogu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:578
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:580
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "Vybierycie tablicu(y)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:584
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:584
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
 #, fuzzy
 #| msgid "No tables"
 msgid "Go to link:"
 msgstr "Niama tablic"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Zgieneravać parol"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:593
 #: templates/server/replication/primary_add_replica_user.twig:73
 msgid "Generate"
 msgstr "Zgieneravać"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
 #: libraries/classes/Controllers/UserPasswordController.php:84
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "Źmianić parol"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
 #: templates/table/structure/display_structure.twig:130
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Pan"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:598
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
 #, fuzzy
 #| msgid "Show all"
 msgid "Show panel"
 msgstr "Pakazać usie"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
 #, fuzzy
 #| msgid "Add new field"
 msgid "Hide panel"
 msgstr "Dadać novaje pole"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:603
 #: libraries/classes/Navigation/NavigationTree.php:1355
 #, fuzzy
 #| msgid "Use text field"
 msgid "Unlink from main panel"
 msgstr "Vykarystoŭvać tekstavaje pole"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
 #: libraries/classes/Setup/Index.php:177
 #, php-format
 msgid ""
@@ -7554,134 +7565,134 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
 msgid ", latest stable version:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:612
 #, fuzzy
 #| msgid "No databases"
 msgid "up to date"
 msgstr "Bazy dadzienych adsutničajuć"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:613
 msgid "There was an error in loading the Git information."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change report settings"
 msgstr "Mahčymaści asnoŭnych suviaziaŭ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show report details"
 msgstr "Pakazać adkrytyja tablicy"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:636
 #: libraries/classes/ErrorHandler.php:428
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "Ignaravać"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:649
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:650
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:649
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
 msgid "Successfully copied!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:650
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copying failed!"
 msgstr "Kapijavać bazu dadzienych u"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "Pakazać hety zapyt znoŭ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to delete this bookmark?"
 msgstr "Ci sapraŭdy vy žadajecie "
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
 #, fuzzy, php-format
 #| msgid "Execute bookmarked query"
 msgid "%s queries executed %s times in %s seconds."
 msgstr "Vykanać zapyt z zakładak"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "Kamentar da tablicy"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
 #, fuzzy
 #| msgid "in query"
 msgid "Hide arguments"
 msgstr "pa zapytu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 msgid "Time taken:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7690,103 +7701,103 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "Kapijavać bazu dadzienych u"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:672
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add table prefix"
 msgstr "Dadać novaje pole"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:671
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table with prefix"
 msgstr "Zamianić dadzienyja tablicy dadzienymi z fajła"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:672
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
 #: templates/database/structure/check_all_tables.twig:28
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
 msgstr "Zamianić dadzienyja tablicy dadzienymi z fajła"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
 msgid "Extremely weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Very weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
 msgid "Good"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 msgid "Strong"
 msgstr ""
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr ""
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
 #, fuzzy
 #| msgid "Export"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Ekspart"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:703
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -7794,13 +7805,13 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Tablica %s užo isnuje!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
 #: libraries/classes/InsertEdit.php:335
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Schavać"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:709
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:711
 #: libraries/classes/Controllers/Table/ChangeController.php:194
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -8693,7 +8704,7 @@ msgid "The number of threads that are not sleeping."
 msgstr "Kolkaść patokaŭ, jakija nie źjaŭlajucca śpiačymi."
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:46
-#: libraries/classes/Util.php:837
+#: libraries/classes/Util.php:838
 #, fuzzy
 #| msgid "Routines"
 msgid "Missing parameter:"
@@ -8730,7 +8741,7 @@ msgid "Insecure connection"
 msgstr ""
 
 #: libraries/classes/Controllers/Sql/SqlController.php:235
-#: libraries/classes/Sql.php:1159
+#: libraries/classes/Sql.php:1165
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -8744,7 +8755,7 @@ msgstr "Zakładka %s stvoranaja"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:151
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:275
-#: libraries/classes/Controllers/Table/Structure/SaveController.php:223
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:231
 #: libraries/classes/Table/Indexes.php:85
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -8800,8 +8811,8 @@ msgstr "Tablica %s užo isnuje!"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:56
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
-#: libraries/classes/Database/Routines.php:1224
-#: libraries/classes/Display/Results.php:3700 libraries/classes/Message.php:172
+#: libraries/classes/Database/Routines.php:1222
+#: libraries/classes/Display/Results.php:3699 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -8846,9 +8857,9 @@ msgid "There is an issue with your request."
 msgstr "Kolkaść patokaŭ, jakija nie źjaŭlajucca śpiačymi."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
-#: libraries/classes/Database/Routines.php:1243
+#: libraries/classes/Database/Routines.php:1241
 #: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:229
-#: libraries/classes/Sql.php:973
+#: libraries/classes/Sql.php:978
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL viarnuła pusty vynik (to bok nul radkoŭ)."
 
@@ -8874,7 +8885,7 @@ msgstr "Vyhlad"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:62
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:62
 #: libraries/classes/Controllers/View/OperationsController.php:90
-#: libraries/classes/Html/Generator.php:813 libraries/classes/Import.php:133
+#: libraries/classes/Html/Generator.php:816 libraries/classes/Import.php:133
 #: libraries/classes/InsertEdit.php:724 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
@@ -8903,7 +8914,7 @@ msgstr ""
 msgid "Failed to get description of column %s!"
 msgstr "Pamyłka zapisu na dysk."
 
-#: libraries/classes/Controllers/Table/StructureController.php:226
+#: libraries/classes/Controllers/Table/StructureController.php:220
 #: templates/columns_definitions/column_attributes.twig:112
 #: templates/database/data_dictionary/index.twig:41
 #: templates/table/structure/display_structure.twig:137
@@ -8913,7 +8924,7 @@ msgstr "Pamyłka zapisu na dysk."
 msgid "Primary"
 msgstr "Pieršasny"
 
-#: libraries/classes/Controllers/Table/StructureController.php:230
+#: libraries/classes/Controllers/Table/StructureController.php:224
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_attributes.twig:120
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8925,14 +8936,14 @@ msgstr "Pieršasny"
 msgid "Index"
 msgstr "Indeks"
 
-#: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:178
+#: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:82
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
 msgstr "Vybranyja karystalniki byli paśpiachova vydalenyja."
 
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:267
-#: libraries/classes/Controllers/Table/Structure/SaveController.php:273
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:281
 #: libraries/classes/Tracking.php:776
 #, fuzzy
 #| msgid "Query type"
@@ -8947,7 +8958,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: libraries/classes/Controllers/Table/Structure/SaveController.php:218
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:226
 #, fuzzy, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
@@ -9113,7 +9124,7 @@ msgstr ""
 #: libraries/classes/Database/Routines.php:225
 #: libraries/classes/Database/Routines.php:246
 #: libraries/classes/Database/Routines.php:348
-#: libraries/classes/Database/Routines.php:1250
+#: libraries/classes/Database/Routines.php:1248
 #: libraries/classes/Database/Triggers.php:117
 #: libraries/classes/Database/Triggers.php:126
 #: libraries/classes/Database/Triggers.php:153
@@ -9128,13 +9139,13 @@ msgstr ""
 #: libraries/classes/Database/Routines.php:229
 #: libraries/classes/Database/Routines.php:250
 #: libraries/classes/Database/Routines.php:352
-#: libraries/classes/Database/Routines.php:1254
-#: libraries/classes/Database/Routines.php:1540
+#: libraries/classes/Database/Routines.php:1252
+#: libraries/classes/Database/Routines.php:1538
 #: libraries/classes/Database/Triggers.php:121
 #: libraries/classes/Database/Triggers.php:130
 #: libraries/classes/Database/Triggers.php:157
 #: libraries/classes/Database/Triggers.php:437
-#: libraries/classes/Html/Generator.php:881
+#: libraries/classes/Html/Generator.php:884
 msgid "MySQL said: "
 msgstr "Adkaz MySQL: "
 
@@ -9169,7 +9180,7 @@ msgid "Edit event"
 msgstr "Padzieja"
 
 #: libraries/classes/Database/Events.php:404
-#: libraries/classes/Database/Routines.php:984
+#: libraries/classes/Database/Routines.php:982
 #: libraries/classes/Database/Triggers.php:381
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
@@ -9201,15 +9212,15 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
 #: libraries/classes/Database/Events.php:503
-#: libraries/classes/Database/Routines.php:1538
+#: libraries/classes/Database/Routines.php:1536
 #: libraries/classes/Database/Triggers.php:435
 msgid "The backed up query was:"
 msgstr ""
 
 #: libraries/classes/Database/Events.php:534
 #: libraries/classes/Database/Routines.php:151
-#: libraries/classes/Database/Routines.php:1143
-#: libraries/classes/Database/Routines.php:1312
+#: libraries/classes/Database/Routines.php:1141
+#: libraries/classes/Database/Routines.php:1310
 #: libraries/classes/Database/Triggers.php:466
 #, fuzzy
 #| msgid "Processes"
@@ -9235,7 +9246,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "U bazie dadzienych tablic nia vyjaŭlena."
 
-#: libraries/classes/DatabaseInterface.php:1132
+#: libraries/classes/DatabaseInterface.php:1141
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9243,25 +9254,25 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1177
+#: libraries/classes/DatabaseInterface.php:1186
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to set configured collation connection!"
 msgstr "Niemahčyma zahruzić kanfihuracyju pa zmoŭčańni z: \"%1$s\""
 
-#: libraries/classes/DatabaseInterface.php:1870
+#: libraries/classes/DatabaseInterface.php:1959
 #, fuzzy
 #| msgid "Routines"
 msgid "Missing connection parameters!"
 msgstr "Pracedury"
 
-#: libraries/classes/DatabaseInterface.php:1895
+#: libraries/classes/DatabaseInterface.php:1984
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Nie atrymałasia ŭstalavać złučeńnie dla controluser, vyznačanaje ŭ vašym "
 "kanfihuracyjnym fajle."
 
-#: libraries/classes/DatabaseInterface.php:2316
+#: libraries/classes/DatabaseInterface.php:2399
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -9336,7 +9347,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Database/Routines.php:206
-#: libraries/classes/Database/Routines.php:992
+#: libraries/classes/Database/Routines.php:990
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid routine type: \"%s\""
@@ -9348,62 +9359,62 @@ msgstr "Niekarektny indeks servera: \"%s\""
 msgid "Routine %1$s has been created."
 msgstr "Tablica %1$s stvoranaja."
 
-#: libraries/classes/Database/Routines.php:413
+#: libraries/classes/Database/Routines.php:412
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Tablica %s była vydalenaja"
 
-#: libraries/classes/Database/Routines.php:418
+#: libraries/classes/Database/Routines.php:417
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified."
 msgstr "Tablica %s była vydalenaja"
 
-#: libraries/classes/Database/Routines.php:825
+#: libraries/classes/Database/Routines.php:823
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:843
+#: libraries/classes/Database/Routines.php:841
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:863
-#: libraries/classes/Database/Routines.php:930
+#: libraries/classes/Database/Routines.php:861
+#: libraries/classes/Database/Routines.php:928
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:912
+#: libraries/classes/Database/Routines.php:910
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1000
+#: libraries/classes/Database/Routines.php:998
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a routine name!"
 msgstr "Niekarektnaje imia tablicy"
 
-#: libraries/classes/Database/Routines.php:1065
+#: libraries/classes/Database/Routines.php:1063
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1145
-#: libraries/classes/Database/Routines.php:1314
+#: libraries/classes/Database/Routines.php:1143
+#: libraries/classes/Database/Routines.php:1312
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "U bazie dadzienych tablic nia vyjaŭlena."
 
-#: libraries/classes/Database/Routines.php:1184
+#: libraries/classes/Database/Routines.php:1182
 #, fuzzy, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
 msgstr "Dazvalaje vykanańnie pragramaŭ, jakija zachoŭvajucca."
 
-#: libraries/classes/Database/Routines.php:1232
+#: libraries/classes/Database/Routines.php:1230
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -9411,21 +9422,21 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: libraries/classes/Database/Routines.php:1297
-#: libraries/classes/Database/Routines.php:1304
+#: libraries/classes/Database/Routines.php:1295
+#: libraries/classes/Database/Routines.php:1302
 msgid "Execute routine"
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1537
+#: libraries/classes/Database/Routines.php:1535
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1567
+#: libraries/classes/Database/Routines.php:1565
 #, php-format
 msgid "Export of routine %s"
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1589
+#: libraries/classes/Database/Routines.php:1587
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -9551,7 +9562,7 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:897 templates/list_navigator.twig:8
+#: libraries/classes/Display/Results.php:905 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
 #, fuzzy
 #| msgid "Begin"
@@ -9559,7 +9570,7 @@ msgctxt "First page"
 msgid "Begin"
 msgstr "Pieršaja staronka"
 
-#: libraries/classes/Display/Results.php:904 templates/list_navigator.twig:16
+#: libraries/classes/Display/Results.php:912 templates/list_navigator.twig:16
 #: templates/list_navigator.twig:21 templates/server/binlog/index.twig:47
 #: templates/server/binlog/index.twig:52
 #, fuzzy
@@ -9568,7 +9579,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Papiaredniaja staronka"
 
-#: libraries/classes/Display/Results.php:930 templates/list_navigator.twig:33
+#: libraries/classes/Display/Results.php:938 templates/list_navigator.twig:33
 #: templates/list_navigator.twig:35 templates/server/binlog/index.twig:72
 #: templates/server/binlog/index.twig:77
 #, fuzzy
@@ -9577,7 +9588,7 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Nastupnaja staronka"
 
-#: libraries/classes/Display/Results.php:960 templates/list_navigator.twig:42
+#: libraries/classes/Display/Results.php:968 templates/list_navigator.twig:42
 #: templates/list_navigator.twig:44
 #, fuzzy
 #| msgid "End"
@@ -9585,23 +9596,23 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Apošniaja staronka"
 
-#: libraries/classes/Display/Results.php:1473
-#: templates/display/results/table.twig:129
+#: libraries/classes/Display/Results.php:1476
+#: templates/display/results/table.twig:132
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Častkovyja teksty"
 
-#: libraries/classes/Display/Results.php:1477
-#: templates/display/results/table.twig:133
+#: libraries/classes/Display/Results.php:1480
+#: templates/display/results/table.twig:136
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Poŭnyja teksty"
 
 #: libraries/classes/Display/Results.php:1823
-#: libraries/classes/Display/Results.php:1849 libraries/classes/Util.php:2560
-#: libraries/classes/Util.php:2583 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1849 libraries/classes/Util.php:2567
+#: libraries/classes/Util.php:2590 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -9614,8 +9625,8 @@ msgid "Descending"
 msgstr "advarotny"
 
 #: libraries/classes/Display/Results.php:1831
-#: libraries/classes/Display/Results.php:1841 libraries/classes/Util.php:2552
-#: libraries/classes/Util.php:2575 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1841 libraries/classes/Util.php:2559
+#: libraries/classes/Util.php:2582 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -9627,48 +9638,48 @@ msgstr "advarotny"
 msgid "Ascending"
 msgstr "pramy"
 
-#: libraries/classes/Display/Results.php:3018
-#: libraries/classes/Display/Results.php:3033
+#: libraries/classes/Display/Results.php:3017
+#: libraries/classes/Display/Results.php:3032
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Radok byŭ vydaleny"
 
-#: libraries/classes/Display/Results.php:3065
+#: libraries/classes/Display/Results.php:3064
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Spynić"
 
-#: libraries/classes/Display/Results.php:3633
+#: libraries/classes/Display/Results.php:3632
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Značeńnie moža być prybliznym. Hł. [doc@faq3-11]FAQ 3.11[/doc]"
 
-#: libraries/classes/Display/Results.php:3996
+#: libraries/classes/Display/Results.php:3993
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Pakazanyja zapisy"
 
-#: libraries/classes/Display/Results.php:4010
+#: libraries/classes/Display/Results.php:4007
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4015
+#: libraries/classes/Display/Results.php:4012
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "usiaho"
 
-#: libraries/classes/Display/Results.php:4028 libraries/classes/Sql.php:979
+#: libraries/classes/Display/Results.php:4025 libraries/classes/Sql.php:984
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Zapyt vykonvaŭsia %01.4f sek"
 
-#: libraries/classes/Display/Results.php:4359
+#: libraries/classes/Display/Results.php:4356
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -10016,7 +10027,7 @@ msgstr ""
 "pierajmienavanyja i im budzie dadzieny čarhovy najvyšejšy numar."
 
 #: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Html/Generator.php:742
+#: libraries/classes/Html/Generator.php:745
 #: libraries/classes/Html/MySQLDocumentation.php:50
 #: libraries/classes/Sanitize.php:203
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:246
@@ -10205,57 +10216,57 @@ msgid "Without PHP code"
 msgstr "Biez PHP-kodu"
 
 #: libraries/classes/Html/Generator.php:636
-#: templates/database/multi_table_query/form.twig:175
+#: templates/database/multi_table_query/form.twig:184
 #: templates/database/qbe/selection_form.twig:115
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
 msgstr "Vykanać zapyt"
 
-#: libraries/classes/Html/Generator.php:683 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:686 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "Prafilavańnie"
 
-#: libraries/classes/Html/Generator.php:696
+#: libraries/classes/Html/Generator.php:699
 #, fuzzy
 #| msgid "Add new field"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Dadać novaje pole"
 
-#: libraries/classes/Html/Generator.php:820
+#: libraries/classes/Html/Generator.php:823
 msgid "Static analysis:"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:823
+#: libraries/classes/Html/Generator.php:826
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
 
-#: libraries/classes/Import.php:287 libraries/classes/Sql.php:987
+#: libraries/classes/Import.php:292 libraries/classes/Sql.php:992
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: libraries/classes/Import.php:1258
+#: libraries/classes/Import.php:1267
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/classes/Import.php:1260
+#: libraries/classes/Import.php:1269
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: libraries/classes/Import.php:1261
+#: libraries/classes/Import.php:1270
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1262
+#: libraries/classes/Import.php:1271
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1266 libraries/classes/Import.php:1300
+#: libraries/classes/Import.php:1275 libraries/classes/Import.php:1309
 #: libraries/classes/Plugins/Export/ExportCodegen.php:66
 #: libraries/classes/Plugins/Export/ExportCsv.php:46
 #: libraries/classes/Plugins/Export/ExportExcel.php:39
@@ -10267,7 +10278,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportOdt.php:59
 #: libraries/classes/Plugins/Export/ExportPdf.php:65
 #: libraries/classes/Plugins/Export/ExportPhparray.php:45
-#: libraries/classes/Plugins/Export/ExportSql.php:115
+#: libraries/classes/Plugins/Export/ExportSql.php:118
 #: libraries/classes/Plugins/Export/ExportTexytext.php:45
 #: libraries/classes/Plugins/Export/ExportXml.php:76
 #: libraries/classes/Plugins/Export/ExportYaml.php:44
@@ -10285,35 +10296,35 @@ msgstr ""
 msgid "Options"
 msgstr "Nałady"
 
-#: libraries/classes/Import.php:1269
+#: libraries/classes/Import.php:1278
 #, fuzzy, php-format
 #| msgid "No databases"
 msgid "Go to database: %s"
 msgstr "Bazy dadzienych adsutničajuć"
 
-#: libraries/classes/Import.php:1275 libraries/classes/Import.php:1318
+#: libraries/classes/Import.php:1284 libraries/classes/Import.php:1327
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1303
+#: libraries/classes/Import.php:1312
 #, fuzzy, php-format
 #| msgid "No tables"
 msgid "Go to table: %s"
 msgstr "Niama tablic"
 
-#: libraries/classes/Import.php:1311
+#: libraries/classes/Import.php:1320
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Tolki strukturu"
 
-#: libraries/classes/Import.php:1329
+#: libraries/classes/Import.php:1338
 #, php-format
 msgid "Go to view: %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1357
+#: libraries/classes/Import.php:1366
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10391,11 +10402,11 @@ msgstr "Abo"
 msgid "web server upload directory:"
 msgstr "tečka web-servera dla zahruzki fajłaŭ"
 
-#: libraries/classes/InsertEdit.php:1344 libraries/classes/Sql.php:970
+#: libraries/classes/InsertEdit.php:1344 libraries/classes/Sql.php:975
 msgid "Showing SQL query"
 msgstr "U vyhladzie SQL-zapytu"
 
-#: libraries/classes/InsertEdit.php:1368 libraries/classes/Sql.php:950
+#: libraries/classes/InsertEdit.php:1368 libraries/classes/Sql.php:955
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID ustaŭlenaha radku: %1$d"
@@ -10404,19 +10415,19 @@ msgstr "ID ustaŭlenaha radku: %1$d"
 msgid "Ignoring unsupported language code."
 msgstr ""
 
-#: libraries/classes/Linter.php:108
+#: libraries/classes/Linter.php:119
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
 
-#: libraries/classes/Linter.php:162
+#: libraries/classes/Linter.php:171
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
 #: libraries/classes/Menu.php:240
 #: libraries/classes/Navigation/Nodes/NodeTable.php:313
-#: libraries/classes/Util.php:1490 libraries/classes/Util.php:1962
+#: libraries/classes/Util.php:1492 libraries/classes/Util.php:1969
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -10426,8 +10437,8 @@ msgstr "Prahlad"
 
 #: libraries/classes/Menu.php:259 libraries/classes/Menu.php:366
 #: libraries/classes/Navigation/Nodes/NodeTable.php:304
-#: libraries/classes/Util.php:1488 libraries/classes/Util.php:1948
-#: libraries/classes/Util.php:1965 libraries/config.values.php:64
+#: libraries/classes/Util.php:1490 libraries/classes/Util.php:1955
+#: libraries/classes/Util.php:1972 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:28
 #: templates/database/routines/index.twig:29
@@ -10439,7 +10450,7 @@ msgstr "Pošuk"
 
 #: libraries/classes/Menu.php:270
 #: libraries/classes/Navigation/Nodes/NodeTable.php:307
-#: libraries/classes/Util.php:1489 libraries/classes/Util.php:1966
+#: libraries/classes/Util.php:1491 libraries/classes/Util.php:1973
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -10449,8 +10460,8 @@ msgid "Insert"
 msgstr "Ustavić"
 
 #: libraries/classes/Menu.php:296 libraries/classes/Menu.php:406
-#: libraries/classes/Server/Privileges.php:2845 libraries/classes/Util.php:1953
-#: libraries/classes/Util.php:1969 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2844 libraries/classes/Util.php:1960
+#: libraries/classes/Util.php:1976 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -10459,14 +10470,14 @@ msgid "Privileges"
 msgstr "Pryvilei"
 
 #: libraries/classes/Menu.php:307 libraries/classes/Menu.php:317
-#: libraries/classes/Menu.php:397 libraries/classes/Util.php:1491
-#: libraries/classes/Util.php:1952 libraries/classes/Util.php:1970
+#: libraries/classes/Menu.php:397 libraries/classes/Util.php:1493
+#: libraries/classes/Util.php:1959 libraries/classes/Util.php:1977
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Aperacyi"
 
 #: libraries/classes/Menu.php:323 libraries/classes/Menu.php:432
-#: libraries/classes/Util.php:1957 libraries/classes/Util.php:1971
+#: libraries/classes/Util.php:1964 libraries/classes/Util.php:1978
 msgid "Tracking"
 msgstr ""
 
@@ -10476,10 +10487,10 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:558
 #: libraries/classes/Plugins/Export/ExportOdt.php:708
 #: libraries/classes/Plugins/Export/ExportPdf.php:270
-#: libraries/classes/Plugins/Export/ExportSql.php:2104
+#: libraries/classes/Plugins/Export/ExportSql.php:2116
 #: libraries/classes/Plugins/Export/ExportTexytext.php:548
 #: libraries/classes/Plugins/Export/ExportXml.php:120
-#: libraries/classes/Util.php:1956 libraries/classes/Util.php:1972
+#: libraries/classes/Util.php:1963 libraries/classes/Util.php:1979
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "Tryhiery"
@@ -10489,11 +10500,11 @@ msgstr "Tryhiery"
 msgid "Database seems to be empty!"
 msgstr "Baza dadzienych — pustaja!"
 
-#: libraries/classes/Menu.php:374 libraries/classes/Util.php:1949
+#: libraries/classes/Menu.php:374 libraries/classes/Util.php:1956
 msgid "Query"
 msgstr "Zapyt zhodna prykładu"
 
-#: libraries/classes/Menu.php:412 libraries/classes/Util.php:1954
+#: libraries/classes/Menu.php:412 libraries/classes/Util.php:1961
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "Pracedury"
@@ -10501,17 +10512,17 @@ msgstr "Pracedury"
 #: libraries/classes/Menu.php:418
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:1014
+#: libraries/classes/Plugins/Export/ExportSql.php:1026
 #: libraries/classes/Plugins/Export/ExportXml.php:100
-#: libraries/classes/Util.php:1955 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:1962 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "Padziei"
 
-#: libraries/classes/Menu.php:439 libraries/classes/Util.php:1958
+#: libraries/classes/Menu.php:439 libraries/classes/Util.php:1965
 msgid "Designer"
 msgstr "Dyzajner"
 
-#: libraries/classes/Menu.php:446 libraries/classes/Util.php:1959
+#: libraries/classes/Menu.php:446 libraries/classes/Util.php:1966
 #: templates/database/structure/check_all_tables.twig:32
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
@@ -10525,12 +10536,12 @@ msgid "User accounts"
 msgstr "Karystalnik"
 
 #: libraries/classes/Menu.php:538 libraries/classes/Server/Status/Data.php:152
-#: libraries/classes/Util.php:1938 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:1945 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Dvajkovy łog"
 
 #: libraries/classes/Menu.php:545 libraries/classes/Server/Status/Data.php:157
-#: libraries/classes/Util.php:1939
+#: libraries/classes/Util.php:1946
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -10538,21 +10549,21 @@ msgid "Replication"
 msgstr "Replikacyja"
 
 #: libraries/classes/Menu.php:551 libraries/classes/Server/Status/Data.php:229
-#: libraries/classes/Util.php:1940 libraries/config.values.php:159
+#: libraries/classes/Util.php:1947 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "Źmiennyja"
 
-#: libraries/classes/Menu.php:556 libraries/classes/Util.php:1941
+#: libraries/classes/Menu.php:556 libraries/classes/Util.php:1948
 msgid "Charsets"
 msgstr "Kadyroŭki"
 
-#: libraries/classes/Menu.php:561 libraries/classes/Util.php:1943
+#: libraries/classes/Menu.php:561 libraries/classes/Util.php:1950
 msgid "Engines"
 msgstr "Mašyny"
 
-#: libraries/classes/Menu.php:566 libraries/classes/Util.php:1942
+#: libraries/classes/Menu.php:566 libraries/classes/Util.php:1949
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr ""
@@ -10707,13 +10718,13 @@ msgctxt "Create new database"
 msgid "New"
 msgstr ""
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:42
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:43
 #, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
 msgstr "Nałady ekspartu bazy dadzienych"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:664
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:648
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show hidden items"
@@ -10736,7 +10747,7 @@ msgstr "Padzieja"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:634
+#: libraries/classes/Plugins/Export/ExportSql.php:638
 #: libraries/classes/Plugins/Export/ExportXml.php:105
 msgid "Functions"
 msgstr "Funkcyi"
@@ -10757,7 +10768,7 @@ msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:623
+#: libraries/classes/Plugins/Export/ExportSql.php:627
 #: libraries/classes/Plugins/Export/ExportXml.php:110
 msgid "Procedures"
 msgstr "Pracedury"
@@ -11080,37 +11091,37 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr ""
 
-#: libraries/classes/Operations.php:554
+#: libraries/classes/Operations.php:552
 #: templates/table/structure/display_partitions.twig:84
 msgid "Analyze"
 msgstr "Praanalizavać"
 
-#: libraries/classes/Operations.php:555
+#: libraries/classes/Operations.php:553
 #: templates/table/structure/display_partitions.twig:94
 msgid "Check"
 msgstr "Pravieryć"
 
-#: libraries/classes/Operations.php:556
+#: libraries/classes/Operations.php:554
 #: templates/table/structure/display_partitions.twig:104
 msgid "Optimize"
 msgstr "Aptymizavać"
 
-#: libraries/classes/Operations.php:557
+#: libraries/classes/Operations.php:555
 #: templates/table/structure/display_partitions.twig:114
 msgid "Rebuild"
 msgstr "Pierabudavać"
 
-#: libraries/classes/Operations.php:558
+#: libraries/classes/Operations.php:556
 #: templates/table/structure/display_partitions.twig:124
 msgid "Repair"
 msgstr "Adramantavać"
 
-#: libraries/classes/Operations.php:559
+#: libraries/classes/Operations.php:557
 #: templates/table/structure/display_partitions.twig:134
 msgid "Truncate"
 msgstr ""
 
-#: libraries/classes/Operations.php:571 templates/database/events/index.twig:20
+#: libraries/classes/Operations.php:569 templates/database/events/index.twig:20
 #: templates/database/events/index.twig:21
 #: templates/database/events/index.twig:98
 #: templates/database/events/index.twig:104
@@ -11136,41 +11147,41 @@ msgstr ""
 msgid "Drop"
 msgstr "Vydalić"
 
-#: libraries/classes/Operations.php:573
+#: libraries/classes/Operations.php:571
 msgid "Coalesce"
 msgstr ""
 
-#: libraries/classes/Operations.php:929
+#: libraries/classes/Operations.php:925
 msgid "Can't move table to same one!"
 msgstr "Niemahčyma pieranieści tablicu ŭ samu siabie!"
 
-#: libraries/classes/Operations.php:931
+#: libraries/classes/Operations.php:927
 msgid "Can't copy table to same one!"
 msgstr "Niemahčyma skapijavać tablicu ŭ samu siabie!"
 
-#: libraries/classes/Operations.php:955
+#: libraries/classes/Operations.php:951
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tablica %s była pieraniesienaja ŭ %s."
 
-#: libraries/classes/Operations.php:961
+#: libraries/classes/Operations.php:957
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tablica %s była skapijavanaja ŭ %s."
 
-#: libraries/classes/Operations.php:968
+#: libraries/classes/Operations.php:964
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tablica %s była pieraniesienaja ŭ %s."
 
-#: libraries/classes/Operations.php:972
+#: libraries/classes/Operations.php:968
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tablica %s była skapijavanaja ŭ %s."
 
-#: libraries/classes/Operations.php:996
+#: libraries/classes/Operations.php:992
 msgid "The table name is empty!"
 msgstr "Pustaja nazva tablicy!"
 
@@ -11224,25 +11235,25 @@ msgstr ""
 msgid "Your session has expired. Please log in again."
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:252
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:248
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:287
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:283
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:289
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:285
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:301
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:297
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:316
 #, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
@@ -11342,7 +11353,7 @@ msgstr "Versija Excel"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:66
 #: libraries/classes/Plugins/Export/ExportOdt.php:75
 #: libraries/classes/Plugins/Export/ExportPdf.php:91
-#: libraries/classes/Plugins/Export/ExportSql.php:242
+#: libraries/classes/Plugins/Export/ExportSql.php:245
 #: libraries/classes/Plugins/Export/ExportTexytext.php:61
 #: libraries/config.values.php:254 libraries/config.values.php:318
 #: libraries/config.values.php:334 libraries/config.values.php:342
@@ -11355,7 +11366,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:67
 #: libraries/classes/Plugins/Export/ExportOdt.php:76
 #: libraries/classes/Plugins/Export/ExportPdf.php:92
-#: libraries/classes/Plugins/Export/ExportSql.php:243
+#: libraries/classes/Plugins/Export/ExportSql.php:246
 #: libraries/classes/Plugins/Export/ExportTexytext.php:62
 #: libraries/config.values.php:255 libraries/config.values.php:319
 #: libraries/config.values.php:335 libraries/config.values.php:343
@@ -11368,7 +11379,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:68
 #: libraries/classes/Plugins/Export/ExportOdt.php:77
 #: libraries/classes/Plugins/Export/ExportPdf.php:93
-#: libraries/classes/Plugins/Export/ExportSql.php:244
+#: libraries/classes/Plugins/Export/ExportSql.php:247
 #: libraries/classes/Plugins/Export/ExportTexytext.php:63
 #: libraries/config.values.php:256 libraries/config.values.php:320
 #: libraries/config.values.php:336 libraries/config.values.php:344
@@ -11390,7 +11401,7 @@ msgstr "Nałady ekspartu bazy dadzienych"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:194
 #: libraries/classes/Plugins/Export/ExportOdt.php:245
-#: libraries/classes/Plugins/Export/ExportSql.php:2354
+#: libraries/classes/Plugins/Export/ExportSql.php:2380
 #: libraries/classes/Plugins/Export/ExportTexytext.php:178
 msgid "Dumping data for table"
 msgstr "Damp dadzienych tablicy"
@@ -11484,21 +11495,21 @@ msgstr "Apisańnie"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:548
 #: libraries/classes/Plugins/Export/ExportOdt.php:686
-#: libraries/classes/Plugins/Export/ExportSql.php:2090
+#: libraries/classes/Plugins/Export/ExportSql.php:2102
 #: libraries/classes/Plugins/Export/ExportTexytext.php:528
 msgid "Table structure for table"
 msgstr "Struktura tablicy"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:566
 #: libraries/classes/Plugins/Export/ExportOdt.php:718
-#: libraries/classes/Plugins/Export/ExportSql.php:2141
+#: libraries/classes/Plugins/Export/ExportSql.php:2160
 #: libraries/classes/Plugins/Export/ExportTexytext.php:554
 msgid "Structure for view"
 msgstr "Struktura dla prahladu"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:572
 #: libraries/classes/Plugins/Export/ExportOdt.php:738
-#: libraries/classes/Plugins/Export/ExportSql.php:2173
+#: libraries/classes/Plugins/Export/ExportSql.php:2199
 #: libraries/classes/Plugins/Export/ExportTexytext.php:570
 msgid "Stand-in structure for view"
 msgstr "Zamianialnaja struktura dla prahladu"
@@ -11529,7 +11540,7 @@ msgstr "Struktura tablicy __TABLE__"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:107
 #: libraries/classes/Plugins/Export/ExportOdt.php:88
-#: libraries/classes/Plugins/Export/ExportSql.php:257
+#: libraries/classes/Plugins/Export/ExportSql.php:260
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
@@ -11558,7 +11569,7 @@ msgstr "Kluč mietki"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:133
 #: libraries/classes/Plugins/Export/ExportOdt.php:96
-#: libraries/classes/Plugins/Export/ExportSql.php:151
+#: libraries/classes/Plugins/Export/ExportSql.php:154
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
@@ -11573,7 +11584,7 @@ msgstr "Pakazvać kamentary kalonak"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:146
 #: libraries/classes/Plugins/Export/ExportOdt.php:109
-#: libraries/classes/Plugins/Export/ExportSql.php:159
+#: libraries/classes/Plugins/Export/ExportSql.php:162
 #, fuzzy
 #| msgid "Available MIME types"
 msgid "Display media types"
@@ -11586,7 +11597,7 @@ msgid "Put columns names in the first row:"
 msgstr "Paznačyć nazvy paloŭ u pieršym radku"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:210
-#: libraries/classes/Plugins/Export/ExportSql.php:754
+#: libraries/classes/Plugins/Export/ExportSql.php:758
 #: libraries/classes/Plugins/Export/ExportXml.php:232
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
@@ -11596,7 +11607,7 @@ msgid "Host:"
 msgstr "Chost"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
-#: libraries/classes/Plugins/Export/ExportSql.php:761
+#: libraries/classes/Plugins/Export/ExportSql.php:765
 #: libraries/classes/Plugins/Export/ExportXml.php:238
 #, fuzzy
 #| msgid "Generation Time"
@@ -11604,7 +11615,7 @@ msgid "Generation Time:"
 msgstr "Čas stvareńnia"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:218
-#: libraries/classes/Plugins/Export/ExportSql.php:765
+#: libraries/classes/Plugins/Export/ExportSql.php:769
 #: libraries/classes/Plugins/Export/ExportXml.php:240
 #: templates/home/index.twig:175
 #, fuzzy
@@ -11613,7 +11624,7 @@ msgid "Server version:"
 msgstr "Versija servera"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:219
-#: libraries/classes/Plugins/Export/ExportSql.php:767
+#: libraries/classes/Plugins/Export/ExportSql.php:771
 #: libraries/classes/Plugins/Export/ExportXml.php:241
 #, fuzzy
 #| msgid "PHP Version"
@@ -11621,7 +11632,7 @@ msgid "PHP Version:"
 msgstr "Versija PHP"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:246
-#: libraries/classes/Plugins/Export/ExportSql.php:947
+#: libraries/classes/Plugins/Export/ExportSql.php:953
 #: libraries/classes/Plugins/Export/ExportXml.php:395
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
 #: templates/database/structure/copy_form.twig:5
@@ -11632,7 +11643,7 @@ msgid "Database:"
 msgstr "Baza dadzienych"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:312
-#: libraries/classes/Plugins/Export/ExportSql.php:2233
+#: libraries/classes/Plugins/Export/ExportSql.php:2259
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
@@ -11693,262 +11704,262 @@ msgstr "Baza dadzienych dla karystalnika"
 msgid "Stand in"
 msgstr "i paśla"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:130
+#: libraries/classes/Plugins/Export/ExportSql.php:133
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:137
+#: libraries/classes/Plugins/Export/ExportSql.php:140
 #, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Dadać pryvatny kamentar u zahałovak (\\n padzialaje radki)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:143
+#: libraries/classes/Plugins/Export/ExportSql.php:146
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:204
+#: libraries/classes/Plugins/Export/ExportSql.php:207
 #, fuzzy
 #| msgid "Export type"
 msgid "Export metadata"
 msgstr "Typ ekspartu"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:219
+#: libraries/classes/Plugins/Export/ExportSql.php:222
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:265
+#: libraries/classes/Plugins/Export/ExportSql.php:268
 #, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
 msgstr "Vyrazy"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:273
-#: libraries/classes/Plugins/Export/ExportSql.php:282
-#: libraries/classes/Plugins/Export/ExportSql.php:299
-#: libraries/classes/Plugins/Export/ExportSql.php:308
-#: libraries/classes/Plugins/Export/ExportSql.php:332
-#: libraries/classes/Plugins/Export/ExportSql.php:360
-#: libraries/classes/Plugins/Export/ExportSql.php:369
+#: libraries/classes/Plugins/Export/ExportSql.php:276
+#: libraries/classes/Plugins/Export/ExportSql.php:285
+#: libraries/classes/Plugins/Export/ExportSql.php:302
+#: libraries/classes/Plugins/Export/ExportSql.php:311
+#: libraries/classes/Plugins/Export/ExportSql.php:335
+#: libraries/classes/Plugins/Export/ExportSql.php:363
+#: libraries/classes/Plugins/Export/ExportSql.php:372
 #, fuzzy, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
 msgstr "Vyrazy"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:315
+#: libraries/classes/Plugins/Export/ExportSql.php:318
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:322
+#: libraries/classes/Plugins/Export/ExportSql.php:325
 #, fuzzy, php-format
 #| msgid "Session value"
 msgid "%s value"
 msgstr "Značeńnie sesii"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: libraries/classes/Plugins/Export/ExportSql.php:339
+#: libraries/classes/Plugins/Export/ExportSql.php:342
 msgid "Use simple view export"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:378
+#: libraries/classes/Plugins/Export/ExportSql.php:381
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:393
+#: libraries/classes/Plugins/Export/ExportSql.php:396
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Data creation options"
 msgstr "Opcyi pieraŭtvareńnia"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:398
-#: libraries/classes/Plugins/Export/ExportSql.php:2311
+#: libraries/classes/Plugins/Export/ExportSql.php:401
+#: libraries/classes/Plugins/Export/ExportSql.php:2337
 msgid "Truncate table before insert"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:405
+#: libraries/classes/Plugins/Export/ExportSql.php:408
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:411
+#: libraries/classes/Plugins/Export/ExportSql.php:414
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:423
-#: libraries/classes/Plugins/Export/ExportSql.php:457
+#: libraries/classes/Plugins/Export/ExportSql.php:426
+#: libraries/classes/Plugins/Export/ExportSql.php:460
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:437
+#: libraries/classes/Plugins/Export/ExportSql.php:440
 msgid "Function to use when dumping data:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:452
+#: libraries/classes/Plugins/Export/ExportSql.php:455
 msgid "Syntax to use when inserting data:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:462
+#: libraries/classes/Plugins/Export/ExportSql.php:465
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:467
+#: libraries/classes/Plugins/Export/ExportSql.php:470
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:472
+#: libraries/classes/Plugins/Export/ExportSql.php:475
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:477
+#: libraries/classes/Plugins/Export/ExportSql.php:480
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:496
+#: libraries/classes/Plugins/Export/ExportSql.php:499
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:505
+#: libraries/classes/Plugins/Export/ExportSql.php:508
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:582
+#: libraries/classes/Plugins/Export/ExportSql.php:586
 msgid "It appears your database uses routines;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:585
-#: libraries/classes/Plugins/Export/ExportSql.php:1614
-#: libraries/classes/Plugins/Export/ExportSql.php:2129
+#: libraries/classes/Plugins/Export/ExportSql.php:589
+#: libraries/classes/Plugins/Export/ExportSql.php:1626
+#: libraries/classes/Plugins/Export/ExportSql.php:2148
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1066
+#: libraries/classes/Plugins/Export/ExportSql.php:1078
 #, fuzzy
 #| msgid "Export type"
 msgid "Metadata"
 msgstr "Typ ekspartu"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1134
+#: libraries/classes/Plugins/Export/ExportSql.php:1146
 #, fuzzy, php-format
 #| msgid "Dumping data for table"
 msgid "Metadata for table %s"
 msgstr "Damp dadzienych tablicy"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1141
+#: libraries/classes/Plugins/Export/ExportSql.php:1153
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Metadata for database %s"
 msgstr "Stvaryć novuju tablicu ŭ BD %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1458
+#: libraries/classes/Plugins/Export/ExportSql.php:1470
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
 #, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
 msgstr "Stvoranaja"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1468
+#: libraries/classes/Plugins/Export/ExportSql.php:1480
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:642
 #, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "Apošniaje abnaŭleńnie"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1478
+#: libraries/classes/Plugins/Export/ExportSql.php:1490
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:653
 #, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
 msgstr "Apošniaja pravierka"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1529
+#: libraries/classes/Plugins/Export/ExportSql.php:1541
 #, fuzzy, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "Struktura tablicy"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1611
+#: libraries/classes/Plugins/Export/ExportSql.php:1623
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1778
+#: libraries/classes/Plugins/Export/ExportSql.php:1790
 msgid "Constraints for dumped tables"
 msgstr "Abmiežavańni dla ekspartavanych tablic"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1779
+#: libraries/classes/Plugins/Export/ExportSql.php:1791
 msgid "Constraints for table"
 msgstr "Abmiežavańni dla tablicy"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1806
+#: libraries/classes/Plugins/Export/ExportSql.php:1818
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "Abmiežavańni dla ekspartavanych tablic"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1807
+#: libraries/classes/Plugins/Export/ExportSql.php:1819
 #, fuzzy
 #| msgid "Inside table(s):"
 msgid "Indexes for table"
 msgstr "U tablicy(ach):"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1843
+#: libraries/classes/Plugins/Export/ExportSql.php:1855
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "Dadać značeńnie AUTO_INCREMENT"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1844
+#: libraries/classes/Plugins/Export/ExportSql.php:1856
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "Dadać značeńnie AUTO_INCREMENT"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1919
+#: libraries/classes/Plugins/Export/ExportSql.php:1931
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME-typy tablicy"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1944
+#: libraries/classes/Plugins/Export/ExportSql.php:1956
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "Suviazi ŭ tablicy"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2126
+#: libraries/classes/Plugins/Export/ExportSql.php:2145
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2156
+#: libraries/classes/Plugins/Export/ExportSql.php:2175
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "Struktura dla prahladu"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2176
+#: libraries/classes/Plugins/Export/ExportSql.php:2202
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2244
+#: libraries/classes/Plugins/Export/ExportSql.php:2270
 #, fuzzy, php-format
 #| msgid "Allows reading data."
 msgid "Error reading data for table %s:"
@@ -12292,7 +12303,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:72
-#: libraries/classes/Util.php:709
+#: libraries/classes/Util.php:710
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y, %H:%M"
 
@@ -12712,20 +12723,20 @@ msgstr ""
 msgid "Primary server changed successfully to %s."
 msgstr "Pryvilei byli paśpiachova pierazahružanyja."
 
-#: libraries/classes/Routing.php:103
+#: libraries/classes/Routing.php:109
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:162
+#: libraries/classes/Routing.php:168
 #, fuzzy, php-format
 #| msgid "Theme %s not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "Tema %s nia znojdzienaja!"
 
-#: libraries/classes/Routing.php:173
+#: libraries/classes/Routing.php:179
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -12759,7 +12770,7 @@ msgstr "Padčas zahruzki fajła adbyłasia nieviadomaja pamyłka."
 
 #: libraries/classes/Server/Plugins.php:68
 #: libraries/classes/Server/Privileges.php:795
-#: libraries/classes/Server/Privileges.php:3720
+#: libraries/classes/Server/Privileges.php:3719
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Native MySQL authentication"
@@ -13122,35 +13133,35 @@ msgstr "Nie znojdzieny karystalnik."
 msgid "Deleting %s"
 msgstr "Vydaleńnie %s"
 
-#: libraries/classes/Server/Privileges.php:2483
+#: libraries/classes/Server/Privileges.php:2482
 msgid "The privileges were reloaded successfully."
 msgstr "Pryvilei byli paśpiachova pierazahružanyja."
 
-#: libraries/classes/Server/Privileges.php:2587
+#: libraries/classes/Server/Privileges.php:2586
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Karystalnik %s užo isnuje!"
 
-#: libraries/classes/Server/Privileges.php:2862
+#: libraries/classes/Server/Privileges.php:2861
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Pryvilei"
 
-#: libraries/classes/Server/Privileges.php:2871
+#: libraries/classes/Server/Privileges.php:2870
 #: libraries/classes/Server/Status/Processes.php:114
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Karystalnik"
 
-#: libraries/classes/Server/Privileges.php:2982
+#: libraries/classes/Server/Privileges.php:2981
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3017
+#: libraries/classes/Server/Privileges.php:3016
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13168,7 +13179,7 @@ msgstr ""
 "jakija vykarystoŭvaje server, kali jany byli źmienienyja ŭručnuju. U hetym "
 "vypadku vam treba %spierazahruzić pryvilei%s da taho, jak vy praciahniecie."
 
-#: libraries/classes/Server/Privileges.php:3033
+#: libraries/classes/Server/Privileges.php:3032
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13187,7 +13198,7 @@ msgstr ""
 "jakija vykarystoŭvaje server, kali jany byli źmienienyja ŭručnuju. U hetym "
 "vypadku vam treba %spierazahruzić pryvilei%s da taho, jak vy praciahniecie."
 
-#: libraries/classes/Server/Privileges.php:3347
+#: libraries/classes/Server/Privileges.php:3346
 msgid "You have added a new user."
 msgstr "Byŭ dadadzieny novy karystalnik."
 
@@ -13312,23 +13323,23 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr ""
 
-#: libraries/classes/Sql.php:499
+#: libraries/classes/Sql.php:500
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:967
+#: libraries/classes/Sql.php:972
 msgid "Showing as PHP code"
 msgstr "U vyhladzie PHP-kodu"
 
-#: libraries/classes/Sql.php:1342
+#: libraries/classes/Sql.php:1351
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: libraries/classes/Sql.php:1356
+#: libraries/classes/Sql.php:1365
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13899,37 +13910,37 @@ msgstr ""
 "Dadatkovyja mahčymaści raboty z źviazanymi tablicami byli adklučanyja. Kab "
 "vyśvietlić čamu, naciśnicie %stut%s."
 
-#: libraries/classes/Util.php:131
+#: libraries/classes/Util.php:132
 #, php-format
 msgid "Max: %s%s"
 msgstr "Maksymalny pamier: %s%s"
 
 #. l10n: Short month name
 #. l10n: Short month name for January
-#: libraries/classes/Util.php:666 templates/javascript/variables.twig:34
+#: libraries/classes/Util.php:667 templates/javascript/variables.twig:34
 msgid "Jan"
 msgstr "Stu"
 
 #. l10n: Short month name
 #. l10n: Short month name for February
-#: libraries/classes/Util.php:668 templates/javascript/variables.twig:35
+#: libraries/classes/Util.php:669 templates/javascript/variables.twig:35
 msgid "Feb"
 msgstr "Lut"
 
 #. l10n: Short month name
 #. l10n: Short month name for March
-#: libraries/classes/Util.php:670 templates/javascript/variables.twig:36
+#: libraries/classes/Util.php:671 templates/javascript/variables.twig:36
 msgid "Mar"
 msgstr "Sak"
 
 #. l10n: Short month name
 #. l10n: Short month name for April
-#: libraries/classes/Util.php:672 templates/javascript/variables.twig:37
+#: libraries/classes/Util.php:673 templates/javascript/variables.twig:37
 msgid "Apr"
 msgstr "Kra"
 
 #. l10n: Short month name
-#: libraries/classes/Util.php:674
+#: libraries/classes/Util.php:675
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -13938,48 +13949,48 @@ msgstr "Tra"
 
 #. l10n: Short month name
 #. l10n: Short month name for June
-#: libraries/classes/Util.php:676 templates/javascript/variables.twig:39
+#: libraries/classes/Util.php:677 templates/javascript/variables.twig:39
 msgid "Jun"
 msgstr "Čer"
 
 #. l10n: Short month name
 #. l10n: Short month name for July
-#: libraries/classes/Util.php:678 templates/javascript/variables.twig:40
+#: libraries/classes/Util.php:679 templates/javascript/variables.twig:40
 msgid "Jul"
 msgstr "Lip"
 
 #. l10n: Short month name
 #. l10n: Short month name for August
-#: libraries/classes/Util.php:680 templates/javascript/variables.twig:41
+#: libraries/classes/Util.php:681 templates/javascript/variables.twig:41
 msgid "Aug"
 msgstr "Žni"
 
 #. l10n: Short month name
 #. l10n: Short month name for September
-#: libraries/classes/Util.php:682 templates/javascript/variables.twig:42
+#: libraries/classes/Util.php:683 templates/javascript/variables.twig:42
 msgid "Sep"
 msgstr "Vier"
 
 #. l10n: Short month name
 #. l10n: Short month name for October
-#: libraries/classes/Util.php:684 templates/javascript/variables.twig:43
+#: libraries/classes/Util.php:685 templates/javascript/variables.twig:43
 msgid "Oct"
 msgstr "Kas"
 
 #. l10n: Short month name
 #. l10n: Short month name for November
-#: libraries/classes/Util.php:686 templates/javascript/variables.twig:44
+#: libraries/classes/Util.php:687 templates/javascript/variables.twig:44
 msgid "Nov"
 msgstr "Lis"
 
 #. l10n: Short month name
 #. l10n: Short month name for December
-#: libraries/classes/Util.php:688 templates/javascript/variables.twig:45
+#: libraries/classes/Util.php:689 templates/javascript/variables.twig:45
 msgid "Dec"
 msgstr "Śn"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Util.php:692
+#: libraries/classes/Util.php:693
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -13988,57 +13999,57 @@ msgid "Sun"
 msgstr "Ndz"
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Util.php:694 templates/javascript/variables.twig:58
+#: libraries/classes/Util.php:695 templates/javascript/variables.twig:58
 msgid "Mon"
 msgstr "Pan"
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Util.php:696 templates/javascript/variables.twig:59
+#: libraries/classes/Util.php:697 templates/javascript/variables.twig:59
 msgid "Tue"
 msgstr "Aŭt"
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Util.php:698 templates/javascript/variables.twig:60
+#: libraries/classes/Util.php:699 templates/javascript/variables.twig:60
 msgid "Wed"
 msgstr "Sier"
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Util.php:700 templates/javascript/variables.twig:61
+#: libraries/classes/Util.php:701 templates/javascript/variables.twig:61
 msgid "Thu"
 msgstr "Cač"
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Util.php:702 templates/javascript/variables.twig:62
+#: libraries/classes/Util.php:703 templates/javascript/variables.twig:62
 msgid "Fri"
 msgstr "Piat"
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Util.php:704 templates/javascript/variables.twig:63
+#: libraries/classes/Util.php:705 templates/javascript/variables.twig:63
 msgid "Sat"
 msgstr "Sub"
 
-#: libraries/classes/Util.php:730
+#: libraries/classes/Util.php:731
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr ""
 
-#: libraries/classes/Util.php:732
+#: libraries/classes/Util.php:733
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: libraries/classes/Util.php:803
+#: libraries/classes/Util.php:804
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dzion, %s hadzinaŭ, %s chvilinaŭ i %s sekundaŭ"
 
-#: libraries/classes/Util.php:1934
+#: libraries/classes/Util.php:1941
 #, fuzzy
 #| msgid "User"
 msgid "Users"
 msgstr "Karystalnik"
 
-#: libraries/classes/Util.php:2544
+#: libraries/classes/Util.php:2551
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "Paradak"
@@ -14060,7 +14071,7 @@ msgstr "Ustavić"
 
 #: libraries/config.values.php:89 libraries/config.values.php:127
 #: libraries/config.values.php:139
-#: templates/database/multi_table_query/form.twig:118
+#: templates/database/multi_table_query/form.twig:127
 #, fuzzy
 #| msgid "Next"
 msgid "Text"
@@ -14404,7 +14415,7 @@ msgstr ""
 #: templates/table/insert/actions_panel.twig:46
 #: templates/table/relation/common_form.twig:233
 #: templates/table/zoom_search/result_form.twig:26
-#: templates/table/zoom_search/result_form.twig:95
+#: templates/table/zoom_search/result_form.twig:97
 #, fuzzy
 #| msgid "Reload privileges"
 msgid "Loading"
@@ -14906,14 +14917,14 @@ msgid "The central list of columns for the current database is empty"
 msgstr ""
 
 #: templates/database/central_columns/main.twig:166
-#: templates/display/results/table.twig:62
+#: templates/display/results/table.twig:65
 #, fuzzy
 #| msgid "Files"
 msgid "Filter rows"
 msgstr "Fajły"
 
 #: templates/database/central_columns/main.twig:167
-#: templates/display/results/table.twig:64
+#: templates/display/results/table.twig:67
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
@@ -14990,7 +15001,7 @@ msgstr "Kamentar da bazy dadzienych"
 #: templates/database/data_dictionary/index.twig:8
 #: templates/database/data_dictionary/index.twig:124
 #: templates/database/structure/index.twig:19
-#: templates/display/results/table.twig:258
+#: templates/display/results/table.twig:261
 #: templates/table/structure/display_structure.twig:393
 msgid "Print"
 msgstr "Druk"
@@ -15372,8 +15383,8 @@ msgstr ""
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
 #: templates/database/triggers/list.twig:14
-#: templates/display/results/table.twig:223
-#: templates/display/results/table.twig:224 templates/select_all.twig:4
+#: templates/display/results/table.twig:226
+#: templates/display/results/table.twig:227 templates/select_all.twig:4
 #: templates/select_all.twig:5 templates/server/databases/index.twig:64
 #: templates/server/privileges/edit_routine_privileges.twig:57
 #: templates/server/privileges/privileges_table.twig:268
@@ -15474,14 +15485,15 @@ msgid "Query window"
 msgstr "Akno zapytu"
 
 #: templates/database/multi_table_query/form.twig:38
-#: templates/database/multi_table_query/form.twig:128
+#: templates/database/multi_table_query/form.twig:137
 #, fuzzy
 #| msgid "Select Tables"
 msgid "select table"
 msgstr "Vybierycie tablicu(y)"
 
 #: templates/database/multi_table_query/form.twig:45
-#: templates/database/multi_table_query/form.twig:136
+#: templates/database/multi_table_query/form.twig:95
+#: templates/database/multi_table_query/form.twig:145
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "select column"
@@ -15515,30 +15527,30 @@ msgstr "Kryter"
 msgid "Add as"
 msgstr "Dadać %s"
 
-#: templates/database/multi_table_query/form.twig:119
+#: templates/database/multi_table_query/form.twig:128
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Another column"
 msgstr "Dadać/vydalić kalonku kryteru"
 
-#: templates/database/multi_table_query/form.twig:146
+#: templates/database/multi_table_query/form.twig:155
 msgid "Enter criteria as free text"
 msgstr ""
 
-#: templates/database/multi_table_query/form.twig:153
+#: templates/database/multi_table_query/form.twig:162
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove this column"
 msgstr "Pierajmienavać bazu dadzienych u"
 
-#: templates/database/multi_table_query/form.twig:159
+#: templates/database/multi_table_query/form.twig:168
 #: templates/table/relation/foreign_key_row.twig:85
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "+ Add column"
 msgstr "Dadać %s novyja pali"
 
-#: templates/database/multi_table_query/form.twig:174
+#: templates/database/multi_table_query/form.twig:183
 #: templates/database/qbe/selection_form.twig:80
 #: templates/database/qbe/selection_form.twig:96
 #, fuzzy
@@ -15690,8 +15702,8 @@ msgstr "Pracedury"
 #: templates/database/privileges/index.twig:115
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
-#: templates/display/results/table.twig:222
-#: templates/display/results/table.twig:225 templates/select_all.twig:2
+#: templates/display/results/table.twig:225
+#: templates/display/results/table.twig:228 templates/select_all.twig:2
 #: templates/select_all.twig:6
 #: templates/server/privileges/users_overview.twig:120
 #: templates/server/privileges/users_overview.twig:123
@@ -16163,7 +16175,7 @@ msgid "Showing create queries"
 msgstr "U vyhladzie SQL-zapytu"
 
 #: templates/database/structure/show_create.twig:33
-#: templates/display/results/table.twig:297 templates/modals/create_view.twig:5
+#: templates/display/results/table.twig:300 templates/modals/create_view.twig:5
 #: templates/sql/no_results_returned.twig:13 templates/view_create.twig:11
 #, fuzzy
 #| msgid "Create"
@@ -16315,72 +16327,68 @@ msgstr "Dadać/vydalić kalonku kryteru"
 msgid "Number of rows:"
 msgstr "Kolkaść paloŭ"
 
-#: templates/display/results/table.twig:52
+#: templates/display/results/table.twig:53
 msgid "All"
 msgstr "Usie"
 
-#: templates/display/results/table.twig:70
+#: templates/display/results/table.twig:73
 #, fuzzy
 #| msgid "Sort by key"
 msgid "Sort by key:"
 msgstr "Sartavać pa klučy"
 
-#: templates/display/results/table.twig:119
+#: templates/display/results/table.twig:122
 #: templates/table/search/index.twig:102
 #, fuzzy
 #| msgid "Table options"
 msgid "Extra options"
 msgstr "Opcyi tablicy"
 
-#: templates/display/results/table.twig:141
+#: templates/display/results/table.twig:144
 msgid "Relational key"
 msgstr "Kluč suviazi"
 
-#: templates/display/results/table.twig:145
+#: templates/display/results/table.twig:148
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display column for relationships"
 msgstr "Adklučyć pravierku źniešnich klučoŭ"
 
-#: templates/display/results/table.twig:153
+#: templates/display/results/table.twig:156
 msgid "Show binary contents"
 msgstr ""
 
-#: templates/display/results/table.twig:157
+#: templates/display/results/table.twig:160
 msgid "Show BLOB contents"
 msgstr ""
 
-#: templates/display/results/table.twig:167
+#: templates/display/results/table.twig:170
 #, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
 msgstr "Pieraŭtvareńnie MIME-typu braŭzeram"
 
-#: templates/display/results/table.twig:179
+#: templates/display/results/table.twig:182
 msgid "Well Known Text"
 msgstr ""
 
-#: templates/display/results/table.twig:183
+#: templates/display/results/table.twig:186
 msgid "Well Known Binary"
 msgstr ""
 
-#: templates/display/results/table.twig:255
+#: templates/display/results/table.twig:258
 #: templates/sql/no_results_returned.twig:9
 msgid "Query results operations"
 msgstr "Dziejańni z vynikami zapytaŭ"
 
-#: templates/display/results/table.twig:260
-msgid "Copy to clipboard"
-msgstr ""
-
-#: templates/display/results/table.twig:279
+#: templates/display/results/table.twig:282
 #: templates/table/chart/tbl_chart.twig:2
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Pakazać PDF-schiemu"
 
-#: templates/display/results/table.twig:287
+#: templates/display/results/table.twig:290
 msgid "Visualize GIS data"
 msgstr ""
 
