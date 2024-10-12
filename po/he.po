@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-11 21:28-0300\n"
-"PO-Revision-Date: 2024-09-09 15:09+0000\n"
+"PO-Revision-Date: 2024-10-13 04:15+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/5-2/he/"
 ">\n"
@@ -6179,10 +6179,8 @@ msgid "Show query box"
 msgstr "הצגת תיבת שאילתות"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "שליחת שאילתה"
+msgstr "עריכת שאילתה"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 #: libraries/classes/Display/Results.php:3041
