@@ -50,7 +50,7 @@
     "postcss-loader": "^7.1.0",
     "rtlcss": "^4.0.0",
     "rtlcss-webpack-plugin": "^4.0.7",
-    "sass": "^1.60.0",
+    "sass": "^1.60.0 <=1.77.6",
     "sass-loader": "^13.2.2",
     "tablesorter": "^2.31.3",
     "tracekit": "0.4.6",
