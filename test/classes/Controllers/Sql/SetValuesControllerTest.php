@@ -48,10 +48,7 @@ class SetValuesControllerTest extends AbstractTestCase
 
         $this->assertResponseWasNotSuccessfull();
 
-        $this->assertSame(
-            ['message' => 'Error in processing request'],
-            $this->getResponseJsonResult()
-        );
+        self::assertSame(['message' => 'Error in processing request'], $this->getResponseJsonResult());
     }
 
     public function testSuccess(): void
@@ -98,18 +95,15 @@ class SetValuesControllerTest extends AbstractTestCase
 
         $this->assertResponseWasSuccessfull();
 
-        $this->assertSame(
-            [
-                'select' => '<select class="resize-vertical" size="5" multiple>' . "\n"
-                    . '      <option value="&lt;script&gt;alert(&quot;ok&quot;)&lt;/script&gt;">'
-                    . '&lt;script&gt;alert(&quot;ok&quot;)&lt;/script&gt;</option>' . "\n"
-                    . '      <option value="a&amp;b">a&amp;b</option>' . "\n"
-                    . '      <option value="b&amp;c" selected>b&amp;c</option>' . "\n"
-                    . '      <option value="vrai&amp;amp">vrai&amp;amp</option>' . "\n"
-                    . '      <option value=""></option>' . "\n"
-                    . '  </select>' . "\n",
-            ],
-            $this->getResponseJsonResult()
-        );
+        self::assertSame([
+            'select' => '<select class="resize-vertical" size="5" multiple>' . "\n"
+                . '      <option value="&lt;script&gt;alert(&quot;ok&quot;)&lt;/script&gt;">'
+                . '&lt;script&gt;alert(&quot;ok&quot;)&lt;/script&gt;</option>' . "\n"
+                . '      <option value="a&amp;b">a&amp;b</option>' . "\n"
+                . '      <option value="b&amp;c" selected>b&amp;c</option>' . "\n"
+                . '      <option value="vrai&amp;amp">vrai&amp;amp</option>' . "\n"
+                . '      <option value=""></option>' . "\n"
+                . '  </select>' . "\n",
+        ], $this->getResponseJsonResult());
     }
 }

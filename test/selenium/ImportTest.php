@@ -29,8 +29,8 @@ class ImportTest extends TestBase
         $this->dbQuery(
             'SHOW DATABASES LIKE \'test_import%\'',
             function (): void {
-                $this->assertEquals('test_import1', $this->getCellByTableClass('table_results', 1, 1));
-                $this->assertEquals('test_import2', $this->getCellByTableClass('table_results', 2, 1));
+                self::assertEquals('test_import1', $this->getCellByTableClass('table_results', 1, 1));
+                self::assertEquals('test_import2', $this->getCellByTableClass('table_results', 2, 1));
             }
         );
 
@@ -54,8 +54,8 @@ class ImportTest extends TestBase
             'USE `' . $this->databaseName . '`;'
             . 'SHOW TABLES FROM `' . $this->databaseName . '`',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals('test_table', $this->getCellByTableClass('table_results', 1, 1));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertEquals('test_table', $this->getCellByTableClass('table_results', 1, 1));
             }
         );
     }
@@ -81,9 +81,9 @@ class ImportTest extends TestBase
         $this->dbQuery(
             'SELECT * FROM `' . $this->databaseName . '`.test_table',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals('8', $this->getCellByTableClass('table_results', 1, 1));
-                $this->assertEquals('9', $this->getCellByTableClass('table_results', 2, 1));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertEquals('8', $this->getCellByTableClass('table_results', 1, 1));
+                self::assertEquals('9', $this->getCellByTableClass('table_results', 2, 1));
             }
         );
     }

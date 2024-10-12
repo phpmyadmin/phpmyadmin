@@ -55,7 +55,7 @@ class NavigationTreeTest extends AbstractTestCase
     public function testRenderState(): void
     {
         $result = $this->object->renderState();
-        $this->assertStringContainsString('pma_quick_warp', $result);
+        self::assertStringContainsString('pma_quick_warp', $result);
     }
 
     /**
@@ -64,8 +64,8 @@ class NavigationTreeTest extends AbstractTestCase
     public function testRenderPath(): void
     {
         $result = $this->object->renderPath();
-        $this->assertIsString($result);
-        $this->assertStringContainsString('list_container', $result);
+        self::assertIsString($result);
+        self::assertStringContainsString('list_container', $result);
     }
 
     /**
@@ -74,7 +74,7 @@ class NavigationTreeTest extends AbstractTestCase
     public function testRenderDbSelect(): void
     {
         $result = $this->object->renderDbSelect();
-        $this->assertStringContainsString('pma_navigation_select_database', $result);
+        self::assertStringContainsString('pma_navigation_select_database', $result);
     }
 
     public function testDatabaseGrouping(): void
@@ -100,10 +100,10 @@ class NavigationTreeTest extends AbstractTestCase
 
         $object = new NavigationTree(new Template(), $this->dbi);
         $result = $object->renderState();
-        $this->assertStringContainsString('<li class="first navGroup">', $result);
-        $this->assertStringContainsString('functions' . "\n", $result);
-        $this->assertStringContainsString('<div class="list_container" style="display: none;">', $result);
-        $this->assertStringContainsString('functions__a', $result);
-        $this->assertStringContainsString('functions__b', $result);
+        self::assertStringContainsString('<li class="first navGroup">', $result);
+        self::assertStringContainsString('functions' . "\n", $result);
+        self::assertStringContainsString('<div class="list_container" style="display: none;">', $result);
+        self::assertStringContainsString('functions__a', $result);
+        self::assertStringContainsString('functions__b', $result);
     }
 }

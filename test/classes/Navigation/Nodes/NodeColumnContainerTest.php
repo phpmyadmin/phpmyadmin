@@ -24,14 +24,11 @@ class NodeColumnContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeColumnContainer');
-        $this->assertIsArray($parent->links);
-        $this->assertEquals(
-            [
-                'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
-                'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
-            ],
-            $parent->links
-        );
-        $this->assertEquals('columns', $parent->realName);
+        self::assertIsArray($parent->links);
+        self::assertEquals([
+            'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
+            'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
+        ], $parent->links);
+        self::assertEquals('columns', $parent->realName);
     }
 }

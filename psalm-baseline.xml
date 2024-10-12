@@ -16093,8 +16093,9 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Plugins/Import/ImportShpTest.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="3">
       <code>$import_notice</code>
+      <code>$sql_query</code>
       <code>$sql_query</code>
     </MixedArgument>
     <RedundantCondition occurrences="1">

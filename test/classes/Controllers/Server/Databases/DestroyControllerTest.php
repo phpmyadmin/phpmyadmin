@@ -48,8 +48,8 @@ class DestroyControllerTest extends AbstractTestCase
         $controller();
         $actual = $response->getJSONResult();
 
-        $this->assertArrayHasKey('message', $actual);
-        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']);
-        $this->assertStringContainsString(__('No databases selected.'), $actual['message']);
+        self::assertArrayHasKey('message', $actual);
+        self::assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']);
+        self::assertStringContainsString(__('No databases selected.'), $actual['message']);
     }
 }

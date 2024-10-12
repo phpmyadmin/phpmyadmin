@@ -104,39 +104,18 @@ class CreateTest extends TestBase
         $this->waitForElement('id', 'table_structure_id');
 
         // make assertions for first row
-        $this->assertStringContainsString(
-            'test_id',
-            $this->byCssSelector('label[for=checkbox_row_1]')->getText()
-        );
+        self::assertStringContainsString('test_id', $this->byCssSelector('label[for=checkbox_row_1]')->getText());
 
-        $this->assertEquals(
-            'int(14)',
-            $this->getCellByTableId('tablestructure', 1, 4)
-        );
+        self::assertEquals('int(14)', $this->getCellByTableId('tablestructure', 1, 4));
 
-        $this->assertEquals(
-            'UNSIGNED',
-            $this->getCellByTableId('tablestructure', 1, 6)
-        );
+        self::assertEquals('UNSIGNED', $this->getCellByTableId('tablestructure', 1, 6));
 
-        $this->assertEquals(
-            'No',
-            $this->getCellByTableId('tablestructure', 1, 7)
-        );
+        self::assertEquals('No', $this->getCellByTableId('tablestructure', 1, 7));
 
-        $this->assertEquals(
-            'None',
-            $this->getCellByTableId('tablestructure', 1, 8)
-        );
-        $this->assertEquals(
-            'comm1',
-            $this->getCellByTableId('tablestructure', 1, 9)
-        );
+        self::assertEquals('None', $this->getCellByTableId('tablestructure', 1, 8));
+        self::assertEquals('comm1', $this->getCellByTableId('tablestructure', 1, 9));
 
-        $this->assertEquals(
-            'AUTO_INCREMENT',
-            $this->getCellByTableId('tablestructure', 1, 10)
-        );
+        self::assertEquals('AUTO_INCREMENT', $this->getCellByTableId('tablestructure', 1, 10));
 
         self::assertFalse($this->isElementPresent(
             'cssSelector',
@@ -144,30 +123,15 @@ class CreateTest extends TestBase
         ));
 
         // make assertions for second row
-        $this->assertStringContainsString(
-            'test_column',
-            $this->byCssSelector('label[for=checkbox_row_2]')->getText()
-        );
+        self::assertStringContainsString('test_column', $this->byCssSelector('label[for=checkbox_row_2]')->getText());
 
-        $this->assertEquals(
-            'varchar(10)',
-            $this->getCellByTableId('tablestructure', 2, 4)
-        );
+        self::assertEquals('varchar(10)', $this->getCellByTableId('tablestructure', 2, 4));
 
-        $this->assertEquals(
-            'utf8mb4_general_ci',
-            $this->getCellByTableId('tablestructure', 2, 5)
-        );
+        self::assertEquals('utf8mb4_general_ci', $this->getCellByTableId('tablestructure', 2, 5));
 
-        $this->assertEquals(
-            'Yes',
-            $this->getCellByTableId('tablestructure', 2, 7)
-        );
+        self::assertEquals('Yes', $this->getCellByTableId('tablestructure', 2, 7));
 
-        $this->assertEquals(
-            'def',
-            $this->getCellByTableId('tablestructure', 2, 8)
-        );
+        self::assertEquals('def', $this->getCellByTableId('tablestructure', 2, 8));
 
         self::assertTrue($this->isElementPresent(
             'cssSelector',

@@ -56,121 +56,73 @@ class ExportExcelTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
-            'CSV for MS Excel',
-            $properties->getText()
-        );
+        self::assertEquals('CSV for MS Excel', $properties->getText());
 
-        $this->assertEquals(
-            'csv',
-            $properties->getExtension()
-        );
+        self::assertEquals('csv', $properties->getExtension());
 
-        $this->assertEquals(
-            'text/comma-separated-values',
-            $properties->getMimeType()
-        );
+        self::assertEquals('text/comma-separated-values', $properties->getMimeType());
 
-        $this->assertEquals(
-            'Options',
-            $properties->getOptionsText()
-        );
+        self::assertEquals('Options', $properties->getOptionsText());
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
-            'Format Specific Options',
-            $options->getName()
-        );
+        self::assertEquals('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
-            'general_opts',
-            $generalOptions->getName()
-        );
+        self::assertEquals('general_opts', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'null',
-            $property->getName()
-        );
+        self::assertEquals('null', $property->getName());
 
-        $this->assertEquals(
-            'Replace NULL with:',
-            $property->getText()
-        );
+        self::assertEquals('Replace NULL with:', $property->getText());
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'removeCRLF',
-            $property->getName()
-        );
+        self::assertEquals('removeCRLF', $property->getName());
 
-        $this->assertEquals(
-            'Remove carriage return/line feed characters within columns',
-            $property->getText()
-        );
+        self::assertEquals('Remove carriage return/line feed characters within columns', $property->getText());
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'columns',
-            $property->getName()
-        );
+        self::assertEquals('columns', $property->getName());
 
-        $this->assertEquals(
-            'Put columns names in the first row',
-            $property->getText()
-        );
+        self::assertEquals('Put columns names in the first row', $property->getText());
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(SelectPropertyItem::class, $property);
+        self::assertInstanceOf(SelectPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'edition',
-            $property->getName()
-        );
+        self::assertEquals('edition', $property->getName());
 
-        $this->assertEquals(
-            [
-                'win' => 'Windows',
-                'mac_excel2003' => 'Excel 2003 / Macintosh',
-                'mac_excel2008' => 'Excel 2008 / Macintosh',
-            ],
-            $property->getValues()
-        );
+        self::assertEquals([
+            'win' => 'Windows',
+            'mac_excel2003' => 'Excel 2003 / Macintosh',
+            'mac_excel2008' => 'Excel 2008 / Macintosh',
+        ], $property->getValues());
 
-        $this->assertEquals(
-            'Excel edition:',
-            $property->getText()
-        );
+        self::assertEquals('Excel edition:', $property->getText());
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
+        self::assertInstanceOf(HiddenPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'structure_or_data',
-            $property->getName()
-        );
+        self::assertEquals('structure_or_data', $property->getName());
     }
 }

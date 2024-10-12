@@ -74,9 +74,9 @@ class RoutingTest extends AbstractTestCase
         $GLOBALS['cfg']['environment'] = 'production';
         $_SESSION['isRoutesCacheFileValid'] = null;
 
-        $this->assertDirectoryIsWritable(CACHE_DIR);
+        self::assertDirectoryIsWritable(CACHE_DIR);
         if (file_exists(Routing::ROUTES_CACHE_FILE)) {
-            $this->assertTrue(unlink(Routing::ROUTES_CACHE_FILE));
+            self::assertTrue(unlink(Routing::ROUTES_CACHE_FILE));
         }
 
         $expected = [Dispatcher::FOUND, HomeController::class, []];
@@ -88,7 +88,7 @@ class RoutingTest extends AbstractTestCase
      */
     public function testGetCurrentRouteNoParams(): void
     {
-        $this->assertSame('/', Routing::getCurrentRoute());
+        self::assertSame('/', Routing::getCurrentRoute());
     }
 
     /**
@@ -97,7 +97,7 @@ class RoutingTest extends AbstractTestCase
     public function testGetCurrentRouteGet(): void
     {
         $_GET['route'] = '/test';
-        $this->assertSame('/test', Routing::getCurrentRoute());
+        self::assertSame('/test', Routing::getCurrentRoute());
     }
 
     /**
@@ -107,7 +107,7 @@ class RoutingTest extends AbstractTestCase
     {
         unset($_GET['route']);
         $_POST['route'] = '/testpost';
-        $this->assertSame('/testpost', Routing::getCurrentRoute());
+        self::assertSame('/testpost', Routing::getCurrentRoute());
     }
 
     /**
@@ -117,7 +117,7 @@ class RoutingTest extends AbstractTestCase
     {
         $_GET['route'] = '/testget';
         $_POST['route'] = '/testpost';
-        $this->assertSame('/testget', Routing::getCurrentRoute());
+        self::assertSame('/testget', Routing::getCurrentRoute());
     }
 
     /**
@@ -128,7 +128,7 @@ class RoutingTest extends AbstractTestCase
         unset($_POST['route']);
         unset($_GET['route']);
         $_GET['db'] = 'testDB';
-        $this->assertSame('/database/structure', Routing::getCurrentRoute());
+        self::assertSame('/database/structure', Routing::getCurrentRoute());
     }
 
     /**
@@ -138,6 +138,6 @@ class RoutingTest extends AbstractTestCase
     {
         $_GET['db'] = 'testDB';
         $_GET['table'] = 'tableTest';
-        $this->assertSame('/sql', Routing::getCurrentRoute());
+        self::assertSame('/sql', Routing::getCurrentRoute());
     }
 }

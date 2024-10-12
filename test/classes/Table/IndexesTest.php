@@ -90,8 +90,8 @@ class IndexesTest extends AbstractTestCase
         $_POST['preview_sql'] = true;
         $indexes->doSaveData($index, false, $GLOBALS['db'], $GLOBALS['table']);
         $jsonArray = $response->getJSONResult();
-        $this->assertArrayHasKey('sql_data', $jsonArray);
-        $this->assertStringContainsString($sql_query, $jsonArray['sql_data']);
+        self::assertArrayHasKey('sql_data', $jsonArray);
+        self::assertStringContainsString($sql_query, $jsonArray['sql_data']);
 
         // Alter success
         $response->clear();
@@ -99,8 +99,8 @@ class IndexesTest extends AbstractTestCase
         unset($_POST['preview_sql']);
         $indexes->doSaveData($index, false, $GLOBALS['db'], $GLOBALS['table']);
         $jsonArray = $response->getJSONResult();
-        $this->assertArrayHasKey('index_table', $jsonArray);
-        $this->assertArrayHasKey('message', $jsonArray);
+        self::assertArrayHasKey('index_table', $jsonArray);
+        self::assertArrayHasKey('message', $jsonArray);
         ResponseRenderer::getInstance()->setAjax(false);
     }
 }

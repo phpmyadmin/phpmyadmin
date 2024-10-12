@@ -37,8 +37,8 @@ final class CreateControllerTest extends AbstractTestCase
         $controller();
         $actual = $response->getJSONResult();
 
-        $this->assertArrayHasKey('message', $actual);
-        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']);
+        self::assertArrayHasKey('message', $actual);
+        self::assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']);
 
         $response = new ResponseRenderer();
         $response->setAjax(true);
@@ -51,11 +51,8 @@ final class CreateControllerTest extends AbstractTestCase
         $controller();
         $actual = $response->getJSONResult();
 
-        $this->assertArrayHasKey('message', $actual);
-        $this->assertStringContainsString('<div class="alert alert-success" role="alert">', $actual['message']);
-        $this->assertStringContainsString(
-            sprintf(__('Database %1$s has been created.'), 'test_db'),
-            $actual['message']
-        );
+        self::assertArrayHasKey('message', $actual);
+        self::assertStringContainsString('<div class="alert alert-success" role="alert">', $actual['message']);
+        self::assertStringContainsString(sprintf(__('Database %1$s has been created.'), 'test_db'), $actual['message']);
     }
 }

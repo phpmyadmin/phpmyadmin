@@ -59,47 +59,41 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetStorageEngines(): void
     {
-        $this->assertEquals(
-            [
-                'dummy' => [
-                    'Engine' => 'dummy',
-                    'Support' => 'YES',
-                    'Comment' => 'dummy comment',
-                ],
-                'dummy2' => [
-                    'Engine' => 'dummy2',
-                    'Support' => 'NO',
-                    'Comment' => 'dummy2 comment',
-                ],
-                'FEDERATED' => [
-                    'Engine' => 'FEDERATED',
-                    'Support' => 'NO',
-                    'Comment' => 'Federated MySQL storage engine',
-                ],
-                'Pbxt' => [
-                    'Engine' => 'Pbxt',
-                    'Support' => 'NO',
-                    'Comment' => 'Pbxt storage engine',
-                ],
+        self::assertEquals([
+            'dummy' => [
+                'Engine' => 'dummy',
+                'Support' => 'YES',
+                'Comment' => 'dummy comment',
             ],
-            $this->object->getStorageEngines()
-        );
+            'dummy2' => [
+                'Engine' => 'dummy2',
+                'Support' => 'NO',
+                'Comment' => 'dummy2 comment',
+            ],
+            'FEDERATED' => [
+                'Engine' => 'FEDERATED',
+                'Support' => 'NO',
+                'Comment' => 'Federated MySQL storage engine',
+            ],
+            'Pbxt' => [
+                'Engine' => 'Pbxt',
+                'Support' => 'NO',
+                'Comment' => 'Pbxt storage engine',
+            ],
+        ], $this->object->getStorageEngines());
     }
 
     public function testGetArray(): void
     {
         $actual = $this->object->getArray();
 
-        $this->assertEquals(
-            [
-                'dummy' => [
-                    'name' => 'dummy',
-                    'comment' => 'dummy comment',
-                    'is_default' => false,
-                ],
+        self::assertEquals([
+            'dummy' => [
+                'name' => 'dummy',
+                'comment' => 'dummy comment',
+                'is_default' => false,
             ],
-            $actual
-        );
+        ], $actual);
     }
 
     /**
@@ -114,7 +108,7 @@ class StorageEngineTest extends AbstractTestCase
     public function testGetEngine(string $expectedClass, string $engineName): void
     {
         $actual = StorageEngine::getEngine($engineName);
-        $this->assertInstanceOf($expectedClass, $actual);
+        self::assertInstanceOf($expectedClass, $actual);
     }
 
     /**
@@ -185,18 +179,10 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testIsValid(): void
     {
-        $this->assertTrue(
-            $this->object->isValid('PBMS')
-        );
-        $this->assertTrue(
-            $this->object->isValid('dummy')
-        );
-        $this->assertTrue(
-            $this->object->isValid('dummy2')
-        );
-        $this->assertFalse(
-            $this->object->isValid('invalid')
-        );
+        self::assertTrue($this->object->isValid('PBMS'));
+        self::assertTrue($this->object->isValid('dummy'));
+        self::assertTrue($this->object->isValid('dummy2'));
+        self::assertFalse($this->object->isValid('invalid'));
     }
 
     /**
@@ -204,10 +190,7 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetPage(): void
     {
-        $this->assertEquals(
-            '',
-            $this->object->getPage('Foo')
-        );
+        self::assertEquals('', $this->object->getPage('Foo'));
     }
 
     /**
@@ -215,10 +198,7 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetInfoPages(): void
     {
-        $this->assertEquals(
-            [],
-            $this->object->getInfoPages()
-        );
+        self::assertEquals([], $this->object->getInfoPages());
     }
 
     /**
@@ -226,10 +206,7 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetVariablesLikePattern(): void
     {
-        $this->assertEquals(
-            '',
-            $this->object->getVariablesLikePattern()
-        );
+        self::assertEquals('', $this->object->getVariablesLikePattern());
     }
 
     /**
@@ -237,10 +214,7 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetMysqlHelpPage(): void
     {
-        $this->assertEquals(
-            'dummy-storage-engine',
-            $this->object->getMysqlHelpPage()
-        );
+        self::assertEquals('dummy-storage-engine', $this->object->getMysqlHelpPage());
     }
 
     /**
@@ -248,10 +222,7 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetVariables(): void
     {
-        $this->assertEquals(
-            [],
-            $this->object->getVariables()
-        );
+        self::assertEquals([], $this->object->getVariables());
     }
 
     /**
@@ -259,25 +230,19 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetSupportInformationMessage(): void
     {
-        $this->assertEquals(
-            'dummy is available on this MySQL server.',
-            $this->object->getSupportInformationMessage()
-        );
+        self::assertEquals('dummy is available on this MySQL server.', $this->object->getSupportInformationMessage());
 
         $this->object->support = 1;
-        $this->assertEquals(
+        self::assertEquals(
             'dummy has been disabled for this MySQL server.',
             $this->object->getSupportInformationMessage()
         );
 
         $this->object->support = 2;
-        $this->assertEquals(
-            'dummy is available on this MySQL server.',
-            $this->object->getSupportInformationMessage()
-        );
+        self::assertEquals('dummy is available on this MySQL server.', $this->object->getSupportInformationMessage());
 
         $this->object->support = 3;
-        $this->assertEquals(
+        self::assertEquals(
             'dummy is the default storage engine on this MySQL server.',
             $this->object->getSupportInformationMessage()
         );
@@ -288,10 +253,7 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetComment(): void
     {
-        $this->assertEquals(
-            'dummy comment',
-            $this->object->getComment()
-        );
+        self::assertEquals('dummy comment', $this->object->getComment());
     }
 
     /**
@@ -299,10 +261,7 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testGetTitle(): void
     {
-        $this->assertEquals(
-            'dummy',
-            $this->object->getTitle()
-        );
+        self::assertEquals('dummy', $this->object->getTitle());
     }
 
     /**
@@ -310,13 +269,10 @@ class StorageEngineTest extends AbstractTestCase
      */
     public function testResolveTypeSize(): void
     {
-        $this->assertEquals(
-            [
-                0 => 12,
-                1 => 'B',
-            ],
-            $this->object->resolveTypeSize(12)
-        );
+        self::assertEquals([
+            0 => 12,
+            1 => 'B',
+        ], $this->object->resolveTypeSize(12));
     }
 
     public function testHasMroongaEngine(): void
@@ -326,13 +282,13 @@ class StorageEngineTest extends AbstractTestCase
                 (string) json_encode([]), // Fake result
             ],
         ]);
-        $this->assertTrue(StorageEngine::hasMroongaEngine());
-        $this->assertTrue(StorageEngine::hasMroongaEngine()); // Does not call any query
+        self::assertTrue(StorageEngine::hasMroongaEngine());
+        self::assertTrue(StorageEngine::hasMroongaEngine()); // Does not call any query
 
         Cache::remove('storage-engine.mroonga.has.mroonga_command'); // Cache clear
 
         $this->dummyDbi->addResult('SELECT mroonga_command(\'object_list\');', false);
-        $this->assertFalse(StorageEngine::hasMroongaEngine());
+        self::assertFalse(StorageEngine::hasMroongaEngine());
 
         $this->assertAllQueriesConsumed();
     }
@@ -703,7 +659,7 @@ class StorageEngineTest extends AbstractTestCase
         $this->dummyDbi->addSelectDb('my_db');
         $lengths = StorageEngine::getMroongaLengths('my_db', 'idx_correo');
         $this->assertAllSelectsConsumed();
-        $this->assertSame([4521984, 578126], $lengths);
+        self::assertSame([4521984, 578126], $lengths);
 
         $this->assertAllQueriesConsumed();
     }

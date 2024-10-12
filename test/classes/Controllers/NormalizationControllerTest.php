@@ -151,15 +151,12 @@ class NormalizationControllerTest extends AbstractTestCase
 
         $this->assertResponseWasSuccessfull();
 
-        $this->assertSame(
-            [
-                'legendText' => 'End of step',
-                'headText' => '<h3>The second step of normalization is complete for table \'test_tbl\'.</h3>',
-                'queryError' => false,
-                'extra' => '',
-            ],
-            $this->getResponseJsonResult()
-        );
+        self::assertSame([
+            'legendText' => 'End of step',
+            'headText' => '<h3>The second step of normalization is complete for table \'test_tbl\'.</h3>',
+            'queryError' => false,
+            'extra' => '',
+        ], $this->getResponseJsonResult());
     }
 
     public function testCreateNewTables3NF(): void
@@ -191,14 +188,11 @@ class NormalizationControllerTest extends AbstractTestCase
 
         $this->assertResponseWasSuccessfull();
 
-        $this->assertSame(
-            [
-                'legendText' => 'End of step',
-                'headText' => '<h3>The third step of normalization is complete.</h3>',
-                'queryError' => false,
-                'extra' => '',
-            ],
-            $this->getResponseJsonResult()
-        );
+        self::assertSame([
+            'legendText' => 'End of step',
+            'headText' => '<h3>The third step of normalization is complete.</h3>',
+            'queryError' => false,
+            'extra' => '',
+        ], $this->getResponseJsonResult());
     }
 }

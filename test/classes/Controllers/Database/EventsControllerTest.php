@@ -183,7 +183,7 @@ final class EventsControllerTest extends AbstractTestCase
 HTML;
         // phpcs:enable
 
-        $this->assertSame($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     public function testWithoutEvents(): void
@@ -308,6 +308,6 @@ HTML;
 HTML;
         // phpcs:enable
 
-        $this->assertSame($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 }

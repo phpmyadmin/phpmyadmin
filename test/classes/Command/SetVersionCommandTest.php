@@ -206,9 +206,6 @@ final class Version
 }
 
 PHP;
-        $this->assertSame(
-            sprintf($template, $content),
-            $output
-        );
+        self::assertSame(sprintf($template, $content), $output);
     }
 }

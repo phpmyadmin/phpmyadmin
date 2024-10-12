@@ -36,24 +36,24 @@ class ResponseRendererTest extends AbstractTestCase
         $footerReflection = new ReflectionProperty(ResponseRenderer::class, 'footer');
         $footerReflection->setAccessible(true);
         $footer = $footerReflection->getValue($response);
-        $this->assertInstanceOf(Footer::class, $footer);
+        self::assertInstanceOf(Footer::class, $footer);
         $headerIsAjax = new ReflectionProperty(Header::class, 'isAjax');
         $headerIsAjax->setAccessible(true);
         $footerIsAjax = new ReflectionProperty(Footer::class, 'isAjax');
         $footerIsAjax->setAccessible(true);
 
-        $this->assertFalse($response->isAjax());
-        $this->assertFalse($headerIsAjax->getValue($header));
-        $this->assertFalse($footerIsAjax->getValue($footer));
+        self::assertFalse($response->isAjax());
+        self::assertFalse($headerIsAjax->getValue($header));
+        self::assertFalse($footerIsAjax->getValue($footer));
 
         $response->setAjax(true);
-        $this->assertTrue($response->isAjax());
-        $this->assertTrue($headerIsAjax->getValue($header));
-        $this->assertTrue($footerIsAjax->getValue($footer));
+        self::assertTrue($response->isAjax());
+        self::assertTrue($headerIsAjax->getValue($header));
+        self::assertTrue($footerIsAjax->getValue($footer));
 
         $response->setAjax(false);
-        $this->assertFalse($response->isAjax());
-        $this->assertFalse($headerIsAjax->getValue($header));
-        $this->assertFalse($footerIsAjax->getValue($footer));
+        self::assertFalse($response->isAjax());
+        self::assertFalse($headerIsAjax->getValue($header));
+        self::assertFalse($footerIsAjax->getValue($footer));
     }
 }

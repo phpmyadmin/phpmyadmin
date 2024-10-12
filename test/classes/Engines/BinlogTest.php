@@ -41,9 +41,6 @@ class BinlogTest extends AbstractTestCase
      */
     public function testGetMysqlHelpPage(): void
     {
-        $this->assertEquals(
-            $this->object->getMysqlHelpPage(),
-            'binary-log'
-        );
+        self::assertEquals($this->object->getMysqlHelpPage(), 'binary-log');
     }
 }

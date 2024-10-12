@@ -40,6 +40,6 @@ class KeyTest extends AbstractTestCase
                 'index' => 0,
             ],
         ];
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 }

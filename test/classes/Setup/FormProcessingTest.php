@@ -81,15 +81,15 @@ class FormProcessingTest extends AbstractNetworkTestCase
         FormProcessing::process($formDisplay);
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString('<div class="error">', $result);
+        self::assertStringContainsString('<div class="error">', $result);
 
-        $this->assertStringContainsString('mode=revert', $result);
+        self::assertStringContainsString('mode=revert', $result);
 
-        $this->assertStringContainsString('<a class="btn" href="index.php?', $result);
+        self::assertStringContainsString('<a class="btn" href="index.php?', $result);
 
-        $this->assertStringContainsString('mode=edit', $result);
+        self::assertStringContainsString('mode=edit', $result);
 
         // case 3
         $formDisplay = $this->getMockBuilder(FormDisplay::class)

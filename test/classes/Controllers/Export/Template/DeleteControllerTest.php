@@ -38,6 +38,6 @@ class DeleteControllerTest extends AbstractTestCase
             new Relation($this->dbi)
         ))($request);
 
-        $this->assertTrue($response->hasSuccessState());
+        self::assertTrue($response->hasSuccessState());
     }
 }

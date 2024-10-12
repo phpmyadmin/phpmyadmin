@@ -30,23 +30,20 @@ class PluginTest extends AbstractTestCase
             'authVersion' => '1.0',
         ]);
 
-        $this->assertInstanceOf(Plugin::class, $plugin);
-        $this->assertSame('BLACKHOLE', $plugin->getName());
-        $this->assertSame('1.0', $plugin->getVersion());
-        $this->assertSame('ACTIVE', $plugin->getStatus());
-        $this->assertSame('STORAGE ENGINE', $plugin->getType());
-        $this->assertSame('100316.0', $plugin->getTypeVersion());
-        $this->assertSame('ha_blackhole.so', $plugin->getLibrary());
-        $this->assertSame('1.13', $plugin->getLibraryVersion());
-        $this->assertSame('MySQL AB', $plugin->getAuthor());
-        $this->assertSame('GPL', $plugin->getLicense());
-        $this->assertSame('ON', $plugin->getLoadOption());
-        $this->assertSame('Stable', $plugin->getMaturity());
-        $this->assertSame('1.0', $plugin->getAuthVersion());
-        $this->assertSame(
-            '/dev/null storage engine (anything you write to it disappears)',
-            $plugin->getDescription()
-        );
+        self::assertInstanceOf(Plugin::class, $plugin);
+        self::assertSame('BLACKHOLE', $plugin->getName());
+        self::assertSame('1.0', $plugin->getVersion());
+        self::assertSame('ACTIVE', $plugin->getStatus());
+        self::assertSame('STORAGE ENGINE', $plugin->getType());
+        self::assertSame('100316.0', $plugin->getTypeVersion());
+        self::assertSame('ha_blackhole.so', $plugin->getLibrary());
+        self::assertSame('1.13', $plugin->getLibraryVersion());
+        self::assertSame('MySQL AB', $plugin->getAuthor());
+        self::assertSame('GPL', $plugin->getLicense());
+        self::assertSame('ON', $plugin->getLoadOption());
+        self::assertSame('Stable', $plugin->getMaturity());
+        self::assertSame('1.0', $plugin->getAuthVersion());
+        self::assertSame('/dev/null storage engine (anything you write to it disappears)', $plugin->getDescription());
 
         return $plugin;
     }
@@ -58,7 +55,7 @@ class PluginTest extends AbstractTestCase
      */
     public function testToArray(Plugin $plugin): void
     {
-        $this->assertSame([
+        self::assertSame([
             'name' => 'BLACKHOLE',
             'version' => '1.0',
             'status' => 'ACTIVE',

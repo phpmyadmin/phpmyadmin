@@ -46,38 +46,38 @@ class VariablesControllerTest extends AbstractTestCase
         $this->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
-        $this->assertStringContainsString('<div class="card mb-3" id="tableFilter">', $html);
-        $this->assertStringContainsString('index.php?route=/server/status/variables', $html);
+        self::assertStringContainsString('<div class="card mb-3" id="tableFilter">', $html);
+        self::assertStringContainsString('index.php?route=/server/status/variables', $html);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<label class="col-12 col-form-label" for="filterText">Containing the word:</label>',
             $html
         );
 
-        $this->assertStringContainsString('<label class="form-check-label" for="filterAlert">', $html);
-        $this->assertStringContainsString('Show only alert values', $html);
-        $this->assertStringContainsString('Filter by category', $html);
-        $this->assertStringContainsString('Show unformatted values', $html);
+        self::assertStringContainsString('<label class="form-check-label" for="filterAlert">', $html);
+        self::assertStringContainsString('Show only alert values', $html);
+        self::assertStringContainsString('Filter by category', $html);
+        self::assertStringContainsString('Show unformatted values', $html);
 
-        $this->assertStringContainsString('<div id="linkSuggestions" class="defaultLinks hide"', $html);
+        self::assertStringContainsString('<div id="linkSuggestions" class="defaultLinks hide"', $html);
 
-        $this->assertStringContainsString('Related links:', $html);
-        $this->assertStringContainsString('Flush (close) all tables', $html);
-        $this->assertStringContainsString('<span class="status_binlog_cache">', $html);
+        self::assertStringContainsString('Related links:', $html);
+        self::assertStringContainsString('Flush (close) all tables', $html);
+        self::assertStringContainsString('<span class="status_binlog_cache">', $html);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<table class="table table-striped table-hover table-sm" id="serverStatusVariables">',
             $html
         );
-        $this->assertStringContainsString('<th scope="col">Variable</th>', $html);
-        $this->assertStringContainsString('<th scope="col">Value</th>', $html);
-        $this->assertStringContainsString('<th scope="col">Description</th>', $html);
+        self::assertStringContainsString('<th scope="col">Variable</th>', $html);
+        self::assertStringContainsString('<th scope="col">Value</th>', $html);
+        self::assertStringContainsString('<th scope="col">Description</th>', $html);
 
-        $this->assertStringContainsString('Aborted clients', $html);
-        $this->assertStringContainsString('<span class="text-success">', $html);
-        $this->assertStringContainsString('Aborted connects', $html);
-        $this->assertStringContainsString('Com delete multi', $html);
-        $this->assertStringContainsString('Com create function', $html);
-        $this->assertStringContainsString('Com empty query', $html);
+        self::assertStringContainsString('Aborted clients', $html);
+        self::assertStringContainsString('<span class="text-success">', $html);
+        self::assertStringContainsString('Aborted connects', $html);
+        self::assertStringContainsString('Com delete multi', $html);
+        self::assertStringContainsString('Com create function', $html);
+        self::assertStringContainsString('Com empty query', $html);
     }
 }

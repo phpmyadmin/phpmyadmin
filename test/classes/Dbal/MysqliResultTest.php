@@ -26,8 +26,8 @@ class MysqliResultTest extends AbstractTestCase
 
         $result = new MysqliResult($mysqliResult);
 
-        $this->assertSame(['foo' => 'bar'], $result->fetchAssoc());
-        $this->assertSame([], $result->fetchAssoc());
+        self::assertSame(['foo' => 'bar'], $result->fetchAssoc());
+        self::assertSame([], $result->fetchAssoc());
     }
 
     /**
@@ -43,8 +43,8 @@ class MysqliResultTest extends AbstractTestCase
 
         $result = new MysqliResult($mysqliResult);
 
-        $this->assertSame(['bar'], $result->fetchRow());
-        $this->assertSame([], $result->fetchRow());
+        self::assertSame(['bar'], $result->fetchRow());
+        self::assertSame([], $result->fetchRow());
     }
 
     /**
@@ -61,6 +61,6 @@ class MysqliResultTest extends AbstractTestCase
 
         $result = new MysqliResult($mysqliResult);
 
-        $this->assertTrue($result->seek($offset));
+        self::assertTrue($result->seek($offset));
     }
 }

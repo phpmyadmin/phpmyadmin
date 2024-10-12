@@ -283,22 +283,22 @@ class SettingsTest extends TestCase
         $settings = new Settings($cfg);
         $config = $settings->toArray();
         $config['Servers'][1]['SignonCookieParams'] = [];
-        $this->assertEquals($config, $cfg);
+        self::assertEquals($config, $cfg);
     }
 
     public function testToArray(): void
     {
         $settings = new Settings([]);
         $config = $settings->toArray();
-        $this->assertIsArray($config['Console']);
-        $this->assertIsArray($config['DBG']);
-        $this->assertIsArray($config['Export']);
-        $this->assertIsArray($config['Import']);
-        $this->assertIsArray($config['Schema']);
-        $this->assertIsArray($config['SQLQuery']);
-        $this->assertIsArray($config['DefaultTransformations']);
-        $this->assertIsArray($config['Servers']);
-        $this->assertIsArray($config['Servers'][1]);
+        self::assertIsArray($config['Console']);
+        self::assertIsArray($config['DBG']);
+        self::assertIsArray($config['Export']);
+        self::assertIsArray($config['Import']);
+        self::assertIsArray($config['Schema']);
+        self::assertIsArray($config['SQLQuery']);
+        self::assertIsArray($config['DefaultTransformations']);
+        self::assertIsArray($config['Servers']);
+        self::assertIsArray($config['Servers'][1]);
     }
 
     /**
@@ -321,48 +321,48 @@ class SettingsTest extends TestCase
         $settings = new Settings($actualValues);
         foreach (array_keys($expectedValues) as $key) {
             if ($key === 'Servers') {
-                $this->assertContainsOnlyInstancesOf(Server::class, $settings->Servers);
-                $this->assertIsArray($expected[$key]);
-                $this->assertSame(array_keys($expected[$key]), array_keys($settings->Servers));
+                self::assertContainsOnlyInstancesOf(Server::class, $settings->Servers);
+                self::assertIsArray($expected[$key]);
+                self::assertSame(array_keys($expected[$key]), array_keys($settings->Servers));
                 continue;
             }
 
             if ($key === 'Console') {
-                $this->assertInstanceOf(Console::class, $settings->Console);
+                self::assertInstanceOf(Console::class, $settings->Console);
                 continue;
             }
 
             if ($key === 'DBG') {
-                $this->assertInstanceOf(Debug::class, $settings->DBG);
+                self::assertInstanceOf(Debug::class, $settings->DBG);
                 continue;
             }
 
             if ($key === 'Export') {
-                $this->assertInstanceOf(Export::class, $settings->Export);
+                self::assertInstanceOf(Export::class, $settings->Export);
                 continue;
             }
 
             if ($key === 'Import') {
-                $this->assertInstanceOf(Import::class, $settings->Import);
+                self::assertInstanceOf(Import::class, $settings->Import);
                 continue;
             }
 
             if ($key === 'Schema') {
-                $this->assertInstanceOf(Schema::class, $settings->Schema);
+                self::assertInstanceOf(Schema::class, $settings->Schema);
                 continue;
             }
 
             if ($key === 'SQLQuery') {
-                $this->assertInstanceOf(SqlQueryBox::class, $settings->SQLQuery);
+                self::assertInstanceOf(SqlQueryBox::class, $settings->SQLQuery);
                 continue;
             }
 
             if ($key === 'DefaultTransformations') {
-                $this->assertInstanceOf(Transformations::class, $settings->DefaultTransformations);
+                self::assertInstanceOf(Transformations::class, $settings->DefaultTransformations);
                 continue;
             }
 
-            $this->assertSame($expected[$key], $settings->$key);
+            self::assertSame($expected[$key], $settings->$key);
         }
     }
 

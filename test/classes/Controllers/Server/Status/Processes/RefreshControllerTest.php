@@ -71,47 +71,32 @@ class RefreshControllerTest extends AbstractTestCase
         $controller();
         $html = $response->getHTMLResult();
 
-        $this->assertStringContainsString('index.php?route=/server/status/processes', $html);
+        self::assertStringContainsString('index.php?route=/server/status/processes', $html);
         $killProcess = 'data-post="'
             . Url::getCommon(['kill' => $process['Id']], '') . '"';
-        $this->assertStringContainsString($killProcess, $html);
-        $this->assertStringContainsString('ajax kill_process', $html);
-        $this->assertStringContainsString(
-            __('Kill'),
-            $html
-        );
+        self::assertStringContainsString($killProcess, $html);
+        self::assertStringContainsString('ajax kill_process', $html);
+        self::assertStringContainsString(__('Kill'), $html);
 
         //validate 2: $process['User']
-        $this->assertStringContainsString(
-            htmlspecialchars($process['User']),
-            $html
-        );
+        self::assertStringContainsString(htmlspecialchars($process['User']), $html);
 
         //validate 3: $process['Host']
-        $this->assertStringContainsString(
-            htmlspecialchars($process['Host']),
-            $html
-        );
+        self::assertStringContainsString(htmlspecialchars($process['Host']), $html);
 
         //validate 4: $process['db']
-        $this->assertStringContainsString(
-            $process['Db'],
-            $html
-        );
+        self::assertStringContainsString($process['Db'], $html);
 
         //validate 5: $process['Command']
-        $this->assertStringContainsString(
-            htmlspecialchars($process['Command']),
-            $html
-        );
+        self::assertStringContainsString(htmlspecialchars($process['Command']), $html);
 
         //validate 6: $process['Time']
-        $this->assertStringContainsString($process['Time'], $html);
+        self::assertStringContainsString($process['Time'], $html);
 
         //validate 7: $process['state']
-        $this->assertStringContainsString($process['State'], $html);
+        self::assertStringContainsString($process['State'], $html);
 
         //validate 8: $process['info']
-        $this->assertStringContainsString($process['Info'], $html);
+        self::assertStringContainsString($process['Info'], $html);
     }
 }

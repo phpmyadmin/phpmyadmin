@@ -15,19 +15,19 @@ class InternalRelationsTest extends TestCase
     public function testGetInformationSchema(): void
     {
         $tables = InternalRelations::getInformationSchema();
-        $this->assertIsArray($tables);
+        self::assertIsArray($tables);
         foreach ($tables as $tableName => $table) {
-            $this->assertIsString($tableName);
-            $this->assertIsArray($table);
+            self::assertIsString($tableName);
+            self::assertIsArray($table);
             foreach ($table as $fieldName => $field) {
-                $this->assertIsString($fieldName);
-                $this->assertIsArray($field);
-                $this->assertArrayHasKey('foreign_db', $field);
-                $this->assertArrayHasKey('foreign_table', $field);
-                $this->assertArrayHasKey('foreign_field', $field);
-                $this->assertIsString($field['foreign_db']);
-                $this->assertIsString($field['foreign_table']);
-                $this->assertIsString($field['foreign_field']);
+                self::assertIsString($fieldName);
+                self::assertIsArray($field);
+                self::assertArrayHasKey('foreign_db', $field);
+                self::assertArrayHasKey('foreign_table', $field);
+                self::assertArrayHasKey('foreign_field', $field);
+                self::assertIsString($field['foreign_db']);
+                self::assertIsString($field['foreign_table']);
+                self::assertIsString($field['foreign_field']);
             }
         }
     }
@@ -35,19 +35,19 @@ class InternalRelationsTest extends TestCase
     public function testGetMySql(): void
     {
         $tables = InternalRelations::getMySql();
-        $this->assertIsArray($tables);
+        self::assertIsArray($tables);
         foreach ($tables as $tableName => $table) {
-            $this->assertIsString($tableName);
-            $this->assertIsArray($table);
+            self::assertIsString($tableName);
+            self::assertIsArray($table);
             foreach ($table as $fieldName => $field) {
-                $this->assertIsString($fieldName);
-                $this->assertIsArray($field);
-                $this->assertArrayHasKey('foreign_db', $field);
-                $this->assertArrayHasKey('foreign_table', $field);
-                $this->assertArrayHasKey('foreign_field', $field);
-                $this->assertIsString($field['foreign_db']);
-                $this->assertIsString($field['foreign_table']);
-                $this->assertIsString($field['foreign_field']);
+                self::assertIsString($fieldName);
+                self::assertIsArray($field);
+                self::assertArrayHasKey('foreign_db', $field);
+                self::assertArrayHasKey('foreign_table', $field);
+                self::assertArrayHasKey('foreign_field', $field);
+                self::assertIsString($field['foreign_db']);
+                self::assertIsString($field['foreign_table']);
+                self::assertIsString($field['foreign_field']);
             }
         }
     }
