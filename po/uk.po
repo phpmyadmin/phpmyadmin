@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-11-12 15:23-0300\n"
+"POT-Creation-Date: 2024-10-11 21:28-0300\n"
 "PO-Revision-Date: 2024-06-24 18:09+0000\n"
 "Last-Translator: Ivan <ivan47044704@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -1364,7 +1364,7 @@ msgstr "Пошук:"
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
-#: templates/display/results/table.twig:190
+#: templates/display/results/table.twig:193
 #: templates/gis_data_editor_form.twig:236 templates/header_location.twig:18
 #: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
@@ -1430,7 +1430,7 @@ msgid "Page number:"
 msgstr "Номер сторінки:"
 
 #: libraries/classes/BrowseForeigners.php:335
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:560
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:23
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -1951,7 +1951,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:184
 #: libraries/classes/Config/Descriptions.php:728
-#: libraries/classes/Plugins/Export/ExportSql.php:345
+#: libraries/classes/Plugins/Export/ExportSql.php:348
 msgid "Exclude definition of current user"
 msgstr "Виключити визначення поточного користувача"
 
@@ -3318,7 +3318,7 @@ msgstr "Шаблон імені таблиці"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:61
 #: libraries/classes/Plugins/Export/ExportOdt.php:69
 #: libraries/classes/Plugins/Export/ExportPdf.php:86
-#: libraries/classes/Plugins/Export/ExportSql.php:237
+#: libraries/classes/Plugins/Export/ExportSql.php:240
 #: libraries/classes/Plugins/Export/ExportTexytext.php:55
 msgid "Dump table"
 msgstr "Дамп таблиці"
@@ -3429,12 +3429,12 @@ msgid "Use delayed inserts"
 msgstr "Використовувати вставки з затримкою"
 
 #: libraries/classes/Config/Descriptions.php:712
-#: libraries/classes/Plugins/Export/ExportSql.php:183
+#: libraries/classes/Plugins/Export/ExportSql.php:186
 msgid "Disable foreign key checks"
 msgstr "Відключити перевірки зовнішніх ключів"
 
 #: libraries/classes/Config/Descriptions.php:713
-#: libraries/classes/Plugins/Export/ExportSql.php:197
+#: libraries/classes/Plugins/Export/ExportSql.php:200
 msgid "Export views as tables"
 msgstr "Експорт видів як таблиць"
 
@@ -3468,7 +3468,7 @@ msgstr ""
 "таблиці)"
 
 #: libraries/classes/Config/Descriptions.php:729
-#: libraries/classes/Plugins/Export/ExportSql.php:351
+#: libraries/classes/Plugins/Export/ExportSql.php:354
 #, php-format
 msgid "%s view"
 msgstr "%s вид"
@@ -3482,7 +3482,7 @@ msgid "Syntax to use when inserting data"
 msgstr "Синтакс що використовується коли вставляють дані"
 
 #: libraries/classes/Config/Descriptions.php:733
-#: libraries/classes/Plugins/Export/ExportSql.php:488
+#: libraries/classes/Plugins/Export/ExportSql.php:491
 msgid "Maximal length of created query"
 msgstr "Максимальна довжина створеного запиту"
 
@@ -3491,7 +3491,7 @@ msgid "Export type"
 msgstr "Тип експорту"
 
 #: libraries/classes/Config/Descriptions.php:739
-#: libraries/classes/Plugins/Export/ExportSql.php:169
+#: libraries/classes/Plugins/Export/ExportSql.php:172
 msgid "Enclose export in a transaction"
 msgstr "Помістити експорт у транзакцію"
 
@@ -3517,7 +3517,7 @@ msgstr "Перший день тижня"
 
 #: libraries/classes/Config/Descriptions.php:748
 #: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:480
-#: libraries/classes/Util.php:1931 libraries/config.values.php:155
+#: libraries/classes/Util.php:1938 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
 #: templates/server/export/index.twig:14
@@ -3634,8 +3634,8 @@ msgstr "Відстеження змін"
 #: libraries/classes/Config/Descriptions.php:775 libraries/classes/Menu.php:255
 #: libraries/classes/Menu.php:362 libraries/classes/Menu.php:485
 #: libraries/classes/Navigation/Nodes/NodeTable.php:310
-#: libraries/classes/Util.php:1487 libraries/classes/Util.php:1932
-#: libraries/classes/Util.php:1947 libraries/classes/Util.php:1964
+#: libraries/classes/Util.php:1489 libraries/classes/Util.php:1939
+#: libraries/classes/Util.php:1954 libraries/classes/Util.php:1971
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -3829,7 +3829,7 @@ msgid "Navigation panel width"
 msgstr "Ширина навігаційної панелі"
 
 #: libraries/classes/Config/Descriptions.php:831
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:602
 #: libraries/classes/Navigation/NavigationTree.php:1352
 msgid "Link with main panel"
 msgstr "Зв'язати з головною панеллю"
@@ -4286,9 +4286,9 @@ msgstr "Пропускати заблоковані таблиці"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:122
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:387
-#: libraries/classes/Display/Results.php:2974
+#: libraries/classes/Display/Results.php:2973
 #: libraries/classes/Html/Generator.php:614
-#: libraries/classes/Html/Generator.php:865
+#: libraries/classes/Html/Generator.php:868
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:265
@@ -4302,8 +4302,8 @@ msgstr "Пропускати заблоковані таблиці"
 #: templates/database/structure/structure_table_row.twig:66
 #: templates/database/triggers/row.twig:28
 #: templates/database/triggers/row.twig:31
-#: templates/display/results/table.twig:227
-#: templates/display/results/table.twig:228 templates/indexes.twig:34
+#: templates/display/results/table.twig:230
+#: templates/display/results/table.twig:231 templates/indexes.twig:34
 #: templates/server/variables/index.twig:41
 #: templates/server/variables/index.twig:44 templates/setup/home/index.twig:63
 #: templates/table/structure/display_structure.twig:497
@@ -4590,14 +4590,14 @@ msgstr "Звичайно"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
-#: libraries/classes/Import.php:1299 libraries/classes/Menu.php:247
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
+#: libraries/classes/Import.php:1308 libraries/classes/Menu.php:247
 #: libraries/classes/Menu.php:357
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:51
 #: libraries/classes/Navigation/Nodes/NodeTable.php:301
-#: libraries/classes/Util.php:1486 libraries/classes/Util.php:1946
-#: libraries/classes/Util.php:1963 libraries/config.values.php:60
+#: libraries/classes/Util.php:1488 libraries/classes/Util.php:1953
+#: libraries/classes/Util.php:1970 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4641,8 +4641,8 @@ msgstr "Текст OpenDocument"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:372
 #: libraries/classes/Menu.php:277 libraries/classes/Menu.php:382
 #: libraries/classes/Menu.php:513 libraries/classes/Server/Privileges.php:1513
-#: libraries/classes/Util.php:1935 libraries/classes/Util.php:1950
-#: libraries/classes/Util.php:1967 templates/database/events/index.twig:17
+#: libraries/classes/Util.php:1942 libraries/classes/Util.php:1957
+#: libraries/classes/Util.php:1974 templates/database/events/index.twig:17
 #: templates/database/events/index.twig:18
 #: templates/database/events/index.twig:88
 #: templates/database/events/row.twig:36
@@ -4657,9 +4657,9 @@ msgstr "Текст OpenDocument"
 #: templates/database/triggers/list.twig:17
 #: templates/database/triggers/list.twig:18
 #: templates/database/triggers/row.twig:41
-#: templates/display/results/table.twig:240
-#: templates/display/results/table.twig:241
-#: templates/display/results/table.twig:272 templates/export.twig:3
+#: templates/display/results/table.twig:243
+#: templates/display/results/table.twig:244
+#: templates/display/results/table.twig:275 templates/export.twig:3
 #: templates/export.twig:499 templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
@@ -4685,8 +4685,8 @@ msgstr "CSV, використовуючи LOAD DATA"
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:309
 #: libraries/classes/Menu.php:286 libraries/classes/Menu.php:392
-#: libraries/classes/Menu.php:518 libraries/classes/Util.php:1936
-#: libraries/classes/Util.php:1951 libraries/classes/Util.php:1968
+#: libraries/classes/Menu.php:518 libraries/classes/Util.php:1943
+#: libraries/classes/Util.php:1958 libraries/classes/Util.php:1975
 #: templates/import.twig:3 templates/import.twig:199
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
@@ -5005,7 +5005,7 @@ msgstr "Консоль SQL запитів"
 msgid "No databases selected."
 msgstr "Жодної бази даних не вибрано."
 
-#: libraries/classes/Controllers/ChangeLogController.php:38
+#: libraries/classes/Controllers/ChangeLogController.php:41
 #: libraries/classes/Controllers/LicenseController.php:36
 #, php-format
 msgid ""
@@ -5138,7 +5138,7 @@ msgid "Table %s has been emptied."
 msgstr "Таблиця %s очищено."
 
 #: libraries/classes/Controllers/Database/StructureController.php:578
-#: libraries/classes/Display/Results.php:3987
+#: libraries/classes/Display/Results.php:3984
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -5147,13 +5147,13 @@ msgstr ""
 "Подання має щонайменше цю кількість рядків. Будь-ласка, зверніться до "
 "%sдокументації%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:765
+#: libraries/classes/Controllers/Database/StructureController.php:766
 msgid "unknown"
 msgstr "невідоме"
 
 #: libraries/classes/Controllers/Database/Structure/DropTableController.php:56
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:74
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
 #: libraries/classes/Controllers/Table/DeleteRowsController.php:56
 #: libraries/classes/Controllers/Table/DropColumnController.php:57
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:58
@@ -5269,7 +5269,7 @@ msgstr ""
 "Ви вийшли з одного сервера, щоб повністю вийти з phpMyAdmin, ви повинні "
 "вийти з усіх серверів."
 
-#: libraries/classes/Controllers/HomeController.php:196
+#: libraries/classes/Controllers/HomeController.php:200
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5278,13 +5278,13 @@ msgstr ""
 "Сховище конфігурації phpMyAdmin не повністю налаштовано, деякі функції "
 "розширення було деактивовано. %sЗ'ясуйте чому%s. "
 
-#: libraries/classes/Controllers/HomeController.php:202
+#: libraries/classes/Controllers/HomeController.php:206
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Або перейдіть на вкладку 'Операції' будь-якої бази даних та налаштуйте там."
 
-#: libraries/classes/Controllers/HomeController.php:266
+#: libraries/classes/Controllers/HomeController.php:270
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -5296,7 +5296,7 @@ msgstr ""
 "параметр терміну зберігання кук визначений в phpMyAdmin. Тому Ваша сесія "
 "закінчиться раніше, ніж налаштовано в phpMyAdmin."
 
-#: libraries/classes/Controllers/HomeController.php:283
+#: libraries/classes/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -5305,7 +5305,7 @@ msgstr ""
 "визначений в phpMyAdmin. Тому Ваша сесія закінчиться раніше, ніж налаштовано "
 "в phpMyAdmin."
 
-#: libraries/classes/Controllers/HomeController.php:302
+#: libraries/classes/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -5315,7 +5315,7 @@ msgstr ""
 "(controlpass) і відкритий для втручання; вам потрібно виправити цю "
 "уразливість безпеки, змінивши пароль для controluser 'pma'."
 
-#: libraries/classes/Controllers/HomeController.php:324
+#: libraries/classes/Controllers/HomeController.php:328
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -5325,7 +5325,7 @@ msgstr ""
 "Для вас автоматично створено тимчасовий ключ. Перегляньте "
 "[doc@cfg_blowfish_secret]документацію[/doc]."
 
-#: libraries/classes/Controllers/HomeController.php:334
+#: libraries/classes/Controllers/HomeController.php:338
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -5335,7 +5335,7 @@ msgstr ""
 "Ключ шифрування cookie у файлі конфігурації довший, ніж потрібно. Він має "
 "мати лише %d байтів. Перегляньте [doc@cfg_blowfish_secret]документацію[/doc]."
 
-#: libraries/classes/Controllers/HomeController.php:352
+#: libraries/classes/Controllers/HomeController.php:356
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5347,7 +5347,7 @@ msgstr ""
 "видалити. В іншому випадку безпека вашого сервера може бути порушена через "
 "несанкціонований доступ до конфігураційного файлу завантаження."
 
-#: libraries/classes/Controllers/HomeController.php:373
+#: libraries/classes/Controllers/HomeController.php:377
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5356,7 +5356,7 @@ msgstr ""
 "Сервер працює з Suhosin. Щодо можливих проблем звертайтеся до "
 "%sдокументації%s."
 
-#: libraries/classes/Controllers/HomeController.php:387
+#: libraries/classes/Controllers/HomeController.php:391
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5365,7 +5365,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) недоступний. phpMyAdmin не може кешувати шаблони "
 "оскільки буде повільним через це."
 
-#: libraries/classes/Controllers/HomeController.php:444
+#: libraries/classes/Controllers/HomeController.php:448
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5375,7 +5375,7 @@ msgstr ""
 "багатобайтові символи. Без mbstring phpMyAdmin не зможе правильно виконати "
 "поділ текстових рядків, що може призвести до неочікуваних результатів."
 
-#: libraries/classes/Controllers/HomeController.php:462
+#: libraries/classes/Controllers/HomeController.php:466
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5392,7 +5392,7 @@ msgid "Succeeded"
 msgstr "Успішно"
 
 #: libraries/classes/Controllers/Import/ImportController.php:127
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
 msgid "Failed"
 msgstr "Помилка"
 
@@ -5457,7 +5457,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Оператор \"DROP DATABASE\" вимкнений."
 
-#: libraries/classes/Controllers/Import/SimulateDmlController.php:38
+#: libraries/classes/Controllers/Import/SimulateDmlController.php:90
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "Тільки однією з таблиць UPDATE і DELETE запити можуть бути змодельовані."
@@ -5721,7 +5721,7 @@ msgid "Simulate query"
 msgstr "Змоделювати запит"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:121
-#: libraries/classes/Html/Generator.php:837 templates/export.twig:67
+#: libraries/classes/Html/Generator.php:840 templates/export.twig:67
 msgid "SQL query:"
 msgstr "SQL-запит:"
 
@@ -5798,8 +5798,8 @@ msgstr "Видалення вибраних користувачів"
 #: templates/table/structure/display_structure.twig:355
 #: templates/table/structure/display_structure.twig:373
 #: templates/table/zoom_search/result_form.twig:27
-#: templates/table/zoom_search/result_form.twig:79
-#: templates/table/zoom_search/result_form.twig:96
+#: templates/table/zoom_search/result_form.twig:81
+#: templates/table/zoom_search/result_form.twig:98
 msgid "Close"
 msgstr "Закрити"
 
@@ -5850,13 +5850,13 @@ msgstr "Інше"
 
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:151
-#: libraries/classes/Util.php:550 libraries/classes/Util.php:582
+#: libraries/classes/Util.php:551 libraries/classes/Util.php:583
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:153
-#: libraries/classes/Util.php:548 libraries/classes/Util.php:580
+#: libraries/classes/Util.php:549 libraries/classes/Util.php:581
 msgid "."
 msgstr "."
 
@@ -5965,45 +5965,45 @@ msgstr "Процесів"
 
 #. l10n: shortcuts for Byte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:192
-#: libraries/classes/Util.php:458
+#: libraries/classes/Util.php:459
 msgid "B"
 msgstr "Б"
 
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:193
-#: libraries/classes/Util.php:460
+#: libraries/classes/Util.php:461
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
 msgstr "КБ"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:194
-#: libraries/classes/Util.php:462
+#: libraries/classes/Util.php:463
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
 msgstr "МБ"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:195
-#: libraries/classes/Util.php:464
+#: libraries/classes/Util.php:465
 msgid "GiB"
 msgstr "ГБ"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:196
-#: libraries/classes/Util.php:466
+#: libraries/classes/Util.php:467
 msgid "TiB"
 msgstr "ТБ"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:197
-#: libraries/classes/Util.php:468
+#: libraries/classes/Util.php:469
 msgid "PiB"
 msgstr "ПБ"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:198
-#: libraries/classes/Util.php:470
+#: libraries/classes/Util.php:471
 msgid "EiB"
 msgstr "ЕБ"
 
@@ -6023,7 +6023,7 @@ msgid "Traffic"
 msgstr "Трафік"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:204
-#: libraries/classes/Menu.php:523 libraries/classes/Util.php:1937
+#: libraries/classes/Menu.php:523 libraries/classes/Util.php:1944
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Налаштування"
@@ -6038,8 +6038,8 @@ msgid "Please add at least one variable to the series!"
 msgstr "Будь ласка, додайте хоча б одну змінну в серії!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:207
-#: libraries/classes/Display/Results.php:1266
-#: libraries/classes/Plugins/Export/ExportSql.php:2233
+#: libraries/classes/Display/Results.php:1269
+#: libraries/classes/Plugins/Export/ExportSql.php:2259
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:217
@@ -6252,7 +6252,7 @@ msgstr "Аналіз результатів"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:274
 #: libraries/classes/Menu.php:490
 #: libraries/classes/Server/Status/Processes.php:134
-#: libraries/classes/Util.php:1933 libraries/config.values.php:157
+#: libraries/classes/Util.php:1940 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:46
 #: templates/database/tracking/tables.twig:17
@@ -6638,7 +6638,13 @@ msgid "Show query box"
 msgstr "Показати вікно запиту"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#: libraries/classes/Display/Results.php:3042
+#, fuzzy
+#| msgid "Submit query"
+msgid "Edit query"
+msgstr "Відправити запит"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
+#: libraries/classes/Display/Results.php:3041
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -6646,33 +6652,33 @@ msgstr "Показати вікно запиту"
 #: templates/database/designer/main.twig:388
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
-#: templates/display/results/table.twig:235
-#: templates/display/results/table.twig:236 templates/export.twig:54
+#: templates/display/results/table.twig:238
+#: templates/display/results/table.twig:239 templates/export.twig:54
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
 #: templates/setup/home/index.twig:68 templates/sql/query.twig:186
 msgid "Delete"
 msgstr "Видалити"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d неправильний номер рядка."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/insert/column_row.twig:48
 #: templates/table/search/input_box.twig:27
 msgid "Browse foreign values"
 msgstr "Перегляд зовнішніх значень"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:392
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 "Немає раніше автоматично збереженого запиту. Завантажується запит за "
 "замовчуванням."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:394
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
@@ -6680,25 +6686,25 @@ msgstr ""
 "Ви маєте попередньо збережений запит. Натисніть кнопку Отримати автоматично "
 "збережений запит, щоб завантажити запит."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:395
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:396
 #, php-format
 msgid "Variable %d:"
 msgstr "Змінна %d:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:398
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
 #: libraries/classes/Normalization.php:1051
 msgid "Pick"
 msgstr "Підібрати"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
 msgid "Column selector"
 msgstr "Селектор стопця"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:401
 msgid "Search this list"
 msgstr "Шукати в цьому списку"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:402
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:403
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -6707,29 +6713,29 @@ msgstr ""
 "У основному списку відсутні стовпці. Впевніться, що в основному списку "
 "стовпців для бази даних %s містяться стовпці, що відсутні у поточній таблиці."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:406
 msgid "See more"
 msgstr "Бачити більше"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:408
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:409
 msgid "Add primary key"
 msgstr "Додати первинний ключ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:409
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
 msgid "Primary key added."
 msgstr "Додано первинний ключ."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:411
 #: libraries/classes/Normalization.php:282
 msgid "Taking you to next step…"
 msgstr "Перехід до наступного етапу…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:411
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:412
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Перший етап нормалізації для таблиці '%s' завершений."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:412
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
 #: libraries/classes/Normalization.php:540
 #: libraries/classes/Normalization.php:602
 #: libraries/classes/Normalization.php:699
@@ -6737,26 +6743,26 @@ msgstr "Перший етап нормалізації для таблиці '%s
 msgid "End of step"
 msgstr "Кінець етапу"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
 msgid "Second step of normalization (2NF)"
 msgstr "Другий етап нормалізації (2NF)"
 
 #. l10n: Display text for calendar close link
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:415
 #: libraries/classes/Normalization.php:375
 #: templates/javascript/variables.twig:15
 msgid "Done"
 msgstr "Готово"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:415
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
 msgid "Confirm partial dependencies"
 msgstr "Підтвердіть часткові залежності"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:417
 msgid "Selected partial dependencies are as follows:"
 msgstr "Обрані часткові залежності такі:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:418
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:419
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -6764,27 +6770,27 @@ msgstr ""
 "Зауважте: a, b -> d, f означає, що поєднані разом значення стовпців a і b "
 "будуть визначати значення стовпців d та f."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:421
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
 msgid "No partial dependencies selected!"
 msgstr "Немає обраних часткових залежностей!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
-#: libraries/classes/Export.php:589 libraries/classes/Html/Generator.php:937
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
+#: libraries/classes/Export.php:589 libraries/classes/Html/Generator.php:940
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:292
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "Назад"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "Покажіть мені можливі часткові залежності, що ґрунтуються на даних у таблиці"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:425
 msgid "Hide partial dependencies list"
 msgstr "Приховати список часткових залежностей"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:427
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -6792,40 +6798,40 @@ msgstr ""
 "Всім залишатись на місцях! Це може зайняти деякий час, залежно від розміру "
 "даних та кількості стовпців у таблиці."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
 msgid "Step"
 msgstr "Етап"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 msgid "The following actions will be performed:"
 msgstr "Будуть виконані наступні дії:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "СКИНУТИ стовпці %s для таблиці %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:432
 msgid "Create the following table"
 msgstr "Створити наступну таблицю"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:434
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
 msgid "Third step of normalization (3NF)"
 msgstr "Третій етап нормалізації (3NF)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
 msgid "Confirm transitive dependencies"
 msgstr "Підтвердіть перехресні залежності"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:437
 msgid "Selected dependencies are as follows:"
 msgstr "Вибрані залежності такі:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:437
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:438
 msgid "No dependencies selected!"
 msgstr "Жодної залежності не обрано!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:441
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:22
 #: templates/database/central_columns/main.twig:119
@@ -6835,89 +6841,94 @@ msgstr "Жодної залежності не обрано!"
 #: templates/table/insert/actions_panel.twig:7
 #: templates/table/relation/common_form.twig:225
 #: templates/table/structure/partition_definition_form.twig:12
-#: templates/table/zoom_search/result_form.twig:78
+#: templates/table/zoom_search/result_form.twig:80
 msgid "Save"
 msgstr "Зберегти"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:443
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
 msgid "Hide search criteria"
 msgstr "Сховати критерії пошуку"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
 msgid "Show search criteria"
 msgstr "Показати критерії пошуку"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:446
 msgid "Column maximum:"
 msgstr "Максимальний стовпець:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:446
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:447
 msgid "Column minimum:"
 msgstr "Мінімальний стовпець:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:449
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
 msgid "Hide find and replace criteria"
 msgstr "Сховати критерії пошуку та заміни"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:451
 msgid "Show find and replace criteria"
 msgstr "Показати критерії пошуку та заміни"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:455
 msgid "Each point represents a data row."
 msgstr "Кожна точка являє собою рядок даних."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:456
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:457
 msgid "Hovering over a point will show its label."
 msgstr "Наведення курсора над крапкою відобразить її назву."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:458
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:459
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Щоб збільшити масштаб, виберіть ділянку діаграми за допомогою миші."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:460
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:461
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 "Натисніть кнопку скидання масштабу, щоб повернутися до початкового стану."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:462
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:463
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 "Натисніть на точку даних щоб переглянути та можливо редагувати дані рядка."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:464
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:465
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 "Ділянка може бути змінена шляхом перетягування в нижньому правому куті."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:467
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:468
 msgid "Select two columns"
 msgstr "Виберіть два стовпця"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:469
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:470
 msgid "Select two different columns"
 msgstr "Виберіть два різних стовпця"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:471
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
 msgid "Data point content"
 msgstr "Вміст точки даних"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:423 libraries/classes/InsertEdit.php:2013
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:475
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:633
+#: libraries/classes/ErrorHandler.php:423 libraries/classes/InsertEdit.php:2012
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ігнорувати"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:475
-#: libraries/classes/Display/Results.php:2978
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
+#: templates/display/results/table.twig:263
+msgid "Copy to clipboard"
+msgstr "Скопіювати до буфера обміну"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:477
+#: libraries/classes/Display/Results.php:2977
 #: libraries/classes/Html/Generator.php:75
-#: templates/display/results/table.twig:231
-#: templates/display/results/table.twig:232
+#: templates/display/results/table.twig:234
+#: templates/display/results/table.twig:235
 msgid "Copy"
 msgstr "Копіювати"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:478
 #: templates/gis_data_editor_form.twig:84
 #: templates/gis_data_editor_form.twig:108
 #: templates/gis_data_editor_form.twig:153
@@ -6925,7 +6936,7 @@ msgstr "Копіювати"
 msgid "X"
 msgstr "X"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:477
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 #: templates/gis_data_editor_form.twig:88
 #: templates/gis_data_editor_form.twig:112
 #: templates/gis_data_editor_form.twig:157
@@ -6933,58 +6944,58 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:478
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:480
 msgid "Point"
 msgstr "Точка"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
 #, php-format
 msgid "Point %d"
 msgstr "Точка %d"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:480
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:482
 msgid "Linestring"
 msgstr "Відрізок"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
 msgid "Polygon"
 msgstr "Багатокутник"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:482
-#: templates/display/results/table.twig:174
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:484
+#: templates/display/results/table.twig:177
 msgid "Geometry"
 msgstr "Геометрія"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
 msgid "Inner ring"
 msgstr "Внутрішнє кільце"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:484
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
 msgid "Outer ring"
 msgstr "Зовнішнє кільце"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
 #: templates/gis_data_editor_form.twig:116
 #: templates/gis_data_editor_form.twig:161
 #: templates/gis_data_editor_form.twig:217
 msgid "Add a point"
 msgstr "Додати точку"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
 #: templates/gis_data_editor_form.twig:165
 #: templates/gis_data_editor_form.twig:220
 msgid "Add an inner ring"
 msgstr "Додати внутрішнє кільце"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:490
 msgid "Do you want to copy encryption key?"
 msgstr "Ви хочете скопіювати ключ шифрування?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
 msgid "Encryption key"
 msgstr "Ключ шифрування"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
@@ -6992,7 +7003,7 @@ msgstr ""
 "Функція HEX розглядатиме ціле число як рядок під час обчислення "
 "шістнадцяткового значення"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:499
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -7000,7 +7011,7 @@ msgstr ""
 "В MySQL можливе додавання значень не через вибір у колонці вибору. При "
 "необхідності це можна зробити безпосередньо з клавіатури"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:503
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:505
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -7008,7 +7019,7 @@ msgstr ""
 "В MySQL додаткові значення, які неможливо вибрати через інтерфейс, при "
 "необхідності введіть безпосередньо з клавіатури"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:509
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:511
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -7016,25 +7027,25 @@ msgstr ""
 "Вказує, що ви внесли зміни в цю сторінку; Вам буде запропоновано "
 "підтвердити, перш ніж відмовитися від змін"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:514
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:516
 msgid "Select referenced key"
 msgstr "Виберіть системний ключ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:515
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:517
 msgid "Select Foreign Key"
 msgstr "Виберіть зовнішній ключ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:516
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:518
 msgid "Please select the primary key or a unique key!"
 msgstr "Будь ласка, виберіть первинний ключ або унікальний ключ!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:517
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:519
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 msgid "Choose column to display"
 msgstr "Виберіть стовпець для відображення"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:519
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:521
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -7042,98 +7053,98 @@ msgstr ""
 "Ви не зберегли зміни в макет. Вони будуть втрачені, якщо ви не збережете їх. "
 "Бажаєте продовжити?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:522
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:524
 msgid "value/subQuery is empty"
 msgstr "значення/підзапит пусті"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:523
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:525
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 msgid "Add tables from other databases"
 msgstr "Додайте таблиці з інших баз даних"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:524
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:526
 msgid "Page name"
 msgstr "Назва сторінки"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:525
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 msgid "Save page"
 msgstr "Зберегти сторінку"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:526
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:528
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 msgid "Save page as"
 msgstr "Зберегти сторінку як"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:529
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 msgid "Open page"
 msgstr "Відкрити сторінку"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:528
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:530
 msgid "Delete page"
 msgstr "Видалити сторінку"
 
 #. l10n: When the user opens a page saved in the Designer
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:530
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 "Деякі таблиці, збережені на цій сторінці, можливо, були перейменовані або "
 "видалені."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "Без назви"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
 msgid "Please select a page to continue"
 msgstr "Будь ласка, виберіть сторінку для продовження"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
 msgid "Please enter a valid page name"
 msgstr "Будь-ласка, введіть допустиме ім`я сторінки"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
 msgid "Do you want to save the changes to the current page?"
 msgstr "Ви хочете зберегти зміни до поточної сторінки?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
 msgid "Successfully deleted the page"
 msgstr "Сторінка успішно видалена"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
 msgid "Export relational schema"
 msgstr "Експортувати схему зв'язків"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
 msgid "Modifications have been saved"
 msgstr "Зміни збережені"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 #, php-format
 msgid "%d object(s) created."
 msgstr "Створено %d об'єкт(ів)."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 msgid "Column name"
 msgstr "Ім'я стовпця"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:178
 msgid "Submit"
 msgstr "Виконати"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr ""
 "Натисніть Escape для відміни редагування.<br>- Shift+Enter для нового рядка."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -7141,15 +7152,15 @@ msgstr ""
 "Ви змінили деякі дані, і вони не були збережені. Ви впевнені, що хочете "
 "залишити цю сторінку перед збереженням даних?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
 msgid "Drag to reorder."
 msgstr "Перетягніть для зміни порядку."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
 msgid "Click to sort results by this column."
 msgstr "Натисніть для сортування за цим стовпцем."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -7159,19 +7170,19 @@ msgstr ""
 "ASC/DESC.<br>- Ctrl+клік чи Alt+клік (для Mac: Shift+Option+клік) для "
 "видалення стовпця з списку ORDER BY"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:557
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
 msgid "Click to mark/unmark."
 msgstr "Натисніть для встановлення/зняття позначки."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:560
 msgid "Double-click to copy column name."
 msgstr "Натисніть двічі, щоб скопіювати назву стовпця."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:561
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "Натисніть на випадаючу стрілку<br> для перемикання видимості стовпця."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:564
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -7180,13 +7191,13 @@ msgstr ""
 "редагування, прапорцем, посиланнями Редагувати, Копіювати та Видаляти можуть "
 "не працювати після збереження."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:565
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Будь-ласка введіть допустимий шістнадцятковий рядок. Допустимі символи: 0-9, "
 "A-F."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:569
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -7194,87 +7205,87 @@ msgstr ""
 "Ви дійсно хочете побачити усі рядки? Для великих таблиць це може призвести "
 "до зависання браузера."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:569
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:571
 msgid "Original length"
 msgstr "Початкова довжина"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 msgid "cancel"
 msgstr "скасувати"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:573
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
 #: libraries/classes/Controllers/Server/Status/StatusController.php:193
 msgid "Aborted"
 msgstr "Перервано"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 msgid "Success"
 msgstr "Успішно"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:578
 msgid "Import status"
 msgstr "Статус імпорту"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr "Скинути файли сюди"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:578
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:580
 msgid "Select database first"
 msgstr "Спочатку оберіть базу даних"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:584
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
 "Ви також можете редагувати більшість значень <br> двічі натиснувши прямо по "
 "них."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:584
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
 "Ви також можете редагувати більшість значень<br>натиснувши безпосередньо на "
 "них."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
 msgid "Go to link:"
 msgstr "Перейти за посиланням:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 msgid "Generate password"
 msgstr "Згенерувати пароль"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:593
 #: templates/server/replication/primary_add_replica_user.twig:73
 msgid "Generate"
 msgstr "Згенерувати"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
 #: libraries/classes/Controllers/UserPasswordController.php:84
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "Змінити пароль"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
 #: templates/table/structure/display_structure.twig:130
 msgid "More"
 msgstr "Більше"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:598
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
 msgid "Show panel"
 msgstr "Показати панель"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
 msgid "Hide panel"
 msgstr "Приховати панель"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:603
 #: libraries/classes/Navigation/NavigationTree.php:1355
 msgid "Unlink from main panel"
 msgstr "Видалити зв'язок з головною панеллю"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
 #: libraries/classes/Setup/Index.php:177
 #, php-format
 msgid ""
@@ -7285,34 +7296,34 @@ msgstr ""
 "Нава версія %s, випущена %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
 msgid ", latest stable version:"
 msgstr ", остання стабільна версія:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:612
 msgid "up to date"
 msgstr "оновлено"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:613
 msgid "There was an error in loading the Git information."
 msgstr "Сталася помилка під час завантаження інформації Git."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "Трапилася фатальна помилка JavaScript. Ви хочете відіслати звіт про неї?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
 msgid "Change report settings"
 msgstr "Змінити налаштування звіту"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
 msgid "Show report details"
 msgstr "Показати подробиці звіту"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -7320,7 +7331,7 @@ msgstr ""
 "Ваш експорт є неповним у зв'язку з низьким часовим лімітом для виконання на "
 "рівні PHP!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7330,76 +7341,76 @@ msgstr ""
 "надсилання деякі поля може бути проігноровано через значення РНР "
 "max_input_vars."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
 msgid "Some errors have been detected on the server!"
 msgstr "На сервері були виявлені деякі помилки!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
 msgid "Please look at the bottom of this window."
 msgstr "Будь-ласка зверніть увагу на нижню частину цього вікна."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:636
 #: libraries/classes/ErrorHandler.php:428
 msgid "Ignore All"
 msgstr "Ігнорувати все"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "Згідно ваших налаштувань, що наразі вносяться, будьте терплячими."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:649
 msgid "Column name successfully copied to clipboard!"
 msgstr "Назву стовпця успішно скопійовано в буфер обміну!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:650
 msgid "Column name copying to clipboard failed!"
 msgstr "Не вдалося скопіювати назву стовпця в буфер обміну!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:649
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
 msgid "Successfully copied!"
 msgstr "Успішно скопійовано!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:650
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
 msgid "Copying failed!"
 msgstr "Копіювання не вдалося!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
 msgid "Execute this query again?"
 msgstr "Виконати цей запит ще раз?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
 msgid "Do you really want to delete this bookmark?"
 msgstr "Ви дійсно бажаєте видалити цю закладку?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Сталася помилка при отриманні відомостей про налагодження SQL."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s запитів виконано %s раз(и) за %s секунд(и)."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s аргумент(ів) передано"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 msgid "Show arguments"
 msgstr "Показати аргументи"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
 msgid "Hide arguments"
 msgstr "Сховати аргументи"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 msgid "Time taken:"
 msgstr "Час створення:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7414,80 +7425,80 @@ msgstr ""
 "сайту\" може допомогти. В Safari, такі проблеми часто викликані установкою "
 "\"Приватний режим перегляду\"."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 msgid "Copy tables to"
 msgstr "Копіювати таблицю до"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:672
 msgid "Add table prefix"
 msgstr "Додати префікс таблиці"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:671
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
 msgid "Replace table with prefix"
 msgstr "Змінити префікс таблиці"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:672
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Копіювати таблицю з префіксом"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
 msgid "Extremely weak"
 msgstr "Надзвичайно слабкий"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Very weak"
 msgstr "Дуже слабкий"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Weak"
 msgstr "Слабкий"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
 msgid "Good"
 msgstr "Хороший"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 msgid "Strong"
 msgstr "Надійний"
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "Час очікування активації ключа безпеки."
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr "До ключа безпеки надіслано недійсний запит."
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr "Невідома помилка ключа безпеки."
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr "Клієнт не підтримує ключ безпеки."
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr "Не вдалося активізувати ключ безпеки."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Невірний ключ безпеки."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
@@ -7495,7 +7506,7 @@ msgstr ""
 "WebAuthn недоступний. Будь ласка, використовуйте підтримуваний браузер у "
 "безпечному контексті (HTTPS)."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:703
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
@@ -7505,20 +7516,20 @@ msgstr ""
 "IndexedDB не працює у вашому браузері, а сховище конфігурації phpMyAdmin не "
 "налаштовано для цього."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "Таблиця %s вже існує!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
 #: libraries/classes/InsertEdit.php:335
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Приховати"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:709
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:711
 #: libraries/classes/Controllers/Table/ChangeController.php:194
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -8365,7 +8376,7 @@ msgid "The number of threads that are not sleeping."
 msgstr "Кількість потоків в активному стані."
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:46
-#: libraries/classes/Util.php:837
+#: libraries/classes/Util.php:838
 msgid "Missing parameter:"
 msgstr "Відсутній параметр:"
 
@@ -8402,7 +8413,7 @@ msgid "Insecure connection"
 msgstr "Незахищене з'єднання"
 
 #: libraries/classes/Controllers/Sql/SqlController.php:235
-#: libraries/classes/Sql.php:1159
+#: libraries/classes/Sql.php:1165
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Закладку %s створено."
@@ -8413,7 +8424,7 @@ msgstr "Закладка не створена!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:151
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:275
-#: libraries/classes/Controllers/Table/Structure/SaveController.php:223
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:231
 #: libraries/classes/Table/Indexes.php:85
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -8465,8 +8476,8 @@ msgstr "Таблиця %s вже існує!"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:56
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
-#: libraries/classes/Database/Routines.php:1224
-#: libraries/classes/Display/Results.php:3700 libraries/classes/Message.php:172
+#: libraries/classes/Database/Routines.php:1222
+#: libraries/classes/Display/Results.php:3699 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Ваш SQL запит було виконано вдало."
@@ -8504,9 +8515,9 @@ msgid "There is an issue with your request."
 msgstr "Виникла проблема з вашим запитом."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
-#: libraries/classes/Database/Routines.php:1243
+#: libraries/classes/Database/Routines.php:1241
 #: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:229
-#: libraries/classes/Sql.php:973
+#: libraries/classes/Sql.php:978
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL повернула пустий результат (тобто нуль рядків)."
 
@@ -8532,7 +8543,7 @@ msgstr "Подання"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:62
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:62
 #: libraries/classes/Controllers/View/OperationsController.php:90
-#: libraries/classes/Html/Generator.php:813 libraries/classes/Import.php:133
+#: libraries/classes/Html/Generator.php:816 libraries/classes/Import.php:133
 #: libraries/classes/InsertEdit.php:724 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
@@ -8557,7 +8568,7 @@ msgstr "Рядок: %1$s, Стовпець: %2$s, Помилка: %3$s"
 msgid "Failed to get description of column %s!"
 msgstr "Не вдалося отримати опис стовпця %s!"
 
-#: libraries/classes/Controllers/Table/StructureController.php:226
+#: libraries/classes/Controllers/Table/StructureController.php:220
 #: templates/columns_definitions/column_attributes.twig:112
 #: templates/database/data_dictionary/index.twig:41
 #: templates/table/structure/display_structure.twig:137
@@ -8567,7 +8578,7 @@ msgstr "Не вдалося отримати опис стовпця %s!"
 msgid "Primary"
 msgstr "Первинний"
 
-#: libraries/classes/Controllers/Table/StructureController.php:230
+#: libraries/classes/Controllers/Table/StructureController.php:224
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_attributes.twig:120
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8579,12 +8590,12 @@ msgstr "Первинний"
 msgid "Index"
 msgstr "Індекс"
 
-#: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:178
+#: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:82
 msgid "The columns have been moved successfully."
 msgstr "Стовпці успішно переміщено."
 
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:267
-#: libraries/classes/Controllers/Table/Structure/SaveController.php:273
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:281
 #: libraries/classes/Tracking.php:776
 msgid "Query error"
 msgstr "Помилка запиту"
@@ -8597,7 +8608,7 @@ msgstr[0] "Ім'я '%s' є зарезервованим словом MySQL."
 msgstr[1] "Імена '%s' є зарезервованими словами MySQL."
 msgstr[2] "Імена '%s' є зарезервованими словами MySQL."
 
-#: libraries/classes/Controllers/Table/Structure/SaveController.php:218
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:226
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -8733,7 +8744,7 @@ msgstr ""
 #: libraries/classes/Database/Routines.php:225
 #: libraries/classes/Database/Routines.php:246
 #: libraries/classes/Database/Routines.php:348
-#: libraries/classes/Database/Routines.php:1250
+#: libraries/classes/Database/Routines.php:1248
 #: libraries/classes/Database/Triggers.php:117
 #: libraries/classes/Database/Triggers.php:126
 #: libraries/classes/Database/Triggers.php:153
@@ -8748,13 +8759,13 @@ msgstr "Наступний запит не виконався: \"%s\""
 #: libraries/classes/Database/Routines.php:229
 #: libraries/classes/Database/Routines.php:250
 #: libraries/classes/Database/Routines.php:352
-#: libraries/classes/Database/Routines.php:1254
-#: libraries/classes/Database/Routines.php:1540
+#: libraries/classes/Database/Routines.php:1252
+#: libraries/classes/Database/Routines.php:1538
 #: libraries/classes/Database/Triggers.php:121
 #: libraries/classes/Database/Triggers.php:130
 #: libraries/classes/Database/Triggers.php:157
 #: libraries/classes/Database/Triggers.php:437
-#: libraries/classes/Html/Generator.php:881
+#: libraries/classes/Html/Generator.php:884
 msgid "MySQL said: "
 msgstr "Відповідь MySQL: "
 
@@ -8783,7 +8794,7 @@ msgid "Edit event"
 msgstr "Редагувати подію"
 
 #: libraries/classes/Database/Events.php:404
-#: libraries/classes/Database/Routines.php:984
+#: libraries/classes/Database/Routines.php:982
 #: libraries/classes/Database/Triggers.php:381
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Визначник повинен бути в форматі \"username@hostname\"!"
@@ -8813,15 +8824,15 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr "Неможливо відновити видалену подію."
 
 #: libraries/classes/Database/Events.php:503
-#: libraries/classes/Database/Routines.php:1538
+#: libraries/classes/Database/Routines.php:1536
 #: libraries/classes/Database/Triggers.php:435
 msgid "The backed up query was:"
 msgstr "Збережений запит був:"
 
 #: libraries/classes/Database/Events.php:534
 #: libraries/classes/Database/Routines.php:151
-#: libraries/classes/Database/Routines.php:1143
-#: libraries/classes/Database/Routines.php:1312
+#: libraries/classes/Database/Routines.php:1141
+#: libraries/classes/Database/Routines.php:1310
 #: libraries/classes/Database/Triggers.php:466
 msgid "Error in processing request:"
 msgstr "Помилка при обробці запиту:"
@@ -8842,7 +8853,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Помилка в обробці запиту: Немає події з ім'ям %1$s в базі даних %2$s."
 
-#: libraries/classes/DatabaseInterface.php:1132
+#: libraries/classes/DatabaseInterface.php:1141
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -8854,19 +8865,19 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin в даний час використовує стандартний "
 "часовий пояс сервера бази даних."
 
-#: libraries/classes/DatabaseInterface.php:1177
+#: libraries/classes/DatabaseInterface.php:1186
 msgid "Failed to set configured collation connection!"
 msgstr "Не вдалося встановити конфігурацію співставлення підключення!"
 
-#: libraries/classes/DatabaseInterface.php:1870
+#: libraries/classes/DatabaseInterface.php:1959
 msgid "Missing connection parameters!"
 msgstr "Відсутні параметри з'єднання!"
 
-#: libraries/classes/DatabaseInterface.php:1895
+#: libraries/classes/DatabaseInterface.php:1984
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Помилка при вказуванні з'єднання для controluser в конфігурації."
 
-#: libraries/classes/DatabaseInterface.php:2316
+#: libraries/classes/DatabaseInterface.php:2399
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Дивіться %sнашу документацію%s для отримання додаткової інформації."
@@ -8927,7 +8938,7 @@ msgstr ""
 "вистачає необхідних привілеїв, щоб редагувати цю процедуру."
 
 #: libraries/classes/Database/Routines.php:206
-#: libraries/classes/Database/Routines.php:992
+#: libraries/classes/Database/Routines.php:990
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Неправильний тип порядку: \"%s\""
@@ -8937,27 +8948,27 @@ msgstr "Неправильний тип порядку: \"%s\""
 msgid "Routine %1$s has been created."
 msgstr "Порядок %1$s створено."
 
-#: libraries/classes/Database/Routines.php:413
+#: libraries/classes/Database/Routines.php:412
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Процедура %1$s була змінена. Привілеї були скориговані."
 
-#: libraries/classes/Database/Routines.php:418
+#: libraries/classes/Database/Routines.php:417
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Порядок %1$s було змінено."
 
-#: libraries/classes/Database/Routines.php:825
+#: libraries/classes/Database/Routines.php:823
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Ви повинні задати ім'я і тип для кожного параметра процедури."
 
-#: libraries/classes/Database/Routines.php:843
+#: libraries/classes/Database/Routines.php:841
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Неправильний напрямок \"%s\" задали для параметру."
 
-#: libraries/classes/Database/Routines.php:863
-#: libraries/classes/Database/Routines.php:930
+#: libraries/classes/Database/Routines.php:861
+#: libraries/classes/Database/Routines.php:928
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -8965,30 +8976,30 @@ msgstr ""
 "Ви повинні задати довжину/значення для параметрів процедури, що мають тип "
 "ENUM, SET, VARCHAR і VARBINARY."
 
-#: libraries/classes/Database/Routines.php:912
+#: libraries/classes/Database/Routines.php:910
 msgid "You must provide a valid return type for the routine."
 msgstr "Необхідно задати коректний тип, що повертатиму процедуру."
 
-#: libraries/classes/Database/Routines.php:1000
+#: libraries/classes/Database/Routines.php:998
 msgid "You must provide a routine name!"
 msgstr "Слід вказати назву процедури!"
 
-#: libraries/classes/Database/Routines.php:1065
+#: libraries/classes/Database/Routines.php:1063
 msgid "You must provide a routine definition."
 msgstr "Ви повинні задати визначення процедури."
 
-#: libraries/classes/Database/Routines.php:1145
-#: libraries/classes/Database/Routines.php:1314
+#: libraries/classes/Database/Routines.php:1143
+#: libraries/classes/Database/Routines.php:1312
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Немає процедури з ім'ям %1$s в базі даних %2$s."
 
-#: libraries/classes/Database/Routines.php:1184
+#: libraries/classes/Database/Routines.php:1182
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Результати виконання порядку %s"
 
-#: libraries/classes/Database/Routines.php:1232
+#: libraries/classes/Database/Routines.php:1230
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -8996,21 +9007,21 @@ msgstr[0] "%d рядок залежить від останнього опера
 msgstr[1] "%d рядки залежать від останнього оператора всередині процедури."
 msgstr[2] "%d рядків залежать від останнього оператора всередині процедури."
 
-#: libraries/classes/Database/Routines.php:1297
-#: libraries/classes/Database/Routines.php:1304
+#: libraries/classes/Database/Routines.php:1295
+#: libraries/classes/Database/Routines.php:1302
 msgid "Execute routine"
 msgstr "Виконати порядок"
 
-#: libraries/classes/Database/Routines.php:1537
+#: libraries/classes/Database/Routines.php:1535
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Вибачте, нам невдалось відновити видалений порядок."
 
-#: libraries/classes/Database/Routines.php:1567
+#: libraries/classes/Database/Routines.php:1565
 #, php-format
 msgid "Export of routine %s"
 msgstr "Експортувати порядок %s"
 
-#: libraries/classes/Database/Routines.php:1589
+#: libraries/classes/Database/Routines.php:1587
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -9120,45 +9131,45 @@ msgstr ""
 "Помилка 1045: користувачу заборонено доступ. Додаткова інформація про "
 "помилку може бути доступна, але вона приховується директивою конфігурації %s."
 
-#: libraries/classes/Display/Results.php:897 templates/list_navigator.twig:8
+#: libraries/classes/Display/Results.php:905 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
 msgctxt "First page"
 msgid "Begin"
 msgstr "Почати"
 
-#: libraries/classes/Display/Results.php:904 templates/list_navigator.twig:16
+#: libraries/classes/Display/Results.php:912 templates/list_navigator.twig:16
 #: templates/list_navigator.twig:21 templates/server/binlog/index.twig:47
 #: templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Попередня"
 
-#: libraries/classes/Display/Results.php:930 templates/list_navigator.twig:33
+#: libraries/classes/Display/Results.php:938 templates/list_navigator.twig:33
 #: templates/list_navigator.twig:35 templates/server/binlog/index.twig:72
 #: templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "Наступна"
 
-#: libraries/classes/Display/Results.php:960 templates/list_navigator.twig:42
+#: libraries/classes/Display/Results.php:968 templates/list_navigator.twig:42
 #: templates/list_navigator.twig:44
 msgctxt "Last page"
 msgid "End"
 msgstr "Кінець"
 
-#: libraries/classes/Display/Results.php:1473
-#: templates/display/results/table.twig:129
+#: libraries/classes/Display/Results.php:1476
+#: templates/display/results/table.twig:132
 msgid "Partial texts"
 msgstr "Часткові тексти"
 
-#: libraries/classes/Display/Results.php:1477
-#: templates/display/results/table.twig:133
+#: libraries/classes/Display/Results.php:1480
+#: templates/display/results/table.twig:136
 msgid "Full texts"
 msgstr "Повні тексти"
 
 #: libraries/classes/Display/Results.php:1823
-#: libraries/classes/Display/Results.php:1849 libraries/classes/Util.php:2560
-#: libraries/classes/Util.php:2583 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1849 libraries/classes/Util.php:2567
+#: libraries/classes/Util.php:2590 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -9171,8 +9182,8 @@ msgid "Descending"
 msgstr "За спаданням"
 
 #: libraries/classes/Display/Results.php:1831
-#: libraries/classes/Display/Results.php:1841 libraries/classes/Util.php:2552
-#: libraries/classes/Util.php:2575 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1841 libraries/classes/Util.php:2559
+#: libraries/classes/Util.php:2582 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -9184,41 +9195,41 @@ msgstr "За спаданням"
 msgid "Ascending"
 msgstr "За зростанням"
 
-#: libraries/classes/Display/Results.php:3018
-#: libraries/classes/Display/Results.php:3033
+#: libraries/classes/Display/Results.php:3017
+#: libraries/classes/Display/Results.php:3032
 msgid "The row has been deleted."
 msgstr "Рядок видалено."
 
-#: libraries/classes/Display/Results.php:3065
+#: libraries/classes/Display/Results.php:3064
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Анулювати"
 
-#: libraries/classes/Display/Results.php:3633
+#: libraries/classes/Display/Results.php:3632
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Може бути приблизним. Дивіться [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3996
+#: libraries/classes/Display/Results.php:3993
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Показано рядки %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4010
+#: libraries/classes/Display/Results.php:4007
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d всього, %2$d в запиті"
 
-#: libraries/classes/Display/Results.php:4015
+#: libraries/classes/Display/Results.php:4012
 #, php-format
 msgid "%d total"
 msgstr "всього %d"
 
-#: libraries/classes/Display/Results.php:4028 libraries/classes/Sql.php:979
+#: libraries/classes/Display/Results.php:4025 libraries/classes/Sql.php:984
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Запит виконувався %01.4f секунди."
 
-#: libraries/classes/Display/Results.php:4359
+#: libraries/classes/Display/Results.php:4356
 msgid "Link not found!"
 msgstr "Посилання не знайдено!"
 
@@ -9559,7 +9570,7 @@ msgstr ""
 "порядковий номер."
 
 #: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Html/Generator.php:742
+#: libraries/classes/Html/Generator.php:745
 #: libraries/classes/Html/MySQLDocumentation.php:50
 #: libraries/classes/Sanitize.php:203
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:246
@@ -9732,55 +9743,55 @@ msgid "Without PHP code"
 msgstr "Без PHP коду"
 
 #: libraries/classes/Html/Generator.php:636
-#: templates/database/multi_table_query/form.twig:175
+#: templates/database/multi_table_query/form.twig:184
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "Відправити запит"
 
-#: libraries/classes/Html/Generator.php:683 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:686 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "Профілювання"
 
-#: libraries/classes/Html/Generator.php:696
+#: libraries/classes/Html/Generator.php:699
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Порядкове редагування"
 
-#: libraries/classes/Html/Generator.php:820
+#: libraries/classes/Html/Generator.php:823
 msgid "Static analysis:"
 msgstr "Статичний аналіз:"
 
-#: libraries/classes/Html/Generator.php:823
+#: libraries/classes/Html/Generator.php:826
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "%d помилки знайдені під час аналізу."
 
-#: libraries/classes/Import.php:287 libraries/classes/Sql.php:987
+#: libraries/classes/Import.php:292 libraries/classes/Sql.php:992
 msgid "[ROLLBACK occurred.]"
 msgstr "[відбувся відкат]"
 
-#: libraries/classes/Import.php:1258
+#: libraries/classes/Import.php:1267
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Наступні структури були створені, або змінені. Ви можете:"
 
-#: libraries/classes/Import.php:1260
+#: libraries/classes/Import.php:1269
 msgid "View a structure's contents by clicking on its name."
 msgstr "Переглянути деталі структури натиснувши її ім'я."
 
-#: libraries/classes/Import.php:1261
+#: libraries/classes/Import.php:1270
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Змінити будь-яке налаштування натиснувши по відповідному посиланню "
 "\"Параметри\"."
 
-#: libraries/classes/Import.php:1262
+#: libraries/classes/Import.php:1271
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Відредагувати структуру за посиланням \"Структура\"."
 
-#: libraries/classes/Import.php:1266 libraries/classes/Import.php:1300
+#: libraries/classes/Import.php:1275 libraries/classes/Import.php:1309
 #: libraries/classes/Plugins/Export/ExportCodegen.php:66
 #: libraries/classes/Plugins/Export/ExportCsv.php:46
 #: libraries/classes/Plugins/Export/ExportExcel.php:39
@@ -9792,7 +9803,7 @@ msgstr "Відредагувати структуру за посиланням 
 #: libraries/classes/Plugins/Export/ExportOdt.php:59
 #: libraries/classes/Plugins/Export/ExportPdf.php:65
 #: libraries/classes/Plugins/Export/ExportPhparray.php:45
-#: libraries/classes/Plugins/Export/ExportSql.php:115
+#: libraries/classes/Plugins/Export/ExportSql.php:118
 #: libraries/classes/Plugins/Export/ExportTexytext.php:45
 #: libraries/classes/Plugins/Export/ExportXml.php:76
 #: libraries/classes/Plugins/Export/ExportYaml.php:44
@@ -9810,32 +9821,32 @@ msgstr "Відредагувати структуру за посиланням 
 msgid "Options"
 msgstr "Параметри"
 
-#: libraries/classes/Import.php:1269
+#: libraries/classes/Import.php:1278
 #, php-format
 msgid "Go to database: %s"
 msgstr "Перейти до бази даних: %s"
 
-#: libraries/classes/Import.php:1275 libraries/classes/Import.php:1318
+#: libraries/classes/Import.php:1284 libraries/classes/Import.php:1327
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Редагувати налаштування для %s"
 
-#: libraries/classes/Import.php:1303
+#: libraries/classes/Import.php:1312
 #, php-format
 msgid "Go to table: %s"
 msgstr "Перейти до таблиці: %s"
 
-#: libraries/classes/Import.php:1311
+#: libraries/classes/Import.php:1320
 #, php-format
 msgid "Structure of %s"
 msgstr "Структура %s"
 
-#: libraries/classes/Import.php:1329
+#: libraries/classes/Import.php:1338
 #, php-format
 msgid "Go to view: %s"
 msgstr "Перейти до подання: %s"
 
-#: libraries/classes/Import.php:1357
+#: libraries/classes/Import.php:1366
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -9912,11 +9923,11 @@ msgstr "Або"
 msgid "web server upload directory:"
 msgstr "каталог завантаження веб-сервера:"
 
-#: libraries/classes/InsertEdit.php:1344 libraries/classes/Sql.php:970
+#: libraries/classes/InsertEdit.php:1344 libraries/classes/Sql.php:975
 msgid "Showing SQL query"
 msgstr "Показ SQL-запиту"
 
-#: libraries/classes/InsertEdit.php:1368 libraries/classes/Sql.php:950
+#: libraries/classes/InsertEdit.php:1368 libraries/classes/Sql.php:955
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ідентифікатор вставленого рядка: %1$d"
@@ -9925,21 +9936,21 @@ msgstr "Ідентифікатор вставленого рядка: %1$d"
 msgid "Ignoring unsupported language code."
 msgstr "Ігнорувати непідтримуваний код мови."
 
-#: libraries/classes/Linter.php:108
+#: libraries/classes/Linter.php:119
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
 "Linting вимкнутий для цього запиту, оскільки він перевищує максимальну "
 "довжину."
 
-#: libraries/classes/Linter.php:162
+#: libraries/classes/Linter.php:171
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (приблизно <code>%2$s</code>)"
 
 #: libraries/classes/Menu.php:240
 #: libraries/classes/Navigation/Nodes/NodeTable.php:313
-#: libraries/classes/Util.php:1490 libraries/classes/Util.php:1962
+#: libraries/classes/Util.php:1492 libraries/classes/Util.php:1969
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -9949,8 +9960,8 @@ msgstr "Переглянути"
 
 #: libraries/classes/Menu.php:259 libraries/classes/Menu.php:366
 #: libraries/classes/Navigation/Nodes/NodeTable.php:304
-#: libraries/classes/Util.php:1488 libraries/classes/Util.php:1948
-#: libraries/classes/Util.php:1965 libraries/config.values.php:64
+#: libraries/classes/Util.php:1490 libraries/classes/Util.php:1955
+#: libraries/classes/Util.php:1972 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:28
 #: templates/database/routines/index.twig:29
@@ -9962,7 +9973,7 @@ msgstr "Пошук"
 
 #: libraries/classes/Menu.php:270
 #: libraries/classes/Navigation/Nodes/NodeTable.php:307
-#: libraries/classes/Util.php:1489 libraries/classes/Util.php:1966
+#: libraries/classes/Util.php:1491 libraries/classes/Util.php:1973
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -9972,8 +9983,8 @@ msgid "Insert"
 msgstr "Вставити"
 
 #: libraries/classes/Menu.php:296 libraries/classes/Menu.php:406
-#: libraries/classes/Server/Privileges.php:2845 libraries/classes/Util.php:1953
-#: libraries/classes/Util.php:1969 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2844 libraries/classes/Util.php:1960
+#: libraries/classes/Util.php:1976 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -9982,14 +9993,14 @@ msgid "Privileges"
 msgstr "Привілеї"
 
 #: libraries/classes/Menu.php:307 libraries/classes/Menu.php:317
-#: libraries/classes/Menu.php:397 libraries/classes/Util.php:1491
-#: libraries/classes/Util.php:1952 libraries/classes/Util.php:1970
+#: libraries/classes/Menu.php:397 libraries/classes/Util.php:1493
+#: libraries/classes/Util.php:1959 libraries/classes/Util.php:1977
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Операції"
 
 #: libraries/classes/Menu.php:323 libraries/classes/Menu.php:432
-#: libraries/classes/Util.php:1957 libraries/classes/Util.php:1971
+#: libraries/classes/Util.php:1964 libraries/classes/Util.php:1978
 msgid "Tracking"
 msgstr "Відстеження"
 
@@ -9999,10 +10010,10 @@ msgstr "Відстеження"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:558
 #: libraries/classes/Plugins/Export/ExportOdt.php:708
 #: libraries/classes/Plugins/Export/ExportPdf.php:270
-#: libraries/classes/Plugins/Export/ExportSql.php:2104
+#: libraries/classes/Plugins/Export/ExportSql.php:2116
 #: libraries/classes/Plugins/Export/ExportTexytext.php:548
 #: libraries/classes/Plugins/Export/ExportXml.php:120
-#: libraries/classes/Util.php:1956 libraries/classes/Util.php:1972
+#: libraries/classes/Util.php:1963 libraries/classes/Util.php:1979
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "Тригери"
@@ -10012,11 +10023,11 @@ msgstr "Тригери"
 msgid "Database seems to be empty!"
 msgstr "Порожня база даних!"
 
-#: libraries/classes/Menu.php:374 libraries/classes/Util.php:1949
+#: libraries/classes/Menu.php:374 libraries/classes/Util.php:1956
 msgid "Query"
 msgstr "Запит"
 
-#: libraries/classes/Menu.php:412 libraries/classes/Util.php:1954
+#: libraries/classes/Menu.php:412 libraries/classes/Util.php:1961
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "Процедури"
@@ -10024,17 +10035,17 @@ msgstr "Процедури"
 #: libraries/classes/Menu.php:418
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:1014
+#: libraries/classes/Plugins/Export/ExportSql.php:1026
 #: libraries/classes/Plugins/Export/ExportXml.php:100
-#: libraries/classes/Util.php:1955 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:1962 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "Події"
 
-#: libraries/classes/Menu.php:439 libraries/classes/Util.php:1958
+#: libraries/classes/Menu.php:439 libraries/classes/Util.php:1965
 msgid "Designer"
 msgstr "Designer"
 
-#: libraries/classes/Menu.php:446 libraries/classes/Util.php:1959
+#: libraries/classes/Menu.php:446 libraries/classes/Util.php:1966
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Головні стовпці"
@@ -10044,12 +10055,12 @@ msgid "User accounts"
 msgstr "Облікові записи"
 
 #: libraries/classes/Menu.php:538 libraries/classes/Server/Status/Data.php:152
-#: libraries/classes/Util.php:1938 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:1945 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Бінарний журнал"
 
 #: libraries/classes/Menu.php:545 libraries/classes/Server/Status/Data.php:157
-#: libraries/classes/Util.php:1939
+#: libraries/classes/Util.php:1946
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -10057,21 +10068,21 @@ msgid "Replication"
 msgstr "Реплікація"
 
 #: libraries/classes/Menu.php:551 libraries/classes/Server/Status/Data.php:229
-#: libraries/classes/Util.php:1940 libraries/config.values.php:159
+#: libraries/classes/Util.php:1947 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "Змінні"
 
-#: libraries/classes/Menu.php:556 libraries/classes/Util.php:1941
+#: libraries/classes/Menu.php:556 libraries/classes/Util.php:1948
 msgid "Charsets"
 msgstr "Кодування"
 
-#: libraries/classes/Menu.php:561 libraries/classes/Util.php:1943
+#: libraries/classes/Menu.php:561 libraries/classes/Util.php:1950
 msgid "Engines"
 msgstr "Двигуни"
 
-#: libraries/classes/Menu.php:566 libraries/classes/Util.php:1942
+#: libraries/classes/Menu.php:566 libraries/classes/Util.php:1949
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "Плагіни"
@@ -10211,11 +10222,11 @@ msgctxt "Create new database"
 msgid "New"
 msgstr "Нова"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:42
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:43
 msgid "Database operations"
 msgstr "Операції з базою даних"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:664
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:648
 msgid "Show hidden items"
 msgstr "Показувати приховані елементи"
 
@@ -10236,7 +10247,7 @@ msgstr "Подія"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:634
+#: libraries/classes/Plugins/Export/ExportSql.php:638
 #: libraries/classes/Plugins/Export/ExportXml.php:105
 msgid "Functions"
 msgstr "Функції"
@@ -10257,7 +10268,7 @@ msgstr "Розгорнути/Згорнути"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:623
+#: libraries/classes/Plugins/Export/ExportSql.php:627
 #: libraries/classes/Plugins/Export/ExportXml.php:110
 msgid "Procedures"
 msgstr "Процедури"
@@ -10601,37 +10612,37 @@ msgstr "Цей список заснований на підмножині да�
 msgid "No partial dependencies found!"
 msgstr "Часткових зв'язків не знайдено!"
 
-#: libraries/classes/Operations.php:554
+#: libraries/classes/Operations.php:552
 #: templates/table/structure/display_partitions.twig:84
 msgid "Analyze"
 msgstr "Аналізувати"
 
-#: libraries/classes/Operations.php:555
+#: libraries/classes/Operations.php:553
 #: templates/table/structure/display_partitions.twig:94
 msgid "Check"
 msgstr "Перевірити"
 
-#: libraries/classes/Operations.php:556
+#: libraries/classes/Operations.php:554
 #: templates/table/structure/display_partitions.twig:104
 msgid "Optimize"
 msgstr "Оптимізувати"
 
-#: libraries/classes/Operations.php:557
+#: libraries/classes/Operations.php:555
 #: templates/table/structure/display_partitions.twig:114
 msgid "Rebuild"
 msgstr "Перебудувати"
 
-#: libraries/classes/Operations.php:558
+#: libraries/classes/Operations.php:556
 #: templates/table/structure/display_partitions.twig:124
 msgid "Repair"
 msgstr "Відремонтувати"
 
-#: libraries/classes/Operations.php:559
+#: libraries/classes/Operations.php:557
 #: templates/table/structure/display_partitions.twig:134
 msgid "Truncate"
 msgstr "Обрізання"
 
-#: libraries/classes/Operations.php:571 templates/database/events/index.twig:20
+#: libraries/classes/Operations.php:569 templates/database/events/index.twig:20
 #: templates/database/events/index.twig:21
 #: templates/database/events/index.twig:98
 #: templates/database/events/index.twig:104
@@ -10657,39 +10668,39 @@ msgstr "Обрізання"
 msgid "Drop"
 msgstr "Знищити"
 
-#: libraries/classes/Operations.php:573
+#: libraries/classes/Operations.php:571
 msgid "Coalesce"
 msgstr "Об'єднати"
 
-#: libraries/classes/Operations.php:929
+#: libraries/classes/Operations.php:925
 msgid "Can't move table to same one!"
 msgstr "Не можу перенести таблицю саму в себе!"
 
-#: libraries/classes/Operations.php:931
+#: libraries/classes/Operations.php:927
 msgid "Can't copy table to same one!"
 msgstr "Не можу скопіювати таблицю саму в себе!"
 
-#: libraries/classes/Operations.php:955
+#: libraries/classes/Operations.php:951
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Таблицю %s було перенесено в %s. Привілеї були скориговані."
 
-#: libraries/classes/Operations.php:961
+#: libraries/classes/Operations.php:957
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Таблицю %s скопійовано в %s. Привілеї були скориговані."
 
-#: libraries/classes/Operations.php:968
+#: libraries/classes/Operations.php:964
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Таблицю %s було перенесено в %s."
 
-#: libraries/classes/Operations.php:972
+#: libraries/classes/Operations.php:968
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Таблицю %s було скопійовано в %s."
 
-#: libraries/classes/Operations.php:996
+#: libraries/classes/Operations.php:992
 msgid "The table name is empty!"
 msgstr "Порожня назва таблиці!"
 
@@ -10741,19 +10752,19 @@ msgstr "Повторіть спробу підключення"
 msgid "Your session has expired. Please log in again."
 msgstr "Ваш час сесії закінчився. Будь ласка увійдіть знову."
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:252
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:248
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr "Відсутня перевірка reCAPTCHA, можливо, вона заблокована adblock?"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:287
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:283
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "Не вдалося підключитися до служби reCAPTCHA!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:289
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:285
 msgid "Entered captcha is wrong, try again!"
 msgstr "Введений captcha неправильно, спробуйте ще раз!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:301
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:297
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
@@ -10761,7 +10772,7 @@ msgstr ""
 "Ваш пароль занадто довгий. Щоб запобігти атакам на відмову в обслуговуванні, "
 "phpMyAdmin обмежує довжину паролів до 2000 символів."
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:316
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "У вас немає прав для підключення до сервера MySQL!"
 
@@ -10847,7 +10858,7 @@ msgstr "Excel редакція:"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:66
 #: libraries/classes/Plugins/Export/ExportOdt.php:75
 #: libraries/classes/Plugins/Export/ExportPdf.php:91
-#: libraries/classes/Plugins/Export/ExportSql.php:242
+#: libraries/classes/Plugins/Export/ExportSql.php:245
 #: libraries/classes/Plugins/Export/ExportTexytext.php:61
 #: libraries/config.values.php:254 libraries/config.values.php:318
 #: libraries/config.values.php:334 libraries/config.values.php:342
@@ -10860,7 +10871,7 @@ msgstr "структура"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:67
 #: libraries/classes/Plugins/Export/ExportOdt.php:76
 #: libraries/classes/Plugins/Export/ExportPdf.php:92
-#: libraries/classes/Plugins/Export/ExportSql.php:243
+#: libraries/classes/Plugins/Export/ExportSql.php:246
 #: libraries/classes/Plugins/Export/ExportTexytext.php:62
 #: libraries/config.values.php:255 libraries/config.values.php:319
 #: libraries/config.values.php:335 libraries/config.values.php:343
@@ -10873,7 +10884,7 @@ msgstr "дані"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:68
 #: libraries/classes/Plugins/Export/ExportOdt.php:77
 #: libraries/classes/Plugins/Export/ExportPdf.php:93
-#: libraries/classes/Plugins/Export/ExportSql.php:244
+#: libraries/classes/Plugins/Export/ExportSql.php:247
 #: libraries/classes/Plugins/Export/ExportTexytext.php:63
 #: libraries/config.values.php:256 libraries/config.values.php:320
 #: libraries/config.values.php:336 libraries/config.values.php:344
@@ -10891,7 +10902,7 @@ msgstr "Параметри дампу даних"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:194
 #: libraries/classes/Plugins/Export/ExportOdt.php:245
-#: libraries/classes/Plugins/Export/ExportSql.php:2354
+#: libraries/classes/Plugins/Export/ExportSql.php:2380
 #: libraries/classes/Plugins/Export/ExportTexytext.php:178
 msgid "Dumping data for table"
 msgstr "Дамп даних таблиці"
@@ -10983,21 +10994,21 @@ msgstr "Визначення"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:548
 #: libraries/classes/Plugins/Export/ExportOdt.php:686
-#: libraries/classes/Plugins/Export/ExportSql.php:2090
+#: libraries/classes/Plugins/Export/ExportSql.php:2102
 #: libraries/classes/Plugins/Export/ExportTexytext.php:528
 msgid "Table structure for table"
 msgstr "Структура таблиці"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:566
 #: libraries/classes/Plugins/Export/ExportOdt.php:718
-#: libraries/classes/Plugins/Export/ExportSql.php:2141
+#: libraries/classes/Plugins/Export/ExportSql.php:2160
 #: libraries/classes/Plugins/Export/ExportTexytext.php:554
 msgid "Structure for view"
 msgstr "Структура для представлення"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:572
 #: libraries/classes/Plugins/Export/ExportOdt.php:738
-#: libraries/classes/Plugins/Export/ExportSql.php:2173
+#: libraries/classes/Plugins/Export/ExportSql.php:2199
 #: libraries/classes/Plugins/Export/ExportTexytext.php:570
 msgid "Stand-in structure for view"
 msgstr "Дублююча структура для представлення"
@@ -11026,7 +11037,7 @@ msgstr "Структура таблиці @TABLE@"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:107
 #: libraries/classes/Plugins/Export/ExportOdt.php:88
-#: libraries/classes/Plugins/Export/ExportSql.php:257
+#: libraries/classes/Plugins/Export/ExportSql.php:260
 msgid "Object creation options"
 msgstr "Параметри створення об'єкта"
 
@@ -11047,7 +11058,7 @@ msgstr "Ключ підпису:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:133
 #: libraries/classes/Plugins/Export/ExportOdt.php:96
-#: libraries/classes/Plugins/Export/ExportSql.php:151
+#: libraries/classes/Plugins/Export/ExportSql.php:154
 msgid "Display foreign key relationships"
 msgstr "Відображати відносини зовнішнього ключа"
 
@@ -11058,7 +11069,7 @@ msgstr "Відображення коментарів"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:146
 #: libraries/classes/Plugins/Export/ExportOdt.php:109
-#: libraries/classes/Plugins/Export/ExportSql.php:159
+#: libraries/classes/Plugins/Export/ExportSql.php:162
 msgid "Display media types"
 msgstr "Відображати типи медіа"
 
@@ -11067,7 +11078,7 @@ msgid "Put columns names in the first row:"
 msgstr "Помістити імена стовпців в перший рядок:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:210
-#: libraries/classes/Plugins/Export/ExportSql.php:754
+#: libraries/classes/Plugins/Export/ExportSql.php:758
 #: libraries/classes/Plugins/Export/ExportXml.php:232
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
@@ -11075,26 +11086,26 @@ msgid "Host:"
 msgstr "Хост:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
-#: libraries/classes/Plugins/Export/ExportSql.php:761
+#: libraries/classes/Plugins/Export/ExportSql.php:765
 #: libraries/classes/Plugins/Export/ExportXml.php:238
 msgid "Generation Time:"
 msgstr "Час створення:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:218
-#: libraries/classes/Plugins/Export/ExportSql.php:765
+#: libraries/classes/Plugins/Export/ExportSql.php:769
 #: libraries/classes/Plugins/Export/ExportXml.php:240
 #: templates/home/index.twig:175
 msgid "Server version:"
 msgstr "Версія сервера:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:219
-#: libraries/classes/Plugins/Export/ExportSql.php:767
+#: libraries/classes/Plugins/Export/ExportSql.php:771
 #: libraries/classes/Plugins/Export/ExportXml.php:241
 msgid "PHP Version:"
 msgstr "Версія PHP:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:246
-#: libraries/classes/Plugins/Export/ExportSql.php:947
+#: libraries/classes/Plugins/Export/ExportSql.php:953
 #: libraries/classes/Plugins/Export/ExportXml.php:395
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
 #: templates/database/structure/copy_form.twig:5
@@ -11103,7 +11114,7 @@ msgid "Database:"
 msgstr "База даних:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:312
-#: libraries/classes/Plugins/Export/ExportSql.php:2233
+#: libraries/classes/Plugins/Export/ExportSql.php:2259
 msgid "Data:"
 msgstr "Дані:"
 
@@ -11144,7 +11155,7 @@ msgstr "Перегляд структури"
 msgid "Stand in"
 msgstr "Вставити в"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:130
+#: libraries/classes/Plugins/Export/ExportSql.php:133
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -11152,11 +11163,11 @@ msgstr ""
 "Відображати примітки <i>(містить таку інформацію як часова позначка "
 "експорту, версію PHP і версію сервера)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:137
+#: libraries/classes/Plugins/Export/ExportSql.php:140
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Додати до заголовку власний коментар (\\n для розділення рядків):"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:143
+#: libraries/classes/Plugins/Export/ExportSql.php:146
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
@@ -11164,46 +11175,46 @@ msgstr ""
 "Включити час створення бази даних, час останнього оновлення а також час "
 "останньої перевірки"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:204
+#: libraries/classes/Plugins/Export/ExportSql.php:207
 msgid "Export metadata"
 msgstr "Експорт метаданих"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:219
+#: libraries/classes/Plugins/Export/ExportSql.php:222
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 "Максимальна сумісність з системою бази даних чи застарілою версією MySQL:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:265
+#: libraries/classes/Plugins/Export/ExportSql.php:268
 msgid "Add statements:"
 msgstr "Додати оператори:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:273
-#: libraries/classes/Plugins/Export/ExportSql.php:282
-#: libraries/classes/Plugins/Export/ExportSql.php:299
-#: libraries/classes/Plugins/Export/ExportSql.php:308
-#: libraries/classes/Plugins/Export/ExportSql.php:332
-#: libraries/classes/Plugins/Export/ExportSql.php:360
-#: libraries/classes/Plugins/Export/ExportSql.php:369
+#: libraries/classes/Plugins/Export/ExportSql.php:276
+#: libraries/classes/Plugins/Export/ExportSql.php:285
+#: libraries/classes/Plugins/Export/ExportSql.php:302
+#: libraries/classes/Plugins/Export/ExportSql.php:311
+#: libraries/classes/Plugins/Export/ExportSql.php:335
+#: libraries/classes/Plugins/Export/ExportSql.php:363
+#: libraries/classes/Plugins/Export/ExportSql.php:372
 #, php-format
 msgid "Add %s statement"
 msgstr "Додати оператор %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:315
+#: libraries/classes/Plugins/Export/ExportSql.php:318
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr "(менш ефективно, індекси будуть генеруватися в ході створення таблиці)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:322
+#: libraries/classes/Plugins/Export/ExportSql.php:325
 #, php-format
 msgid "%s value"
 msgstr "%s значення"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: libraries/classes/Plugins/Export/ExportSql.php:339
+#: libraries/classes/Plugins/Export/ExportSql.php:342
 msgid "Use simple view export"
 msgstr "Використовуйте простий експорт подання"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:378
+#: libraries/classes/Plugins/Export/ExportSql.php:381
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -11211,37 +11222,37 @@ msgstr ""
 "Укласти імена таблиць і полів у зворотні лапки <i> (Захищає імена таблиць і "
 "полів, які містять спеціальні символи або зарезервовані слова)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:393
+#: libraries/classes/Plugins/Export/ExportSql.php:396
 msgid "Data creation options"
 msgstr "Параметри створення даних"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:398
-#: libraries/classes/Plugins/Export/ExportSql.php:2311
+#: libraries/classes/Plugins/Export/ExportSql.php:401
+#: libraries/classes/Plugins/Export/ExportSql.php:2337
 msgid "Truncate table before insert"
 msgstr "Очистити таблицю перед вставкою"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:405
+#: libraries/classes/Plugins/Export/ExportSql.php:408
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Замість виразів <code>INSERT</code> використовуйте:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:411
+#: libraries/classes/Plugins/Export/ExportSql.php:414
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "Вирази <code>INSERT DELAYED</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:423
-#: libraries/classes/Plugins/Export/ExportSql.php:457
+#: libraries/classes/Plugins/Export/ExportSql.php:426
+#: libraries/classes/Plugins/Export/ExportSql.php:460
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "Вирази <code>INSERT IGNORE</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:437
+#: libraries/classes/Plugins/Export/ExportSql.php:440
 msgid "Function to use when dumping data:"
 msgstr "Використовувати оператор при зберіганні даних:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:452
+#: libraries/classes/Plugins/Export/ExportSql.php:455
 msgid "Syntax to use when inserting data:"
 msgstr "Використовувати синтаксис при вставці даних:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:462
+#: libraries/classes/Plugins/Export/ExportSql.php:465
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -11251,7 +11262,7 @@ msgstr ""
 "&nbsp; Приклад: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:467
+#: libraries/classes/Plugins/Export/ExportSql.php:470
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -11261,7 +11272,7 @@ msgstr ""
 "&nbsp; &nbsp; Приклад: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:472
+#: libraries/classes/Plugins/Export/ExportSql.php:475
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -11269,7 +11280,7 @@ msgstr ""
 "обидва вищезазначені<br>&nbsp;&nbsp;&nbsp; Наприклад: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:477
+#: libraries/classes/Plugins/Export/ExportSql.php:480
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -11277,7 +11288,7 @@ msgstr ""
 "жоден з вище перерахованих <br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
 "INTO tbl_name VALUES (1,2,3)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:496
+#: libraries/classes/Plugins/Export/ExportSql.php:499
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -11285,7 +11296,7 @@ msgstr ""
 "Збереження бінарних полів в шістнадцятковому вигляді <i>(наприклад, \"abc\" "
 "стане 0x616263)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:505
+#: libraries/classes/Plugins/Export/ExportSql.php:508
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -11294,100 +11305,100 @@ msgstr ""
 "поля з типом TIMESTAMP між серверами, що знаходяться в різних часових "
 "зонах)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:582
+#: libraries/classes/Plugins/Export/ExportSql.php:586
 msgid "It appears your database uses routines;"
 msgstr "Виявляється, ваша база даних використовує процедури;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:585
-#: libraries/classes/Plugins/Export/ExportSql.php:1614
-#: libraries/classes/Plugins/Export/ExportSql.php:2129
+#: libraries/classes/Plugins/Export/ExportSql.php:589
+#: libraries/classes/Plugins/Export/ExportSql.php:1626
+#: libraries/classes/Plugins/Export/ExportSql.php:2148
 msgid "alias export may not work reliably in all cases."
 msgstr "експорт псевдоніма не може надійно працювати у всіх випадках."
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1066
+#: libraries/classes/Plugins/Export/ExportSql.php:1078
 msgid "Metadata"
 msgstr "Метадані"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1134
+#: libraries/classes/Plugins/Export/ExportSql.php:1146
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Метадані таблиці %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1141
+#: libraries/classes/Plugins/Export/ExportSql.php:1153
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Метадані бази даних %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1458
+#: libraries/classes/Plugins/Export/ExportSql.php:1470
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
 msgid "Creation:"
 msgstr "Створення:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1468
+#: libraries/classes/Plugins/Export/ExportSql.php:1480
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:642
 msgid "Last update:"
 msgstr "Останнє оновлення:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1478
+#: libraries/classes/Plugins/Export/ExportSql.php:1490
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:653
 msgid "Last check:"
 msgstr "Остання перевірка:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1529
+#: libraries/classes/Plugins/Export/ExportSql.php:1541
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Помилка читання структури таблиці %s:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1611
+#: libraries/classes/Plugins/Export/ExportSql.php:1623
 msgid "It appears your database uses views;"
 msgstr "Виявляється, ваша база даних використовує подання;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1778
+#: libraries/classes/Plugins/Export/ExportSql.php:1790
 msgid "Constraints for dumped tables"
 msgstr "Обмеження зовнішнього ключа збережених таблиць"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1779
+#: libraries/classes/Plugins/Export/ExportSql.php:1791
 msgid "Constraints for table"
 msgstr "Обмеження зовнішнього ключа таблиці"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1806
+#: libraries/classes/Plugins/Export/ExportSql.php:1818
 msgid "Indexes for dumped tables"
 msgstr "Індекси збережених таблиць"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1807
+#: libraries/classes/Plugins/Export/ExportSql.php:1819
 msgid "Indexes for table"
 msgstr "Індекси таблиці"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1843
+#: libraries/classes/Plugins/Export/ExportSql.php:1855
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT для збережених таблиць"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1844
+#: libraries/classes/Plugins/Export/ExportSql.php:1856
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT для таблиці"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1919
+#: libraries/classes/Plugins/Export/ExportSql.php:1931
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "МЕДІА-ТИПИ ТАБЛИЦІ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1944
+#: libraries/classes/Plugins/Export/ExportSql.php:1956
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "ЗВ'ЯЗКИ ТАБЛИЦІ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2126
+#: libraries/classes/Plugins/Export/ExportSql.php:2145
 msgid "It appears your table uses triggers;"
 msgstr "Схоже, таблиця використовує тригери;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2156
+#: libraries/classes/Plugins/Export/ExportSql.php:2175
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Структура для подання %s, експортованого як таблиця"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2176
+#: libraries/classes/Plugins/Export/ExportSql.php:2202
 msgid "(See below for the actual view)"
 msgstr "(Див. нижче для фактичного подання)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2244
+#: libraries/classes/Plugins/Export/ExportSql.php:2270
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Помилка читання даних таблиці %s:"
@@ -11699,7 +11710,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:72
-#: libraries/classes/Util.php:709
+#: libraries/classes/Util.php:710
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d %Y р., %H:%M"
 
@@ -12078,7 +12089,7 @@ msgstr "Неможливо змінити головний сервер!"
 msgid "Primary server changed successfully to %s."
 msgstr "Головний сервер змінений на %s вдало."
 
-#: libraries/classes/Routing.php:103
+#: libraries/classes/Routing.php:109
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
@@ -12087,12 +12098,12 @@ msgstr ""
 "Не вдалося записати кеш маршрутизації, вам потрібно налаштувати права "
 "доступу до папки/файлу \"%s\""
 
-#: libraries/classes/Routing.php:162
+#: libraries/classes/Routing.php:168
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Помилка 404! Сторінку %s не знайдено."
 
-#: libraries/classes/Routing.php:173
+#: libraries/classes/Routing.php:179
 msgid "Error 405! Request method not allowed."
 msgstr "Помилка 405! Метод запиту не дозволений."
 
@@ -12123,7 +12134,7 @@ msgstr "Помилка під час завантаження пошуку."
 
 #: libraries/classes/Server/Plugins.php:68
 #: libraries/classes/Server/Privileges.php:795
-#: libraries/classes/Server/Privileges.php:3720
+#: libraries/classes/Server/Privileges.php:3719
 msgid "Native MySQL authentication"
 msgstr "Власна авторизація MySQL"
 
@@ -12457,27 +12468,27 @@ msgstr "Користувача не знайдено."
 msgid "Deleting %s"
 msgstr "Видалення %s"
 
-#: libraries/classes/Server/Privileges.php:2483
+#: libraries/classes/Server/Privileges.php:2482
 msgid "The privileges were reloaded successfully."
 msgstr "Привілеї перезавантажено вдало."
 
-#: libraries/classes/Server/Privileges.php:2587
+#: libraries/classes/Server/Privileges.php:2586
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Користувач %s вже існує!"
 
-#: libraries/classes/Server/Privileges.php:2862
+#: libraries/classes/Server/Privileges.php:2861
 #, php-format
 msgid "Privileges for %s"
 msgstr "Привілеї для %s"
 
-#: libraries/classes/Server/Privileges.php:2871
+#: libraries/classes/Server/Privileges.php:2870
 #: libraries/classes/Server/Status/Processes.php:114
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Користувач"
 
-#: libraries/classes/Server/Privileges.php:2982
+#: libraries/classes/Server/Privileges.php:2981
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12488,7 +12499,7 @@ msgstr ""
 "підключатися, якщо їх обліковий запис користувача дозволяє з'єднання з будь-"
 "якого (%) хоста."
 
-#: libraries/classes/Server/Privileges.php:3017
+#: libraries/classes/Server/Privileges.php:3016
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12502,7 +12513,7 @@ msgstr ""
 "Вам необхідно перед продовженням %sперезавантажити привілеї%s , щоб зміни "
 "вступили в силу."
 
-#: libraries/classes/Server/Privileges.php:3033
+#: libraries/classes/Server/Privileges.php:3032
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12516,7 +12527,7 @@ msgstr ""
 "Вам необхідно перед продовженням перезавантажити привілеї, щоб зміни "
 "вступили в силу. На даний час, у Вас не має ПЕРЕЗАВАНТАЖЕНИХ привілей."
 
-#: libraries/classes/Server/Privileges.php:3347
+#: libraries/classes/Server/Privileges.php:3346
 msgid "You have added a new user."
 msgstr "Ви додали нового користувача."
 
@@ -12640,16 +12651,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Нова стабільна версія відсутня"
 
-#: libraries/classes/Sql.php:499
+#: libraries/classes/Sql.php:500
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Як стандартний запит на огляд даних використовується закладка \"%s\"."
 
-#: libraries/classes/Sql.php:967
+#: libraries/classes/Sql.php:972
 msgid "Showing as PHP code"
 msgstr "Показ у вигляді коду PHP"
 
-#: libraries/classes/Sql.php:1342
+#: libraries/classes/Sql.php:1351
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12658,7 +12669,7 @@ msgstr ""
 "Поточний вибір не містить унікального стовпця. Використання функцій "
 "редагування сітки, прапоців, Редагувати, Копіювати та Видалити недоступні. %s"
 
-#: libraries/classes/Sql.php:1356
+#: libraries/classes/Sql.php:1365
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13263,139 +13274,139 @@ msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
 "Не вдалося отримати доступ до бази даних сховища конфігурації phpMyAdmin."
 
-#: libraries/classes/Util.php:131
+#: libraries/classes/Util.php:132
 #, php-format
 msgid "Max: %s%s"
 msgstr "Максимум: %s%s"
 
 #. l10n: Short month name
 #. l10n: Short month name for January
-#: libraries/classes/Util.php:666 templates/javascript/variables.twig:34
+#: libraries/classes/Util.php:667 templates/javascript/variables.twig:34
 msgid "Jan"
 msgstr "Січ"
 
 #. l10n: Short month name
 #. l10n: Short month name for February
-#: libraries/classes/Util.php:668 templates/javascript/variables.twig:35
+#: libraries/classes/Util.php:669 templates/javascript/variables.twig:35
 msgid "Feb"
 msgstr "Лют"
 
 #. l10n: Short month name
 #. l10n: Short month name for March
-#: libraries/classes/Util.php:670 templates/javascript/variables.twig:36
+#: libraries/classes/Util.php:671 templates/javascript/variables.twig:36
 msgid "Mar"
 msgstr "Бер"
 
 #. l10n: Short month name
 #. l10n: Short month name for April
-#: libraries/classes/Util.php:672 templates/javascript/variables.twig:37
+#: libraries/classes/Util.php:673 templates/javascript/variables.twig:37
 msgid "Apr"
 msgstr "Квт"
 
 #. l10n: Short month name
-#: libraries/classes/Util.php:674
+#: libraries/classes/Util.php:675
 msgctxt "Short month name"
 msgid "May"
 msgstr "Трв"
 
 #. l10n: Short month name
 #. l10n: Short month name for June
-#: libraries/classes/Util.php:676 templates/javascript/variables.twig:39
+#: libraries/classes/Util.php:677 templates/javascript/variables.twig:39
 msgid "Jun"
 msgstr "Чрв"
 
 #. l10n: Short month name
 #. l10n: Short month name for July
-#: libraries/classes/Util.php:678 templates/javascript/variables.twig:40
+#: libraries/classes/Util.php:679 templates/javascript/variables.twig:40
 msgid "Jul"
 msgstr "Лип"
 
 #. l10n: Short month name
 #. l10n: Short month name for August
-#: libraries/classes/Util.php:680 templates/javascript/variables.twig:41
+#: libraries/classes/Util.php:681 templates/javascript/variables.twig:41
 msgid "Aug"
 msgstr "Сер"
 
 #. l10n: Short month name
 #. l10n: Short month name for September
-#: libraries/classes/Util.php:682 templates/javascript/variables.twig:42
+#: libraries/classes/Util.php:683 templates/javascript/variables.twig:42
 msgid "Sep"
 msgstr "Вер"
 
 #. l10n: Short month name
 #. l10n: Short month name for October
-#: libraries/classes/Util.php:684 templates/javascript/variables.twig:43
+#: libraries/classes/Util.php:685 templates/javascript/variables.twig:43
 msgid "Oct"
 msgstr "Жов"
 
 #. l10n: Short month name
 #. l10n: Short month name for November
-#: libraries/classes/Util.php:686 templates/javascript/variables.twig:44
+#: libraries/classes/Util.php:687 templates/javascript/variables.twig:44
 msgid "Nov"
 msgstr "Лис"
 
 #. l10n: Short month name
 #. l10n: Short month name for December
-#: libraries/classes/Util.php:688 templates/javascript/variables.twig:45
+#: libraries/classes/Util.php:689 templates/javascript/variables.twig:45
 msgid "Dec"
 msgstr "Гру"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Util.php:692
+#: libraries/classes/Util.php:693
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Нд"
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Util.php:694 templates/javascript/variables.twig:58
+#: libraries/classes/Util.php:695 templates/javascript/variables.twig:58
 msgid "Mon"
 msgstr "Пон"
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Util.php:696 templates/javascript/variables.twig:59
+#: libraries/classes/Util.php:697 templates/javascript/variables.twig:59
 msgid "Tue"
 msgstr "Вт"
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Util.php:698 templates/javascript/variables.twig:60
+#: libraries/classes/Util.php:699 templates/javascript/variables.twig:60
 msgid "Wed"
 msgstr "Сер"
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Util.php:700 templates/javascript/variables.twig:61
+#: libraries/classes/Util.php:701 templates/javascript/variables.twig:61
 msgid "Thu"
 msgstr "Чт"
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Util.php:702 templates/javascript/variables.twig:62
+#: libraries/classes/Util.php:703 templates/javascript/variables.twig:62
 msgid "Fri"
 msgstr "Пт"
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Util.php:704 templates/javascript/variables.twig:63
+#: libraries/classes/Util.php:705 templates/javascript/variables.twig:63
 msgid "Sat"
 msgstr "Сб"
 
-#: libraries/classes/Util.php:730
+#: libraries/classes/Util.php:731
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "РМ"
 
-#: libraries/classes/Util.php:732
+#: libraries/classes/Util.php:733
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "АМ"
 
-#: libraries/classes/Util.php:803
+#: libraries/classes/Util.php:804
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s днів, %s годин, %s хвилин і %s секунд"
 
-#: libraries/classes/Util.php:1934
+#: libraries/classes/Util.php:1941
 msgid "Users"
 msgstr "Користувачі"
 
-#: libraries/classes/Util.php:2544
+#: libraries/classes/Util.php:2551
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "Сортувати"
@@ -13415,7 +13426,7 @@ msgstr "Піктограми"
 
 #: libraries/config.values.php:89 libraries/config.values.php:127
 #: libraries/config.values.php:139
-#: templates/database/multi_table_query/form.twig:118
+#: templates/database/multi_table_query/form.twig:127
 msgid "Text"
 msgstr "Текст"
 
@@ -13712,7 +13723,7 @@ msgstr ""
 #: templates/table/insert/actions_panel.twig:46
 #: templates/table/relation/common_form.twig:233
 #: templates/table/zoom_search/result_form.twig:26
-#: templates/table/zoom_search/result_form.twig:95
+#: templates/table/zoom_search/result_form.twig:97
 msgid "Loading"
 msgstr "Завантаження"
 
@@ -14106,12 +14117,12 @@ msgid "The central list of columns for the current database is empty"
 msgstr "Основний список стовпців для поточної бази даних порожній"
 
 #: templates/database/central_columns/main.twig:166
-#: templates/display/results/table.twig:62
+#: templates/display/results/table.twig:65
 msgid "Filter rows"
 msgstr "Фільтрувати рядки"
 
 #: templates/database/central_columns/main.twig:167
-#: templates/display/results/table.twig:64
+#: templates/display/results/table.twig:67
 msgid "Search this table"
 msgstr "Шукати в таблиці"
 
@@ -14174,7 +14185,7 @@ msgstr "Коментар бази даних:"
 #: templates/database/data_dictionary/index.twig:8
 #: templates/database/data_dictionary/index.twig:124
 #: templates/database/structure/index.twig:19
-#: templates/display/results/table.twig:258
+#: templates/display/results/table.twig:261
 #: templates/table/structure/display_structure.twig:393
 msgid "Print"
 msgstr "Друк"
@@ -14487,8 +14498,8 @@ msgstr "Визначник"
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
 #: templates/database/triggers/list.twig:14
-#: templates/display/results/table.twig:223
-#: templates/display/results/table.twig:224 templates/select_all.twig:4
+#: templates/display/results/table.twig:226
+#: templates/display/results/table.twig:227 templates/select_all.twig:4
 #: templates/select_all.twig:5 templates/server/databases/index.twig:64
 #: templates/server/privileges/edit_routine_privileges.twig:57
 #: templates/server/privileges/privileges_table.twig:268
@@ -14573,12 +14584,13 @@ msgid "Query window"
 msgstr "Вікно запиту"
 
 #: templates/database/multi_table_query/form.twig:38
-#: templates/database/multi_table_query/form.twig:128
+#: templates/database/multi_table_query/form.twig:137
 msgid "select table"
 msgstr "вибрати таблицю"
 
 #: templates/database/multi_table_query/form.twig:45
-#: templates/database/multi_table_query/form.twig:136
+#: templates/database/multi_table_query/form.twig:95
+#: templates/database/multi_table_query/form.twig:145
 msgid "select column"
 msgstr "вибрати стовпець"
 
@@ -14602,24 +14614,24 @@ msgstr "критерій"
 msgid "Add as"
 msgstr "Додати як"
 
-#: templates/database/multi_table_query/form.twig:119
+#: templates/database/multi_table_query/form.twig:128
 msgid "Another column"
 msgstr "Інший стовпець"
 
-#: templates/database/multi_table_query/form.twig:146
+#: templates/database/multi_table_query/form.twig:155
 msgid "Enter criteria as free text"
 msgstr "Введіть критерії як вільний текст"
 
-#: templates/database/multi_table_query/form.twig:153
+#: templates/database/multi_table_query/form.twig:162
 msgid "Remove this column"
 msgstr "Видалити цей стовпець"
 
-#: templates/database/multi_table_query/form.twig:159
+#: templates/database/multi_table_query/form.twig:168
 #: templates/table/relation/foreign_key_row.twig:85
 msgid "+ Add column"
 msgstr "+ Додати стовпець"
 
-#: templates/database/multi_table_query/form.twig:174
+#: templates/database/multi_table_query/form.twig:183
 #: templates/database/qbe/selection_form.twig:80
 #: templates/database/qbe/selection_form.twig:96
 msgid "Update query"
@@ -14753,8 +14765,8 @@ msgstr "порядок"
 #: templates/database/privileges/index.twig:115
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
-#: templates/display/results/table.twig:222
-#: templates/display/results/table.twig:225 templates/select_all.twig:2
+#: templates/display/results/table.twig:225
+#: templates/display/results/table.twig:228 templates/select_all.twig:2
 #: templates/select_all.twig:6
 #: templates/server/privileges/users_overview.twig:120
 #: templates/server/privileges/users_overview.twig:123
@@ -15137,7 +15149,7 @@ msgid "Showing create queries"
 msgstr "Показувати створювані запити"
 
 #: templates/database/structure/show_create.twig:33
-#: templates/display/results/table.twig:297 templates/modals/create_view.twig:5
+#: templates/display/results/table.twig:300 templates/modals/create_view.twig:5
 #: templates/sql/no_results_returned.twig:13 templates/view_create.twig:11
 msgid "Create view"
 msgstr "Створити подання"
@@ -15275,62 +15287,58 @@ msgstr "Відновити порядок стовпців"
 msgid "Number of rows:"
 msgstr "Число рядків:"
 
-#: templates/display/results/table.twig:52
+#: templates/display/results/table.twig:53
 msgid "All"
 msgstr "Все"
 
-#: templates/display/results/table.twig:70
+#: templates/display/results/table.twig:73
 msgid "Sort by key:"
 msgstr "Сортувати за ключем:"
 
-#: templates/display/results/table.twig:119
+#: templates/display/results/table.twig:122
 #: templates/table/search/index.twig:102
 msgid "Extra options"
 msgstr "Екстра параметри"
 
-#: templates/display/results/table.twig:141
+#: templates/display/results/table.twig:144
 msgid "Relational key"
 msgstr "Ключ відношення"
 
-#: templates/display/results/table.twig:145
+#: templates/display/results/table.twig:148
 msgid "Display column for relationships"
 msgstr "Відображати стовпець відносин"
 
-#: templates/display/results/table.twig:153
+#: templates/display/results/table.twig:156
 msgid "Show binary contents"
 msgstr "Показати двійковий вміст"
 
-#: templates/display/results/table.twig:157
+#: templates/display/results/table.twig:160
 msgid "Show BLOB contents"
 msgstr "Показати вміст BLOB-ОБ'ЄКТІВ"
 
-#: templates/display/results/table.twig:167
+#: templates/display/results/table.twig:170
 msgid "Hide browser transformation"
 msgstr "Сховати перетворення"
 
-#: templates/display/results/table.twig:179
+#: templates/display/results/table.twig:182
 msgid "Well Known Text"
 msgstr "Добре відомий текст"
 
-#: templates/display/results/table.twig:183
+#: templates/display/results/table.twig:186
 msgid "Well Known Binary"
 msgstr "Добре відомий бінарний"
 
-#: templates/display/results/table.twig:255
+#: templates/display/results/table.twig:258
 #: templates/sql/no_results_returned.twig:9
 msgid "Query results operations"
 msgstr "Операції з результатами запиту"
 
-#: templates/display/results/table.twig:260
-msgid "Copy to clipboard"
-msgstr "Скопіювати до буфера обміну"
-
-#: templates/display/results/table.twig:279
+#: templates/display/results/table.twig:282
 #: templates/table/chart/tbl_chart.twig:2
 msgid "Display chart"
 msgstr "Відобразити діаграму"
 
-#: templates/display/results/table.twig:287
+#: templates/display/results/table.twig:290
 msgid "Visualize GIS data"
 msgstr "Візуалізація даних GIS"
 
