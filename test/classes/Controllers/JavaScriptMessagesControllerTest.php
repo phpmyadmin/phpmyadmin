@@ -40,6 +40,6 @@ class JavaScriptMessagesControllerTest extends TestCase
 
         self::assertIsArray($array);
         self::assertArrayHasKey('strConfirm', $array);
-        self::assertEquals(__('Confirm'), $array['strConfirm']);
+        self::assertSame(__('Confirm'), $array['strConfirm']);
     }
 }

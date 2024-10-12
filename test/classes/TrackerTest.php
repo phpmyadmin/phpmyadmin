@@ -94,7 +94,7 @@ class TrackerTest extends AbstractTestCase
      */
     public function testGetTableName(string $string, string $expected): void
     {
-        self::assertEquals($expected, $this->callFunction(null, Tracker::class, 'getTableName', [$string]));
+        self::assertSame($expected, $this->callFunction(null, Tracker::class, 'getTableName', [$string]));
     }
 
     /**
@@ -156,7 +156,7 @@ class TrackerTest extends AbstractTestCase
         $date = Util::date('Y-m-d H:i:s');
         $GLOBALS['cfg']['Server']['user'] = 'pma_test_user';
 
-        self::assertEquals('# log ' . $date . " pma_test_user\n", Tracker::getLogComment());
+        self::assertSame('# log ' . $date . " pma_test_user\n", Tracker::getLogComment());
     }
 
     /**
@@ -600,21 +600,21 @@ class TrackerTest extends AbstractTestCase
     ): void {
         $result = Tracker::parseQuery($query);
 
-        self::assertEquals($type, $result['type']);
+        self::assertSame($type, $result['type']);
 
-        self::assertEquals($identifier, $result['identifier']);
+        self::assertSame($identifier, $result['identifier']);
 
-        self::assertEquals($tablename, $result['tablename']);
+        self::assertSame($tablename, $result['tablename']);
 
         if ($db) {
-            self::assertEquals($db, $GLOBALS['db']);
+            self::assertSame($db, $GLOBALS['db']);
         }
 
         if (! $tablename_after_rename) {
             return;
         }
 
-        self::assertEquals($result['tablename_after_rename'], $tablename_after_rename);
+        self::assertSame($result['tablename_after_rename'], $tablename_after_rename);
     }
 
     /**

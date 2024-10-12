@@ -85,7 +85,7 @@ class WebAuthnTest extends AbstractTestCase
         $optionsFromSession = $_SESSION['WebAuthnCredentialRequestOptions'] ?? null;
         self::assertIsString($optionsFromSession);
         self::assertJson($optionsFromSession);
-        self::assertEquals($expectedRequestOptions, json_decode($optionsFromSession, true));
+        self::assertSame($expectedRequestOptions, json_decode($optionsFromSession, true));
 
         self::assertStringContainsString('id="webauthn_request_response"', $actual);
         self::assertStringContainsString('name="webauthn_request_response"', $actual);
@@ -136,7 +136,7 @@ class WebAuthnTest extends AbstractTestCase
         $optionsFromSession = $_SESSION['WebAuthnCredentialCreationOptions'] ?? null;
         self::assertIsString($optionsFromSession);
         self::assertJson($optionsFromSession);
-        self::assertEquals($expectedCreationOptions, json_decode($optionsFromSession, true));
+        self::assertSame($expectedCreationOptions, json_decode($optionsFromSession, true));
 
         self::assertStringContainsString('id="webauthn_creation_response"', $actual);
         self::assertStringContainsString('name="webauthn_creation_response"', $actual);

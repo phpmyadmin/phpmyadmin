@@ -58,7 +58,7 @@ class TriggersTest extends AbstractTestCase
             $_POST[$key] = $value;
         }
 
-        self::assertEquals($out, $this->triggers->getDataFromRequest());
+        self::assertSame($out, $this->triggers->getDataFromRequest());
     }
 
     /**
@@ -272,7 +272,7 @@ class TriggersTest extends AbstractTestCase
         $_POST['item_definition'] = $definition;
         $GLOBALS['server'] = 1;
 
-        self::assertEquals($query, $this->triggers->getQueryFromRequest());
+        self::assertSame($query, $this->triggers->getQueryFromRequest());
         self::assertCount($num_err, $errors);
     }
 

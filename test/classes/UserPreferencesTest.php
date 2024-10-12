@@ -49,7 +49,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $this->userPreferences->pageInit(new ConfigFile());
 
-        self::assertEquals([
+        self::assertSame([
             'Servers' => [
                 1 => ['hide_db' => 'testval123'],
             ],
@@ -70,11 +70,11 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         self::assertCount(3, $result);
 
-        self::assertEquals([], $result['config_data']);
+        self::assertSame([], $result['config_data']);
 
         self::assertEqualsWithDelta(time(), $result['mtime'], 2, '');
 
-        self::assertEquals('session', $result['type']);
+        self::assertSame('session', $result['type']);
 
         // case 2
         $_SESSION['relation'] = [];
@@ -111,7 +111,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $result = $this->userPreferences->load();
 
-        self::assertEquals([
+        self::assertSame([
             'config_data' => [
                 1,
                 2,
@@ -139,7 +139,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         self::assertCount(2, $_SESSION['userconfig']);
 
-        self::assertEquals([1], $_SESSION['userconfig']['db']);
+        self::assertSame([1], $_SESSION['userconfig']['db']);
 
         /* TODO: This breaks sometimes as there might be time difference! */
         self::assertEqualsWithDelta(time(), $_SESSION['userconfig']['ts'], 2, '');
@@ -224,7 +224,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $result = $this->userPreferences->save([1]);
 
         self::assertInstanceOf(Message::class, $result);
-        self::assertEquals('Could not save configuration<br><br>err1'
+        self::assertSame('Could not save configuration<br><br>err1'
         . '<br><br>The phpMyAdmin configuration storage database could not be accessed.', $result->getMessage());
     }
 
@@ -263,7 +263,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             ['DBG/sql' => true]
         );
 
-        self::assertEquals([
+        self::assertSame([
             'DBG' => ['sql' => true],
         ], $result);
     }
@@ -322,7 +322,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $_SESSION['userprefs_autoload'] = false;
         $_REQUEST['prefs_autoload'] = 'hide';
 
-        self::assertEquals('', $this->userPreferences->autoloadGetHeader());
+        self::assertSame('', $this->userPreferences->autoloadGetHeader());
 
         self::assertTrue($_SESSION['userprefs_autoload']);
 

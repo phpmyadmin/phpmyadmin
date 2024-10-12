@@ -32,11 +32,11 @@ class NodeTableContainerTest extends AbstractTestCase
     {
         $parent = NodeFactory::getInstance('NodeTableContainer');
         self::assertIsArray($parent->links);
-        self::assertEquals([
+        self::assertSame([
             'text' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'table', 'db' => null]],
             'icon' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'table', 'db' => null]],
         ], $parent->links);
-        self::assertEquals('tables', $parent->realName);
+        self::assertSame('tables', $parent->realName);
         self::assertStringContainsString('tableContainer', $parent->classes);
     }
 }

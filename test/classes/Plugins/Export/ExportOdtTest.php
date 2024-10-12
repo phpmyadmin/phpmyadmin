@@ -87,13 +87,13 @@ class ExportOdtTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals('OpenDocument Text', $properties->getText());
+        self::assertSame('OpenDocument Text', $properties->getText());
 
-        self::assertEquals('odt', $properties->getExtension());
+        self::assertSame('odt', $properties->getExtension());
 
-        self::assertEquals('application/vnd.oasis.opendocument.text', $properties->getMimeType());
+        self::assertSame('application/vnd.oasis.opendocument.text', $properties->getMimeType());
 
-        self::assertEquals('Options', $properties->getOptionsText());
+        self::assertSame('Options', $properties->getOptionsText());
 
         self::assertTrue($properties->getForceFile());
 
@@ -101,7 +101,7 @@ class ExportOdtTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals('Format Specific Options', $options->getName());
+        self::assertSame('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
 
@@ -109,9 +109,9 @@ class ExportOdtTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('general_opts', $generalOptions->getName());
+        self::assertSame('general_opts', $generalOptions->getName());
 
-        self::assertEquals('Dump table', $generalOptions->getText());
+        self::assertSame('Dump table', $generalOptions->getText());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -119,9 +119,9 @@ class ExportOdtTest extends AbstractTestCase
 
         self::assertInstanceOf(RadioPropertyItem::class, $property);
 
-        self::assertEquals('structure_or_data', $property->getName());
+        self::assertSame('structure_or_data', $property->getName());
 
-        self::assertEquals([
+        self::assertSame([
             'structure' => __('structure'),
             'data' => __('data'),
             'structure_and_data' => __('structure and data'),
@@ -131,11 +131,11 @@ class ExportOdtTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('structure', $generalOptions->getName());
+        self::assertSame('structure', $generalOptions->getName());
 
-        self::assertEquals('Object creation options', $generalOptions->getText());
+        self::assertSame('Object creation options', $generalOptions->getText());
 
-        self::assertEquals('data', $generalOptions->getForce());
+        self::assertSame('data', $generalOptions->getForce());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -143,36 +143,36 @@ class ExportOdtTest extends AbstractTestCase
 
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        self::assertEquals('relation', $property->getName());
+        self::assertSame('relation', $property->getName());
 
-        self::assertEquals('Display foreign key relationships', $property->getText());
-
-        $property = array_shift($generalProperties);
-
-        self::assertInstanceOf(BoolPropertyItem::class, $property);
-
-        self::assertEquals('comments', $property->getName());
-
-        self::assertEquals('Display comments', $property->getText());
+        self::assertSame('Display foreign key relationships', $property->getText());
 
         $property = array_shift($generalProperties);
 
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        self::assertEquals('mime', $property->getName());
+        self::assertSame('comments', $property->getName());
 
-        self::assertEquals('Display media types', $property->getText());
+        self::assertSame('Display comments', $property->getText());
+
+        $property = array_shift($generalProperties);
+
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
+
+        self::assertSame('mime', $property->getName());
+
+        self::assertSame('Display media types', $property->getText());
 
         // hide structure
         $generalOptions = array_shift($generalOptionsArray);
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('data', $generalOptions->getName());
+        self::assertSame('data', $generalOptions->getName());
 
-        self::assertEquals('Data dump options', $generalOptions->getText());
+        self::assertSame('Data dump options', $generalOptions->getText());
 
-        self::assertEquals('structure', $generalOptions->getForce());
+        self::assertSame('structure', $generalOptions->getForce());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -180,17 +180,17 @@ class ExportOdtTest extends AbstractTestCase
 
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        self::assertEquals('columns', $property->getName());
+        self::assertSame('columns', $property->getName());
 
-        self::assertEquals('Put columns names in the first row', $property->getText());
+        self::assertSame('Put columns names in the first row', $property->getText());
 
         $property = array_shift($generalProperties);
 
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        self::assertEquals('null', $property->getName());
+        self::assertSame('null', $property->getName());
 
-        self::assertEquals('Replace NULL with:', $property->getText());
+        self::assertSame('Replace NULL with:', $property->getText());
 
         // case 2
         $GLOBALS['plugin_param']['export_type'] = 'table';
@@ -311,7 +311,7 @@ class ExportOdtTest extends AbstractTestCase
             'SELECT'
         ));
 
-        self::assertEquals('<text:h text:outline-level="2" text:style-name="Heading_2" ' .
+        self::assertSame('<text:h text:outline-level="2" text:style-name="Heading_2" ' .
         'text:is-list-header="true">Dumping data for table ta&lt;ble</text:h>' .
         '<table:table table:name="ta&lt;ble_structure"><table:table-column ' .
         'table:number-columns-repeated="4"/><table:table-row>' .
@@ -373,7 +373,7 @@ class ExportOdtTest extends AbstractTestCase
             'SELECT'
         ));
 
-        self::assertEquals('<text:h text:outline-level="2" text:style-name="Heading_2" text:' .
+        self::assertSame('<text:h text:outline-level="2" text:style-name="Heading_2" text:' .
         'is-list-header="true">Dumping data for table table</text:h><table:' .
         'table table:name="table_structure"><table:table-column table:number-' .
         'columns-repeated="2"/><table:table-row><table:table-cell office:' .
@@ -423,7 +423,7 @@ class ExportOdtTest extends AbstractTestCase
             'SELECT'
         ));
 
-        self::assertEquals('<text:h text:outline-level="2" text:style-name="Heading_2" ' .
+        self::assertSame('<text:h text:outline-level="2" text:style-name="Heading_2" ' .
         'text:is-list-header="true">Dumping data for table table</text:h>' .
         '<table:table table:name="table_structure"><table:table-column ' .
         'table:number-columns-repeated="0"/><table:table-row>' .
@@ -436,7 +436,7 @@ class ExportOdtTest extends AbstractTestCase
         self::assertSame($this->object->getTableDefStandIn('test_db', 'test_table', "\n"), '');
         $this->assertAllSelectsConsumed();
 
-        self::assertEquals('<table:table table:name="test_table_data">'
+        self::assertSame('<table:table table:name="test_table_data">'
         . '<table:table-column table:number-columns-repeated="4"/><table:table-row>'
         . '<table:table-cell office:value-type="string"><text:p>Column</text:p>'
         . '</table:table-cell><table:table-cell office:value-type="string"><text:p>Type</text:p>'
@@ -677,7 +677,7 @@ class ExportOdtTest extends AbstractTestCase
         ));
         $this->assertAllSelectsConsumed();
 
-        self::assertEquals('<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
+        self::assertSame('<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
         . 'Table structure for table test_table</text:h><table:table table:name="test_table_structure">'
         . '<table:table-column table:number-columns-repeated="4"/><table:table-row>'
         . '<table:table-cell office:value-type="string"><text:p>Column</text:p></table:table-cell>'
@@ -713,7 +713,7 @@ class ExportOdtTest extends AbstractTestCase
             'test'
         ));
 
-        self::assertEquals('<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
+        self::assertSame('<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
         . 'Triggers test_table</text:h><table:table table:name="test_table_triggers">'
         . '<table:table-column table:number-columns-repeated="4"/><table:table-row>'
         . '<table:table-cell office:value-type="string"><text:p>Name</text:p></table:table-cell>'
@@ -741,7 +741,7 @@ class ExportOdtTest extends AbstractTestCase
         ));
         $this->assertAllSelectsConsumed();
 
-        self::assertEquals('<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
+        self::assertSame('<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
         . 'Structure for view test_table</text:h><table:table table:name="test_table_structure">'
         . '<table:table-column table:number-columns-repeated="4"/><table:table-row>'
         . '<table:table-cell office:value-type="string"><text:p>Column</text:p></table:table-cell>'
@@ -778,7 +778,7 @@ class ExportOdtTest extends AbstractTestCase
         ));
         $this->assertAllSelectsConsumed();
 
-        self::assertEquals('<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
+        self::assertSame('<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
         . 'Stand-in structure for view test_table</text:h><table:table table:name="test_table_data">'
         . '<table:table-column table:number-columns-repeated="4"/><table:table-row>'
         . '<table:table-cell office:value-type="string"><text:p>Column</text:p></table:table-cell>'
@@ -817,7 +817,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $col_alias = 'alias';
 
-        self::assertEquals('<table:table-row><table:table-cell office:value-type="string">' .
+        self::assertSame('<table:table-row><table:table-cell office:value-type="string">' .
         '<text:p>alias</text:p></table:table-cell><table:table-cell off' .
         'ice:value-type="string"><text:p>set(abc)</text:p></table:table' .
         '-cell><table:table-cell office:value-type="string"><text:p>Yes' .
@@ -832,7 +832,7 @@ class ExportOdtTest extends AbstractTestCase
             'Default' => 'def',
         ];
 
-        self::assertEquals('<table:table-row><table:table-cell office:value-type="string">' .
+        self::assertSame('<table:table-row><table:table-cell office:value-type="string">' .
         '<text:p>fields</text:p></table:table-cell><table:table-cell off' .
         'ice:value-type="string"><text:p>&amp;nbsp;</text:p></table:table' .
         '-cell><table:table-cell office:value-type="string"><text:p>No' .

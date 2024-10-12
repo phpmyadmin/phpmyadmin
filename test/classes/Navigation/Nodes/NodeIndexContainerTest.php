@@ -28,10 +28,10 @@ class NodeIndexContainerTest extends AbstractTestCase
     {
         $parent = NodeFactory::getInstance('NodeIndexContainer');
         self::assertIsArray($parent->links);
-        self::assertEquals([
+        self::assertSame([
             'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
             'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
         ], $parent->links);
-        self::assertEquals('indexes', $parent->realName);
+        self::assertSame('indexes', $parent->realName);
     }
 }

@@ -198,7 +198,7 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function testArea(array $ring, float $area): void
     {
-        self::assertEquals($this->object->area($ring), $area);
+        self::assertSame($this->object->area($ring), $area);
     }
 
     /**
@@ -280,7 +280,7 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function testIsPointInsidePolygon(array $point, array $polygon, bool $isInside): void
     {
-        self::assertEquals($this->object->isPointInsidePolygon($point, $polygon), $isInside);
+        self::assertSame($this->object->isPointInsidePolygon($point, $polygon), $isInside);
     }
 
     /**
@@ -427,8 +427,8 @@ class GisPolygonTest extends GisGeomTestCase
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        self::assertEquals(120, $return->width());
-        self::assertEquals(150, $return->height());
+        self::assertSame(120, $return->width());
+        self::assertSame(150, $return->height());
     }
 
     /**
@@ -495,7 +495,7 @@ class GisPolygonTest extends GisGeomTestCase
         string $output
     ): void {
         $string = $this->object->prepareRowAsSvg($spatial, $label, $fillColor, $scaleData);
-        self::assertEquals(1, preg_match($output, $string));
+        self::assertSame(1, preg_match($output, $string));
     }
 
     /**
@@ -544,7 +544,7 @@ class GisPolygonTest extends GisGeomTestCase
         array $scale_data,
         string $output
     ): void {
-        self::assertEquals($output, $this->object->prepareRowAsOl(
+        self::assertSame($output, $this->object->prepareRowAsOl(
             $spatial,
             $srid,
             $label,

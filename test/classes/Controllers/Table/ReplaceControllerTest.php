@@ -136,7 +136,7 @@ class ReplaceControllerTest extends AbstractTestCase
         $this->dummyDbi->addSelectDb('my_db');
         $replaceController();
         $this->assertAllSelectsConsumed();
-        self::assertEquals(5, $GLOBALS['cfg']['InsertRows']);
+        self::assertSame(5, $GLOBALS['cfg']['InsertRows']);
         self::assertStringContainsString('<form id="continueForm" method="post" '
         . 'action="index.php?route=/table/replace&lang=en" name="continueForm">', $this->getResponseHtmlResult());
         self::assertStringContainsString('Continue insertion with         <input type="number" '

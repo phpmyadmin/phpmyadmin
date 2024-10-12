@@ -153,7 +153,7 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetClassForDateTimeRelatedFieldsCase1(): void
     {
-        self::assertEquals('datetimefield', $this->callFunction(
+        self::assertSame('datetimefield', $this->callFunction(
             $this->object,
             DisplayResults::class,
             'getClassForDateTimeRelatedFields',
@@ -163,7 +163,7 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetClassForDateTimeRelatedFieldsCase2(): void
     {
-        self::assertEquals('datefield', $this->callFunction(
+        self::assertSame('datefield', $this->callFunction(
             $this->object,
             DisplayResults::class,
             'getClassForDateTimeRelatedFields',
@@ -173,7 +173,7 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetClassForDateTimeRelatedFieldsCase3(): void
     {
-        self::assertEquals('text', $this->callFunction(
+        self::assertSame('text', $this->callFunction(
             $this->object,
             DisplayResults::class,
             'getClassForDateTimeRelatedFields',
@@ -187,7 +187,7 @@ class ResultsTest extends AbstractTestCase
     public function testGetOffsetsCase1(): void
     {
         $_SESSION['tmpval']['max_rows'] = DisplayResults::ALL_ROWS;
-        self::assertEquals([
+        self::assertSame([
             0,
             0,
         ], $this->callFunction(
@@ -205,7 +205,7 @@ class ResultsTest extends AbstractTestCase
     {
         $_SESSION['tmpval']['max_rows'] = 5;
         $_SESSION['tmpval']['pos'] = 4;
-        self::assertEquals([
+        self::assertSame([
             9,
             0,
         ], $this->callFunction(
@@ -309,7 +309,7 @@ class ResultsTest extends AbstractTestCase
             ],
         ];
 
-        self::assertEquals($output, $this->callFunction(
+        self::assertSame($output, $this->callFunction(
             $this->object,
             DisplayResults::class,
             'getSpecialLinkUrl',
@@ -389,7 +389,7 @@ class ResultsTest extends AbstractTestCase
         $this->object->properties['fields_meta'] = $fields_meta;
         $this->object->properties['fields_cnt'] = $fields_count;
 
-        self::assertEquals($output, $this->callFunction(
+        self::assertSame($output, $this->callFunction(
             $this->object,
             DisplayResults::class,
             'getRowInfoForSpecialLinks',
@@ -438,7 +438,7 @@ class ResultsTest extends AbstractTestCase
             [$analyzed_sql]
         );
 
-        self::assertEquals($output, $this->object->properties['highlight_columns']);
+        self::assertSame($output, $this->object->properties['highlight_columns']);
     }
 
     /**
@@ -506,7 +506,7 @@ class ResultsTest extends AbstractTestCase
     {
         $_SESSION['tmpval']['pftext'] = $pftext;
         $GLOBALS['cfg']['LimitChars'] = $limitChars;
-        self::assertEquals($output, $this->callFunction(
+        self::assertSame($output, $this->callFunction(
             $this->object,
             DisplayResults::class,
             'getPartialText',
@@ -1633,7 +1633,7 @@ class ResultsTest extends AbstractTestCase
             'text_dir' => 'ltr',
         ]);
 
-        self::assertEquals($tableTemplate, $actual);
+        self::assertSame($tableTemplate, $actual);
     }
 
     /**

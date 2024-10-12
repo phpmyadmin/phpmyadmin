@@ -63,11 +63,11 @@ class ImportXmlTest extends AbstractTestCase
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
-        self::assertEquals(__('XML'), $properties->getText());
-        self::assertEquals('xml', $properties->getExtension());
-        self::assertEquals('text/xml', $properties->getMimeType());
+        self::assertSame(__('XML'), $properties->getText());
+        self::assertSame('xml', $properties->getExtension());
+        self::assertSame('text/xml', $properties->getMimeType());
         self::assertNull($properties->getOptions());
-        self::assertEquals(__('Options'), $properties->getOptionsText());
+        self::assertSame(__('Options'), $properties->getOptionsText());
     }
 
     /**

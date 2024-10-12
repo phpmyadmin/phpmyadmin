@@ -106,6 +106,6 @@ class OperationsControllerTest extends AbstractTestCase
         $controller = $containerBuilder->get(OperationsController::class);
         $controller();
 
-        self::assertEquals($expectedOutput, $this->getResponseHtmlResult());
+        self::assertSame($expectedOutput, $this->getResponseHtmlResult());
     }
 }

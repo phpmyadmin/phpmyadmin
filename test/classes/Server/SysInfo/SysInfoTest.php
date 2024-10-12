@@ -23,7 +23,7 @@ class SysInfoTest extends AbstractTestCase
      */
     public function testGetSysInfoOs(string $os, string $expected): void
     {
-        self::assertEquals($expected, SysInfo::getOs($os));
+        self::assertSame($expected, SysInfo::getOs($os));
     }
 
     /**

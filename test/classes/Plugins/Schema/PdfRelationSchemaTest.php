@@ -62,13 +62,13 @@ class PdfRelationSchemaTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        self::assertEquals(33, $this->object->getPageNumber());
+        self::assertSame(33, $this->object->getPageNumber());
         self::assertTrue($this->object->isShowGrid());
         self::assertTrue($this->object->isShowColor());
         self::assertTrue($this->object->isShowKeys());
         self::assertTrue($this->object->isTableDimension());
         self::assertTrue($this->object->isAllTableSameWidth());
-        self::assertEquals('L', $this->object->getOrientation());
-        self::assertEquals('paper', $this->object->getPaper());
+        self::assertSame('L', $this->object->getOrientation());
+        self::assertSame('paper', $this->object->getPaper());
     }
 }

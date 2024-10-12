@@ -28,7 +28,7 @@ class NodeIndexTest extends AbstractTestCase
     {
         $parent = NodeFactory::getInstance('NodeIndex');
         self::assertIsArray($parent->links);
-        self::assertEquals([
+        self::assertSame([
             'text' => ['route' => '/table/indexes', 'params' => ['db' => null, 'table' => null, 'index' => null]],
             'icon' => ['route' => '/table/indexes', 'params' => ['db' => null, 'table' => null, 'index' => null]],
         ], $parent->links);

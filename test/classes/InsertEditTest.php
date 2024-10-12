@@ -120,7 +120,7 @@ class InsertEditTest extends AbstractTestCase
             'localhost'
         );
 
-        self::assertEquals([
+        self::assertSame([
             'db' => 'dbname',
             'table' => 'tablename',
             'goto' => 'index.php',
@@ -154,7 +154,7 @@ class InsertEditTest extends AbstractTestCase
             'localhost'
         );
 
-        self::assertEquals([
+        self::assertSame([
             'db' => 'dbname',
             'table' => 'tablename',
             'goto' => 'index.php',
@@ -171,14 +171,14 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetWhereClauseArray(): void
     {
-        self::assertEquals([], $this->callFunction(
+        self::assertSame([], $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getWhereClauseArray',
             [null]
         ));
 
-        self::assertEquals([
+        self::assertSame([
             1,
             2,
             3,
@@ -189,7 +189,7 @@ class InsertEditTest extends AbstractTestCase
             [[1, 2, 3]]
         ));
 
-        self::assertEquals(['clause'], $this->callFunction(
+        self::assertSame(['clause'], $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getWhereClauseArray',
@@ -403,7 +403,7 @@ class InsertEditTest extends AbstractTestCase
             ['table', 'db']
         );
 
-        self::assertEquals([
+        self::assertSame([
             $resultStub,
             $rowsValue,
         ], $result);
@@ -422,7 +422,7 @@ class InsertEditTest extends AbstractTestCase
 
         $result = $this->insertEdit->urlParamsInEditMode([1], $where_clause_array);
 
-        self::assertEquals([
+        self::assertSame([
             '0' => 1,
             'where_clause' => 'bar=2',
             'sql_query' => 'SELECT 1',
@@ -500,25 +500,25 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        self::assertEquals($result['Field_md5'], '4342210df36bf2ff2c4e2a997a6d4089');
+        self::assertSame($result['Field_md5'], '4342210df36bf2ff2c4e2a997a6d4089');
 
-        self::assertEquals($result['True_Type'], 'float');
+        self::assertSame($result['True_Type'], 'float');
 
-        self::assertEquals($result['len'], 100);
+        self::assertSame($result['len'], 100);
 
-        self::assertEquals($result['Field_title'], '1&lt;2');
+        self::assertSame($result['Field_title'], '1&lt;2');
 
-        self::assertEquals($result['is_binary'], false);
+        self::assertSame($result['is_binary'], false);
 
-        self::assertEquals($result['is_blob'], false);
+        self::assertSame($result['is_blob'], false);
 
-        self::assertEquals($result['is_char'], false);
+        self::assertSame($result['is_char'], false);
 
-        self::assertEquals($result['pma_type'], 'float(10, 1)');
+        self::assertSame($result['pma_type'], 'float(10, 1)');
 
-        self::assertEquals($result['wrap'], ' text-nowrap');
+        self::assertSame($result['wrap'], ' text-nowrap');
 
-        self::assertEquals($result['Field'], '1<2');
+        self::assertSame($result['Field'], '1<2');
     }
 
     /**
@@ -529,7 +529,7 @@ class InsertEditTest extends AbstractTestCase
         $column = [];
         $column['Field'] = 'f1<';
 
-        self::assertEquals($this->callFunction(
+        self::assertSame($this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getColumnTitle',
@@ -629,7 +629,7 @@ class InsertEditTest extends AbstractTestCase
     {
         $column = [];
         $column['True_Type'] = 'set';
-        self::assertEquals([
+        self::assertSame([
             'set',
             '',
             false,
@@ -644,7 +644,7 @@ class InsertEditTest extends AbstractTestCase
         ));
 
         $column['True_Type'] = 'enum';
-        self::assertEquals([
+        self::assertSame([
             'enum',
             '',
             false,
@@ -660,7 +660,7 @@ class InsertEditTest extends AbstractTestCase
 
         $column['True_Type'] = 'timestamp';
         $column['Type'] = 'date';
-        self::assertEquals([
+        self::assertSame([
             'date',
             ' text-nowrap',
             true,
@@ -676,7 +676,7 @@ class InsertEditTest extends AbstractTestCase
 
         $column['True_Type'] = 'timestamp';
         $column['Type'] = 'date';
-        self::assertEquals([
+        self::assertSame([
             'date',
             ' text-nowrap',
             false,
@@ -692,7 +692,7 @@ class InsertEditTest extends AbstractTestCase
 
         $column['True_Type'] = 'SET';
         $column['Type'] = 'num';
-        self::assertEquals([
+        self::assertSame([
             'num',
             ' text-nowrap',
             false,
@@ -708,7 +708,7 @@ class InsertEditTest extends AbstractTestCase
 
         $column['True_Type'] = '';
         $column['Type'] = 'num';
-        self::assertEquals([
+        self::assertSame([
             'num',
             ' text-nowrap',
             false,
@@ -735,7 +735,7 @@ class InsertEditTest extends AbstractTestCase
         $column['Field'] = 'f';
         $column['True_Type'] = 'enum';
         $column['Type'] = 'ababababababababababa';
-        self::assertEquals('1', $this->callFunction(
+        self::assertSame('1', $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getNullifyCodeForNullColumn',
@@ -748,7 +748,7 @@ class InsertEditTest extends AbstractTestCase
 
         $column['True_Type'] = 'enum';
         $column['Type'] = 'abababababababababab';
-        self::assertEquals('2', $this->callFunction(
+        self::assertSame('2', $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getNullifyCodeForNullColumn',
@@ -760,7 +760,7 @@ class InsertEditTest extends AbstractTestCase
         ));
 
         $column['True_Type'] = 'set';
-        self::assertEquals('3', $this->callFunction(
+        self::assertSame('3', $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getNullifyCodeForNullColumn',
@@ -774,7 +774,7 @@ class InsertEditTest extends AbstractTestCase
         $column['True_Type'] = '';
         $foreigners['f'] = true;
         $foreignData['foreign_link'] = '';
-        self::assertEquals('4', $this->callFunction(
+        self::assertSame('4', $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getNullifyCodeForNullColumn',
@@ -843,7 +843,7 @@ class InsertEditTest extends AbstractTestCase
             'getColumnEnumValues',
             [$enum_set_values]
         );
-        self::assertEquals([
+        self::assertSame([
             [
                 'plain' => '<abc>',
                 'html' => '&lt;abc&gt;',
@@ -875,7 +875,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        self::assertEquals([
+        self::assertSame([
             [
                 [
                     'plain' => 'a',
@@ -904,7 +904,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        self::assertEquals([
+        self::assertSame([
             [
                 1,
                 2,
@@ -940,7 +940,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        self::assertEquals('<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
+        self::assertSame('<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
         . ' class="textfield datefield" c tabindex="25" id="field_0_3">', $result);
 
         // case 2 datetime
@@ -963,7 +963,7 @@ class InsertEditTest extends AbstractTestCase
                 false,
             ]
         );
-        self::assertEquals('<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
+        self::assertSame('<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
         . ' class="textfield datetimefield" c tabindex="25" id="field_0_3">', $result);
 
         // case 3 timestamp
@@ -986,7 +986,7 @@ class InsertEditTest extends AbstractTestCase
                 false,
             ]
         );
-        self::assertEquals('<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
+        self::assertSame('<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
         . ' class="textfield datetimefield" c tabindex="25" id="field_0_3">', $result);
     }
 
@@ -1007,7 +1007,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        self::assertEquals([
+        self::assertSame([
             "(Max: 256B)\n",
             256,
         ], $result);
@@ -1025,7 +1025,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        self::assertEquals([
+        self::assertSame([
             "(Max: 250B)\n",
             250,
         ], $result);
@@ -1075,7 +1075,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        self::assertEquals("a\n\na\n"
+        self::assertSame("a\n\na\n"
         . '<textarea name="fieldsb" class="char charField" '
         . 'data-maxlength="25" rows="7" cols="1" dir="/" '
         . 'id="field_1_3" c tabindex="34" data-type="CHAR">'
@@ -1108,7 +1108,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        self::assertEquals("a\n"
+        self::assertSame("a\n"
         . '<input type="text" name="fieldsb" value="&lt;" size="20" data-type="'
         . 'DATE" class="textfield datetimefield" c tabindex="34" id="field_1_3"'
         . '><input type="hidden" name="auto_incrementb" value="1">'
@@ -1238,7 +1238,7 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['MinSizeForInputField'] = 30;
         $GLOBALS['cfg']['MaxSizeForInputField'] = 40;
 
-        self::assertEquals(40, $this->callFunction(
+        self::assertSame(40, $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getColumnSize',
@@ -1248,12 +1248,12 @@ class InsertEditTest extends AbstractTestCase
             ]
         ));
 
-        self::assertEquals('textarea', $GLOBALS['cfg']['CharEditing']);
+        self::assertSame('textarea', $GLOBALS['cfg']['CharEditing']);
 
         // case 2
         $column['is_char'] = false;
         $column['len'] = 20;
-        self::assertEquals(30, $this->callFunction(
+        self::assertSame(30, $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getColumnSize',
@@ -1360,7 +1360,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        self::assertEquals([
+        self::assertSame([
             true,
             null,
             null,
@@ -1389,7 +1389,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        self::assertEquals([
+        self::assertSame([
             false,
             '',
             '00000000000001111011',
@@ -1412,7 +1412,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        self::assertEquals([
+        self::assertSame([
             false,
             '',
             'abcd',
@@ -1446,7 +1446,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        self::assertEquals([
+        self::assertSame([
             false,
             '',
             "'',",
@@ -1477,7 +1477,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        self::assertEquals([
+        self::assertSame([
             false,
             '3131303031',
             '3131303031',
@@ -1502,7 +1502,7 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        self::assertEquals([
+        self::assertSame([
             false,
             '313130303100',
             '313130303100',
@@ -1535,7 +1535,7 @@ class InsertEditTest extends AbstractTestCase
             [$column]
         );
 
-        self::assertEquals($expected, $result);
+        self::assertSame($expected, $result);
     }
 
     /**
@@ -1665,7 +1665,7 @@ class InsertEditTest extends AbstractTestCase
 
         $result = $this->insertEdit->getParamsForUpdateOrInsert();
 
-        self::assertEquals([
+        self::assertSame([
             ['LIMIT 1'],
             true,
             true,
@@ -1680,7 +1680,7 @@ class InsertEditTest extends AbstractTestCase
         ];
         $result = $this->insertEdit->getParamsForUpdateOrInsert();
 
-        self::assertEquals([
+        self::assertSame([
             [
                 'a',
                 'c',
@@ -1730,7 +1730,7 @@ class InsertEditTest extends AbstractTestCase
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
         $this->insertEdit->setSessionForEditNext('`a` = 2');
 
-        self::assertEquals('CONCAT(`table`.`orgname`) IS NULL', $_SESSION['edit_next']);
+        self::assertSame('CONCAT(`table`.`orgname`) IS NULL', $_SESSION['edit_next']);
     }
 
     /**
@@ -1741,23 +1741,23 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['goto'] = '123.php';
         $GLOBALS['table'] = '';
 
-        self::assertEquals('/database/sql', $this->insertEdit->getGotoInclude('index'));
+        self::assertSame('/database/sql', $this->insertEdit->getGotoInclude('index'));
 
         $GLOBALS['table'] = 'tbl';
-        self::assertEquals('/table/sql', $this->insertEdit->getGotoInclude('index'));
+        self::assertSame('/table/sql', $this->insertEdit->getGotoInclude('index'));
 
         $GLOBALS['goto'] = 'index.php?route=/database/sql';
 
-        self::assertEquals('/database/sql', $this->insertEdit->getGotoInclude('index'));
+        self::assertSame('/database/sql', $this->insertEdit->getGotoInclude('index'));
 
-        self::assertEquals('', $GLOBALS['table']);
+        self::assertSame('', $GLOBALS['table']);
 
         $GLOBALS['goto'] = 'index.php?route=/sql&server=2';
 
-        self::assertEquals('/sql', $this->insertEdit->getGotoInclude('index'));
+        self::assertSame('/sql', $this->insertEdit->getGotoInclude('index'));
 
         $_POST['after_insert'] = 'new_insert';
-        self::assertEquals('/table/change', $this->insertEdit->getGotoInclude('index'));
+        self::assertSame('/table/change', $this->insertEdit->getGotoInclude('index'));
     }
 
     /**
@@ -1766,10 +1766,10 @@ class InsertEditTest extends AbstractTestCase
     public function testGetErrorUrl(): void
     {
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        self::assertEquals('index.php?route=/table/change&lang=en', $this->insertEdit->getErrorUrl([]));
+        self::assertSame('index.php?route=/table/change&lang=en', $this->insertEdit->getErrorUrl([]));
 
         $_POST['err_url'] = 'localhost';
-        self::assertEquals('localhost', $this->insertEdit->getErrorUrl([]));
+        self::assertSame('localhost', $this->insertEdit->getErrorUrl([]));
     }
 
     /**
@@ -1788,12 +1788,12 @@ class InsertEditTest extends AbstractTestCase
             2,
         ];
 
-        self::assertEquals(
+        self::assertSame(
             ['INSERT IGNORE INTO `table` (a, b) VALUES (1), (2)'],
             $this->insertEdit->buildSqlQuery(true, $query_fields, $value_sets)
         );
 
-        self::assertEquals(
+        self::assertSame(
             ['INSERT INTO `table` (a, b) VALUES (1), (2)'],
             $this->insertEdit->buildSqlQuery(false, $query_fields, $value_sets)
         );
@@ -1815,9 +1815,9 @@ class InsertEditTest extends AbstractTestCase
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
         $result = $this->insertEdit->executeSqlQuery([], $query);
 
-        self::assertEquals(['sql_query' => 'SELECT * FROM `test_db`.`test_table`;'], $result[0]);
-        self::assertEquals([], $result[3]);
-        self::assertEquals('SELECT * FROM `test_db`.`test_table`;', $result[5]);
+        self::assertSame(['sql_query' => 'SELECT * FROM `test_db`.`test_table`;'], $result[0]);
+        self::assertSame([], $result[3]);
+        self::assertSame('SELECT * FROM `test_db`.`test_table`;', $result[5]);
     }
 
     /**
@@ -1836,9 +1836,9 @@ class InsertEditTest extends AbstractTestCase
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
         $result = $this->insertEdit->executeSqlQuery([], $query);
 
-        self::assertEquals(['sql_query' => 'SELECT * FROM `test_db`.`test_table`;'], $result[0]);
-        self::assertEquals([], $result[3]);
-        self::assertEquals('SELECT * FROM `test_db`.`test_table`;', $result[5]);
+        self::assertSame(['sql_query' => 'SELECT * FROM `test_db`.`test_table`;'], $result[0]);
+        self::assertSame([], $result[3]);
+        self::assertSame('SELECT * FROM `test_db`.`test_table`;', $result[5]);
     }
 
     /**
@@ -1869,7 +1869,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals(['Error: #1001 Message 1', 'Warning: #1002 Message 2'], $result);
+        self::assertSame(['Error: #1001 Message 1', 'Warning: #1002 Message 2'], $result);
     }
 
     /**
@@ -1928,7 +1928,7 @@ class InsertEditTest extends AbstractTestCase
 
         $sqlSignature = Core::signSqlQuery('SELECT * FROM `information_schema`.`TABLES` WHERE `f`=1');
 
-        self::assertEquals('<a href="index.php?route=/sql&db=information_schema&table=TABLES&pos=0&'
+        self::assertSame('<a href="index.php?route=/sql&db=information_schema&table=TABLES&pos=0&'
         . 'sql_signature=' . $sqlSignature . '&'
         . 'sql_query=SELECT+%2A+FROM+%60information_schema%60.%60TABLES%60+WHERE'
         . '+%60f%60%3D1&lang=en" title="a&gt;">b&lt;</a>', $result);
@@ -1936,7 +1936,7 @@ class InsertEditTest extends AbstractTestCase
         $_SESSION['tmpval']['relational_display'] = 'D';
         $result = $this->insertEdit->getLinkForRelationalDisplayField($map, 'f', '=1', 'a>', 'b<');
 
-        self::assertEquals('<a href="index.php?route=/sql&db=information_schema&table=TABLES&pos=0&'
+        self::assertSame('<a href="index.php?route=/sql&db=information_schema&table=TABLES&pos=0&'
         . 'sql_signature=' . $sqlSignature . '&'
         . 'sql_query=SELECT+%2A+FROM+%60information_schema%60.%60TABLES%60+WHERE'
         . '+%60f%60%3D1&lang=en" title="b&lt;">a&gt;</a>', $result);
@@ -1970,7 +1970,7 @@ class InsertEditTest extends AbstractTestCase
             'transformation'
         );
 
-        self::assertEquals([
+        self::assertSame([
             'a' => 'b',
             'transformations' => ['cnameoption ,, quoted'],
         ], $result);
@@ -1998,7 +1998,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals([
+        self::assertSame([
             [
                 1,
                 'foo',
@@ -2024,7 +2024,7 @@ class InsertEditTest extends AbstractTestCase
             ['a']
         );
 
-        self::assertEquals([
+        self::assertSame([
             [
                 1,
                 '`fld` = foo',
@@ -2047,7 +2047,7 @@ class InsertEditTest extends AbstractTestCase
             ['a']
         );
 
-        self::assertEquals([
+        self::assertSame([
             [1],
             [2],
         ], $result);
@@ -2067,7 +2067,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals([
+        self::assertSame([
             [
                 1,
                 '`fld` = foo',
@@ -2091,7 +2091,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals([
+        self::assertSame([
             ["`fld` = '0'"],
             [],
         ], $result);
@@ -2112,7 +2112,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals([
+        self::assertSame([
             [],
             [],
         ], $result);
@@ -2133,7 +2133,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals([
+        self::assertSame([
             ['`fld` = NULL'],
             [],
         ], $result);
@@ -2154,7 +2154,7 @@ class InsertEditTest extends AbstractTestCase
             ['on']
         );
 
-        self::assertEquals([
+        self::assertSame([
             [],
             [],
         ], $result);
@@ -2175,7 +2175,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals([
+        self::assertSame([
             [],
             [],
         ], $result);
@@ -2196,7 +2196,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals([
+        self::assertSame([
             ['`fld` = NULL'],
             [],
         ], $result);
@@ -2229,7 +2229,7 @@ class InsertEditTest extends AbstractTestCase
             '0'
         );
 
-        self::assertEquals("'uuid1234'", $result);
+        self::assertSame("'uuid1234'", $result);
 
         // case 3
         $multi_edit_funcs = ['AES_ENCRYPT'];
@@ -2244,7 +2244,7 @@ class InsertEditTest extends AbstractTestCase
             ['func'],
             '0'
         );
-        self::assertEquals("AES_ENCRYPT('\\'','')", $result);
+        self::assertSame("AES_ENCRYPT('\\'','')", $result);
 
         // case 4
         $multi_edit_funcs = ['func'];
@@ -2259,7 +2259,7 @@ class InsertEditTest extends AbstractTestCase
             ['func'],
             '0'
         );
-        self::assertEquals("func('\\'')", $result);
+        self::assertSame("func('\\'')", $result);
 
         // case 5
         $multi_edit_funcs = ['RAND'];
@@ -2273,7 +2273,7 @@ class InsertEditTest extends AbstractTestCase
             ['RAND'],
             '0'
         );
-        self::assertEquals('RAND()', $result);
+        self::assertSame('RAND()', $result);
 
         // case 6
         $multi_edit_funcs = ['PHP_PASSWORD_HASH'];
@@ -2302,22 +2302,22 @@ class InsertEditTest extends AbstractTestCase
         ];
         // case 7
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(...$gisParams);
-        self::assertEquals('ST_GeomFromText(\'POINT(3 4)\',4326)', $result);
+        self::assertSame('ST_GeomFromText(\'POINT(3 4)\',4326)', $result);
 
         // case 8
         $gisParams[3] = 'POINT(3 4),4326';
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(...$gisParams);
-        self::assertEquals('ST_GeomFromText(\'POINT(3 4)\',4326)', $result);
+        self::assertSame('ST_GeomFromText(\'POINT(3 4)\',4326)', $result);
 
         // case 9
         $gisParams[3] = "'POINT(3 4)'";
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(...$gisParams);
-        self::assertEquals('ST_GeomFromText(\'POINT(3 4)\')', $result);
+        self::assertSame('ST_GeomFromText(\'POINT(3 4)\')', $result);
 
         // case 10
         $gisParams[3] = 'POINT(3 4)';
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(...$gisParams);
-        self::assertEquals('ST_GeomFromText(\'POINT(3 4)\')', $result);
+        self::assertSame('ST_GeomFromText(\'POINT(3 4)\')', $result);
     }
 
     /**
@@ -2344,7 +2344,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals('123', $result);
+        self::assertSame('123', $result);
 
         // case 2
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
@@ -2364,7 +2364,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals('NULL', $result);
+        self::assertSame('NULL', $result);
 
         // case 3
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
@@ -2384,7 +2384,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals("''", $result);
+        self::assertSame("''", $result);
 
         // case 4
         $_POST['fields']['multi_edit'][0][0] = [];
@@ -2405,7 +2405,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals("''", $result);
+        self::assertSame("''", $result);
 
         // case 5
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
@@ -2425,7 +2425,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals('0x313031', $result);
+        self::assertSame('0x313031', $result);
 
         // case 6
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
@@ -2445,7 +2445,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals('', $result);
+        self::assertSame('', $result);
 
         // case 7
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
@@ -2465,7 +2465,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals("b'00010'", $result);
+        self::assertSame("b'00010'", $result);
 
         // case 7
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
@@ -2485,7 +2485,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals("'20\\'12'", $result);
+        self::assertSame("'20\\'12'", $result);
 
         // case 8
         $_POST['fields']['multi_edit'][0][0] = [];
@@ -2506,7 +2506,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals('NULL', $result);
+        self::assertSame('NULL', $result);
 
         // case 9
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
@@ -2526,7 +2526,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals("''", $result);
+        self::assertSame("''", $result);
 
         // case 10
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
@@ -2546,7 +2546,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals('uuid()', $result);
+        self::assertSame('uuid()', $result);
 
         // case 11
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
@@ -2566,7 +2566,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        self::assertEquals('uuid()', $result);
+        self::assertSame('uuid()', $result);
     }
 
     /**
@@ -2610,12 +2610,12 @@ class InsertEditTest extends AbstractTestCase
 
         $this->insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData('db', 'table', 'a', $extra_data);
 
-        self::assertEquals('123', $extra_data['truncatableFieldValue']);
+        self::assertSame('123', $extra_data['truncatableFieldValue']);
         self::assertTrue($extra_data['isNeedToRecheck']);
 
         $this->insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData('db', 'table', 'a', $extra_data);
 
-        self::assertEquals('2013-08-28 06:34:14.000000', $extra_data['truncatableFieldValue']);
+        self::assertSame('2013-08-28 06:34:14.000000', $extra_data['truncatableFieldValue']);
         self::assertTrue($extra_data['isNeedToRecheck']);
     }
 
@@ -2645,7 +2645,7 @@ class InsertEditTest extends AbstractTestCase
 
         $result = $this->insertEdit->getTableColumns('db', 'table');
 
-        self::assertEquals([
+        self::assertSame([
             ['a' => 'b', 'c' => 'd'],
             ['e' => 'f', 'g' => 'h'],
         ], $result);
@@ -2710,7 +2710,7 @@ class InsertEditTest extends AbstractTestCase
 
         $response->setValue(null, $restoreInstance);
 
-        self::assertEquals([
+        self::assertSame([
             true,
             null,
             [],
@@ -2761,11 +2761,11 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
-        self::assertEquals([], $this->insertEdit->getCommentsMap('db', 'table'));
+        self::assertSame([], $this->insertEdit->getCommentsMap('db', 'table'));
 
         $GLOBALS['cfg']['ShowPropertyComments'] = true;
 
-        self::assertEquals(['d' => 'b'], $this->insertEdit->getCommentsMap('db', 'table'));
+        self::assertSame(['d' => 'b'], $this->insertEdit->getCommentsMap('db', 'table'));
     }
 
     /**
@@ -2777,9 +2777,9 @@ class InsertEditTest extends AbstractTestCase
             . ' id="insert_ignore_1"><label for="insert_ignore_1">'
             . 'Ignore</label><br>' . "\n";
         $checked = 'checked="checked" ';
-        self::assertEquals(sprintf($expected, $checked), $this->insertEdit->getHtmlForIgnoreOption(1));
+        self::assertSame(sprintf($expected, $checked), $this->insertEdit->getHtmlForIgnoreOption(1));
 
-        self::assertEquals(sprintf($expected, ''), $this->insertEdit->getHtmlForIgnoreOption(1, false));
+        self::assertSame(sprintf($expected, ''), $this->insertEdit->getHtmlForIgnoreOption(1, false));
     }
 
     /**

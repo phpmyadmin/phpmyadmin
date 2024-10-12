@@ -28,7 +28,7 @@ class NodeEventTest extends AbstractTestCase
     {
         $parent = NodeFactory::getInstance('NodeEvent');
         self::assertIsArray($parent->links);
-        self::assertEquals([
+        self::assertSame([
             'text' => [
                 'route' => '/database/events',
                 'params' => ['edit_item' => 1, 'db' => null, 'item_name' => null],

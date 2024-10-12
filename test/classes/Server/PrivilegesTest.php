@@ -147,11 +147,11 @@ class PrivilegesTest extends AbstractTestCase
             $db_and_table,
             $dbname_is_wildcard,
         ] = $this->serverPrivileges->getDataForDBInfo();
-        self::assertEquals('PMA_username', $username);
-        self::assertEquals('PMA_hostname', $hostname);
-        self::assertEquals('PMA_dbname', $dbname);
-        self::assertEquals('PMA_tablename', $tablename);
-        self::assertEquals('`PMA_dbname`.`PMA_tablename`', $db_and_table);
+        self::assertSame('PMA_username', $username);
+        self::assertSame('PMA_hostname', $hostname);
+        self::assertSame('PMA_dbname', $dbname);
+        self::assertSame('PMA_tablename', $tablename);
+        self::assertSame('`PMA_dbname`.`PMA_tablename`', $db_and_table);
         self::assertTrue($dbname_is_wildcard);
 
         //pre variable have been defined
@@ -164,9 +164,9 @@ class PrivilegesTest extends AbstractTestCase
             $db_and_table,
             $dbname_is_wildcard,
         ] = $this->serverPrivileges->getDataForDBInfo();
-        self::assertEquals('PMA_pred_dbname', $dbname);
-        self::assertEquals('PMA_pred__tablename', $tablename);
-        self::assertEquals('`PMA_pred_dbname`.`PMA_pred__tablename`', $db_and_table);
+        self::assertSame('PMA_pred_dbname', $dbname);
+        self::assertSame('PMA_pred__tablename', $tablename);
+        self::assertSame('`PMA_pred_dbname`.`PMA_pred__tablename`', $db_and_table);
         self::assertTrue($dbname_is_wildcard);
 
         // Escaped database
@@ -179,10 +179,10 @@ class PrivilegesTest extends AbstractTestCase
             $db_and_table,
             $dbname_is_wildcard,
         ] = $this->serverPrivileges->getDataForDBInfo();
-        self::assertEquals('PMA\_pred\_dbname', $dbname);
-        self::assertEquals('PMA_pred__tablename', $tablename);
-        self::assertEquals('`PMA_pred_dbname`.`PMA_pred__tablename`', $db_and_table);
-        self::assertEquals(false, $dbname_is_wildcard);
+        self::assertSame('PMA\_pred\_dbname', $dbname);
+        self::assertSame('PMA_pred__tablename', $tablename);
+        self::assertSame('`PMA_pred_dbname`.`PMA_pred__tablename`', $db_and_table);
+        self::assertFalse($dbname_is_wildcard);
 
         // Multiselect database - pred
         unset($_POST['pred_tablename'], $_REQUEST['tablename'], $_REQUEST['dbname']);
@@ -193,10 +193,10 @@ class PrivilegesTest extends AbstractTestCase
             $db_and_table,
             $dbname_is_wildcard,
         ] = $this->serverPrivileges->getDataForDBInfo();
-        self::assertEquals(['PMA\_pred\_dbname', 'PMADbname2'], $dbname);
-        self::assertEquals(null, $tablename);
-        self::assertEquals(['PMA\_pred\_dbname.*', 'PMADbname2.*'], $db_and_table);
-        self::assertEquals(false, $dbname_is_wildcard);
+        self::assertSame(['PMA\_pred\_dbname', 'PMADbname2'], $dbname);
+        self::assertNull($tablename);
+        self::assertSame(['PMA\_pred\_dbname.*', 'PMADbname2.*'], $db_and_table);
+        self::assertFalse($dbname_is_wildcard);
 
         // Multiselect database
         unset($_POST['pred_tablename'], $_REQUEST['tablename'], $_POST['pred_dbname']);
@@ -207,10 +207,10 @@ class PrivilegesTest extends AbstractTestCase
             $db_and_table,
             $dbname_is_wildcard,
         ] = $this->serverPrivileges->getDataForDBInfo();
-        self::assertEquals(['PMA\_dbname', 'PMADbname2'], $dbname);
-        self::assertEquals(null, $tablename);
-        self::assertEquals(['PMA\_dbname.*', 'PMADbname2.*'], $db_and_table);
-        self::assertEquals(false, $dbname_is_wildcard);
+        self::assertSame(['PMA\_dbname', 'PMADbname2'], $dbname);
+        self::assertNull($tablename);
+        self::assertSame(['PMA\_dbname.*', 'PMADbname2.*'], $db_and_table);
+        self::assertFalse($dbname_is_wildcard);
     }
 
     /**
@@ -221,17 +221,17 @@ class PrivilegesTest extends AbstractTestCase
         $dbname = '';
         $tablename = '';
         $db_and_table = $this->serverPrivileges->wildcardEscapeForGrant($dbname, $tablename);
-        self::assertEquals('*.*', $db_and_table);
+        self::assertSame('*.*', $db_and_table);
 
         $dbname = 'dbname';
         $tablename = '';
         $db_and_table = $this->serverPrivileges->wildcardEscapeForGrant($dbname, $tablename);
-        self::assertEquals('`dbname`.*', $db_and_table);
+        self::assertSame('`dbname`.*', $db_and_table);
 
         $dbname = 'dbname';
         $tablename = 'tablename';
         $db_and_table = $this->serverPrivileges->wildcardEscapeForGrant($dbname, $tablename);
-        self::assertEquals('`dbname`.`tablename`', $db_and_table);
+        self::assertSame('`dbname`.`tablename`', $db_and_table);
     }
 
     /**
@@ -240,16 +240,16 @@ class PrivilegesTest extends AbstractTestCase
     public function testRangeOfUsers(): void
     {
         $ret = $this->serverPrivileges->rangeOfUsers('INIT');
-        self::assertEquals(" WHERE `User` LIKE 'INIT%' OR `User` LIKE 'init%'", $ret);
+        self::assertSame(" WHERE `User` LIKE 'INIT%' OR `User` LIKE 'init%'", $ret);
 
         $ret = $this->serverPrivileges->rangeOfUsers('%');
-        self::assertEquals(' WHERE `User` LIKE \'\\%%\' OR `User` LIKE \'\\%%\'', $ret);
+        self::assertSame(' WHERE `User` LIKE \'\\%%\' OR `User` LIKE \'\\%%\'', $ret);
 
         $ret = $this->serverPrivileges->rangeOfUsers('');
-        self::assertEquals(" WHERE `User` = ''", $ret);
+        self::assertSame(" WHERE `User` = ''", $ret);
 
         $ret = $this->serverPrivileges->rangeOfUsers();
-        self::assertEquals('', $ret);
+        self::assertSame('', $ret);
     }
 
     /**
@@ -258,12 +258,12 @@ class PrivilegesTest extends AbstractTestCase
     public function testGetTableGrantsArray(): void
     {
         $ret = $this->serverPrivileges->getTableGrantsArray();
-        self::assertEquals([
+        self::assertSame([
             'Delete',
             'DELETE',
             __('Allows deleting data.'),
         ], $ret[0]);
-        self::assertEquals([
+        self::assertSame([
             'Create',
             'CREATE',
             __('Allows creating new tables.'),
@@ -276,12 +276,12 @@ class PrivilegesTest extends AbstractTestCase
     public function testGetGrantsArray(): void
     {
         $ret = $this->serverPrivileges->getGrantsArray();
-        self::assertEquals([
+        self::assertSame([
             'Select_priv',
             'SELECT',
             __('Allows reading data.'),
         ], $ret[0]);
-        self::assertEquals([
+        self::assertSame([
             'Insert_priv',
             'INSERT',
             __('Allows inserting and replacing data.'),
@@ -303,7 +303,7 @@ class PrivilegesTest extends AbstractTestCase
         $sql = 'SELECT * FROM `mysql`.`user`'
             . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
             . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "';";
-        self::assertEquals($sql, $ret);
+        self::assertSame($sql, $ret);
 
         //$table == '*'
         $db = 'pma_db';
@@ -314,7 +314,7 @@ class PrivilegesTest extends AbstractTestCase
             . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "'"
             . ' AND `Db` = \'' . $db . '\'';
 
-        self::assertEquals($sql, $ret);
+        self::assertSame($sql, $ret);
 
         //$table == 'pma_table'
         $db = 'pma_db';
@@ -326,13 +326,13 @@ class PrivilegesTest extends AbstractTestCase
             . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "'"
             . " AND `Db` = '" . Util::unescapeMysqlWildcards($db) . "'"
             . " AND `Table_name` = '" . $GLOBALS['dbi']->escapeString($table) . "';";
-        self::assertEquals($sql, $ret);
+        self::assertSame($sql, $ret);
 
         // SQL escaping
         $db = "db' AND";
         $table = 'pma_table';
         $ret = $this->serverPrivileges->getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname);
-        self::assertEquals('SELECT `Table_priv` FROM `mysql`.`tables_priv` '
+        self::assertSame('SELECT `Table_priv` FROM `mysql`.`tables_priv` '
         . "WHERE `User` = 'pma_username' AND "
         . "`Host` = 'pma_hostname' AND `Db` = 'db' AND' AND "
         . "`Table_name` = 'pma_table';", $ret);
@@ -345,16 +345,16 @@ class PrivilegesTest extends AbstractTestCase
     {
         //$_POST['change_copy'] not set
         [$queries, $password] = $this->serverPrivileges->getDataForChangeOrCopyUser();
-        self::assertEquals(null, $queries);
-        self::assertEquals(null, $queries);
+        self::assertNull($queries);
+        self::assertNull($queries);
 
         //$_POST['change_copy'] is set
         $_POST['change_copy'] = true;
         $_POST['old_username'] = 'PMA_old_username';
         $_POST['old_hostname'] = 'PMA_old_hostname';
         [$queries, $password] = $this->serverPrivileges->getDataForChangeOrCopyUser();
-        self::assertEquals('pma_password', $password);
-        self::assertEquals([], $queries);
+        self::assertSame('pma_password', $password);
+        self::assertSame([], $queries);
         unset($_POST['change_copy']);
     }
 
@@ -405,8 +405,8 @@ class PrivilegesTest extends AbstractTestCase
             $sql_query,
             $_add_user_error,
         ] = $this->serverPrivileges->addUser($dbname, $username, $hostname, $dbname, true);
-        self::assertEquals('You have added a new user.', $ret_message->getMessage());
-        self::assertEquals("CREATE USER ''@'localhost' IDENTIFIED WITH mysql_native_password AS '***';"
+        self::assertSame('You have added a new user.', $ret_message->getMessage());
+        self::assertSame("CREATE USER ''@'localhost' IDENTIFIED WITH mysql_native_password AS '***';"
         . "GRANT USAGE ON *.* TO ''@'localhost' REQUIRE NONE;"
         . "GRANT ALL PRIVILEGES ON `pma_dbname`.* TO ''@'localhost';", $sql_query);
         self::assertFalse($_add_user_error);
@@ -438,8 +438,8 @@ class PrivilegesTest extends AbstractTestCase
             $_add_user_error,
         ] = $this->serverPrivileges->addUser($dbname, $username, $hostname, $dbname, true);
 
-        self::assertEquals('You have added a new user.', $ret_message->getMessage());
-        self::assertEquals("CREATE USER ''@'localhost';"
+        self::assertSame('You have added a new user.', $ret_message->getMessage());
+        self::assertSame("CREATE USER ''@'localhost';"
         . "GRANT USAGE ON *.* TO ''@'localhost' REQUIRE NONE;"
         . "SET PASSWORD FOR ''@'localhost' = '***';"
         . "GRANT ALL PRIVILEGES ON `pma_dbname`.* TO ''@'localhost';", $sql_query);
@@ -459,7 +459,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $message = $this->serverPrivileges->updatePassword($err_url, $username, $hostname);
 
-        self::assertEquals(
+        self::assertSame(
             'The password for \'pma_username\'@\'pma_hostname\' was changed successfully.',
             $message->getMessage()
         );
@@ -488,11 +488,11 @@ class PrivilegesTest extends AbstractTestCase
             ''
         );
 
-        self::assertEquals(
+        self::assertSame(
             "You have revoked the privileges for 'pma_username'@'pma_hostname'.",
             $message->getMessage()
         );
-        self::assertEquals('REVOKE ALL PRIVILEGES ON  `pma_dbname`.`pma_tablename` '
+        self::assertSame('REVOKE ALL PRIVILEGES ON  `pma_dbname`.`pma_tablename` '
         . "FROM 'pma_username'@'pma_hostname'; "
         . 'REVOKE GRANT OPTION ON  `pma_dbname`.`pma_tablename` '
         . "FROM 'pma_username'@'pma_hostname';", $sql_query);
@@ -521,11 +521,11 @@ class PrivilegesTest extends AbstractTestCase
             ''
         );
 
-        self::assertEquals(
+        self::assertSame(
             "You have updated the privileges for 'pma_username'@'pma_hostname'.",
             $message->getMessage()
         );
-        self::assertEquals(
+        self::assertSame(
             'REVOKE ALL PRIVILEGES ON  `pma_dbname`.`pma_tablename` FROM \'pma_username\'@\'pma_hostname\';   ',
             $sql_query
         );
@@ -570,11 +570,11 @@ class PrivilegesTest extends AbstractTestCase
             ''
         );
 
-        self::assertEquals(
+        self::assertSame(
             "You have updated the privileges for 'pma_username'@'pma_hostname'.",
             $message->getMessage()
         );
-        self::assertEquals('  GRANT USAGE ON  *.* TO \'pma_username\'@\'pma_hostname\' REQUIRE NONE'
+        self::assertSame('  GRANT USAGE ON  *.* TO \'pma_username\'@\'pma_hostname\' REQUIRE NONE'
         . ' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 1000 MAX_CONNECTIONS_PER_HOUR 20'
         . ' MAX_UPDATES_PER_HOUR 30 MAX_USER_CONNECTIONS 40; ', $sql_query);
     }
@@ -618,11 +618,11 @@ class PrivilegesTest extends AbstractTestCase
             ''
         );
 
-        self::assertEquals(
+        self::assertSame(
             "You have updated the privileges for 'pma_username'@'pma_hostname'.",
             $message->getMessage()
         );
-        self::assertEquals('  GRANT USAGE ON  *.* TO \'pma_username\'@\'pma_hostname\';'
+        self::assertSame('  GRANT USAGE ON  *.* TO \'pma_username\'@\'pma_hostname\';'
         . ' ALTER USER \'pma_username\'@\'pma_hostname\'  REQUIRE NONE'
         . ' WITH MAX_QUERIES_PER_HOUR 1000 MAX_CONNECTIONS_PER_HOUR'
         . ' 20 MAX_UPDATES_PER_HOUR 30 MAX_USER_CONNECTIONS 40;', $sql_query);
@@ -718,13 +718,13 @@ class PrivilegesTest extends AbstractTestCase
         ] = $this->serverPrivileges->getSqlQueriesForDisplayAndAddUser($username, $hostname, $password);
 
         //validate 1: $create_user_real
-        self::assertEquals(
+        self::assertSame(
             'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password BY \'pma_password\';',
             $create_user_real
         );
 
         //validate 2: $create_user_show
-        self::assertEquals(
+        self::assertSame(
             'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password BY \'***\';',
             $create_user_show
         );
@@ -750,13 +750,13 @@ class PrivilegesTest extends AbstractTestCase
         ] = $this->serverPrivileges->getSqlQueriesForDisplayAndAddUser($username, $hostname, $password);
 
         //validate 1: $create_user_real
-        self::assertEquals(
+        self::assertSame(
             'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED BY \'pma_password\';',
             $create_user_real
         );
 
         //validate 2: $create_user_show
-        self::assertEquals('CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED BY \'***\';', $create_user_show);
+        self::assertSame('CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED BY \'***\';', $create_user_show);
     }
 
     /**
@@ -785,22 +785,22 @@ class PrivilegesTest extends AbstractTestCase
         ] = $this->serverPrivileges->getSqlQueriesForDisplayAndAddUser($username, $hostname, $password);
 
         //validate 1: $create_user_real
-        self::assertEquals(
+        self::assertSame(
             'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password AS \'pma_password\';',
             $create_user_real
         );
 
         //validate 2: $create_user_show
-        self::assertEquals(
+        self::assertSame(
             'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password AS \'***\';',
             $create_user_show
         );
 
         //validate 3:$real_sql_query
-        self::assertEquals("GRANT USAGE ON *.* TO 'PMA_username'@'PMA_hostname' REQUIRE NONE;", $real_sql_query);
+        self::assertSame("GRANT USAGE ON *.* TO 'PMA_username'@'PMA_hostname' REQUIRE NONE;", $real_sql_query);
 
         //validate 4:$sql_query
-        self::assertEquals("GRANT USAGE ON *.* TO 'PMA_username'@'PMA_hostname' REQUIRE NONE;", $sql_query);
+        self::assertSame("GRANT USAGE ON *.* TO 'PMA_username'@'PMA_hostname' REQUIRE NONE;", $sql_query);
 
         self::assertSame('', $alter_real_sql_query);
 
@@ -822,12 +822,12 @@ class PrivilegesTest extends AbstractTestCase
         );
 
         //validate 5: $sql_query
-        self::assertEquals("GRANT USAGE ON *.* TO 'PMA_username'@'PMA_hostname' REQUIRE NONE;", $sql_query);
+        self::assertSame("GRANT USAGE ON *.* TO 'PMA_username'@'PMA_hostname' REQUIRE NONE;", $sql_query);
 
         self::assertInstanceOf(Message::class, $message);
 
         //validate 6: $message
-        self::assertEquals('You have added a new user.', $message->getMessage());
+        self::assertSame('You have added a new user.', $message->getMessage());
     }
 
     /**
@@ -1125,10 +1125,10 @@ class PrivilegesTest extends AbstractTestCase
         self::assertFalse($extra_data['db_specific_privs']);
 
         //new_user_initial
-        self::assertEquals('P', $extra_data['new_user_initial']);
+        self::assertSame('P', $extra_data['new_user_initial']);
 
         //sql_query
-        self::assertEquals(Generator::getMessage('', $sql_query), $extra_data['sql_query']);
+        self::assertSame(Generator::getMessage('', $sql_query), $extra_data['sql_query']);
 
         //new_user_string
         self::assertStringContainsString(htmlspecialchars($hostname), $extra_data['new_user_string']);
@@ -1165,7 +1165,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $returned_userGroup = $this->serverPrivileges->getUserGroupForUser($username);
 
-        self::assertEquals($expected_userGroup, $returned_userGroup);
+        self::assertSame($expected_userGroup, $returned_userGroup);
 
         $GLOBALS['dbi'] = $dbi_old;
         $this->serverPrivileges->dbi = $dbi_old;
@@ -1232,7 +1232,7 @@ class PrivilegesTest extends AbstractTestCase
             "# Deleting 'old_username'@'old_hostname' ...",
             "DROP USER 'old_username'@'old_hostname';",
         ];
-        self::assertEquals($item, $ret);
+        self::assertSame($item, $ret);
     }
 
     /**
@@ -1551,7 +1551,7 @@ class PrivilegesTest extends AbstractTestCase
             ],
         ];
         $actual = $this->serverPrivileges->getDbRightsForUserOverview();
-        self::assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /**
@@ -1583,8 +1583,8 @@ class PrivilegesTest extends AbstractTestCase
         $actual = $this->serverPrivileges->deleteUser($queries);
         self::assertArrayHasKey(0, $actual);
         self::assertArrayHasKey(1, $actual);
-        self::assertEquals('', $actual[0]);
-        self::assertEquals('No users selected for deleting!', $actual[1]->getMessage());
+        self::assertSame('', $actual[0]);
+        self::assertSame('No users selected for deleting!', $actual[1]->getMessage());
 
         // Test case 2 : all successful queries
         $_POST['mode'] = 3;
@@ -1592,8 +1592,8 @@ class PrivilegesTest extends AbstractTestCase
         $actual = $this->serverPrivileges->deleteUser($queries);
         self::assertArrayHasKey(0, $actual);
         self::assertArrayHasKey(1, $actual);
-        self::assertEquals("foo\n# Reloading the privileges …\nFLUSH PRIVILEGES;", $actual[0]);
-        self::assertEquals('The selected users have been deleted successfully.', $actual[1]->getMessage());
+        self::assertSame("foo\n# Reloading the privileges …\nFLUSH PRIVILEGES;", $actual[0]);
+        self::assertSame('The selected users have been deleted successfully.', $actual[1]->getMessage());
 
         // Test case 3 : failing queries
         $_POST['mode'] = 1;
@@ -1601,8 +1601,8 @@ class PrivilegesTest extends AbstractTestCase
         $actual = $this->serverPrivileges->deleteUser($queries);
         self::assertArrayHasKey(0, $actual);
         self::assertArrayHasKey(1, $actual);
-        self::assertEquals('bar', $actual[0]);
-        self::assertEquals('Some error occurred!' . "\n", $actual[1]->getMessage());
+        self::assertSame('bar', $actual[0]);
+        self::assertSame('Some error occurred!' . "\n", $actual[1]->getMessage());
     }
 
     public function testGetFormForChangePassword(): void
@@ -1674,6 +1674,6 @@ class PrivilegesTest extends AbstractTestCase
         /** @var array|null $actual */
         $actual = $method->invokeArgs($serverPrivileges, ['test.user', 'test.host', true]);
 
-        self::assertEquals(['Host' => 'test.host', 'User' => 'test.user', 'account_locked' => 'Y'], $actual);
+        self::assertSame(['Host' => 'test.host', 'User' => 'test.user', 'account_locked' => 'Y'], $actual);
     }
 }

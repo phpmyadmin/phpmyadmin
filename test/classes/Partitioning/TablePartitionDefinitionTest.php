@@ -7,8 +7,6 @@ namespace PhpMyAdmin\Tests\Partitioning;
 use PhpMyAdmin\Partitioning\TablePartitionDefinition;
 use PHPUnit\Framework\TestCase;
 
-use function count;
-
 /**
  * @covers \PhpMyAdmin\Partitioning\TablePartitionDefinition
  */
@@ -235,10 +233,10 @@ class TablePartitionDefinitionTest extends TestCase
         ];
 
         $actual = TablePartitionDefinition::getDetails($expected);
-        self::assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
 
         $actual = TablePartitionDefinition::getDetails();
-        self::assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /**
@@ -252,7 +250,7 @@ class TablePartitionDefinitionTest extends TestCase
         self::assertArrayHasKey('partitions', $actual);
         self::assertSame($partitionCount, $actual['partition_count']);
         self::assertIsArray($actual['partitions']);
-        self::assertEquals($partitionCount, count($actual['partitions']));
+        self::assertCount($partitionCount, $actual['partitions']);
     }
 
     /**

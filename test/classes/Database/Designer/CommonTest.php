@@ -108,7 +108,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->getPageName($pg);
 
-        self::assertEquals($pageName, $result);
+        self::assertSame($pageName, $result);
     }
 
     /**
@@ -200,7 +200,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getDefaultPage($db);
-        self::assertEquals(-1, $result);
+        self::assertSame(-1, $result);
     }
 
     /**

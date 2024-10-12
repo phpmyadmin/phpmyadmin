@@ -51,7 +51,7 @@ class TransformationsTest extends AbstractTestCase
      */
     public function testGetOptions(string $input, array $expected): void
     {
-        self::assertEquals($expected, $this->transformations->getOptions($input));
+        self::assertSame($expected, $this->transformations->getOptions($input));
     }
 
     /**
@@ -194,7 +194,7 @@ class TransformationsTest extends AbstractTestCase
             'trackingwork' => true,
             'column_info' => 'column_info',
         ])->toArray();
-        self::assertEquals([
+        self::assertSame([
             'o' => [
                 'column_name' => 'o',
                 'mimetype' => 'Text/plain',
@@ -260,7 +260,7 @@ class TransformationsTest extends AbstractTestCase
      */
     public function testFixup(string $value, string $expected): void
     {
-        self::assertEquals($expected, $this->transformations->fixUpMime($value));
+        self::assertSame($expected, $this->transformations->fixUpMime($value));
     }
 
     public static function fixupData(): array
@@ -299,7 +299,7 @@ class TransformationsTest extends AbstractTestCase
      */
     public function testGetDescription(string $file, string $expectedDescription): void
     {
-        self::assertEquals($expectedDescription, $this->transformations->getDescription($file));
+        self::assertSame($expectedDescription, $this->transformations->getDescription($file));
     }
 
     public static function providerGetDescription(): array
@@ -330,7 +330,7 @@ class TransformationsTest extends AbstractTestCase
      */
     public function testGetName(string $file, string $expectedName): void
     {
-        self::assertEquals($expectedName, $this->transformations->getName($file));
+        self::assertSame($expectedName, $this->transformations->getName($file));
     }
 
     public static function providerGetName(): array

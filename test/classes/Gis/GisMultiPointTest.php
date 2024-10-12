@@ -99,7 +99,7 @@ class GisMultiPointTest extends GisGeomTestCase
             ],
         ];
 
-        self::assertEquals($this->object->getShape($gis_data), 'MULTIPOINT(5.02 8.45,6.14 0.15)');
+        self::assertSame($this->object->getShape($gis_data), 'MULTIPOINT(5.02 8.45,6.14 0.15)');
     }
 
     /**
@@ -176,8 +176,8 @@ class GisMultiPointTest extends GisGeomTestCase
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        self::assertEquals(120, $return->width());
-        self::assertEquals(150, $return->height());
+        self::assertSame(120, $return->width());
+        self::assertSame(150, $return->height());
     }
 
     /**
@@ -244,7 +244,7 @@ class GisMultiPointTest extends GisGeomTestCase
         string $output
     ): void {
         $string = $this->object->prepareRowAsSvg($spatial, $label, $pointColor, $scaleData);
-        self::assertEquals(1, preg_match($output, $string));
+        self::assertSame(1, preg_match($output, $string));
     }
 
     /**
@@ -300,7 +300,7 @@ class GisMultiPointTest extends GisGeomTestCase
         array $scale_data,
         string $output
     ): void {
-        self::assertEquals($output, $this->object->prepareRowAsOl(
+        self::assertSame($output, $this->object->prepareRowAsOl(
             $spatial,
             $srid,
             $label,

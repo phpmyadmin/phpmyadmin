@@ -50,7 +50,7 @@ class HeaderTest extends AbstractTestCase
     {
         $header = new Header();
         $header->disable();
-        self::assertEquals('', $header->getDisplay());
+        self::assertSame('', $header->getDisplay());
     }
 
     /**

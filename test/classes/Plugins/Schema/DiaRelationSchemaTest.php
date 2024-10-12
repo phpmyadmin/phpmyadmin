@@ -59,10 +59,10 @@ class DiaRelationSchemaTest extends AbstractTestCase
      */
     public function testSetProperty(): void
     {
-        self::assertEquals(33, $this->object->getPageNumber());
+        self::assertSame(33, $this->object->getPageNumber());
         self::assertTrue($this->object->isShowColor());
         self::assertTrue($this->object->isShowKeys());
-        self::assertEquals('L', $this->object->getOrientation());
-        self::assertEquals('paper', $this->object->getPaper());
+        self::assertSame('L', $this->object->getOrientation());
+        self::assertSame('paper', $this->object->getPaper());
     }
 }

@@ -54,7 +54,7 @@ class GeneratorTest extends AbstractTestCase
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['server'] = 99;
         $database = $GLOBALS['db'];
-        self::assertEquals('<a href="'
+        self::assertSame('<a href="'
         . Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'],
             'database'
@@ -73,7 +73,7 @@ class GeneratorTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 99;
         $database = 'test_database';
-        self::assertEquals('<a href="' . Util::getScriptNameForOption(
+        self::assertSame('<a href="' . Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'],
             'database'
         )
@@ -90,7 +90,7 @@ class GeneratorTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 99;
         $database = 'test&data\'base';
-        self::assertEquals('<a href="'
+        self::assertSame('<a href="'
         . Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'],
             'database'
@@ -109,7 +109,7 @@ class GeneratorTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['ActionLinksMode'] = 'text';
 
-        self::assertEquals('<span class="text-nowrap"></span>', Generator::getIcon('b_comment'));
+        self::assertSame('<span class="text-nowrap"></span>', Generator::getIcon('b_comment'));
     }
 
     /**
@@ -119,7 +119,7 @@ class GeneratorTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
 
-        self::assertEquals(
+        self::assertSame(
             '<span class="text-nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment"></span>',
             Generator::getIcon('b_comment')
         );
@@ -133,7 +133,7 @@ class GeneratorTest extends AbstractTestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $alternate_text = 'alt_str';
 
-        self::assertEquals('<span class="text-nowrap"><img src="themes/dot.gif" title="'
+        self::assertSame('<span class="text-nowrap"><img src="themes/dot.gif" title="'
         . $alternate_text . '" alt="' . $alternate_text
         . '" class="icon ic_b_comment"></span>', Generator::getIcon('b_comment', $alternate_text));
     }
@@ -148,7 +148,7 @@ class GeneratorTest extends AbstractTestCase
 
         // Here we are checking for an icon embedded inside a span (i.e not a menu
         // bar icon
-        self::assertEquals(
+        self::assertSame(
             '<span class="text-nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
             . '" class="icon ic_b_comment">&nbsp;' . $alternate_text . '</span>',
@@ -171,7 +171,7 @@ class GeneratorTest extends AbstractTestCase
             . '<img src="themes/dot.gif" title="' . __('Documentation') . '" alt="'
             . __('Documentation') . '" class="icon ic_b_help"></a>';
 
-        self::assertEquals($expected, Generator::showPHPDocumentation($target));
+        self::assertSame($expected, Generator::showPHPDocumentation($target));
     }
 
     /**
@@ -197,7 +197,7 @@ class GeneratorTest extends AbstractTestCase
                 ],
                 $params
             );
-            self::assertEquals($match, $result);
+            self::assertSame($match, $result);
         } finally {
             $GLOBALS['cfg']['LinkLengthLimit'] = $restore;
         }
@@ -328,13 +328,13 @@ class GeneratorTest extends AbstractTestCase
 
     public function testFormatSql(): void
     {
-        self::assertEquals('<code class="sql" dir="ltr"><pre>' . "\n"
+        self::assertSame('<code class="sql" dir="ltr"><pre>' . "\n"
         . 'SELECT 1 &lt; 2' . "\n"
         . '</pre></code>', Generator::formatSql('SELECT 1 < 2'));
 
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 6;
 
-        self::assertEquals('<code class="sql" dir="ltr"><pre>' . "\n"
+        self::assertSame('<code class="sql" dir="ltr"><pre>' . "\n"
         . 'SELECT[...]' . "\n"
         . '</pre></code>', Generator::formatSql('SELECT 1 < 2', true));
     }
@@ -360,7 +360,7 @@ class GeneratorTest extends AbstractTestCase
             'ssl' => false,
             'host' => '127.0.0.1',
         ];
-        self::assertEquals($sslNotUsed, Generator::getServerSSL());
+        self::assertSame($sslNotUsed, Generator::getServerSSL());
 
         $cfg['Server'] = [
             'ssl' => false,
@@ -368,7 +368,7 @@ class GeneratorTest extends AbstractTestCase
         ];
         $cfg['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1'];
 
-        self::assertEquals($sslNotUsedCaution, Generator::getServerSSL());
+        self::assertSame($sslNotUsedCaution, Generator::getServerSSL());
 
         $cfg['Server'] = [
             'ssl' => false,
@@ -376,7 +376,7 @@ class GeneratorTest extends AbstractTestCase
         ];
         $cfg['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1', 'custom.host'];
 
-        self::assertEquals($sslNotUsed, Generator::getServerSSL());
+        self::assertSame($sslNotUsed, Generator::getServerSSL());
 
         $cfg['Server'] = [
             'ssl' => false,
@@ -384,7 +384,7 @@ class GeneratorTest extends AbstractTestCase
             'host' => 'custom.host',
         ];
 
-        self::assertEquals($sslNotUsed, Generator::getServerSSL());
+        self::assertSame($sslNotUsed, Generator::getServerSSL());
 
         $cfg['Server'] = [
             'ssl' => true,
@@ -392,7 +392,7 @@ class GeneratorTest extends AbstractTestCase
             'host' => 'custom.host',
         ];
 
-        self::assertEquals('<span class="text-danger">SSL is used with disabled verification</span>'
+        self::assertSame('<span class="text-danger">SSL is used with disabled verification</span>'
         . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
         . ' class="icon ic_b_help"></a>', Generator::getServerSSL());
@@ -403,7 +403,7 @@ class GeneratorTest extends AbstractTestCase
             'host' => 'custom.host',
         ];
 
-        self::assertEquals('<span class="text-danger">SSL is used without certification authority</span>'
+        self::assertSame('<span class="text-danger">SSL is used without certification authority</span>'
         . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
         . ' class="icon ic_b_help"></a>', Generator::getServerSSL());
@@ -415,7 +415,7 @@ class GeneratorTest extends AbstractTestCase
             'host' => 'custom.host',
         ];
 
-        self::assertEquals('<span class="">SSL is used</span>'
+        self::assertSame('<span class="">SSL is used</span>'
         . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
         . ' class="icon ic_b_help"></a>', Generator::getServerSSL());
@@ -438,7 +438,7 @@ class GeneratorTest extends AbstractTestCase
     ): void {
         $result = Generator::getDefaultFunctionForField($field, $insertMode);
 
-        self::assertEquals($expected, $result);
+        self::assertSame($expected, $result);
     }
 
     /**

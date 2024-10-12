@@ -58,7 +58,7 @@ class TwigLintCommandTest extends AbstractTestCase
         // Sort results to avoid file system test specific failures
         sort($filesFound, SORT_NATURAL);
 
-        self::assertEquals([
+        self::assertSame([
             $path . DIRECTORY_SEPARATOR . 'one.txt',
             $path . DIRECTORY_SEPARATOR . 'subfolder' . DIRECTORY_SEPARATOR . 'one.ini',
             $path . DIRECTORY_SEPARATOR . 'subfolder' . DIRECTORY_SEPARATOR . 'zero.txt',
@@ -74,7 +74,7 @@ class TwigLintCommandTest extends AbstractTestCase
         // Sort results to avoid file system test specific failures
         sort($filesInfos, SORT_REGULAR);
 
-        self::assertEquals([
+        self::assertSame([
             [
                 'template' => '',
                 'file' => $path . DIRECTORY_SEPARATOR . 'one.txt',
@@ -154,20 +154,20 @@ class TwigLintCommandTest extends AbstractTestCase
             0,
         ]);
 
-        self::assertEquals([1 => '{{ file }'], $context);
+        self::assertSame([1 => '{{ file }'], $context);
 
         $context = $this->callFunction($this->command, TwigLintCommand::class, 'getContext', [
             '{{ file }',
             3,
         ]);
 
-        self::assertEquals([1 => '{{ file }'], $context);
+        self::assertSame([1 => '{{ file }'], $context);
 
         $context = $this->callFunction($this->command, TwigLintCommand::class, 'getContext', [
             '{{ file }',
             5,
         ]);
 
-        self::assertEquals([], $context);
+        self::assertSame([], $context);
     }
 }

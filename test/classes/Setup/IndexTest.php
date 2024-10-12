@@ -35,7 +35,7 @@ class IndexTest extends AbstractTestCase
 
         SetupIndex::messagesBegin();
 
-        self::assertEquals([
+        self::assertSame([
             [
                 [
                     0 => 'foo',
@@ -54,7 +54,7 @@ class IndexTest extends AbstractTestCase
 
         unset($_SESSION['messages']);
         SetupIndex::messagesBegin();
-        self::assertEquals([
+        self::assertSame([
             'error' => [],
             'notice' => [],
         ], $_SESSION['messages']);
@@ -67,7 +67,7 @@ class IndexTest extends AbstractTestCase
     {
         SetupIndex::messagesSet('type', '123', 'testTitle', 'msg');
 
-        self::assertEquals([
+        self::assertSame([
             'fresh' => true,
             'active' => true,
             'title' => 'testTitle',
@@ -142,6 +142,6 @@ class IndexTest extends AbstractTestCase
             ],
         ];
 
-        self::assertEquals($expected, SetupIndex::messagesShowHtml());
+        self::assertSame($expected, SetupIndex::messagesShowHtml());
     }
 }

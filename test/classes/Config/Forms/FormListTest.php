@@ -43,7 +43,7 @@ class FormListTest extends AbstractTestCase
 
         /* Static API */
         self::assertTrue($class::isValid('Export'));
-        self::assertEquals($prefix, $class::get('Export'));
+        self::assertSame($prefix, $class::get('Export'));
         foreach ($class::getAll() as $form) {
             $form_class = $class::get($form);
             self::assertNotNull($form_class);
@@ -58,7 +58,7 @@ class FormListTest extends AbstractTestCase
         self::assertFalse($forms->process());
         $forms->fixErrors();
         self::assertFalse($forms->hasErrors());
-        self::assertEquals('', $forms->displayErrors());
+        self::assertSame('', $forms->displayErrors());
     }
 
     /**

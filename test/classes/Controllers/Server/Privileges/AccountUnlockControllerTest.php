@@ -65,9 +65,9 @@ class AccountUnlockControllerTest extends AbstractTestCase
 
         $message = Message::success('The account test.user@test.host has been successfully unlocked.');
         self::assertTrue($this->responseRendererStub->isAjax());
-        self::assertEquals(200, $this->responseRendererStub->getHttpResponseCode());
+        self::assertSame(200, $this->responseRendererStub->getHttpResponseCode());
         self::assertTrue($this->responseRendererStub->hasSuccessState());
-        self::assertEquals(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
+        self::assertSame(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
     }
 
     public function testWithInvalidAccount(): void
@@ -80,9 +80,9 @@ class AccountUnlockControllerTest extends AbstractTestCase
 
         $message = Message::error('Invalid account.');
         self::assertTrue($this->responseRendererStub->isAjax());
-        self::assertEquals(400, $this->responseRendererStub->getHttpResponseCode());
+        self::assertSame(400, $this->responseRendererStub->getHttpResponseCode());
         self::assertFalse($this->responseRendererStub->hasSuccessState());
-        self::assertEquals(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
+        self::assertSame(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
     }
 
     public function testWithUnsupportedServer(): void
@@ -93,8 +93,8 @@ class AccountUnlockControllerTest extends AbstractTestCase
 
         $message = Message::error('Account locking is not supported.');
         self::assertTrue($this->responseRendererStub->isAjax());
-        self::assertEquals(400, $this->responseRendererStub->getHttpResponseCode());
+        self::assertSame(400, $this->responseRendererStub->getHttpResponseCode());
         self::assertFalse($this->responseRendererStub->hasSuccessState());
-        self::assertEquals(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
+        self::assertSame(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
     }
 }

@@ -33,7 +33,7 @@ class NodeDatabaseTest extends AbstractTestCase
     {
         $parent = NodeFactory::getInstance('NodeDatabase');
         self::assertIsArray($parent->links);
-        self::assertEquals([
+        self::assertSame([
             'text' => [
                 'route' => '/database/structure',
                 'params' => ['db' => null],
@@ -50,11 +50,11 @@ class NodeDatabaseTest extends AbstractTestCase
     public function testGetPresence(): void
     {
         $parent = NodeFactory::getInstance('NodeDatabase');
-        self::assertEquals(2, $parent->getPresence('tables'));
-        self::assertEquals(0, $parent->getPresence('views'));
-        self::assertEquals(1, $parent->getPresence('functions'));
-        self::assertEquals(0, $parent->getPresence('procedures'));
-        self::assertEquals(0, $parent->getPresence('events'));
+        self::assertSame(2, $parent->getPresence('tables'));
+        self::assertSame(0, $parent->getPresence('views'));
+        self::assertSame(1, $parent->getPresence('functions'));
+        self::assertSame(0, $parent->getPresence('procedures'));
+        self::assertSame(0, $parent->getPresence('events'));
     }
 
     /**
@@ -88,6 +88,6 @@ class NodeDatabaseTest extends AbstractTestCase
         $parent = NodeFactory::getInstance('NodeDatabase');
 
         $parent->setHiddenCount(3);
-        self::assertEquals(3, $parent->getHiddenCount());
+        self::assertSame(3, $parent->getHiddenCount());
     }
 }

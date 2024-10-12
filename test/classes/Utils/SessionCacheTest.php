@@ -55,9 +55,9 @@ class SessionCacheTest extends TestCase
 
         SessionCache::set('test_data', 25);
         SessionCache::set('test_data', 5);
-        self::assertEquals(5, $_SESSION['cache']['server_server']['test_data']);
+        self::assertSame(5, $_SESSION['cache']['server_server']['test_data']);
         SessionCache::set('test_data_3', 3);
-        self::assertEquals(3, $_SESSION['cache']['server_server']['test_data_3']);
+        self::assertSame(3, $_SESSION['cache']['server_server']['test_data_3']);
     }
 
     public function testHas(): void

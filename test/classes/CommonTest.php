@@ -25,7 +25,7 @@ class CommonTest extends AbstractTestCase
         $_SERVER['REQUEST_URI'] = $request;
         $_SERVER['PATH_INFO'] = $path_info;
         Common::cleanupPathInfo();
-        self::assertEquals($expected, $GLOBALS['PMA_PHP_SELF']);
+        self::assertSame($expected, $GLOBALS['PMA_PHP_SELF']);
     }
 
     public static function providerForTestCleanupPathInfo(): array
@@ -115,6 +115,6 @@ class CommonTest extends AbstractTestCase
         self::assertFalse($token_mismatch);
         self::assertTrue($token_provided);
         self::assertArrayHasKey('test', $_POST);
-        self::assertEquals('test', $_POST['test']);
+        self::assertSame('test', $_POST['test']);
     }
 }

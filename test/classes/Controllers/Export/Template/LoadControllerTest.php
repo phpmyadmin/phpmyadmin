@@ -47,6 +47,6 @@ class LoadControllerTest extends AbstractTestCase
         ))($request);
 
         self::assertTrue($response->hasSuccessState());
-        self::assertEquals(['data' => 'data1'], $response->getJSONResult());
+        self::assertSame(['data' => 'data1'], $response->getJSONResult());
     }
 }

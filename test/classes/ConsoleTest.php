@@ -15,7 +15,7 @@ class ConsoleTest extends AbstractTestCase
     public function testGetScripts(): void
     {
         $console = new Console();
-        self::assertEquals(['console.js'], $console->getScripts());
+        self::assertSame(['console.js'], $console->getScripts());
     }
 
     public function testSetAjax(): void

@@ -92,7 +92,7 @@ class ExportSqlTest extends AbstractTestCase
         $properties = $method->invoke($this->object, null);
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
-        self::assertEquals('SQL', $properties->getText());
+        self::assertSame('SQL', $properties->getText());
         self::assertNull($properties->getOptions());
     }
 
@@ -131,7 +131,7 @@ class ExportSqlTest extends AbstractTestCase
         $properties = $method->invoke($this->object, null);
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
-        self::assertEquals('SQL', $properties->getText());
+        self::assertSame('SQL', $properties->getText());
 
         $options = $properties->getOptions();
 
@@ -180,7 +180,7 @@ class ExportSqlTest extends AbstractTestCase
         $property = array_shift($properties);
         self::assertInstanceOf(SelectPropertyItem::class, $property);
 
-        self::assertEquals([
+        self::assertSame([
             'v1' => 'v1',
             'v2' => 'v2',
         ], $property->getValues());
@@ -210,7 +210,7 @@ class ExportSqlTest extends AbstractTestCase
         $leaf = array_shift($leaves);
         self::assertInstanceOf(BoolPropertyItem::class, $leaf);
 
-        self::assertEquals(
+        self::assertSame(
             'Add <code>DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT</code><code> / TRIGGER</code> statement',
             $leaf->getText()
         );
@@ -272,17 +272,17 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['crlf'] = '##';
         $GLOBALS['sql_include_comments'] = true;
 
-        self::assertEquals('--##', $method->invoke($this->object, ''));
+        self::assertSame('--##', $method->invoke($this->object, ''));
 
-        self::assertEquals('-- Comment##', $method->invoke($this->object, 'Comment'));
+        self::assertSame('-- Comment##', $method->invoke($this->object, 'Comment'));
 
         $GLOBALS['sql_include_comments'] = false;
 
-        self::assertEquals('', $method->invoke($this->object, 'Comment'));
+        self::assertSame('', $method->invoke($this->object, 'Comment'));
 
         unset($GLOBALS['sql_include_comments']);
 
-        self::assertEquals('', $method->invoke($this->object, 'Comment'));
+        self::assertSame('', $method->invoke($this->object, 'Comment'));
     }
 
     public function testPossibleCRLF(): void
@@ -293,17 +293,17 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['crlf'] = '##';
         $GLOBALS['sql_include_comments'] = true;
 
-        self::assertEquals('##', $method->invoke($this->object, ''));
+        self::assertSame('##', $method->invoke($this->object, ''));
 
-        self::assertEquals('##', $method->invoke($this->object, 'Comment'));
+        self::assertSame('##', $method->invoke($this->object, 'Comment'));
 
         $GLOBALS['sql_include_comments'] = false;
 
-        self::assertEquals('', $method->invoke($this->object, 'Comment'));
+        self::assertSame('', $method->invoke($this->object, 'Comment'));
 
         unset($GLOBALS['sql_include_comments']);
 
-        self::assertEquals('', $method->invoke($this->object, 'Comment'));
+        self::assertSame('', $method->invoke($this->object, 'Comment'));
     }
 
     public function testExportFooter(): void
@@ -564,7 +564,7 @@ class ExportSqlTest extends AbstractTestCase
         self::assertTrue($this->object->exportDBFooter('db'));
         $result = ob_get_clean();
 
-        self::assertEquals('SqlConstraints', $result);
+        self::assertSame('SqlConstraints', $result);
     }
 
     public function testGetTableDefStandIn(): void
@@ -632,7 +632,7 @@ class ExportSqlTest extends AbstractTestCase
         $method->setAccessible(true);
         $result = $method->invoke($this->object, 'db', 'view', "\n");
 
-        self::assertEquals("CREATE TABLE `view`(\n" .
+        self::assertSame("CREATE TABLE `view`(\n" .
         "    `fname` char COLLATE utf-8 NOT NULL DEFAULT 'a' COMMENT 'cmt'\n" .
         ");\n", $result);
 
@@ -665,7 +665,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $result = $method->invoke($this->object, 'db', 'view', "\n", false);
 
-        self::assertEquals("CREATE TABLE IF NOT EXISTS `view`(\n" .
+        self::assertSame("CREATE TABLE IF NOT EXISTS `view`(\n" .
         "    `fname` char COLLATE utf-8 DEFAULT NULL COMMENT 'cmt'\n" .
         ")\n", $result);
     }
@@ -1004,7 +1004,7 @@ class ExportSqlTest extends AbstractTestCase
         $sqlViewsProp->setAccessible(true);
         $sqlViews = $sqlViewsProp->getValue($this->object);
 
-        self::assertEquals('', $result);
+        self::assertSame('', $result);
         self::assertIsString($sqlViews);
         self::assertStringContainsString('-- Structure for view test_table', $sqlViews);
         self::assertStringContainsString('DROP TABLE IF EXISTS `test_table`;', $sqlViews);
@@ -1361,7 +1361,7 @@ class ExportSqlTest extends AbstractTestCase
         $method->setAccessible(true);
         $result = $method->invoke($this->object, $query);
 
-        self::assertEquals("CREATE TABLE (\" datetime DEFAULT NULL,\n" .
+        self::assertSame("CREATE TABLE (\" datetime DEFAULT NULL,\n" .
         "\" datetime DEFAULT NULL\n" .
         "\" datetime NOT NULL,\n" .
         "\" datetime NOT NULL\n" .
@@ -1397,22 +1397,22 @@ class ExportSqlTest extends AbstractTestCase
         $table = null;
 
         $this->object->initAlias($aliases, $db, $table);
-        self::assertEquals('aliastest', $db);
+        self::assertSame('aliastest', $db);
         self::assertNull($table);
 
         $db = 'foo';
         $table = 'qwerty';
 
         $this->object->initAlias($aliases, $db, $table);
-        self::assertEquals('foo', $db);
-        self::assertEquals('qwerty', $table);
+        self::assertSame('foo', $db);
+        self::assertSame('qwerty', $table);
 
         $db = 'a';
         $table = 'foo';
 
         $this->object->initAlias($aliases, $db, $table);
-        self::assertEquals('aliastest', $db);
-        self::assertEquals('qwerty', $table);
+        self::assertSame('aliastest', $db);
+        self::assertSame('qwerty', $table);
     }
 
     public function testGetAlias(): void
@@ -1436,13 +1436,13 @@ class ExportSqlTest extends AbstractTestCase
             ],
         ];
 
-        self::assertEquals('f', $this->object->getAlias($aliases, 'bar'));
+        self::assertSame('f', $this->object->getAlias($aliases, 'bar'));
 
-        self::assertEquals('aliastest', $this->object->getAlias($aliases, 'a'));
+        self::assertSame('aliastest', $this->object->getAlias($aliases, 'a'));
 
-        self::assertEquals('pphymdain', $this->object->getAlias($aliases, 'pqr'));
+        self::assertSame('pphymdain', $this->object->getAlias($aliases, 'pqr'));
 
-        self::assertEquals('', $this->object->getAlias($aliases, 'abc'));
+        self::assertSame('', $this->object->getAlias($aliases, 'abc'));
     }
 
     public function testReplaceWithAlias(): void
@@ -1480,7 +1480,7 @@ class ExportSqlTest extends AbstractTestCase
             . "latin1_general_ci COMMENT='List' AUTO_INCREMENT=5";
         $result = $this->object->replaceWithAliases(null, $sql_query, $aliases, $db, $table);
 
-        self::assertEquals("CREATE TABLE IF NOT EXISTS `bartest` (\n" .
+        self::assertSame("CREATE TABLE IF NOT EXISTS `bartest` (\n" .
         "  `p` tinyint(3) UNSIGNED NOT NULL COMMENT 'Primary Key',\n" .
         "  `xyz` varchar(255) COLLATE latin1_general_ci NOT NULL COMMENT 'xyz',\n" .
         "  `pphymdain` varchar(10) COLLATE latin1_general_ci NOT NULL COMMENT 'pqr',\n" .
@@ -1489,7 +1489,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $result = $this->object->replaceWithAliases(null, $sql_query, [], '', '');
 
-        self::assertEquals("CREATE TABLE IF NOT EXISTS foo (\n" .
+        self::assertSame("CREATE TABLE IF NOT EXISTS foo (\n" .
         "  `baz` tinyint(3) UNSIGNED NOT NULL COMMENT 'Primary Key',\n" .
         "  `xyz` varchar(255) COLLATE latin1_general_ci NOT NULL COMMENT 'xyz',\n" .
         "  `pqr` varchar(10) COLLATE latin1_general_ci NOT NULL COMMENT 'pqr',\n" .
@@ -1508,7 +1508,7 @@ class ExportSqlTest extends AbstractTestCase
             . 'END IF; END';
         $result = $this->object->replaceWithAliases('$$', $sql_query, $aliases, $db, $table);
 
-        self::assertEquals('CREATE TRIGGER `BEFORE_bar_INSERT` BEFORE INSERT ON `f` FOR EACH ROW BEGIN ' .
+        self::assertSame('CREATE TRIGGER `BEFORE_bar_INSERT` BEFORE INSERT ON `f` FOR EACH ROW BEGIN ' .
         'SET @cnt=(SELECT count(*) FROM `f` WHERE `n`=NEW.`n` AND id=NEW.id AND abc=NEW.`n` LIMIT 1); ' .
         'IF @cnt<>0 THEN ' .
         'SET NEW.`n`=1; ' .
@@ -1561,6 +1561,6 @@ RETURN TextString ;
 END
 SQL;
 
-        self::assertEquals($expectedQuery, $result);
+        self::assertSame($expectedQuery, $result);
     }
 }

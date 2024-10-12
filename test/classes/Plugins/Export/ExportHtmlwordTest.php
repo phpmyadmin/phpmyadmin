@@ -75,13 +75,13 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals('Microsoft Word 2000', $properties->getText());
+        self::assertSame('Microsoft Word 2000', $properties->getText());
 
-        self::assertEquals('doc', $properties->getExtension());
+        self::assertSame('doc', $properties->getExtension());
 
-        self::assertEquals('application/vnd.ms-word', $properties->getMimeType());
+        self::assertSame('application/vnd.ms-word', $properties->getMimeType());
 
-        self::assertEquals('Options', $properties->getOptionsText());
+        self::assertSame('Options', $properties->getOptionsText());
 
         self::assertTrue($properties->getForceFile());
 
@@ -89,16 +89,16 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals('Format Specific Options', $options->getName());
+        self::assertSame('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('dump_what', $generalOptions->getName());
+        self::assertSame('dump_what', $generalOptions->getName());
 
-        self::assertEquals('Dump table', $generalOptions->getText());
+        self::assertSame('Dump table', $generalOptions->getText());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -106,9 +106,9 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         self::assertInstanceOf(RadioPropertyItem::class, $property);
 
-        self::assertEquals('structure_or_data', $property->getName());
+        self::assertSame('structure_or_data', $property->getName());
 
-        self::assertEquals([
+        self::assertSame([
             'structure' => __('structure'),
             'data' => __('data'),
             'structure_and_data' => __('structure and data'),
@@ -118,11 +118,11 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('dump_what', $generalOptions->getName());
+        self::assertSame('dump_what', $generalOptions->getName());
 
-        self::assertEquals('Data dump options', $generalOptions->getText());
+        self::assertSame('Data dump options', $generalOptions->getText());
 
-        self::assertEquals('structure', $generalOptions->getForce());
+        self::assertSame('structure', $generalOptions->getForce());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -130,17 +130,17 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        self::assertEquals('null', $property->getName());
+        self::assertSame('null', $property->getName());
 
-        self::assertEquals('Replace NULL with:', $property->getText());
+        self::assertSame('Replace NULL with:', $property->getText());
 
         $property = array_shift($generalProperties);
 
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        self::assertEquals('columns', $property->getName());
+        self::assertSame('columns', $property->getName());
 
-        self::assertEquals('Put columns names in the first row', $property->getText());
+        self::assertSame('Put columns names in the first row', $property->getText());
     }
 
     public function testExportHeader(): void
@@ -162,7 +162,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             </head>
             <body>';
 
-        self::assertEquals($expected, $result);
+        self::assertSame($expected, $result);
 
         // case 2
 
@@ -184,7 +184,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             </head>
             <body>';
 
-        self::assertEquals($expected, $result);
+        self::assertSame($expected, $result);
     }
 
     public function testExportFooter(): void
@@ -193,7 +193,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         self::assertTrue($this->object->exportFooter());
         $result = ob_get_clean();
 
-        self::assertEquals('</body></html>', $result);
+        self::assertSame('</body></html>', $result);
     }
 
     public function testExportDBHeader(): void
@@ -202,7 +202,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         self::assertTrue($this->object->exportDBHeader('d"b'));
         $result = ob_get_clean();
 
-        self::assertEquals('<h1>Database d&quot;b</h1>', $result);
+        self::assertSame('<h1>Database d&quot;b</h1>', $result);
     }
 
     public function testExportDBFooter(): void
@@ -237,7 +237,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         ));
         $result = ob_get_clean();
 
-        self::assertEquals('<h2>Dumping data for table test_table</h2>'
+        self::assertSame('<h2>Dumping data for table test_table</h2>'
         . '<table width="100%" cellspacing="1"><tr class="print-category">'
         . '<td class="print"><strong>id</strong></td>'
         . '<td class="print"><strong>name</strong></td>'
@@ -291,7 +291,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with(['Field' => 'column'], ['name1'], 'column')
             ->will($this->returnValue(1));
 
-        self::assertEquals('<table width="100%" cellspacing="1">' .
+        self::assertSame('<table width="100%" cellspacing="1">' .
         '<tr class="print-category"><th class="print">Column</th>' .
         '<td class="print"><strong>Type</strong></td>' .
         '<td class="print"><strong>Null</strong></td>' .
@@ -383,7 +383,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $result = $this->object->getTableDef('database', '', true, true, true);
 
-        self::assertEquals('<table width="100%" cellspacing="1">' .
+        self::assertSame('<table width="100%" cellspacing="1">' .
         '<tr class="print-category"><th class="print">Column</th>' .
         '<td class="print"><strong>Type</strong></td>' .
         '<td class="print"><strong>Null</strong></td>' .
@@ -499,7 +499,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $result = $this->object->getTableDef('database', '', false, false, false);
 
-        self::assertEquals('<table width="100%" cellspacing="1">' .
+        self::assertSame('<table width="100%" cellspacing="1">' .
         '<tr class="print-category"><th class="print">Column</th>' .
         '<td class="print"><strong>Type</strong></td>' .
         '<td class="print"><strong>Null</strong></td>' .
@@ -553,7 +553,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $this->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
-        self::assertEquals('<h2>Table structure for table test_table</h2>'
+        self::assertSame('<h2>Table structure for table test_table</h2>'
         . '<table width="100%" cellspacing="1"><tr class="print-category">'
         . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
         . '<td class="print"><strong>Null</strong></td><td class="print"><strong>Default</strong></td></tr>'
@@ -575,7 +575,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         ));
         $result = ob_get_clean();
 
-        self::assertEquals('<h2>Triggers test_table</h2><table width="100%" cellspacing="1">'
+        self::assertSame('<h2>Triggers test_table</h2><table width="100%" cellspacing="1">'
         . '<tr class="print-category"><th class="print">Name</th>'
         . '<td class="print"><strong>Time</strong></td><td class="print"><strong>Event</strong></td>'
         . '<td class="print"><strong>Definition</strong></td></tr><tr class="print-category">'
@@ -595,7 +595,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $this->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
-        self::assertEquals('<h2>Structure for view test_table</h2>'
+        self::assertSame('<h2>Structure for view test_table</h2>'
         . '<table width="100%" cellspacing="1"><tr class="print-category">'
         . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
         . '<td class="print"><strong>Null</strong></td><td class="print"><strong>Default</strong>'
@@ -617,7 +617,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         ));
         $result = ob_get_clean();
 
-        self::assertEquals('<h2>Stand-in structure for view test_table</h2>'
+        self::assertSame('<h2>Stand-in structure for view test_table</h2>'
         . '<table width="100%" cellspacing="1"><tr class="print-category">'
         . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
         . '<td class="print"><strong>Null</strong></td><td class="print"><strong>Default</strong></td>'
@@ -644,7 +644,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $unique_keys = ['field'];
 
-        self::assertEquals('<tr class="print-category"><td class="print"><em>' .
+        self::assertSame('<tr class="print-category"><td class="print"><em>' .
         '<strong>field</strong></em></td><td class="print">set(abc)</td>' .
         '<td class="print">Yes</td><td class="print">NULL</td>', $method->invoke($this->object, $cols, $unique_keys));
 
@@ -658,7 +658,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $unique_keys = ['field'];
 
-        self::assertEquals('<tr class="print-category"><td class="print">fields</td>' .
+        self::assertSame('<tr class="print-category"><td class="print">fields</td>' .
         '<td class="print">&amp;nbsp;</td><td class="print">No</td>' .
         '<td class="print">def</td>', $method->invoke($this->object, $cols, $unique_keys));
     }

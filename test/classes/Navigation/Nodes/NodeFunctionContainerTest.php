@@ -28,10 +28,10 @@ class NodeFunctionContainerTest extends AbstractTestCase
     {
         $parent = NodeFactory::getInstance('NodeFunctionContainer');
         self::assertIsArray($parent->links);
-        self::assertEquals([
+        self::assertSame([
             'text' => ['route' => '/database/routines', 'params' => ['type' => 'FUNCTION', 'db' => null]],
             'icon' => ['route' => '/database/routines', 'params' => ['type' => 'FUNCTION', 'db' => null]],
         ], $parent->links);
-        self::assertEquals('functions', $parent->realName);
+        self::assertSame('functions', $parent->realName);
     }
 }

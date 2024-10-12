@@ -28,10 +28,10 @@ class NodeTriggerContainerTest extends AbstractTestCase
     {
         $parent = NodeFactory::getInstance('NodeTriggerContainer');
         self::assertIsArray($parent->links);
-        self::assertEquals([
+        self::assertSame([
             'text' => ['route' => '/database/triggers', 'params' => ['db' => null, 'table' => null]],
             'icon' => ['route' => '/database/triggers', 'params' => ['db' => null, 'table' => null]],
         ], $parent->links);
-        self::assertEquals('triggers', $parent->realName);
+        self::assertSame('triggers', $parent->realName);
     }
 }

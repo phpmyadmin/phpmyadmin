@@ -177,8 +177,8 @@ class GisLineStringTest extends GisGeomTestCase
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        self::assertEquals(120, $return->width());
-        self::assertEquals(150, $return->height());
+        self::assertSame(120, $return->width());
+        self::assertSame(150, $return->height());
     }
 
     /**
@@ -245,7 +245,7 @@ class GisLineStringTest extends GisGeomTestCase
         string $output
     ): void {
         $string = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
-        self::assertEquals(1, preg_match($output, $string));
+        self::assertSame(1, preg_match($output, $string));
     }
 
     /**
@@ -293,7 +293,7 @@ class GisLineStringTest extends GisGeomTestCase
         array $scale_data,
         string $output
     ): void {
-        self::assertEquals($this->object->prepareRowAsOl(
+        self::assertSame($this->object->prepareRowAsOl(
             $spatial,
             $srid,
             $label,

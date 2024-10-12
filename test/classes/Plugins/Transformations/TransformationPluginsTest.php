@@ -1274,7 +1274,7 @@ class TransformationPluginsTest extends AbstractTestCase
 
         // For output transformation plugins, this method may not exist
         if (method_exists($object, 'isSuccess')) {
-            self::assertEquals($success, $object->isSuccess());
+            self::assertSame($success, $object->isSuccess());
         }
 
         // For output transformation plugins, this method may not exist
@@ -1282,6 +1282,6 @@ class TransformationPluginsTest extends AbstractTestCase
             return;
         }
 
-        self::assertEquals($error, $object->getError());
+        self::assertSame($error, $object->getError());
     }
 }

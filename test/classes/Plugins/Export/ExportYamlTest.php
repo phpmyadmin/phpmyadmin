@@ -67,17 +67,17 @@ class ExportYamlTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals('YAML', $properties->getText());
+        self::assertSame('YAML', $properties->getText());
 
-        self::assertEquals('yml', $properties->getExtension());
+        self::assertSame('yml', $properties->getExtension());
 
-        self::assertEquals('text/yaml', $properties->getMimeType());
+        self::assertSame('text/yaml', $properties->getMimeType());
 
         $options = $properties->getOptions();
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals('Format Specific Options', $options->getName());
+        self::assertSame('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
 
@@ -85,7 +85,7 @@ class ExportYamlTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('general_opts', $generalOptions->getName());
+        self::assertSame('general_opts', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -138,7 +138,7 @@ class ExportYamlTest extends AbstractTestCase
         ));
         $result = ob_get_clean();
 
-        self::assertEquals('# test_db.test_table' . "\n" .
+        self::assertSame('# test_db.test_table' . "\n" .
         '-' . "\n" .
         '  id: 1' . "\n" .
         '  name: &quot;abcd&quot;' . "\n" .

@@ -36,18 +36,18 @@ class BrowseForeignersTest extends AbstractTestCase
     {
         self::assertNull($this->browseForeigners->getForeignLimit('Show all'));
 
-        self::assertEquals('LIMIT 0, 25 ', $this->browseForeigners->getForeignLimit(null));
+        self::assertSame('LIMIT 0, 25 ', $this->browseForeigners->getForeignLimit(null));
 
         $_POST['pos'] = 10;
 
-        self::assertEquals('LIMIT 10, 25 ', $this->browseForeigners->getForeignLimit(null));
+        self::assertSame('LIMIT 10, 25 ', $this->browseForeigners->getForeignLimit(null));
 
         $GLOBALS['cfg']['MaxRows'] = 50;
         $browseForeigners = new BrowseForeigners(new Template());
 
-        self::assertEquals('LIMIT 10, 50 ', $browseForeigners->getForeignLimit(null));
+        self::assertSame('LIMIT 10, 50 ', $browseForeigners->getForeignLimit(null));
 
-        self::assertEquals('LIMIT 10, 50 ', $browseForeigners->getForeignLimit('xyz'));
+        self::assertSame('LIMIT 10, 50 ', $browseForeigners->getForeignLimit('xyz'));
     }
 
     /**
@@ -55,7 +55,7 @@ class BrowseForeignersTest extends AbstractTestCase
      */
     public function testGetHtmlForGotoPage(): void
     {
-        self::assertEquals('', $this->callFunction(
+        self::assertSame('', $this->callFunction(
             $this->browseForeigners,
             BrowseForeigners::class,
             'getHtmlForGotoPage',
@@ -67,7 +67,7 @@ class BrowseForeignersTest extends AbstractTestCase
         $foreignData['disp_row'] = [];
         $foreignData['the_total'] = 5;
 
-        self::assertEquals('', $this->callFunction(
+        self::assertSame('', $this->callFunction(
             $this->browseForeigners,
             BrowseForeigners::class,
             'getHtmlForGotoPage',
@@ -100,7 +100,7 @@ class BrowseForeignersTest extends AbstractTestCase
     {
         $desc = 'foobar<baz';
 
-        self::assertEquals([
+        self::assertSame([
             'foobar<baz',
             '',
         ], $this->callFunction(
@@ -113,7 +113,7 @@ class BrowseForeignersTest extends AbstractTestCase
         $GLOBALS['cfg']['LimitChars'] = 5;
         $browseForeigners = new BrowseForeigners(new Template());
 
-        self::assertEquals([
+        self::assertSame([
             'fooba...',
             'foobar<baz',
         ], $this->callFunction(

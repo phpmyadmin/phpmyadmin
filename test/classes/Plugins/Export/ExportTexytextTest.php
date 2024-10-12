@@ -75,17 +75,17 @@ class ExportTexytextTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals('Texy! text', $properties->getText());
+        self::assertSame('Texy! text', $properties->getText());
 
-        self::assertEquals('txt', $properties->getExtension());
+        self::assertSame('txt', $properties->getExtension());
 
-        self::assertEquals('text/plain', $properties->getMimeType());
+        self::assertSame('text/plain', $properties->getMimeType());
 
         $options = $properties->getOptions();
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals('Format Specific Options', $options->getName());
+        self::assertSame('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
 
@@ -93,9 +93,9 @@ class ExportTexytextTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('general_opts', $generalOptions->getName());
+        self::assertSame('general_opts', $generalOptions->getName());
 
-        self::assertEquals('Dump table', $generalOptions->getText());
+        self::assertSame('Dump table', $generalOptions->getText());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -107,7 +107,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('data', $generalOptions->getName());
+        self::assertSame('data', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -115,13 +115,13 @@ class ExportTexytextTest extends AbstractTestCase
 
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        self::assertEquals('columns', $property->getName());
+        self::assertSame('columns', $property->getName());
 
         $property = array_shift($generalProperties);
 
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        self::assertEquals('null', $property->getName());
+        self::assertSame('null', $property->getName());
     }
 
     public function testExportHeader(): void
@@ -167,7 +167,7 @@ class ExportTexytextTest extends AbstractTestCase
         $result = ob_get_clean();
 
         self::assertIsString($result);
-        self::assertEquals('== Dumping data for table test_table' . "\n\n"
+        self::assertSame('== Dumping data for table test_table' . "\n\n"
             . '|------' . "\n"
             . '|id|name|datetimefield' . "\n"
             . '|------' . "\n"
@@ -182,7 +182,7 @@ class ExportTexytextTest extends AbstractTestCase
         $result = $this->object->getTableDefStandIn('test_db', 'test_table', "\n");
         $this->assertAllSelectsConsumed();
 
-        self::assertEquals('|------' . "\n"
+        self::assertSame('|------' . "\n"
         . '|Column|Type|Null|Default' . "\n"
         . '|------' . "\n"
         . '|//**id**//|int(11)|No|NULL' . "\n"
@@ -323,7 +323,7 @@ class ExportTexytextTest extends AbstractTestCase
         $result = ob_get_clean();
 
         self::assertIsString($result);
-        self::assertEquals('== Table structure for table test_table' . "\n\n"
+        self::assertSame('== Table structure for table test_table' . "\n\n"
         . '|------' . "\n"
         . '|Column|Type|Null|Default' . "\n"
         . '|------' . "\n"
@@ -343,7 +343,7 @@ class ExportTexytextTest extends AbstractTestCase
         ));
         $result = ob_get_clean();
 
-        self::assertEquals('== Triggers test_table' . "\n\n"
+        self::assertSame('== Triggers test_table' . "\n\n"
         . '|------' . "\n"
         . '|Name|Time|Event|Definition' . "\n"
         . '|------' . "\n"
@@ -363,7 +363,7 @@ class ExportTexytextTest extends AbstractTestCase
         $this->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
-        self::assertEquals('== Structure for view test_table' . "\n\n"
+        self::assertSame('== Structure for view test_table' . "\n\n"
         . '|------' . "\n"
         . '|Column|Type|Null|Default' . "\n"
         . '|------' . "\n"
@@ -385,7 +385,7 @@ class ExportTexytextTest extends AbstractTestCase
         $this->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
-        self::assertEquals('== Stand-in structure for view test_table' . "\n\n"
+        self::assertSame('== Stand-in structure for view test_table' . "\n\n"
         . '|------' . "\n"
         . '|Column|Type|Null|Default' . "\n"
         . '|------' . "\n"
@@ -405,7 +405,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $unique_keys = ['field'];
 
-        self::assertEquals(
+        self::assertSame(
             '|//**field**//|set(abc)|Yes|NULL',
             $this->object->formatOneColumnDefinition($cols, $unique_keys)
         );
@@ -420,6 +420,6 @@ class ExportTexytextTest extends AbstractTestCase
 
         $unique_keys = ['field'];
 
-        self::assertEquals('|fields|&amp;nbsp;|No|def', $this->object->formatOneColumnDefinition($cols, $unique_keys));
+        self::assertSame('|fields|&amp;nbsp;|No|def', $this->object->formatOneColumnDefinition($cols, $unique_keys));
     }
 }

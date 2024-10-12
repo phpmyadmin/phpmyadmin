@@ -46,7 +46,7 @@ class PbxtTest extends AbstractTestCase
      */
     public function testGetVariables(): void
     {
-        self::assertEquals($this->object->getVariables(), [
+        self::assertSame($this->object->getVariables(), [
             'pbxt_index_cache_size' => [
                 'title' => __('Index cache size'),
                 'desc' => __(
@@ -165,7 +165,7 @@ class PbxtTest extends AbstractTestCase
      */
     public function testResolveTypeSize(string $formatted_size, array $output): void
     {
-        self::assertEquals($this->object->resolveTypeSize($formatted_size), $output);
+        self::assertSame($this->object->resolveTypeSize($formatted_size), $output);
     }
 
     /**
@@ -205,7 +205,7 @@ class PbxtTest extends AbstractTestCase
      */
     public function testGetInfoPages(): void
     {
-        self::assertEquals($this->object->getInfoPages(), ['Documentation' => 'Documentation']);
+        self::assertSame($this->object->getInfoPages(), ['Documentation' => 'Documentation']);
     }
 
     /**
@@ -213,7 +213,7 @@ class PbxtTest extends AbstractTestCase
      */
     public function testGetPage(): void
     {
-        self::assertEquals($this->object->getPage('Documentation'), '<p>'
+        self::assertSame($this->object->getPage('Documentation'), '<p>'
         . sprintf(
             __(
                 'Documentation and further information about PBXT can be found on the %sPrimeBase XT Home Page%s.'

@@ -121,7 +121,7 @@ class QbeTest extends AbstractTestCase
      */
     public function testGetShowRow(): void
     {
-        self::assertEquals('<td class="text-center"><input type'
+        self::assertSame('<td class="text-center"><input type'
         . '="checkbox" name="criteriaShow[0]"></td><td class="text-center">'
         . '<input type="checkbox" name="criteriaShow[1]"></td><td '
         . 'class="text-center"><input type="checkbox" name="criteriaShow[2]">'
@@ -138,7 +138,7 @@ class QbeTest extends AbstractTestCase
      */
     public function testGetCriteriaInputboxRow(): void
     {
-        self::assertEquals('<td class="text-center">'
+        self::assertSame('<td class="text-center">'
         . '<input type="hidden" name="prev_criteria[0]" value="">'
         . '<input type="text" name="criteria[0]" value="" class="textfield" '
         . 'style="width: 12ex" size="20"></td><td class="text-center">'
@@ -160,7 +160,7 @@ class QbeTest extends AbstractTestCase
      */
     public function testGetAndOrColCell(): void
     {
-        self::assertEquals('<td class="text-center"><strong>Or:</strong><input type="radio" '
+        self::assertSame('<td class="text-center"><strong>Or:</strong><input type="radio" '
         . 'name="criteriaAndOrColumn[1]" value="or">&nbsp;&nbsp;<strong>And:'
         . '</strong><input type="radio" name="criteriaAndOrColumn[1]" value='
         . '"and"><br>Ins<input type="checkbox" name="criteriaColumnInsert'
@@ -178,7 +178,7 @@ class QbeTest extends AbstractTestCase
      */
     public function testGetModifyColumnsRow(): void
     {
-        self::assertEquals('<td class="text-center"><strong>'
+        self::assertSame('<td class="text-center"><strong>'
         . 'Or:</strong><input type="radio" name="criteriaAndOrColumn[0]" value'
         . '="or">&nbsp;&nbsp;<strong>And:</strong><input type="radio" name='
         . '"criteriaAndOrColumn[0]" value="and" checked="checked"><br>Ins'
@@ -204,7 +204,7 @@ class QbeTest extends AbstractTestCase
      */
     public function testGetInputboxRow(): void
     {
-        self::assertEquals('<td class="text-center"><input type="text" name="Or2[0]" value="" class='
+        self::assertSame('<td class="text-center"><input type="text" name="Or2[0]" value="" class='
         . '"textfield" style="width: 12ex" size="20"></td><td class="text-center">'
         . '<input type="text" name="Or2[1]" value="" class="textfield" '
         . 'style="width: 12ex" size="20"></td><td class="text-center"><input '
@@ -246,7 +246,7 @@ class QbeTest extends AbstractTestCase
      */
     public function testGetSelectClause(): void
     {
-        self::assertEquals('', $this->callFunction(
+        self::assertSame('', $this->callFunction(
             $this->object,
             Qbe::class,
             'getSelectClause',
@@ -259,7 +259,7 @@ class QbeTest extends AbstractTestCase
      */
     public function testGetWhereClause(): void
     {
-        self::assertEquals('', $this->callFunction(
+        self::assertSame('', $this->callFunction(
             $this->object,
             Qbe::class,
             'getWhereClause',
@@ -272,7 +272,7 @@ class QbeTest extends AbstractTestCase
      */
     public function testGetOrderByClause(): void
     {
-        self::assertEquals('', $this->callFunction(
+        self::assertSame('', $this->callFunction(
             $this->object,
             Qbe::class,
             'getOrderByClause',
@@ -285,7 +285,7 @@ class QbeTest extends AbstractTestCase
      */
     public function testGetIndexes(): void
     {
-        self::assertEquals([
+        self::assertSame([
             'unique' => [],
             'index' => [],
         ], $this->callFunction(
@@ -312,7 +312,7 @@ class QbeTest extends AbstractTestCase
      */
     public function testGetLeftJoinColumnCandidates(): void
     {
-        self::assertEquals([0 => 'column2'], $this->callFunction(
+        self::assertSame([0 => 'column2'], $this->callFunction(
             $this->object,
             Qbe::class,
             'getLeftJoinColumnCandidates',
@@ -336,7 +336,7 @@ class QbeTest extends AbstractTestCase
      */
     public function testGetMasterTable(): void
     {
-        self::assertEquals(0, $this->callFunction(
+        self::assertSame(0, $this->callFunction(
             $this->object,
             Qbe::class,
             'getMasterTable',
@@ -367,7 +367,7 @@ class QbeTest extends AbstractTestCase
             'table1.name',
             'table1.deleted',
         ];
-        self::assertEquals([
+        self::assertSame([
             'where_clause_tables' => [],
             'where_clause_columns' => [],
         ], $this->callFunction(
@@ -389,7 +389,7 @@ class QbeTest extends AbstractTestCase
             'table1.name',
             'table1.deleted',
         ];
-        self::assertEquals('`table1`', $this->callFunction(
+        self::assertSame('`table1`', $this->callFunction(
             $this->object,
             Qbe::class,
             'getFromClause',
@@ -408,7 +408,7 @@ class QbeTest extends AbstractTestCase
             'table1.name',
             'table1.deleted',
         ];
-        self::assertEquals('FROM `table1`' . "\n", $this->callFunction(
+        self::assertSame('FROM `table1`' . "\n", $this->callFunction(
             $this->object,
             Qbe::class,
             'getSQLQuery',

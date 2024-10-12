@@ -78,7 +78,7 @@ class SimulateDmlControllerTest extends AbstractTestCase
                 ]),
             ];
 
-            self::assertEquals($expected, $result[$idx]);
+            self::assertSame($expected, $result[$idx]);
         }
     }
 

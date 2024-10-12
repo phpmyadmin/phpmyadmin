@@ -41,6 +41,6 @@ class PerformanceSchemaTest extends AbstractTestCase
      */
     public function testGetMysqlHelpPage(): void
     {
-        self::assertEquals($this->object->getMysqlHelpPage(), 'performance-schema');
+        self::assertSame($this->object->getMysqlHelpPage(), 'performance-schema');
     }
 }

@@ -61,26 +61,26 @@ class ExportJsonTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals('JSON', $properties->getText());
+        self::assertSame('JSON', $properties->getText());
 
-        self::assertEquals('json', $properties->getExtension());
+        self::assertSame('json', $properties->getExtension());
 
-        self::assertEquals('text/plain', $properties->getMimeType());
+        self::assertSame('text/plain', $properties->getMimeType());
 
-        self::assertEquals('Options', $properties->getOptionsText());
+        self::assertSame('Options', $properties->getOptionsText());
 
         $options = $properties->getOptions();
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals('Format Specific Options', $options->getName());
+        self::assertSame('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('general_opts', $generalOptions->getName());
+        self::assertSame('general_opts', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -88,7 +88,7 @@ class ExportJsonTest extends AbstractTestCase
 
         self::assertInstanceOf(HiddenPropertyItem::class, $property);
 
-        self::assertEquals('structure_or_data', $property->getName());
+        self::assertSame('structure_or_data', $property->getName());
     }
 
     public function testExportHeader(): void

@@ -91,7 +91,7 @@ class PluginsTest extends AbstractTestCase
         $plugins = $this->plugins->getAuthentication();
         self::assertIsArray($plugins);
         self::assertNotEmpty($plugins);
-        self::assertEquals([
+        self::assertSame([
             'mysql_old_password' => __('Old MySQL-4.0 authentication'),
             'mysql_native_password' => __('Native MySQL authentication'),
             'sha256_password' => __('SHA256 password authentication'),

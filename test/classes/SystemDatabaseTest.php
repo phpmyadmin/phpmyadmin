@@ -116,6 +116,6 @@ class SystemDatabaseTest extends AbstractTestCase
             . "('PMA_db', 'view_name', 'column_name', 'comment', 'mimetype', "
             . "'transformation', 'transformation_options')";
 
-        self::assertEquals($sql, $ret);
+        self::assertSame($sql, $ret);
     }
 }

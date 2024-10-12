@@ -184,8 +184,8 @@ class CentralColumnsTest extends AbstractTestCase
                 array_slice($this->columnData, 1, 2)
             );
 
-        self::assertEquals($this->modifiedColumnData, $this->centralColumns->getColumnsList('phpmyadmin'));
-        self::assertEquals(
+        self::assertSame($this->modifiedColumnData, $this->centralColumns->getColumnsList('phpmyadmin'));
+        self::assertSame(
             array_slice($this->modifiedColumnData, 1, 2),
             $this->centralColumns->getColumnsList('phpmyadmin', 1, 2)
         );
@@ -208,7 +208,7 @@ class CentralColumnsTest extends AbstractTestCase
                 $this->returnValue([3])
             );
 
-        self::assertEquals(3, $this->centralColumns->getCount('phpmyadmin'));
+        self::assertSame(3, $this->centralColumns->getCount('phpmyadmin'));
     }
 
     /**
@@ -265,7 +265,7 @@ class CentralColumnsTest extends AbstractTestCase
             ->will(
                 $this->returnValue(['id', 'col1'])
             );
-        self::assertEquals([
+        self::assertSame([
             'id',
             'col1',
         ], $this->centralColumns->getFromTable(
@@ -294,7 +294,7 @@ class CentralColumnsTest extends AbstractTestCase
             ->will(
                 $this->returnValue(array_slice($this->columnData, 0, 2))
             );
-        self::assertEquals(array_slice($this->modifiedColumnData, 0, 2), $this->centralColumns->getFromTable(
+        self::assertSame(array_slice($this->modifiedColumnData, 0, 2), $this->centralColumns->getFromTable(
             $db,
             $table,
             true
@@ -435,7 +435,7 @@ class CentralColumnsTest extends AbstractTestCase
             ->will(
                 $this->returnValue($this->columnData)
             );
-        self::assertEquals($this->modifiedColumnData, $this->centralColumns->getListRaw(
+        self::assertSame($this->modifiedColumnData, $this->centralColumns->getListRaw(
             'phpmyadmin',
             ''
         ));
@@ -459,7 +459,7 @@ class CentralColumnsTest extends AbstractTestCase
             ->will(
                 $this->returnValue($this->columnData)
             );
-        self::assertEquals($this->modifiedColumnData, $this->centralColumns->getListRaw(
+        self::assertSame($this->modifiedColumnData, $this->centralColumns->getListRaw(
             'phpmyadmin',
             'table1'
         ));
@@ -481,7 +481,7 @@ class CentralColumnsTest extends AbstractTestCase
             ->will(
                 $this->returnValue(array_slice($this->columnData, 1, 1))
             );
-        self::assertEquals(array_slice($this->modifiedColumnData, 1, 1), $this->callFunction(
+        self::assertSame(array_slice($this->modifiedColumnData, 1, 1), $this->callFunction(
             $this->centralColumns,
             CentralColumns::class,
             'findExistingColNames',
@@ -497,6 +497,6 @@ class CentralColumnsTest extends AbstractTestCase
     {
         $columns = $this->centralColumns->getColumnsNotInCentralList('PMA_db', 'PMA_table');
         self::assertIsArray($columns);
-        self::assertEquals(['id', 'col1', 'col2'], $columns);
+        self::assertSame(['id', 'col1', 'col2'], $columns);
     }
 }

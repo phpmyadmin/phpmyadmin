@@ -72,17 +72,17 @@ class ExportXmlTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals('XML', $properties->getText());
+        self::assertSame('XML', $properties->getText());
 
-        self::assertEquals('xml', $properties->getExtension());
+        self::assertSame('xml', $properties->getExtension());
 
-        self::assertEquals('text/xml', $properties->getMimeType());
+        self::assertSame('text/xml', $properties->getMimeType());
 
         $options = $properties->getOptions();
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals('Format Specific Options', $options->getName());
+        self::assertSame('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
 
@@ -90,7 +90,7 @@ class ExportXmlTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('general_opts', $generalOptions->getName());
+        self::assertSame('general_opts', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -102,7 +102,7 @@ class ExportXmlTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('structure', $generalOptions->getName());
+        self::assertSame('structure', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -130,7 +130,7 @@ class ExportXmlTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('data', $generalOptions->getName());
+        self::assertSame('data', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -364,7 +364,7 @@ class ExportXmlTest extends AbstractTestCase
         $result = ob_get_clean();
 
         self::assertIsString($result);
-        self::assertEquals('        <!-- Table test_table -->' . "\n"
+        self::assertSame('        <!-- Table test_table -->' . "\n"
         . '        <table name="test_table">' . "\n"
         . '            <column name="id">1</column>' . "\n"
         . '            <column name="name">abcd</column>' . "\n"

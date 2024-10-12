@@ -51,12 +51,12 @@ class RelationTest extends AbstractTestCase
         $this->dummyDbi->addSelectDb('phpmyadmin');
         $db = 'information_schema';
         $table = 'CHARACTER_SETS';
-        self::assertEquals('DESCRIPTION', $this->relation->getDisplayField($db, $table));
+        self::assertSame('DESCRIPTION', $this->relation->getDisplayField($db, $table));
         $this->assertAllSelectsConsumed();
 
         $db = 'information_schema';
         $table = 'TABLES';
-        self::assertEquals('TABLE_COMMENT', $this->relation->getDisplayField($db, $table));
+        self::assertSame('TABLE_COMMENT', $this->relation->getDisplayField($db, $table));
 
         $db = 'information_schema';
         $table = 'PMA';
@@ -93,11 +93,11 @@ class RelationTest extends AbstractTestCase
         $this->relation->dbi = $GLOBALS['dbi'];
 
         $db = 'information_schema';
-        self::assertEquals([''], $this->relation->getComments($db));
+        self::assertSame([''], $this->relation->getComments($db));
 
         $db = 'information_schema';
         $table = 'TABLES';
-        self::assertEquals([
+        self::assertSame([
             'field1' => 'Comment1',
             'field2' => 'Comment1',
         ], $this->relation->getComments($db, $table));
@@ -1448,7 +1448,7 @@ class RelationTest extends AbstractTestCase
         $relationParameters = RelationParameters::fromArray([]);
         self::assertSame($relationParameters->toArray(), $_SESSION['relation'][$GLOBALS['server']]);
 
-        self::assertEquals([
+        self::assertSame([
             'userconfig' => 'pma__userconfig',
             'pmadb' => false,// This is the expected value for server = 0
         ], $GLOBALS['cfg']['Server']);

@@ -79,7 +79,7 @@ class ServerConfigChecksTest extends AbstractTestCase
 
         $configChecker->performConfigChecks();
 
-        self::assertEquals([
+        self::assertSame([
             'Servers/1/ssl',
             'Servers/1/auth_type',
             'Servers/1/AllowNoPassword',
@@ -89,7 +89,7 @@ class ServerConfigChecksTest extends AbstractTestCase
             'TempDir',
         ], array_keys($_SESSION['messages']['notice']));
 
-        self::assertEquals([
+        self::assertSame([
             'LoginCookieValidity',
             'GZipDump',
             'BZipDump',

@@ -28,7 +28,7 @@ class NodeFunctionTest extends AbstractTestCase
     {
         $parent = NodeFactory::getInstance('NodeFunction');
         self::assertIsArray($parent->links);
-        self::assertEquals([
+        self::assertSame([
             'text' => [
                 'route' => '/database/routines',
                 'params' => ['item_type' => 'FUNCTION', 'edit_item' => 1, 'db' => null, 'item_name' => null],

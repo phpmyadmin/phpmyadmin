@@ -66,9 +66,9 @@ class ImportOdsTest extends AbstractTestCase
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
-        self::assertEquals(__('OpenDocument Spreadsheet'), $properties->getText());
-        self::assertEquals('ods', $properties->getExtension());
-        self::assertEquals(__('Options'), $properties->getOptionsText());
+        self::assertSame(__('OpenDocument Spreadsheet'), $properties->getText());
+        self::assertSame('ods', $properties->getExtension());
+        self::assertSame(__('Options'), $properties->getOptionsText());
     }
 
     /**

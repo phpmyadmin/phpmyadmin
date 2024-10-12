@@ -46,11 +46,11 @@ class CheckUserPrivilegesTest extends AbstractTestCase
             'GRANT ALL PRIVILEGES ON *.* TO \'root\'@\'localhost\' WITH GRANT OPTION'
         );
 
-        self::assertEquals('ALL PRIVILEGES', $show_grants_str);
+        self::assertSame('ALL PRIVILEGES', $show_grants_str);
 
-        self::assertEquals('*', $show_grants_dbname);
+        self::assertSame('*', $show_grants_dbname);
 
-        self::assertEquals('*', $show_grants_tblname);
+        self::assertSame('*', $show_grants_tblname);
 
         // TEST CASE 2
 
@@ -62,11 +62,11 @@ class CheckUserPrivilegesTest extends AbstractTestCase
             'GRANT ALL PRIVILEGES ON `mysql`.* TO \'root\'@\'localhost\' WITH GRANT OPTION'
         );
 
-        self::assertEquals('ALL PRIVILEGES', $show_grants_str);
+        self::assertSame('ALL PRIVILEGES', $show_grants_str);
 
-        self::assertEquals('mysql', $show_grants_dbname);
+        self::assertSame('mysql', $show_grants_dbname);
 
-        self::assertEquals('*', $show_grants_tblname);
+        self::assertSame('*', $show_grants_tblname);
 
         // TEST CASE 3
 
@@ -78,11 +78,11 @@ class CheckUserPrivilegesTest extends AbstractTestCase
             'GRANT SELECT, INSERT, UPDATE, DELETE ON `mysql`.`columns_priv` TO \'root\'@\'localhost\''
         );
 
-        self::assertEquals('SELECT, INSERT, UPDATE, DELETE', $show_grants_str);
+        self::assertSame('SELECT, INSERT, UPDATE, DELETE', $show_grants_str);
 
-        self::assertEquals('mysql', $show_grants_dbname);
+        self::assertSame('mysql', $show_grants_dbname);
 
-        self::assertEquals('columns_priv', $show_grants_tblname);
+        self::assertSame('columns_priv', $show_grants_tblname);
 
         // TEST CASE 4
 
@@ -94,7 +94,7 @@ class CheckUserPrivilegesTest extends AbstractTestCase
             'GRANT ALL PRIVILEGES ON `cptest\_.`.* TO \'cptest\'@\'localhost\''
         );
 
-        self::assertEquals('cptest\_.', $show_grants_dbname);
+        self::assertSame('cptest\_.', $show_grants_dbname);
 
         [
             $show_grants_str,
@@ -105,7 +105,7 @@ class CheckUserPrivilegesTest extends AbstractTestCase
                 . 'l.m.n.o.p.q.r.s.t.u.v.w.x.y.z`.* TO \'cptest\'@\'localhost\''
         );
 
-        self::assertEquals('cptest\_.a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z', $show_grants_dbname);
+        self::assertSame('cptest\_.a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z', $show_grants_dbname);
     }
 
     /**

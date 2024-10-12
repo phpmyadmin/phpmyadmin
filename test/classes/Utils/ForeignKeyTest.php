@@ -25,7 +25,7 @@ class ForeignKeyTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 1;
 
-        self::assertEquals($e, ForeignKey::isSupported($a));
+        self::assertSame($e, ForeignKey::isSupported($a));
     }
 
     /**

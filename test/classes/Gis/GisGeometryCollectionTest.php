@@ -84,7 +84,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      */
     public function testGenerateWkt(array $gis_data, int $index, ?string $empty, string $output): void
     {
-        self::assertEquals($output, $this->object->generateWkt($gis_data, $index, $empty));
+        self::assertSame($output, $this->object->generateWkt($gis_data, $index, $empty));
     }
 
     /**
@@ -197,7 +197,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      */
     public function testGenerateParams(string $value, array $output): void
     {
-        self::assertEquals($output, $this->object->generateParams($value));
+        self::assertSame($output, $this->object->generateParams($value));
     }
 
     /**
@@ -246,8 +246,8 @@ class GisGeometryCollectionTest extends AbstractTestCase
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        self::assertEquals(120, $return->width());
-        self::assertEquals(150, $return->height());
+        self::assertSame(120, $return->width());
+        self::assertSame(150, $return->height());
     }
 
     /**
@@ -314,7 +314,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         string $output
     ): void {
         $string = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
-        self::assertEquals(1, preg_match($output, $string));
+        self::assertSame(1, preg_match($output, $string));
 
         self::assertMatchesRegularExpressionCompat(
             $output,
@@ -368,7 +368,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         array $scale_data,
         string $output
     ): void {
-        self::assertEquals($output, $this->object->prepareRowAsOl(
+        self::assertSame($output, $this->object->prepareRowAsOl(
             $spatial,
             $srid,
             $label,

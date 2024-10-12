@@ -67,26 +67,26 @@ class ExportPhparrayTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals('PHP array', $properties->getText());
+        self::assertSame('PHP array', $properties->getText());
 
-        self::assertEquals('php', $properties->getExtension());
+        self::assertSame('php', $properties->getExtension());
 
-        self::assertEquals('text/plain', $properties->getMimeType());
+        self::assertSame('text/plain', $properties->getMimeType());
 
-        self::assertEquals('Options', $properties->getOptionsText());
+        self::assertSame('Options', $properties->getOptionsText());
 
         $options = $properties->getOptions();
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals('Format Specific Options', $options->getName());
+        self::assertSame('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('general_opts', $generalOptions->getName());
+        self::assertSame('general_opts', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -148,7 +148,7 @@ class ExportPhparrayTest extends AbstractTestCase
         ));
         $result = ob_get_clean();
 
-        self::assertEquals("\n" . '/* `test_db`.`test_table` */' . "\n" .
+        self::assertSame("\n" . '/* `test_db`.`test_table` */' . "\n" .
         '$test_table = array(' . "\n" .
         '  array(\'id\' => \'1\',\'name\' => \'abcd\',\'datetimefield\' => \'2011-01-20 02:00:02\'),' . "\n" .
         '  array(\'id\' => \'2\',\'name\' => \'foo\',\'datetimefield\' => \'2010-01-20 02:00:02\'),' . "\n" .
@@ -167,7 +167,7 @@ class ExportPhparrayTest extends AbstractTestCase
         $result = ob_get_clean();
 
         self::assertIsString($result);
-        self::assertEquals("\n" . '/* `test_db`.`0``932table` */' . "\n" .
+        self::assertSame("\n" . '/* `test_db`.`0``932table` */' . "\n" .
         '$_0_932table = array(' . "\n" .
         '  array(\'id\' => \'1\',\'name\' => \'abcd\',\'datetimefield\' => \'2011-01-20 02:00:02\'),' . "\n" .
         '  array(\'id\' => \'2\',\'name\' => \'foo\',\'datetimefield\' => \'2010-01-20 02:00:02\'),' . "\n" .

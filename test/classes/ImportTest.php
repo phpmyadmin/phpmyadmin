@@ -77,37 +77,37 @@ class ImportTest extends AbstractTestCase
      */
     public function testLookForUse(): void
     {
-        self::assertEquals([
+        self::assertSame([
             null,
             null,
         ], $this->import->lookForUse(null, null, null));
 
-        self::assertEquals([
+        self::assertSame([
             'myDb',
             null,
         ], $this->import->lookForUse(null, 'myDb', null));
 
-        self::assertEquals([
+        self::assertSame([
             'myDb',
             true,
         ], $this->import->lookForUse(null, 'myDb', true));
 
-        self::assertEquals([
+        self::assertSame([
             'myDb',
             true,
         ], $this->import->lookForUse('select 1 from myTable', 'myDb', true));
 
-        self::assertEquals([
+        self::assertSame([
             'anotherDb',
             true,
         ], $this->import->lookForUse('use anotherDb', 'myDb', false));
 
-        self::assertEquals([
+        self::assertSame([
             'anotherDb',
             true,
         ], $this->import->lookForUse('use anotherDb', 'myDb', true));
 
-        self::assertEquals([
+        self::assertSame([
             'anotherDb',
             true,
         ], $this->import->lookForUse('use `anotherDb`;', 'myDb', true));
@@ -123,7 +123,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testGetColumnAlphaName(string $expected, int $num): void
     {
-        self::assertEquals($expected, $this->import->getColumnAlphaName($num));
+        self::assertSame($expected, $this->import->getColumnAlphaName($num));
     }
 
     /**
@@ -171,7 +171,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testGetColumnNumberFromName(int $expected, string $name): void
     {
-        self::assertEquals($expected, $this->import->getColumnNumberFromName($name));
+        self::assertSame($expected, $this->import->getColumnNumberFromName($name));
     }
 
     /**
@@ -219,7 +219,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testGetDecimalPrecision(int $expected, string $size): void
     {
-        self::assertEquals($expected, $this->import->getDecimalPrecision($size));
+        self::assertSame($expected, $this->import->getDecimalPrecision($size));
     }
 
     /**
@@ -259,7 +259,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testGetDecimalScale(int $expected, string $size): void
     {
-        self::assertEquals($expected, $this->import->getDecimalScale($size));
+        self::assertSame($expected, $this->import->getDecimalScale($size));
     }
 
     /**
@@ -299,7 +299,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testGetDecimalSize(array $expected, string $cell): void
     {
-        self::assertEquals($expected, $this->import->getDecimalSize($cell));
+        self::assertSame($expected, $this->import->getDecimalSize($cell));
     }
 
     /**
@@ -358,7 +358,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testDetectType(int $expected, ?int $type, ?string $cell): void
     {
-        self::assertEquals($expected, $this->import->detectType($type, $cell));
+        self::assertSame($expected, $this->import->detectType($type, $cell));
     }
 
     /**
@@ -520,7 +520,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testSkipByteOrderMarksFromContents(string $input, string $cleanContents): void
     {
-        self::assertEquals($cleanContents, $this->import->skipByteOrderMarksFromContents($input));
+        self::assertSame($cleanContents, $this->import->skipByteOrderMarksFromContents($input));
     }
 
     /**

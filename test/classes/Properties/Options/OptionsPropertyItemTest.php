@@ -43,7 +43,7 @@ class OptionsPropertyItemTest extends AbstractTestCase
     {
         $this->stub->setName('name123');
 
-        self::assertEquals('name123', $this->stub->getName());
+        self::assertSame('name123', $this->stub->getName());
     }
 
     /**
@@ -55,7 +55,7 @@ class OptionsPropertyItemTest extends AbstractTestCase
     {
         $this->stub->setText('text123');
 
-        self::assertEquals('text123', $this->stub->getText());
+        self::assertSame('text123', $this->stub->getText());
     }
 
     /**
@@ -67,11 +67,11 @@ class OptionsPropertyItemTest extends AbstractTestCase
     {
         $this->stub->setForce('force123');
 
-        self::assertEquals('force123', $this->stub->getForce());
+        self::assertSame('force123', $this->stub->getForce());
     }
 
     public function testGetPropertyType(): void
     {
-        self::assertEquals('options', $this->stub->getPropertyType());
+        self::assertSame('options', $this->stub->getPropertyType());
     }
 }

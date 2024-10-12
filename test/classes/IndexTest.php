@@ -62,14 +62,14 @@ class IndexTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $index = new Index($this->params);
-        self::assertEquals('PMA_Index_comment', $index->getComment());
-        self::assertEquals('PMA_Comment', $index->getRemarks());
-        self::assertEquals('PMA_Index_choice', $index->getChoice());
-        self::assertEquals('PMA_Packed', $index->getPacked());
-        self::assertEquals('PMA_Non_unique', $index->getNonUnique());
+        self::assertSame('PMA_Index_comment', $index->getComment());
+        self::assertSame('PMA_Comment', $index->getRemarks());
+        self::assertSame('PMA_Index_choice', $index->getChoice());
+        self::assertSame('PMA_Packed', $index->getPacked());
+        self::assertSame('PMA_Non_unique', $index->getNonUnique());
         self::assertStringContainsString('PMA_Comment', $index->getComments());
         self::assertStringContainsString('PMA_Index_comment', $index->getComments());
-        self::assertEquals('PMA_Index_choice', $index->getChoice());
+        self::assertSame('PMA_Index_choice', $index->getChoice());
     }
 
     /**
@@ -80,7 +80,7 @@ class IndexTest extends AbstractTestCase
         $this->params['Non_unique'] = '0';
         $index = new Index($this->params);
         self::assertTrue($index->isUnique());
-        self::assertEquals('Yes', $index->isUnique(true));
+        self::assertSame('Yes', $index->isUnique(true));
     }
 
     /**
@@ -93,7 +93,7 @@ class IndexTest extends AbstractTestCase
         self::assertTrue($index->hasColumn('column1'));
         self::assertTrue($index->hasColumn('column2'));
         self::assertTrue($index->hasColumn('column3'));
-        self::assertEquals(3, $index->getColumnCount());
+        self::assertSame(3, $index->getColumnCount());
     }
 
     /**
@@ -103,7 +103,7 @@ class IndexTest extends AbstractTestCase
     {
         $index = new Index();
         $index->setName('PMA_name');
-        self::assertEquals('PMA_name', $index->getName());
+        self::assertSame('PMA_name', $index->getName());
     }
 
     public function testColumns(): void
@@ -113,9 +113,9 @@ class IndexTest extends AbstractTestCase
 
         $index_columns = $index->getColumns();
         $index_column = $index_columns['column1'];
-        self::assertEquals('column1', $index_column->getName());
-        self::assertEquals('index1', $index_column->getSeqInIndex());
-        self::assertEquals('Collation1', $index_column->getCollation());
-        self::assertEquals('Cardinality1', $index_column->getCardinality());
+        self::assertSame('column1', $index_column->getName());
+        self::assertSame('index1', $index_column->getSeqInIndex());
+        self::assertSame('Collation1', $index_column->getCollation());
+        self::assertSame('Cardinality1', $index_column->getCardinality());
     }
 }

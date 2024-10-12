@@ -130,6 +130,6 @@ class DbiMysqliTest extends AbstractTestCase
             ->method('real_escape_string')
             ->willReturn($string);
 
-        self::assertEquals($string, $this->object->escapeString($mysqli, $string));
+        self::assertSame($string, $this->object->escapeString($mysqli, $string));
     }
 }

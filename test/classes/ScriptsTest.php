@@ -73,7 +73,7 @@ class ScriptsTest extends AbstractTestCase
         $this->object->addFile('vendor/codemirror/lib/codemirror.js');
 
         $this->object->addFile('common.js');
-        self::assertEquals([
+        self::assertSame([
             [
                 'name' => 'vendor/codemirror/lib/codemirror.js',
                 'fire' => 0,
@@ -95,7 +95,7 @@ class ScriptsTest extends AbstractTestCase
 
         // Assert empty _files property of
         // Scripts
-        self::assertEquals([], $reflection->getValue($this->object));
+        self::assertSame([], $reflection->getValue($this->object));
 
         // Add one script file
         $file = 'common.js';
@@ -108,7 +108,7 @@ class ScriptsTest extends AbstractTestCase
             ],
         ];
         $this->object->addFile($file);
-        self::assertEquals($_files, $reflection->getValue($this->object));
+        self::assertSame($_files, $reflection->getValue($this->object));
     }
 
     /**
@@ -137,6 +137,6 @@ class ScriptsTest extends AbstractTestCase
             ],
         ];
         $this->object->addFiles($filenames);
-        self::assertEquals($_files, $reflection->getValue($this->object));
+        self::assertSame($_files, $reflection->getValue($this->object));
     }
 }

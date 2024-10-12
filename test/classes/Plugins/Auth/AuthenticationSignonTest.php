@@ -107,11 +107,11 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         self::assertTrue($this->object->readCredentials());
 
-        self::assertEquals('user', $this->object->user);
+        self::assertSame('user', $this->object->user);
 
-        self::assertEquals('password', $this->object->password);
+        self::assertSame('password', $this->object->password);
 
-        self::assertEquals('https://example.com/SignonURL', $_SESSION['LAST_SIGNON_URL']);
+        self::assertSame('https://example.com/SignonURL', $_SESSION['LAST_SIGNON_URL']);
     }
 
     public function testAuthCheckToken(): void
@@ -148,9 +148,9 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             'user' => 'user',
         ], $GLOBALS['cfg']['Server']);
 
-        self::assertEquals($sessionName, session_name());
+        self::assertSame($sessionName, session_name());
 
-        self::assertEquals($sessionID, session_id());
+        self::assertSame($sessionID, session_id());
 
         self::assertArrayNotHasKey('LAST_SIGNON_URL', $_SESSION);
     }
@@ -175,9 +175,9 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         self::assertTrue($this->object->readCredentials());
 
-        self::assertEquals('user123', $this->object->user);
+        self::assertSame('user123', $this->object->user);
 
-        self::assertEquals('pass123', $this->object->password);
+        self::assertSame('pass123', $this->object->password);
     }
 
     public function testAuthSetUser(): void
@@ -187,9 +187,9 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         self::assertTrue($this->object->storeCredentials());
 
-        self::assertEquals('testUser123', $GLOBALS['cfg']['Server']['user']);
+        self::assertSame('testUser123', $GLOBALS['cfg']['Server']['user']);
 
-        self::assertEquals('testPass123', $GLOBALS['cfg']['Server']['password']);
+        self::assertSame('testPass123', $GLOBALS['cfg']['Server']['password']);
     }
 
     public function testAuthFailsForbidden(): void
@@ -207,7 +207,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object->showFailure('empty-denied');
 
-        self::assertEquals(
+        self::assertSame(
             'Login without a password is forbidden by configuration (see AllowNoPassword)',
             $_SESSION['PMA_single_signon_error_message']
         );
@@ -228,7 +228,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object->showFailure('allow-denied');
 
-        self::assertEquals('Access denied!', $_SESSION['PMA_single_signon_error_message']);
+        self::assertSame('Access denied!', $_SESSION['PMA_single_signon_error_message']);
     }
 
     public function testAuthFailsTimeout(): void
@@ -248,7 +248,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object->showFailure('no-activity');
 
-        self::assertEquals('You have been automatically logged out due to inactivity of'
+        self::assertSame('You have been automatically logged out due to inactivity of'
         . ' 1440 seconds. Once you log in again, you should be able to'
         . ' resume the work where you left off.', $_SESSION['PMA_single_signon_error_message']);
     }
@@ -278,7 +278,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object->showFailure('');
 
-        self::assertEquals('error&lt;123&gt;', $_SESSION['PMA_single_signon_error_message']);
+        self::assertSame('error&lt;123&gt;', $_SESSION['PMA_single_signon_error_message']);
     }
 
     public function testAuthFailsConnect(): void
@@ -307,7 +307,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object->showFailure('');
 
-        self::assertEquals('Cannot log in to the MySQL server', $_SESSION['PMA_single_signon_error_message']);
+        self::assertSame('Cannot log in to the MySQL server', $_SESSION['PMA_single_signon_error_message']);
     }
 
     public function testSetCookieParamsDefaults(): void

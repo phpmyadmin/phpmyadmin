@@ -42,14 +42,14 @@ class EncodingTest extends AbstractTestCase
      */
     public function testNoConversion(): void
     {
-        self::assertEquals('test', Encoding::convertString('UTF-8', 'UTF-8', 'test'));
+        self::assertSame('test', Encoding::convertString('UTF-8', 'UTF-8', 'test'));
     }
 
     public function testInvalidConversion(): void
     {
         // Invalid value to use default case
         Encoding::setEngine(-1);
-        self::assertEquals('test', Encoding::convertString('UTF-8', 'anything', 'test'));
+        self::assertSame('test', Encoding::convertString('UTF-8', 'anything', 'test'));
     }
 
     /**
@@ -58,7 +58,7 @@ class EncodingTest extends AbstractTestCase
     public function testRecode(): void
     {
         Encoding::setEngine(Encoding::ENGINE_RECODE);
-        self::assertEquals('Only That ecole & Can Be My Blame', Encoding::convertString(
+        self::assertSame('Only That ecole & Can Be My Blame', Encoding::convertString(
             'UTF-8',
             'flat',
             'Only That école & Can Be My Blame'
@@ -87,7 +87,7 @@ class EncodingTest extends AbstractTestCase
         if (PHP_INT_SIZE === 8) {
             $GLOBALS['cfg']['IconvExtraParams'] = '//TRANSLIT';
             Encoding::setEngine(Encoding::ENGINE_ICONV);
-            self::assertEquals("This is the Euro symbol 'EUR'.", Encoding::convertString(
+            self::assertSame("This is the Euro symbol 'EUR'.", Encoding::convertString(
                 'UTF-8',
                 'ISO-8859-1',
                 "This is the Euro symbol '€'."
@@ -97,7 +97,7 @@ class EncodingTest extends AbstractTestCase
             // NOTE: or it will throw "iconv(): Detected an illegal character in input string"
             $GLOBALS['cfg']['IconvExtraParams'] = '//TRANSLIT//IGNORE';
             Encoding::setEngine(Encoding::ENGINE_ICONV);
-            self::assertEquals("This is the Euro symbol ''.", Encoding::convertString(
+            self::assertSame("This is the Euro symbol ''.", Encoding::convertString(
                 'UTF-8',
                 'ISO-8859-1',
                 "This is the Euro symbol '€'."
@@ -108,7 +108,7 @@ class EncodingTest extends AbstractTestCase
     public function testMbstring(): void
     {
         Encoding::setEngine(Encoding::ENGINE_MB);
-        self::assertEquals("This is the Euro symbol '?'.", Encoding::convertString(
+        self::assertSame("This is the Euro symbol '?'.", Encoding::convertString(
             'UTF-8',
             'ISO-8859-1',
             "This is the Euro symbol '€'."
@@ -120,11 +120,11 @@ class EncodingTest extends AbstractTestCase
      */
     public function testChangeOrder(): void
     {
-        self::assertEquals('ASCII,SJIS,EUC-JP,JIS', Encoding::getKanjiEncodings());
+        self::assertSame('ASCII,SJIS,EUC-JP,JIS', Encoding::getKanjiEncodings());
         Encoding::kanjiChangeOrder();
-        self::assertEquals('ASCII,EUC-JP,SJIS,JIS', Encoding::getKanjiEncodings());
+        self::assertSame('ASCII,EUC-JP,SJIS,JIS', Encoding::getKanjiEncodings());
         Encoding::kanjiChangeOrder();
-        self::assertEquals('ASCII,SJIS,EUC-JP,JIS', Encoding::getKanjiEncodings());
+        self::assertSame('ASCII,SJIS,EUC-JP,JIS', Encoding::getKanjiEncodings());
     }
 
     /**
@@ -132,18 +132,18 @@ class EncodingTest extends AbstractTestCase
      */
     public function testKanjiStrConv(): void
     {
-        self::assertEquals('test', Encoding::kanjiStrConv('test', '', ''));
+        self::assertSame('test', Encoding::kanjiStrConv('test', '', ''));
 
         $GLOBALS['kanji_encoding_list'] = 'ASCII,SJIS,EUC-JP,JIS';
 
-        self::assertEquals('test è', Encoding::kanjiStrConv('test è', '', ''));
+        self::assertSame('test è', Encoding::kanjiStrConv('test è', '', ''));
 
-        self::assertEquals(
+        self::assertSame(
             mb_convert_encoding('test è', 'ASCII', 'SJIS'),
             Encoding::kanjiStrConv('test è', 'ASCII', '')
         );
 
-        self::assertEquals(mb_convert_kana('全角', 'KV', 'SJIS'), Encoding::kanjiStrConv('全角', '', 'kana'));
+        self::assertSame(mb_convert_kana('全角', 'KV', 'SJIS'), Encoding::kanjiStrConv('全角', '', 'kana'));
     }
 
     /**
@@ -162,7 +162,7 @@ class EncodingTest extends AbstractTestCase
         Encoding::kanjiChangeOrder();
         $expected = Encoding::kanjiStrConv($file_str, 'JIS', 'kana');
         Encoding::kanjiChangeOrder();
-        self::assertEquals($string, $expected);
+        self::assertSame($string, $expected);
         unlink($result);
     }
 
