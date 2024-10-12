@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-11-30 20:04+0000\n"
-"Last-Translator: Todor Kirilov <fallenangelbg@protonmail.com>\n"
+"PO-Revision-Date: 2024-10-13 05:15+0000\n"
+"Last-Translator: 109247019824 <stoyan@gmx.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "bg/>\n"
 "Language: bg\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -6554,7 +6554,8 @@ msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%1$sBzip2 разархивиране %2$s изисква функцията (%3$s), която не е налична."
+"%1$sСъздаването и разкомпресирането на архиви Bzip2%2$s изискват функции "
+"(%3$s), които не са достъпни в системата."
 
 #: libraries/classes/Config/ServerConfigChecks.php:538
 #, fuzzy, php-format
@@ -6569,11 +6570,11 @@ msgstr "%sZip разархивиране%s изизква функцията (%s
 #: libraries/classes/Config/Validator.php:214
 #: libraries/classes/Config/Validator.php:221
 msgid "Could not connect to the database server!"
-msgstr "Невъзможност за свързване сървъра на базата данни!"
+msgstr "Невъзможно свързване със сървъра на базата данни!"
 
 #: libraries/classes/Config/Validator.php:253
 msgid "Invalid authentication type!"
-msgstr "Невалиден тип удостоверяване!"
+msgstr "Неприемлив вид на удостоверяването!"
 
 #: libraries/classes/Config/Validator.php:260
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -13019,10 +13020,8 @@ msgid "User group menu assignments"
 msgstr "Няма права."
 
 #: libraries/classes/Server/UserGroups.php:252
-#, fuzzy
-#| msgid "Column names: "
 msgid "Group name:"
-msgstr "Имена на колони: "
+msgstr "Име на групата:"
 
 #: libraries/classes/Server/UserGroups.php:289
 #, fuzzy
@@ -15045,10 +15044,8 @@ msgid "Create a page and save to it"
 msgstr "създаване на страница и експорт към нея"
 
 #: templates/database/designer/page_save_as.twig:30
-#, fuzzy
-#| msgid "New page name: "
 msgid "New page name"
-msgstr "Име: "
+msgstr "Име на новата страница"
 
 #: templates/table/search/rows_zoom.twig:12
 msgid "Additional search criteria"
@@ -16384,10 +16381,8 @@ msgid "Select table:"
 msgstr "Изберете таблица:"
 
 #: templates/export/alias_add.twig:29
-#, fuzzy
-#| msgid "New page name: "
 msgid "New table name"
-msgstr "Име: "
+msgstr "Име на новата таблица"
 
 #: templates/export/alias_add.twig:37
 msgid "Select column:"
