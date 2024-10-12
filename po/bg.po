@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2022-02-17 10:33+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2024-10-13 04:15+0000\n"
+"Last-Translator: 109247019824 <stoyan@gmx.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "bg/>\n"
 "Language: bg\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4947,8 +4947,8 @@ msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%1$sBzip2 компресирането и разархивирането%2$s изискват функции (%3$s), "
-"които не са достъпни на тази система."
+"%1$sСъздаването и разкомпресирането на архиви Bzip2%2$s изискват функции "
+"(%3$s), които не са достъпни в системата."
 
 #: libraries/classes/Config/ServerConfigChecks.php:547
 #, php-format
@@ -4965,7 +4965,7 @@ msgstr "Невъзможно свързване със сървъра на ба�
 
 #: libraries/classes/Config/Validator.php:268
 msgid "Invalid authentication type!"
-msgstr "Невалиден тип удостоверяване!"
+msgstr "Неприемлив вид на удостоверяването!"
 
 #: libraries/classes/Config/Validator.php:275
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -10283,10 +10283,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Navigation/NavigationTree.php:820
-#, fuzzy
-#| msgid "Column names: "
 msgid "Groups"
-msgstr "Имена на колони: "
+msgstr "Групи"
 
 #: libraries/classes/Navigation/NavigationTree.php:986
 #, php-format
@@ -12311,10 +12309,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Routing.php:169
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "БД-източник `%s` не е намерена!"
+msgstr "Грешка 404! Страницата %s не е намерена."
 
 #: libraries/classes/Routing.php:180
 msgid "Error 405! Request method not allowed."
@@ -14555,10 +14552,8 @@ msgid "Create a page and save to it"
 msgstr "създаване на страница и експорт към нея"
 
 #: templates/database/designer/page_save_as.twig:29
-#, fuzzy
-#| msgid "New page name: "
 msgid "New page name"
-msgstr "Име: "
+msgstr "Име на новата страница"
 
 #: templates/database/designer/page_selector.twig:2
 msgid "Select page"
@@ -14797,12 +14792,12 @@ msgstr "Ново име на БД"
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:291
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
-msgstr "Не разполагате с права, за да се намирате тук!"
+msgstr ""
+"Не разполагате с права, за да извършите това действие. За подробности "
+"прочетете докумантацията."
 
 #: templates/database/operations/index.twig:89
 msgid "Remove database"
@@ -15540,10 +15535,8 @@ msgid "Select table:"
 msgstr "Изберете таблица:"
 
 #: templates/export.twig:255
-#, fuzzy
-#| msgid "New page name: "
 msgid "New table name"
-msgstr "Име: "
+msgstr "Име на новата таблица"
 
 #: templates/export.twig:263
 msgid "Select column:"
@@ -17821,10 +17814,8 @@ msgid "User group menu assignments"
 msgstr "Няма права."
 
 #: templates/server/user_groups/edit_user_groups.twig:14
-#, fuzzy
-#| msgid "Column names: "
 msgid "Group name:"
-msgstr "Имена на колони: "
+msgstr "Име на групата:"
 
 #: templates/server/user_groups/user_groups.twig:12
 #, fuzzy
