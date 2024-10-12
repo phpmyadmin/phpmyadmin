@@ -212,9 +212,9 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
 
         $_REQUEST['old_usr'] = $old_usr;
 
-        self::assertEquals($expectedReturn, $this->object->readCredentials());
+        self::assertSame($expectedReturn, $this->object->readCredentials());
 
-        self::assertEquals($expectedUser, $this->object->user);
+        self::assertSame($expectedUser, $this->object->user);
 
         self::assertEquals($expectedPass, $this->object->password);
 
@@ -290,13 +290,13 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
 
         self::assertTrue($this->object->storeCredentials());
 
-        self::assertEquals('testUser', $GLOBALS['cfg']['Server']['user']);
+        self::assertSame('testUser', $GLOBALS['cfg']['Server']['user']);
 
-        self::assertEquals('testPass', $GLOBALS['cfg']['Server']['password']);
+        self::assertSame('testPass', $GLOBALS['cfg']['Server']['password']);
 
         self::assertArrayNotHasKey('PHP_AUTH_PW', $_SERVER);
 
-        self::assertEquals(2, $GLOBALS['server']);
+        self::assertSame(2, $GLOBALS['server']);
 
         // case 2
         $this->object->user = 'testUser';
@@ -320,7 +320,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             'host' => 'a',
         ], $GLOBALS['cfg']['Server']);
 
-        self::assertEquals(2, $GLOBALS['server']);
+        self::assertSame(2, $GLOBALS['server']);
 
         // case 3
         $GLOBALS['server'] = 3;
@@ -345,7 +345,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             'host' => 'a',
         ], $GLOBALS['cfg']['Server']);
 
-        self::assertEquals(3, $GLOBALS['server']);
+        self::assertSame(3, $GLOBALS['server']);
     }
 
     /**

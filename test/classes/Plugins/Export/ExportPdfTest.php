@@ -63,13 +63,13 @@ class ExportPdfTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals('PDF', $properties->getText());
+        self::assertSame('PDF', $properties->getText());
 
-        self::assertEquals('pdf', $properties->getExtension());
+        self::assertSame('pdf', $properties->getExtension());
 
-        self::assertEquals('application/pdf', $properties->getMimeType());
+        self::assertSame('application/pdf', $properties->getMimeType());
 
-        self::assertEquals('Options', $properties->getOptionsText());
+        self::assertSame('Options', $properties->getOptionsText());
 
         self::assertTrue($properties->getForceFile());
 
@@ -77,7 +77,7 @@ class ExportPdfTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals('Format Specific Options', $options->getName());
+        self::assertSame('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
 
@@ -85,7 +85,7 @@ class ExportPdfTest extends AbstractTestCase
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('general_opts', $generalOptions->getName());
+        self::assertSame('general_opts', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -93,15 +93,15 @@ class ExportPdfTest extends AbstractTestCase
 
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        self::assertEquals('report_title', $property->getName());
+        self::assertSame('report_title', $property->getName());
 
         $generalOptions = array_shift($generalOptionsArray);
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('dump_what', $generalOptions->getName());
+        self::assertSame('dump_what', $generalOptions->getName());
 
-        self::assertEquals('Dump table', $generalOptions->getText());
+        self::assertSame('Dump table', $generalOptions->getText());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -109,9 +109,9 @@ class ExportPdfTest extends AbstractTestCase
 
         self::assertInstanceOf(RadioPropertyItem::class, $property);
 
-        self::assertEquals('structure_or_data', $property->getName());
+        self::assertSame('structure_or_data', $property->getName());
 
-        self::assertEquals([
+        self::assertSame([
             'structure' => __('structure'),
             'data' => __('data'),
             'structure_and_data' => __('structure and data'),

@@ -22,70 +22,70 @@ class PropertyItemsTest extends AbstractTestCase
     {
         $object = new BoolPropertyItem(null, 'Text');
 
-        self::assertEquals('Text', $object->getText());
+        self::assertSame('Text', $object->getText());
 
         $object->setText('xtext2');
 
-        self::assertEquals('xtext2', $object->getText());
+        self::assertSame('xtext2', $object->getText());
     }
 
     public function testBoolName(): void
     {
         $object = new BoolPropertyItem('xname');
 
-        self::assertEquals('xname', $object->getName());
+        self::assertSame('xname', $object->getName());
 
         $object->setName('xname2');
 
-        self::assertEquals('xname2', $object->getName());
+        self::assertSame('xname2', $object->getName());
     }
 
     public function testBoolGetItemType(): void
     {
         $object = new BoolPropertyItem();
 
-        self::assertEquals('bool', $object->getItemType());
+        self::assertSame('bool', $object->getItemType());
     }
 
     public function testGetItemTypeDoc(): void
     {
         $object = new DocPropertyItem();
 
-        self::assertEquals('doc', $object->getItemType());
+        self::assertSame('doc', $object->getItemType());
     }
 
     public function testGetItemTypeHidden(): void
     {
         $object = new HiddenPropertyItem();
 
-        self::assertEquals('hidden', $object->getItemType());
+        self::assertSame('hidden', $object->getItemType());
     }
 
     public function testGetItemTypeMessageOnly(): void
     {
         $object = new MessageOnlyPropertyItem();
 
-        self::assertEquals('messageOnly', $object->getItemType());
+        self::assertSame('messageOnly', $object->getItemType());
     }
 
     public function testGetItemTypeRadio(): void
     {
         $object = new RadioPropertyItem();
 
-        self::assertEquals('radio', $object->getItemType());
+        self::assertSame('radio', $object->getItemType());
     }
 
     public function testGetItemTypeSelect(): void
     {
         $object = new SelectPropertyItem();
 
-        self::assertEquals('select', $object->getItemType());
+        self::assertSame('select', $object->getItemType());
     }
 
     public function testGetItemTypeText(): void
     {
         $object = new TextPropertyItem();
 
-        self::assertEquals('text', $object->getItemType());
+        self::assertSame('text', $object->getItemType());
     }
 }

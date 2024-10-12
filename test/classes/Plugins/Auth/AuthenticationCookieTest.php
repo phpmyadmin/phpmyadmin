@@ -419,7 +419,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         self::assertFalse($this->object->readCredentials());
 
-        self::assertEquals(
+        self::assertSame(
             'Missing reCAPTCHA verification, maybe it has been blocked by adblock?',
             $GLOBALS['conn_error']
         );
@@ -484,11 +484,11 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         self::assertTrue($this->object->readCredentials());
 
-        self::assertEquals('testPMAUser', $this->object->user);
+        self::assertSame('testPMAUser', $this->object->user);
 
-        self::assertEquals('testPMAPSWD', $this->object->password);
+        self::assertSame('testPMAPSWD', $this->object->password);
 
-        self::assertEquals('testPMAServer', $GLOBALS['pma_auth_server']);
+        self::assertSame('testPMAServer', $GLOBALS['pma_auth_server']);
 
         self::assertArrayNotHasKey('pmaAuth-1', $_COOKIE);
     }
@@ -549,7 +549,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         self::assertFalse($this->object->readCredentials());
 
-        self::assertEquals('testBF', $this->object->user);
+        self::assertSame('testBF', $this->object->user);
     }
 
     public function testAuthCheckDecryptPassword(): void
@@ -585,7 +585,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         self::assertTrue($GLOBALS['from_cookie']);
 
-        self::assertEquals('', $this->object->password);
+        self::assertSame('', $this->object->password);
     }
 
     public function testAuthCheckAuthFails(): void
@@ -656,7 +656,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $arr['password'] = 'testPW';
         $arr['host'] = 'b';
         $arr['port'] = '2';
-        self::assertEquals($arr, $GLOBALS['cfg']['Server']);
+        self::assertSame($arr, $GLOBALS['cfg']['Server']);
     }
 
     public function testAuthSetUserWithHeaders(): void
@@ -708,7 +708,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
         $this->object->showFailure('empty-denied');
 
-        self::assertEquals(
+        self::assertSame(
             'Login without a password is forbidden by configuration (see AllowNoPassword)',
             $GLOBALS['conn_error']
         );
@@ -756,7 +756,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             self::assertTrue($this->object->readCredentials());
         }
 
-        self::assertEquals($GLOBALS['conn_error'], $connError);
+        self::assertSame($GLOBALS['conn_error'], $connError);
     }
 
     /**
@@ -778,7 +778,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
         $this->object->showFailure('allow-denied');
 
-        self::assertEquals($GLOBALS['conn_error'], 'Access denied!');
+        self::assertSame($GLOBALS['conn_error'], 'Access denied!');
     }
 
     /**
@@ -802,7 +802,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
         $this->object->showFailure('no-activity');
 
-        self::assertEquals(
+        self::assertSame(
             'You have been automatically logged out due to inactivity of 10 seconds.'
             . ' Once you log in again, you should be able to resume the work where you left off.',
             $GLOBALS['conn_error']
@@ -839,7 +839,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
         $this->object->showFailure('');
 
-        self::assertEquals($GLOBALS['conn_error'], '#42 Cannot log in to the MySQL server');
+        self::assertSame($GLOBALS['conn_error'], '#42 Cannot log in to the MySQL server');
     }
 
     /**
@@ -872,7 +872,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
         $this->object->showFailure('');
 
-        self::assertEquals($GLOBALS['conn_error'], 'Cannot log in to the MySQL server');
+        self::assertSame($GLOBALS['conn_error'], 'Cannot log in to the MySQL server');
     }
 
     public function testGetEncryptionSecretEmpty(): void
@@ -980,15 +980,15 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $result = ob_get_clean();
 
         /* Nothing should be printed */
-        self::assertEquals('', $result);
+        self::assertSame('', $result);
 
         /* Verify readCredentials worked */
-        self::assertEquals('testUser', $this->object->user);
-        self::assertEquals('testPassword', $this->object->password);
+        self::assertSame('testUser', $this->object->user);
+        self::assertSame('testPassword', $this->object->password);
 
         /* Verify storeCredentials worked */
-        self::assertEquals('testUser', $GLOBALS['cfg']['Server']['user']);
-        self::assertEquals('testPassword', $GLOBALS['cfg']['Server']['password']);
+        self::assertSame('testUser', $GLOBALS['cfg']['Server']['user']);
+        self::assertSame('testPassword', $GLOBALS['cfg']['Server']['password']);
     }
 
     /**
@@ -1032,7 +1032,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         self::assertIsString($result);
 
         if (empty($expected)) {
-            self::assertEquals($expected, $result);
+            self::assertSame($expected, $result);
         } else {
             self::assertStringContainsString($expected, $result);
         }

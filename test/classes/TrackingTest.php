@@ -80,8 +80,8 @@ class TrackingTest extends AbstractTestCase
 
         $ret = $this->tracking->filter($data, $filter_ts_from, $filter_ts_to, $filter_users);
 
-        self::assertEquals('username1', $ret[0]['username']);
-        self::assertEquals('statement1', $ret[0]['statement']);
+        self::assertSame('username1', $ret[0]['username']);
+        self::assertSame('statement1', $ret[0]['statement']);
     }
 
     /**
@@ -365,7 +365,7 @@ class TrackingTest extends AbstractTestCase
         //PMA_getHtmlForDataDefinitionStatement
         self::assertStringContainsString(htmlspecialchars($data['ddlog'][0]['username']), $html);
 
-        self::assertEquals(2, $count);
+        self::assertSame(2, $count);
     }
 
     /**
@@ -421,7 +421,7 @@ class TrackingTest extends AbstractTestCase
         $_POST['truncate'] = true;
 
         $tracking_set = $this->tracking->getTrackingSet();
-        self::assertEquals('RENAME TABLE,CREATE TABLE,DROP TABLE,DROP INDEX,INSERT,DELETE,TRUNCATE', $tracking_set);
+        self::assertSame('RENAME TABLE,CREATE TABLE,DROP TABLE,DROP INDEX,INSERT,DELETE,TRUNCATE', $tracking_set);
 
         //other set to true
         $_POST['alter_table'] = true;
@@ -436,7 +436,7 @@ class TrackingTest extends AbstractTestCase
         $_POST['truncate'] = false;
 
         $tracking_set = $this->tracking->getTrackingSet();
-        self::assertEquals('ALTER TABLE,CREATE INDEX,UPDATE', $tracking_set);
+        self::assertSame('ALTER TABLE,CREATE INDEX,UPDATE', $tracking_set);
     }
 
     /**
@@ -467,7 +467,7 @@ class TrackingTest extends AbstractTestCase
         $filter_ts_from = 0;
 
         $entries = $this->tracking->getEntries($data, $filter_ts_from, $filter_ts_to, $filter_users);
-        self::assertEquals('username3', $entries[0]['username']);
-        self::assertEquals('statement1', $entries[0]['statement']);
+        self::assertSame('username3', $entries[0]['username']);
+        self::assertSame('statement1', $entries[0]['statement']);
     }
 }

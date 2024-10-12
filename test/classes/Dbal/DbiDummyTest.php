@@ -63,7 +63,7 @@ class DbiDummyTest extends AbstractTestCase
      */
     public function testSystemSchema(string $schema, bool $expected): void
     {
-        self::assertEquals($expected, Utilities::isSystemSchema($schema));
+        self::assertSame($expected, Utilities::isSystemSchema($schema));
     }
 
     /**
@@ -95,7 +95,7 @@ class DbiDummyTest extends AbstractTestCase
     public function testFormatError(int $number, string $message, string $expected): void
     {
         $GLOBALS['server'] = 1;
-        self::assertEquals($expected, Utilities::formatError($number, $message));
+        self::assertSame($expected, Utilities::formatError($number, $message));
     }
 
     /**
@@ -128,7 +128,7 @@ class DbiDummyTest extends AbstractTestCase
      */
     public function testEscapeString(): void
     {
-        self::assertEquals('a', $this->dbi->escapeString('a'));
-        self::assertEquals('a\\\'', $this->dbi->escapeString('a\''));
+        self::assertSame('a', $this->dbi->escapeString('a'));
+        self::assertSame('a\\\'', $this->dbi->escapeString('a\''));
     }
 }

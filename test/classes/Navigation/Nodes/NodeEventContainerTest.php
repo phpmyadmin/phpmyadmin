@@ -28,10 +28,10 @@ class NodeEventContainerTest extends AbstractTestCase
     {
         $parent = NodeFactory::getInstance('NodeEventContainer');
         self::assertIsArray($parent->links);
-        self::assertEquals([
+        self::assertSame([
             'text' => ['route' => '/database/events', 'params' => ['db' => null]],
             'icon' => ['route' => '/database/events', 'params' => ['db' => null]],
         ], $parent->links);
-        self::assertEquals('events', $parent->realName);
+        self::assertSame('events', $parent->realName);
     }
 }

@@ -71,7 +71,7 @@ class GitTest extends AbstractTestCase
 
         self::assertFalse($this->object->hasGitInformation());
 
-        self::assertEquals('.cachedgitlocation', $git_location);
+        self::assertSame('.cachedgitlocation', $git_location);
     }
 
     /**
@@ -198,10 +198,10 @@ class GitTest extends AbstractTestCase
 
         self::assertIsArray($commit);
         self::assertArrayHasKey('hash', $commit);
-        self::assertEquals('17bf8b7309919f8ac593d7c563b31472780ee83b', $commit['hash']);
+        self::assertSame('17bf8b7309919f8ac593d7c563b31472780ee83b', $commit['hash']);
 
         self::assertArrayHasKey('branch', $commit);
-        self::assertEquals('master', $commit['branch']);
+        self::assertSame('master', $commit['branch']);
 
         self::assertArrayHasKey('message', $commit);
         self::assertIsString($commit['message']);
@@ -326,10 +326,10 @@ class GitTest extends AbstractTestCase
 
         self::assertIsArray($commit);
         self::assertArrayHasKey('hash', $commit);
-        self::assertEquals('17bf8b7309919f8ac593d7c563b31472780ee83b', $commit['hash']);
+        self::assertSame('17bf8b7309919f8ac593d7c563b31472780ee83b', $commit['hash']);
 
         self::assertArrayHasKey('branch', $commit);
-        self::assertEquals('master', $commit['branch']);
+        self::assertSame('master', $commit['branch']);
 
         self::assertArrayHasKey('message', $commit);
         self::assertIsString($commit['message']);
@@ -382,7 +382,7 @@ class GitTest extends AbstractTestCase
         $gitFolder = '';
         self::assertTrue($this->object->isGitRevision($gitFolder));
 
-        self::assertEquals($gitFolder, 'customdir/.git');
+        self::assertSame($gitFolder, 'customdir/.git');
     }
 
     /**
@@ -396,7 +396,7 @@ class GitTest extends AbstractTestCase
         self::assertFalse($this->object->isGitRevision($gitFolder));
 
         // Assert that the value is replaced by cached one
-        self::assertEquals($gitFolder, null);
+        self::assertSame($gitFolder, null);
     }
 
     /**
@@ -410,7 +410,7 @@ class GitTest extends AbstractTestCase
         self::assertFalse($this->object->isGitRevision($gitFolder));
 
         // Assert that the value is replaced by cached one
-        self::assertEquals($gitFolder, 'randomdir/.git');
+        self::assertSame($gitFolder, 'randomdir/.git');
     }
 
     /**

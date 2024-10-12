@@ -127,7 +127,7 @@ class NormalizationTest extends AbstractTestCase
             '<option value="id">id [ integer ]</option>',
             $this->normalization->getHtmlForColumnsList($table, $db)
         );
-        self::assertEquals(
+        self::assertSame(
             '<input type="checkbox" value="col1">col1 [ varchar(100) ]<br>',
             $this->normalization->getHtmlForColumnsList($table, $db, 'String', 'checkbox')
         );
@@ -199,10 +199,10 @@ class NormalizationTest extends AbstractTestCase
         self::assertArrayHasKey('extra', $result);
         self::assertStringContainsString('<a href="#" id="createPrimaryKey">', $result['subText']);
         self::assertStringContainsString('<a href="#" id="addNewPrimary">', $result['extra']);
-        self::assertEquals('0', $result['hasPrimaryKey']);
+        self::assertSame('0', $result['hasPrimaryKey']);
         self::assertStringContainsString(__('Step 1.') . 2, $result['legendText']);
         $result1 = $this->normalization->getHtmlContentsFor1NFStep2($db, 'PMA_table');
-        self::assertEquals('1', $result1['hasPrimaryKey']);
+        self::assertSame('1', $result1['hasPrimaryKey']);
     }
 
     /**
@@ -252,7 +252,7 @@ class NormalizationTest extends AbstractTestCase
             '<input class="btn btn-secondary" type="submit" id="moveRepeatingGroup"',
             $result['extra']
         );
-        self::assertEquals(json_encode(['id']), $result['primary_key']);
+        self::assertSame(json_encode(['id']), $result['primary_key']);
     }
 
     /**
@@ -270,9 +270,9 @@ class NormalizationTest extends AbstractTestCase
         self::assertArrayHasKey('extra', $result);
         self::assertArrayHasKey('primary_key', $result);
         self::assertStringContainsString(__('Step 2.') . 1, $result['legendText']);
-        self::assertEquals('id', $result['primary_key']);
+        self::assertSame('id', $result['primary_key']);
         $result1 = $this->normalization->getHtmlFor2NFstep1($db, 'PMA_table2');
-        self::assertEquals('id, col1', $result1['primary_key']);
+        self::assertSame('id, col1', $result1['primary_key']);
         self::assertStringContainsString('<a href="#" id="showPossiblePd"', $result1['headText']);
         self::assertStringContainsString('<input type="checkbox" name="pd" value="id"', $result1['extra']);
     }
@@ -310,8 +310,8 @@ class NormalizationTest extends AbstractTestCase
         ];
         $result1 = $this->normalization->createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
         self::assertArrayHasKey('extra', $result1);
-        self::assertEquals(__('End of step'), $result1['legendText']);
-        self::assertEquals('', $result1['extra']);
+        self::assertSame(__('End of step'), $result1['legendText']);
+        self::assertSame('', $result1['extra']);
     }
 
     /**
@@ -343,7 +343,7 @@ class NormalizationTest extends AbstractTestCase
         $result1 = $this->normalization->getHtmlForNewTables3NF($dependencies, $tables, $db);
         self::assertIsArray($result1);
         self::assertStringContainsString('<input type="text" name="PMA_table"', $result1['html']);
-        self::assertEquals([
+        self::assertSame([
             'PMA_table' => [
                 'PMA_table' => [
                     'pk' => 'col1',
@@ -383,7 +383,7 @@ class NormalizationTest extends AbstractTestCase
         $newTables1 = [];
         $result1 = $this->normalization->createNewTablesFor3NF($newTables1, $db);
         self::assertArrayHasKey('queryError', $result1);
-        self::assertEquals(__('End of step'), $result1['legendText']);
+        self::assertSame(__('End of step'), $result1['legendText']);
         self::assertFalse($result1['queryError']);
     }
 
@@ -429,7 +429,7 @@ class NormalizationTest extends AbstractTestCase
         self::assertStringContainsString('<form', $result['extra']);
         self::assertStringContainsString('<input type="checkbox" name="pd" value="col1"', $result['extra']);
         $result1 = $this->normalization->getHtmlFor3NFstep1($db, ['PMA_table2']);
-        self::assertEquals('', $result1['subText']);
+        self::assertSame('', $result1['subText']);
     }
 
     /**
@@ -477,7 +477,7 @@ class NormalizationTest extends AbstractTestCase
             [$primaryKey]
         );
 
-        self::assertEquals([
+        self::assertSame([
             '',
             'id',
             'col1',

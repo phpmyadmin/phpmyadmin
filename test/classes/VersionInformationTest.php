@@ -80,7 +80,7 @@ class VersionInformationTest extends AbstractTestCase
     public function testVersionToInt(string $version, int $numeric): void
     {
         $versionInformation = new VersionInformation();
-        self::assertEquals($numeric, $versionInformation->versionToInt($version));
+        self::assertSame($numeric, $versionInformation->versionToInt($version));
     }
 
     /**
@@ -200,7 +200,7 @@ class VersionInformationTest extends AbstractTestCase
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
         self::assertIsArray($compatible);
-        self::assertEquals('4.4.14.1', $compatible['version']);
+        self::assertSame('4.4.14.1', $compatible['version']);
     }
 
     /**
@@ -229,7 +229,7 @@ class VersionInformationTest extends AbstractTestCase
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
         self::assertIsArray($compatible);
-        self::assertEquals('4.4.14.1', $compatible['version']);
+        self::assertSame('4.4.14.1', $compatible['version']);
     }
 
     /**
@@ -260,7 +260,7 @@ class VersionInformationTest extends AbstractTestCase
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
         self::assertIsArray($compatible);
-        self::assertEquals('4.0.10.10', $compatible['version']);
+        self::assertSame('4.0.10.10', $compatible['version']);
     }
 
     /**
@@ -301,7 +301,7 @@ class VersionInformationTest extends AbstractTestCase
             ->willReturnOnConsecutiveCalls(...$returnValues);
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($versions);
-        self::assertEquals($matchedLastVersion, $compatible['version'] ?? null);
+        self::assertSame($matchedLastVersion, $compatible['version'] ?? null);
     }
 
     /**

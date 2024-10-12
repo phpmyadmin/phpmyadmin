@@ -55,7 +55,7 @@ class CryptoTest extends AbstractTestCase
         self::assertNotSame('test', $encrypted);
         self::assertSame('test', $crypto->decrypt($encrypted));
         self::assertArrayHasKey('URLQueryEncryptionSecretKey', $_SESSION);
-        self::assertEquals(32, mb_strlen($_SESSION['URLQueryEncryptionSecretKey'], '8bit'));
+        self::assertSame(32, mb_strlen($_SESSION['URLQueryEncryptionSecretKey'], '8bit'));
     }
 
     public function testDecryptWithInvalidKey(): void

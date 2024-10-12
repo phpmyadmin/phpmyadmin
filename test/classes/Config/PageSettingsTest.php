@@ -36,7 +36,7 @@ class PageSettingsTest extends AbstractTestCase
     {
         $object = new PageSettings('NonExistent');
 
-        self::assertEquals('', $object->getHTML());
+        self::assertSame('', $object->getHTML());
     }
 
     /**

@@ -76,33 +76,33 @@ class CoreTest extends AbstractNetworkTestCase
             ],
         ];
 
-        self::assertEquals(Core::arrayRead('int', $arr), $arr['int']);
+        self::assertSame(Core::arrayRead('int', $arr), $arr['int']);
 
-        self::assertEquals(Core::arrayRead('str', $arr), $arr['str']);
+        self::assertSame(Core::arrayRead('str', $arr), $arr['str']);
 
-        self::assertEquals(Core::arrayRead('arr/0', $arr), $arr['arr'][0]);
+        self::assertSame(Core::arrayRead('arr/0', $arr), $arr['arr'][0]);
 
-        self::assertEquals(Core::arrayRead('arr/1', $arr), $arr['arr'][1]);
+        self::assertSame(Core::arrayRead('arr/1', $arr), $arr['arr'][1]);
 
-        self::assertEquals(Core::arrayRead('arr/2', $arr), $arr['arr'][2]);
+        self::assertSame(Core::arrayRead('arr/2', $arr), $arr['arr'][2]);
 
-        self::assertEquals(Core::arrayRead('sarr/arr1/0', $arr), $arr['sarr']['arr1'][0]);
+        self::assertSame(Core::arrayRead('sarr/arr1/0', $arr), $arr['sarr']['arr1'][0]);
 
-        self::assertEquals(Core::arrayRead('sarr/arr1/1', $arr), $arr['sarr']['arr1'][1]);
+        self::assertSame(Core::arrayRead('sarr/arr1/1', $arr), $arr['sarr']['arr1'][1]);
 
-        self::assertEquals(Core::arrayRead('sarr/arr1/2', $arr), $arr['sarr']['arr1'][2]);
+        self::assertSame(Core::arrayRead('sarr/arr1/2', $arr), $arr['sarr']['arr1'][2]);
 
-        self::assertEquals(Core::arrayRead('sarr/0/0', $arr), $arr['sarr'][0][0]);
+        self::assertSame(Core::arrayRead('sarr/0/0', $arr), $arr['sarr'][0][0]);
 
-        self::assertEquals(Core::arrayRead('sarr/0/1', $arr), $arr['sarr'][0][1]);
+        self::assertSame(Core::arrayRead('sarr/0/1', $arr), $arr['sarr'][0][1]);
 
-        self::assertEquals(Core::arrayRead('sarr/0/1/2', $arr), $arr['sarr'][0][1][2]);
+        self::assertSame(Core::arrayRead('sarr/0/1/2', $arr), $arr['sarr'][0][1][2]);
 
-        self::assertEquals(Core::arrayRead('sarr/not_exiting/1', $arr), null);
+        self::assertSame(Core::arrayRead('sarr/not_exiting/1', $arr), null);
 
-        self::assertEquals(Core::arrayRead('sarr/not_exiting/1', $arr, 0), 0);
+        self::assertSame(Core::arrayRead('sarr/not_exiting/1', $arr, 0), 0);
 
-        self::assertEquals(Core::arrayRead('sarr/not_exiting/1', $arr, 'default_val'), 'default_val');
+        self::assertSame(Core::arrayRead('sarr/not_exiting/1', $arr, 'default_val'), 'default_val');
     }
 
     /**
@@ -137,37 +137,37 @@ class CoreTest extends AbstractNetworkTestCase
         ];
 
         Core::arrayWrite('int', $arr, 5);
-        self::assertEquals($arr['int'], 5);
+        self::assertSame($arr['int'], 5);
 
         Core::arrayWrite('str', $arr, '_str');
-        self::assertEquals($arr['str'], '_str');
+        self::assertSame($arr['str'], '_str');
 
         Core::arrayWrite('arr/0', $arr, 'val_arr_0');
-        self::assertEquals($arr['arr'][0], 'val_arr_0');
+        self::assertSame($arr['arr'][0], 'val_arr_0');
 
         Core::arrayWrite('arr/1', $arr, 'val_arr_1');
-        self::assertEquals($arr['arr'][1], 'val_arr_1');
+        self::assertSame($arr['arr'][1], 'val_arr_1');
 
         Core::arrayWrite('arr/2', $arr, 'val_arr_2');
-        self::assertEquals($arr['arr'][2], 'val_arr_2');
+        self::assertSame($arr['arr'][2], 'val_arr_2');
 
         Core::arrayWrite('sarr/arr1/0', $arr, 'val_sarr_arr_0');
-        self::assertEquals($arr['sarr']['arr1'][0], 'val_sarr_arr_0');
+        self::assertSame($arr['sarr']['arr1'][0], 'val_sarr_arr_0');
 
         Core::arrayWrite('sarr/arr1/1', $arr, 'val_sarr_arr_1');
-        self::assertEquals($arr['sarr']['arr1'][1], 'val_sarr_arr_1');
+        self::assertSame($arr['sarr']['arr1'][1], 'val_sarr_arr_1');
 
         Core::arrayWrite('sarr/arr1/2', $arr, 'val_sarr_arr_2');
-        self::assertEquals($arr['sarr']['arr1'][2], 'val_sarr_arr_2');
+        self::assertSame($arr['sarr']['arr1'][2], 'val_sarr_arr_2');
 
         Core::arrayWrite('sarr/0/0', $arr, 5);
-        self::assertEquals($arr['sarr'][0][0], 5);
+        self::assertSame($arr['sarr'][0][0], 5);
 
         Core::arrayWrite('sarr/0/1/0', $arr, 'e');
-        self::assertEquals($arr['sarr'][0][1][0], 'e');
+        self::assertSame($arr['sarr'][0][1][0], 'e');
 
         Core::arrayWrite('sarr/not_existing/1', $arr, 'some_val');
-        self::assertEquals($arr['sarr']['not_existing'][1], 'some_val');
+        self::assertSame($arr['sarr']['not_existing'][1], 'some_val');
 
         Core::arrayWrite('sarr/0/2', $arr, null);
         self::assertNull($arr['sarr'][0][2]);
@@ -221,7 +221,7 @@ class CoreTest extends AbstractNetworkTestCase
 
         $tmp_arr = $arr;
         Core::arrayRemove('sarr/not_existing/1', $arr);
-        self::assertEquals($tmp_arr, $arr);
+        self::assertSame($tmp_arr, $arr);
 
         Core::arrayRemove('sarr/arr1/0', $arr);
         self::assertArrayNotHasKey(0, $arr['sarr']['arr1']);
@@ -371,7 +371,7 @@ class CoreTest extends AbstractNetworkTestCase
      */
     public function testGetRealSize(string $size, int $expected): void
     {
-        self::assertEquals($expected, Core::getRealSize($size));
+        self::assertSame($expected, Core::getRealSize($size));
     }
 
     /**
@@ -439,7 +439,7 @@ class CoreTest extends AbstractNetworkTestCase
     public function testGetPHPDocLink(): void
     {
         $lang = _pgettext('PHP documentation language', 'en');
-        self::assertEquals(Core::getPHPDocLink('function'), './url.php?url=https%3A%2F%2Fwww.php.net%2Fmanual%2F'
+        self::assertSame(Core::getPHPDocLink('function'), './url.php?url=https%3A%2F%2Fwww.php.net%2Fmanual%2F'
         . $lang . '%2Ffunction');
     }
 
@@ -453,7 +453,7 @@ class CoreTest extends AbstractNetworkTestCase
      */
     public function testLinkURL(string $link, string $url): void
     {
-        self::assertEquals(Core::linkURL($link), $url);
+        self::assertSame(Core::linkURL($link), $url);
     }
 
     /**
@@ -569,7 +569,7 @@ class CoreTest extends AbstractNetworkTestCase
     public function testIsAllowedDomain(string $url, $expected): void
     {
         $_SERVER['SERVER_NAME'] = 'server.local';
-        self::assertEquals($expected, Core::isAllowedDomain($url));
+        self::assertSame($expected, Core::isAllowedDomain($url));
     }
 
     /**
@@ -625,7 +625,7 @@ class CoreTest extends AbstractNetworkTestCase
      */
     public function testSafeUnserialize(string $data, $expected): void
     {
-        self::assertEquals($expected, Core::safeUnserialize($data));
+        self::assertSame($expected, Core::safeUnserialize($data));
     }
 
     /**
@@ -694,7 +694,7 @@ class CoreTest extends AbstractNetworkTestCase
      */
     public function testSanitizeMySQLHost(string $host, string $expected): void
     {
-        self::assertEquals($expected, Core::sanitizeMySQLHost($host));
+        self::assertSame($expected, Core::sanitizeMySQLHost($host));
     }
 
     /**
@@ -729,9 +729,9 @@ class CoreTest extends AbstractNetworkTestCase
      */
     public function testReplaceDots(): void
     {
-        self::assertEquals(Core::securePath('../../../etc/passwd'), './././etc/passwd');
-        self::assertEquals(Core::securePath('/var/www/../phpmyadmin'), '/var/www/./phpmyadmin');
-        self::assertEquals(Core::securePath('./path/with..dots/../../file..php'), './path/with.dots/././file.php');
+        self::assertSame(Core::securePath('../../../etc/passwd'), './././etc/passwd');
+        self::assertSame(Core::securePath('/var/www/../phpmyadmin'), '/var/www/./phpmyadmin');
+        self::assertSame(Core::securePath('./path/with..dots/../../file..php'), './path/with.dots/././file.php');
     }
 
     /**
@@ -888,8 +888,8 @@ class CoreTest extends AbstractNetworkTestCase
 
         $expected = ['pos' => '0', 'db' => 'test_db', 'table' => 'test_table'];
 
-        self::assertEquals($expected, $_GET);
-        self::assertEquals($expected, $_REQUEST);
+        self::assertSame($expected, $_GET);
+        self::assertSame($expected, $_REQUEST);
     }
 
     /**
@@ -919,8 +919,8 @@ class CoreTest extends AbstractNetworkTestCase
 
         Core::populateRequestWithEncryptedQueryParams($request);
 
-        self::assertEquals($decrypted, $_GET);
-        self::assertEquals($decrypted, $_REQUEST);
+        self::assertSame($decrypted, $_GET);
+        self::assertSame($decrypted, $_REQUEST);
     }
 
     /**

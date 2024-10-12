@@ -9251,6 +9251,16 @@ parameters:
 			path: test/classes/Config/DescriptionTest.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with ''\\|'; Compressed export…'\\|'Compressed export…'\\|'Compressed import…' and null will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/Config/FormDisplayTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'string' and 'NULL' will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/Config/FormDisplayTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with null will always evaluate to false\\.$#"
 			count: 1
 			path: test/classes/Config/FormDisplayTest.php
@@ -10581,6 +10591,21 @@ parameters:
 			path: test/classes/ImportTest.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'Cardinality1' and int\\|null will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/IndexTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'PMA_Non_unique' and int will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/IndexTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'index1' and int will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/IndexTest.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\IndexTest\\:\\:\\$params type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/IndexTest.php
@@ -10801,6 +10826,11 @@ parameters:
 			path: test/classes/Plugins/Transformations/TransformationPluginsTest.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'subGroupHeader123' and PhpMyAdmin\\\\Properties\\\\PropertyItem\\|null will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/Properties/Options/Groups/OptionsPropertySubgroupTest.php
+
+		-
 			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/Groups/OptionsPropertySubgroupTest.php
@@ -10926,7 +10956,27 @@ parameters:
 			path: test/classes/Stubs/ResponseRenderer.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\) with true will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/TableTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with '5' and int will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/TableTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\<PhpMyAdmin\\\\FieldMetadata\\> and array\\{'aNonValidExampleToR…'\\} will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/TableTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TableTest\\:\\:dataValidateName\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/TableTest.php
+
+		-
+			message: "#^Offset 'col_order' on array in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: test/classes/TableTest.php
 

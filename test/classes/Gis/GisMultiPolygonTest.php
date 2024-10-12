@@ -214,7 +214,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      */
     public function testGetShape(array $row_data, string $shape): void
     {
-        self::assertEquals($this->object->getShape($row_data), $shape);
+        self::assertSame($this->object->getShape($row_data), $shape);
     }
 
     /**
@@ -344,8 +344,8 @@ class GisMultiPolygonTest extends GisGeomTestCase
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        self::assertEquals(120, $return->width());
-        self::assertEquals(150, $return->height());
+        self::assertSame(120, $return->width());
+        self::assertSame(150, $return->height());
     }
 
     /**
@@ -412,7 +412,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
         string $output
     ): void {
         $string = $this->object->prepareRowAsSvg($spatial, $label, $fillColor, $scaleData);
-        self::assertEquals(1, preg_match($output, $string));
+        self::assertSame(1, preg_match($output, $string));
     }
 
     /**
@@ -464,7 +464,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
         array $scale_data,
         string $output
     ): void {
-        self::assertEquals($output, $this->object->prepareRowAsOl(
+        self::assertSame($output, $this->object->prepareRowAsOl(
             $spatial,
             $srid,
             $label,

@@ -147,7 +147,7 @@ class VariablesControllerTest extends AbstractTestCase
             $args
         );
 
-        self::assertEquals('<abbr title="3">3 B</abbr>', $formattedValue);
+        self::assertSame('<abbr title="3">3 B</abbr>', $formattedValue);
         self::assertTrue($isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
@@ -161,7 +161,7 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args
         );
-        self::assertEquals('3', $formattedValue);
+        self::assertSame('3', $formattedValue);
         self::assertFalse($isHtmlFormatted);
 
         //value is not a number
@@ -175,7 +175,7 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args
         );
-        self::assertEquals('value', $formattedValue);
+        self::assertSame('value', $formattedValue);
         self::assertFalse($isHtmlFormatted);
     }
 
@@ -210,7 +210,7 @@ class VariablesControllerTest extends AbstractTestCase
             $args
         );
 
-        self::assertEquals('<abbr title="3">3 B</abbr>', $formattedValue);
+        self::assertSame('<abbr title="3">3 B</abbr>', $formattedValue);
         self::assertTrue($isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
@@ -224,7 +224,7 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args
         );
-        self::assertEquals('3', $formattedValue);
+        self::assertSame('3', $formattedValue);
         self::assertFalse($isHtmlFormatted);
 
         //value is not a number
@@ -238,7 +238,7 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args
         );
-        self::assertEquals('value', $formattedValue);
+        self::assertSame('value', $formattedValue);
         self::assertFalse($isHtmlFormatted);
     }
 
@@ -268,7 +268,7 @@ class VariablesControllerTest extends AbstractTestCase
             $args
         );
 
-        self::assertEquals('3', $formattedValue);
+        self::assertSame('3', $formattedValue);
         self::assertFalse($isHtmlFormatted);
     }
 }

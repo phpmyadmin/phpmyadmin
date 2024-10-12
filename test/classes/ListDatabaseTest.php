@@ -36,7 +36,7 @@ class ListDatabaseTest extends AbstractTestCase
     public function testEmpty(): void
     {
         $arr = new ListDatabase();
-        self::assertEquals('', $arr->getEmpty());
+        self::assertSame('', $arr->getEmpty());
     }
 
     /**
@@ -53,7 +53,7 @@ class ListDatabaseTest extends AbstractTestCase
         $arr = new ListDatabase();
 
         $GLOBALS['db'] = 'db';
-        self::assertEquals([
+        self::assertSame([
             [
                 'name' => 'single_db',
                 'is_selected' => false,
@@ -61,7 +61,7 @@ class ListDatabaseTest extends AbstractTestCase
         ], $arr->getList());
 
         $GLOBALS['db'] = 'single_db';
-        self::assertEquals([
+        self::assertSame([
             [
                 'name' => 'single_db',
                 'is_selected' => true,
@@ -89,9 +89,9 @@ class ListDatabaseTest extends AbstractTestCase
     public function testGetDefault(): void
     {
         $GLOBALS['db'] = '';
-        self::assertEquals($this->object->getDefault(), '');
+        self::assertSame($this->object->getDefault(), '');
 
         $GLOBALS['db'] = 'mysql';
-        self::assertEquals($this->object->getDefault(), 'mysql');
+        self::assertSame($this->object->getDefault(), 'mysql');
     }
 }

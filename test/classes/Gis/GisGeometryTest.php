@@ -269,7 +269,7 @@ class GisGeometryTest extends AbstractTestCase
      */
     public function testGetBoundsForOl(int $srid, array $scale_data, string $output): void
     {
-        self::assertEquals($output, $this->callFunction(
+        self::assertSame($output, $this->callFunction(
             $this->object,
             GisGeometry::class,
             'getBoundsForOl',
@@ -318,7 +318,7 @@ class GisGeometryTest extends AbstractTestCase
      */
     public function testGetPolygonArrayForOpenLayers(array $polygons, int $srid, string $output): void
     {
-        self::assertEquals($output, $this->callFunction(
+        self::assertSame($output, $this->callFunction(
             $this->object,
             GisGeometry::class,
             'getPolygonArrayForOpenLayers',

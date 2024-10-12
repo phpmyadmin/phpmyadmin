@@ -53,7 +53,7 @@ class ErrorTest extends AbstractTestCase
         ];
         $this->object->setBacktrace($bt);
         $bt[0]['args']['foo'] = '<Class:PhpMyAdmin\Tests\ErrorTest>';
-        self::assertEquals($bt, $this->object->getBacktrace());
+        self::assertSame($bt, $this->object->getBacktrace());
     }
 
     /**
@@ -62,7 +62,7 @@ class ErrorTest extends AbstractTestCase
     public function testSetLine(): void
     {
         $this->object->setLine(15);
-        self::assertEquals(15, $this->object->getLine());
+        self::assertSame(15, $this->object->getLine());
     }
 
     /**
@@ -76,7 +76,7 @@ class ErrorTest extends AbstractTestCase
     public function testSetFile(string $file, string $expected): void
     {
         $this->object->setFile($file);
-        self::assertEquals($expected, $this->object->getFile());
+        self::assertSame($expected, $this->object->getFile());
     }
 
     /**
@@ -108,7 +108,7 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetHash(): void
     {
-        self::assertEquals(1, preg_match('/^([a-z0-9]*)$/', $this->object->getHash()));
+        self::assertSame(1, preg_match('/^([a-z0-9]*)$/', $this->object->getHash()));
     }
 
     /**
@@ -140,7 +140,7 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetHtmlTitle(): void
     {
-        self::assertEquals('Warning: Compile Error', $this->object->getHtmlTitle());
+        self::assertSame('Warning: Compile Error', $this->object->getHtmlTitle());
     }
 
     /**
@@ -148,7 +148,7 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetTitle(): void
     {
-        self::assertEquals('Warning: Compile Error', $this->object->getTitle());
+        self::assertSame('Warning: Compile Error', $this->object->getTitle());
     }
 
     /**

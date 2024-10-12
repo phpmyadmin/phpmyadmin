@@ -153,7 +153,7 @@ class RelationParametersTest extends TestCase
             'userconfigwork' => true,
         ]);
         self::assertInstanceOf(DatabaseName::class, $relationParameters->db);
-        self::assertEquals('db', $relationParameters->db->getName());
+        self::assertSame('db', $relationParameters->db->getName());
         self::assertNotNull($relationParameters->bookmarkFeature);
         self::assertSame($relationParameters->db, $relationParameters->bookmarkFeature->database);
         self::assertNotNull($relationParameters->browserTransformationFeature);

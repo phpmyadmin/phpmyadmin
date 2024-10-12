@@ -58,26 +58,26 @@ class ExportExcelTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals('CSV for MS Excel', $properties->getText());
+        self::assertSame('CSV for MS Excel', $properties->getText());
 
-        self::assertEquals('csv', $properties->getExtension());
+        self::assertSame('csv', $properties->getExtension());
 
-        self::assertEquals('text/comma-separated-values', $properties->getMimeType());
+        self::assertSame('text/comma-separated-values', $properties->getMimeType());
 
-        self::assertEquals('Options', $properties->getOptionsText());
+        self::assertSame('Options', $properties->getOptionsText());
 
         $options = $properties->getOptions();
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals('Format Specific Options', $options->getName());
+        self::assertSame('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('general_opts', $generalOptions->getName());
+        self::assertSame('general_opts', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -85,44 +85,44 @@ class ExportExcelTest extends AbstractTestCase
 
         self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        self::assertEquals('null', $property->getName());
+        self::assertSame('null', $property->getName());
 
-        self::assertEquals('Replace NULL with:', $property->getText());
-
-        $property = array_shift($generalProperties);
-
-        self::assertInstanceOf(BoolPropertyItem::class, $property);
-
-        self::assertEquals('removeCRLF', $property->getName());
-
-        self::assertEquals('Remove carriage return/line feed characters within columns', $property->getText());
+        self::assertSame('Replace NULL with:', $property->getText());
 
         $property = array_shift($generalProperties);
 
         self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        self::assertEquals('columns', $property->getName());
+        self::assertSame('removeCRLF', $property->getName());
 
-        self::assertEquals('Put columns names in the first row', $property->getText());
+        self::assertSame('Remove carriage return/line feed characters within columns', $property->getText());
+
+        $property = array_shift($generalProperties);
+
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
+
+        self::assertSame('columns', $property->getName());
+
+        self::assertSame('Put columns names in the first row', $property->getText());
 
         $property = array_shift($generalProperties);
 
         self::assertInstanceOf(SelectPropertyItem::class, $property);
 
-        self::assertEquals('edition', $property->getName());
+        self::assertSame('edition', $property->getName());
 
-        self::assertEquals([
+        self::assertSame([
             'win' => 'Windows',
             'mac_excel2003' => 'Excel 2003 / Macintosh',
             'mac_excel2008' => 'Excel 2008 / Macintosh',
         ], $property->getValues());
 
-        self::assertEquals('Excel edition:', $property->getText());
+        self::assertSame('Excel edition:', $property->getText());
 
         $property = array_shift($generalProperties);
 
         self::assertInstanceOf(HiddenPropertyItem::class, $property);
 
-        self::assertEquals('structure_or_data', $property->getName());
+        self::assertSame('structure_or_data', $property->getName());
     }
 }

@@ -25,7 +25,7 @@ class NodeColumnTest extends AbstractTestCase
     {
         $parent = NodeFactory::getInstance('NodeColumn', ['name' => 'name', 'key' => 'key']);
         self::assertIsArray($parent->links);
-        self::assertEquals([
+        self::assertSame([
             'text' => [
                 'route' => '/table/structure/change',
                 'params' => ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],

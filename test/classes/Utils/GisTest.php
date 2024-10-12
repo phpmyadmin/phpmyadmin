@@ -133,14 +133,14 @@ class GisTest extends AbstractTestCase
 
     public function testCreateDataOldMysql(): void
     {
-        self::assertEquals('abc', Gis::createData('abc', 50500));
-        self::assertEquals('GeomFromText(\'POINT()\',10)', Gis::createData('\'POINT()\',10', 50500));
+        self::assertSame('abc', Gis::createData('abc', 50500));
+        self::assertSame('GeomFromText(\'POINT()\',10)', Gis::createData('\'POINT()\',10', 50500));
     }
 
     public function testCreateDataNewMysql(): void
     {
-        self::assertEquals('abc', Gis::createData('abc', 50600));
-        self::assertEquals('ST_GeomFromText(\'POINT()\',10)', Gis::createData('\'POINT()\',10', 50600));
+        self::assertSame('abc', Gis::createData('abc', 50600));
+        self::assertSame('ST_GeomFromText(\'POINT()\',10)', Gis::createData('\'POINT()\',10', 50600));
     }
 
     public function testGetFunctions(): void

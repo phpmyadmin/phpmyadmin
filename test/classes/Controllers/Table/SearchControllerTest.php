@@ -119,7 +119,7 @@ class SearchControllerTest extends AbstractTestCase
         );
 
         $result = $ctrl->getColumnMinMax('column');
-        self::assertEquals([$expected], $result);
+        self::assertSame([$expected], $result);
     }
 
     /**
@@ -180,6 +180,6 @@ class SearchControllerTest extends AbstractTestCase
         $ctrl->getDataRowAction();
 
         $json = $this->getResponseJsonResult();
-        self::assertEquals($expected, $json['row_info']);
+        self::assertSame($expected, $json['row_info']);
     }
 }

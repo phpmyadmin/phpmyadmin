@@ -44,7 +44,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
     public function testSetPageNumber(): void
     {
         $this->object->setPageNumber(33);
-        self::assertEquals(33, $this->object->getPageNumber());
+        self::assertSame(33, $this->object->getPageNumber());
     }
 
     /**
@@ -68,9 +68,9 @@ class ExportRelationSchemaTest extends AbstractTestCase
     public function testSetOrientation(): void
     {
         $this->object->setOrientation('P');
-        self::assertEquals('P', $this->object->getOrientation());
+        self::assertSame('P', $this->object->getOrientation());
         $this->object->setOrientation('A');
-        self::assertEquals('L', $this->object->getOrientation());
+        self::assertSame('L', $this->object->getOrientation());
     }
 
     /**
@@ -94,9 +94,9 @@ class ExportRelationSchemaTest extends AbstractTestCase
     public function testSetPaper(): void
     {
         $this->object->setPaper('A5');
-        self::assertEquals('A5', $this->object->getPaper());
+        self::assertSame('A5', $this->object->getPaper());
         $this->object->setPaper('A4');
-        self::assertEquals('A4', $this->object->getPaper());
+        self::assertSame('A4', $this->object->getPaper());
     }
 
     /**

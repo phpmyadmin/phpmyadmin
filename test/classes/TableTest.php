@@ -305,10 +305,10 @@ class TableTest extends AbstractTestCase
     public function testConstruct(): void
     {
         $table = new Table('PMA_BookMark', 'PMA');
-        self::assertEquals('PMA_BookMark', $table->__toString());
-        self::assertEquals('PMA_BookMark', $table->getName());
-        self::assertEquals('PMA', $table->getDbName());
-        self::assertEquals('PMA.PMA_BookMark', $table->getFullName());
+        self::assertSame('PMA_BookMark', $table->__toString());
+        self::assertSame('PMA_BookMark', $table->getName());
+        self::assertSame('PMA', $table->getDbName());
+        self::assertSame('PMA.PMA_BookMark', $table->getFullName());
     }
 
     /**
@@ -317,10 +317,10 @@ class TableTest extends AbstractTestCase
     public function testGetName(): void
     {
         $table = new Table('table1', 'pma_test');
-        self::assertEquals('table1', $table->getName());
-        self::assertEquals('`table1`', $table->getName(true));
-        self::assertEquals('pma_test', $table->getDbName());
-        self::assertEquals('`pma_test`', $table->getDbName(true));
+        self::assertSame('table1', $table->getName());
+        self::assertSame('`table1`', $table->getName(true));
+        self::assertSame('pma_test', $table->getDbName());
+        self::assertSame('`pma_test`', $table->getDbName(true));
     }
 
     /**
@@ -337,8 +337,8 @@ class TableTest extends AbstractTestCase
         $table->messages[] = 'messages2';
         $table->messages[] = 'messages3';
 
-        self::assertEquals('error3', $table->getLastError());
-        self::assertEquals('messages3', $table->getLastMessage());
+        self::assertSame('error3', $table->getLastError());
+        self::assertSame('messages3', $table->getLastMessage());
     }
 
     /**
@@ -352,7 +352,7 @@ class TableTest extends AbstractTestCase
      */
     public function testValidateName(string $name, bool $result, bool $is_backquoted = false): void
     {
-        self::assertEquals($result, Table::isValidName($name, $is_backquoted));
+        self::assertSame($result, Table::isValidName($name, $is_backquoted));
     }
 
     /**
@@ -458,7 +458,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $move_to
         );
-        self::assertEquals(
+        self::assertSame(
             '`PMA_name` BIT(12) PMA_attribute NULL DEFAULT b\'10\' AUTO_INCREMENT COMMENT \'PMA_comment\' FIRST',
             $query
         );
@@ -480,7 +480,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $move_to
         );
-        self::assertEquals(
+        self::assertSame(
             '`PMA_name` DOUBLE(12) PMA_attribute NULL DEFAULT \'12\' AUTO_INCREMENT COMMENT \'PMA_comment\' FIRST',
             $query
         );
@@ -502,7 +502,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $move_to
         );
-        self::assertEquals(
+        self::assertSame(
             '`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT TRUE AUTO_INCREMENT COMMENT \'PMA_comment\' FIRST',
             $query
         );
@@ -524,7 +524,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $move_to
         );
-        self::assertEquals(
+        self::assertSame(
             '`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT NULL AUTO_INCREMENT COMMENT \'PMA_comment\' FIRST',
             $query
         );
@@ -546,7 +546,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $move_to
         );
-        self::assertEquals('`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT CURRENT_TIMESTAMP '
+        self::assertSame('`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT CURRENT_TIMESTAMP '
         . "AUTO_INCREMENT COMMENT 'PMA_comment' FIRST", $query);
 
         //$default_type is current_timestamp()
@@ -566,7 +566,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $move_to
         );
-        self::assertEquals('`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT current_timestamp() '
+        self::assertSame('`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT current_timestamp() '
         . "AUTO_INCREMENT COMMENT 'PMA_comment' FIRST", $query);
 
         // $type is 'TIMESTAMP(3), $default_type is CURRENT_TIMESTAMP(3)
@@ -589,7 +589,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $move_to
         );
-        self::assertEquals(
+        self::assertSame(
             '`PMA_name` TIMESTAMP(3) PMA_attribute NULL DEFAULT CURRENT_TIMESTAMP(3) COMMENT \'PMA_comment\' FIRST',
             $query
         );
@@ -614,7 +614,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $move_to
         );
-        self::assertEquals(
+        self::assertSame(
             '`PMA_name` TIMESTAMP PMA_attribute NULL DEFAULT \'0000-00-00 00:00:00\' COMMENT \'PMA_comment\' FIRST',
             $query
         );
@@ -639,7 +639,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $move_to
         );
-        self::assertEquals(
+        self::assertSame(
             '`PMA_name` TIMESTAMP PMA_attribute NULL DEFAULT \'0000-00-00 00:00:00.0\' COMMENT \'PMA_comment\' FIRST',
             $query
         );
@@ -664,7 +664,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $move_to
         );
-        self::assertEquals('`PMA_name` TIMESTAMP PMA_attribute NULL DEFAULT \'0000-00-00 00:00:00.000000\' '
+        self::assertSame('`PMA_name` TIMESTAMP PMA_attribute NULL DEFAULT \'0000-00-00 00:00:00.000000\' '
         . "COMMENT 'PMA_comment' FIRST", $query);
 
         //$default_type is UUID
@@ -686,7 +686,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $move_to
         );
-        self::assertEquals('`PMA_name` UUID PMA_attribute NULL DEFAULT uuid()', $query);
+        self::assertSame('`PMA_name` UUID PMA_attribute NULL DEFAULT uuid()', $query);
 
         //$default_type is uuid()
         $type = 'UUID';
@@ -707,7 +707,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $move_to
         );
-        self::assertEquals('`PMA_name` UUID PMA_attribute NULL DEFAULT uuid()', $query);
+        self::assertSame('`PMA_name` UUID PMA_attribute NULL DEFAULT uuid()', $query);
 
         //$default_type is NONE
         $type = 'BOOLEAN';
@@ -729,7 +729,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $move_to
         );
-        self::assertEquals('`PMA_name` BOOLEAN PMA_attribute NULL INCREMENT COMMENT \'PMA_comment\' FIRST', $query);
+        self::assertSame('`PMA_name` BOOLEAN PMA_attribute NULL INCREMENT COMMENT \'PMA_comment\' FIRST', $query);
 
         $default_type = 'NONE';
         $move_to = '-first';
@@ -750,7 +750,7 @@ class TableTest extends AbstractTestCase
             ['id'],
             'id'
         );
-        self::assertEquals('`ids` INT(11) PMA_attribute NULL AUTO_INCREMENT COMMENT \'PMA_comment\' FIRST', $query);
+        self::assertSame('`ids` INT(11) PMA_attribute NULL AUTO_INCREMENT COMMENT \'PMA_comment\' FIRST', $query);
 
         $default_type = 'NONE';
         $move_to = '-first';
@@ -772,7 +772,7 @@ class TableTest extends AbstractTestCase
             'id'
         );
         // Add primary key for AUTO_INCREMENT if missing
-        self::assertEquals('`ids` INT(11) PMA_attribute NULL AUTO_INCREMENT '
+        self::assertSame('`ids` INT(11) PMA_attribute NULL AUTO_INCREMENT '
         . "COMMENT 'PMA_comment' FIRST, add PRIMARY KEY (`ids`)", $query);
 
         $default_type = 'NONE';
@@ -795,7 +795,7 @@ class TableTest extends AbstractTestCase
             'id'
         );
         // Do not add PK
-        self::assertEquals('`id` INT(11) PMA_attribute NULL DEF COMMENT \'PMA_comment\' FIRST', $query);
+        self::assertSame('`id` INT(11) PMA_attribute NULL DEF COMMENT \'PMA_comment\' FIRST', $query);
 
         $default_type = 'NONE';
         $move_to = '-first';
@@ -817,7 +817,7 @@ class TableTest extends AbstractTestCase
             'id'
         );
         // Do not add PK
-        self::assertEquals('`ids` INT(11) PMA_attribute NULL DEF COMMENT \'PMA_comment\' FIRST', $query);
+        self::assertSame('`ids` INT(11) PMA_attribute NULL DEF COMMENT \'PMA_comment\' FIRST', $query);
 
         $default_type = 'NONE';
         $move_to = '-first';
@@ -839,7 +839,7 @@ class TableTest extends AbstractTestCase
             'id'
         );
         // Add it beaucause it is missing
-        self::assertEquals(
+        self::assertSame(
             '`ids` INT(11) PMA_attribute NULL DEF COMMENT \'PMA_comment\' FIRST, add PRIMARY KEY (`ids`)',
             $query
         );
@@ -864,7 +864,7 @@ class TableTest extends AbstractTestCase
             'id'
         );
         // Do not add PK since it is not a AUTO_INCREMENT
-        self::assertEquals(
+        self::assertSame(
             '`ids` INT(11) PMA_attribute AS (1) VIRTUAL NULL USER_DEFINED COMMENT \'PMA_comment\' FIRST',
             $query
         );
@@ -1010,7 +1010,7 @@ class TableTest extends AbstractTestCase
             . "charset1 NULL DEFAULT 'VARCHAR' "
             . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
 
-        self::assertEquals($expect, $result);
+        self::assertSame($expect, $result);
     }
 
     /**
@@ -1043,14 +1043,14 @@ class TableTest extends AbstractTestCase
         self::assertTrue($result);
 
         //message
-        self::assertEquals('Table PMA_BookMark has been renamed to PMA_.BookMark.', $table->getLastMessage());
+        self::assertSame('Table PMA_BookMark has been renamed to PMA_.BookMark.', $table->getLastMessage());
 
         $table_new = 'PMA_BookMark_new';
         $db_new = 'PMA_new';
         $result = $table->rename($table_new, $db_new);
         self::assertTrue($result);
         //message
-        self::assertEquals('Table PMA_.BookMark has been renamed to PMA_BookMark_new.', $table->getLastMessage());
+        self::assertSame('Table PMA_.BookMark has been renamed to PMA_BookMark_new.', $table->getLastMessage());
     }
 
     /**
@@ -1068,7 +1068,7 @@ class TableTest extends AbstractTestCase
             '`PMA`.`PMA_BookMark`.`index3`',
             '`PMA`.`PMA_BookMark`.`index5`',
         ];
-        self::assertEquals($expect, $return);
+        self::assertSame($expect, $return);
     }
 
     /**
@@ -1089,7 +1089,7 @@ class TableTest extends AbstractTestCase
             '`PMA`.`PMA_BookMark`.`ADD`',
             '`PMA`.`PMA_BookMark`.`ALL`',
         ];
-        self::assertEquals($expect, $return);
+        self::assertSame($expect, $return);
     }
 
     /**
@@ -1117,7 +1117,7 @@ class TableTest extends AbstractTestCase
 
         $tableObj = new Table('table', 'db');
 
-        self::assertEquals($tableObj->getColumnsMeta(), ['aNonValidExampleToRefactor']);
+        self::assertSame($tableObj->getColumnsMeta(), ['aNonValidExampleToRefactor']);
     }
 
     /**
@@ -1154,7 +1154,7 @@ class TableTest extends AbstractTestCase
         $sql_excepted = 'ALTER TABLE `PMA_table` ADD  '
             . 'FOREIGN KEY (`PMA_field1`, `PMA_field2`) REFERENCES '
             . '`foreignDb`.`foreignTable`(`foreignField1`, `foreignField2`);';
-        self::assertEquals($sql_excepted, $sql);
+        self::assertSame($sql_excepted, $sql);
 
         // Exclude db name when relations are made between table in the same db
         $sql = $this->callFunction(
@@ -1172,7 +1172,7 @@ class TableTest extends AbstractTestCase
         $sql_excepted = 'ALTER TABLE `PMA_table` ADD  '
             . 'FOREIGN KEY (`PMA_field1`, `PMA_field2`) REFERENCES '
             . '`foreignTable`(`foreignField1`, `foreignField2`);';
-        self::assertEquals($sql_excepted, $sql);
+        self::assertSame($sql_excepted, $sql);
     }
 
     /**
@@ -1190,7 +1190,7 @@ class TableTest extends AbstractTestCase
         $table = new Table($table, $db);
         $sql = $table->getSqlQueryForIndexCreateOrEdit($index, $error);
 
-        self::assertEquals('ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE ;', $sql);
+        self::assertSame('ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE ;', $sql);
     }
 
     /**
@@ -1208,7 +1208,7 @@ class TableTest extends AbstractTestCase
         $table = new Table($table, $db);
         $sql = $table->getSqlQueryForIndexCreateOrEdit($index, $error);
 
-        self::assertEquals('ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE ;', $sql);
+        self::assertSame('ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE ;', $sql);
     }
 
     /**
@@ -1229,7 +1229,7 @@ class TableTest extends AbstractTestCase
             '`PMA`.`PMA_BookMark`.`ADD`',
             '`PMA`.`PMA_BookMark`.`ALL`',
         ];
-        self::assertEquals($expect, $return);
+        self::assertSame($expect, $return);
 
         $return = $table->getReservedColumnNames();
         $expect = [
@@ -1237,7 +1237,7 @@ class TableTest extends AbstractTestCase
             'ADD',
             'ALL',
         ];
-        self::assertEquals($expect, $return);
+        self::assertSame($expect, $return);
     }
 
     /**
@@ -1280,17 +1280,17 @@ class TableTest extends AbstractTestCase
         // Case 1 : Check if table is non-empty
         $return = $tableObj->checkIfMinRecordsExist();
         $expect = true;
-        self::assertEquals($expect, $return);
+        self::assertSame($expect, $return);
 
         // Case 2 : Check if table contains at least 100
         $return = $tableObj->checkIfMinRecordsExist(100);
         $expect = false;
-        self::assertEquals($expect, $return);
+        self::assertSame($expect, $return);
 
         // Case 3 : Check if table contains at least 100
         $return = $tableObj->checkIfMinRecordsExist(100);
         $expect = true;
-        self::assertEquals($expect, $return);
+        self::assertSame($expect, $return);
 
         $GLOBALS['dbi'] = $old_dbi;
     }
@@ -1313,7 +1313,7 @@ class TableTest extends AbstractTestCase
         $db = 'PMA';
         $tableObj = new Table($table, $db, $dbi);
 
-        self::assertEquals(20, $tableObj->countRecords(true));
+        self::assertSame(20, $tableObj->countRecords(true));
     }
 
     /**
@@ -1332,7 +1332,7 @@ class TableTest extends AbstractTestCase
         $table->setUiProp($property, $value, $table_create_time);
 
         //set UI prop successfully
-        self::assertEquals($value, $table->uiprefs[$property]);
+        self::assertSame($value, $table->uiprefs[$property]);
 
         //removeUiProp
         $table->removeUiProp($property);
@@ -1379,7 +1379,7 @@ class TableTest extends AbstractTestCase
 
         //successfully
         $expect = true;
-        self::assertEquals($expect, $return);
+        self::assertSame($expect, $return);
         $sql_query = 'INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)'
             . ' SELECT `COLUMN_NAME1` FROM '
             . '`PMA`.`PMA_BookMark`';
@@ -1391,7 +1391,7 @@ class TableTest extends AbstractTestCase
 
         //successfully
         $expect = true;
-        self::assertEquals($expect, $return);
+        self::assertSame($expect, $return);
         $sql_query = 'INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)'
             . ' SELECT `COLUMN_NAME1` FROM '
             . '`PMA`.`PMA_BookMark`';
@@ -1432,7 +1432,7 @@ class TableTest extends AbstractTestCase
             'db_copy',
             true
         );
-        self::assertEquals(true, $return);
+        self::assertTrue($return);
         self::assertStringContainsString('DROP TABLE IF EXISTS `bb`.`ad`;', $GLOBALS['sql_query']);
         self::assertStringContainsString('CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`' .
             ' SQL SECURITY DEFINER VIEW `bb`.`ad`  AS SELECT `bb`.`ac` AS `ac` FROM `bb` ;', $GLOBALS['sql_query']);
@@ -1452,7 +1452,7 @@ class TableTest extends AbstractTestCase
         $tbl_object->getStatusInfo(null, true);
         $expect = 'DBIDUMMY';
         $tbl_storage_engine = $dbi->getTable($target_db, $target_table)->getStorageEngine();
-        self::assertEquals($expect, $tbl_storage_engine);
+        self::assertSame($expect, $tbl_storage_engine);
     }
 
     /**
@@ -1468,7 +1468,7 @@ class TableTest extends AbstractTestCase
         $tbl_object->getStatusInfo(null, true);
         $expect = 'Test comment for "table1" in \'pma_test\'';
         $show_comment = $dbi->getTable($target_db, $target_table)->getComment();
-        self::assertEquals($expect, $show_comment);
+        self::assertSame($expect, $show_comment);
     }
 
     /**
@@ -1484,7 +1484,7 @@ class TableTest extends AbstractTestCase
         $tbl_object->getStatusInfo(null, true);
         $expect = 'utf8mb4_general_ci';
         $tbl_collation = $dbi->getTable($target_db, $target_table)->getCollation();
-        self::assertEquals($expect, $tbl_collation);
+        self::assertSame($expect, $tbl_collation);
     }
 
     /**
@@ -1500,7 +1500,7 @@ class TableTest extends AbstractTestCase
         $tbl_object->getStatusInfo(null, true);
         $expect = 'Redundant';
         $row_format = $dbi->getTable($target_db, $target_table)->getRowFormat();
-        self::assertEquals($expect, $row_format);
+        self::assertSame($expect, $row_format);
     }
 
     /**
@@ -1516,7 +1516,7 @@ class TableTest extends AbstractTestCase
         $tbl_object->getStatusInfo(null, true);
         $expect = '5';
         $auto_increment = $dbi->getTable($target_db, $target_table)->getAutoIncrement();
-        self::assertEquals($expect, $auto_increment);
+        self::assertSame($expect, $auto_increment);
     }
 
     /**

@@ -304,7 +304,7 @@ class RoutinesTest extends AbstractTestCase
      */
     public function testGetParameterRowEmpty(): void
     {
-        self::assertEquals('', $this->routines->getParameterRow([], 0));
+        self::assertSame('', $this->routines->getParameterRow([], 0));
     }
 
     /**
@@ -1159,7 +1159,7 @@ class RoutinesTest extends AbstractTestCase
 
         unset($_POST);
         $_POST = $request;
-        self::assertEquals($query, $routines->getQueryFromRequest());
+        self::assertSame($query, $routines->getQueryFromRequest());
         self::assertCount($num_err, $errors);
 
         // reset

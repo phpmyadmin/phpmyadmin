@@ -37,7 +37,7 @@ class NodeTableTest extends AbstractTestCase
     {
         $parent = NodeFactory::getInstance('NodeTable');
         self::assertIsArray($parent->links);
-        self::assertEquals([
+        self::assertSame([
             'text' => ['route' => '/sql', 'params' => ['pos' => 0, 'db' => null, 'table' => null]],
             'icon' => ['route' => '/table/search', 'params' => ['db' => null, 'table' => null]],
             'second_icon' => ['route' => '/table/change', 'params' => ['db' => null, 'table' => null]],
@@ -58,8 +58,8 @@ class NodeTableTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = $target;
         $node = NodeFactory::getInstance('NodeTable');
-        self::assertEquals($imageName, $node->icon['image']);
-        self::assertEquals($imageTitle, $node->icon['title']);
+        self::assertSame($imageName, $node->icon['image']);
+        self::assertSame($imageTitle, $node->icon['title']);
     }
 
     /**

@@ -79,8 +79,8 @@ class ImportCsvTest extends AbstractTestCase
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
-        self::assertEquals(__('CSV'), $properties->getText());
-        self::assertEquals('csv', $properties->getExtension());
+        self::assertSame(__('CSV'), $properties->getText());
+        self::assertSame('csv', $properties->getExtension());
     }
 
     /**
@@ -153,8 +153,8 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['plugin_param'] = 'table';
         $this->object = new ImportCsv();
         $properties = $this->object->getProperties();
-        self::assertEquals(__('CSV'), $properties->getText());
-        self::assertEquals('csv', $properties->getExtension());
+        self::assertSame(__('CSV'), $properties->getText());
+        self::assertSame('csv', $properties->getExtension());
     }
 
     /**
@@ -220,7 +220,7 @@ class ImportCsvTest extends AbstractTestCase
         . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;;INSERT INTO `CSV_DB 1`.`db_test`'
         . ' (`COL 1`, `COL 2`) VALUES (\'Row 1\', \'Row 2\'),' . "\n" . ' (\'123\', \'456\');;', $sql_query);
 
-        self::assertEquals(true, $GLOBALS['finished']);
+        self::assertTrue($GLOBALS['finished']);
         $this->assertAllQueriesConsumed();
     }
 
@@ -261,7 +261,7 @@ class ImportCsvTest extends AbstractTestCase
         . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;;INSERT INTO `CSV_DB 1`.`db_test`'
         . ' (`Row 1`, `Row 2`) VALUES (123, 456);;', $sql_query);
 
-        self::assertEquals(true, $GLOBALS['finished']);
+        self::assertTrue($GLOBALS['finished']);
         $this->assertAllQueriesConsumed();
     }
 }

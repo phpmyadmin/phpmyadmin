@@ -13,7 +13,6 @@ use ReflectionProperty;
 
 use function array_keys;
 use function array_pop;
-use function count;
 
 use const E_ERROR;
 use const E_RECOVERABLE_ERROR;
@@ -110,7 +109,7 @@ class ErrorHandlerTest extends AbstractTestCase
         $output = $this->object->getDispErrors();
 
         if ($output_hide === '') {
-            self::assertEquals('', $output);
+            self::assertSame('', $output);
         } else {
             self::assertNotEmpty($output_show);// Useless check
             self::assertStringContainsString($output_hide, $output);
@@ -168,7 +167,7 @@ class ErrorHandlerTest extends AbstractTestCase
     public function testCountErrors(): void
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
-        self::assertEquals(1, $this->object->countErrors());
+        self::assertSame(1, $this->object->countErrors());
     }
 
     /**
@@ -180,11 +179,11 @@ class ErrorHandlerTest extends AbstractTestCase
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 16);
-        self::assertEquals(2, $this->object->countErrors());
-        self::assertEquals([], $this->object->sliceErrors(2));
-        self::assertEquals(2, $this->object->countErrors());
+        self::assertSame(2, $this->object->countErrors());
+        self::assertSame([], $this->object->sliceErrors(2));
+        self::assertSame(2, $this->object->countErrors());
         self::assertCount(1, $this->object->sliceErrors(1));
-        self::assertEquals(1, $this->object->countErrors());
+        self::assertSame(1, $this->object->countErrors());
     }
 
     /**
@@ -199,31 +198,31 @@ class ErrorHandlerTest extends AbstractTestCase
         }
 
         // 10 initial items
-        self::assertEquals(10, $this->object->countErrors());
-        self::assertEquals(10, count($this->object->getCurrentErrors()));
+        self::assertSame(10, $this->object->countErrors());
+        self::assertCount(10, $this->object->getCurrentErrors());
 
         // slice 9 elements, returns one 10 - 9
         $elements = $this->object->sliceErrors(9);
         $firstKey = array_keys($elements)[0];
 
         // Gives the last element
-        self::assertEquals([
+        self::assertSame([
             $firstKey => $elements[$firstKey],
         ], $elements);
-        self::assertEquals(9, count($this->object->getCurrentErrors()));
-        self::assertEquals(9, $this->object->countErrors());
+        self::assertCount(9, $this->object->getCurrentErrors());
+        self::assertSame(9, $this->object->countErrors());
 
         // Slice as much as there is (9), does nothing
         $elements = $this->object->sliceErrors(9);
-        self::assertEquals([], $elements);
-        self::assertEquals(9, count($this->object->getCurrentErrors()));
-        self::assertEquals(9, $this->object->countErrors());
+        self::assertSame([], $elements);
+        self::assertCount(9, $this->object->getCurrentErrors());
+        self::assertSame(9, $this->object->countErrors());
 
         // Slice 0, removes everything
         $elements = $this->object->sliceErrors(0);
-        self::assertEquals(9, count($elements));
-        self::assertEquals(0, count($this->object->getCurrentErrors()));
-        self::assertEquals(0, $this->object->countErrors());
+        self::assertCount(9, $elements);
+        self::assertCount(0, $this->object->getCurrentErrors());
+        self::assertSame(0, $this->object->countErrors());
     }
 
     /**
@@ -232,9 +231,9 @@ class ErrorHandlerTest extends AbstractTestCase
     public function testCountUserErrors(): void
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
-        self::assertEquals(0, $this->object->countUserErrors());
+        self::assertSame(0, $this->object->countUserErrors());
         $this->object->addError('Compile Error', E_USER_WARNING, 'error.txt', 15);
-        self::assertEquals(1, $this->object->countUserErrors());
+        self::assertSame(1, $this->object->countUserErrors());
     }
 
     /**
@@ -258,7 +257,7 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testCountDisplayErrorsForDisplayTrue(): void
     {
-        self::assertEquals(0, $this->object->countDisplayErrors());
+        self::assertSame(0, $this->object->countDisplayErrors());
     }
 
     /**
@@ -266,7 +265,7 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testCountDisplayErrorsForDisplayFalse(): void
     {
-        self::assertEquals(0, $this->object->countDisplayErrors());
+        self::assertSame(0, $this->object->countDisplayErrors());
     }
 
     /**

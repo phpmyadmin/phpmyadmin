@@ -101,7 +101,7 @@ class GisPointTest extends GisGeomTestCase
      */
     public function testGetShape(array $row_data, string $shape): void
     {
-        self::assertEquals($this->object->getShape($row_data), $shape);
+        self::assertSame($this->object->getShape($row_data), $shape);
     }
 
     /**
@@ -193,8 +193,8 @@ class GisPointTest extends GisGeomTestCase
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        self::assertEquals(120, $return->width());
-        self::assertEquals(150, $return->height());
+        self::assertSame(120, $return->width());
+        self::assertSame(150, $return->height());
     }
 
     /**
@@ -260,7 +260,7 @@ class GisPointTest extends GisGeomTestCase
         array $scaleData,
         string $output
     ): void {
-        self::assertEquals($output, $this->object->prepareRowAsSvg(
+        self::assertSame($output, $this->object->prepareRowAsSvg(
             $spatial,
             $label,
             $pointColor,
@@ -311,7 +311,7 @@ class GisPointTest extends GisGeomTestCase
         array $scale_data,
         string $output
     ): void {
-        self::assertEquals($output, $this->object->prepareRowAsOl(
+        self::assertSame($output, $this->object->prepareRowAsOl(
             $spatial,
             $srid,
             $label,

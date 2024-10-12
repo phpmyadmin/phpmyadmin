@@ -25,24 +25,24 @@ class NodeFactoryTest extends AbstractTestCase
     public function testDefaultNode(): void
     {
         $node = NodeFactory::getInstance();
-        self::assertEquals('default', $node->name);
-        self::assertEquals(Node::OBJECT, $node->type);
+        self::assertSame('default', $node->name);
+        self::assertSame(Node::OBJECT, $node->type);
         self::assertFalse($node->isGroup);
     }
 
     public function testDefaultContainer(): void
     {
         $node = NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
-        self::assertEquals('default', $node->name);
-        self::assertEquals(Node::CONTAINER, $node->type);
+        self::assertSame('default', $node->name);
+        self::assertSame(Node::CONTAINER, $node->type);
         self::assertFalse($node->isGroup);
     }
 
     public function testGroupContainer(): void
     {
         $node = NodeFactory::getInstance('Node', 'default', Node::CONTAINER, true);
-        self::assertEquals('default', $node->name);
-        self::assertEquals(Node::CONTAINER, $node->type);
+        self::assertSame('default', $node->name);
+        self::assertSame(Node::CONTAINER, $node->type);
         self::assertTrue($node->isGroup);
     }
 

@@ -28,7 +28,7 @@ class NodeTriggerTest extends AbstractTestCase
     {
         $parent = NodeFactory::getInstance('NodeTrigger');
         self::assertIsArray($parent->links);
-        self::assertEquals([
+        self::assertSame([
             'text' => [
                 'route' => '/database/triggers',
                 'params' => ['edit_item' => 1, 'db' => null, 'item_name' => null],

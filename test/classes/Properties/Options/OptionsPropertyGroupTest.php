@@ -45,7 +45,7 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $this->stub->addProperty(2);
         $this->stub->addProperty('2');
 
-        self::assertEquals([
+        self::assertSame([
             1,
             2,
             3,
@@ -61,7 +61,7 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $properties->setValue($this->stub, [1, 2, 'test', 3]);
         $this->stub->removeProperty('test');
 
-        self::assertEquals([
+        self::assertSame([
             0 => 1,
             1 => 2,
             3 => 3,
@@ -79,7 +79,7 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $properties->setAccessible(true);
         $properties->setValue($this->stub, [1, 2, 3]);
 
-        self::assertEquals([
+        self::assertSame([
             1,
             2,
             3,
@@ -92,6 +92,6 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $properties->setAccessible(true);
         $properties->setValue($this->stub, [1, 2, 3]);
 
-        self::assertEquals(3, $this->stub->getNrOfProperties());
+        self::assertSame(3, $this->stub->getNrOfProperties());
     }
 }

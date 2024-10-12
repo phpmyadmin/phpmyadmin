@@ -76,6 +76,6 @@ class CreateControllerTest extends AbstractTestCase
         ]);
 
         self::assertTrue($response->hasSuccessState());
-        self::assertEquals(['data' => $options], $response->getJSONResult());
+        self::assertSame(['data' => $options], $response->getJSONResult());
     }
 }

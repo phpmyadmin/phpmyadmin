@@ -34,8 +34,8 @@ class NodeTest extends AbstractTestCase
         $parent = NodeFactory::getInstance('Node', 'parent');
         $child = NodeFactory::getInstance('Node', 'child');
         $parent->addChild($child);
-        self::assertEquals($parent->getChild($child->name), $child);
-        self::assertEquals($parent->getChild($child->realName, true), $child);
+        self::assertSame($parent->getChild($child->name), $child);
+        self::assertSame($parent->getChild($child->realName, true), $child);
     }
 
     /**
@@ -56,7 +56,7 @@ class NodeTest extends AbstractTestCase
         $parent = NodeFactory::getInstance('Node', 'parent');
         $child = NodeFactory::getInstance('Node', 'child');
         $parent->addChild($child);
-        self::assertEquals($parent->getChild($child->name), $child);
+        self::assertSame($parent->getChild($child->name), $child);
         $parent->removeChild($child->name);
         self::assertNull($parent->getChild($child->name));
     }
@@ -83,16 +83,16 @@ class NodeTest extends AbstractTestCase
         $emptyContainer = NodeFactory::getInstance('Node', 'empty', Node::CONTAINER);
         $child = NodeFactory::getInstance();
         // test with no children
-        self::assertEquals($parent->hasChildren(true), false);
-        self::assertEquals($parent->hasChildren(false), false);
+        self::assertSame($parent->hasChildren(true), false);
+        self::assertSame($parent->hasChildren(false), false);
         // test with an empty container
         $parent->addChild($emptyContainer);
-        self::assertEquals($parent->hasChildren(true), true);
-        self::assertEquals($parent->hasChildren(false), false);
+        self::assertSame($parent->hasChildren(true), true);
+        self::assertSame($parent->hasChildren(false), false);
         // test with a real child
         $parent->addChild($child);
-        self::assertEquals($parent->hasChildren(true), true);
-        self::assertEquals($parent->hasChildren(false), true);
+        self::assertSame($parent->hasChildren(true), true);
+        self::assertSame($parent->hasChildren(false), true);
     }
 
     /**
@@ -102,25 +102,25 @@ class NodeTest extends AbstractTestCase
     {
         // start with root node only
         $parent = NodeFactory::getInstance();
-        self::assertEquals($parent->numChildren(), 0);
+        self::assertSame($parent->numChildren(), 0);
         // add a child
         $child = NodeFactory::getInstance();
         $parent->addChild($child);
-        self::assertEquals($parent->numChildren(), 1);
+        self::assertSame($parent->numChildren(), 1);
         // add a direct grandchild, this one doesn't count as
         // it's not enclosed in a CONTAINER
         $child->addChild(NodeFactory::getInstance());
-        self::assertEquals($parent->numChildren(), 1);
+        self::assertSame($parent->numChildren(), 1);
         // add a container, this one doesn't count wither
         $container = NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
         $parent->addChild($container);
-        self::assertEquals($parent->numChildren(), 1);
+        self::assertSame($parent->numChildren(), 1);
         // add a grandchild to container, this one counts
         $container->addChild(NodeFactory::getInstance());
-        self::assertEquals($parent->numChildren(), 2);
+        self::assertSame($parent->numChildren(), 2);
         // add another grandchild to container, this one counts
         $container->addChild(NodeFactory::getInstance());
-        self::assertEquals($parent->numChildren(), 3);
+        self::assertSame($parent->numChildren(), 3);
     }
 
     /**
@@ -129,14 +129,14 @@ class NodeTest extends AbstractTestCase
     public function testParents(): void
     {
         $parent = NodeFactory::getInstance();
-        self::assertEquals($parent->parents(), []); // exclude self
-        self::assertEquals($parent->parents(true), [$parent]); // include self
+        self::assertSame($parent->parents(), []); // exclude self
+        self::assertSame($parent->parents(true), [$parent]); // include self
 
         $child = NodeFactory::getInstance();
         $parent->addChild($child);
 
-        self::assertEquals($child->parents(), [$parent]); // exclude self
-        self::assertEquals($child->parents(true), [
+        self::assertSame($child->parents(), [$parent]); // exclude self
+        self::assertSame($child->parents(true), [
             $child,
             $parent,
         ]); // include self
@@ -152,7 +152,7 @@ class NodeTest extends AbstractTestCase
 
         $child = NodeFactory::getInstance();
         $parent->addChild($child);
-        self::assertEquals($child->realParent(), $parent);
+        self::assertSame($child->realParent(), $parent);
     }
 
     /**
@@ -225,10 +225,10 @@ class NodeTest extends AbstractTestCase
 
         // Vanilla case
         $node = NodeFactory::getInstance();
-        self::assertEquals('WHERE TRUE ', $method->invoke($node, 'SCHEMA_NAME'));
+        self::assertSame('WHERE TRUE ', $method->invoke($node, 'SCHEMA_NAME'));
 
         // When a schema names is passed as search clause
-        self::assertEquals(
+        self::assertSame(
             "WHERE TRUE AND `SCHEMA_NAME` LIKE '%schemaName%' ",
             $method->invoke($node, 'SCHEMA_NAME', 'schemaName')
         );
@@ -239,7 +239,7 @@ class NodeTest extends AbstractTestCase
 
         // When hide_db regular expression is present
         $GLOBALS['cfg']['Server']['hide_db'] = 'regexpHideDb';
-        self::assertEquals(
+        self::assertSame(
             "WHERE TRUE AND `SCHEMA_NAME` NOT REGEXP 'regexpHideDb' ",
             $method->invoke($node, 'SCHEMA_NAME')
         );
@@ -247,7 +247,7 @@ class NodeTest extends AbstractTestCase
 
         // When only_db directive is present and it's a single db
         $GLOBALS['cfg']['Server']['only_db'] = 'stringOnlyDb';
-        self::assertEquals(
+        self::assertSame(
             "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'stringOnlyDb' ) ",
             $method->invoke($node, 'SCHEMA_NAME')
         );
@@ -258,7 +258,7 @@ class NodeTest extends AbstractTestCase
             'onlyDbOne',
             'onlyDbTwo',
         ];
-        self::assertEquals(
+        self::assertSame(
             'WHERE TRUE AND ( `SCHEMA_NAME` LIKE \'onlyDbOne\' OR `SCHEMA_NAME` LIKE \'onlyDbTwo\' ) ',
             $method->invoke($node, 'SCHEMA_NAME')
         );

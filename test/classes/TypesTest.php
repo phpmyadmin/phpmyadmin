@@ -38,7 +38,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetUnaryOperators(): void
     {
-        self::assertEquals([
+        self::assertSame([
             'IS NULL',
             'IS NOT NULL',
             "= ''",
@@ -51,7 +51,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetNullOperators(): void
     {
-        self::assertEquals([
+        self::assertSame([
             'IS NULL',
             'IS NOT NULL',
         ], $this->object->getNullOperators());
@@ -62,7 +62,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetEnumOperators(): void
     {
-        self::assertEquals([
+        self::assertSame([
             '=',
             '!=',
         ], $this->object->getEnumOperators());
@@ -73,7 +73,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testgetTextOperators(): void
     {
-        self::assertEquals([
+        self::assertSame([
             'LIKE',
             'LIKE %...%',
             'NOT LIKE',
@@ -97,7 +97,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetNumberOperators(): void
     {
-        self::assertEquals([
+        self::assertSame([
             '=',
             '>',
             '>=',
@@ -120,7 +120,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetUUIDOperators(): void
     {
-        self::assertEquals([
+        self::assertSame([
             '=',
             '!=',
             'LIKE',
@@ -143,7 +143,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetTypeOperators(string $type, bool $null, $output): void
     {
-        self::assertEquals($output, $this->object->getTypeOperators($type, $null));
+        self::assertSame($output, $this->object->getTypeOperators($type, $null));
     }
 
     /**
@@ -242,7 +242,7 @@ class TypesTest extends AbstractTestCase
         string $selectedOperator,
         string $output
     ): void {
-        self::assertEquals($output, $this->object->getTypeOperatorsHtml($type, $null, $selectedOperator));
+        self::assertSame($output, $this->object->getTypeOperatorsHtml($type, $null, $selectedOperator));
     }
 
     /**
@@ -279,7 +279,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetUnknownTypeDescription(): void
     {
-        self::assertEquals('', $this->object->getTypeDescription('UNKNOWN'));
+        self::assertSame('', $this->object->getTypeDescription('UNKNOWN'));
     }
 
     /**
@@ -343,7 +343,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetFunctionsClass(string $class, array $output): void
     {
-        self::assertEquals($output, $this->object->getFunctionsClass($class));
+        self::assertSame($output, $this->object->getFunctionsClass($class));
     }
 
     /**
@@ -503,7 +503,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetFunctions(): void
     {
-        self::assertEquals([
+        self::assertSame([
             'AES_DECRYPT',
             'AES_ENCRYPT',
             'BIN',
@@ -546,7 +546,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetAllFunctions(): void
     {
-        self::assertEquals([
+        self::assertSame([
             'ABS',
             'ACOS',
             'AES_DECRYPT',
@@ -672,7 +672,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetAttributes(): void
     {
-        self::assertEquals([
+        self::assertSame([
             '',
             'BINARY',
             'UNSIGNED',
@@ -686,7 +686,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetColumns(): void
     {
-        self::assertEquals([
+        self::assertSame([
             0 => 'INT',
             1 => 'VARCHAR',
             2 => 'TEXT',
@@ -756,7 +756,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetTypeClass(string $type, string $output): void
     {
-        self::assertEquals($output, $this->object->getTypeClass($type));
+        self::assertSame($output, $this->object->getTypeClass($type));
     }
 
     /**

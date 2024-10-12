@@ -316,7 +316,7 @@ class EventsTest extends AbstractTestCase
             ->will($this->returnArgument(0));
         $GLOBALS['dbi'] = $dbi;
 
-        self::assertEquals($query, $this->events->getQueryFromRequest());
+        self::assertSame($query, $this->events->getQueryFromRequest());
         self::assertCount($num_err, $errors);
     }
 

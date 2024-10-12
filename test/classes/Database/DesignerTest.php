@@ -108,7 +108,7 @@ class DesignerTest extends AbstractTestCase
         $method->setAccessible(true);
         $result = $method->invokeArgs($this->designer, [$db]);
 
-        self::assertEquals([
+        self::assertSame([
             '1' => 'page1',
             '2' => 'page2',
         ], $result);

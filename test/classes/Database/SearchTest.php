@@ -74,7 +74,7 @@ class SearchTest extends AbstractTestCase
         $_POST['criteriaSearchString'] = 'search string';
 
         $this->object = new Search($GLOBALS['dbi'], 'pma_test', new Template());
-        self::assertEquals($expected, $this->callFunction(
+        self::assertSame($expected, $this->callFunction(
             $this->object,
             Search::class,
             'getWhereClause',
@@ -127,7 +127,7 @@ class SearchTest extends AbstractTestCase
      */
     public function testGetSearchSqls(): void
     {
-        self::assertEquals([
+        self::assertSame([
             'select_columns' => 'SELECT *  FROM `pma`.`table1` WHERE FALSE',
             'select_count' => 'SELECT COUNT(*) AS `count` FROM `pma`.`table1` WHERE FALSE',
             'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE',

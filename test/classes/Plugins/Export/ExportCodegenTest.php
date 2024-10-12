@@ -55,7 +55,7 @@ class ExportCodegenTest extends AbstractTestCase
         $attrCgFormats = new ReflectionProperty(ExportCodegen::class, 'cgFormats');
         $attrCgFormats->setAccessible(true);
 
-        self::assertEquals([
+        self::assertSame([
             'NHibernate C# DO',
             'NHibernate XML',
         ], $attrCgFormats->getValue($this->object));
@@ -73,26 +73,26 @@ class ExportCodegenTest extends AbstractTestCase
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        self::assertEquals('CodeGen', $properties->getText());
+        self::assertSame('CodeGen', $properties->getText());
 
-        self::assertEquals('cs', $properties->getExtension());
+        self::assertSame('cs', $properties->getExtension());
 
-        self::assertEquals('text/cs', $properties->getMimeType());
+        self::assertSame('text/cs', $properties->getMimeType());
 
-        self::assertEquals('Options', $properties->getOptionsText());
+        self::assertSame('Options', $properties->getOptionsText());
 
         $options = $properties->getOptions();
 
         self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        self::assertEquals('Format Specific Options', $options->getName());
+        self::assertSame('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
         self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        self::assertEquals('general_opts', $generalOptions->getName());
+        self::assertSame('general_opts', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
@@ -100,17 +100,17 @@ class ExportCodegenTest extends AbstractTestCase
 
         self::assertInstanceOf(HiddenPropertyItem::class, $hidden);
 
-        self::assertEquals('structure_or_data', $hidden->getName());
+        self::assertSame('structure_or_data', $hidden->getName());
 
         $select = $generalProperties[1];
 
         self::assertInstanceOf(SelectPropertyItem::class, $select);
 
-        self::assertEquals('format', $select->getName());
+        self::assertSame('format', $select->getName());
 
-        self::assertEquals('Format:', $select->getText());
+        self::assertSame('Format:', $select->getText());
 
-        self::assertEquals([
+        self::assertSame([
             'NHibernate C# DO',
             'NHibernate XML',
         ], $select->getValues());
@@ -150,7 +150,7 @@ class ExportCodegenTest extends AbstractTestCase
         $result = ob_get_clean();
 
         self::assertIsString($result);
-        self::assertEquals('<?xml version="1.0" encoding="utf-8" ?>' . "\n"
+        self::assertSame('<?xml version="1.0" encoding="utf-8" ?>' . "\n"
         . '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Test_db" assembly="Test_db">' . "\n"
         . '    <class name="Test_table" table="Test_table">' . "\n"
         . '        <id name="Id" type="Int32" unsaved-value="0">' . "\n"
@@ -175,11 +175,11 @@ class ExportCodegenTest extends AbstractTestCase
 
     public function testCgMakeIdentifier(): void
     {
-        self::assertEquals('_Ⅲfoo', ExportCodegen::cgMakeIdentifier('Ⅲ{}96`{}foo', true));
+        self::assertSame('_Ⅲfoo', ExportCodegen::cgMakeIdentifier('Ⅲ{}96`{}foo', true));
 
-        self::assertEquals('TestⅢ', ExportCodegen::cgMakeIdentifier('`98testⅢ{}96`{}', true));
+        self::assertSame('TestⅢ', ExportCodegen::cgMakeIdentifier('`98testⅢ{}96`{}', true));
 
-        self::assertEquals('testⅢ', ExportCodegen::cgMakeIdentifier('`98testⅢ{}96`{}', false));
+        self::assertSame('testⅢ', ExportCodegen::cgMakeIdentifier('`98testⅢ{}96`{}', false));
     }
 
     public function testHandleNHibernateCSBody(): void
@@ -188,7 +188,7 @@ class ExportCodegenTest extends AbstractTestCase
         $method->setAccessible(true);
         $result = $method->invoke($this->object, 'test_db', 'test_table', "\n");
 
-        self::assertEquals('using System;' . "\n" .
+        self::assertSame('using System;' . "\n" .
         'using System.Collections;' . "\n" .
         'using System.Collections.Generic;' . "\n" .
         'using System.Text;' . "\n" .
@@ -238,7 +238,7 @@ class ExportCodegenTest extends AbstractTestCase
         $method->setAccessible(true);
         $result = $method->invoke($this->object, 'test_db', 'test_table', "\n");
 
-        self::assertEquals('<?xml version="1.0" encoding="utf-8" ?>' . "\n" .
+        self::assertSame('<?xml version="1.0" encoding="utf-8" ?>' . "\n" .
         '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Test_db" assembly="Test_db">' . "\n" .
         '    <class name="Test_table" table="Test_table">' . "\n" .
         '        <id name="Id" type="Int32" unsaved-value="0">' . "\n" .
@@ -272,7 +272,7 @@ class ExportCodegenTest extends AbstractTestCase
 
         $setter->invoke($this->object, [1, 2]);
 
-        self::assertEquals([
+        self::assertSame([
             1,
             2,
         ], $getter->invoke($this->object));

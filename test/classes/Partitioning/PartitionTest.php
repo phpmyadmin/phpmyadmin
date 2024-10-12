@@ -23,6 +23,6 @@ class PartitionTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 1;
         $actual = Partition::getPartitionMethod('database', 'range_partition_method');
-        self::assertEquals('RANGE', $actual);
+        self::assertSame('RANGE', $actual);
     }
 }
