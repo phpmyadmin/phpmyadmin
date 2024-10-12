@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-06 00:24+0000\n"
-"PO-Revision-Date: 2023-04-04 08:37+0000\n"
+"PO-Revision-Date: 2024-10-13 00:25+0000\n"
 "Last-Translator: 109247019824 <stoyan@gmx.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bg/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1795,10 +1795,8 @@ msgid "Create a page and save to it"
 msgstr "създаване на страница и експорт към нея"
 
 #: resources/templates/database/designer/page_save_as.twig:28
-#, fuzzy
-#| msgid "New page name: "
 msgid "New page name"
-msgstr "Име: "
+msgstr "Име на новата страница"
 
 #: resources/templates/database/designer/page_selector.twig:2
 msgid "Select page"
@@ -2230,12 +2228,12 @@ msgstr "Ново име на БД"
 #: resources/templates/table/operations/index.twig:78
 #: resources/templates/table/operations/index.twig:114
 #: resources/templates/table/operations/index.twig:314
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
-msgstr "Не разполагате с права, за да се намирате тук!"
+msgstr ""
+"Не разполагате с права, за да извършите това действие. За подробности "
+"прочетете докумантацията."
 
 #: resources/templates/database/operations/index.twig:84
 msgid "Remove database"
@@ -2487,12 +2485,12 @@ msgid "Is deterministic"
 msgstr ""
 
 #: resources/templates/database/routines/editor_form.twig:141
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
-msgstr "Не разполагате с права, за да се намирате тук!"
+msgstr ""
+"Не разполагате с права, за да извършите това действие. За подробности "
+"прочетете докумантацията."
 
 #: resources/templates/database/routines/editor_form.twig:154
 msgid "Security type"
@@ -3426,10 +3424,8 @@ msgid "Select table:"
 msgstr "Изберете таблица:"
 
 #: resources/templates/export.twig:294
-#, fuzzy
-#| msgid "New page name: "
 msgid "New table name"
-msgstr "Име: "
+msgstr "Име на новата таблица"
 
 #: resources/templates/export.twig:302
 msgid "Select column:"
@@ -3979,10 +3975,8 @@ msgstr "Липсват таблици от хранилището за конф�
 #: resources/templates/login/twofactor/key_configure.twig:3
 #: resources/templates/login/twofactor/key.twig:3
 #: resources/templates/preferences/two_factor/main.twig:56
-#, fuzzy
-#| msgid "Replicated"
 msgid "Deprecated!"
-msgstr "Реплицирана"
+msgstr "Изведено от употреба!"
 
 #: resources/templates/login/twofactor/key_configure.twig:4
 #: resources/templates/login/twofactor/key.twig:4
@@ -4560,10 +4554,8 @@ msgid "Persistent favorite tables:"
 msgstr "Няма наскоро отваряни таблици"
 
 #: resources/templates/relation/check_relations.twig:295
-#, fuzzy
-#| msgid "Could not save table UI preferences!"
 msgid "Persistent tables' UI preferences:"
-msgstr "Таблицата с визуалните настройки не може да бъде запазена!"
+msgstr "Настройки на интетфейса на постоянните таблици:"
 
 #: resources/templates/relation/check_relations.twig:320
 #, fuzzy
@@ -6252,24 +6244,21 @@ msgstr "Въпроси от момента на стартиране:"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
-#| msgid "per hour"
+#, php-format
 msgid "ø per hour: %s"
-msgstr "на час"
+msgstr "ø в час: %s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
-#| msgid "per minute:"
+#, php-format
 msgid "ø per minute: %s"
-msgstr "на минута:"
+msgstr "ø в минута: %s"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
-#| msgid "per second:"
+#, php-format
 msgid "ø per second: %s"
-msgstr "на секунда:"
+msgstr "ø в секунда: %s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -6398,10 +6387,8 @@ msgid "User group menu assignments"
 msgstr "Няма права."
 
 #: resources/templates/server/user_groups/edit_user_groups.twig:15
-#, fuzzy
-#| msgid "Column names: "
 msgid "Group name:"
-msgstr "Имена на колони: "
+msgstr "Име на групата:"
 
 #: resources/templates/server/user_groups/user_groups.twig:12
 #, fuzzy
@@ -6471,10 +6458,8 @@ msgid "Configuration file"
 msgstr "Конфигурационен файл"
 
 #: resources/templates/setup/config/index.twig:16
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Generated configuration file"
-msgstr "Неуспешно прочитане на кофигурационен файл!"
+msgstr "Създаденият файл с настройки"
 
 #: resources/templates/setup/config/index.twig:22
 #: resources/templates/setup/home/index.twig:168
@@ -12218,8 +12203,8 @@ msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%1$sBzip2 компресирането и разархивирането%2$s изискват функции (%3$s), "
-"които не са достъпни на тази система."
+"%1$sСъздаването и разкомпресирането на архиви Bzip2%2$s изискват функции "
+"(%3$s), които не са достъпни в системата."
 
 #: src/Config/ServerConfigChecks.php:432
 #, php-format
@@ -12277,7 +12262,7 @@ msgstr "Невъзможно свързване със сървъра на ба�
 
 #: src/Config/Validator.php:289
 msgid "Invalid authentication type!"
-msgstr "Невалиден тип удостоверяване!"
+msgstr "Неприемлив вид на удостоверяването!"
 
 #: src/Config/Validator.php:294
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -13760,10 +13745,8 @@ msgid "Show query box"
 msgstr "Показване формата за заявки"
 
 #: src/Controllers/JavaScriptMessagesController.php:402
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "Изпълни заявката"
+msgstr "Промяна на заявката"
 
 #: src/Controllers/JavaScriptMessagesController.php:404
 #, php-format
@@ -16237,16 +16220,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "Показване на редове %1s - %2s"
 
 #: src/Display/Results.php:3439
-#, fuzzy, php-format
-#| msgid "%1$d total, %2$d in query"
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "%1$d общо, %2$d в питане"
+msgstr "%1$s общо, %2$s в заявка"
 
 #: src/Display/Results.php:3444
-#, fuzzy, php-format
-#| msgid "%d total"
+#, php-format
 msgid "%s total"
-msgstr "%d общо"
+msgstr "%s общо"
 
 #: src/Display/Results.php:3457 src/Sql.php:869
 #, php-format
@@ -17000,10 +16981,8 @@ msgid ""
 msgstr ""
 
 #: src/Navigation/NavigationTree.php:824
-#, fuzzy
-#| msgid "Column names: "
 msgid "Groups"
-msgstr "Имена на колони: "
+msgstr "Групи"
 
 #: src/Navigation/NavigationTree.php:931
 #, php-format
@@ -17463,10 +17442,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Грешно име/парола. Достъп отказан."
 
 #: src/Plugins/Auth/AuthenticationSignon.php:128
-#, fuzzy, php-format
-#| msgid "Config authentication"
+#, php-format
 msgid "Can not find signon authentication script: %s"
-msgstr "Удостоверяване от настройките"
+msgstr "Не е намерен скрипт за удостоверяване по метода signon: %s"
 
 #: src/Plugins/AuthenticationPluginFactory.php:31
 msgid "Invalid authentication method set in configuration:"
@@ -18551,10 +18529,9 @@ msgid ""
 msgstr ""
 
 #: src/Routing/Routing.php:158 src/Routing/Routing.php:201
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "БД-източник `%s` не е намерена!"
+msgstr "Грешка 404! Страницата %s не е намерена."
 
 #: src/Routing/Routing.php:166
 msgid "Error 405! Request method not allowed."
