@@ -43,19 +43,15 @@ class NormalizationTest extends TestBase
      */
     public function testNormalizationTo1NF(): void
     {
-        $this->assertTrue(
-            $this->isElementPresent('cssSelector', 'fieldset')
-        );
-        $this->assertEquals(
+        self::assertTrue($this->isElementPresent('cssSelector', 'fieldset'));
+        self::assertEquals(
             'First step of normalization (1NF)',
             $this->byCssSelector('label[for=normalizeToRadio1]')->getText()
         );
-        $this->assertTrue(
-            $this->isElementPresent(
-                'cssSelector',
-                'input[id=normalizeToRadio1][type=radio]:checked'
-            )
-        );
+        self::assertTrue($this->isElementPresent(
+            'cssSelector',
+            'input[id=normalizeToRadio1][type=radio]:checked'
+        ));
         $this->byCssSelector('input[name=submit_normalize]')->click();
         $this->waitForElement('id', 'mainContent');
         $this->assert1NFSteps();
@@ -66,46 +62,16 @@ class NormalizationTest extends TestBase
      */
     private function assert1NFSteps(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             'First step of normalization (1NF)',
             $this->byCssSelector('#page_content h3')->getText()
         );
-        $this->assertTrue(
-            $this->isElementPresent(
-                'cssSelector',
-                '#mainContent h4'
-            )
-        );
-        $this->assertTrue(
-            $this->isElementPresent(
-                'cssSelector',
-                '#mainContent #newCols'
-            )
-        );
-        $this->assertTrue(
-            $this->isElementPresent(
-                'cssSelector',
-                '.tblFooters'
-            )
-        );
-        $this->assertTrue(
-            $this->isElementPresent(
-                'cssSelector',
-                '#selectNonAtomicCol option[value=val2]'
-            )
-        );
-        $this->assertFalse(
-            $this->isElementPresent(
-                'cssSelector',
-                '#selectNonAtomicCol option[value=val]'
-            )
-        );
-        $this->assertTrue(
-            $this->isElementPresent(
-                'cssSelector',
-                '#selectNonAtomicCol option[value=no_such_col]'
-            )
-        );
+        self::assertTrue($this->isElementPresent('cssSelector', '#mainContent h4'));
+        self::assertTrue($this->isElementPresent('cssSelector', '#mainContent #newCols'));
+        self::assertTrue($this->isElementPresent('cssSelector', '.tblFooters'));
+        self::assertTrue($this->isElementPresent('cssSelector', '#selectNonAtomicCol option[value=val2]'));
+        self::assertFalse($this->isElementPresent('cssSelector', '#selectNonAtomicCol option[value=val]'));
+        self::assertTrue($this->isElementPresent('cssSelector', '#selectNonAtomicCol option[value=no_such_col]'));
 
         $this->selectByValue(
             $this->byId('selectNonAtomicCol'),
@@ -114,32 +80,17 @@ class NormalizationTest extends TestBase
 
         $this->waitForElement('xpath', "//legend[contains(., 'Step 1.2 Have a primary key')]");
         $text = $this->byCssSelector('#mainContent h4')->getText();
-        $this->assertStringContainsString('Primary key already exists.', $text);
+        self::assertStringContainsString('Primary key already exists.', $text);
         $this->waitForElement('xpath', "//legend[contains(., 'Step 1.3 Move repeating groups')]");
         $this->byCssSelector('input[value="No repeating group"]')->click();
         $this->waitForElement('xpath', "//legend[contains(., 'Step 1.4 Remove redundant columns')]");
-        $this->assertTrue(
-            $this->isElementPresent(
-                'cssSelector',
-                '#mainContent #extra'
-            )
-        );
-        $this->assertTrue(
-            $this->isElementPresent(
-                'cssSelector',
-                '#extra input[value=val2][type=checkbox]'
-            )
-        );
-        $this->assertTrue(
-            $this->isElementPresent(
-                'cssSelector',
-                '#extra input[value=id][type=checkbox]'
-            )
-        );
+        self::assertTrue($this->isElementPresent('cssSelector', '#mainContent #extra'));
+        self::assertTrue($this->isElementPresent('cssSelector', '#extra input[value=val2][type=checkbox]'));
+        self::assertTrue($this->isElementPresent('cssSelector', '#extra input[value=id][type=checkbox]'));
         $this->byCssSelector('#extra input[value=val][type=checkbox]')->click();
         $this->byCssSelector('#removeRedundant')->click();
         $this->waitForElement('xpath', "//legend[contains(., 'End of step')]");
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             "The first step of normalization is complete for table 'test_table'.",
             $this->byCssSelector('#mainContent h4')->getText()
         );

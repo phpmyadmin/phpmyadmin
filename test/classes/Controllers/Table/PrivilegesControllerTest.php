@@ -54,56 +54,29 @@ class PrivilegesControllerTest extends AbstractTestCase
             $dbi
         ))(['checkprivsdb' => $db, 'checkprivstable' => $table]);
 
-        $this->assertStringContainsString($db . '.' . $table, $actual);
+        self::assertStringContainsString($db . '.' . $table, $actual);
 
         //validate 2: Url::getCommon
         $item = Url::getCommon([
             'db' => $db,
             'table' => $table,
         ], '');
-        $this->assertStringContainsString($item, $actual);
+        self::assertStringContainsString($item, $actual);
 
         //validate 3: items
-        $this->assertStringContainsString(
-            __('User'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            __('Host'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            __('Type'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            __('Privileges'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            __('Grant'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            __('Action'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            __('No user found'),
-            $actual
-        );
+        self::assertStringContainsString(__('User'), $actual);
+        self::assertStringContainsString(__('Host'), $actual);
+        self::assertStringContainsString(__('Type'), $actual);
+        self::assertStringContainsString(__('Privileges'), $actual);
+        self::assertStringContainsString(__('Grant'), $actual);
+        self::assertStringContainsString(__('Action'), $actual);
+        self::assertStringContainsString(__('No user found'), $actual);
 
         //_pgettext('Create new user', 'New')
-        $this->assertStringContainsString(
-            _pgettext('Create new user', 'New'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            Url::getCommon([
-                'checkprivsdb' => $db,
-                'checkprivstable' => $table,
-            ]),
-            $actual
-        );
+        self::assertStringContainsString(_pgettext('Create new user', 'New'), $actual);
+        self::assertStringContainsString(Url::getCommon([
+            'checkprivsdb' => $db,
+            'checkprivstable' => $table,
+        ]), $actual);
     }
 }

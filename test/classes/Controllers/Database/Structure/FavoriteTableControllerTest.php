@@ -56,7 +56,7 @@ class FavoriteTableControllerTest extends AbstractTestCase
 
         $json = $method->invokeArgs($controller, [$favoriteInstance, $user, $favoriteTable]);
 
-        $this->assertEquals(json_encode($favoriteTable), $json['favoriteTables'] ?? '');
-        $this->assertArrayHasKey('list', $json);
+        self::assertEquals(json_encode($favoriteTable), $json['favoriteTables'] ?? '');
+        self::assertArrayHasKey('list', $json);
     }
 }

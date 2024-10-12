@@ -74,7 +74,7 @@ class InsertTest extends TestBase
         $this->waitAjax();
 
         $ele = $this->waitForElement('className', 'alert-success');
-        $this->assertStringContainsString('2 rows inserted', $ele->getText());
+        self::assertStringContainsString('2 rows inserted', $ele->getText());
 
         // shorter date to prevent error,
         // automatically gets appended with 00:00:00
@@ -92,7 +92,7 @@ class InsertTest extends TestBase
             'xpath',
             "//div[contains(@class, 'alert-success') and not(contains(@class, 'message'))]"
         );
-        $this->assertStringContainsString('1 row inserted', $ele->getText());
+        self::assertStringContainsString('1 row inserted', $ele->getText());
 
         $this->assertDataPresent();
     }
@@ -107,49 +107,22 @@ class InsertTest extends TestBase
         $this->waitAjax();
         $this->waitForElement('cssSelector', 'table.table_results');
 
-        $this->assertEquals(
-            '1',
-            $this->getCellByTableClass('table_results', 1, 5)
-        );
+        self::assertEquals('1', $this->getCellByTableClass('table_results', 1, 5));
 
-        $this->assertEquals(
-            'abcd',
-            $this->getCellByTableClass('table_results', 1, 6)
-        );
+        self::assertEquals('abcd', $this->getCellByTableClass('table_results', 1, 6));
 
-        $this->assertEquals(
-            '2011-01-02 00:00:00',
-            $this->getCellByTableClass('table_results', 1, 7)
-        );
+        self::assertEquals('2011-01-02 00:00:00', $this->getCellByTableClass('table_results', 1, 7));
 
-        $this->assertEquals(
-            '2',
-            $this->getCellByTableClass('table_results', 2, 5)
-        );
+        self::assertEquals('2', $this->getCellByTableClass('table_results', 2, 5));
 
-        $this->assertEquals(
-            'foo',
-            $this->getCellByTableClass('table_results', 2, 6)
-        );
+        self::assertEquals('foo', $this->getCellByTableClass('table_results', 2, 6));
 
-        $this->assertEquals(
-            '2012-01-02 00:00:00',
-            $this->getCellByTableClass('table_results', 2, 7)
-        );
+        self::assertEquals('2012-01-02 00:00:00', $this->getCellByTableClass('table_results', 2, 7));
 
-        $this->assertEquals(
-            '4',
-            $this->getCellByTableClass('table_results', 3, 5)
-        );
+        self::assertEquals('4', $this->getCellByTableClass('table_results', 3, 5));
 
-        $this->assertEquals(
-            'Abcd',
-            $this->getCellByTableClass('table_results', 3, 6)
-        );
+        self::assertEquals('Abcd', $this->getCellByTableClass('table_results', 3, 6));
 
-        $this->assertEquals(
-            '2013-01-02 00:00:00',
-            $this->getCellByTableClass('table_results', 3, 7)
-        );
+        self::assertEquals('2013-01-02 00:00:00', $this->getCellByTableClass('table_results', 3, 7));
     }
 }

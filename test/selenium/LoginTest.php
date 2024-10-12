@@ -31,7 +31,7 @@ class LoginTest extends TestBase
     {
         $this->login();
         $this->waitForElement('xpath', '//*[@id="server-breadcrumb"]');
-        $this->assertTrue($this->isSuccessLogin());
+        self::assertTrue($this->isSuccessLogin());
         $this->logOutIfLoggedIn();
     }
 
@@ -44,6 +44,6 @@ class LoginTest extends TestBase
     {
         $this->login('Admin', 'Admin');
         $this->waitForElement('xpath', '//*[@class="alert alert-danger" and contains(.,\'Access denied for\')]');
-        $this->assertTrue($this->isUnsuccessLogin());
+        self::assertTrue($this->isUnsuccessLogin());
     }
 }

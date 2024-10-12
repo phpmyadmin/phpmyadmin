@@ -42,8 +42,8 @@ class DatabaseNameTest extends TestCase
     public function testValidName(): void
     {
         $name = DatabaseName::fromValue('name');
-        $this->assertEquals('name', $name->getName());
-        $this->assertEquals('name', (string) $name);
+        self::assertEquals('name', $name->getName());
+        self::assertEquals('name', (string) $name);
     }
 
     /**

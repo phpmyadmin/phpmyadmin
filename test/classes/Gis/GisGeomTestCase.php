@@ -31,20 +31,14 @@ abstract class GisGeomTestCase extends AbstractTestCase
     public function testGenerateParams(string $wkt, ?int $index, array $params): void
     {
         if ($index === null) {
-            $this->assertEquals(
-                $params,
-                $this->object->generateParams($wkt)
-            );
+            self::assertEquals($params, $this->object->generateParams($wkt));
 
             return;
         }
 
         /** @var GisPolygon $obj or another GisGeometry that supports this definition */
         $obj = $this->object;
-        $this->assertEquals(
-            $params,
-            $obj->generateParams($wkt, $index)
-        );
+        self::assertEquals($params, $obj->generateParams($wkt, $index));
     }
 
     /**
@@ -57,9 +51,6 @@ abstract class GisGeomTestCase extends AbstractTestCase
      */
     public function testScaleRow(string $spatial, array $min_max): void
     {
-        $this->assertEquals(
-            $min_max,
-            $this->object->scaleRow($spatial)
-        );
+        self::assertEquals($min_max, $this->object->scaleRow($spatial));
     }
 }

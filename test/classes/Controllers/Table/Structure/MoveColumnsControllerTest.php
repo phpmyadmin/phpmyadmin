@@ -41,7 +41,7 @@ class MoveColumnsControllerTest extends AbstractTestCase
 
         $expected = $expected === null ? null : preg_replace('/\r?\n/', "\n", $expected);
         $alterStatement = $alterStatement === null ? null : preg_replace('/\r?\n/', "\n", $alterStatement);
-        $this->assertSame($expected, $alterStatement);
+        self::assertSame($expected, $alterStatement);
     }
 
     /**

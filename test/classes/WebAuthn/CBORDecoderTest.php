@@ -29,8 +29,8 @@ class CBORDecoderTest extends TestCase
     {
         $decoder = new CBORDecoder();
         $data = hex2bin($encoded);
-        $this->assertNotFalse($data);
-        $this->assertSame($expected, $decoder->decode(new DataStream($data)));
+        self::assertNotFalse($data);
+        self::assertSame($expected, $decoder->decode(new DataStream($data)));
     }
 
     /**
@@ -158,8 +158,8 @@ class CBORDecoderTest extends TestCase
         $nanValues = ['f97e00', 'fa7fc00000', 'fb7ff8000000000000'];
         foreach ($nanValues as $value) {
             $data = hex2bin($value);
-            $this->assertNotFalse($data);
-            $this->assertNan($decoder->decode(new DataStream($data)));
+            self::assertNotFalse($data);
+            self::assertNan($decoder->decode(new DataStream($data)));
         }
     }
 
@@ -170,7 +170,7 @@ class CBORDecoderTest extends TestCase
     {
         $decoder = new CBORDecoder();
         $data = hex2bin($encoded);
-        $this->assertNotFalse($data);
+        self::assertNotFalse($data);
         $this->expectException(WebAuthnException::class);
         $decoder->decode(new DataStream($data));
     }

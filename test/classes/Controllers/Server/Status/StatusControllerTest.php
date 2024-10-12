@@ -70,38 +70,38 @@ class StatusControllerTest extends AbstractTestCase
 
         $traffic = $bytesReceived + $bytesSent;
         $trafficHtml = 'Network traffic since startup: ' . $traffic . ' B';
-        $this->assertStringContainsString($trafficHtml, $html);
+        self::assertStringContainsString($trafficHtml, $html);
         //updatetime
         $upTimeHtml = 'This MySQL server has been running for 0 days, 10 hours, 0 minutes and 0 seconds';
-        $this->assertStringContainsString($upTimeHtml, $html);
+        self::assertStringContainsString($upTimeHtml, $html);
         //primary state
         $primaryHtml = 'This MySQL server works as <b>primary</b>';
-        $this->assertStringContainsString($primaryHtml, $html);
+        self::assertStringContainsString($primaryHtml, $html);
 
         //validate 2: Status::getHtmlForServerStateTraffic
         $trafficHtml = '<table class="table table-striped table-hover col-12 col-md-5 w-auto">';
-        $this->assertStringContainsString($trafficHtml, $html);
+        self::assertStringContainsString($trafficHtml, $html);
         //traffic hint
         $trafficHtml = 'On a busy server, the byte counters may overrun';
-        $this->assertStringContainsString($trafficHtml, $html);
+        self::assertStringContainsString($trafficHtml, $html);
         //$bytes_received
-        $this->assertStringContainsString('<td class="font-monospace text-end">' . $bytesReceived . ' B', $html);
+        self::assertStringContainsString('<td class="font-monospace text-end">' . $bytesReceived . ' B', $html);
         //$bytes_sent
-        $this->assertStringContainsString('<td class="font-monospace text-end">' . $bytesSent . ' B', $html);
+        self::assertStringContainsString('<td class="font-monospace text-end">' . $bytesSent . ' B', $html);
 
         //validate 3: Status::getHtmlForServerStateConnections
-        $this->assertStringContainsString('<th scope="col">Connections</th>', $html);
-        $this->assertStringContainsString('<th class="text-end" scope="col">ø per hour</th>', $html);
-        $this->assertStringContainsString(
+        self::assertStringContainsString('<th scope="col">Connections</th>', $html);
+        self::assertStringContainsString('<th class="text-end" scope="col">ø per hour</th>', $html);
+        self::assertStringContainsString(
             '<table class="table table-striped table-hover col-12 col-md-6 w-auto">',
             $html
         );
-        $this->assertStringContainsString('<th>Max. concurrent connections</th>', $html);
+        self::assertStringContainsString('<th>Max. concurrent connections</th>', $html);
         //Max_used_connections
-        $this->assertStringContainsString('<td class="font-monospace text-end">' . $maxUsedConnections, $html);
-        $this->assertStringContainsString('<th>Failed attempts</th>', $html);
+        self::assertStringContainsString('<td class="font-monospace text-end">' . $maxUsedConnections, $html);
+        self::assertStringContainsString('<th>Failed attempts</th>', $html);
         //Aborted_connects
-        $this->assertStringContainsString('<td class="font-monospace text-end">' . $abortedConnections, $html);
-        $this->assertStringContainsString('<th>Aborted</th>', $html);
+        self::assertStringContainsString('<td class="font-monospace text-end">' . $abortedConnections, $html);
+        self::assertStringContainsString('<th>Aborted</th>', $html);
     }
 }

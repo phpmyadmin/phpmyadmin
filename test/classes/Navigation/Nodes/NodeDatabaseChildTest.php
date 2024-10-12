@@ -67,13 +67,10 @@ class NodeDatabaseChildTest extends AbstractTestCase
             ->will($this->returnValue('itemType'));
         $html = $this->object->getHtmlForControlButtons();
 
-        $this->assertStringStartsWith('<span class="navItemControls">', $html);
-        $this->assertStringEndsWith('</span>', $html);
-        $this->assertStringContainsString(
-            '<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
-            . 'hideNavItem=1&itemType=itemType&itemName=child'
-            . '&dbName=parent&lang=en" class="hideNavItem ajax">',
-            $html
-        );
+        self::assertStringStartsWith('<span class="navItemControls">', $html);
+        self::assertStringEndsWith('</span>', $html);
+        self::assertStringContainsString('<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
+        . 'hideNavItem=1&itemType=itemType&itemName=child'
+        . '&dbName=parent&lang=en" class="hideNavItem ajax">', $html);
     }
 }

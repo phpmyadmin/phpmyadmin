@@ -22,30 +22,30 @@ class IndexColumnTest extends TestCase
 
     public function testGetNull(): void
     {
-        $this->assertEquals('', $this->object->getNull());
-        $this->assertEquals('No', $this->object->getNull(true));
+        self::assertEquals('', $this->object->getNull());
+        self::assertEquals('No', $this->object->getNull(true));
         $this->object->set(['Null' => 'YES']);
-        $this->assertEquals('YES', $this->object->getNull());
-        $this->assertEquals('Yes', $this->object->getNull(true));
+        self::assertEquals('YES', $this->object->getNull());
+        self::assertEquals('Yes', $this->object->getNull(true));
     }
 
     public function testGetSeqInIndex(): void
     {
-        $this->assertEquals(1, $this->object->getSeqInIndex());
+        self::assertEquals(1, $this->object->getSeqInIndex());
         $this->object->set(['Seq_in_index' => 2]);
-        $this->assertEquals(2, $this->object->getSeqInIndex());
+        self::assertEquals(2, $this->object->getSeqInIndex());
     }
 
     public function testGetSubPart(): void
     {
-        $this->assertNull($this->object->getSubPart());
+        self::assertNull($this->object->getSubPart());
         $this->object->set(['Sub_part' => 2]);
-        $this->assertEquals(2, $this->object->getSubPart());
+        self::assertEquals(2, $this->object->getSubPart());
     }
 
     public function testGetCompareData(): void
     {
-        $this->assertEquals(
+        self::assertEquals(
             ['Column_name' => '', 'Seq_in_index' => 1, 'Collation' => null, 'Sub_part' => null, 'Null' => ''],
             $this->object->getCompareData()
         );
@@ -56,36 +56,33 @@ class IndexColumnTest extends TestCase
             'Sub_part' => 2,
             'Null' => 'NO',
         ]);
-        $this->assertEquals(
-            [
-                'Column_name' => 'name',
-                'Seq_in_index' => 2,
-                'Collation' => 'collation',
-                'Sub_part' => 2,
-                'Null' => 'NO',
-            ],
-            $object->getCompareData()
-        );
+        self::assertEquals([
+            'Column_name' => 'name',
+            'Seq_in_index' => 2,
+            'Collation' => 'collation',
+            'Sub_part' => 2,
+            'Null' => 'NO',
+        ], $object->getCompareData());
     }
 
     public function testGetName(): void
     {
-        $this->assertEquals('', $this->object->getName());
+        self::assertEquals('', $this->object->getName());
         $this->object->set(['Column_name' => 'name']);
-        $this->assertEquals('name', $this->object->getName());
+        self::assertEquals('name', $this->object->getName());
     }
 
     public function testGetCardinality(): void
     {
-        $this->assertNull($this->object->getCardinality());
+        self::assertNull($this->object->getCardinality());
         $this->object->set(['Cardinality' => 2]);
-        $this->assertEquals(2, $this->object->getCardinality());
+        self::assertEquals(2, $this->object->getCardinality());
     }
 
     public function testGetCollation(): void
     {
-        $this->assertNull($this->object->getCollation());
+        self::assertNull($this->object->getCollation());
         $this->object->set(['Collation' => 'collation']);
-        $this->assertEquals('collation', $this->object->getCollation());
+        self::assertEquals('collation', $this->object->getCollation());
     }
 }
