@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-13 00:24+0000\n"
-"PO-Revision-Date: 2024-09-23 07:15+0000\n"
+"PO-Revision-Date: 2024-10-13 10:46+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -6237,7 +6237,7 @@ msgstr "SQL sorgusu"
 
 #: resources/templates/sql/query.twig:41
 msgid "Format as a single line"
-msgstr ""
+msgstr "Tek satır olarak biçimlendir"
 
 #: resources/templates/sql/query.twig:45
 msgid "Get auto-saved query"
@@ -12604,6 +12604,9 @@ msgid ""
 "configuration directive <code>AllowNoPassword</code> is false. If you "
 "proceed, the account will not be able to log in through phpMyAdmin."
 msgstr ""
+"Bu hesabı parola olmadan oturum açmak için ayarlamaya çalışıyorsunuz, ancak "
+"<code>AllowNoPassword</code> yapılandırma yönergesi false. Eğer devam "
+"ederseniz, hesabınız phpMyAdmin aracılığıyla oturum açamayacaktır."
 
 #: src/Controllers/JavaScriptMessagesController.php:151
 msgid "Removing Selected Users"
