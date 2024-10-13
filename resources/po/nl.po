@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-13 00:24+0000\n"
-"PO-Revision-Date: 2024-06-14 16:09+0000\n"
-"Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
+"PO-Revision-Date: 2024-10-14 12:18+0000\n"
+"Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
 "Language: nl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2470,7 +2470,7 @@ msgstr "Opties:"
 
 #: resources/templates/database/search/main.twig:40
 msgid "include hex matches"
-msgstr ""
+msgstr "voeg hexidecimale overeenkomsten toe"
 
 #: resources/templates/database/search/main.twig:45
 msgid "Inside tables:"
@@ -3358,7 +3358,7 @@ msgstr "Geometrie %d:"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
-msgstr ""
+msgstr "Spatial Referentie Systeem Identificatie"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgctxt "Spatial Reference System Identifier"
@@ -6287,7 +6287,7 @@ msgstr "SQL-query"
 
 #: resources/templates/sql/query.twig:41
 msgid "Format as a single line"
-msgstr ""
+msgstr "Toon als een enkele regel"
 
 #: resources/templates/sql/query.twig:45
 msgid "Get auto-saved query"
@@ -6454,7 +6454,7 @@ msgstr "Kolom met waarden:"
 #: resources/templates/table/chart/tbl_chart.twig:145
 #: resources/templates/table/zoom_search/result_form.twig:16
 msgid "The generated chart"
-msgstr ""
+msgstr "De gegenereerde grafiek"
 
 #: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
@@ -6659,7 +6659,7 @@ msgstr "Aanpassen/Invoegen"
 
 #: resources/templates/table/insert/continue_insertion_form.twig:14
 msgid "Amount of rows to insert"
-msgstr ""
+msgstr "Aantal rijen om in te voegen"
 
 #: resources/templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
@@ -12728,6 +12728,9 @@ msgid ""
 "configuration directive <code>AllowNoPassword</code> is false. If you "
 "proceed, the account will not be able to log in through phpMyAdmin."
 msgstr ""
+"U probeert dit account in te stellen op inloggen zonder wachtwoord, maar de "
+"configuratie instelling <code>AllowNoPassword</code> is onwaar. Als u "
+"doorgaat zal dit account niet kunnen inloggen op phpMyAdmin."
 
 #: src/Controllers/JavaScriptMessagesController.php:151
 msgid "Removing Selected Users"
@@ -13344,10 +13347,8 @@ msgid "Show query box"
 msgstr "SQL-queryveld tonen"
 
 #: src/Controllers/JavaScriptMessagesController.php:407
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "Query verzenden"
+msgstr "Query wijzigen"
 
 #: src/Controllers/JavaScriptMessagesController.php:409
 #, php-format
@@ -17059,10 +17060,8 @@ msgid "The table name is empty!"
 msgstr "De tabelnaam is leeg!"
 
 #: src/Partitioning/Maintenance.php:142
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Dit is een alleen-lezen variabele en kan niet worden gewijzigd."
+msgstr "Deze tabel is een view en kan niet worden ingekort."
 
 #: src/Pdf.php:139
 msgid "Error while creating PDF:"
