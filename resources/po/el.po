@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-10-06 00:24+0000\n"
+"POT-Creation-Date: 2024-10-13 00:24+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -66,7 +66,7 @@ msgstr ""
 
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:217 src/Menu.php:474
+#: src/Controllers/JavaScriptMessagesController.php:222 src/Menu.php:474
 #: src/Util.php:1456
 msgid "Settings"
 msgstr "Ρυθμίσεις"
@@ -77,7 +77,7 @@ msgid "Log out"
 msgstr "Αποσύνδεση"
 
 #: resources/templates/base.twig:108
-#: src/Controllers/JavaScriptMessagesController.php:340
+#: src/Controllers/JavaScriptMessagesController.php:345
 msgid "Page-related settings"
 msgstr "Ρυθμίσεις σχετικές με τη σελίδα"
 
@@ -208,7 +208,7 @@ msgstr "μετά το %s"
 #: resources/templates/table/zoom_search/index.twig:62
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
-#: src/Controllers/JavaScriptMessagesController.php:220
+#: src/Controllers/JavaScriptMessagesController.php:225
 #: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:2067
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
@@ -259,8 +259,8 @@ msgstr "στήλη(ες)"
 #: resources/templates/server/replication/primary_configuration.twig:26
 #: resources/templates/server/replication/replica_configuration.twig:16
 #: resources/templates/server/replication/replica_configuration.twig:88
-#: resources/templates/sql/query.twig:149
-#: resources/templates/sql/query.twig:200
+#: resources/templates/sql/query.twig:150
+#: resources/templates/sql/query.twig:201
 #: resources/templates/table/find_replace/index.twig:62
 #: resources/templates/table/index_form.twig:245
 #: resources/templates/table/insert/actions_panel.twig:38
@@ -281,8 +281,8 @@ msgstr "στήλη(ες)"
 #: resources/templates/table/zoom_search/index.twig:152
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
-#: src/Controllers/JavaScriptMessagesController.php:336
-#: src/Controllers/Server/PrivilegesController.php:287
+#: src/Controllers/JavaScriptMessagesController.php:341
+#: src/Controllers/Server/PrivilegesController.php:290
 #: src/Normalization.php:229 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
@@ -349,7 +349,7 @@ msgstr "Προεπισκόπηση SQL"
 #: resources/templates/table/relation/common_form.twig:142
 #: resources/templates/table/structure/partition_definition_form.twig:13
 #: resources/templates/table/zoom_search/result_form.twig:79
-#: src/Controllers/JavaScriptMessagesController.php:455
+#: src/Controllers/JavaScriptMessagesController.php:460
 msgid "Save"
 msgstr "Αποθήκευση"
 
@@ -409,8 +409,8 @@ msgstr "Φόρτωση…"
 #: resources/templates/server/status/monitor/index.twig:183
 #: resources/templates/server/user_groups/user_groups.twig:51
 #: resources/templates/server/user_groups/user_groups.twig:55
-#: resources/templates/sql/query.twig:221
-#: resources/templates/sql/query.twig:226
+#: resources/templates/sql/query.twig:222
+#: resources/templates/sql/query.twig:227
 #: resources/templates/table/insert/actions_panel.twig:49
 #: resources/templates/table/insert/actions_panel.twig:54
 #: resources/templates/table/relation/common_form.twig:151
@@ -423,7 +423,7 @@ msgstr "Φόρτωση…"
 #: resources/templates/table/zoom_search/result_form.twig:25
 #: resources/templates/table/zoom_search/result_form.twig:80
 #: resources/templates/table/zoom_search/result_form.twig:96
-#: src/Controllers/JavaScriptMessagesController.php:147
+#: src/Controllers/JavaScriptMessagesController.php:152
 #: src/Tracking/Tracking.php:200 src/Tracking/Tracking.php:540
 msgid "Close"
 msgstr "Κλείσιμο"
@@ -562,7 +562,7 @@ msgstr "Κόμβος ομάδας"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:718
+#: src/Controllers/JavaScriptMessagesController.php:723
 #: src/Import/Import.php:1165 src/Menu.php:213 src/Menu.php:317
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
@@ -806,7 +806,7 @@ msgid "Input transformation options"
 msgstr "Επιλογές μετατροπής εισαγωγής"
 
 #: resources/templates/config/form_display/display.twig:46
-#: src/Controllers/JavaScriptMessagesController.php:341
+#: src/Controllers/JavaScriptMessagesController.php:346
 msgid "Apply"
 msgstr "Εφαρμογή"
 
@@ -887,7 +887,7 @@ msgstr "Απενεργοποιημένη"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:36
 #: src/Controllers/Database/Structure/EmptyTableController.php:48
-#: src/Controllers/JavaScriptMessagesController.php:505
+#: src/Controllers/JavaScriptMessagesController.php:510
 #: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:107
@@ -926,7 +926,7 @@ msgstr "Ναι"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/JavaScriptMessagesController.php:368 src/IndexColumn.php:145
+#: src/Controllers/JavaScriptMessagesController.php:373 src/IndexColumn.php:145
 #: src/Index.php:443 src/Index.php:469
 #: src/Plugins/Export/ExportHtmlword.php:595
 #: src/Plugins/Export/ExportLatex.php:572 src/Plugins/Export/ExportOdt.php:714
@@ -994,7 +994,7 @@ msgstr "Επανερώτημα"
 #: resources/templates/triggers/row.twig:28
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
-#: src/Controllers/JavaScriptMessagesController.php:401
+#: src/Controllers/JavaScriptMessagesController.php:406
 #: src/Display/Results.php:2477 src/Html/Generator.php:517
 #: src/Html/Generator.php:783
 msgid "Edit"
@@ -1012,8 +1012,8 @@ msgstr "Επεξεργασία"
 #: resources/templates/server/user_groups/user_groups.twig:37
 #: resources/templates/server/user_groups/user_groups.twig:56
 #: resources/templates/setup/home/index.twig:69
-#: resources/templates/sql/query.twig:188
-#: src/Controllers/JavaScriptMessagesController.php:403
+#: resources/templates/sql/query.twig:189
+#: src/Controllers/JavaScriptMessagesController.php:408
 #: src/Display/Results.php:2536 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "Διαγραφή"
@@ -1035,8 +1035,8 @@ msgstr "Διαγραφή"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1566
-#: src/Server/Privileges.php:1568 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1567
+#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "Βάση δεδομένων"
 
@@ -1076,7 +1076,7 @@ msgstr "Ιστορικό"
 #: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:86
 #: src/Plugins/Import/ImportLdi.php:61
 #: src/Plugins/Import/ImportMediawiki.php:61
-#: src/Plugins/Import/ImportOds.php:59 src/Plugins/Import/ImportShp.php:73
+#: src/Plugins/Import/ImportOds.php:59 src/Plugins/Import/ImportShp.php:74
 #: src/Plugins/Import/ImportSql.php:43 src/Plugins/Import/ImportXml.php:50
 msgid "Options"
 msgstr "Επιλογές"
@@ -1180,7 +1180,7 @@ msgid "Count:"
 msgstr "Μέτρηση:"
 
 #: resources/templates/console/display.twig:121
-#: src/Controllers/JavaScriptMessagesController.php:668
+#: src/Controllers/JavaScriptMessagesController.php:673
 msgid "Time taken:"
 msgstr "Χρόνος που παρήλθε:"
 
@@ -1217,7 +1217,7 @@ msgstr "Κοινή χρήση αυτού του σελιδοδείκτη"
 #: resources/templates/database/designer/main.twig:1058
 #: resources/templates/modals/preview_sql_confirmation.twig:14
 #: resources/templates/table/structure/display_structure.twig:367
-#: src/Controllers/JavaScriptMessagesController.php:360
+#: src/Controllers/JavaScriptMessagesController.php:365
 msgid "OK"
 msgstr "Εντάξει"
 
@@ -1384,7 +1384,7 @@ msgstr "Ενέργεια"
 #: resources/templates/server/databases/index.twig:319
 #: resources/templates/server/variables/index.twig:15
 #: resources/templates/table/search/index.twig:196
-#: src/Controllers/JavaScriptMessagesController.php:337
+#: src/Controllers/JavaScriptMessagesController.php:342
 msgid "Cancel"
 msgstr "Άκυρο"
 
@@ -1509,7 +1509,7 @@ msgid "Page to delete"
 msgstr "Σελίδα για διαγραφή"
 
 #: resources/templates/database/designer/main.twig:10
-#: src/Controllers/JavaScriptMessagesController.php:549
+#: src/Controllers/JavaScriptMessagesController.php:554
 msgid "Untitled"
 msgstr "Χωρίς τίτλο"
 
@@ -1530,7 +1530,7 @@ msgstr "Έξοδος από πλήρη οθόνη"
 
 #: resources/templates/database/designer/main.twig:40
 #: resources/templates/database/designer/main.twig:43
-#: src/Controllers/JavaScriptMessagesController.php:541
+#: src/Controllers/JavaScriptMessagesController.php:546
 msgid "Add tables from other databases"
 msgstr "Προσθήκη πινάκων από άλλες βάσεις δεδομένων"
 
@@ -1541,19 +1541,19 @@ msgstr "Νέα σελίδα"
 
 #: resources/templates/database/designer/main.twig:56
 #: resources/templates/database/designer/main.twig:59
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:550
 msgid "Open page"
 msgstr "Άνοιγμα σελίδας"
 
 #: resources/templates/database/designer/main.twig:63
 #: resources/templates/database/designer/main.twig:66
-#: src/Controllers/JavaScriptMessagesController.php:543
+#: src/Controllers/JavaScriptMessagesController.php:548
 msgid "Save page"
 msgstr "Αποθήκευση σελίδας"
 
 #: resources/templates/database/designer/main.twig:70
 #: resources/templates/database/designer/main.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:544
+#: src/Controllers/JavaScriptMessagesController.php:549
 msgid "Save page as"
 msgstr "Αποθήκευση σελίδας ως"
 
@@ -1576,7 +1576,7 @@ msgstr "Δημιουργία συσχέτισης"
 
 #: resources/templates/database/designer/main.twig:98
 #: resources/templates/database/designer/main.twig:101
-#: src/Controllers/JavaScriptMessagesController.php:535
+#: src/Controllers/JavaScriptMessagesController.php:540
 msgid "Choose column to display"
 msgstr "Επιλέξτε στήλη για εμφάνιση"
 
@@ -1721,8 +1721,8 @@ msgid "Active options"
 msgstr "Ενεργές επιλογές"
 
 #: resources/templates/database/designer/main.twig:1138
-#: resources/templates/sql/query.twig:180
-#: src/Controllers/JavaScriptMessagesController.php:560
+#: resources/templates/sql/query.twig:181
+#: src/Controllers/JavaScriptMessagesController.php:565
 msgid "Submit"
 msgstr "Αποστολή"
 
@@ -1764,7 +1764,7 @@ msgstr "Όνομα συμβάντος"
 #: resources/templates/database/tracking/tables.twig:17
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:577
-#: src/Controllers/JavaScriptMessagesController.php:287 src/Menu.php:445
+#: src/Controllers/JavaScriptMessagesController.php:292 src/Menu.php:445
 #: src/Server/Status/Processes.php:96 src/Util.php:1452
 msgid "Status"
 msgstr "Κατάσταση"
@@ -1893,8 +1893,8 @@ msgstr "Επιλογή όλων"
 #: resources/templates/triggers/list.twig:18
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
-#: src/Controllers/JavaScriptMessagesController.php:386 src/Menu.php:240
-#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1283
+#: src/Controllers/JavaScriptMessagesController.php:391 src/Menu.php:240
+#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1284
 #: src/Util.php:1454 src/Util.php:1469 src/Util.php:1486
 msgid "Export"
 msgstr "Εξαγωγή"
@@ -2036,7 +2036,7 @@ msgstr "επιλογή στήλης"
 #: resources/templates/database/multi_table_query/form.twig:38
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
-#: src/Controllers/JavaScriptMessagesController.php:717
+#: src/Controllers/JavaScriptMessagesController.php:722
 #: src/Controllers/Table/ChangeController.php:219
 msgid "Show"
 msgstr "Εμφάνιση"
@@ -2274,7 +2274,7 @@ msgstr "Όνομασία φιλοξενητή"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:405 src/Menu.php:256
+#: src/Controllers/Server/PrivilegesController.php:408 src/Menu.php:256
 #: src/Menu.php:364 src/Util.php:1472 src/Util.php:1488
 msgid "Privileges"
 msgstr "Δικαιώματα"
@@ -2318,13 +2318,13 @@ msgstr "ρουτίνα"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1275
+#: src/Server/Privileges.php:1276
 msgid "Edit privileges"
 msgstr "Επεξεργασία δικαιωμάτων"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2060
+#: src/Server/Privileges.php:2061
 msgid "No user found."
 msgstr "Δεν βρέθηκαν χρήστες."
 
@@ -2344,7 +2344,7 @@ msgstr "Με τους επιλεγμένους:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1219
+#: src/Server/Privileges.php:1220
 msgid "Not enough privilege to view users."
 msgstr "Δεν υπάρχουν αρκετά δικαιώματα για προβολή χρηστών."
 
@@ -2677,7 +2677,7 @@ msgid "Replace table prefix"
 msgstr "Αντικατάσταση προθέματος πίνακα"
 
 #: resources/templates/database/structure/check_all_tables.twig:28
-#: src/Controllers/JavaScriptMessagesController.php:680
+#: src/Controllers/JavaScriptMessagesController.php:685
 msgid "Copy table with prefix"
 msgstr "Αντιγραφή πίνακα με πρόθεμα"
 
@@ -2736,9 +2736,9 @@ msgstr "Θέλετε να εκτελέσετε το ακόλουθο ερώτη�
 
 #: resources/templates/database/structure/drop_form.twig:15
 #: resources/templates/database/structure/empty_form.twig:15
-#: resources/templates/import.twig:154 resources/templates/sql/query.twig:144
+#: resources/templates/import.twig:154 resources/templates/sql/query.twig:145
 #: resources/templates/table/delete/confirm.twig:25
-#: src/Controllers/JavaScriptMessagesController.php:371
+#: src/Controllers/JavaScriptMessagesController.php:376
 msgid "Enable foreign key checks"
 msgstr "Ενεργοποίηση ελέγχων μη διακριτών κλειδιών"
 
@@ -2784,8 +2784,8 @@ msgstr "Εμφάνιση ερωτημάτων δημιουργίας"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1572
-#: src/Server/Privileges.php:1574
+#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1573
+#: src/Server/Privileges.php:1575
 msgid "Table"
 msgstr "Πίνακας"
 
@@ -2827,7 +2827,7 @@ msgid "Replicated"
 msgstr "Αναπαραγμένο"
 
 #: resources/templates/database/structure/structure_table_row.twig:59
-#: resources/templates/sql/query.twig:75 src/Config/ConfigFile.php:523
+#: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:523
 #: src/Config/ConfigFile.php:537 src/Config/ConfigFile.php:601 src/Menu.php:233
 #: src/Navigation/Nodes/NodeTable.php:286 src/Util.php:1043 src/Util.php:1485
 msgid "Insert"
@@ -3009,7 +3009,7 @@ msgstr "Τέλος"
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:2
 #: src/BrowseForeigners.php:293
-#: src/Controllers/JavaScriptMessagesController.php:578
+#: src/Controllers/JavaScriptMessagesController.php:583
 msgid "Show all"
 msgstr "Εμφάνιση όλων"
 
@@ -3075,7 +3075,7 @@ msgid "Hide browser transformation"
 msgstr "Απόκρυψη μετατροπής περιηγητή"
 
 #: resources/templates/display/results/table.twig:263
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:502
 msgid "Geometry"
 msgstr "Γεωμετρία"
 
@@ -3090,7 +3090,7 @@ msgstr "Καλά Γνωστό Δυαδικό"
 #: resources/templates/display/results/table.twig:323
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
-#: src/Controllers/JavaScriptMessagesController.php:491
+#: src/Controllers/JavaScriptMessagesController.php:496
 #: src/Display/Results.php:2481 src/Html/Generator.php:78
 msgid "Copy"
 msgstr "Αντιγραφή"
@@ -3101,7 +3101,7 @@ msgid "Query results operations"
 msgstr "Λειτουργίες αποτελεσμάτων ερωτήματος"
 
 #: resources/templates/display/results/table.twig:353
-#: src/Controllers/JavaScriptMessagesController.php:490
+#: src/Controllers/JavaScriptMessagesController.php:495
 #: src/Export/Export.php:1253
 msgid "Copy to clipboard"
 msgstr "Αντιγραφή στο πρόχειρο"
@@ -3285,7 +3285,7 @@ msgid "Defined aliases"
 msgstr "Ορισμένες ετικέτες"
 
 #: resources/templates/export.twig:206
-#: src/Controllers/JavaScriptMessagesController.php:294
+#: src/Controllers/JavaScriptMessagesController.php:299
 msgctxt "Alias"
 msgid "Database"
 msgstr "Βάση δεδομένων"
@@ -3296,13 +3296,13 @@ msgid "Remove"
 msgstr "Αφαίρεση"
 
 #: resources/templates/export.twig:220
-#: src/Controllers/JavaScriptMessagesController.php:295
+#: src/Controllers/JavaScriptMessagesController.php:300
 msgctxt "Alias"
 msgid "Table"
 msgstr "Πίνακας"
 
 #: resources/templates/export.twig:233
-#: src/Controllers/JavaScriptMessagesController.php:296
+#: src/Controllers/JavaScriptMessagesController.php:301
 msgctxt "Alias"
 msgid "Column"
 msgstr "Στήλη"
@@ -3641,7 +3641,7 @@ msgstr "Ιστοσελίδα phpMyAdmin"
 #: resources/templates/server/privileges/users_overview.twig:172
 #: resources/templates/server/status/monitor/index.twig:66
 #: resources/templates/table/structure/display_structure.twig:348
-#: src/Controllers/JavaScriptMessagesController.php:344
+#: src/Controllers/JavaScriptMessagesController.php:349
 msgid "Loading…"
 msgstr "Φόρτωση…"
 
@@ -3662,7 +3662,7 @@ msgstr "Πάρτε το"
 
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
-#: src/Controllers/JavaScriptMessagesController.php:437
+#: src/Controllers/JavaScriptMessagesController.php:442
 #: src/Export/Export.php:1276 src/Html/Generator.php:849
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
@@ -3673,7 +3673,7 @@ msgstr "Επιστροφή"
 #: resources/templates/preferences/manage/main.twig:11
 #: resources/templates/server/status/monitor/index.twig:53
 #: src/Config/Forms/User/ImportForm.php:58
-#: src/Controllers/JavaScriptMessagesController.php:322 src/Menu.php:249
+#: src/Controllers/JavaScriptMessagesController.php:327 src/Menu.php:249
 #: src/Menu.php:352 src/Menu.php:469 src/Util.php:1455 src/Util.php:1470
 #: src/Util.php:1487
 msgid "Import"
@@ -4054,7 +4054,7 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Ένα σφάλμα συμβαίνει κατά τη φόρτωση της προβολής πλοήγησης"
 
 #: resources/templates/navigation/main.twig:84
-#: src/Controllers/JavaScriptMessagesController.php:595
+#: src/Controllers/JavaScriptMessagesController.php:600
 msgid "Drop files here"
 msgstr "Ρίξτε αρχεία εδώ"
 
@@ -4686,7 +4686,7 @@ msgid "Check privileges"
 msgstr "Έλεγχος δικαιωμάτων"
 
 #: resources/templates/server/databases/index.twig:249
-#: src/Controllers/JavaScriptMessagesController.php:305
+#: src/Controllers/JavaScriptMessagesController.php:310
 #: src/Engines/Innodb.php:133
 msgid "Total:"
 msgstr "Σύνολο:"
@@ -4709,7 +4709,7 @@ msgid "No databases"
 msgstr "Δεν υπάρχουν βάσεις δεδομένων"
 
 #: resources/templates/server/databases/index.twig:314
-#: src/Controllers/JavaScriptMessagesController.php:362
+#: src/Controllers/JavaScriptMessagesController.php:367
 msgid "Confirm"
 msgstr "Επιβεβαίωση"
 
@@ -4731,7 +4731,7 @@ msgstr "Περιγραφή"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
-#: resources/templates/sql/query.twig:193 src/Config/ConfigFile.php:579
+#: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:579
 #: src/Menu.php:502 src/Server/Status/Data.php:193 src/Util.php:1459
 msgid "Variables"
 msgstr "Μεταβλητές"
@@ -4888,7 +4888,7 @@ msgstr "Λογαριασμός χρήστη"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
-#: src/Server/Privileges.php:1578 src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1579 src/Server/Privileges.php:1581
 msgid "Routine"
 msgstr "Εργασία"
 
@@ -4902,7 +4902,7 @@ msgstr ""
 "έχετε συνδεθεί."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1579
+#: src/Server/Privileges.php:1580
 msgid "Routine-specific privileges"
 msgstr "Δικαιώματα για τη συγκεκριμένη εργασία"
 
@@ -5053,7 +5053,7 @@ msgstr "Επεξεργασία ομάδας χρηστών"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1573
+#: src/Server/Privileges.php:1574
 msgid "Table-specific privileges"
 msgstr "Δικαιώματα πινάκων"
 
@@ -5082,7 +5082,7 @@ msgstr "Προσθήκη δικαιωμάτων στην ακόλουθη εργ
 #: resources/templates/server/privileges/privileges_table.twig:16
 #: resources/templates/server/privileges/privileges_table.twig:287
 #: resources/templates/server/privileges/privileges_table.twig:290
-#: src/Server/Privileges.php:309
+#: src/Server/Privileges.php:310
 msgid "Allows reading data."
 msgstr "Επιτρέπει την ανάγνωση δεδομένων."
 
@@ -5109,20 +5109,20 @@ msgstr "Κανένα"
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
 #: resources/templates/server/privileges/privileges_table.twig:303
-#: src/Server/Privileges.php:310
+#: src/Server/Privileges.php:311
 msgid "Allows inserting and replacing data."
 msgstr "Επιτρέπει την εισαγωγή και την αντικατάσταση δεδομένων."
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
 #: resources/templates/server/privileges/privileges_table.twig:316
-#: src/Server/Privileges.php:311
+#: src/Server/Privileges.php:312
 msgid "Allows changing data."
 msgstr "Επιτρέπει την αλλαγή δεδομένων."
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
-#: src/Server/Privileges.php:319
+#: src/Server/Privileges.php:320
 msgid "Has no effect in this MySQL version."
 msgstr "Δεν έχει χρήση σε αυτήν την έκδοση MySQL."
 
@@ -5130,7 +5130,7 @@ msgstr "Δεν έχει χρήση σε αυτήν την έκδοση MySQL."
 #: resources/templates/server/privileges/privileges_table.twig:128
 #: resources/templates/server/privileges/privileges_table.twig:326
 #: resources/templates/server/privileges/privileges_table.twig:329
-#: src/Server/Privileges.php:289 src/Server/Privileges.php:312
+#: src/Server/Privileges.php:290 src/Server/Privileges.php:313
 msgid "Allows deleting data."
 msgstr "Επιτρέπει τη διαγραφή δεδομένων."
 
@@ -5138,7 +5138,7 @@ msgstr "Επιτρέπει τη διαγραφή δεδομένων."
 #: resources/templates/server/privileges/privileges_table.twig:140
 #: resources/templates/server/privileges/privileges_table.twig:367
 #: resources/templates/server/privileges/privileges_table.twig:375
-#: src/Server/Privileges.php:290
+#: src/Server/Privileges.php:291
 msgid "Allows creating new tables."
 msgstr "Επιτρέπει τη δημιουργία νέων πινάκων."
 
@@ -5146,7 +5146,7 @@ msgstr "Επιτρέπει τη δημιουργία νέων πινάκων."
 #: resources/templates/server/privileges/privileges_table.twig:152
 #: resources/templates/server/privileges/privileges_table.twig:415
 #: resources/templates/server/privileges/privileges_table.twig:423
-#: src/Server/Privileges.php:291
+#: src/Server/Privileges.php:292
 msgid "Allows dropping tables."
 msgstr "Επιτρέπει τη διαγραφή πινάκων."
 
@@ -5165,7 +5165,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:177
 #: resources/templates/server/privileges/privileges_table.twig:399
 #: resources/templates/server/privileges/privileges_table.twig:402
-#: src/Server/Privileges.php:292 src/Server/Privileges.php:320
+#: src/Server/Privileges.php:293 src/Server/Privileges.php:321
 msgid "Allows creating and dropping indexes."
 msgstr "Επιτρέπει την δημιουργία και την διαγραφή ευρετηρίων."
 
@@ -5173,7 +5173,7 @@ msgstr "Επιτρέπει την δημιουργία και την διαγρ�
 #: resources/templates/server/privileges/privileges_table.twig:189
 #: resources/templates/server/privileges/privileges_table.twig:386
 #: resources/templates/server/privileges/privileges_table.twig:389
-#: src/Server/Privileges.php:293 src/Server/Privileges.php:321
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:322
 msgid "Allows altering the structure of existing tables."
 msgstr "Επιτρέπει την αλλαγή δομής των υπαρχόντων πινάκων."
 
@@ -5183,8 +5183,8 @@ msgstr "Επιτρέπει την αλλαγή δομής των υπαρχόν�
 #: resources/templates/server/privileges/privileges_table.twig:503
 #: resources/templates/server/privileges/privileges_table.twig:515
 #: resources/templates/server/privileges/privileges_table.twig:518
-#: src/Server/Privileges.php:294 src/Server/Privileges.php:340
-#: src/Server/Privileges.php:344
+#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
+#: src/Server/Privileges.php:345
 msgid "Allows creating new views."
 msgstr "Επιτρέπει τη δημιουργία νέων προβολών."
 
@@ -5192,8 +5192,8 @@ msgstr "Επιτρέπει τη δημιουργία νέων προβολών."
 #: resources/templates/server/privileges/privileges_table.twig:213
 #: resources/templates/server/privileges/privileges_table.twig:447
 #: resources/templates/server/privileges/privileges_table.twig:450
-#: src/Server/Privileges.php:295 src/Server/Privileges.php:345
-#: src/Server/Privileges.php:347
+#: src/Server/Privileges.php:296 src/Server/Privileges.php:346
+#: src/Server/Privileges.php:348
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Επιτρέπει την εκτέλεση ερωτημάτων της μορφής SHOW CREATE VIEW."
 
@@ -5201,14 +5201,14 @@ msgstr "Επιτρέπει την εκτέλεση ερωτημάτων της �
 #: resources/templates/server/privileges/privileges_table.twig:225
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: resources/templates/server/privileges/privileges_table.twig:546
-#: src/Server/Privileges.php:296 src/Server/Privileges.php:342
+#: src/Server/Privileges.php:297 src/Server/Privileges.php:343
 msgid "Allows creating and dropping triggers."
 msgstr "Επιτρέπει τη δημιουργία και διαγραφή υποδείξεων."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
-#: src/Server/Privileges.php:353 src/Server/Privileges.php:362
+#: src/Server/Privileges.php:354 src/Server/Privileges.php:363
 #, fuzzy
 #| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
@@ -5224,55 +5224,55 @@ msgid "Global privileges"
 msgstr "Γενικά δικαιώματα"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1567
+#: src/Server/Privileges.php:1568
 msgid "Database-specific privileges"
 msgstr "Δικαιώματα βάσης δεδομένων"
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
-#: src/Server/Privileges.php:318
+#: src/Server/Privileges.php:319
 msgid "Allows importing data from and exporting data into files."
 msgstr "Επιτρέπει την εισαγωγή και εξαγωγή δεδομένων από και σε αρχεία."
 
 #: resources/templates/server/privileges/privileges_table.twig:365
 #: resources/templates/server/privileges/privileges_table.twig:373
-#: src/Server/Privileges.php:313
+#: src/Server/Privileges.php:314
 msgid "Allows creating new databases and tables."
 msgstr "Επιτρέπει τη δημιουργία νέων βάσεων και πινάκων."
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
-#: src/Server/Privileges.php:314
+#: src/Server/Privileges.php:315
 msgid "Allows dropping databases and tables."
 msgstr "Επιτρέπει τη διαγραφή βάσεων και πινάκων."
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
-#: src/Server/Privileges.php:332
+#: src/Server/Privileges.php:333
 msgid "Allows creating temporary tables."
 msgstr "Επιτρέπει τη δημιουργία προσωρινών πινάκων."
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
-#: src/Server/Privileges.php:364
+#: src/Server/Privileges.php:365
 msgid "Allows creating stored routines."
 msgstr "Επιτρέπει τη δημιουργία αποθηκευμένων εργασιών."
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
-#: src/Server/Privileges.php:365
+#: src/Server/Privileges.php:366
 msgid "Allows altering and dropping stored routines."
 msgstr "Επιτρέπει την αλλαγή και διαγραφή αποθηκευμένων εργασιών."
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
-#: src/Server/Privileges.php:367
+#: src/Server/Privileges.php:368
 msgid "Allows executing stored routines."
 msgstr "Επιτρέπει την εκτέλεση αποθηκευμένων εργασιών."
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
-#: src/Server/Privileges.php:341
+#: src/Server/Privileges.php:342
 msgid "Allows to set up events for the event scheduler."
 msgstr "Επιτρέπει τον ορισμό συμβάντων για τον προγραμματιστή συμβάντων."
 
@@ -5290,7 +5290,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
-#: src/Server/Privileges.php:327
+#: src/Server/Privileges.php:328
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5302,13 +5302,13 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:318
 msgid "Allows viewing processes of all users."
 msgstr "Επιτρέπει την προβολή διεργασιών όλων των χρηστών."
 
 #: resources/templates/server/privileges/privileges_table.twig:610
 #: resources/templates/server/privileges/privileges_table.twig:613
-#: src/Server/Privileges.php:315
+#: src/Server/Privileges.php:316
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Επιτρέπει την επανεκκίνηση του διακομιστή και τον καθαρισμό των προσωρινών "
@@ -5316,19 +5316,19 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:317
 msgid "Allows shutting down the server."
 msgstr "Επιτρέπει την διακοπή λειτουργίας του διακομιστή."
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
-#: src/Server/Privileges.php:322
+#: src/Server/Privileges.php:323
 msgid "Gives access to the complete list of databases."
 msgstr "Δίνει πρόσβαση στην πλήρη λίστα των βάσεων δεδομένων."
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
-#: src/Server/Privileges.php:333
+#: src/Server/Privileges.php:334
 msgid "Allows locking tables for the current thread."
 msgstr "Επιτρέπει το κλείδωμα πινάκων για την τρέχουσα λειτουργία."
 
@@ -5350,7 +5350,7 @@ msgstr "Δεν έχει χρήση σε αυτήν την έκδοση MySQL."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
-#: src/Server/Privileges.php:338
+#: src/Server/Privileges.php:339
 #, fuzzy
 #| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
@@ -5360,7 +5360,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
-#: src/Server/Privileges.php:334
+#: src/Server/Privileges.php:335
 #, fuzzy
 #| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
@@ -5368,7 +5368,7 @@ msgstr "Απαιτείται για τους δευτερευόντες διακ
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
-#: src/Server/Privileges.php:366
+#: src/Server/Privileges.php:367
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Επιτρέπει τη δημιουργία, διαγραφή και μετονομασία λογαριασμών χρηστών."
 
@@ -5495,27 +5495,27 @@ msgid "User group"
 msgstr "Ομάδας χρηστών"
 
 #: resources/templates/server/privileges/users_overview.twig:100
-#: src/Controllers/JavaScriptMessagesController.php:151
+#: src/Controllers/JavaScriptMessagesController.php:156
 #, fuzzy
 #| msgid "User account"
 msgid "Unlock this account."
 msgstr "Λογαριασμός χρήστη"
 
 #: resources/templates/server/privileges/users_overview.twig:100
-#: src/Controllers/JavaScriptMessagesController.php:150
+#: src/Controllers/JavaScriptMessagesController.php:155
 #, fuzzy
 #| msgid "Log file count"
 msgid "Lock this account."
 msgstr "Πλήθος γραμμών αρχείου καταγραφής"
 
 #: resources/templates/server/privileges/users_overview.twig:102
-#: src/Controllers/JavaScriptMessagesController.php:149
+#: src/Controllers/JavaScriptMessagesController.php:154
 msgctxt "Unlock the account."
 msgid "Unlock"
 msgstr ""
 
 #: resources/templates/server/privileges/users_overview.twig:105
-#: src/Controllers/JavaScriptMessagesController.php:148
+#: src/Controllers/JavaScriptMessagesController.php:153
 msgctxt "Lock the account."
 msgid "Lock"
 msgstr ""
@@ -5607,7 +5607,7 @@ msgid "Generate password:"
 msgstr "Δημιουργία κωδικού πρόσβασης:"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:602
+#: src/Controllers/JavaScriptMessagesController.php:607
 msgid "Generate"
 msgstr "Παραγωγή"
 
@@ -5933,7 +5933,7 @@ msgstr "Διακομιστής"
 
 #: resources/templates/server/status/base.twig:11
 #: resources/templates/server/status/processes/list.twig:5
-#: src/Controllers/JavaScriptMessagesController.php:202
+#: src/Controllers/JavaScriptMessagesController.php:207
 msgid "Processes"
 msgstr "Διεργασίες"
 
@@ -6130,13 +6130,13 @@ msgstr "Εφαρμογή διαιρέτη"
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:151
-#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:300
+#: src/Controllers/JavaScriptMessagesController.php:211 src/Util.php:300
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:152
-#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:302
+#: src/Controllers/JavaScriptMessagesController.php:212 src/Util.php:302
 msgid "MiB"
 msgstr "MB"
 
@@ -6157,7 +6157,7 @@ msgid "Series in chart:"
 msgstr "Σειρά σε διάγραμμα:"
 
 #: resources/templates/server/status/monitor/index.twig:182
-#: src/Controllers/JavaScriptMessagesController.php:218
+#: src/Controllers/JavaScriptMessagesController.php:223
 msgid "Add chart to grid"
 msgstr "Προσθήκη διαγράμματος στο πλέγμα"
 
@@ -6205,7 +6205,7 @@ msgstr ""
 "MySQL."
 
 #: resources/templates/server/status/processes/index.twig:49
-#: src/Controllers/JavaScriptMessagesController.php:225
+#: src/Controllers/JavaScriptMessagesController.php:230
 msgid "Start auto refresh"
 msgstr "Έναρξη αυτόματης ανανέωσης"
 
@@ -6279,7 +6279,7 @@ msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "Αυτός ο διακομιστής MySQL λειτουργεί για %1$s. Ξεκίνησε στις %2$s."
 
 #: resources/templates/server/status/status/index.twig:14
-#: src/Controllers/JavaScriptMessagesController.php:216
+#: src/Controllers/JavaScriptMessagesController.php:221
 msgid "Traffic"
 msgstr "Κίνηση"
 
@@ -6293,7 +6293,7 @@ msgstr ""
 "είναι εσφαλμένες."
 
 #: resources/templates/server/status/status/index.twig:36
-#: src/Controllers/JavaScriptMessagesController.php:201
+#: src/Controllers/JavaScriptMessagesController.php:206
 msgid "Connections"
 msgstr "Συνδέσεις"
 
@@ -6405,7 +6405,7 @@ msgid "No users were found belonging to this user group."
 msgstr "Κανένας χρήστης δεν βρέθηκε να ανήκει σε αυτή την ομάδα χρηστών."
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:408
+#: src/Controllers/Server/PrivilegesController.php:411
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "Χρήστης"
@@ -6544,7 +6544,7 @@ msgid "Bookmark label:"
 msgstr "Πίνακας σελιδοδεικτών"
 
 #: resources/templates/sql/bookmark.twig:21
-#: resources/templates/sql/query.twig:94
+#: resources/templates/sql/query.twig:95
 msgid "Let every user access this bookmark"
 msgstr "Δικαίωμα πρόσβασης στο σελίδοδείκτη σε κάθε χρήστη"
 
@@ -6570,7 +6570,7 @@ msgstr "Κατάσταση"
 
 #: resources/templates/sql/profiling_chart.twig:13
 #: resources/templates/triggers/list.twig:51
-#: src/Controllers/JavaScriptMessagesController.php:288
+#: src/Controllers/JavaScriptMessagesController.php:293
 #: src/Plugins/Export/ExportHtmlword.php:454
 #: src/Plugins/Export/ExportOdt.php:570
 #: src/Plugins/Export/ExportTexytext.php:437
@@ -6632,65 +6632,69 @@ msgstr "Η εντολή SQL εκτελέσθηκε επιτυχώς."
 msgid "SQL query"
 msgstr "Εντολή SQL"
 
-#: resources/templates/sql/query.twig:44
+#: resources/templates/sql/query.twig:41
+msgid "Format as a single line"
+msgstr ""
+
+#: resources/templates/sql/query.twig:45
 msgid "Get auto-saved query"
 msgstr "Λήψη αυτόματου αποθηκευμένου ερωτήματος"
 
 #. l10n: Bind parameters in the SQL query using :parameterName format
-#: resources/templates/sql/query.twig:51
+#: resources/templates/sql/query.twig:52
 msgid "Bind parameters"
 msgstr "Παράμετροι δεσίματος"
 
-#: resources/templates/sql/query.twig:62
+#: resources/templates/sql/query.twig:63
 #: src/Navigation/Nodes/NodeColumnContainer.php:23
 #: src/Navigation/Nodes/NodeColumnContainer.php:25
 msgid "Columns"
 msgstr "Στήλες"
 
-#: resources/templates/sql/query.twig:84
+#: resources/templates/sql/query.twig:85
 msgid "Bookmark this SQL query:"
 msgstr "Αποθήκευση αυτού του ερωτήματος SQL:"
 
-#: resources/templates/sql/query.twig:102
+#: resources/templates/sql/query.twig:103
 msgid "Replace existing bookmark of same name"
 msgstr "Αντικατάσταση υπάρχοντος σελιδοδείκτη με το ίδιο όνομα"
 
-#: resources/templates/sql/query.twig:112
 #: resources/templates/sql/query.twig:113
+#: resources/templates/sql/query.twig:114
 msgid "Delimiter"
 msgstr "Διαχωριστικό"
 
-#: resources/templates/sql/query.twig:121
+#: resources/templates/sql/query.twig:122
 msgid "Show this query here again"
 msgstr "Επανεμφάνιση αυτού του ερώτηματος εδώ"
 
-#: resources/templates/sql/query.twig:129 src/Config/Descriptions.php:923
+#: resources/templates/sql/query.twig:130 src/Config/Descriptions.php:923
 msgid "Retain query box"
 msgstr "Διατήρηση παραθύρου ερωτήματος"
 
-#: resources/templates/sql/query.twig:136
+#: resources/templates/sql/query.twig:137
 msgid "Rollback when finished"
 msgstr "Επαναφορά όταν ολοκληρωθεί"
 
-#: resources/templates/sql/query.twig:158
+#: resources/templates/sql/query.twig:159
 msgid "Bookmarked SQL query"
 msgstr "Αποθηκευμένο ερώτημα SQL"
 
-#: resources/templates/sql/query.twig:162
+#: resources/templates/sql/query.twig:163
 #, fuzzy
 #| msgid "Bookmark"
 msgid "Bookmark:"
 msgstr "Σελιδοδείκτης"
 
-#: resources/templates/sql/query.twig:171
+#: resources/templates/sql/query.twig:172
 msgid "shared"
 msgstr "κοινόχρηστο"
 
-#: resources/templates/sql/query.twig:184
+#: resources/templates/sql/query.twig:185
 msgid "View only"
 msgstr "Μόνο ανάγνωση"
 
-#: resources/templates/sql/query.twig:220
+#: resources/templates/sql/query.twig:221
 #: src/Controllers/JavaScriptMessagesController.php:131
 msgid "Simulate query"
 msgstr "Εξομοίωση ερωτήματος"
@@ -6698,7 +6702,7 @@ msgstr "Εξομοίωση ερωτήματος"
 #: resources/templates/sql/relational_column_dropdown.twig:3
 #: resources/templates/table/insert/column_row.twig:48
 #: resources/templates/table/search/input_box.twig:21
-#: src/Controllers/JavaScriptMessagesController.php:405
+#: src/Controllers/JavaScriptMessagesController.php:410
 msgid "Browse foreign values"
 msgstr "Αναζήτηση μη διακριτών τιμών"
 
@@ -6932,8 +6936,8 @@ msgstr "Σύρτε για ανακατανομή"
 
 #: resources/templates/table/index_form.twig:167
 #: resources/templates/table/index_form.twig:203
-#: src/Controllers/JavaScriptMessagesController.php:489
-#: src/Controllers/JavaScriptMessagesController.php:641
+#: src/Controllers/JavaScriptMessagesController.php:494
+#: src/Controllers/JavaScriptMessagesController.php:646
 #: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1515
 msgid "Ignore"
 msgstr "Παράληψη"
@@ -7423,7 +7427,7 @@ msgid "Column %s has been dropped."
 msgstr "Η στήλη %s διεγράφη."
 
 #: resources/templates/table/structure/display_structure.twig:130
-#: src/Controllers/JavaScriptMessagesController.php:605
+#: src/Controllers/JavaScriptMessagesController.php:610
 msgid "More"
 msgstr "Περισσότερα"
 
@@ -9436,7 +9440,7 @@ msgid "Closed"
 msgstr "Κλεισμένο"
 
 #: src/Config/ConfigFile.php:607
-#: src/Controllers/JavaScriptMessagesController.php:745
+#: src/Controllers/JavaScriptMessagesController.php:750
 #, fuzzy
 #| msgid "Monday"
 msgctxt "Week day name"
@@ -9444,7 +9448,7 @@ msgid "Monday"
 msgstr "Δευτέρα"
 
 #: src/Config/ConfigFile.php:608
-#: src/Controllers/JavaScriptMessagesController.php:746
+#: src/Controllers/JavaScriptMessagesController.php:751
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -9452,7 +9456,7 @@ msgid "Tuesday"
 msgstr "Τρίτη"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:747
+#: src/Controllers/JavaScriptMessagesController.php:752
 #, fuzzy
 #| msgid "Wednesday"
 msgctxt "Week day name"
@@ -9460,7 +9464,7 @@ msgid "Wednesday"
 msgstr "Τετάρτη"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:748
+#: src/Controllers/JavaScriptMessagesController.php:753
 #, fuzzy
 #| msgid "Thursday"
 msgctxt "Week day name"
@@ -9468,7 +9472,7 @@ msgid "Thursday"
 msgstr "Πέμπτη"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:749
+#: src/Controllers/JavaScriptMessagesController.php:754
 #, fuzzy
 #| msgid "Friday"
 msgctxt "Week day name"
@@ -9476,7 +9480,7 @@ msgid "Friday"
 msgstr "Παρασκευή"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:750
+#: src/Controllers/JavaScriptMessagesController.php:755
 #, fuzzy
 #| msgid "Saturday"
 msgctxt "Week day name"
@@ -9484,7 +9488,7 @@ msgid "Saturday"
 msgstr "Σάββατο"
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:744
+#: src/Controllers/JavaScriptMessagesController.php:749
 #, fuzzy
 #| msgid "Sunday"
 msgctxt "Week day name"
@@ -11528,7 +11532,7 @@ msgid "Navigation panel width"
 msgstr "Πλάτος πίνακα πλοήγησης"
 
 #: src/Config/Descriptions.php:811
-#: src/Controllers/JavaScriptMessagesController.php:610
+#: src/Controllers/JavaScriptMessagesController.php:615
 #: src/Navigation/NavigationTree.php:1310
 msgid "Link with main panel"
 msgstr "Σύνδεσμος με τον βασικό πίνακα"
@@ -12100,7 +12104,7 @@ msgid "Missing data for %s"
 msgstr "Απολεσθέντα δεδομένα για %s"
 
 #: src/Config/FormDisplay.php:621 src/Config/Validator.php:595
-#: src/Controllers/JavaScriptMessagesController.php:828
+#: src/Controllers/JavaScriptMessagesController.php:833
 msgid "Incorrect value!"
 msgstr "Εσφαλμένη τιμή!"
 
@@ -12435,22 +12439,22 @@ msgid "Incorrect IP address: %s"
 msgstr "Εσφαλμένη διεύθυνση IP: %s"
 
 #: src/Config/Validator.php:530
-#: src/Controllers/JavaScriptMessagesController.php:827
+#: src/Controllers/JavaScriptMessagesController.php:832
 msgid "Not a valid port number!"
 msgstr "Μη έγκυρος αριθμός θύρας!"
 
 #: src/Config/Validator.php:552
-#: src/Controllers/JavaScriptMessagesController.php:825
+#: src/Controllers/JavaScriptMessagesController.php:830
 msgid "Not a positive number!"
 msgstr "Δεν είναι θετικός αριθμός!"
 
 #: src/Config/Validator.php:574
-#: src/Controllers/JavaScriptMessagesController.php:826
+#: src/Controllers/JavaScriptMessagesController.php:831
 msgid "Not a non-negative number!"
 msgstr "Δεν είναι μη αρνητικός αριθμός!"
 
 #: src/Config/Validator.php:613
-#: src/Controllers/JavaScriptMessagesController.php:829
+#: src/Controllers/JavaScriptMessagesController.php:834
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "Η τιμή πρέπει να είναι ίση ή μικρότερη από %s!"
@@ -12481,7 +12485,7 @@ msgid "Incomplete params"
 msgstr "Ελλιπείς παράμετροι"
 
 #: src/Controllers/Console/Bookmark/AddController.php:46
-#: src/Controllers/JavaScriptMessagesController.php:592
+#: src/Controllers/JavaScriptMessagesController.php:597
 msgid "Failed"
 msgstr "Απέτυχε"
 
@@ -12534,7 +12538,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/RealRowCountController.php:60
 #: src/Controllers/Database/TrackingController.php:59
 #: src/Controllers/Database/TrackingController.php:64
-#: src/Controllers/JavaScriptMessagesController.php:355
+#: src/Controllers/JavaScriptMessagesController.php:360
 #: src/Controllers/Operations/Database/CollationController.php:62
 #: src/Controllers/Operations/DatabaseController.php:240
 #: src/Controllers/Operations/DatabaseController.php:245
@@ -12633,14 +12637,14 @@ msgstr ""
 "Αδύνατη η φόρτωση προσθέτων εισαγωγής, για αυτό ελέξτε την εγκατάστασή σας!"
 
 #: src/Controllers/Database/PrivilegesController.php:61
-#: src/Controllers/Server/PrivilegesController.php:104
+#: src/Controllers/Server/PrivilegesController.php:107
 #: src/Controllers/Server/UserGroupsController.php:45
 #: src/Controllers/Table/PrivilegesController.php:64
 msgid "No Privileges"
 msgstr "Χωρίς Δικαιώματα"
 
 #: src/Controllers/Database/PrivilegesController.php:70
-#: src/Controllers/Server/PrivilegesController.php:113
+#: src/Controllers/Server/PrivilegesController.php:116
 #: src/Controllers/Table/PrivilegesController.php:73
 #, fuzzy
 #| msgid "You do not have privileges to manipulate with the users!"
@@ -12658,7 +12662,7 @@ msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για 
 #: src/Controllers/Database/Structure/EmptyFormController.php:31
 #: src/Controllers/Database/Structure/ShowCreateController.php:34
 #: src/Controllers/Export/TablesController.php:27
-#: src/Controllers/JavaScriptMessagesController.php:356
+#: src/Controllers/JavaScriptMessagesController.php:361
 #: src/Controllers/Operations/TableController.php:100
 #: src/Controllers/Operations/TableController.php:105
 #: src/Controllers/Operations/ViewController.php:77
@@ -13273,68 +13277,75 @@ msgid "The user name is empty!"
 msgstr "Το όνομα του χρήστη είναι κενό!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:766 src/UserPassword.php:39
+#: src/Server/Privileges.php:767 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Ο κωδικός πρόσβασης είναι κενός!"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:764 src/UserPassword.php:43
+#: src/Server/Privileges.php:765 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Οι κωδικοί πρόσβασης δεν είναι ίδιοι!"
 
-#: src/Controllers/JavaScriptMessagesController.php:146
+#: src/Controllers/JavaScriptMessagesController.php:147
+msgid ""
+"You are trying to set this account to log in with no password, but the "
+"configuration directive <code>AllowNoPassword</code> is false. If you "
+"proceed, the account will not be able to log in through phpMyAdmin."
+msgstr ""
+
+#: src/Controllers/JavaScriptMessagesController.php:151
 msgid "Removing Selected Users"
 msgstr "Διαγραφή των επιλεγμένων χρηστών"
 
-#: src/Controllers/JavaScriptMessagesController.php:154
+#: src/Controllers/JavaScriptMessagesController.php:159
 msgid "Template was created."
 msgstr "Το πρότυπο δημιουργήθηκε."
 
-#: src/Controllers/JavaScriptMessagesController.php:155
+#: src/Controllers/JavaScriptMessagesController.php:160
 msgid "Template was loaded."
 msgstr "Το πρότυπο φορτώθηκε."
 
-#: src/Controllers/JavaScriptMessagesController.php:156
+#: src/Controllers/JavaScriptMessagesController.php:161
 msgid "Template was updated."
 msgstr "Το πρότυπο ανανεώθηκε."
 
-#: src/Controllers/JavaScriptMessagesController.php:157
+#: src/Controllers/JavaScriptMessagesController.php:162
 msgid "Template was deleted."
 msgstr "Το πρότυπο διαγράφηκε."
 
 #. l10n: Other, small valued, queries
-#: src/Controllers/JavaScriptMessagesController.php:160
+#: src/Controllers/JavaScriptMessagesController.php:165
 #: src/Server/Status/Data.php:137
 msgid "Other"
 msgstr "Άλλα"
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:162 src/Util.php:388
+#: src/Controllers/JavaScriptMessagesController.php:167 src/Util.php:388
 #: src/Util.php:420
 msgid ","
 msgstr "."
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:164 src/Util.php:386
+#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:386
 #: src/Util.php:418
 msgid "."
 msgstr ","
 
-#: src/Controllers/JavaScriptMessagesController.php:166
+#: src/Controllers/JavaScriptMessagesController.php:171
 msgid "Connections / Processes"
 msgstr "Συνδέσεις / Διεργασίες"
 
-#: src/Controllers/JavaScriptMessagesController.php:168
+#: src/Controllers/JavaScriptMessagesController.php:173
 #, fuzzy
 #| msgid "Number of tables:"
 msgid "Number of statements"
 msgstr "Αριθμός πινάκων:"
 
-#: src/Controllers/JavaScriptMessagesController.php:171
+#: src/Controllers/JavaScriptMessagesController.php:176
 msgid "Local monitor configuration incompatible!"
 msgstr "Ασύμβατη η ρύθμιση τοπικής εποπτείας!"
 
-#: src/Controllers/JavaScriptMessagesController.php:173
+#: src/Controllers/JavaScriptMessagesController.php:178
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -13346,161 +13357,161 @@ msgstr ""
 "εποπτείας.Είναι πολύ πιθανό ότι η τρέχουσα ρύθμιση δεν θα λειτουργεί πλέον. "
 "Επαναφέρτε τις ρυθμίσεις σας στις προεπιλεγμένες στο μενού <i>Ρυθμίσεις</i>."
 
-#: src/Controllers/JavaScriptMessagesController.php:179
+#: src/Controllers/JavaScriptMessagesController.php:184
 msgid "Query cache efficiency"
 msgstr "Αποτελεσματικότητα λανθάνουσας μνήμης ερωτήματος"
 
-#: src/Controllers/JavaScriptMessagesController.php:180
+#: src/Controllers/JavaScriptMessagesController.php:185
 msgid "Query cache usage"
 msgstr "Χρήση λανθάνουσας μνήμης ερωτήματος"
 
-#: src/Controllers/JavaScriptMessagesController.php:181
+#: src/Controllers/JavaScriptMessagesController.php:186
 msgid "Query cache used"
 msgstr "Χρησιμοποιημένη λανθάνουσα μνήμη ερωτήματος"
 
-#: src/Controllers/JavaScriptMessagesController.php:183
+#: src/Controllers/JavaScriptMessagesController.php:188
 msgid "System CPU usage"
 msgstr "Χρήση CPU συστήματος"
 
-#: src/Controllers/JavaScriptMessagesController.php:184
+#: src/Controllers/JavaScriptMessagesController.php:189
 msgid "System memory"
 msgstr "Μνήμη συστήματος"
 
-#: src/Controllers/JavaScriptMessagesController.php:185
+#: src/Controllers/JavaScriptMessagesController.php:190
 msgid "System swap"
 msgstr "Αδράνεια συστήματος"
 
-#: src/Controllers/JavaScriptMessagesController.php:187
+#: src/Controllers/JavaScriptMessagesController.php:192
 msgid "Average load"
 msgstr "Μέσο φορτίο"
 
-#: src/Controllers/JavaScriptMessagesController.php:188
+#: src/Controllers/JavaScriptMessagesController.php:193
 msgid "Total memory"
 msgstr "Συνολική μνήμη"
 
-#: src/Controllers/JavaScriptMessagesController.php:189
+#: src/Controllers/JavaScriptMessagesController.php:194
 msgid "Cached memory"
 msgstr "Λανθάνουσα μνήμη"
 
-#: src/Controllers/JavaScriptMessagesController.php:190
+#: src/Controllers/JavaScriptMessagesController.php:195
 msgid "Buffered memory"
 msgstr "Ρυθμισμένη μνήμη"
 
-#: src/Controllers/JavaScriptMessagesController.php:191
+#: src/Controllers/JavaScriptMessagesController.php:196
 msgid "Free memory"
 msgstr "Ελεύθερη μνήμη"
 
-#: src/Controllers/JavaScriptMessagesController.php:192
+#: src/Controllers/JavaScriptMessagesController.php:197
 msgid "Used memory"
 msgstr "Χρησιμοποιημένη μνήμη"
 
-#: src/Controllers/JavaScriptMessagesController.php:194
+#: src/Controllers/JavaScriptMessagesController.php:199
 msgid "Total swap"
 msgstr "Σύνολο αδράνειας"
 
-#: src/Controllers/JavaScriptMessagesController.php:195
+#: src/Controllers/JavaScriptMessagesController.php:200
 msgid "Cached swap"
 msgstr "Λανθανουσα αδράνεια"
 
-#: src/Controllers/JavaScriptMessagesController.php:196
+#: src/Controllers/JavaScriptMessagesController.php:201
 msgid "Used swap"
 msgstr "Χρησιμοποιημένη αδράνεια"
 
-#: src/Controllers/JavaScriptMessagesController.php:197
+#: src/Controllers/JavaScriptMessagesController.php:202
 msgid "Free swap"
 msgstr "Ελεύθερη αδράνεια"
 
-#: src/Controllers/JavaScriptMessagesController.php:199
+#: src/Controllers/JavaScriptMessagesController.php:204
 msgid "Bytes sent"
 msgstr "Σταλθέντα Bytes"
 
-#: src/Controllers/JavaScriptMessagesController.php:200
+#: src/Controllers/JavaScriptMessagesController.php:205
 msgid "Bytes received"
 msgstr "Ληφθέντα Bytes"
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:298
+#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:298
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:304
+#: src/Controllers/JavaScriptMessagesController.php:213 src/Util.php:304
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:306
+#: src/Controllers/JavaScriptMessagesController.php:214 src/Util.php:306
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:308
+#: src/Controllers/JavaScriptMessagesController.php:215 src/Util.php:308
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:211 src/Util.php:310
+#: src/Controllers/JavaScriptMessagesController.php:216 src/Util.php:310
 msgid "EiB"
 msgstr "EB"
 
-#: src/Controllers/JavaScriptMessagesController.php:212
+#: src/Controllers/JavaScriptMessagesController.php:217
 #, php-format
 msgid "%d table(s)"
 msgstr "%d πίνακας(ες)"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: src/Controllers/JavaScriptMessagesController.php:215
+#: src/Controllers/JavaScriptMessagesController.php:220
 msgid "Questions"
 msgstr "Ερωτήσεις"
 
-#: src/Controllers/JavaScriptMessagesController.php:219
+#: src/Controllers/JavaScriptMessagesController.php:224
 msgid "Please add at least one variable to the series!"
 msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στις σειρές!"
 
 #. l10n: SQL Query on modal to show exported query
-#: src/Controllers/JavaScriptMessagesController.php:222
+#: src/Controllers/JavaScriptMessagesController.php:227
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL Query"
 msgstr "Εντολή SQL"
 
-#: src/Controllers/JavaScriptMessagesController.php:223
+#: src/Controllers/JavaScriptMessagesController.php:228
 msgid "Resume monitor"
 msgstr "Επανεκίννηση εποπτείας"
 
-#: src/Controllers/JavaScriptMessagesController.php:224
+#: src/Controllers/JavaScriptMessagesController.php:229
 msgid "Pause monitor"
 msgstr "Παύση εποπτείας"
 
-#: src/Controllers/JavaScriptMessagesController.php:226
+#: src/Controllers/JavaScriptMessagesController.php:231
 msgid "Stop auto refresh"
 msgstr "Διακοπή αυτόματης ανανέωσης"
 
-#: src/Controllers/JavaScriptMessagesController.php:228
+#: src/Controllers/JavaScriptMessagesController.php:233
 msgid "general_log and slow_query_log are enabled."
 msgstr "Το general_log και το slow_query_log είναι ενεργοποιημένα."
 
-#: src/Controllers/JavaScriptMessagesController.php:229
+#: src/Controllers/JavaScriptMessagesController.php:234
 msgid "general_log is enabled."
 msgstr "Το general_log είναι ενεργοποιημένο."
 
-#: src/Controllers/JavaScriptMessagesController.php:230
+#: src/Controllers/JavaScriptMessagesController.php:235
 msgid "slow_query_log is enabled."
 msgstr "Το slow_query_log είναι ενεργοποιημένο."
 
-#: src/Controllers/JavaScriptMessagesController.php:231
+#: src/Controllers/JavaScriptMessagesController.php:236
 msgid "slow_query_log and general_log are disabled."
 msgstr "Το slow_query_log και το general_log είναι απενεργοποιημένα."
 
-#: src/Controllers/JavaScriptMessagesController.php:232
+#: src/Controllers/JavaScriptMessagesController.php:237
 msgid "log_output is not set to TABLE."
 msgstr "Το log_output δεν έχει οριστεί στο TABLE."
 
-#: src/Controllers/JavaScriptMessagesController.php:233
+#: src/Controllers/JavaScriptMessagesController.php:238
 msgid "log_output is set to TABLE."
 msgstr "Το log_output έχει οριστεί στο TABLE."
 
-#: src/Controllers/JavaScriptMessagesController.php:235
+#: src/Controllers/JavaScriptMessagesController.php:240
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -13512,12 +13523,12 @@ msgstr ""
 "ορίσετε το long_query_time μεταξύ 0-2 δευτερόλεπτα, κάτι που εξαρτάται από "
 "το σύστημά σας."
 
-#: src/Controllers/JavaScriptMessagesController.php:239
+#: src/Controllers/JavaScriptMessagesController.php:244
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "Το long_query_time έχει οριστεί σε %d δευτερόλεπτο(α)."
 
-#: src/Controllers/JavaScriptMessagesController.php:241
+#: src/Controllers/JavaScriptMessagesController.php:246
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -13526,30 +13537,30 @@ msgstr ""
 "προεπιλογές με την επανεκκίνηση του διακομιστή:"
 
 #. l10n: %s is FILE or TABLE
-#: src/Controllers/JavaScriptMessagesController.php:244
+#: src/Controllers/JavaScriptMessagesController.php:249
 #, php-format
 msgid "Set log_output to %s"
 msgstr "Ορισμός του log_output σε %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: src/Controllers/JavaScriptMessagesController.php:246
+#: src/Controllers/JavaScriptMessagesController.php:251
 #, php-format
 msgid "Enable %s"
 msgstr "Ενεργοποίηση %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: src/Controllers/JavaScriptMessagesController.php:248
+#: src/Controllers/JavaScriptMessagesController.php:253
 #, php-format
 msgid "Disable %s"
 msgstr "Απενεργοποίηση %s"
 
 #. l10n: %d seconds
-#: src/Controllers/JavaScriptMessagesController.php:250
+#: src/Controllers/JavaScriptMessagesController.php:255
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "Ορισμός του long_query_time σε %d δευτερόλεπτα."
 
-#: src/Controllers/JavaScriptMessagesController.php:252
+#: src/Controllers/JavaScriptMessagesController.php:257
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -13558,59 +13569,59 @@ msgstr ""
 "Συνδεθείτε ως λογαριασμός root ή επικοινωνήστε με τον διαχειριστή της βάσης "
 "δεδομένων σας."
 
-#: src/Controllers/JavaScriptMessagesController.php:254
+#: src/Controllers/JavaScriptMessagesController.php:259
 msgid "Change settings"
 msgstr "Αλλαγή ρυθμίσεων"
 
-#: src/Controllers/JavaScriptMessagesController.php:255
+#: src/Controllers/JavaScriptMessagesController.php:260
 msgid "Current settings"
 msgstr "Τρέχουσες ρυθμίσεις"
 
-#: src/Controllers/JavaScriptMessagesController.php:257
+#: src/Controllers/JavaScriptMessagesController.php:262
 msgid "Chart title"
 msgstr "Τίτλος διαγράμματος"
 
 #. l10n: As in differential values
-#: src/Controllers/JavaScriptMessagesController.php:259
+#: src/Controllers/JavaScriptMessagesController.php:264
 msgid "Differential"
 msgstr "Διαφορικός"
 
-#: src/Controllers/JavaScriptMessagesController.php:260
+#: src/Controllers/JavaScriptMessagesController.php:265
 #, php-format
 msgid "Divided by %s"
 msgstr "Διαίρεση με %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:261
+#: src/Controllers/JavaScriptMessagesController.php:266
 msgid "Unit"
 msgstr "Μονάδα"
 
-#: src/Controllers/JavaScriptMessagesController.php:263
+#: src/Controllers/JavaScriptMessagesController.php:268
 msgid "From slow log"
 msgstr "Από την αργή καταγραφή"
 
-#: src/Controllers/JavaScriptMessagesController.php:264
+#: src/Controllers/JavaScriptMessagesController.php:269
 msgid "From general log"
 msgstr "Από την γενική καταγραφή"
 
-#: src/Controllers/JavaScriptMessagesController.php:265
+#: src/Controllers/JavaScriptMessagesController.php:270
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 "Το όνομα της βάσης δεδομένων δεν είναι γνωστό για αυτό το ερώτημα στα αρχεία "
 "καταγραφής του διακομιστή."
 
-#: src/Controllers/JavaScriptMessagesController.php:266
+#: src/Controllers/JavaScriptMessagesController.php:271
 msgid "Analysing logs"
 msgstr "Ανάλυση καταγραφών"
 
-#: src/Controllers/JavaScriptMessagesController.php:267
+#: src/Controllers/JavaScriptMessagesController.php:272
 msgid "Analysing & loading logs. This may take a while."
 msgstr "Ανάλυση & φόρτωση καταγραφών. Αυτό ίσως διαρκέσει λίγο."
 
-#: src/Controllers/JavaScriptMessagesController.php:268
+#: src/Controllers/JavaScriptMessagesController.php:273
 msgid "Cancel request"
 msgstr "Ακύρωση αιτήματος"
 
-#: src/Controllers/JavaScriptMessagesController.php:270
+#: src/Controllers/JavaScriptMessagesController.php:275
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -13621,7 +13632,7 @@ msgstr ""
 "ομαδοποίησης, έτσι οι άλλες ιδιότητες των ερωτημάτων, όπως ο χρόνος "
 "εκκίνησης, μπορεί να διαφέρουν."
 
-#: src/Controllers/JavaScriptMessagesController.php:275
+#: src/Controllers/JavaScriptMessagesController.php:280
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -13630,82 +13641,82 @@ msgstr ""
 "Αφού επιλέχθηκε η ομαδοποίηση των εντολών INSERT, τα ερωτήματα INSERT εντός "
 "του ίδιου πίνακα επίσης ομαδοποιηούνται ανεξάρτητα από εισαγόμενα δεδομένα."
 
-#: src/Controllers/JavaScriptMessagesController.php:279
+#: src/Controllers/JavaScriptMessagesController.php:284
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 "Τα δεδομένα καταγραφής φορτώθηκαν. Τα ερωτήματα που εκτελέστηκαν σε αυτή την "
 "επέκταση χρόνου:"
 
-#: src/Controllers/JavaScriptMessagesController.php:281
+#: src/Controllers/JavaScriptMessagesController.php:286
 msgid "Jump to Log table"
 msgstr "Μετάβαση στον πίνακα Καταγραφής"
 
-#: src/Controllers/JavaScriptMessagesController.php:282
+#: src/Controllers/JavaScriptMessagesController.php:287
 msgid "No data found"
 msgstr "Δεν βρέθηκαν δεδομένα"
 
-#: src/Controllers/JavaScriptMessagesController.php:283
+#: src/Controllers/JavaScriptMessagesController.php:288
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 "Η καταγραφή αναλύθηκε αλλά δεν βρέθηκαν δεδομένα σε αυτή την επέκταση χρόνου."
 
-#: src/Controllers/JavaScriptMessagesController.php:285
+#: src/Controllers/JavaScriptMessagesController.php:290
 msgid "Analyzing…"
 msgstr "Ανάλυση…"
 
-#: src/Controllers/JavaScriptMessagesController.php:286
+#: src/Controllers/JavaScriptMessagesController.php:291
 msgid "Explain output"
 msgstr "Επεξήγηση προϊόντος"
 
-#: src/Controllers/JavaScriptMessagesController.php:289
+#: src/Controllers/JavaScriptMessagesController.php:294
 msgid "Total time:"
 msgstr "Συνολικός χρόνος:"
 
-#: src/Controllers/JavaScriptMessagesController.php:290
+#: src/Controllers/JavaScriptMessagesController.php:295
 msgid "Profiling results"
 msgstr "Αποτελέμσατα προφίλ"
 
-#: src/Controllers/JavaScriptMessagesController.php:291
+#: src/Controllers/JavaScriptMessagesController.php:296
 msgctxt "Display format"
 msgid "Table"
 msgstr "Πίνακας"
 
-#: src/Controllers/JavaScriptMessagesController.php:292
+#: src/Controllers/JavaScriptMessagesController.php:297
 msgid "Chart"
 msgstr "Διάγραμμα"
 
 #. l10n: A collection of available filters
-#: src/Controllers/JavaScriptMessagesController.php:299
+#: src/Controllers/JavaScriptMessagesController.php:304
 msgid "Log table filter options"
 msgstr "Επιλογές φιλτραρίσματος πίνακα καταγραφής"
 
 #. l10n: Filter as in "Start Filtering"
-#: src/Controllers/JavaScriptMessagesController.php:301
+#: src/Controllers/JavaScriptMessagesController.php:306
 msgid "Filter"
 msgstr "Φίλτρο"
 
-#: src/Controllers/JavaScriptMessagesController.php:302
+#: src/Controllers/JavaScriptMessagesController.php:307
 msgid "Filter queries by word/regexp:"
 msgstr "Φιλτράρισμα ερωτημάτων ανά λέξη/κανονική έκφραση:"
 
-#: src/Controllers/JavaScriptMessagesController.php:303
+#: src/Controllers/JavaScriptMessagesController.php:308
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 "Ομαδοποίηση ερωτημάτων, αγνοώντας τα δεδομένα μεταβλητής στις δηλώσεις WHERE"
 
-#: src/Controllers/JavaScriptMessagesController.php:304
+#: src/Controllers/JavaScriptMessagesController.php:309
 msgid "Sum of grouped rows:"
 msgstr "Άθροισμα ομαδοποιημένων γραμμών:"
 
-#: src/Controllers/JavaScriptMessagesController.php:307
+#: src/Controllers/JavaScriptMessagesController.php:312
 msgid "Loading logs"
 msgstr "Φόρτωση καταγραφών"
 
-#: src/Controllers/JavaScriptMessagesController.php:308
+#: src/Controllers/JavaScriptMessagesController.php:313
 msgid "Monitor refresh failed"
 msgstr "Η ανανέωση της εποπτείας απέτυχε"
 
-#: src/Controllers/JavaScriptMessagesController.php:310
+#: src/Controllers/JavaScriptMessagesController.php:315
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -13716,91 +13727,91 @@ msgstr ""
 "επαναφόρτωση της σελίδας και η επανεισαγωγή των διαπιστευτηρίων σας θα "
 "βοηθήσουν."
 
-#: src/Controllers/JavaScriptMessagesController.php:314
+#: src/Controllers/JavaScriptMessagesController.php:319
 msgid "Reload page"
 msgstr "Επαναφόρτωση σελίδας"
 
-#: src/Controllers/JavaScriptMessagesController.php:316
+#: src/Controllers/JavaScriptMessagesController.php:321
 msgid "Affected rows:"
 msgstr "Επηρρεαζόμενες εγγραφές:"
 
-#: src/Controllers/JavaScriptMessagesController.php:318
+#: src/Controllers/JavaScriptMessagesController.php:323
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Αποτυχία ανάλυσης αρχείου config. Δεν φαίνεται να είναι έγκυρος κώδκας JSON."
 
-#: src/Controllers/JavaScriptMessagesController.php:320
+#: src/Controllers/JavaScriptMessagesController.php:325
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "Απέτυχε η δημιουργία καννάβου διαγράμματος με την εισαγωγή ρυθμίσεων. "
 "Επαναφορά στην προεπιλεγμένη ρύθμιση…"
 
-#: src/Controllers/JavaScriptMessagesController.php:323
+#: src/Controllers/JavaScriptMessagesController.php:328
 msgid "Import monitor configuration"
 msgstr "Εισαγωγή ρύθμισης εποπτείας"
 
-#: src/Controllers/JavaScriptMessagesController.php:324
+#: src/Controllers/JavaScriptMessagesController.php:329
 msgid "Please select the file you want to import:"
 msgstr "Ελέγξτε το αρχείο που θέλετε να εισάγετε:"
 
-#: src/Controllers/JavaScriptMessagesController.php:325
+#: src/Controllers/JavaScriptMessagesController.php:330
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
 msgstr "Εισάγετε ένα έγκυρο όνομα σελίδας"
 
-#: src/Controllers/JavaScriptMessagesController.php:326
+#: src/Controllers/JavaScriptMessagesController.php:331
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
 msgstr "Εισάγετε ένα έγκυρο όνομα σελίδας"
 
-#: src/Controllers/JavaScriptMessagesController.php:327
+#: src/Controllers/JavaScriptMessagesController.php:332
 msgid "No files available on server for import!"
 msgstr "Κανένα διαθέσιμο αρχείο στο διακομιστή για εισαγωγή!"
 
-#: src/Controllers/JavaScriptMessagesController.php:329
+#: src/Controllers/JavaScriptMessagesController.php:334
 msgid "Analyse query"
 msgstr "Ανάλυση ερωτήματος"
 
-#: src/Controllers/JavaScriptMessagesController.php:332
+#: src/Controllers/JavaScriptMessagesController.php:337
 msgid "Formatting SQL…"
 msgstr "Διαμόρφωση SQL…"
 
-#: src/Controllers/JavaScriptMessagesController.php:333
+#: src/Controllers/JavaScriptMessagesController.php:338
 msgid "No parameters found!"
 msgstr "Δεν βρέθηκαν παράμετροι!"
 
-#: src/Controllers/JavaScriptMessagesController.php:345
+#: src/Controllers/JavaScriptMessagesController.php:350
 msgid "Request aborted!!"
 msgstr "Το αίτημα διακόπηκε!!"
 
-#: src/Controllers/JavaScriptMessagesController.php:346
+#: src/Controllers/JavaScriptMessagesController.php:351
 msgid "Processing request"
 msgstr "Εκτέλεση αιτήματος"
 
-#: src/Controllers/JavaScriptMessagesController.php:347
+#: src/Controllers/JavaScriptMessagesController.php:352
 msgid "Request failed!!"
 msgstr "Το αίτημα απέτυχε!!"
 
-#: src/Controllers/JavaScriptMessagesController.php:348
+#: src/Controllers/JavaScriptMessagesController.php:353
 #: src/Controllers/Sql/EnumValuesController.php:36
 #: src/Controllers/Sql/SetValuesController.php:39
 msgid "Error in processing request"
 msgstr "Σφάλμα στην εκτέλεση του αιτήματος"
 
-#: src/Controllers/JavaScriptMessagesController.php:349
+#: src/Controllers/JavaScriptMessagesController.php:354
 #, php-format
 msgid "Error code: %s"
 msgstr "Κωδικός σφάλματος: %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:350
+#: src/Controllers/JavaScriptMessagesController.php:355
 #, php-format
 msgid "Error text: %s"
 msgstr "Κείμενο σφάλματος: %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:352
+#: src/Controllers/JavaScriptMessagesController.php:357
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
@@ -13808,145 +13819,145 @@ msgstr ""
 "Φαίνεται ότι η σύνδεση με τον εξυπηρετητή χάθηκε. Παρακαλώ ελέγξτε τη "
 "συνδεσιμότητά σας και την κατάσταση του εξυπηρετητή."
 
-#: src/Controllers/JavaScriptMessagesController.php:357
+#: src/Controllers/JavaScriptMessagesController.php:362
 msgid "No accounts selected."
 msgstr "Δεν επιλέχθηκαν λογαριασμοί."
 
-#: src/Controllers/JavaScriptMessagesController.php:358
+#: src/Controllers/JavaScriptMessagesController.php:363
 msgid "Dropping column"
 msgstr "Διαγραφή στήλης"
 
-#: src/Controllers/JavaScriptMessagesController.php:359
+#: src/Controllers/JavaScriptMessagesController.php:364
 msgid "Adding primary key"
 msgstr "Προσθήκη πρωτεύοντος κλειδιού"
 
-#: src/Controllers/JavaScriptMessagesController.php:361
+#: src/Controllers/JavaScriptMessagesController.php:366
 msgid "Click to dismiss this notification"
 msgstr "Πατήστε γαι να παραλείψετε αυτή την ειδοποίηση"
 
-#: src/Controllers/JavaScriptMessagesController.php:365
+#: src/Controllers/JavaScriptMessagesController.php:370
 msgid "Renaming databases"
 msgstr "Μετονομασία βάσεων δεδομένων"
 
-#: src/Controllers/JavaScriptMessagesController.php:366
+#: src/Controllers/JavaScriptMessagesController.php:371
 msgid "Copying database"
 msgstr "Αντιγραφή βάσης δεδομένων"
 
-#: src/Controllers/JavaScriptMessagesController.php:367
+#: src/Controllers/JavaScriptMessagesController.php:372
 msgid "Changing charset"
 msgstr "Αλλαγή συνόλου χαρακτήρων"
 
-#: src/Controllers/JavaScriptMessagesController.php:374
+#: src/Controllers/JavaScriptMessagesController.php:379
 msgid "Failed to get real row count."
 msgstr "Αποτυχία λήψης πραγματικής μέτρησης εγγραφών."
 
-#: src/Controllers/JavaScriptMessagesController.php:377
+#: src/Controllers/JavaScriptMessagesController.php:382
 msgid "Searching"
 msgstr "Αναζήτηση"
 
-#: src/Controllers/JavaScriptMessagesController.php:378
+#: src/Controllers/JavaScriptMessagesController.php:383
 msgid "Hide search results"
 msgstr "Απόκρυψη αποτελεσμάτων αναζήτησης"
 
-#: src/Controllers/JavaScriptMessagesController.php:379
+#: src/Controllers/JavaScriptMessagesController.php:384
 msgid "Show search results"
 msgstr "Προβολή αποτελεσμάτων αναζήτησης"
 
-#: src/Controllers/JavaScriptMessagesController.php:380
+#: src/Controllers/JavaScriptMessagesController.php:385
 msgid "Browsing"
 msgstr "Αναζήτηση"
 
-#: src/Controllers/JavaScriptMessagesController.php:381
+#: src/Controllers/JavaScriptMessagesController.php:386
 msgid "Deleting"
 msgstr "Διαγραφή"
 
-#: src/Controllers/JavaScriptMessagesController.php:382
+#: src/Controllers/JavaScriptMessagesController.php:387
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Διαγραφή παρόμοιων αποτελεσμάτων για τον πίνακα %s;"
 
-#: src/Controllers/JavaScriptMessagesController.php:385
+#: src/Controllers/JavaScriptMessagesController.php:390
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 "Ο ορισμός μιας αποθηκευμένης συνάρτησης πρέπει να περιέχει μια δήλωση RETURN!"
 
-#: src/Controllers/JavaScriptMessagesController.php:387
+#: src/Controllers/JavaScriptMessagesController.php:392
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 "Καμιά ρουτίνα δεν είναι εξαγώγιμη. Ίσως υπάρχει έλλειψη απαιτούμενων "
 "δικαιωμάτων."
 
-#: src/Controllers/JavaScriptMessagesController.php:390
+#: src/Controllers/JavaScriptMessagesController.php:395
 #, php-format
 msgid "Values for column %s"
 msgstr "Τιμές για τη στήλη %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:391
+#: src/Controllers/JavaScriptMessagesController.php:396
 msgid "Values for a new column"
 msgstr "Τιμές για νέα στήλη"
 
-#: src/Controllers/JavaScriptMessagesController.php:392
+#: src/Controllers/JavaScriptMessagesController.php:397
 msgid "Enter each value in a separate field."
 msgstr "Εισαγωγή κάθε τιμής σε διαφορετικό πεδίο."
 
-#: src/Controllers/JavaScriptMessagesController.php:393
+#: src/Controllers/JavaScriptMessagesController.php:398
 #, php-format
 msgid "Add %d value(s)"
 msgstr "Προσθήκη %d τιμής(ών)"
 
-#: src/Controllers/JavaScriptMessagesController.php:396
+#: src/Controllers/JavaScriptMessagesController.php:401
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr "Σημείωση: Αν το αρχείο περιέχει πολλούς πίνακες, θα ενωθουν σε έναν."
 
-#: src/Controllers/JavaScriptMessagesController.php:399
+#: src/Controllers/JavaScriptMessagesController.php:404
 msgid "Hide query box"
 msgstr "Απόκρυψη παραθύρου ερωτήματος"
 
-#: src/Controllers/JavaScriptMessagesController.php:400
+#: src/Controllers/JavaScriptMessagesController.php:405
 msgid "Show query box"
 msgstr "Προβολή παραθύρου ερωτήματος"
 
-#: src/Controllers/JavaScriptMessagesController.php:402
+#: src/Controllers/JavaScriptMessagesController.php:407
 #, fuzzy
 #| msgid "Submit query"
 msgid "Edit query"
 msgstr "Υποβολή ερωτήματος"
 
-#: src/Controllers/JavaScriptMessagesController.php:404
+#: src/Controllers/JavaScriptMessagesController.php:409
 #, php-format
 msgid "%d is not valid row number."
 msgstr "Ο αριθμός %d δεν είναι έγκυρος αριθμός γραμμών."
 
-#: src/Controllers/JavaScriptMessagesController.php:406
+#: src/Controllers/JavaScriptMessagesController.php:411
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:408
+#: src/Controllers/JavaScriptMessagesController.php:413
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:410
+#: src/Controllers/JavaScriptMessagesController.php:415
 #, php-format
 msgid "Variable %d:"
 msgstr "Μεταβλητή %d:"
 
-#: src/Controllers/JavaScriptMessagesController.php:413
+#: src/Controllers/JavaScriptMessagesController.php:418
 #: src/Normalization.php:949
 msgid "Pick"
 msgstr "Διαλέξτε"
 
-#: src/Controllers/JavaScriptMessagesController.php:414
+#: src/Controllers/JavaScriptMessagesController.php:419
 msgid "Column selector"
 msgstr "Επιλογέας στήλης"
 
-#: src/Controllers/JavaScriptMessagesController.php:415
+#: src/Controllers/JavaScriptMessagesController.php:420
 msgid "Search this list"
 msgstr "Αναζήτηση σε αυτή τη λίστα"
 
-#: src/Controllers/JavaScriptMessagesController.php:417
+#: src/Controllers/JavaScriptMessagesController.php:422
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -13956,54 +13967,54 @@ msgstr ""
 "για τη βάση δεδομένων %s έχει στήλες που δεν είναι παρούσες στον τρέχοντα "
 "πίνακα."
 
-#: src/Controllers/JavaScriptMessagesController.php:420
+#: src/Controllers/JavaScriptMessagesController.php:425
 msgid "See more"
 msgstr "Δείτε περισσότερα"
 
-#: src/Controllers/JavaScriptMessagesController.php:423
+#: src/Controllers/JavaScriptMessagesController.php:428
 msgid "Add primary key"
 msgstr "Προσθήκη πρωτεύοντος κλειδιού"
 
-#: src/Controllers/JavaScriptMessagesController.php:424
+#: src/Controllers/JavaScriptMessagesController.php:429
 msgid "Primary key added."
 msgstr "Προστέθηκε πρωτεύον κλειδί."
 
-#: src/Controllers/JavaScriptMessagesController.php:425
+#: src/Controllers/JavaScriptMessagesController.php:430
 #: src/Normalization.php:255
 msgid "Taking you to next step…"
 msgstr "Μεταφέροντάς σας στο επόμενο βήμα…"
 
-#: src/Controllers/JavaScriptMessagesController.php:426
+#: src/Controllers/JavaScriptMessagesController.php:431
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Το πρώτο βήμα κανονικοποίησης ολοκληρώθηκε για τον πίνακα «%s»."
 
-#: src/Controllers/JavaScriptMessagesController.php:427
+#: src/Controllers/JavaScriptMessagesController.php:432
 #: src/Normalization.php:511 src/Normalization.php:570
 #: src/Normalization.php:657 src/Normalization.php:730
 msgid "End of step"
 msgstr "Τέλος βήματος"
 
-#: src/Controllers/JavaScriptMessagesController.php:428
+#: src/Controllers/JavaScriptMessagesController.php:433
 msgid "Second step of normalization (2NF)"
 msgstr "Δεύτερο βήμα κανονικοποίησης (2NF)"
 
 #. l10n: Display text for calendar close link
-#: src/Controllers/JavaScriptMessagesController.php:429
-#: src/Controllers/JavaScriptMessagesController.php:777
+#: src/Controllers/JavaScriptMessagesController.php:434
+#: src/Controllers/JavaScriptMessagesController.php:782
 #: src/Normalization.php:343
 msgid "Done"
 msgstr "Ολοκληρώθηκε"
 
-#: src/Controllers/JavaScriptMessagesController.php:430
+#: src/Controllers/JavaScriptMessagesController.php:435
 msgid "Confirm partial dependencies"
 msgstr "Επιβεβαίωση μερικών εξαρτήσεων"
 
-#: src/Controllers/JavaScriptMessagesController.php:431
+#: src/Controllers/JavaScriptMessagesController.php:436
 msgid "Selected partial dependencies are as follows:"
 msgstr "Οι επιλεγμένες μερικές εξαρτήσεις είναι ως ακολούθως:"
 
-#: src/Controllers/JavaScriptMessagesController.php:433
+#: src/Controllers/JavaScriptMessagesController.php:438
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -14011,19 +14022,19 @@ msgstr ""
 "Σημείωση: a, b -> d,f αναφέρει τιμές των στηλών a και b όπου συνδυαζόμενες "
 "μπορούν να ορίσουν τις τιμές των στηλών d και f."
 
-#: src/Controllers/JavaScriptMessagesController.php:436
+#: src/Controllers/JavaScriptMessagesController.php:441
 msgid "No partial dependencies selected!"
 msgstr "Δεν έχετε επιλέξει μερικές εξαρτήσεις!"
 
-#: src/Controllers/JavaScriptMessagesController.php:438
+#: src/Controllers/JavaScriptMessagesController.php:443
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr "Προβολή των πιθανών μερικών εξαρτήσεων με βάση δεδομένα στον πίνακα"
 
-#: src/Controllers/JavaScriptMessagesController.php:439
+#: src/Controllers/JavaScriptMessagesController.php:444
 msgid "Hide partial dependencies list"
 msgstr "Απόκρυψη λίστας μερικών εξαρτήσεων"
 
-#: src/Controllers/JavaScriptMessagesController.php:441
+#: src/Controllers/JavaScriptMessagesController.php:446
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -14031,167 +14042,167 @@ msgstr ""
 "Καθήστε αναπαυτικά! Ίσως διαρκέσει μερικά δευτερόλεπτα βάσει του μεγέθους "
 "των δεδομένων και του αριθμού στηλών στον πίνακα."
 
-#: src/Controllers/JavaScriptMessagesController.php:443
+#: src/Controllers/JavaScriptMessagesController.php:448
 msgid "Step"
 msgstr "Βήμα"
 
-#: src/Controllers/JavaScriptMessagesController.php:444
+#: src/Controllers/JavaScriptMessagesController.php:449
 msgid "The following actions will be performed:"
 msgstr "Οι ακόλουθες πράξεις θα πραγματοποιηθούν:"
 
-#: src/Controllers/JavaScriptMessagesController.php:445
+#: src/Controllers/JavaScriptMessagesController.php:450
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "Απομάκρυνση στηλών από %s από τον πίνακα %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:446
+#: src/Controllers/JavaScriptMessagesController.php:451
 msgid "Create the following table"
 msgstr "Δημιουργία του ακόλουθου πίνακα"
 
-#: src/Controllers/JavaScriptMessagesController.php:449
+#: src/Controllers/JavaScriptMessagesController.php:454
 msgid "Third step of normalization (3NF)"
 msgstr "Τρίτο βήμα κανονικοποίησης (3NF)"
 
-#: src/Controllers/JavaScriptMessagesController.php:450
+#: src/Controllers/JavaScriptMessagesController.php:455
 msgid "Confirm transitive dependencies"
 msgstr "Επιβεβαίωση μεταβατικών εξαρτήσεων"
 
-#: src/Controllers/JavaScriptMessagesController.php:451
+#: src/Controllers/JavaScriptMessagesController.php:456
 msgid "Selected dependencies are as follows:"
 msgstr "Οι επιλεγμένες εξαρτήσεις είναι ως ακολούθως:"
 
-#: src/Controllers/JavaScriptMessagesController.php:452
+#: src/Controllers/JavaScriptMessagesController.php:457
 msgid "No dependencies selected!"
 msgstr "Δεν έχετε επιλέξει εξαρτήσεις!"
 
-#: src/Controllers/JavaScriptMessagesController.php:458
+#: src/Controllers/JavaScriptMessagesController.php:463
 msgid "Hide search criteria"
 msgstr "Απόκρυψη κριτηρίων αναζήτησης"
 
-#: src/Controllers/JavaScriptMessagesController.php:459
+#: src/Controllers/JavaScriptMessagesController.php:464
 msgid "Show search criteria"
 msgstr "Προβολή κριτηρίων αναζήτησης"
 
-#: src/Controllers/JavaScriptMessagesController.php:460
+#: src/Controllers/JavaScriptMessagesController.php:465
 msgid "Column maximum:"
 msgstr "Μέγιστο στήλης:"
 
-#: src/Controllers/JavaScriptMessagesController.php:461
+#: src/Controllers/JavaScriptMessagesController.php:466
 msgid "Column minimum:"
 msgstr "Ονόματα στηλών:"
 
-#: src/Controllers/JavaScriptMessagesController.php:464
+#: src/Controllers/JavaScriptMessagesController.php:469
 msgid "Hide find and replace criteria"
 msgstr "Απόκρυψη κριτηρίων εύρεσης και αντικατάστασης"
 
-#: src/Controllers/JavaScriptMessagesController.php:465
+#: src/Controllers/JavaScriptMessagesController.php:470
 msgid "Show find and replace criteria"
 msgstr "Προβολή κριτηρίων εύρεσης και αντικατάστασης"
 
-#: src/Controllers/JavaScriptMessagesController.php:469
+#: src/Controllers/JavaScriptMessagesController.php:474
 msgid "Each point represents a data row."
 msgstr "Κάθε σημείο αναπαρειστά μια εγγραφή δεδομένων."
 
-#: src/Controllers/JavaScriptMessagesController.php:471
+#: src/Controllers/JavaScriptMessagesController.php:476
 msgid "Hovering over a point will show its label."
 msgstr "Η μετάβαση πάνω από ένα σημείο θα δείξει την ετικέτα του."
 
-#: src/Controllers/JavaScriptMessagesController.php:473
+#: src/Controllers/JavaScriptMessagesController.php:478
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Για να εστιάσετε, επιλέξτε ένα τομέα της εκτύπωσης με το ποντίκι."
 
-#: src/Controllers/JavaScriptMessagesController.php:475
+#: src/Controllers/JavaScriptMessagesController.php:480
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 "Πατήστε το κουμπί επαναφοράς εστίασης για να επιστρέψετε στην αρχική "
 "κατάσταση."
 
-#: src/Controllers/JavaScriptMessagesController.php:477
+#: src/Controllers/JavaScriptMessagesController.php:482
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 "Πατήστε ένα σημείο δεδομένων για να δείτε και πιθανά να επεξεργαστείτε τη "
 "γραμμή δεδομένων."
 
-#: src/Controllers/JavaScriptMessagesController.php:479
+#: src/Controllers/JavaScriptMessagesController.php:484
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 "Ο χώρος εργασίας μπορεί να αλλάξει μέγεθος σύρωντας την κάτω δεξιά γωνία."
 
-#: src/Controllers/JavaScriptMessagesController.php:482
+#: src/Controllers/JavaScriptMessagesController.php:487
 msgid "Select two columns"
 msgstr "Επιλογή δύο στηλών"
 
-#: src/Controllers/JavaScriptMessagesController.php:484
+#: src/Controllers/JavaScriptMessagesController.php:489
 msgid "Select two different columns"
 msgstr "Επιλογή δύο διαφορετικών στηλών"
 
-#: src/Controllers/JavaScriptMessagesController.php:486
+#: src/Controllers/JavaScriptMessagesController.php:491
 msgid "Data point content"
 msgstr "Περιεχόμενο δείκτη δεδομένων"
 
-#: src/Controllers/JavaScriptMessagesController.php:492
+#: src/Controllers/JavaScriptMessagesController.php:497
 msgid "X"
 msgstr "Χ"
 
-#: src/Controllers/JavaScriptMessagesController.php:493
+#: src/Controllers/JavaScriptMessagesController.php:498
 msgid "Y"
 msgstr "Υ"
 
-#: src/Controllers/JavaScriptMessagesController.php:494
+#: src/Controllers/JavaScriptMessagesController.php:499
 msgid "Point"
 msgstr "Σημείο"
 
-#: src/Controllers/JavaScriptMessagesController.php:495
+#: src/Controllers/JavaScriptMessagesController.php:500
 msgid "Linestring"
 msgstr "Κείμενο γραμμής"
 
-#: src/Controllers/JavaScriptMessagesController.php:496
+#: src/Controllers/JavaScriptMessagesController.php:501
 msgid "Polygon"
 msgstr "Πολύγωνο"
 
-#: src/Controllers/JavaScriptMessagesController.php:498
+#: src/Controllers/JavaScriptMessagesController.php:503
 msgid "Inner ring"
 msgstr "Εσωτερικός δακτύλιος"
 
-#: src/Controllers/JavaScriptMessagesController.php:499
+#: src/Controllers/JavaScriptMessagesController.php:504
 msgid "Outer ring"
 msgstr "Εξωτερικός δακτύλιος"
 
-#: src/Controllers/JavaScriptMessagesController.php:500
+#: src/Controllers/JavaScriptMessagesController.php:505
 msgid "Add a point"
 msgstr "Προσθήκη σημείου"
 
-#: src/Controllers/JavaScriptMessagesController.php:501
+#: src/Controllers/JavaScriptMessagesController.php:506
 msgid "Add a linestring"
 msgstr "Προσθήκη κειμένου γραμμής"
 
-#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/JavaScriptMessagesController.php:507
 msgid "Add an inner ring"
 msgstr "Προσθήκη εσωτερικού δακτυλίου"
 
-#: src/Controllers/JavaScriptMessagesController.php:503
+#: src/Controllers/JavaScriptMessagesController.php:508
 msgid "Add a polygon"
 msgstr "Προσθήκη πολυγώνου"
 
-#: src/Controllers/JavaScriptMessagesController.php:504
+#: src/Controllers/JavaScriptMessagesController.php:509
 msgid "Add geometry"
 msgstr "Προσθήκη γεωμετρίας"
 
-#: src/Controllers/JavaScriptMessagesController.php:506
+#: src/Controllers/JavaScriptMessagesController.php:511
 msgid "Do you want to copy encryption key?"
 msgstr "Θέλετε να αντιγράψετε κλειδί κρυπτογράφησης;"
 
-#: src/Controllers/JavaScriptMessagesController.php:507
+#: src/Controllers/JavaScriptMessagesController.php:512
 msgid "Encryption key"
 msgstr "Κλειδί κρυπτογράφησης"
 
-#: src/Controllers/JavaScriptMessagesController.php:510
+#: src/Controllers/JavaScriptMessagesController.php:515
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:515
+#: src/Controllers/JavaScriptMessagesController.php:520
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -14199,7 +14210,7 @@ msgstr ""
 "Η MySQL αποδέχεται πρόσθετες τιμές που δεν είναι επιλέξιμες από την κύλιση, "
 "δώστε κλειδί σε αυτές τιμές άμεσα, αν το επιθυμείτε"
 
-#: src/Controllers/JavaScriptMessagesController.php:521
+#: src/Controllers/JavaScriptMessagesController.php:526
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -14207,7 +14218,7 @@ msgstr ""
 "Η MySQL αποδέχεται πρόσθετες τιμές που δεν είναι επιλέξιμες από τον επιλογέα "
 "ημερομηνίας, δώστε κλειδί σε αυτές τιμές άμεσα, αν το επιθυμείτε"
 
-#: src/Controllers/JavaScriptMessagesController.php:527
+#: src/Controllers/JavaScriptMessagesController.php:532
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -14215,19 +14226,19 @@ msgstr ""
 "Δείχνει ότι έχετε κάνει αλλαγές σε αυτή τη σελίδα, θα ερωτηθείτε για "
 "επιβεβαίωση πριν εγκαταλείψετε τις αλλαγές"
 
-#: src/Controllers/JavaScriptMessagesController.php:532
+#: src/Controllers/JavaScriptMessagesController.php:537
 msgid "Select referenced key"
 msgstr "Επιλέξτε αναφερθέν κλειδί"
 
-#: src/Controllers/JavaScriptMessagesController.php:533
+#: src/Controllers/JavaScriptMessagesController.php:538
 msgid "Select Foreign Key"
 msgstr "Επιλέξτε Μη Διακριτό Κλειδί"
 
-#: src/Controllers/JavaScriptMessagesController.php:534
+#: src/Controllers/JavaScriptMessagesController.php:539
 msgid "Please select the primary key or a unique key!"
 msgstr "Επιλέξτε το πρωτεύον κλειδί ή ένα μοναδικό κλειδί!"
 
-#: src/Controllers/JavaScriptMessagesController.php:537
+#: src/Controllers/JavaScriptMessagesController.php:542
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -14235,65 +14246,65 @@ msgstr ""
 "Δεν αποθηκεύσατε τις αλλαγές στο προϊόν. Θα χαθούν αν δεν τις αποθηκεύσετε. "
 "Θέλετε να συνεχίσετε;"
 
-#: src/Controllers/JavaScriptMessagesController.php:540
+#: src/Controllers/JavaScriptMessagesController.php:545
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:542
+#: src/Controllers/JavaScriptMessagesController.php:547
 msgid "Page name"
 msgstr "Όνομα σελίδας"
 
-#: src/Controllers/JavaScriptMessagesController.php:546
+#: src/Controllers/JavaScriptMessagesController.php:551
 msgid "Delete page"
 msgstr "Διαγραφή σελίδας"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:548
+#: src/Controllers/JavaScriptMessagesController.php:553
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:550
+#: src/Controllers/JavaScriptMessagesController.php:555
 msgid "Please select a page to continue"
 msgstr "Επιλέξτε σελίδα για συνέχεια"
 
-#: src/Controllers/JavaScriptMessagesController.php:551
+#: src/Controllers/JavaScriptMessagesController.php:556
 msgid "Please enter a valid page name"
 msgstr "Εισάγετε ένα έγκυρο όνομα σελίδας"
 
-#: src/Controllers/JavaScriptMessagesController.php:552
+#: src/Controllers/JavaScriptMessagesController.php:557
 msgid "Do you want to save the changes to the current page?"
 msgstr "Θέλετε να αποθηκεύσετε τις αλλαγές στην τρέχουσα σελίδα;"
 
-#: src/Controllers/JavaScriptMessagesController.php:553
+#: src/Controllers/JavaScriptMessagesController.php:558
 msgid "Successfully deleted the page"
 msgstr "Η σελίδα διαγράφτηκε επιτυχώς"
 
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:559
 msgid "Export relational schema"
 msgstr "Εξαγωγή σχεσιακού σχήματος"
 
-#: src/Controllers/JavaScriptMessagesController.php:555
+#: src/Controllers/JavaScriptMessagesController.php:560
 msgid "Modifications have been saved"
 msgstr "Οι αλλαγές αποθηκεύτηκαν"
 
-#: src/Controllers/JavaScriptMessagesController.php:558
+#: src/Controllers/JavaScriptMessagesController.php:563
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d αντικείμενο(α) δημιουργήθηκε(αν)."
 
-#: src/Controllers/JavaScriptMessagesController.php:559
+#: src/Controllers/JavaScriptMessagesController.php:564
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "Ονόματα στηλών"
 
-#: src/Controllers/JavaScriptMessagesController.php:563
+#: src/Controllers/JavaScriptMessagesController.php:568
 #, fuzzy
 #| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "Πατήστε το escape για ακύρωση της επεξεργασίας."
 
-#: src/Controllers/JavaScriptMessagesController.php:565
+#: src/Controllers/JavaScriptMessagesController.php:570
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -14301,15 +14312,15 @@ msgstr ""
 "Έχετε επεξεργαστεί ορισμένα δεδομένα και δεν έχουν αποθηκευτεί. Θέλετε να "
 "αφήσετε τη σελίδα χωρίς αποθήκευση των δεδομένων;"
 
-#: src/Controllers/JavaScriptMessagesController.php:568
+#: src/Controllers/JavaScriptMessagesController.php:573
 msgid "Drag to reorder."
 msgstr "Σύρτε για ανακατανομή."
 
-#: src/Controllers/JavaScriptMessagesController.php:569
+#: src/Controllers/JavaScriptMessagesController.php:574
 msgid "Click to sort results by this column."
 msgstr "Πατήστε για ταξινόμηση των αποτελεσμάτων κατά αυτή τη στήλη."
 
-#: src/Controllers/JavaScriptMessagesController.php:571
+#: src/Controllers/JavaScriptMessagesController.php:576
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -14319,19 +14330,19 @@ msgstr ""
 "ASC/DESC.<br>- Control+Κλικ ή Alt+Κλικ (Για Mac: Shift+Option+Click) για "
 "απομάκρυνση της στήλης από τη δήλωση ORDER BY"
 
-#: src/Controllers/JavaScriptMessagesController.php:575
+#: src/Controllers/JavaScriptMessagesController.php:580
 msgid "Click to mark/unmark."
 msgstr "Πατήστε για εναλλαγή επισήμανσης."
 
-#: src/Controllers/JavaScriptMessagesController.php:576
+#: src/Controllers/JavaScriptMessagesController.php:581
 msgid "Double-click to copy column name."
 msgstr "Διπλό κλικ για αντιγραφή ονόματος στήλης."
 
-#: src/Controllers/JavaScriptMessagesController.php:577
+#: src/Controllers/JavaScriptMessagesController.php:582
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "Πατήστε το προς τα κάτω βέλος<br>για εναλλαγή της εμφάνισης στηλών."
 
-#: src/Controllers/JavaScriptMessagesController.php:580
+#: src/Controllers/JavaScriptMessagesController.php:585
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -14340,12 +14351,12 @@ msgstr ""
 "την επεξεργασία και επιλογή καννάβου Επεξεργασία, Αντιγραφή και Διαγραφή "
 "ίσως να μη λειτουργούν μετά την αποθήκευση."
 
-#: src/Controllers/JavaScriptMessagesController.php:583
+#: src/Controllers/JavaScriptMessagesController.php:588
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Εισάγετε ένα έγκυρο δεκαεξαδικό αριθμό. Έγκυροι χαρακτήρες είναι 0-9, A-F."
 
-#: src/Controllers/JavaScriptMessagesController.php:585
+#: src/Controllers/JavaScriptMessagesController.php:590
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -14353,53 +14364,53 @@ msgstr ""
 "Θέλετε πραγματικά να δείτε όλες τις εγγραφές; Για ένα μεγάλο πίνακα, αυτό "
 "ίσως φέρει δυσλειτουργία στον φυλλομετρητή σας."
 
-#: src/Controllers/JavaScriptMessagesController.php:587
+#: src/Controllers/JavaScriptMessagesController.php:592
 msgid "Original length"
 msgstr "Αρχικό μήκος"
 
-#: src/Controllers/JavaScriptMessagesController.php:590
+#: src/Controllers/JavaScriptMessagesController.php:595
 msgid "cancel"
 msgstr "άκυρο"
 
-#: src/Controllers/JavaScriptMessagesController.php:591
+#: src/Controllers/JavaScriptMessagesController.php:596
 #: src/Controllers/Server/Status/StatusController.php:186
 msgid "Aborted"
 msgstr "Ακυρωμένες συνδέσεις"
 
-#: src/Controllers/JavaScriptMessagesController.php:593
+#: src/Controllers/JavaScriptMessagesController.php:598
 msgid "Success"
 msgstr "Επιτυχία"
 
-#: src/Controllers/JavaScriptMessagesController.php:594
+#: src/Controllers/JavaScriptMessagesController.php:599
 msgid "Import status"
 msgstr "Κατάσταση εισαγωγής"
 
-#: src/Controllers/JavaScriptMessagesController.php:596
+#: src/Controllers/JavaScriptMessagesController.php:601
 msgid "Select database first"
 msgstr "Επιλέξτε βάση δεδομένων πρώτα"
 
-#: src/Controllers/JavaScriptMessagesController.php:598
+#: src/Controllers/JavaScriptMessagesController.php:603
 msgid "Go to link:"
 msgstr "Μετάβαση στο σύνδεσμο:"
 
-#: src/Controllers/JavaScriptMessagesController.php:601
+#: src/Controllers/JavaScriptMessagesController.php:606
 msgid "Generate password"
 msgstr "Δημιουργία κωδικού πρόσβασης"
 
-#: src/Controllers/JavaScriptMessagesController.php:608
+#: src/Controllers/JavaScriptMessagesController.php:613
 msgid "Show panel"
 msgstr "Εμφάνιση πίνακα"
 
-#: src/Controllers/JavaScriptMessagesController.php:609
+#: src/Controllers/JavaScriptMessagesController.php:614
 msgid "Hide panel"
 msgstr "Απόκρυψη πίνακα"
 
-#: src/Controllers/JavaScriptMessagesController.php:611
+#: src/Controllers/JavaScriptMessagesController.php:616
 #: src/Navigation/NavigationTree.php:1313
 msgid "Unlink from main panel"
 msgstr "Αποσύνδεση από τον βασικό πίνακα"
 
-#: src/Controllers/JavaScriptMessagesController.php:615 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:620 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -14409,21 +14420,21 @@ msgstr ""
 "εγκαταστήσετε. Η νεότερη έκδοση είναι η %s και δημοσιεύτηκε την %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:619
+#: src/Controllers/JavaScriptMessagesController.php:624
 msgid ", latest stable version:"
 msgstr ", τελευταία έκδοση:"
 
-#: src/Controllers/JavaScriptMessagesController.php:620
+#: src/Controllers/JavaScriptMessagesController.php:625
 msgid "up to date"
 msgstr "ενημερωμένο"
 
-#: src/Controllers/JavaScriptMessagesController.php:621
+#: src/Controllers/JavaScriptMessagesController.php:626
 #, fuzzy
 #| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
 msgstr "Σφάλμα εισαγωγής shape file της ESRI: «%s»."
 
-#: src/Controllers/JavaScriptMessagesController.php:624
+#: src/Controllers/JavaScriptMessagesController.php:629
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
@@ -14431,21 +14442,21 @@ msgstr ""
 "Ένα ανεπανόρθωτο σφάλμα έχει συμβεί. Θέλετε να στείλετε μια αναφορά "
 "σφάλματος;"
 
-#: src/Controllers/JavaScriptMessagesController.php:625
+#: src/Controllers/JavaScriptMessagesController.php:630
 msgid "Change report settings"
 msgstr "Αλλαγή ρυθμίσεων αναφοράς"
 
-#: src/Controllers/JavaScriptMessagesController.php:626
+#: src/Controllers/JavaScriptMessagesController.php:631
 msgid "Show report details"
 msgstr "Εμφάνιση λεπτομερειών αναφοράς"
 
-#: src/Controllers/JavaScriptMessagesController.php:627
+#: src/Controllers/JavaScriptMessagesController.php:632
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr "Η εξαγωγή σας ήταν ανεπιτυχής, λόγω χαμηλού χρονικού ορίου στην PHP!"
 
-#: src/Controllers/JavaScriptMessagesController.php:630
+#: src/Controllers/JavaScriptMessagesController.php:635
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -14455,76 +14466,76 @@ msgstr ""
 "Κατά την υποβολή ορισμένα πεδία ίσως αγνοηθούν λόγω της ρύθμισης της PHP "
 "max_input_vars."
 
-#: src/Controllers/JavaScriptMessagesController.php:636
-#: src/Controllers/JavaScriptMessagesController.php:649
+#: src/Controllers/JavaScriptMessagesController.php:641
+#: src/Controllers/JavaScriptMessagesController.php:654
 msgid "Some errors have been detected on the server!"
 msgstr "Ανιχνεύτηκαν ορισμένα σφάλματα στο διακομιστή!"
 
-#: src/Controllers/JavaScriptMessagesController.php:638
+#: src/Controllers/JavaScriptMessagesController.php:643
 msgid "Please look at the bottom of this window."
 msgstr "Δείτε στο κάτω μέρος αυτού του παραθύρου."
 
-#: src/Controllers/JavaScriptMessagesController.php:644
+#: src/Controllers/JavaScriptMessagesController.php:649
 #: src/Error/ErrorHandler.php:415
 msgid "Ignore All"
 msgstr "Παράληψη Όλων"
 
-#: src/Controllers/JavaScriptMessagesController.php:651
+#: src/Controllers/JavaScriptMessagesController.php:656
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "Σύμφωνα με τις ρυθμίσεις σας, υποβάλλονται άμεσα, κάντε υπομονή."
 
-#: src/Controllers/JavaScriptMessagesController.php:655
+#: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:656
+#: src/Controllers/JavaScriptMessagesController.php:661
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:657
+#: src/Controllers/JavaScriptMessagesController.php:662
 #, fuzzy
 #| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "Η σελίδα διαγράφτηκε επιτυχώς"
 
-#: src/Controllers/JavaScriptMessagesController.php:658
+#: src/Controllers/JavaScriptMessagesController.php:663
 #, fuzzy
 #| msgid "Copying database"
 msgid "Copying failed!"
 msgstr "Αντιγραφή βάσης δεδομένων"
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:666
 msgid "Execute this query again?"
 msgstr "Επανεκτέλεση αυτού του ερώτηματος ξανά;"
 
-#: src/Controllers/JavaScriptMessagesController.php:662
+#: src/Controllers/JavaScriptMessagesController.php:667
 msgid "Do you really want to delete this bookmark?"
 msgstr "Θέλετε πραγματικά να διαγράψετε αυτό το σελιδοδείκτη;"
 
-#: src/Controllers/JavaScriptMessagesController.php:663
+#: src/Controllers/JavaScriptMessagesController.php:668
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Κάποιο σφάλμα συνέβει κατά τη λήψη πληροφοριών αποσφαλμάτωσης SQL."
 
-#: src/Controllers/JavaScriptMessagesController.php:664
+#: src/Controllers/JavaScriptMessagesController.php:669
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s ερωτήματα εκτελέστηκαν %s φορές σε %s δευτερόλεπτα."
 
-#: src/Controllers/JavaScriptMessagesController.php:665
+#: src/Controllers/JavaScriptMessagesController.php:670
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s επιχείρημα(τα) πέρασαν"
 
-#: src/Controllers/JavaScriptMessagesController.php:666
+#: src/Controllers/JavaScriptMessagesController.php:671
 msgid "Show arguments"
 msgstr "Προβολή επιχειρημάτων"
 
-#: src/Controllers/JavaScriptMessagesController.php:667
+#: src/Controllers/JavaScriptMessagesController.php:672
 msgid "Hide arguments"
 msgstr "Απόκρυψη επιχειρημάτων"
 
-#: src/Controllers/JavaScriptMessagesController.php:670
+#: src/Controllers/JavaScriptMessagesController.php:675
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -14540,40 +14551,40 @@ msgstr ""
 "βοηθήσει. Στον Safari, τέτοιο πρόβλημα εμφανίζεται από την «Κατάσταση "
 "Ιδιωτικής Περιήγησης»."
 
-#: src/Controllers/JavaScriptMessagesController.php:677
+#: src/Controllers/JavaScriptMessagesController.php:682
 msgid "Copy tables to"
 msgstr "Αντιγραφή πινάκων στη"
 
-#: src/Controllers/JavaScriptMessagesController.php:678
+#: src/Controllers/JavaScriptMessagesController.php:683
 msgid "Add table prefix"
 msgstr "Προσθήκη προθέματος πίνακα"
 
-#: src/Controllers/JavaScriptMessagesController.php:679
+#: src/Controllers/JavaScriptMessagesController.php:684
 msgid "Replace table with prefix"
 msgstr "Αντικατάσταση πίνακα με πρόθεμα"
 
-#: src/Controllers/JavaScriptMessagesController.php:683
+#: src/Controllers/JavaScriptMessagesController.php:688
 msgid "Extremely weak"
 msgstr "Υπερβολικά αδύνατο"
 
-#: src/Controllers/JavaScriptMessagesController.php:684
+#: src/Controllers/JavaScriptMessagesController.php:689
 msgid "Very weak"
 msgstr "Πολύ αδύνατο"
 
-#: src/Controllers/JavaScriptMessagesController.php:685
+#: src/Controllers/JavaScriptMessagesController.php:690
 msgid "Weak"
 msgstr "Αδύνατο"
 
-#: src/Controllers/JavaScriptMessagesController.php:686
+#: src/Controllers/JavaScriptMessagesController.php:691
 msgid "Good"
 msgstr "Καλό"
 
-#: src/Controllers/JavaScriptMessagesController.php:687
+#: src/Controllers/JavaScriptMessagesController.php:692
 msgid "Strong"
 msgstr "Δυνατό"
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:691
+#: src/Controllers/JavaScriptMessagesController.php:696
 #, fuzzy
 #| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
@@ -14582,13 +14593,13 @@ msgstr ""
 "Έληξε ο χρόνος περιμένοντας για την ενεργοποίηση του κλειδιού ασφαλείας."
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:693
+#: src/Controllers/JavaScriptMessagesController.php:698
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:695
+#: src/Controllers/JavaScriptMessagesController.php:700
 #, fuzzy
 #| msgid "Unknown error"
 msgctxt "U2F error"
@@ -14596,13 +14607,13 @@ msgid "Unknown security key error."
 msgstr "Άγνωστο σφάλμα"
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:697
+#: src/Controllers/JavaScriptMessagesController.php:702
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:699
+#: src/Controllers/JavaScriptMessagesController.php:704
 #, fuzzy
 #| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
@@ -14610,27 +14621,27 @@ msgid "Failed security key activation."
 msgstr "Αποτυχυμένη ενεργοποίηση κλειδιού ασφαλείας (%s)."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:701
+#: src/Controllers/JavaScriptMessagesController.php:706
 #, fuzzy
 #| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Μη έγκυρος τύπος εξαγωγής"
 
-#: src/Controllers/JavaScriptMessagesController.php:704
+#: src/Controllers/JavaScriptMessagesController.php:709
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:709
+#: src/Controllers/JavaScriptMessagesController.php:714
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:714
+#: src/Controllers/JavaScriptMessagesController.php:719
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -14638,276 +14649,276 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Ο πίνακας %s υπάρχει ήδη!"
 
-#: src/Controllers/JavaScriptMessagesController.php:716 src/InsertEdit.php:272
+#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:272
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Απόκρυψη"
 
-#: src/Controllers/JavaScriptMessagesController.php:720
+#: src/Controllers/JavaScriptMessagesController.php:725
 #, fuzzy
 #| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Ιανουαρίου"
 
-#: src/Controllers/JavaScriptMessagesController.php:721
+#: src/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy
 #| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "Φεβρουαρίου"
 
-#: src/Controllers/JavaScriptMessagesController.php:722
+#: src/Controllers/JavaScriptMessagesController.php:727
 #, fuzzy
 #| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "Μαρτίου"
 
-#: src/Controllers/JavaScriptMessagesController.php:723
+#: src/Controllers/JavaScriptMessagesController.php:728
 #, fuzzy
 #| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "Απριλίου"
 
-#: src/Controllers/JavaScriptMessagesController.php:724
+#: src/Controllers/JavaScriptMessagesController.php:729
 #, fuzzy
 #| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Μαΐου"
 
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:730
 #, fuzzy
 #| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "Ιουνίου"
 
-#: src/Controllers/JavaScriptMessagesController.php:726
+#: src/Controllers/JavaScriptMessagesController.php:731
 #, fuzzy
 #| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Ιουλίου"
 
-#: src/Controllers/JavaScriptMessagesController.php:727
+#: src/Controllers/JavaScriptMessagesController.php:732
 #, fuzzy
 #| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "Αυγούστου"
 
-#: src/Controllers/JavaScriptMessagesController.php:728
+#: src/Controllers/JavaScriptMessagesController.php:733
 #, fuzzy
 #| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "Σεπτεμβρίου"
 
-#: src/Controllers/JavaScriptMessagesController.php:729
+#: src/Controllers/JavaScriptMessagesController.php:734
 #, fuzzy
 #| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Οκτωβρίου"
 
-#: src/Controllers/JavaScriptMessagesController.php:730
+#: src/Controllers/JavaScriptMessagesController.php:735
 #, fuzzy
 #| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "Νοεμβρίου"
 
-#: src/Controllers/JavaScriptMessagesController.php:731
+#: src/Controllers/JavaScriptMessagesController.php:736
 #, fuzzy
 #| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "Δεκεμβρίου"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:494
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:494
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Ιαν"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:495
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:495
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Φεβ"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:496
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:496
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Μαρ"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:497
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:497
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Απρ"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:498
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Μαΐου"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:499
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Ιουν"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:500
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Ιουλ"
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:501
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Αυγ"
 
-#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:502
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Σεπ"
 
-#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:503
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Οκτ"
 
-#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:504
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Νοε"
 
-#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:505
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Δεκ"
 
-#: src/Controllers/JavaScriptMessagesController.php:751 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:508
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Κυρ"
 
-#: src/Controllers/JavaScriptMessagesController.php:752 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:509
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Δευ"
 
-#: src/Controllers/JavaScriptMessagesController.php:753 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:510
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Τρί"
 
-#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:511
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Τετ"
 
-#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:512
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Πέμ"
 
-#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:761 src/Util.php:513
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Παρ"
 
-#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:762 src/Util.php:514
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Σάβ"
 
-#: src/Controllers/JavaScriptMessagesController.php:758
+#: src/Controllers/JavaScriptMessagesController.php:763
 #, fuzzy
 #| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Κυ"
 
-#: src/Controllers/JavaScriptMessagesController.php:759
+#: src/Controllers/JavaScriptMessagesController.php:764
 #, fuzzy
 #| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Δε"
 
-#: src/Controllers/JavaScriptMessagesController.php:760
+#: src/Controllers/JavaScriptMessagesController.php:765
 #, fuzzy
 #| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Τρ"
 
-#: src/Controllers/JavaScriptMessagesController.php:761
+#: src/Controllers/JavaScriptMessagesController.php:766
 #, fuzzy
 #| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "Τε"
 
-#: src/Controllers/JavaScriptMessagesController.php:762
+#: src/Controllers/JavaScriptMessagesController.php:767
 #, fuzzy
 #| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Πέ"
 
-#: src/Controllers/JavaScriptMessagesController.php:763
+#: src/Controllers/JavaScriptMessagesController.php:768
 #, fuzzy
 #| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Πα"
 
-#: src/Controllers/JavaScriptMessagesController.php:764
+#: src/Controllers/JavaScriptMessagesController.php:769
 #, fuzzy
 #| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Σά"
 
-#: src/Controllers/JavaScriptMessagesController.php:765
+#: src/Controllers/JavaScriptMessagesController.php:770
 #, fuzzy
 #| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
@@ -14915,13 +14926,13 @@ msgid "Wk"
 msgstr "Εβδ"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:772
 #, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:773
 #, fuzzy
 #| msgctxt "Year suffix"
 #| msgid "none"
@@ -14929,49 +14940,49 @@ msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "κανένα"
 
-#: src/Controllers/JavaScriptMessagesController.php:769
+#: src/Controllers/JavaScriptMessagesController.php:774
 #, fuzzy
 #| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Χρόνος"
 
-#: src/Controllers/JavaScriptMessagesController.php:770
+#: src/Controllers/JavaScriptMessagesController.php:775
 #, fuzzy
 #| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Ώρα"
 
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:776
 #, fuzzy
 #| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Λεπτό"
 
-#: src/Controllers/JavaScriptMessagesController.php:772
+#: src/Controllers/JavaScriptMessagesController.php:777
 #, fuzzy
 #| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Δευτερόλεπτο"
 
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:778
 #, fuzzy
 #| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "δευτερόλεπτα"
 
-#: src/Controllers/JavaScriptMessagesController.php:774
+#: src/Controllers/JavaScriptMessagesController.php:779
 #, fuzzy
 #| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "ανά δευτερόλεπτο"
 
-#: src/Controllers/JavaScriptMessagesController.php:775
+#: src/Controllers/JavaScriptMessagesController.php:780
 #, fuzzy
 #| msgctxt "Chart type"
 #| msgid "Timeline"
@@ -14980,7 +14991,7 @@ msgid "Time zone"
 msgstr "Χρονολόγιο"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:779
+#: src/Controllers/JavaScriptMessagesController.php:784
 #, fuzzy
 #| msgctxt "Previous month"
 #| msgid "Prev"
@@ -14989,100 +15000,100 @@ msgid "Prev"
 msgstr "Προηγούμενο"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:781
+#: src/Controllers/JavaScriptMessagesController.php:786
 msgctxt "Next month"
 msgid "Next"
 msgstr "Επόμενο"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:783
+#: src/Controllers/JavaScriptMessagesController.php:788
 msgid "Today"
 msgstr "Σήμερα"
 
-#: src/Controllers/JavaScriptMessagesController.php:786
+#: src/Controllers/JavaScriptMessagesController.php:791
 msgid "This field is required"
 msgstr "Αυτό το πεδίο είναι υποχρεωτικό"
 
-#: src/Controllers/JavaScriptMessagesController.php:787
+#: src/Controllers/JavaScriptMessagesController.php:792
 msgid "Please fix this field"
 msgstr "Διορθώστε αυτό το πεδίο"
 
-#: src/Controllers/JavaScriptMessagesController.php:788
+#: src/Controllers/JavaScriptMessagesController.php:793
 msgid "Please enter a valid email address"
 msgstr "Εισάγετε μια έγκυρή ηλεκτρονική διεύθυνση"
 
-#: src/Controllers/JavaScriptMessagesController.php:789
+#: src/Controllers/JavaScriptMessagesController.php:794
 msgid "Please enter a valid URL"
 msgstr "Εισάγετε έναν έγκυρο URL"
 
-#: src/Controllers/JavaScriptMessagesController.php:790
+#: src/Controllers/JavaScriptMessagesController.php:795
 msgid "Please enter a valid date"
 msgstr "Εισάγετε μια έγκυρη ημερομηνία"
 
-#: src/Controllers/JavaScriptMessagesController.php:791
+#: src/Controllers/JavaScriptMessagesController.php:796
 msgid "Please enter a valid date ( ISO )"
 msgstr "Εισάγετε μια έγκυρη ημερομηνία (ISO)"
 
-#: src/Controllers/JavaScriptMessagesController.php:792
+#: src/Controllers/JavaScriptMessagesController.php:797
 msgid "Please enter a valid number"
 msgstr "Εισάγετε έναν έγκυρο αριθμό"
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:798
 msgid "Please enter a valid credit card number"
 msgstr "Εισάγετε έναν έγκυρο αριθμό πιστωτικής κάρτας"
 
-#: src/Controllers/JavaScriptMessagesController.php:794
+#: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Please enter only digits"
 msgstr "Εισάγετε μόνο ψηφία"
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Please enter the same value again"
 msgstr "Εισάγετε την ίδια τιμή ξανά"
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Please enter no more than {0} characters"
 msgstr "Εισάγετε όχι περισσότερους από {0} χαρακτήρες"
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Please enter at least {0} characters"
 msgstr "Εισάγετε τουλάχιστον {0} χαρακτήρες"
 
-#: src/Controllers/JavaScriptMessagesController.php:798
+#: src/Controllers/JavaScriptMessagesController.php:803
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Εισάγετε μια τιμή μήκους μεταξύ {0} και {1} χαρακτήρες"
 
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:804
 msgid "Please enter a value between {0} and {1}"
 msgstr "Εισάγετε εισάγετε μια τιμή μεταξύ {0} και {1}"
 
-#: src/Controllers/JavaScriptMessagesController.php:800
+#: src/Controllers/JavaScriptMessagesController.php:805
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Εισάγετε μια τιμή μικρότερη ή ίση με {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:801
+#: src/Controllers/JavaScriptMessagesController.php:806
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Εισάγετε μια τιμή μεγαλύτερη ή ίση με {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:802
+#: src/Controllers/JavaScriptMessagesController.php:807
 msgid "Please enter a valid date or time"
 msgstr "Εισάγετε μια έγκυρη ημερομηνία ή ώρα"
 
-#: src/Controllers/JavaScriptMessagesController.php:803
+#: src/Controllers/JavaScriptMessagesController.php:808
 msgid "Please enter a valid HEX input"
 msgstr "Εισάγετε μια έγκυρη ΔΕΚΑΕΞΑΔΙΚΗ εισαγωγή"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:805
+#: src/Controllers/JavaScriptMessagesController.php:810
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:808
+#: src/Controllers/JavaScriptMessagesController.php:813
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:813
+#: src/Controllers/JavaScriptMessagesController.php:818
 #, fuzzy
 #| msgid ""
 #| "The file being uploaded is probably larger than the maximum allowed size "
@@ -15095,33 +15106,33 @@ msgstr ""
 "αυτό είναι ένα γνωστό σφάλμα φυλλομετρητή (Safari, Google Chrome, Arora "
 "κλπ.)."
 
-#: src/Controllers/JavaScriptMessagesController.php:815
+#: src/Controllers/JavaScriptMessagesController.php:820
 #, php-format
 msgid "%s of %s"
 msgstr "%s από %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:816
+#: src/Controllers/JavaScriptMessagesController.php:821
 #, php-format
 msgid "%s/sec."
 msgstr "%s/δευτ."
 
-#: src/Controllers/JavaScriptMessagesController.php:817
+#: src/Controllers/JavaScriptMessagesController.php:822
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Απομένουν περίπου %MIN λεπτά %SEC δευτερόλεπτα."
 
-#: src/Controllers/JavaScriptMessagesController.php:818
+#: src/Controllers/JavaScriptMessagesController.php:823
 msgid "About %SEC sec. remaining."
 msgstr "Απομένουν περίπου %SEC δευτερόλεπτα."
 
-#: src/Controllers/JavaScriptMessagesController.php:819
+#: src/Controllers/JavaScriptMessagesController.php:824
 msgid "The file is being processed, please be patient."
 msgstr "Η εισαγωγή του αρχείου είναι σε εξέλιξη, υπομονή."
 
-#: src/Controllers/JavaScriptMessagesController.php:820
+#: src/Controllers/JavaScriptMessagesController.php:825
 msgid "Uploading your import file…"
 msgstr "Αποστολή του αρχείου εισαγωγής σας…"
 
-#: src/Controllers/JavaScriptMessagesController.php:822
+#: src/Controllers/JavaScriptMessagesController.php:827
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -15228,7 +15239,7 @@ msgstr "Οι στήλες μετακινήθηκαν επιτυχώς."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Οι στήλες μετακινήθηκαν επιτυχώς."
 
-#: src/Controllers/Server/PrivilegesController.php:129
+#: src/Controllers/Server/PrivilegesController.php:132
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -18422,21 +18433,21 @@ msgstr ""
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Αδύνατη η προσπέλαση Εγγράφου Λογιστικού Φύλλου Ανοιχτού Κώδικα - ODS!"
 
-#: src/Plugins/Import/ImportShp.php:71
+#: src/Plugins/Import/ImportShp.php:72
 msgid "ESRI Shape File"
 msgstr "Shape File της ESRI"
 
-#: src/Plugins/Import/ImportShp.php:111 src/Plugins/Import/ImportShp.php:178
+#: src/Plugins/Import/ImportShp.php:112 src/Plugins/Import/ImportShp.php:179
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "Σφάλμα εισαγωγής shape file της ESRI: «%s»."
 
-#: src/Plugins/Import/ImportShp.php:208
+#: src/Plugins/Import/ImportShp.php:204
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "Η Χωρική Επέκταση της MySQL δεν υποστηρίζει τύπο της ESRI «%s»."
 
-#: src/Plugins/Import/ImportShp.php:253
+#: src/Plugins/Import/ImportShp.php:249
 msgid "The imported file does not contain any data!"
 msgstr "Το εισαγόμενο αρχείο δεν περιέχει δεδομένα!"
 
@@ -18964,8 +18975,8 @@ msgstr "Η Βάση δεδομένων προέλευσης «%s» δεν βρέ
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3256
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:634
+#: src/Server/Privileges.php:3257
 msgid "Native MySQL authentication"
 msgstr "Γηγενής πιστοποίηση MySQL"
 
@@ -18996,65 +19007,65 @@ msgstr "Γηγενής πιστοποίηση MySQL"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: src/Server/Privileges.php:266
+#: src/Server/Privileges.php:267
 msgid "No privileges."
 msgstr "Χωρίς δικαιώματα."
 
-#: src/Server/Privileges.php:272
+#: src/Server/Privileges.php:273
 msgid "Includes all privileges except GRANT."
 msgstr "Περιλαμβάνει όλα τα δικαιώματα εκτός από το GRANT."
 
-#: src/Server/Privileges.php:893
+#: src/Server/Privileges.php:894
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Ο κωδικός πρόσβασης για τον χρήστη %s άλλαξε επιτυχώς."
 
-#: src/Server/Privileges.php:941
+#: src/Server/Privileges.php:942
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Ανακαλέσατε τα δικαιώματα για %s."
 
-#: src/Server/Privileges.php:1279
+#: src/Server/Privileges.php:1280
 msgid "Revoke"
 msgstr "Ανάκληση"
 
-#: src/Server/Privileges.php:1882
+#: src/Server/Privileges.php:1883
 msgid "No users selected for deleting!"
 msgstr "Δεν επιλέχθηκαν χρήστες για διαγραφή!"
 
-#: src/Server/Privileges.php:1885
+#: src/Server/Privileges.php:1886
 msgid "Reloading the privileges"
 msgstr "Επαναφόρτωση δικαιωμάτων"
 
-#: src/Server/Privileges.php:1910
+#: src/Server/Privileges.php:1911
 msgid "The selected users have been deleted successfully."
 msgstr "Οι επιλεγμένοι χρήστες διεγράφησαν επιτυχώς."
 
-#: src/Server/Privileges.php:1984
+#: src/Server/Privileges.php:1985
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Τα δικαιώματα του χρήστη %s ενημερώθηκαν."
 
-#: src/Server/Privileges.php:2141
+#: src/Server/Privileges.php:2142
 #, php-format
 msgid "Deleting %s"
 msgstr "Διαγραφή %s"
 
-#: src/Server/Privileges.php:2171
+#: src/Server/Privileges.php:2172
 msgid "The privileges were reloaded successfully."
 msgstr "Τα δικαιώματα επαναφορτώθηκαν επιτυχώς."
 
-#: src/Server/Privileges.php:2272
+#: src/Server/Privileges.php:2273
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Ο χρήστης %s υπάρχει ήδη!"
 
-#: src/Server/Privileges.php:2509
+#: src/Server/Privileges.php:2510
 #, php-format
 msgid "Privileges for %s"
 msgstr "Δικαιώματα για %s"
 
-#: src/Server/Privileges.php:2595
+#: src/Server/Privileges.php:2596
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -19068,7 +19079,7 @@ msgstr ""
 "αλλαγές χειροκίνητα. Σε αυτήν την περίπτωση, θα πρέπει να %sεπαναφορτώσετε "
 "τα δικαιώματα%s πριν συνεχίσετε."
 
-#: src/Server/Privileges.php:2611
+#: src/Server/Privileges.php:2612
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -19082,11 +19093,11 @@ msgstr ""
 "αλλαγές χειροκίνητα. Σε αυτήν την περίπτωση, τα δικαιώματα πρέπει να "
 "επαναφορτωθούν αλλά προς το παρόν, δεν έχετε το δικαίωμα RELOAD."
 
-#: src/Server/Privileges.php:2899
+#: src/Server/Privileges.php:2900
 msgid "You have added a new user."
 msgstr "Προσθέσατε ένα νέο χρήστη."
 
-#: src/Server/Privileges.php:3349
+#: src/Server/Privileges.php:3351
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
