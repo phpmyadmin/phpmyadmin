@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-11 21:28-0300\n"
-"PO-Revision-Date: 2024-10-14 12:18+0000\n"
+"PO-Revision-Date: 2024-10-15 16:16+0000\n"
 "Last-Translator: Fulup Jakez <fulup.jakez@gmail.com>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/5-2/br/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.8-rc\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -16812,47 +16812,37 @@ msgid "phpMyAdmin documentation"
 msgstr "Teuliadur phpMyAdmin"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
-msgstr "Teuliadur"
+msgstr "Teuliadur MariaDB"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
-msgstr "Teuliadur"
+msgstr "Teuliadur MySQL"
 
 #: templates/navigation/main.twig:43 templates/navigation/main.twig:44
-#, fuzzy
-#| msgid "Navigation frame"
 msgid "Navigation panel settings"
-msgstr "Taolenn verdeiñ"
+msgstr "Arventennoù an daolenn verdeiñ"
 
 #: templates/navigation/main.twig:47 templates/navigation/main.twig:48
-#, fuzzy
-#| msgid "Navigation frame"
 msgid "Reload navigation panel"
-msgstr "Taolenn verdeiñ"
+msgstr "Adkargañ an daolenn verdeiñ"
 
 #: templates/navigation/main.twig:67
 msgid "An error has occurred while loading the navigation display"
-msgstr ""
+msgstr "C'hoarvezet ez eus ur fazi en ur gargañ an daolenn verdeiñ"
 
 #: templates/navigation/main.twig:88
 msgid "SQL upload"
-msgstr ""
+msgstr "Ezporzhiañ SQL"
 
 #: templates/navigation/tree/fast_filter.twig:11
 #: templates/navigation/tree/fast_filter.twig:12
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Skrivañ evit silañ an dra-mañ, Kas evit klask pep tra"
 
 #: templates/navigation/tree/fast_filter.twig:16
-#, fuzzy
-#| msgid "Save as file"
 msgid "Clear fast filter"
-msgstr "Enrollañ evel restr"
+msgstr "Dilemel ar sil"
 
 #: templates/preferences/autoload.twig:7
 msgid ""
