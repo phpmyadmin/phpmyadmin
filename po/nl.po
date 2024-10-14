@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-11 21:28-0300\n"
-"PO-Revision-Date: 2024-10-14 12:18+0000\n"
+"PO-Revision-Date: 2024-10-15 16:16+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-2/nl/>"
 "\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.8-rc\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7378,7 +7378,7 @@ msgstr "meest recent"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:613
 msgid "There was an error in loading the Git information."
-msgstr "Er is een fout opgetreden bij het ophalen van Git informatie."
+msgstr "Er is een fout opgetreden bij het laden van de Git informatie."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid ""
