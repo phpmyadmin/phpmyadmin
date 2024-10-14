@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-13 00:24+0000\n"
-"PO-Revision-Date: 2024-10-14 12:18+0000\n"
+"PO-Revision-Date: 2024-10-15 16:16+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,17 +13,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.8-rc\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript moet ingeschakeld zijn voorbij dit punt!"
 
 #: resources/templates/base.twig:46
-#, fuzzy
-#| msgid "Add user account"
 msgid "Open user account menu"
-msgstr "Gebruikersaccount toevoegen"
+msgstr "Open gebruikersmenu"
 
 #: resources/templates/base.twig:57 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
@@ -31,16 +29,12 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin-documentatie"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "MariaDB Documentation"
 msgid "MariaDB documentation"
-msgstr "MariaDB Documentatie"
+msgstr "MariaDB documentatie"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "MySQL Documentation"
 msgid "MySQL documentation"
-msgstr "MYSQL Documentatie"
+msgstr "MYSQL documentatie"
 
 #: resources/templates/base.twig:73
 msgid "Appearance:"
@@ -1213,10 +1207,8 @@ msgid "OK"
 msgstr "Correct"
 
 #: resources/templates/console/display.twig:178
-#, fuzzy
-#| msgid "Restore default value"
 msgid "Restore default values"
-msgstr "Standaardwaarde herstellen"
+msgstr "Standaardwaardes herstellen"
 
 #: resources/templates/console/display.twig:185 src/Config/Descriptions.php:958
 msgid "Always expand query messages"
@@ -3351,10 +3343,8 @@ msgid "Containing the word:"
 msgstr "Bevat het woord:"
 
 #: resources/templates/gis_data_editor_form.twig:26
-#, fuzzy
-#| msgid "Geometry %d:"
 msgid "Geometry type:"
-msgstr "Geometrie %d:"
+msgstr "Geometrie type:"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
@@ -3943,10 +3933,8 @@ msgid "Clear fast filter"
 msgstr "Snelle filter leegmaken"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
-#, fuzzy
-#| msgid "Recently used tables"
 msgid "Recently visited tables"
-msgstr "Recent gebruikte tabellen"
+msgstr "Recent bezochte tabellen"
 
 #: resources/templates/navigation/tree/quick_warp.twig:6
 msgid "Recent"
@@ -5296,10 +5284,8 @@ msgid "Save changes"
 msgstr "Wijzigingen opslaan"
 
 #: resources/templates/server/replication/change_primary.twig:7
-#, fuzzy
-#| msgid "Change or reconfigure primary server"
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "Wijzigen of herconfigureren primaire server"
+msgstr "Replica configuratie - Wijzigen of herconfigureren primaire server"
 
 #: resources/templates/server/replication/change_primary.twig:12
 msgid ""
@@ -5641,16 +5627,12 @@ msgid "Advisor"
 msgstr "Raadgever"
 
 #: resources/templates/server/status/monitor/index.twig:4
-#, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
-msgstr "Systeemgeheugen"
+msgstr "Systeemmonitor"
 
 #: resources/templates/server/status/monitor/index.twig:7
-#, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
-msgstr "Start bewaking"
+msgstr "Start monitor"
 
 #: resources/templates/server/status/monitor/index.twig:9
 msgid "Instructions/Setup"
@@ -5744,22 +5726,14 @@ msgstr ""
 "en grafieken verwijderen via het tandwielicoon bij iedere grafiek."
 
 #: resources/templates/server/status/monitor/index.twig:77
-#, fuzzy
-#| msgid ""
-#| "To display queries from the logs, select the relevant time span on any "
-#| "chart by holding down the left mouse button and panning over the chart. "
-#| "Once confirmed, this will load a table of grouped queries, there you may "
-#| "click on any occurring SELECT statements to further analyze them."
 msgid ""
 "To display queries from the logs, click on any chart. Once confirmed, this "
 "will load a table of grouped queries, there you may click on any occurring "
 "SELECT statements to further analyze them."
 msgstr ""
-"Om query's te tonen uit de logboeken, selecteer de relevante periode in een "
-"willekeurige grafiek door de linkermuisknop in te drukken en over de grafiek "
-"te slepen. Na het bevestiging wordt een tabel met gegroepeerde query's "
-"geladen, daar kunt u op één van de SELECT-statements klikken om deze verder "
-"te analyseren."
+"Om query's te tonen uit de logboeken, klik op een grafiek. Na het "
+"bevestiging wordt een tabel met gegroepeerde query's geladen, daar kunt u op "
+"één van de SELECT-statements klikken om deze verder te analyseren."
 
 #: resources/templates/server/status/monitor/index.twig:81
 msgid "Please note:"
@@ -6253,10 +6227,8 @@ msgid "ø Time"
 msgstr "Gemiddelde tijd"
 
 #: resources/templates/sql/profiling_chart.twig:66
-#, fuzzy
-#| msgid "Profiling results"
 msgid "Pie chart with profiling results."
-msgstr "Profiling-resultaten."
+msgstr "Taartdiagram met profiling resultaten."
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:116
@@ -6695,10 +6667,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Derde stap van normalisatie (1NF+2NF+3NF)"
 
 #: resources/templates/table/operations/index.twig:2
-#, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
-msgstr "Tabelopties"
+msgstr "Tabel bewerkingen"
 
 #: resources/templates/table/operations/index.twig:10
 msgid "Alter table order by"
@@ -11642,14 +11612,8 @@ msgid "Failed to read configuration file!"
 msgstr "Lezen van het configuratiebestand is niet gelukt!"
 
 #: src/Config.php:659
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
 msgid "This usually means there is a syntax error in it."
-msgstr ""
-"Dit betekent meestal dat er een syntaxfout is, controleer de onderstaande "
-"foutmeldingen."
+msgstr "Dit betekent meestal dat er een syntaxfout is."
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -11933,18 +11897,14 @@ msgid "Succeeded"
 msgstr "Geslaagd"
 
 #: src/Controllers/Console/UpdateConfigController.php:49
-#, fuzzy
-#| msgid "Table %1$s has been altered successfully."
 msgid "Console settings has been updated successfully."
-msgstr "Tabel %1$s is succesvol bijgewerkt."
+msgstr "Console instellingen zijn succesvol bijgewerkt."
 
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:28
-#, fuzzy
-#| msgid "Unexpected character."
 msgid "Unexpected parameter value."
-msgstr "Onverwachte letter."
+msgstr "Onverwachte parameter inhoud."
 
 #: src/Controllers/Database/CentralColumnsController.php:149
 #, php-format
@@ -13865,12 +13825,8 @@ msgid "up to date"
 msgstr "meest recent"
 
 #: src/Controllers/JavaScriptMessagesController.php:626
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr ""
-"Er is een fout opgetreden bij het importeren van het ESRI-vormbestand: "
-"\"%s\"."
+msgstr "Er is een fout opgetreden bij het laden van de Git informatie."
 
 #: src/Controllers/JavaScriptMessagesController.php:629
 msgid ""
@@ -15473,10 +15429,8 @@ msgid "The partition name must be a non-empty string."
 msgstr "De partitienaam mag geen leeg tekstveld zijn."
 
 #: src/Controllers/Table/RecentFavoriteController.php:35
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "Invalid database or table name."
-msgstr "Ongeldige tabelnaam."
+msgstr "Ongeldige database of tabelnaam."
 
 #: src/Controllers/Table/RelationController.php:316
 msgid "Display column was successfully updated."
@@ -15492,11 +15446,8 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rij: %1$s, Kolom: %2$s, Fout: %3$s"
 
 #: src/Controllers/Table/Structure/AddKeyController.php:23
-#, fuzzy
-#| msgctxt "U2F error"
-#| msgid "Invalid request sent to security key."
 msgid "Invalid request parameter."
-msgstr "Ongeldig verzoek verzonden naar beveiligingsapparaat."
+msgstr "Ongeldige vraag parameter."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:80
 msgid "The columns have been moved successfully."
@@ -16210,10 +16161,8 @@ msgid "Report"
 msgstr "Rapporteren"
 
 #: src/Exceptions/AuthenticationFailure.php:35
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Cannot log in to the database server."
-msgstr "Kan niet aanmelden op de MySQL-server."
+msgstr "Kan niet inloggen op database server."
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
@@ -16468,34 +16417,26 @@ msgid "The table name cannot end with a space character."
 msgstr "De tabelnaam kan niet eindigen op een spatie."
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
-#| msgid "View name can not be empty!"
 msgid "The trigger name must not be empty."
-msgstr "View naam kan niet leeg zijn."
+msgstr "Triggernaam kan niet leeg zijn."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
-#| msgid "The table name cannot be longer than %d characters."
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "De tabel naam kan niet langer zijn dan %d tekens."
+msgstr "De trigger naam kan niet langer zijn dan %d tekens."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
-#| msgid "The table name cannot end with a space character."
 msgid "The trigger name cannot end with a space character."
-msgstr "De tabelnaam kan niet eindigen op een spatie."
+msgstr "De triggernaam kan niet eindigen op een spatie."
 
 #: src/Import/Import.php:947
-#, fuzzy
-#| msgid ""
-#| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
-#| "transactional engine tables can be rolled back."
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
-"Alleen INSERT, UPDATE, DELETE en REPLACE SQL-query's die transactionele "
-"tabellen bevatten, kunnen teruggedraaid worden."
+"Alleen INSERT, UPDATE, DELETE, REPLACE en SET (zonder opties zoals GLOBAL) "
+"SQL-query's die transactionele tabellen bevatten, kunnen teruggedraaid "
+"worden."
 
 #: src/Import/Import.php:1169
 #, php-format
@@ -17101,13 +17042,9 @@ msgid "Your session has expired. Please log in again."
 msgstr "Uw sessie is verlopen. Log opnieuw in."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:241
-#, fuzzy
-#| msgid ""
-#| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr ""
-"reCAPTCHA verificatie niet gevonden, misschien geblokkeerd door een "
-"adblocker?"
+"Captcha verificatie niet gevonden, misschien geblokkeerd door een adblocker?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:276
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -17849,18 +17786,6 @@ msgstr ""
 "gekozen is het vereist dat de eerste optie leeg is."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Abs/ExternalTransformationsPlugin.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use. The second option should be blank for historical reasons. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -17876,15 +17801,15 @@ msgstr ""
 "ALLEEN LINUX: Start een externe applicatie op en voedt de kolomdata via "
 "standaard invoer. Geeft standaard uitvoer van de applicatie terug. Standaard "
 "is Tidy, om nette HTML-code te tonen. Om veiligheidsredenen zult u handmatig "
-"het bestand ibraries/classes/Plugins/Transformations/Abs/"
+"het bestand src/Plugins/Transformations/Abs/"
 "ExternalTransformationsPlugin.php moeten aanpassen en in de lijst de tools "
 "selecteren die u beschikbaar wil maken. De eerste optie is het nummer van "
 "het programma dat u wilt gebruiken. De tweede optie moet leeg blijven om "
 "historische redenen. De derde parameter, wanneer ingesteld op 1, zal de "
 "output omzetten door middel van htmlspecialchars() (Standaardwaarde is 1). "
 "Een vierde parameter, wanneer ingesteld als 1 zal NOWRAP aan de inhoudscel "
-"toevoegen, zodat de gehele uitvoer getoond zal worden op 1 regel "
-"(Standaardwaarde is 1)."
+"toevoegen, zodat de gehele uitvoer getoond zal worden op 1 regel ("
+"Standaardwaarde is 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
