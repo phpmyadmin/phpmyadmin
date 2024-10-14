@@ -50,10 +50,7 @@ class HeaderTest extends AbstractTestCase
     {
         $header = new Header();
         $header->disable();
-        $this->assertEquals(
-            '',
-            $header->getDisplay()
-        );
+        self::assertSame('', $header->getDisplay());
     }
 
     /**
@@ -63,10 +60,7 @@ class HeaderTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 0;
         $header = new Header();
-        $this->assertStringContainsString(
-            '<title>phpMyAdmin</title>',
-            $header->getDisplay()
-        );
+        self::assertStringContainsString('<title>phpMyAdmin</title>', $header->getDisplay());
     }
 
     /**
@@ -76,10 +70,7 @@ class HeaderTest extends AbstractTestCase
     {
         $header = new Header();
         $header->setBodyId('PMA_header_id');
-        $this->assertStringContainsString(
-            'PMA_header_id',
-            $header->getDisplay()
-        );
+        self::assertStringContainsString('PMA_header_id', $header->getDisplay());
     }
 
     /**
@@ -88,10 +79,7 @@ class HeaderTest extends AbstractTestCase
     public function testGetJsParams(): void
     {
         $header = new Header();
-        $this->assertArrayHasKey(
-            'common_query',
-            $header->getJsParams()
-        );
+        self::assertArrayHasKey('common_query', $header->getJsParams());
     }
 
     /**
@@ -100,10 +88,7 @@ class HeaderTest extends AbstractTestCase
     public function testGetJsParamsCode(): void
     {
         $header = new Header();
-        $this->assertStringContainsString(
-            'CommonParams.setAll',
-            $header->getJsParamsCode()
-        );
+        self::assertStringContainsString('CommonParams.setAll', $header->getJsParamsCode());
     }
 
     /**
@@ -112,10 +97,7 @@ class HeaderTest extends AbstractTestCase
     public function testGetMessage(): void
     {
         $header = new Header();
-        $this->assertStringContainsString(
-            'phpmyadminmessage',
-            $header->getMessage()
-        );
+        self::assertStringContainsString('phpmyadminmessage', $header->getMessage());
     }
 
     /**
@@ -129,7 +111,7 @@ class HeaderTest extends AbstractTestCase
         $header = new Header();
         $header->disableWarnings();
 
-        $this->assertFalse($reflection->getValue($header));
+        self::assertFalse($reflection->getValue($header));
     }
 
     /**
@@ -181,7 +163,7 @@ class HeaderTest extends AbstractTestCase
         }
 
         $headers = $this->callFunction($header, Header::class, 'getHttpHeaders', []);
-        $this->assertSame($expected, $headers);
+        self::assertSame($expected, $headers);
     }
 
     public static function providerForTestGetHttpHeaders(): array
@@ -253,19 +235,19 @@ class HeaderTest extends AbstractTestCase
         $consoleReflection = new ReflectionProperty(Header::class, 'console');
         $consoleReflection->setAccessible(true);
         $console = $consoleReflection->getValue($header);
-        $this->assertInstanceOf(Console::class, $console);
+        self::assertInstanceOf(Console::class, $console);
         $isAjax = new ReflectionProperty(Header::class, 'isAjax');
         $isAjax->setAccessible(true);
         $consoleIsAjax = new ReflectionProperty(Console::class, 'isAjax');
         $consoleIsAjax->setAccessible(true);
 
-        $this->assertFalse($isAjax->getValue($header));
-        $this->assertFalse($consoleIsAjax->getValue($console));
+        self::assertFalse($isAjax->getValue($header));
+        self::assertFalse($consoleIsAjax->getValue($console));
         $header->setAjax(true);
-        $this->assertTrue($isAjax->getValue($header));
-        $this->assertTrue($consoleIsAjax->getValue($console));
+        self::assertTrue($isAjax->getValue($header));
+        self::assertTrue($consoleIsAjax->getValue($console));
         $header->setAjax(false);
-        $this->assertFalse($isAjax->getValue($header));
-        $this->assertFalse($consoleIsAjax->getValue($console));
+        self::assertFalse($isAjax->getValue($header));
+        self::assertFalse($consoleIsAjax->getValue($console));
     }
 }

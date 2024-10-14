@@ -14723,8 +14723,7 @@
       <code>$filesFound</code>
       <code>$filesInfos</code>
     </MixedArgument>
-    <MixedAssignment occurrences="6">
-      <code>$context</code>
+    <MixedAssignment occurrences="5">
       <code>$context</code>
       <code>$context</code>
       <code>$filesFound</code>
@@ -14740,6 +14739,9 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
+    <RedundantCondition occurrences="1">
+      <code>assertSame</code>
+    </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="4">
       <code>assertFalse</code>
       <code>assertTrue</code>
@@ -14776,6 +14778,11 @@
     <MixedOperand occurrences="1">
       <code>$second</code>
     </MixedOperand>
+  </file>
+  <file src="test/classes/Config/FormDisplayTemplateTest.php">
+    <TypeDoesNotContainType occurrences="1">
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="test/classes/Config/FormDisplayTest.php">
     <MixedArrayAccess occurrences="10">
@@ -14841,7 +14848,8 @@
       <code>assertSame</code>
       <code>assertSame</code>
     </RedundantConditionGivenDocblockType>
-    <TypeDoesNotContainType occurrences="5">
+    <TypeDoesNotContainType occurrences="6">
+      <code>assertSame</code>
       <code>assertSame</code>
       <code>assertSame</code>
       <code>assertSame</code>
@@ -15042,6 +15050,11 @@
       <code>expects</code>
     </UndefinedMethod>
   </file>
+  <file src="test/classes/Controllers/Table/ReplaceControllerTest.php">
+    <TypeDoesNotContainType occurrences="1">
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
+  </file>
   <file src="test/classes/Controllers/Table/SearchControllerTest.php">
     <MixedMethodCall occurrences="3">
       <code>method</code>
@@ -15102,6 +15115,10 @@
     <PossiblyNullArgument occurrences="1">
       <code>$page</code>
     </PossiblyNullArgument>
+    <TypeDoesNotContainType occurrences="2">
+      <code>assertSame</code>
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="test/classes/CreateAddFieldTest.php">
     <MixedInferredReturnType occurrences="3">
@@ -15180,11 +15197,6 @@
       <code>expects</code>
       <code>expects</code>
     </UndefinedMethod>
-  </file>
-  <file src="test/classes/Database/DesignerTest.php">
-    <MixedAssignment occurrences="1">
-      <code>$result</code>
-    </MixedAssignment>
   </file>
   <file src="test/classes/Database/EventsTest.php">
     <MixedAssignment occurrences="2">
@@ -15507,16 +15519,9 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisVisualizationTest.php">
-    <MixedAssignment occurrences="10">
+    <MixedAssignment occurrences="3">
       <code>$dataSet</code>
       <code>$dataSet</code>
-      <code>$queryString</code>
-      <code>$queryString</code>
-      <code>$queryString</code>
-      <code>$queryString</code>
-      <code>$queryString</code>
-      <code>$queryString</code>
-      <code>$queryString</code>
       <code>$queryString</code>
     </MixedAssignment>
   </file>
@@ -15529,9 +15534,6 @@
     </RedundantCast>
   </file>
   <file src="test/classes/Html/GeneratorTest.php">
-    <MixedAssignment occurrences="1">
-      <code>$result</code>
-    </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
@@ -15617,16 +15619,9 @@
       <code>$_SESSION['tmpval']['relational_display']</code>
       <code>$_SESSION['tmpval']['relational_display']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="28">
+    <MixedAssignment occurrences="21">
       <code>$actual</code>
       <code>$actual</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
@@ -15650,6 +15645,9 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
+    <TypeDoesNotContainType occurrences="1">
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="test/classes/InternalRelationsTest.php">
     <MixedAssignment occurrences="2">
@@ -15815,9 +15813,6 @@
     <MixedArgument occurrences="1">
       <code>$result1['html']</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$result</code>
-    </MixedAssignment>
     <RedundantConditionGivenDocblockType occurrences="9">
       <code>assertIsArray</code>
       <code>assertIsArray</code>
@@ -15837,6 +15832,11 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertNotFalse</code>
     </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/OperationsTest.php">
+    <TypeDoesNotContainType occurrences="1">
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="test/classes/PdfTest.php">
     <MixedArgument occurrences="3">
@@ -15863,6 +15863,9 @@
     <RedundantCondition occurrences="1">
       <code>assertIsString</code>
     </RedundantCondition>
+    <TypeDoesNotContainType occurrences="1">
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="test/classes/Plugins/Auth/AuthenticationHttpTest.php">
     <InvalidArgument occurrences="3">
@@ -15878,14 +15881,24 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
+    <RedundantCondition occurrences="3">
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertSame</code>
+    </RedundantConditionGivenDocblockType>
   </file>
-  <file src="test/classes/Plugins/Export/ExportCodegenTest.php">
-    <MixedAssignment occurrences="2">
-      <code>$result</code>
-      <code>$result</code>
-    </MixedAssignment>
+  <file src="test/classes/Plugins/Auth/AuthenticationSignonTest.php">
+    <RedundantCondition occurrences="1">
+      <code>assertSame</code>
+    </RedundantCondition>
   </file>
   <file src="test/classes/Plugins/Export/ExportCsvTest.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>assertSame</code>
+    </DocblockTypeContradiction>
     <MixedAssignment occurrences="7">
       <code>$property</code>
       <code>$property</code>
@@ -15895,6 +15908,20 @@
       <code>$property</code>
       <code>$property</code>
     </MixedAssignment>
+    <RedundantCondition occurrences="2">
+      <code>assertFalse</code>
+      <code>assertSame</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="8">
+      <code>assertFalse</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/Plugins/Export/ExportExcelTest.php">
     <MixedAssignment occurrences="4">
@@ -15954,6 +15981,9 @@
       <code>$property</code>
       <code>$property</code>
     </MixedAssignment>
+    <TypeDoesNotContainType occurrences="1">
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="test/classes/Plugins/Export/ExportOdtTest.php">
     <InternalMethod occurrences="1">
@@ -15981,6 +16011,9 @@
       <code>$GLOBALS['plugin_param']['single_table']</code>
       <code>$GLOBALS['plugin_param']['single_table']</code>
     </PossiblyInvalidArrayOffset>
+    <TypeDoesNotContainType occurrences="1">
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="test/classes/Plugins/Export/ExportPdfTest.php">
     <MixedAssignment occurrences="2">
@@ -16000,7 +16033,7 @@
       <code>$properties[1]-&gt;getProperties()</code>
       <code>$result</code>
     </MixedArgument>
-    <MixedAssignment occurrences="21">
+    <MixedAssignment occurrences="19">
       <code>$leaf</code>
       <code>$leaf</code>
       <code>$leaf</code>
@@ -16018,8 +16051,6 @@
       <code>$property</code>
       <code>$property</code>
       <code>$property</code>
-      <code>$result</code>
-      <code>$result</code>
       <code>$result</code>
       <code>$result</code>
     </MixedAssignment>
@@ -16093,12 +16124,14 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Plugins/Import/ImportShpTest.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="3">
       <code>$import_notice</code>
       <code>$sql_query</code>
+      <code>$sql_query</code>
     </MixedArgument>
-    <RedundantCondition occurrences="1">
+    <RedundantCondition occurrences="2">
       <code>assertFalse</code>
+      <code>assertSame</code>
     </RedundantCondition>
   </file>
   <file src="test/classes/Plugins/Import/ImportSqlTest.php">
@@ -16195,21 +16228,16 @@
     </RedundantCondition>
   </file>
   <file src="test/classes/Server/PrivilegesTest.php">
-    <MixedArgument occurrences="7">
+    <MixedArgument occurrences="5">
       <code>$export</code>
       <code>$extra_data['new_privileges']</code>
       <code>$extra_data['new_user_string']</code>
       <code>$extra_data['new_user_string']</code>
-      <code>$real_sql_query</code>
-      <code>$sql_query</code>
       <code>$title</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$this-&gt;serverPrivileges-&gt;extractPrivInfo(null, true)</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="1">
-      <code>$returned_userGroup</code>
-    </MixedAssignment>
     <MixedMethodCall occurrences="19">
       <code>getMessage</code>
       <code>getMessage</code>
@@ -16231,6 +16259,9 @@
       <code>will</code>
       <code>will</code>
     </MixedMethodCall>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertNull</code>
+    </RedundantConditionGivenDocblockType>
     <UndefinedMethod occurrences="5">
       <code>expects</code>
       <code>expects</code>
@@ -16262,8 +16293,7 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Setup/ConfigGeneratorTest.php">
-    <MixedAssignment occurrences="2">
-      <code>$result</code>
+    <MixedAssignment occurrences="1">
       <code>$result</code>
     </MixedAssignment>
   </file>
@@ -16291,9 +16321,6 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/StorageEngineTest.php">
-    <MixedAssignment occurrences="1">
-      <code>$actual</code>
-    </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
@@ -16383,13 +16410,15 @@
     </UndefinedMethod>
   </file>
   <file src="test/classes/TableTest.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>assertSame</code>
+    </DocblockTypeContradiction>
     <InvalidArrayOffset occurrences="2">
       <code>$GLOBALS['sql_drop_table']</code>
       <code>$_POST['old_index']['Key_name']</code>
     </InvalidArrayOffset>
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="2">
       <code>$is_define_property</code>
-      <code>$sql</code>
       <code>$sql</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="1">

@@ -34,34 +34,20 @@ class BrowseForeignersTest extends AbstractTestCase
      */
     public function testGetForeignLimit(): void
     {
-        $this->assertNull(
-            $this->browseForeigners->getForeignLimit('Show all')
-        );
+        self::assertNull($this->browseForeigners->getForeignLimit('Show all'));
 
-        $this->assertEquals(
-            'LIMIT 0, 25 ',
-            $this->browseForeigners->getForeignLimit(null)
-        );
+        self::assertSame('LIMIT 0, 25 ', $this->browseForeigners->getForeignLimit(null));
 
         $_POST['pos'] = 10;
 
-        $this->assertEquals(
-            'LIMIT 10, 25 ',
-            $this->browseForeigners->getForeignLimit(null)
-        );
+        self::assertSame('LIMIT 10, 25 ', $this->browseForeigners->getForeignLimit(null));
 
         $GLOBALS['cfg']['MaxRows'] = 50;
         $browseForeigners = new BrowseForeigners(new Template());
 
-        $this->assertEquals(
-            'LIMIT 10, 50 ',
-            $browseForeigners->getForeignLimit(null)
-        );
+        self::assertSame('LIMIT 10, 50 ', $browseForeigners->getForeignLimit(null));
 
-        $this->assertEquals(
-            'LIMIT 10, 50 ',
-            $browseForeigners->getForeignLimit('xyz')
-        );
+        self::assertSame('LIMIT 10, 50 ', $browseForeigners->getForeignLimit('xyz'));
     }
 
     /**
@@ -69,30 +55,24 @@ class BrowseForeignersTest extends AbstractTestCase
      */
     public function testGetHtmlForGotoPage(): void
     {
-        $this->assertEquals(
-            '',
-            $this->callFunction(
-                $this->browseForeigners,
-                BrowseForeigners::class,
-                'getHtmlForGotoPage',
-                [null]
-            )
-        );
+        self::assertSame('', $this->callFunction(
+            $this->browseForeigners,
+            BrowseForeigners::class,
+            'getHtmlForGotoPage',
+            [null]
+        ));
 
         $_POST['pos'] = 15;
         $foreignData = [];
         $foreignData['disp_row'] = [];
         $foreignData['the_total'] = 5;
 
-        $this->assertEquals(
-            '',
-            $this->callFunction(
-                $this->browseForeigners,
-                BrowseForeigners::class,
-                'getHtmlForGotoPage',
-                [$foreignData]
-            )
-        );
+        self::assertSame('', $this->callFunction(
+            $this->browseForeigners,
+            BrowseForeigners::class,
+            'getHtmlForGotoPage',
+            [$foreignData]
+        ));
 
         $foreignData['the_total'] = 30;
         $result = $this->callFunction(
@@ -102,15 +82,15 @@ class BrowseForeignersTest extends AbstractTestCase
             [$foreignData]
         );
 
-        $this->assertStringStartsWith('Page number:', $result);
+        self::assertStringStartsWith('Page number:', $result);
 
-        $this->assertStringEndsWith('</select>', $result);
+        self::assertStringEndsWith('</select>', $result);
 
-        $this->assertStringContainsString('<select class="pageselector ajax" name="pos"', $result);
+        self::assertStringContainsString('<select class="pageselector ajax" name="pos"', $result);
 
-        $this->assertStringContainsString('<option selected="selected" style="font-weight: bold" value="0">', $result);
+        self::assertStringContainsString('<option selected="selected" style="font-weight: bold" value="0">', $result);
 
-        $this->assertStringContainsString('<option  value="25"', $result);
+        self::assertStringContainsString('<option  value="25"', $result);
     }
 
     /**
@@ -120,34 +100,28 @@ class BrowseForeignersTest extends AbstractTestCase
     {
         $desc = 'foobar<baz';
 
-        $this->assertEquals(
-            [
-                'foobar<baz',
-                '',
-            ],
-            $this->callFunction(
-                $this->browseForeigners,
-                BrowseForeigners::class,
-                'getDescriptionAndTitle',
-                [$desc]
-            )
-        );
+        self::assertSame([
+            'foobar<baz',
+            '',
+        ], $this->callFunction(
+            $this->browseForeigners,
+            BrowseForeigners::class,
+            'getDescriptionAndTitle',
+            [$desc]
+        ));
 
         $GLOBALS['cfg']['LimitChars'] = 5;
         $browseForeigners = new BrowseForeigners(new Template());
 
-        $this->assertEquals(
-            [
-                'fooba...',
-                'foobar<baz',
-            ],
-            $this->callFunction(
-                $browseForeigners,
-                BrowseForeigners::class,
-                'getDescriptionAndTitle',
-                [$desc]
-            )
-        );
+        self::assertSame([
+            'fooba...',
+            'foobar<baz',
+        ], $this->callFunction(
+            $browseForeigners,
+            BrowseForeigners::class,
+            'getDescriptionAndTitle',
+            [$desc]
+        ));
     }
 
     /**
@@ -173,36 +147,30 @@ class BrowseForeignersTest extends AbstractTestCase
             $current_value
         );
 
-        $this->assertStringContainsString(
-            '<form class="ajax" '
-            . 'id="browse_foreign_form" name="browse_foreign_from" '
-            . 'action="index.php?route=/browse-foreigners',
-            $result
-        );
-        $this->assertStringContainsString('" method="post">', $result);
+        self::assertStringContainsString('<form class="ajax" '
+        . 'id="browse_foreign_form" name="browse_foreign_from" '
+        . 'action="index.php?route=/browse-foreigners', $result);
+        self::assertStringContainsString('" method="post">', $result);
 
-        $this->assertStringContainsString('<fieldset class="row g-3 align-items-center mb-3">', $result);
+        self::assertStringContainsString('<fieldset class="row g-3 align-items-center mb-3">', $result);
 
-        $this->assertStringContainsString('<input type="hidden" name="field" value="foo">', $result);
+        self::assertStringContainsString('<input type="hidden" name="field" value="foo">', $result);
 
-        $this->assertStringContainsString('<input type="hidden" name="fieldkey" value="bar">', $result);
+        self::assertStringContainsString('<input type="hidden" name="fieldkey" value="bar">', $result);
 
-        $this->assertStringContainsString('<input type="hidden" name="rownumber" value="1">', $result);
+        self::assertStringContainsString('<input type="hidden" name="rownumber" value="1">', $result);
 
-        $this->assertStringContainsString('<div class="col-auto">', $result);
-        $this->assertStringContainsString('<label class="form-label" for="input_foreign_filter">', $result);
-        $this->assertStringContainsString(
-            '<input class="form-control" type="text" name="foreign_filter" '
-            . 'id="input_foreign_filter" value="5" data-old="5">',
-            $result
-        );
+        self::assertStringContainsString('<div class="col-auto">', $result);
+        self::assertStringContainsString('<label class="form-label" for="input_foreign_filter">', $result);
+        self::assertStringContainsString('<input class="form-control" type="text" name="foreign_filter" '
+        . 'id="input_foreign_filter" value="5" data-old="5">', $result);
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<input class="btn btn-primary" type="submit" name="submit_foreign_filter" value="Go">',
             $result
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<table class="table table-striped table-hover" id="browse_foreign_table">',
             $result
         );
@@ -218,11 +186,11 @@ class BrowseForeignersTest extends AbstractTestCase
             $current_value
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<table class="table table-striped table-hover" id="browse_foreign_table">',
             $result
         );
 
-        $this->assertStringContainsString('<th>', $result);
+        self::assertStringContainsString('<th>', $result);
     }
 }

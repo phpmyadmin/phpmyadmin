@@ -99,18 +99,16 @@ class TriggersTest extends TestBase
             '//div[@class=\'alert alert-success\' and contains(., \'Trigger `test_trigger` has been created\')]'
         );
 
-        $this->assertTrue(
-            $this->isElementPresent(
-                'xpath',
-                "//td[contains(., 'test_trigger')]"
-            )
-        );
+        self::assertTrue($this->isElementPresent(
+            'xpath',
+            "//td[contains(., 'test_trigger')]"
+        ));
 
         $this->dbQuery(
             'SHOW TRIGGERS FROM `' . $this->databaseName . '`;',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals('test_trigger', $this->getCellByTableClass('table_results', 1, 1));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertEquals('test_trigger', $this->getCellByTableClass('table_results', 1, 1));
             }
         );
 
@@ -121,7 +119,7 @@ class TriggersTest extends TestBase
             function (): void {
                 $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
                 // [ ] | Edit | Copy | Delete | 1 | 3
-                $this->assertEquals('3', $this->getCellByTableClass('table_results', 1, 6));
+                self::assertEquals('3', $this->getCellByTableClass('table_results', 1, 6));
             }
         );
     }
@@ -161,7 +159,7 @@ class TriggersTest extends TestBase
             function (): void {
                 $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
                 // [ ] | Edit | Copy | Delete | 1 | 12
-                $this->assertEquals('12', $this->getCellByTableClass('table_results', 1, 6));
+                self::assertEquals('12', $this->getCellByTableClass('table_results', 1, 6));
             }
         );
     }
@@ -193,15 +191,15 @@ class TriggersTest extends TestBase
             function (): void {
                 $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
                 // [ ] | Edit | Copy | Delete | 1 | 2
-                $this->assertEquals('2', $this->getCellByTableClass('table_results', 1, 6));
+                self::assertEquals('2', $this->getCellByTableClass('table_results', 1, 6));
             }
         );
 
         $this->dbQuery(
             'SHOW TRIGGERS FROM `' . $this->databaseName . '`;',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
             }
         );
     }

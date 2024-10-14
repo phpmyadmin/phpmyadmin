@@ -31,7 +31,7 @@ class RealRowCountControllerTest extends AbstractTestCase
         (new RealRowCountController($response, new Template(), 'world', $this->dbi))();
 
         $json = $response->getJSONResult();
-        $this->assertEquals('4,079', $json['real_row_count']);
+        self::assertSame('4,079', $json['real_row_count']);
 
         $_REQUEST['real_row_count_all'] = 'on';
 
@@ -43,6 +43,6 @@ class RealRowCountControllerTest extends AbstractTestCase
             ['table' => 'Country', 'row_count' => '239'],
             ['table' => 'CountryLanguage', 'row_count' => '984'],
         ];
-        $this->assertEquals($expected, $json['real_row_count_all']);
+        self::assertSame($expected, $json['real_row_count_all']);
     }
 }

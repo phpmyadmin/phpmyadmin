@@ -165,14 +165,11 @@ class CentralColumnsTest extends AbstractTestCase
      */
     public function testGetParams(): void
     {
-        $this->assertSame(
-            [
-                'user' => 'pma_user',
-                'db' => 'phpmyadmin',
-                'table' => 'pma_central_columns',
-            ],
-            $this->centralColumns->getParams()
-        );
+        self::assertSame([
+            'user' => 'pma_user',
+            'db' => 'phpmyadmin',
+            'table' => 'pma_central_columns',
+        ], $this->centralColumns->getParams());
     }
 
     /**
@@ -187,11 +184,8 @@ class CentralColumnsTest extends AbstractTestCase
                 array_slice($this->columnData, 1, 2)
             );
 
-        $this->assertEquals(
-            $this->modifiedColumnData,
-            $this->centralColumns->getColumnsList('phpmyadmin')
-        );
-        $this->assertEquals(
+        self::assertSame($this->modifiedColumnData, $this->centralColumns->getColumnsList('phpmyadmin'));
+        self::assertSame(
             array_slice($this->modifiedColumnData, 1, 2),
             $this->centralColumns->getColumnsList('phpmyadmin', 1, 2)
         );
@@ -214,10 +208,7 @@ class CentralColumnsTest extends AbstractTestCase
                 $this->returnValue([3])
             );
 
-        $this->assertEquals(
-            3,
-            $this->centralColumns->getCount('phpmyadmin')
-        );
+        self::assertSame(3, $this->centralColumns->getCount('phpmyadmin'));
     }
 
     /**
@@ -228,11 +219,9 @@ class CentralColumnsTest extends AbstractTestCase
         $_POST['db'] = 'PMA_db';
         $_POST['table'] = 'PMA_table';
 
-        $this->assertTrue(
-            $this->centralColumns->syncUniqueColumns(
-                ['PMA_table']
-            )
-        );
+        self::assertTrue($this->centralColumns->syncUniqueColumns(
+            ['PMA_table']
+        ));
     }
 
     /**
@@ -250,12 +239,10 @@ class CentralColumnsTest extends AbstractTestCase
             ->will(
                 $this->returnValue('PMA_table=CREATE table `PMA_table` (id integer)')
             );
-        $this->assertTrue(
-            $this->centralColumns->makeConsistentWithList(
-                'phpmyadmin',
-                ['PMA_table']
-            )
-        );
+        self::assertTrue($this->centralColumns->makeConsistentWithList(
+            'phpmyadmin',
+            ['PMA_table']
+        ));
     }
 
     /**
@@ -278,16 +265,13 @@ class CentralColumnsTest extends AbstractTestCase
             ->will(
                 $this->returnValue(['id', 'col1'])
             );
-        $this->assertEquals(
-            [
-                'id',
-                'col1',
-            ],
-            $this->centralColumns->getFromTable(
-                $db,
-                $table
-            )
-        );
+        self::assertSame([
+            'id',
+            'col1',
+        ], $this->centralColumns->getFromTable(
+            $db,
+            $table
+        ));
     }
 
     /**
@@ -310,14 +294,11 @@ class CentralColumnsTest extends AbstractTestCase
             ->will(
                 $this->returnValue(array_slice($this->columnData, 0, 2))
             );
-        $this->assertEquals(
-            array_slice($this->modifiedColumnData, 0, 2),
-            $this->centralColumns->getFromTable(
-                $db,
-                $table,
-                true
-            )
-        );
+        self::assertSame(array_slice($this->modifiedColumnData, 0, 2), $this->centralColumns->getFromTable(
+            $db,
+            $table,
+            true
+        ));
     }
 
     /**
@@ -325,34 +306,30 @@ class CentralColumnsTest extends AbstractTestCase
      */
     public function testUpdateOneColumn(): void
     {
-        $this->assertTrue(
-            $this->centralColumns->updateOneColumn(
-                'phpmyadmin',
-                '',
-                '',
-                '',
-                '',
-                '',
-                0,
-                '',
-                '',
-                ''
-            )
-        );
-        $this->assertTrue(
-            $this->centralColumns->updateOneColumn(
-                'phpmyadmin',
-                'col1',
-                '',
-                '',
-                '',
-                '',
-                0,
-                '',
-                '',
-                ''
-            )
-        );
+        self::assertTrue($this->centralColumns->updateOneColumn(
+            'phpmyadmin',
+            '',
+            '',
+            '',
+            '',
+            '',
+            0,
+            '',
+            '',
+            ''
+        ));
+        self::assertTrue($this->centralColumns->updateOneColumn(
+            'phpmyadmin',
+            'col1',
+            '',
+            '',
+            '',
+            '',
+            0,
+            '',
+            '',
+            ''
+        ));
     }
 
     /**
@@ -394,9 +371,7 @@ class CentralColumnsTest extends AbstractTestCase
             '',
             '',
         ];
-        $this->assertTrue(
-            $this->centralColumns->updateMultipleColumn($params)
-        );
+        self::assertTrue($this->centralColumns->updateMultipleColumn($params));
     }
 
     /**
@@ -433,18 +408,15 @@ class CentralColumnsTest extends AbstractTestCase
                 true,
             ]
         );
-        $this->assertStringContainsString(
-            $this->callFunction(
-                $this->centralColumns,
-                CentralColumns::class,
-                'getHtmlForEditTableRow',
-                [
-                    $list_detail_cols[0],
-                    0,
-                ]
-            ),
-            $result
-        );
+        self::assertStringContainsString($this->callFunction(
+            $this->centralColumns,
+            CentralColumns::class,
+            'getHtmlForEditTableRow',
+            [
+                $list_detail_cols[0],
+                0,
+            ]
+        ), $result);
     }
 
     /**
@@ -463,13 +435,10 @@ class CentralColumnsTest extends AbstractTestCase
             ->will(
                 $this->returnValue($this->columnData)
             );
-        $this->assertEquals(
-            $this->modifiedColumnData,
-            $this->centralColumns->getListRaw(
-                'phpmyadmin',
-                ''
-            )
-        );
+        self::assertSame($this->modifiedColumnData, $this->centralColumns->getListRaw(
+            'phpmyadmin',
+            ''
+        ));
     }
 
     /**
@@ -490,13 +459,10 @@ class CentralColumnsTest extends AbstractTestCase
             ->will(
                 $this->returnValue($this->columnData)
             );
-        $this->assertEquals(
-            $this->modifiedColumnData,
-            $this->centralColumns->getListRaw(
-                'phpmyadmin',
-                'table1'
-            )
-        );
+        self::assertSame($this->modifiedColumnData, $this->centralColumns->getListRaw(
+            'phpmyadmin',
+            'table1'
+        ));
     }
 
     /**
@@ -515,25 +481,22 @@ class CentralColumnsTest extends AbstractTestCase
             ->will(
                 $this->returnValue(array_slice($this->columnData, 1, 1))
             );
-        $this->assertEquals(
-            array_slice($this->modifiedColumnData, 1, 1),
-            $this->callFunction(
-                $this->centralColumns,
-                CentralColumns::class,
-                'findExistingColNames',
-                [
-                    'phpmyadmin',
-                    "'col1'",
-                    true,
-                ]
-            )
-        );
+        self::assertSame(array_slice($this->modifiedColumnData, 1, 1), $this->callFunction(
+            $this->centralColumns,
+            CentralColumns::class,
+            'findExistingColNames',
+            [
+                'phpmyadmin',
+                "'col1'",
+                true,
+            ]
+        ));
     }
 
     public function testGetColumnsNotInCentralList(): void
     {
         $columns = $this->centralColumns->getColumnsNotInCentralList('PMA_db', 'PMA_table');
-        $this->assertIsArray($columns);
-        $this->assertEquals(['id', 'col1', 'col2'], $columns);
+        self::assertIsArray($columns);
+        self::assertSame(['id', 'col1', 'col2'], $columns);
     }
 }

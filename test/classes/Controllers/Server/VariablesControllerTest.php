@@ -99,34 +99,19 @@ class VariablesControllerTest extends AbstractTestCase
         $controller();
         $html = $response->getHTMLResult();
 
-        $this->assertStringContainsString(
-            Generator::getIcon('b_save', __('Save')),
-            $html
-        );
-        $this->assertStringContainsString(
-            Generator::getIcon('b_close', __('Cancel')),
-            $html
-        );
-        $this->assertStringContainsString('<div class="card-header">' . __('Filters') . '</div>', $html);
-        $this->assertStringContainsString(
-            __('Containing the word:'),
-            $html
-        );
-        $this->assertStringContainsString(
-            __('Variable'),
-            $html
-        );
-        $this->assertStringContainsString(
-            __('Value'),
-            $html
-        );
+        self::assertStringContainsString(Generator::getIcon('b_save', __('Save')), $html);
+        self::assertStringContainsString(Generator::getIcon('b_close', __('Cancel')), $html);
+        self::assertStringContainsString('<div class="card-header">' . __('Filters') . '</div>', $html);
+        self::assertStringContainsString(__('Containing the word:'), $html);
+        self::assertStringContainsString(__('Variable'), $html);
+        self::assertStringContainsString(__('Value'), $html);
 
         $name = 'auto_increment_increment';
         $value = htmlspecialchars(str_replace('_', ' ', $name));
-        $this->assertStringContainsString($value, $html);
+        self::assertStringContainsString($value, $html);
         $name = 'auto_increment_offset';
         $value = htmlspecialchars(str_replace('_', ' ', $name));
-        $this->assertStringContainsString($value, $html);
+        self::assertStringContainsString($value, $html);
     }
 
     /**
@@ -162,8 +147,8 @@ class VariablesControllerTest extends AbstractTestCase
             $args
         );
 
-        $this->assertEquals('<abbr title="3">3 B</abbr>', $formattedValue);
-        $this->assertTrue($isHtmlFormatted);
+        self::assertSame('<abbr title="3">3 B</abbr>', $formattedValue);
+        self::assertTrue($isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
         $args = [
@@ -176,8 +161,8 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args
         );
-        $this->assertEquals('3', $formattedValue);
-        $this->assertFalse($isHtmlFormatted);
+        self::assertSame('3', $formattedValue);
+        self::assertFalse($isHtmlFormatted);
 
         //value is not a number
         $args = [
@@ -190,8 +175,8 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args
         );
-        $this->assertEquals('value', $formattedValue);
-        $this->assertFalse($isHtmlFormatted);
+        self::assertSame('value', $formattedValue);
+        self::assertFalse($isHtmlFormatted);
     }
 
     /**
@@ -225,8 +210,8 @@ class VariablesControllerTest extends AbstractTestCase
             $args
         );
 
-        $this->assertEquals('<abbr title="3">3 B</abbr>', $formattedValue);
-        $this->assertTrue($isHtmlFormatted);
+        self::assertSame('<abbr title="3">3 B</abbr>', $formattedValue);
+        self::assertTrue($isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
         $args = [
@@ -239,8 +224,8 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args
         );
-        $this->assertEquals('3', $formattedValue);
-        $this->assertFalse($isHtmlFormatted);
+        self::assertSame('3', $formattedValue);
+        self::assertFalse($isHtmlFormatted);
 
         //value is not a number
         $args = [
@@ -253,8 +238,8 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args
         );
-        $this->assertEquals('value', $formattedValue);
-        $this->assertFalse($isHtmlFormatted);
+        self::assertSame('value', $formattedValue);
+        self::assertFalse($isHtmlFormatted);
     }
 
     /**
@@ -283,7 +268,7 @@ class VariablesControllerTest extends AbstractTestCase
             $args
         );
 
-        $this->assertEquals('3', $formattedValue);
-        $this->assertFalse($isHtmlFormatted);
+        self::assertSame('3', $formattedValue);
+        self::assertFalse($isHtmlFormatted);
     }
 }

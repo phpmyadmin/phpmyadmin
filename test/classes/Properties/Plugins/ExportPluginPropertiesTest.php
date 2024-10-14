@@ -34,10 +34,7 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
 
     public function testGetItemType(): void
     {
-        $this->assertEquals(
-            'export',
-            $this->object->getItemType()
-        );
+        self::assertSame('export', $this->object->getItemType());
     }
 
     /**
@@ -49,8 +46,6 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
     {
         $this->object->setForceFile(true);
 
-        $this->assertTrue(
-            $this->object->getForceFile()
-        );
+        self::assertTrue($this->object->getForceFile());
     }
 }

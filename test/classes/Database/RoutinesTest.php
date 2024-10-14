@@ -66,7 +66,7 @@ class RoutinesTest extends AbstractTestCase
             $_REQUEST[$key] = $value;
         }
 
-        $this->assertEquals($out, $this->routines->getDataFromRequest());
+        self::assertEquals($out, $this->routines->getDataFromRequest());
     }
 
     /**
@@ -304,7 +304,7 @@ class RoutinesTest extends AbstractTestCase
      */
     public function testGetParameterRowEmpty(): void
     {
-        $this->assertEquals('', $this->routines->getParameterRow([], 0));
+        self::assertSame('', $this->routines->getParameterRow([], 0));
     }
 
     /**
@@ -317,10 +317,7 @@ class RoutinesTest extends AbstractTestCase
      */
     public function testGetParameterRow(array $data, int $index, string $matcher): void
     {
-        $this->assertStringContainsString(
-            $matcher,
-            $this->routines->getParameterRow($data, $index)
-        );
+        self::assertStringContainsString($matcher, $this->routines->getParameterRow($data, $index));
     }
 
     /**
@@ -396,10 +393,7 @@ class RoutinesTest extends AbstractTestCase
     public function testGetParameterRowAjax(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(true);
-        $this->assertStringContainsString(
-            $matcher,
-            $this->routines->getParameterRow($data)
-        );
+        self::assertStringContainsString($matcher, $this->routines->getParameterRow($data));
         ResponseRenderer::getInstance()->setAjax(false);
     }
 
@@ -470,10 +464,7 @@ class RoutinesTest extends AbstractTestCase
      */
     public function testGetEditorForm1(array $data, string $matcher): void
     {
-        $this->assertStringContainsString(
-            $matcher,
-            $this->routines->getEditorForm('add', '', $data)
-        );
+        self::assertStringContainsString($matcher, $this->routines->getEditorForm('add', '', $data));
     }
 
     /**
@@ -587,10 +578,7 @@ class RoutinesTest extends AbstractTestCase
      */
     public function testGetEditorForm2(array $data, string $matcher): void
     {
-        $this->assertStringContainsString(
-            $matcher,
-            $this->routines->getEditorForm('edit', 'change', $data)
-        );
+        self::assertStringContainsString($matcher, $this->routines->getEditorForm('edit', 'change', $data));
     }
 
     /**
@@ -705,10 +693,7 @@ class RoutinesTest extends AbstractTestCase
     public function testGetEditorForm3(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(true);
-        $this->assertStringContainsString(
-            $matcher,
-            $this->routines->getEditorForm('edit', 'remove', $data)
-        );
+        self::assertStringContainsString($matcher, $this->routines->getEditorForm('edit', 'remove', $data));
         ResponseRenderer::getInstance()->setAjax(false);
     }
 
@@ -819,10 +804,7 @@ class RoutinesTest extends AbstractTestCase
      */
     public function testGetEditorForm4(array $data, string $matcher): void
     {
-        $this->assertStringContainsString(
-            $matcher,
-            $this->routines->getEditorForm('edit', 'change', $data)
-        );
+        self::assertStringContainsString($matcher, $this->routines->getEditorForm('edit', 'change', $data));
     }
 
     /**
@@ -877,10 +859,7 @@ class RoutinesTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
-        $this->assertStringContainsString(
-            $matcher,
-            $this->routines->getExecuteForm($data)
-        );
+        self::assertStringContainsString($matcher, $this->routines->getExecuteForm($data));
     }
 
     /**
@@ -1019,10 +998,7 @@ class RoutinesTest extends AbstractTestCase
     public function testGetExecuteForm2(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(true);
-        $this->assertStringContainsString(
-            $matcher,
-            $this->routines->getExecuteForm($data)
-        );
+        self::assertStringContainsString($matcher, $this->routines->getExecuteForm($data));
         ResponseRenderer::getInstance()->setAjax(false);
     }
 
@@ -1183,8 +1159,8 @@ class RoutinesTest extends AbstractTestCase
 
         unset($_POST);
         $_POST = $request;
-        $this->assertEquals($query, $routines->getQueryFromRequest());
-        $this->assertCount($num_err, $errors);
+        self::assertSame($query, $routines->getQueryFromRequest());
+        self::assertCount($num_err, $errors);
 
         // reset
         $GLOBALS['dbi'] = $old_dbi;

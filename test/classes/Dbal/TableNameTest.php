@@ -42,8 +42,8 @@ class TableNameTest extends TestCase
     public function testValidName(): void
     {
         $name = TableName::fromValue('name');
-        $this->assertEquals('name', $name->getName());
-        $this->assertEquals('name', (string) $name);
+        self::assertSame('name', $name->getName());
+        self::assertSame('name', (string) $name);
     }
 
     /**

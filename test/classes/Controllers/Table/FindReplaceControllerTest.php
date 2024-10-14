@@ -90,7 +90,7 @@ class FindReplaceControllerTest extends AbstractTestCase
         $result = 'UPDATE `table` SET `Field1` = '
             . "REPLACE(`Field1`, 'Field', 'Column') "
             . "WHERE `Field1` LIKE '%Field%' COLLATE UTF-8_bin";
-        $this->assertEquals($result, $sql_query);
+        self::assertSame($result, $sql_query);
     }
 
     public function testReplaceWithRegex(): void
@@ -116,6 +116,6 @@ class FindReplaceControllerTest extends AbstractTestCase
         $result = 'UPDATE `table` SET `Field1` = `Field1`'
             . " WHERE `Field1` RLIKE 'Field' COLLATE UTF-8_bin";
 
-        $this->assertEquals($result, $sql_query);
+        self::assertSame($result, $sql_query);
     }
 }

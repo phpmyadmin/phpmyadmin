@@ -15,7 +15,7 @@ class ConsoleTest extends AbstractTestCase
     public function testGetScripts(): void
     {
         $console = new Console();
-        $this->assertEquals(['console.js'], $console->getScripts());
+        self::assertSame(['console.js'], $console->getScripts());
     }
 
     public function testSetAjax(): void
@@ -24,10 +24,10 @@ class ConsoleTest extends AbstractTestCase
         $isAjax->setAccessible(true);
         $console = new Console();
 
-        $this->assertFalse($isAjax->getValue($console));
+        self::assertFalse($isAjax->getValue($console));
         $console->setAjax(true);
-        $this->assertTrue($isAjax->getValue($console));
+        self::assertTrue($isAjax->getValue($console));
         $console->setAjax(false);
-        $this->assertFalse($isAjax->getValue($console));
+        self::assertFalse($isAjax->getValue($console));
     }
 }

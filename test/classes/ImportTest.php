@@ -41,35 +41,35 @@ class ImportTest extends AbstractTestCase
         $maximum_time = 0;
         $timeout_passed = false;
 
-        $this->assertFalse($this->import->checkTimeout());
+        self::assertFalse($this->import->checkTimeout());
 
         //Reinit values.
         $timestamp = time();
         $maximum_time = 0;
         $timeout_passed = true;
 
-        $this->assertFalse($this->import->checkTimeout());
+        self::assertFalse($this->import->checkTimeout());
 
         //Reinit values.
         $timestamp = time();
         $maximum_time = 30;
         $timeout_passed = true;
 
-        $this->assertTrue($this->import->checkTimeout());
+        self::assertTrue($this->import->checkTimeout());
 
         //Reinit values.
         $timestamp = time() - 15;
         $maximum_time = 30;
         $timeout_passed = false;
 
-        $this->assertFalse($this->import->checkTimeout());
+        self::assertFalse($this->import->checkTimeout());
 
         //Reinit values.
         $timestamp = time() - 60;
         $maximum_time = 30;
         $timeout_passed = false;
 
-        $this->assertTrue($this->import->checkTimeout());
+        self::assertTrue($this->import->checkTimeout());
     }
 
     /**
@@ -77,61 +77,40 @@ class ImportTest extends AbstractTestCase
      */
     public function testLookForUse(): void
     {
-        $this->assertEquals(
-            [
-                null,
-                null,
-            ],
-            $this->import->lookForUse(null, null, null)
-        );
+        self::assertSame([
+            null,
+            null,
+        ], $this->import->lookForUse(null, null, null));
 
-        $this->assertEquals(
-            [
-                'myDb',
-                null,
-            ],
-            $this->import->lookForUse(null, 'myDb', null)
-        );
+        self::assertSame([
+            'myDb',
+            null,
+        ], $this->import->lookForUse(null, 'myDb', null));
 
-        $this->assertEquals(
-            [
-                'myDb',
-                true,
-            ],
-            $this->import->lookForUse(null, 'myDb', true)
-        );
+        self::assertSame([
+            'myDb',
+            true,
+        ], $this->import->lookForUse(null, 'myDb', true));
 
-        $this->assertEquals(
-            [
-                'myDb',
-                true,
-            ],
-            $this->import->lookForUse('select 1 from myTable', 'myDb', true)
-        );
+        self::assertSame([
+            'myDb',
+            true,
+        ], $this->import->lookForUse('select 1 from myTable', 'myDb', true));
 
-        $this->assertEquals(
-            [
-                'anotherDb',
-                true,
-            ],
-            $this->import->lookForUse('use anotherDb', 'myDb', false)
-        );
+        self::assertSame([
+            'anotherDb',
+            true,
+        ], $this->import->lookForUse('use anotherDb', 'myDb', false));
 
-        $this->assertEquals(
-            [
-                'anotherDb',
-                true,
-            ],
-            $this->import->lookForUse('use anotherDb', 'myDb', true)
-        );
+        self::assertSame([
+            'anotherDb',
+            true,
+        ], $this->import->lookForUse('use anotherDb', 'myDb', true));
 
-        $this->assertEquals(
-            [
-                'anotherDb',
-                true,
-            ],
-            $this->import->lookForUse('use `anotherDb`;', 'myDb', true)
-        );
+        self::assertSame([
+            'anotherDb',
+            true,
+        ], $this->import->lookForUse('use `anotherDb`;', 'myDb', true));
     }
 
     /**
@@ -144,7 +123,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testGetColumnAlphaName(string $expected, int $num): void
     {
-        $this->assertEquals($expected, $this->import->getColumnAlphaName($num));
+        self::assertSame($expected, $this->import->getColumnAlphaName($num));
     }
 
     /**
@@ -192,7 +171,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testGetColumnNumberFromName(int $expected, string $name): void
     {
-        $this->assertEquals($expected, $this->import->getColumnNumberFromName($name));
+        self::assertSame($expected, $this->import->getColumnNumberFromName($name));
     }
 
     /**
@@ -240,7 +219,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testGetDecimalPrecision(int $expected, string $size): void
     {
-        $this->assertEquals($expected, $this->import->getDecimalPrecision($size));
+        self::assertSame($expected, $this->import->getDecimalPrecision($size));
     }
 
     /**
@@ -280,7 +259,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testGetDecimalScale(int $expected, string $size): void
     {
-        $this->assertEquals($expected, $this->import->getDecimalScale($size));
+        self::assertSame($expected, $this->import->getDecimalScale($size));
     }
 
     /**
@@ -320,7 +299,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testGetDecimalSize(array $expected, string $cell): void
     {
-        $this->assertEquals($expected, $this->import->getDecimalSize($cell));
+        self::assertSame($expected, $this->import->getDecimalSize($cell));
     }
 
     /**
@@ -379,7 +358,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testDetectType(int $expected, ?int $type, ?string $cell): void
     {
-        $this->assertEquals($expected, $this->import->detectType($type, $cell));
+        self::assertSame($expected, $this->import->detectType($type, $cell));
     }
 
     /**
@@ -485,7 +464,7 @@ class ImportTest extends AbstractTestCase
 
         $sqlQuery = 'UPDATE `table_1` AS t1, `table_2` t2 SET `table_1`.`id` = `table_2`.`id` WHERE 1';
 
-        $this->assertTrue($this->import->checkIfRollbackPossible($sqlQuery));
+        self::assertTrue($this->import->checkIfRollbackPossible($sqlQuery));
     }
 
     /**
@@ -541,7 +520,7 @@ class ImportTest extends AbstractTestCase
      */
     public function testSkipByteOrderMarksFromContents(string $input, string $cleanContents): void
     {
-        $this->assertEquals($cleanContents, $this->import->skipByteOrderMarksFromContents($input));
+        self::assertSame($cleanContents, $this->import->skipByteOrderMarksFromContents($input));
     }
 
     /**
@@ -557,39 +536,39 @@ class ImportTest extends AbstractTestCase
 
         $this->import->runQuery($query, $full, $sqlData);
 
-        $this->assertSame([], $sqlData);
-        $this->assertSame([
+        self::assertSame([], $sqlData);
+        self::assertSame([
             'sql' => 'SELECT 1;',
             'full' => 'SELECT 1;',
         ], $GLOBALS['import_run_buffer']);
-        $this->assertNull($GLOBALS['sql_query']);
-        $this->assertNull($GLOBALS['complete_query']);
-        $this->assertNull($GLOBALS['display_query']);
+        self::assertNull($GLOBALS['sql_query']);
+        self::assertNull($GLOBALS['complete_query']);
+        self::assertNull($GLOBALS['display_query']);
 
         $query = 'SELECT 2';
         $full = 'SELECT 2';
 
         $this->import->runQuery($query, $full, $sqlData);
 
-        $this->assertSame([
+        self::assertSame([
             'valid_sql' => ['SELECT 1;'],
             'valid_full' => ['SELECT 1;'],
             'valid_queries' => 1,
         ], $sqlData);
-        $this->assertSame([
+        self::assertSame([
             'sql' => 'SELECT 2;',
             'full' => 'SELECT 2;',
         ], $GLOBALS['import_run_buffer']);
-        $this->assertSame('SELECT 1;', $GLOBALS['sql_query']);
-        $this->assertSame('SELECT 1;', $GLOBALS['complete_query']);
-        $this->assertSame('SELECT 1;', $GLOBALS['display_query']);
+        self::assertSame('SELECT 1;', $GLOBALS['sql_query']);
+        self::assertSame('SELECT 1;', $GLOBALS['complete_query']);
+        self::assertSame('SELECT 1;', $GLOBALS['display_query']);
 
         $query = '';
         $full = '';
 
         $this->import->runQuery($query, $full, $sqlData);
 
-        $this->assertSame([
+        self::assertSame([
             'valid_sql' => [
                 'SELECT 1;',
                 'SELECT 2;',
@@ -601,9 +580,9 @@ class ImportTest extends AbstractTestCase
             'valid_queries' => 2,
         ], $sqlData);
 
-        $this->assertArrayNotHasKey('import_run_buffer', $GLOBALS);
-        $this->assertSame('SELECT 2;', $GLOBALS['sql_query']);
-        $this->assertSame('SELECT 1;SELECT 2;', $GLOBALS['complete_query']);
-        $this->assertSame('SELECT 1;SELECT 2;', $GLOBALS['display_query']);
+        self::assertArrayNotHasKey('import_run_buffer', $GLOBALS);
+        self::assertSame('SELECT 2;', $GLOBALS['sql_query']);
+        self::assertSame('SELECT 1;SELECT 2;', $GLOBALS['complete_query']);
+        self::assertSame('SELECT 1;SELECT 2;', $GLOBALS['display_query']);
     }
 }

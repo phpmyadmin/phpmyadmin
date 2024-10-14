@@ -52,46 +52,19 @@ class PrivilegesControllerTest extends AbstractTestCase
             $dbi
         ))(['checkprivsdb' => $db]);
 
-        $this->assertStringContainsString(
-            Url::getCommon(['db' => $db], ''),
-            $actual
-        );
+        self::assertStringContainsString(Url::getCommon(['db' => $db], ''), $actual);
 
-        $this->assertStringContainsString($db, $actual);
+        self::assertStringContainsString($db, $actual);
 
-        $this->assertStringContainsString(
-            __('User'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            __('Host'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            __('Type'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            __('Privileges'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            __('Grant'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            __('Action'),
-            $actual
-        );
+        self::assertStringContainsString(__('User'), $actual);
+        self::assertStringContainsString(__('Host'), $actual);
+        self::assertStringContainsString(__('Type'), $actual);
+        self::assertStringContainsString(__('Privileges'), $actual);
+        self::assertStringContainsString(__('Grant'), $actual);
+        self::assertStringContainsString(__('Action'), $actual);
 
         //_pgettext('Create new user', 'New')
-        $this->assertStringContainsString(
-            _pgettext('Create new user', 'New'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            Url::getCommon(['checkprivsdb' => $db]),
-            $actual
-        );
+        self::assertStringContainsString(_pgettext('Create new user', 'New'), $actual);
+        self::assertStringContainsString(Url::getCommon(['checkprivsdb' => $db]), $actual);
     }
 }

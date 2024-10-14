@@ -35,9 +35,6 @@ class PluginPropertyItemTest extends AbstractTestCase
 
     public function testGetPropertyType(): void
     {
-        $this->assertEquals(
-            'plugin',
-            $this->stub->getPropertyType()
-        );
+        self::assertSame('plugin', $this->stub->getPropertyType());
     }
 }

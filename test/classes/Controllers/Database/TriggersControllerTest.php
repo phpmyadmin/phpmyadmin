@@ -146,7 +146,7 @@ final class TriggersControllerTest extends AbstractTestCase
 HTML;
         // phpcs:enable
 
-        $this->assertSame($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     public function testWithoutTriggers(): void
@@ -232,6 +232,6 @@ HTML;
 HTML;
         // phpcs:enable
 
-        $this->assertSame($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 }

@@ -51,7 +51,7 @@ class SimulateDmlControllerTest extends AbstractTestCase
         );
         /** @var Parser $parser */
         $parser = $this->callFunction($controller, SimulateDmlController::class, 'createParser', [$sqlQuery, ';']);
-        $this->assertCount(count($expectedPerQuery), $parser->statements);
+        self::assertCount(count($expectedPerQuery), $parser->statements);
 
         $this->callFunction($controller, SimulateDmlController::class, 'process', [$parser]);
 
@@ -60,7 +60,7 @@ class SimulateDmlControllerTest extends AbstractTestCase
 
         /** @var string $error */
         $error = $this->getProperty($controller, SimulateDmlController::class, 'error');
-        $this->assertSame('', $error);
+        self::assertSame('', $error);
 
         /** @var list<array<mixed>> $result */
         $result = $this->getProperty($controller, SimulateDmlController::class, 'data');
@@ -78,7 +78,7 @@ class SimulateDmlControllerTest extends AbstractTestCase
                 ]),
             ];
 
-            $this->assertEquals($expected, $result[$idx]);
+            self::assertSame($expected, $result[$idx]);
         }
     }
 

@@ -46,7 +46,7 @@ class LoadControllerTest extends AbstractTestCase
             new Relation($this->dbi)
         ))($request);
 
-        $this->assertTrue($response->hasSuccessState());
-        $this->assertEquals(['data' => 'data1'], $response->getJSONResult());
+        self::assertTrue($response->hasSuccessState());
+        self::assertSame(['data' => 'data1'], $response->getJSONResult());
     }
 }

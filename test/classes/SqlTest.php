@@ -73,7 +73,7 @@ class SqlTest extends AbstractTestCase
         $GLOBALS['_SESSION']['tmpval']['max_rows'] = 2;
 
         $analyzed_sql_results = $this->parseAndAnalyze('SELECT * FROM test LIMIT 0, 10');
-        $this->assertEquals(
+        self::assertSame(
             'SELECT * FROM test LIMIT 1, 2 ',
             $this->callFunction($this->sql, Sql::class, 'getSqlWithLimitClause', [&$analyzed_sql_results])
         );
@@ -87,35 +87,25 @@ class SqlTest extends AbstractTestCase
         // Test environment.
         $GLOBALS['cfg']['RememberSorting'] = true;
 
-        $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
-                $this->parseAndAnalyze('SELECT * FROM tbl'),
-            ])
-        );
+        self::assertTrue($this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
+            $this->parseAndAnalyze('SELECT * FROM tbl'),
+        ]));
 
-        $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
-                $this->parseAndAnalyze('SELECT col FROM tbl'),
-            ])
-        );
+        self::assertFalse($this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
+            $this->parseAndAnalyze('SELECT col FROM tbl'),
+        ]));
 
-        $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
-                $this->parseAndAnalyze('SELECT 1'),
-            ])
-        );
+        self::assertFalse($this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
+            $this->parseAndAnalyze('SELECT 1'),
+        ]));
 
-        $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
-                $this->parseAndAnalyze('SELECT col1, col2 FROM tbl'),
-            ])
-        );
+        self::assertFalse($this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
+            $this->parseAndAnalyze('SELECT col1, col2 FROM tbl'),
+        ]));
 
-        $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
-                $this->parseAndAnalyze('SELECT COUNT(*) from tbl'),
-            ])
-        );
+        self::assertFalse($this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
+            $this->parseAndAnalyze('SELECT COUNT(*) from tbl'),
+        ]));
     }
 
     /**
@@ -126,17 +116,13 @@ class SqlTest extends AbstractTestCase
         // Test environment.
         $GLOBALS['_SESSION']['tmpval']['max_rows'] = 10;
 
-        $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'isAppendLimitClause', [
-                $this->parseAndAnalyze('SELECT * FROM tbl'),
-            ])
-        );
+        self::assertTrue($this->callFunction($this->sql, Sql::class, 'isAppendLimitClause', [
+            $this->parseAndAnalyze('SELECT * FROM tbl'),
+        ]));
 
-        $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'isAppendLimitClause', [
-                $this->parseAndAnalyze('SELECT * from tbl LIMIT 0, 10'),
-            ])
-        );
+        self::assertFalse($this->callFunction($this->sql, Sql::class, 'isAppendLimitClause', [
+            $this->parseAndAnalyze('SELECT * from tbl LIMIT 0, 10'),
+        ]));
     }
 
     public function testIsJustBrowsing(): void
@@ -144,17 +130,17 @@ class SqlTest extends AbstractTestCase
         // Test environment.
         $GLOBALS['_SESSION']['tmpval']['max_rows'] = 10;
 
-        $this->assertTrue(Sql::isJustBrowsing(
+        self::assertTrue(Sql::isJustBrowsing(
             $this->parseAndAnalyze('SELECT * FROM db.tbl'),
             null
         ));
 
-        $this->assertTrue(Sql::isJustBrowsing(
+        self::assertTrue(Sql::isJustBrowsing(
             $this->parseAndAnalyze('SELECT * FROM tbl WHERE 1'),
             null
         ));
 
-        $this->assertFalse(Sql::isJustBrowsing(
+        self::assertFalse(Sql::isJustBrowsing(
             $this->parseAndAnalyze('SELECT * from tbl1, tbl2 LIMIT 0, 10'),
             null
         ));
@@ -165,23 +151,17 @@ class SqlTest extends AbstractTestCase
      */
     public function testIsDeleteTransformationInfo(): void
     {
-        $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'isDeleteTransformationInfo', [
-                $this->parseAndAnalyze('ALTER TABLE tbl DROP COLUMN col'),
-            ])
-        );
+        self::assertTrue($this->callFunction($this->sql, Sql::class, 'isDeleteTransformationInfo', [
+            $this->parseAndAnalyze('ALTER TABLE tbl DROP COLUMN col'),
+        ]));
 
-        $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'isDeleteTransformationInfo', [
-                $this->parseAndAnalyze('DROP TABLE tbl'),
-            ])
-        );
+        self::assertTrue($this->callFunction($this->sql, Sql::class, 'isDeleteTransformationInfo', [
+            $this->parseAndAnalyze('DROP TABLE tbl'),
+        ]));
 
-        $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'isDeleteTransformationInfo', [
-                $this->parseAndAnalyze('SELECT * from tbl'),
-            ])
-        );
+        self::assertFalse($this->callFunction($this->sql, Sql::class, 'isDeleteTransformationInfo', [
+            $this->parseAndAnalyze('SELECT * from tbl'),
+        ]));
     }
 
     /**
@@ -189,29 +169,23 @@ class SqlTest extends AbstractTestCase
      */
     public function testHasNoRightsToDropDatabase(): void
     {
-        $this->assertTrue(
-            $this->sql->hasNoRightsToDropDatabase(
-                $this->parseAndAnalyze('DROP DATABASE db'),
-                false,
-                false
-            )
-        );
+        self::assertTrue($this->sql->hasNoRightsToDropDatabase(
+            $this->parseAndAnalyze('DROP DATABASE db'),
+            false,
+            false
+        ));
 
-        $this->assertFalse(
-            $this->sql->hasNoRightsToDropDatabase(
-                $this->parseAndAnalyze('DROP TABLE tbl'),
-                false,
-                false
-            )
-        );
+        self::assertFalse($this->sql->hasNoRightsToDropDatabase(
+            $this->parseAndAnalyze('DROP TABLE tbl'),
+            false,
+            false
+        ));
 
-        $this->assertFalse(
-            $this->sql->hasNoRightsToDropDatabase(
-                $this->parseAndAnalyze('SELECT * from tbl'),
-                false,
-                false
-            )
-        );
+        self::assertFalse($this->sql->hasNoRightsToDropDatabase(
+            $this->parseAndAnalyze('SELECT * from tbl'),
+            false,
+            false
+        ));
     }
 
     /**
@@ -231,9 +205,7 @@ class SqlTest extends AbstractTestCase
             $col2,
             $col3,
         ];
-        $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
-        );
+        self::assertFalse($this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]));
 
         // should not matter on where the odd column occurs
         $fields_meta = [
@@ -241,18 +213,14 @@ class SqlTest extends AbstractTestCase
             $col3,
             $col1,
         ];
-        $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
-        );
+        self::assertFalse($this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]));
 
         $fields_meta = [
             $col3,
             $col1,
             $col2,
         ];
-        $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
-        );
+        self::assertFalse($this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]));
     }
 
     /**
@@ -272,9 +240,7 @@ class SqlTest extends AbstractTestCase
             $col3,
         ];
 
-        $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
-        );
+        self::assertTrue($this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]));
     }
 
     /**
@@ -295,9 +261,7 @@ class SqlTest extends AbstractTestCase
             $col2,
             $col3,
         ];
-        $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
-        );
+        self::assertTrue($this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]));
 
         // should not matter on where the function column occurs
         $fields_meta = [
@@ -305,18 +269,14 @@ class SqlTest extends AbstractTestCase
             $col3,
             $col1,
         ];
-        $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
-        );
+        self::assertTrue($this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]));
 
         $fields_meta = [
             $col3,
             $col1,
             $col2,
         ];
-        $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
-        );
+        self::assertTrue($this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]));
     }
 
     /**
@@ -337,9 +297,7 @@ class SqlTest extends AbstractTestCase
             $col3,
         ];
 
-        $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
-        );
+        self::assertFalse($this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]));
     }
 
     /**
@@ -622,7 +580,7 @@ class SqlTest extends AbstractTestCase
                 $analyzed_sql_results,
             ]
         );
-        $this->assertSame($expectedNumRows, $result);
+        self::assertSame($expectedNumRows, $result);
         $this->assertAllQueriesConsumed();
     }
 
@@ -789,21 +747,21 @@ class SqlTest extends AbstractTestCase
             'SELECT * FROM `sakila`.`country` LIMIT 0, 3;',
             null
         );
-        $this->assertStringContainsString('Showing rows 0 -  2 (3 total', $actual);
-        $this->assertStringContainsString('SELECT * FROM `sakila`.`country` LIMIT 0, 3;', $actual);
-        $this->assertStringContainsString('Afghanistan', $actual);
-        $this->assertStringContainsString('Algeria', $actual);
-        $this->assertStringContainsString('American Samoa', $actual);
-        $this->assertStringContainsString('data-type="int"', $actual);
-        $this->assertStringContainsString('data-type="string"', $actual);
-        $this->assertStringContainsString('data-type="timestamp"', $actual);
+        self::assertStringContainsString('Showing rows 0 -  2 (3 total', $actual);
+        self::assertStringContainsString('SELECT * FROM `sakila`.`country` LIMIT 0, 3;', $actual);
+        self::assertStringContainsString('Afghanistan', $actual);
+        self::assertStringContainsString('Algeria', $actual);
+        self::assertStringContainsString('American Samoa', $actual);
+        self::assertStringContainsString('data-type="int"', $actual);
+        self::assertStringContainsString('data-type="string"', $actual);
+        self::assertStringContainsString('data-type="timestamp"', $actual);
     }
 
     public function testGetDetailedProfilingStatsWithoutData(): void
     {
         $method = new ReflectionMethod($this->sql, 'getDetailedProfilingStats');
         $method->setAccessible(true);
-        $this->assertSame(
+        self::assertSame(
             ['total_time' => 0, 'states' => [], 'chart' => [], 'profile' => []],
             $method->invoke($this->sql, [])
         );
@@ -922,6 +880,6 @@ class SqlTest extends AbstractTestCase
                 ['status' => 'Reset For Next Command', 'duration' => '9 µ', 'duration_raw' => '0.000009'],
             ],
         ];
-        $this->assertSame($expected, $method->invoke($this->sql, $profiling));
+        self::assertSame($expected, $method->invoke($this->sql, $profiling));
     }
 }

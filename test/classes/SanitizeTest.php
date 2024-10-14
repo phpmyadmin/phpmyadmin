@@ -26,7 +26,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testXssInHref(): void
     {
-        $this->assertEquals(
+        self::assertSame(
             '[a@javascript:alert(\'XSS\');@target]link</a>',
             Sanitize::sanitizeMessage('[a@javascript:alert(\'XSS\');@target]link[/a]')
         );
@@ -41,7 +41,7 @@ class SanitizeTest extends AbstractTestCase
 
         unset($GLOBALS['server']);
         unset($GLOBALS['lang']);
-        $this->assertEquals(
+        self::assertSame(
             '<a href="./url.php?url=https%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',
             Sanitize::sanitizeMessage('[a@https://www.phpmyadmin.net/@target]link[/a]')
         );
@@ -59,7 +59,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testDoc(string $link, string $expected): void
     {
-        $this->assertEquals(
+        self::assertSame(
             '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F'
                 . $expected . '" target="documentation">doclink</a>',
             Sanitize::sanitizeMessage('[doc@' . $link . ']doclink[/doc]')
@@ -98,7 +98,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testInvalidTarget(): void
     {
-        $this->assertEquals(
+        self::assertSame(
             '[a@./Documentation.html@INVALID9]doc</a>',
             Sanitize::sanitizeMessage('[a@./Documentation.html@INVALID9]doc[/a]')
         );
@@ -109,7 +109,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testLinkDocXss(): void
     {
-        $this->assertEquals(
+        self::assertSame(
             '[a@./Documentation.html" onmouseover="alert(foo)"]doc</a>',
             Sanitize::sanitizeMessage('[a@./Documentation.html" onmouseover="alert(foo)"]doc[/a]')
         );
@@ -120,7 +120,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testLinkAndXssInHref(): void
     {
-        $this->assertEquals(
+        self::assertSame(
             '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2F">doc</a>'
                 . '[a@javascript:alert(\'XSS\');@target]link</a>',
             Sanitize::sanitizeMessage(
@@ -134,10 +134,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testHtmlTags(): void
     {
-        $this->assertEquals(
-            '&lt;div onclick=""&gt;',
-            Sanitize::sanitizeMessage('<div onclick="">')
-        );
+        self::assertSame('&lt;div onclick=""&gt;', Sanitize::sanitizeMessage('<div onclick="">'));
     }
 
     /**
@@ -145,10 +142,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testBBCode(): void
     {
-        $this->assertEquals(
-            '<strong>strong</strong>',
-            Sanitize::sanitizeMessage('[strong]strong[/strong]')
-        );
+        self::assertSame('<strong>strong</strong>', Sanitize::sanitizeMessage('[strong]strong[/strong]'));
     }
 
     /**
@@ -156,7 +150,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testEscape(): void
     {
-        $this->assertEquals(
+        self::assertSame(
             '&lt;strong&gt;strong&lt;/strong&gt;',
             Sanitize::sanitizeMessage('[strong]strong[/strong]', true)
         );
@@ -167,10 +161,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testSanitizeFilename(): void
     {
-        $this->assertEquals(
-            'File_name_123',
-            Sanitize::sanitizeFilename('File_name 123')
-        );
+        self::assertSame('File_name_123', Sanitize::sanitizeFilename('File_name 123'));
     }
 
     /**
@@ -184,21 +175,15 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testGetJsValue(string $key, $value, string $expected): void
     {
-        $this->assertEquals($expected, Sanitize::getJsValue($key, $value));
-        $this->assertEquals('foo = 100', Sanitize::getJsValue('foo', '100', false));
+        self::assertSame($expected, Sanitize::getJsValue($key, $value));
+        self::assertSame('foo = 100', Sanitize::getJsValue('foo', '100', false));
         $array = [
             '1',
             '2',
             '3',
         ];
-        $this->assertEquals(
-            "foo = [\"1\",\"2\",\"3\",];\n",
-            Sanitize::getJsValue('foo', $array)
-        );
-        $this->assertEquals(
-            "foo = \"bar\\\"baz\";\n",
-            Sanitize::getJsValue('foo', 'bar"baz')
-        );
+        self::assertSame("foo = [\"1\",\"2\",\"3\",];\n", Sanitize::getJsValue('foo', $array));
+        self::assertSame("foo = \"bar\\\"baz\";\n", Sanitize::getJsValue('foo', 'bar"baz'));
     }
 
     /**
@@ -206,7 +191,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testJsFormat(): void
     {
-        $this->assertEquals('`foo`', Sanitize::jsFormat('foo'));
+        self::assertSame('`foo`', Sanitize::jsFormat('foo'));
     }
 
     /**
@@ -265,7 +250,7 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testEscapeJsString(string $target, string $source): void
     {
-        $this->assertEquals($target, Sanitize::escapeJsString($source));
+        self::assertSame($target, Sanitize::escapeJsString($source));
     }
 
     /**
@@ -317,9 +302,9 @@ class SanitizeTest extends AbstractTestCase
             'second',
         ];
         Sanitize::removeRequestVars($allow_list);
-        $this->assertArrayNotHasKey('foo', $_REQUEST);
-        $this->assertArrayNotHasKey('second', $_REQUEST);
-        $this->assertArrayHasKey('allow', $_REQUEST);
+        self::assertArrayNotHasKey('foo', $_REQUEST);
+        self::assertArrayNotHasKey('second', $_REQUEST);
+        self::assertArrayHasKey('allow', $_REQUEST);
     }
 
     /**
@@ -440,9 +425,6 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testCheckLink(bool $expected, string $url, bool $http, bool $other): void
     {
-        $this->assertSame(
-            $expected,
-            Sanitize::checkLink($url, $http, $other)
-        );
+        self::assertSame($expected, Sanitize::checkLink($url, $http, $other));
     }
 }

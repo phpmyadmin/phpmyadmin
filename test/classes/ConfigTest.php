@@ -89,13 +89,13 @@ class ConfigTest extends AbstractTestCase
             $this->markTestSkipped('Creating a temporary file does not work');
         }
 
-        $this->assertFileExists($tmpConfig);
+        self::assertFileExists($tmpConfig);
 
         // end of setup
 
         // Test loading an empty file does not change the default config
         $config = new Config($tmpConfig);
-        $this->assertSame($defaultConfig->settings, $config->settings);
+        self::assertSame($defaultConfig->settings, $config->settings);
 
         $contents = '<?php' . PHP_EOL
                     . '$cfg[\'ProtectBinary\'] = true;';
@@ -104,12 +104,12 @@ class ConfigTest extends AbstractTestCase
         // Test loading a config changes the setup
         $config = new Config($tmpConfig);
         $defaultConfig->settings['ProtectBinary'] = true;
-        $this->assertSame($defaultConfig->settings, $config->settings);
+        self::assertSame($defaultConfig->settings, $config->settings);
         $defaultConfig->settings['ProtectBinary'] = 'blob';
 
         // Teardown
         unlink($tmpConfig);
-        $this->assertFalse(file_exists($tmpConfig));
+        self::assertFalse(file_exists($tmpConfig));
     }
 
     /**
@@ -123,13 +123,13 @@ class ConfigTest extends AbstractTestCase
             $this->markTestSkipped('Creating a temporary file does not work');
         }
 
-        $this->assertFileExists($tmpConfig);
+        self::assertFileExists($tmpConfig);
 
         // end of setup
 
         // Test loading an empty file does not change the default config
         $config = new Config($tmpConfig);
-        $this->assertSame($defaultConfig->settings, $config->settings);
+        self::assertSame($defaultConfig->settings, $config->settings);
 
         $contents = '<?php' . PHP_EOL
                     . '$cfg[\'fooBar\'] = true;';
@@ -139,7 +139,7 @@ class ConfigTest extends AbstractTestCase
         $config = new Config($tmpConfig);
         $defaultConfig->settings['fooBar'] = true;
         // Equals because of the key sorting
-        $this->assertEquals($defaultConfig->settings, $config->settings);
+        self::assertEquals($defaultConfig->settings, $config->settings);
         unset($defaultConfig->settings['fooBar']);
 
         $contents = '<?php' . PHP_EOL
@@ -154,12 +154,12 @@ class ConfigTest extends AbstractTestCase
         $config = new Config($tmpConfig);
         $defaultConfig->settings['ValidKey'] = true;
         // Equals because of the key sorting
-        $this->assertEquals($defaultConfig->settings, $config->settings);
+        self::assertEquals($defaultConfig->settings, $config->settings);
         unset($defaultConfig->settings['ValidKey']);
 
         // Teardown
         unlink($tmpConfig);
-        $this->assertFalse(file_exists($tmpConfig));
+        self::assertFalse(file_exists($tmpConfig));
     }
 
     /**
@@ -171,7 +171,7 @@ class ConfigTest extends AbstractTestCase
     {
         $this->object->checkSystem();
 
-        $this->assertIsBool($this->object->get('PMA_IS_WINDOWS'));
+        self::assertIsBool($this->object->get('PMA_IS_WINDOWS'));
     }
 
     /**
@@ -184,13 +184,13 @@ class ConfigTest extends AbstractTestCase
         $this->object->set('PMA_USR_BROWSER_AGENT', 'IE');
         $this->object->set('PMA_USR_BROWSER_VER', 6);
         $this->object->checkOutputCompression();
-        $this->assertTrue($this->object->get('OBGzip'));
+        self::assertTrue($this->object->get('OBGzip'));
 
         $this->object->set('OBGzip', 'auto');
         $this->object->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
         $this->object->set('PMA_USR_BROWSER_VER', 5);
         $this->object->checkOutputCompression();
-        $this->assertTrue($this->object->get('OBGzip'));
+        self::assertTrue($this->object->get('OBGzip'));
     }
 
     /**
@@ -207,22 +207,16 @@ class ConfigTest extends AbstractTestCase
     {
         $_SERVER['HTTP_USER_AGENT'] = $agent;
         $this->object->checkClient();
-        $this->assertEquals($os, $this->object->get('PMA_USR_OS'));
+        self::assertSame($os, $this->object->get('PMA_USR_OS'));
         if ($os != null) {
-            $this->assertEquals(
-                $browser,
-                $this->object->get('PMA_USR_BROWSER_AGENT')
-            );
+            self::assertSame($browser, $this->object->get('PMA_USR_BROWSER_AGENT'));
         }
 
         if ($version == null) {
             return;
         }
 
-        $this->assertEquals(
-            $version,
-            $this->object->get('PMA_USR_BROWSER_VER')
-        );
+        self::assertEquals($version, $this->object->get('PMA_USR_BROWSER_VER'));
     }
 
     /**
@@ -334,17 +328,17 @@ class ConfigTest extends AbstractTestCase
     {
         $this->object->set('GD2Available', 'yes');
         $this->object->checkGd2();
-        $this->assertEquals(1, $this->object->get('PMA_IS_GD2'));
+        self::assertSame(1, $this->object->get('PMA_IS_GD2'));
 
         $this->object->set('GD2Available', 'no');
         $this->object->checkGd2();
-        $this->assertEquals(0, $this->object->get('PMA_IS_GD2'));
+        self::assertSame(0, $this->object->get('PMA_IS_GD2'));
 
         $this->object->set('GD2Available', 'auto');
 
         if (! function_exists('imagecreatetruecolor')) {
             $this->object->checkGd2();
-            $this->assertEquals(
+            self::assertSame(
                 0,
                 $this->object->get('PMA_IS_GD2'),
                 'imagecreatetruecolor does not exist, PMA_IS_GD2 should be 0'
@@ -355,17 +349,9 @@ class ConfigTest extends AbstractTestCase
             $this->object->checkGd2();
             $gd_nfo = gd_info();
             if (mb_strstr($gd_nfo['GD Version'], '2.')) {
-                $this->assertEquals(
-                    1,
-                    $this->object->get('PMA_IS_GD2'),
-                    'GD Version >= 2, PMA_IS_GD2 should be 1'
-                );
+                self::assertSame(1, $this->object->get('PMA_IS_GD2'), 'GD Version >= 2, PMA_IS_GD2 should be 1');
             } else {
-                $this->assertEquals(
-                    0,
-                    $this->object->get('PMA_IS_GD2'),
-                    'GD Version < 2, PMA_IS_GD2 should be 0'
-                );
+                self::assertSame(0, $this->object->get('PMA_IS_GD2'), 'GD Version < 2, PMA_IS_GD2 should be 0');
             }
         }
 
@@ -380,17 +366,9 @@ class ConfigTest extends AbstractTestCase
         }
 
         if (mb_strstr($v, '2.')) {
-            $this->assertEquals(
-                1,
-                $this->object->get('PMA_IS_GD2'),
-                'PMA_IS_GD2 should be 1'
-            );
+            self::assertSame(1, $this->object->get('PMA_IS_GD2'), 'PMA_IS_GD2 should be 1');
         } else {
-            $this->assertEquals(
-                0,
-                $this->object->get('PMA_IS_GD2'),
-                'PMA_IS_GD2 should be 0'
-            );
+            self::assertSame(0, $this->object->get('PMA_IS_GD2'), 'PMA_IS_GD2 should be 0');
         }
     }
 
@@ -406,7 +384,7 @@ class ConfigTest extends AbstractTestCase
     {
         $_SERVER['SERVER_SOFTWARE'] = $server;
         $this->object->checkWebServer();
-        $this->assertEquals($iis, $this->object->get('PMA_IS_IIS'));
+        self::assertSame($iis, $this->object->get('PMA_IS_IIS'));
         unset($_SERVER['SERVER_SOFTWARE']);
     }
 
@@ -438,21 +416,21 @@ class ConfigTest extends AbstractTestCase
 
         if (defined('PHP_OS')) {
             if (stristr(PHP_OS, 'darwin')) {
-                $this->assertFalse($this->object->get('PMA_IS_WINDOWS'));
+                self::assertFalse($this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'win')) {
-                $this->assertTrue($this->object->get('PMA_IS_WINDOWS'));
+                self::assertTrue($this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'OS/2')) {
-                $this->assertTrue($this->object->get('PMA_IS_WINDOWS'));
+                self::assertTrue($this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'Linux')) {
-                $this->assertFalse($this->object->get('PMA_IS_WINDOWS'));
+                self::assertFalse($this->object->get('PMA_IS_WINDOWS'));
             } else {
                 $this->markTestIncomplete('Not known PHP_OS: ' . PHP_OS);
             }
         } else {
-            $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
+            self::assertSame(0, $this->object->get('PMA_IS_WINDOWS'));
 
             define('PHP_OS', 'Windows');
-            $this->assertTrue($this->object->get('PMA_IS_WINDOWS'));
+            self::assertTrue($this->object->get('PMA_IS_WINDOWS'));
         }
     }
 
@@ -472,11 +450,11 @@ class ConfigTest extends AbstractTestCase
         $settings = new Settings([]);
         $config = $settings->toArray();
 
-        $this->assertIsArray($config['Servers']);
-        $this->assertEquals($config['Servers'][1], $this->object->defaultServer);
+        self::assertIsArray($config['Servers']);
+        self::assertSame($config['Servers'][1], $this->object->defaultServer);
         unset($config['Servers']);
-        $this->assertEquals($config, $this->object->default);
-        $this->assertEquals(
+        self::assertSame($config, $this->object->default);
+        self::assertSame(
             array_replace_recursive(['is_setup' => false, 'AvailableCharsets' => ['test']], $config),
             $this->object->settings
         );
@@ -488,13 +466,13 @@ class ConfigTest extends AbstractTestCase
     public function testCheckConfigSource(): void
     {
         $this->object->setSource('unexisted.config.php');
-        $this->assertFalse($this->object->checkConfigSource());
-        $this->assertEquals(0, $this->object->sourceMtime);
+        self::assertFalse($this->object->checkConfigSource());
+        self::assertSame(0, $this->object->sourceMtime);
 
         $this->object->setSource(TEST_PATH . 'test/test_data/config.inc.php');
 
-        $this->assertNotEmpty($this->object->getSource());
-        $this->assertTrue($this->object->checkConfigSource());
+        self::assertNotEmpty($this->object->getSource());
+        self::assertTrue($this->object->checkConfigSource());
     }
 
     /**
@@ -502,11 +480,11 @@ class ConfigTest extends AbstractTestCase
      */
     public function testGetAndSet(): void
     {
-        $this->assertNull($this->object->get('unresisting_setting'));
+        self::assertNull($this->object->get('unresisting_setting'));
 
         $this->object->set('test_setting', 'test_value');
 
-        $this->assertEquals('test_value', $this->object->get('test_setting'));
+        self::assertSame('test_value', $this->object->get('test_setting'));
     }
 
     /**
@@ -516,15 +494,11 @@ class ConfigTest extends AbstractTestCase
     {
         echo $this->object->getSource();
 
-        $this->assertEmpty($this->object->getSource(), 'Source is null by default');
+        self::assertEmpty($this->object->getSource(), 'Source is null by default');
 
         $this->object->setSource(ROOT_PATH . 'config.sample.inc.php');
 
-        $this->assertEquals(
-            ROOT_PATH . 'config.sample.inc.php',
-            $this->object->getSource(),
-            'Cant set new source'
-        );
+        self::assertSame(ROOT_PATH . 'config.sample.inc.php', $this->object->getSource(), 'Cant set new source');
     }
 
     /**
@@ -569,7 +543,7 @@ class ConfigTest extends AbstractTestCase
 
         $this->object->set('is_https', null);
         $this->object->set('PmaAbsoluteUri', $pmaAbsoluteUri);
-        $this->assertEquals($expected, $this->object->isHttps());
+        self::assertSame($expected, $this->object->isHttps());
     }
 
     /**
@@ -804,7 +778,7 @@ class ConfigTest extends AbstractTestCase
     {
         $GLOBALS['PMA_PHP_SELF'] = $request;
         $this->object->set('PmaAbsoluteUri', $absolute);
-        $this->assertEquals($expected, $this->object->getRootPath());
+        self::assertSame($expected, $this->object->getRootPath());
     }
 
     /**
@@ -909,9 +883,9 @@ class ConfigTest extends AbstractTestCase
     public function testLoad(string $source, bool $result): void
     {
         if ($result) {
-            $this->assertTrue($this->object->load($source));
+            self::assertTrue($this->object->load($source));
         } else {
-            $this->assertFalse($this->object->load($source));
+            self::assertFalse($this->object->load($source));
         }
     }
 
@@ -952,10 +926,7 @@ class ConfigTest extends AbstractTestCase
     {
         $this->object->setUserValue(null, 'lang', 'cs', 'en');
         $this->object->setUserValue('TEST_COOKIE_USER_VAL', '', 'cfg_val_1');
-        $this->assertEquals(
-            $this->object->getUserValue('TEST_COOKIE_USER_VAL', 'fail'),
-            'cfg_val_1'
-        );
+        self::assertSame($this->object->getUserValue('TEST_COOKIE_USER_VAL', 'fail'), 'cfg_val_1');
     }
 
     /**
@@ -963,7 +934,7 @@ class ConfigTest extends AbstractTestCase
      */
     public function testGetUserValue(): void
     {
-        $this->assertEquals($this->object->getUserValue('test_val', 'val'), 'val');
+        self::assertSame($this->object->getUserValue('test_val', 'val'), 'val');
     }
 
     /**
@@ -974,15 +945,15 @@ class ConfigTest extends AbstractTestCase
         //load file permissions for the current permissions file
         $perms = @fileperms($this->object->getSource());
         //testing for permissions for no configuration file
-        $this->assertFalse(! ($perms === false) && ($perms & 2));
+        self::assertFalse(! ($perms === false) && ($perms & 2));
 
         //load file permissions for the current permissions file
         $perms = @fileperms($this->permTestObj->getSource());
 
         if (! ($perms === false) && ($perms & 2)) {
-            $this->assertTrue((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
+            self::assertTrue((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
         } else {
-            $this->assertFalse((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
+            self::assertFalse((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
         }
     }
 
@@ -992,39 +963,31 @@ class ConfigTest extends AbstractTestCase
     public function testSetCookie(): void
     {
         $this->object->set('is_https', false);
-        $this->assertFalse(
-            $this->object->setCookie(
-                'TEST_DEF_COOKIE',
-                'test_def_123',
-                'test_def_123'
-            )
-        );
+        self::assertFalse($this->object->setCookie(
+            'TEST_DEF_COOKIE',
+            'test_def_123',
+            'test_def_123'
+        ));
 
-        $this->assertTrue(
-            $this->object->setCookie(
-                'TEST_CONFIG_COOKIE',
-                'test_val_123',
-                null,
-                3600
-            )
-        );
+        self::assertTrue($this->object->setCookie(
+            'TEST_CONFIG_COOKIE',
+            'test_val_123',
+            null,
+            3600
+        ));
 
-        $this->assertTrue(
-            $this->object->setCookie(
-                'TEST_CONFIG_COOKIE',
-                '',
-                'default_val'
-            )
-        );
+        self::assertTrue($this->object->setCookie(
+            'TEST_CONFIG_COOKIE',
+            '',
+            'default_val'
+        ));
 
         $_COOKIE['TEST_MANUAL_COOKIE'] = 'some_test_val';
-        $this->assertTrue(
-            $this->object->setCookie(
-                'TEST_MANUAL_COOKIE',
-                'other',
-                'other'
-            )
-        );
+        self::assertTrue($this->object->setCookie(
+            'TEST_MANUAL_COOKIE',
+            'other',
+            'other'
+        ));
     }
 
     /**
@@ -1035,16 +998,13 @@ class ConfigTest extends AbstractTestCase
     public function testGetTempDir(): void
     {
         $dir = realpath(sys_get_temp_dir());
-        $this->assertNotFalse($dir);
-        $this->assertDirectoryExists($dir);
-        $this->assertDirectoryIsWritable($dir);
+        self::assertNotFalse($dir);
+        self::assertDirectoryExists($dir);
+        self::assertDirectoryIsWritable($dir);
 
         $this->object->set('TempDir', $dir . DIRECTORY_SEPARATOR);
         // Check no double slash is here
-        $this->assertEquals(
-            $dir . DIRECTORY_SEPARATOR . 'upload',
-            $this->object->getTempDir('upload')
-        );
+        self::assertSame($dir . DIRECTORY_SEPARATOR . 'upload', $this->object->getTempDir('upload'));
     }
 
     /**
@@ -1056,16 +1016,13 @@ class ConfigTest extends AbstractTestCase
     public function testGetUploadTempDir(): void
     {
         $dir = realpath(sys_get_temp_dir());
-        $this->assertNotFalse($dir);
-        $this->assertDirectoryExists($dir);
-        $this->assertDirectoryIsWritable($dir);
+        self::assertNotFalse($dir);
+        self::assertDirectoryExists($dir);
+        self::assertDirectoryIsWritable($dir);
 
         $this->object->set('TempDir', $dir . DIRECTORY_SEPARATOR);
 
-        $this->assertEquals(
-            $this->object->getTempDir('upload'),
-            $this->object->getUploadTempDir()
-        );
+        self::assertSame($this->object->getTempDir('upload'), $this->object->getUploadTempDir());
     }
 
     /**
@@ -1082,7 +1039,7 @@ class ConfigTest extends AbstractTestCase
         $this->object->checkServers();
         $expected = array_merge($this->object->defaultServer, $expected);
 
-        $this->assertEquals($expected, $this->object->settings['Servers'][1]);
+        self::assertSame($expected, $this->object->settings['Servers'][1]);
     }
 
     /**
@@ -1124,7 +1081,7 @@ class ConfigTest extends AbstractTestCase
         $this->object->checkServers();
         $expected = array_merge($this->object->defaultServer, ['host' => '127.0.0.1']);
 
-        $this->assertEquals($expected, $this->object->settings['Servers'][1]);
+        self::assertSame($expected, $this->object->settings['Servers'][1]);
     }
 
     /**
@@ -1142,7 +1099,7 @@ class ConfigTest extends AbstractTestCase
         $this->object->settings['Servers'] = $settings;
         $this->object->checkServers();
         $_REQUEST['server'] = $request;
-        $this->assertEquals($expected, $this->object->selectServer());
+        self::assertSame($expected, $this->object->selectServer());
     }
 
     /**
@@ -1215,7 +1172,7 @@ class ConfigTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['Server'] = $server_cfg;
         $result = Config::getConnectionParams($mode, $server);
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     /**

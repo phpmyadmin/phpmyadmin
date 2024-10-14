@@ -26,15 +26,15 @@ class CollationTest extends AbstractTestCase
 
         $collation = Collation::fromServer($serverCollation);
 
-        $this->assertInstanceOf(Collation::class, $collation);
-        $this->assertSame('utf8_general_ci', $collation->getName());
-        $this->assertSame('Unicode, case-insensitive', $collation->getDescription());
-        $this->assertSame('utf8', $collation->getCharset());
-        $this->assertSame(33, $collation->getId());
-        $this->assertTrue($collation->isDefault());
-        $this->assertTrue($collation->isCompiled());
-        $this->assertSame(1, $collation->getSortLength());
-        $this->assertSame('PAD SPACE', $collation->getPadAttribute());
+        self::assertInstanceOf(Collation::class, $collation);
+        self::assertSame('utf8_general_ci', $collation->getName());
+        self::assertSame('Unicode, case-insensitive', $collation->getDescription());
+        self::assertSame('utf8', $collation->getCharset());
+        self::assertSame(33, $collation->getId());
+        self::assertTrue($collation->isDefault());
+        self::assertTrue($collation->isCompiled());
+        self::assertSame(1, $collation->getSortLength());
+        self::assertSame('PAD SPACE', $collation->getPadAttribute());
     }
 
     /**
@@ -48,7 +48,7 @@ class CollationTest extends AbstractTestCase
     public function testBuildDescription(string $collation, string $description): void
     {
         $actual = Collation::fromServer(['Collation' => $collation]);
-        $this->assertEquals($description, $actual->getDescription());
+        self::assertSame($description, $actual->getDescription());
     }
 
     /**

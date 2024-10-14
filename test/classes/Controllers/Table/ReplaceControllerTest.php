@@ -97,14 +97,11 @@ class ReplaceControllerTest extends AbstractTestCase
         $this->dummyDbi->addSelectDb('my_db');
         $replaceController();
         $this->assertAllSelectsConsumed();
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'class="icon ic_s_success"> Showing rows 0 -  1 (2 total, Query took',
             $this->getResponseHtmlResult()
         );
-        $this->assertStringContainsString(
-            'SELECT * FROM `test_tbl`',
-            $this->getResponseHtmlResult()
-        );
+        self::assertStringContainsString('SELECT * FROM `test_tbl`', $this->getResponseHtmlResult());
     }
 
     public function testIsInsertRow(): void
@@ -139,16 +136,10 @@ class ReplaceControllerTest extends AbstractTestCase
         $this->dummyDbi->addSelectDb('my_db');
         $replaceController();
         $this->assertAllSelectsConsumed();
-        $this->assertEquals(5, $GLOBALS['cfg']['InsertRows']);
-        $this->assertStringContainsString(
-            '<form id="continueForm" method="post" '
-            . 'action="index.php?route=/table/replace&lang=en" name="continueForm">',
-            $this->getResponseHtmlResult()
-        );
-        $this->assertStringContainsString(
-            'Continue insertion with         <input type="number" '
-            . 'name="insert_rows" id="insert_rows" value="5" min="1">',
-            $this->getResponseHtmlResult()
-        );
+        self::assertSame(5, $GLOBALS['cfg']['InsertRows']);
+        self::assertStringContainsString('<form id="continueForm" method="post" '
+        . 'action="index.php?route=/table/replace&lang=en" name="continueForm">', $this->getResponseHtmlResult());
+        self::assertStringContainsString('Continue insertion with         <input type="number" '
+        . 'name="insert_rows" id="insert_rows" value="5" min="1">', $this->getResponseHtmlResult());
     }
 }

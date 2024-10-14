@@ -50,7 +50,7 @@ class GisDataEditorControllerTest extends AbstractTestCase
                 $value,
             ]
         );
-        $this->assertEquals($expected, $gisData);
+        self::assertSame($expected, $gisData);
     }
 
     /**

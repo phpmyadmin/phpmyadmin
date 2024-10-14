@@ -169,7 +169,7 @@ SQL;
         $exportController = new ExportController(new ResponseRenderer(), new Template(), new Export($this->dbi));
         $exportController($request);
         $output = $this->getActualOutputForAssertion();
-        $this->assertStringContainsString(htmlspecialchars($expectedOutput, ENT_COMPAT), $output);
+        self::assertStringContainsString(htmlspecialchars($expectedOutput, ENT_COMPAT), $output);
     }
 
     /** @see https://github.com/phpmyadmin/phpmyadmin/issues/19213 */
@@ -315,6 +315,6 @@ SQL;
         $exportController = new ExportController(new ResponseRenderer(), new Template(), new Export($this->dbi));
         $exportController($request);
         $output = $this->getActualOutputForAssertion();
-        $this->assertStringContainsString(htmlspecialchars($expectedOutput, ENT_COMPAT), $output);
+        self::assertStringContainsString(htmlspecialchars($expectedOutput, ENT_COMPAT), $output);
     }
 }

@@ -72,8 +72,8 @@ class SlowLogControllerTest extends AbstractTestCase
             'TOTAL' => 21,
             'update' => 10,
         ];
-        $this->assertEquals(2, $ret['message']['numRows']);
-        $this->assertEquals($resultRows, $ret['message']['rows']);
-        $this->assertEquals($resultSum, $ret['message']['sum']);
+        self::assertSame(2, $ret['message']['numRows']);
+        self::assertSame($resultRows, $ret['message']['rows']);
+        self::assertEquals($resultSum, $ret['message']['sum']);
     }
 }

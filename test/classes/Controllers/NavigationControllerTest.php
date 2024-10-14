@@ -119,49 +119,46 @@ class NavigationControllerTest extends AbstractTestCase
 
         $responseMessage = $this->getResponseJsonResult()['message'];
 
-        $this->assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
+        self::assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
 
         // root.air-balloon_burner_dev2
         // cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI=
-        $this->assertStringContainsString(
-            '<div id=\'pma_navigation_tree_content\'>' . "\n"
-            . '  <ul>' . "\n"
-            . '      <li class="first database">' . "\n"
-            . '    <div class="block">' . "\n"
-            . '      <i class="first"></i>' . "\n"
-            . '              <b></b>' . "\n"
-            . '        <a class="expander" href="#">' . "\n"
-            . '          <span class="hide paths_nav" data-apath="cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI="'
-                        . ' data-vpath="cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI="'
-                        . ' data-pos="0"></span>' . "\n"
-            . '                    <img src="themes/dot.gif" title="Expand/Collapse"'
-                                . ' alt="Expand/Collapse" class="icon ic_b_plus">' . "\n"
-            . '        </a>' . "\n"
-            . '          </div>' . "\n"
-            . '    ' . "\n"
-            . '          <div class="block second">' . "\n"
-            . '                  <a href="index.php?route=/database/operations'
-                                . '&db=air-balloon_burner_dev2&lang=en">'
-                                . '<img src="themes/dot.gif" title="Database operations"'
-                                . ' alt="Database operations" class="icon ic_s_db"></a>' . "\n"
-            . '              </div>' . "\n"
-            . "\n"
-            . '              <a class="hover_show_full"'
-                    . ' href="index.php?route=/database/structure&db=air-balloon_burner_dev2&lang=en"'
-                    . ' title="Structure">air-balloon_burner_dev2</a>' . "\n"
-            . '          ' . "\n"
-            . '    ' . "\n"
-            . "\n"
-            . '    ' . "\n"
-            . '    <div class="clearfloat"></div>' . "\n"
-            . "\n"
-            . "\n"
-            . "\n"
-            . "\n"
-            . '  </ul>' . "\n"
-            . '</div>',
-            $responseMessage
-        );
+        self::assertStringContainsString('<div id=\'pma_navigation_tree_content\'>' . "\n"
+        . '  <ul>' . "\n"
+        . '      <li class="first database">' . "\n"
+        . '    <div class="block">' . "\n"
+        . '      <i class="first"></i>' . "\n"
+        . '              <b></b>' . "\n"
+        . '        <a class="expander" href="#">' . "\n"
+        . '          <span class="hide paths_nav" data-apath="cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI="'
+                    . ' data-vpath="cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI="'
+                    . ' data-pos="0"></span>' . "\n"
+        . '                    <img src="themes/dot.gif" title="Expand/Collapse"'
+                            . ' alt="Expand/Collapse" class="icon ic_b_plus">' . "\n"
+        . '        </a>' . "\n"
+        . '          </div>' . "\n"
+        . '    ' . "\n"
+        . '          <div class="block second">' . "\n"
+        . '                  <a href="index.php?route=/database/operations'
+                            . '&db=air-balloon_burner_dev2&lang=en">'
+                            . '<img src="themes/dot.gif" title="Database operations"'
+                            . ' alt="Database operations" class="icon ic_s_db"></a>' . "\n"
+        . '              </div>' . "\n"
+        . "\n"
+        . '              <a class="hover_show_full"'
+                . ' href="index.php?route=/database/structure&db=air-balloon_burner_dev2&lang=en"'
+                . ' title="Structure">air-balloon_burner_dev2</a>' . "\n"
+        . '          ' . "\n"
+        . '    ' . "\n"
+        . "\n"
+        . '    ' . "\n"
+        . '    <div class="clearfloat"></div>' . "\n"
+        . "\n"
+        . "\n"
+        . "\n"
+        . "\n"
+        . '  </ul>' . "\n"
+        . '</div>', $responseMessage);
         $this->assertAllQueriesConsumed();
     }
 
@@ -275,7 +272,7 @@ class NavigationControllerTest extends AbstractTestCase
 
         $responseMessage = $this->getResponseJsonResult()['message'];
 
-        $this->assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
+        self::assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
 
         $dbTemplate =
             '  <li class="database database">' . "\n"
@@ -368,68 +365,65 @@ class NavigationControllerTest extends AbstractTestCase
 
         // root.air-balloon_burner_dev2
         // cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI=
-        $this->assertStringContainsString(
-            '<div id=\'pma_navigation_tree_content\'>' . "\n"
-            . '  <ul>' . "\n"
-            . '      <li class="first navGroup">' . "\n"
-            . '    <div class="block">' . "\n"
-            . '      <i class="first"></i>' . "\n"
-            . '              <b></b>' . "\n"
-            . '        <a class="expander loaded container" href="#">' . "\n"
-            . '          <span class="hide paths_nav" data-apath="cm9vdA=="'
-                        . ' data-vpath="cm9vdA==.YWlyLWJhbGxvb24="'
-                        . ' data-pos="0"></span>' . "\n"
-            . '                    <img src="themes/dot.gif" title="" alt="" class="icon ic_b_minus">' . "\n"
-            . '        </a>' . "\n"
-            . '          </div>' . "\n"
-            . '          <div class="fst-italic">' . "\n"
-            . '    ' . "\n"
-            . '          <div class="block second">' . "\n"
-            . '        <u><img src="themes/dot.gif" title="Groups" alt="Groups" class="icon ic_b_group"></u>' . "\n"
-            . '      </div>' . "\n"
-            . '      &nbsp;air-balloon' . "\n"
-            . '    ' . "\n"
-            . '    ' . "\n"
-            . "\n"
-            . '          </div>' . "\n"
-            . '    ' . "\n"
-            . '    <div class="clearfloat"></div>' . "\n"
-            . "\n"
-            . '  <div class="list_container">' . "\n"
-            . '    <ul>' . "\n"
-                    . sprintf(
-                        $dbTemplate,
-                        'cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2Rldg==',
-                        'cm9vdA==.YWlyLWJhbGxvb24=.YnVybmVyX2Rldg==',
-                        'air-balloon_burner_dev',
-                        'air-balloon_burner_dev',
-                        'air-balloon_burner_dev'
-                    ) . "\n"
-                    . sprintf(
-                        $dbTemplateExpanded,
-                        'cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI=',
-                        'cm9vdA==.YWlyLWJhbGxvb24=.YnVybmVyX2RldjI=',
-                        'air-balloon_burner_dev2',
-                        'air-balloon_burner_dev2',
-                        'air-balloon_burner_dev2'
-                    ) . "\n"
-                    . sprintf(
-                        $dbTemplateLast,
-                        'cm9vdA==.YWlyLWJhbGxvb25fZGV2',
-                        'cm9vdA==.YWlyLWJhbGxvb24=.ZGV2',
-                        'air-balloon_dev',
-                        'air-balloon_dev',
-                        'air-balloon_dev'
-                    ) . "\n"
-            . "\n"
-            . '    </ul>' . "\n"
-            . '  </div>' . "\n"
-            . "\n"
-            . "\n"
-            . '  </ul>' . "\n"
-            . '</div>' . "\n",
-            $responseMessage
-        );
+        self::assertStringContainsString('<div id=\'pma_navigation_tree_content\'>' . "\n"
+        . '  <ul>' . "\n"
+        . '      <li class="first navGroup">' . "\n"
+        . '    <div class="block">' . "\n"
+        . '      <i class="first"></i>' . "\n"
+        . '              <b></b>' . "\n"
+        . '        <a class="expander loaded container" href="#">' . "\n"
+        . '          <span class="hide paths_nav" data-apath="cm9vdA=="'
+                    . ' data-vpath="cm9vdA==.YWlyLWJhbGxvb24="'
+                    . ' data-pos="0"></span>' . "\n"
+        . '                    <img src="themes/dot.gif" title="" alt="" class="icon ic_b_minus">' . "\n"
+        . '        </a>' . "\n"
+        . '          </div>' . "\n"
+        . '          <div class="fst-italic">' . "\n"
+        . '    ' . "\n"
+        . '          <div class="block second">' . "\n"
+        . '        <u><img src="themes/dot.gif" title="Groups" alt="Groups" class="icon ic_b_group"></u>' . "\n"
+        . '      </div>' . "\n"
+        . '      &nbsp;air-balloon' . "\n"
+        . '    ' . "\n"
+        . '    ' . "\n"
+        . "\n"
+        . '          </div>' . "\n"
+        . '    ' . "\n"
+        . '    <div class="clearfloat"></div>' . "\n"
+        . "\n"
+        . '  <div class="list_container">' . "\n"
+        . '    <ul>' . "\n"
+                . sprintf(
+                    $dbTemplate,
+                    'cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2Rldg==',
+                    'cm9vdA==.YWlyLWJhbGxvb24=.YnVybmVyX2Rldg==',
+                    'air-balloon_burner_dev',
+                    'air-balloon_burner_dev',
+                    'air-balloon_burner_dev'
+                ) . "\n"
+                . sprintf(
+                    $dbTemplateExpanded,
+                    'cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI=',
+                    'cm9vdA==.YWlyLWJhbGxvb24=.YnVybmVyX2RldjI=',
+                    'air-balloon_burner_dev2',
+                    'air-balloon_burner_dev2',
+                    'air-balloon_burner_dev2'
+                ) . "\n"
+                . sprintf(
+                    $dbTemplateLast,
+                    'cm9vdA==.YWlyLWJhbGxvb25fZGV2',
+                    'cm9vdA==.YWlyLWJhbGxvb24=.ZGV2',
+                    'air-balloon_dev',
+                    'air-balloon_dev',
+                    'air-balloon_dev'
+                ) . "\n"
+        . "\n"
+        . '    </ul>' . "\n"
+        . '  </div>' . "\n"
+        . "\n"
+        . "\n"
+        . '  </ul>' . "\n"
+        . '</div>' . "\n", $responseMessage);
         $this->assertAllQueriesConsumed();
     }
 }

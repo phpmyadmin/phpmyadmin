@@ -41,11 +41,8 @@ class MemoryTest extends AbstractTestCase
      */
     public function testGetVariables(): void
     {
-        $this->assertEquals(
-            $this->object->getVariables(),
-            [
-                'max_heap_table_size' => ['type' => 1],
-            ]
-        );
+        self::assertSame($this->object->getVariables(), [
+            'max_heap_table_size' => ['type' => 1],
+        ]);
     }
 }

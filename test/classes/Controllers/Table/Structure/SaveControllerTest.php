@@ -41,8 +41,6 @@ class SaveControllerTest extends AbstractTestCase
             $this->createStub(StructureController::class)
         );
 
-        $this->assertFalse(
-            $method->invokeArgs($ctrl, [[]])
-        );
+        self::assertFalse($method->invokeArgs($ctrl, [[]]));
     }
 }

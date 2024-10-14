@@ -103,7 +103,7 @@ class RelationControllerTest extends AbstractTestCase
 
         $ctrl->getDropdownValueForTable();
         $json = $this->response->getJSONResult();
-        $this->assertEquals($viewColumns, $json['columns']);
+        self::assertSame($viewColumns, $json['columns']);
     }
 
     /**
@@ -138,7 +138,7 @@ class RelationControllerTest extends AbstractTestCase
 
         $ctrl->getDropdownValueForTable();
         $json = $this->response->getJSONResult();
-        $this->assertEquals($indexedColumns, $json['columns']);
+        self::assertSame($indexedColumns, $json['columns']);
     }
 
     /**
@@ -177,10 +177,7 @@ class RelationControllerTest extends AbstractTestCase
         $_POST['foreign'] = 'true';
         $ctrl->getDropdownValueForDatabase('INNODB');
         $json = $this->response->getJSONResult();
-        $this->assertEquals(
-            ['table'],
-            $json['tables']
-        );
+        self::assertSame(['table'], $json['tables']);
     }
 
     /**
@@ -212,9 +209,6 @@ class RelationControllerTest extends AbstractTestCase
         $_POST['foreign'] = 'false';
         $ctrl->getDropdownValueForDatabase('INNODB');
         $json = $this->response->getJSONResult();
-        $this->assertEquals(
-            ['table'],
-            $json['tables']
-        );
+        self::assertSame(['table'], $json['tables']);
     }
 }

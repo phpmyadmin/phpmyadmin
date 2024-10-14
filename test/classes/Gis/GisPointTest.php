@@ -101,7 +101,7 @@ class GisPointTest extends GisGeomTestCase
      */
     public function testGetShape(array $row_data, string $shape): void
     {
-        $this->assertEquals($this->object->getShape($row_data), $shape);
+        self::assertSame($this->object->getShape($row_data), $shape);
     }
 
     /**
@@ -185,7 +185,7 @@ class GisPointTest extends GisGeomTestCase
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(120, 150);
-        $this->assertNotNull($image);
+        self::assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
             'POINT(12 35)',
             'image',
@@ -193,8 +193,8 @@ class GisPointTest extends GisGeomTestCase
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        $this->assertEquals(120, $return->width());
-        $this->assertEquals(150, $return->height());
+        self::assertSame(120, $return->width());
+        self::assertSame(150, $return->height());
     }
 
     /**
@@ -216,7 +216,7 @@ class GisPointTest extends GisGeomTestCase
         TCPDF $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf($spatial, $label, $point_color, $scale_data, $pdf);
-        $this->assertInstanceOf(TCPDF::class, $return);
+        self::assertInstanceOf(TCPDF::class, $return);
     }
 
     /**
@@ -260,15 +260,12 @@ class GisPointTest extends GisGeomTestCase
         array $scaleData,
         string $output
     ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->prepareRowAsSvg(
-                $spatial,
-                $label,
-                $pointColor,
-                $scaleData
-            )
-        );
+        self::assertSame($output, $this->object->prepareRowAsSvg(
+            $spatial,
+            $label,
+            $pointColor,
+            $scaleData
+        ));
     }
 
     /**
@@ -314,16 +311,13 @@ class GisPointTest extends GisGeomTestCase
         array $scale_data,
         string $output
     ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->prepareRowAsOl(
-                $spatial,
-                $srid,
-                $label,
-                $point_color,
-                $scale_data
-            )
-        );
+        self::assertSame($output, $this->object->prepareRowAsOl(
+            $spatial,
+            $srid,
+            $label,
+            $point_color,
+            $scale_data
+        ));
     }
 
     /**

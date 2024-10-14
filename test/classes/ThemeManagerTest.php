@@ -37,7 +37,7 @@ class ThemeManagerTest extends AbstractTestCase
     public function testCookieName(): void
     {
         $tm = new ThemeManager();
-        $this->assertEquals('pma_theme', $tm->getThemeCookieName());
+        self::assertSame('pma_theme', $tm->getThemeCookieName());
     }
 
     /**
@@ -47,20 +47,20 @@ class ThemeManagerTest extends AbstractTestCase
     {
         $tm = new ThemeManager();
         $tm->setThemePerServer(true);
-        $this->assertEquals('pma_theme-99', $tm->getThemeCookieName());
+        self::assertSame('pma_theme-99', $tm->getThemeCookieName());
     }
 
     public function testGetThemesArray(): void
     {
         $tm = new ThemeManager();
         $themes = $tm->getThemesArray();
-        $this->assertIsArray($themes);
-        $this->assertArrayHasKey(0, $themes);
-        $this->assertIsArray($themes[0]);
-        $this->assertArrayHasKey('id', $themes[0]);
-        $this->assertArrayHasKey('name', $themes[0]);
-        $this->assertArrayHasKey('version', $themes[0]);
-        $this->assertArrayHasKey('is_active', $themes[0]);
+        self::assertIsArray($themes);
+        self::assertArrayHasKey(0, $themes);
+        self::assertIsArray($themes[0]);
+        self::assertArrayHasKey('id', $themes[0]);
+        self::assertArrayHasKey('name', $themes[0]);
+        self::assertArrayHasKey('version', $themes[0]);
+        self::assertArrayHasKey('is_active', $themes[0]);
     }
 
     /**
@@ -69,8 +69,6 @@ class ThemeManagerTest extends AbstractTestCase
     public function testSetThemeCookie(): void
     {
         $tm = new ThemeManager();
-        $this->assertTrue(
-            $tm->setThemeCookie()
-        );
+        self::assertTrue($tm->setThemeCookie());
     }
 }

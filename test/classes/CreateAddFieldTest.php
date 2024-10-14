@@ -37,7 +37,7 @@ class CreateAddFieldTest extends AbstractTestCase
     {
         $_POST = $request;
         $actual = $this->createAddField->getPartitionsDefinition();
-        $this->assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /**
@@ -238,7 +238,7 @@ class CreateAddFieldTest extends AbstractTestCase
     {
         $_POST = $request;
         $actual = $this->createAddField->getTableCreationQuery($db, $table);
-        $this->assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /**
@@ -311,7 +311,7 @@ class CreateAddFieldTest extends AbstractTestCase
     {
         $_POST = $request;
         $actual = $this->createAddField->getNumberOfFieldsFromRequest();
-        $this->assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /**
@@ -525,6 +525,6 @@ class CreateAddFieldTest extends AbstractTestCase
     {
         $_POST = $request;
         $sqlQuery = $this->createAddField->getColumnCreationQuery('my_table');
-        $this->assertEquals($expected, $sqlQuery);
+        self::assertSame($expected, $sqlQuery);
     }
 }

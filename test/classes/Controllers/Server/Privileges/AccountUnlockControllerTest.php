@@ -64,10 +64,10 @@ class AccountUnlockControllerTest extends AbstractTestCase
         ($this->controller)($this->requestStub);
 
         $message = Message::success('The account test.user@test.host has been successfully unlocked.');
-        $this->assertTrue($this->responseRendererStub->isAjax());
-        $this->assertEquals(200, $this->responseRendererStub->getHttpResponseCode());
-        $this->assertTrue($this->responseRendererStub->hasSuccessState());
-        $this->assertEquals(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
+        self::assertTrue($this->responseRendererStub->isAjax());
+        self::assertSame(200, $this->responseRendererStub->getHttpResponseCode());
+        self::assertTrue($this->responseRendererStub->hasSuccessState());
+        self::assertSame(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
     }
 
     public function testWithInvalidAccount(): void
@@ -79,10 +79,10 @@ class AccountUnlockControllerTest extends AbstractTestCase
         ($this->controller)($this->requestStub);
 
         $message = Message::error('Invalid account.');
-        $this->assertTrue($this->responseRendererStub->isAjax());
-        $this->assertEquals(400, $this->responseRendererStub->getHttpResponseCode());
-        $this->assertFalse($this->responseRendererStub->hasSuccessState());
-        $this->assertEquals(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
+        self::assertTrue($this->responseRendererStub->isAjax());
+        self::assertSame(400, $this->responseRendererStub->getHttpResponseCode());
+        self::assertFalse($this->responseRendererStub->hasSuccessState());
+        self::assertSame(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
     }
 
     public function testWithUnsupportedServer(): void
@@ -92,9 +92,9 @@ class AccountUnlockControllerTest extends AbstractTestCase
         ($this->controller)($this->requestStub);
 
         $message = Message::error('Account locking is not supported.');
-        $this->assertTrue($this->responseRendererStub->isAjax());
-        $this->assertEquals(400, $this->responseRendererStub->getHttpResponseCode());
-        $this->assertFalse($this->responseRendererStub->hasSuccessState());
-        $this->assertEquals(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
+        self::assertTrue($this->responseRendererStub->isAjax());
+        self::assertSame(400, $this->responseRendererStub->getHttpResponseCode());
+        self::assertFalse($this->responseRendererStub->hasSuccessState());
+        self::assertSame(['message' => $message->getDisplay()], $this->responseRendererStub->getJSONResult());
     }
 }

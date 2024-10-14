@@ -9176,17 +9176,17 @@ parameters:
 			path: test/classes/AdvisorTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 3
 			path: test/classes/BrowseForeignersTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$string of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringEndsWith\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$string of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringEndsWith\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/BrowseForeignersTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$string of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringStartsWith\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$string of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringStartsWith\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/BrowseForeignersTest.php
 
@@ -9226,17 +9226,17 @@ parameters:
 			path: test/classes/Command/TwigLintCommandTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\) with true will always evaluate to false\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\) with true will always evaluate to false\\.$#"
 			count: 1
 			path: test/classes/CommonTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with \\*NEVER\\* will always evaluate to false\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with \\*NEVER\\* will always evaluate to false\\.$#"
 			count: 1
 			path: test/classes/CommonTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with false will always evaluate to false\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with false will always evaluate to false\\.$#"
 			count: 1
 			path: test/classes/CommonTest.php
 
@@ -9251,7 +9251,17 @@ parameters:
 			path: test/classes/Config/DescriptionTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with null will always evaluate to false\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with ''\\|'; Compressed export…'\\|'Compressed export…'\\|'Compressed import…' and null will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/Config/FormDisplayTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'string' and 'NULL' will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/Config/FormDisplayTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with null will always evaluate to false\\.$#"
 			count: 1
 			path: test/classes/Config/FormDisplayTest.php
 
@@ -9376,7 +9386,7 @@ parameters:
 			path: test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$array of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php
 
@@ -9411,17 +9421,17 @@ parameters:
 			path: test/classes/Controllers/Database/StructureControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$array of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Database/StructureControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 4
 			path: test/classes/Controllers/Database/StructureControllerTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Database/StructureControllerTest.php
 
@@ -9511,7 +9521,7 @@ parameters:
 			path: test/classes/Database/CentralColumnsTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$needle of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Database/CentralColumnsTest.php
 
@@ -9571,12 +9581,12 @@ parameters:
 			path: test/classes/Database/EventsTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 7
 			path: test/classes/Database/QbeTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Database/QbeTest.php
 
@@ -9941,7 +9951,7 @@ parameters:
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 9
 			path: test/classes/Display/ResultsTest.php
 
@@ -10581,6 +10591,21 @@ parameters:
 			path: test/classes/ImportTest.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'Cardinality1' and int\\|null will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/IndexTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'PMA_Non_unique' and int will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/IndexTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'index1' and int will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/IndexTest.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\IndexTest\\:\\:\\$params type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/IndexTest.php
@@ -10711,7 +10736,7 @@ parameters:
 			path: test/classes/Partitioning/TablePartitionDefinitionTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 32 and 0 will always evaluate to false\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 32 and 0 will always evaluate to false\\.$#"
 			count: 1
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
@@ -10741,17 +10766,17 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 5
 			path: test/classes/Plugins/Export/ExportOdtTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: test/classes/Plugins/Export/ExportSqlTest.php
 
@@ -10799,6 +10824,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Transformations\\\\TransformationPluginsTest\\:\\:transformationDataProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Plugins/Transformations/TransformationPluginsTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'subGroupHeader123' and PhpMyAdmin\\\\Properties\\\\PropertyItem\\|null will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/Properties/Options/Groups/OptionsPropertySubgroupTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"
@@ -10926,7 +10956,27 @@ parameters:
 			path: test/classes/Stubs/ResponseRenderer.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\) with true will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/TableTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with '5' and int will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/TableTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\<PhpMyAdmin\\\\FieldMetadata\\> and array\\{'aNonValidExampleToR…'\\} will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/TableTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TableTest\\:\\:dataValidateName\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/TableTest.php
+
+		-
+			message: "#^Offset 'col_order' on array in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: test/classes/TableTest.php
 
@@ -11231,12 +11281,12 @@ parameters:
 			path: test/classes/Utils/HttpRequestTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$needle of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Utils/HttpRequestTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Utils/HttpRequestTest.php
 

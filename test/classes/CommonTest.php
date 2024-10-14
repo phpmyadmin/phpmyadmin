@@ -25,7 +25,7 @@ class CommonTest extends AbstractTestCase
         $_SERVER['REQUEST_URI'] = $request;
         $_SERVER['PATH_INFO'] = $path_info;
         Common::cleanupPathInfo();
-        $this->assertEquals($expected, $GLOBALS['PMA_PHP_SELF']);
+        self::assertSame($expected, $GLOBALS['PMA_PHP_SELF']);
     }
 
     public static function providerForTestCleanupPathInfo(): array
@@ -88,33 +88,33 @@ class CommonTest extends AbstractTestCase
 
         $_SERVER['REQUEST_METHOD'] = 'GET';
         Common::checkTokenRequestParam();
-        $this->assertTrue($token_mismatch);
-        $this->assertFalse($token_provided);
+        self::assertTrue($token_mismatch);
+        self::assertFalse($token_provided);
 
         $_SERVER['REQUEST_METHOD'] = 'POST';
         $_POST['test'] = 'test';
         Common::checkTokenRequestParam();
-        $this->assertTrue($token_mismatch);
-        $this->assertFalse($token_provided);
-        $this->assertArrayNotHasKey('test', $_POST);
+        self::assertTrue($token_mismatch);
+        self::assertFalse($token_provided);
+        self::assertArrayNotHasKey('test', $_POST);
 
         $_SERVER['REQUEST_METHOD'] = 'POST';
         $_POST['token'] = 'token';
         $_POST['test'] = 'test';
         $_SESSION[' PMA_token '] = 'mismatch';
         Common::checkTokenRequestParam();
-        $this->assertTrue($token_mismatch);
-        $this->assertTrue($token_provided);
-        $this->assertArrayNotHasKey('test', $_POST);
+        self::assertTrue($token_mismatch);
+        self::assertTrue($token_provided);
+        self::assertArrayNotHasKey('test', $_POST);
 
         $_SERVER['REQUEST_METHOD'] = 'POST';
         $_POST['token'] = 'token';
         $_POST['test'] = 'test';
         $_SESSION[' PMA_token '] = 'token';
         Common::checkTokenRequestParam();
-        $this->assertFalse($token_mismatch);
-        $this->assertTrue($token_provided);
-        $this->assertArrayHasKey('test', $_POST);
-        $this->assertEquals('test', $_POST['test']);
+        self::assertFalse($token_mismatch);
+        self::assertTrue($token_provided);
+        self::assertArrayHasKey('test', $_POST);
+        self::assertSame('test', $_POST['test']);
     }
 }

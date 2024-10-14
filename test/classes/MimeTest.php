@@ -23,10 +23,7 @@ class MimeTest extends AbstractTestCase
      */
     public function testDetect(string $test, string $output): void
     {
-        $this->assertEquals(
-            Mime::detect($test),
-            $output
-        );
+        self::assertSame(Mime::detect($test), $output);
     }
 
     /**

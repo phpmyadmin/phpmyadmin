@@ -30,7 +30,7 @@ class DbiMysqliTest extends AbstractTestCase
 
     public function testGetClientInfo(): void
     {
-        $this->assertNotEmpty($this->object->getClientInfo());
+        self::assertNotEmpty($this->object->getClientInfo());
     }
 
     /**
@@ -45,7 +45,7 @@ class DbiMysqliTest extends AbstractTestCase
             ->with($this->equalTo($databaseName))
             ->willReturn(true);
 
-        $this->assertTrue($this->object->selectDb($databaseName, $mysqli));
+        self::assertTrue($this->object->selectDb($databaseName, $mysqli));
     }
 
     /**
@@ -60,7 +60,7 @@ class DbiMysqliTest extends AbstractTestCase
             ->with($this->equalTo($query))
             ->willReturn(true);
 
-        $this->assertTrue($this->object->realMultiQuery($mysqli, $query));
+        self::assertTrue($this->object->realMultiQuery($mysqli, $query));
     }
 
     /**
@@ -76,7 +76,7 @@ class DbiMysqliTest extends AbstractTestCase
             ->with($this->equalTo($query))
             ->willReturn($mysqliResult);
 
-        $this->assertInstanceOf(MysqliResult::class, $this->object->realQuery($query, $mysqli, 0));
+        self::assertInstanceOf(MysqliResult::class, $this->object->realQuery($query, $mysqli, 0));
     }
 
     /**
@@ -89,7 +89,7 @@ class DbiMysqliTest extends AbstractTestCase
             ->method('more_results')
             ->willReturn(true);
 
-        $this->assertTrue($this->object->moreResults($mysqli));
+        self::assertTrue($this->object->moreResults($mysqli));
     }
 
     /**
@@ -102,7 +102,7 @@ class DbiMysqliTest extends AbstractTestCase
             ->method('next_result')
             ->willReturn(true);
 
-        $this->assertTrue($this->object->nextResult($mysqli));
+        self::assertTrue($this->object->nextResult($mysqli));
     }
 
     /**
@@ -116,7 +116,7 @@ class DbiMysqliTest extends AbstractTestCase
             ->method('store_result')
             ->willReturn($mysqliResult);
 
-        $this->assertInstanceOf(MysqliResult::class, $this->object->storeResult($mysqli));
+        self::assertInstanceOf(MysqliResult::class, $this->object->storeResult($mysqli));
     }
 
     /**
@@ -130,6 +130,6 @@ class DbiMysqliTest extends AbstractTestCase
             ->method('real_escape_string')
             ->willReturn($string);
 
-        $this->assertEquals($string, $this->object->escapeString($mysqli, $string));
+        self::assertSame($string, $this->object->escapeString($mysqli, $string));
     }
 }

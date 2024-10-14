@@ -58,7 +58,7 @@ class TriggersTest extends AbstractTestCase
             $_POST[$key] = $value;
         }
 
-        $this->assertEquals($out, $this->triggers->getDataFromRequest());
+        self::assertSame($out, $this->triggers->getDataFromRequest());
     }
 
     /**
@@ -123,10 +123,7 @@ class TriggersTest extends AbstractTestCase
     public function testGetEditorFormAdd(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
-        $this->assertStringContainsString(
-            $matcher,
-            $this->triggers->getEditorForm('pma_test', 'table', 'add', $data)
-        );
+        self::assertStringContainsString($matcher, $this->triggers->getEditorForm('pma_test', 'table', 'add', $data));
     }
 
     /**
@@ -169,10 +166,7 @@ class TriggersTest extends AbstractTestCase
     public function testGetEditorFormEdit(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
-        $this->assertStringContainsString(
-            $matcher,
-            $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data)
-        );
+        self::assertStringContainsString($matcher, $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data));
     }
 
     /**
@@ -215,10 +209,7 @@ class TriggersTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 1;
         ResponseRenderer::getInstance()->setAjax(true);
-        $this->assertStringContainsString(
-            $matcher,
-            $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data)
-        );
+        self::assertStringContainsString($matcher, $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data));
         ResponseRenderer::getInstance()->setAjax(false);
     }
 
@@ -281,8 +272,8 @@ class TriggersTest extends AbstractTestCase
         $_POST['item_definition'] = $definition;
         $GLOBALS['server'] = 1;
 
-        $this->assertEquals($query, $this->triggers->getQueryFromRequest());
-        $this->assertCount($num_err, $errors);
+        self::assertSame($query, $this->triggers->getQueryFromRequest());
+        self::assertCount($num_err, $errors);
     }
 
     /**

@@ -74,15 +74,12 @@ class SearchTest extends AbstractTestCase
         $_POST['criteriaSearchString'] = 'search string';
 
         $this->object = new Search($GLOBALS['dbi'], 'pma_test', new Template());
-        $this->assertEquals(
-            $expected,
-            $this->callFunction(
-                $this->object,
-                Search::class,
-                'getWhereClause',
-                ['table1']
-            )
-        );
+        self::assertSame($expected, $this->callFunction(
+            $this->object,
+            Search::class,
+            'getWhereClause',
+            ['table1']
+        ));
     }
 
     /**
@@ -130,19 +127,16 @@ class SearchTest extends AbstractTestCase
      */
     public function testGetSearchSqls(): void
     {
-        $this->assertEquals(
-            [
-                'select_columns' => 'SELECT *  FROM `pma`.`table1` WHERE FALSE',
-                'select_count' => 'SELECT COUNT(*) AS `count` FROM `pma`.`table1` WHERE FALSE',
-                'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE',
-            ],
-            $this->callFunction(
-                $this->object,
-                Search::class,
-                'getSearchSqls',
-                ['table1']
-            )
-        );
+        self::assertSame([
+            'select_columns' => 'SELECT *  FROM `pma`.`table1` WHERE FALSE',
+            'select_count' => 'SELECT COUNT(*) AS `count` FROM `pma`.`table1` WHERE FALSE',
+            'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE',
+        ], $this->callFunction(
+            $this->object,
+            Search::class,
+            'getSearchSqls',
+            ['table1']
+        ));
     }
 
     /**
@@ -150,10 +144,7 @@ class SearchTest extends AbstractTestCase
      */
     public function testGetSearchResults(): void
     {
-        $this->assertStringContainsString(
-            'Search results for "<em></em>" :',
-            $this->object->getSearchResults()
-        );
+        self::assertStringContainsString('Search results for "<em></em>" :', $this->object->getSearchResults());
     }
 
     /**
@@ -164,15 +155,15 @@ class SearchTest extends AbstractTestCase
         $main = $this->object->getMainHtml();
 
         // test selection form
-        $this->assertStringContainsString('<form', $main);
-        $this->assertStringContainsString('<a id="togglesearchformlink">', $main);
-        $this->assertStringContainsString('criteriaSearchType', $main);
+        self::assertStringContainsString('<form', $main);
+        self::assertStringContainsString('<a id="togglesearchformlink">', $main);
+        self::assertStringContainsString('criteriaSearchType', $main);
 
         // test result divs
-        $this->assertStringContainsString('<div id="table-info"', $main);
-        $this->assertStringContainsString('<a id="table-link"', $main);
-        $this->assertStringContainsString('<div id="browse-results"', $main);
-        $this->assertStringContainsString('<div id="sqlqueryform"', $main);
-        $this->assertStringContainsString('<button class="btn btn-secondary" id="togglequerybox"', $main);
+        self::assertStringContainsString('<div id="table-info"', $main);
+        self::assertStringContainsString('<a id="table-link"', $main);
+        self::assertStringContainsString('<div id="browse-results"', $main);
+        self::assertStringContainsString('<div id="sqlqueryform"', $main);
+        self::assertStringContainsString('<button class="btn btn-secondary" id="togglequerybox"', $main);
     }
 }

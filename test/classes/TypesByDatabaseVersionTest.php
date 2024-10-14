@@ -66,7 +66,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
 
         if ($includes) {
             foreach ($includes as $value) {
-                $this->assertContains($value, $result);
+                self::assertContains($value, $result);
             }
         }
 
@@ -75,7 +75,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
         }
 
         foreach ($excludes as $value) {
-            $this->assertNotContains($value, $result);
+            self::assertNotContains($value, $result);
         }
     }
 
@@ -286,7 +286,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
 
         if ($includes) {
             foreach ($includes as $value) {
-                $this->assertContains($value, $result);
+                self::assertContains($value, $result);
             }
         }
 
@@ -295,7 +295,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
         }
 
         foreach ($excludes as $value) {
-            $this->assertNotContains($value, $result);
+            self::assertNotContains($value, $result);
         }
     }
 
@@ -362,7 +362,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
 
         if ($includes) {
             foreach ($includes as $value) {
-                $this->assertContains($value, $result);
+                self::assertContains($value, $result);
             }
         }
 
@@ -371,7 +371,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
         }
 
         foreach ($excludes as $value) {
-            $this->assertNotContains($value, $result);
+            self::assertNotContains($value, $result);
         }
     }
 
@@ -618,7 +618,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
     {
         $this->createObject($database, $dbVersion);
 
-        $this->assertEquals($expected, $this->object->getColumns());
+        self::assertSame($expected, $this->object->getColumns());
     }
 
     /**

@@ -24,9 +24,9 @@ class CryptoTest extends AbstractTestCase
 
         $crypto = new Crypto();
         $encrypted = $crypto->encrypt('test');
-        $this->assertNotSame('test', $encrypted);
-        $this->assertSame('test', $crypto->decrypt($encrypted));
-        $this->assertArrayNotHasKey('URLQueryEncryptionSecretKey', $_SESSION);
+        self::assertNotSame('test', $encrypted);
+        self::assertSame('test', $crypto->decrypt($encrypted));
+        self::assertArrayNotHasKey('URLQueryEncryptionSecretKey', $_SESSION);
     }
 
     public function testWithValidKeyFromSession(): void
@@ -38,9 +38,9 @@ class CryptoTest extends AbstractTestCase
 
         $crypto = new Crypto();
         $encrypted = $crypto->encrypt('test');
-        $this->assertNotSame('test', $encrypted);
-        $this->assertSame('test', $crypto->decrypt($encrypted));
-        $this->assertArrayHasKey('URLQueryEncryptionSecretKey', $_SESSION);
+        self::assertNotSame('test', $encrypted);
+        self::assertSame('test', $crypto->decrypt($encrypted));
+        self::assertArrayHasKey('URLQueryEncryptionSecretKey', $_SESSION);
     }
 
     public function testWithNewSessionKey(): void
@@ -52,10 +52,10 @@ class CryptoTest extends AbstractTestCase
 
         $crypto = new Crypto();
         $encrypted = $crypto->encrypt('test');
-        $this->assertNotSame('test', $encrypted);
-        $this->assertSame('test', $crypto->decrypt($encrypted));
-        $this->assertArrayHasKey('URLQueryEncryptionSecretKey', $_SESSION);
-        $this->assertEquals(32, mb_strlen($_SESSION['URLQueryEncryptionSecretKey'], '8bit'));
+        self::assertNotSame('test', $encrypted);
+        self::assertSame('test', $crypto->decrypt($encrypted));
+        self::assertArrayHasKey('URLQueryEncryptionSecretKey', $_SESSION);
+        self::assertSame(32, mb_strlen($_SESSION['URLQueryEncryptionSecretKey'], '8bit'));
     }
 
     public function testDecryptWithInvalidKey(): void
@@ -67,12 +67,12 @@ class CryptoTest extends AbstractTestCase
 
         $crypto = new Crypto();
         $encrypted = $crypto->encrypt('test');
-        $this->assertNotSame('test', $encrypted);
-        $this->assertSame('test', $crypto->decrypt($encrypted));
+        self::assertNotSame('test', $encrypted);
+        self::assertSame('test', $crypto->decrypt($encrypted));
 
         $config->set('URLQueryEncryptionSecretKey', str_repeat('b', 32));
 
         $crypto = new Crypto();
-        $this->assertNull($crypto->decrypt($encrypted));
+        self::assertNull($crypto->decrypt($encrypted));
     }
 }

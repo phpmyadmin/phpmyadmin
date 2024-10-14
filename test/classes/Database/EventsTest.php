@@ -60,7 +60,7 @@ class EventsTest extends AbstractTestCase
             $_POST[$key] = $value;
         }
 
-        $this->assertEquals($out, $this->events->getDataFromRequest());
+        self::assertEquals($out, $this->events->getDataFromRequest());
     }
 
     /**
@@ -151,10 +151,7 @@ class EventsTest extends AbstractTestCase
     public function testGetEditorFormAdd(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(false);
-        $this->assertStringContainsString(
-            $matcher,
-            $this->events->getEditorForm('add', 'change', $data)
-        );
+        self::assertStringContainsString($matcher, $this->events->getEditorForm('add', 'change', $data));
     }
 
     /**
@@ -206,10 +203,7 @@ class EventsTest extends AbstractTestCase
     public function testGetEditorFormEdit(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(false);
-        $this->assertStringContainsString(
-            $matcher,
-            $this->events->getEditorForm('edit', 'change', $data)
-        );
+        self::assertStringContainsString($matcher, $this->events->getEditorForm('edit', 'change', $data));
     }
 
     /**
@@ -261,10 +255,7 @@ class EventsTest extends AbstractTestCase
     public function testGetEditorFormAjax(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(true);
-        $this->assertStringContainsString(
-            $matcher,
-            $this->events->getEditorForm('edit', 'change', $data)
-        );
+        self::assertStringContainsString($matcher, $this->events->getEditorForm('edit', 'change', $data));
         ResponseRenderer::getInstance()->setAjax(false);
     }
 
@@ -325,8 +316,8 @@ class EventsTest extends AbstractTestCase
             ->will($this->returnArgument(0));
         $GLOBALS['dbi'] = $dbi;
 
-        $this->assertEquals($query, $this->events->getQueryFromRequest());
-        $this->assertCount($num_err, $errors);
+        self::assertSame($query, $this->events->getQueryFromRequest());
+        self::assertCount($num_err, $errors);
     }
 
     /**

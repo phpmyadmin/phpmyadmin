@@ -111,9 +111,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         if (! empty($_REQUEST['old_usr'])) {
             $this->object->logOut();
         } else {
-            $this->assertFalse(
-                $this->object->showLoginForm()
-            );
+            self::assertFalse($this->object->showLoginForm());
         }
     }
 
@@ -214,14 +212,11 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
 
         $_REQUEST['old_usr'] = $old_usr;
 
-        $this->assertEquals(
-            $expectedReturn,
-            $this->object->readCredentials()
-        );
+        self::assertSame($expectedReturn, $this->object->readCredentials());
 
-        $this->assertEquals($expectedUser, $this->object->user);
+        self::assertSame($expectedUser, $this->object->user);
 
-        $this->assertEquals($expectedPass, $this->object->password);
+        self::assertEquals($expectedPass, $this->object->password);
 
         $_SERVER[$userIndex] = null;
         $_SERVER[$passIndex] = null;
@@ -293,17 +288,15 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         $GLOBALS['server'] = 2;
         $GLOBALS['cfg']['Server']['user'] = 'testUser';
 
-        $this->assertTrue(
-            $this->object->storeCredentials()
-        );
+        self::assertTrue($this->object->storeCredentials());
 
-        $this->assertEquals('testUser', $GLOBALS['cfg']['Server']['user']);
+        self::assertSame('testUser', $GLOBALS['cfg']['Server']['user']);
 
-        $this->assertEquals('testPass', $GLOBALS['cfg']['Server']['password']);
+        self::assertSame('testPass', $GLOBALS['cfg']['Server']['password']);
 
-        $this->assertArrayNotHasKey('PHP_AUTH_PW', $_SERVER);
+        self::assertArrayNotHasKey('PHP_AUTH_PW', $_SERVER);
 
-        $this->assertEquals(2, $GLOBALS['server']);
+        self::assertSame(2, $GLOBALS['server']);
 
         // case 2
         $this->object->user = 'testUser';
@@ -319,20 +312,15 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             'user' => 'user2',
         ];
 
-        $this->assertTrue(
-            $this->object->storeCredentials()
-        );
+        self::assertTrue($this->object->storeCredentials());
 
-        $this->assertEquals(
-            [
-                'user' => 'testUser',
-                'password' => 'testPass',
-                'host' => 'a',
-            ],
-            $GLOBALS['cfg']['Server']
-        );
+        self::assertEquals([
+            'user' => 'testUser',
+            'password' => 'testPass',
+            'host' => 'a',
+        ], $GLOBALS['cfg']['Server']);
 
-        $this->assertEquals(2, $GLOBALS['server']);
+        self::assertSame(2, $GLOBALS['server']);
 
         // case 3
         $GLOBALS['server'] = 3;
@@ -349,20 +337,15 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             'user' => 'user2',
         ];
 
-        $this->assertTrue(
-            $this->object->storeCredentials()
-        );
+        self::assertTrue($this->object->storeCredentials());
 
-        $this->assertEquals(
-            [
-                'user' => 'testUser',
-                'password' => 'testPass',
-                'host' => 'a',
-            ],
-            $GLOBALS['cfg']['Server']
-        );
+        self::assertEquals([
+            'user' => 'testUser',
+            'password' => 'testPass',
+            'host' => 'a',
+        ], $GLOBALS['cfg']['Server']);
 
-        $this->assertEquals(3, $GLOBALS['server']);
+        self::assertSame(3, $GLOBALS['server']);
     }
 
     /**
@@ -388,9 +371,9 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         $this->object->showFailure('');
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString('<p>error 123</p>', $result);
+        self::assertStringContainsString('<p>error 123</p>', $result);
 
         $this->object = $this->getMockBuilder(AuthenticationHttp::class)
             ->disableOriginalConstructor()

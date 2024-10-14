@@ -100,7 +100,7 @@ class ServerTest extends TestCase
         $settings = new Server($actualValues);
 
         foreach (array_keys($expectedValues) as $key) {
-            $this->assertSame($expected[$key], $settings->$key);
+            self::assertSame($expected[$key], $settings->$key);
         }
     }
 

@@ -46,7 +46,7 @@ class BookmarkTest extends AbstractTestCase
             $GLOBALS['cfg']['Server']['user'],
             'sakila'
         );
-        $this->assertContainsOnlyInstancesOf(Bookmark::class, $actual);
+        self::assertContainsOnlyInstancesOf(Bookmark::class, $actual);
         $this->assertAllSelectsConsumed();
     }
 
@@ -56,14 +56,12 @@ class BookmarkTest extends AbstractTestCase
     public function testGet(): void
     {
         $this->dummyDbi->addSelectDb('phpmyadmin');
-        $this->assertNull(
-            Bookmark::get(
-                $GLOBALS['dbi'],
-                $GLOBALS['cfg']['Server']['user'],
-                'phpmyadmin',
-                '1'
-            )
-        );
+        self::assertNull(Bookmark::get(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['user'],
+            'phpmyadmin',
+            '1'
+        ));
         $this->assertAllSelectsConsumed();
     }
 
@@ -80,9 +78,9 @@ class BookmarkTest extends AbstractTestCase
         ];
 
         $bookmark = Bookmark::createBookmark($GLOBALS['dbi'], $bookmarkData);
-        $this->assertNotFalse($bookmark);
+        self::assertNotFalse($bookmark);
         $this->dummyDbi->addSelectDb('phpmyadmin');
-        $this->assertFalse($bookmark->save());
+        self::assertFalse($bookmark->save());
         $this->assertAllSelectsConsumed();
     }
 }

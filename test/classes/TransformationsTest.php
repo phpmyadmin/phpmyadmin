@@ -51,10 +51,7 @@ class TransformationsTest extends AbstractTestCase
      */
     public function testGetOptions(string $input, array $expected): void
     {
-        $this->assertEquals(
-            $expected,
-            $this->transformations->getOptions($input)
-        );
+        self::assertSame($expected, $this->transformations->getOptions($input));
     }
 
     /**
@@ -104,88 +101,85 @@ class TransformationsTest extends AbstractTestCase
      */
     public function testGetTypes(): void
     {
-        $this->assertEquals(
-            [
-                'mimetype' => [
-                    'Application/Octetstream' => 'Application/Octetstream',
-                    'Image/JPEG' => 'Image/JPEG',
-                    'Image/PNG' => 'Image/PNG',
-                    'Text/Plain' => 'Text/Plain',
-                    'Text/Octetstream' => 'Text/Octetstream',
-                ],
-                'transformation' => [
-                    0 => 'Application/Octetstream: Download',
-                    1 => 'Application/Octetstream: Hex',
-                    2 => 'Image/JPEG: Inline',
-                    3 => 'Image/JPEG: Link',
-                    4 => 'Image/PNG: Inline',
-                    5 => 'Text/Octetstream: Sql',
-                    6 => 'Text/Plain: Binarytoip',
-                    7 => 'Text/Plain: Bool2Text',
-                    8 => 'Text/Plain: Dateformat',
-                    9 => 'Text/Plain: External',
-                    10 => 'Text/Plain: Formatted',
-                    11 => 'Text/Plain: Imagelink',
-                    12 => 'Text/Plain: Json',
-                    13 => 'Text/Plain: Sql',
-                    14 => 'Text/Plain: Xml',
-                    15 => 'Text/Plain: Link',
-                    16 => 'Text/Plain: Longtoipv4',
-                    17 => 'Text/Plain: PreApPend',
-                    18 => 'Text/Plain: Substring',
-                ],
-                'transformation_file' => [
-                    0 => 'Output/Application_Octetstream_Download.php',
-                    1 => 'Output/Application_Octetstream_Hex.php',
-                    2 => 'Output/Image_JPEG_Inline.php',
-                    3 => 'Output/Image_JPEG_Link.php',
-                    4 => 'Output/Image_PNG_Inline.php',
-                    5 => 'Output/Text_Octetstream_Sql.php',
-                    6 => 'Output/Text_Plain_Binarytoip.php',
-                    7 => 'Output/Text_Plain_Bool2Text.php',
-                    8 => 'Output/Text_Plain_Dateformat.php',
-                    9 => 'Output/Text_Plain_External.php',
-                    10 => 'Output/Text_Plain_Formatted.php',
-                    11 => 'Output/Text_Plain_Imagelink.php',
-                    12 => 'Output/Text_Plain_Json.php',
-                    13 => 'Output/Text_Plain_Sql.php',
-                    14 => 'Output/Text_Plain_Xml.php',
-                    15 => 'Text_Plain_Link.php',
-                    16 => 'Text_Plain_Longtoipv4.php',
-                    17 => 'Text_Plain_PreApPend.php',
-                    18 => 'Text_Plain_Substring.php',
-                ],
-                'input_transformation' => [
-                    'Image/JPEG: Upload',
-                    'Text/Plain: FileUpload',
-                    'Text/Plain: Iptobinary',
-                    'Text/Plain: Iptolong',
-                    'Text/Plain: JsonEditor',
-                    'Text/Plain: RegexValidation',
-                    'Text/Plain: SqlEditor',
-                    'Text/Plain: XmlEditor',
-                    'Text/Plain: Link',
-                    'Text/Plain: Longtoipv4',
-                    'Text/Plain: PreApPend',
-                    'Text/Plain: Substring',
-                ],
-                'input_transformation_file' => [
-                    'Input/Image_JPEG_Upload.php',
-                    'Input/Text_Plain_FileUpload.php',
-                    'Input/Text_Plain_Iptobinary.php',
-                    'Input/Text_Plain_Iptolong.php',
-                    'Input/Text_Plain_JsonEditor.php',
-                    'Input/Text_Plain_RegexValidation.php',
-                    'Input/Text_Plain_SqlEditor.php',
-                    'Input/Text_Plain_XmlEditor.php',
-                    'Text_Plain_Link.php',
-                    'Text_Plain_Longtoipv4.php',
-                    'Text_Plain_PreApPend.php',
-                    'Text_Plain_Substring.php',
-                ],
+        self::assertEquals([
+            'mimetype' => [
+                'Application/Octetstream' => 'Application/Octetstream',
+                'Image/JPEG' => 'Image/JPEG',
+                'Image/PNG' => 'Image/PNG',
+                'Text/Plain' => 'Text/Plain',
+                'Text/Octetstream' => 'Text/Octetstream',
             ],
-            $this->transformations->getAvailableMimeTypes()
-        );
+            'transformation' => [
+                0 => 'Application/Octetstream: Download',
+                1 => 'Application/Octetstream: Hex',
+                2 => 'Image/JPEG: Inline',
+                3 => 'Image/JPEG: Link',
+                4 => 'Image/PNG: Inline',
+                5 => 'Text/Octetstream: Sql',
+                6 => 'Text/Plain: Binarytoip',
+                7 => 'Text/Plain: Bool2Text',
+                8 => 'Text/Plain: Dateformat',
+                9 => 'Text/Plain: External',
+                10 => 'Text/Plain: Formatted',
+                11 => 'Text/Plain: Imagelink',
+                12 => 'Text/Plain: Json',
+                13 => 'Text/Plain: Sql',
+                14 => 'Text/Plain: Xml',
+                15 => 'Text/Plain: Link',
+                16 => 'Text/Plain: Longtoipv4',
+                17 => 'Text/Plain: PreApPend',
+                18 => 'Text/Plain: Substring',
+            ],
+            'transformation_file' => [
+                0 => 'Output/Application_Octetstream_Download.php',
+                1 => 'Output/Application_Octetstream_Hex.php',
+                2 => 'Output/Image_JPEG_Inline.php',
+                3 => 'Output/Image_JPEG_Link.php',
+                4 => 'Output/Image_PNG_Inline.php',
+                5 => 'Output/Text_Octetstream_Sql.php',
+                6 => 'Output/Text_Plain_Binarytoip.php',
+                7 => 'Output/Text_Plain_Bool2Text.php',
+                8 => 'Output/Text_Plain_Dateformat.php',
+                9 => 'Output/Text_Plain_External.php',
+                10 => 'Output/Text_Plain_Formatted.php',
+                11 => 'Output/Text_Plain_Imagelink.php',
+                12 => 'Output/Text_Plain_Json.php',
+                13 => 'Output/Text_Plain_Sql.php',
+                14 => 'Output/Text_Plain_Xml.php',
+                15 => 'Text_Plain_Link.php',
+                16 => 'Text_Plain_Longtoipv4.php',
+                17 => 'Text_Plain_PreApPend.php',
+                18 => 'Text_Plain_Substring.php',
+            ],
+            'input_transformation' => [
+                'Image/JPEG: Upload',
+                'Text/Plain: FileUpload',
+                'Text/Plain: Iptobinary',
+                'Text/Plain: Iptolong',
+                'Text/Plain: JsonEditor',
+                'Text/Plain: RegexValidation',
+                'Text/Plain: SqlEditor',
+                'Text/Plain: XmlEditor',
+                'Text/Plain: Link',
+                'Text/Plain: Longtoipv4',
+                'Text/Plain: PreApPend',
+                'Text/Plain: Substring',
+            ],
+            'input_transformation_file' => [
+                'Input/Image_JPEG_Upload.php',
+                'Input/Text_Plain_FileUpload.php',
+                'Input/Text_Plain_Iptobinary.php',
+                'Input/Text_Plain_Iptolong.php',
+                'Input/Text_Plain_JsonEditor.php',
+                'Input/Text_Plain_RegexValidation.php',
+                'Input/Text_Plain_SqlEditor.php',
+                'Input/Text_Plain_XmlEditor.php',
+                'Text_Plain_Link.php',
+                'Text_Plain_Longtoipv4.php',
+                'Text_Plain_PreApPend.php',
+                'Text_Plain_Substring.php',
+            ],
+        ], $this->transformations->getAvailableMimeTypes());
     }
 
     /**
@@ -200,27 +194,24 @@ class TransformationsTest extends AbstractTestCase
             'trackingwork' => true,
             'column_info' => 'column_info',
         ])->toArray();
-        $this->assertEquals(
-            [
-                'o' => [
-                    'column_name' => 'o',
-                    'mimetype' => 'Text/plain',
-                    'transformation' => 'Sql',
-                    'transformation_options' => '',
-                    'input_transformation' => 'regex',
-                    'input_transformation_options' => '/pma/i',
-                ],
-                'col' => [
-                    'column_name' => 'col',
-                    'mimetype' => 'T',
-                    'transformation' => 'O/P',
-                    'transformation_options' => '',
-                    'input_transformation' => 'i/p',
-                    'input_transformation_options' => '',
-                ],
+        self::assertSame([
+            'o' => [
+                'column_name' => 'o',
+                'mimetype' => 'Text/plain',
+                'transformation' => 'Sql',
+                'transformation_options' => '',
+                'input_transformation' => 'regex',
+                'input_transformation_options' => '/pma/i',
             ],
-            $this->transformations->getMime('pma_test', 'table1')
-        );
+            'col' => [
+                'column_name' => 'col',
+                'mimetype' => 'T',
+                'transformation' => 'O/P',
+                'transformation_options' => '',
+                'input_transformation' => 'i/p',
+                'input_transformation_options' => '',
+            ],
+        ], $this->transformations->getMime('pma_test', 'table1'));
     }
 
     /**
@@ -239,7 +230,7 @@ class TransformationsTest extends AbstractTestCase
 
         // Case 1 : no configuration storage
         $actual = $this->transformations->clear('db');
-        $this->assertFalse($actual);
+        self::assertFalse($actual);
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
@@ -250,15 +241,15 @@ class TransformationsTest extends AbstractTestCase
 
         // Case 2 : database delete
         $actual = $this->transformations->clear('db');
-        $this->assertTrue($actual);
+        self::assertTrue($actual);
 
         // Case 3 : table delete
         $actual = $this->transformations->clear('db', 'table');
-        $this->assertTrue($actual);
+        self::assertTrue($actual);
 
         // Case 4 : column delete
         $actual = $this->transformations->clear('db', 'table', 'col');
-        $this->assertTrue($actual);
+        self::assertTrue($actual);
     }
 
     /**
@@ -269,10 +260,7 @@ class TransformationsTest extends AbstractTestCase
      */
     public function testFixup(string $value, string $expected): void
     {
-        $this->assertEquals(
-            $expected,
-            $this->transformations->fixUpMime($value)
-        );
+        self::assertSame($expected, $this->transformations->fixUpMime($value));
     }
 
     public static function fixupData(): array
@@ -311,10 +299,7 @@ class TransformationsTest extends AbstractTestCase
      */
     public function testGetDescription(string $file, string $expectedDescription): void
     {
-        $this->assertEquals(
-            $expectedDescription,
-            $this->transformations->getDescription($file)
-        );
+        self::assertSame($expectedDescription, $this->transformations->getDescription($file));
     }
 
     public static function providerGetDescription(): array
@@ -345,10 +330,7 @@ class TransformationsTest extends AbstractTestCase
      */
     public function testGetName(string $file, string $expectedName): void
     {
-        $this->assertEquals(
-            $expectedName,
-            $this->transformations->getName($file)
-        );
+        self::assertSame($expectedName, $this->transformations->getName($file));
     }
 
     public static function providerGetName(): array

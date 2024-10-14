@@ -53,7 +53,7 @@ class ErrorTest extends AbstractTestCase
         ];
         $this->object->setBacktrace($bt);
         $bt[0]['args']['foo'] = '<Class:PhpMyAdmin\Tests\ErrorTest>';
-        $this->assertEquals($bt, $this->object->getBacktrace());
+        self::assertSame($bt, $this->object->getBacktrace());
     }
 
     /**
@@ -62,7 +62,7 @@ class ErrorTest extends AbstractTestCase
     public function testSetLine(): void
     {
         $this->object->setLine(15);
-        $this->assertEquals(15, $this->object->getLine());
+        self::assertSame(15, $this->object->getLine());
     }
 
     /**
@@ -76,7 +76,7 @@ class ErrorTest extends AbstractTestCase
     public function testSetFile(string $file, string $expected): void
     {
         $this->object->setFile($file);
-        $this->assertEquals($expected, $this->object->getFile());
+        self::assertSame($expected, $this->object->getFile());
     }
 
     /**
@@ -108,10 +108,7 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetHash(): void
     {
-        $this->assertEquals(
-            1,
-            preg_match('/^([a-z0-9]*)$/', $this->object->getHash())
-        );
+        self::assertSame(1, preg_match('/^([a-z0-9]*)$/', $this->object->getHash()));
     }
 
     /**
@@ -121,7 +118,7 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetBacktraceDisplay(): void
     {
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'PHPUnit\Framework\TestResult->run(<Class:PhpMyAdmin\Tests\ErrorTest>)<br>',
             $this->object->getBacktraceDisplay()
         );
@@ -132,7 +129,7 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetDisplay(): void
     {
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<div class="alert alert-danger" role="alert"><strong>Warning</strong>',
             $this->object->getDisplay()
         );
@@ -143,7 +140,7 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetHtmlTitle(): void
     {
-        $this->assertEquals('Warning: Compile Error', $this->object->getHtmlTitle());
+        self::assertSame('Warning: Compile Error', $this->object->getHtmlTitle());
     }
 
     /**
@@ -151,7 +148,7 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetTitle(): void
     {
-        $this->assertEquals('Warning: Compile Error', $this->object->getTitle());
+        self::assertSame('Warning: Compile Error', $this->object->getTitle());
     }
 
     /**
@@ -189,9 +186,9 @@ class ErrorTest extends AbstractTestCase
         $this->object->setBacktrace($bt);
 
         // case: full backtrace
-        $this->assertCount(4, $this->object->getBacktrace());
+        self::assertCount(4, $this->object->getBacktrace());
 
         // case: first 2 frames
-        $this->assertCount(2, $this->object->getBacktrace(2));
+        self::assertCount(2, $this->object->getBacktrace(2));
     }
 }

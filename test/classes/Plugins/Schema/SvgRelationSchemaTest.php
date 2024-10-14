@@ -63,10 +63,10 @@ class SvgRelationSchemaTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $this->assertEquals(33, $this->object->getPageNumber());
-        $this->assertTrue($this->object->isShowColor());
-        $this->assertTrue($this->object->isShowKeys());
-        $this->assertTrue($this->object->isTableDimension());
-        $this->assertTrue($this->object->isAllTableSameWidth());
+        self::assertSame(33, $this->object->getPageNumber());
+        self::assertTrue($this->object->isShowColor());
+        self::assertTrue($this->object->isShowKeys());
+        self::assertTrue($this->object->isTableDimension());
+        self::assertTrue($this->object->isAllTableSameWidth());
     }
 }

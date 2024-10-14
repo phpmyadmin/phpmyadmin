@@ -25,10 +25,7 @@ class ForeignKeyTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 1;
 
-        $this->assertEquals(
-            $e,
-            ForeignKey::isSupported($a)
-        );
+        self::assertSame($e, ForeignKey::isSupported($a));
     }
 
     /**
@@ -51,19 +48,13 @@ class ForeignKeyTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
 
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'enable';
-        $this->assertTrue(
-            ForeignKey::isCheckEnabled()
-        );
+        self::assertTrue(ForeignKey::isCheckEnabled());
 
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'disable';
-        $this->assertFalse(
-            ForeignKey::isCheckEnabled()
-        );
+        self::assertFalse(ForeignKey::isCheckEnabled());
 
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'default';
-        $this->assertTrue(
-            ForeignKey::isCheckEnabled()
-        );
+        self::assertTrue(ForeignKey::isCheckEnabled());
     }
 
     /**
@@ -99,7 +90,7 @@ class ForeignKeyTest extends AbstractTestCase
             ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
             ->will($this->returnValue(true));
 
-        $this->assertTrue(ForeignKey::handleDisableCheckInit());
+        self::assertTrue(ForeignKey::handleDisableCheckInit());
     }
 
     /**
@@ -123,7 +114,7 @@ class ForeignKeyTest extends AbstractTestCase
             ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
             ->will($this->returnValue(true));
 
-        $this->assertFalse(ForeignKey::handleDisableCheckInit());
+        self::assertFalse(ForeignKey::handleDisableCheckInit());
     }
 
     /**

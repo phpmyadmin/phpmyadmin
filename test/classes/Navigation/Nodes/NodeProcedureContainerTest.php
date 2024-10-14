@@ -27,14 +27,11 @@ class NodeProcedureContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeProcedureContainer');
-        $this->assertIsArray($parent->links);
-        $this->assertEquals(
-            [
-                'text' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
-                'icon' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
-            ],
-            $parent->links
-        );
-        $this->assertEquals('procedures', $parent->realName);
+        self::assertIsArray($parent->links);
+        self::assertSame([
+            'text' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
+            'icon' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
+        ], $parent->links);
+        self::assertSame('procedures', $parent->realName);
     }
 }
