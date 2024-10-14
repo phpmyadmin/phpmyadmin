@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-13 00:24+0000\n"
-"PO-Revision-Date: 2023-11-13 17:46+0000\n"
-"Last-Translator: Benito Alessandrino <bennygames.yt@gmail.com>\n"
+"PO-Revision-Date: 2024-10-14 12:18+0000\n"
+"Last-Translator: Matteo Regazzi <mregazzi@tiscali.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/it/>\n"
 "Language: it\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -6284,7 +6284,7 @@ msgstr "Query SQL"
 
 #: resources/templates/sql/query.twig:41
 msgid "Format as a single line"
-msgstr ""
+msgstr "Formattare a linea singola"
 
 #: resources/templates/sql/query.twig:45
 msgid "Get auto-saved query"
@@ -12764,6 +12764,9 @@ msgid ""
 "configuration directive <code>AllowNoPassword</code> is false. If you "
 "proceed, the account will not be able to log in through phpMyAdmin."
 msgstr ""
+"Stai provando a impostare questo account per accedere senza password, ma la "
+"direttiva di configurazione <code>AllowNoPassword</code> è falsa. Se "
+"procedi, l'account non sarà in grado di accedere tramite phpMyAdmin."
 
 #: src/Controllers/JavaScriptMessagesController.php:151
 msgid "Removing Selected Users"
@@ -12771,19 +12774,19 @@ msgstr "Rimozione Utenti Selezionati"
 
 #: src/Controllers/JavaScriptMessagesController.php:159
 msgid "Template was created."
-msgstr "Il template è stato creato."
+msgstr "Template creato."
 
 #: src/Controllers/JavaScriptMessagesController.php:160
 msgid "Template was loaded."
-msgstr "Il template è stato caricato."
+msgstr "Template caricato."
 
 #: src/Controllers/JavaScriptMessagesController.php:161
 msgid "Template was updated."
-msgstr "Il template è stato aggiornato."
+msgstr "Template aggiornato."
 
 #: src/Controllers/JavaScriptMessagesController.php:162
 msgid "Template was deleted."
-msgstr "Il template è stato eliminato."
+msgstr "Template eliminato."
 
 #. l10n: Other, small valued, queries
 #: src/Controllers/JavaScriptMessagesController.php:165
