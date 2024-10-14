@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-11 21:28-0300\n"
-"PO-Revision-Date: 2024-08-01 16:01+0000\n"
-"Last-Translator: Moha684 <nahil82466@gmail.com>\n"
+"PO-Revision-Date: 2024-10-14 12:18+0000\n"
+"Last-Translator: Fulup Jakez <fulup.jakez@gmail.com>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/5-2/br/"
 ">\n"
 "Language: br\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1883,18 +1883,12 @@ msgstr ""
 "talvout an alc'hwez"
 
 #: libraries/classes/Config/Descriptions.php:190
-#, fuzzy
-#| msgid ""
-#| "Specify browser's title bar text. Refer to "
-#| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
-#| "used to get special values."
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Spisaat testenn barrenn ditl ar merdeer. En em zaveiñ d'an  "
-"[doc@cfg_TitleTable]teuliadur[/doc] evit an neudennadoù hud a c'haller ober "
-"ganto."
+"Spisaat testenn barrenn ditl ar merdeer. En em zaveiñ d'an "
+"[doc@faq6-27]teuliadur[/doc] evit an neudennadoù hud a c'haller ober ganto."
 
 #: libraries/classes/Config/Descriptions.php:195
 #, fuzzy
@@ -6551,10 +6545,8 @@ msgstr "Nullañ"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:327
 #: templates/header.twig:44
-#, fuzzy
-#| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Kemmañ an arventennoù"
+msgstr "Arventennoù a sell ouzh ar bajenn"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 #: templates/config/form_display/display.twig:46
@@ -8658,7 +8650,7 @@ msgstr "Dibosupl tapout an talbennoù"
 #: templates/table/structure/display_structure.twig:295
 #: templates/table/tracking/structure_snapshot_columns.twig:25
 msgid "Primary"
-msgstr ""
+msgstr "Kentañ"
 
 #: libraries/classes/Controllers/Table/StructureController.php:224
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
@@ -8670,7 +8662,7 @@ msgstr ""
 #: templates/table/structure/display_table_stats.twig:24
 #: templates/table/tracking/structure_snapshot_columns.twig:27
 msgid "Index"
-msgstr ""
+msgstr "Meneger"
 
 #: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:82
 #, fuzzy
@@ -13691,7 +13683,7 @@ msgstr ""
 #: templates/database/central_columns/main.twig:71
 #: templates/database/central_columns/main.twig:298
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "Aozañ an talvoudoù ENUM/SET"
 
 #: templates/columns_definitions/column_attributes.twig:38
 #: templates/database/central_columns/edit_table_row.twig:30
@@ -13699,14 +13691,14 @@ msgstr ""
 #: templates/database/central_columns/main.twig:309
 msgctxt "for default"
 msgid "None"
-msgstr ""
+msgstr "Hini"
 
 #: templates/columns_definitions/column_attributes.twig:41
 #: templates/database/central_columns/edit_table_row.twig:33
 #: templates/database/central_columns/main.twig:77
 #: templates/database/central_columns/main.twig:312
 msgid "As defined:"
-msgstr ""
+msgstr "Evel termenet :"
 
 #: templates/columns_definitions/column_attributes.twig:102
 msgid ""
@@ -13729,14 +13721,14 @@ msgstr "Dibar"
 #: templates/table/structure/display_structure.twig:222
 #: templates/table/structure/display_structure.twig:307
 msgid "Fulltext"
-msgstr ""
+msgstr "Testenn glok"
 
 #: templates/columns_definitions/column_attributes.twig:128
 #: templates/table/structure/display_structure.twig:192
 #: templates/table/structure/display_structure.twig:200
 #: templates/table/structure/display_structure.twig:304
 msgid "Spatial"
-msgstr ""
+msgstr "Egorel"
 
 #: templates/columns_definitions/column_attributes.twig:165
 #: templates/table/structure/display_partitions.twig:26
@@ -13747,19 +13739,19 @@ msgstr "Gwaskadur"
 
 #: templates/columns_definitions/column_attributes.twig:186
 msgid "first"
-msgstr ""
+msgstr "da gentañ"
 
 #: templates/columns_definitions/column_attributes.twig:191
 #: templates/table/structure/display_structure.twig:450
 #, php-format
 msgid "after %s"
-msgstr ""
+msgstr "goude %s"
 
 #: templates/columns_definitions/column_definitions_form.twig:23
 #: templates/database/create_table.twig:6
 #: templates/database/operations/index.twig:30
 msgid "Table name"
-msgstr ""
+msgstr "Anv an daolenn"
 
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/console/display.twig:99
@@ -13777,30 +13769,26 @@ msgid "column(s)"
 msgstr "Ouzhpennañ/Diverkañ bannoù"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
-#, fuzzy
-#| msgid "Collation"
 msgid "Collation:"
-msgstr "Etrerummadiñ"
+msgstr "Etrerummata :"
 
 #: templates/columns_definitions/column_definitions_form.twig:77
 msgid "Storage Engine:"
-msgstr ""
+msgstr "Keflusker stokañ :"
 
 #: templates/columns_definitions/column_definitions_form.twig:82
-#, fuzzy
-#| msgid "Connections"
 msgid "Connection:"
-msgstr "Kevreadennoù"
+msgstr "Kevreadenn :"
 
 #: templates/columns_definitions/column_definitions_form.twig:113
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:133
 msgid "Storage engine"
-msgstr ""
+msgstr "Keflusker stokañ"
 
 #: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
-msgstr ""
+msgstr "Termenadur RANNAÑ :"
 
 #: templates/columns_definitions/column_definitions_form.twig:154
 #, fuzzy
@@ -13826,22 +13814,17 @@ msgstr ""
 #: templates/table/relation/common_form.twig:233
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:97
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "O kargañ…"
+msgstr "O kargañ"
 
 #: templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
+#, php-format
 msgid "Referenced by %s."
-msgstr "Diuzit an alc'hwez daveet"
+msgstr "Menegeret gant %s."
 
 #: templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "Diuzit an alc'hwez estren"
+msgstr "Zo un alc'hwez estren."
 
 #: templates/columns_definitions/column_name.twig:39
 #, fuzzy
@@ -13850,10 +13833,8 @@ msgid "Pick from Central Columns"
 msgstr "Dilemel ar grafik"
 
 #: templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "Relations"
 msgid "Partition by:"
-msgstr "Darempredoù"
+msgstr "Rannañ dre :"
 
 #: templates/columns_definitions/partitions.twig:32
 #: templates/columns_definitions/partitions.twig:60
@@ -13863,10 +13844,8 @@ msgid "Expression or column list"
 msgstr "Talvoudoù evit ar bann \"%s\""
 
 #: templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Relations"
 msgid "Partitions:"
-msgstr "Darempredoù"
+msgstr "Rannadennoù :"
 
 #: templates/columns_definitions/partitions.twig:45
 #, fuzzy
@@ -15951,21 +15930,21 @@ msgstr ""
 
 #: templates/footer.twig:7 templates/footer.twig:9 templates/footer.twig:11
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "Digeriñ ur prenestr phpMyAdmin nevez"
 
 #: templates/footer.twig:26 templates/home/index.twig:18
 #: templates/login/form.twig:5
 msgid "phpMyAdmin Demo Server"
-msgstr ""
+msgstr "Servijer rakdiskouez phpMyAdmin"
 
 #: templates/footer.twig:34
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Emañ adweladenn Git %1$s eus ar skourr %2$s oc'h erounit."
 
 #: templates/footer.twig:36
 msgid "Git information missing!"
-msgstr ""
+msgstr "Mankout a ra an titouroù Git !"
 
 #: templates/gis_data_editor_form.twig:4
 #, php-format
@@ -16053,10 +16032,8 @@ msgstr ""
 "vaezienn \"Talvoud\" a-is"
 
 #: templates/header.twig:35 templates/login/header.twig:13
-#, fuzzy
-#| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point!"
-msgstr "Evit gallout kenderc'hel e rankit gweredekaat an toupinoù."
+msgstr "Ret eo gweredekaat JavaScript !"
 
 #: templates/header.twig:46
 msgid "Click on the bar to scroll to top of page"
@@ -16828,7 +16805,7 @@ msgstr "Ezporzhiañ an daolenn"
 
 #: templates/navigation/main.twig:30 templates/navigation/main.twig:31
 msgid "Log out"
-msgstr ""
+msgstr "Digevreañ"
 
 #: templates/navigation/main.twig:35 templates/navigation/main.twig:36
 msgid "phpMyAdmin documentation"
