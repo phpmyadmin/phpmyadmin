@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-13 00:24+0000\n"
-"PO-Revision-Date: 2024-08-01 16:01+0000\n"
-"Last-Translator: Moha684 <nahil82466@gmail.com>\n"
+"PO-Revision-Date: 2024-10-14 12:18+0000\n"
+"Last-Translator: Fulup Jakez <fulup.jakez@gmail.com>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "br/>\n"
 "Language: br\n"
@@ -17,13 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
-#, fuzzy
-#| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point!"
-msgstr "Evit gallout kenderc'hel e rankit gweredekaat an toupinoù."
+msgstr "Ret eo gweredekaat JavaScript !"
 
 #: resources/templates/base.twig:46
 #, fuzzy
@@ -49,14 +47,12 @@ msgid "MySQL documentation"
 msgstr "Teuliadur"
 
 #: resources/templates/base.twig:73
-#, fuzzy
-#| msgid "Change settings"
 msgid "Appearance:"
-msgstr "Kemmañ an arventennoù"
+msgstr "Neuz :"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "Mod liv evit an tem"
 
 #: resources/templates/base.twig:80 resources/templates/home/index.twig:154
 #, fuzzy
@@ -68,7 +64,7 @@ msgstr "Dehou"
 #: resources/templates/base.twig:82 resources/templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Teñval"
 
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
@@ -80,44 +76,42 @@ msgstr "Arventennoù"
 #: resources/templates/base.twig:99 resources/templates/navigation/main.twig:30
 #: resources/templates/navigation/main.twig:31
 msgid "Log out"
-msgstr ""
+msgstr "Digevreañ"
 
 #: resources/templates/base.twig:108
 #: src/Controllers/JavaScriptMessagesController.php:345
-#, fuzzy
-#| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Kemmañ an arventennoù"
+msgstr "Arventennoù a sell ouzh ar bajenn"
 
 #: resources/templates/base.twig:110
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Klikañ war ar varrenn evit lakaat da zibunañ e laez ar bajenn"
 
 #: resources/templates/base.twig:132 resources/templates/base.twig:134
 #: resources/templates/base.twig:136
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "Digeriñ ur prenestr phpMyAdmin nevez"
 
 #: resources/templates/base.twig:151 resources/templates/home/index.twig:18
 #: resources/templates/login/form.twig:5
 msgid "phpMyAdmin Demo Server"
-msgstr ""
+msgstr "Servijer rakdiskouez phpMyAdmin"
 
 #: resources/templates/base.twig:159
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Emañ adweladenn Git %1$s eus ar skourr %2$s oc'h erounit."
 
 #: resources/templates/base.twig:161
 msgid "Git information missing!"
-msgstr ""
+msgstr "Mankout a ra an titouroù Git !"
 
 #: resources/templates/columns_definitions/column_attributes.twig:31
 #: resources/templates/database/central_columns/edit_table_row.twig:23
 #: resources/templates/database/central_columns/main.twig:71
 #: resources/templates/database/central_columns/main.twig:304
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "Aozañ an talvoudoù ENUM/SET"
 
 #: resources/templates/columns_definitions/column_attributes.twig:38
 #: resources/templates/database/central_columns/edit_table_row.twig:30
@@ -125,14 +119,14 @@ msgstr ""
 #: resources/templates/database/central_columns/main.twig:315
 msgctxt "for default"
 msgid "None"
-msgstr ""
+msgstr "Hini"
 
 #: resources/templates/columns_definitions/column_attributes.twig:41
 #: resources/templates/database/central_columns/edit_table_row.twig:33
 #: resources/templates/database/central_columns/main.twig:77
 #: resources/templates/database/central_columns/main.twig:318
 msgid "As defined:"
-msgstr ""
+msgstr "Evel termenet :"
 
 #: resources/templates/columns_definitions/column_attributes.twig:102
 msgid ""
@@ -148,7 +142,7 @@ msgstr ""
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
 #: src/Controllers/Table/StructureController.php:221
 msgid "Primary"
-msgstr ""
+msgstr "Kentañ"
 
 #: resources/templates/columns_definitions/column_attributes.twig:116
 #: resources/templates/database/data_dictionary/index.twig:75
@@ -171,21 +165,21 @@ msgstr "Dibar"
 #: src/Controllers/Table/StructureController.php:225
 #: src/Navigation/Nodes/NodeIndex.php:24
 msgid "Index"
-msgstr ""
+msgstr "Meneger"
 
 #: resources/templates/columns_definitions/column_attributes.twig:124
 #: resources/templates/table/structure/display_structure.twig:209
 #: resources/templates/table/structure/display_structure.twig:212
 #: resources/templates/table/structure/display_structure.twig:296
 msgid "Fulltext"
-msgstr ""
+msgstr "Testenn glok"
 
 #: resources/templates/columns_definitions/column_attributes.twig:128
 #: resources/templates/table/structure/display_structure.twig:186
 #: resources/templates/table/structure/display_structure.twig:192
 #: resources/templates/table/structure/display_structure.twig:293
 msgid "Spatial"
-msgstr ""
+msgstr "Egorel"
 
 #: resources/templates/columns_definitions/column_attributes.twig:165
 #: resources/templates/table/structure/display_partitions.twig:27
@@ -196,13 +190,13 @@ msgstr "Gwaskadur"
 
 #: resources/templates/columns_definitions/column_attributes.twig:185
 msgid "first"
-msgstr ""
+msgstr "da gentañ"
 
 #: resources/templates/columns_definitions/column_attributes.twig:190
 #: resources/templates/table/structure/display_structure.twig:439
 #, php-format
 msgid "after %s"
-msgstr ""
+msgstr "goude %s"
 
 #: resources/templates/columns_definitions/column_attributes.twig:216
 #: resources/templates/columns_definitions/column_attributes.twig:239
@@ -226,7 +220,7 @@ msgstr "Hini"
 #: resources/templates/database/create_table.twig:6
 #: resources/templates/database/operations/index.twig:31
 msgid "Table name"
-msgstr ""
+msgstr "Anv an daolenn"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:31
 #: resources/templates/console/display.twig:136
@@ -308,30 +302,26 @@ msgid "Table comments:"
 msgstr "Evezhiadennoù diwar-benn an daolenn :"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:73
-#, fuzzy
-#| msgid "Collation"
 msgid "Collation:"
-msgstr "Etrerummadiñ"
+msgstr "Etrerummata :"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:76
 msgid "Storage Engine:"
-msgstr ""
+msgstr "Keflusker stokañ :"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:81
-#, fuzzy
-#| msgid "Connections"
 msgid "Connection:"
-msgstr "Kevreadennoù"
+msgstr "Kevreadenn :"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:112
 #: resources/templates/columns_definitions/partitions.twig:137
 #: resources/templates/table/operations/index.twig:134
 msgid "Storage engine"
-msgstr ""
+msgstr "Keflusker stokañ"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:135
 msgid "PARTITION definition:"
-msgstr ""
+msgstr "Termenadur RANNAÑ :"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:154
 #, fuzzy
@@ -385,10 +375,8 @@ msgstr ""
 #: resources/templates/table/relation/common_form.twig:150
 #: resources/templates/table/zoom_search/result_form.twig:24
 #: resources/templates/table/zoom_search/result_form.twig:95
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "O kargañ…"
+msgstr "O kargañ"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:177
 #: resources/templates/columns_definitions/column_definitions_form.twig:182
@@ -443,16 +431,13 @@ msgid "Close"
 msgstr "Serriñ"
 
 #: resources/templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
+#, php-format
 msgid "Referenced by %s."
-msgstr "Diuzit an alc'hwez daveet"
+msgstr "Menegeret gant %s."
 
 #: resources/templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "Diuzit an alc'hwez estren"
+msgstr "Zo un alc'hwez estren."
 
 #: resources/templates/columns_definitions/column_name.twig:16
 #: resources/templates/database/data_dictionary/index.twig:22
@@ -494,10 +479,8 @@ msgid "Pick from Central Columns"
 msgstr "Dilemel ar grafik"
 
 #: resources/templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "Relations"
 msgid "Partition by:"
-msgstr "Darempredoù"
+msgstr "Rannañ dre :"
 
 #: resources/templates/columns_definitions/partitions.twig:32
 #: resources/templates/columns_definitions/partitions.twig:60
@@ -507,10 +490,8 @@ msgid "Expression or column list"
 msgstr "Talvoudoù evit ar bann \"%s\""
 
 #: resources/templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Relations"
 msgid "Partitions:"
-msgstr "Darempredoù"
+msgstr "Rannadennoù :"
 
 #: resources/templates/columns_definitions/partitions.twig:45
 #, fuzzy
@@ -9811,18 +9792,12 @@ msgstr ""
 "talvout an alc'hwez"
 
 #: src/Config/Descriptions.php:177
-#, fuzzy
-#| msgid ""
-#| "Specify browser's title bar text. Refer to "
-#| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
-#| "used to get special values."
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Spisaat testenn barrenn ditl ar merdeer. En em zaveiñ d'an  "
-"[doc@cfg_TitleTable]teuliadur[/doc] evit an neudennadoù hud a c'haller ober "
-"ganto."
+"Spisaat testenn barrenn ditl ar merdeer. En em zaveiñ d'an "
+"[doc@faq6-27]teuliadur[/doc] evit an neudennadoù hud a c'haller ober ganto."
 
 #: src/Config/Descriptions.php:182
 #, fuzzy
