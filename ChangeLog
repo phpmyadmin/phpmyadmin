@@ -108,6 +108,32 @@ phpMyAdmin - ChangeLog
 - issue #18210 Fixed add replica replication user on MariaDB doesn't work (SQL syntax)
 - issue #19041 Fix footer.twig gets printed to Binary File Download
 - issue #19091 Fix to stop processing queries on error
+- issue #18241 Fix copy SQL query button on error messages
+- issue #17190 Fix an error with SELECT ... FOR UPDATE queries
+- issue #19145 Remove duplicate server and lang parameters from links
+- issue #19158 Fix an issue with backticks on the query generator
+- issue #19174 Fix an issue with column alias with asterisk on the query generator
+- issue #19146 Fix column sorting with limit subquery
+- issue #19152 Fix the number of lines being ignored in GIS visualization after a search
+- issue #19189 Fix issue with column sorting when using 'group by'
+- issue #19188 Fix issue with simulated queries reporting syntax errors
+- issue #19141 Add cookie prefix '-__Secure-' to cookies to help prevent cookie smuggling
+- issue #19218 Fix textarea horizontal resizing with Bootstap theme
+- issue #19199 Add support for fractional seconds to current_timestamp()
+- issue #19221 Fix query statistics for queries with count(*)
+- issue #19203 Fix single quotes and backslashes for the query generator
+- issue #19163 Fix queries with IS NULL or IS NOT NULL for the query generator
+- issue #19181 Fix query generator support for IN() and NOT IN()
+- issue #19167 Fix criteria on column '*' for the query generator
+- issue #19213 Fix possible issue when exporting a large data set
+- issue #19217 Fix issue when editing a cell of a JSON column
+- issue #19244 Add yarn 1.22 to the package.json's packageManager field
+- issue #19185 Fix visual issue when a row has only empty cells
+- issue #19257 Fix issue when adding an index with an invalid name
+- issue #19276 Fix compatibility with Twig 3.12
+- issue #19283 Fix issue when the server starts with skip-innodb option
+- issue #19299 Fix charset in procedure's parameter type
+- issue #19316 Fix input size for hexadecimal values
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
