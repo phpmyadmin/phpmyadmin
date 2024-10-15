@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-10-15 08:15+0000\n"
+"PO-Revision-Date: 2024-10-16 15:51+0000\n"
 "Last-Translator: Fulup Jakez <fulup.jakez@gmail.com>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/4-9/br/"
 ">\n"
@@ -14269,17 +14269,15 @@ msgstr ""
 
 #: libraries/user_preferences.inc.php:31
 msgid "Manage your settings"
-msgstr ""
+msgstr "Merañ ma arventennoù"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Authentication"
 msgid "Two-factor authentication"
-msgstr "Dilesadur"
+msgstr "Dilesadur doubl"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:298
 msgid "Configuration has been saved."
-msgstr ""
+msgstr "Enrollet eo bet ar c'hefluniadur"
 
 #: libraries/user_preferences.inc.php:71
 #, php-format
@@ -14299,6 +14297,8 @@ msgstr ""
 #: prefs_forms.php:82
 msgid "Cannot save settings, submitted form contains errors!"
 msgstr ""
+"N'eus ket bet gallet enrollañ an arventennoù rak fazioù zo er furmskrid "
+"kaset !"
 
 #: prefs_manage.php:52
 #, fuzzy
@@ -16772,12 +16772,12 @@ msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
+"Ur c'hefluniadur phpMyAdmin zo er merdeer-mañ evit an domani-mañ. Ha ret eo "
+"e enporzhiañ en estez-mañ ?"
 
 #: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Deleting tracking data"
 msgid "Delete settings"
-msgstr "O tiverkañ ar roadennoù heuliañ"
+msgstr "Dilemel an arventennoù"
 
 #: templates/table/index_form.twig:15
 msgid "Index name:"
