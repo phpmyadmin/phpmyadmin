@@ -9,6 +9,21 @@ use PhpMyAdmin\Error;
 use function preg_match;
 
 use const DIRECTORY_SEPARATOR;
+use const E_COMPILE_ERROR;
+use const E_COMPILE_WARNING;
+use const E_CORE_ERROR;
+use const E_CORE_WARNING;
+use const E_DEPRECATED;
+use const E_ERROR;
+use const E_NOTICE;
+use const E_PARSE;
+use const E_RECOVERABLE_ERROR;
+use const E_STRICT;
+use const E_USER_DEPRECATED;
+use const E_USER_ERROR;
+use const E_USER_NOTICE;
+use const E_USER_WARNING;
+use const E_WARNING;
 
 /**
  * @covers \PhpMyAdmin\Error
@@ -133,6 +148,60 @@ class ErrorTest extends AbstractTestCase
             '<div class="alert alert-danger" role="alert"><strong>Warning</strong>',
             $this->object->getDisplay()
         );
+    }
+
+    /** @dataProvider errorLevelProvider */
+    public function testGetLevel(int $errorNumber, string $expected): void
+    {
+        self::assertSame($expected, (new Error($errorNumber, 'Error', 'error.txt', 15))->getLevel());
+    }
+
+    /** @return iterable<string, array{int, string}> */
+    public static function errorLevelProvider(): iterable
+    {
+        yield 'internal error' => [0, 'error'];
+        yield 'E_ERROR error' => [E_ERROR, 'error'];
+        yield 'E_WARNING error' => [E_WARNING, 'error'];
+        yield 'E_PARSE error' => [E_PARSE, 'error'];
+        yield 'E_NOTICE notice' => [E_NOTICE, 'notice'];
+        yield 'E_CORE_ERROR error' => [E_CORE_ERROR, 'error'];
+        yield 'E_CORE_WARNING error' => [E_CORE_WARNING, 'error'];
+        yield 'E_COMPILE_ERROR error' => [E_COMPILE_ERROR, 'error'];
+        yield 'E_COMPILE_WARNING error' => [E_COMPILE_WARNING, 'error'];
+        yield 'E_USER_ERROR error' => [E_USER_ERROR, 'error'];
+        yield 'E_USER_WARNING error' => [E_USER_WARNING, 'error'];
+        yield 'E_USER_NOTICE notice' => [E_USER_NOTICE, 'notice'];
+        yield 'E_STRICT notice' => [@E_STRICT, 'notice'];
+        yield 'E_DEPRECATED notice' => [E_DEPRECATED, 'notice'];
+        yield 'E_USER_DEPRECATED notice' => [E_USER_DEPRECATED, 'notice'];
+        yield 'E_RECOVERABLE_ERROR error' => [E_RECOVERABLE_ERROR, 'error'];
+    }
+
+    /** @dataProvider errorTypeProvider */
+    public function testGetType(int $errorNumber, string $expected): void
+    {
+        self::assertSame($expected, (new Error($errorNumber, 'Error', 'error.txt', 15))->getType());
+    }
+
+    /** @return iterable<string, array{int, string}> */
+    public static function errorTypeProvider(): iterable
+    {
+        yield 'internal error' => [0, 'Internal error'];
+        yield 'E_ERROR error' => [E_ERROR, 'Error'];
+        yield 'E_WARNING warning' => [E_WARNING, 'Warning'];
+        yield 'E_PARSE error' => [E_PARSE, 'Parsing Error'];
+        yield 'E_NOTICE notice' => [E_NOTICE, 'Notice'];
+        yield 'E_CORE_ERROR error' => [E_CORE_ERROR, 'Core Error'];
+        yield 'E_CORE_WARNING warning' => [E_CORE_WARNING, 'Core Warning'];
+        yield 'E_COMPILE_ERROR error' => [E_COMPILE_ERROR, 'Compile Error'];
+        yield 'E_COMPILE_WARNING warning' => [E_COMPILE_WARNING, 'Compile Warning'];
+        yield 'E_USER_ERROR error' => [E_USER_ERROR, 'User Error'];
+        yield 'E_USER_WARNING warning' => [E_USER_WARNING, 'User Warning'];
+        yield 'E_USER_NOTICE notice' => [E_USER_NOTICE, 'User Notice'];
+        yield 'E_STRICT notice' => [@E_STRICT, 'Runtime Notice'];
+        yield 'E_DEPRECATED notice' => [E_DEPRECATED, 'Deprecation Notice'];
+        yield 'E_USER_DEPRECATED notice' => [E_USER_DEPRECATED, 'Deprecation Notice'];
+        yield 'E_RECOVERABLE_ERROR error' => [E_RECOVERABLE_ERROR, 'Catchable Fatal Error'];
     }
 
     /**
