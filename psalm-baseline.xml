@@ -6373,9 +6373,6 @@
       <code>self::$engine</code>
       <code>self::$engine</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$GLOBALS['cfg']['IconvExtraParams'] ?? ''</code>
-    </MixedOperand>
     <PossiblyNullArgument occurrences="1">
       <code>$GLOBALS['config']-&gt;getUploadTempDir()</code>
     </PossiblyNullArgument>
