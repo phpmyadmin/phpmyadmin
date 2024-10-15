@@ -233,8 +233,13 @@ class ErrorHandler
     {
         $config = $GLOBALS['config'] ?? null;
         $this->hideLocation = ! $config instanceof Config || $config->get('environment') !== 'development';
+        $message = get_class($exception);
+        if (! ($exception instanceof \Error) || ! $this->hideLocation) {
+            $message .= ': ' . $exception->getMessage();
+        }
+
         $this->addError(
-            get_class($exception) . ': ' . $exception->getMessage(),
+            $message,
             (int) $exception->getCode(),
             $exception->getFile(),
             $exception->getLine()
