@@ -6445,10 +6445,6 @@
       <code>$step</code>
       <code>$step</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="2">
-      <code>string</code>
-      <code>string</code>
-    </MixedInferredReturnType>
     <MixedOperand occurrences="5">
       <code>$arg</code>
       <code>$arg</code>
@@ -6456,10 +6452,6 @@
       <code>$step['function']</code>
       <code>$step['line']</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="2">
-      <code>self::$errorlevel[$this-&gt;getNumber()]</code>
-      <code>self::$errortype[$this-&gt;getNumber()]</code>
-    </MixedReturnStatement>
   </file>
   <file src="libraries/classes/ErrorHandler.php">
     <DocblockTypeContradiction occurrences="1">

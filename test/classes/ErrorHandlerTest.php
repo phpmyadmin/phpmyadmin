@@ -14,8 +14,14 @@ use ReflectionProperty;
 use function array_keys;
 use function array_pop;
 
+use const E_COMPILE_WARNING;
+use const E_CORE_WARNING;
 use const E_ERROR;
+use const E_NOTICE;
 use const E_RECOVERABLE_ERROR;
+use const E_STRICT;
+use const E_USER_DEPRECATED;
+use const E_USER_ERROR;
 use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const E_WARNING;
@@ -168,6 +174,33 @@ class ErrorHandlerTest extends AbstractTestCase
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
         self::assertSame(1, $this->object->countErrors());
+    }
+
+    /** @dataProvider addErrorProvider */
+    public function testAddError(int $errorNumber, string $expected): void
+    {
+        $errorHandler = new ErrorHandler();
+        $errorHandler->addError('[em]Error[/em]', $errorNumber, 'error.txt', 15);
+        $errors = $errorHandler->getCurrentErrors();
+        self::assertCount(1, $errors);
+        $error = array_pop($errors);
+        self::assertSame($errorNumber, $error->getNumber());
+        self::assertSame($expected, $error->getMessage());
+    }
+
+    /** @return iterable<string, array{int, string}> */
+    public static function addErrorProvider(): iterable
+    {
+        yield 'E_STRICT' => [@E_STRICT, '[em]Error[/em]'];
+        yield 'E_NOTICE' => [E_NOTICE, '[em]Error[/em]'];
+        yield 'E_WARNING' => [E_WARNING, '[em]Error[/em]'];
+        yield 'E_CORE_WARNING' => [E_CORE_WARNING, '[em]Error[/em]'];
+        yield 'E_COMPILE_WARNING' => [E_COMPILE_WARNING, '[em]Error[/em]'];
+        yield 'E_RECOVERABLE_ERROR' => [E_RECOVERABLE_ERROR, '[em]Error[/em]'];
+        yield 'E_USER_NOTICE' => [E_USER_NOTICE, '<em>Error</em>'];
+        yield 'E_USER_WARNING' => [E_USER_WARNING, '<em>Error</em>'];
+        yield 'E_USER_ERROR' => [E_USER_ERROR, '<em>Error</em>'];
+        yield 'E_USER_DEPRECATED' => [E_USER_DEPRECATED, '<em>Error</em>'];
     }
 
     /**

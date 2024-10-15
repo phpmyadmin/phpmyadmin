@@ -3436,16 +3436,6 @@ parameters:
 			path: libraries/classes/Error.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Error\\:\\:\\$errorlevel type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Error.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Error\\:\\:\\$errortype type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Error.php
-
-		-
 			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, array\\{\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\} given\\.$#"
 			count: 1
 			path: libraries/classes/ErrorHandler.php
