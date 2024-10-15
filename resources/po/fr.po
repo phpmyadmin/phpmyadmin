@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-13 00:24+0000\n"
-"PO-Revision-Date: 2024-08-30 13:09+0000\n"
-"Last-Translator: kjo-sdds <kjo@domo-supply.com>\n"
+"PO-Revision-Date: 2024-10-16 15:51+0000\n"
+"Last-Translator: Emmanuel HEMERIT <emmanuel@hemer.it>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.7.1-dev\n"
+"X-Generator: Weblate 5.8-rc\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2463,7 +2463,7 @@ msgstr "Options :"
 
 #: resources/templates/database/search/main.twig:40
 msgid "include hex matches"
-msgstr ""
+msgstr "Inclure les correspondances hexadécimales"
 
 #: resources/templates/database/search/main.twig:45
 msgid "Inside tables:"
@@ -3346,10 +3346,8 @@ msgid "Containing the word:"
 msgstr "Contenant le mot :"
 
 #: resources/templates/gis_data_editor_form.twig:26
-#, fuzzy
-#| msgid "Geometry %d:"
 msgid "Geometry type:"
-msgstr "Géométrie %d :"
+msgstr "Type de géométrie :"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
@@ -12749,6 +12747,10 @@ msgid ""
 "configuration directive <code>AllowNoPassword</code> is false. If you "
 "proceed, the account will not be able to log in through phpMyAdmin."
 msgstr ""
+"Vous essayez de configurer ce compte pour qu'il se connecte sans mot de "
+"passe, mais la directive de configuration <code>AllowNoPassword</code> est "
+"désactivée. Si vous continuez, le compte ne pourra pas se connecter via "
+"phpMyAdmin."
 
 #: src/Controllers/JavaScriptMessagesController.php:151
 msgid "Removing Selected Users"
