@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-11 21:28-0300\n"
-"PO-Revision-Date: 2024-09-28 12:15+0000\n"
+"PO-Revision-Date: 2024-10-15 16:16+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ru/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.8-rc\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6672,10 +6672,8 @@ msgid "Show query box"
 msgstr "Отобразить поле запроса"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "Отправить запрос"
+msgstr "Править запрос"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 #: libraries/classes/Display/Results.php:3041
