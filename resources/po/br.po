@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-13 00:24+0000\n"
-"PO-Revision-Date: 2024-10-15 16:16+0000\n"
+"PO-Revision-Date: 2024-10-16 15:51+0000\n"
 "Last-Translator: Fulup Jakez <fulup.jakez@gmail.com>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "br/>\n"
@@ -4319,26 +4319,26 @@ msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
+"Ur c'hefluniadur phpMyAdmin zo er merdeer-mañ evit an domani-mañ. Ha ret eo "
+"e enporzhiañ en estez-mañ ?"
 
 #: resources/templates/preferences/autoload.twig:11
-#, fuzzy
-#| msgid "Deleting tracking data"
 msgid "Delete settings"
-msgstr "O tiverkañ ar roadennoù heuliañ"
+msgstr "Dilemel an arventennoù"
 
 #: resources/templates/preferences/forms/main.twig:4
 msgid "Cannot save settings, submitted form contains errors!"
 msgstr ""
+"N'eus ket bet gallet enrollañ an arventennoù rak fazioù zo er furmskrid "
+"kaset !"
 
 #: resources/templates/preferences/header.twig:6
 msgid "Manage your settings"
-msgstr ""
+msgstr "Merañ ma arventennoù"
 
 #: resources/templates/preferences/header.twig:12
-#, fuzzy
-#| msgid "Authentication"
 msgid "Two-factor authentication"
-msgstr "Dilesadur"
+msgstr "Dilesadur doubl"
 
 #: resources/templates/preferences/header.twig:18
 #: src/Config/Forms/User/FeaturesForm.php:81
@@ -4367,7 +4367,7 @@ msgstr "Taolenn bennañ"
 #: resources/templates/preferences/header.twig:55
 #: resources/templates/preferences/manage/main.twig:71
 msgid "Configuration has been saved."
-msgstr ""
+msgstr "Enrollet eo bet ar c'hefluniadur"
 
 #: resources/templates/preferences/header.twig:60
 #, php-format
