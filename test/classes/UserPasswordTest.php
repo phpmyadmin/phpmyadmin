@@ -56,7 +56,7 @@ class UserPasswordTest extends AbstractTestCase
     /**
      * @psalm-return array{0: bool, 1: Message, 2: string, 3: string, 4: string}[]
      */
-    public function providerSetChangePasswordMsg(): array
+    public static function providerSetChangePasswordMsg(): array
     {
         return [
             [false, Message::success('The profile has been updated.'), '1', '', ''],

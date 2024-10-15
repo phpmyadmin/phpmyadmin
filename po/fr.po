@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-11-12 15:23-0300\n"
-"PO-Revision-Date: 2023-06-08 23:49+0000\n"
-"Last-Translator: EGuillemot <Elouen.Guillemot@gmail.com>\n"
+"PO-Revision-Date: 2024-08-30 14:09+0000\n"
+"Last-Translator: kjo-sdds <kjo@domo-supply.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-2/fr/"
 ">\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.7.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7402,10 +7402,8 @@ msgid "up to date"
 msgstr "à jour"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:611
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "Erreur lors de l'importation du fichier de formes ESRI : « %s »."
+msgstr "Erreur lors du chargement des informations Git."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:614
 msgid ""
@@ -10853,10 +10851,8 @@ msgid "The table name is empty!"
 msgstr "Le nom de la table est vide !"
 
 #: libraries/classes/Partitioning/Maintenance.php:141
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Ceci est une variable en lecture seule qui ne peut pas être modifiée"
+msgstr "Cette table est une vue, elle ne peut être tronquée."
 
 #: libraries/classes/Pdf.php:136
 msgid "Error while creating PDF:"
@@ -10915,16 +10911,12 @@ msgid "Entered captcha is wrong, try again!"
 msgstr "Erreur, essayer à nouveau !"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:301
-#, fuzzy
-#| msgid ""
-#| "Your password is too long. To prevent denial-of-service attacks, "
-#| "phpMyAdmin restricts passwords to less than 1000 characters."
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 "Votre mot de passe est trop long. Pour éviter les attaques par déni de "
-"service, phpMyAdmin limite les mots de passe à moins de 1000 caractères."
+"service, phpMyAdmin limite les mots de passe à moins de 2000 caractères."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
 msgid "You are not allowed to log in to this MySQL server!"

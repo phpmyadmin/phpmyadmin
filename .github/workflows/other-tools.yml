@@ -19,7 +19,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Sphinx for the documentation build
-        run: sudo apt install sphinx-doc python3-sphinx
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sphinx-doc python3-sphinx
 
       - name: Build the documentation
         run: make -C doc html SPHINXOPTS='-n -W -a'
@@ -44,7 +46,7 @@ jobs:
           tools: composer:v2
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
         with:
           dependency-versions: highest
 

@@ -8,16 +8,16 @@ https://www.phpmyadmin.net/
 Code status
 -----------
 
-.. image:: https://github.com/phpmyadmin/phpmyadmin/workflows/Run%20tests/badge.svg?branch=master
+.. image:: https://github.com/phpmyadmin/phpmyadmin/actions/workflows/tests.yml/badge.svg?branch=master
     :alt: Testsuite
-    :target: https://github.com/phpmyadmin/phpmyadmin/actions
+    :target: https://github.com/phpmyadmin/phpmyadmin/actions/workflows/tests.yml?query=branch%3Amaster
 
-.. image:: https://github.com/phpmyadmin/phpmyadmin/workflows/Run%20selenium%20tests/badge.svg?branch=master
-    :alt: Selenium tests
-    :target: https://github.com/phpmyadmin/phpmyadmin/actions
+.. image:: https://github.com/phpmyadmin/phpmyadmin/actions/workflows/test-selenium.yml/badge.svg?branch=master
+    :alt: End-to-End tests
+    :target: https://github.com/phpmyadmin/phpmyadmin/actions/workflows/test-selenium.yml?query=branch%3Amaster
 
-.. image:: https://readthedocs.org/projects/phpmyadmin/badge/?version=latest
-    :target: https://docs.phpmyadmin.net/en/latest/
+.. image:: https://readthedocs.org/projects/phpmyadmin/badge/?version=master
+    :target: https://docs.phpmyadmin.net/en/master/
     :alt: Documentation build status
 
 .. image:: https://hosted.weblate.org/widgets/phpmyadmin/-/master/svg-badge.svg
@@ -40,7 +40,7 @@ Code status
     :alt: Type coverage
     :target: https://shepherd.dev/github/phpmyadmin/phpmyadmin
 
-.. image:: https://badge.stryker-mutator.io/github.com/phpmyadmin/phpmyadmin/master
+.. image:: https://img.shields.io/endpoint?url=https://badge-api.stryker-mutator.io/github.com/phpmyadmin/phpmyadmin/master
     :alt: Infection MSI
     :target: https://infection.github.io
 

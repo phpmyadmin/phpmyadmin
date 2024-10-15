@@ -95,7 +95,7 @@ class SimulateDmlControllerTest extends AbstractTestCase
      *   }
      * >
      */
-    public function providerForTestGetMatchedRows(): array
+    public static function providerForTestGetMatchedRows(): array
     {
         // Data from table:
         // CREATE TABLE `t` AS

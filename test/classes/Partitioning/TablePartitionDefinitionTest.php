@@ -149,7 +149,7 @@ class TablePartitionDefinitionTest extends TestCase
      *   0: string, 1: bool, 2: bool, 3: int, 4: int, 5: array<string, string|array<string, string>[]>[]|null
      * }>
      */
-    public function providerGetDetails(): array
+    public static function providerGetDetails(): array
     {
         return [
             'partition by RANGE' => ['RANGE', true, true, 2, 2, [['name' => 'part0']]],
@@ -258,7 +258,7 @@ class TablePartitionDefinitionTest extends TestCase
     /**
      * @psalm-return array{0: int, 1: string}[]
      */
-    public function providerGetDetailsWithMaxPartitions(): array
+    public static function providerGetDetailsWithMaxPartitions(): array
     {
         return ['count within the limit' => [8192, '8192'], 'count above the limit' => [8192, '8193']];
     }

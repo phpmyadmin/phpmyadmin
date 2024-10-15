@@ -117,6 +117,9 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         }
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testAuthLogoutUrl(): void
     {
         $_REQUEST['old_usr'] = '1';
@@ -130,6 +133,9 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         );
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testAuthVerbose(): void
     {
         $_REQUEST['old_usr'] = '';
@@ -145,6 +151,9 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         );
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testAuthHost(): void
     {
         $GLOBALS['cfg']['Server']['verbose'] = '';
@@ -160,6 +169,9 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         );
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testAuthRealm(): void
     {
         $GLOBALS['cfg']['Server']['host'] = '';
@@ -220,7 +232,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
      *
      * @return array Test data
      */
-    public function readCredentialsProvider(): array
+    public static function readCredentialsProvider(): array
     {
         return [
             [

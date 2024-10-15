@@ -230,7 +230,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function userAgentProvider(): array
+    public static function userAgentProvider(): array
     {
         return [
             [
@@ -415,7 +415,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function serverNames(): array
+    public static function serverNames(): array
     {
         return [
             [
@@ -577,7 +577,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function httpsParams(): array
+    public static function httpsParams(): array
     {
         return [
             [
@@ -812,7 +812,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array data for testGetRootPath
      */
-    public function rootUris(): array
+    public static function rootUris(): array
     {
         return [
             [
@@ -920,7 +920,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function configPaths(): array
+    public static function configPaths(): array
     {
         return [
             [
@@ -1090,7 +1090,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function serverSettingsProvider(): array
+    public static function serverSettingsProvider(): array
     {
         return [
             'empty' => [
@@ -1113,6 +1113,7 @@ class ConfigTest extends AbstractTestCase
 
     /**
      * @group with-trigger-error
+     * @requires PHPUnit < 10
      */
     public function testCheckServersWithInvalidServer(): void
     {
@@ -1149,7 +1150,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function selectServerProvider(): array
+    public static function selectServerProvider(): array
     {
         return [
             'zero' => [
@@ -1222,7 +1223,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function connectionParams(): array
+    public static function connectionParams(): array
     {
         $cfg_basic = [
             'user' => 'u',

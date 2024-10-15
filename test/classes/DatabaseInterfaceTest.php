@@ -80,7 +80,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @return array
      */
-    public function currentUserData(): array
+    public static function currentUserData(): array
     {
         return [
             [
@@ -394,7 +394,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         );
     }
 
-    public function errorData(): array
+    public static function errorData(): array
     {
         return [
             [
@@ -457,7 +457,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @return array
      */
-    public function isAmazonRdsData(): array
+    public static function isAmazonRdsData(): array
     {
         return [
             [
@@ -497,7 +497,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $this->assertEquals($upgrade, $ver_int < $GLOBALS['cfg']['MysqlMinVersion']['internal']);
     }
 
-    public function versionData(): array
+    public static function versionData(): array
     {
         return [
             [
@@ -925,7 +925,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * @return array
      * @psalm-return array<int, array{array<array-key, mixed>, int, bool, bool}>
      */
-    public function provideDatabaseVersionData(): array
+    public static function provideDatabaseVersionData(): array
     {
         return [
             [

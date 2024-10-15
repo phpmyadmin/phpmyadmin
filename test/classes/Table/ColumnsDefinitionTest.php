@@ -35,7 +35,7 @@ class ColumnsDefinitionTest extends AbstractTestCase
      * @return array
      * @psalm-return array<string, array{array<string, string|null>, array<string, string>}>
      */
-    public function providerColumnMetaDefault(): array
+    public static function providerColumnMetaDefault(): array
     {
         return [
             'when Default is null and Null is YES' => [
