@@ -49,6 +49,13 @@ class Tracker
     protected static array $trackingCache = [];
 
     /**
+     * Cache of checked databases.
+     *
+     * @var bool[]
+     */
+    private static array $trackedDatabaseCache = [];
+
+    /**
      * Actually enables tracking. This needs to be done after all
      * underlaying code is initialized.
      */
@@ -316,6 +323,8 @@ class Tracker
         if ($trackingFeature === null) {
             return false;
         }
+
+        unset(self::$trackedDatabaseCache[$dbName]); // Clear cache due to the change in tracking status
 
         $sqlQuery = sprintf(
             'UPDATE %s.%s SET `tracking_active` = %d'
@@ -678,6 +687,10 @@ class Tracker
         TrackingFeature $trackingFeature,
         string $dbname,
     ): bool {
+        if (isset(self::$trackedDatabaseCache[$dbname])) {
+            return self::$trackedDatabaseCache[$dbname];
+        }
+
         $sqlQuery = sprintf(
             '/*NOTRACK*/ SELECT 1 FROM %s.%s WHERE tracking_active = 1 AND db_name = %s LIMIT 1',
             Util::backquote($trackingFeature->database),
@@ -685,6 +698,9 @@ class Tracker
             $dbi->quoteString($dbname, ConnectionType::ControlUser),
         );
 
-        return $dbi->queryAsControlUser($sqlQuery)->fetchValue() !== false;
+        $isTracked = $dbi->queryAsControlUser($sqlQuery)->fetchValue() !== false;
+        self::$trackedDatabaseCache[$dbname] = $isTracked;
+
+        return $isTracked;
     }
 }
