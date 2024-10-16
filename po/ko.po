@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-11 21:28-0300\n"
-"PO-Revision-Date: 2024-10-16 15:51+0000\n"
+"PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-2/ko/"
 ">\n"
@@ -44,15 +44,13 @@ msgstr "질의 수가 1,000 미만"
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
-msgstr ""
-"이 서버에서 1,000개 보다 적은 질의가 실행됐습니다. 추천의 정확도가 떨어질 수 "
-"있습니다."
+msgstr "질의가 1,000번 이상 시행되지 않았습니다. 추천 결과가 부정확할 수도 있습니다."
 
 #: libraries/advisory_rules_generic.php:30
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
-msgstr "쿼리를 더 많이 실행할 때까지 더 오래 서버를 실행하세요."
+msgstr "서버가 더 많은 쿼리를 실행할 수 있도록 오랫동안 서버를 켜두십시오."
 
 #: libraries/advisory_rules_generic.php:32
 #, php-format
@@ -6454,7 +6452,6 @@ msgid "Show query box"
 msgstr "질의 상자 보이기"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#, fuzzy
 msgid "Edit query"
 msgstr "쿼리 수정"
 
