@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-01-17 19:47+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2024-10-16 15:51+0000\n"
+"Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-9/ko/"
 ">\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.8-rc\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -3572,8 +3572,8 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
-"임의의 MySQL 서버에 대한 로그인이 활성화된 경우 사용자가 입력할 수 있는 "
-"MySQL 서버를 MySQL 서버의 IP 또는 호스트 이름을 지정된 정규식에 일치시켜 "
+"MySQL 서버의 IP 또는 호스트 이름을 지정된 정규식에 일치시켜 임의의 MySQL "
+"서버에 로그인이 활성화된 경우 사용자가 입력할 수 있는 MySQL 서버를 "
 "제한합니다."
 
 #: libraries/classes/Config/Descriptions.php:72
@@ -3805,8 +3805,7 @@ msgstr "16진수의 기본 변환"
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
-msgstr "기본 변환에 대한 옵션 목록의 값입니다. 테이블 구조 페이지에서 변환을 채우면 "
-"이 값을 덮어씁니다."
+msgstr "기본 변환에 대한 옵션 목록의 값."
 
 #: libraries/classes/Config/Descriptions.php:199
 msgid "Default transformations for Substring"
@@ -6229,21 +6228,15 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "데이터베이스 서버가 지원한다면 SSL 연결을 사용해야 합니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:176
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"만약 이것이 필요하다고 느낀다면, 추가적인 보안 설정을 하세요 - %shost "
-"authentication%s 설정과 %strusted proxies list%s. 하지만 IP 기반 보안은, 당신"
-"이 수천명의 사용자와 함께 쓰는 IP 대역을 사용할경우 그다지 안전하지 않습니다."
+"필요하다면 추가 보호 설정(%1$호스트 인증%2$ 설정 및 %3$신뢰하는 프록시 "
+"목록%4%s)을 사용하세요. 그러나 IP가 사용자를 포함한 수천 명의 사용자가 "
+"연결된 ISP에 속해 있는 경우 IP 기반 보호가 안정적이지 않을 수 있습니다."
 
 #: libraries/classes/Config/ServerConfigChecks.php:203
 #, php-format
@@ -8403,7 +8396,8 @@ msgstr "기본 키가 이미 있습니다."
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
-msgstr ""
+msgstr "기본 키가 없으니 기본 키를 추가하세요.<br/>Hint: 기본 키는 모든 행을 "
+"고유하게 식별하는 열(또는 열의 조합)입니다."
 
 #: libraries/classes/Normalization.php:254
 msgid "Add a primary key on existing column(s)"
@@ -8585,6 +8579,9 @@ msgid ""
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
 msgstr ""
+"아래의 각 열에 대해 주어진 집합 중에서 값을 합쳐서 열의 값을 결정하기에 "
+"충분한 열의 <b>최소 집합</b>을 선택하세요.<br />참고: 열에 전이 종속성이 "
+"없을 수 있으며, 이 경우 아무 것도 선택하지 않아도 됩니다."
 
 #: libraries/classes/Normalization.php:849
 msgid ""
@@ -9435,7 +9432,7 @@ msgstr "테이블의 AUTO_INCREMENT"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1865
 msgid "MIME TYPES FOR TABLE"
-msgstr ""
+msgstr "테이블용 MIME 타입"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1888
 msgid "RELATIONSHIPS FOR TABLE"
@@ -9916,7 +9913,8 @@ msgstr "구문 강조 표시를 사용하여 텍스트를 XML로 포맷합니다
 msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
-msgstr ""
+msgstr "gd PHP 확장을 찾을 수 없습니다. gd PHP 확장이 없으면 QR코드를 표시할 수 "
+"없습니다."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
 msgid "Authentication Application (2FA)"
@@ -9958,7 +9956,7 @@ msgstr "2단계 인증이 실패했습니다."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
-msgstr ""
+msgstr "2단계 인증 사용 안 함"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:137
 msgid "Login using password only."
@@ -10121,14 +10119,17 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"'phpmyadmin'이라는 데이터베이스를 만드는 데 필요한 권한이 없습니다. "
+"데이터베이스의 '운영' 탭으로 이동하여 phpMyAdmin 구성 저장소를 설정할 수 "
+"있습니다."
 
 #: libraries/classes/Relation.php:2056
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "phpMyAdmin 설정 공간 테이블이 없습니다"
+msgstr "'phpmyadmin'이라는 이름의 데이터베이스를 %s생성%s하고 그곳에 phpMyAdmin 구성 "
+"저장소를 설정합니다."
 
 #: libraries/classes/Relation.php:2064
 #, php-format
@@ -10836,10 +10837,8 @@ msgid "routine"
 msgstr "루틴"
 
 #: libraries/classes/Rte/Words.php:37
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "루틴을 작성하는데 필요한 권한을 가지고 있지 않습니다"
+msgstr "루틴을 작성하는데 필요한 권한이 없습니다."
 
 #: libraries/classes/Rte/Words.php:40
 #, php-format
@@ -10855,6 +10854,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
+"%2$s 데이터베이스에 이름이 %1$s 인 루틴을 찾을 수 없습니다. 이 루틴을 보거나 "
+"내보내는 데 필요한 권한이 부족할 수 있습니다."
 
 #: libraries/classes/Rte/Words.php:47
 #, php-format
@@ -10879,10 +10880,8 @@ msgid "trigger"
 msgstr "트리거"
 
 #: libraries/classes/Rte/Words.php:59
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "트리거를 생성하는데 필요한 권한을 가지고 있지 않습니다"
+msgstr "트리거를 생성하는데 필요한 권한이 없습니다."
 
 #: libraries/classes/Rte/Words.php:61
 #, php-format
@@ -10907,10 +10906,8 @@ msgid "event"
 msgstr "이벤트"
 
 #: libraries/classes/Rte/Words.php:73
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "이벤트를 생성할 권한이 부족함"
+msgstr "이벤트를 생성할 권한이 없습니다."
 
 #: libraries/classes/Rte/Words.php:75
 #, php-format
@@ -11262,10 +11259,8 @@ msgid "Do not change the password"
 msgstr "비밀번호를 변경하지 않음"
 
 #: libraries/classes/Server/Privileges.php:1728
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "인증"
+msgstr "인증 플러그인"
 
 #: libraries/classes/Server/Privileges.php:1735
 msgid "Password Hashing Method"
@@ -13751,10 +13746,8 @@ msgid "No Privileges"
 msgstr "권한 없음"
 
 #: server_privileges.php:152
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have privileges to manipulate with the users!"
-msgstr "트리거를 생성하는데 필요한 권한을 가지고 있지 않습니다"
+msgstr "사용자를 조작할 수 있는 권한이 없습니다!"
 
 #: server_privileges.php:166
 msgid ""
@@ -13827,12 +13820,12 @@ msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
+"phpMyAdmin 최상위 디렉토리의 config/config.inc.php 파일에 저장된 구성을 "
+"최상위 디렉토리에 복사한 후 디렉터리 구성을 삭제하면 사용할 수 있습니다."
 
 #: setup/frames/index.inc.php:97
-#, fuzzy
-#| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "설정이 저장되었습니다."
+msgstr "구성이 저장되지 않았습니다!"
 
 #: setup/frames/index.inc.php:100
 msgid ""
@@ -13850,7 +13843,7 @@ msgstr "개요"
 
 #: setup/frames/index.inc.php:119
 msgid "Show hidden messages (#MSG_COUNT)"
-msgstr ""
+msgstr "숨겨진 메시지 표시 (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:171
 msgid "There are no configured servers"
@@ -13910,7 +13903,7 @@ msgstr "구성이 이미 존재하며 설정이 비활성화되었습니다!"
 
 #: setup/index.php:28
 msgid "Wrong GET file attribute value"
-msgstr ""
+msgstr "잘못된 GET 파일 속성 값"
 
 #: setup/lib/FormProcessing.php:63
 msgid "Warning"
@@ -14278,6 +14271,9 @@ msgid ""
 "lead to non working phpMyAdmin or a security risk. Please fix your server "
 "configuration to indicate HTTPS properly."
 msgstr ""
+"서버와 클라이언트에 표시된 HTTPS가 일치하지 않습니다. 이로 인해 phpMyAdmin이 "
+"작동하지 않거나 보안 위험이 발생할 수 있습니다. HTTPS가 올바르게 표시되도록 "
+"서버 구성을 수정하세요."
 
 #: templates/login/twofactor/key-https-warning.twig:3
 msgid ""
@@ -14694,10 +14690,9 @@ msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr "주의: 이 옵션을 0으로 하면 제한이 없어집니다."
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create"
+#, php-format
 msgid "Create %s"
-msgstr "만들기"
+msgstr "%s 생성"
 
 #: templates/database/tracking/tracked_tables.twig:2
 msgid "Tracked tables"
@@ -15306,21 +15301,16 @@ msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
 msgstr[0] "<strong>총:</strong> <em>%count%</em> 건 일치"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시"
-"오: 'a','b','c'…<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 한다면, "
-"그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
+"열 타입이 \"enum\" 이나 \"set\" 인 경우 다음과 같은 형식으로 값을 입력해 "
+"주십시오.: 'a','b','c'...<br />이러한 값 사이에 백슬래시(\"\\\") 또는 "
+"작은따옴표(\"'\")를 넣어야 하는 경우, 그 앞에 백슬래시(예: '\\\\xyz' 또는 '"
+"a\\'b')를 붙여 입력하세요."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -15347,21 +15337,16 @@ msgstr "브라우저 표시 변형 옵션"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시"
-"오: 'a',100, b,'c'…<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 한다"
-"면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
+"변환 옵션을 위한 값을 다음과 같은 형식으로 입력해 주십시오.: "
+"'a',100,b,'c'...<br />이러한 값 사이에 백슬래시(\"\\\") 또는 작은따옴표(\"'\""
+")를 넣어야 하는 경우, 그 앞에 백슬래시(예: '\\\\xyz' 또는 'a\\'b')를 붙여 "
+"입력하세요."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -15708,11 +15693,12 @@ msgstr "다음 QR 코드를 디바이스의 2단계 인증 앱으로 스캔한 �
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
-msgstr ""
+msgstr "장치의 2단계 인증 앱에 다음 비밀 번호/키를 입력하고 생성된 인증 코드를 "
+"입력하세요."
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "OTP URL:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
@@ -15855,10 +15841,8 @@ msgid "Index choice:"
 msgstr "인덱스 선택:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "옵션 활성화"
+msgstr "고급 설정"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
@@ -16505,9 +16489,9 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size가 0입니다"
 
 #: libraries/advisory_rules_generic.txt:235
-#, fuzzy, php-format
+#, php-format
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "사용된 적 있는 MyISAM 키 버퍼 최대 비율(%%)"
+msgstr "지금까지 사용한 최대 %% MyISAM 키 버퍼"
 
 #: libraries/advisory_rules_generic.txt:238
 #: libraries/advisory_rules_generic.txt:246
@@ -16896,18 +16880,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB 로그 파일크기가 비정상적으로 큽니다."
 
 #: libraries/advisory_rules_generic.txt:379
-#, fuzzy, php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25%% of the size "
 "of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down "
@@ -16919,16 +16892,15 @@ msgid ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"특히, InnoDB 테이블에 쓰기가 많은 시스템이라면, {innodb_log_file_size}를 "
-"{innodb_buffer_pool_size}의 25%%로 설정하는 것이 좋습니다. 하지만, "
-"{innodb_log_file_size}값을 크게 할 수록, 데이터베이스가 크러시한 경우의 복구 "
-"시간이 길어집니다. 그러므로, 이 값이 256 MiB를 많이 초과하지 않도록 설정하는 "
-"게 좋습니다. 또한 주의할 점은, 이 값은 간단히 변경할 수 없습니다. 먼저 서버"
-"를 완전히 종료한 후, InnoDB 로그 파일을 제거하고, my.cnf에 새 값을 설정한 후 "
-"서버를 재시작하여, 에러 로그에 이상이 없는지 확인하는 절차를 거치세요. 참고: "
-"<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">Increase innodb_log_file_size: the "
-"proper way</a> (영어)"
+"일반적으로 {innodb_log_file_size}를 {innodb_buffer_pool_size} 크기의 25%로 "
+"설정하는 것으로 충분합니다. {innodb_log_file_size}가 매우 크면 데이터베이스 "
+"충돌 후 복구 시간이 상당히 느려집니다. <a href=\"https://www.percona.com/"
+"blog/2006/07/03/choosing-proper-innodb_log_file_size/\">이 문서</a>를 "
+"참조하세요. 서버를 종료하고 InnoDB 로그 파일을 제거해야하고, my.cnf에서 새 "
+"값을 설정하고, 서버를 시작한 다음 모든 것이 정상적으로 진행되었는지 오류 "
+"로그를 확인해야 합니다. <a href=\"https://mysqldatabaseadministration."
+"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">이 블로그 "
+"글</a>을 참조하세요."
 
 #: libraries/advisory_rules_generic.txt:380
 #, php-format
