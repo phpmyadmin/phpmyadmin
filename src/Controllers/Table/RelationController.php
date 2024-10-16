@@ -18,6 +18,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey as ForeignKeyObject;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -177,6 +178,12 @@ final class RelationController implements InvocableController
         $config = Config::getInstance();
         if ($config->settings['NaturalOrder']) {
             uksort($columnArray, strnatcasecmp(...));
+            usort(
+                $relationsForeign,
+                fn (ForeignKeyObject $before, ForeignKeyObject $after) => strnatcmp(
+                    $before->constraint, $after->constraint
+                )
+            );
         }
 
         $foreignKeyRow = '';
