@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-11 21:28-0300\n"
-"PO-Revision-Date: 2024-10-15 16:16+0000\n"
+"PO-Revision-Date: 2024-10-16 15:51+0000\n"
 "Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-2/ko/"
 ">\n"
@@ -1737,9 +1737,9 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
-"임의의 MySQL 서버에 대한 로그인이 활성화된 경우 사용자가 입력할 수 있는 "
-"MySQL 서버를 MySQL 서버의 IP 또는 호스트 이름을 지정된 정규식에 일치시켜 제한"
-"합니다."
+"MySQL 서버의 IP 또는 호스트 이름을 지정된 정규식에 일치시켜 임의의 MySQL "
+"서버에 로그인이 활성화된 경우 사용자가 입력할 수 있는 MySQL 서버를 "
+"제한합니다."
 
 #: libraries/classes/Config/Descriptions.php:97
 msgid ""
@@ -1858,9 +1858,7 @@ msgstr "SQL 질의에서의 테이블 및 칼럼 이름 자동완성 사용 여�
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
-msgstr ""
-"기본 변환에 대한 옵션 목록의 값입니다. 테이블 구조 페이지에서 변환을 채우면 "
-"이 값을 덮어씁니다."
+msgstr "기본 변환에 대한 옵션 목록의 값."
 
 #: libraries/classes/Config/Descriptions.php:178
 msgid ""
@@ -5312,9 +5310,8 @@ msgstr "이 데이터베이스 전체를 제거하려고 합니다!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
 msgid "Cannot rename database to the same name. Change the name and try again."
-msgstr ""
-"같은 이름으로 데이터베이스의 이름을 변경할 수 없습니다. 이름을 바꾸어 다시 시"
-"도해 주세요."
+msgstr "데이터베이스 이름을 같은 이름으로 변경할 수 없습니다. 이름을 변경하고 다시 "
+"시도하세요."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to DESTROY a complete table!"
@@ -6457,6 +6454,7 @@ msgid "Show query box"
 msgstr "질의 상자 보이기"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
+#, fuzzy
 msgid "Edit query"
 msgstr "쿼리 수정"
 
