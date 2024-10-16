@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-10-16 15:51+0000\n"
+"PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-9/ko/"
 ">\n"
@@ -6038,7 +6038,7 @@ msgstr "현재 탐색 중인 쿼리 보기"
 
 #: libraries/classes/Config/Descriptions.php:1472
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
-msgstr "Enter로 쿼리를 실행하고 Shift + Enter로 새 줄을 삽입합니다."
+msgstr "Enter로 쿼리를 실행하고 Shift + Enter로 새 줄을 삽입합니다"
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
@@ -7009,7 +7009,7 @@ msgstr "@SERVER@는 서버 이름이 됨"
 
 #: libraries/classes/Display/Export.php:334
 msgid ", @DATABASE@ will become the database name"
-msgstr ", @DATABASE@는  데이터베이스 이름이 됨"
+msgstr ", @DATABASE@는 데이터베이스 이름이 됨"
 
 #: libraries/classes/Display/Export.php:336
 msgid ", @TABLE@ will become the table name"
@@ -11053,7 +11053,7 @@ msgstr "복제서버(replication slaves)에 필요합니다."
 #: libraries/classes/Server/Privileges.php:398
 #: libraries/classes/Server/Privileges.php:1379 server_privileges.php:106
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr "사용자가 슬레이브/마스터가 어디에 있는지 물을 수 있다"
+msgstr "사용자가 슬레이브/마스터의 위치를 확인할 수 있도록 허가합니다."
 
 #: libraries/classes/Server/Privileges.php:403
 #: libraries/classes/Server/Privileges.php:419
@@ -15977,14 +15977,13 @@ msgstr "질의 수가 1,000 미만"
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
-msgstr "이 서버에서 1,000개 보다 적은 질의가 실행됐습니다. 추천의 정확도가 떨어질 수 "
-"있습니다."
+msgstr "질의가 1,000번 이상 시행되지 않았습니다. 추천 결과가 부정확할 수도 있습니다."
 
 #: libraries/advisory_rules_generic.txt:60
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
-msgstr "쿼리를 더 많이 실행할 때까지 더 오래 서버를 실행하세요."
+msgstr "서버가 더 많은 쿼리를 실행할 수 있도록 오랫동안 서버를 켜두십시오."
 
 #: libraries/advisory_rules_generic.txt:61
 #, php-format
@@ -16454,12 +16453,13 @@ msgid ""
 "mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
-"{max_heap_table_size}값과 {tmp_table_size}값을 올리는 것이 도움이 될 수 있습"
-"니다. 하지만 일부 임시 테이블들은 이 변수값들과는 상관 없이 언제나 반드시 디"
-"스크에 기록됩니다. 이러한 문제를 방지하기 위해 질의문을 다시 작성하셔야 할 "
-"수 있습니다. (BLOB나 TEXT형 열이 존재하거나 512바이트 이상의 크기의 열이 존재"
-"하는 경우) 자세한 사항은  <a href=\"https://dev.mysql.com/doc/refman/5.5/en/"
-"internal-temporary-tables.html\">MySQL문서</a>에 기술되어 있습니다"
+"{max_heap_table_size}값과 {tmp_table_size}값을 올리는 것이 도움이 될 수 "
+"있습니다. 하지만 일부 임시 테이블들은 이 변수값들과는 상관 없이 언제나 "
+"반드시 디스크에 기록됩니다. 이러한 문제를 방지하기 위해 질의문을 다시 "
+"작성하셔야 할 수 있습니다. (BLOB나 TEXT형 열이 존재하거나 512바이트 이상의 "
+"크기의 열이 존재하는 경우) 자세한 사항은 <a href=\"https://dev.mysql.com/doc/"
+"refman/5.5/en/internal-temporary-tables.html\">MySQL문서</a>에 기술되어 "
+"있습니다"
 
 #: libraries/advisory_rules_generic.txt:224
 #, php-format
@@ -16892,7 +16892,7 @@ msgid ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"일반적으로 {innodb_log_file_size}를 {innodb_buffer_pool_size} 크기의 25%로 "
+"일반적으로 {innodb_log_file_size}를 {innodb_buffer_pool_size} 크기의 25%%로 "
 "설정하는 것으로 충분합니다. {innodb_log_file_size}가 매우 크면 데이터베이스 "
 "충돌 후 복구 시간이 상당히 느려집니다. <a href=\"https://www.percona.com/"
 "blog/2006/07/03/choosing-proper-innodb_log_file_size/\">이 문서</a>를 "
@@ -16900,7 +16900,7 @@ msgstr ""
 "값을 설정하고, 서버를 시작한 다음 모든 것이 정상적으로 진행되었는지 오류 "
 "로그를 확인해야 합니다. <a href=\"https://mysqldatabaseadministration."
 "blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">이 블로그 "
-"글</a>을 참조하세요."
+"글</a>을 참조하세요"
 
 #: libraries/advisory_rules_generic.txt:380
 #, php-format
