@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-13 00:24+0000\n"
-"PO-Revision-Date: 2024-02-07 20:01+0000\n"
+"PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
@@ -13,16 +13,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.8-rc\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript muss ab hier aktiviert sein!"
 
 #: resources/templates/base.twig:46
-#, fuzzy
 msgid "Open user account menu"
-msgstr "Benutzerkonto hinzufügen"
+msgstr "Benutzerkontomenü öffnen"
 
 #: resources/templates/base.twig:57 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
@@ -30,34 +29,30 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin-Dokumentation"
 
 #: resources/templates/base.twig:62
-#, fuzzy
 msgid "MariaDB documentation"
 msgstr "MariaDB-Dokumentation"
 
 #: resources/templates/base.twig:62
-#, fuzzy
 msgid "MySQL documentation"
 msgstr "MySQL-Dokumentation"
 
 #: resources/templates/base.twig:73
-#, fuzzy
 msgid "Appearance:"
-msgstr "Anzeige-Einstellungen"
+msgstr "Aussehen:"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "Farbmodus für das Thema"
 
 #: resources/templates/base.twig:80 resources/templates/home/index.twig:154
-#, fuzzy
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr "Rechts"
+msgstr "Hell"
 
 #: resources/templates/base.twig:82 resources/templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Dunkel"
 
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
@@ -1209,10 +1204,8 @@ msgid "OK"
 msgstr "OK"
 
 #: resources/templates/console/display.twig:178
-#, fuzzy
-#| msgid "Restore default value"
 msgid "Restore default values"
-msgstr "Voreingestellten Wert wiederherstellen"
+msgstr "Standardwerte wiederherstellen"
 
 #: resources/templates/console/display.twig:185 src/Config/Descriptions.php:958
 msgid "Always expand query messages"
@@ -1663,7 +1656,7 @@ msgstr "Unterabfrage"
 #: resources/templates/database/designer/main.twig:492
 #: resources/templates/database/designer/main.twig:708
 msgid "Rename to"
-msgstr "Umbenennen nach"
+msgstr "Umbenennen zu"
 
 #: resources/templates/database/designer/main.twig:498
 #: resources/templates/database/designer/main.twig:716
@@ -1694,7 +1687,7 @@ msgstr "Aktive Optionen"
 #: resources/templates/sql/query.twig:181
 #: src/Controllers/JavaScriptMessagesController.php:565
 msgid "Submit"
-msgstr "Abschicken"
+msgstr "Absenden"
 
 #: resources/templates/database/designer/page_save_as.twig:18
 msgid "Save to selected page"
@@ -1713,9 +1706,8 @@ msgid "Select page"
 msgstr "Seite auswählen"
 
 #: resources/templates/database/designer/schema_export.twig:6
-#, fuzzy
 msgid "Select export relational type:"
-msgstr "Beziehungsschema exportieren auswählen"
+msgstr ""
 
 #: resources/templates/database/events/editor_form.twig:10
 #: resources/templates/database/routines/editor_form.twig:11
@@ -3351,10 +3343,8 @@ msgid "Containing the word:"
 msgstr "Beinhalten das Wort:"
 
 #: resources/templates/gis_data_editor_form.twig:26
-#, fuzzy
-#| msgid "Geometry %d:"
 msgid "Geometry type:"
-msgstr "Geometrie %d:"
+msgstr "Geometrietyp:"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
@@ -3949,10 +3939,8 @@ msgid "Clear fast filter"
 msgstr "Schnellfilter löschen"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
-#, fuzzy
-#| msgid "Recently used tables"
 msgid "Recently visited tables"
-msgstr "Kürzlich verwendete Tabellen"
+msgstr "Kürzlich aufgesuchte Tabellen"
 
 #: resources/templates/navigation/tree/quick_warp.twig:6
 msgid "Recent"
@@ -5297,9 +5285,8 @@ msgid "Save changes"
 msgstr "Änderungen speichern"
 
 #: resources/templates/server/replication/change_primary.twig:7
-#, fuzzy
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "Primärserver ändern oder neu konfigurieren"
+msgstr "Replica-Konfiguration - Primärserver ändern oder neu konfigurieren"
 
 #: resources/templates/server/replication/change_primary.twig:12
 msgid ""
@@ -5672,21 +5659,19 @@ msgstr "Aktualisierungs-Intervall"
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
-#, fuzzy, php-format
-#| msgid "%d second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d Sekunde"
-msgstr[1] "%d Sekunde"
+msgstr[1] "%d Sekunden"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
-#, fuzzy, php-format
-#| msgid "%d minute"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d Minute"
-msgstr[1] "%d Minute"
+msgstr[1] "%d Minuten"
 
 #: resources/templates/server/status/monitor/index.twig:38
 msgid "Chart columns"
@@ -5907,24 +5892,21 @@ msgstr "Verbindungen seit Start:"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
-#| msgid "ø per hour"
+#, php-format
 msgid "ø per hour: %s"
-msgstr "ø pro Stunde"
+msgstr "ø pro Stunde: %s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
-#| msgid "per minute:"
+#, php-format
 msgid "ø per minute: %s"
-msgstr "pro Minute:"
+msgstr "ø pro Minute: %s"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
-#| msgid "per second:"
+#, php-format
 msgid "ø per second: %s"
-msgstr "pro Sekunde:"
+msgstr "ø pro Sekunde: %s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -6290,7 +6272,7 @@ msgstr "SQL-Befehl"
 
 #: resources/templates/sql/query.twig:41
 msgid "Format as a single line"
-msgstr ""
+msgstr "Als einzelne Zeile formatieren"
 
 #: resources/templates/sql/query.twig:45
 msgid "Get auto-saved query"
@@ -6455,7 +6437,7 @@ msgstr "Wertspalte:"
 #: resources/templates/table/chart/tbl_chart.twig:145
 #: resources/templates/table/zoom_search/result_form.twig:16
 msgid "The generated chart"
-msgstr ""
+msgstr "Das erzeugte Diagramm"
 
 #: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
@@ -11951,18 +11933,14 @@ msgid "Succeeded"
 msgstr "Erfolgreich"
 
 #: src/Controllers/Console/UpdateConfigController.php:49
-#, fuzzy
-#| msgid "Table %1$s has been altered successfully."
 msgid "Console settings has been updated successfully."
-msgstr "Die Tabelle %1$s wurde erfolgreich geändert."
+msgstr "Die Konsoleneinstellungen wurden erfolgreich aktualisiert."
 
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:28
-#, fuzzy
-#| msgid "Unexpected character."
 msgid "Unexpected parameter value."
-msgstr "Unerwartetes Zeichen."
+msgstr "Unerwarteter Parameterwert."
 
 #: src/Controllers/Database/CentralColumnsController.php:149
 #, php-format
@@ -13378,10 +13356,8 @@ msgid "Show query box"
 msgstr "SQL-Querybox anzeigen"
 
 #: src/Controllers/JavaScriptMessagesController.php:407
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "SQL-Befehl ausführen"
+msgstr "Abfrage bearbeiten"
 
 #: src/Controllers/JavaScriptMessagesController.php:409
 #, php-format
@@ -14326,7 +14302,6 @@ msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #: src/Controllers/JavaScriptMessagesController.php:773
-#, fuzzy
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "keine"
@@ -15554,11 +15529,8 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Zeile: %1$s, Spalte: %2$s, Fehler: %3$s"
 
 #: src/Controllers/Table/Structure/AddKeyController.php:23
-#, fuzzy
-#| msgctxt "U2F error"
-#| msgid "Invalid request sent to security key."
 msgid "Invalid request parameter."
-msgstr "Ungültige Anforderung an Sicherheitsschlüssel gesendet."
+msgstr "Ungültiger Anfrageparameter."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:80
 msgid "The columns have been moved successfully."
@@ -16278,10 +16250,8 @@ msgid "Report"
 msgstr "Bericht"
 
 #: src/Exceptions/AuthenticationFailure.php:35
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Cannot log in to the database server."
-msgstr "Die Anmeldung am MySQL-Server ist fehlgeschlagen"
+msgstr "Die Anmeldung am Datenbankserver ist nicht möglich."
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
@@ -16291,14 +16261,11 @@ msgid "Access denied!"
 msgstr "Zugriff verweigert!"
 
 #: src/Exceptions/AuthenticationFailure.php:61
-#, fuzzy
-#| msgid ""
-#| "Login without a password is forbidden by configuration (see "
-#| "AllowNoPassword)"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
 msgstr ""
-"Login ohne Passwort ist verboten (siehe AllowNoPassword) in der Konfiguration"
+"Die Anmeldung ohne Passwort ist per Konfiguration verboten (siehe "
+"AllowNoPassword)."
 
 #: src/Exceptions/AuthenticationFailure.php:73
 #, php-format
@@ -16554,16 +16521,10 @@ msgid "The trigger name cannot end with a space character."
 msgstr "Der Trigger-Name darf nicht mit einem Leerzeichen enden."
 
 #: src/Import/Import.php:947
-#, fuzzy
-#| msgid ""
-#| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
-#| "transactional engine tables can be rolled back."
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
-"Nur INSERT-, UPDATE-, DELETE- und REPLACE-Abfragen mit Tabellen, die "
-"Transaktionen unterstützen, können zurückgesetzt werden."
 
 #: src/Import/Import.php:1169
 #, php-format
@@ -17207,10 +17168,10 @@ msgid "Wrong username/password. Access denied."
 msgstr "Falscher Benutzername/Passwort. Zugriff verweigert."
 
 #: src/Plugins/Auth/AuthenticationSignon.php:128
-#, fuzzy, php-format
-#| msgid "Can not find signon authentication script:"
+#, php-format
 msgid "Can not find signon authentication script: %s"
-msgstr "Konnte Anmelde-Authentifizierungs-Script nicht finden:"
+msgstr ""
+"Skript zur Authentifizierung der Anmeldung kann nicht gefunden werden: %s"
 
 #: src/Plugins/AuthenticationPluginFactory.php:31
 msgid "Invalid authentication method set in configuration:"
