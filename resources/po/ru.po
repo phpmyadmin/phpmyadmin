@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-13 00:24+0000\n"
-"PO-Revision-Date: 2024-10-15 16:16+0000\n"
+"PO-Revision-Date: 2024-10-16 15:51+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -6240,7 +6240,7 @@ msgstr "SQL-запрос"
 
 #: resources/templates/sql/query.twig:41
 msgid "Format as a single line"
-msgstr ""
+msgstr "Форматировать как одну строку"
 
 #: resources/templates/sql/query.twig:45
 msgid "Get auto-saved query"
@@ -12632,6 +12632,9 @@ msgid ""
 "configuration directive <code>AllowNoPassword</code> is false. If you "
 "proceed, the account will not be able to log in through phpMyAdmin."
 msgstr ""
+"Вы пытаетесь настроить эту учётную запись на вход без пароля, но директива "
+"конфигурации <code>AllowNoPassword</code> равна false. Если вы продолжите, "
+"учётная запись не сможет войти в систему через phpMyAdmin."
 
 #: src/Controllers/JavaScriptMessagesController.php:151
 msgid "Removing Selected Users"
