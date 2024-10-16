@@ -41,8 +41,30 @@ function opsWithoutArg () {
     return ['IS NULL', 'IS NOT NULL'];
 }
 
+function opsWithMultipleArgs (): string[] {
+    return ['IN (...)', 'NOT IN (...)'];
+}
+
 function isOpWithoutArg (op) {
     return opsWithoutArg().includes(op);
+}
+
+function acceptsMultipleValues (op: string): boolean {
+    return opsWithMultipleArgs().includes(op);
+}
+
+function joinWrappingElementsWith (array: string[], char: string, separator: string = ','): string {
+    let string: string = '';
+
+    array.forEach(function (option: string, index: number) {
+        string += `${char}${option}${char}`;
+
+        if (index !== array.length - 1) {
+            string += separator;
+        }
+    });
+
+    return string;
 }
 
 function generateCondition (criteriaDiv, table) {
@@ -56,12 +78,20 @@ function generateCondition (criteriaDiv, table) {
     if (criteriaDiv.find('.criteria_rhs').first().val() === 'text') {
         if (isOpWithoutArg(criteriaOp)) {
             query += ' ' + criteriaOp;
+        } else if (acceptsMultipleValues(criteriaOp)) {
+            const formatsText = getFormatsText();
+            const valuesInputs = criteriaDiv.find('input.val');
+            let critertiaTextArray = [];
+
+            valuesInputs.each(function () {
+                critertiaTextArray.push(escapeSingleQuote($(this).val()));
+            });
+
+            criteriaText = joinWrappingElementsWith(critertiaTextArray, '\'');
+
+            query += window.sprintf(formatsText[criteriaOp], criteriaText);
         } else {
             const formatsText = getFormatsText();
-
-            if (!['IN (...)', 'NOT IN (...)'].includes(criteriaOp)) {
-                criteriaText = escapeSingleQuote(criteriaText);
-            }
 
             query += window.sprintf(formatsText[criteriaOp], criteriaText);
         }

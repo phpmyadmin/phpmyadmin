@@ -35,6 +35,8 @@ AJAX.registerTeardown('database/multi_table_query.js', function () {
 
     $('#update_query_button').off('click');
     $('#add_column_button').off('click');
+    $('body').off('click', 'input.add-option');
+    $('body').off('click', 'input.remove-option');
 });
 
 AJAX.registerOnload('database/multi_table_query.js', function () {
@@ -45,11 +47,8 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
     var columnCount = 3;
     addNewColumnCallbacks();
 
-    function theHints () {
-        return {
-            'IN (...)': 'Separate the values by commas',
-            'NOT IN (...)': 'Separate the values by commas',
-        };
+    function opsWithMultipleArgs (): string[] {
+        return ['IN (...)', 'NOT IN (...)'];
     }
 
     $('#update_query_button').on('click', function () {
@@ -200,21 +199,52 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         });
     });
 
+    const acceptsMultipleArgs: string[] = opsWithMultipleArgs();
     $('.criteria_op').each(function () {
         $(this).on('change', function () {
-            showHint($(this));
+            if (acceptsMultipleArgs.includes($(this).val().toString())) {
+                showMultiFields($(this));
+            } else {
+                const options: JQuery<HTMLElement> = $(this).closest('table').find('.options');
+                options.parent().prepend('<input type="text" class="rhs_text_val query-form__input--wide" placeholder="Enter criteria as free text"></input>');
+                options.remove();
+            }
         });
     });
 
-    function showHint (opSelect) {
-        const hints = theHints();
-        const value = opSelect.val();
-        const criteriaInputCol = opSelect.closest('table').find('.rhs_text_val').parent();
+    function showMultiFields (opSelect: JQuery<HTMLElement>) {
+        const criteriaInput: JQuery<HTMLElement> = opSelect.closest('table').find('.rhs_text_val');
+        const criteriaInputCol: JQuery<HTMLElement> = criteriaInput.parent();
+        const hasAtLeastOneOption: boolean = criteriaInputCol.find('.option').length > 0;
 
-        criteriaInputCol.find('.rhs_hint').remove();
+        if (!hasAtLeastOneOption) {
+            criteriaInputCol.append(`
+                <div class="options">
+                    <div class="option">
+                        <input type="text" class="val" placeholder="Enter an option" value="${criteriaInput.val()}" />
+                        <input type="button" class="btn btn-secondary add-option" value="+" />
+                    </div>
+                </div>
+            `);
+        }
 
-        Object.keys(hints).includes(value) && criteriaInputCol.append(`<p class="rhs_hint">${hints[value]}</p>`);
+        criteriaInput.remove();
     }
+
+    $('body').on('click', 'input.add-option', function () {
+        const options: JQuery<HTMLElement> = $(this).closest('.options');
+
+        options.find('.option').first().clone().appendTo(options);
+
+        const newAdded: JQuery<HTMLElement> = options.find('.option').last();
+
+        newAdded.find('input.val').val('');
+        newAdded.append('<input type="button" class="btn btn-secondary remove-option" value="-" />');
+    });
+
+    $('body').on('click', 'input.remove-option', function () {
+        $(this).closest('.option').remove();
+    });
 
     function addNewColumnCallbacks () {
         $('.tableNameSelect').each(function () {
