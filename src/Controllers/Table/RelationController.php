@@ -177,6 +177,7 @@ final class RelationController implements InvocableController
         $config = Config::getInstance();
         if ($config->settings['NaturalOrder']) {
             uksort($columnArray, strnatcasecmp(...));
+            usort($relationsForeign, 'PhpMyAdmin\Utils\ForeignKey::sortForeignKeys');
         }
 
         $foreignKeyRow = '';
