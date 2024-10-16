@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-13 00:24+0000\n"
-"PO-Revision-Date: 2024-07-17 09:55+0000\n"
-"Last-Translator: lin ber <linber865@gmail.com>\n"
+"PO-Revision-Date: 2024-10-16 15:51+0000\n"
+"Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
 "Language: ko\n"
@@ -13,15 +13,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-rc\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "이 페이지를 넘기려면 Javascript 사용을 허용해야 합니다!"
 
 #: resources/templates/base.twig:46
-#, fuzzy
-#| msgid "Add user account"
 msgid "Open user account menu"
 msgstr "사용자 계정 메뉴 열기"
 
@@ -2455,7 +2453,7 @@ msgstr "옵션:"
 
 #: resources/templates/database/search/main.twig:40
 msgid "include hex matches"
-msgstr ""
+msgstr "16진수 일치 포함"
 
 #: resources/templates/database/search/main.twig:45
 msgid "Inside tables:"
@@ -2882,9 +2880,8 @@ msgstr "값을 클릭하여 바로 수정할 수 있습니다.<br>(일부 제외
 
 #: resources/templates/display/results/checkbox_and_links.twig:18
 #: resources/templates/display/results/checkbox_and_links.twig:80
-#, fuzzy
 msgid "You can also edit most values by double-clicking directly on them."
-msgstr "값을 더블클릭 하여 바로 수정할 수 있습니다.<br>(일부 제외)."
+msgstr "대부분의 값을 직접 더블클릭하여 편집할 수도 있습니다."
 
 #: resources/templates/display/results/table.twig:18
 #: resources/templates/display/results/table.twig:21
@@ -3328,10 +3325,8 @@ msgid "Containing the word:"
 msgstr "포함된 단어:"
 
 #: resources/templates/gis_data_editor_form.twig:26
-#, fuzzy
-#| msgid "Geometry %d:"
 msgid "Geometry type:"
-msgstr "기하데이터 %d:"
+msgstr "Geometry 타입:"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
@@ -5639,20 +5634,14 @@ msgstr ""
 "이콘을 통해 차트를 제거할 수 있습니다."
 
 #: resources/templates/server/status/monitor/index.twig:77
-#, fuzzy
-#| msgid ""
-#| "To display queries from the logs, select the relevant time span on any "
-#| "chart by holding down the left mouse button and panning over the chart. "
-#| "Once confirmed, this will load a table of grouped queries, there you may "
-#| "click on any occurring SELECT statements to further analyze them."
 msgid ""
 "To display queries from the logs, click on any chart. Once confirmed, this "
 "will load a table of grouped queries, there you may click on any occurring "
 "SELECT statements to further analyze them."
 msgstr ""
-"로그에서 쿼리를 표시하려면, 차트에서 관련된 시간대를 마우스 왼쪽 버튼으로 드"
-"래그하여 선택하세요. 시간대가 결정되면, 쿼리 그룹 테이블을 불러옵니다. 여기"
-"서 SELECT 구문을 클릭하여 추가적인 분석을 할 수 있습니다."
+"로그에서 쿼리를 표시하려면 아무 차트나 클릭합니다. 확인되면 그룹화된 쿼리 "
+"테이블이 로드되며, 여기서 발생하는 SELECT 문을 클릭하여 추가로 분석할 수 "
+"있습니다."
 
 #: resources/templates/server/status/monitor/index.twig:81
 msgid "Please note:"
@@ -5797,10 +5786,9 @@ msgstr "시작 이후 질문:"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
-#| msgid "ø per hour"
+#, php-format
 msgid "ø per hour: %s"
-msgstr "시간 당 %s ø"
+msgstr "시간당 %s ø"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
@@ -5811,10 +5799,9 @@ msgstr "분당 %s ø"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
-#| msgid "per second:"
+#, php-format
 msgid "ø per second: %s"
-msgstr "초당: %s"
+msgstr "초당 %s ø"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -6174,7 +6161,7 @@ msgstr "SQL 질의"
 
 #: resources/templates/sql/query.twig:41
 msgid "Format as a single line"
-msgstr ""
+msgstr "한 줄로 형식 지정"
 
 #: resources/templates/sql/query.twig:45
 msgid "Get auto-saved query"
@@ -6576,9 +6563,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "정규화 세번째 단계"
 
 #: resources/templates/table/operations/index.twig:2
-#, fuzzy
 msgid "Table operations"
-msgstr "테이블 옵션"
+msgstr "테이블 작업"
 
 #: resources/templates/table/operations/index.twig:10
 msgid "Alter table order by"
@@ -8903,9 +8889,9 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
-"임의의 MySQL 서버에 대한 로그인이 활성화된 경우 사용자가 입력할 수 있는 "
-"MySQL 서버를 MySQL 서버의 IP 또는 호스트 이름을 지정된 정규식에 일치시켜 제한"
-"합니다."
+"MySQL 서버의 IP 또는 호스트 이름을 지정된 정규식에 일치시켜 임의의 MySQL "
+"서버에 로그인이 활성화된 경우 사용자가 입력할 수 있는 MySQL 서버를 "
+"제한합니다."
 
 #: src/Config/Descriptions.php:84
 msgid ""
@@ -9020,9 +9006,7 @@ msgstr "SQL 질의에서의 테이블 및 칼럼 이름 자동완성 사용 여�
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
-msgstr ""
-"기본 변환에 대한 옵션 목록의 값입니다. 테이블 구조 페이지에서 변환을 채우면 "
-"이 값을 덮어씁니다."
+msgstr "기본 변환에 대한 옵션 목록의 값."
 
 #: src/Config/Descriptions.php:165
 msgid ""
@@ -11598,10 +11582,8 @@ msgid "Succeeded"
 msgstr "성공함"
 
 #: src/Controllers/Console/UpdateConfigController.php:49
-#, fuzzy
-#| msgid "Table %1$s has been altered successfully."
 msgid "Console settings has been updated successfully."
-msgstr "콘솔 설정이 성공적으로 업데이트되었습니다."
+msgstr "콘솔 설정이 정상적으로 업데이트되었습니다."
 
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
@@ -12065,9 +12047,8 @@ msgstr ""
 "%sdocumentation%s를 참조하여 주십시오."
 
 #: src/Controllers/Import/ImportController.php:196
-#, fuzzy
 msgid "Incorrect format parameter"
-msgstr "올바르지 않은 포맷 파라미터"
+msgstr "잘못된 포맷 파라미터"
 
 #: src/Controllers/Import/ImportController.php:310
 #: src/Controllers/Import/ImportController.php:523
@@ -12138,13 +12119,9 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "이 데이터베이스 전체를 제거하려고 합니다!"
 
 #: src/Controllers/JavaScriptMessagesController.php:56
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot rename database to the same name. Change the name and try again."
-msgstr ""
-"같은 이름으로 데이터베이스의 이름을 변경할 수 없습니다. 이름을 바꾸어 다시 시"
-"도해 주세요."
+msgstr "데이터베이스 이름을 같은 이름으로 변경할 수 없습니다. 이름을 변경하고 다시 "
+"시도하세요."
 
 #: src/Controllers/JavaScriptMessagesController.php:58
 msgid "You are about to DESTROY a complete table!"
@@ -12364,6 +12341,9 @@ msgid ""
 "configuration directive <code>AllowNoPassword</code> is false. If you "
 "proceed, the account will not be able to log in through phpMyAdmin."
 msgstr ""
+"비밀번호 없이 로그인하도록 이 계정을 설정하려고 하는데 구성 지시어 "
+"<code>AllowNoPassword</code>가 false입니다. 계속 진행하면 해당 계정은 "
+"phpMyAdmin을 통해 로그인할 수 없습니다."
 
 #: src/Controllers/JavaScriptMessagesController.php:151
 msgid "Removing Selected Users"
@@ -15043,13 +15023,12 @@ msgstr "여러 테이블에 대한 유지 관리 작업이 비활성화됩니다
 #: src/Controllers/Table/Partition/RebuildController.php:34
 #: src/Controllers/Table/Partition/RepairController.php:34
 #: src/Controllers/Table/Partition/TruncateController.php:34
-#, fuzzy
 msgid "The partition name must be a non-empty string."
-msgstr "테이블명이 없습니다!"
+msgstr "파티션 이름은 비어 있지 않은 문자열이어야 합니다."
 
 #: src/Controllers/Table/RecentFavoriteController.php:35
 msgid "Invalid database or table name."
-msgstr "잘못된 데이터베이스 혹은 테이블 이름"
+msgstr "잘못된 데이터베이스 또는 테이블 이름입니다."
 
 #: src/Controllers/Table/RelationController.php:316
 msgid "Display column was successfully updated."
@@ -15760,15 +15739,10 @@ msgid "Access denied!"
 msgstr "접근이 거부되었습니다!"
 
 #: src/Exceptions/AuthenticationFailure.php:61
-#, fuzzy
-#| msgid ""
-#| "Login without a password is forbidden by configuration (see "
-#| "AllowNoPassword)"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
-msgstr ""
-"비밀번호가 없는 로그인이 설정에 의해 차단되어 있습니다 (AllowNoPassword 항목"
-"을 참조하세요)"
+msgstr "비밀번호 없이 로그인하는 것은 설정으로 금지되어 있습니다(AllowNoPassword "
+"참조)."
 
 #: src/Exceptions/AuthenticationFailure.php:73
 #, php-format
@@ -15976,14 +15950,13 @@ msgstr ""
 "를 사용하고 있을 수 있습니다."
 
 #: src/Identifiers/InvalidDatabaseName.php:14
-#, fuzzy
 msgid "The database name must be a non-empty string."
-msgstr "데이터베이스명이 없습니다!"
+msgstr "데이터베이스 이름은 비어 있지 않은 문자열이어야 합니다."
 
 #: src/Identifiers/InvalidDatabaseName.php:20
-#, fuzzy, php-format
+#, php-format
 msgid "The database name cannot be longer than %d characters."
-msgstr "%d 글자 이하로 입력해 주세요"
+msgstr "데이터베이스 이름의 길이는 %d자 이하여야 합니다."
 
 #: src/Identifiers/InvalidDatabaseName.php:25
 #, fuzzy
@@ -15991,14 +15964,13 @@ msgid "The database name cannot end with a space character."
 msgstr "데이터베이스 이름은 공백문자로 끝날 수 없습니다."
 
 #: src/Identifiers/InvalidTableName.php:14
-#, fuzzy
 msgid "The table name must be a non-empty string."
-msgstr "테이블명이 없습니다!"
+msgstr "테이블 이름은 비어 있지 않은 문자열이어야 합니다."
 
 #: src/Identifiers/InvalidTableName.php:20
-#, fuzzy, php-format
+#, php-format
 msgid "The table name cannot be longer than %d characters."
-msgstr "%d 글자 이하로 입력해 주세요"
+msgstr "테이블 이름의 길이는 %d자 이하여야 합니다."
 
 #: src/Identifiers/InvalidTableName.php:25
 #, fuzzy
@@ -16006,14 +15978,13 @@ msgid "The table name cannot end with a space character."
 msgstr "테이블 이름은 스페이스 문자로 끝낼 수 없습니다."
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
 msgid "The trigger name must not be empty."
-msgstr "트리거 이름은 비워둘 수 없습니다!"
+msgstr "트리거 이름은 비어 있지 않은 문자열이어야 합니다."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "%d 글자 이하로 입력해 주세요"
+msgstr "트리거 이름의 길이는 %d자 이하여야 합니다."
 
 #: src/Identifiers/InvalidTriggerName.php:25
 #, fuzzy
