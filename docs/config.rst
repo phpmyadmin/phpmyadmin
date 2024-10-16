@@ -3600,9 +3600,9 @@ Various display setting
     :type: boolean
     :default: true
 
-    Sorts database and table names according to natural order (for
-    example, t1, t2, t10). Currently implemented in the navigation panel
-    and in Database view, for the table list.
+    Sorts database, table names and foreign key constaint according to natural order (for
+    example, t1, t2, t10). Currently implemented in the navigation panel,
+    in Database view for the table list and Relation view for list of Foreign key constraints.
 
 .. config:option:: $cfg['InitialSlidersState']
 
