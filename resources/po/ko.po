@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-13 00:24+0000\n"
-"PO-Revision-Date: 2024-10-16 15:51+0000\n"
+"PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
@@ -2485,7 +2485,7 @@ msgid "Browse"
 msgstr "보기"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
 msgstr[0] "<strong>총:</strong> <em>%s</em> 건 일치"
@@ -4554,7 +4554,6 @@ msgid "Grant all privileges on database %s."
 msgstr "%s 데이터베이스에 대한 모든 권한을 부여합니다."
 
 #: resources/templates/server/privileges/add_user.twig:38
-#, fuzzy
 msgid "Create user"
 msgstr "사용자 추가"
 
@@ -5205,7 +5204,6 @@ msgid "Save changes"
 msgstr "변경사항을 저장"
 
 #: resources/templates/server/replication/change_primary.twig:7
-#, fuzzy
 msgid "Replica configuration - Change or reconfigure primary server"
 msgstr "복제본 설정 - 주 서버 변경 혹은 재설정"
 
@@ -5538,12 +5536,10 @@ msgid "Advisor"
 msgstr "시스템 분석 / 조언"
 
 #: resources/templates/server/status/monitor/index.twig:4
-#, fuzzy
 msgid "System monitor"
 msgstr "시스템 모니터"
 
 #: resources/templates/server/status/monitor/index.twig:7
-#, fuzzy
 msgid "Start monitor"
 msgstr "모니터링 시작"
 
@@ -5792,8 +5788,7 @@ msgstr "시간당 %s ø"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
-#| msgid "per minute:"
+#, php-format
 msgid "ø per minute: %s"
 msgstr "분당 %s ø"
 
@@ -7012,7 +7007,6 @@ msgid "Next autoindex"
 msgstr "다음 자동인덱스"
 
 #: resources/templates/table/structure/drop_confirm.twig:2
-#, fuzzy
 msgid "Dropping columns from the table"
 msgstr "테이블에서 열 삭제"
 
@@ -7222,15 +7216,13 @@ msgstr "질의 수가 1,000 미만"
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
-msgstr ""
-"이 서버에서 1,000개 보다 적은 질의가 실행됐습니다. 추천의 정확도가 떨어질 수 "
-"있습니다."
+msgstr "질의가 1,000번 이상 시행되지 않았습니다. 추천 결과가 부정확할 수도 있습니다."
 
 #: src/Advisory/Rules.php:55
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
-msgstr "쿼리를 더 많이 실행할 때까지 더 오래 서버를 실행하세요."
+msgstr "서버가 더 많은 쿼리를 실행할 수 있도록 오랫동안 서버를 켜두십시오."
 
 #: src/Advisory/Rules.php:57
 #, php-format
@@ -12388,7 +12380,6 @@ msgid "Connections / Processes"
 msgstr "연결 / 프로세스"
 
 #: src/Controllers/JavaScriptMessagesController.php:173
-#, fuzzy
 msgid "Number of statements"
 msgstr "구문 수"
 
@@ -12944,8 +12935,6 @@ msgid "Show query box"
 msgstr "질의 상자 보이기"
 
 #: src/Controllers/JavaScriptMessagesController.php:407
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
 msgstr "쿼리 수정"
 
@@ -13657,13 +13646,11 @@ msgid "Hide"
 msgstr "숨기기"
 
 #: src/Controllers/JavaScriptMessagesController.php:725
-#, fuzzy
 msgctxt "Month name"
 msgid "January"
 msgstr "1월"
 
 #: src/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
 msgctxt "Month name"
 msgid "February"
 msgstr "2월"
@@ -13734,55 +13721,46 @@ msgid "Mar"
 msgstr "3월"
 
 #: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:497
-#, fuzzy
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "4월"
 
 #: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:498
-#, fuzzy
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "5월"
 
 #: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:499
-#, fuzzy
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "6월"
 
 #: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:500
-#, fuzzy
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "7월"
 
 #: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:501
-#, fuzzy
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "8월"
 
 #: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:502
-#, fuzzy
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "9월"
 
 #: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:503
-#, fuzzy
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "10월"
 
 #: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:504
-#, fuzzy
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "11월"
 
 #: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:505
-#, fuzzy
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "12월"
@@ -13793,154 +13771,129 @@ msgid "Sun"
 msgstr "일"
 
 #: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:509
-#, fuzzy
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "월"
 
 #: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:510
-#, fuzzy
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "화"
 
 #: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:511
-#, fuzzy
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "수"
 
 #: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:512
-#, fuzzy
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "목"
 
 #: src/Controllers/JavaScriptMessagesController.php:761 src/Util.php:513
-#, fuzzy
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "금"
 
 #: src/Controllers/JavaScriptMessagesController.php:762 src/Util.php:514
-#, fuzzy
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "토"
 
 #: src/Controllers/JavaScriptMessagesController.php:763
-#, fuzzy
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "일"
 
 #: src/Controllers/JavaScriptMessagesController.php:764
-#, fuzzy
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "월"
 
 #: src/Controllers/JavaScriptMessagesController.php:765
-#, fuzzy
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "화"
 
 #: src/Controllers/JavaScriptMessagesController.php:766
-#, fuzzy
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "수"
 
 #: src/Controllers/JavaScriptMessagesController.php:767
-#, fuzzy
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "목"
 
 #: src/Controllers/JavaScriptMessagesController.php:768
-#, fuzzy
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "금"
 
 #: src/Controllers/JavaScriptMessagesController.php:769
-#, fuzzy
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "토"
 
 #: src/Controllers/JavaScriptMessagesController.php:770
-#, fuzzy
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "주"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
 #: src/Controllers/JavaScriptMessagesController.php:772
-#, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
-msgstr "calendar-year-month"
+msgstr "날짜 표기-월-년"
 
 #: src/Controllers/JavaScriptMessagesController.php:773
-#, fuzzy
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "없음"
 
 #: src/Controllers/JavaScriptMessagesController.php:774
-#, fuzzy
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "시간"
 
 #: src/Controllers/JavaScriptMessagesController.php:775
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "시"
 
 #: src/Controllers/JavaScriptMessagesController.php:776
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "분"
 
 #: src/Controllers/JavaScriptMessagesController.php:777
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "초"
 
 #: src/Controllers/JavaScriptMessagesController.php:778
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Millisecond"
-msgstr "%d 초"
+msgstr "밀리초"
 
 #: src/Controllers/JavaScriptMessagesController.php:779
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Microsecond"
-msgstr "초당"
+msgstr "마이크로초"
 
 #: src/Controllers/JavaScriptMessagesController.php:780
-#, fuzzy
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
-msgstr "타임라인"
+msgstr "시간대"
 
 #. l10n: Display text for previous month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:784
-#, fuzzy
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "이전"
 
 #. l10n: Display text for next month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:786
-#, fuzzy
 msgctxt "Next month"
 msgid "Next"
 msgstr "다음"
@@ -14036,12 +13989,9 @@ msgstr ""
 "려면 BINARY, VARBINARY, BLOB 열에 저장해야 합니다."
 
 #: src/Controllers/JavaScriptMessagesController.php:818
-#, fuzzy
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
-msgstr ""
-"업로드중인 파일의 용량이 최대 업로드 허용 용량보다 크거나 웹킷 기반 브라우저 "
-"(사파리, 구글 크롬, Arora 등)의 버그일 수 있습니다."
+msgstr "업로드 중인 파일이 허용된 최대 크기보다 클 수 있습니다."
 
 #: src/Controllers/JavaScriptMessagesController.php:820
 #, php-format
@@ -15004,9 +14954,8 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "결과값이 없습니다. (빈 레코드 리턴)."
 
 #: src/Controllers/Table/GisVisualizationController.php:104
-#, fuzzy
 msgid "No spatial column found for this SQL query."
-msgstr "이 버전의 MySQL에는 소용이 없습니다."
+msgstr "이 SQL 쿼리에 대한 공간 열을 찾을 수 없습니다."
 
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:65
 #: src/Controllers/Table/Maintenance/CheckController.php:65
@@ -15044,11 +14993,8 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "행: %1$s, 열: %2$s, 오류: %3$s"
 
 #: src/Controllers/Table/Structure/AddKeyController.php:23
-#, fuzzy
-#| msgctxt "U2F error"
-#| msgid "Invalid request sent to security key."
 msgid "Invalid request parameter."
-msgstr "보안 키에 잘못된 요청을 보냈습니다."
+msgstr "잘못된 요청 매개변수입니다."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:80
 msgid "The columns have been moved successfully."
@@ -15959,9 +15905,8 @@ msgid "The database name cannot be longer than %d characters."
 msgstr "데이터베이스 이름의 길이는 %d자 이하여야 합니다."
 
 #: src/Identifiers/InvalidDatabaseName.php:25
-#, fuzzy
 msgid "The database name cannot end with a space character."
-msgstr "데이터베이스 이름은 공백문자로 끝날 수 없습니다."
+msgstr "데이터베이스 이름은 공백 문자로 끝날 수 없습니다."
 
 #: src/Identifiers/InvalidTableName.php:14
 msgid "The table name must be a non-empty string."
@@ -15973,9 +15918,8 @@ msgid "The table name cannot be longer than %d characters."
 msgstr "테이블 이름의 길이는 %d자 이하여야 합니다."
 
 #: src/Identifiers/InvalidTableName.php:25
-#, fuzzy
 msgid "The table name cannot end with a space character."
-msgstr "테이블 이름은 스페이스 문자로 끝낼 수 없습니다."
+msgstr "테이블 이름은 공백 문자로 끝날 수 없습니다."
 
 #: src/Identifiers/InvalidTriggerName.php:14
 msgid "The trigger name must not be empty."
@@ -15987,9 +15931,8 @@ msgid "The trigger name cannot be longer than %d characters."
 msgstr "트리거 이름의 길이는 %d자 이하여야 합니다."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
 msgid "The trigger name cannot end with a space character."
-msgstr "단어는 스페이스(\" \")로 구분됩니다."
+msgstr "트리거 이름은 공백 문자로 끝날 수 없습니다."
 
 #: src/Import/Import.php:947
 msgid ""
@@ -16601,8 +16544,7 @@ msgid "Wrong username/password. Access denied."
 msgstr "사용자명/비밀번호가 틀렸습니다. 접근이 거부되었습니다."
 
 #: src/Plugins/Auth/AuthenticationSignon.php:128
-#, fuzzy, php-format
-#| msgid "Can not find signon authentication script:"
+#, php-format
 msgid "Can not find signon authentication script: %s"
 msgstr "로그인 인증 스크립트를 찾을 수 없습니다: %s"
 
