@@ -31,20 +31,19 @@ class BrowseForeignersTest extends AbstractTestCase
      */
     public function testGetForeignLimit(): void
     {
-        self::assertNull(
-            $this->browseForeigners->getForeignLimit('Show all'),
+        self::assertSame(
+            '',
+            $this->browseForeigners->getForeignLimit('Show all', 0),
         );
 
         self::assertSame(
             'LIMIT 0, 25 ',
-            $this->browseForeigners->getForeignLimit(null),
+            $this->browseForeigners->getForeignLimit(null, 0),
         );
-
-        $_POST['pos'] = 10;
 
         self::assertSame(
             'LIMIT 10, 25 ',
-            $this->browseForeigners->getForeignLimit(null),
+            $this->browseForeigners->getForeignLimit(null, 10),
         );
 
         $config = new Config();
@@ -53,12 +52,12 @@ class BrowseForeignersTest extends AbstractTestCase
 
         self::assertSame(
             'LIMIT 10, 50 ',
-            $browseForeigners->getForeignLimit(null),
+            $browseForeigners->getForeignLimit(null, 10),
         );
 
         self::assertSame(
             'LIMIT 10, 50 ',
-            $browseForeigners->getForeignLimit('xyz'),
+            $browseForeigners->getForeignLimit('xyz', 10),
         );
     }
 

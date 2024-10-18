@@ -283,18 +283,11 @@ class BrowseForeigners
         return '';
     }
 
-    /**
-     * Function to get foreign limit
-     *
-     * @param string|null $foreignShowAll foreign navigation
-     */
-    public function getForeignLimit(string|null $foreignShowAll): string|null
+    public function getForeignLimit(string|null $foreignShowAll, int $pos): string
     {
         if ($foreignShowAll === __('Show all')) {
-            return null;
+            return '';
         }
-
-        isset($_POST['pos']) ? $pos = $_POST['pos'] : $pos = 0;
 
         return 'LIMIT ' . $pos . ', ' . $this->settings->maxRows . ' ';
     }

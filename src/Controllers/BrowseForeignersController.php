@@ -48,13 +48,14 @@ final class BrowseForeignersController implements InvocableController
         $header->disableMenuAndConsole();
         $header->setBodyId('body_browse_foreigners');
 
-        $foreignLimit = $this->browseForeigners->getForeignLimit($foreignShowAll);
+        $pos = (int) $request->getParsedBodyParam('pos');
+        $foreignLimit = $this->browseForeigners->getForeignLimit($foreignShowAll, $pos);
         $foreignData = $this->relation->getForeignData(
             $this->relation->getForeigners($database, $table),
             $field,
             true,
             $foreignFilter,
-            $foreignLimit ?? '',
+            $foreignLimit,
             true,
         );
 

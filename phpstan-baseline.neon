@@ -1392,6 +1392,11 @@ parameters:
 			path: src/Console.php
 
 		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/Controllers/BrowseForeignersController.php
+
+		-
 			message: """
 				#^Call to deprecated method getInstance\\(\\) of class PhpMyAdmin\\\\Config\\:
 				Use dependency injection instead\\.$#
