@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Utils;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey as ForeignKeyObject;
 
 use function str_starts_with;
 use function strtolower;
@@ -86,5 +87,13 @@ final class ForeignKey
     public static function handleDisableCheckCleanup(bool $defaultCheckValue): void
     {
         DatabaseInterface::getInstance()->setVariable('FOREIGN_KEY_CHECKS', $defaultCheckValue ? 'ON' : 'OFF');
+    }
+
+    /**
+     * Sort ForeignKey Objects in natural order based on their constraint names.
+     */
+    public static function sortForeignKeys(ForeignKeyObject $before, ForeignKeyObject $after): int
+    {
+        return strnatcmp($before->constraint, $after->constraint);
     }
 }
