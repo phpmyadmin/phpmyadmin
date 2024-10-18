@@ -143,8 +143,9 @@ class BrowseForeigners
         ForeignData $foreignData,
         string|null $fieldKey,
         string $currentValue,
+        int $pos,
     ): string {
-        $gotoPage = $this->getHtmlForGotoPage($foreignData);
+        $gotoPage = $this->getHtmlForGotoPage($foreignData, $pos);
         $foreignShowAll = '';
         if (
             $foreignData->dispRow !== null &&
@@ -255,9 +256,8 @@ class BrowseForeigners
     /**
      * Function to get html for the goto page option
      */
-    private function getHtmlForGotoPage(ForeignData $foreignData): string
+    private function getHtmlForGotoPage(ForeignData $foreignData, int $pos): string
     {
-        isset($_POST['pos']) ? $pos = $_POST['pos'] : $pos = 0;
         if ($foreignData->dispRow === null) {
             return '';
         }

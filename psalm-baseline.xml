@@ -93,10 +93,6 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['rownumber']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$pos]]></code>
-      <code><![CDATA[$this->settings->maxRows]]></code>
-    </PossiblyInvalidOperand>
   </file>
   <file src="src/Cache.php">
     <MixedAssignment>

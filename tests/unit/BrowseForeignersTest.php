@@ -73,11 +73,10 @@ class BrowseForeignersTest extends AbstractTestCase
                 $this->browseForeigners,
                 BrowseForeigners::class,
                 'getHtmlForGotoPage',
-                [$foreignData],
+                [$foreignData, 0],
             ),
         );
 
-        $_POST['pos'] = 15;
         $foreignData = new ForeignData(false, 5, '', [], '');
 
         self::assertSame(
@@ -86,7 +85,7 @@ class BrowseForeignersTest extends AbstractTestCase
                 $this->browseForeigners,
                 BrowseForeigners::class,
                 'getHtmlForGotoPage',
-                [$foreignData],
+                [$foreignData, 15],
             ),
         );
 
@@ -95,7 +94,7 @@ class BrowseForeignersTest extends AbstractTestCase
             $this->browseForeigners,
             BrowseForeigners::class,
             'getHtmlForGotoPage',
-            [$foreignData],
+            [$foreignData, 15],
         );
 
         self::assertStringStartsWith('Page number:', $result);
@@ -161,6 +160,7 @@ class BrowseForeignersTest extends AbstractTestCase
             $foreignData,
             $fieldkey,
             $currentValue,
+            0,
         );
 
         self::assertStringContainsString(
@@ -205,6 +205,7 @@ class BrowseForeignersTest extends AbstractTestCase
             $foreignData,
             $fieldkey,
             $currentValue,
+            0,
         );
 
         self::assertStringContainsString(

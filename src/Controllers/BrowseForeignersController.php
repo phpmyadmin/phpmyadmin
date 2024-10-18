@@ -66,6 +66,7 @@ final class BrowseForeignersController implements InvocableController
             $foreignData,
             $fieldKey,
             $data,
+            $pos,
         ));
 
         return $this->response->response();
