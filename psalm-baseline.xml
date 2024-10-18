@@ -853,33 +853,7 @@
       <code><![CDATA[$params['col_name']]]></code>
       <code><![CDATA[$params['db']]]></code>
       <code><![CDATA[$params['db']]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('col_attribute')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('col_attribute')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('col_default')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('col_default')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('col_default_sel')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('col_default_sel')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('col_extra')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('col_extra')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('col_isNull')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('col_isNull')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('col_length')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('col_length')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('col_name')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('col_name')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('col_type')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('col_type')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('collation')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('collation')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('cur_table', '')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('orig_col_name')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('pos', '')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('table-select')]]></code>
-      <code><![CDATA[$request->getParsedBodyParam('total_rows', '')]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[[$request->getParsedBodyParam('column-select')]]]></code>
-    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['message']]]></code>
     </MixedAssignment>

@@ -18,10 +18,8 @@ final class ColumnController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        /** @var string|null $db */
-        $db = $request->getParsedBodyParam('db');
-        /** @var string|null $table */
-        $table = $request->getParsedBodyParam('table');
+        $db = $request->getParsedBodyParamAsStringOrNull('db');
+        $table = $request->getParsedBodyParamAsStringOrNull('table');
 
         if (! isset($db, $table)) {
             $this->response->setRequestStatus(false);
