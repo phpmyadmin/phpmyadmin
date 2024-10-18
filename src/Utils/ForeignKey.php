@@ -91,14 +91,9 @@ final class ForeignKey
 
     /**
      * Sort ForeignKey Objects in natural order based on their constraint names.
-     *
-     * @param \PhpMyAdmin\SqlParser\Utils\ForeignKey $before
-     * @param \PhpMyAdmin\SqlParser\Utils\ForeignKey $after
-     * @return int
      */
     public static function sortForeignKeys(ForeignKeyObject $before, ForeignKeyObject $after): int
     {
         return strnatcmp($before->constraint, $after->constraint);
     }
-
 }
