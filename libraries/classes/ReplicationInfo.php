@@ -20,18 +20,18 @@ final class ReplicationInfo
 
     /** @var string[] */
     public $replicaVariables = [
-        'Slave_IO_State',
-        'Master_Host',
-        'Master_User',
-        'Master_Port',
+        'Replica_IO_State',
+        'Source_Host',
+        'Source_User',
+        'Source_Port',
         'Connect_Retry',
-        'Master_Log_File',
-        'Read_Master_Log_Pos',
+        'Source_Log_File',
+        'Read_Source_Log_Pos',
         'Relay_Log_File',
         'Relay_Log_Pos',
-        'Relay_Master_Log_File',
-        'Slave_IO_Running',
-        'Slave_SQL_Running',
+        'Relay_Source_Log_File',
+        'Replica_IO_Running',
+        'Replica_SQL_Running',
         'Replicate_Do_DB',
         'Replicate_Ignore_DB',
         'Replicate_Do_Table',
@@ -41,18 +41,18 @@ final class ReplicationInfo
         'Last_Errno',
         'Last_Error',
         'Skip_Counter',
-        'Exec_Master_Log_Pos',
+        'Exec_Source_Log_Pos',
         'Relay_Log_Space',
         'Until_Condition',
         'Until_Log_File',
         'Until_Log_Pos',
-        'Master_SSL_Allowed',
-        'Master_SSL_CA_File',
-        'Master_SSL_CA_Path',
-        'Master_SSL_Cert',
-        'Master_SSL_Cipher',
-        'Master_SSL_Key',
-        'Seconds_Behind_Master',
+        'Source_SSL_Allowed',
+        'Source_SSL_CA_File',
+        'Source_SSL_CA_Path',
+        'Source_SSL_Cert',
+        'Source_SSL_Cipher',
+        'Source_SSL_Key',
+        'Seconds_Behind_Source',
     ];
 
     /** @var array */
@@ -100,7 +100,7 @@ final class ReplicationInfo
 
     private function setPrimaryStatus(): void
     {
-        $this->primaryStatus = $this->dbi->fetchResult('SHOW MASTER STATUS');
+        $this->primaryStatus = $this->dbi->fetchResult('SHOW BINARY LOG STATUS');
     }
 
     public function getPrimaryStatus(): array
@@ -110,7 +110,7 @@ final class ReplicationInfo
 
     private function setReplicaStatus(): void
     {
-        $this->replicaStatus = $this->dbi->fetchResult('SHOW SLAVE STATUS');
+        $this->replicaStatus = $this->dbi->fetchResult('SHOW REPLICA STATUS');
     }
 
     public function getReplicaStatus(): array
@@ -120,7 +120,7 @@ final class ReplicationInfo
 
     private function setMultiPrimaryStatus(): void
     {
-        $this->multiPrimaryStatus = $this->dbi->fetchResult('SHOW ALL SLAVES STATUS');
+        $this->multiPrimaryStatus = $this->dbi->fetchResult('SHOW ALL REPLICAS STATUS');
     }
 
     private function setDefaultPrimaryConnection(string $connection): void
