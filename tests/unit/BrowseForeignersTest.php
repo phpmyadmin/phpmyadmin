@@ -151,8 +151,8 @@ class BrowseForeignersTest extends AbstractTestCase
         $foreignData = new ForeignData(false, 0, '', null, '');
         $fieldkey = 'bar';
         $currentValue = '';
-        $_POST['rownumber'] = 1;
-        $_POST['foreign_filter'] = '5';
+        $rownumber = '1';
+        $foreignFilter = '5';
         $result = $this->browseForeigners->getHtmlForRelationalFieldSelection(
             $db,
             $table,
@@ -161,6 +161,8 @@ class BrowseForeignersTest extends AbstractTestCase
             $fieldkey,
             $currentValue,
             0,
+            $foreignFilter,
+            $rownumber,
         );
 
         self::assertStringContainsString(
@@ -206,6 +208,8 @@ class BrowseForeignersTest extends AbstractTestCase
             $fieldkey,
             $currentValue,
             0,
+            $foreignFilter,
+            $rownumber,
         );
 
         self::assertStringContainsString(

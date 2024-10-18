@@ -87,12 +87,6 @@
       <code><![CDATA[$leftKeyname]]></code>
       <code><![CDATA[$rightKeyname]]></code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['foreign_filter']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['rownumber']]]></code>
-    </PossiblyInvalidCast>
   </file>
   <file src="src/Cache.php">
     <MixedAssignment>

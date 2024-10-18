@@ -38,6 +38,8 @@ final class BrowseForeignersController implements InvocableController
         $foreignShowAll = $request->getParsedBodyParam('foreign_showAll');
         /** @var string $foreignFilter */
         $foreignFilter = $request->getParsedBodyParam('foreign_filter', '');
+        /** @var string|null $rownumber */
+        $rownumber = $request->getParsedBodyParam('rownumber');
 
         if (! isset($database, $table, $field)) {
             return $this->response->response();
@@ -67,6 +69,8 @@ final class BrowseForeignersController implements InvocableController
             $fieldKey,
             $data,
             $pos,
+            $foreignFilter,
+            $rownumber,
         ));
 
         return $this->response->response();

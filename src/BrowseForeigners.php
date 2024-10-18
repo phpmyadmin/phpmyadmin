@@ -130,20 +130,22 @@ class BrowseForeigners
     /**
      * Function to get html for relational field selection
      *
-     * @param string      $db           current database
-     * @param string      $table        current table
-     * @param string      $field        field
-     * @param string|null $fieldKey     field key
-     * @param string      $currentValue current columns's value
+     * @param string $db           current database
+     * @param string $table        current table
+     * @param string $field        field
+     * @param string $fieldKey     field key
+     * @param string $currentValue current columns's value
      */
     public function getHtmlForRelationalFieldSelection(
         string $db,
         string $table,
         string $field,
         ForeignData $foreignData,
-        string|null $fieldKey,
+        string $fieldKey,
         string $currentValue,
         int $pos,
+        string $foreignFilter,
+        string|null $rownumber,
     ): string {
         $gotoPage = $this->getHtmlForGotoPage($foreignData, $pos);
         $foreignShowAll = '';
@@ -161,16 +163,13 @@ class BrowseForeigners
             . Url::getHiddenInputs($db, $table) . "\n"
             . '<input type="hidden" name="field" value="' . htmlspecialchars($field) . '">' . "\n"
             . '<input type="hidden" name="fieldkey" value="'
-            . (isset($fieldKey) ? htmlspecialchars($fieldKey) : '') . '">' . "\n";
+            . htmlspecialchars($fieldKey) . '">' . "\n";
 
-        if (isset($_POST['rownumber'])) {
-            $output .= '<input type="hidden" name="rownumber" value="'
-                . htmlspecialchars((string) $_POST['rownumber']) . '">';
+        if ($rownumber !== null) {
+            $output .= '<input type="hidden" name="rownumber" value="' . htmlspecialchars($rownumber) . '">';
         }
 
-        $filterValue = isset($_POST['foreign_filter'])
-            ? htmlspecialchars($_POST['foreign_filter'])
-            : '';
+        $filterValue = htmlspecialchars($foreignFilter);
         $output .= '<div class="col-auto">'
             . '<label class="form-label" for="input_foreign_filter">' . __('Search:') . '</label></div>' . "\n"
             . '<div class="col-auto"><input class="form-control" type="text" name="foreign_filter" '
@@ -239,7 +238,7 @@ class BrowseForeigners
      *
      * @param string $description the key name's description
      *
-     * @return array<int,string> the new description and title
+     * @return array{string, string} the new description and title
      */
     private function getDescriptionAndTitle(string $description): array
     {
