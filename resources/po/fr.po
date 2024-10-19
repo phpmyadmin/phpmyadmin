@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-13 00:24+0000\n"
 "PO-Revision-Date: 2024-10-20 00:25+0000\n"
-"Last-Translator: Emmanuel HEMERIT <emmanuel@hemer.it>\n"
+"Last-Translator: kjo-sdds <kjo@domo-supply.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -16480,22 +16480,17 @@ msgid "The table name cannot end with a space character."
 msgstr "Le nom de la table ne peut pas se terminer par une espace."
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
-#| msgid "View name can not be empty!"
 msgid "The trigger name must not be empty."
-msgstr "Le nom de la vue ne peut être vide !"
+msgstr "Le nom du déclencheur ne peut être vide."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
-#| msgid "The table name cannot be longer than %d characters."
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "Le nom de la table ne peut pas être plus long que %d caractères."
+msgstr "Le nom du déclencheur ne peut pas être plus long que %d caractères."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
-#| msgid "The table name cannot end with a space character."
 msgid "The trigger name cannot end with a space character."
-msgstr "Le nom de la table ne peut pas se terminer par une espace."
+msgstr "Le nom du déclencheur ne peut pas se terminer par une espace."
 
 #: src/Import/Import.php:947
 msgid ""
