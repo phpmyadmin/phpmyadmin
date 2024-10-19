@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-13 00:24+0000\n"
 "PO-Revision-Date: 2024-10-20 00:25+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Last-Translator: Emmanuel HEMERIT <emmanuel@hemer.it>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -6442,7 +6442,7 @@ msgstr "Colonne pour la valeur :"
 #: resources/templates/table/chart/tbl_chart.twig:145
 #: resources/templates/table/zoom_search/result_form.twig:16
 msgid "The generated chart"
-msgstr ""
+msgstr "Le graphique généré"
 
 #: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
