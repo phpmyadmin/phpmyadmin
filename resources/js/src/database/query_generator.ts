@@ -84,9 +84,10 @@ function generateCondition (criteriaDiv, table) {
             let critertiaTextArray = [];
 
             valuesInputs.each(function () {
-                let value: string = $(this).val();
+                let value: string = escapeSingleQuote($(this).val());
+
                 if (! critertiaTextArray.includes(value)) {
-                    critertiaTextArray.push(escapeSingleQuote(value));
+                    critertiaTextArray.push(value);
                 }
             });
 
