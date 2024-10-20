@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $, { contains } from 'jquery';
 import { escapeBacktick, escapeSingleQuote } from '../modules/functions/escape.ts';
 
 /**
@@ -84,7 +84,10 @@ function generateCondition (criteriaDiv, table) {
             let critertiaTextArray = [];
 
             valuesInputs.each(function () {
-                critertiaTextArray.push(escapeSingleQuote($(this).val()));
+                let value: string = $(this).val();
+                if (! critertiaTextArray.includes(value)) {
+                    critertiaTextArray.push(escapeSingleQuote(value));
+                }
             });
 
             criteriaText = joinWrappingElementsWith(critertiaTextArray, '\'');
