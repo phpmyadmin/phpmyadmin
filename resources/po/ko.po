@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-10-13 00:24+0000\n"
+"POT-Creation-Date: 2024-10-20 00:25+0000\n"
 "PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -5635,9 +5635,9 @@ msgid ""
 "will load a table of grouped queries, there you may click on any occurring "
 "SELECT statements to further analyze them."
 msgstr ""
-"로그에서 쿼리를 표시하려면 아무 차트나 클릭합니다. 확인되면 그룹화된 쿼리 "
-"테이블이 로드되며, 여기서 발생하는 SELECT 문을 클릭하여 추가로 분석할 수 "
-"있습니다."
+"로그에서 쿼리를 표시하려면 아무 차트나 클릭합니다. 확인되면 그룹화된 쿼리 테"
+"이블이 로드되며, 여기서 발생하는 SELECT 문을 클릭하여 추가로 분석할 수 있습니"
+"다."
 
 #: resources/templates/server/status/monitor/index.twig:81
 msgid "Please note:"
@@ -7216,7 +7216,8 @@ msgstr "질의 수가 1,000 미만"
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
-msgstr "질의가 1,000번 이상 시행되지 않았습니다. 추천 결과가 부정확할 수도 있습니다."
+msgstr ""
+"질의가 1,000번 이상 시행되지 않았습니다. 추천 결과가 부정확할 수도 있습니다."
 
 #: src/Advisory/Rules.php:55
 msgid ""
@@ -8881,9 +8882,8 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
-"MySQL 서버의 IP 또는 호스트 이름을 지정된 정규식에 일치시켜 임의의 MySQL "
-"서버에 로그인이 활성화된 경우 사용자가 입력할 수 있는 MySQL 서버를 "
-"제한합니다."
+"MySQL 서버의 IP 또는 호스트 이름을 지정된 정규식에 일치시켜 임의의 MySQL 서버"
+"에 로그인이 활성화된 경우 사용자가 입력할 수 있는 MySQL 서버를 제한합니다."
 
 #: src/Config/Descriptions.php:84
 msgid ""
@@ -12112,8 +12112,9 @@ msgstr "이 데이터베이스 전체를 제거하려고 합니다!"
 
 #: src/Controllers/JavaScriptMessagesController.php:56
 msgid "Cannot rename database to the same name. Change the name and try again."
-msgstr "데이터베이스 이름을 같은 이름으로 변경할 수 없습니다. 이름을 변경하고 다시 "
-"시도하세요."
+msgstr ""
+"데이터베이스 이름을 같은 이름으로 변경할 수 없습니다. 이름을 변경하고 다시 시"
+"도하세요."
 
 #: src/Controllers/JavaScriptMessagesController.php:58
 msgid "You are about to DESTROY a complete table!"
@@ -15687,8 +15688,9 @@ msgstr "접근이 거부되었습니다!"
 #: src/Exceptions/AuthenticationFailure.php:61
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
-msgstr "비밀번호 없이 로그인하는 것은 설정으로 금지되어 있습니다(AllowNoPassword "
-"참조)."
+msgstr ""
+"비밀번호 없이 로그인하는 것은 설정으로 금지되어 있습니다(AllowNoPassword 참"
+"조)."
 
 #: src/Exceptions/AuthenticationFailure.php:73
 #, php-format
