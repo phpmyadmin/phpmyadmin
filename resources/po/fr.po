@@ -3351,7 +3351,7 @@ msgstr "Type de géométrie :"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
-msgstr ""
+msgstr "Identifiant de référence Spatiale"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgctxt "Spatial Reference System Identifier"
@@ -5300,10 +5300,8 @@ msgid "Save changes"
 msgstr "Enregistrer les modifications"
 
 #: resources/templates/server/replication/change_primary.twig:7
-#, fuzzy
-#| msgid "Change or reconfigure primary server"
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "Changer ou reconfigurer le serveur original"
+msgstr "Configuration du réplica - Changer ou reconfigurer le serveur primaire"
 
 #: resources/templates/server/replication/change_primary.twig:12
 msgid ""
@@ -5902,7 +5900,7 @@ msgstr "Nombre d'instructions exécutées depuis le démarrage :"
 #: resources/templates/server/status/queries/index.twig:15
 #, php-format
 msgid "ø per hour: %s"
-msgstr "ø par heure: %s"
+msgstr "ø par heure : %s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
@@ -6279,7 +6277,7 @@ msgstr "Requête SQL"
 
 #: resources/templates/sql/query.twig:41
 msgid "Format as a single line"
-msgstr ""
+msgstr "Formater sur une ligne"
 
 #: resources/templates/sql/query.twig:45
 msgid "Get auto-saved query"
@@ -6444,7 +6442,7 @@ msgstr "Colonne pour la valeur :"
 #: resources/templates/table/chart/tbl_chart.twig:145
 #: resources/templates/table/zoom_search/result_form.twig:16
 msgid "The generated chart"
-msgstr ""
+msgstr "Le graphique généré"
 
 #: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
@@ -6687,10 +6685,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Troisième étape de la normalisation (1FN + 2FN + 3FN)"
 
 #: resources/templates/table/operations/index.twig:2
-#, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
-msgstr "<b>Options</b> pour cette table"
+msgstr "Options pour cette table"
 
 #: resources/templates/table/operations/index.twig:10
 msgid "Alter table order by"
@@ -14348,7 +14344,7 @@ msgstr "Fuseau horaire"
 #: src/Controllers/JavaScriptMessagesController.php:784
 msgctxt "Previous month"
 msgid "Prev"
-msgstr "Préc"
+msgstr "Précédent"
 
 #. l10n: Display text for next month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:786
@@ -15468,10 +15464,8 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a retourné un résultat vide (c'est à dire aucune ligne)."
 
 #: src/Controllers/Table/GisVisualizationController.php:104
-#, fuzzy
-#| msgid "Not used for this MySQL version."
 msgid "No spatial column found for this SQL query."
-msgstr "Non utilisé pour cette version de MySQL."
+msgstr "Aucune colonne spatiale trouvée pour cette requête SQL."
 
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:65
 #: src/Controllers/Table/Maintenance/CheckController.php:65
@@ -16486,22 +16480,17 @@ msgid "The table name cannot end with a space character."
 msgstr "Le nom de la table ne peut pas se terminer par une espace."
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
-#| msgid "View name can not be empty!"
 msgid "The trigger name must not be empty."
-msgstr "Le nom de la vue ne peut être vide !"
+msgstr "Le nom du déclencheur ne peut être vide."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
-#| msgid "The table name cannot be longer than %d characters."
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "Le nom de la table ne peut pas être plus long que %d caractères."
+msgstr "Le nom du déclencheur ne peut pas être plus long que %d caractères."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
-#| msgid "The table name cannot end with a space character."
 msgid "The trigger name cannot end with a space character."
-msgstr "Le nom de la table ne peut pas se terminer par une espace."
+msgstr "Le nom du déclencheur ne peut pas se terminer par une espace."
 
 #: src/Import/Import.php:947
 msgid ""
@@ -19132,7 +19121,6 @@ msgstr "Aucun fichier présent dans l'archive Zip !"
 #~ msgstr "Texte"
 
 #, fuzzy
-#~| msgid "Use tables"
 #~ msgid "One table"
 #~ msgid_plural "%count% tables"
 #~ msgstr[0] "Utiliser des tables"
