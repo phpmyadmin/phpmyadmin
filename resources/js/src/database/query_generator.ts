@@ -1,4 +1,4 @@
-import $, { contains } from 'jquery';
+import $ from 'jquery';
 import { escapeBacktick, escapeSingleQuote } from '../modules/functions/escape.ts';
 
 /**
