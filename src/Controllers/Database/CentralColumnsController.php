@@ -120,10 +120,7 @@ final class CentralColumnsController implements InvocableController
         }
 
         if ($request->hasBodyParam('delete_save')) {
-            $tmpMsg = $this->deleteSave([
-                'db' => $request->getParsedBodyParam('db'),
-                'col_name' => $request->getParsedBodyParam('col_name'),
-            ]);
+            $tmpMsg = $this->deleteSave($request, $db);
         }
 
         $this->main(
@@ -245,15 +242,13 @@ final class CentralColumnsController implements InvocableController
         ]);
     }
 
-    /** @param mixed[] $params Request parameters */
-    public function deleteSave(array $params): true|Message
+    public function deleteSave(ServerRequest $request, DatabaseName $db): true|Message
     {
-        $name = [];
-        parse_str($params['col_name'], $name);
+        parse_str($request->getParsedBodyParamAsString('col_name'), $name);
 
         Assert::isArray($name['selected_fld']);
         Assert::allString($name['selected_fld']);
 
-        return $this->centralColumns->deleteColumnsFromList($params['db'], $name['selected_fld'], false);
+        return $this->centralColumns->deleteColumnsFromList($db->getName(), $name['selected_fld'], false);
     }
 }
