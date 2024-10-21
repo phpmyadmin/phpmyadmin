@@ -213,11 +213,6 @@ final class CentralColumnsController implements InvocableController
         string $collation,
         DatabaseName $db,
     ): true|Message {
-        $columnDefault = $colDefault;
-        if ($columnDefault === 'NONE' && $colDefaultSel !== 'USER_DEFINED') {
-            $columnDefault = '';
-        }
-
         return $this->centralColumns->updateOneColumn(
             $db->getName(),
             '',
@@ -228,7 +223,7 @@ final class CentralColumnsController implements InvocableController
             $colIsNull !== null,
             $collation,
             $colExtra ?? '',
-            $columnDefault,
+            $colDefault === 'NONE' && $colDefaultSel !== 'USER_DEFINED' ? '' : $colDefault,
         );
     }
 
