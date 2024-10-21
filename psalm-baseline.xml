@@ -12194,8 +12194,10 @@
       <code>$output['File']</code>
       <code>$output['Position']</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
+    <MixedOperand occurrences="4">
       <code>$pos['File']</code>
+      <code>$pos['File']</code>
+      <code>$pos['Position']</code>
       <code>$pos['Position']</code>
     </MixedOperand>
     <MoreSpecificReturnType occurrences="1">
@@ -12223,11 +12225,6 @@
       <code>$urlParams</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="3">
-      <code>$serverReplicaReplication[0]['Slave_IO_Running']</code>
-      <code>$serverReplicaReplication[0]['Slave_SQL_Running']</code>
-      <code>$serverReplication[0][$variable]</code>
-    </MixedArrayAccess>
     <MixedArrayAssignment occurrences="18">
       <code>$_SESSION['replication']['m_correct']</code>
       <code>$_SESSION['replication']['m_correct']</code>
