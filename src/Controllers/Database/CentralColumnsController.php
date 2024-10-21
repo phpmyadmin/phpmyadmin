@@ -80,7 +80,7 @@ final class CentralColumnsController implements InvocableController
 
         if ($request->hasBodyParam('add_column')) {
             $tmpMsg = $this->centralColumns->syncUniqueColumns(
-                DatabaseName::from($request->getParsedBodyParam('db')),
+                $db,
                 [$request->getParsedBodyParamAsString('column-select')],
                 false,
                 $request->getParsedBodyParamAsString('table-select'),
@@ -94,10 +94,7 @@ final class CentralColumnsController implements InvocableController
         ]);
 
         if ($request->hasBodyParam('edit_central_columns_page')) {
-            $this->editPage([
-                'selected_fld' => $request->getParsedBodyParam('selected_fld'),
-                'db' => $request->getParsedBodyParam('db'),
-            ]);
+            $this->editPage($request, $db);
 
             return $this->response->response();
         }
@@ -238,14 +235,14 @@ final class CentralColumnsController implements InvocableController
         );
     }
 
-    /** @param mixed[] $params Request parameters */
-    public function editPage(array $params): void
+    public function editPage(ServerRequest $request, DatabaseName $db): void
     {
-        Assert::isArray($params['selected_fld']);
-        Assert::allString($params['selected_fld']);
-        $rows = $this->centralColumns->getHtmlForEditingPage($params['selected_fld'], $params['db']);
-
-        $this->response->render('database/central_columns/edit', ['rows' => $rows]);
+        $selectedFields = $request->getParsedBodyParam('selected_fld');
+        Assert::isArray($selectedFields);
+        Assert::allString($selectedFields);
+        $this->response->render('database/central_columns/edit', [
+            'rows' => $this->centralColumns->getHtmlForEditingPage($selectedFields, $db->getName()),
+        ]);
     }
 
     /** @param mixed[] $params Request parameters */

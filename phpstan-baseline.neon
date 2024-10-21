@@ -1431,11 +1431,6 @@ parameters:
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#2 \\$selectedDb of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getHtmlForEditingPage\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/CentralColumnsController.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Database/DataDictionaryController.php
