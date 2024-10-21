@@ -8,6 +8,7 @@ use Fig\Http\Message\RequestMethodInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UriInterface;
+use Webmozart\Assert\Assert;
 
 use function is_array;
 use function is_object;
@@ -306,5 +307,21 @@ class ServerRequest implements ServerRequestInterface
     {
         return $this->serverRequest->getHeaderLine('X-Requested-With') === 'XMLHttpRequest'
             || $this->has('ajax_request');
+    }
+
+    public function getParsedBodyParamAsString(string $param, string|null $default = null): string
+    {
+        $value = $this->getParsedBodyParam($param, $default);
+        Assert::string($value);
+
+        return $value;
+    }
+
+    public function getParsedBodyParamAsStringOrNull(string $param, string|null $default = null): string|null
+    {
+        $value = $this->getParsedBodyParam($param, $default);
+        Assert::nullOrString($value);
+
+        return $value;
     }
 }

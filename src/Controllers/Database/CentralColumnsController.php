@@ -38,16 +38,16 @@ final class CentralColumnsController implements InvocableController
 
         if ($request->hasBodyParam('edit_save')) {
             $this->response->addHTML((string) $this->editSave(
-                $request->getParsedBodyParam('col_name'),
-                $request->getParsedBodyParam('orig_col_name'),
-                $request->getParsedBodyParam('col_default'),
-                $request->getParsedBodyParam('col_default_sel'),
-                $request->getParsedBodyParam('col_extra'),
-                $request->getParsedBodyParam('col_isNull'),
-                $request->getParsedBodyParam('col_length'),
-                $request->getParsedBodyParam('col_attribute'),
-                $request->getParsedBodyParam('col_type'),
-                $request->getParsedBodyParam('collation'),
+                $request->getParsedBodyParamAsString('col_name'),
+                $request->getParsedBodyParamAsString('orig_col_name'),
+                $request->getParsedBodyParamAsString('col_default'),
+                $request->getParsedBodyParamAsString('col_default_sel'),
+                $request->getParsedBodyParamAsStringOrNull('col_extra'),
+                $request->getParsedBodyParamAsStringOrNull('col_isNull'),
+                $request->getParsedBodyParamAsString('col_length'),
+                $request->getParsedBodyParamAsString('col_attribute'),
+                $request->getParsedBodyParamAsString('col_type'),
+                $request->getParsedBodyParamAsString('collation'),
                 $db,
             ));
 
@@ -56,15 +56,15 @@ final class CentralColumnsController implements InvocableController
 
         if ($request->hasBodyParam('add_new_column')) {
             $tmpMsg = $this->addNewColumn(
-                $request->getParsedBodyParam('col_name'),
-                $request->getParsedBodyParam('col_default'),
-                $request->getParsedBodyParam('col_default_sel'),
-                $request->getParsedBodyParam('col_extra'),
-                $request->getParsedBodyParam('col_isNull'),
-                $request->getParsedBodyParam('col_length'),
-                $request->getParsedBodyParam('col_attribute'),
-                $request->getParsedBodyParam('col_type'),
-                $request->getParsedBodyParam('collation'),
+                $request->getParsedBodyParamAsString('col_name'),
+                $request->getParsedBodyParamAsString('col_default'),
+                $request->getParsedBodyParamAsString('col_default_sel'),
+                $request->getParsedBodyParamAsStringOrNull('col_extra'),
+                $request->getParsedBodyParamAsStringOrNull('col_isNull'),
+                $request->getParsedBodyParamAsString('col_length'),
+                $request->getParsedBodyParamAsString('col_attribute'),
+                $request->getParsedBodyParamAsString('col_type'),
+                $request->getParsedBodyParamAsString('collation'),
                 $db,
             );
         }
@@ -72,7 +72,7 @@ final class CentralColumnsController implements InvocableController
         if ($request->hasBodyParam('getColumnList')) {
             $this->response->addJSON('message', $this->centralColumns->getListRaw(
                 $db->getName(),
-                $request->getParsedBodyParam('cur_table', ''),
+                $request->getParsedBodyParamAsString('cur_table', ''),
             ));
 
             return $this->response->response();
@@ -81,9 +81,9 @@ final class CentralColumnsController implements InvocableController
         if ($request->hasBodyParam('add_column')) {
             $tmpMsg = $this->centralColumns->syncUniqueColumns(
                 DatabaseName::from($request->getParsedBodyParam('db')),
-                [$request->getParsedBodyParam('column-select')],
+                [$request->getParsedBodyParamAsString('column-select')],
                 false,
-                $request->getParsedBodyParam('table-select'),
+                $request->getParsedBodyParamAsString('table-select'),
             );
         }
 
@@ -130,8 +130,8 @@ final class CentralColumnsController implements InvocableController
         }
 
         $this->main(
-            $request->getParsedBodyParam('pos', ''),
-            $request->getParsedBodyParam('total_rows', ''),
+            $request->getParsedBodyParamAsString('pos', ''),
+            $request->getParsedBodyParamAsString('total_rows', ''),
             $db,
         );
 
