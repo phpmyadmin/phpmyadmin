@@ -36,8 +36,8 @@ final class BinlogController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $log = $request->getParsedBodyParam('log');
-        $position = (int) $request->getParsedBodyParam('pos', 0);
+        $log = $request->getParsedBodyParamAsString('log');
+        $position = (int) $request->getParsedBodyParamAsString('pos', '');
 
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
@@ -57,7 +57,7 @@ final class BinlogController implements InvocableController
         }
 
         $config = Config::getInstance();
-        $sqlQuery = $this->getSqlQuery($log ?? '', $position, $config->settings['MaxRows']);
+        $sqlQuery = $this->getSqlQuery($log, $position, $config->settings['MaxRows']);
         $result = $this->dbi->query($sqlQuery);
 
         $numRows = $result->numRows();

@@ -9,7 +9,7 @@ use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -26,8 +26,8 @@ final class SchemaExportControllerTest extends AbstractTestCase
     {
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([['db', null, 'test_db'], ['export_type', null, 'svg']]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['db' => 'test_db', 'export_type' => 'svg']);
         $export = self::createStub(Export::class);
         $export->method('getExportSchemaInfo')->willReturn([
             'fileName' => 'file.svg',

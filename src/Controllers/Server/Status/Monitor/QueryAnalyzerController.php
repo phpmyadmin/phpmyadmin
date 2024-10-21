@@ -43,8 +43,8 @@ final class QueryAnalyzerController extends AbstractController implements Invoca
 
         $this->response->addJSON([
             'message' => $this->monitor->getJsonForQueryAnalyzer(
-                $request->getParsedBodyParam('database', ''),
-                $request->getParsedBodyParam('query', ''),
+                $request->getParsedBodyParamAsString('database', ''),
+                $request->getParsedBodyParamAsString('query', ''),
             ),
         ]);
 

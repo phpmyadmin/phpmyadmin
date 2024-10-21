@@ -45,16 +45,12 @@ final class GisDataEditorController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        /** @var string|null $field */
-        $field = $request->getParsedBodyParam('field');
+        $field = $request->getParsedBodyParamAsStringOrNull('field');
         /** @var array|null $gisDataParam */
         $gisDataParam = $request->getParsedBodyParam('gis_data');
-        /** @var string $type */
-        $type = $request->getParsedBodyParam('type', 'GEOMETRY');
-        /** @var string|null $value */
-        $value = $request->getParsedBodyParam('value');
-        /** @var string|null $inputName */
-        $inputName = $request->getParsedBodyParam('input_name');
+        $type = $request->getParsedBodyParamAsString('type', 'GEOMETRY');
+        $value = $request->getParsedBodyParamAsStringOrNull('value');
+        $inputName = $request->getParsedBodyParamAsStringOrNull('input_name');
 
         if (! isset($field)) {
             return $this->response->response();

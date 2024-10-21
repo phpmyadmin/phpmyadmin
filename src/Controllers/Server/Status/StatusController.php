@@ -70,7 +70,7 @@ final class StatusController extends AbstractController implements InvocableCont
             $traffic = $this->getTrafficInfo();
 
             $connections = $this->getConnectionsInfo();
-            $primaryConnection = $request->getParsedBodyParam('primary_connection');
+            $primaryConnection = $request->getParsedBodyParamAsStringOrNull('primary_connection');
 
             if ($primaryInfo['status']) {
                 $replication .= $this->replicationGui->getHtmlForReplicationStatusTable($primaryConnection, 'primary');

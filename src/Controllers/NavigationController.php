@@ -56,11 +56,11 @@ final class NavigationController implements InvocableController
 
         $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->navigationItemsHidingFeature !== null) {
-            $itemName = $request->getParsedBodyParam('itemName', '');
-            $itemType = $request->getParsedBodyParam('itemType', '');
-            $dbName = $request->getParsedBodyParam('dbName', '');
+            $itemName = $request->getParsedBodyParamAsString('itemName', '');
+            $itemType = $request->getParsedBodyParamAsString('itemType', '');
+            $dbName = $request->getParsedBodyParamAsString('dbName', '');
 
-            if ($request->getParsedBodyParam('hideNavItem') !== null) {
+            if ($request->hasBodyParam('hideNavItem')) {
                 if ($itemName !== '' && $itemType !== '' && $dbName !== '') {
                     $this->navigation->hideNavigationItem($itemName, $itemType, $dbName);
                 }

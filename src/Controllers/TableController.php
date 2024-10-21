@@ -25,7 +25,7 @@ final class TableController implements InvocableController
             return $this->response->response();
         }
 
-        $this->response->addJSON(['tables' => $this->dbi->getTables($request->getParsedBodyParam('db'))]);
+        $this->response->addJSON(['tables' => $this->dbi->getTables($request->getParsedBodyParamAsString('db'))]);
 
         return $this->response->response();
     }

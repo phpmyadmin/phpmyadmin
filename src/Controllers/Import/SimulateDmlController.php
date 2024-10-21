@@ -42,8 +42,7 @@ final class SimulateDmlController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        /** @var string $sqlDelimiter */
-        $sqlDelimiter = $request->getParsedBodyParam('sql_delimiter', '');
+        $sqlDelimiter = $request->getParsedBodyParamAsString('sql_delimiter', '');
 
         $parser = $this->createParser($GLOBALS['sql_query'], $sqlDelimiter);
         $this->process($parser);

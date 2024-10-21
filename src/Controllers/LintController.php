@@ -44,10 +44,8 @@ final class LintController implements InvocableController
          *
          * The client, which will receive the JSON response will decode the message and
          * and any HTML fragments that are displayed to the user will be encoded anyway.
-         *
-         * @var string $sqlQuery
          */
-        $sqlQuery = $request->getParsedBodyParam('sql_query', '');
+        $sqlQuery = $request->getParsedBodyParamAsString('sql_query', '');
         $options = $request->getParsedBodyParam('options', []);
 
         $editorType = is_array($options) ? ($options['editorType'] ?? null) : null;

@@ -17,7 +17,7 @@ final class AddKeyController extends AbstractIndexController implements Invocabl
     {
         $GLOBALS['reload'] = true;
 
-        $keyType = $this->getKeyType($request->getParsedBodyParam('key_type'));
+        $keyType = $this->getKeyType($request->getParsedBodyParamAsStringOrNull('key_type'));
         if ($keyType === '') {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('Invalid request parameter.'));
@@ -29,7 +29,7 @@ final class AddKeyController extends AbstractIndexController implements Invocabl
     }
 
     /** @psalm-return  'FULLTEXT'|'INDEX'|'PRIMARY'|'SPATIAL'|'UNIQUE'|'' */
-    private function getKeyType(mixed $keyType): string
+    private function getKeyType(string|null $keyType): string
     {
         return in_array($keyType, ['FULLTEXT', 'INDEX', 'PRIMARY', 'SPATIAL', 'UNIQUE'], true) ? $keyType : '';
     }

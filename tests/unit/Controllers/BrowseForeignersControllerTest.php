@@ -10,7 +10,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -27,16 +27,16 @@ final class BrowseForeignersControllerTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['db', null, 'sakila'],
-            ['table', null, 'film_actor'],
-            ['field', null, 'actor_id'],
-            ['fieldkey', '', ''],
-            ['data', '', ''],
-            ['foreign_showAll', null, null],
-            ['foreign_filter', '', ''],
-        ]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'db' => 'sakila',
+                'table' => 'film_actor',
+                'field' => 'actor_id',
+                'fieldkey' => '',
+                'data' => '',
+                'foreign_showAll' => null,
+                'foreign_filter' => '',
+            ]);
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();

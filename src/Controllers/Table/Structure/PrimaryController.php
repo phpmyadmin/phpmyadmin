@@ -52,8 +52,7 @@ final class PrimaryController implements InvocableController
         $this->dbi->selectDb(Current::$database);
         $hasPrimary = $this->hasPrimaryKey();
 
-        /** @var string|null $deletionConfirmed */
-        $deletionConfirmed = $request->getParsedBodyParam('mult_btn');
+        $deletionConfirmed = $request->getParsedBodyParamAsStringOrNull('mult_btn');
 
         if ($hasPrimary && $deletionConfirmed === null) {
             if (! $this->response->checkParameters(['db', 'table'])) {

@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
 use PhpMyAdmin\Template;
@@ -65,14 +65,14 @@ class RefreshControllerTest extends AbstractTestCase
             new Processes(DatabaseInterface::getInstance()),
         );
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('isAjax')->willReturn(true);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['column_name', '', ''],
-            ['order_by_field', '', 'process'],
-            ['sort_order', '', 'DESC'],
-        ]);
-        $request->method('hasBodyParam')->willReturnMap([['full', true], ['showExecuting', false]]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'ajax_request' => 'true',
+                'column_name' => '',
+                'order_by_field' => 'process',
+                'sort_order' => 'DESC',
+                'full' => 'true',
+            ]);
 
         $controller($request);
         $html = $response->getHTMLResult();

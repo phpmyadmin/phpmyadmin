@@ -43,8 +43,8 @@ final class LogVarsController extends AbstractController implements InvocableCon
 
         $this->response->addJSON([
             'message' => $this->monitor->getJsonForLoggingVars(
-                $request->getParsedBodyParam('varName'),
-                $request->getParsedBodyParam('varValue'),
+                $request->getParsedBodyParamAsStringOrNull('varName'),
+                $request->getParsedBodyParamAsStringOrNull('varValue'),
             ),
         ]);
 

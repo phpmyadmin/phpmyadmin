@@ -23,7 +23,7 @@ final class NewTablesController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $partialDependencies = json_decode($request->getParsedBodyParam('pd'), true);
+        $partialDependencies = json_decode($request->getParsedBodyParamAsString('pd'), true);
         $html = $this->normalization->getHtmlForNewTables2NF($partialDependencies, Current::$table);
         $this->response->addHTML($html);
 

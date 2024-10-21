@@ -24,22 +24,14 @@ final class BrowseForeignersController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        /** @var string|null $database */
-        $database = $request->getParsedBodyParam('db');
-        /** @var string|null $table */
-        $table = $request->getParsedBodyParam('table');
-        /** @var string|null $field */
-        $field = $request->getParsedBodyParam('field');
-        /** @var string $fieldKey */
-        $fieldKey = $request->getParsedBodyParam('fieldkey', '');
-        /** @var string $data */
-        $data = $request->getParsedBodyParam('data', '');
-        /** @var string|null $foreignShowAll */
-        $foreignShowAll = $request->getParsedBodyParam('foreign_showAll');
-        /** @var string $foreignFilter */
-        $foreignFilter = $request->getParsedBodyParam('foreign_filter', '');
-        /** @var string|null $rownumber */
-        $rownumber = $request->getParsedBodyParam('rownumber');
+        $database = $request->getParsedBodyParamAsStringOrNull('db');
+        $table = $request->getParsedBodyParamAsStringOrNull('table');
+        $field = $request->getParsedBodyParamAsStringOrNull('field');
+        $fieldKey = $request->getParsedBodyParamAsString('fieldkey', '');
+        $data = $request->getParsedBodyParamAsString('data', '');
+        $foreignShowAll = $request->getParsedBodyParamAsStringOrNull('foreign_showAll');
+        $foreignFilter = $request->getParsedBodyParamAsString('foreign_filter', '');
+        $rownumber = $request->getParsedBodyParamAsStringOrNull('rownumber');
 
         if (! isset($database, $table, $field)) {
             return $this->response->response();
@@ -50,7 +42,7 @@ final class BrowseForeignersController implements InvocableController
         $header->disableMenuAndConsole();
         $header->setBodyId('body_browse_foreigners');
 
-        $pos = (int) $request->getParsedBodyParam('pos');
+        $pos = (int) $request->getParsedBodyParamAsStringOrNull('pos');
         $foreignLimit = $this->browseForeigners->getForeignLimit($foreignShowAll, $pos);
         $foreignData = $this->relation->getForeignData(
             $this->relation->getForeigners($database, $table),

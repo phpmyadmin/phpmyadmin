@@ -126,14 +126,14 @@ final class ManageController implements InvocableController
                 }
             } else {
                 // read from POST value (json)
-                $json = $request->getParsedBodyParam('json');
+                $json = $request->getParsedBodyParamAsString('json');
             }
 
             // hide header message
             $_SESSION['userprefs_autoload'] = true;
 
             $configuration = json_decode($json, true);
-            $returnUrl = $request->getParsedBodyParam('return_url');
+            $returnUrl = $request->getParsedBodyParamAsStringOrNull('return_url');
             if (! is_array($configuration)) {
                 if (! isset($GLOBALS['error'])) {
                     $GLOBALS['error'] = __('Could not import configuration');
@@ -201,7 +201,7 @@ final class ManageController implements InvocableController
                 // save settings
                 $result = $this->userPreferences->save($configFile->getConfigArray());
                 if ($result === true) {
-                    if ($returnUrl) {
+                    if ($returnUrl !== null && $returnUrl !== '') {
                         $GLOBALS['query'] = Util::splitURLQuery($returnUrl);
                         $returnUrl = parse_url($returnUrl, PHP_URL_PATH);
 

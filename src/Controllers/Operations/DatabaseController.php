@@ -222,7 +222,7 @@ final class DatabaseController implements InvocableController
          * (must be done before displaying the menu tabs)
          */
         if ($request->hasBodyParam('comment')) {
-            $this->relation->setDbComment(Current::$database, $request->getParsedBodyParam('comment'));
+            $this->relation->setDbComment(Current::$database, $request->getParsedBodyParamAsString('comment'));
         }
 
         if (! $this->response->checkParameters(['db'])) {

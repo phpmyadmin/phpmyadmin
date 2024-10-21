@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -50,8 +50,11 @@ class BinlogControllerTest extends AbstractTestCase
 
         $controller = new BinlogController($response, DatabaseInterface::getInstance());
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([['log', null, 'index1'], ['pos', 0, '3']]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'log' => 'index1',
+                'pos' => '3',
+            ]);
         $this->dummyDbi->addSelectDb('mysql');
         $controller($request);
         $this->dummyDbi->assertAllSelectsConsumed();

@@ -33,8 +33,8 @@ final class RefreshController extends AbstractController implements InvocableCon
         $this->response->render('server/status/processes/list', $this->processes->getList(
             $request->hasBodyParam('showExecuting'),
             $request->hasBodyParam('full'),
-            (string) $request->getParsedBodyParam('order_by_field', ''),
-            (string) $request->getParsedBodyParam('sort_order', ''),
+            $request->getParsedBodyParamAsString('order_by_field', ''),
+            $request->getParsedBodyParamAsString('sort_order', ''),
         ));
 
         return $this->response->response();

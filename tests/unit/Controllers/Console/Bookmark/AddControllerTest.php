@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Console\Bookmark;
 
+use InvalidArgumentException;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\Console\Bookmark\AddController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -24,18 +26,18 @@ class AddControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['db', null, null],
-            ['label', null, null],
-            ['bookmark_query', null, null],
-            ['shared', null, null],
-        ]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'db' => null,
+                'label' => null,
+                'bookmark_query' => null,
+                'shared' => null,
+            ]);
         $relation = new Relation($dbi);
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
         $controller = new AddController($response, $bookmarkRepository);
+        $this->expectException(InvalidArgumentException::class);
         $controller($request);
-        self::assertSame(['message' => 'Incomplete params'], $response->getJSONResult());
     }
 
     public function testWithoutRelationParameters(): void
@@ -46,12 +48,6 @@ class AddControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['db', null, 'test'],
-            ['label', null, 'test'],
-            ['bookmark_query', null, 'test'],
-            ['shared', null, 'test'],
-        ]);
         $relation = new Relation($dbi);
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
         $controller = new AddController($response, $bookmarkRepository);
@@ -79,13 +75,13 @@ class AddControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dbiDummy);
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['db', null, 'test_db'],
-            ['label', null, 'test_label'],
-            ['bookmark_query', null, 'test_query'],
-            ['shared', null, 'true'],
-        ]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'db' => 'test_db',
+                'label' => 'test_label',
+                'bookmark_query' => 'test_query',
+                'shared' => 'true',
+            ]);
         $relation = new Relation($dbi);
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
         $controller = new AddController($response, $bookmarkRepository);
