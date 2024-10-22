@@ -217,7 +217,10 @@ final class PrivilegesController implements InvocableController
             $request->hasBodyParam('changeUserGroup') && $relationParameters->configurableMenusFeature !== null
             && $this->dbi->isSuperUser() && $this->dbi->isCreateUser()
         ) {
-            $serverPrivileges->setUserGroup($GLOBALS['username'] ?? '', $request->getParsedBodyParamAsString('userGroup', ''));
+            $serverPrivileges->setUserGroup(
+                $GLOBALS['username'] ?? '',
+                $request->getParsedBodyParamAsString('userGroup', ''),
+            );
             $GLOBALS['message'] = Message::success();
         }
 
