@@ -37,7 +37,6 @@ class DeleteControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
         $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturn('1');
 
         (new DeleteController(
             $response,

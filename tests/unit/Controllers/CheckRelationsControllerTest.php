@@ -42,11 +42,6 @@ class CheckRelationsControllerTest extends AbstractTestCase
         Current::$table = '';
 
         $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['create_pmadb', null, null],
-            ['fixall_pmadb', null, null],
-            ['fix_pmadb', null, null],
-        ]);
 
         $response = new ResponseRenderer();
         Config::getInstance()->selectedServer['pmadb'] = '';
