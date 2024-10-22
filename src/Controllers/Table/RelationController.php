@@ -29,6 +29,7 @@ use function array_keys;
 use function mb_strtoupper;
 use function md5;
 use function strnatcasecmp;
+use function strnatcmp;
 use function strtoupper;
 use function uksort;
 use function usort;
@@ -180,9 +181,10 @@ final class RelationController implements InvocableController
             uksort($columnArray, strnatcasecmp(...));
             usort(
                 $relationsForeign,
-                fn (ForeignKeyObject $before, ForeignKeyObject $after) => strnatcmp(
-                    $before->constraint, $after->constraint
-                )
+                static fn (ForeignKeyObject $before, ForeignKeyObject $after) => strnatcmp(
+                    $before->constraint ?? '',
+                    $after->constraint ?? '',
+                ),
             );
         }
 
