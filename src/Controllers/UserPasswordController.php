@@ -54,19 +54,20 @@ final class UserPasswordController implements InvocableController
         }
 
         $noPass = $request->getParsedBodyParamAsStringOrNull('nopass');
-        $pmaPw = $request->getParsedBodyParamAsString('pma_pw');
-        $pmaPw2 = $request->getParsedBodyParamAsString('pma_pw2');
 
         /**
          * If the "change password" form has been submitted, checks for valid values
          * and submit the query or logout
          */
         if ($noPass !== null) {
-            $password = $noPass == '1' ? '' : $pmaPw;
+            $pmaPw = $request->getParsedBodyParamAsString('pma_pw');
+            $pmaPw2 = $request->getParsedBodyParamAsString('pma_pw2');
+
+            $password = $noPass === '1' ? '' : $pmaPw;
             $GLOBALS['change_password_message'] = $this->userPassword->setChangePasswordMsg(
                 $pmaPw,
                 $pmaPw2,
-                (bool) $noPass,
+                $noPass === '1',
             );
             $message = $GLOBALS['change_password_message']['msg'];
 
