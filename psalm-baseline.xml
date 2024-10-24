@@ -849,11 +849,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$params['col_name']]]></code>
-      <code><![CDATA[$params['db']]]></code>
-      <code><![CDATA[$params['db']]]></code>
-    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['message']]]></code>
     </MixedAssignment>

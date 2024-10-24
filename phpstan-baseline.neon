@@ -1421,21 +1421,6 @@ parameters:
 			path: src/Controllers/Database/CentralColumnsController.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:deleteColumnsFromList\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/CentralColumnsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function parse_str expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/CentralColumnsController.php
-
-		-
-			message: "#^Parameter \\#2 \\$selectedDb of method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:getHtmlForEditingPage\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Database/CentralColumnsController.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
 			count: 1
 			path: src/Controllers/Database/DataDictionaryController.php
