@@ -42,8 +42,8 @@ final class SlowLogController extends AbstractController implements InvocableCon
         }
 
         $data = $this->monitor->getJsonForLogDataTypeSlow(
-            (int) $request->getParsedBodyParam('time_start'),
-            (int) $request->getParsedBodyParam('time_end'),
+            (int) $request->getParsedBodyParamAsStringOrNull('time_start'),
+            (int) $request->getParsedBodyParamAsStringOrNull('time_end'),
         );
         if ($data === null) {
             $this->response->setRequestStatus(false);

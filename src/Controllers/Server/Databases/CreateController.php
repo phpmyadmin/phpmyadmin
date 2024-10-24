@@ -33,10 +33,10 @@ final class CreateController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $newDb = $request->getParsedBodyParam('new_db');
-        $dbCollation = $request->getParsedBodyParam('db_collation');
+        $newDb = $request->getParsedBodyParamAsString('new_db');
+        $dbCollation = $request->getParsedBodyParamAsStringOrNull('db_collation');
 
-        if (! is_string($newDb) || $newDb === '' || ! $request->isAjax()) {
+        if ($newDb === '' || ! $request->isAjax()) {
             $this->response->addJSON(['message' => Message::error()]);
 
             return $this->response->response();

@@ -36,7 +36,6 @@ final class ExportController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['tabHash'] ??= null;
         $GLOBALS['hash'] ??= null;
 
         $configFile = new ConfigFile($this->config->baseSettings);
@@ -63,8 +62,7 @@ final class ExportController implements InvocableController
             if ($result === true) {
                 // reload config
                 $this->config->loadUserPreferences($this->themeManager);
-                $GLOBALS['tabHash'] = $request->getParsedBodyParam('tab_hash');
-                $GLOBALS['hash'] = ltrim($GLOBALS['tabHash'], '#');
+                $GLOBALS['hash'] = ltrim($request->getParsedBodyParamAsString('tab_hash'), '#');
                 $this->userPreferences->redirect('index.php?route=/preferences/export', null, $GLOBALS['hash']);
 
                 return $this->response->response();

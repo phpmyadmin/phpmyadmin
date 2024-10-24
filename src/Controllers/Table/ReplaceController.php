@@ -72,7 +72,7 @@ final class ReplaceController implements InvocableController
 
         $this->response->addScriptFiles(['makegrid.js', 'sql.js', 'gis_data_editor.js']);
 
-        $afterInsert = $request->getParsedBodyParam('after_insert');
+        $afterInsert = $request->getParsedBodyParamAsStringOrNull('after_insert');
         if (in_array($afterInsert, ['new_insert', 'same_insert', 'edit_next'], true)) {
             $GLOBALS['urlParams']['after_insert'] = $afterInsert;
             $whereClause = $request->getParsedBodyParam('where_clause');
@@ -379,7 +379,7 @@ final class ReplaceController implements InvocableController
     /** @param string[][] $mimeMap */
     private function doTransformations(array $mimeMap, ServerRequest $request): void
     {
-        $relFieldsList = $request->getParsedBodyParam('rel_fields_list', '');
+        $relFieldsList = $request->getParsedBodyParamAsString('rel_fields_list', '');
         if ($relFieldsList !== '') {
             $foreigners = $this->relation->getForeigners(Current::$database, Current::$table);
 
@@ -410,7 +410,7 @@ final class ReplaceController implements InvocableController
 
         if ($request->getParsedBodyParam('do_transformations') == true) {
             $editedValues = [];
-            parse_str($request->getParsedBodyParam('transform_fields_list'), $editedValues);
+            parse_str($request->getParsedBodyParamAsString('transform_fields_list'), $editedValues);
 
             if (! isset($extraData)) {
                 $extraData = [];
@@ -448,8 +448,8 @@ final class ReplaceController implements InvocableController
 
         /**Get the total row count of the table*/
         $tableObj = new Table(
-            $request->getParsedBodyParam('table'),
-            $request->getParsedBodyParam('db'),
+            $request->getParsedBodyParamAsString('table'),
+            $request->getParsedBodyParamAsString('db'),
             $this->dbi,
         );
         $extraData['row_count'] = $tableObj->countRecords();

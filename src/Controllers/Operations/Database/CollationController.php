@@ -38,8 +38,8 @@ final class CollationController implements InvocableController
             return $this->response->response();
         }
 
-        $dbCollation = $request->getParsedBodyParam('db_collation') ?? '';
-        if (empty($dbCollation)) {
+        $dbCollation = $request->getParsedBodyParamAsString('db_collation', '');
+        if ($dbCollation === '') {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No collation provided.')));
 

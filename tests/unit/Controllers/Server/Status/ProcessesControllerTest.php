@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
@@ -85,14 +86,13 @@ class ProcessesControllerTest extends AbstractTestCase
         self::assertStringContainsString('Show full queries', $html);
         self::assertStringContainsString('index.php?route=/server/status/processes', $html);
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['column_name', '', 'Database'],
-            ['full', null, '1'],
-            ['order_by_field', '', 'Db'],
-            ['sort_order', '', 'ASC'],
-        ]);
-        $request->method('hasBodyParam')->willReturnMap([['showExecuting', false]]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'column_name' => 'Database',
+                'full' => '1',
+                'order_by_field' => 'Db',
+                'sort_order' => 'ASC',
+            ]);
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller($request);
@@ -103,14 +103,13 @@ class ProcessesControllerTest extends AbstractTestCase
         self::assertStringContainsString('Database', $html);
         self::assertStringContainsString('DESC', $html);
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['column_name', '', 'Host'],
-            ['full', null, '1'],
-            ['order_by_field', '', 'Host'],
-            ['sort_order', '', 'DESC'],
-        ]);
-        $request->method('hasBodyParam')->willReturnMap([['showExecuting', false]]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'column_name' => 'Host',
+                'full' => '1',
+                'order_by_field' => 'Host',
+                'sort_order' => 'DESC',
+            ]);
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller($request);

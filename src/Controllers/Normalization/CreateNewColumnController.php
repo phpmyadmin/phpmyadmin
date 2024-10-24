@@ -28,7 +28,7 @@ final class CreateNewColumnController implements InvocableController
     {
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
-        $numFields = min(4096, (int) $request->getParsedBodyParam('numFields'));
+        $numFields = min(4096, (int) $request->getParsedBodyParamAsStringOrNull('numFields'));
         $html = $this->normalization->getHtmlForCreateNewColumn(
             $userPrivileges,
             $numFields,

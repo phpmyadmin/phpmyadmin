@@ -23,7 +23,7 @@ final class PopulateColumnsController implements InvocableController
     {
         $columns = $this->centralColumns->getColumnsNotInCentralList(
             Current::$database,
-            $request->getParsedBodyParam('selectedTable'),
+            $request->getParsedBodyParamAsString('selectedTable'),
         );
         $this->response->render('database/central_columns/populate_columns', ['columns' => $columns]);
 

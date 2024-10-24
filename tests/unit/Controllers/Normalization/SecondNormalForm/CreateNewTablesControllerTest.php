@@ -8,7 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\SecondNormalForm\CreateNewTablesController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -36,11 +36,11 @@ class CreateNewTablesControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['pd', null, json_encode(['ID, task' => [], 'task' => ['timestamp']])],
-            ['newTablesName', null, json_encode(['ID, task' => 'batch_log2', 'task' => 'table2'])],
-        ]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'pd' => json_encode(['ID, task' => [], 'task' => ['timestamp']]),
+                'newTablesName' => json_encode(['ID, task' => 'batch_log2', 'task' => 'table2']),
+            ]);
 
         $controller = new CreateNewTablesController(
             $response,

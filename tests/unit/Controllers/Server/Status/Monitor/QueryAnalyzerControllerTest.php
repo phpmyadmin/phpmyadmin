@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status\Monitor;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\Monitor\QueryAnalyzerController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
@@ -45,9 +45,12 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $statusData = new Data($dbi, $config);
         $controller = new QueryAnalyzerController($response, new Template(), $statusData, new Monitor($dbi), $dbi);
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('isAjax')->willReturn(true);
-        $request->method('getParsedBodyParam')->willReturnMap([['database', '', 'database'], ['query', '', 'query']]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'ajax_request' => 'true',
+                'database' => 'database',
+                'query' => 'query',
+            ]);
 
         $dummyDbi->addSelectDb('mysql');
         $dummyDbi->addSelectDb('database');

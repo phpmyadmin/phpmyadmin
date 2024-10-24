@@ -29,13 +29,13 @@ final class CopyTableWithPrefixController implements InvocableController
     {
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected', []);
-        $fromPrefix = $request->getParsedBodyParam('from_prefix');
-        $toPrefix = $request->getParsedBodyParam('to_prefix');
+        $fromPrefix = $request->getParsedBodyParamAsString('from_prefix', '');
+        $toPrefix = $request->getParsedBodyParamAsString('to_prefix');
 
         $dropIfExists = $request->getParsedBodyParam('drop_if_exists') === 'true';
 
         foreach ($selected as $selectedValue) {
-            $newTableName = $toPrefix . mb_substr($selectedValue, mb_strlen((string) $fromPrefix));
+            $newTableName = $toPrefix . mb_substr($selectedValue, mb_strlen($fromPrefix));
 
             $this->tableMover->moveCopy(
                 Current::$database,

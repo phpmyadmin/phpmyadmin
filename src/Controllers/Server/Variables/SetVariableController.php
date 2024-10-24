@@ -41,7 +41,7 @@ final class SetVariableController implements InvocableController
             return $this->response->response();
         }
 
-        $value = (string) $request->getParsedBodyParam('varValue');
+        $value = $request->getParsedBodyParamAsString('varValue', '');
         $variableName = $this->getName($request->getAttribute('routeVars'));
         $matches = [];
         $variableType = ServerVariablesProvider::getImplementation()->getVariableType($variableName);

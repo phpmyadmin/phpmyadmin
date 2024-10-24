@@ -41,12 +41,12 @@ final class DesignerController implements InvocableController
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
-        $db = $request->getParsedBodyParam('db');
-        $table = $request->getParsedBodyParam('table');
+        $db = $request->getParsedBodyParamAsStringOrNull('db');
+        $table = $request->getParsedBodyParamAsStringOrNull('table');
 
         if ($request->hasBodyParam('dialog')) {
             $html = '';
-            $dialog = $request->getParsedBodyParam('dialog');
+            $dialog = $request->getParsedBodyParamAsString('dialog');
             if ($dialog === 'edit') {
                 $html = $this->databaseDesigner->getHtmlForEditOrDeletePages($db, 'editPage');
             } elseif ($dialog === 'delete') {
@@ -56,7 +56,7 @@ final class DesignerController implements InvocableController
             } elseif ($dialog === 'export') {
                 $html = $this->databaseDesigner->getHtmlForSchemaExport(
                     $db,
-                    (int) $request->getParsedBodyParam('selected_page'),
+                    (int) $request->getParsedBodyParamAsStringOrNull('selected_page'),
                 );
             } elseif ($dialog === 'add_table') {
                 // Pass the db and table to the getTablesInfo so we only have the table we asked for
@@ -85,65 +85,74 @@ final class DesignerController implements InvocableController
         }
 
         if ($request->hasBodyParam('operation')) {
-            $operation = $request->getParsedBodyParam('operation');
+            $operation = $request->getParsedBodyParamAsString('operation');
             if ($operation === 'deletePage') {
-                $success = $this->designerCommon->deletePage($request->getParsedBodyParam('selected_page'));
+                $success = $this->designerCommon->deletePage(
+                    (int) $request->getParsedBodyParamAsString('selected_page'),
+                );
                 $this->response->setRequestStatus($success);
             } elseif ($operation === 'savePage') {
-                if ($request->getParsedBodyParam('save_page') === 'same') {
-                    $page = $request->getParsedBodyParam('selected_page');
-                } elseif ($this->designerCommon->getPageExists($request->getParsedBodyParam('selected_value'))) {
+                if ($request->getParsedBodyParamAsString('save_page') === 'same') {
+                    $page = $request->getParsedBodyParamAsString('selected_page');
+                } elseif (
+                    $this->designerCommon->getPageExists(
+                        $request->getParsedBodyParamAsString('selected_value'),
+                    )
+                ) {
                     $this->response->addJSON(
                         'message',
                         sprintf(
                             /* l10n: The user tries to save a page with an existing name in Designer */
                             __('There already exists a page named "%s" please rename it to something else.'),
-                            htmlspecialchars($request->getParsedBodyParam('selected_value')),
+                            htmlspecialchars($request->getParsedBodyParamAsString('selected_value')),
                         ),
                     );
                     $this->response->setRequestStatus(false);
 
                     return $this->response->response();
                 } else {
-                    $page = $this->designerCommon->createNewPage($request->getParsedBodyParam('selected_value'), $db);
+                    $page = $this->designerCommon->createNewPage(
+                        $request->getParsedBodyParamAsString('selected_value'),
+                        $db,
+                    );
                     $this->response->addJSON('id', $page);
                 }
 
-                $success = $this->designerCommon->saveTablePositions($page);
+                $success = $this->designerCommon->saveTablePositions((int) $page);
                 $this->response->setRequestStatus($success);
             } elseif ($operation === 'setDisplayField') {
                 [
                     $success,
                     $GLOBALS['message'],
-                ] = $this->designerCommon->saveDisplayField($db, $table, $request->getParsedBodyParam('field'));
+                ] = $this->designerCommon->saveDisplayField($db, $table, $request->getParsedBodyParamAsString('field'));
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $GLOBALS['message']);
             } elseif ($operation === 'addNewRelation') {
                 [$success, $GLOBALS['message']] = $this->designerCommon->addNewRelation(
-                    $request->getParsedBodyParam('T1'),
-                    $request->getParsedBodyParam('F1'),
-                    $request->getParsedBodyParam('T2'),
-                    $request->getParsedBodyParam('F2'),
-                    $request->getParsedBodyParam('on_delete'),
-                    $request->getParsedBodyParam('on_update'),
-                    $request->getParsedBodyParam('DB1'),
-                    $request->getParsedBodyParam('DB2'),
+                    $request->getParsedBodyParamAsString('T1'),
+                    $request->getParsedBodyParamAsString('F1'),
+                    $request->getParsedBodyParamAsString('T2'),
+                    $request->getParsedBodyParamAsString('F2'),
+                    $request->getParsedBodyParamAsString('on_delete'),
+                    $request->getParsedBodyParamAsString('on_update'),
+                    $request->getParsedBodyParamAsString('DB1'),
+                    $request->getParsedBodyParamAsString('DB2'),
                 );
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $GLOBALS['message']);
             } elseif ($operation === 'removeRelation') {
                 [$success, $GLOBALS['message']] = $this->designerCommon->removeRelation(
-                    $request->getParsedBodyParam('T1'),
-                    $request->getParsedBodyParam('F1'),
-                    $request->getParsedBodyParam('T2'),
-                    $request->getParsedBodyParam('F2'),
+                    $request->getParsedBodyParamAsString('T1'),
+                    $request->getParsedBodyParamAsString('F1'),
+                    $request->getParsedBodyParamAsString('T2'),
+                    $request->getParsedBodyParamAsString('F2'),
                 );
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $GLOBALS['message']);
             } elseif ($operation === 'save_setting_value') {
                 $success = $this->designerCommon->saveSetting(
-                    $request->getParsedBodyParam('index'),
-                    $request->getParsedBodyParam('value'),
+                    $request->getParsedBodyParamAsString('index'),
+                    $request->getParsedBodyParamAsString('value'),
                 );
                 $this->response->setRequestStatus($success);
             }

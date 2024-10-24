@@ -8,7 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\MoveRepeatingGroup;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;
@@ -39,13 +39,13 @@ class MoveRepeatingGroupTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['repeatingColumns', null, 'col1, col2'],
-            ['newTable', null, 'new_table'],
-            ['newColumn', null, 'new_column'],
-            ['primary_columns', null, 'id,col1'],
-        ]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'repeatingColumns' => 'col1, col2',
+                'newTable' => 'new_table',
+                'newColumn' => 'new_column',
+                'primary_columns' => 'id,col1',
+            ]);
 
         $controller = new MoveRepeatingGroup(
             $response,

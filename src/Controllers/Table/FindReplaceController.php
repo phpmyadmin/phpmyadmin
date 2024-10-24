@@ -98,12 +98,12 @@ final class FindReplaceController implements InvocableController
         $this->loadTableInfo();
         $connectionCharSet = (string) $this->dbi->fetchValue('SELECT @@character_set_connection');
 
-        $useRegex = (bool) $request->getParsedBodyParam('useRegex');
-        $replaceWith = (string) $request->getParsedBodyParam('replaceWith');
-        $columnIndex = (int) $request->getParsedBodyParam('columnIndex');
+        $useRegex = (bool) $request->getParsedBodyParamAsStringOrNull('useRegex');
+        $replaceWith = $request->getParsedBodyParamAsString('replaceWith', '');
+        $columnIndex = (int) $request->getParsedBodyParamAsStringOrNull('columnIndex');
 
         if ($request->hasBodyParam('find')) {
-            $find = (string) $request->getParsedBodyParam('find');
+            $find = $request->getParsedBodyParamAsString('find', '');
             $preview = $this->getReplacePreview($columnIndex, $find, $replaceWith, $useRegex, $connectionCharSet);
             $this->response->addJSON('preview', $preview);
 
@@ -113,7 +113,7 @@ final class FindReplaceController implements InvocableController
         $this->response->addScriptFiles(['table/find_replace.js']);
 
         if ($request->hasBodyParam('replace')) {
-            $findString = (string) $request->getParsedBodyParam('findString');
+            $findString = $request->getParsedBodyParamAsString('findString', '');
             $this->replace($columnIndex, $findString, $replaceWith, $useRegex, $connectionCharSet);
             $this->response->addHTML(
                 Generator::getMessage(

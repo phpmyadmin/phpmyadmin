@@ -30,8 +30,7 @@ final class CopyTableController implements InvocableController
     {
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected', []);
-        /** @var string $targetDb */
-        $targetDb = $request->getParsedBodyParam('target_db');
+        $targetDb = $request->getParsedBodyParamAsString('target_db');
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
@@ -41,7 +40,7 @@ final class CopyTableController implements InvocableController
                 $selectedValue,
                 $targetDb,
                 $selectedValue,
-                MoveScope::from($request->getParsedBodyParam('what')),
+                MoveScope::from($request->getParsedBodyParamAsString('what')),
                 MoveMode::SingleTable,
                 $request->getParsedBodyParam('drop_if_exists') === 'true',
             );

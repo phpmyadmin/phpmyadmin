@@ -23,8 +23,8 @@ final class CreateNewTablesController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $partialDependencies = json_decode($request->getParsedBodyParam('pd'), true);
-        $tablesName = json_decode($request->getParsedBodyParam('newTablesName'));
+        $partialDependencies = json_decode($request->getParsedBodyParamAsString('pd'), true);
+        $tablesName = json_decode($request->getParsedBodyParamAsString('newTablesName'));
         $res = $this->normalization->createNewTablesFor2NF(
             $partialDependencies,
             $tablesName,

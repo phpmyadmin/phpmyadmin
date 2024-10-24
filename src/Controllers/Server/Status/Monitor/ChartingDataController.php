@@ -31,7 +31,7 @@ final class ChartingDataController extends AbstractController implements Invocab
     {
         $GLOBALS['errorUrl'] ??= null;
 
-        $requiredData = $request->getParsedBodyParam('requiredData', '');
+        $requiredData = $request->getParsedBodyParamAsString('requiredData', '');
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {

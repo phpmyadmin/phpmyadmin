@@ -34,7 +34,6 @@ class CreateNewColumnControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $template = new Template();
         $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([['numFields', null, '1']]);
 
         $controller = new CreateNewColumnController(
             $response,

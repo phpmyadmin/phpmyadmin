@@ -32,15 +32,15 @@ final class ReplacePrefixController implements InvocableController
     {
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected', []);
-        $fromPrefix = $request->getParsedBodyParam('from_prefix', '');
-        $toPrefix = $request->getParsedBodyParam('to_prefix', '');
+        $fromPrefix = $request->getParsedBodyParamAsString('from_prefix', '');
+        $toPrefix = $request->getParsedBodyParamAsString('to_prefix', '');
 
         $GLOBALS['sql_query'] = '';
 
         $this->dbi->selectDb(Current::$database);
 
         foreach ($selected as $selectedValue) {
-            $subFromPrefix = mb_substr($selectedValue, 0, mb_strlen((string) $fromPrefix));
+            $subFromPrefix = mb_substr($selectedValue, 0, mb_strlen($fromPrefix));
 
             if ($subFromPrefix === $fromPrefix) {
                 $newTableName = $toPrefix . mb_substr($selectedValue, mb_strlen($fromPrefix));

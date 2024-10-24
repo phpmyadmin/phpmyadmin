@@ -28,9 +28,9 @@ final class EnumValuesController implements InvocableController
      */
     public function __invoke(ServerRequest $request): Response
     {
-        $column = $request->getParsedBodyParam('column');
-        $currValue = $request->getParsedBodyParam('curr_value');
-        $values = $this->sql->getValuesForColumn(Current::$database, Current::$table, (string) $column);
+        $column = $request->getParsedBodyParamAsString('column', '');
+        $currValue = $request->getParsedBodyParamAsString('curr_value', '');
+        $values = $this->sql->getValuesForColumn(Current::$database, Current::$table, $column);
 
         if ($values === null) {
             $this->response->addJSON('message', __('Error in processing request'));
@@ -41,7 +41,7 @@ final class EnumValuesController implements InvocableController
 
         $dropdown = $this->template->render('sql/enum_column_dropdown', [
             'values' => $values,
-            'selected_values' => [(string) $currValue],
+            'selected_values' => [$currValue],
         ]);
 
         $this->response->addJSON('dropdown', $dropdown);

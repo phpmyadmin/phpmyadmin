@@ -37,10 +37,6 @@ class UpdateControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
         $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['templateId', null, '1'],
-            ['templateData', '', 'data'],
-        ]);
 
         (new UpdateController(
             $response,

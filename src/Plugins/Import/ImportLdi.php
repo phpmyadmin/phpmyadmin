@@ -99,11 +99,11 @@ class ImportLdi extends AbstractImportCsv
         $this->localOption = $request->getParsedBodyParam('ldi_local_option') !== null;
         $this->replace = $request->getParsedBodyParam('ldi_replace') !== null;
         $this->ignore = $request->getParsedBodyParam('ldi_ignore') !== null;
-        $this->terminated = (string) $request->getParsedBodyParam('ldi_terminated');
-        $this->enclosed = (string) $request->getParsedBodyParam('ldi_enclosed');
-        $this->escaped = (string) $request->getParsedBodyParam('ldi_escaped');
-        $this->newLine = (string) $request->getParsedBodyParam('ldi_new_line');
-        $this->columns = (string) $request->getParsedBodyParam('ldi_columns');
+        $this->terminated = $request->getParsedBodyParamAsString('ldi_terminated', '');
+        $this->enclosed = $request->getParsedBodyParamAsString('ldi_enclosed', '');
+        $this->escaped = $request->getParsedBodyParamAsString('ldi_escaped', '');
+        $this->newLine = $request->getParsedBodyParamAsString('ldi_new_line', '');
+        $this->columns = $request->getParsedBodyParamAsString('ldi_columns', '');
     }
 
     /**

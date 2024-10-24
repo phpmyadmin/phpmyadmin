@@ -20,7 +20,6 @@ use function __;
 use function explode;
 use function file_exists;
 use function implode;
-use function is_string;
 use function json_decode;
 use function json_encode;
 use function sprintf;
@@ -52,13 +51,11 @@ final class ValidateController implements InvocableController
             $response = $response->withHeader($name, $value);
         }
 
-        /** @var mixed $id */
-        $id = $request->getParsedBodyParam('id');
-        $vids = explode(',', is_string($id) ? $id : '');
+        $id = $request->getParsedBodyParamAsString('id', '');
+        $vids = explode(',', $id);
 
-        /** @var mixed $valuesParam */
-        $valuesParam = $request->getParsedBodyParam('values');
-        $values = json_decode(is_string($valuesParam) ? $valuesParam : '');
+        $valuesParam = $request->getParsedBodyParamAsString('values', '');
+        $values = json_decode($valuesParam);
         if (! $values instanceof stdClass) {
             return $response->write((string) json_encode(['success' => false, 'message' => __('Wrong data')]));
         }

@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\ThemeSetController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -29,8 +29,8 @@ class ThemeSetControllerTest extends AbstractTestCase
     {
         Config::getInstance()->settings['ThemeManager'] = true;
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([['set_theme', null, 'theme_name']]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['set_theme' => 'theme_name', 'themeColorMode' => '']);
 
         $themeManager = self::createMock(ThemeManager::class);
         $themeManager->expects(self::once())->method('setActiveTheme')->with(self::equalTo('theme_name'));
@@ -45,14 +45,13 @@ class ThemeSetControllerTest extends AbstractTestCase
         (new ThemeSetController(new ResponseRenderer(), $themeManager, $userPreferences))($request);
     }
 
-    /** @param string[]|string|null $themeName */
     #[DataProvider('providerForTestWithoutTheme')]
-    public function testWithoutTheme(bool $hasThemes, array|string|null $themeName): void
+    public function testWithoutTheme(bool $hasThemes, string $themeName): void
     {
         Config::getInstance()->settings['ThemeManager'] = $hasThemes;
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([['set_theme', null, $themeName]]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['set_theme' => $themeName]);
 
         $themeManager = self::createMock(ThemeManager::class);
         $themeManager->expects(self::never())->method('setActiveTheme');
@@ -71,6 +70,6 @@ class ThemeSetControllerTest extends AbstractTestCase
      */
     public static function providerForTestWithoutTheme(): iterable
     {
-        return [[true, null], [true, ''], [true, ['theme_name']], [false, null], [false, ''], [false, ['theme_name']]];
+        return [[true, ''], [false, '']];
     }
 }

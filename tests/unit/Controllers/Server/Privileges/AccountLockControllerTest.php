@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Privileges;
 
 use PhpMyAdmin\Controllers\Server\Privileges\AccountLockController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Server\Privileges\AccountLocking;
@@ -20,7 +21,7 @@ class AccountLockControllerTest extends AbstractTestCase
 {
     private DatabaseInterface&Stub $dbiStub;
 
-    private ServerRequest&Stub $requestStub;
+    private ServerRequest $requestStub;
 
     private ResponseRenderer $responseRendererStub;
 
@@ -35,9 +36,12 @@ class AccountLockControllerTest extends AbstractTestCase
         $this->dbiStub = self::createStub(DatabaseInterface::class);
         $this->dbiStub->method('isMariaDB')->willReturn(true);
 
-        $this->requestStub = self::createStub(ServerRequest::class);
-        $this->requestStub->method('isAjax')->willReturn(true);
-        $this->requestStub->method('getParsedBodyParam')->willReturn('test.user', 'test.host');
+        $this->requestStub = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'ajax_request' => 'true',
+                'username' => 'test.user',
+                'hostname' => 'test.host',
+            ]);
 
         $this->responseRendererStub = new ResponseRenderer();
 

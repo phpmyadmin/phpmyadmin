@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\Monitor\SlowLogController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
@@ -58,9 +58,12 @@ class SlowLogControllerTest extends AbstractTestCase
             $dbi,
         );
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('isAjax')->willReturn(true);
-        $request->method('getParsedBodyParam')->willReturnMap([['time_start', null, '0'], ['time_end', null, '10']]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+        ->withParsedBody([
+            'ajax_request' => 'true',
+            'time_start' => '0',
+            'time_end' => '10',
+        ]);
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller($request);

@@ -80,8 +80,8 @@ final class IndexRenameController implements InvocableController
             return $this->response->response();
         }
 
-        $oldIndexName = $request->getParsedBodyParam('old_index');
-        $indexName = $request->getParsedBodyParam('index');
+        $oldIndexName = $request->getParsedBodyParamAsStringOrNull('old_index');
+        $indexName = $request->getParsedBodyParamAsString('index');
         if ($oldIndexName === null) {
             $index = $this->dbi->getTable($databaseName->getName(), $tableName->getName())->getIndex($indexName);
 

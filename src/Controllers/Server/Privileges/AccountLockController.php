@@ -29,10 +29,8 @@ final class AccountLockController implements InvocableController
             return $this->response->response();
         }
 
-        /** @var string $userName */
-        $userName = $request->getParsedBodyParam('username');
-        /** @var string $hostName */
-        $hostName = $request->getParsedBodyParam('hostname');
+        $userName = $request->getParsedBodyParamAsString('username');
+        $hostName = $request->getParsedBodyParamAsString('hostname');
 
         try {
             $this->accountLocking->lock($userName, $hostName);

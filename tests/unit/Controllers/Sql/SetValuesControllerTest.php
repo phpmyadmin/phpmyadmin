@@ -11,7 +11,7 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Sql\SetValuesController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -41,14 +41,13 @@ class SetValuesControllerTest extends AbstractTestCase
         $this->dummyDbi->addResult('SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'', false);
         $this->dummyDbi->addResult('SHOW INDEXES FROM `cvv`.`enums`', false);
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['ajax_request', null, true],
-            ['db', null, 'cvv'],
-            ['table', null, 'enums'],
-            ['column', null, 'set'],
-            ['curr_value', null, 'b&c'],
-        ]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'db' => 'cvv',
+                'table' => 'enums',
+                'column' => 'set',
+                'curr_value' => 'b&c',
+            ]);
 
         Current::$database = 'cvv';
         Current::$table = 'enums';
@@ -93,14 +92,13 @@ class SetValuesControllerTest extends AbstractTestCase
         );
         $this->dummyDbi->addResult('SHOW INDEXES FROM `cvv`.`enums`', []);
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['ajax_request', null, true],
-            ['db', null, 'cvv'],
-            ['table', null, 'enums'],
-            ['column', null, 'set'],
-            ['curr_value', null, 'b&c'],
-        ]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'db' => 'cvv',
+                'table' => 'enums',
+                'column' => 'set',
+                'curr_value' => 'b&c',
+            ]);
 
         Current::$database = 'cvv';
         Current::$table = 'enums';

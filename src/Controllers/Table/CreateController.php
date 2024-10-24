@@ -161,11 +161,11 @@ final class CreateController implements InvocableController
      */
     private function getNumberOfFieldsFromRequest(ServerRequest $request): int
     {
-        $origNumFields = $request->getParsedBodyParam('orig_num_fields');
-        $numFields = $request->getParsedBodyParam('num_fields');
+        $origNumFields = $request->getParsedBodyParamAsStringOrNull('orig_num_fields');
+        $numFields = $request->getParsedBodyParamAsStringOrNull('num_fields');
 
         if ($request->hasBodyParam('submit_num_fields')) { // adding new fields
-            $numberOfFields = (int) $origNumFields + (int) $request->getParsedBodyParam('added_fields');
+            $numberOfFields = (int) $origNumFields + (int) $request->getParsedBodyParamAsStringOrNull('added_fields');
         } elseif ($origNumFields !== null) { // retaining existing fields
             $numberOfFields = (int) $origNumFields;
         } elseif ($numFields !== null && (int) $numFields > 0) { // new table with specified number of fields

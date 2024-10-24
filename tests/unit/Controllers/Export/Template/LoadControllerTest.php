@@ -10,7 +10,7 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\Export\Template\LoadController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\TemplateModel;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -45,8 +45,8 @@ class LoadControllerTest extends AbstractTestCase
         Config::getInstance()->selectedServer['user'] = 'user';
 
         $response = new ResponseRenderer();
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturn('1');
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['templateId' => '1']);
 
         (new LoadController(
             $response,

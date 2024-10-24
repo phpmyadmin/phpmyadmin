@@ -171,15 +171,15 @@ class ImportCsv extends AbstractImportCsv
     {
         $this->replace = $request->getParsedBodyParam('csv_replace') !== null;
         $this->ignore = $request->getParsedBodyParam('csv_ignore') !== null;
-        $this->terminated = (string) $request->getParsedBodyParam('csv_terminated');
-        $this->enclosed = (string) $request->getParsedBodyParam('csv_enclosed');
-        $this->escaped = (string) $request->getParsedBodyParam('csv_escaped');
-        $this->newLine = (string) $request->getParsedBodyParam('csv_new_line');
-        $this->columns = (string) $request->getParsedBodyParam('csv_columns');
-        $this->maxLines = min(0, (int) $request->getParsedBodyParam('csv_partial_import'));
+        $this->terminated = $request->getParsedBodyParamAsString('csv_terminated', '');
+        $this->enclosed = $request->getParsedBodyParamAsString('csv_enclosed', '');
+        $this->escaped = $request->getParsedBodyParamAsString('csv_escaped', '');
+        $this->newLine = $request->getParsedBodyParamAsString('csv_new_line', '');
+        $this->columns = $request->getParsedBodyParamAsString('csv_columns', '');
+        $this->maxLines = min(0, (int) $request->getParsedBodyParamAsStringOrNull('csv_partial_import'));
         $this->csvHasColumnNames = $request->getParsedBodyParam('csv_col_names') !== null;
-        $this->newDatabaseName = (string) $request->getParsedBodyParam('csv_new_db_name');
-        $this->newTableName = (string) $request->getParsedBodyParam('csv_new_tbl_name');
+        $this->newDatabaseName = $request->getParsedBodyParamAsString('csv_new_db_name', '');
+        $this->newTableName = $request->getParsedBodyParamAsString('csv_new_tbl_name', '');
     }
 
     /**

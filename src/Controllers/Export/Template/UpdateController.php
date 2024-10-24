@@ -24,9 +24,8 @@ final class UpdateController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $templateId = (int) $request->getParsedBodyParam('templateId');
-        /** @var string $templateData */
-        $templateData = $request->getParsedBodyParam('templateData', '');
+        $templateId = (int) $request->getParsedBodyParamAsStringOrNull('templateId');
+        $templateData = $request->getParsedBodyParamAsString('templateData', '');
 
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
         if ($exportTemplatesFeature === null) {

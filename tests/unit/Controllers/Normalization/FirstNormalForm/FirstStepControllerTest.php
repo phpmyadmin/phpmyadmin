@@ -8,7 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\FirstNormalForm\FirstStepController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -36,8 +36,8 @@ class FirstStepControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([['normalizeTo', null, $normalizeTo]]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['normalizeTo' => $normalizeTo]);
 
         $controller = new FirstStepController(
             $response,

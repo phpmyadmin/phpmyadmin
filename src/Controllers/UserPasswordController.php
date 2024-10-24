@@ -53,27 +53,28 @@ final class UserPasswordController implements InvocableController
             return $this->response->response();
         }
 
-        $noPass = $request->getParsedBodyParam('nopass');
-        $pmaPw = $request->getParsedBodyParam('pma_pw');
-        $pmaPw2 = $request->getParsedBodyParam('pma_pw2');
+        $noPass = $request->getParsedBodyParamAsStringOrNull('nopass');
 
         /**
          * If the "change password" form has been submitted, checks for valid values
          * and submit the query or logout
          */
         if ($noPass !== null) {
-            $password = $noPass == '1' ? '' : $pmaPw;
+            $pmaPw = $request->getParsedBodyParamAsString('pma_pw');
+            $pmaPw2 = $request->getParsedBodyParamAsString('pma_pw2');
+
+            $password = $noPass === '1' ? '' : $pmaPw;
             $GLOBALS['change_password_message'] = $this->userPassword->setChangePasswordMsg(
                 $pmaPw,
                 $pmaPw2,
-                (bool) $noPass,
+                $noPass === '1',
             );
             $message = $GLOBALS['change_password_message']['msg'];
 
             if (! $GLOBALS['change_password_message']['error']) {
                 $sqlQuery = $this->userPassword->changePassword(
                     $password,
-                    $request->getParsedBodyParam('authentication_plugin'),
+                    $request->getParsedBodyParamAsStringOrNull('authentication_plugin'),
                 );
 
                 if ($request->isAjax()) {

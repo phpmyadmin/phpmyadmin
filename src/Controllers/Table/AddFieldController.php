@@ -52,8 +52,7 @@ final class AddFieldController implements InvocableController
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['message'] ??= null;
 
-        /** @var string|null $numberOfFields */
-        $numberOfFields = $request->getParsedBodyParam('num_fields');
+        $numberOfFields = $request->getParsedBodyParamAsStringOrNull('num_fields');
 
         $this->response->addScriptFiles(['table/structure.js']);
 

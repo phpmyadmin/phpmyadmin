@@ -11,7 +11,7 @@ use PhpMyAdmin\Controllers\Export\Template\CreateController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Template as ExportTemplate;
 use PhpMyAdmin\Export\TemplateModel;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -48,13 +48,13 @@ class CreateControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
         $template = new Template();
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['exportType', '', 'type'],
-            ['templateName', '', 'name'],
-            ['templateData', '', 'data'],
-            ['template_id', null, null],
-        ]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'exportType' => 'type',
+                'templateName' => 'name',
+                'templateData' => 'data',
+                'template_id' => null,
+            ]);
 
         (new CreateController(
             $response,

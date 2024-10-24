@@ -45,7 +45,7 @@ final class CentralColumnsAddController implements InvocableController
             DatabaseName::from($request->getParsedBodyParam('db')),
             $selected,
             false,
-            $request->getParsedBodyParam('table'),
+            $request->getParsedBodyParamAsString('table'),
         );
 
         if ($centralColsError instanceof Message) {

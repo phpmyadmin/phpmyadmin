@@ -67,7 +67,6 @@ class LogVarsControllerTest extends AbstractTestCase
 
         $request = self::createStub(ServerRequest::class);
         $request->method('isAjax')->willReturn(true);
-        $request->method('getParsedBodyParam')->willReturnMap([['varName', null, 'varName']]);
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller($request);

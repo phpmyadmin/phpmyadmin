@@ -144,8 +144,8 @@ final class PrivilegesController implements InvocableController
          * Changes / copies a user, part I
          */
         $password = $serverPrivileges->getDataForChangeOrCopyUser(
-            $request->getParsedBodyParam('old_username', ''),
-            $request->getParsedBodyParam('old_hostname', ''),
+            $request->getParsedBodyParamAsString('old_username', ''),
+            $request->getParsedBodyParamAsString('old_hostname', ''),
         );
 
         /**
@@ -173,8 +173,8 @@ final class PrivilegesController implements InvocableController
                 $queries,
                 $GLOBALS['username'],
                 $GLOBALS['hostname'],
-                $request->getParsedBodyParam('old_username'),
-                $request->getParsedBodyParam('old_hostname'),
+                $request->getParsedBodyParamAsString('old_username'),
+                $request->getParsedBodyParamAsString('old_hostname'),
             );
         }
 
@@ -217,7 +217,10 @@ final class PrivilegesController implements InvocableController
             $request->hasBodyParam('changeUserGroup') && $relationParameters->configurableMenusFeature !== null
             && $this->dbi->isSuperUser() && $this->dbi->isCreateUser()
         ) {
-            $serverPrivileges->setUserGroup($GLOBALS['username'] ?? '', $request->getParsedBodyParam('userGroup', ''));
+            $serverPrivileges->setUserGroup(
+                $GLOBALS['username'] ?? '',
+                $request->getParsedBodyParamAsString('userGroup', ''),
+            );
             $GLOBALS['message'] = Message::success();
         }
 

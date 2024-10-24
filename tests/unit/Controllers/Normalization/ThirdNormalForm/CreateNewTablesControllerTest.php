@@ -8,7 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\ThirdNormalForm\CreateNewTablesController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -53,8 +53,8 @@ class CreateNewTablesControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([['newTables', null, $newTables]]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['newTables' => $newTables]);
 
         $controller = new CreateNewTablesController(
             $response,

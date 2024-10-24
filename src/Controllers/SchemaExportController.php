@@ -16,7 +16,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 
 use function __;
-use function is_string;
 use function mb_strlen;
 
 /**
@@ -34,9 +33,8 @@ final class SchemaExportController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $db = DatabaseName::tryFrom($request->getParsedBodyParam('db'));
-        /** @var mixed $exportType */
-        $exportType = $request->getParsedBodyParam('export_type');
-        if ($db === null || ! is_string($exportType) || $exportType === '') {
+        $exportType = $request->getParsedBodyParamAsString('export_type');
+        if ($db === null || $exportType === '') {
             $errorMessage = __('Missing parameter:') . ($db === null ? ' db' : ' export_type')
                 . MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true)
                 . '[br]';
