@@ -2351,6 +2351,12 @@ class DatabaseInterface implements DbalInterface
         return $this->versionComment;
     }
 
+    /** Whether connection is MySQL */
+    public function isMySql(): bool
+    {
+        return ! $this->isMariaDb;
+    }
+
     /**
      * Whether connection is MariaDB
      */
