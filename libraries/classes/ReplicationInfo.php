@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Query\Compatibility;
+
 use function count;
 use function explode;
 use function sprintf;
@@ -117,11 +119,7 @@ final class ReplicationInfo
 
     private function setPrimaryStatus(): void
     {
-        if ($this->dbi->isMySql() && $this->dbi->getVersion() >= 80400) {
-            $this->primaryStatus = $this->dbi->fetchResult('SHOW BINARY LOG STATUS');
-        } else {
-            $this->primaryStatus = $this->dbi->fetchResult('SHOW MASTER STATUS');
-        }
+        $this->primaryStatus = $this->dbi->fetchResult(Compatibility::getShowBinLogStatusStmt($this->dbi));
     }
 
     public function getPrimaryStatus(): array
@@ -131,7 +129,10 @@ final class ReplicationInfo
 
     private function setReplicaStatus(): void
     {
-        if ($this->dbi->isMySql() && $this->dbi->getVersion() >= 80400) {
+        if (
+            $this->dbi->isMySql() && $this->dbi->getVersion() >= 80022
+            || $this->dbi->isMariaDB() && $this->dbi->getVersion() >= 100501
+        ) {
             $this->replicaStatus = $this->dbi->fetchResult('SHOW REPLICA STATUS');
         } else {
             $this->replicaStatus = $this->dbi->fetchResult('SHOW SLAVE STATUS');
@@ -145,9 +146,10 @@ final class ReplicationInfo
 
     private function setMultiPrimaryStatus(): void
     {
-        if ($this->dbi->isMySql() && $this->dbi->getVersion() >= 80400) {
+        $this->multiPrimaryStatus = [];
+        if ($this->dbi->isMariaDB() && $this->dbi->getVersion() >= 100501) {
             $this->multiPrimaryStatus = $this->dbi->fetchResult('SHOW ALL REPLICAS STATUS');
-        } else {
+        } elseif ($this->dbi->isMariaDB()) {
             $this->multiPrimaryStatus = $this->dbi->fetchResult('SHOW ALL SLAVES STATUS');
         }
     }

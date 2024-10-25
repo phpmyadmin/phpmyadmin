@@ -76,8 +76,10 @@ class ReplicationGui
 
         if (! isset($_POST['repl_clear_scr'])) {
             $primaryStatusTable = $this->getHtmlForReplicationStatusTable('primary', true, false);
-            if ($dbi->isMySql() && $dbi->getVersion() >= 80400) {
+            if ($dbi->isMySql() && $dbi->getVersion() >= 80022) {
                 $replicas = $dbi->fetchResult('SHOW REPLICAS', null, null);
+            } elseif ($dbi->isMariaDB() && $dbi->getVersion() >= 100501) {
+                $replicas = $dbi->fetchResult('SHOW REPLICA HOSTS', null, null);
             } else {
                 $replicas = $dbi->fetchResult('SHOW SLAVE HOSTS', null, null);
             }
@@ -130,9 +132,10 @@ class ReplicationGui
     ): string {
         global $dbi;
 
-        if ($dbi->isMySql() && $dbi->getVersion() >= 80400) {
+        $serverReplicaMultiReplication = [];
+        if ($dbi->isMariaDB() && $dbi->getVersion() >= 100501) {
             $serverReplicaMultiReplication = $dbi->fetchResult('SHOW ALL REPLICAS STATUS');
-        } else {
+        } elseif ($dbi->isMariaDB()) {
             $serverReplicaMultiReplication = $dbi->fetchResult('SHOW ALL SLAVES STATUS');
         }
 
@@ -590,7 +593,7 @@ class ReplicationGui
 
         if ($_POST['sr_replica_action'] === 'reset') {
             $qStop = $this->replication->replicaControl('STOP', null, DatabaseInterface::CONNECT_USER);
-            if ($dbi->isMySql() && $dbi->getVersion() >= 80400) {
+            if ($dbi->isMySql() && $dbi->getVersion() >= 80022 || $dbi->isMariaDB() && $dbi->getVersion() >= 100501) {
                 $qReset = $dbi->tryQuery('RESET REPLICA;');
             } else {
                 $qReset = $dbi->tryQuery('RESET SLAVE;');
