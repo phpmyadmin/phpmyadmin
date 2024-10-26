@@ -101,8 +101,8 @@ final class TrackingController implements InvocableController
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/tracking');
 
-        $versionParam = $request->getParsedBodyParamAsString('version');
-        $tableParam = $request->getParsedBodyParamAsString('table');
+        $versionParam = $request->getParsedBodyParamAsString('version', '');
+        $tableParam = $request->getParsedBodyParamAsString('table', '');
 
         $logType = LogType::tryFrom($request->getParsedBodyParamAsString('log_type', '')) ?? LogType::SchemaAndData;
 
