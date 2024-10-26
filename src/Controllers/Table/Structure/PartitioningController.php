@@ -183,14 +183,14 @@ final class PartitioningController implements InvocableController
                     'name' => $p->name,
                     'value_type' => $type,
                     'value' => $expr,
-                    'engine' => $p->options->has('ENGINE', true),
-                    'comment' => trim((string) $p->options->has('COMMENT', true), "'"),
-                    'data_directory' => trim((string) $p->options->has('DATA DIRECTORY', true), "'"),
-                    'index_directory' => trim((string) $p->options->has('INDEX_DIRECTORY', true), "'"),
-                    'max_rows' => $p->options->has('MAX_ROWS', true),
-                    'min_rows' => $p->options->has('MIN_ROWS', true),
-                    'tablespace' => $p->options->has('TABLESPACE', true),
-                    'node_group' => $p->options->has('NODEGROUP', true),
+                    'engine' => $p->options->get('ENGINE', true),
+                    'comment' => trim((string) $p->options->get('COMMENT', true), "'"),
+                    'data_directory' => trim((string) $p->options->get('DATA DIRECTORY', true), "'"),
+                    'index_directory' => trim((string) $p->options->get('INDEX_DIRECTORY', true), "'"),
+                    'max_rows' => $p->options->get('MAX_ROWS', true),
+                    'min_rows' => $p->options->get('MIN_ROWS', true),
+                    'tablespace' => $p->options->get('TABLESPACE', true),
+                    'node_group' => $p->options->get('NODEGROUP', true),
                 ];
             }
 
@@ -221,14 +221,14 @@ final class PartitioningController implements InvocableController
                     $sp = $stmt->partitions[$i]->subpartitions[$j];
                     $partition['subpartitions'][$j] = [
                         'name' => $sp->name,
-                        'engine' => $sp->options->has('ENGINE', true),
-                        'comment' => trim((string) $sp->options->has('COMMENT', true), "'"),
-                        'data_directory' => trim((string) $sp->options->has('DATA DIRECTORY', true), "'"),
-                        'index_directory' => trim((string) $sp->options->has('INDEX_DIRECTORY', true), "'"),
-                        'max_rows' => $sp->options->has('MAX_ROWS', true),
-                        'min_rows' => $sp->options->has('MIN_ROWS', true),
-                        'tablespace' => $sp->options->has('TABLESPACE', true),
-                        'node_group' => $sp->options->has('NODEGROUP', true),
+                        'engine' => $sp->options->get('ENGINE', true),
+                        'comment' => trim((string) $sp->options->get('COMMENT', true), "'"),
+                        'data_directory' => trim((string) $sp->options->get('DATA DIRECTORY', true), "'"),
+                        'index_directory' => trim((string) $sp->options->get('INDEX_DIRECTORY', true), "'"),
+                        'max_rows' => $sp->options->get('MAX_ROWS', true),
+                        'min_rows' => $sp->options->get('MIN_ROWS', true),
+                        'tablespace' => $sp->options->get('TABLESPACE', true),
+                        'node_group' => $sp->options->get('NODEGROUP', true),
                     ];
                 }
 

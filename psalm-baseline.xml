@@ -3850,8 +3850,8 @@
       <code><![CDATA[$stmt->partitions[0]->subpartitions]]></code>
     </PossiblyNullPropertyFetch>
     <PossiblyNullReference>
-      <code><![CDATA[has]]></code>
-      <code><![CDATA[has]]></code>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[get]]></code>
     </PossiblyNullReference>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
@@ -4833,7 +4833,6 @@
       <code><![CDATA[$opt]]></code>
       <code><![CDATA[$opt]]></code>
       <code><![CDATA[$options[]]]></code>
-      <code><![CDATA[$retval['item_definer']]]></code>
       <code><![CDATA[$retval['item_param_opts_num'][$idx][]]]></code>
       <code><![CDATA[$string]]></code>
       <code><![CDATA[$value]]></code>
@@ -4927,7 +4926,7 @@
       <code><![CDATA[$stmt->return->parameters]]></code>
     </PossiblyNullPropertyFetch>
     <PossiblyNullReference>
-      <code><![CDATA[has]]></code>
+      <code><![CDATA[get]]></code>
     </PossiblyNullReference>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -8087,7 +8086,6 @@
       <code><![CDATA[$colAlias]]></code>
       <code><![CDATA[$colAlias]]></code>
       <code><![CDATA[$colAs]]></code>
-      <code><![CDATA[$engine]]></code>
       <code><![CDATA[$eventName]]></code>
       <code><![CDATA[$eventName]]></code>
       <code><![CDATA[$relFieldAlias]]></code>
@@ -8113,7 +8111,6 @@
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$columnAliases]]></code>
       <code><![CDATA[$definition]]></code>
-      <code><![CDATA[$engine]]></code>
       <code><![CDATA[$eventName]]></code>
       <code><![CDATA[$field->name]]></code>
       <code><![CDATA[$field->references->table->table]]></code>
@@ -8127,7 +8124,6 @@
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$definition['Type']]]></code>
-      <code><![CDATA[$statement->entityOptions->has('AUTO_INCREMENT')]]></code>
     </MixedOperand>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[$field->key->columns]]></code>
@@ -8166,7 +8162,7 @@
       <code><![CDATA[$statement->table->table]]></code>
     </PossiblyNullPropertyFetch>
     <PossiblyNullReference>
-      <code><![CDATA[has]]></code>
+      <code><![CDATA[get]]></code>
       <code><![CDATA[has]]></code>
       <code><![CDATA[has]]></code>
       <code><![CDATA[remove]]></code>
@@ -8187,7 +8183,6 @@
       <code><![CDATA[empty($column->collation)]]></code>
       <code><![CDATA[empty($config->selectedServer['port'])]]></code>
       <code><![CDATA[empty($delimiter)]]></code>
-      <code><![CDATA[empty($engine)]]></code>
       <code><![CDATA[empty($statement->fields)]]></code>
       <code><![CDATA[empty($statement->name->database)]]></code>
       <code><![CDATA[empty($statement->name->database)]]></code>

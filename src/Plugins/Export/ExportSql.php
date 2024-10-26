@@ -1531,7 +1531,7 @@ class ExportSql extends ExportPlugin
             $statement = $parser->statements[0];
 
             if (! empty($statement->entityOptions)) {
-                $engine = $statement->entityOptions->has('ENGINE');
+                $engine = $statement->entityOptions->get('ENGINE');
             } else {
                 $engine = '';
             }
@@ -1539,7 +1539,7 @@ class ExportSql extends ExportPlugin
             /* Avoid operation on ARCHIVE tables as those can not be altered */
             if (
                 ! empty($statement->fields) && is_array($statement->fields)
-                && (empty($engine) || strtoupper($engine) !== 'ARCHIVE')
+                && ($engine === '' || strtoupper((string) $engine) !== 'ARCHIVE')
             ) {
 
                 /**
@@ -1679,11 +1679,11 @@ class ExportSql extends ExportPlugin
                         . implode(',' . "\n" . '  MODIFY ', $autoIncrement);
                     if (
                         isset($GLOBALS['sql_auto_increment'])
-                        && $statement->entityOptions->has('AUTO_INCREMENT') !== false
+                        && $statement->entityOptions->has('AUTO_INCREMENT')
                         && (! isset($GLOBALS['table_data']) || in_array($table, $GLOBALS['table_data']))
                     ) {
                         $sqlAutoIncrementsQuery .= ', AUTO_INCREMENT='
-                            . $statement->entityOptions->has('AUTO_INCREMENT');
+                            . $statement->entityOptions->get('AUTO_INCREMENT');
                     }
 
                     $sqlAutoIncrementsQuery .= ';' . "\n";
