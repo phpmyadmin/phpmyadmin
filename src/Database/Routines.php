@@ -489,7 +489,7 @@ class Routines
             $retval['item_returnopts_text'] = implode(' ', $options);
         }
 
-        $retval['item_definer'] = $stmt->options->has('DEFINER');
+        $retval['item_definer'] = $stmt->options->get('DEFINER');
         $retval['item_definition'] = $body;
         $retval['item_isdeterministic'] = '';
         if ($routine['IS_DETERMINISTIC'] === 'YES') {
