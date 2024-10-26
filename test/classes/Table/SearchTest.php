@@ -39,7 +39,7 @@ class SearchTest extends AbstractTestCase
 
         unset($_POST['customWhereClause']);
 
-        self::assertSame('SELECT DISTINCT *  FROM `PMA` ORDER BY `name` asc', $this->search->buildSqlQuery());
+        self::assertSame('SELECT DISTINCT * FROM `PMA` ORDER BY `name` asc', $this->search->buildSqlQuery());
 
         $_POST['criteriaValues'] = [
             'value1',
@@ -87,7 +87,7 @@ class SearchTest extends AbstractTestCase
             'BETWEEN',
         ];
 
-        $expected = 'SELECT DISTINCT *  FROM `PMA` WHERE `name` != \'value1\''
+        $expected = 'SELECT DISTINCT * FROM `PMA` WHERE `name` != \'value1\''
             . ' AND `id` > value2 AND `index` IS NULL AND `index2` LIKE \'%value4%\''
             . ' AND `index3` REGEXP ^value5$ AND `index4` IN (value6) AND `index5`'
             . ' BETWEEN value7 AND value8 ORDER BY `name` asc';
