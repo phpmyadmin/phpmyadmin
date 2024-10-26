@@ -33,7 +33,7 @@ class SearchTest extends AbstractTestCase
         $_POST['customWhereClause'] = "name='pma'";
 
         self::assertSame(
-            'SELECT DISTINCT *  FROM `PMA` WHERE name=\'pma\' ORDER BY `name` asc',
+            'SELECT DISTINCT * FROM `PMA` WHERE name=\'pma\' ORDER BY `name` asc',
             $this->search->buildSqlQuery()
         );
 
