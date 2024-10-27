@@ -19,7 +19,6 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
-use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\ForeignKey;
@@ -1289,28 +1288,6 @@ class Table implements Stringable
         }
 
         return true;
-    }
-
-    /**
-     * Get all column names which are MySQL reserved words
-     *
-     * @return string[]
-     */
-    public function getReservedColumnNames(): array
-    {
-        $columns = $this->getColumns(false);
-        $return = [];
-        foreach ($columns as $column) {
-            $temp = explode('.', $column);
-            $columnName = $temp[2];
-            if (! Context::isKeyword($columnName, true)) {
-                continue;
-            }
-
-            $return[] = $columnName;
-        }
-
-        return $return;
     }
 
     /**

@@ -1228,10 +1228,6 @@ class TableTest extends AbstractTestCase
             '`PMA`.`PMA_BookMark`.`ALL`',
         ];
         self::assertSame($expect, $return);
-
-        $return = $table->getReservedColumnNames();
-        $expect = ['ACCESSIBLE', 'ADD', 'ALL'];
-        self::assertSame($expect, $return);
     }
 
     /**
