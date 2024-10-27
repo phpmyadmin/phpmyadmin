@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Dbal;
 
 use PhpMyAdmin\Column;
-use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Current;
@@ -753,24 +752,17 @@ class DatabaseInterface
      * @param string $database name of database
      * @param string $table    name of table to retrieve columns from
      * @param string $column   name of column
-     * @param T      $full     whether to return full info or only column names
-     *
-     * @psalm-return (T is true ? ColumnFull : Column)|null
-     *
-     * @template T of bool
      */
     public function getColumn(
         string $database,
         string $table,
         string $column,
-        bool $full = false,
         ConnectionType $connectionType = ConnectionType::User,
-    ): ColumnFull|Column|null {
-        $sql = QueryGenerator::getColumnsSql(
-            $database,
-            $table,
-            $this->quoteString($this->escapeMysqlWildcards($column)),
-            $full,
+    ): Column|null {
+        $sql = QueryGenerator::getColumns(
+            $this->quoteString($database, $connectionType),
+            $this->quoteString($table, $connectionType),
+            $this->quoteString($column, $connectionType),
         );
         /** @var (string|null)[][] $fields */
         $fields = $this->fetchResult($sql, 'Field', null, $connectionType);
@@ -790,7 +782,7 @@ class DatabaseInterface
          */
         $columns = $this->attachIndexInfoToColumns($database, $table, $fields);
 
-        $columns = $this->convertToColumns($columns, $full);
+        $columns = $this->convertToColumns($columns);
 
         return array_shift($columns);
     }
@@ -800,20 +792,18 @@ class DatabaseInterface
      *
      * @param string $database name of database
      * @param string $table    name of table to retrieve columns from
-     * @param T      $full     whether to return full info or only column names
      *
-     * @return ColumnFull[]|Column[]
-     * @psalm-return (T is true ? ColumnFull[] : Column[])
-     *
-     * @template T of bool
+     * @return Column[]
      */
     public function getColumns(
         string $database,
         string $table,
-        bool $full = false,
         ConnectionType $connectionType = ConnectionType::User,
     ): array {
-        $sql = QueryGenerator::getColumnsSql($database, $table, null, $full);
+        $sql = QueryGenerator::getColumns(
+            $this->quoteString($database, $connectionType),
+            $this->quoteString($table, $connectionType),
+        );
         /** @var (string|null)[][] $fields */
         $fields = $this->fetchResult($sql, 'Field', null, $connectionType);
 
@@ -832,7 +822,7 @@ class DatabaseInterface
          */
         $columns = $this->attachIndexInfoToColumns($database, $table, $fields);
 
-        return $this->convertToColumns($columns, $full);
+        return $this->convertToColumns($columns);
     }
 
     /**
@@ -890,13 +880,13 @@ class DatabaseInterface
      *  Comment: string
      * }[] $fields   column array indexed by their names
      *
-     * @return (ColumnFull|Column)[]
+     * @return Column[]
      */
-    private function convertToColumns(array $fields, bool $full = false): array
+    private function convertToColumns(array $fields): array
     {
         $columns = [];
         foreach ($fields as $field => $column) {
-            $columns[$field] = $full ? new ColumnFull(
+            $columns[$field] = new Column(
                 $column['Field'],
                 $column['Type'],
                 $column['Collation'],
@@ -906,13 +896,6 @@ class DatabaseInterface
                 $column['Extra'],
                 $column['Privileges'],
                 $column['Comment'],
-            ) : new Column(
-                $column['Field'],
-                $column['Type'],
-                $column['Null'] === 'YES',
-                $column['Key'],
-                $column['Default'],
-                $column['Extra'],
             );
         }
 
@@ -932,7 +915,10 @@ class DatabaseInterface
         string $table,
         ConnectionType $connectionType = ConnectionType::User,
     ): array {
-        $sql = QueryGenerator::getColumnsSql($database, $table);
+        $sql = QueryGenerator::getColumnNamesAndTypes(
+            $this->quoteString($database, $connectionType),
+            $this->quoteString($table, $connectionType),
+        );
 
         $result = $this->tryQuery($sql, $connectionType, cacheAffectedRows: false);
 
@@ -941,7 +927,7 @@ class DatabaseInterface
         }
 
         // We only need the 'Field' column which contains the table's column names
-        return array_column($result->fetchAllAssoc(), 'Field');
+        return array_column($result->fetchAllAssoc(), 'COLUMN_NAME');
     }
 
     /**

@@ -134,7 +134,7 @@ final class FindReplaceController implements InvocableController
     private function loadTableInfo(): void
     {
         // Gets the list and number of columns
-        $columns = $this->dbi->getColumns(Current::$database, Current::$table, true);
+        $columns = $this->dbi->getColumns(Current::$database, Current::$table);
 
         foreach ($columns as $row) {
             // set column name

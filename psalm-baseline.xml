@@ -2359,9 +2359,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/CreateController.php">
-    <ImplicitToStringCast>
-      <code><![CDATA[Current::$database]]></code>
-    </ImplicitToStringCast>
     <MixedArgument>
       <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
@@ -2377,6 +2374,7 @@
       <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
       <code><![CDATA[$mimetype]]></code>
+      <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
@@ -2536,14 +2534,12 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/GetFieldController.php">
-    <ImplicitToStringCast>
-      <code><![CDATA[Current::$database]]></code>
-    </ImplicitToStringCast>
     <MixedArgument>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
     <PossiblyInvalidArgument>
+      <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
     </PossiblyInvalidArgument>
   </file>
@@ -4022,7 +4018,7 @@
      *   Visible?: string,
      *   Expression?: string|null
      * }>]]></code>
-      <code><![CDATA[array_column($result->fetchAllAssoc(), 'Field')]]></code>
+      <code><![CDATA[array_column($result->fetchAllAssoc(), 'COLUMN_NAME')]]></code>
       <code><![CDATA[list<string>]]></code>
     </MixedReturnTypeCoercion>
     <NullableReturnStatement>
@@ -12319,6 +12315,10 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <InvalidArgument>
+      <code><![CDATA['']]></code>
+      <code><![CDATA[false]]></code>
+    </InvalidArgument>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->selectedServer]]></code>
     </InvalidPropertyAssignmentValue>
@@ -12329,6 +12329,14 @@
       <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
     </MixedAssignment>
+    <NullArgument>
+      <code><![CDATA[null]]></code>
+    </NullArgument>
+    <TooFewArguments>
+      <code><![CDATA[new Column('cname', 'int', false, '', null, '')]]></code>
+      <code><![CDATA[new Column('cname', 'int', false, '', null, '')]]></code>
+      <code><![CDATA[new Column('cname', 'int', false, '', null, '')]]></code>
+    </TooFewArguments>
   </file>
   <file src="tests/unit/Plugins/Export/ExportTexytextTest.php">
     <DeprecatedMethod>

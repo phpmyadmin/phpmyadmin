@@ -178,7 +178,7 @@ class Tracker
         // Get data definition snapshot of table
 
         $columns = [];
-        foreach ($dbi->getColumns($dbName, $tableName, true) as $column) {
+        foreach ($dbi->getColumns($dbName, $tableName) as $column) {
             $columns[] = [
                 'Field' => $column->field,
                 'Type' => $column->type,

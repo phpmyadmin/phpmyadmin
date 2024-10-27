@@ -529,7 +529,7 @@ class Relation
         $comments = [];
 
         // MySQL native column comments
-        $columns = $this->dbi->getColumns($db, $table, true);
+        $columns = $this->dbi->getColumns($db, $table);
         foreach ($columns as $column) {
             if ($column->comment === '') {
                 continue;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\ColumnFull;
+use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
@@ -70,9 +70,9 @@ class NormalizationTest extends AbstractTestCase
         $dbi->expects(self::any())
             ->method('getColumns')
             ->willReturn([
-                'id' => new ColumnFull('id', 'integer', null, false, '', null, '', '', ''),
-                'col1' => new ColumnFull('col1', 'varchar(100)', null, false, '', null, '', '', ''),
-                'col2' => new ColumnFull('col2', 'DATETIME', null, false, '', null, '', '', ''),
+                'id' => new Column('id', 'integer', null, false, '', null, '', '', ''),
+                'col1' => new Column('col1', 'varchar(100)', null, false, '', null, '', '', ''),
+                'col2' => new Column('col2', 'DATETIME', null, false, '', null, '', '', ''),
             ]);
         $dbi->expects(self::any())
             ->method('getColumnNames')

@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use DateTimeImmutable;
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\ColumnFull;
+use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -115,7 +115,7 @@ class StructureController implements InvocableController
             ->getTable(Current::$database, Current::$table)
             ->getColumnsWithIndex(Index::UNIQUE | Index::INDEX | Index::SPATIAL | Index::FULLTEXT);
 
-        $fields = $this->dbi->getColumns(Current::$database, Current::$table, true);
+        $fields = $this->dbi->getColumns(Current::$database, Current::$table);
 
         $this->response->addHTML($this->displayStructure(
             $relationParameters,
@@ -132,7 +132,7 @@ class StructureController implements InvocableController
     /**
      * Displays the table structure ('show table' works correct since 3.23.03)
      *
-     * @param ColumnFull[]   $fields           Fields
+     * @param Column[]       $fields           Fields
      * @param (string|int)[] $columnsWithIndex Columns with index
      * @psalm-param non-empty-string $route
      */

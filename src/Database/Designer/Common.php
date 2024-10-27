@@ -83,16 +83,16 @@ class Common
 
         foreach ($designerTables as $designerTable) {
             $fieldsRs = $this->dbi->query(
-                QueryGenerator::getColumnsSql(
-                    $designerTable->getDatabaseName(),
-                    $designerTable->getTableName(),
+                QueryGenerator::getColumnNamesAndTypes(
+                    $this->dbi->quoteString($designerTable->getDatabaseName()),
+                    $this->dbi->quoteString($designerTable->getTableName()),
                 ),
             );
             /**
              * @var string $field
              * @var string $type
              */
-            foreach ($fieldsRs as ['Field' => $field, 'Type' => $type]) {
+            foreach ($fieldsRs as ['COLUMN_NAME' => $field, 'COLUMN_TYPE' => $type]) {
                 $tabColumn[$designerTable->getDbTableString()][] = new ColumnInfo($field, $type);
             }
         }
