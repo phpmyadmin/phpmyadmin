@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Column;
-use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -684,7 +683,7 @@ class ExportSqlTest extends AbstractTestCase
             ->method('getColumns')
             ->with('db', 'view')
             ->willReturn([
-                new ColumnFull(
+                new Column(
                     'fname',
                     'char',
                     'utf-8',
@@ -725,7 +724,7 @@ class ExportSqlTest extends AbstractTestCase
             ->method('getColumns')
             ->with('db', 'view')
             ->willReturn([
-                new ColumnFull(
+                new Column(
                     'fname',
                     'char',
                     'utf-8',

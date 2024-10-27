@@ -348,7 +348,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', 'view')
             ->willReturn($keys);
 
-        $column = new Column('column', '', false, '', null, '');
+        $column = new Column('column', '', null, false, '', null, '', '', '');
 
         $dbi->expects(self::once())
             ->method('getColumns')
@@ -402,7 +402,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', '')
             ->willReturn($keys);
 
-        $column = new Column('fieldname', '', false, '', null, '');
+        $column = new Column('fieldname', '', null, false, '', null, '', '', '');
         $dbi->expects(self::once())
             ->method('getColumns')
             ->with('database', '')
@@ -477,7 +477,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', '')
             ->willReturn($keys);
 
-        $column = new Column('fieldname', '', false, '', null, '');
+        $column = new Column('fieldname', '', null, false, '', null, '', '', '');
 
         $dbi->expects(self::once())
             ->method('getColumns')
@@ -526,7 +526,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', '')
             ->willReturn($keys);
 
-        $column = new Column('fieldname', '', false, '', null, '');
+        $column = new Column('fieldname', '', null, false, '', null, '', '', '');
 
         $dbi->expects(self::once())
             ->method('getColumns')
@@ -667,7 +667,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     {
         $method = new ReflectionMethod(ExportHtmlword::class, 'formatOneColumnDefinition');
 
-        $column = new Column('field', 'set(abc)enum123', true, 'PRI', null, '');
+        $column = new Column('field', 'set(abc)enum123', null, true, 'PRI', null, '', '', '');
 
         $uniqueKeys = ['field'];
 
@@ -678,7 +678,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             $method->invoke($this->object, $column, $uniqueKeys),
         );
 
-        $column = new Column('fields', '', false, 'COMP', 'def', '');
+        $column = new Column('fields', '', null, false, 'COMP', 'def', '', '', '');
 
         $uniqueKeys = ['field'];
 

@@ -71,7 +71,7 @@ class Normalization
         }
 
         $this->dbi->selectDb($db);
-        $columns = $this->dbi->getColumns($db, $table, true);
+        $columns = $this->dbi->getColumns($db, $table);
         $selectColHtml = '';
         foreach ($columns as $def) {
             $column = $def->field;

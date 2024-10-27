@@ -87,7 +87,7 @@ class StructureControllerTest extends AbstractTestCase
             new UserPreferences($this->dbi, new Relation($this->dbi), new Template()),
         );
         $pageSettings->init('TableStructure');
-        $fields = $this->dbi->getColumns(Current::$database, Current::$table, true);
+        $fields = $this->dbi->getColumns(Current::$database, Current::$table);
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['route' => '/table/structure', 'db' => 'test_db', 'table' => 'test_table']);

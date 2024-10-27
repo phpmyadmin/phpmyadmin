@@ -15,14 +15,14 @@ class GeneratorTest extends AbstractTestCase
     {
         self::assertSame(
             'SHOW  COLUMNS FROM `mydb`.`mytable`',
-            Generator::getColumnsSql(
+            Generator::getColumns(
                 'mydb',
                 'mytable',
             ),
         );
         self::assertSame(
             'SHOW  COLUMNS FROM `mydb`.`mytable` LIKE \'_idcolumn\'',
-            Generator::getColumnsSql(
+            Generator::getColumns(
                 'mydb',
                 'mytable',
                 "'_idcolumn'",
@@ -30,20 +30,18 @@ class GeneratorTest extends AbstractTestCase
         );
         self::assertSame(
             'SHOW FULL COLUMNS FROM `mydb`.`mytable`',
-            Generator::getColumnsSql(
+            Generator::getColumns(
                 'mydb',
                 'mytable',
                 null,
-                true,
             ),
         );
         self::assertSame(
             'SHOW FULL COLUMNS FROM `mydb`.`mytable` LIKE \'_idcolumn\'',
-            Generator::getColumnsSql(
+            Generator::getColumns(
                 'mydb',
                 'mytable',
                 "'_idcolumn'",
-                true,
             ),
         );
     }

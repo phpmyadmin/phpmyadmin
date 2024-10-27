@@ -133,21 +133,42 @@ class Generator
 
     /**
      * Returns SQL query for fetching columns for a table
-     *
-     * @param string      $database     name of database
-     * @param string      $table        name of table to retrieve columns from
-     * @param string|null $quotedColumn name of column, null to show all columns
-     * @param bool        $full         whether to return full info or only column names
      */
-    public static function getColumnsSql(
-        string $database,
-        string $table,
+    public static function getColumns(
+        string $quotedDatabase,
+        string $quotedTable,
         string|null $quotedColumn = null,
-        bool $full = false,
     ): string {
-        return 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
-            . Util::backquote($database) . '.' . Util::backquote($table)
-            . ($quotedColumn !== null ? ' LIKE ' . $quotedColumn : '');
+        return 'SELECT'
+            . ' `COLUMN_NAME` AS `Field`,'
+            . ' `COLUMN_TYPE` AS `Type`,'
+            . ' `COLLATION_NAME` AS `Collation`,'
+            . ' `IS_NULLABLE` AS `Null`,'
+            . ' `COLUMN_KEY` AS `Key`,'
+            . ' `COLUMN_DEFAULT` AS `Default`,'
+            . ' `EXTRA` AS `Extra`,'
+            . ' `PRIVILEGES` AS `Privileges`,'
+            . ' `COLUMN_COMMENT` AS `Comment`'
+            . ' FROM `information_schema`.`COLUMNS`'
+            . ' WHERE `TABLE_SCHEMA` ' . Util::getCollateForIS()
+            . ' = ' . $quotedDatabase
+            . ' AND `TABLE_NAME` ' . Util::getCollateForIS()
+            . ' = ' . $quotedTable
+            . ($quotedColumn !== null ? ' AND `COLUMN_NAME` = ' . $quotedColumn : '');
+    }
+
+    public static function getColumnNamesAndTypes(
+        string $quotedDatabase,
+        string $quotedTable,
+    ): string {
+        return 'SELECT'
+            . ' `COLUMN_NAME`,'
+            . ' `COLUMN_TYPE`'
+            . ' FROM `information_schema`.`COLUMNS`'
+            . ' WHERE `TABLE_SCHEMA` ' . Util::getCollateForIS()
+            . ' = ' . $quotedDatabase
+            . ' AND `TABLE_NAME` ' . Util::getCollateForIS()
+            . ' = ' . $quotedTable;
     }
 
     public static function getInformationSchemaRoutinesRequest(

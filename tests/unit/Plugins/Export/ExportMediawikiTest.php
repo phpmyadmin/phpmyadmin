@@ -229,8 +229,8 @@ class ExportMediawikiTest extends AbstractTestCase
             ->getMock();
 
         $columns = [
-            new Column('name1', 'set(abc)enum123', true, 'PRI', '', ''),
-            new Column('fields', '', false, 'COMP', 'def', 'ext'),
+            new Column('name1', 'set(abc)enum123', null, true, 'PRI', '', '', '', ''),
+            new Column('fields', '', null, false, 'COMP', 'def', 'ext', '', ''),
         ];
 
         $dbi->expects(self::once())
