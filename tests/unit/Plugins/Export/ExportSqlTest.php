@@ -652,7 +652,7 @@ class ExportSqlTest extends AbstractTestCase
         $dbi->expects(self::once())
             ->method('getColumns')
             ->with('db', 'view')
-            ->willReturn([new Column('cname', 'int', false, '', null, '')]);
+            ->willReturn([new Column('cname', 'int', null, false, '', null, '', '', '')]);
 
         DatabaseInterface::$instance = $dbi;
 

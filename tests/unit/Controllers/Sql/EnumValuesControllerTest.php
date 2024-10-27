@@ -38,7 +38,14 @@ class EnumValuesControllerTest extends AbstractTestCase
 
     public function testGetEnumValuesError(): void
     {
-        $this->dummyDbi->addResult('SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'', false);
+        $this->dummyDbi->addResult('SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`,'
+            . ' `COLLATION_NAME` AS `Collation`,'
+            . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+            . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+            . ' `COLUMN_COMMENT` AS `Comment`'
+            . ' FROM `information_schema`.`COLUMNS`'
+            . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'cvv\' AND `TABLE_NAME`'
+            . ' COLLATE utf8_bin = \'enums\' AND `COLUMN_NAME` = \'set\'', false);
         $this->dummyDbi->addResult('SHOW INDEXES FROM `cvv`.`enums`', false);
 
         Current::$database = 'cvv';
@@ -77,18 +84,27 @@ class EnumValuesControllerTest extends AbstractTestCase
     public function testGetEnumValuesSuccess(): void
     {
         $this->dummyDbi->addResult(
-            'SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'',
+            'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+                . ' `COLUMN_COMMENT` AS `Comment`'
+                . ' FROM `information_schema`.`COLUMNS`'
+                . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'cvv\' AND `TABLE_NAME` COLLATE utf8_bin = \'enums\''
+                . ' AND `COLUMN_NAME` = \'set\'',
             [
                 [
                     'set',
                     "set('<script>alert(\"ok\")</script>','a&b','b&c','vrai&amp','','漢字','''','\\\\','\"\\\\''')",
+                    null,
                     'No',
                     '',
                     'NULL',
                     '',
+                    '',
+                    '',
                 ],
             ],
-            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+            ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
         );
         $this->dummyDbi->addResult('SHOW INDEXES FROM `cvv`.`enums`', []);
 

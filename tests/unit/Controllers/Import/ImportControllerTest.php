@@ -79,7 +79,13 @@ class ImportControllerTest extends AbstractTestCase
         );
 
         $this->dummyDbi->addResult(
-            'SHOW FULL COLUMNS FROM `pma_test`.`table1`',
+            'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+                . ' `COLUMN_COMMENT` AS `Comment`'
+                . ' FROM `information_schema`.`COLUMNS`'
+                . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'pma_test\' AND'
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'table1\'',
             [],
         );
 

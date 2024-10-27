@@ -288,14 +288,12 @@ class ExportTexytextTest extends AbstractTestCase
             ->method('fetchValue')
             ->willReturn('SELECT a FROM b');
 
-        $column = new Column('fname', '', null, false, '', null, '', '', '');
         $columnFull = new Column('fname', '', null, false, '', null, '', '', 'comm');
 
         $dbi->expects(self::exactly(2))
             ->method('getColumns')
             ->willReturnMap([
-                ['db', 'table', false, ConnectionType::User, [$column]],
-                ['db', 'table', true, ConnectionType::User, [$columnFull]],
+                ['db', 'table', ConnectionType::User, [$columnFull]],
             ]);
 
         DatabaseInterface::$instance = $dbi;
@@ -308,7 +306,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $this->object->expects(self::exactly(1))
             ->method('formatOneColumnDefinition')
-            ->with($column, ['cname'])
+            ->with($columnFull, ['cname'])
             ->willReturn('1');
 
         $relationParameters = RelationParameters::fromArray([

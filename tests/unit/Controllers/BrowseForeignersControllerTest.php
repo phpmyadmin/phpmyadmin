@@ -40,6 +40,7 @@ final class BrowseForeignersControllerTest extends AbstractTestCase
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SELECT @@lower_case_table_names', [['0']]);
         $dbiDummy->addResult(
             'SHOW CREATE TABLE `sakila`.`film_actor`',
             [
@@ -66,14 +67,21 @@ final class BrowseForeignersControllerTest extends AbstractTestCase
         );
         $dbiDummy->addResult('SELECT `actor_id` FROM .`actor` LIMIT 100', [['71'], ['173'], ['125']], ['actor_id']);
         $dbiDummy->addResult(
-            'SHOW COLUMNS FROM .`actor`',
+            'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`,'
+                . ' `COLLATION_NAME` AS `Collation`,'
+                . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+                . ' `COLUMN_COMMENT` AS `Comment`'
+                . ' FROM `information_schema`.`COLUMNS`'
+                . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'\' AND `TABLE_NAME`'
+                . ' COLLATE utf8_bin = \'actor\'',
             [
-                ['actor_id', 'smallint(5) unsigned', 'NO', 'PRI', null, 'auto_increment' ],
-                ['first_name', 'varchar(45)', 'NO', '', null, '' ],
-                ['last_name', 'varchar(45)', 'NO', 'MUL', null, '' ],
-                ['last_update', 'timestamp', 'NO', '', 'current_timestamp()', 'on update current_timestamp()'],
+                ['actor_id', 'smallint(5) unsigned', null, 'NO', 'PRI', null, 'auto_increment', '', ''],
+                ['first_name', 'varchar(45)', null, 'NO', '', null, '', '', ''],
+                ['last_name', 'varchar(45)', null, 'NO', 'MUL', null, '', '', ''],
+                ['last_update', 'timestamp', null, 'NO', '', 'current_timestamp()', 'on update current_timestamp()', '', ''],
             ],
-            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+            ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
         );
         $dbiDummy->addResult('SHOW INDEXES FROM .`actor`', []);
         // phpcs:enable
