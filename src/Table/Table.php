@@ -939,16 +939,16 @@ class Table implements Stringable
      *
      * e.g. index(col1, col2) would return col1, col2
      *
-     * @param string[] $indexed    column data
-     * @param bool     $backquoted whether to quote name with backticks ``
-     * @param bool     $fullName   whether to include full name of the table as a prefix
+     * @param string[] $columnNames
+     * @param bool     $backquoted  whether to quote name with backticks ``
+     * @param bool     $fullName    whether to include full name of the table as a prefix
      *
      * @return string[]
      */
-    private function formatColumns(array $indexed, bool $backquoted, bool $fullName): array
+    private function formatColumns(array $columnNames, bool $backquoted, bool $fullName): array
     {
         $return = [];
-        foreach ($indexed as $column) {
+        foreach ($columnNames as $column) {
             $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
                 . ($backquoted ? Util::backquote($column) : $column);
         }
@@ -974,6 +974,7 @@ class Table implements Stringable
             $this->getDbName(),
             $this->getName(),
         );
+        /** @var string[] $indexed */
         $indexed = $this->dbi->fetchResult($sql, 'Column_name', 'Column_name');
 
         return $this->formatColumns($indexed, $backquoted, $fullName);
@@ -991,10 +992,9 @@ class Table implements Stringable
      */
     public function getColumns(bool $backquoted = true, bool $fullName = true): array
     {
-        $sql = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
-        $indexed = $this->dbi->fetchResult($sql, 'Field', 'Field');
+        $columnNames = $this->dbi->getColumnNames($this->dbName, $this->name);
 
-        return $this->formatColumns($indexed, $backquoted, $fullName);
+        return $this->formatColumns($columnNames, $backquoted, $fullName);
     }
 
     /**

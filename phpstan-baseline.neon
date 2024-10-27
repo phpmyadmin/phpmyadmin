@@ -15646,12 +15646,6 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: '#^Parameter \#1 \$indexed of method PhpMyAdmin\\Table\\Table\:\:formatColumns\(\) expects array\<string\>, array\<mixed\> given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Table/Table.php
-
-		-
 			message: '#^Parameter \#1 \$string of function substr expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
