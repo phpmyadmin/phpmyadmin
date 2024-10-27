@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-10-20 00:25+0000\n"
+"POT-Creation-Date: 2024-10-27 00:25+0000\n"
 "PO-Revision-Date: 2024-05-02 18:18+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2950,7 +2950,7 @@ msgstr "Fim"
 #: resources/templates/display/results/table.twig:96
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:2
-#: src/BrowseForeigners.php:293
+#: src/BrowseForeigners.php:287
 #: src/Controllers/JavaScriptMessagesController.php:583
 msgid "Show all"
 msgstr "Mostrar tudo"
@@ -3705,7 +3705,7 @@ msgstr "O Índice %s foi eliminado."
 msgid "Taking you to the target site."
 msgstr "Indo para o site alvo."
 
-#: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:279
+#: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
 #: src/Language.php:178 src/Pdf.php:84
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
@@ -11985,7 +11985,7 @@ msgstr "A tabela %1$s foi alterada com sucesso."
 msgid "Unexpected parameter value."
 msgstr "Caracteres inesperados na linha %s."
 
-#: src/Controllers/Database/CentralColumnsController.php:149
+#: src/Controllers/Database/CentralColumnsController.php:143
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "A mostrar registos de %1$s - %2$s."

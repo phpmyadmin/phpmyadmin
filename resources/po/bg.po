@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-10-20 00:25+0000\n"
+"POT-Creation-Date: 2024-10-27 00:25+0000\n"
 "PO-Revision-Date: 2023-04-04 08:37+0000\n"
 "Last-Translator: 109247019824 <stoyan@gmx.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3014,7 +3014,7 @@ msgstr "Последна"
 #: resources/templates/display/results/table.twig:96
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:2
-#: src/BrowseForeigners.php:293
+#: src/BrowseForeigners.php:287
 #: src/Controllers/JavaScriptMessagesController.php:583
 msgid "Show all"
 msgstr "Показване на всички"
@@ -3774,7 +3774,7 @@ msgstr "Индекс %s беше изтрит."
 msgid "Taking you to the target site."
 msgstr "Към целевата страница."
 
-#: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:279
+#: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
 #: src/Language.php:178 src/Pdf.php:84
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
@@ -11860,7 +11860,7 @@ msgstr "Таблицата %1$s е променена."
 msgid "Unexpected parameter value."
 msgstr "Неочаквани знаци на ред %s."
 
-#: src/Controllers/Database/CentralColumnsController.php:149
+#: src/Controllers/Database/CentralColumnsController.php:143
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Показване на редове %1$s - %2$s."

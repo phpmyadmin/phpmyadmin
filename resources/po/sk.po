@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-10-20 00:25+0000\n"
+"POT-Creation-Date: 2024-10-27 00:25+0000\n"
 "PO-Revision-Date: 2023-10-24 11:03+0000\n"
 "Last-Translator: Pavol Linet <linet.pavol@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3002,7 +3002,7 @@ msgstr "Koniec"
 #: resources/templates/display/results/table.twig:96
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:2
-#: src/BrowseForeigners.php:293
+#: src/BrowseForeigners.php:287
 #: src/Controllers/JavaScriptMessagesController.php:583
 msgid "Show all"
 msgstr "Zobraziť všetko"
@@ -3773,7 +3773,7 @@ msgstr "Index pre %s bol odstránený."
 msgid "Taking you to the target site."
 msgstr "Vezmeme vás na ďalší krok…"
 
-#: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:279
+#: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
 #: src/Language.php:178 src/Pdf.php:84
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
@@ -11864,7 +11864,7 @@ msgstr "Tabuľka %1$s bola úspešné upravená."
 msgid "Unexpected parameter value."
 msgstr "Neočakávaný znak."
 
-#: src/Controllers/Database/CentralColumnsController.php:149
+#: src/Controllers/Database/CentralColumnsController.php:143
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Zobrazované riadky %1$s - %2$s."
