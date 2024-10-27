@@ -1131,6 +1131,8 @@ class InsertEdit
 
     /**
      * Get value part if a function was specified
+     *
+     * @psalm-return non-empty-string
      */
     private function formatAsSqlFunction(
         EditField $editField,
@@ -1929,6 +1931,16 @@ class InsertEdit
         return $htmlOutput . '  </tbody>'
             . '</table></div><br>'
             . '<div class="clearfloat"></div>';
+    }
+
+    /** @return array<string|null> */
+    public function getColumnDefaultValues(string $database, string $table): array
+    {
+        $sql = 'SELECT COLUMN_NAME, COLUMN_DEFAULT FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '
+            . $this->dbi->quoteString($table)
+            . ' AND TABLE_SCHEMA = ' . $this->dbi->quoteString($database);
+
+        return $this->dbi->query($sql)->fetchAllKeyPair();
     }
 
     /**

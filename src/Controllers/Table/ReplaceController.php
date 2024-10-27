@@ -104,6 +104,7 @@ final class ReplaceController implements InvocableController
         $valueSets = [];
 
         $mimeMap = $this->transformations->getMime(Current::$database, Current::$table) ?? [];
+        $columnsDefaultValues = $this->insertEdit->getColumnDefaultValues(Current::$database, Current::$table);
 
         $queryFields = [];
         $insertErrors = [];
@@ -211,7 +212,12 @@ final class ReplaceController implements InvocableController
 
                 if (! isset($multiEditVirtual[$key])) {
                     if ($isInsert) {
-                        $queryPart = $this->insertEdit->getQueryValueForInsert($editField, $usingKey, $whereClause);
+                        if ($editField->value === $columnsDefaultValues[$columnName]) {
+                            $queryPart = $editField->value;
+                        } else {
+                            $queryPart = $this->insertEdit->getQueryValueForInsert($editField, $usingKey, $whereClause);
+                        }
+
                         if ($queryPart !== '' && $valueSets === []) {
                             // first inserted row so prepare the list of fields
                             $queryFields[] = Util::backquote($editField->columnName);
