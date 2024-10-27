@@ -20035,33 +20035,9 @@ parameters:
 			path: tests/unit/Plugins/Export/ExportSqlTest.php
 
 		-
-			message: '#^Class PhpMyAdmin\\Column constructor invoked with 6 parameters, 9 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: tests/unit/Plugins/Export/ExportSqlTest.php
-
-		-
 			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
-			path: tests/unit/Plugins/Export/ExportSqlTest.php
-
-		-
-			message: '#^Parameter \#3 \$collation of class PhpMyAdmin\\Column constructor expects string\|null, false given\.$#'
-			identifier: argument.type
-			count: 1
-			path: tests/unit/Plugins/Export/ExportSqlTest.php
-
-		-
-			message: '#^Parameter \#4 \$isNull of class PhpMyAdmin\\Column constructor expects bool, string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: tests/unit/Plugins/Export/ExportSqlTest.php
-
-		-
-			message: '#^Parameter \#5 \$key of class PhpMyAdmin\\Column constructor expects string, null given\.$#'
-			identifier: argument.type
-			count: 1
 			path: tests/unit/Plugins/Export/ExportSqlTest.php
 
 		-

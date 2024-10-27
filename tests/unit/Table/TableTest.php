@@ -267,6 +267,16 @@ class TableTest extends AbstractTestCase
         $dbi->expects(self::any())->method('getCache')
             ->willReturn($cache);
 
+        $dbi->expects(self::any())->method('getColumnNames')
+            ->willReturnMap([
+                [
+                    'PMA',
+                    'PMA_BookMark',
+                    ConnectionType::User,
+                    ['column1', 'column3', 'column5', 'ACCESSIBLE', 'ADD', 'ALL'],
+                ],
+            ]);
+
         $databases = [];
         $databaseName = 'PMA';
         $databases[$databaseName]['SCHEMA_TABLES'] = 1;

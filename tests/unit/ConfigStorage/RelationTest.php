@@ -57,7 +57,16 @@ class RelationTest extends AbstractTestCase
             $relation->getDisplayField($db, $table),
         );
 
-        $dummyDbi->addResult('SHOW COLUMNS FROM `information_schema`.`PMA`', []);
+        $dummyDbi->addResult(
+            'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+                . ' `COLUMN_COMMENT` AS `Comment`'
+                . ' FROM `information_schema`.`COLUMNS`'
+                . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'information_schema\' AND'
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'PMA\'',
+            [],
+        );
 
         $db = 'information_schema';
         $table = 'PMA';
@@ -92,7 +101,16 @@ class RelationTest extends AbstractTestCase
             . ' WHERE `db_name` = \'information_schema\' AND `table_name` = \'NON_EXISTING_TABLE\'',
             [],
         );
-        $dummyDbi->addResult('SHOW COLUMNS FROM `information_schema`.`NON_EXISTING_TABLE`', []);
+        $dummyDbi->addResult(
+            'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+                . ' `COLUMN_COMMENT` AS `Comment`'
+                . ' FROM `information_schema`.`COLUMNS`'
+                . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'information_schema\' AND'
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'NON_EXISTING_TABLE\'',
+            [],
+        );
         $db = 'information_schema';
         $table = 'NON_EXISTING_TABLE';
         self::assertSame(

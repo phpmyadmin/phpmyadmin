@@ -12311,10 +12311,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArgument>
-      <code><![CDATA['']]></code>
-      <code><![CDATA[false]]></code>
-    </InvalidArgument>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->selectedServer]]></code>
     </InvalidPropertyAssignmentValue>
@@ -12325,14 +12321,6 @@
       <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
     </MixedAssignment>
-    <NullArgument>
-      <code><![CDATA[null]]></code>
-    </NullArgument>
-    <TooFewArguments>
-      <code><![CDATA[new Column('cname', 'int', false, '', null, '')]]></code>
-      <code><![CDATA[new Column('cname', 'int', false, '', null, '')]]></code>
-      <code><![CDATA[new Column('cname', 'int', false, '', null, '')]]></code>
-    </TooFewArguments>
   </file>
   <file src="tests/unit/Plugins/Export/ExportTexytextTest.php">
     <DeprecatedMethod>

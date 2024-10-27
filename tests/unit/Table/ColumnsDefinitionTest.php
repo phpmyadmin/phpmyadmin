@@ -33,7 +33,13 @@ class ColumnsDefinitionTest extends AbstractTestCase
         // phpcs:disable Generic.Files.LineLength.TooLong
         $columnMeta = ['Field' => 'actor_id', 'Type' => 'smallint(5) unsigned', 'Collation' => null, 'Null' => 'NO', 'Key' => 'PRI', 'Default' => null, 'Extra' => 'auto_increment', 'Privileges' => 'select,insert,update,references', 'Comment' => ''];
         $dummyDbi->addResult(
-            'SHOW FULL COLUMNS FROM `sakila`.`actor`',
+            'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+                . ' `COLUMN_COMMENT` AS `Comment`'
+                . ' FROM `information_schema`.`COLUMNS`'
+                . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'sakila\' AND'
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'actor\'',
             [
                 ['actor_id', 'smallint(5) unsigned', null, 'NO', 'PRI', null, 'auto_increment', 'select,insert,update,references', ''],
                 ['first_name', 'varchar(45)', 'utf8mb4_general_ci', 'NO', '', null, '', 'select,insert,update,references', ''],
