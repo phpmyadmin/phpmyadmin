@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-11 21:28-0300\n"
-"PO-Revision-Date: 2024-10-29 18:19+0000\n"
+"PO-Revision-Date: 2024-10-29 18:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/5-2/ug/"
 ">\n"
@@ -10922,7 +10922,7 @@ msgstr "ھەممىنى يىمىرىڭ"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/classes/Navigation/NodeFactory.php:43
-#, php-format
+#, fuzzy, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "ئىناۋەتسىز سىنىپ ئىسمى \"% 1 $ s\" ، سۈكۈتتىكى \"تۈگۈن\" نى ئىشلىتىپ"
 
