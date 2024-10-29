@@ -641,8 +641,6 @@ final class ImportController implements InvocableController
                         false,
                         $_SESSION['Import_message']['go_back_url'],
                     );
-
-                    return $this->response->response();
                 }
 
                 if (Current::$table != $tableFromSql && $tableFromSql !== '') {

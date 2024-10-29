@@ -180,10 +180,7 @@ class DatabaseInterface implements DbalInterface
         $result = $this->tryQuery($query, $connectionType, $options, $cacheAffectedRows);
 
         if (! $result) {
-            // The following statement will exit
             Generator::mysqlDie($this->getError($connectionType), $query);
-
-            ResponseRenderer::getInstance()->callExit();
         }
 
         return $result;

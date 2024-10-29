@@ -679,6 +679,8 @@ class Generator
      * @param string $backUrl       URL for the "back" link (full path is not required).
      * @param bool   $exit          Whether execution should be stopped or the error message should be returned.
      *
+     * @psalm-return ($exit is true ? never : string|null)
+     *
      * @global string $table The current table.
      * @global string $db    The current database.
      */
