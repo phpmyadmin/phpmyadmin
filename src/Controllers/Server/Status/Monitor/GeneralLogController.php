@@ -42,10 +42,10 @@ final class GeneralLogController extends AbstractController implements Invocable
         }
 
         $data = $this->monitor->getJsonForLogDataTypeGeneral(
-            (int) $request->getParsedBodyParam('time_start'),
-            (int) $request->getParsedBodyParam('time_end'),
-            (bool) $request->getParsedBodyParam('limitTypes'),
-            (bool) $request->getParsedBodyParam('removeVariables'),
+            (int) $request->getParsedBodyParamAsStringOrNull('time_start'),
+            (int) $request->getParsedBodyParamAsStringOrNull('time_end'),
+            (bool) $request->getParsedBodyParamAsStringOrNull('limitTypes'),
+            (bool) $request->getParsedBodyParamAsStringOrNull('removeVariables'),
         );
         if ($data === null) {
             $this->response->setRequestStatus(false);

@@ -24,7 +24,7 @@ final class LoadController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $templateId = (int) $request->getParsedBodyParam('templateId');
+        $templateId = (int) $request->getParsedBodyParamAsStringOrNull('templateId');
 
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
         if ($exportTemplatesFeature === null) {

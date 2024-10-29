@@ -64,21 +64,21 @@ final class UserGroupsController implements InvocableController
          * Add a new user group
          */
         if ($request->hasBodyParam('addUserGroupSubmit')) {
-            UserGroups::edit($configurableMenusFeature, $request->getParsedBodyParam('userGroup'), true);
+            UserGroups::edit($configurableMenusFeature, $request->getParsedBodyParamAsString('userGroup'), true);
         }
 
         /**
          * Update a user group
          */
         if ($request->hasBodyParam('editUserGroupSubmit')) {
-            UserGroups::edit($configurableMenusFeature, $request->getParsedBodyParam('userGroup'));
+            UserGroups::edit($configurableMenusFeature, $request->getParsedBodyParamAsString('userGroup'));
         }
 
         if ($request->hasBodyParam('viewUsers')) {
             // Display users belonging to a user group
             $this->response->addHTML(UserGroups::getHtmlForListingUsersofAGroup(
                 $configurableMenusFeature,
-                $request->getParsedBodyParam('userGroup'),
+                $request->getParsedBodyParamAsString('userGroup'),
             ));
         }
 
@@ -89,7 +89,7 @@ final class UserGroupsController implements InvocableController
             // Display edit user group dialog
             $this->response->addHTML(UserGroups::getHtmlToEditUserGroup(
                 $configurableMenusFeature,
-                $request->getParsedBodyParam('userGroup'),
+                $request->getParsedBodyParamAsStringOrNull('userGroup'),
             ));
         } else {
             // Display user groups table

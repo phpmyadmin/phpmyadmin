@@ -101,12 +101,10 @@ final class TrackingController implements InvocableController
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/tracking');
 
-        /** @var string $versionParam */
-        $versionParam = $request->getParsedBodyParam('version');
-        /** @var string $tableParam */
-        $tableParam = $request->getParsedBodyParam('table');
+        $versionParam = $request->getParsedBodyParamAsString('version', '');
+        $tableParam = $request->getParsedBodyParamAsString('table', '');
 
-        $logType = LogType::tryFrom((string) $request->getParsedBodyParam('log_type')) ?? LogType::SchemaAndData;
+        $logType = LogType::tryFrom($request->getParsedBodyParamAsString('log_type', '')) ?? LogType::SchemaAndData;
 
         $message = '';
         $sqlDump = '';
@@ -127,8 +125,7 @@ final class TrackingController implements InvocableController
             );
             $dateTo = $this->validateDateTimeParam($request->getParsedBodyParam('date_to', $trackedData->dateTo));
 
-            /** @var string $users */
-            $users = $request->getParsedBodyParam('users', '*');
+            $users = $request->getParsedBodyParamAsString('users', '*');
 
             $filterUsers = array_map(trim(...), explode(',', $users));
 
@@ -162,7 +159,7 @@ final class TrackingController implements InvocableController
                     $versionParam,
                     $trackedData->ddlog,
                     TrackedDataType::DDL,
-                    (int) $request->getParsedBodyParam('delete_ddlog'),
+                    (int) $request->getParsedBodyParamAsStringOrNull('delete_ddlog'),
                 );
                 // After deletion reload data from the database
                 $trackedData = $this->tracking->getTrackedData(Current::$database, Current::$table, $versionParam);
@@ -173,7 +170,7 @@ final class TrackingController implements InvocableController
                     $versionParam,
                     $trackedData->dmlog,
                     TrackedDataType::DML,
-                    (int) $request->getParsedBodyParam('delete_dmlog'),
+                    (int) $request->getParsedBodyParamAsStringOrNull('delete_dmlog'),
                 );
                 // After deletion reload data from the database
                 $trackedData = $this->tracking->getTrackedData(Current::$database, Current::$table, $versionParam);
@@ -237,8 +234,7 @@ final class TrackingController implements InvocableController
         }
 
         if ($request->hasBodyParam('snapshot')) {
-            /** @var string $db */
-            $db = $request->getParsedBodyParam('db');
+            $db = $request->getParsedBodyParamAsString('db');
             $schemaSnapshot = $this->tracking->getHtmlForSchemaSnapshot(
                 $db,
                 $tableParam,

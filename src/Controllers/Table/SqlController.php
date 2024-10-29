@@ -92,7 +92,7 @@ class SqlController implements InvocableController
          */
         $GLOBALS['goto'] = Url::getFromRoute('/table/sql');
         $GLOBALS['back'] = Url::getFromRoute('/table/sql');
-        $delimiter = $request->getParsedBodyParam('delimiter', ';');
+        $delimiter = $request->getParsedBodyParamAsString('delimiter', ';');
 
         $this->response->addHTML($this->sqlQueryForm->getHtml(
             Current::$database,

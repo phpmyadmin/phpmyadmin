@@ -165,7 +165,7 @@ final class StructureController implements InvocableController
             ]);
         }
 
-        $this->replicationInfo->load($request->getParsedBodyParam('primary_connection'));
+        $this->replicationInfo->load($request->getParsedBodyParamAsStringOrNull('primary_connection'));
         $replicaInfo = $this->replicationInfo->getReplicaInfo();
 
         $this->pageSettings->init('DbStructure');

@@ -41,12 +41,9 @@ final class ErrorReportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        /** @var string $exceptionType */
-        $exceptionType = $request->getParsedBodyParam('exception_type', '');
-        /** @var string|null $automatic */
-        $automatic = $request->getParsedBodyParam('automatic');
-        /** @var string|null $alwaysSend */
-        $alwaysSend = $request->getParsedBodyParam('always_send');
+        $exceptionType = $request->getParsedBodyParamAsString('exception_type', '');
+        $automatic = $request->getParsedBodyParamAsStringOrNull('automatic');
+        $alwaysSend = $request->getParsedBodyParamAsStringOrNull('always_send');
 
         if (! in_array($exceptionType, ['js', 'php'], true)) {
             return $this->response->response();

@@ -90,7 +90,7 @@ final class DatabasesController implements InvocableController
         }
 
         $replicationInfo = new ReplicationInfo($this->dbi);
-        $replicationInfo->load($request->getParsedBodyParam('primary_connection'));
+        $replicationInfo->load($request->getParsedBodyParamAsStringOrNull('primary_connection'));
 
         $primaryInfo = $replicationInfo->getPrimaryInfo();
         $replicaInfo = $replicationInfo->getReplicaInfo();

@@ -12,8 +12,6 @@ use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 
-use function is_string;
-
 final class ThemeSetController implements InvocableController
 {
     public function __construct(
@@ -25,8 +23,8 @@ final class ThemeSetController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $theme = $request->getParsedBodyParam('set_theme');
-        if (! Config::getInstance()->settings['ThemeManager'] || ! is_string($theme) || $theme === '') {
+        $theme = $request->getParsedBodyParamAsString('set_theme');
+        if (! Config::getInstance()->settings['ThemeManager'] || $theme === '') {
             if ($request->isAjax()) {
                 $this->response->addJSON('themeColorMode', '');
 
@@ -40,9 +38,8 @@ final class ThemeSetController implements InvocableController
 
         $this->themeManager->setActiveTheme($theme);
 
-        /** @var mixed $themeColorMode */
-        $themeColorMode = $request->getParsedBodyParam('themeColorMode');
-        if (is_string($themeColorMode) && $themeColorMode !== '') {
+        $themeColorMode = $request->getParsedBodyParamAsString('themeColorMode');
+        if ($themeColorMode !== '') {
             $this->themeManager->theme->setColorMode($themeColorMode);
         }
 

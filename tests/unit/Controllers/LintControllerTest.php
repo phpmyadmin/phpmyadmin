@@ -8,6 +8,7 @@ use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -95,13 +96,12 @@ final class LintControllerTest extends AbstractTestCase
         ]);
         self::assertNotFalse($expectedJson);
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('isAjax')->willReturn(true);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['sql_query', '', 'SELECT * FROM `actor` WHEREE `actor_id` = 1'],
-            ['options', null, null],
-        ]);
-
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'ajax_request' => '1',
+                'sql_query' => 'SELECT * FROM `actor` WHEREE `actor_id` = 1',
+                'options' => null,
+            ]);
         $response = $this->getLintController()($request);
 
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());

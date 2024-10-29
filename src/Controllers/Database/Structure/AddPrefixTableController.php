@@ -31,7 +31,7 @@ final class AddPrefixTableController implements InvocableController
         $this->dbi->selectDb(Current::$database);
 
         foreach ($selected as $selectedValue) {
-            $newTableName = $request->getParsedBodyParam('add_prefix', '') . $selectedValue;
+            $newTableName = $request->getParsedBodyParamAsString('add_prefix', '') . $selectedValue;
             $aQuery = 'ALTER TABLE ' . Util::backquote($selectedValue) . ' RENAME ' . Util::backquote($newTableName);
 
             $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";

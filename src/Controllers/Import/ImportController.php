@@ -29,7 +29,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 use Throwable;
-use Webmozart\Assert\Assert;
 
 use function __;
 use function _ngettext;
@@ -71,14 +70,14 @@ final class ImportController implements InvocableController
         $GLOBALS['error'] ??= null;
         $GLOBALS['result'] ??= null;
 
-        ImportSettings::$charsetOfFile = (string) $request->getParsedBodyParam('charset_of_file');
-        $format = $request->getParsedBodyParam('format', '');
-        ImportSettings::$importType = (string) $request->getParsedBodyParam('import_type');
+        ImportSettings::$charsetOfFile = $request->getParsedBodyParamAsString('charset_of_file', '');
+        $format = $request->getParsedBodyParamAsString('format', '');
+        ImportSettings::$importType = $request->getParsedBodyParamAsString('import_type', '');
         $GLOBALS['is_js_confirmed'] = $request->getParsedBodyParam('is_js_confirmed');
         $GLOBALS['message_to_show'] = $request->getParsedBodyParam('message_to_show');
         $GLOBALS['noplugin'] = $request->getParsedBodyParam('noplugin');
-        ImportSettings::$skipQueries = (int) $request->getParsedBodyParam('skip_queries');
-        ImportSettings::$localImportFile = (string) $request->getParsedBodyParam('local_import_file');
+        ImportSettings::$skipQueries = (int) $request->getParsedBodyParamAsStringOrNull('skip_queries');
+        ImportSettings::$localImportFile = $request->getParsedBodyParamAsString('local_import_file', '');
         $GLOBALS['show_as_php'] = $request->getParsedBodyParam('show_as_php');
 
         // reset import messages for ajax request
@@ -189,7 +188,6 @@ final class ImportController implements InvocableController
             $this->response->addJSON('console_message_id', $consoleMessageId);
         }
 
-        Assert::string($format);
         $importFormat = ImportFormat::tryFrom($format);
         if ($importFormat === null) {
             $this->response->setRequestStatus(false);
@@ -262,8 +260,8 @@ final class ImportController implements InvocableController
         $GLOBALS['result'] = false;
 
         // Bookmark Support: get a query back from bookmark if required
-        $idBookmark = (int) $request->getParsedBodyParam('id_bookmark');
-        $actionBookmark = (int) $request->getParsedBodyParam('action_bookmark');
+        $idBookmark = (int) $request->getParsedBodyParamAsStringOrNull('id_bookmark');
+        $actionBookmark = (int) $request->getParsedBodyParamAsStringOrNull('action_bookmark');
         if ($idBookmark !== 0) {
             switch ($actionBookmark) {
                 case 0: // bookmarked query that have to be run
@@ -469,7 +467,7 @@ final class ImportController implements InvocableController
 
         // Something to skip? (because timeout has passed)
         if (! $GLOBALS['error'] && $request->hasBodyParam('skip')) {
-            $originalSkip = $skip = (int) $request->getParsedBodyParam('skip');
+            $originalSkip = $skip = (int) $request->getParsedBodyParamAsStringOrNull('skip');
             while ($skip > 0 && ! ImportSettings::$finished) {
                 $this->import->getNextChunk(
                     $importHandle ?? null,
@@ -677,8 +675,8 @@ final class ImportController implements InvocableController
                     $relation->getRelationParameters()->bookmarkFeature,
                     Current::$database,
                     $config->selectedServer['user'],
-                    $request->getParsedBodyParam('sql_query'),
-                    $request->getParsedBodyParam('bkm_label'),
+                    $request->getParsedBodyParamAsString('sql_query'),
+                    $request->getParsedBodyParamAsString('bkm_label'),
                     $request->hasBodyParam('bkm_replace'),
                 );
             }
@@ -705,8 +703,8 @@ final class ImportController implements InvocableController
                     $relation->getRelationParameters()->bookmarkFeature,
                     Current::$database,
                     $config->selectedServer['user'],
-                    $request->getParsedBodyParam('sql_query'),
-                    $request->getParsedBodyParam('bkm_label'),
+                    $request->getParsedBodyParamAsString('sql_query'),
+                    $request->getParsedBodyParamAsString('bkm_label'),
                     $request->hasBodyParam('bkm_replace'),
                 );
             }

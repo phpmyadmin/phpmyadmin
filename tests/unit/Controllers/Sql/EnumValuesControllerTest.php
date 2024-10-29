@@ -11,7 +11,7 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Sql\EnumValuesController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -44,12 +44,12 @@ class EnumValuesControllerTest extends AbstractTestCase
         Current::$database = 'cvv';
         Current::$table = 'enums';
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['db', null, 'cvv'],
-            ['table', null, 'enums'],
-            ['column', null, 'set'],
-            ['curr_value', null, 'b&c'],
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+        ->withParsedBody([
+            'db' => 'cvv',
+            'table' => 'enums',
+            'column' => 'set',
+            'curr_value' => 'b&c',
         ]);
 
         $responseRenderer = new ResponseRenderer();
@@ -95,13 +95,13 @@ class EnumValuesControllerTest extends AbstractTestCase
         Current::$database = 'cvv';
         Current::$table = 'enums';
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['db', null, 'cvv'],
-            ['table', null, 'enums'],
-            ['column', null, 'set'],
-            ['curr_value', null, 'b&c'],
-        ]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'db' => 'cvv',
+                'table' => 'enums',
+                'column' => 'set',
+                'curr_value' => 'b&c',
+            ]);
 
         $responseRenderer = new ResponseRenderer();
         $template = new Template();

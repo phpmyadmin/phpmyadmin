@@ -70,23 +70,16 @@ final class ExportController implements InvocableController
         /** @var array<string, string> $postParams */
         $postParams = $request->getParsedBody();
 
-        /** @var string $whatParam */
-        $whatParam = $request->getParsedBodyParam('what', '');
-        /** @var string|null $quickOrCustom */
-        $quickOrCustom = $request->getParsedBodyParam('quick_or_custom');
-        /** @var string|null $outputFormat */
-        $outputFormat = $request->getParsedBodyParam('output_format');
-        /** @var string $compressionParam */
-        $compressionParam = $request->getParsedBodyParam('compression', '');
-        /** @var string|null $asSeparateFiles */
-        $asSeparateFiles = $request->getParsedBodyParam('as_separate_files');
-        /** @var string|null $quickExportOnServer */
-        $quickExportOnServer = $request->getParsedBodyParam('quick_export_onserver');
-        /** @var string|null $onServerParam */
-        $onServerParam = $request->getParsedBodyParam('onserver');
+        $whatParam = $request->getParsedBodyParamAsString('what', '');
+        $quickOrCustom = $request->getParsedBodyParamAsStringOrNull('quick_or_custom');
+        $outputFormat = $request->getParsedBodyParamAsStringOrNull('output_format');
+        $compressionParam = $request->getParsedBodyParamAsString('compression', '');
+        $asSeparateFiles = $request->getParsedBodyParamAsStringOrNull('as_separate_files');
+        $quickExportOnServer = $request->getParsedBodyParamAsStringOrNull('quick_export_onserver');
+        $onServerParam = $request->getParsedBodyParamAsStringOrNull('onserver');
         /** @var array|null $aliasesParam */
         $aliasesParam = $request->getParsedBodyParam('aliases');
-        $structureOrDataForced = (bool) $request->getParsedBodyParam('structure_or_data_forced');
+        $structureOrDataForced = (bool) $request->getParsedBodyParamAsStringOrNull('structure_or_data_forced');
         $rememberTemplate = $request->getParsedBodyParam('remember_template');
         $dbSelect = $request->getParsedBodyParam('db_select');
         $tableStructure = $request->getParsedBodyParam('table_structure');
@@ -251,7 +244,7 @@ final class ExportController implements InvocableController
                 $rememberTemplate,
                 $exportPlugin,
                 $GLOBALS['compression'],
-                $request->getParsedBodyParam('filename_template'),
+                $request->getParsedBodyParamAsString('filename_template'),
             );
         }
 
@@ -439,9 +432,9 @@ final class ExportController implements InvocableController
             } else {
                 // We export just one table
 
-                $allrows = $request->getParsedBodyParam('allrows', '');
-                $limitTo = $request->getParsedBodyParam('limit_to', '0');
-                $limitFrom = $request->getParsedBodyParam('limit_from', '0');
+                $allrows = $request->getParsedBodyParamAsString('allrows', '');
+                $limitTo = $request->getParsedBodyParamAsString('limit_to', '0');
+                $limitFrom = $request->getParsedBodyParamAsString('limit_from', '0');
 
                 if ($lockTables) {
                     try {

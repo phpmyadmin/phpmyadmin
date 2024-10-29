@@ -32,8 +32,8 @@ final class ProcessesController extends AbstractController implements InvocableC
 
         $showExecuting = $request->hasBodyParam('showExecuting');
         $full = $request->getParsedBodyParam('full') === '1';
-        $orderByField = (string) $request->getParsedBodyParam('order_by_field', '');
-        $sortOrder = (string) $request->getParsedBodyParam('sort_order', '');
+        $orderByField = $request->getParsedBodyParamAsString('order_by_field', '');
+        $sortOrder = $request->getParsedBodyParamAsString('sort_order', '');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

@@ -72,7 +72,7 @@ final class TrackingController implements InvocableController
         $isSystemSchema = Utilities::isSystemSchema(Current::$database);
 
         if ($request->hasBodyParam('delete_tracking') && $request->hasBodyParam('table')) {
-            $this->tracking->deleteTracking(Current::$database, $request->getParsedBodyParam('table'));
+            $this->tracking->deleteTracking(Current::$database, $request->getParsedBodyParamAsString('table'));
             $this->response->addHTML(Message::success(
                 __('Tracking data deleted successfully.'),
             )->getDisplay());
@@ -80,14 +80,14 @@ final class TrackingController implements InvocableController
             $this->tracking->createTrackingForMultipleTables(
                 Current::$database,
                 $request->getParsedBodyParam('selected'),
-                $request->getParsedBodyParam('version'),
+                $request->getParsedBodyParamAsString('version'),
             );
             $this->response->addHTML(Message::success(
                 sprintf(
                     __(
                         'Version %1$s was created for selected tables, tracking is active for them.',
                     ),
-                    htmlspecialchars($request->getParsedBodyParam('version')),
+                    htmlspecialchars($request->getParsedBodyParamAsString('version')),
                 ),
             )->getDisplay());
         } elseif ($request->hasBodyParam('submit_mult')) {

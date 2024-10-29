@@ -79,7 +79,7 @@ final class DeleteRowsController implements InvocableController
         }
 
         if ($request->hasBodyParam('original_sql_query')) {
-            $GLOBALS['sql_query'] = $request->getParsedBodyParam('original_sql_query', '');
+            $GLOBALS['sql_query'] = $request->getParsedBodyParamAsString('original_sql_query', '');
         }
 
         $this->response->addHTML($sql->executeQueryAndSendQueryResponse(

@@ -29,8 +29,7 @@ final class ColumnPreferencesController implements InvocableController
         $tableObject = $this->dbi->getTable(Current::$database, Current::$table);
         $status = false;
 
-        /** @var string|null $tableCreateTime */
-        $tableCreateTime = $request->getParsedBodyParam('table_create_time');
+        $tableCreateTime = $request->getParsedBodyParamAsStringOrNull('table_create_time');
 
         // set column order
         $colorder = $request->getParsedBodyParam('col_order');

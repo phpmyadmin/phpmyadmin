@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Databases\CreateController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -43,11 +43,11 @@ final class CreateControllerTest extends AbstractTestCase
 
         $controller = new CreateController($response, $this->dbi);
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['new_db', null, 'test_db_error'],
-            ['db_collation', null, null],
-        ]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'new_db' => 'test_db_error',
+                'db_collation' => null,
+            ]);
 
         $controller($request);
         $actual = $response->getJSONResult();
@@ -59,11 +59,11 @@ final class CreateControllerTest extends AbstractTestCase
 
         $controller = new CreateController($response, $this->dbi);
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('isAjax')->willReturn(true);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['new_db', null, 'test_db'],
-            ['db_collation', null, 'utf8_general_ci'],
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+        ->withParsedBody([
+            'ajax_request' => 'true',
+            'new_db' => 'test_db',
+            'db_collation' => 'utf8_general_ci',
         ]);
 
         $controller($request);

@@ -51,7 +51,8 @@ class TrackingControllerTest extends AbstractTestCase
         $this->dummyDbi->addSelectDb('test_db');
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
-            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table'])
+            ->withParsedBody(['version' => '', 'table' => '']);
 
         $responseRenderer = new ResponseRenderer();
         $template = new Template();
