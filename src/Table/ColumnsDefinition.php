@@ -28,9 +28,6 @@ use function mb_strtoupper;
 use function preg_quote;
 use function preg_replace;
 use function rtrim;
-use function str_ends_with;
-use function stripcslashes;
-use function substr;
 use function trim;
 
 /**
@@ -186,7 +183,6 @@ final class ColumnsDefinition
                 }
 
                 $columnMetaDefault = self::decorateColumnMetaDefault(
-                    $columnMeta['Type'],
                     $columnMeta['Default'],
                     $columnMeta['Null'] === 'YES',
                 );
@@ -365,9 +361,9 @@ final class ColumnsDefinition
     /**
      * Set default type and default value according to the column metadata
      *
-     * @return array{DefaultType:string, DefaultValue: string, Default?: string}
+     * @return array{DefaultType:string, DefaultValue: string}
      */
-    public static function decorateColumnMetaDefault(string $type, string|null $default, bool $isNull): array
+    public static function decorateColumnMetaDefault(string|null $default, bool $isNull): array
     {
         $metaDefault = ['DefaultType' => 'USER_DEFINED', 'DefaultValue' => ''];
 
@@ -388,11 +384,6 @@ final class ColumnsDefinition
                 break;
             default:
                 $metaDefault['DefaultValue'] = $default;
-
-                if (str_ends_with($type, 'text')) {
-                    $textDefault = substr($default, 1, -1);
-                    $metaDefault['Default'] = stripcslashes($textDefault);
-                }
 
                 break;
         }
