@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-27 00:25+0000\n"
-"PO-Revision-Date: 2024-10-28 18:00+0000\n"
-"Last-Translator: \"K.Y.\" <keramyasina@gmail.com>\n"
+"PO-Revision-Date: 2024-10-29 18:22+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ug/>\n"
 "Language: ug\n"
@@ -103,7 +103,7 @@ msgid "phpMyAdmin Demo Server"
 msgstr "phpMyAdmin Demo Server"
 
 #: resources/templates/base.twig:159
-#, php-format
+#, fuzzy, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr "ھازىر% 2 $ s تارمىقىدىن Git تۈزىتىلگەن نۇسخىسى% 1 $ s."
 
@@ -201,7 +201,7 @@ msgstr "بىرىنچى"
 
 #: resources/templates/columns_definitions/column_attributes.twig:190
 #: resources/templates/table/structure/display_structure.twig:439
-#, php-format
+#, fuzzy, php-format
 msgid "after %s"
 msgstr "% s دىن كېيىن"
 
@@ -991,7 +991,7 @@ msgstr "يوق"
 
 #: resources/templates/config/form_display/input.twig:57
 #: resources/templates/config/form_display/input.twig:58
-#, php-format
+#, fuzzy, php-format
 msgid "Set value: %s"
 msgstr "قىممەت بەلگىلەش:% s"
 
@@ -2451,7 +2451,7 @@ msgstr "بارلىق جەدۋەل ئىستونلىرىنى ئۆزگەرتىڭ"
 
 #: resources/templates/database/privileges/index.twig:5
 #: resources/templates/table/privileges/index.twig:5
-#, php-format
+#, fuzzy, php-format
 msgid "Users having access to \"%s\""
 msgstr "ئىشلەتكۈچىلەر «% s» نى زىيارەت قىلالايدۇ"
 
@@ -3688,7 +3688,7 @@ msgid "File name template:"
 msgstr "ھۆججەت ئېتى ئەندىزىسى"
 
 #: resources/templates/export.twig:384
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
@@ -3797,7 +3797,7 @@ msgstr "شاخ يوق"
 
 #: resources/templates/home/git_info.twig:15
 #: resources/templates/home/git_info.twig:22
-#, php-format
+#, fuzzy, php-format
 msgid "from %s branch"
 msgstr "% s تارمىقىدىن"
 
@@ -3814,7 +3814,7 @@ msgid "authored on %s by %s"
 msgstr "نەشىرنى قۇىماق"
 
 #: resources/templates/home/index.twig:22 resources/templates/login/form.twig:8
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
 "change root, debian-sys-maint and pma users. More information is available "
@@ -4047,7 +4047,7 @@ msgid "File to import:"
 msgstr "ئەكىرىشكە تىگىشلىك ھۆججەت"
 
 #: resources/templates/import.twig:28
-#, php-format
+#, fuzzy, php-format
 msgid "File may be compressed (%s) or uncompressed."
 msgstr "ھۆججەت پىرىسلانغان (% s) ياكى پىرىسلانمىغان بولۇشى مۇمكىن."
 
@@ -4518,7 +4518,7 @@ msgid "Configuration has been saved."
 msgstr "ئۆزگەرتىشلەر ساقلاندى"
 
 #: resources/templates/preferences/header.twig:60
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
@@ -4565,7 +4565,7 @@ msgid "Merge with current configuration"
 msgstr "نۆۋەتتىكى سەپلىمىسى بىلەن بىرلەشتۈرۈڭ"
 
 #: resources/templates/preferences/manage/main.twig:58
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
@@ -4746,7 +4746,7 @@ msgid "General relation features"
 msgstr "ئاساسىي ئالاقە ۋاريانتلىرى"
 
 #: resources/templates/relation/check_relations.twig:20
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
 "storage there."
@@ -4754,13 +4754,13 @@ msgstr ""
 "% s '% s' دەپ ئاتىلىدىغان سانداننى قۇرۇپ ، phpMyAdmin سەپلىمىسىنى ساقلاڭ."
 
 #: resources/templates/relation/check_relations.twig:24
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "% sCreate% s نۆۋەتتىكى سانداندىكى phpMyAdmin سەپلىمە ساقلىغۇچ."
 
 #: resources/templates/relation/check_relations.twig:31
-#, php-format
+#, fuzzy, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "% sCreate% s يوقاپ كەتكەن phpMyAdmin سەپلىمە ساقلاش جەدۋىلى."
 
@@ -4918,7 +4918,7 @@ msgid "Quick steps to set up advanced features:"
 msgstr "ئىلغار ئىقتىدارلارنى ئورنىتىشنىڭ تېز قەدەملىرى:"
 
 #: resources/templates/relation/check_relations.twig:523
-#, php-format
+#, fuzzy, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
 msgstr "لازىملىق جەدۋەللەرنى <code>% screate_tables.sql </code> بىلەن قۇرۇڭ."
 
@@ -5041,7 +5041,7 @@ msgid "Jump to database '%s'"
 msgstr "ساندان \"%s\" .غا ئۆتۈش."
 
 #: resources/templates/server/databases/index.twig:238
-#, php-format
+#, fuzzy, php-format
 msgid "Check privileges for database \"%s\"."
 msgstr "ساندان \"% s\" نىڭ ئىمتىيازلىرىنى تەكشۈرۈڭ."
 
@@ -5191,7 +5191,7 @@ msgstr ""
 "ياۋايى كارتا ئىسمى (ئىشلەتكۈچى ئىسمى \\ _%) دىكى بارلىق ئىمتىيازلارنى بېرىڭ."
 
 #: resources/templates/server/privileges/add_user.twig:25
-#, php-format
+#, fuzzy, php-format
 msgid "Grant all privileges on database %s."
 msgstr "ساندان% s دىكى بارلىق ئىمتىيازلارنى بېرىڭ."
 
@@ -5945,7 +5945,7 @@ msgid "Port:"
 msgstr "ئېغىز"
 
 #: resources/templates/server/replication/index.twig:21
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "This server is not configured as primary in a replication process. Would you "
 "like to %sconfigure%s it?"
@@ -6132,7 +6132,7 @@ msgid "Skip current error"
 msgstr "نۆۋەتتىكى خاتالىقتىن ئاتلاڭ"
 
 #: resources/templates/server/replication/replica_configuration.twig:87
-#, php-format
+#, fuzzy, php-format
 msgid "Skip next %s errors."
 msgstr "كېيىنكى% s خاتالىقلىرىنى ئاتلاڭ."
 
@@ -6141,7 +6141,7 @@ msgid "Change or reconfigure primary server"
 msgstr "دەسلەپكى مۇلازىمېتىرنى ئۆزگەرتىش ياكى قايتا تەڭشەش"
 
 #: resources/templates/server/replication/replica_configuration.twig:103
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "This server is not configured as replica in a replication process. Would you "
 "like to %sconfigure%s it?"
@@ -6605,12 +6605,12 @@ msgid "Pie chart with the most frequent statements."
 msgstr ""
 
 #: resources/templates/server/status/status/index.twig:6
-#, php-format
+#, fuzzy, php-format
 msgid "Network traffic since startup: %s"
 msgstr "قۇرۇلغاندىن بۇيان تور ئېقىمى:% s"
 
 #: resources/templates/server/status/status/index.twig:7
-#, php-format
+#, fuzzy, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "بۇ MySQL مۇلازىمېتىرى% 1 $ s ئىجرا بولۇۋاتىدۇ. ئۇ% 2 $ s دىن باشلاندى."
 
@@ -6694,7 +6694,7 @@ msgid "Add user group"
 msgstr "قوشۇلغىنى %s"
 
 #: resources/templates/server/user_groups/edit_user_groups.twig:5
-#, php-format
+#, fuzzy, php-format
 msgid "Edit user group: '%s'"
 msgstr "ئىشلەتكۈچى گۇرۇپپىسىنى تەھرىرلەش: '% s'"
 
@@ -6735,7 +6735,7 @@ msgid "Delete user group"
 msgstr "قوشۇلغىنى %s"
 
 #: resources/templates/server/user_groups/user_listings.twig:1
-#, php-format
+#, fuzzy, php-format
 msgid "Users of '%s' user group"
 msgstr "'% S' ئىشلەتكۈچى گۇرۇپپىسىنىڭ ئىشلەتكۈچىلىرى"
 
@@ -6762,7 +6762,7 @@ msgid "Session value"
 msgstr "يىغىن قىممىتى"
 
 #: resources/templates/server/variables/index.twig:80
-#, php-format
+#, fuzzy, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
 msgstr ""
 "مۇلازىمېتىر ئۆزگەرگۈچى مىقدار ۋە تەڭشەكلىرىنى كۆرۈش يېتەرلىك ئىمتىياز ئەمەس. "
@@ -7510,7 +7510,7 @@ msgid "Defragment table"
 msgstr "جەدۋەل جەدۋىلى"
 
 #: resources/templates/table/operations/index.twig:373
-#, php-format
+#, fuzzy, php-format
 msgid "Table %s has been flushed."
 msgstr "جەدۋەل% s قىزىتىلدى."
 
@@ -7867,7 +7867,7 @@ msgid "Change"
 msgstr "ئۆزگەرتتىش"
 
 #: resources/templates/table/structure/display_structure.twig:116
-#, php-format
+#, fuzzy, php-format
 msgid "Column %s has been dropped."
 msgstr "ستون% s چۈشۈپ كەتتى."
 
@@ -7930,7 +7930,7 @@ msgid "Track view"
 msgstr "جەدۋەل ئىزلاش"
 
 #: resources/templates/table/structure/display_structure.twig:429
-#, php-format
+#, fuzzy, php-format
 msgid "Add %s column(s)"
 msgstr "% S ستون (لار) نى قوشۇڭ"
 
@@ -7941,7 +7941,7 @@ msgid "at beginning of table"
 msgstr "جەدېۋەلنىڭ چوڭ-كىچىكلىكىنى كۆرسىتىش"
 
 #: resources/templates/table/structure/display_structure.twig:558
-#, php-format
+#, fuzzy, php-format
 msgid "Create an index on %s columns"
 msgstr "% S ستوندا كۆرسەتكۈچ ھاسىل قىلىڭ"
 
@@ -8003,7 +8003,7 @@ msgid "Delete version"
 msgstr "نەشىرنى قۇىماق"
 
 #: resources/templates/table/tracking/main.twig:99
-#, php-format
+#, fuzzy, php-format
 msgid "Activate tracking for %s"
 msgstr "% S ئۈچۈن ئىز قوغلاشنى قوزغىتىڭ"
 
@@ -8115,7 +8115,7 @@ msgstr "Event"
 
 #: resources/templates/triggers/export.twig:2
 #: src/Controllers/Triggers/IndexController.php:259
-#, php-format
+#, fuzzy, php-format
 msgid "Export of trigger %s"
 msgstr "قوزغىتىش% s"
 
@@ -8156,22 +8156,22 @@ msgid "Error when evaluating: %s"
 msgstr "ھۆججەت يۈكلەشتە ئېنىقسىز خاتالىق كۆرۈلدى."
 
 #: src/Advisory/Advisor.php:232
-#, php-format
+#, fuzzy, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "«% S» قائىدىسىنىڭ ئالدىنقى شەرتىنى باھالاش مەغلۇب بولدى."
 
 #: src/Advisory/Advisor.php:252
-#, php-format
+#, fuzzy, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "«% S» قائىدىسىنىڭ قىممىتىنى ھېسابلاش مەغلۇب بولدى."
 
 #: src/Advisory/Advisor.php:271
-#, php-format
+#, fuzzy, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "«% S» قائىدىسىنى ئىجرا قىلىش سىنىقى مەغلۇپ بولدى."
 
 #: src/Advisory/Advisor.php:301
-#, php-format
+#, fuzzy, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "'% S' قائىدىسىدە فورماتلاش مەغلۇب بولدى."
 
@@ -8210,7 +8210,7 @@ msgstr ""
 "قىلىنىدۇ"
 
 #: src/Advisory/Rules.php:42
-#, php-format
+#, fuzzy, php-format
 msgid "The uptime is only %s"
 msgstr "ئىش ۋاقتى پەقەت% s"
 
@@ -8260,7 +8260,7 @@ msgstr ""
 "كۆرسىتىلگەن سوئاللارنى ئەلالاشتۇرالايسىز"
 
 #: src/Advisory/Rules.php:70
-#, php-format
+#, fuzzy, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "ئاستا سوئال نىسبىتى% 5 تىن تۆۋەن بولۇشى كېرەك ، قىممىتىڭىز% s %%."
 
@@ -8276,7 +8276,7 @@ msgid ""
 msgstr "مۇلازىمېتىرنىڭ ۋاقتىغا سېلىشتۇرغاندا ئاستا سوئاللارنىڭ نىسبىتى يۇقىرى."
 
 #: src/Advisory/Rules.php:84
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
@@ -8307,7 +8307,7 @@ msgstr ""
 "قىلىنىدۇ. ئادەتتە 1-5 سېكۇنت قىممىتى تەۋسىيە قىلىنىدۇ."
 
 #: src/Advisory/Rules.php:101
-#, php-format
+#, fuzzy, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time نۆۋەتتە% ds قىلىپ تەڭشەلدى."
 
@@ -8460,7 +8460,7 @@ msgstr ""
 "قىلالماسلىقى مۇمكىن. MySQL نىڭ 64 بىتلىق نەشرىنى قاچىلاشنى ئويلىشىڭىز مۇمكىن."
 
 #: src/Advisory/Rules.php:205
-#, php-format
+#, fuzzy, php-format
 msgid "Available memory on this host: %s"
 msgstr "بۇ مۇلازىمېتىردا ئىشلەتكىلى بولىدىغان ئىچكى ساقلىغۇچ:% s"
 
@@ -8489,7 +8489,7 @@ msgstr ""
 "Memcached </a> نى ئىشلىتىشنى ئويلىشىشقا ئەرزىيدۇ. ئەگەر سىزدە كۆپ نۇسخا بار."
 
 #: src/Advisory/Rules.php:223
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
@@ -8517,7 +8517,7 @@ msgstr ""
 "read_rnd_buffer_size increasing كۆپەيتىشنى ئويلاڭ."
 
 #: src/Advisory/Rules.php:241
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
@@ -8530,7 +8530,7 @@ msgid "Rate of sorts that cause temporary tables"
 msgstr "ۋاقىتلىق جەدۋەلنى كەلتۈرۈپ چىقىرىدىغان تۈرلەرنىڭ نىسبىتى"
 
 #: src/Advisory/Rules.php:255
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
@@ -8559,7 +8559,7 @@ msgstr ""
 "جەزملەشتۈرۈشىڭىز مۇمكىن ، چۈنكى بۇ تېخىمۇ تېز رەتلەشنى كەلتۈرۈپ چىقىرىدۇ."
 
 #: src/Advisory/Rules.php:269
-#, php-format
+#, fuzzy, php-format
 msgid "Sorted rows average: %s"
 msgstr "رەتلەنگەن رەت ئوتتۇرىچە سىزىق:% s"
 
@@ -8585,7 +8585,7 @@ msgstr ""
 "تېزلىتىدۇ."
 
 #: src/Advisory/Rules.php:283
-#, php-format
+#, fuzzy, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 "جەدۋەل ئوتتۇرىچە قىممەت:% s ، بۇ قىممەت سائىتىگە 1 دىن تۆۋەن بولۇشى كېرەك"
@@ -8620,7 +8620,7 @@ msgstr ""
 "بولىدۇ."
 
 #: src/Advisory/Rules.php:299
-#, php-format
+#, fuzzy, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 "كۆرسەتكۈچ ئوتتۇرىچە تەكشۈرۈش:% s ، بۇ قىممەت سائىتىگە 1 دىن تۆۋەن بولۇشى "
@@ -8649,7 +8649,7 @@ msgstr ""
 "ئىچىگە ئالىدۇ. مۇناسىۋەتلىك ئورۇنغا كۆرسەتكۈچ قوشۇڭ."
 
 #: src/Advisory/Rules.php:313
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
@@ -8678,7 +8678,7 @@ msgstr ""
 "مۇناسىۋەتلىك ئورۇنغا كۆرسەتكۈچ قوشۇڭ."
 
 #: src/Advisory/Rules.php:326
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
@@ -8706,7 +8706,7 @@ msgstr ""
 "بولسىڭىز ، باشقا قىممەتنىمۇ ئۆستۈرۈشىڭىز كېرەك."
 
 #: src/Advisory/Rules.php:341
-#, php-format
+#, fuzzy, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr "نۆۋەتتىكى قىممەتلەر tmp_table_size:% s ، max_heap_table_size:% s"
 
@@ -8742,7 +8742,7 @@ msgstr ""
 "10150111255065841 & باھا \"> پىتيان گۇرۇپپىسىنىڭ ماقالىسى </a>"
 
 #: src/Advisory/Rules.php:362
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
@@ -8776,7 +8776,7 @@ msgstr ""
 "en/internal-temporary-tables.html\"> MySQL ھۆججىتى </a>"
 
 #: src/Advisory/Rules.php:383
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
@@ -8827,7 +8827,7 @@ msgstr ""
 "تەكشۈرۈشىڭىز مۇمكىن."
 
 #: src/Advisory/Rules.php:413
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
@@ -8841,7 +8841,7 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr "كىرگۈزگەن ھۆججەت شەكلى"
 
 #: src/Advisory/Rules.php:430
-#, php-format
+#, fuzzy, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 "%% MyISAM كۇنۇپكىسى ئىشلىتىلگەن:% s %% ، بۇ قىممەت 95% دىن يۇقىرى بولۇشى "
@@ -8863,7 +8863,7 @@ msgid "You may need to increase {key_buffer_size}."
 msgstr "{Key_buffer_size increase نى كۆپەيتىشىڭىز مۇمكىن."
 
 #: src/Advisory/Rules.php:442
-#, php-format
+#, fuzzy, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 "كۆرسەتكۈچ ئىچكى ساقلىغۇچتىن ئوقۇلىدۇ:% s %% ، بۇ قىممەت% 95 تىن يۇقىرى "
@@ -8890,7 +8890,7 @@ msgstr ""
 "{Table_open_cache} كۆپىيىش بۇنىڭدىن ساقلىنىشى مۇمكىن."
 
 #: src/Advisory/Rules.php:455
-#, php-format
+#, fuzzy, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 "ئېچىلغان جەدۋەل نىسبىتى:% s ، بۇ قىممەت سائىتىگە 10 دىن تۆۋەن بولۇشى كېرەك"
@@ -8918,7 +8918,7 @@ msgstr ""
 "ئۆزگەرتكەندىن كېيىن قايتا قوزغاتقاندا خاتالىق خاتىرىسىنى تەكشۈرۈڭ."
 
 #: src/Advisory/Rules.php:471
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr "ئېچىلغان ھۆججەتلەرنىڭ سانى چەكنىڭ% s %%. ئۇ% 85 دىن تۆۋەن بولۇشى كېرەك"
@@ -8936,7 +8936,7 @@ msgid "The rate of opening files is high."
 msgstr "كىرگۈزگەن ھۆججەت شەكلى"
 
 #: src/Advisory/Rules.php:484
-#, php-format
+#, fuzzy, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 "ئېچىلغان ھۆججەتلەرنىڭ نىسبىتى:% s ، بۇ قىممەت سائىتىگە 5 دىن تۆۋەن بولۇشى "
@@ -8958,7 +8958,7 @@ msgstr ""
 "سوئاللارنى ئەلالاشتۇرۇڭ ۋە ياكى InnoDB نى ئىشلىتىپ قۇلۇپ ساقلاشنى ئازايتىڭ."
 
 #: src/Advisory/Rules.php:496
-#, php-format
+#, fuzzy, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr "دەرھال جەدۋەل قۇلۇپى:% s %% ، بۇ قىممەت 95% دىن يۇقىرى بولۇشى كېرەك"
 
@@ -8967,7 +8967,7 @@ msgid "Table lock wait rate"
 msgstr "جەدۋەل قۇلۇپ ساقلاش نىسبىتى"
 
 #: src/Advisory/Rules.php:506
-#, php-format
+#, fuzzy, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "جەدۋەل قۇلۇپ ساقلاش نىسبىتى:% s ، بۇ قىممەت سائىتىگە 1 دىن تۆۋەن بولۇشى كېرەك"
@@ -9013,7 +9013,7 @@ msgid "Increase {thread_cache_size}."
 msgstr "{Thread_cache_size} نى كۆپەيتىڭ."
 
 #: src/Advisory/Rules.php:527
-#, php-format
+#, fuzzy, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr "تېما ساقلىغۇچ:% s %% ، بۇ قىممەت% 80 تىن يۇقىرى بولۇشى كېرەك"
 
@@ -9039,7 +9039,7 @@ msgstr ""
 "قىلسىڭىز بولىدۇ."
 
 #: src/Advisory/Rules.php:541
-#, php-format
+#, fuzzy, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
 "% s تېما (لار) نى باشلاش ئۈچۈن% s سېكۇنتتىن ئۇزۇن ۋاقىت كەتتى ، ئۇ 0 بولۇشى "
@@ -9062,7 +9062,7 @@ msgid ""
 msgstr "ئىزلانغان جەدۋەل"
 
 #: src/Advisory/Rules.php:553
-#, php-format
+#, fuzzy, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time% s قىلىپ تەڭشەلدى"
 
@@ -9092,7 +9092,7 @@ msgstr ""
 "قىلىڭ."
 
 #: src/Advisory/Rules.php:570
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
@@ -9121,7 +9121,7 @@ msgstr ""
 "ياردەم قىلىشى مۇمكىن مەنبەنى ئىز قوغلاڭ."
 
 #: src/Advisory/Rules.php:584
-#, php-format
+#, fuzzy, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 "بارلىق ئۇلىنىشلارنىڭ% s %% ئەمەلدىن قالدۇرۇلدى. بۇ قىممەت% 1 دىن تۆۋەن "
@@ -9134,7 +9134,7 @@ msgid "Rate of aborted connections"
 msgstr "كىرگۈزگەن ھۆججەت شەكلى"
 
 #: src/Advisory/Rules.php:598
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
@@ -9162,7 +9162,7 @@ msgstr ""
 "تاقىمىغانلىقتىن كېلىپ چىققان. تورىڭىز ۋە كودىڭىزنى تەكشۈرۈڭ."
 
 #: src/Advisory/Rules.php:612
-#, php-format
+#, fuzzy, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 "بارلىق خېرىدارلارنىڭ% s %% ئەمەلدىن قالدۇرۇلدى. بۇ قىممەت% 2 دىن تۆۋەن "
@@ -9175,7 +9175,7 @@ msgid "Rate of aborted clients"
 msgstr "كىرگۈزگەن ھۆججەت شەكلى"
 
 #: src/Advisory/Rules.php:626
-#, php-format
+#, fuzzy, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "ئەمەلدىن قالدۇرۇلغان خېرىدارلارنىڭ نىسبىتى% s ، بۇ قىممەت سائىتىگە 1 دىن "
@@ -9237,7 +9237,7 @@ msgstr ""
 "يازمىسىنى كۆرۈڭ."
 
 #: src/Advisory/Rules.php:662 src/Advisory/Rules.php:692
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
@@ -9278,7 +9278,7 @@ msgstr ""
 "يازمىسىنى كۆرۈڭ."
 
 #: src/Advisory/Rules.php:717
-#, php-format
+#, fuzzy, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "مۇتلەق InnoDB خاتىرىڭىزنىڭ چوڭلۇقى% s MiB"
 
@@ -9316,7 +9316,7 @@ msgstr ""
 "2007/11/03/choosing-innodb_buffer_pool_size/\"> دىن كۆرۈڭ."
 
 #: src/Advisory/Rules.php:738
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
 "rule fires if you are assigning less than 60%%, however this might be "
@@ -9394,7 +9394,7 @@ msgid "Consider increasing {query_cache_limit}."
 msgstr "{Query_cache_limit increasing كۆپەيتىشنى ئويلاش."
 
 #: src/Advisory/Rules.php:792
-#, php-format
+#, fuzzy, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "نۆۋەتتىكى سوئال غەملەكنىڭ سوقۇلۇش نىسبىتى% s %% 20% دىن تۆۋەن"
 
@@ -9418,7 +9418,7 @@ msgstr ""
 "ياردىمى بولۇشى مۇمكىن."
 
 #: src/Advisory/Rules.php:808
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is "
 "%s%%. It should be above 80%%"
@@ -9460,7 +9460,7 @@ msgstr ""
 "qcache_queries_in_cache"
 
 #: src/Advisory/Rules.php:829
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
 "that the query cache is an alternating pattern of free and used blocks. This "
@@ -9495,7 +9495,7 @@ msgstr ""
 "بىلەن كۆپىيىشى مۇمكىن ، شۇڭا بۇنى كىچىك كۆلەمدە قىلىپ نەتىجىنى نازارەت قىلىڭ."
 
 #: src/Advisory/Rules.php:847
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
@@ -12630,7 +12630,7 @@ msgid "Server connection collation"
 msgstr "PBMS ئۇلىنالمىدى:"
 
 #: src/Config/FormDisplay.php:581
-#, php-format
+#, fuzzy, php-format
 msgid "Missing data for %s"
 msgstr "% S ئۈچۈن سانلىق مەلۇمات كەم"
 
@@ -12644,22 +12644,22 @@ msgid "unavailable"
 msgstr "ئىشلەتكىلى بولمايدۇ"
 
 #: src/Config/FormDisplay.php:769
-#, php-format
+#, fuzzy, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"% s\"% s كېڭەيتىشنى تەلەپ قىلىدۇ"
 
 #: src/Config/FormDisplay.php:791
-#, php-format
+#, fuzzy, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "پىرىسلانغان ئىمپورت ئىقتىدارى% s يوقاپ كەتكەنلىكتىن ئىشلىمەيدۇ."
 
 #: src/Config/FormDisplay.php:800
-#, php-format
+#, fuzzy, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "پىرىسلانغان ئېكىسپورت% s ئىقتىدارىنىڭ كەملىكى سەۋەبىدىن ئىشلىمەيدۇ."
 
 #: src/Config/FormDisplay.php:820
-#, php-format
+#, fuzzy, php-format
 msgid "maximum %s"
 msgstr "ئەڭ چوڭ% s"
 
@@ -12726,7 +12726,7 @@ msgstr ""
 "تەڭشەكلەرنى ساقلىغىلى بولمايدۇ ، يوللانغان سەپلىمە جەدۋىلىدە خاتالىق بار!"
 
 #: src/Config.php:607
-#, php-format
+#, fuzzy, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "مەۋجۇت سەپلىمە ھۆججىتىنى (% s) ئوقۇشقا بولمايدۇ."
 
@@ -12745,7 +12745,7 @@ msgid "This usually means there is a syntax error in it."
 msgstr ""
 
 #: src/Config/ServerConfigChecks.php:52
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
 "login to any MySQL server. If you feel this is necessary, use %srestrict "
@@ -12774,7 +12774,7 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "ئەگەر ساندان مۇلازىمېتىرىڭىز ئۇنى قوللىسا ، SSL ئۇلىنىشىنى ئىشلىتىڭ."
 
 #: src/Config/ServerConfigChecks.php:149
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4$s. However, IP-"
@@ -12788,7 +12788,7 @@ msgstr ""
 "بولماسلىقى مۇمكىن."
 
 #: src/Config/ServerConfigChecks.php:175
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -12818,7 +12818,7 @@ msgstr ""
 "مەخپىيلەشتۈرۈشكە ئىشلىتىلىدۇ. ئۇنى ئەستە ساقلىشىڭىزنىڭ ھاجىتى يوق."
 
 #: src/Config/ServerConfigChecks.php:272
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
@@ -12827,7 +12827,7 @@ msgstr ""
 "قىلىدۇ."
 
 #: src/Config/ServerConfigChecks.php:293
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
@@ -12836,7 +12836,7 @@ msgstr ""
 "تەلەپ قىلىدۇ."
 
 #: src/Config/ServerConfigChecks.php:318
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
@@ -12844,7 +12844,7 @@ msgid ""
 msgstr "% 1 $ sLogin ساقلانمىسىنىڭ ئىناۋەتلىكلىكى% 2 $ s% 3 $ ssession دىن چوڭ."
 
 #: src/Config/ServerConfigChecks.php:340
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
@@ -12854,7 +12854,7 @@ msgstr ""
 "بىخەتەرلىك خەۋىپى ئېلىپ كېلىشى مۇمكىن."
 
 #: src/Config/ServerConfigChecks.php:366
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
@@ -12864,7 +12864,7 @@ msgstr ""
 "ياكى تەڭ بولۇشى كېرەك."
 
 #: src/Config/ServerConfigChecks.php:401
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
@@ -12873,7 +12873,7 @@ msgstr ""
 "ئىقتىدارلارنى (% 3 $ s) تەلەپ قىلىدۇ."
 
 #: src/Config/ServerConfigChecks.php:432
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
@@ -12892,7 +12892,7 @@ msgid "no description"
 msgstr "چۈشەندۈرۈش يوق"
 
 #: src/ConfigStorage/Relation.php:1452
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
 "may go to 'Operations' tab of any database to set up the phpMyAdmin "
@@ -12975,7 +12975,7 @@ msgid "Incorrect value:"
 msgstr "خاتا قىممەت:"
 
 #: src/Config/Validator.php:467
-#, php-format
+#, fuzzy, php-format
 msgid "Incorrect IP address: %s"
 msgstr "IP ئادرېسى خاتا:% s"
 
@@ -12998,7 +12998,7 @@ msgstr "مەنپىي بولمىغان سان ئەمەس!"
 
 #: src/Config/Validator.php:613
 #: src/Controllers/JavaScriptMessagesController.php:834
-#, php-format
+#, fuzzy, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "قىممىتى چوقۇم% s دىن تۆۋەن ياكى تەڭ بولۇشى كېرەك!"
 
@@ -13016,7 +13016,7 @@ msgstr "ئىزدەش"
 
 #: src/Controllers/ChangeLogController.php:54
 #: src/Controllers/LicenseController.php:44
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
@@ -13061,7 +13061,7 @@ msgstr "نەشىرنى قۇىماق"
 
 #. l10n: The user tries to save a page with an existing name in Designer
 #: src/Controllers/Database/DesignerController.php:100
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr "«% S» دەپ ئاتىلىدىغان بىر بەت بار ، ئۇنى باشقا نەرسىگە ئۆزگەرتىڭ."
@@ -13163,7 +13163,7 @@ msgid "No event with name %1$s found in database %2$s."
 msgstr "سانداندا جەدۋەل يوق"
 
 #: src/Controllers/Database/EventsController.php:222
-#, php-format
+#, fuzzy, php-format
 msgid "Export of event %s"
 msgstr "پائالىيەت ئېكسپورتى% s"
 
@@ -13268,7 +13268,7 @@ msgid "Edit routine"
 msgstr "دائىملىق"
 
 #: src/Controllers/Database/RoutinesController.php:296
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
@@ -13289,12 +13289,12 @@ msgid "Execute routine"
 msgstr "ئادەتنى ئىجرا قىلىڭ"
 
 #: src/Controllers/Database/RoutinesController.php:436
-#, php-format
+#, fuzzy, php-format
 msgid "Export of routine %s"
 msgstr "كۈندىلىك ئېكسپورت% s"
 
 #: src/Controllers/Database/RoutinesController.php:455
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
@@ -13340,7 +13340,7 @@ msgid "Tracking data deleted successfully."
 msgstr "ساندان %s ئۆچۈرۈلدى."
 
 #: src/Controllers/Database/TrackingController.php:88
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
@@ -13394,7 +13394,7 @@ msgid "Bad parameters!"
 msgstr "دائىملىق"
 
 #: src/Controllers/GisDataEditorController.php:120
-#, php-format
+#, fuzzy, php-format
 msgid "Value for the column \"%s\""
 msgstr "\"% S\" ئىستونىنىڭ قىممىتى"
 
@@ -13465,7 +13465,7 @@ msgstr ""
 "cfg_blowfish_secret] ھۆججەتلىرىنى [/ doc] دىن پايدىلىنىڭ."
 
 #: src/Controllers/HomeController.php:336
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
 "necessary. It should only be %d bytes long. Please refer to the "
@@ -13488,7 +13488,7 @@ msgstr ""
 "رۇخسەتسىز كىشىلەر سەپلىمىسىنى چۈشۈرۈشى مۇمكىن."
 
 #: src/Controllers/HomeController.php:375
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
@@ -13497,7 +13497,7 @@ msgstr ""
 "sdocumentation% s نى كۆرۈڭ."
 
 #: src/Controllers/HomeController.php:389
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
@@ -13569,7 +13569,7 @@ msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "%d كىرگۈزىش غەلبىىك بولدى."
 
 #: src/Controllers/Import/ImportController.php:568
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
@@ -14141,7 +14141,7 @@ msgid "log_output is set to TABLE."
 msgstr "log_output TABLE قىلىپ تەڭشەلدى."
 
 #: src/Controllers/JavaScriptMessagesController.php:240
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
@@ -14152,7 +14152,7 @@ msgstr ""
 "ۋاقىتنى 0-2 سېكۇنت قىلىپ تەڭشەش تەۋسىيە قىلىنىدۇ."
 
 #: src/Controllers/JavaScriptMessagesController.php:244
-#, php-format
+#, fuzzy, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "long_query_time% d سېكۇنت (سېكۇنت) قىلىپ تەڭشەلدى."
 
@@ -14173,7 +14173,7 @@ msgstr "ھۆججەتنى باشقا ساقلاش"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: src/Controllers/JavaScriptMessagesController.php:251
-#, php-format
+#, fuzzy, php-format
 msgid "Enable %s"
 msgstr "% S نى قوزغىتىڭ"
 
@@ -14186,7 +14186,7 @@ msgstr "تاقالدى"
 
 #. l10n: %d seconds
 #: src/Controllers/JavaScriptMessagesController.php:255
-#, php-format
+#, fuzzy, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "Long_query_time نى% d سېكۇنت قىلىپ تەڭشەڭ."
 
@@ -14222,7 +14222,7 @@ msgid "Differential"
 msgstr "پەرقلىق"
 
 #: src/Controllers/JavaScriptMessagesController.php:265
-#, php-format
+#, fuzzy, php-format
 msgid "Divided by %s"
 msgstr "% S بويىچە ئايرىلىدۇ"
 
@@ -14472,12 +14472,12 @@ msgid "Error in processing request"
 msgstr "بىر تەرەپ قىلىش تەلىپىدە خاتالىق"
 
 #: src/Controllers/JavaScriptMessagesController.php:354
-#, php-format
+#, fuzzy, php-format
 msgid "Error code: %s"
 msgstr "خاتالىق كودى:% s"
 
 #: src/Controllers/JavaScriptMessagesController.php:355
-#, php-format
+#, fuzzy, php-format
 msgid "Error text: %s"
 msgstr "خاتالىق تېكىستى:% s"
 
@@ -14594,7 +14594,7 @@ msgid "Enter each value in a separate field."
 msgstr "ھەر بىر قىممەتنى ئايرىم ساھەگە كىرگۈزۈڭ."
 
 #: src/Controllers/JavaScriptMessagesController.php:398
-#, php-format
+#, fuzzy, php-format
 msgid "Add %d value(s)"
 msgstr "% D قىممىتى (لەر) نى قوشۇڭ"
 
@@ -14661,7 +14661,7 @@ msgid "Search this list"
 msgstr "سانداندىن ئىزدەش"
 
 #: src/Controllers/JavaScriptMessagesController.php:422
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
@@ -14691,7 +14691,7 @@ msgid "Taking you to next step…"
 msgstr "ئىزلاش خاتىرىسى"
 
 #: src/Controllers/JavaScriptMessagesController.php:431
-#, php-format
+#, fuzzy, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "جەدۋەل '% s' ئۈچۈن نورماللاشتۇرۇشنىڭ بىرىنچى قەدىمى تاماملاندى."
 
@@ -14759,7 +14759,7 @@ msgid "The following actions will be performed:"
 msgstr "تۆۋەندىكى ھەرىكەتلەر ئېلىپ بېرىلىدۇ:"
 
 #: src/Controllers/JavaScriptMessagesController.php:450
-#, php-format
+#, fuzzy, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "% S جەدۋەلدىكى DROP ستونلىرى% s"
 
@@ -15032,7 +15032,7 @@ msgid "Modifications have been saved"
 msgstr "ئۆزگەرتىشلەر ساقلاندى"
 
 #: src/Controllers/JavaScriptMessagesController.php:563
-#, php-format
+#, fuzzy, php-format
 msgid "%d object(s) created."
 msgstr "% d ئوبيېكت (لار) قۇرۇلدى."
 
@@ -15170,7 +15170,7 @@ msgid "Unlink from main panel"
 msgstr "تېزىسلار"
 
 #: src/Controllers/JavaScriptMessagesController.php:620 src/Setup/Index.php:153
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
@@ -15221,7 +15221,7 @@ msgid ""
 msgstr "PHP سەۋىيىسىدىكى ئىجرا ۋاقتى تۆۋەن بولغاچقا ، ئېكسپورتىڭىز تولۇق ئەمەس!"
 
 #: src/Controllers/JavaScriptMessagesController.php:635
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
@@ -15283,12 +15283,12 @@ msgid "Some error occurred while getting SQL debug info."
 msgstr "SQL خاتالىق ئۇچۇرىغا ئېرىشىش جەريانىدا بەزى خاتالىقلار يۈز بەردى."
 
 #: src/Controllers/JavaScriptMessagesController.php:669
-#, php-format
+#, fuzzy, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "% s سوئاللىرى% s سېكۇنتتا% s قېتىم ئىجرا قىلىندى."
 
 #: src/Controllers/JavaScriptMessagesController.php:670
-#, php-format
+#, fuzzy, php-format
 msgid "%s argument(s) passed"
 msgstr "% s argument (لار) ئۆتۈپ كەتتى"
 
@@ -15822,12 +15822,12 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:820
-#, php-format
+#, fuzzy, php-format
 msgid "%s of %s"
 msgstr "% s نىڭ% s"
 
 #: src/Controllers/JavaScriptMessagesController.php:821
-#, php-format
+#, fuzzy, php-format
 msgid "%s/sec."
 msgstr "% s / سېكۇنت."
 
@@ -15984,12 +15984,12 @@ msgstr ""
 "بولسىڭىز ، «پارولنى ئۆزگەرتىش» بەتكۈچىنى ئىشلىتىش كېرەك."
 
 #: src/Controllers/Server/Status/Processes/KillController.php:43
-#, php-format
+#, fuzzy, php-format
 msgid "Thread %s was successfully killed."
 msgstr "تېما% s مۇۋەپپەقىيەتلىك ئۆلتۈرۈلدى."
 
 #: src/Controllers/Server/Status/Processes/KillController.php:49
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr "phpMyAdmin% s نى ئۆلتۈرەلمىدى. ئۇ ئاللىقاچان تاقالغان بولۇشى مۇمكىن."
@@ -16752,7 +16752,7 @@ msgid "Wrong data"
 msgstr "خاتا سانلىق مەلۇمات"
 
 #: src/Controllers/Setup/ValidateController.php:72
-#, php-format
+#, fuzzy, php-format
 msgid "Wrong data or no validation for %s"
 msgstr "خاتا سانلىق مەلۇمات ياكى% s ئۈچۈن دەلىللەش يوق"
 
@@ -16773,7 +16773,7 @@ msgstr "قۇرۇلغان خەتكۈچ %s"
 #: src/Controllers/Table/IndexRenameController.php:131
 #: src/Controllers/Table/Structure/PartitioningController.php:265
 #: src/Controllers/Table/Structure/SaveController.php:214
-#, php-format
+#, fuzzy, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "جەدۋەل% 1 $ s مۇۋەپپەقىيەتلىك ئۆزگەرتىلدى."
 
@@ -16807,12 +16807,12 @@ msgstr "ساندان ئىسمىنى بوش قويماڭ!"
 
 #: src/Controllers/Table/CreateController.php:70
 #: src/Controllers/Table/GetFieldController.php:47
-#, php-format
+#, fuzzy, php-format
 msgid "'%s' database does not exist."
 msgstr "'% s' ساندان مەۋجۇت ئەمەس."
 
 #: src/Controllers/Table/CreateController.php:80
-#, php-format
+#, fuzzy, php-format
 msgid "Table %s already exists!"
 msgstr "جەدۋەل% s ئاللىبۇرۇن مەۋجۇت!"
 
@@ -16895,7 +16895,7 @@ msgid "Internal relationships were successfully updated."
 msgstr ".ئىچكى ئۇلىنىش مۇاسىۋىتى قۇشۇلدى"
 
 #: src/Controllers/Table/ReplaceController.php:183
-#, php-format
+#, fuzzy, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "قۇر:% 1 $ s ، ستون:% 2 $ s ، خاتالىق:% 3 $ s"
 
@@ -16992,7 +16992,7 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s كېڭەيتىلمە كەمكەن، PHP تەڭشەك ھۆججىتىنى تەكشۈرۈپ چىقىڭ."
 
 #: src/Database/CentralColumns.php:326
-#, php-format
+#, fuzzy, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr "ئۇلار مەركىزى تىزىملىكتە مەۋجۇت بولغاچقا% 1 $ s نى قوشالمىدى!"
 
@@ -17003,7 +17003,7 @@ msgid "Could not add columns!"
 msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 
 #: src/Database/CentralColumns.php:411
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
@@ -17105,7 +17105,7 @@ msgstr "قىستۇرمىلار كىرگۈزىشكە ئامالسىز، قاچى�
 #: src/Database/Routines.php:126 src/Database/Routines.php:204
 #: src/Database/Routines.php:1006 src/Triggers/Triggers.php:82
 #: src/Triggers/Triggers.php:91 src/Triggers/Triggers.php:126
-#, php-format
+#, fuzzy, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "تۆۋەندىكى سوئال مەغلۇپ بولدى: \"% s\""
 
@@ -17175,7 +17175,7 @@ msgid "You must provide an event definition."
 msgstr "سىز چوقۇم پائالىيەت ئېنىقلىمىسى بىلەن تەمىنلىشىڭىز كېرەك."
 
 #: src/DatabaseInterface.php:1128
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
@@ -17229,7 +17229,7 @@ msgid "You must provide a name and a type for each routine parameter."
 msgstr "ھەر بىر ئادەتتىكى پارامېتىرغا چوقۇم ئىسىم ۋە تىپ تەمىنلىشىڭىز كېرەك."
 
 #: src/Database/Routines.php:667
-#, php-format
+#, fuzzy, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "پارامېتىر ئۈچۈن بېرىلگەن ئىناۋەتسىز يۆنىلىش \"% s\"."
 
@@ -17256,7 +17256,7 @@ msgid "You must provide a routine definition."
 msgstr "سىز چوقۇم دائىملىق ئېنىقلىما بېرىشىڭىز كېرەك."
 
 #: src/Database/Routines.php:1022
-#, php-format
+#, fuzzy, php-format
 msgid "Execution results of routine %s"
 msgstr "دائىملىق% s نىڭ ئىجرا نەتىجىسى"
 
@@ -17267,7 +17267,7 @@ msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
 
 #: src/Dbal/DbiMysqli.php:121
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
@@ -17282,7 +17282,7 @@ msgid "The row has been deleted."
 msgstr "خەتكۈچ ئۆچۈرۈلدى."
 
 #: src/Display/Results.php:3425
-#, php-format
+#, fuzzy, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "قۇرلارنى كۆرسىتىش% 1s -% 2s"
 
@@ -17298,7 +17298,7 @@ msgid "%s total"
 msgstr "ئۇمۇمىي"
 
 #: src/Display/Results.php:3457 src/Sql.php:869
-#, php-format
+#, fuzzy, php-format
 msgid "Query took %01.4f seconds."
 msgstr "سۈرۈشتۈرۈش% 01.4f سېكۇنت."
 
@@ -17644,7 +17644,7 @@ msgstr ""
 "بولمىسا ئۇلارنىڭ نامىغا ئۆزگەرتىلىپ ، كېيىنكى ئەڭ يۇقىرى سان بېرىلىدۇ."
 
 #: src/Engines/Pbxt.php:179
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
@@ -17685,7 +17685,7 @@ msgid ""
 msgstr "پارولسىز كىرىش چەكلەنگەن (پارولسىز كىرىش ئىقازىتىنى كۆرۈڭ)"
 
 #: src/Exceptions/AuthenticationFailure.php:73
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
@@ -17795,7 +17795,7 @@ msgid "Cannot read uploaded file."
 msgstr "يۈكلەنگەن ھۆججەتنى ئوقۇغىلى بولمايدۇ."
 
 #: src/File.php:561
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
@@ -17861,7 +17861,7 @@ msgid "Static analysis:"
 msgstr "تۇراقلىق تەھلىل:"
 
 #: src/Html/Generator.php:744
-#, php-format
+#, fuzzy, php-format
 msgid "%d errors were found during analysis."
 msgstr "تەھلىل جەريانىدا% d خاتالىق بايقالدى."
 
@@ -17871,7 +17871,7 @@ msgid "You should upgrade to %s %s or later."
 msgstr "%s %s ياكى ئۇنىڭدىنمۇ يۇقىرى نەشىرگە كۆتۈتىڭ."
 
 #: src/Http/Middleware/PhpExtensionsChecking.php:81
-#, php-format
+#, fuzzy, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "تېخىمۇ كۆپ ئۇچۇرغا ئېرىشىش ئۈچۈن% مەنبەلىك ھۆججەت% s نى كۆرۈڭ."
 
@@ -17962,7 +17962,7 @@ msgid ""
 msgstr ""
 
 #: src/Import/Import.php:1169
-#, php-format
+#, fuzzy, php-format
 msgid "Go to table: %s"
 msgstr "جەدۋەلگە بېرىڭ:% s"
 
@@ -17973,12 +17973,12 @@ msgid "Structure of %s"
 msgstr "تۈزىلىشىنىلا"
 
 #: src/Import/Import.php:1184 src/Import/Import.php:1233
-#, php-format
+#, fuzzy, php-format
 msgid "Edit settings for %s"
 msgstr "% S نىڭ تەڭشەكلىرىنى تەھرىرلەڭ"
 
 #: src/Import/Import.php:1195
-#, php-format
+#, fuzzy, php-format
 msgid "Go to view: %s"
 msgstr "كۆرۈش ئۈچۈن:% s"
 
@@ -18007,7 +18007,7 @@ msgid "Go to database: %s"
 msgstr "ساندان %s غا جەدىۋەل قۇرۇش"
 
 #: src/Index.php:563
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
@@ -18026,7 +18026,7 @@ msgid "Showing SQL query"
 msgstr "SQL سوئالنى كۆرسىتىش"
 
 #: src/InsertEdit.php:948 src/Sql.php:840
-#, php-format
+#, fuzzy, php-format
 msgid "Inserted row id: %1$d"
 msgstr "قىستۇرما قۇر id:% 1 $ d"
 
@@ -18041,7 +18041,7 @@ msgstr ""
 "بۇ سوئال ئۈچۈن لىنتا چەكلەنگەن ، چۈنكى ئۇ ئەڭ ئۇزۇن ئۇزۇنلۇقتىن ئېشىپ كەتكەن."
 
 #: src/Linter.php:164
-#, php-format
+#, fuzzy, php-format
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "% 1 $ s (<code>% 2 $ s </code> غا يېقىن)"
 
@@ -18361,7 +18361,7 @@ msgid "Find partial dependencies"
 msgstr "قىسمەن بېقىنىشلارنى تېپىڭ"
 
 #: src/Normalization.php:393
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
@@ -18375,7 +18375,7 @@ msgid "Table is already in second normal form."
 msgstr "جەدۋەل ئاللىقاچان ئىككىنچى نورمال ھالەتتە."
 
 #: src/Normalization.php:404
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
@@ -18406,12 +18406,12 @@ msgstr ""
 "<b> ئەڭ كىچىك توپ </ b> نى تاللاڭ."
 
 #: src/Normalization.php:426 src/Normalization.php:861
-#, php-format
+#, fuzzy, php-format
 msgid "'%1$s' depends on:"
 msgstr "'% 1 $ s' غا باغلىق:"
 
 #: src/Normalization.php:437
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
@@ -18420,7 +18420,7 @@ msgstr ""
 "مۇمكىنچىلىكى يوق."
 
 #: src/Normalization.php:465
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
@@ -18429,7 +18429,7 @@ msgstr ""
 "جەدۋەللەرنى قۇرۇشىمىز كېرەك:"
 
 #: src/Normalization.php:507
-#, php-format
+#, fuzzy, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "نورماللاشتۇرۇشنىڭ ئىككىنچى قەدىمى جەدۋەل '% 1 $ s' ئۈچۈن تاماملاندى."
 
@@ -18439,7 +18439,7 @@ msgid "Error in processing!"
 msgstr "بىر تەرەپ قىلىشتىكى خاتالىق!"
 
 #: src/Normalization.php:606
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
@@ -18452,7 +18452,7 @@ msgid "The third step of normalization is complete."
 msgstr "نورماللاشتۇرۇشنىڭ ئۈچىنچى قەدىمى تاماملاندى."
 
 #: src/Normalization.php:770
-#, php-format
+#, fuzzy, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "تاللانغان تەكرارلاش گۇرۇپپىسى جەدۋەلگە '% s' غا يۆتكەلدى"
 
@@ -18528,12 +18528,12 @@ msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "%s كۆرۈنمە ئۆچۈرۈلدى"
 
 #: src/Operations.php:940
-#, php-format
+#, fuzzy, php-format
 msgid "Table %s has been moved to %s."
 msgstr "جەدۋەل% s% s گە يۆتكەلدى."
 
 #: src/Operations.php:944
-#, php-format
+#, fuzzy, php-format
 msgid "Table %s has been copied to %s."
 msgstr "جەدۋەل% s% s گە كۆچۈرۈلدى."
 
@@ -18554,7 +18554,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "ئۇلىنالمىدى: ئۈنۈمسىز تەڭشەك."
 
 #: src/Plugins/Auth/AuthenticationConfig.php:110
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
@@ -18888,7 +18888,7 @@ msgstr "مەجبۇرى قوشۇش"
 #: src/Plugins/Export/ExportSql.php:275 src/Plugins/Export/ExportSql.php:284
 #: src/Plugins/Export/ExportSql.php:308 src/Plugins/Export/ExportSql.php:336
 #: src/Plugins/Export/ExportSql.php:345
-#, php-format
+#, fuzzy, php-format
 msgid "Add %s statement"
 msgstr "% S جۈملىسىنى قوشۇڭ"
 
@@ -19081,7 +19081,7 @@ msgid "It appears your table uses triggers;"
 msgstr "جەدۋەلدە قوزغاتقۇچ ئىشلىتىلگەندەك قىلىدۇ."
 
 #: src/Plugins/Export/ExportSql.php:1990
-#, php-format
+#, fuzzy, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "جەدۋەل سۈپىتىدە ئېكسپورت قىلىنغان% s نى كۆرۈش قۇرۇلمىسى"
 
@@ -19179,23 +19179,23 @@ msgid "Column names:"
 msgstr "خەت ئايرىش بەلگىسى"
 
 #: src/Plugins/Import/ImportCsv.php:290 src/Plugins/Import/ImportCsv.php:614
-#, php-format
+#, fuzzy, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "% D قۇردىكى CSV كىرگۈزۈشنىڭ ئىناۋەتسىز شەكلى."
 
 #: src/Plugins/Import/ImportCsv.php:497
-#, php-format
+#, fuzzy, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "% D قۇردىكى CSV كىرگۈزۈشتىكى ئىناۋەتسىز ئىستون سانى."
 
 #: src/Plugins/Import/ImportCsv.php:636 src/Plugins/Import/ImportCsv.php:651
 #: src/Plugins/Import/ImportCsv.php:662 src/Plugins/Import/ImportCsv.php:669
-#, php-format
+#, fuzzy, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV ئىمپورتنىڭ ئىناۋەتسىز پارامېتىرى:% s"
 
 #: src/Plugins/Import/ImportCsv.php:767
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
@@ -19252,12 +19252,12 @@ msgid "ESRI Shape File"
 msgstr "ESRI شەكىل ھۆججىتى"
 
 #: src/Plugins/Import/ImportShp.php:112 src/Plugins/Import/ImportShp.php:179
-#, php-format
+#, fuzzy, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "ESRI شەكىل ھۆججىتىنى ئەكىرىشتە خاتالىق كۆرۈلدى: \"% s\"."
 
 #: src/Plugins/Import/ImportShp.php:204
-#, php-format
+#, fuzzy, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL بوشلۇق كېڭەيتىش ESRI تىپىدىكى \"% s\" نى قوللىمايدۇ."
 
@@ -19289,13 +19289,13 @@ msgstr "بۇ فورماتنىڭ تاللىشى يوق"
 #: src/Plugins/Schema/Eps/TableStatsEps.php:78
 #: src/Plugins/Schema/Pdf/TableStatsPdf.php:78
 #: src/Plugins/Schema/Svg/TableStatsSvg.php:78
-#, php-format
+#, fuzzy, php-format
 msgid "The %s table doesn't exist!"
 msgstr "% S جەدۋىلى مەۋجۇت ئەمەس!"
 
 #: src/Plugins/Schema/Eps/EpsRelationSchema.php:64
 #: src/Plugins/Schema/Svg/SvgRelationSchema.php:72
-#, php-format
+#, fuzzy, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr "% S سانداننىڭ سىخېمىسى - بەت% s"
 
@@ -19438,7 +19438,7 @@ msgid ""
 msgstr ""
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You are using the external transformation command line options field, which "
 "has been deprecated for security reasons. Add all command line options "
@@ -19516,7 +19516,7 @@ msgstr ""
 "قىستۇرما ئىجرا قىلىدۇ. بىرىنچى تاللاش بولسا دائىملىق ئىپادىلەش."
 
 #: src/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:50
-#, php-format
+#, fuzzy, php-format
 msgid "Validation failed for the input string %s."
 msgstr "كىرگۈزۈش تىزمىسى% s ئۈچۈن دەلىللەش مەغلۇپ بولدى."
 
@@ -19761,12 +19761,12 @@ msgid "Unable to change primary!"
 msgstr "باشلانغۇچنى ئۆزگەرتەلمىدى!"
 
 #: src/Replication/ReplicationGui.php:518
-#, php-format
+#, fuzzy, php-format
 msgid "Primary server changed successfully to %s."
 msgstr "دەسلەپكى مۇلازىمېتىر مۇۋەپپەقىيەتلىك ھالدا% s غا ئۆزگەردى."
 
 #: src/Routing/Routing.php:124
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
@@ -19829,12 +19829,12 @@ msgid "Includes all privileges except GRANT."
 msgstr "GRANT دىن باشقا بارلىق ئىمتىيازلارنى ئۆز ئىچىگە ئالىدۇ."
 
 #: src/Server/Privileges.php:894
-#, php-format
+#, fuzzy, php-format
 msgid "The password for %s was changed successfully."
 msgstr "% S نىڭ پارولى مۇۋەپپەقىيەتلىك ئۆزگەرتىلدى."
 
 #: src/Server/Privileges.php:942
-#, php-format
+#, fuzzy, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "% S نىڭ ئىمتىيازلىرىنى بىكار قىلدىڭىز."
 
@@ -19855,12 +19855,12 @@ msgid "The selected users have been deleted successfully."
 msgstr "تاللانغان ئابونتلار مۇۋەپپەقىيەتلىك ئۆچۈرۈلدى."
 
 #: src/Server/Privileges.php:1985
-#, php-format
+#, fuzzy, php-format
 msgid "You have updated the privileges for %s."
 msgstr "% S نىڭ ئىمتىيازلىرىنى يېڭىلىدىڭىز."
 
 #: src/Server/Privileges.php:2142
-#, php-format
+#, fuzzy, php-format
 msgid "Deleting %s"
 msgstr "% S نى ئۆچۈرۈۋاتىدۇ"
 
@@ -19869,7 +19869,7 @@ msgid "The privileges were reloaded successfully."
 msgstr "ئىمتىيازلار مۇۋەپپەقىيەتلىك يۈكلەندى."
 
 #: src/Server/Privileges.php:2273
-#, php-format
+#, fuzzy, php-format
 msgid "The user %s already exists!"
 msgstr "ئىشلەتكۈچى% s ئاللىبۇرۇن مەۋجۇت!"
 
@@ -19880,7 +19880,7 @@ msgid "Privileges for %s"
 msgstr "ھۇقۇقى"
 
 #: src/Server/Privileges.php:2596
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -20001,7 +20001,7 @@ msgstr ""
 "جاۋاب قايتۇرمىغان بولۇشى مۇمكىن."
 
 #: src/Setup/Index.php:161
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
@@ -20014,7 +20014,7 @@ msgid "No newer stable version is available"
 msgstr "يېڭى مۇقىم نەشرى يوق"
 
 #: src/Sql.php:436
-#, php-format
+#, fuzzy, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "خەتكۈچ \"% s\" نى سۈكۈتتىكى كۆز قاراش سۈپىتىدە ئىشلىتىش."
 
@@ -20023,7 +20023,7 @@ msgid "Showing as PHP code"
 msgstr "PHP كودى سۈپىتىدە كۆرسىتىلىدۇ"
 
 #: src/Sql.php:1223
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
@@ -20032,7 +20032,7 @@ msgstr ""
 " تەھرىرلەش ، كۆپەيتىش ۋە ئۆچۈرۈش ئىقتىدارلىرى يوق. % s"
 
 #: src/Sql.php:1237
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
@@ -20048,7 +20048,7 @@ msgid "Run SQL query/queries on server “%s”"
 msgstr "SQL ئىجرا بولۋاتقان ساندان <b>%s</b>:"
 
 #: src/SqlQueryForm.php:159
-#, php-format
+#, fuzzy, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "ساندان% s دىكى SQL سوئال / سوئاللىرىنى ئىجرا قىلىڭ"
 
@@ -20091,12 +20091,12 @@ msgid "No index parts defined!"
 msgstr "كۆرسەتكۈچ زاپچاسلىرى ئېنىقلانمىدى!"
 
 #: src/Table/Maintenance.php:116
-#, php-format
+#, fuzzy, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "جەدۋەل `% s` نىڭ كۆرسەتكۈچلىرى بار مەسىلىلەر"
 
 #: src/Table/TableMover.php:293
-#, php-format
+#, fuzzy, php-format
 msgid "Source database `%s` was not found!"
 msgstr "مەنبە ساندان `% s` تېپىلمىدى!"
 
@@ -20131,7 +20131,7 @@ msgid "Could not save table UI preferences!"
 msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 
 #: src/Table/Table.php:1130
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
@@ -20140,7 +20140,7 @@ msgstr ""
 "' MaxTableUiprefs ']% s)"
 
 #: src/Table/Table.php:1248
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
 "after you refresh this page. Please check if the table structure has been "
@@ -20151,7 +20151,7 @@ msgstr ""
 "ئۆزگەرمىگەنلىكىنى تەكشۈرۈپ بېقىڭ."
 
 #: src/Table/Table.php:1594
-#, php-format
+#, fuzzy, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 "% 1 $ s دە چەتئەل ئاچقۇچى قۇرۇشتا خاتالىق (سانلىق مەلۇمات تىپلىرىنى تەكشۈرۈش)"
@@ -20167,7 +20167,7 @@ msgid "Theme %s not found!"
 msgstr "تېما %s تېپىلمىدى!"
 
 #: src/Theme/Theme.php:179
-#, php-format
+#, fuzzy, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "تېما% s ئۈچۈن ئۈنۈملۈك رەسىم يولى تېپىلمىدى!"
 
@@ -20202,7 +20202,7 @@ msgid "No data"
 msgstr "سانلىق مەلۇمات يوق"
 
 #: src/Tracking/Tracking.php:290
-#, php-format
+#, fuzzy, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "% 1 $ s نى% 2 $ s دىن% 3 $ s غىچە ئىشلەتكۈچىلەر% 4 $ s% 5 $ s كۆرسىتىدۇ"
 
@@ -20223,12 +20223,12 @@ msgid "SQL execution"
 msgstr "SQL ئىجرا"
 
 #: src/Tracking/Tracking.php:404
-#, php-format
+#, fuzzy, php-format
 msgid "Export as %s"
 msgstr "ئېكسپورت% s"
 
 #: src/Tracking/Tracking.php:557
-#, php-format
+#, fuzzy, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "نەشىرى% s رەسىمگە تارتىش (SQL كودى)"
 
@@ -20250,7 +20250,7 @@ msgstr ""
 "SQL باياناتى ئېكىسپورت قىلىندى. ئەخلەت ساندۇقىنى كۆچۈرۈڭ ياكى ئىجرا قىلىڭ."
 
 #: src/Tracking/Tracking.php:838
-#, php-format
+#, fuzzy, php-format
 msgid "Tracking report for table `%s`"
 msgstr "جەدۋەل `% s` نىڭ ئىز قوغلاش دوكلاتى"
 
@@ -20273,7 +20273,7 @@ msgid "Version %1$s of %2$s was deleted."
 msgstr "نەشىرنى قۇىماق"
 
 #: src/Tracking/Tracking.php:990
-#, php-format
+#, fuzzy, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "% 1 $ s نەشرى قۇرۇلدى ،% 2 $ s نى ئىز قوغلاش ئاكتىپ."
 
@@ -20422,7 +20422,7 @@ msgid "A date, supported range is %1$s to %2$s"
 msgstr "نەشىرنى قۇىماق"
 
 #: src/Types.php:238
-#, php-format
+#, fuzzy, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "چېسلا ۋە ۋاقىت بىرلەشتۈرۈلگەن ، قوللايدىغان دائىرە% 1 $ s دىن% 2 $ s"
 
@@ -20457,7 +20457,7 @@ msgstr ""
 "ئوڭ تەرەپكە چاپلىنىدۇ"
 
 #: src/Types.php:263
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
