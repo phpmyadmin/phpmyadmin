@@ -34,12 +34,9 @@ use function password_hash;
 use function preg_match;
 use function preg_replace;
 use function str_contains;
-use function str_ends_with;
 use function str_replace;
 use function str_starts_with;
-use function stripcslashes;
 use function stripslashes;
-use function substr;
 use function trim;
 
 use const ENT_COMPAT;
@@ -766,7 +763,7 @@ class InsertEdit
     /**
      * display default values
      */
-    private function getSpecialCharsForInsertingMode(
+    private function getDefaultValue(
         string|null $defaultValue,
         string $trueType,
     ): string {
@@ -775,19 +772,18 @@ class InsertEdit
         }
 
         if ($trueType === 'bit') {
-            $specialChars = Util::convertBitDefaultValue($defaultValue);
-        } elseif ($trueType === 'timestamp' || $trueType === 'datetime' || $trueType === 'time') {
-            $specialChars = Util::addMicroseconds($defaultValue);
-        } elseif ($trueType === 'binary' || $trueType === 'varbinary') {
-            $specialChars = bin2hex($defaultValue);
-        } elseif (str_ends_with($trueType, 'text')) {
-            $textDefault = substr($defaultValue, 1, -1);
-            $specialChars = htmlspecialchars(stripcslashes($textDefault !== '' ? $textDefault : $defaultValue));
-        } else {
-            $specialChars = htmlspecialchars($defaultValue);
+            return Util::convertBitDefaultValue($defaultValue);
         }
 
-        return $specialChars;
+        if ($trueType === 'timestamp' || $trueType === 'datetime' || $trueType === 'time') {
+            return Util::addMicroseconds($defaultValue);
+        }
+
+        if ($trueType === 'binary' || $trueType === 'varbinary') {
+            return bin2hex($defaultValue);
+        }
+
+        return $defaultValue;
     }
 
     /**
@@ -1572,7 +1568,7 @@ class InsertEdit
 
             $realNullValue = $defaultValue === null;
             $data = (string) $defaultValue;
-            $specialChars = $this->getSpecialCharsForInsertingMode($defaultValue, $column->trueType);
+            $specialChars = htmlspecialchars($this->getDefaultValue($defaultValue, $column->trueType));
             $specialCharsEncoded = Util::duplicateFirstNewline($specialChars);
             $backupField = '';
         }
