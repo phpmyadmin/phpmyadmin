@@ -81,8 +81,6 @@ final class GetFieldController implements InvocableController
                 __('MySQL returned an empty result set (i.e. zero rows).'),
                 $sql,
             );
-
-            return $this->response->response();
         }
 
         $result ??= '';
