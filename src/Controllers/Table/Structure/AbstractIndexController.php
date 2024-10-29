@@ -39,7 +39,7 @@ abstract class AbstractIndexController
         Assert::allString($selected);
 
         if ($indexType === 'PRIMARY') {
-            $hasPrimaryKey = $this->indexes->hasPrimaryKey(Current::$table);
+            $hasPrimaryKey = $this->indexes->hasPrimaryKey(Current::$database, Current::$table);
             $statement = Generator::getAddPrimaryKeyStatement(Current::$table, $selected[0], $hasPrimaryKey);
         } else {
             $statement = Generator::getAddIndexSql($indexType, Current::$table, $selected);

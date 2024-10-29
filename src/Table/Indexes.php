@@ -189,9 +189,11 @@ final class Indexes
         return Message::success();
     }
 
-    public function hasPrimaryKey(string|TableName $table): bool
+    public function hasPrimaryKey(string|DatabaseName $db, string|TableName $table): bool
     {
+        $this->dbi->selectDb($db);
         $result = $this->dbi->query('SHOW KEYS FROM ' . Util::backquote($table));
+
         foreach ($result as $row) {
             if ($row['Key_name'] === 'PRIMARY') {
                 return true;
