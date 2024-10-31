@@ -84,7 +84,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
         return $html . '<input type="text" name="fields' . $columnNameAppendix . '"'
             . ' value="' . htmlspecialchars($val) . '"'
             . ' size="40"'
-            . ' dir="' . LanguageManager::$textDir . '"'
+            . ' dir="' . LanguageManager::$textDirection->value . '"'
             . ' class="' . $class . '"'
             . ' id="field_' . $fieldIndex . '_3"'
             . ' tabindex="' . $fieldIndex . '">';

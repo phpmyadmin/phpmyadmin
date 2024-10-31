@@ -21,7 +21,7 @@ final class PmaGlobalVariable
     {
         return match ($name) {
             'version' => Version::VERSION,
-            'text_dir' => LanguageManager::$textDir,
+            'text_dir' => LanguageManager::$textDirection->value,
             default => throw new RuntimeException(sprintf('The "pma.%s" variable is not available.', $name)),
         };
     }

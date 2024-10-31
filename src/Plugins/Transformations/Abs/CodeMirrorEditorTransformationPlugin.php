@@ -57,7 +57,7 @@ abstract class CodeMirrorEditorTransformationPlugin extends IOTransformationsPlu
         $class = 'transform_' . strtolower(static::getName()) . '_editor';
 
         return $html . '<textarea name="fields' . $columnNameAppendix . '"'
-            . ' dir="' . LanguageManager::$textDir . '" class="' . $class . '">'
+            . ' dir="' . LanguageManager::$textDirection->value . '" class="' . $class . '">'
             . htmlspecialchars($value) . '</textarea>';
     }
 }

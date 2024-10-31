@@ -404,7 +404,7 @@ class InsertEdit
             . (isset($maxlength) ? ' data-maxlength="' . $maxlength . '"' : '')
             . ' rows="' . $textAreaRows . '"'
             . ' cols="' . $textareaCols . '"'
-            . ' dir="' . LanguageManager::$textDir . '"'
+            . ' dir="' . LanguageManager::$textDirection->value . '"'
             . ' id="field_' . $this->fieldIndex . '_3"'
             . ($onChangeClause !== '' ? ' onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"' : '')
             . ' tabindex="' . $this->fieldIndex . '"'

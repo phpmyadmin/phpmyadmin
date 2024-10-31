@@ -723,8 +723,8 @@ class LanguageManager
 
     private static LanguageManager|null $instance = null;
 
-    /** @psalm-var 'ltr'|'rtl' */
-    public static string $textDir = 'ltr';
+    public static TextDirection $textDirection = TextDirection::LeftToRight;
+
     private readonly Config $config;
 
     public function __construct()

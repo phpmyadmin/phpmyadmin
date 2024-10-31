@@ -76,7 +76,7 @@ class Text_Plain_Iptolong extends IOTransformationsPlugin
         return $html . '<input type="text" name="fields' . $columnNameAppendix . '"'
             . ' value="' . htmlspecialchars($val) . '"'
             . ' size="40"'
-            . ' dir="' . LanguageManager::$textDir . '"'
+            . ' dir="' . LanguageManager::$textDirection->value . '"'
             . ' class="transform_IPToLong"'
             . ' id="field_' . $fieldIndex . '_3"'
             . ' tabindex="' . $fieldIndex . '" />';
