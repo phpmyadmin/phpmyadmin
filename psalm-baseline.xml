@@ -10765,7 +10765,6 @@
       <code><![CDATA[true|Message]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! Context::isKeyword($columnName, true)]]></code>
       <code><![CDATA[empty($existrelForeign[$masterFieldMd5]->onDelete)]]></code>
       <code><![CDATA[empty($existrelForeign[$masterFieldMd5]->onUpdate)]]></code>
     </RiskyTruthyFalsyComparison>

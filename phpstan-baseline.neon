@@ -13525,11 +13525,6 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\|null given\\.$#"
-			count: 1
-			path: src/Table/Table.php
-
-		-
 			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
 			count: 1
 			path: src/Table/Table.php
