@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Dbal\ResultInterface;
+use PhpMyAdmin\Query\Compatibility;
 
 use function explode;
 use function mb_strtoupper;
@@ -62,7 +63,7 @@ class Replication
             return -1;
         }
 
-        if ($dbi->isMySql() && $dbi->getVersion() >= 80400) {
+        if ($dbi->isMySql() && $dbi->getVersion() >= 80022 || $dbi->isMariaDB() && $dbi->getVersion() >= 100501) {
             return $dbi->tryQuery($action . ' REPLICA ' . $control . ';', $link);
         }
 
@@ -99,7 +100,7 @@ class Replication
             $this->replicaControl('STOP', null, $link);
         }
 
-        if ($dbi->isMySql() && $dbi->getVersion() >= 80400) {
+        if ($dbi->isMySql() && $dbi->getVersion() >= 80023) {
             $out = $dbi->tryQuery(
                 'CHANGE REPLICATION SOURCE TO ' .
                 'SOURCE_HOST=\'' . $host . '\',' .
@@ -175,11 +176,7 @@ class Replication
     {
         global $dbi;
 
-        if ($dbi->isMySql() && $dbi->getVersion() >= 80400) {
-            $data = $dbi->fetchResult('SHOW BINARY LOG STATUS', null, null, $link);
-        } else {
-            $data = $dbi->fetchResult('SHOW MASTER STATUS', null, null, $link);
-        }
+        $data = $dbi->fetchResult(Compatibility::getShowBinLogStatusStmt($dbi), null, null, $link);
 
         $output = [];
 

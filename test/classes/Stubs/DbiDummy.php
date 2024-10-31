@@ -603,7 +603,7 @@ class DbiDummy implements DbiExtension
                 'result' => [['1']],
             ],
             [
-                'query' => 'SHOW MASTER LOGS',
+                'query' => 'SHOW BINARY LOGS',
                 'result' => [
                     [
                         'Log_name' => 'index1',
