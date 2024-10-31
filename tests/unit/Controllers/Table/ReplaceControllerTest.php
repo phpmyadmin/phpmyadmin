@@ -132,6 +132,11 @@ class ReplaceControllerTest extends AbstractTestCase
         $GLOBALS['goto'] = 'index.php?route=/sql';
         $dummyDbi->addSelectDb('my_db');
         $dummyDbi->addSelectDb('my_db');
+        $dummyDbi->addResult(
+            'SELECT COLUMN_NAME, COLUMN_DEFAULT FROM INFORMATION_SCHEMA.COLUMNS '
+                . "WHERE TABLE_NAME = 'test_tbl' AND TABLE_SCHEMA = 'my_db'",
+            [],
+        );
         $replaceController($request);
         $output = $response->getHTMLResult();
         $this->dummyDbi->assertAllSelectsConsumed();
