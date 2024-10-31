@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Input;
 
 use PhpMyAdmin\FieldMetadata;
-use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Utils\FormatConverter;
 
@@ -76,7 +76,7 @@ class Text_Plain_Iptolong extends IOTransformationsPlugin
         return $html . '<input type="text" name="fields' . $columnNameAppendix . '"'
             . ' value="' . htmlspecialchars($val) . '"'
             . ' size="40"'
-            . ' dir="' . LanguageManager::$textDir . '"'
+            . ' dir="' . LanguageManager::$textDirection->value . '"'
             . ' class="transform_IPToLong"'
             . ' id="field_' . $fieldIndex . '_3"'
             . ' tabindex="' . $fieldIndex . '" />';

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig;
 
-use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Version;
 use RuntimeException;
 
@@ -21,7 +21,7 @@ final class PmaGlobalVariable
     {
         return match ($name) {
             'version' => Version::VERSION,
-            'text_dir' => LanguageManager::$textDir,
+            'text_dir' => LanguageManager::$textDirection->value,
             default => throw new RuntimeException(sprintf('The "pma.%s" variable is not available.', $name)),
         };
     }

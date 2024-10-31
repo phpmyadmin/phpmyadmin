@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\I18n;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Language;
-use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\I18n\Language;
+use PhpMyAdmin\I18n\LanguageManager;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Large;

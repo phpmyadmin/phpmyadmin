@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Exceptions\ConfigException;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Theme\ThemeManager;
 use Throwable;

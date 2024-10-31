@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\I18n;
 
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Exceptions\UnsupportedLanguageCode;
 
 use function __;
@@ -721,8 +723,8 @@ class LanguageManager
 
     private static LanguageManager|null $instance = null;
 
-    /** @psalm-var 'ltr'|'rtl' */
-    public static string $textDir = 'ltr';
+    public static TextDirection $textDirection = TextDirection::LeftToRight;
+
     private readonly Config $config;
 
     public function __construct()

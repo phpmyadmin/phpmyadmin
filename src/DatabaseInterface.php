@@ -16,6 +16,7 @@ use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\Dbal\Warning;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\Query\Compatibility;

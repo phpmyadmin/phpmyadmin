@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Twig;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\I18n\LanguageManager;
+use PhpMyAdmin\I18n\TextDirection;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Twig\PmaGlobalVariable;
@@ -53,7 +54,7 @@ final class PmaGlobalVariableTest extends AbstractTestCase
 
     public function testTextDir(): void
     {
-        LanguageManager::$textDir = 'ltr';
+        LanguageManager::$textDirection = TextDirection::LeftToRight;
         self::assertSame('ltr', (new PmaGlobalVariable())->text_dir());
     }
 
@@ -72,7 +73,7 @@ final class PmaGlobalVariableTest extends AbstractTestCase
 
     public function testTextDirFromTwig(): void
     {
-        LanguageManager::$textDir = 'ltr';
+        LanguageManager::$textDirection = TextDirection::LeftToRight;
         $expected = '<span>ltr</span>' . "\n";
         self::assertSame($expected, (new Template(new Config()))->render('pma_global_variable/text_dir', []));
     }

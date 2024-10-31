@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\I18n;
 
 use function __;
 use function _bindtextdomain;
@@ -163,15 +163,14 @@ class Language
             setlocale(0, $this->code);
         }
 
-        /* Text direction for language */
-        LanguageManager::$textDir = $this->isRTL() ? 'rtl' : 'ltr';
+        LanguageManager::$textDirection = $this->isRTL() ? TextDirection::RightToLeft : TextDirection::LeftToRight;
 
         /* TCPDF */
         $GLOBALS['l'] = [];
 
         /* TCPDF settings */
         $GLOBALS['l']['a_meta_charset'] = 'UTF-8';
-        $GLOBALS['l']['a_meta_dir'] = LanguageManager::$textDir;
+        $GLOBALS['l']['a_meta_dir'] = LanguageManager::$textDirection->value;
         $GLOBALS['l']['a_meta_language'] = $this->code;
 
         /* TCPDF translations */

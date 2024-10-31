@@ -380,7 +380,7 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: "#^Parameter \\#1 \\$code of method PhpMyAdmin\\\\LanguageManager\\:\\:getLanguage\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$code of method PhpMyAdmin\\\\I18n\\\\LanguageManager\\:\\:getLanguage\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Config.php
 
@@ -7855,6 +7855,69 @@ parameters:
 			path: src/Http/ServerRequest.php
 
 		-
+			message: "#^Cannot access offset 'a_meta_dir' on mixed\\.$#"
+			count: 1
+			path: src/I18n/Language.php
+
+		-
+			message: "#^Cannot access offset 'a_meta_language' on mixed\\.$#"
+			count: 1
+			path: src/I18n/Language.php
+
+		-
+			message: "#^Cannot access offset 'w_page' on mixed\\.$#"
+			count: 1
+			path: src/I18n/Language.php
+
+		-
+			message: "#^Parameter \\#2 \\$path of function _bindtextdomain expects string, mixed given\\.$#"
+			count: 1
+			path: src/I18n/Language.php
+
+		-
+			message: """
+				#^Call to deprecated method getInstance\\(\\) of class PhpMyAdmin\\\\Config\\:
+				Use dependency injection instead\\.$#
+			"""
+			count: 1
+			path: src/I18n/LanguageManager.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 5
+			path: src/I18n/LanguageManager.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\I18n\\\\LanguageManager\\:\\:availableLocales\\(\\) should return array\\<string\\> but returns array\\|false\\.$#"
+			count: 1
+			path: src/I18n/LanguageManager.php
+
+		-
+			message: "#^Parameter \\#1 \\$code of method PhpMyAdmin\\\\I18n\\\\LanguageManager\\:\\:getLanguage\\(\\) expects string, mixed given\\.$#"
+			count: 4
+			path: src/I18n/LanguageManager.php
+
+		-
+			message: "#^Parameter \\#1 \\$directory of function opendir expects string, mixed given\\.$#"
+			count: 1
+			path: src/I18n/LanguageManager.php
+
+		-
+			message: "#^Parameter \\#1 \\$filename of function is_dir expects string, mixed given\\.$#"
+			count: 1
+			path: src/I18n/LanguageManager.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function strtolower expects string, mixed given\\.$#"
+			count: 1
+			path: src/I18n/LanguageManager.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\I18n\\\\LanguageManager\\:\\:\\$availableLocales \\(array\\<string\\>\\) does not accept array\\|false\\.$#"
+			count: 1
+			path: src/I18n/LanguageManager.php
+
+		-
 			message: "#^Cannot access offset 'handler' on mixed\\.$#"
 			count: 2
 			path: src/Import/Ajax.php
@@ -8340,69 +8403,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$ipToTest of method PhpMyAdmin\\\\IpAllowDeny\\:\\:ipMaskTest\\(\\) expects string, string\\|true given\\.$#"
 			count: 1
 			path: src/IpAllowDeny.php
-
-		-
-			message: "#^Cannot access offset 'a_meta_dir' on mixed\\.$#"
-			count: 1
-			path: src/Language.php
-
-		-
-			message: "#^Cannot access offset 'a_meta_language' on mixed\\.$#"
-			count: 1
-			path: src/Language.php
-
-		-
-			message: "#^Cannot access offset 'w_page' on mixed\\.$#"
-			count: 1
-			path: src/Language.php
-
-		-
-			message: "#^Parameter \\#2 \\$path of function _bindtextdomain expects string, mixed given\\.$#"
-			count: 1
-			path: src/Language.php
-
-		-
-			message: """
-				#^Call to deprecated method getInstance\\(\\) of class PhpMyAdmin\\\\Config\\:
-				Use dependency injection instead\\.$#
-			"""
-			count: 1
-			path: src/LanguageManager.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 5
-			path: src/LanguageManager.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\LanguageManager\\:\\:availableLocales\\(\\) should return array\\<string\\> but returns array\\|false\\.$#"
-			count: 1
-			path: src/LanguageManager.php
-
-		-
-			message: "#^Parameter \\#1 \\$code of method PhpMyAdmin\\\\LanguageManager\\:\\:getLanguage\\(\\) expects string, mixed given\\.$#"
-			count: 4
-			path: src/LanguageManager.php
-
-		-
-			message: "#^Parameter \\#1 \\$directory of function opendir expects string, mixed given\\.$#"
-			count: 1
-			path: src/LanguageManager.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function is_dir expects string, mixed given\\.$#"
-			count: 1
-			path: src/LanguageManager.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strtolower expects string, mixed given\\.$#"
-			count: 1
-			path: src/LanguageManager.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$availableLocales \\(array\\<string\\>\\) does not accept array\\|false\\.$#"
-			count: 1
-			path: src/LanguageManager.php
 
 		-
 			message: "#^Binary operation \"\\+\" between int\\|string\\|null and int\\<0, max\\> results in an error\\.$#"
@@ -16671,6 +16671,14 @@ parameters:
 			path: tests/unit/Html/MySQLDocumentationTest.php
 
 		-
+			message: """
+				#^Call to deprecated method getInstance\\(\\) of class PhpMyAdmin\\\\Config\\:
+				Use dependency injection instead\\.$#
+			"""
+			count: 6
+			path: tests/unit/I18n/LanguageTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with true will always evaluate to true\\.$#"
 			count: 1
 			path: tests/unit/Import/AjaxTest.php
@@ -16756,14 +16764,6 @@ parameters:
 			"""
 			count: 2
 			path: tests/unit/IpAllowDenyTest.php
-
-		-
-			message: """
-				#^Call to deprecated method getInstance\\(\\) of class PhpMyAdmin\\\\Config\\:
-				Use dependency injection instead\\.$#
-			"""
-			count: 6
-			path: tests/unit/LanguageTest.php
 
 		-
 			message: """

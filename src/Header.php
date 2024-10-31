@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Theme\ThemeManager;
 
@@ -114,7 +115,7 @@ class Header
             'table' => Current::$table,
             'db' => Current::$database,
             'token' => $_SESSION[' PMA_token '],
-            'text_dir' => LanguageManager::$textDir,
+            'text_dir' => LanguageManager::$textDirection->value,
             'LimitChars' => $this->config->settings['LimitChars'],
             'pftext' => $pftext,
             'confirm' => $this->config->settings['Confirm'],
