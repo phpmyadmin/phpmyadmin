@@ -11,7 +11,7 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Setup\Index;
 use PhpMyAdmin\Setup\SetupHelper;

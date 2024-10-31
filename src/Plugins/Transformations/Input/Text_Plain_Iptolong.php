@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Input;
 
 use PhpMyAdmin\FieldMetadata;
-use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Utils\FormatConverter;
 

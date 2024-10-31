@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Twig;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Twig\PmaGlobalVariable;

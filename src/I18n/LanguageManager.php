@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\I18n;
 
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Exceptions\UnsupportedLanguageCode;
 
 use function __;
