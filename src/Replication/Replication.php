@@ -10,6 +10,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\ResultInterface;
+use PhpMyAdmin\Query\Compatibility;
 
 use function explode;
 use function mb_strtoupper;
@@ -68,6 +69,13 @@ class Replication
             return -1;
         }
 
+        if (
+            $this->dbi->isMySql() && $this->dbi->getVersion() >= 80022
+            || $this->dbi->isMariaDB() && $this->dbi->getVersion() >= 100501
+        ) {
+            return $this->dbi->tryQuery($action . ' REPLICA ' . $control . ';', $connectionType);
+        }
+
         return $this->dbi->tryQuery($action . ' SLAVE ' . $control . ';', $connectionType);
     }
 
@@ -98,16 +106,29 @@ class Replication
             $this->replicaControl('STOP', null, $connectionType);
         }
 
-        $out = $this->dbi->tryQuery(
-            'CHANGE MASTER TO ' .
-            'MASTER_HOST=' . $this->dbi->quoteString($host) . ',' .
-            'MASTER_PORT=' . $port . ',' .
-            'MASTER_USER=' . $this->dbi->quoteString($user) . ',' .
-            'MASTER_PASSWORD=' . $this->dbi->quoteString($password) . ',' .
-            'MASTER_LOG_FILE=' . $this->dbi->quoteString($pos['File']) . ',' .
-            'MASTER_LOG_POS=' . $pos['Position'] . ';',
-            $connectionType,
-        );
+        if ($this->dbi->isMySql() && $this->dbi->getVersion() >= 80023) {
+            $out = $this->dbi->tryQuery(
+                'CHANGE REPLICATION SOURCE TO ' .
+                'SOURCE_HOST=' . $this->dbi->quoteString($host) . ',' .
+                'SOURCE_PORT=' . $port . ',' .
+                'SOURCE_USER=' . $this->dbi->quoteString($user) . ',' .
+                'SOURCE_PASSWORD=' . $this->dbi->quoteString($password) . ',' .
+                'SOURCE_LOG_FILE=' . $this->dbi->quoteString($pos['File']) . ',' .
+                'SOURCE_LOG_POS=' . $pos['Position'] . ';',
+                $connectionType,
+            );
+        } else {
+            $out = $this->dbi->tryQuery(
+                'CHANGE MASTER TO ' .
+                'MASTER_HOST=' . $this->dbi->quoteString($host) . ',' .
+                'MASTER_PORT=' . $port . ',' .
+                'MASTER_USER=' . $this->dbi->quoteString($user) . ',' .
+                'MASTER_PASSWORD=' . $this->dbi->quoteString($password) . ',' .
+                'MASTER_LOG_FILE=' . $this->dbi->quoteString($pos['File']) . ',' .
+                'MASTER_LOG_POS=' . $pos['Position'] . ';',
+                $connectionType,
+            );
+        }
 
         if ($start) {
             $this->replicaControl('START', null, $connectionType);
@@ -154,7 +175,12 @@ class Replication
      */
     public function replicaBinLogPrimary(ConnectionType $connectionType): array
     {
-        $data = $this->dbi->fetchResult('SHOW MASTER STATUS', null, null, $connectionType);
+        $data = $this->dbi->fetchResult(
+            Compatibility::getShowBinLogStatusStmt($this->dbi),
+            null,
+            null,
+            $connectionType,
+        );
         $output = [];
 
         if ($data !== []) {

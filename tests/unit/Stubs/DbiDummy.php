@@ -384,7 +384,7 @@ class DbiDummy implements DbiExtension
                 'result' => [['1']],
             ],
             [
-                'query' => 'SHOW MASTER LOGS',
+                'query' => 'SHOW BINARY LOGS',
                 'columns' => ['Log_name', 'File_size'],
                 'result' => [['index1', 100], ['index2', 200]],
             ],

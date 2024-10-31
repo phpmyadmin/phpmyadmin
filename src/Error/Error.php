@@ -40,7 +40,6 @@ use const E_ERROR;
 use const E_NOTICE;
 use const E_PARSE;
 use const E_RECOVERABLE_ERROR;
-use const E_STRICT;
 use const E_USER_DEPRECATED;
 use const E_USER_ERROR;
 use const E_USER_NOTICE;
@@ -271,7 +270,7 @@ class Error extends Message
             E_USER_ERROR => 'User Error',
             E_USER_WARNING => 'User Warning',
             E_USER_NOTICE => 'User Notice',
-            E_STRICT => 'Runtime Notice',
+            2048 => 'Runtime Notice', // E_STRICT
             E_DEPRECATED => 'Deprecation Notice',
             E_USER_DEPRECATED => 'Deprecation Notice',
             E_RECOVERABLE_ERROR => 'Catchable Fatal Error',
@@ -284,7 +283,7 @@ class Error extends Message
             default => MessageType::Error,
             E_NOTICE,
             E_USER_NOTICE,
-            E_STRICT,
+            2048, // E_STRICT
             E_DEPRECATED,
             E_USER_DEPRECATED => MessageType::Notice,
         };

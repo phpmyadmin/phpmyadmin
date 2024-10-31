@@ -9581,6 +9581,7 @@
   <file src="src/Replication/Replication.php">
     <MixedArgument>
       <code><![CDATA[$pos['File']]]></code>
+      <code><![CDATA[$pos['File']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$data[0]['File']]]></code>
@@ -9591,6 +9592,7 @@
       <code><![CDATA[$output['Position']]]></code>
     </MixedAssignment>
     <MixedOperand>
+      <code><![CDATA[$pos['Position']]]></code>
       <code><![CDATA[$pos['Position']]]></code>
     </MixedOperand>
     <MixedReturnTypeCoercion>
@@ -9630,8 +9632,6 @@
       <code><![CDATA[$urlParams]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
-      <code><![CDATA[$serverReplicaReplication[0]['Slave_IO_Running']]]></code>
-      <code><![CDATA[$serverReplicaReplication[0]['Slave_SQL_Running']]]></code>
       <code><![CDATA[$serverReplication[0][$variable]]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
@@ -13098,6 +13098,7 @@
       <code><![CDATA[$_SESSION]]></code>
     </InvalidScalarArgument>
     <PossiblyUnusedMethod>
+      <code><![CDATA[addErrorProvider]]></code>
       <code><![CDATA[providerForTestHandleError]]></code>
     </PossiblyUnusedMethod>
     <PropertyTypeCoercion>
@@ -13123,6 +13124,8 @@
   </file>
   <file src="tests/unit/Error/ErrorTest.php">
     <PossiblyUnusedMethod>
+      <code><![CDATA[errorLevelProvider]]></code>
+      <code><![CDATA[errorTypeProvider]]></code>
       <code><![CDATA[invalidFilePathsProvider]]></code>
       <code><![CDATA[validFilePathsProvider]]></code>
     </PossiblyUnusedMethod>
@@ -14066,6 +14069,7 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[providerForTestHasAccountLocking]]></code>
       <code><![CDATA[providerForTestIsUUIDSupported]]></code>
+      <code><![CDATA[showBinLogStatusProvider]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/Replication/ReplicationGuiTest.php">

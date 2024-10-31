@@ -31,7 +31,7 @@ final class BinlogController implements InvocableController
 
     public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
     {
-        $this->binaryLogs = $this->dbi->fetchResult('SHOW MASTER LOGS', 'Log_name');
+        $this->binaryLogs = $this->dbi->fetchResult('SHOW BINARY LOGS', 'Log_name');
     }
 
     public function __invoke(ServerRequest $request): Response

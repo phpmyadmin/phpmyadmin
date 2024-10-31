@@ -44,7 +44,7 @@ final class Search
         // (more efficient and this helps prevent a problem in IE
         // if one of the rows is edited and we come back to the Select results)
         if (isset($_POST['zoom_submit']) || ! empty($_POST['displayAllColumns'])) {
-            $sqlQuery .= '* ';
+            $sqlQuery .= '*';
         } else {
             $columnsToDisplay = $_POST['columnsToDisplay'];
             $quotedColumns = [];

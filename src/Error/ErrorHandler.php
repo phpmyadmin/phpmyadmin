@@ -33,7 +33,6 @@ use const E_ERROR;
 use const E_NOTICE;
 use const E_PARSE;
 use const E_RECOVERABLE_ERROR;
-use const E_STRICT;
 use const E_USER_DEPRECATED;
 use const E_USER_ERROR;
 use const E_USER_NOTICE;
@@ -283,7 +282,7 @@ class ErrorHandler
         }
 
         switch ($error->getErrorNumber()) {
-            case E_STRICT:
+            case 2048: // E_STRICT
             case E_DEPRECATED:
             case E_NOTICE:
             case E_WARNING:

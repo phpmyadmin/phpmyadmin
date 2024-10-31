@@ -166,7 +166,7 @@ AJAX.registerOnload('table/select.js', function () {
                     $('#sqlqueryresultsouter').html(data.sql_query);
                 } else { // results found
                     $('#sqlqueryresultsouter').html(data.message);
-                    $('.sqlqueryresults').trigger('makegrid');
+                    $('.sqlqueryresults').trigger('makeGrid');
                 }
 
                 $('#tbl_search_form')
