@@ -14,8 +14,8 @@ final class LanguageLoading implements MiddlewareInterface
 {
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $language = LanguageManager::getInstance()->selectLanguage();
-        $language->activate();
+        $languageManager = LanguageManager::getInstance();
+        $languageManager->activate($languageManager->selectLanguage());
 
         return $handler->handle($request);
     }

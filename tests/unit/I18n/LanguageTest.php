@@ -50,7 +50,7 @@ class LanguageTest extends AbstractTestCase
             return;
         }
 
-        $lang->activate();
+        $this->manager->activate($lang);
     }
 
     /**
@@ -245,7 +245,7 @@ class LanguageTest extends AbstractTestCase
         /* We should be able to set the language */
         $lang = $this->manager->getLanguage($locale);
         self::assertNotFalse($lang);
-        $lang->activate();
+        $this->manager->activate($lang);
 
         /* Grab some texts */
         self::assertStringContainsString('%s', _ngettext('%s table', '%s tables', 10));

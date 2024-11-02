@@ -7855,30 +7855,25 @@ parameters:
 			path: src/Http/ServerRequest.php
 
 		-
-			message: "#^Cannot access offset 'a_meta_dir' on mixed\\.$#"
-			count: 1
-			path: src/I18n/Language.php
-
-		-
-			message: "#^Cannot access offset 'a_meta_language' on mixed\\.$#"
-			count: 1
-			path: src/I18n/Language.php
-
-		-
-			message: "#^Cannot access offset 'w_page' on mixed\\.$#"
-			count: 1
-			path: src/I18n/Language.php
-
-		-
-			message: "#^Parameter \\#2 \\$path of function _bindtextdomain expects string, mixed given\\.$#"
-			count: 1
-			path: src/I18n/Language.php
-
-		-
 			message: """
 				#^Call to deprecated method getInstance\\(\\) of class PhpMyAdmin\\\\Config\\:
 				Use dependency injection instead\\.$#
 			"""
+			count: 1
+			path: src/I18n/LanguageManager.php
+
+		-
+			message: "#^Cannot access offset 'a_meta_dir' on mixed\\.$#"
+			count: 1
+			path: src/I18n/LanguageManager.php
+
+		-
+			message: "#^Cannot access offset 'a_meta_language' on mixed\\.$#"
+			count: 1
+			path: src/I18n/LanguageManager.php
+
+		-
+			message: "#^Cannot access offset 'w_page' on mixed\\.$#"
 			count: 1
 			path: src/I18n/LanguageManager.php
 
@@ -7909,6 +7904,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$string of function strtolower expects string, mixed given\\.$#"
+			count: 1
+			path: src/I18n/LanguageManager.php
+
+		-
+			message: "#^Parameter \\#2 \\$path of function _bindtextdomain expects string, mixed given\\.$#"
 			count: 1
 			path: src/I18n/LanguageManager.php
 

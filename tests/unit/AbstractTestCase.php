@@ -116,13 +116,14 @@ abstract class AbstractTestCase extends TestCase
     protected function setLanguage(string $code = 'en'): void
     {
         $GLOBALS['lang'] = $code;
+        $languageManager = LanguageManager::getInstance();
         /* Ensure default language is active */
-        $languageEn = LanguageManager::getInstance()->getLanguage($code);
+        $languageEn = $languageManager->getLanguage($code);
         if ($languageEn === false) {
             return;
         }
 
-        $languageEn->activate();
+        $languageManager->activate($languageEn);
         Translator::load();
     }
 

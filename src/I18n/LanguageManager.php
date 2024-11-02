@@ -9,14 +9,19 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Exceptions\UnsupportedLanguageCode;
 
 use function __;
+use function _bindtextdomain;
+use function _setlocale;
+use function _textdomain;
 use function closedir;
 use function count;
 use function explode;
 use function file_exists;
+use function function_exists;
 use function is_dir;
 use function opendir;
 use function preg_grep;
 use function readdir;
+use function setlocale;
 use function strtolower;
 use function uasort;
 use function ucfirst;
@@ -959,5 +964,38 @@ class LanguageManager
         }
 
         throw new UnsupportedLanguageCode(__('Ignoring unsupported language code.'));
+    }
+
+    /**
+     * Activates given translation
+     */
+    public function activate(Language $language): void
+    {
+        $GLOBALS['lang'] = $language->getCode();
+
+        // Set locale
+        _setlocale(0, $language->getCode());
+        _bindtextdomain('phpmyadmin', LOCALE_PATH);
+        _textdomain('phpmyadmin');
+        // Set PHP locale as well
+        if (function_exists('setlocale')) {
+            setlocale(0, $language->getCode());
+        }
+
+        self::$textDirection = $language->isRTL() ? TextDirection::RightToLeft : TextDirection::LeftToRight;
+
+        /* TCPDF */
+        $GLOBALS['l'] = [];
+
+        /* TCPDF settings */
+        $GLOBALS['l']['a_meta_charset'] = 'UTF-8';
+        $GLOBALS['l']['a_meta_dir'] = self::$textDirection->value;
+        $GLOBALS['l']['a_meta_language'] = $language->getCode();
+
+        /* TCPDF translations */
+        $GLOBALS['l']['w_page'] = __('Page number:');
+
+        /* Show possible warnings from language selection */
+        $this->showWarnings();
     }
 }
