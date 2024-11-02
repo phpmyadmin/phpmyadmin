@@ -451,6 +451,8 @@ final class JavaScriptMessagesController implements InvocableController
             'strConfirmTd' => __('Confirm transitive dependencies'),
             'strSelectedTd' => __('Selected dependencies are as follows:'),
             'strNoTdSelected' => __('No dependencies selected!'),
+            'strFirstValuePlaceholder' => __('Enter first value'),
+            'strSecondValuePlaceholder' => __('Enter second value'),
 
             /* For server/variables.js */
             'strSave' => __('Save'),
