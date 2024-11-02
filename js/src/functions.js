@@ -4188,9 +4188,14 @@ $(function () {
 
 /**
  * Scrolls the page to the top if clicking the server-breadcrumb bar
+ * If the user holds the Ctrl (or Meta on macOS) key, it prevents the scroll
+ * so they can open the link in a new tab.
  */
 $(function () {
     $(document).on('click', '#server-breadcrumb, #goto_pagetop', function (event) {
+        if (event.ctrlKey || event.metaKey) {
+            return;
+        }
         event.preventDefault();
         $('html, body').animate({ scrollTop: 0 }, 'fast');
     });
