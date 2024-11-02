@@ -246,7 +246,8 @@ cleanup_composer_vendors() {
         vendor/psr/event-dispatcher/.editorconfig \
         vendor/spomky-labs/cbor-php/SECURITY.md \
         vendor/spomky-labs/pki-framework/SECURITY.md \
-        vendor/web-auth/cose-lib/SECURITY.md
+        vendor/web-auth/cose-lib/SECURITY.md \
+        vendor/laminas/laminas-httphandlerrunner/.laminas-ci.json
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
         -not -name 'dejavusansb.*' \
