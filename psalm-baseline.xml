@@ -6486,7 +6486,8 @@
       <code>$line</code>
       <code>$line</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="3">
+    <MixedArrayAccess occurrences="4">
+      <code>$level['context']</code>
       <code>$level['context']</code>
       <code>$level['url']</code>
       <code>$level['url']</code>
