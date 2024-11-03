@@ -179,7 +179,7 @@ class GisPoint extends GisGeometry
     public function prepareRowAsSvg($spatial, $label, $point_color, array $scale_data)
     {
         $point_options = [
-            'name' => $label,
+            'data-label' => $label,
             'id' => $label . $this->getRandomId(),
             'class' => 'point vector',
             'fill' => 'white',

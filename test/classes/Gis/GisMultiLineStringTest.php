@@ -348,10 +348,10 @@ class GisMultiLineStringTest extends GisGeomTestCase
                     'scale' => 2,
                     'height' => 150,
                 ],
-                '/^(<polyline points="48,260 70,242 100,138 " name="svg" '
+                '/^(<polyline points="48,260 70,242 100,138 " data-label="svg" '
                 . 'class="linestring vector" fill="none" stroke="#B02EE0" '
                 . 'stroke-width="2" id="svg)(\d+)("\/><polyline points="48,268 10,'
-                . '242 332,182 " name="svg" class="linestring vector" fill="none" '
+                . '242 332,182 " data-label="svg" class="linestring vector" fill="none" '
                 . 'stroke="#B02EE0" stroke-width="2" id="svg)(\d+)("\/>)$/',
             ],
         ];
