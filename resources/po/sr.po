@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-10-27 00:25+0000\n"
+"POT-Creation-Date: 2024-11-03 00:25+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -299,7 +299,7 @@ msgstr "Имена колона"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
-#: src/Controllers/Server/PrivilegesController.php:290
+#: src/Controllers/Server/PrivilegesController.php:293
 #: src/Normalization.php:229 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
@@ -666,7 +666,7 @@ msgstr "Име"
 #: resources/templates/table/structure/display_structure.twig:465
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:288
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:289
 #: src/Plugins/Export/ExportHtmlword.php:262
 #: src/Plugins/Export/ExportHtmlword.php:353
 #: src/Plugins/Export/ExportLatex.php:505 src/Plugins/Export/ExportOdt.php:364
@@ -971,7 +971,7 @@ msgstr "Онемогућено"
 #: src/Controllers/JavaScriptMessagesController.php:510
 #: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:44
-#: src/Controllers/Table/Structure/PrimaryController.php:107
+#: src/Controllers/Table/Structure/PrimaryController.php:106
 #: src/IndexColumn.php:148 src/Index.php:469
 #: src/Plugins/Export/ExportHtmlword.php:595
 #: src/Plugins/Export/ExportLatex.php:572 src/Plugins/Export/ExportOdt.php:714
@@ -1079,7 +1079,7 @@ msgstr "у упиту"
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:406
 #: src/Display/Results.php:2477 src/Html/Generator.php:517
-#: src/Html/Generator.php:783
+#: src/Html/Generator.php:785
 msgid "Edit"
 msgstr "Промени"
 
@@ -2507,7 +2507,7 @@ msgstr "Назив дневника"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:408 src/Menu.php:256
+#: src/Controllers/Server/PrivilegesController.php:411 src/Menu.php:256
 #: src/Menu.php:364 src/Util.php:1472 src/Util.php:1488
 msgid "Privileges"
 msgstr "Привилегије"
@@ -2680,7 +2680,7 @@ msgstr "Рутине"
 
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:287
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:288
 #: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr "Функција"
@@ -3070,7 +3070,7 @@ msgstr "Речник података"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:84
 #: src/Controllers/Database/TrackingController.php:130
-#: src/Controllers/Export/ExportController.php:298
+#: src/Controllers/Export/ExportController.php:291
 msgid "No tables found in database."
 msgstr "Табеле нису пронађене у бази."
 
@@ -3471,7 +3471,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:734 src/Import/Import.php:115 src/InsertEdit.php:487
+#: src/Html/Generator.php:736 src/Import/Import.php:115 src/InsertEdit.php:488
 #: src/Message.php:138
 msgid "Error"
 msgstr "Грешка"
@@ -3493,7 +3493,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:404
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:403
 #, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically send report next time"
@@ -3564,7 +3564,7 @@ msgstr "Ажурирај упит"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:758
+#: src/Html/Generator.php:760
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3890,7 +3890,7 @@ msgstr "Опште особине релација"
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
-#: src/Controllers/UserPasswordController.php:90
+#: src/Controllers/UserPasswordController.php:91
 msgid "Change password"
 msgstr "Промени лозинку"
 
@@ -4080,7 +4080,7 @@ msgstr "преузми"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:442
-#: src/Export/Export.php:1276 src/Html/Generator.php:849
+#: src/Export/Export.php:1276 src/Html/Generator.php:851
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Назад"
@@ -4135,7 +4135,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:488
+#: src/InsertEdit.php:489
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Директоријум који сте изабрали за слање није доступан."
 
@@ -4228,7 +4228,7 @@ msgid "Taking you to the target site."
 msgstr "Промени"
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
-#: src/Language.php:178 src/Pdf.php:84
+#: src/I18n/Language.php:177 src/Pdf.php:84
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
 msgid "Page number:"
@@ -4712,7 +4712,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:347
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:283 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:499
 msgid "No change"
 msgstr "Нема измена"
 
@@ -5503,7 +5503,7 @@ msgstr "Дозвољава читање података."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:496
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:497
 msgid "Or"
 msgstr "или"
 
@@ -6754,7 +6754,7 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:411
+#: src/Controllers/Server/PrivilegesController.php:414
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "Корисник"
@@ -7355,7 +7355,7 @@ msgstr ""
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1515
+#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1518
 msgid "Ignore"
 msgstr "Игнориши"
 
@@ -12555,22 +12555,22 @@ msgstr "Транформације читача"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 
-#: src/Config.php:607
+#: src/Config.php:608
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: src/Config.php:643
+#: src/Config.php:644
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: src/Config.php:657
+#: src/Config.php:658
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to read configuration file!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: src/Config.php:659
+#: src/Config.php:660
 msgid "This usually means there is a syntax error in it."
 msgstr ""
 
@@ -12807,18 +12807,12 @@ msgstr ""
 "Фајл %s није доступан на овом систему, молимо посетите %s за више "
 "информација."
 
-#: src/Controllers/Console/Bookmark/AddController.php:33
-#, fuzzy
-#| msgid "Complete inserts"
-msgid "Incomplete params"
-msgstr "Комплетан INSERT (са именима поља)"
-
-#: src/Controllers/Console/Bookmark/AddController.php:46
+#: src/Controllers/Console/Bookmark/AddController.php:39
 #: src/Controllers/JavaScriptMessagesController.php:597
 msgid "Failed"
 msgstr ""
 
-#: src/Controllers/Console/Bookmark/AddController.php:58
+#: src/Controllers/Console/Bookmark/AddController.php:51
 #, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
@@ -12843,14 +12837,14 @@ msgid "Showing rows %1$s - %2$s."
 msgstr "Приказ записа %1$s - %2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: src/Controllers/Database/DesignerController.php:100
+#: src/Controllers/Database/DesignerController.php:106
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 
-#: src/Controllers/Database/DesignerController.php:168
-#: src/Controllers/Database/DesignerController.php:173
+#: src/Controllers/Database/DesignerController.php:177
+#: src/Controllers/Database/DesignerController.php:182
 #: src/Controllers/Database/EventsController.php:60
 #: src/Controllers/Database/ExportController.php:66
 #: src/Controllers/Database/ExportController.php:71
@@ -12877,8 +12871,8 @@ msgstr ""
 #: src/Controllers/Operations/ViewController.php:63
 #: src/Controllers/Operations/ViewController.php:68
 #: src/Controllers/Server/Databases/DestroyController.php:61
-#: src/Controllers/Table/AddFieldController.php:164
-#: src/Controllers/Table/AddFieldController.php:169
+#: src/Controllers/Table/AddFieldController.php:163
+#: src/Controllers/Table/AddFieldController.php:168
 #: src/Controllers/Table/ChangeController.php:68
 #: src/Controllers/Table/ChangeController.php:73
 #: src/Controllers/Table/ChartController.php:96
@@ -12906,8 +12900,8 @@ msgstr ""
 #: src/Controllers/Table/SqlController.php:70
 #: src/Controllers/Table/StructureController.php:94
 #: src/Controllers/Table/StructureController.php:99
-#: src/Controllers/Table/Structure/PrimaryController.php:74
-#: src/Controllers/Table/Structure/PrimaryController.php:79
+#: src/Controllers/Table/Structure/PrimaryController.php:73
+#: src/Controllers/Table/Structure/PrimaryController.php:78
 #: src/Controllers/Table/TrackingController.php:71
 #: src/Controllers/Table/TrackingController.php:76
 #: src/Controllers/Table/ZoomSearchController.php:100
@@ -13002,8 +12996,8 @@ msgstr "Није Вам дозвољено да будете овде!"
 #: src/Controllers/Operations/TableController.php:105
 #: src/Controllers/Operations/ViewController.php:77
 #: src/Controllers/Operations/ViewController.php:82
-#: src/Controllers/Table/AddFieldController.php:178
-#: src/Controllers/Table/AddFieldController.php:183
+#: src/Controllers/Table/AddFieldController.php:177
+#: src/Controllers/Table/AddFieldController.php:182
 #: src/Controllers/Table/ChangeController.php:82
 #: src/Controllers/Table/ChangeController.php:87
 #: src/Controllers/Table/ChartController.php:110
@@ -13032,8 +13026,8 @@ msgstr "Није Вам дозвољено да будете овде!"
 #: src/Controllers/Table/SqlController.php:84
 #: src/Controllers/Table/StructureController.php:108
 #: src/Controllers/Table/StructureController.php:113
-#: src/Controllers/Table/Structure/PrimaryController.php:88
-#: src/Controllers/Table/Structure/PrimaryController.php:93
+#: src/Controllers/Table/Structure/PrimaryController.php:87
+#: src/Controllers/Table/Structure/PrimaryController.php:92
 #: src/Controllers/Table/ZoomSearchController.php:114
 #: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:81
@@ -13137,39 +13131,39 @@ msgstr "Није изабрана ни једна база."
 msgid "Database Log"
 msgstr "База података"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:92
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:96
 msgid "Thank you for submitting this report."
 msgstr ""
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:100
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:103
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:106
 msgid "You may want to refresh the page."
 msgstr ""
 
-#: src/Controllers/Export/ExportController.php:115 src/Export/Export.php:1214
+#: src/Controllers/Export/ExportController.php:108 src/Export/Export.php:1214
 msgid "Bad type!"
 msgstr "Погрешан тип!"
 
-#: src/Controllers/Export/ExportController.php:190
+#: src/Controllers/Export/ExportController.php:183
 msgid "Bad parameters!"
 msgstr "Погрешни параметри!"
 
-#: src/Controllers/GisDataEditorController.php:120
+#: src/Controllers/GisDataEditorController.php:116
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "Вредност за колону %s"
@@ -13271,7 +13265,7 @@ msgid ""
 "this some features such as error reporting or version check are disabled."
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:169
+#: src/Controllers/Import/ImportController.php:168
 #, fuzzy, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
@@ -13283,23 +13277,23 @@ msgstr ""
 "Вероватно сте покушали да увезете превелику датотеку. Молимо погледајте "
 "%sдокументацију%s за начине превазилажења овог ограничења."
 
-#: src/Controllers/Import/ImportController.php:196
+#: src/Controllers/Import/ImportController.php:194
 #, fuzzy
 #| msgid "Remove database"
 msgid "Incorrect format parameter"
 msgstr "Уклони базу"
 
-#: src/Controllers/Import/ImportController.php:310
-#: src/Controllers/Import/ImportController.php:523
+#: src/Controllers/Import/ImportController.php:308
+#: src/Controllers/Import/ImportController.php:521
 msgid "Showing bookmark"
 msgstr "Приказивање маркера"
 
-#: src/Controllers/Import/ImportController.php:330
-#: src/Controllers/Import/ImportController.php:519
+#: src/Controllers/Import/ImportController.php:328
+#: src/Controllers/Import/ImportController.php:517
 msgid "The bookmark has been deleted."
 msgstr "Обележивач је управо обрисан."
 
-#: src/Controllers/Import/ImportController.php:442
+#: src/Controllers/Import/ImportController.php:440
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -13309,7 +13303,7 @@ msgstr ""
 "или величина датотеке превазилази максималну величину дозвољену у вашој "
 "конфигурацији PHP-а. Погледајте. See [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:531
+#: src/Controllers/Import/ImportController.php:529
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
@@ -13318,7 +13312,7 @@ msgstr[0] "Увоз је успешно завршен, извршено је %d
 msgstr[1] "Увоз је успешно завршен, извршено је %d упита."
 msgstr[2] "Увоз је успешно завршен, извршено је %d упита."
 
-#: src/Controllers/Import/ImportController.php:568
+#: src/Controllers/Import/ImportController.php:566
 #, fuzzy, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
@@ -13330,7 +13324,7 @@ msgstr ""
 "Време извршења скрипта је истекло, ако желите да довршите увоз, молимо "
 "пошаљите исту датотеку и увоз ће се наставити."
 
-#: src/Controllers/Import/ImportController.php:578
+#: src/Controllers/Import/ImportController.php:576
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -13339,16 +13333,16 @@ msgstr ""
 "да phpMyAdmin неће бити у могућности да заврши овај увоз осим ако не "
 "повећате временска ограничења у PHP-у."
 
-#: src/Controllers/Import/ImportController.php:641
+#: src/Controllers/Import/ImportController.php:639
 #: src/Controllers/Sql/SqlController.php:159
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" команда је онемогућена."
 
-#: src/Controllers/Import/ImportController.php:696 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:692 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: src/Controllers/Import/SimulateDmlController.php:84
+#: src/Controllers/Import/SimulateDmlController.php:83
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
@@ -14922,7 +14916,7 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:649
-#: src/Error/ErrorHandler.php:415
+#: src/Error/ErrorHandler.php:414
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
@@ -15092,7 +15086,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Табела %s већ постоји!"
 
-#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:272
+#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:273
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Сакриј"
@@ -15683,7 +15677,7 @@ msgstr "Додата интерна релација"
 msgid "Two-factor authentication has been configured."
 msgstr "Неисправан метод аутентикације је задат у конфигурацији:"
 
-#: src/Controllers/SchemaExportController.php:40
+#: src/Controllers/SchemaExportController.php:38
 #: src/Controllers/Server/UserGroupsFormController.php:44
 #: src/ResponseRenderer.php:476
 #, fuzzy
@@ -15705,13 +15699,13 @@ msgstr[0] "%s база је успешно одбачено."
 msgstr[1] "%s база је успешно одбачено."
 msgstr[2] "%s база је успешно одбачено."
 
-#: src/Controllers/Server/Privileges/AccountLockController.php:47
+#: src/Controllers/Server/Privileges/AccountLockController.php:45
 #, fuzzy, php-format
 #| msgid "The selected users have been deleted successfully."
 msgid "The account %s@%s has been successfully locked."
 msgstr "Изабрани корисници су успешно обрисани."
 
-#: src/Controllers/Server/Privileges/AccountUnlockController.php:47
+#: src/Controllers/Server/Privileges/AccountUnlockController.php:45
 #, fuzzy, php-format
 #| msgid "The selected users have been deleted successfully."
 msgid "The account %s@%s has been successfully unlocked."
@@ -16470,7 +16464,7 @@ msgstr ""
 #: src/Controllers/Setup/ServerDestroyController.php:41
 #: src/Controllers/Setup/ServersController.php:44
 #: src/Controllers/Setup/ShowConfigController.php:42
-#: src/Controllers/Setup/ValidateController.php:46
+#: src/Controllers/Setup/ValidateController.php:45
 msgid "Configuration already exists, setup is disabled!"
 msgstr ""
 
@@ -16494,13 +16488,13 @@ msgstr ""
 msgid "Insecure connection"
 msgstr ""
 
-#: src/Controllers/Setup/ValidateController.php:63
+#: src/Controllers/Setup/ValidateController.php:60
 #, fuzzy
 #| msgid "No databases"
 msgid "Wrong data"
 msgstr "База не постоји"
 
-#: src/Controllers/Setup/ValidateController.php:72
+#: src/Controllers/Setup/ValidateController.php:69
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr ""
@@ -16517,7 +16511,7 @@ msgstr "Направљен маркер %s"
 msgid "Bookmark not created!"
 msgstr "Направљен маркер %s"
 
-#: src/Controllers/Table/AddFieldController.php:135
+#: src/Controllers/Table/AddFieldController.php:134
 #: src/Controllers/Table/IndexesController.php:142
 #: src/Controllers/Table/IndexRenameController.php:131
 #: src/Controllers/Table/Structure/PartitioningController.php:265
@@ -16599,7 +16593,7 @@ msgstr "Провери табелу"
 
 #: src/Controllers/Table/GetFieldController.php:81
 #: src/Database/Routines.php:1046 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:863
+#: src/InsertEdit.php:200 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL је вратио празан резултат (нула редова)."
 
@@ -16647,7 +16641,7 @@ msgstr "Процес %s је успешно прекинут."
 msgid "Internal relationships were successfully updated."
 msgstr "Додата интерна релација"
 
-#: src/Controllers/Table/ReplaceController.php:183
+#: src/Controllers/Table/ReplaceController.php:184
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -16689,17 +16683,17 @@ msgstr "Изабрани корисници су успешно обрисани
 msgid "Tracking of %s is activated."
 msgstr ""
 
-#: src/Controllers/Table/TrackingController.php:151
+#: src/Controllers/Table/TrackingController.php:148
 msgid "SQL statements executed."
 msgstr ""
 
-#: src/Controllers/Table/TrackingController.php:205
+#: src/Controllers/Table/TrackingController.php:202
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
 msgstr "Изабрани корисници су успешно обрисани."
 
-#: src/Controllers/Table/TrackingController.php:210
+#: src/Controllers/Table/TrackingController.php:207
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
@@ -16862,7 +16856,7 @@ msgstr ""
 #: src/Database/Events.php:115 src/Database/Events.php:136
 #: src/Database/Routines.php:104 src/Database/Routines.php:130
 #: src/Database/Routines.php:208 src/Database/Routines.php:222
-#: src/Database/Routines.php:1010 src/Html/Generator.php:799
+#: src/Database/Routines.php:1010 src/Html/Generator.php:801
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:109 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
@@ -16920,7 +16914,7 @@ msgstr ""
 msgid "You must provide an event definition."
 msgstr ""
 
-#: src/DatabaseInterface.php:1128
+#: src/DatabaseInterface.php:1126
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -16928,13 +16922,13 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/DatabaseInterface.php:1170
+#: src/DatabaseInterface.php:1168
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to set configured collation connection!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: src/DatabaseInterface.php:1684
+#: src/DatabaseInterface.php:1682
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Конекција за controluser-а, онако како је дефинисана у вашој конфигурацији, "
@@ -17368,11 +17362,11 @@ msgid ""
 "%sPrimeBase XT Home Page%s."
 msgstr ""
 
-#: src/Error/ErrorHandler.php:105
+#: src/Error/ErrorHandler.php:104
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 
-#: src/Error/ErrorHandler.php:399
+#: src/Error/ErrorHandler.php:398
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
@@ -17568,11 +17562,11 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Додај ново поље"
 
-#: src/Html/Generator.php:741
+#: src/Html/Generator.php:743
 msgid "Static analysis:"
 msgstr ""
 
-#: src/Html/Generator.php:744
+#: src/Html/Generator.php:746
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -17609,6 +17603,10 @@ msgstr ""
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
+msgstr ""
+
+#: src/I18n/LanguageManager.php:961
+msgid "Ignoring unsupported language code."
 msgstr ""
 
 #: src/Identifiers/InvalidDatabaseName.php:14
@@ -17720,23 +17718,19 @@ msgid ""
 "removed."
 msgstr ""
 
-#: src/InsertEdit.php:497
+#: src/InsertEdit.php:498
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "директоријум за слање веб сервера"
 
-#: src/InsertEdit.php:924 src/Sql.php:860
+#: src/InsertEdit.php:925 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "Приказ као SQL упит"
 
-#: src/InsertEdit.php:948 src/Sql.php:840
+#: src/InsertEdit.php:949 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr ""
-
-#: src/LanguageManager.php:959
-msgid "Ignoring unsupported language code."
 msgstr ""
 
 #: src/Linter.php:112
@@ -19373,66 +19367,66 @@ msgstr ""
 msgid "Details…"
 msgstr ""
 
-#: src/Replication/ReplicationGui.php:417
+#: src/Replication/ReplicationGui.php:451
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
 
-#: src/Replication/ReplicationGui.php:428
+#: src/Replication/ReplicationGui.php:462
 #, fuzzy
 msgid "Replication started successfully."
 msgstr "Репликација"
 
-#: src/Replication/ReplicationGui.php:429
+#: src/Replication/ReplicationGui.php:463
 msgid "Error starting replication."
 msgstr ""
 
-#: src/Replication/ReplicationGui.php:432
+#: src/Replication/ReplicationGui.php:466
 #, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
 msgstr "Привилегије су успешно поново учитане."
 
-#: src/Replication/ReplicationGui.php:433
+#: src/Replication/ReplicationGui.php:467
 msgid "Error stopping replication."
 msgstr ""
 
-#: src/Replication/ReplicationGui.php:436
+#: src/Replication/ReplicationGui.php:470
 #, fuzzy
 msgid "Replication resetting successfully."
 msgstr "Репликација"
 
-#: src/Replication/ReplicationGui.php:437
+#: src/Replication/ReplicationGui.php:471
 msgid "Error resetting replication."
 msgstr ""
 
-#: src/Replication/ReplicationGui.php:440
+#: src/Replication/ReplicationGui.php:474
 msgid "Success."
 msgstr ""
 
-#: src/Replication/ReplicationGui.php:441
+#: src/Replication/ReplicationGui.php:475
 #, fuzzy
 #| msgid "Error"
 msgid "Error."
 msgstr "Грешка"
 
-#: src/Replication/ReplicationGui.php:486
+#: src/Replication/ReplicationGui.php:520
 #, fuzzy, php-format
 #| msgid "The number of fsync() writes done to the log file."
 msgid "Unable to connect to primary %s."
 msgstr "Број fsyncs уписа начињених у датотеку дневника."
 
-#: src/Replication/ReplicationGui.php:496
+#: src/Replication/ReplicationGui.php:530
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
 
-#: src/Replication/ReplicationGui.php:514
+#: src/Replication/ReplicationGui.php:548
 msgid "Unable to change primary!"
 msgstr ""
 
-#: src/Replication/ReplicationGui.php:518
+#: src/Replication/ReplicationGui.php:552
 #, fuzzy, php-format
 #| msgid "The privileges were reloaded successfully."
 msgid "Primary server changed successfully to %s."
@@ -19774,38 +19768,38 @@ msgstr "Претраживање базе"
 msgid "Target database `%s` was not found!"
 msgstr "Није пронађена тема %s!"
 
-#: src/Table/Table.php:810
+#: src/Table/Table.php:809
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "Неисправна база података"
 
-#: src/Table/Table.php:828
+#: src/Table/Table.php:827
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "Неисправан назив табеле"
 
-#: src/Table/Table.php:873
+#: src/Table/Table.php:872
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Табели %s промењено име у %s"
 
-#: src/Table/Table.php:1108
+#: src/Table/Table.php:1107
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save table UI preferences!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: src/Table/Table.php:1130
+#: src/Table/Table.php:1129
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: src/Table/Table.php:1248
+#: src/Table/Table.php:1247
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -19813,7 +19807,7 @@ msgid ""
 "changed."
 msgstr ""
 
-#: src/Table/Table.php:1594
+#: src/Table/Table.php:1571
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -20288,6 +20282,11 @@ msgstr "Грешка у ZIP архиви:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "У ZIP архиви нема датотека!"
+
+#, fuzzy
+#~| msgid "Complete inserts"
+#~ msgid "Incomplete params"
+#~ msgstr "Комплетан INSERT (са именима поља)"
 
 #, php-format
 #~ msgid "A primary key has been added on %s."

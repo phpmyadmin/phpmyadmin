@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-10-27 00:25+0000\n"
+"POT-Creation-Date: 2024-11-03 00:25+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -286,7 +286,7 @@ msgstr "Engadir columna(s)"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
-#: src/Controllers/Server/PrivilegesController.php:290
+#: src/Controllers/Server/PrivilegesController.php:293
 #: src/Normalization.php:229 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
@@ -650,7 +650,7 @@ msgstr "Nome"
 #: resources/templates/table/structure/display_structure.twig:465
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:288
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:289
 #: src/Plugins/Export/ExportHtmlword.php:262
 #: src/Plugins/Export/ExportHtmlword.php:353
 #: src/Plugins/Export/ExportLatex.php:505 src/Plugins/Export/ExportOdt.php:364
@@ -942,7 +942,7 @@ msgstr "Desactivado"
 #: src/Controllers/JavaScriptMessagesController.php:510
 #: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:44
-#: src/Controllers/Table/Structure/PrimaryController.php:107
+#: src/Controllers/Table/Structure/PrimaryController.php:106
 #: src/IndexColumn.php:148 src/Index.php:469
 #: src/Plugins/Export/ExportHtmlword.php:595
 #: src/Plugins/Export/ExportLatex.php:572 src/Plugins/Export/ExportOdt.php:714
@@ -1050,7 +1050,7 @@ msgstr "subconsulta"
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:406
 #: src/Display/Results.php:2477 src/Html/Generator.php:517
-#: src/Html/Generator.php:783
+#: src/Html/Generator.php:785
 msgid "Edit"
 msgstr "Editar"
 
@@ -2389,7 +2389,7 @@ msgstr "Nome do ficheiro de rexistro"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:408 src/Menu.php:256
+#: src/Controllers/Server/PrivilegesController.php:411 src/Menu.php:256
 #: src/Menu.php:364 src/Util.php:1472 src/Util.php:1488
 msgid "Privileges"
 msgstr "Privilexios"
@@ -2542,7 +2542,7 @@ msgstr "Parámetros da rutina"
 
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:287
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:288
 #: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr "Función"
@@ -2898,7 +2898,7 @@ msgstr "Dicionario de datos"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:84
 #: src/Controllers/Database/TrackingController.php:130
-#: src/Controllers/Export/ExportController.php:298
+#: src/Controllers/Export/ExportController.php:291
 msgid "No tables found in database."
 msgstr "Non foi posíbel atopar ningunha táboa na base de datos."
 
@@ -3277,7 +3277,7 @@ msgstr "Converter a Kana"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:734 src/Import/Import.php:115 src/InsertEdit.php:487
+#: src/Html/Generator.php:736 src/Import/Import.php:115 src/InsertEdit.php:488
 #: src/Message.php:138
 msgid "Error"
 msgstr "Produciuse un erro"
@@ -3299,7 +3299,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:404
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:403
 msgid "Automatically send report next time"
 msgstr "A próxima vez, enviar un informe automaticamente"
 
@@ -3357,7 +3357,7 @@ msgstr "Actualizada"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:758
+#: src/Html/Generator.php:760
 msgid "SQL query:"
 msgstr "Consulta de SQL:"
 
@@ -3662,7 +3662,7 @@ msgstr "Configuración xeral"
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
-#: src/Controllers/UserPasswordController.php:90
+#: src/Controllers/UserPasswordController.php:91
 msgid "Change password"
 msgstr "Trocar o contrasinal"
 
@@ -3828,7 +3828,7 @@ msgstr "cóllao"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:442
-#: src/Export/Export.php:1276 src/Html/Generator.php:849
+#: src/Export/Export.php:1276 src/Html/Generator.php:851
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Recuar"
@@ -3887,7 +3887,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Tamén pode arrastrar e soltar un ficheiro sobre calquera páxina."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:488
+#: src/InsertEdit.php:489
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Non é posíbel acceder ao directorio que designou para os envíos."
 
@@ -3982,7 +3982,7 @@ msgid "Taking you to the target site."
 msgstr "Procedemos co paso seguinte…"
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
-#: src/Language.php:178 src/Pdf.php:84
+#: src/I18n/Language.php:177 src/Pdf.php:84
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
 msgid "Page number:"
@@ -4472,7 +4472,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:347
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:283 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:499
 msgid "No change"
 msgstr "Sen cambios"
 
@@ -5262,7 +5262,7 @@ msgstr "Permite gravar datos."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:496
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:497
 msgid "Or"
 msgstr "ou"
 
@@ -6603,7 +6603,7 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:411
+#: src/Controllers/Server/PrivilegesController.php:414
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "Usuario"
@@ -7155,7 +7155,7 @@ msgstr "Arrastre para reordenar"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1515
+#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1518
 msgid "Ignore"
 msgstr "Ignorar"
 
@@ -12685,22 +12685,22 @@ msgstr ""
 "Non é posíbel gardar a configuración; o formulario de configuración enviado "
 "contén erros!"
 
-#: src/Config.php:607
+#: src/Config.php:608
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "O ficheiro de configuración existente (%s) non e lexíbel."
 
-#: src/Config.php:643
+#: src/Config.php:644
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Os permisos do ficheiro de configuración son incorrectos; non debería poder "
 "escribir nel todo o mundo!"
 
-#: src/Config.php:657
+#: src/Config.php:658
 msgid "Failed to read configuration file!"
 msgstr "Foi imposíbel ler o ficheiro de configuración!"
 
-#: src/Config.php:659
+#: src/Config.php:660
 #, fuzzy
 #| msgid ""
 #| "This usually means there is a syntax error in it, please check any errors "
@@ -13007,16 +13007,12 @@ msgstr ""
 "O ficheiro %s non está dispoñíbel neste sistema; visite %s para obter máis "
 "información."
 
-#: src/Controllers/Console/Bookmark/AddController.php:33
-msgid "Incomplete params"
-msgstr "Hai parámetros incompletos"
-
-#: src/Controllers/Console/Bookmark/AddController.php:46
+#: src/Controllers/Console/Bookmark/AddController.php:39
 #: src/Controllers/JavaScriptMessagesController.php:597
 msgid "Failed"
 msgstr "Fallou"
 
-#: src/Controllers/Console/Bookmark/AddController.php:58
+#: src/Controllers/Console/Bookmark/AddController.php:51
 msgid "Succeeded"
 msgstr "Todo foi correcto"
 
@@ -13040,14 +13036,14 @@ msgid "Showing rows %1$s - %2$s."
 msgstr "A mostrar as filas %1$s - %2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: src/Controllers/Database/DesignerController.php:100
+#: src/Controllers/Database/DesignerController.php:106
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 
-#: src/Controllers/Database/DesignerController.php:168
-#: src/Controllers/Database/DesignerController.php:173
+#: src/Controllers/Database/DesignerController.php:177
+#: src/Controllers/Database/DesignerController.php:182
 #: src/Controllers/Database/EventsController.php:60
 #: src/Controllers/Database/ExportController.php:66
 #: src/Controllers/Database/ExportController.php:71
@@ -13074,8 +13070,8 @@ msgstr ""
 #: src/Controllers/Operations/ViewController.php:63
 #: src/Controllers/Operations/ViewController.php:68
 #: src/Controllers/Server/Databases/DestroyController.php:61
-#: src/Controllers/Table/AddFieldController.php:164
-#: src/Controllers/Table/AddFieldController.php:169
+#: src/Controllers/Table/AddFieldController.php:163
+#: src/Controllers/Table/AddFieldController.php:168
 #: src/Controllers/Table/ChangeController.php:68
 #: src/Controllers/Table/ChangeController.php:73
 #: src/Controllers/Table/ChartController.php:96
@@ -13103,8 +13099,8 @@ msgstr ""
 #: src/Controllers/Table/SqlController.php:70
 #: src/Controllers/Table/StructureController.php:94
 #: src/Controllers/Table/StructureController.php:99
-#: src/Controllers/Table/Structure/PrimaryController.php:74
-#: src/Controllers/Table/Structure/PrimaryController.php:79
+#: src/Controllers/Table/Structure/PrimaryController.php:73
+#: src/Controllers/Table/Structure/PrimaryController.php:78
 #: src/Controllers/Table/TrackingController.php:71
 #: src/Controllers/Table/TrackingController.php:76
 #: src/Controllers/Table/ZoomSearchController.php:100
@@ -13194,8 +13190,8 @@ msgstr "Non ten privilexios suficientes para crear un disparador"
 #: src/Controllers/Operations/TableController.php:105
 #: src/Controllers/Operations/ViewController.php:77
 #: src/Controllers/Operations/ViewController.php:82
-#: src/Controllers/Table/AddFieldController.php:178
-#: src/Controllers/Table/AddFieldController.php:183
+#: src/Controllers/Table/AddFieldController.php:177
+#: src/Controllers/Table/AddFieldController.php:182
 #: src/Controllers/Table/ChangeController.php:82
 #: src/Controllers/Table/ChangeController.php:87
 #: src/Controllers/Table/ChartController.php:110
@@ -13224,8 +13220,8 @@ msgstr "Non ten privilexios suficientes para crear un disparador"
 #: src/Controllers/Table/SqlController.php:84
 #: src/Controllers/Table/StructureController.php:108
 #: src/Controllers/Table/StructureController.php:113
-#: src/Controllers/Table/Structure/PrimaryController.php:88
-#: src/Controllers/Table/Structure/PrimaryController.php:93
+#: src/Controllers/Table/Structure/PrimaryController.php:87
+#: src/Controllers/Table/Structure/PrimaryController.php:92
 #: src/Controllers/Table/ZoomSearchController.php:114
 #: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:81
@@ -13325,41 +13321,41 @@ msgstr "Non hai ningunha base de datos seleccionada."
 msgid "Database Log"
 msgstr "Rexistro de actividade da base de datos"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:92
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
 "Detectouse un erro. Enviouse un informe de fallo baseado na configuración."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:96
 msgid "Thank you for submitting this report."
 msgstr "Grazas por enviar este informe."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:100
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
 "Produciuse un erro e xerouse un erro de fallo que foi imposíbel enviar."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:103
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "Se percibe problemas envíe un informe de fallo manualmente."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:106
 msgid "You may want to refresh the page."
 msgstr "Pode ser útil cargar de novo a páxina."
 
-#: src/Controllers/Export/ExportController.php:115 src/Export/Export.php:1214
+#: src/Controllers/Export/ExportController.php:108 src/Export/Export.php:1214
 msgid "Bad type!"
 msgstr "Ese tipo é incorrecto!"
 
-#: src/Controllers/Export/ExportController.php:190
+#: src/Controllers/Export/ExportController.php:183
 msgid "Bad parameters!"
 msgstr "Os parámetros son incorrectos!"
 
-#: src/Controllers/GisDataEditorController.php:120
+#: src/Controllers/GisDataEditorController.php:116
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "Valor para a columna «%s»"
@@ -13475,7 +13471,7 @@ msgid ""
 "this some features such as error reporting or version check are disabled."
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:169
+#: src/Controllers/Import/ImportController.php:168
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -13484,23 +13480,23 @@ msgstr ""
 "Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a "
 "%sdocumentación%s para averiguar como evitar este límite."
 
-#: src/Controllers/Import/ImportController.php:196
+#: src/Controllers/Import/ImportController.php:194
 #, fuzzy
 #| msgid "Remove last parameter"
 msgid "Incorrect format parameter"
 msgstr "Eliminar o último parámetro"
 
-#: src/Controllers/Import/ImportController.php:310
-#: src/Controllers/Import/ImportController.php:523
+#: src/Controllers/Import/ImportController.php:308
+#: src/Controllers/Import/ImportController.php:521
 msgid "Showing bookmark"
 msgstr "A mostrar o marcador"
 
-#: src/Controllers/Import/ImportController.php:330
-#: src/Controllers/Import/ImportController.php:519
+#: src/Controllers/Import/ImportController.php:328
+#: src/Controllers/Import/ImportController.php:517
 msgid "The bookmark has been deleted."
 msgstr "Eliminouse o marcador."
 
-#: src/Controllers/Import/ImportController.php:442
+#: src/Controllers/Import/ImportController.php:440
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -13510,7 +13506,7 @@ msgstr ""
 "o seu tamaño excede o máximo permitido pola súa configuración de PHP. "
 "Consulte a [doc@faq1-16]Pregunta frecuente 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:531
+#: src/Controllers/Import/ImportController.php:529
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
@@ -13518,7 +13514,7 @@ msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "A importación rematou sen problemas. Executáronse %d consultas."
 msgstr[1] "A importación rematou sen problemas. Executáronse %d consultas."
 
-#: src/Controllers/Import/ImportController.php:568
+#: src/Controllers/Import/ImportController.php:566
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -13527,7 +13523,7 @@ msgstr ""
 "Excedeuse o tempo de espera do  script. Se quere rematar a importación, "
 "%senvíe de novo o mesmo ficheiro%s e a importación continuará."
 
-#: src/Controllers/Import/ImportController.php:578
+#: src/Controllers/Import/ImportController.php:576
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -13536,16 +13532,16 @@ msgstr ""
 "significa que o phpMyAdmin non poderá rematar esta importación a non ser que "
 "se lle incrementen os límites de tempo de php."
 
-#: src/Controllers/Import/ImportController.php:641
+#: src/Controllers/Import/ImportController.php:639
 #: src/Controllers/Sql/SqlController.php:159
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Non se permiten as ordes «DROP DATABASE»."
 
-#: src/Controllers/Import/ImportController.php:696 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:692 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: src/Controllers/Import/SimulateDmlController.php:84
+#: src/Controllers/Import/SimulateDmlController.php:83
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
@@ -14970,7 +14966,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Mire na parte inferior desta xanela."
 
 #: src/Controllers/JavaScriptMessagesController.php:649
-#: src/Error/ErrorHandler.php:415
+#: src/Error/ErrorHandler.php:414
 msgid "Ignore All"
 msgstr "Ignorar todo"
 
@@ -15139,7 +15135,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Xa existe a táboa %s!!"
 
-#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:272
+#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:273
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Agochar"
@@ -15713,7 +15709,7 @@ msgid "Two-factor authentication has been configured."
 msgstr ""
 "Na configuración indicouse un método de autenticación que non é válido:"
 
-#: src/Controllers/SchemaExportController.php:40
+#: src/Controllers/SchemaExportController.php:38
 #: src/Controllers/Server/UserGroupsFormController.php:44
 #: src/ResponseRenderer.php:476
 msgid "Missing parameter:"
@@ -15731,13 +15727,13 @@ msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "Eliminouse %1$d base de datos sen problemas."
 msgstr[1] "Elimináronse %1$d bases de datos sen problemas."
 
-#: src/Controllers/Server/Privileges/AccountLockController.php:47
+#: src/Controllers/Server/Privileges/AccountLockController.php:45
 #, fuzzy, php-format
 #| msgid "The columns have been moved successfully."
 msgid "The account %s@%s has been successfully locked."
 msgstr "Movéronse as columnas satisfactoriamente."
 
-#: src/Controllers/Server/Privileges/AccountUnlockController.php:47
+#: src/Controllers/Server/Privileges/AccountUnlockController.php:45
 #, fuzzy, php-format
 #| msgid "The columns have been moved successfully."
 msgid "The account %s@%s has been successfully unlocked."
@@ -16519,7 +16515,7 @@ msgstr "Fallou a configuración da variábel"
 #: src/Controllers/Setup/ServerDestroyController.php:41
 #: src/Controllers/Setup/ServersController.php:44
 #: src/Controllers/Setup/ShowConfigController.php:42
-#: src/Controllers/Setup/ValidateController.php:46
+#: src/Controllers/Setup/ValidateController.php:45
 msgid "Configuration already exists, setup is disabled!"
 msgstr ""
 
@@ -16552,11 +16548,11 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "A conexión non é segura"
 
-#: src/Controllers/Setup/ValidateController.php:63
+#: src/Controllers/Setup/ValidateController.php:60
 msgid "Wrong data"
 msgstr "Os datos son incorrectos"
 
-#: src/Controllers/Setup/ValidateController.php:72
+#: src/Controllers/Setup/ValidateController.php:69
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr ""
@@ -16572,7 +16568,7 @@ msgstr "Creouse o marcador %s."
 msgid "Bookmark not created!"
 msgstr "Non se creou o marcador"
 
-#: src/Controllers/Table/AddFieldController.php:135
+#: src/Controllers/Table/AddFieldController.php:134
 #: src/Controllers/Table/IndexesController.php:142
 #: src/Controllers/Table/IndexRenameController.php:131
 #: src/Controllers/Table/Structure/PartitioningController.php:265
@@ -16651,7 +16647,7 @@ msgstr "Hai demasiadas unións sen índices."
 
 #: src/Controllers/Table/GetFieldController.php:81
 #: src/Database/Routines.php:1046 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:863
+#: src/InsertEdit.php:200 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "O MySQL retornou un conxunto baleiro (isto é, cero fileiras)."
 
@@ -16699,7 +16695,7 @@ msgstr "Finalizouse o fío %s."
 msgid "Internal relationships were successfully updated."
 msgstr "Engadiuse a relación interna"
 
-#: src/Controllers/Table/ReplaceController.php:183
+#: src/Controllers/Table/ReplaceController.php:184
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -16738,17 +16734,17 @@ msgstr "Alterouse a táboa %1$s sen problemas. Axustáronse os privilexios."
 msgid "Tracking of %s is activated."
 msgstr "O seguimento de %s está activado."
 
-#: src/Controllers/Table/TrackingController.php:151
+#: src/Controllers/Table/TrackingController.php:148
 msgid "SQL statements executed."
 msgstr "Instrucións SQL executadas."
 
-#: src/Controllers/Table/TrackingController.php:205
+#: src/Controllers/Table/TrackingController.php:202
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
 msgstr "Elimináronse sen problemas os usuarios seleccionados."
 
-#: src/Controllers/Table/TrackingController.php:210
+#: src/Controllers/Table/TrackingController.php:207
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
@@ -16907,7 +16903,7 @@ msgstr "Fallou a procura seguinte: «%s»"
 #: src/Database/Events.php:115 src/Database/Events.php:136
 #: src/Database/Routines.php:104 src/Database/Routines.php:130
 #: src/Database/Routines.php:208 src/Database/Routines.php:222
-#: src/Database/Routines.php:1010 src/Html/Generator.php:799
+#: src/Database/Routines.php:1010 src/Html/Generator.php:801
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:109 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
@@ -16969,7 +16965,7 @@ msgstr "Debe indicar un tipo válido para o acontecemento."
 msgid "You must provide an event definition."
 msgstr "Debe indicar unha definición do acontecemento."
 
-#: src/DatabaseInterface.php:1128
+#: src/DatabaseInterface.php:1126
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -16977,13 +16973,13 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/DatabaseInterface.php:1170
+#: src/DatabaseInterface.php:1168
 #, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
 msgstr "Foi imposíbel ler o ficheiro de configuración!"
 
-#: src/DatabaseInterface.php:1684
+#: src/DatabaseInterface.php:1682
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Fallou a conexión para «controluser» tal e como está definida na "
@@ -17446,11 +17442,11 @@ msgstr ""
 "Pódese atopar documentación e información adicional sobre PBXT na %sPáxina "
 "de PrimeBase XT %s."
 
-#: src/Error/ErrorHandler.php:105
+#: src/Error/ErrorHandler.php:104
 msgid "Too many error messages, some are not displayed."
 msgstr "Houbo demasiadas mensaxes de erro; algunhas non se mostran."
 
-#: src/Error/ErrorHandler.php:399
+#: src/Error/ErrorHandler.php:398
 msgid "Report"
 msgstr "Informar"
 
@@ -17639,11 +17635,11 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Editar na liña"
 
-#: src/Html/Generator.php:741
+#: src/Html/Generator.php:743
 msgid "Static analysis:"
 msgstr "Análise estática:"
 
-#: src/Html/Generator.php:744
+#: src/Html/Generator.php:746
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Atopáronse %d erros durante a análise."
@@ -17681,6 +17677,10 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+
+#: src/I18n/LanguageManager.php:961
+msgid "Ignoring unsupported language code."
+msgstr "Ignórase o código de idioma descoñecido."
 
 #: src/Identifiers/InvalidDatabaseName.php:14
 #, fuzzy
@@ -17800,22 +17800,18 @@ msgstr ""
 "Parece que os índice %1$s e %2$s son iguais e posibelmente poderíase "
 "eliminar un deles."
 
-#: src/InsertEdit.php:497
+#: src/InsertEdit.php:498
 msgid "web server upload directory:"
 msgstr "directorio de recepción do servidor web:"
 
-#: src/InsertEdit.php:924 src/Sql.php:860
+#: src/InsertEdit.php:925 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "Mostrar a consulta de SQL"
 
-#: src/InsertEdit.php:948 src/Sql.php:840
+#: src/InsertEdit.php:949 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Identificador da fileira inserida: %1$d"
-
-#: src/LanguageManager.php:959
-msgid "Ignoring unsupported language code."
-msgstr "Ignórase o código de idioma descoñecido."
 
 #: src/Linter.php:112
 msgid ""
@@ -19429,65 +19425,65 @@ msgstr "Comprobe os privilexios do directorio que contén a base de datos."
 msgid "Details…"
 msgstr "Detalles…"
 
-#: src/Replication/ReplicationGui.php:417
+#: src/Replication/ReplicationGui.php:451
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
 
-#: src/Replication/ReplicationGui.php:428
+#: src/Replication/ReplicationGui.php:462
 #, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
 msgstr "Estado da replicación"
 
-#: src/Replication/ReplicationGui.php:429
+#: src/Replication/ReplicationGui.php:463
 #, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
 msgstr "Replicación do principal"
 
-#: src/Replication/ReplicationGui.php:432
+#: src/Replication/ReplicationGui.php:466
 #, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
 msgstr "Non houbo problemas ao recargar os privilexios."
 
-#: src/Replication/ReplicationGui.php:433
+#: src/Replication/ReplicationGui.php:467
 #, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
 msgstr "Replicación do principal"
 
-#: src/Replication/ReplicationGui.php:436
+#: src/Replication/ReplicationGui.php:470
 #, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
 msgstr "Estado da replicación"
 
-#: src/Replication/ReplicationGui.php:437
+#: src/Replication/ReplicationGui.php:471
 #, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
 msgstr "Replicación do principal"
 
-#: src/Replication/ReplicationGui.php:440
+#: src/Replication/ReplicationGui.php:474
 msgid "Success."
 msgstr ""
 
-#: src/Replication/ReplicationGui.php:441
+#: src/Replication/ReplicationGui.php:475
 #, fuzzy
 #| msgid "Error"
 msgid "Error."
 msgstr "Produciuse un erro"
 
-#: src/Replication/ReplicationGui.php:486
+#: src/Replication/ReplicationGui.php:520
 #, fuzzy, php-format
 #| msgid "Unable to connect to master %s."
 msgid "Unable to connect to primary %s."
 msgstr "Foi imposíbel conectar co principal %s."
 
-#: src/Replication/ReplicationGui.php:496
+#: src/Replication/ReplicationGui.php:530
 #, fuzzy
 #| msgid ""
 #| "Unable to read master log position. Possible privilege problem on master."
@@ -19497,13 +19493,13 @@ msgstr ""
 "Foi imposíbel ler a posición do rexistro do principal. É posíbel que haxa un "
 "problema de privilexios no principal."
 
-#: src/Replication/ReplicationGui.php:514
+#: src/Replication/ReplicationGui.php:548
 #, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change primary!"
 msgstr "Foi imposíbel mudar de principal"
 
-#: src/Replication/ReplicationGui.php:518
+#: src/Replication/ReplicationGui.php:552
 #, fuzzy, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Primary server changed successfully to %s."
@@ -19862,24 +19858,24 @@ msgstr "Non foi posíbel atopar a base de datos de orixe «%s»!"
 msgid "Target database `%s` was not found!"
 msgstr "Non foi posíbel atopar a base de datos de destino «%s»!"
 
-#: src/Table/Table.php:810
+#: src/Table/Table.php:809
 msgid "Invalid database:"
 msgstr "A base de datos non é válida:"
 
-#: src/Table/Table.php:828
+#: src/Table/Table.php:827
 msgid "Invalid table name:"
 msgstr "O nome da táboa non é válido:"
 
-#: src/Table/Table.php:873
+#: src/Table/Table.php:872
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "A táboa %1$s foi renomeada a %2$s."
 
-#: src/Table/Table.php:1108
+#: src/Table/Table.php:1107
 msgid "Could not save table UI preferences!"
 msgstr "Non foi posíbel gardar as preferencias de IU da táboa!"
 
-#: src/Table/Table.php:1130
+#: src/Table/Table.php:1129
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -19888,7 +19884,7 @@ msgstr ""
 "Produciuse un erro ao limpar as preferencias de IU da táboa (vexa "
 "$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1248
+#: src/Table/Table.php:1247
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -19899,7 +19895,7 @@ msgstr ""
 "persistentes despois de anovar esta páxina. Comprobe se se modificou a "
 "estrutura da táboa."
 
-#: src/Table/Table.php:1594
+#: src/Table/Table.php:1571
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -20424,6 +20420,9 @@ msgstr "Produciuse un erro no ficheiro ZIP:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Non se atoparon ficheiros dentro do arquivo ZIP!"
+
+#~ msgid "Incomplete params"
+#~ msgstr "Hai parámetros incompletos"
 
 #, php-format
 #~ msgid "A primary key has been added on %s."

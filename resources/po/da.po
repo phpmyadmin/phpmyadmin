@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-10-27 00:25+0000\n"
+"POT-Creation-Date: 2024-11-03 00:25+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -282,7 +282,7 @@ msgstr "kolonne(r)"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
-#: src/Controllers/Server/PrivilegesController.php:290
+#: src/Controllers/Server/PrivilegesController.php:293
 #: src/Normalization.php:229 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
@@ -609,7 +609,7 @@ msgstr "Navn"
 #: resources/templates/table/structure/display_structure.twig:465
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:288
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:289
 #: src/Plugins/Export/ExportHtmlword.php:262
 #: src/Plugins/Export/ExportHtmlword.php:353
 #: src/Plugins/Export/ExportLatex.php:505 src/Plugins/Export/ExportOdt.php:364
@@ -890,7 +890,7 @@ msgstr "Slået fra"
 #: src/Controllers/JavaScriptMessagesController.php:510
 #: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:44
-#: src/Controllers/Table/Structure/PrimaryController.php:107
+#: src/Controllers/Table/Structure/PrimaryController.php:106
 #: src/IndexColumn.php:148 src/Index.php:469
 #: src/Plugins/Export/ExportHtmlword.php:595
 #: src/Plugins/Export/ExportLatex.php:572 src/Plugins/Export/ExportOdt.php:714
@@ -996,7 +996,7 @@ msgstr "Genforespørg"
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:406
 #: src/Display/Results.php:2477 src/Html/Generator.php:517
-#: src/Html/Generator.php:783
+#: src/Html/Generator.php:785
 msgid "Edit"
 msgstr "Ret"
 
@@ -2290,7 +2290,7 @@ msgstr "Hostnavn"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:408 src/Menu.php:256
+#: src/Controllers/Server/PrivilegesController.php:411 src/Menu.php:256
 #: src/Menu.php:364 src/Util.php:1472 src/Util.php:1488
 msgid "Privileges"
 msgstr "Privilegier"
@@ -2443,7 +2443,7 @@ msgstr "Rutineparametre"
 
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:287
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:288
 #: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr "Funktion"
@@ -2777,7 +2777,7 @@ msgstr "Dataordbog"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:84
 #: src/Controllers/Database/TrackingController.php:130
-#: src/Controllers/Export/ExportController.php:298
+#: src/Controllers/Export/ExportController.php:291
 msgid "No tables found in database."
 msgstr "Ingen tabeller fundet i databasen."
 
@@ -3148,7 +3148,7 @@ msgstr "Konverter til Kana"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:734 src/Import/Import.php:115 src/InsertEdit.php:487
+#: src/Html/Generator.php:736 src/Import/Import.php:115 src/InsertEdit.php:488
 #: src/Message.php:138
 msgid "Error"
 msgstr "Fejl"
@@ -3175,7 +3175,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Du kan gennemse indholdet i fejlrapporten:"
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:404
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:403
 msgid "Automatically send report next time"
 msgstr "Send automatisk rapport næste gang"
 
@@ -3229,7 +3229,7 @@ msgstr "Opdater"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:758
+#: src/Html/Generator.php:760
 msgid "SQL query:"
 msgstr "SQL-forespørgsel:"
 
@@ -3516,7 +3516,7 @@ msgstr "Generelle indstillinger"
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
-#: src/Controllers/UserPasswordController.php:90
+#: src/Controllers/UserPasswordController.php:91
 msgid "Change password"
 msgstr "Skift adgangskode"
 
@@ -3680,7 +3680,7 @@ msgstr "vælg dette"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:442
-#: src/Export/Export.php:1276 src/Html/Generator.php:849
+#: src/Export/Export.php:1276 src/Html/Generator.php:851
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Tilbage"
@@ -3739,7 +3739,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Du kan også trække og slippe en fil på hvilken som helst side."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:488
+#: src/InsertEdit.php:489
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Mappen du har sat til upload-arbejde kan ikke findes."
 
@@ -3832,7 +3832,7 @@ msgid "Taking you to the target site."
 msgstr "Tager dig til målstedet."
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
-#: src/Language.php:178 src/Pdf.php:84
+#: src/I18n/Language.php:177 src/Pdf.php:84
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
 msgid "Page number:"
@@ -4307,7 +4307,7 @@ msgstr "Du har aktiveret to faktor-autentificering."
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:347
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:283 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:499
 msgid "No change"
 msgstr "Ingen ændring"
 
@@ -5072,7 +5072,7 @@ msgstr "Tillader læsning af data."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:496
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:497
 msgid "Or"
 msgstr "Eller"
 
@@ -6359,7 +6359,7 @@ msgid "No users were found belonging to this user group."
 msgstr "Der blev ikke fundet brugere tilhørende denne brugergruppe."
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:411
+#: src/Controllers/Server/PrivilegesController.php:414
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "Bruger"
@@ -6889,7 +6889,7 @@ msgstr "Træk for at ændre rækkefølge"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1515
+#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1518
 msgid "Ignore"
 msgstr "Ignorer"
 
@@ -12026,21 +12026,21 @@ msgstr ""
 "Kan ikke gemme indstillinger, den sendte konfigurationsformular indeholder "
 "fejl!"
 
-#: src/Config.php:607
+#: src/Config.php:608
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Eksisterende konfigurationsfil (%s) kan ikke læses."
 
-#: src/Config.php:643
+#: src/Config.php:644
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Forkerte rettigheder på konfigurationsfil. Må ikke være skrivbar af alle!"
 
-#: src/Config.php:657
+#: src/Config.php:658
 msgid "Failed to read configuration file!"
 msgstr "Kunne ikke indlæse konfigurationsfilen!"
 
-#: src/Config.php:659
+#: src/Config.php:660
 #, fuzzy
 #| msgid ""
 #| "This usually means there is a syntax error in it, please check any errors "
@@ -12310,16 +12310,12 @@ msgid ""
 "information."
 msgstr "Filen %s er ikke tilgængelig, besøg %s for mere information."
 
-#: src/Controllers/Console/Bookmark/AddController.php:33
-msgid "Incomplete params"
-msgstr "Ukomplette parametre"
-
-#: src/Controllers/Console/Bookmark/AddController.php:46
+#: src/Controllers/Console/Bookmark/AddController.php:39
 #: src/Controllers/JavaScriptMessagesController.php:597
 msgid "Failed"
 msgstr "Mislykket"
 
-#: src/Controllers/Console/Bookmark/AddController.php:58
+#: src/Controllers/Console/Bookmark/AddController.php:51
 msgid "Succeeded"
 msgstr "Gennemført"
 
@@ -12343,14 +12339,14 @@ msgid "Showing rows %1$s - %2$s."
 msgstr "Viser rækkerne %1$s - %2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: src/Controllers/Database/DesignerController.php:100
+#: src/Controllers/Database/DesignerController.php:106
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 
-#: src/Controllers/Database/DesignerController.php:168
-#: src/Controllers/Database/DesignerController.php:173
+#: src/Controllers/Database/DesignerController.php:177
+#: src/Controllers/Database/DesignerController.php:182
 #: src/Controllers/Database/EventsController.php:60
 #: src/Controllers/Database/ExportController.php:66
 #: src/Controllers/Database/ExportController.php:71
@@ -12377,8 +12373,8 @@ msgstr ""
 #: src/Controllers/Operations/ViewController.php:63
 #: src/Controllers/Operations/ViewController.php:68
 #: src/Controllers/Server/Databases/DestroyController.php:61
-#: src/Controllers/Table/AddFieldController.php:164
-#: src/Controllers/Table/AddFieldController.php:169
+#: src/Controllers/Table/AddFieldController.php:163
+#: src/Controllers/Table/AddFieldController.php:168
 #: src/Controllers/Table/ChangeController.php:68
 #: src/Controllers/Table/ChangeController.php:73
 #: src/Controllers/Table/ChartController.php:96
@@ -12406,8 +12402,8 @@ msgstr ""
 #: src/Controllers/Table/SqlController.php:70
 #: src/Controllers/Table/StructureController.php:94
 #: src/Controllers/Table/StructureController.php:99
-#: src/Controllers/Table/Structure/PrimaryController.php:74
-#: src/Controllers/Table/Structure/PrimaryController.php:79
+#: src/Controllers/Table/Structure/PrimaryController.php:73
+#: src/Controllers/Table/Structure/PrimaryController.php:78
 #: src/Controllers/Table/TrackingController.php:71
 #: src/Controllers/Table/TrackingController.php:76
 #: src/Controllers/Table/ZoomSearchController.php:100
@@ -12495,8 +12491,8 @@ msgstr "Du har ikke tilstrækkelige rettigheder til at redigere brugere!"
 #: src/Controllers/Operations/TableController.php:105
 #: src/Controllers/Operations/ViewController.php:77
 #: src/Controllers/Operations/ViewController.php:82
-#: src/Controllers/Table/AddFieldController.php:178
-#: src/Controllers/Table/AddFieldController.php:183
+#: src/Controllers/Table/AddFieldController.php:177
+#: src/Controllers/Table/AddFieldController.php:182
 #: src/Controllers/Table/ChangeController.php:82
 #: src/Controllers/Table/ChangeController.php:87
 #: src/Controllers/Table/ChartController.php:110
@@ -12525,8 +12521,8 @@ msgstr "Du har ikke tilstrækkelige rettigheder til at redigere brugere!"
 #: src/Controllers/Table/SqlController.php:84
 #: src/Controllers/Table/StructureController.php:108
 #: src/Controllers/Table/StructureController.php:113
-#: src/Controllers/Table/Structure/PrimaryController.php:88
-#: src/Controllers/Table/Structure/PrimaryController.php:93
+#: src/Controllers/Table/Structure/PrimaryController.php:87
+#: src/Controllers/Table/Structure/PrimaryController.php:92
 #: src/Controllers/Table/ZoomSearchController.php:114
 #: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:81
@@ -12630,7 +12626,7 @@ msgstr "Ingen tabeller valgt."
 msgid "Database Log"
 msgstr "Databaselog"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:92
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -12638,11 +12634,11 @@ msgstr ""
 "Der er opdaget en fejl, og der er automatisk blevet sendt en fejlrapport, "
 "baseret på dine indstillinger."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:96
 msgid "Thank you for submitting this report."
 msgstr "Tak for indsendelsen af denne rapport."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:100
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -12650,24 +12646,24 @@ msgstr ""
 "Der er opdaget en fejl, og der er oprettet en fejlrapport, men den kunne "
 "ikke afsendes."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:103
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Hvis du stødte på problemer, så indsend venligst en fejlrapport manuelt."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:106
 msgid "You may want to refresh the page."
 msgstr "Du skal muligvis genindlæse siden."
 
-#: src/Controllers/Export/ExportController.php:115 src/Export/Export.php:1214
+#: src/Controllers/Export/ExportController.php:108 src/Export/Export.php:1214
 msgid "Bad type!"
 msgstr "Forkert type!"
 
-#: src/Controllers/Export/ExportController.php:190
+#: src/Controllers/Export/ExportController.php:183
 msgid "Bad parameters!"
 msgstr "Forkerte parametre!"
 
-#: src/Controllers/GisDataEditorController.php:120
+#: src/Controllers/GisDataEditorController.php:116
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "Værdi for kolonnen \"%s\""
@@ -12786,7 +12782,7 @@ msgstr ""
 "Curl-udvidelsen blev ikke fundet og allow_url_fopen er deaktiveret. Derfor "
 "er nogle funktioner, som fejlrapportering og versionskontrol, deaktiveret."
 
-#: src/Controllers/Import/ImportController.php:169
+#: src/Controllers/Import/ImportController.php:168
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12795,23 +12791,23 @@ msgstr ""
 "Du har sandsynligvis forsøgt at overføre en fil som er for stor. Se venligst "
 "%sdokumentationen%s for måder at omgå denne begrænsning."
 
-#: src/Controllers/Import/ImportController.php:196
+#: src/Controllers/Import/ImportController.php:194
 #, fuzzy
 #| msgid "Incorrect form specified!"
 msgid "Incorrect format parameter"
 msgstr "Ukorrekt formular angivet!"
 
-#: src/Controllers/Import/ImportController.php:310
-#: src/Controllers/Import/ImportController.php:523
+#: src/Controllers/Import/ImportController.php:308
+#: src/Controllers/Import/ImportController.php:521
 msgid "Showing bookmark"
 msgstr "Viser bogmærke"
 
-#: src/Controllers/Import/ImportController.php:330
-#: src/Controllers/Import/ImportController.php:519
+#: src/Controllers/Import/ImportController.php:328
+#: src/Controllers/Import/ImportController.php:517
 msgid "The bookmark has been deleted."
 msgstr "Bogmærket er fjernet."
 
-#: src/Controllers/Import/ImportController.php:442
+#: src/Controllers/Import/ImportController.php:440
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12821,14 +12817,14 @@ msgstr ""
 "et filnavn, eller filstørrelsen kan have overskredet maksimal størrelsen "
 "tilladt af din PHP-konfiguration. Se  [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:531
+#: src/Controllers/Import/ImportController.php:529
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Importen er korrekt gennemført, %d forespørgsler udført."
 msgstr[1] "Importen er korrekt gennemført, %d forespørgsler udført."
 
-#: src/Controllers/Import/ImportController.php:568
+#: src/Controllers/Import/ImportController.php:566
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12837,7 +12833,7 @@ msgstr ""
 "Tidsudløb for skriptet blev nået. Hvis du vil afslutte importen, så "
 "%sindsend venligst den samme fil igen%s og importen vil blive genoptaget."
 
-#: src/Controllers/Import/ImportController.php:578
+#: src/Controllers/Import/ImportController.php:576
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12846,16 +12842,16 @@ msgstr ""
 "normalt at phpMyAdmin ikke vil være i stand til at gennemføre importen med "
 "mindre du forøger PHP-tidsbegrænsningerne."
 
-#: src/Controllers/Import/ImportController.php:641
+#: src/Controllers/Import/ImportController.php:639
 #: src/Controllers/Sql/SqlController.php:159
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" erklæringer kan ikke bruges."
 
-#: src/Controllers/Import/ImportController.php:696 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:692 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK opstod.]"
 
-#: src/Controllers/Import/SimulateDmlController.php:84
+#: src/Controllers/Import/SimulateDmlController.php:83
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "Der kan kun simuleres forespørgsler med UPDATE og DELETE i enkelttabeller."
@@ -14285,7 +14281,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Gennemse venligst bunden af denne side."
 
 #: src/Controllers/JavaScriptMessagesController.php:649
-#: src/Error/ErrorHandler.php:415
+#: src/Error/ErrorHandler.php:414
 msgid "Ignore All"
 msgstr "Ignorér alle"
 
@@ -14454,7 +14450,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Tabellen %s eksisterer allerede!"
 
-#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:272
+#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:273
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Skjul"
@@ -15015,7 +15011,7 @@ msgstr "To-faktor autentificering er blevet fjernet."
 msgid "Two-factor authentication has been configured."
 msgstr "To-faktor autentificering er blevet konfigureret."
 
-#: src/Controllers/SchemaExportController.php:40
+#: src/Controllers/SchemaExportController.php:38
 #: src/Controllers/Server/UserGroupsFormController.php:44
 #: src/ResponseRenderer.php:476
 msgid "Missing parameter:"
@@ -15033,13 +15029,13 @@ msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "%1$d databaser er blevet droppet korrekt."
 msgstr[1] "%1$d databaser er blevet droppet korrekt."
 
-#: src/Controllers/Server/Privileges/AccountLockController.php:47
+#: src/Controllers/Server/Privileges/AccountLockController.php:45
 #, fuzzy, php-format
 #| msgid "The columns have been moved successfully."
 msgid "The account %s@%s has been successfully locked."
 msgstr "Flytning af kolonnen er blevet fuldført."
 
-#: src/Controllers/Server/Privileges/AccountUnlockController.php:47
+#: src/Controllers/Server/Privileges/AccountUnlockController.php:45
 #, fuzzy, php-format
 #| msgid "The columns have been moved successfully."
 msgid "The account %s@%s has been successfully unlocked."
@@ -15812,7 +15808,7 @@ msgstr "Variablen blev ikke sat"
 #: src/Controllers/Setup/ServerDestroyController.php:41
 #: src/Controllers/Setup/ServersController.php:44
 #: src/Controllers/Setup/ShowConfigController.php:42
-#: src/Controllers/Setup/ValidateController.php:46
+#: src/Controllers/Setup/ValidateController.php:45
 msgid "Configuration already exists, setup is disabled!"
 msgstr "Konfiguration eksisterer allerede, opsætningen er deaktiveret!"
 
@@ -15840,11 +15836,11 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Usikker forbindelse"
 
-#: src/Controllers/Setup/ValidateController.php:63
+#: src/Controllers/Setup/ValidateController.php:60
 msgid "Wrong data"
 msgstr "Forkerte data"
 
-#: src/Controllers/Setup/ValidateController.php:72
+#: src/Controllers/Setup/ValidateController.php:69
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr "Forkerte data eller ingen validering af %s"
@@ -15858,7 +15854,7 @@ msgstr "Bogmærket %s er blevet oprettet."
 msgid "Bookmark not created!"
 msgstr "Bogmærke blev ikke oprettet!"
 
-#: src/Controllers/Table/AddFieldController.php:135
+#: src/Controllers/Table/AddFieldController.php:134
 #: src/Controllers/Table/IndexesController.php:142
 #: src/Controllers/Table/IndexRenameController.php:131
 #: src/Controllers/Table/Structure/PartitioningController.php:265
@@ -15935,7 +15931,7 @@ msgstr "Der er for mange joins uden indeks."
 
 #: src/Controllers/Table/GetFieldController.php:81
 #: src/Database/Routines.php:1046 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:863
+#: src/InsertEdit.php:200 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerede ingen data (fx ingen rækker)."
 
@@ -15979,7 +15975,7 @@ msgstr "Opdatering af vist kolonne blev gennemført."
 msgid "Internal relationships were successfully updated."
 msgstr "Opdateringen af de interne relationer blev gennemført."
 
-#: src/Controllers/Table/ReplaceController.php:183
+#: src/Controllers/Table/ReplaceController.php:184
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Række: %1$s, kolonne: %2$s, fejl: %3$s"
@@ -16018,15 +16014,15 @@ msgstr "Tabel %1$s er blevet ændret. Rettighederne er justeret."
 msgid "Tracking of %s is activated."
 msgstr "Sporing af %s er aktiveret."
 
-#: src/Controllers/Table/TrackingController.php:151
+#: src/Controllers/Table/TrackingController.php:148
 msgid "SQL statements executed."
 msgstr "SQL-sætninger udført."
 
-#: src/Controllers/Table/TrackingController.php:205
+#: src/Controllers/Table/TrackingController.php:202
 msgid "Tracking versions deleted successfully."
 msgstr "Sletningen af sporingsversionerne blev gennemført."
 
-#: src/Controllers/Table/TrackingController.php:210
+#: src/Controllers/Table/TrackingController.php:207
 msgid "No versions selected."
 msgstr "Der er ikke valgt versioner."
 
@@ -16162,7 +16158,7 @@ msgstr "Den følgende forespørgsel fejlede: \"%s\""
 #: src/Database/Events.php:115 src/Database/Events.php:136
 #: src/Database/Routines.php:104 src/Database/Routines.php:130
 #: src/Database/Routines.php:208 src/Database/Routines.php:222
-#: src/Database/Routines.php:1010 src/Html/Generator.php:799
+#: src/Database/Routines.php:1010 src/Html/Generator.php:801
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:109 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
@@ -16217,7 +16213,7 @@ msgstr "Du skal angive en gyldig type for hændelsen."
 msgid "You must provide an event definition."
 msgstr "Du skal angive en hændelsesdefinition."
 
-#: src/DatabaseInterface.php:1128
+#: src/DatabaseInterface.php:1126
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -16228,11 +16224,11 @@ msgstr ""
 "konfigurationsindstilling for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
 "em]. phpMyAdmin anvender i øjeblikket databaseserverens standardtidszone."
 
-#: src/DatabaseInterface.php:1170
+#: src/DatabaseInterface.php:1168
 msgid "Failed to set configured collation connection!"
 msgstr "Kunne ikke indstille den konfigurerede sorteringsforbindelse!"
 
-#: src/DatabaseInterface.php:1684
+#: src/DatabaseInterface.php:1682
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Forbindelse for kontrolbruger som defineret i din konfiguration slog fejl."
@@ -16679,11 +16675,11 @@ msgstr ""
 "Dokumentation og yderligere information om PBXT kan findes på %sPrimeBase XT "
 "hjemmeside%s."
 
-#: src/Error/ErrorHandler.php:105
+#: src/Error/ErrorHandler.php:104
 msgid "Too many error messages, some are not displayed."
 msgstr "For mange fejlmeddelelser, nogle vises ikke."
 
-#: src/Error/ErrorHandler.php:399
+#: src/Error/ErrorHandler.php:398
 msgid "Report"
 msgstr "Rapport"
 
@@ -16870,11 +16866,11 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Redigér indlejret"
 
-#: src/Html/Generator.php:741
+#: src/Html/Generator.php:743
 msgid "Static analysis:"
 msgstr "Statisk analyse:"
 
-#: src/Html/Generator.php:744
+#: src/Html/Generator.php:746
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Der blev fundet %d fejl under analysen."
@@ -16912,6 +16908,10 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+
+#: src/I18n/LanguageManager.php:961
+msgid "Ignoring unsupported language code."
+msgstr "Ignorér sprogkoder som ikke understøttes."
 
 #: src/Identifiers/InvalidDatabaseName.php:14
 #, fuzzy
@@ -17033,22 +17033,18 @@ msgstr ""
 "Indeks %1$s ser ud til at være identisk med indeks %2$s, så et af dem kan "
 "sikkert fjernes."
 
-#: src/InsertEdit.php:497
+#: src/InsertEdit.php:498
 msgid "web server upload directory:"
 msgstr "webserver upload-mappe:"
 
-#: src/InsertEdit.php:924 src/Sql.php:860
+#: src/InsertEdit.php:925 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "Viser SQL-forespørgsel"
 
-#: src/InsertEdit.php:948 src/Sql.php:840
+#: src/InsertEdit.php:949 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Indsatte række id: %1$d"
-
-#: src/LanguageManager.php:959
-msgid "Ignoring unsupported language code."
-msgstr "Ignorér sprogkoder som ikke understøttes."
 
 #: src/Linter.php:112
 msgid ""
@@ -18616,7 +18612,7 @@ msgstr "Tjek venligst privilegier for mappen som indeholder databasen."
 msgid "Details…"
 msgstr "Detaljer…"
 
-#: src/Replication/ReplicationGui.php:417
+#: src/Replication/ReplicationGui.php:451
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
@@ -18624,45 +18620,45 @@ msgstr ""
 "Forbindelse til server er deaktiveret, aktiver $cfg['AllowArbitraryServer'] "
 "i phpMyAdmin konfiguration."
 
-#: src/Replication/ReplicationGui.php:428
+#: src/Replication/ReplicationGui.php:462
 msgid "Replication started successfully."
 msgstr "Replikation blev påbegyndt."
 
-#: src/Replication/ReplicationGui.php:429
+#: src/Replication/ReplicationGui.php:463
 msgid "Error starting replication."
 msgstr "Fejl ved start af replikation."
 
-#: src/Replication/ReplicationGui.php:432
+#: src/Replication/ReplicationGui.php:466
 msgid "Replication stopped successfully."
 msgstr "Replikeringen blev stoppet."
 
-#: src/Replication/ReplicationGui.php:433
+#: src/Replication/ReplicationGui.php:467
 msgid "Error stopping replication."
 msgstr "Fejl ved stop af replikering."
 
-#: src/Replication/ReplicationGui.php:436
+#: src/Replication/ReplicationGui.php:470
 msgid "Replication resetting successfully."
 msgstr "Nulstilling af replikering blev gennemført."
 
-#: src/Replication/ReplicationGui.php:437
+#: src/Replication/ReplicationGui.php:471
 msgid "Error resetting replication."
 msgstr "Fejl ved nulstilling af replikering."
 
-#: src/Replication/ReplicationGui.php:440
+#: src/Replication/ReplicationGui.php:474
 msgid "Success."
 msgstr "Succes."
 
-#: src/Replication/ReplicationGui.php:441
+#: src/Replication/ReplicationGui.php:475
 msgid "Error."
 msgstr "Fejl."
 
-#: src/Replication/ReplicationGui.php:486
+#: src/Replication/ReplicationGui.php:520
 #, fuzzy, php-format
 #| msgid "Unable to connect to master %s."
 msgid "Unable to connect to primary %s."
 msgstr "Ikke muligt at forbinde til master %s."
 
-#: src/Replication/ReplicationGui.php:496
+#: src/Replication/ReplicationGui.php:530
 #, fuzzy
 #| msgid ""
 #| "Unable to read master log position. Possible privilege problem on master."
@@ -18671,13 +18667,13 @@ msgid ""
 msgstr ""
 "Ikke muligt at læse master log position. Muligt rettighedsproblem på master."
 
-#: src/Replication/ReplicationGui.php:514
+#: src/Replication/ReplicationGui.php:548
 #, fuzzy
 #| msgid "Unable to change master!"
 msgid "Unable to change primary!"
 msgstr "Ikke muligt at ændre master!"
 
-#: src/Replication/ReplicationGui.php:518
+#: src/Replication/ReplicationGui.php:552
 #, fuzzy, php-format
 #| msgid "Master server changed successfully to %s."
 msgid "Primary server changed successfully to %s."
@@ -19017,24 +19013,24 @@ msgstr "Kildedatabasen '%s' blev ikke fundet!"
 msgid "Target database `%s` was not found!"
 msgstr "Mål-databasen '%s' blev ikke fundet!"
 
-#: src/Table/Table.php:810
+#: src/Table/Table.php:809
 msgid "Invalid database:"
 msgstr "Ugyldig database:"
 
-#: src/Table/Table.php:828
+#: src/Table/Table.php:827
 msgid "Invalid table name:"
 msgstr "Ugyldigt tabelnavn:"
 
-#: src/Table/Table.php:873
+#: src/Table/Table.php:872
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabellen %1$s er nu omdøbt til %2$s."
 
-#: src/Table/Table.php:1108
+#: src/Table/Table.php:1107
 msgid "Could not save table UI preferences!"
 msgstr "Kunne ikke gemme indstillinger af brugergrænseflade for tabel!"
 
-#: src/Table/Table.php:1130
+#: src/Table/Table.php:1129
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -19043,7 +19039,7 @@ msgstr ""
 "Kunne ikke rydde op i indstillinger for tabel-UI (se $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1248
+#: src/Table/Table.php:1247
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -19054,7 +19050,7 @@ msgstr ""
 "efter at du opfrisker denne side. Undersøg, om tabelstrukturen er blevet "
 "ændret."
 
-#: src/Table/Table.php:1594
+#: src/Table/Table.php:1571
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Fejl ved dannelse af fremmednøgle på %1$s (tjek datatyper)"
@@ -19561,6 +19557,9 @@ msgstr "Fejl i ZIP arkiv:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Ingen filer fundet i ZIP arkivet!"
+
+#~ msgid "Incomplete params"
+#~ msgstr "Ukomplette parametre"
 
 #, php-format
 #~ msgid "A primary key has been added on %s."

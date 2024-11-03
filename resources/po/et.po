@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-10-27 00:25+0000\n"
+"POT-Creation-Date: 2024-11-03 00:25+0000\n"
 "PO-Revision-Date: 2023-11-25 02:27+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -282,7 +282,7 @@ msgstr "veerg(ud)"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
-#: src/Controllers/Server/PrivilegesController.php:290
+#: src/Controllers/Server/PrivilegesController.php:293
 #: src/Normalization.php:229 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
@@ -605,7 +605,7 @@ msgstr "Nimi"
 #: resources/templates/table/structure/display_structure.twig:465
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:288
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:289
 #: src/Plugins/Export/ExportHtmlword.php:262
 #: src/Plugins/Export/ExportHtmlword.php:353
 #: src/Plugins/Export/ExportLatex.php:505 src/Plugins/Export/ExportOdt.php:364
@@ -882,7 +882,7 @@ msgstr "Keelatud"
 #: src/Controllers/JavaScriptMessagesController.php:510
 #: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:44
-#: src/Controllers/Table/Structure/PrimaryController.php:107
+#: src/Controllers/Table/Structure/PrimaryController.php:106
 #: src/IndexColumn.php:148 src/Index.php:469
 #: src/Plugins/Export/ExportHtmlword.php:595
 #: src/Plugins/Export/ExportLatex.php:572 src/Plugins/Export/ExportOdt.php:714
@@ -988,7 +988,7 @@ msgstr "Korduspäring"
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:406
 #: src/Display/Results.php:2477 src/Html/Generator.php:517
-#: src/Html/Generator.php:783
+#: src/Html/Generator.php:785
 msgid "Edit"
 msgstr "Muuda"
 
@@ -2229,7 +2229,7 @@ msgstr "Hosti nimi"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:408 src/Menu.php:256
+#: src/Controllers/Server/PrivilegesController.php:411 src/Menu.php:256
 #: src/Menu.php:364 src/Util.php:1472 src/Util.php:1488
 msgid "Privileges"
 msgstr "Õigused"
@@ -2378,7 +2378,7 @@ msgstr "Funktsiooni parameetrid"
 
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:287
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:288
 #: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr "Funktsioon"
@@ -2706,7 +2706,7 @@ msgstr "Andmesõnastik"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:84
 #: src/Controllers/Database/TrackingController.php:130
-#: src/Controllers/Export/ExportController.php:298
+#: src/Controllers/Export/ExportController.php:291
 msgid "No tables found in database."
 msgstr "Andmebaasist tabeleid ei leitud."
 
@@ -3066,7 +3066,7 @@ msgstr "Konverdi Kana'ks"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:734 src/Import/Import.php:115 src/InsertEdit.php:487
+#: src/Html/Generator.php:736 src/Import/Import.php:115 src/InsertEdit.php:488
 #: src/Message.php:138
 msgid "Error"
 msgstr "Viga"
@@ -3092,7 +3092,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Sa võid tutvuda vearaportis olevate andmetega:"
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:404
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:403
 msgid "Automatically send report next time"
 msgstr "Saada järgmisel korral raport automaatselt"
 
@@ -3146,7 +3146,7 @@ msgstr "Uuenda"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:758
+#: src/Html/Generator.php:760
 msgid "SQL query:"
 msgstr "SQL päring:"
 
@@ -3415,7 +3415,7 @@ msgstr "Üldised sätted"
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
-#: src/Controllers/UserPasswordController.php:90
+#: src/Controllers/UserPasswordController.php:91
 msgid "Change password"
 msgstr "Muuda parooli"
 
@@ -3570,7 +3570,7 @@ msgstr "Võta see"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:442
-#: src/Export/Export.php:1276 src/Html/Generator.php:849
+#: src/Export/Export.php:1276 src/Html/Generator.php:851
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Tagasi"
@@ -3621,7 +3621,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Sa võid lohistada ja kukutada faili igale lehele."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:488
+#: src/InsertEdit.php:489
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Valitud üleslaadimise kataloogile ei pääse ligi."
 
@@ -3693,7 +3693,7 @@ msgid "Taking you to the target site."
 msgstr "Sind viiakse sihtsaidile."
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
-#: src/Language.php:178 src/Pdf.php:84
+#: src/I18n/Language.php:177 src/Pdf.php:84
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
 msgid "Page number:"
@@ -4162,7 +4162,7 @@ msgstr "Oled lubanud kaheastmelise autentimise."
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:347
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:283 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:499
 msgid "No change"
 msgstr "Ei muudetud"
 
@@ -4838,7 +4838,7 @@ msgstr "Lubab lugeda andmeid."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:496
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:497
 msgid "Or"
 msgstr "Või"
 
@@ -6013,7 +6013,7 @@ msgid "No users were found belonging to this user group."
 msgstr "Valitud gruppi ei kuulu mitte ühtegi kasutajat."
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:411
+#: src/Controllers/Server/PrivilegesController.php:414
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "Kasutaja"
@@ -6525,7 +6525,7 @@ msgstr "Järjekorra muutmiseks lohista"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1515
+#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1518
 msgid "Ignore"
 msgstr "Ignoreeri"
 
@@ -11455,22 +11455,22 @@ msgstr "Vaikimisi teisendused"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "Sätete salvestamine nurjus; saadetud häälestus sisaldab vigu!"
 
-#: src/Config.php:607
+#: src/Config.php:608
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Olemasolev seadistusfail (%s) ei ole loetav."
 
-#: src/Config.php:643
+#: src/Config.php:644
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Seadistusfailil on valed õigused. See ei tohiks olla kõikide jaoks "
 "kirjutatav!"
 
-#: src/Config.php:657
+#: src/Config.php:658
 msgid "Failed to read configuration file!"
 msgstr "Seadistuse faili lugemine ebaõnnestus!"
 
-#: src/Config.php:659
+#: src/Config.php:660
 msgid "This usually means there is a syntax error in it."
 msgstr "See tähendab tavaliselt, et selles on süntaksi viga."
 
@@ -11735,16 +11735,12 @@ msgstr ""
 "Fail %s ei ole selles süsteemis saadaval; täiendavat informatsiooni leiad "
 "aadressilt %s."
 
-#: src/Controllers/Console/Bookmark/AddController.php:33
-msgid "Incomplete params"
-msgstr "Puudulikud parameetrid"
-
-#: src/Controllers/Console/Bookmark/AddController.php:46
+#: src/Controllers/Console/Bookmark/AddController.php:39
 #: src/Controllers/JavaScriptMessagesController.php:597
 msgid "Failed"
 msgstr "Nurjus"
 
-#: src/Controllers/Console/Bookmark/AddController.php:58
+#: src/Controllers/Console/Bookmark/AddController.php:51
 msgid "Succeeded"
 msgstr "Õnnestus"
 
@@ -11768,14 +11764,14 @@ msgid "Showing rows %1$s - %2$s."
 msgstr "Kuvatakse read %1$s - %2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: src/Controllers/Database/DesignerController.php:100
+#: src/Controllers/Database/DesignerController.php:106
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr "Lehekülg nimega \"%s\" on juba olemas. Palun anna talle uus nimi."
 
-#: src/Controllers/Database/DesignerController.php:168
-#: src/Controllers/Database/DesignerController.php:173
+#: src/Controllers/Database/DesignerController.php:177
+#: src/Controllers/Database/DesignerController.php:182
 #: src/Controllers/Database/EventsController.php:60
 #: src/Controllers/Database/ExportController.php:66
 #: src/Controllers/Database/ExportController.php:71
@@ -11802,8 +11798,8 @@ msgstr "Lehekülg nimega \"%s\" on juba olemas. Palun anna talle uus nimi."
 #: src/Controllers/Operations/ViewController.php:63
 #: src/Controllers/Operations/ViewController.php:68
 #: src/Controllers/Server/Databases/DestroyController.php:61
-#: src/Controllers/Table/AddFieldController.php:164
-#: src/Controllers/Table/AddFieldController.php:169
+#: src/Controllers/Table/AddFieldController.php:163
+#: src/Controllers/Table/AddFieldController.php:168
 #: src/Controllers/Table/ChangeController.php:68
 #: src/Controllers/Table/ChangeController.php:73
 #: src/Controllers/Table/ChartController.php:96
@@ -11831,8 +11827,8 @@ msgstr "Lehekülg nimega \"%s\" on juba olemas. Palun anna talle uus nimi."
 #: src/Controllers/Table/SqlController.php:70
 #: src/Controllers/Table/StructureController.php:94
 #: src/Controllers/Table/StructureController.php:99
-#: src/Controllers/Table/Structure/PrimaryController.php:74
-#: src/Controllers/Table/Structure/PrimaryController.php:79
+#: src/Controllers/Table/Structure/PrimaryController.php:73
+#: src/Controllers/Table/Structure/PrimaryController.php:78
 #: src/Controllers/Table/TrackingController.php:71
 #: src/Controllers/Table/TrackingController.php:76
 #: src/Controllers/Table/ZoomSearchController.php:100
@@ -11920,8 +11916,8 @@ msgstr "Sul puuduvad kasutajate haldamise õigused!"
 #: src/Controllers/Operations/TableController.php:105
 #: src/Controllers/Operations/ViewController.php:77
 #: src/Controllers/Operations/ViewController.php:82
-#: src/Controllers/Table/AddFieldController.php:178
-#: src/Controllers/Table/AddFieldController.php:183
+#: src/Controllers/Table/AddFieldController.php:177
+#: src/Controllers/Table/AddFieldController.php:182
 #: src/Controllers/Table/ChangeController.php:82
 #: src/Controllers/Table/ChangeController.php:87
 #: src/Controllers/Table/ChartController.php:110
@@ -11950,8 +11946,8 @@ msgstr "Sul puuduvad kasutajate haldamise õigused!"
 #: src/Controllers/Table/SqlController.php:84
 #: src/Controllers/Table/StructureController.php:108
 #: src/Controllers/Table/StructureController.php:113
-#: src/Controllers/Table/Structure/PrimaryController.php:88
-#: src/Controllers/Table/Structure/PrimaryController.php:93
+#: src/Controllers/Table/Structure/PrimaryController.php:87
+#: src/Controllers/Table/Structure/PrimaryController.php:92
 #: src/Controllers/Table/ZoomSearchController.php:114
 #: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:81
@@ -12053,17 +12049,17 @@ msgstr "Ühtegi tabelit ei ole valitud."
 msgid "Database Log"
 msgstr "Andmebaasi logi"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:92
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr "Tuvastati viga, mis vastavalt su sätetele raporteeriti automaatselt."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:96
 msgid "Thank you for submitting this report."
 msgstr "Täname, et saatsid raporti."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:100
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -12071,23 +12067,23 @@ msgstr ""
 "Tuvastati viga ja loodi sellele vastav vearaport, kuid seda ei õnnestunud "
 "saata."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:103
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "Kui koged mingeid probleeme, siis raporteeri neist ise."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:106
 msgid "You may want to refresh the page."
 msgstr "Sa võiksid lehekülje uuesti laadida."
 
-#: src/Controllers/Export/ExportController.php:115 src/Export/Export.php:1214
+#: src/Controllers/Export/ExportController.php:108 src/Export/Export.php:1214
 msgid "Bad type!"
 msgstr "Halb tüüp!"
 
-#: src/Controllers/Export/ExportController.php:190
+#: src/Controllers/Export/ExportController.php:183
 msgid "Bad parameters!"
 msgstr "Halvad parameetrid!"
 
-#: src/Controllers/GisDataEditorController.php:120
+#: src/Controllers/GisDataEditorController.php:116
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "\"%s\" veeru väärtus"
@@ -12217,7 +12213,7 @@ msgstr ""
 "keelatud ka mõned võimalused nagu vigade raporteerimine või versiooni "
 "kontroll."
 
-#: src/Controllers/Import/ImportController.php:169
+#: src/Controllers/Import/ImportController.php:168
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12226,21 +12222,21 @@ msgstr ""
 "Tõenäoliselt üritasid üles laadida liiga suurt faili. Palun loe "
 "%sdokumentatsioonist%s, kuidas sellest piirangust vabaneda."
 
-#: src/Controllers/Import/ImportController.php:196
+#: src/Controllers/Import/ImportController.php:194
 msgid "Incorrect format parameter"
 msgstr "Vale vorminguparameeter"
 
-#: src/Controllers/Import/ImportController.php:310
-#: src/Controllers/Import/ImportController.php:523
+#: src/Controllers/Import/ImportController.php:308
+#: src/Controllers/Import/ImportController.php:521
 msgid "Showing bookmark"
 msgstr "Näitan järjehoidjat"
 
-#: src/Controllers/Import/ImportController.php:330
-#: src/Controllers/Import/ImportController.php:519
+#: src/Controllers/Import/ImportController.php:328
+#: src/Controllers/Import/ImportController.php:517
 msgid "The bookmark has been deleted."
 msgstr "Järjehoidja on kustutatud."
 
-#: src/Controllers/Import/ImportController.php:442
+#: src/Controllers/Import/ImportController.php:440
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12250,14 +12246,14 @@ msgstr ""
 "maht ületab sinu PHP seadistuses lubatud maksimaalset mahtu. Vaata "
 "[doc@faq1-16]KKK 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:531
+#: src/Controllers/Import/ImportController.php:529
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Importimine lõpetati edukalt, teostati %d päring."
 msgstr[1] "Importimine lõpetati edukalt, teostati %d päringut."
 
-#: src/Controllers/Import/ImportController.php:568
+#: src/Controllers/Import/ImportController.php:566
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12266,7 +12262,7 @@ msgstr ""
 "Ületati skripti ooteaeg. Kui tahad importimise lõpetada, siis palun %ssaada "
 "fail uuesti%s ja importimine jätkub poolelijäänud kohast."
 
-#: src/Controllers/Import/ImportController.php:578
+#: src/Controllers/Import/ImportController.php:576
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12275,16 +12271,16 @@ msgstr ""
 "phpMyAdmin ei suuda importimist lõpetada, kuni sa ei suurenda php aja "
 "piiranguid."
 
-#: src/Controllers/Import/ImportController.php:641
+#: src/Controllers/Import/ImportController.php:639
 #: src/Controllers/Sql/SqlController.php:159
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" käsud on keelatud."
 
-#: src/Controllers/Import/ImportController.php:696 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:692 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr "[Toimus tagasipööramine.]"
 
-#: src/Controllers/Import/SimulateDmlController.php:84
+#: src/Controllers/Import/SimulateDmlController.php:83
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "Simuleerida on võimalik ainult ühe tabeli uuendamise ja kustutamise "
@@ -13694,7 +13690,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Palun vaata selle akna alumisse serva."
 
 #: src/Controllers/JavaScriptMessagesController.php:649
-#: src/Error/ErrorHandler.php:415
+#: src/Error/ErrorHandler.php:414
 msgid "Ignore All"
 msgstr "Ignoreeri kõiki"
 
@@ -13858,7 +13854,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Tabel %s on juba olemas!"
 
-#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:272
+#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:273
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Peida"
@@ -14312,7 +14308,7 @@ msgstr "Kaheastmeline autentimine eemaldatud."
 msgid "Two-factor authentication has been configured."
 msgstr "Kaheastmeline autentimine seadistatud."
 
-#: src/Controllers/SchemaExportController.php:40
+#: src/Controllers/SchemaExportController.php:38
 #: src/Controllers/Server/UserGroupsFormController.php:44
 #: src/ResponseRenderer.php:476
 msgid "Missing parameter:"
@@ -14330,12 +14326,12 @@ msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "%1$d andmebaas kustutati edukalt."
 msgstr[1] "%1$d andmebaasi kustutati edukalt."
 
-#: src/Controllers/Server/Privileges/AccountLockController.php:47
+#: src/Controllers/Server/Privileges/AccountLockController.php:45
 #, php-format
 msgid "The account %s@%s has been successfully locked."
 msgstr "Konto %s@%s on edukalt lukustatud."
 
-#: src/Controllers/Server/Privileges/AccountUnlockController.php:47
+#: src/Controllers/Server/Privileges/AccountUnlockController.php:45
 #, php-format
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Konto %s@%s on edukalt avatud."
@@ -15078,7 +15074,7 @@ msgstr "Muutuja seadmine ebaõnnestus"
 #: src/Controllers/Setup/ServerDestroyController.php:41
 #: src/Controllers/Setup/ServersController.php:44
 #: src/Controllers/Setup/ShowConfigController.php:42
-#: src/Controllers/Setup/ValidateController.php:46
+#: src/Controllers/Setup/ValidateController.php:45
 msgid "Configuration already exists, setup is disabled!"
 msgstr "Häälestus on juba olemas, häälestamine on keelatud!"
 
@@ -15106,11 +15102,11 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Ebaturvaline ühendus"
 
-#: src/Controllers/Setup/ValidateController.php:63
+#: src/Controllers/Setup/ValidateController.php:60
 msgid "Wrong data"
 msgstr "Valed andmed"
 
-#: src/Controllers/Setup/ValidateController.php:72
+#: src/Controllers/Setup/ValidateController.php:69
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr "Valed andmed või puudub %s valideerimine"
@@ -15124,7 +15120,7 @@ msgstr "Loodi järjehoidja %s."
 msgid "Bookmark not created!"
 msgstr "Järjehoidjat ei loodud!"
 
-#: src/Controllers/Table/AddFieldController.php:135
+#: src/Controllers/Table/AddFieldController.php:134
 #: src/Controllers/Table/IndexesController.php:142
 #: src/Controllers/Table/IndexRenameController.php:131
 #: src/Controllers/Table/Structure/PartitioningController.php:265
@@ -15197,7 +15193,7 @@ msgstr "Sinu päring ei läbinud turvalisuse kontrolli."
 
 #: src/Controllers/Table/GetFieldController.php:81
 #: src/Database/Routines.php:1046 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:863
+#: src/InsertEdit.php:200 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL tagastas tühja tulemuse (s.t nulliread)."
 
@@ -15235,7 +15231,7 @@ msgstr "Kuva veergu uuendati edukalt."
 msgid "Internal relationships were successfully updated."
 msgstr "Siseseosete värskendamine õnnestus."
 
-#: src/Controllers/Table/ReplaceController.php:183
+#: src/Controllers/Table/ReplaceController.php:184
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rida: %1$s, veerg: %2$s, viga: %3$s"
@@ -15275,15 +15271,15 @@ msgstr "Tabeli %1$s muutmine õnnestus. Õiguseid kohandati vastavalt."
 msgid "Tracking of %s is activated."
 msgstr "%s jälgimine on aktiveeritud."
 
-#: src/Controllers/Table/TrackingController.php:151
+#: src/Controllers/Table/TrackingController.php:148
 msgid "SQL statements executed."
 msgstr "SQL käsud on käivitatud."
 
-#: src/Controllers/Table/TrackingController.php:205
+#: src/Controllers/Table/TrackingController.php:202
 msgid "Tracking versions deleted successfully."
 msgstr "Jälgimise versioonid kustutati edukalt."
 
-#: src/Controllers/Table/TrackingController.php:210
+#: src/Controllers/Table/TrackingController.php:207
 msgid "No versions selected."
 msgstr "Versioone ei ole valitud."
 
@@ -15416,7 +15412,7 @@ msgstr "Järgnev päring ebaõnnestus: \"%s\""
 #: src/Database/Events.php:115 src/Database/Events.php:136
 #: src/Database/Routines.php:104 src/Database/Routines.php:130
 #: src/Database/Routines.php:208 src/Database/Routines.php:222
-#: src/Database/Routines.php:1010 src/Html/Generator.php:799
+#: src/Database/Routines.php:1010 src/Html/Generator.php:801
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:109 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
@@ -15471,7 +15467,7 @@ msgstr "Sa pead andma sündmusele õige tüübi."
 msgid "You must provide an event definition."
 msgstr "Sa pead andma sündmuse definitsiooni."
 
-#: src/DatabaseInterface.php:1128
+#: src/DatabaseInterface.php:1126
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -15482,11 +15478,11 @@ msgstr ""
 "kontrolli häälestuses sätet [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
 "em]. phpMyAdmin kasutab hetkel andmebaasi serveri vaikimisi ajatsooni."
 
-#: src/DatabaseInterface.php:1170
+#: src/DatabaseInterface.php:1168
 msgid "Failed to set configured collation connection!"
 msgstr "Seadistatud sortimise ühenduse määramine ebaõnnestus!"
 
-#: src/DatabaseInterface.php:1684
+#: src/DatabaseInterface.php:1682
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Sinu seadistuses määratud kontrollkasutajaga ühendamine ebaõnnestus."
 
@@ -15929,11 +15925,11 @@ msgstr ""
 "PBXT kohta leiab dokumentatsiooni ja edasist teavet %sPrimeBase XT "
 "kodulehelt%s."
 
-#: src/Error/ErrorHandler.php:105
+#: src/Error/ErrorHandler.php:104
 msgid "Too many error messages, some are not displayed."
 msgstr "Liiga palju veasõnumeid, mõningaid pole näha."
 
-#: src/Error/ErrorHandler.php:399
+#: src/Error/ErrorHandler.php:398
 msgid "Report"
 msgstr "Raport"
 
@@ -16118,11 +16114,11 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Muuda kohapeal"
 
-#: src/Html/Generator.php:741
+#: src/Html/Generator.php:743
 msgid "Static analysis:"
 msgstr "Staatiline analüüs:"
 
-#: src/Html/Generator.php:744
+#: src/Html/Generator.php:746
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Analüüsi käigus avastati %d viga."
@@ -16164,6 +16160,10 @@ msgid ""
 msgstr ""
 "Sessiooni küpsise seadmine nurjus. Võib-olla kasutad sa phpMyAdmin'i HTTPS "
 "protokolli asemel HTTP protokolliga."
+
+#: src/I18n/LanguageManager.php:961
+msgid "Ignoring unsupported language code."
+msgstr "Tundmatu keele kood jäeti vahele."
 
 #: src/Identifiers/InvalidDatabaseName.php:14
 msgid "The database name must be a non-empty string."
@@ -16268,22 +16268,18 @@ msgstr ""
 "%1$s ja %2$s indeksid tunduvad olema võrdsed ja üks neist tõenäoliselt "
 "kustutatakse."
 
-#: src/InsertEdit.php:497
+#: src/InsertEdit.php:498
 msgid "web server upload directory:"
 msgstr "veebiserveri üleslaadimiskataloog:"
 
-#: src/InsertEdit.php:924 src/Sql.php:860
+#: src/InsertEdit.php:925 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "Näitan SQL päringut"
 
-#: src/InsertEdit.php:948 src/Sql.php:840
+#: src/InsertEdit.php:949 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Lisatud rea id: %1$d"
-
-#: src/LanguageManager.php:959
-msgid "Ignoring unsupported language code."
-msgstr "Tundmatu keele kood jäeti vahele."
 
 #: src/Linter.php:112
 msgid ""
@@ -17823,7 +17819,7 @@ msgstr "Palun kontrolli andmebaasi sisaldava kataloogi õigusi."
 msgid "Details…"
 msgstr "Detailid…"
 
-#: src/Replication/ReplicationGui.php:417
+#: src/Replication/ReplicationGui.php:451
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
@@ -17831,53 +17827,53 @@ msgstr ""
 "Ühendus serverisse on keelatud, palun luba $cfg['AllowArbitraryServer'] "
 "phpMyAdmini häälestuses."
 
-#: src/Replication/ReplicationGui.php:428
+#: src/Replication/ReplicationGui.php:462
 msgid "Replication started successfully."
 msgstr "Paljundamine algas edukalt."
 
-#: src/Replication/ReplicationGui.php:429
+#: src/Replication/ReplicationGui.php:463
 msgid "Error starting replication."
 msgstr "Viga paljundamise alustamisel."
 
-#: src/Replication/ReplicationGui.php:432
+#: src/Replication/ReplicationGui.php:466
 msgid "Replication stopped successfully."
 msgstr "Paljundamine lõpetati edukalt."
 
-#: src/Replication/ReplicationGui.php:433
+#: src/Replication/ReplicationGui.php:467
 msgid "Error stopping replication."
 msgstr "Viga paljundamise lõpetamisel."
 
-#: src/Replication/ReplicationGui.php:436
+#: src/Replication/ReplicationGui.php:470
 msgid "Replication resetting successfully."
 msgstr "Paljundamine lähtestati edukalt."
 
-#: src/Replication/ReplicationGui.php:437
+#: src/Replication/ReplicationGui.php:471
 msgid "Error resetting replication."
 msgstr "Viga paljundamise lähtestamisel."
 
-#: src/Replication/ReplicationGui.php:440
+#: src/Replication/ReplicationGui.php:474
 msgid "Success."
 msgstr "Edukas."
 
-#: src/Replication/ReplicationGui.php:441
+#: src/Replication/ReplicationGui.php:475
 msgid "Error."
 msgstr "Viga."
 
-#: src/Replication/ReplicationGui.php:486
+#: src/Replication/ReplicationGui.php:520
 #, php-format
 msgid "Unable to connect to primary %s."
 msgstr "Ei saa ühenduda esmaserveriga %s."
 
-#: src/Replication/ReplicationGui.php:496
+#: src/Replication/ReplicationGui.php:530
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr "Esmase logi asukohta ei saa lugeda. Kontrolli esmase logi õiguseid."
 
-#: src/Replication/ReplicationGui.php:514
+#: src/Replication/ReplicationGui.php:548
 msgid "Unable to change primary!"
 msgstr "Esmast ei saa muuta!"
 
-#: src/Replication/ReplicationGui.php:518
+#: src/Replication/ReplicationGui.php:552
 #, php-format
 msgid "Primary server changed successfully to %s."
 msgstr "Esmaseks serveriks vahetati edukalt %s."
@@ -18203,24 +18199,24 @@ msgstr "Lähteandmebaasi `%s` ei leitud!"
 msgid "Target database `%s` was not found!"
 msgstr "Sihtandmebaasi `%s` ei leitud!"
 
-#: src/Table/Table.php:810
+#: src/Table/Table.php:809
 msgid "Invalid database:"
 msgstr "Vigane andmebaas:"
 
-#: src/Table/Table.php:828
+#: src/Table/Table.php:827
 msgid "Invalid table name:"
 msgstr "Vigane tabeli nimi:"
 
-#: src/Table/Table.php:873
+#: src/Table/Table.php:872
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s tabeli uueks nimeks sai %2$s."
 
-#: src/Table/Table.php:1108
+#: src/Table/Table.php:1107
 msgid "Could not save table UI preferences!"
 msgstr "Tabeli kasutajaliidese eelistusi ei saanud salvestada!"
 
-#: src/Table/Table.php:1130
+#: src/Table/Table.php:1129
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -18229,7 +18225,7 @@ msgstr ""
 "Tabeli UI eelistuste puhastamine ebaõnnestus (vaata $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1248
+#: src/Table/Table.php:1247
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18239,7 +18235,7 @@ msgstr ""
 "Ei saanud salvestada UI muudatust \"%s\". Muudatused ei säili, kui "
 "värskendad seda lehte. Palun kontrolli, kas tabeli struktuuri on muudetud."
 
-#: src/Table/Table.php:1594
+#: src/Table/Table.php:1571
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Viga võõrvõtme loomisel kohas %1$s (kontrolli andmete tüüpe)"
@@ -18741,6 +18737,9 @@ msgstr "Viga ZIP arhiivis:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP arhiivist ei leitud ühtegi faili!"
+
+#~ msgid "Incomplete params"
+#~ msgstr "Puudulikud parameetrid"
 
 #~ msgid "Ok"
 #~ msgstr "Olgu"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-10-27 00:25+0000\n"
+"POT-Creation-Date: 2024-11-03 00:25+0000\n"
 "PO-Revision-Date: 2024-10-29 18:22+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -295,7 +295,7 @@ msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
-#: src/Controllers/Server/PrivilegesController.php:290
+#: src/Controllers/Server/PrivilegesController.php:293
 #: src/Normalization.php:229 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
@@ -659,7 +659,7 @@ msgstr "ئىسمى"
 #: resources/templates/table/structure/display_structure.twig:465
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:288
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:289
 #: src/Plugins/Export/ExportHtmlword.php:262
 #: src/Plugins/Export/ExportHtmlword.php:353
 #: src/Plugins/Export/ExportLatex.php:505 src/Plugins/Export/ExportOdt.php:364
@@ -687,8 +687,8 @@ msgid ""
 msgstr ""
 "ئەگەر ستون تىپى \"enum\" ياكى \"set\" بولسا ، بۇ فورماتنى ئىشلىتىپ قىممەتنى "
 "كىرگۈزۈڭ: 'a', 'b', 'c'… <br> ئەگەر كەينىگە چېكىنىشكە توغرا كەلسە (\"\\\") "
-"ياكى a بۇ قىممەتلەر ئارىسىدىكى يەككە نەقىل (\"'\") ، كەينىگە قايتىش ("
-"مەسىلەن' \\\\ xyz 'ياكى' a \\ 'b')."
+"ياكى a بۇ قىممەتلەر ئارىسىدىكى يەككە نەقىل (\"'\") ، كەينىگە قايتىش "
+"(مەسىلەن' \\\\ xyz 'ياكى' a \\ 'b')."
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:20
 #: resources/templates/database/central_columns/edit.twig:11
@@ -826,7 +826,8 @@ msgstr "MIMEشەكلى"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:75
 #: resources/templates/columns_definitions/table_fields_definitions.twig:86
 msgid "List of available transformations and their options"
-msgstr "ئىشلەتكىلى بولىدىغان ئۆزگەرتىشلەرنىڭ تىزىملىكى ۋە ئۇلارنىڭ تاللانمىلىرى"
+msgstr ""
+"ئىشلەتكىلى بولىدىغان ئۆزگەرتىشلەرنىڭ تىزىملىكى ۋە ئۇلارنىڭ تاللانمىلىرى"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:77
 #: resources/templates/transformation_overview.twig:18
@@ -847,8 +848,8 @@ msgid ""
 msgstr ""
 "بۇ فورماتنى ئىشلىتىپ ئۆزگەرتىش تاللانمىلىرىنىڭ قىممىتىنى كىرگۈزۈڭ: 'a', 100, "
 "b, 'c'… <br> ئەگەر بۇلارنىڭ ئارىسىدا كەينىگە چېكىنىش (\"\\\") ياكى بىر جۈملە "
-"(\"'\") قويۇشقا توغرا كەلسە. قىممەت ، كەينىگە قايتىش ئارقىلىق ئالدىنئالا ("
-"مەسىلەن '\\\\ xyz' ياكى 'a \\' b ')."
+"(\"'\") قويۇشقا توغرا كەلسە. قىممەت ، كەينىگە قايتىش ئارقىلىق ئالدىنئالا "
+"(مەسىلەن '\\\\ xyz' ياكى 'a \\' b ')."
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:88
 #: resources/templates/transformation_overview.twig:37
@@ -944,7 +945,7 @@ msgstr "تاقالدى"
 #: src/Controllers/JavaScriptMessagesController.php:510
 #: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:44
-#: src/Controllers/Table/Structure/PrimaryController.php:107
+#: src/Controllers/Table/Structure/PrimaryController.php:106
 #: src/IndexColumn.php:148 src/Index.php:469
 #: src/Plugins/Export/ExportHtmlword.php:595
 #: src/Plugins/Export/ExportLatex.php:572 src/Plugins/Export/ExportOdt.php:714
@@ -1052,7 +1053,7 @@ msgstr "تەكشۈرۈش"
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:406
 #: src/Display/Results.php:2477 src/Html/Generator.php:517
-#: src/Html/Generator.php:783
+#: src/Html/Generator.php:785
 msgid "Edit"
 msgstr "تەھىرلەش"
 
@@ -2481,7 +2482,7 @@ msgstr "دائىملىق"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:408 src/Menu.php:256
+#: src/Controllers/Server/PrivilegesController.php:411 src/Menu.php:256
 #: src/Menu.php:364 src/Util.php:1472 src/Util.php:1488
 msgid "Privileges"
 msgstr "ھۇقۇقى"
@@ -2648,7 +2649,7 @@ msgstr "دائىملىق"
 
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:287
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:288
 #: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr "ئىقتىدار"
@@ -3030,7 +3031,7 @@ msgstr "مەلۇمات لۇغىتى"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:84
 #: src/Controllers/Database/TrackingController.php:130
-#: src/Controllers/Export/ExportController.php:298
+#: src/Controllers/Export/ExportController.php:291
 msgid "No tables found in database."
 msgstr "سانداندا جەدۋەل يوق."
 
@@ -3417,7 +3418,7 @@ msgstr "كاناغا ئۆزگەرتىڭ"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:734 src/Import/Import.php:115 src/InsertEdit.php:487
+#: src/Html/Generator.php:736 src/Import/Import.php:115 src/InsertEdit.php:488
 #: src/Message.php:138
 msgid "Error"
 msgstr "خاتالىق"
@@ -3444,7 +3445,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "خاتالىق دوكلاتىدىكى سانلىق مەلۇماتلارنى تەكشۈرسىڭىز بولىدۇ:"
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:404
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:403
 msgid "Automatically send report next time"
 msgstr "كېلەر قېتىم ئاپتوماتىك دوكلات ئەۋەتىڭ"
 
@@ -3513,7 +3514,7 @@ msgstr "يېڭلاش"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:758
+#: src/Html/Generator.php:760
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3834,7 +3835,7 @@ msgstr "ئاساسىي ئالاقە ۋاريانتلىرى"
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
-#: src/Controllers/UserPasswordController.php:90
+#: src/Controllers/UserPasswordController.php:91
 msgid "Change password"
 msgstr "پارولنى ئۆزگەرتىش"
 
@@ -4024,7 +4025,7 @@ msgstr "ئېلىش"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:442
-#: src/Export/Export.php:1276 src/Html/Generator.php:849
+#: src/Export/Export.php:1276 src/Html/Generator.php:851
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "قايتىش"
@@ -4081,7 +4082,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "ھۆججەتنى خالىغان بەتكە سۆرەپ تاشلىسىڭىزمۇ بولىدۇ."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:488
+#: src/InsertEdit.php:489
 msgid "The directory you set for upload work cannot be reached."
 msgstr "كۆرسىتىلگەن مۇندەرىجىگە يۈكلىيەلمىدى."
 
@@ -4166,7 +4167,7 @@ msgid "Taking you to the target site."
 msgstr "ئىزلاش خاتىرىسى"
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
-#: src/Language.php:178 src/Pdf.php:84
+#: src/I18n/Language.php:177 src/Pdf.php:84
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
 msgid "Page number:"
@@ -4224,8 +4225,8 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
-"تۆۋەندىكى QR كودىنى ئۈسكۈنىڭىزدىكى ئىككى ئامىللىق دەلىللەش دېتالىغا سايىلەپ ،"
-" ئۇ ھاسىل قىلغان دەلىللەش كودىنى كىرگۈزۈڭ."
+"تۆۋەندىكى QR كودىنى ئۈسكۈنىڭىزدىكى ئىككى ئامىللىق دەلىللەش دېتالىغا "
+"سايىلەپ ، ئۇ ھاسىل قىلغان دەلىللەش كودىنى كىرگۈزۈڭ."
 
 #: resources/templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
@@ -4690,7 +4691,7 @@ msgstr "ئىككى ئامىل دەلىللەشنى قوزغىتىڭ."
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:347
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:283 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:499
 msgid "No change"
 msgstr "ئۆزگەرتىش يوق"
 
@@ -4931,8 +4932,8 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"سەپلىمە ھۆججىتىدىكى ئىلغار ئىقتىدارلارنى قوزغىتىڭ (<code> config.inc.php "
-"</code>) ، مەسىلەن <code> config.sample.inc.php </code> دىن باشلاش."
+"سەپلىمە ھۆججىتىدىكى ئىلغار ئىقتىدارلارنى قوزغىتىڭ (<code> config.inc.php </"
+"code>) ، مەسىلەن <code> config.sample.inc.php </code> دىن باشلاش."
 
 #: resources/templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -5470,7 +5471,7 @@ msgstr "سانلىق مەلۇماتلارنى ئوقۇشقا يول قويىدۇ
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:496
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:497
 msgid "Or"
 msgstr "ياكى"
 
@@ -5759,7 +5760,8 @@ msgstr "ئەسكەرتىش: بۇ تاللاشلارنى 0 (نۆل) قىلىپ ت
 #: resources/templates/server/privileges/privileges_table.twig:743
 #: resources/templates/server/privileges/privileges_table.twig:750
 msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "ئىشلەتكۈچىنىڭ سائىتىگە مۇلازىمېتىرغا ئەۋەتىدىغان سوئال سانىنى چەكلەيدۇ."
+msgstr ""
+"ئىشلەتكۈچىنىڭ سائىتىگە مۇلازىمېتىرغا ئەۋەتىدىغان سوئال سانىنى چەكلەيدۇ."
 
 #: resources/templates/server/privileges/privileges_table.twig:756
 #: resources/templates/server/privileges/privileges_table.twig:763
@@ -6215,8 +6217,8 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
-"ھەر قانداق سەپلىمىنى ئۆزگەرتىشتىن بۇرۇن ، نېمە ئۆزگەرتىۋاتقانلىقىڭىزنى ("
-"ھۆججەتلەرنى ئوقۇش ئارقىلىق) ۋە ئۆزگەرتىشنى قانداق بىكار قىلىشنى "
+"ھەر قانداق سەپلىمىنى ئۆزگەرتىشتىن بۇرۇن ، نېمە ئۆزگەرتىۋاتقانلىقىڭىزنى "
+"(ھۆججەتلەرنى ئوقۇش ئارقىلىق) ۋە ئۆزگەرتىشنى قانداق بىكار قىلىشنى "
 "جەزملەشتۈرۈڭ. خاتا تەڭشەش ئىقتىدارغا ئىنتايىن سەلبىي تەسىر كۆرسىتىدۇ."
 
 #: resources/templates/server/status/advisor/index.twig:33
@@ -6744,7 +6746,7 @@ msgid "No users were found belonging to this user group."
 msgstr "بۇ ئىشلەتكۈچى توپىغا تەۋە ھېچقانداق ئىشلەتكۈچى تېپىلمىدى."
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:411
+#: src/Controllers/Server/PrivilegesController.php:414
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "ئىشلەتكۈچى"
@@ -7344,7 +7346,7 @@ msgstr "قايتا تەرتىپكە سېلىش"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1515
+#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1518
 msgid "Ignore"
 msgstr "پەرۋا قىلماڭ"
 
@@ -8434,8 +8436,8 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
-"Percona ھۆججىتى <a href = \"https://www.percona.com/software/documentation/\""
-"> https://www.percona.com/software/documentation/ </a> دا بار."
+"Percona ھۆججىتى <a href = \"https://www.percona.com/software/documentation/"
+"\"> https://www.percona.com/software/documentation/ </a> دا بار."
 
 #: src/Advisory/Rules.php:191
 msgid "'percona' found in version_comment"
@@ -8513,8 +8515,8 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
-"سىستېمىنىڭ ئىچكى ساقلىغۇچ چەكلىمىسىگە ئاساسەن {sort_buffer_size} ۋە / ياكى {"
-"read_rnd_buffer_size increasing كۆپەيتىشنى ئويلاڭ."
+"سىستېمىنىڭ ئىچكى ساقلىغۇچ چەكلىمىسىگە ئاساسەن {sort_buffer_size} ۋە / ياكى "
+"{read_rnd_buffer_size increasing كۆپەيتىشنى ئويلاڭ."
 
 #: src/Advisory/Rules.php:241
 #, fuzzy, php-format
@@ -9115,10 +9117,10 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"ئۇلىنىش ئادەتتە ئىجازەت بېرىلمىگەندە ئەمەلدىن قالدۇرۇلىدۇ. <a href = \"https"
-"://www.percona.com/blog/2008/08/23/"
-"how-to-track-down-the-source-of-aborted_connects/\"> بۇ ماقالە </a> سىزگە "
-"ياردەم قىلىشى مۇمكىن مەنبەنى ئىز قوغلاڭ."
+"ئۇلىنىش ئادەتتە ئىجازەت بېرىلمىگەندە ئەمەلدىن قالدۇرۇلىدۇ. <a href = "
+"\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\"> بۇ ماقالە </a> سىزگە ياردەم قىلىشى مۇمكىن مەنبەنى ئىز "
+"قوغلاڭ."
 
 #: src/Advisory/Rules.php:584
 #, fuzzy, php-format
@@ -9224,17 +9226,17 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"بولۇپمۇ InnoDB جەدۋىلىگە نۇرغۇن يېزىلغان سىستېمىدا سىز {innodb_log_file_size}"
-" نى {innodb_buffer_pool_size} نىڭ% 25 گە تەڭشىشىڭىز كېرەك. قانداقلا بولمىسۇن "
-"بۇ قىممەت قانچە چوڭ بولسا ، ساندان بۇزۇلغاندا ئەسلىگە كېلىش ۋاقتى شۇنچە "
-"ئۇزۇن بولىدۇ ، شۇڭا بۇ قىممەتنى 256 MiB دىن يۇقىرى قىلىپ قويماسلىق كېرەك. "
-"شۇنىڭغا دىققەت قىلىڭكى ، سىز پەقەت بۇ ئۆزگەرگۈچى مىقدارنىڭ قىممىتىنى "
-"ئۆزگەرتەلمەيسىز. سىز مۇلازىمېتىرنى تاقاپ ، InnoDB خاتىرە ھۆججىتىنى "
-"ئۆچۈرۈۋېتىشىڭىز ، يېڭى قىممەتنى my.cnf غا تەڭشىشىڭىز ، مۇلازىمېتىرنى "
-"قوزغىتىشىڭىز ، ئاندىن ھەممە ئىشلار ئوڭۇشلۇق بولغان بولسا خاتالىق خاتىرىسىنى "
-"تەكشۈرۈشىڭىز كېرەك. يەنە <a href = \"https://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\"> بۇ بىلوگ "
-"يازمىسىنى كۆرۈڭ."
+"بولۇپمۇ InnoDB جەدۋىلىگە نۇرغۇن يېزىلغان سىستېمىدا سىز "
+"{innodb_log_file_size} نى {innodb_buffer_pool_size} نىڭ% 25 گە تەڭشىشىڭىز "
+"كېرەك. قانداقلا بولمىسۇن بۇ قىممەت قانچە چوڭ بولسا ، ساندان بۇزۇلغاندا "
+"ئەسلىگە كېلىش ۋاقتى شۇنچە ئۇزۇن بولىدۇ ، شۇڭا بۇ قىممەتنى 256 MiB دىن يۇقىرى "
+"قىلىپ قويماسلىق كېرەك. شۇنىڭغا دىققەت قىلىڭكى ، سىز پەقەت بۇ ئۆزگەرگۈچى "
+"مىقدارنىڭ قىممىتىنى ئۆزگەرتەلمەيسىز. سىز مۇلازىمېتىرنى تاقاپ ، InnoDB خاتىرە "
+"ھۆججىتىنى ئۆچۈرۈۋېتىشىڭىز ، يېڭى قىممەتنى my.cnf غا تەڭشىشىڭىز ، "
+"مۇلازىمېتىرنى قوزغىتىشىڭىز ، ئاندىن ھەممە ئىشلار ئوڭۇشلۇق بولغان بولسا "
+"خاتالىق خاتىرىسىنى تەكشۈرۈشىڭىز كېرەك. يەنە <a href = \"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\"> بۇ بىلوگ يازمىسىنى كۆرۈڭ."
 
 #: src/Advisory/Rules.php:662 src/Advisory/Rules.php:692
 #, fuzzy, php-format
@@ -9312,8 +9314,8 @@ msgstr ""
 "مۇلازىمەتلىرىڭىز ۋە InnoDB- جەدۋەلنىڭ ئىچكى ساقلىغۇچ سەرپىياتىنى ئەستايىدىل "
 "باھالاپ ، بۇ ئۆزگەرگۈچى مىقدارنى ماس ھالدا تەڭشىشىڭىز كېرەك. ئەگەر بەك "
 "يۇقىرى بولۇپ كەتسە ، سىستېمىڭىز ئالماشتۇرۇشنى باشلايدۇ ، بۇ ئىقتىدارنى "
-"كۆرۈنەرلىك تۆۋەنلىتىدۇ. بۇ ماقالىنى <a href = \"https://www.percona.com/blog/"
-"2007/11/03/choosing-innodb_buffer_pool_size/\"> دىن كۆرۈڭ."
+"كۆرۈنەرلىك تۆۋەنلىتىدۇ. بۇ ماقالىنى <a href = \"https://www.percona.com/"
+"blog/2007/11/03/choosing-innodb_buffer_pool_size/\"> دىن كۆرۈڭ."
 
 #: src/Advisory/Rules.php:738
 #, fuzzy, php-format
@@ -9343,9 +9345,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "{Concurrent_insert} نى 1 قىلىپ تەڭشەش مەلۇم جەدۋەل ئۈچۈن ئوقۇرمەنلەر بىلەن "
-"يازغۇچىلار ئوتتۇرىسىدىكى تالاش-تارتىشنى ئازايتىدۇ. يەنە <a href = \"https"
-"://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\"> MySQL ھۆججىتى "
-"</a> گە قاراڭ."
+"يازغۇچىلار ئوتتۇرىسىدىكى تالاش-تارتىشنى ئازايتىدۇ. يەنە <a href = \"https://"
+"dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\"> MySQL ھۆججىتى </"
+"a> گە قاراڭ."
 
 #: src/Advisory/Rules.php:757
 msgid "concurrent_insert is set to 0"
@@ -9557,8 +9559,8 @@ msgstr ""
 "ئەڭ چوڭ چوڭ-كىچىكلىكىنى بەلگىلەيدۇ. ئەگەر 1 MiB نىڭ ئۈستىدە ياخشى ساقلىغىلى "
 "بولىدىغان نۇرغۇن سوئال نەتىجىسى بولسا (نۇرغۇن ئوقۇشلۇق ، ئاز يېزىلغان) "
 "ئۇنداقتا {query_cache_limit increasing نى ئاشۇرۇش ئۈنۈمنى ئاشۇرىدۇ. نۇرغۇن "
-"سوئاللارنىڭ نەتىجىسى 1 MiB دىن يۇقىرى بولسا ، بەك ياخشى ساقلىغىلى بولمايدۇ ("
-"جەدۋەل يېڭىلاش سەۋەبىدىن دائىم ئىناۋەتسىز بولىدۇ) {query_cache_limit "
+"سوئاللارنىڭ نەتىجىسى 1 MiB دىن يۇقىرى بولسا ، بەك ياخشى ساقلىغىلى بولمايدۇ "
+"(جەدۋەل يېڭىلاش سەۋەبىدىن دائىم ئىناۋەتسىز بولىدۇ) {query_cache_limit "
 "increasing كۆپىيىش ئۈنۈمىنى تۆۋەنلىتىشى مۇمكىن."
 
 #: src/Advisory/Rules.php:883
@@ -10041,7 +10043,8 @@ msgstr "ئىختىيارىي - تەڭشەشكە بولىدىغان بارلىق 
 
 #: src/Config/ConfigFile.php:670
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr "ئىختىيارىي - يۇقىرىدىكىگە ئوخشاش ، ئەمما تېز / ئىختىيارى تاللاش بولمىسا"
+msgstr ""
+"ئىختىيارىي - يۇقىرىدىكىگە ئوخشاش ، ئەمما تېز / ئىختىيارى تاللاش بولمىسا"
 
 #: src/Config/ConfigFile.php:722
 msgid "complete inserts"
@@ -10078,8 +10081,8 @@ msgid ""
 "to the given regular expression."
 msgstr ""
 "MySQL مۇلازىمېتىرنىڭ IP ياكى مۇلازىمېتىر نامىنى بېرىلگەن دائىملىق ئىپادىلەش "
-"بىلەن ماسلاشتۇرۇش ئارقىلىق خالىغان MySQL مۇلازىمېتىرىغا كىرىش قوزغىتىلغاندا ،"
-" ئىشلەتكۈچى كىرەلەيدىغان MySQL مۇلازىمېتىرلىرىنى چەكلەيدۇ."
+"بىلەن ماسلاشتۇرۇش ئارقىلىق خالىغان MySQL مۇلازىمېتىرىغا كىرىش "
+"قوزغىتىلغاندا ، ئىشلەتكۈچى كىرەلەيدىغان MySQL مۇلازىمېتىرلىرىنى چەكلەيدۇ."
 
 #: src/Config/Descriptions.php:84
 msgid ""
@@ -10432,7 +10435,8 @@ msgstr ""
 
 #: src/Config/Descriptions.php:241 src/Config/Descriptions.php:242
 msgid "Update data when duplicate keys found on import"
-msgstr "ئىمپورتتا تېپىلغان كۆپەيتىلگەن كۇنۇپكىلاردا سانلىق مەلۇماتلارنى يېڭىلاڭ"
+msgstr ""
+"ئىمپورتتا تېپىلغان كۆپەيتىلگەن كۇنۇپكىلاردا سانلىق مەلۇماتلارنى يېڭىلاڭ"
 
 #: src/Config/Descriptions.php:243
 msgid "Number of queries to skip from start."
@@ -10700,9 +10704,9 @@ msgid ""
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"تېخىمۇ كۆپ ئۇچۇرلار [a @ https: //github.com/phpmyadmin/phpmyadmin/issues/"
-"8970] phpMyAdmin مەسىلە ئىز قوغلىغۇچىسى [/ a] ۋە [a @ https: //bugs.mysql."
-"com/19588] MySQL Bugs [/ a ]"
+"تېخىمۇ كۆپ ئۇچۇرلار [a @ https: //github.com/phpmyadmin/phpmyadmin/"
+"issues/8970] phpMyAdmin مەسىلە ئىز قوغلىغۇچىسى [/ a] ۋە [a @ https: //bugs."
+"mysql.com/19588] MySQL Bugs [/ a ]"
 
 #: src/Config/Descriptions.php:358
 msgid ""
@@ -10750,8 +10754,8 @@ msgstr ""
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"PDF لايىھىسىنى قوللىماسلىق ئۈچۈن بوش قويۇڭ ، تەۋسىيە: [kbd] pma__pdf_pages [/"
-" kbd]."
+"PDF لايىھىسىنى قوللىماسلىق ئۈچۈن بوش قويۇڭ ، تەۋسىيە: [kbd] pma__pdf_pages "
+"[/ kbd]."
 
 #: src/Config/Descriptions.php:379
 msgid ""
@@ -10784,8 +10788,8 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"[Doc @ مۇناسىۋەت @] مۇناسىۋەت-ئۇلىنىش [/ doc] نى قوللىماسلىق ئۈچۈن بوش قويۇڭ "
-"، تەۋسىيە قىلىندى: [kbd] pma__relation [/ kbd]."
+"[Doc @ مۇناسىۋەت @] مۇناسىۋەت-ئۇلىنىش [/ doc] نى قوللىماسلىق ئۈچۈن بوش "
+"قويۇڭ ، تەۋسىيە قىلىندى: [kbd] pma__relation [/ kbd]."
 
 #: src/Config/Descriptions.php:397
 msgid ""
@@ -10896,8 +10900,8 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
-"يول باشلاش تۈرلىرىنى يوشۇرۇش ۋە كۆرسىتىش ئىقتىدارىنى چەكلەش ئۈچۈن بوش قويۇڭ ،"
-" تەۋسىيە قىلىندى: [kbd] pma__navigationhiding [/ kbd]."
+"يول باشلاش تۈرلىرىنى يوشۇرۇش ۋە كۆرسىتىش ئىقتىدارىنى چەكلەش ئۈچۈن بوش "
+"قويۇڭ ، تەۋسىيە قىلىندى: [kbd] pma__navigationhiding [/ kbd]."
 
 #: src/Config/Descriptions.php:449
 msgid ""
@@ -11005,7 +11009,8 @@ msgstr ""
 
 #: src/Config/Descriptions.php:483
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
-msgstr "ئىشلەتكۈچىگە «ھەممىنى كۆرسىتىش (قۇر)» كۇنۇپكىسىنى كۆرسىتىش كېرەكمۇ يوق."
+msgstr ""
+"ئىشلەتكۈچىگە «ھەممىنى كۆرسىتىش (قۇر)» كۇنۇپكىسىنى كۆرسىتىش كېرەكمۇ يوق."
 
 #: src/Config/Descriptions.php:484
 msgid "Show or hide a column displaying the comments for all tables."
@@ -11085,8 +11090,8 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
 "ۋاكالەتچى [kbd] IP: ئىشەنچلىك HTTP بەت بېشى [/ kbd]. تۆۋەندىكى مىسالدا "
-"phpMyAdmin نىڭ ۋاكالەتچى 1.2.3.4 دىن كەلگەن HTTP_X_FORWARDED_FOR (X"
-"-Forwarded-For) ماۋزۇسىغا ئىشىنىشى كېرەكلىكى كۆرسىتىلدى."
+"phpMyAdmin نىڭ ۋاكالەتچى 1.2.3.4 دىن كەلگەن HTTP_X_FORWARDED_FOR (X-"
+"Forwarded-For) ماۋزۇسىغا ئىشىنىشى كېرەكلىكى كۆرسىتىلدى."
 
 #: src/Config/Descriptions.php:514
 msgid ""
@@ -11304,7 +11309,8 @@ msgstr "مۇلازىمېتىردا ئېكسپورت قىلغىلى بولىدى�
 #: src/Config/Descriptions.php:575
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
-msgstr "سوئال قۇتىسى يوللانغاندىن كېيىن ئېكراندا تۇرۇش-قالماسلىقىنى بەلگىلەيدۇ."
+msgstr ""
+"سوئال قۇتىسى يوللانغاندىن كېيىن ئېكراندا تۇرۇش-قالماسلىقىنى بەلگىلەيدۇ."
 
 #: src/Config/Descriptions.php:576
 msgid "Title of browser window when a database is selected."
@@ -12725,22 +12731,22 @@ msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 "تەڭشەكلەرنى ساقلىغىلى بولمايدۇ ، يوللانغان سەپلىمە جەدۋىلىدە خاتالىق بار!"
 
-#: src/Config.php:607
+#: src/Config.php:608
 #, fuzzy, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "مەۋجۇت سەپلىمە ھۆججىتىنى (% s) ئوقۇشقا بولمايدۇ."
 
-#: src/Config.php:643
+#: src/Config.php:644
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "سەپلىمە ھۆججەتتىكى خاتا ئىجازەتلەر ، دۇنيانى يازغىلى بولمايدۇ!"
 
-#: src/Config.php:657
+#: src/Config.php:658
 #, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Failed to read configuration file!"
 msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 
-#: src/Config.php:659
+#: src/Config.php:660
 msgid "This usually means there is a syntax error in it."
 msgstr ""
 
@@ -12782,8 +12788,8 @@ msgid ""
 "thousands of users, including you, are connected to."
 msgstr ""
 "ئەگەر بۇنى زۆرۈر دەپ قارىسىڭىز ، قوشۇمچە قوغداش تەڭشەكلىرىنى ئىشلىتىڭ -% 1 $ "
-"shost دەلىللەش% 2 $ s تەڭشەكلىرى ۋە% 3 $ قىستۇرما ۋاكالەتچىلەر تىزىملىكى% 4 $"
-" s. قانداقلا بولمىسۇن ، ئەگەر IP ىڭىز سىزنى ئۆز ئىچىگە ئالغان مىڭلىغان "
+"shost دەلىللەش% 2 $ s تەڭشەكلىرى ۋە% 3 $ قىستۇرما ۋاكالەتچىلەر تىزىملىكى% 4 "
+"$ s. قانداقلا بولمىسۇن ، ئەگەر IP ىڭىز سىزنى ئۆز ئىچىگە ئالغان مىڭلىغان "
 "ئابونتلار ئۇلانغان ISP غا تەۋە بولسا ، IP ئاساسىدىكى قوغداش ئىشەنچلىك "
 "بولماسلىقى مۇمكىن."
 
@@ -12841,7 +12847,8 @@ msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
-msgstr "% 1 $ sLogin ساقلانمىسىنىڭ ئىناۋەتلىكلىكى% 2 $ s% 3 $ ssession دىن چوڭ."
+msgstr ""
+"% 1 $ sLogin ساقلانمىسىنىڭ ئىناۋەتلىكلىكى% 2 $ s% 3 $ ssession دىن چوڭ."
 
 #: src/Config/ServerConfigChecks.php:340
 #, fuzzy, php-format
@@ -13024,16 +13031,12 @@ msgstr ""
 "% S ھۆججىتىنى بۇ سىستېمىدا ئىشلەتكىلى بولمايدۇ ، تېخىمۇ كۆپ ئۇچۇرغا ئېرىشىش "
 "ئۈچۈن% s نى زىيارەت قىلىڭ."
 
-#: src/Controllers/Console/Bookmark/AddController.php:33
-msgid "Incomplete params"
-msgstr "تولۇق بولمىغان پارامېتىرلار"
-
-#: src/Controllers/Console/Bookmark/AddController.php:46
+#: src/Controllers/Console/Bookmark/AddController.php:39
 #: src/Controllers/JavaScriptMessagesController.php:597
 msgid "Failed"
 msgstr "مەغلۇب بولدى"
 
-#: src/Controllers/Console/Bookmark/AddController.php:58
+#: src/Controllers/Console/Bookmark/AddController.php:51
 #, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
@@ -13060,14 +13063,14 @@ msgid "Showing rows %1$s - %2$s."
 msgstr "نەشىرنى قۇىماق"
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: src/Controllers/Database/DesignerController.php:100
+#: src/Controllers/Database/DesignerController.php:106
 #, fuzzy, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr "«% S» دەپ ئاتىلىدىغان بىر بەت بار ، ئۇنى باشقا نەرسىگە ئۆزگەرتىڭ."
 
-#: src/Controllers/Database/DesignerController.php:168
-#: src/Controllers/Database/DesignerController.php:173
+#: src/Controllers/Database/DesignerController.php:177
+#: src/Controllers/Database/DesignerController.php:182
 #: src/Controllers/Database/EventsController.php:60
 #: src/Controllers/Database/ExportController.php:66
 #: src/Controllers/Database/ExportController.php:71
@@ -13094,8 +13097,8 @@ msgstr "«% S» دەپ ئاتىلىدىغان بىر بەت بار ، ئۇنى �
 #: src/Controllers/Operations/ViewController.php:63
 #: src/Controllers/Operations/ViewController.php:68
 #: src/Controllers/Server/Databases/DestroyController.php:61
-#: src/Controllers/Table/AddFieldController.php:164
-#: src/Controllers/Table/AddFieldController.php:169
+#: src/Controllers/Table/AddFieldController.php:163
+#: src/Controllers/Table/AddFieldController.php:168
 #: src/Controllers/Table/ChangeController.php:68
 #: src/Controllers/Table/ChangeController.php:73
 #: src/Controllers/Table/ChartController.php:96
@@ -13123,8 +13126,8 @@ msgstr "«% S» دەپ ئاتىلىدىغان بىر بەت بار ، ئۇنى �
 #: src/Controllers/Table/SqlController.php:70
 #: src/Controllers/Table/StructureController.php:94
 #: src/Controllers/Table/StructureController.php:99
-#: src/Controllers/Table/Structure/PrimaryController.php:74
-#: src/Controllers/Table/Structure/PrimaryController.php:79
+#: src/Controllers/Table/Structure/PrimaryController.php:73
+#: src/Controllers/Table/Structure/PrimaryController.php:78
 #: src/Controllers/Table/TrackingController.php:71
 #: src/Controllers/Table/TrackingController.php:76
 #: src/Controllers/Table/ZoomSearchController.php:100
@@ -13215,8 +13218,8 @@ msgstr "ئىشلەتكۈچىلەرنى باشقۇرۇش ھوقۇقىڭىز يو�
 #: src/Controllers/Operations/TableController.php:105
 #: src/Controllers/Operations/ViewController.php:77
 #: src/Controllers/Operations/ViewController.php:82
-#: src/Controllers/Table/AddFieldController.php:178
-#: src/Controllers/Table/AddFieldController.php:183
+#: src/Controllers/Table/AddFieldController.php:177
+#: src/Controllers/Table/AddFieldController.php:182
 #: src/Controllers/Table/ChangeController.php:82
 #: src/Controllers/Table/ChangeController.php:87
 #: src/Controllers/Table/ChartController.php:110
@@ -13245,8 +13248,8 @@ msgstr "ئىشلەتكۈچىلەرنى باشقۇرۇش ھوقۇقىڭىز يو�
 #: src/Controllers/Table/SqlController.php:84
 #: src/Controllers/Table/StructureController.php:108
 #: src/Controllers/Table/StructureController.php:113
-#: src/Controllers/Table/Structure/PrimaryController.php:88
-#: src/Controllers/Table/Structure/PrimaryController.php:93
+#: src/Controllers/Table/Structure/PrimaryController.php:87
+#: src/Controllers/Table/Structure/PrimaryController.php:92
 #: src/Controllers/Table/ZoomSearchController.php:114
 #: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:81
@@ -13357,7 +13360,7 @@ msgstr "تاللانغىنى:"
 msgid "Database Log"
 msgstr "ساندان خاتىرىسى"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:92
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -13365,35 +13368,36 @@ msgstr ""
 "تەڭشەكلىرىڭىزگە ئاساسەن خاتالىق بايقالدى ۋە خاتالىق دوكلاتى ئاپتوماتىك "
 "يوللاندى."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:96
 msgid "Thank you for submitting this report."
 msgstr "بۇ دوكلاتنى تاپشۇرغىنىڭىزغا رەھمەت."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:100
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr "خاتالىق بايقالدى ۋە خاتالىق دوكلاتى بارلىققا كەلدى ، ئەمما ئەۋەتىلمىدى."
+msgstr ""
+"خاتالىق بايقالدى ۋە خاتالىق دوكلاتى بارلىققا كەلدى ، ئەمما ئەۋەتىلمىدى."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:103
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "مەسىلىگە يولۇقسىڭىز كەمتۈك دوكلاتىنى قولدا يوللاڭ."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:106
 msgid "You may want to refresh the page."
 msgstr "بۇ بەتنى يېڭىلاشنى ئويلىشىڭىز مۇمكىن."
 
-#: src/Controllers/Export/ExportController.php:115 src/Export/Export.php:1214
+#: src/Controllers/Export/ExportController.php:108 src/Export/Export.php:1214
 msgid "Bad type!"
 msgstr "بوزۇق تىپ!"
 
-#: src/Controllers/Export/ExportController.php:190
+#: src/Controllers/Export/ExportController.php:183
 #, fuzzy
 #| msgid "Routines"
 msgid "Bad parameters!"
 msgstr "دائىملىق"
 
-#: src/Controllers/GisDataEditorController.php:120
+#: src/Controllers/GisDataEditorController.php:116
 #, fuzzy, php-format
 msgid "Value for the column \"%s\""
 msgstr "\"% S\" ئىستونىنىڭ قىممىتى"
@@ -13493,8 +13497,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Suhosin بىلەن ئىجرا بولۇۋاتقان مۇلازىمېتىر. مۇمكىن بولغان مەسىلىلەر ئۈچۈن% "
-"sdocumentation% s نى كۆرۈڭ."
+"Suhosin بىلەن ئىجرا بولۇۋاتقان مۇلازىمېتىر. مۇمكىن بولغان مەسىلىلەر "
+"ئۈچۈن% sdocumentation% s نى كۆرۈڭ."
 
 #: src/Controllers/HomeController.php:389
 #, fuzzy, php-format
@@ -13523,7 +13527,7 @@ msgstr ""
 "ئەگرى كېڭەيتىش تېپىلمىدى ۋە allow_url_fopen چەكلەنگەن. بۇ سەۋەبتىن خاتالىق "
 "مەلۇم قىلىش ياكى نەشرىنى تەكشۈرۈش قاتارلىق بەزى ئىقتىدارلار چەكلەنگەن."
 
-#: src/Controllers/Import/ImportController.php:169
+#: src/Controllers/Import/ImportController.php:168
 #, fuzzy, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
@@ -13535,67 +13539,67 @@ msgstr ""
 "سىز يوللىماقچى بولغان ھۆججەت بەك چوڭكەن، %sياردەم%s ھۆججىتىدىن ھەل قىلىش "
 "چارىسىنى كۆرۈڭ."
 
-#: src/Controllers/Import/ImportController.php:196
+#: src/Controllers/Import/ImportController.php:194
 #, fuzzy
 #| msgid "Remove database"
 msgid "Incorrect format parameter"
 msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
 
-#: src/Controllers/Import/ImportController.php:310
-#: src/Controllers/Import/ImportController.php:523
+#: src/Controllers/Import/ImportController.php:308
+#: src/Controllers/Import/ImportController.php:521
 msgid "Showing bookmark"
 msgstr "خەتكۈچنى كۆرسىتىش"
 
-#: src/Controllers/Import/ImportController.php:330
-#: src/Controllers/Import/ImportController.php:519
+#: src/Controllers/Import/ImportController.php:328
+#: src/Controllers/Import/ImportController.php:517
 msgid "The bookmark has been deleted."
 msgstr "خەتكۈچ ئۆچۈرۈلدى."
 
-#: src/Controllers/Import/ImportController.php:442
+#: src/Controllers/Import/ImportController.php:440
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"ئىمپورت قىلىدىغان سانلىق مەلۇمات قوبۇل قىلىنمىدى. يا ھۆججەت ئىسمى يوللانمىدى "
-"، ياكى ھۆججەتنىڭ چوڭلۇقى PHP سەپلىمىسى رۇخسەت قىلغان ئەڭ چوڭ ئۆلچەمدىن ئېشىپ "
-"كەتتى. [Doc @ faq1-16] سوئاللار 1.16 [/ doc] گە قاراڭ."
+"ئىمپورت قىلىدىغان سانلىق مەلۇمات قوبۇل قىلىنمىدى. يا ھۆججەت ئىسمى "
+"يوللانمىدى ، ياكى ھۆججەتنىڭ چوڭلۇقى PHP سەپلىمىسى رۇخسەت قىلغان ئەڭ چوڭ "
+"ئۆلچەمدىن ئېشىپ كەتتى. [Doc @ faq1-16] سوئاللار 1.16 [/ doc] گە قاراڭ."
 
-#: src/Controllers/Import/ImportController.php:531
+#: src/Controllers/Import/ImportController.php:529
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "%d كىرگۈزىش غەلبىىك بولدى."
 
-#: src/Controllers/Import/ImportController.php:568
+#: src/Controllers/Import/ImportController.php:566
 #, fuzzy, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"قوليازما ۋاقتى ئۆتۈپ كەتتى ، ئەگەر ئىمپورت قىلىشنى تاماملىماقچى بولسىڭىز ،% "
-"s ئوخشاش ھۆججەتنى قايتا يوللاڭ ، ئىمپورت ئەسلىگە كېلىدۇ."
+"قوليازما ۋاقتى ئۆتۈپ كەتتى ، ئەگەر ئىمپورت قىلىشنى تاماملىماقچى بولسىڭىز ،"
+"% s ئوخشاش ھۆججەتنى قايتا يوللاڭ ، ئىمپورت ئەسلىگە كېلىدۇ."
 
-#: src/Controllers/Import/ImportController.php:578
+#: src/Controllers/Import/ImportController.php:576
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"قانداقلا بولمىسۇن ئاخىرقى ئىجرادا ھېچقانداق سانلىق مەلۇمات تەھلىل قىلىنمىدى ،"
-" بۇ ئادەتتە phpMyAdmin نىڭ php ۋاقىت چەكلىمىسىنى ئاشۇرمىسىڭىز بۇ ئىمپورتنى "
-"تاماملىيالمايدىغانلىقىدىن دېرەك بېرىدۇ."
+"قانداقلا بولمىسۇن ئاخىرقى ئىجرادا ھېچقانداق سانلىق مەلۇمات تەھلىل "
+"قىلىنمىدى ، بۇ ئادەتتە phpMyAdmin نىڭ php ۋاقىت چەكلىمىسىنى ئاشۇرمىسىڭىز بۇ "
+"ئىمپورتنى تاماملىيالمايدىغانلىقىدىن دېرەك بېرىدۇ."
 
-#: src/Controllers/Import/ImportController.php:641
+#: src/Controllers/Import/ImportController.php:639
 #: src/Controllers/Sql/SqlController.php:159
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "ساندان ئۆچۈرۈش بۇيرۇقى (\"DROP DATABASE\") چەكلەنگەن."
 
-#: src/Controllers/Import/ImportController.php:696 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:692 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK يۈز بەردى.]"
 
-#: src/Controllers/Import/SimulateDmlController.php:84
+#: src/Controllers/Import/SimulateDmlController.php:83
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "پەقەت بىرلا جەدۋەلدىكى UPDATE ۋە DELETE سوئاللىرىنى تەقلىد قىلغىلى بولىدۇ."
@@ -15200,7 +15204,8 @@ msgstr "Git ئۇچۇرلىرىنى يۈكلەشتە خاتالىق كۆرۈلد�
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr "ئەجەللىك JavaScript خاتالىقى يۈز بەردى. خاتالىق دوكلاتىنى ئەۋەتمەكچىمۇ؟"
+msgstr ""
+"ئەجەللىك JavaScript خاتالىقى يۈز بەردى. خاتالىق دوكلاتىنى ئەۋەتمەكچىمۇ؟"
 
 #: src/Controllers/JavaScriptMessagesController.php:630
 #, fuzzy
@@ -15218,7 +15223,8 @@ msgstr "دوكلات تېمىسى"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
-msgstr "PHP سەۋىيىسىدىكى ئىجرا ۋاقتى تۆۋەن بولغاچقا ، ئېكسپورتىڭىز تولۇق ئەمەس!"
+msgstr ""
+"PHP سەۋىيىسىدىكى ئىجرا ۋاقتى تۆۋەن بولغاچقا ، ئېكسپورتىڭىز تولۇق ئەمەس!"
 
 #: src/Controllers/JavaScriptMessagesController.php:635
 #, fuzzy, php-format
@@ -15239,7 +15245,7 @@ msgid "Please look at the bottom of this window."
 msgstr "بۇ كۆزنەكنىڭ ئاستىغا قاراڭ."
 
 #: src/Controllers/JavaScriptMessagesController.php:649
-#: src/Error/ErrorHandler.php:415
+#: src/Error/ErrorHandler.php:414
 msgid "Ignore All"
 msgstr "ھەممىگە پەرۋا قىلماڭ"
 
@@ -15419,7 +15425,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "!خاتالىق:بۇناسىۋەت ئاللىقاچان مەۋجۈت."
 
-#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:272
+#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:273
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "يوشۇر"
@@ -15943,7 +15949,7 @@ msgstr ".ئىچكى ئۇلىنىش مۇاسىۋىتى قۇشۇلدى"
 msgid "Two-factor authentication has been configured."
 msgstr "تەڭشەك ھۆجىتى ئىچىدىكى دەلىللەش ئۇسۇلى ئۈنۈمسىز:"
 
-#: src/Controllers/SchemaExportController.php:40
+#: src/Controllers/SchemaExportController.php:38
 #: src/Controllers/Server/UserGroupsFormController.php:44
 #: src/ResponseRenderer.php:476
 #, fuzzy
@@ -15963,13 +15969,13 @@ msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "ساندان %s ئۆچۈرۈلدى."
 
-#: src/Controllers/Server/Privileges/AccountLockController.php:47
+#: src/Controllers/Server/Privileges/AccountLockController.php:45
 #, fuzzy, php-format
 #| msgid "Database %s has been dropped."
 msgid "The account %s@%s has been successfully locked."
 msgstr "ساندان %s ئۆچۈرۈلدى."
 
-#: src/Controllers/Server/Privileges/AccountUnlockController.php:47
+#: src/Controllers/Server/Privileges/AccountUnlockController.php:45
 #, fuzzy, php-format
 #| msgid "Database %s has been dropped."
 msgid "The account %s@%s has been successfully unlocked."
@@ -16078,8 +16084,8 @@ msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
-"INSERT DELAYED بىلەن يېزىلغان قۇر سانى ، بەزى خاتالىقلار يۈز بەرگەن ("
-"كۆپەيتىلگەن ئاچقۇچ بولۇشى مۇمكىن)."
+"INSERT DELAYED بىلەن يېزىلغان قۇر سانى ، بەزى خاتالىقلار يۈز بەرگەن "
+"(كۆپەيتىلگەن ئاچقۇچ بولۇشى مۇمكىن)."
 
 #: src/Controllers/Server/Status/VariablesController.php:250
 msgid ""
@@ -16266,10 +16272,10 @@ msgid ""
 "counter counts instances of these waits. If the buffer pool size was set "
 "properly, this value should be small."
 msgstr ""
-"ئادەتتە ، InnoDB بۇففېر كۆلچىكىگە ئارقا سۇپىدا يۈز بېرىدۇ. قانداقلا بولمىسۇن "
-"، بىر بەتنى ئوقۇش ياكى قۇرۇشقا توغرا كەلسە ھەمدە پاكىز بەتلەر بولمىسا ، "
-"ئالدى بىلەن بەتلەرنىڭ قىزىرىشىنى ساقلاش كېرەك. بۇ ھېسابلىغۇچ بۇ كۈتۈش "
-"ئەھۋاللىرىنى سانايدۇ. ئەگەر بۇففېر كۆلچىكىنىڭ چوڭ-كىچىكلىكى مۇۋاپىق "
+"ئادەتتە ، InnoDB بۇففېر كۆلچىكىگە ئارقا سۇپىدا يۈز بېرىدۇ. قانداقلا "
+"بولمىسۇن ، بىر بەتنى ئوقۇش ياكى قۇرۇشقا توغرا كەلسە ھەمدە پاكىز بەتلەر "
+"بولمىسا ، ئالدى بىلەن بەتلەرنىڭ قىزىرىشىنى ساقلاش كېرەك. بۇ ھېسابلىغۇچ بۇ "
+"كۈتۈش ئەھۋاللىرىنى سانايدۇ. ئەگەر بۇففېر كۆلچىكىنىڭ چوڭ-كىچىكلىكى مۇۋاپىق "
 "تەڭشەلگەن بولسا ، بۇ قىممەت كىچىك بولۇشى كېرەك."
 
 #: src/Controllers/Server/Status/VariablesController.php:342
@@ -16445,8 +16451,8 @@ msgid ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
-"دىسكىدىكى ئاچقۇچلۇق بۆلەكنىڭ فىزىكىلىق ئوقۇش سانى. ئەگەر Key_reads چوڭ بولسا "
-"، سىزنىڭ key_buffer_size قىممىتىڭىز بەك كىچىك بولۇشى مۇمكىن. غەملەكنى "
+"دىسكىدىكى ئاچقۇچلۇق بۆلەكنىڭ فىزىكىلىق ئوقۇش سانى. ئەگەر Key_reads چوڭ "
+"بولسا ، سىزنىڭ key_buffer_size قىممىتىڭىز بەك كىچىك بولۇشى مۇمكىن. غەملەكنى "
 "يوقىتىش نىسبىتىنى Key_reads / Key_read_requests دەپ ھېسابلىغىلى بولىدۇ."
 
 #: src/Controllers/Server/Status/VariablesController.php:405
@@ -16617,7 +16623,8 @@ msgstr ""
 
 #: src/Controllers/Server/Status/VariablesController.php:467
 msgid "This is ON if this server is a replica that is connected to a primary."
-msgstr "ئەگەر بۇ مۇلازىمېتىر باشلانغۇچقا ئۇلانغان كۆپەيتىلگەن نۇسخىسى بولسا ON."
+msgstr ""
+"ئەگەر بۇ مۇلازىمېتىر باشلانغۇچقا ئۇلانغان كۆپەيتىلگەن نۇسخىسى بولسا ON."
 
 #: src/Controllers/Server/Status/VariablesController.php:469
 msgid ""
@@ -16690,8 +16697,8 @@ msgid ""
 "implementation.)"
 msgstr ""
 "ئۇلىنىشنى بىر تەرەپ قىلىش ئۈچۈن قۇرۇلغان تېما سانى. ئەگەر Threads_created "
-"چوڭ بولسا ، thread_cache_size قىممىتىنى ئاشۇرۇشنى ئويلىشىڭىز مۇمكىن. ("
-"ئادەتتە بۇ تېما ياخشى بولسا ، كۆرۈنەرلىك ئۈنۈمگە ئېرىشەلمەيدۇ.)"
+"چوڭ بولسا ، thread_cache_size قىممىتىنى ئاشۇرۇشنى ئويلىشىڭىز مۇمكىن. "
+"(ئادەتتە بۇ تېما ياخشى بولسا ، كۆرۈنەرلىك ئۈنۈمگە ئېرىشەلمەيدۇ.)"
 
 #: src/Controllers/Server/Status/VariablesController.php:500
 #, fuzzy
@@ -16719,7 +16726,7 @@ msgstr "ئۆزگەرگۈچى مىقدارنى تەڭشەش مەغلۇب بولد
 #: src/Controllers/Setup/ServerDestroyController.php:41
 #: src/Controllers/Setup/ServersController.php:44
 #: src/Controllers/Setup/ShowConfigController.php:42
-#: src/Controllers/Setup/ValidateController.php:46
+#: src/Controllers/Setup/ValidateController.php:45
 msgid "Configuration already exists, setup is disabled!"
 msgstr "سەپلىمىسى ئاللىبۇرۇن مەۋجۇت ، تەڭشەش چەكلەنگەن!"
 
@@ -16740,18 +16747,18 @@ msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
-"ئەگەر مۇلازىمېتىرىڭىزمۇ HTTPS تەلىپىنى قوبۇل قىلىدىغان قىلىپ تەڭشەلگەن بولسا "
-"، بىخەتەر ئۇلىنىش ئۈچۈن بۇ ئۇلىنىشقا ئەگىشىڭ."
+"ئەگەر مۇلازىمېتىرىڭىزمۇ HTTPS تەلىپىنى قوبۇل قىلىدىغان قىلىپ تەڭشەلگەن "
+"بولسا ، بىخەتەر ئۇلىنىش ئۈچۈن بۇ ئۇلىنىشقا ئەگىشىڭ."
 
 #: src/Controllers/Setup/HomeController.php:82
 msgid "Insecure connection"
 msgstr "بىخەتەر ئۇلىنىش"
 
-#: src/Controllers/Setup/ValidateController.php:63
+#: src/Controllers/Setup/ValidateController.php:60
 msgid "Wrong data"
 msgstr "خاتا سانلىق مەلۇمات"
 
-#: src/Controllers/Setup/ValidateController.php:72
+#: src/Controllers/Setup/ValidateController.php:69
 #, fuzzy, php-format
 msgid "Wrong data or no validation for %s"
 msgstr "خاتا سانلىق مەلۇمات ياكى% s ئۈچۈن دەلىللەش يوق"
@@ -16768,7 +16775,7 @@ msgstr "قۇرۇلغان خەتكۈچ %s"
 msgid "Bookmark not created!"
 msgstr "قۇرۇلغان خەتكۈچ %s"
 
-#: src/Controllers/Table/AddFieldController.php:135
+#: src/Controllers/Table/AddFieldController.php:134
 #: src/Controllers/Table/IndexesController.php:142
 #: src/Controllers/Table/IndexRenameController.php:131
 #: src/Controllers/Table/Structure/PartitioningController.php:265
@@ -16848,7 +16855,7 @@ msgstr "ئىزلانغان جەدۋەل"
 
 #: src/Controllers/Table/GetFieldController.php:81
 #: src/Database/Routines.php:1046 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:863
+#: src/InsertEdit.php:200 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL قۇرۇق نەتىجە توپلىمىنى قايتۇردى (يەنى نۆل قۇر)."
 
@@ -16894,7 +16901,7 @@ msgstr "كۆرسىتىش ئىستونى مۇۋەپپەقىيەتلىك يېڭى�
 msgid "Internal relationships were successfully updated."
 msgstr ".ئىچكى ئۇلىنىش مۇاسىۋىتى قۇشۇلدى"
 
-#: src/Controllers/Table/ReplaceController.php:183
+#: src/Controllers/Table/ReplaceController.php:184
 #, fuzzy, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "قۇر:% 1 $ s ، ستون:% 2 $ s ، خاتالىق:% 3 $ s"
@@ -16936,17 +16943,17 @@ msgstr "%s كۆرۈنمە ئۆچۈرۈلدى"
 msgid "Tracking of %s is activated."
 msgstr "ئاكتىپ ئىزلاش"
 
-#: src/Controllers/Table/TrackingController.php:151
+#: src/Controllers/Table/TrackingController.php:148
 msgid "SQL statements executed."
 msgstr "SQL جۈملىلىرى ئىجرا قىلىندى."
 
-#: src/Controllers/Table/TrackingController.php:205
+#: src/Controllers/Table/TrackingController.php:202
 #, fuzzy
 #| msgid "Database %s has been dropped."
 msgid "Tracking versions deleted successfully."
 msgstr "ساندان %s ئۆچۈرۈلدى."
 
-#: src/Controllers/Table/TrackingController.php:210
+#: src/Controllers/Table/TrackingController.php:207
 #, fuzzy
 #| msgid "With selected:"
 msgid "No versions selected."
@@ -17113,7 +17120,7 @@ msgstr "تۆۋەندىكى سوئال مەغلۇپ بولدى: \"% s\""
 #: src/Database/Events.php:115 src/Database/Events.php:136
 #: src/Database/Routines.php:104 src/Database/Routines.php:130
 #: src/Database/Routines.php:208 src/Database/Routines.php:222
-#: src/Database/Routines.php:1010 src/Html/Generator.php:799
+#: src/Database/Routines.php:1010 src/Html/Generator.php:801
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:109 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
@@ -17174,7 +17181,7 @@ msgstr "سىز چوقۇم پائالىيەت ئۈچۈن ئۈنۈملۈك تىپ 
 msgid "You must provide an event definition."
 msgstr "سىز چوقۇم پائالىيەت ئېنىقلىمىسى بىلەن تەمىنلىشىڭىز كېرەك."
 
-#: src/DatabaseInterface.php:1128
+#: src/DatabaseInterface.php:1126
 #, fuzzy, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -17186,13 +17193,13 @@ msgstr ""
 "تەڭشىكىڭىزنى تەكشۈرۈڭ. phpMyAdmin ھازىر ساندان مۇلازىمېتىرىنىڭ سۈكۈتتىكى "
 "ۋاقىت رايونىنى ئىشلىتىۋاتىدۇ."
 
-#: src/DatabaseInterface.php:1170
+#: src/DatabaseInterface.php:1168
 #, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Failed to set configured collation connection!"
 msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 
-#: src/DatabaseInterface.php:1684
+#: src/DatabaseInterface.php:1682
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "تەڭشەك ھۆججىتى ئىچىدىكى ئىشلەنكۈچى ئۇلۈنما كونتىرولى مەغلۇب بولدى."
 
@@ -17649,14 +17656,14 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
-"PBXT ھەققىدىكى ماتېرىياللار ۋە تېخىمۇ كۆپ ئۇچۇرلارنى% sPrimeBase XT باش بەت% "
-"s دىن تاپقىلى بولىدۇ."
+"PBXT ھەققىدىكى ماتېرىياللار ۋە تېخىمۇ كۆپ ئۇچۇرلارنى% sPrimeBase XT باش "
+"بەت% s دىن تاپقىلى بولىدۇ."
 
-#: src/Error/ErrorHandler.php:105
+#: src/Error/ErrorHandler.php:104
 msgid "Too many error messages, some are not displayed."
 msgstr "خاتالىق ئۇچۇرى بەك كۆپ ، بەزىلىرى كۆرۈنمەيدۇ."
 
-#: src/Error/ErrorHandler.php:399
+#: src/Error/ErrorHandler.php:398
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
@@ -17856,11 +17863,11 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "بېسىپ كۆرسىتىش"
 
-#: src/Html/Generator.php:741
+#: src/Html/Generator.php:743
 msgid "Static analysis:"
 msgstr "تۇراقلىق تەھلىل:"
 
-#: src/Html/Generator.php:744
+#: src/Html/Generator.php:746
 #, fuzzy, php-format
 msgid "%d errors were found during analysis."
 msgstr "تەھلىل جەريانىدا% d خاتالىق بايقالدى."
@@ -17902,6 +17909,10 @@ msgid ""
 msgstr ""
 "يىغىن ساقلانمىسىنى تەڭشەش مەغلۇب بولدى. بەلكىم سىز phpMyAdmin نى زىيارەت "
 "قىلىش ئۈچۈن HTTPS نىڭ ئورنىغا HTTP ئىشلىتىۋاتقان بولۇشىڭىز مۇمكىن."
+
+#: src/I18n/LanguageManager.php:961
+msgid "Ignoring unsupported language code."
+msgstr "قوللىمايدىغان تىل كودىغا پەرۋا قىلماسلىق."
 
 #: src/Identifiers/InvalidDatabaseName.php:14
 #, fuzzy
@@ -18015,24 +18026,20 @@ msgstr ""
 "% 1 $ s ۋە% 2 $ s كۆرسەتكۈچلىرى باراۋەر بولۇپ ، ئۇلارنىڭ بىرىنى ئۆچۈرۈۋېتىشى "
 "مۇمكىن."
 
-#: src/InsertEdit.php:497
+#: src/InsertEdit.php:498
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "مۇلازىمىتېردىكى يۈكلەش مۇندەرىجىسى"
 
-#: src/InsertEdit.php:924 src/Sql.php:860
+#: src/InsertEdit.php:925 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "SQL سوئالنى كۆرسىتىش"
 
-#: src/InsertEdit.php:948 src/Sql.php:840
+#: src/InsertEdit.php:949 src/Sql.php:840
 #, fuzzy, php-format
 msgid "Inserted row id: %1$d"
 msgstr "قىستۇرما قۇر id:% 1 $ d"
-
-#: src/LanguageManager.php:959
-msgid "Ignoring unsupported language code."
-msgstr "قوللىمايدىغان تىل كودىغا پەرۋا قىلماسلىق."
 
 #: src/Linter.php:112
 msgid ""
@@ -18298,17 +18305,17 @@ msgid ""
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
 "بىرلەشتۈرۈشتە مەۋجۇت ئىستون بېرىدىغان بىر گۇرۇپپا ئىستون بارمۇ؟ مەسىلەن ، "
-"ئەگەر سىزنىڭ بىرىنچى_ ئىسمىڭىز ، ئاخىرقى_ ئىسمىڭىز ۋە تولۇق_ ئىسمىڭىز بولسا ،"
-" ئاندىن بىرىنچى_ ئىسمى بىلەن ئاخىرقى_ ئىسمىڭىزنى بىرلەشتۈرسىڭىز ئارتۇق_ "
-"تولۇق ئىسىم بېرىدۇ."
+"ئەگەر سىزنىڭ بىرىنچى_ ئىسمىڭىز ، ئاخىرقى_ ئىسمىڭىز ۋە تولۇق_ ئىسمىڭىز "
+"بولسا ، ئاندىن بىرىنچى_ ئىسمى بىلەن ئاخىرقى_ ئىسمىڭىزنى بىرلەشتۈرسىڭىز "
+"ئارتۇق_ تولۇق ئىسىم بېرىدۇ."
 
 #: src/Normalization.php:305
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
-"ئارتۇقچە ئىستونلارنى تەكشۈرۈپ ئۆچۈرۈشنى چېكىڭ. ئەگەر ئارتۇقچە ئىستون بولمىسا "
-"، «ئارتۇقچە ئىستون يوق» نى چېكىڭ."
+"ئارتۇقچە ئىستونلارنى تەكشۈرۈپ ئۆچۈرۈشنى چېكىڭ. ئەگەر ئارتۇقچە ئىستون "
+"بولمىسا ، «ئارتۇقچە ئىستون يوق» نى چېكىڭ."
 
 #: src/Normalization.php:310
 #, fuzzy
@@ -18894,7 +18901,8 @@ msgstr "% S جۈملىسىنى قوشۇڭ"
 
 #: src/Plugins/Export/ExportSql.php:291
 msgid "(less efficient as indexes will be generated during table creation)"
-msgstr "(جەدۋەل قۇرۇش جەريانىدا كۆرسەتكۈچ ھاسىل قىلىنغاندا ئۈنۈمى تۆۋەن بولىدۇ)"
+msgstr ""
+"(جەدۋەل قۇرۇش جەريانىدا كۆرسەتكۈچ ھاسىل قىلىنغاندا ئۈنۈمى تۆۋەن بولىدۇ)"
 
 #: src/Plugins/Export/ExportSql.php:298
 #, fuzzy, php-format
@@ -18962,8 +18970,8 @@ msgid ""
 "(7,8,9)</code>"
 msgstr ""
 "ھەر بىر <code> INSERT </code> جۈملىسىگە بىر نەچچە قۇر قىستۇرۇڭ <br> & nbsp; "
-"& nbsp; & nbsp; مىسال: <code> INSERT INTO tbl_name VALUES (1,2,3) ، (4,5,6) ،"
-" (7,8,9) </code>"
+"& nbsp; & nbsp; مىسال: <code> INSERT INTO tbl_name VALUES (1,2,3) ، "
+"(4,5,6) ، (7,8,9) </code>"
 
 #: src/Plugins/Export/ExportSql.php:438
 msgid ""
@@ -18971,8 +18979,8 @@ msgid ""
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 "يۇقىرىدىكى ھەر ئىككىسى <br> & nbsp; & nbsp; & nbsp; مىسال: <code> INSERT "
-"INTO tbl_name (col_A, col_B, col_C) VALUES (1,2,3) ، (4,5,6) ، (7,8,9) "
-"</code>"
+"INTO tbl_name (col_A, col_B, col_C) VALUES (1,2,3) ، (4,5,6) ، (7,8,9) </"
+"code>"
 
 #: src/Plugins/Export/ExportSql.php:443
 msgid ""
@@ -18996,12 +19004,13 @@ msgid ""
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 "UTC <i> دىكى TIMESTAMP ستونلىرىنى تاشلاڭ (TIMESTAMP ستونلىرىنى ئوخشىمىغان "
-"ۋاقىت رايونىدىكى مۇلازىمېتىرلار ئارىسىدا تاشلىغىلى ۋە قايتا يۈكلىيەلەيدۇ) "
-"</i>"
+"ۋاقىت رايونىدىكى مۇلازىمېتىرلار ئارىسىدا تاشلىغىلى ۋە قايتا يۈكلىيەلەيدۇ) </"
+"i>"
 
 #: src/Plugins/Export/ExportSql.php:547
 msgid "It appears your database uses routines;"
-msgstr "ئۇ سىزنىڭ ساندىنىڭىزنىڭ كۈندىلىك مەشغۇلاتلىرىنى ئىشلىتىدىغاندەك قىلىدۇ."
+msgstr ""
+"ئۇ سىزنىڭ ساندىنىڭىزنىڭ كۈندىلىك مەشغۇلاتلىرىنى ئىشلىتىدىغاندەك قىلىدۇ."
 
 #: src/Plugins/Export/ExportSql.php:550 src/Plugins/Export/ExportSql.php:1491
 #: src/Plugins/Export/ExportSql.php:1963
@@ -19561,9 +19570,9 @@ msgid ""
 "prefix like \"https://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"ئۇلانمىنى كۆرسىتىدۇ; بۇ ئىستوندا ھۆججەت ئىسمى بار. بىرىنچى تاللاش "
-"«https://www.example.com/» غا ئوخشاش URL ئالدى قوشۇلغۇچىسى. ئىككىنچى تاللاش "
-"بولسا ئۇلىنىشنىڭ ئىسمى."
+"ئۇلانمىنى كۆرسىتىدۇ; بۇ ئىستوندا ھۆججەت ئىسمى بار. بىرىنچى تاللاش «https://"
+"www.example.com/» غا ئوخشاش URL ئالدى قوشۇلغۇچىسى. ئىككىنچى تاللاش بولسا "
+"ئۇلىنىشنىڭ ئىسمى."
 
 #: src/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:31
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
@@ -19703,7 +19712,7 @@ msgstr "سانداننى ئۆز ئىچىگە ئالغان مۇندەرىجىنى
 msgid "Details…"
 msgstr "تەپسىلاتلار…"
 
-#: src/Replication/ReplicationGui.php:417
+#: src/Replication/ReplicationGui.php:451
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
@@ -19711,56 +19720,56 @@ msgstr ""
 "مۇلازىمېتىرغا ئۇلىنىش چەكلەنگەن ، phpMyAdmin سەپلىمىسىدە $ cfg "
 "['AllowArbitraryServer'] نى قوزغىتىڭ."
 
-#: src/Replication/ReplicationGui.php:428
+#: src/Replication/ReplicationGui.php:462
 msgid "Replication started successfully."
 msgstr "كۆپەيتىش مۇۋەپپەقىيەتلىك باشلاندى."
 
-#: src/Replication/ReplicationGui.php:429
+#: src/Replication/ReplicationGui.php:463
 msgid "Error starting replication."
 msgstr "كۆپەيتىشنى باشلاشتا خاتالىق."
 
-#: src/Replication/ReplicationGui.php:432
+#: src/Replication/ReplicationGui.php:466
 msgid "Replication stopped successfully."
 msgstr "كۆپەيتىش مۇۋەپپەقىيەتلىك توختىدى."
 
-#: src/Replication/ReplicationGui.php:433
+#: src/Replication/ReplicationGui.php:467
 msgid "Error stopping replication."
 msgstr "كۆپەيتىشنى توختىتىشتا خاتالىق."
 
-#: src/Replication/ReplicationGui.php:436
+#: src/Replication/ReplicationGui.php:470
 msgid "Replication resetting successfully."
 msgstr "كۆپەيتىش مۇۋەپپەقىيەتلىك ئەسلىگە كەلتۈرۈلدى."
 
-#: src/Replication/ReplicationGui.php:437
+#: src/Replication/ReplicationGui.php:471
 msgid "Error resetting replication."
 msgstr "كۆپەيتىشنى ئەسلىگە كەلتۈرۈشتە خاتالىق."
 
-#: src/Replication/ReplicationGui.php:440
+#: src/Replication/ReplicationGui.php:474
 msgid "Success."
 msgstr "مۇۋەپپەقىيەت."
 
-#: src/Replication/ReplicationGui.php:441
+#: src/Replication/ReplicationGui.php:475
 #, fuzzy
 #| msgid "Error"
 msgid "Error."
 msgstr "خاتالىق"
 
-#: src/Replication/ReplicationGui.php:486
+#: src/Replication/ReplicationGui.php:520
 #, fuzzy, php-format
 #| msgid "%s has been disabled for this MySQL server."
 msgid "Unable to connect to primary %s."
 msgstr "%s نى بۇ MySQL مۇلازىمىتېرىدا ئىشلىتىشكە بولمايدۇ."
 
-#: src/Replication/ReplicationGui.php:496
+#: src/Replication/ReplicationGui.php:530
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr "دەسلەپكى خاتىرە ئورنىنى ئوقۇيالمىدى. دەسلەپكى ئىمتىياز مەسىلىسى."
 
-#: src/Replication/ReplicationGui.php:514
+#: src/Replication/ReplicationGui.php:548
 msgid "Unable to change primary!"
 msgstr "باشلانغۇچنى ئۆزگەرتەلمىدى!"
 
-#: src/Replication/ReplicationGui.php:518
+#: src/Replication/ReplicationGui.php:552
 #, fuzzy, php-format
 msgid "Primary server changed successfully to %s."
 msgstr "دەسلەپكى مۇلازىمېتىر مۇۋەپپەقىيەتلىك ھالدا% s غا ئۆزگەردى."
@@ -20028,8 +20037,8 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
-"نۆۋەتتىكى تاللاشتا ئۆزگىچە ئىستون يوق. كاتەكچە تەھرىرلەش ، تەكشۈرۈش رامكىسى ،"
-" تەھرىرلەش ، كۆپەيتىش ۋە ئۆچۈرۈش ئىقتىدارلىرى يوق. % s"
+"نۆۋەتتىكى تاللاشتا ئۆزگىچە ئىستون يوق. كاتەكچە تەھرىرلەش ، تەكشۈرۈش "
+"رامكىسى ، تەھرىرلەش ، كۆپەيتىش ۋە ئۆچۈرۈش ئىقتىدارلىرى يوق. % s"
 
 #: src/Sql.php:1237
 #, fuzzy, php-format
@@ -20106,40 +20115,40 @@ msgstr "مەنبە ساندان `% s` تېپىلمىدى!"
 msgid "Target database `%s` was not found!"
 msgstr "تېما %s تېپىلمىدى!"
 
-#: src/Table/Table.php:810
+#: src/Table/Table.php:809
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "ئۈنۈمسىز ساندان"
 
-#: src/Table/Table.php:828
+#: src/Table/Table.php:827
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "ئۈنۈمسىز جەدۋەل ئىسمى"
 
-#: src/Table/Table.php:873
+#: src/Table/Table.php:872
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s بۇ جەدۋەل ئىسمىنى %2$s غا ئۆزگەرتىش غەلبىلىك بولدى."
 
-#: src/Table/Table.php:1108
+#: src/Table/Table.php:1107
 #, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Could not save table UI preferences!"
 msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 
-#: src/Table/Table.php:1130
+#: src/Table/Table.php:1129
 #, fuzzy, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"جەدۋەل UI مايىللىقىنى تازىلاش مەغلۇب بولدى ($ cfg ['مۇلازىمېتىرلار]] [$ i] ["
-"' MaxTableUiprefs ']% s)"
+"جەدۋەل UI مايىللىقىنى تازىلاش مەغلۇب بولدى ($ cfg ['مۇلازىمېتىرلار]] [$ i] "
+"[' MaxTableUiprefs ']% s)"
 
-#: src/Table/Table.php:1248
+#: src/Table/Table.php:1247
 #, fuzzy, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -20150,7 +20159,7 @@ msgstr ""
 "بېرىلغان ئۆزگەرتىشلەر داۋاملاشمايدۇ. جەدۋەل قۇرۇلمىسىنىڭ ئۆزگەرتىلگەن-"
 "ئۆزگەرمىگەنلىكىنى تەكشۈرۈپ بېقىڭ."
 
-#: src/Table/Table.php:1594
+#: src/Table/Table.php:1571
 #, fuzzy, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -20204,7 +20213,8 @@ msgstr "سانلىق مەلۇمات يوق"
 #: src/Tracking/Tracking.php:290
 #, fuzzy, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr "% 1 $ s نى% 2 $ s دىن% 3 $ s غىچە ئىشلەتكۈچىلەر% 4 $ s% 5 $ s كۆرسىتىدۇ"
+msgstr ""
+"% 1 $ s نى% 2 $ s دىن% 3 $ s غىچە ئىشلەتكۈچىلەر% 4 $ s% 5 $ s كۆرسىتىدۇ"
 
 #: src/Tracking/Tracking.php:393
 msgid "SQL dump (file download)"
@@ -20341,8 +20351,8 @@ msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
-"3 بايىتلىق پۈتۈن سان ، ئىمزا قويۇلغان دائىرە -8،388،608 دىن 8 مىليون 388،607 "
-"، ئىمزا قويمىغان دائىرە 0 دىن 16 مىليون 777،215"
+"3 بايىتلىق پۈتۈن سان ، ئىمزا قويۇلغان دائىرە -8،388،608 دىن 8 مىليون "
+"388،607 ، ئىمزا قويمىغان دائىرە 0 دىن 16 مىليون 777،215"
 
 #: src/Types.php:202
 msgid ""
@@ -20383,9 +20393,9 @@ msgid ""
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"قوش ئېنىقلىق لەيلىمە چېكىتلىك نومۇر ، رۇخسەت قىلىشقا بولىدىغان قىممەت -"
-"1.7976931348623157E + 308 دىن -2.2250738585072014E-308 ، 0 ۋە 2."
-"2250738585072014E-308 دىن 1.7976931348623157E + 308"
+"قوش ئېنىقلىق لەيلىمە چېكىتلىك نومۇر ، رۇخسەت قىلىشقا بولىدىغان قىممەت "
+"-1.7976931348623157E + 308 دىن -2.2250738585072014E-308 ، 0 ۋە "
+"2.2250738585072014E-308 دىن 1.7976931348623157E + 308"
 
 #: src/Types.php:226
 msgid ""
@@ -20400,8 +20410,8 @@ msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
-"بىر ئاز ساھە تىپى (M) ، ھەر بىر قىممەتنىڭ M قىممىتى ساقلىنىدۇ (سۈكۈتتىكىسى 1 "
-"، ئەڭ يۇقىرىسى 64)"
+"بىر ئاز ساھە تىپى (M) ، ھەر بىر قىممەتنىڭ M قىممىتى ساقلىنىدۇ (سۈكۈتتىكىسى "
+"1 ، ئەڭ يۇقىرىسى 64)"
 
 #: src/Types.php:229
 msgid ""
@@ -20431,8 +20441,9 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"ۋاقىت جەدۋىلى ، دائىرىسى 1970-01-01 00:00:01 UTC دىن 2038-01-09 03:14:07 UTC "
-"، دەۋردىن كېيىنكى سېكۇنت سانى سۈپىتىدە ساقلانغان (1970-01-01 00:00:00 UTC )"
+"ۋاقىت جەدۋىلى ، دائىرىسى 1970-01-01 00:00:01 UTC دىن 2038-01-09 03:14:07 "
+"UTC ، دەۋردىن كېيىنكى سېكۇنت سانى سۈپىتىدە ساقلانغان (1970-01-01 00:00:00 "
+"UTC )"
 
 #: src/Types.php:248
 #, fuzzy, php-format
@@ -20488,8 +20499,8 @@ msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
-"ئەڭ چوڭ ئۇزۇنلۇقى 16 مىليون 777،215 (2 ^ 24 - 1) ھەرپ-بەلگە بولغان TEXT ستون "
-"، بايتتىكى قىممەتنىڭ ئۇزۇنلۇقىنى كۆرسىتىپ بېرىدىغان ئۈچ بايىتلىق ئالدى "
+"ئەڭ چوڭ ئۇزۇنلۇقى 16 مىليون 777،215 (2 ^ 24 - 1) ھەرپ-بەلگە بولغان TEXT "
+"ستون ، بايتتىكى قىممەتنىڭ ئۇزۇنلۇقىنى كۆرسىتىپ بېرىدىغان ئۈچ بايىتلىق ئالدى "
 "قوشۇلغۇچى بىلەن ساقلىنىدۇ."
 
 #: src/Types.php:283
@@ -20693,6 +20704,9 @@ msgstr "ZIP ئارخىپىدىكى خاتالىق:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP ئارخىپى ئىچىدە ھۆججەت تېپىلمىدى!"
+
+#~ msgid "Incomplete params"
+#~ msgstr "تولۇق بولمىغان پارامېتىرلار"
 
 #, fuzzy, php-format
 #~| msgid "Second"

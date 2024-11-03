@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-10-27 00:25+0000\n"
+"POT-Creation-Date: 2024-11-03 00:25+0000\n"
 "PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -272,7 +272,7 @@ msgstr "열"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
-#: src/Controllers/Server/PrivilegesController.php:290
+#: src/Controllers/Server/PrivilegesController.php:293
 #: src/Normalization.php:229 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
@@ -595,7 +595,7 @@ msgstr "이름"
 #: resources/templates/table/structure/display_structure.twig:465
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:288
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:289
 #: src/Plugins/Export/ExportHtmlword.php:262
 #: src/Plugins/Export/ExportHtmlword.php:353
 #: src/Plugins/Export/ExportLatex.php:505 src/Plugins/Export/ExportOdt.php:364
@@ -868,7 +868,7 @@ msgstr "사용불가"
 #: src/Controllers/JavaScriptMessagesController.php:510
 #: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:44
-#: src/Controllers/Table/Structure/PrimaryController.php:107
+#: src/Controllers/Table/Structure/PrimaryController.php:106
 #: src/IndexColumn.php:148 src/Index.php:469
 #: src/Plugins/Export/ExportHtmlword.php:595
 #: src/Plugins/Export/ExportLatex.php:572 src/Plugins/Export/ExportOdt.php:714
@@ -974,7 +974,7 @@ msgstr "다시 쿼리하기"
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:406
 #: src/Display/Results.php:2477 src/Html/Generator.php:517
-#: src/Html/Generator.php:783
+#: src/Html/Generator.php:785
 msgid "Edit"
 msgstr "수정"
 
@@ -2213,7 +2213,7 @@ msgstr "호스트명"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:408 src/Menu.php:256
+#: src/Controllers/Server/PrivilegesController.php:411 src/Menu.php:256
 #: src/Menu.php:364 src/Util.php:1472 src/Util.php:1488
 msgid "Privileges"
 msgstr "권한"
@@ -2362,7 +2362,7 @@ msgstr "루틴 파라미터"
 
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:287
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:288
 #: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr "함수"
@@ -2683,7 +2683,7 @@ msgstr "데이터 사전"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:84
 #: src/Controllers/Database/TrackingController.php:130
-#: src/Controllers/Export/ExportController.php:298
+#: src/Controllers/Export/ExportController.php:291
 msgid "No tables found in database."
 msgstr "데이터베이스에 테이블이 없습니다."
 
@@ -3042,7 +3042,7 @@ msgstr "전각 가나로 변환"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:734 src/Import/Import.php:115 src/InsertEdit.php:487
+#: src/Html/Generator.php:736 src/Import/Import.php:115 src/InsertEdit.php:488
 #: src/Message.php:138
 msgid "Error"
 msgstr "오류"
@@ -3068,7 +3068,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "오류 보고서에서 데이터를 검토할 수 있습니다:"
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:404
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:403
 msgid "Automatically send report next time"
 msgstr "다음부터 보고를 자동으로 보내기"
 
@@ -3122,7 +3122,7 @@ msgstr "업데이트"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:758
+#: src/Html/Generator.php:760
 msgid "SQL query:"
 msgstr "SQL 질의:"
 
@@ -3388,7 +3388,7 @@ msgstr "일반 설정"
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
-#: src/Controllers/UserPasswordController.php:90
+#: src/Controllers/UserPasswordController.php:91
 msgid "Change password"
 msgstr "비밀번호 변경"
 
@@ -3543,7 +3543,7 @@ msgstr "가져오기"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:442
-#: src/Export/Export.php:1276 src/Html/Generator.php:849
+#: src/Export/Export.php:1276 src/Html/Generator.php:851
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "뒤로"
@@ -3594,7 +3594,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "어느 페이지에서나 파일을 끌어다 놓을 수 있습니다."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:488
+#: src/InsertEdit.php:489
 msgid "The directory you set for upload work cannot be reached."
 msgstr "설정한 업로드 디렉토리에 접근할 수 없습니다."
 
@@ -3667,7 +3667,7 @@ msgid "Taking you to the target site."
 msgstr "해당 사이트로 가는 중."
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
-#: src/Language.php:178 src/Pdf.php:84
+#: src/I18n/Language.php:177 src/Pdf.php:84
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
 msgid "Page number:"
@@ -4123,7 +4123,7 @@ msgstr "2단계 인증을 사용하도록 설정했습니다."
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:347
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:283 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:499
 msgid "No change"
 msgstr "변화 없음"
 
@@ -4793,7 +4793,7 @@ msgstr "데이터 읽기 허용."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:496
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:497
 msgid "Or"
 msgstr "또는"
 
@@ -5940,7 +5940,7 @@ msgid "No users were found belonging to this user group."
 msgstr "이 사용자 그룹에 속한 사용자를 찾을 수 없습니다."
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:411
+#: src/Controllers/Server/PrivilegesController.php:414
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "사용자"
@@ -6454,7 +6454,7 @@ msgstr "재정렬하려면 드래그"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:410 src/InsertEdit.php:1515
+#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1518
 msgid "Ignore"
 msgstr "무시"
 
@@ -11288,21 +11288,21 @@ msgstr "기본 변환"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "설정을 저장할 수 없습니다. 제출하신 구성 폼에 오류가 있습니다!"
 
-#: src/Config.php:607
+#: src/Config.php:608
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "이미 존재하고 있는 환경설정 파일 (%s) 을 읽을 수 없습니다."
 
-#: src/Config.php:643
+#: src/Config.php:644
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "설정 파일에 잘못된 권한이 지정되어있습니다. 익명 쓰기 권한이면 안됩니다!"
 
-#: src/Config.php:657
+#: src/Config.php:658
 msgid "Failed to read configuration file!"
 msgstr "설정 파일을 읽는데 실패했습니다!"
 
-#: src/Config.php:659
+#: src/Config.php:660
 msgid "This usually means there is a syntax error in it."
 msgstr ""
 "일반적으로 이것은 문법 오류가 있음을 의미합니다. 다음의 모든 오류를 확인하십"
@@ -11560,16 +11560,12 @@ msgstr ""
 "%s 파일은 이 시스템에서 사용할 수 없습니다. %s에 방문하여 정보를 확인하시기 "
 "바랍니다."
 
-#: src/Controllers/Console/Bookmark/AddController.php:33
-msgid "Incomplete params"
-msgstr "불완전한 인자"
-
-#: src/Controllers/Console/Bookmark/AddController.php:46
+#: src/Controllers/Console/Bookmark/AddController.php:39
 #: src/Controllers/JavaScriptMessagesController.php:597
 msgid "Failed"
 msgstr "실패함"
 
-#: src/Controllers/Console/Bookmark/AddController.php:58
+#: src/Controllers/Console/Bookmark/AddController.php:51
 msgid "Succeeded"
 msgstr "성공함"
 
@@ -11589,15 +11585,15 @@ msgid "Showing rows %1$s - %2$s."
 msgstr "%1$s - %2$s행 표시 중."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: src/Controllers/Database/DesignerController.php:100
+#: src/Controllers/Database/DesignerController.php:106
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 "\"%s\"라는 이름의 페이지가 이미 있습니다. 이름을 다른 이름으로 바꾸세요."
 
-#: src/Controllers/Database/DesignerController.php:168
-#: src/Controllers/Database/DesignerController.php:173
+#: src/Controllers/Database/DesignerController.php:177
+#: src/Controllers/Database/DesignerController.php:182
 #: src/Controllers/Database/EventsController.php:60
 #: src/Controllers/Database/ExportController.php:66
 #: src/Controllers/Database/ExportController.php:71
@@ -11624,8 +11620,8 @@ msgstr ""
 #: src/Controllers/Operations/ViewController.php:63
 #: src/Controllers/Operations/ViewController.php:68
 #: src/Controllers/Server/Databases/DestroyController.php:61
-#: src/Controllers/Table/AddFieldController.php:164
-#: src/Controllers/Table/AddFieldController.php:169
+#: src/Controllers/Table/AddFieldController.php:163
+#: src/Controllers/Table/AddFieldController.php:168
 #: src/Controllers/Table/ChangeController.php:68
 #: src/Controllers/Table/ChangeController.php:73
 #: src/Controllers/Table/ChartController.php:96
@@ -11653,8 +11649,8 @@ msgstr ""
 #: src/Controllers/Table/SqlController.php:70
 #: src/Controllers/Table/StructureController.php:94
 #: src/Controllers/Table/StructureController.php:99
-#: src/Controllers/Table/Structure/PrimaryController.php:74
-#: src/Controllers/Table/Structure/PrimaryController.php:79
+#: src/Controllers/Table/Structure/PrimaryController.php:73
+#: src/Controllers/Table/Structure/PrimaryController.php:78
 #: src/Controllers/Table/TrackingController.php:71
 #: src/Controllers/Table/TrackingController.php:76
 #: src/Controllers/Table/ZoomSearchController.php:100
@@ -11742,8 +11738,8 @@ msgstr "사용자를 관리할 권한이 없습니다!"
 #: src/Controllers/Operations/TableController.php:105
 #: src/Controllers/Operations/ViewController.php:77
 #: src/Controllers/Operations/ViewController.php:82
-#: src/Controllers/Table/AddFieldController.php:178
-#: src/Controllers/Table/AddFieldController.php:183
+#: src/Controllers/Table/AddFieldController.php:177
+#: src/Controllers/Table/AddFieldController.php:182
 #: src/Controllers/Table/ChangeController.php:82
 #: src/Controllers/Table/ChangeController.php:87
 #: src/Controllers/Table/ChartController.php:110
@@ -11772,8 +11768,8 @@ msgstr "사용자를 관리할 권한이 없습니다!"
 #: src/Controllers/Table/SqlController.php:84
 #: src/Controllers/Table/StructureController.php:108
 #: src/Controllers/Table/StructureController.php:113
-#: src/Controllers/Table/Structure/PrimaryController.php:88
-#: src/Controllers/Table/Structure/PrimaryController.php:93
+#: src/Controllers/Table/Structure/PrimaryController.php:87
+#: src/Controllers/Table/Structure/PrimaryController.php:92
 #: src/Controllers/Table/ZoomSearchController.php:114
 #: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:81
@@ -11874,39 +11870,39 @@ msgstr "테이블이 선택되지 않았습니다."
 msgid "Database Log"
 msgstr "데이터베이스 로그"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:92
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr "오류를 발견하고 설정에 따라 자동으로 제출되었습니다."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:96
 msgid "Thank you for submitting this report."
 msgstr "보고서를 제출해 주셔서 고맙습니다."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:100
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr "오류를 발견하고 관련 보고서를 만들어 보내는데 실패했습니다."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:103
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "사용중 발생한 문제는 수동으로 제출해 주세요."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:106
 msgid "You may want to refresh the page."
 msgstr "페이지를 새로고침 하세요."
 
-#: src/Controllers/Export/ExportController.php:115 src/Export/Export.php:1214
+#: src/Controllers/Export/ExportController.php:108 src/Export/Export.php:1214
 msgid "Bad type!"
 msgstr "잘못된 타입!"
 
-#: src/Controllers/Export/ExportController.php:190
+#: src/Controllers/Export/ExportController.php:183
 msgid "Bad parameters!"
 msgstr "잘못된 인자!"
 
-#: src/Controllers/GisDataEditorController.php:120
+#: src/Controllers/GisDataEditorController.php:116
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "\"%s\"행의 값"
@@ -12029,7 +12025,7 @@ msgstr ""
 "curl 확장 기능이 발견되지 않았고 allow_url_fopen 이 비활성화 되어있습니다. 이"
 "로 인해 오류 보고나 버전 체크와 같은 기능들이 제한됩니다."
 
-#: src/Controllers/Import/ImportController.php:169
+#: src/Controllers/Import/ImportController.php:168
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12038,21 +12034,21 @@ msgstr ""
 "너무 큰 파일을 업로드하려고 시도했습니다. 제한을 해결하기 위해서는 "
 "%sdocumentation%s를 참조하여 주십시오."
 
-#: src/Controllers/Import/ImportController.php:196
+#: src/Controllers/Import/ImportController.php:194
 msgid "Incorrect format parameter"
 msgstr "잘못된 포맷 파라미터"
 
-#: src/Controllers/Import/ImportController.php:310
-#: src/Controllers/Import/ImportController.php:523
+#: src/Controllers/Import/ImportController.php:308
+#: src/Controllers/Import/ImportController.php:521
 msgid "Showing bookmark"
 msgstr "북마크 표시"
 
-#: src/Controllers/Import/ImportController.php:330
-#: src/Controllers/Import/ImportController.php:519
+#: src/Controllers/Import/ImportController.php:328
+#: src/Controllers/Import/ImportController.php:517
 msgid "The bookmark has been deleted."
 msgstr "북마크가 삭제되었습니다."
 
-#: src/Controllers/Import/ImportController.php:442
+#: src/Controllers/Import/ImportController.php:440
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12061,13 +12057,13 @@ msgstr ""
 "가져올 데이터가 없습니다. 파일이 지정되지 않았거나 파일 크기가 PHP 설정의 최"
 "대 파일 크기를 초과했을 수 있습니다. [doc@faq1-16]FAQ 1.16[/doc] 참조."
 
-#: src/Controllers/Import/ImportController.php:531
+#: src/Controllers/Import/ImportController.php:529
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "가져오기가 정상적으로 완료되었습니다, %d 쿼리가 실행되었습니다."
 
-#: src/Controllers/Import/ImportController.php:568
+#: src/Controllers/Import/ImportController.php:566
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12076,7 +12072,7 @@ msgstr ""
 "스크립트 시간 제한이 초과되었습니다. 이어서 하시려면 같은 파일을 다시 전송해 "
 "주세요 (%s, %s)."
 
-#: src/Controllers/Import/ImportController.php:578
+#: src/Controllers/Import/ImportController.php:576
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12084,16 +12080,16 @@ msgstr ""
 "파싱된 데이터가 없지만, 이것은 보통 phpMyAdmin이 php 시간 제한을 늘리지 않고"
 "는 이 가져오기를 마칠 수 없음을 뜻합니다."
 
-#: src/Controllers/Import/ImportController.php:641
+#: src/Controllers/Import/ImportController.php:639
 #: src/Controllers/Sql/SqlController.php:159
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" 구문은 허락되지 않습니다."
 
-#: src/Controllers/Import/ImportController.php:696 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:692 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK이 발생했습니다.]"
 
-#: src/Controllers/Import/SimulateDmlController.php:84
+#: src/Controllers/Import/SimulateDmlController.php:83
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "단일 테이블 UPDATE 및 DELETE 쿼리만 시뮬레이션할 수 있습니다."
 
@@ -13479,7 +13475,7 @@ msgid "Please look at the bottom of this window."
 msgstr "이 창의 아래쪽을 보세요."
 
 #: src/Controllers/JavaScriptMessagesController.php:649
-#: src/Error/ErrorHandler.php:415
+#: src/Error/ErrorHandler.php:414
 msgid "Ignore All"
 msgstr "모두 무시"
 
@@ -13641,7 +13637,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "%s 테이블이 이미 존재합니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:272
+#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:273
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "숨기기"
@@ -14097,7 +14093,7 @@ msgstr "2단계 인증이 제거되었습니다."
 msgid "Two-factor authentication has been configured."
 msgstr "2단계 인증이 설정되었습니다."
 
-#: src/Controllers/SchemaExportController.php:40
+#: src/Controllers/SchemaExportController.php:38
 #: src/Controllers/Server/UserGroupsFormController.php:44
 #: src/ResponseRenderer.php:476
 msgid "Missing parameter:"
@@ -14114,12 +14110,12 @@ msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "%1$d개의 데이터베이스를 정상적으로 삭제했습니다."
 
-#: src/Controllers/Server/Privileges/AccountLockController.php:47
+#: src/Controllers/Server/Privileges/AccountLockController.php:45
 #, php-format
 msgid "The account %s@%s has been successfully locked."
 msgstr "%s@%s계정을 정상적으로 잠갔습니다."
 
-#: src/Controllers/Server/Privileges/AccountUnlockController.php:47
+#: src/Controllers/Server/Privileges/AccountUnlockController.php:45
 #, php-format
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "%s@%s계정을 정상적으로 잠금 해제 했습니다."
@@ -14832,7 +14828,7 @@ msgstr "변수 설정을 실패했습니다"
 #: src/Controllers/Setup/ServerDestroyController.php:41
 #: src/Controllers/Setup/ServersController.php:44
 #: src/Controllers/Setup/ShowConfigController.php:42
-#: src/Controllers/Setup/ValidateController.php:46
+#: src/Controllers/Setup/ValidateController.php:45
 msgid "Configuration already exists, setup is disabled!"
 msgstr "구성이 이미 존재하며 설정이 비활성화되었습니다!"
 
@@ -14860,11 +14856,11 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "보호되지 않은 연결"
 
-#: src/Controllers/Setup/ValidateController.php:63
+#: src/Controllers/Setup/ValidateController.php:60
 msgid "Wrong data"
 msgstr "잘못된 데이터"
 
-#: src/Controllers/Setup/ValidateController.php:72
+#: src/Controllers/Setup/ValidateController.php:69
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr "잘못된 데이터 또는 %s에 대한 유효성 검사 없음"
@@ -14878,7 +14874,7 @@ msgstr "북마크 %s가 생성되었습니다."
 msgid "Bookmark not created!"
 msgstr "북마크가 생성되지 않았습니다!"
 
-#: src/Controllers/Table/AddFieldController.php:135
+#: src/Controllers/Table/AddFieldController.php:134
 #: src/Controllers/Table/IndexesController.php:142
 #: src/Controllers/Table/IndexRenameController.php:131
 #: src/Controllers/Table/Structure/PartitioningController.php:265
@@ -14950,7 +14946,7 @@ msgstr "요청에 문제가 있습니다."
 
 #: src/Controllers/Table/GetFieldController.php:81
 #: src/Database/Routines.php:1046 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:863
+#: src/InsertEdit.php:200 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "결과값이 없습니다. (빈 레코드 리턴)."
 
@@ -14988,7 +14984,7 @@ msgstr "열 표시가 정상적으로 갱신 되었습니다."
 msgid "Internal relationships were successfully updated."
 msgstr "내부 릴레이션이 정상적으로 갱신되었습니다."
 
-#: src/Controllers/Table/ReplaceController.php:183
+#: src/Controllers/Table/ReplaceController.php:184
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "행: %1$s, 열: %2$s, 오류: %3$s"
@@ -15024,15 +15020,15 @@ msgstr "%1$s 테이블이 정상적으로 수정되었습니다. 권한이 조�
 msgid "Tracking of %s is activated."
 msgstr "%s의 트래킹이 활성화되었습니다."
 
-#: src/Controllers/Table/TrackingController.php:151
+#: src/Controllers/Table/TrackingController.php:148
 msgid "SQL statements executed."
 msgstr "SQL 문장이 실행되었습니다."
 
-#: src/Controllers/Table/TrackingController.php:205
+#: src/Controllers/Table/TrackingController.php:202
 msgid "Tracking versions deleted successfully."
 msgstr "추적 버전이 정상적으로 삭제되었습니다."
 
-#: src/Controllers/Table/TrackingController.php:210
+#: src/Controllers/Table/TrackingController.php:207
 msgid "No versions selected."
 msgstr "선택한 버전이 없습니다."
 
@@ -15160,7 +15156,7 @@ msgstr "쿼리 실행 실패: \"%s\""
 #: src/Database/Events.php:115 src/Database/Events.php:136
 #: src/Database/Routines.php:104 src/Database/Routines.php:130
 #: src/Database/Routines.php:208 src/Database/Routines.php:222
-#: src/Database/Routines.php:1010 src/Html/Generator.php:799
+#: src/Database/Routines.php:1010 src/Html/Generator.php:801
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:109 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
@@ -15215,7 +15211,7 @@ msgstr "올바른 이벤트 타입을 입력하세요."
 msgid "You must provide an event definition."
 msgstr "이벤트 정의를 입력하세요."
 
-#: src/DatabaseInterface.php:1128
+#: src/DatabaseInterface.php:1126
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -15226,11 +15222,11 @@ msgstr ""
 "[%3$d]['SessionTimeZone'][/em]에 대한 구성 설정을 확인하십시오. phpMyAdmin은 "
 "현재 데이터베이스 서버의 기본 시간대를 사용하고 있습니다."
 
-#: src/DatabaseInterface.php:1170
+#: src/DatabaseInterface.php:1168
 msgid "Failed to set configured collation connection!"
 msgstr "문자정렬순서 연결을 설정하는데 실패했습니다!"
 
-#: src/DatabaseInterface.php:1684
+#: src/DatabaseInterface.php:1682
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "관리사용자(controluser, 설정에 정의됨)로서의 접속에 실패."
 
@@ -15666,11 +15662,11 @@ msgid ""
 "%sPrimeBase XT Home Page%s."
 msgstr "PBXT에 관한 문서나 추가 정보는 %sPrimeBase XT 홈페이지%s에 있습니다."
 
-#: src/Error/ErrorHandler.php:105
+#: src/Error/ErrorHandler.php:104
 msgid "Too many error messages, some are not displayed."
 msgstr "오류메시지가 너무 많기 때문에 일부 메시지는 출력되지 않습니다."
 
-#: src/Error/ErrorHandler.php:399
+#: src/Error/ErrorHandler.php:398
 msgid "Report"
 msgstr "보고"
 
@@ -15850,11 +15846,11 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "한줄 편집"
 
-#: src/Html/Generator.php:741
+#: src/Html/Generator.php:743
 msgid "Static analysis:"
 msgstr "정적 분석:"
 
-#: src/Html/Generator.php:744
+#: src/Html/Generator.php:746
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "분석 중에 %d개의 오류가 발생했습니다."
@@ -15896,6 +15892,10 @@ msgid ""
 msgstr ""
 "세션 쿠키를 설정하지 못했습니다. phpMyAdmin에 액세스하는 데 HTTPS 대신 HTTP"
 "를 사용하고 있을 수 있습니다."
+
+#: src/I18n/LanguageManager.php:961
+msgid "Ignoring unsupported language code."
+msgstr "지원되지 않는 언어의 코드는 무시합니다."
 
 #: src/Identifiers/InvalidDatabaseName.php:14
 msgid "The database name must be a non-empty string."
@@ -15995,22 +15995,18 @@ msgid ""
 msgstr ""
 "인덱스 %1$s와 %2$s는 동일한 것으로, 두 가지 중 하나는 제거해도 상관없습니다."
 
-#: src/InsertEdit.php:497
+#: src/InsertEdit.php:498
 msgid "web server upload directory:"
 msgstr "웹 서버 업로드 디렉터리:"
 
-#: src/InsertEdit.php:924 src/Sql.php:860
+#: src/InsertEdit.php:925 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "SQL 쿼리 보기"
 
-#: src/InsertEdit.php:948 src/Sql.php:840
+#: src/InsertEdit.php:949 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "삽입된 행의 id: %1$d"
-
-#: src/LanguageManager.php:959
-msgid "Ignoring unsupported language code."
-msgstr "지원되지 않는 언어의 코드는 무시합니다."
 
 #: src/Linter.php:112
 msgid ""
@@ -17513,7 +17509,7 @@ msgstr "디렉토리를 포함하는 데이터베이스의 권한을 확인하�
 msgid "Details…"
 msgstr "자세히…"
 
-#: src/Replication/ReplicationGui.php:417
+#: src/Replication/ReplicationGui.php:451
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
@@ -17521,54 +17517,54 @@ msgstr ""
 "서버에 대한 연결이 비활성화되어 있으므로 phpMyAdmin 설정에서 "
 "$cfg['AllowArbitraryServer']를 활성화하세요."
 
-#: src/Replication/ReplicationGui.php:428
+#: src/Replication/ReplicationGui.php:462
 msgid "Replication started successfully."
 msgstr "복제가 정상적으로 시작되었습니다."
 
-#: src/Replication/ReplicationGui.php:429
+#: src/Replication/ReplicationGui.php:463
 msgid "Error starting replication."
 msgstr "복제 시작 오류."
 
-#: src/Replication/ReplicationGui.php:432
+#: src/Replication/ReplicationGui.php:466
 msgid "Replication stopped successfully."
 msgstr "복제가 정상적으로 중단되었습니다."
 
-#: src/Replication/ReplicationGui.php:433
+#: src/Replication/ReplicationGui.php:467
 msgid "Error stopping replication."
 msgstr "복제 중단 오류."
 
-#: src/Replication/ReplicationGui.php:436
+#: src/Replication/ReplicationGui.php:470
 msgid "Replication resetting successfully."
 msgstr "복제가 정상적으로 리셋되었습니다."
 
-#: src/Replication/ReplicationGui.php:437
+#: src/Replication/ReplicationGui.php:471
 msgid "Error resetting replication."
 msgstr "복제 리셋 오류."
 
-#: src/Replication/ReplicationGui.php:440
+#: src/Replication/ReplicationGui.php:474
 msgid "Success."
 msgstr "성공."
 
-#: src/Replication/ReplicationGui.php:441
+#: src/Replication/ReplicationGui.php:475
 msgid "Error."
 msgstr "오류."
 
-#: src/Replication/ReplicationGui.php:486
+#: src/Replication/ReplicationGui.php:520
 #, php-format
 msgid "Unable to connect to primary %s."
 msgstr "%s 기본 서버에 연결할 수 없습니다."
 
-#: src/Replication/ReplicationGui.php:496
+#: src/Replication/ReplicationGui.php:530
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
 "기본 로그 위치를 읽을 수 없습니다. 기본 로그에 권한 문제가 있을 수 있습니다."
 
-#: src/Replication/ReplicationGui.php:514
+#: src/Replication/ReplicationGui.php:548
 msgid "Unable to change primary!"
 msgstr "기본 서버를 변경할 수 없습니다!"
 
-#: src/Replication/ReplicationGui.php:518
+#: src/Replication/ReplicationGui.php:552
 #, php-format
 msgid "Primary server changed successfully to %s."
 msgstr "기본 서버가 %s 서버로 정상적으로 변경되었습니다."
@@ -17891,24 +17887,24 @@ msgstr "원본 데이터베이스 '%s'를 찾을 수 없습니다!"
 msgid "Target database `%s` was not found!"
 msgstr "목표 데이터베이스 '%s'를 찾을 수 없습니다!"
 
-#: src/Table/Table.php:810
+#: src/Table/Table.php:809
 msgid "Invalid database:"
 msgstr "잘못된 데이터베이스:"
 
-#: src/Table/Table.php:828
+#: src/Table/Table.php:827
 msgid "Invalid table name:"
 msgstr "잘못된 테이블 이름:"
 
-#: src/Table/Table.php:873
+#: src/Table/Table.php:872
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "테이블 %1$s을(를) %2$s(으)로 이름을 변경하였습니다."
 
-#: src/Table/Table.php:1108
+#: src/Table/Table.php:1107
 msgid "Could not save table UI preferences!"
 msgstr "테이블 UI 설정을 저장할 수 없습니다!"
 
-#: src/Table/Table.php:1130
+#: src/Table/Table.php:1129
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -17917,7 +17913,7 @@ msgstr ""
 "테이블 UI 설정을 정리하는 데 실패했습니다. ($cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s 를 참조하세요)"
 
-#: src/Table/Table.php:1248
+#: src/Table/Table.php:1247
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -17927,7 +17923,7 @@ msgstr ""
 "UI 특성 %s을(를) 저장할 수 없습니다. 새로고침후에도 이 변경은 반영되지 않을것"
 "입니다. 테이블 구조가 변경되었는지 확인 바랍니다."
 
-#: src/Table/Table.php:1594
+#: src/Table/Table.php:1571
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s의 외래키 생성 에러 (데이터 타입을 확인하세요)"
@@ -18421,6 +18417,9 @@ msgstr "ZIP 압축파일 오류:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP 압축 안에서 파일을 발견하지 못했습니다!"
+
+#~ msgid "Incomplete params"
+#~ msgstr "불완전한 인자"
 
 #~ msgid "Ok"
 #~ msgstr "OK"
