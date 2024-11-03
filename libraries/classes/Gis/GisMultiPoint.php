@@ -186,7 +186,7 @@ class GisMultiPoint extends GisGeometry
     public function prepareRowAsSvg($spatial, $label, $point_color, array $scale_data)
     {
         $point_options = [
-            'name' => $label,
+            'data-label' => $label,
             'class' => 'multipoint vector',
             'fill' => 'white',
             'stroke' => $point_color,
