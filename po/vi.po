@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-05-31 05:09+0000\n"
+"PO-Revision-Date: 2024-11-03 19:25+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/vi/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -3650,12 +3650,11 @@ msgid "Server %d"
 msgstr "Máy chủ %d"
 
 #: libraries/classes/Config/Descriptions.php:62
-#, fuzzy
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"Nếu được kích hoạt, người dùng có thể nhập bất kỳ máy chủ MySQL trong mẫu "
-"đăng nhập cho cookie chính xác."
+"Nếu bật, người dùng có thể nhập bất kỳ máy chủ MySQL nào trong biểu mẫu đăng "
+"nhập để xác thực cookie."
 
 #: libraries/classes/Config/Descriptions.php:64
 msgid "Allow login to any MySQL server"
@@ -4711,15 +4710,14 @@ msgid "Limit column characters"
 msgstr "Giới hạn số ký tự mỗi cột"
 
 #: libraries/classes/Config/Descriptions.php:695
-#, fuzzy
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
-"Nếu ĐÚNG, đăng xuất xóa cookie cho tất cả các máy chủ; khi đặt thành SAI, "
-"đăng xuất chỉ xảy ra cho máy chủ hiện tại. Cài đặt này thành SAI khiến bạn "
-"dễ quên đăng xuất khỏi các máy chủ khác khi kết nối với nhiều máy chủ."
+"Nếu ĐÚNG, đăng xuất xóa cookie cho tất cả máy chủ; khi đặt là SAI, đăng xuất "
+"chỉ xảy ra ở máy chủ hiện tại. Cài đặt này thành SAI làm bạn dễ quên đăng "
+"xuất khỏi các máy chủ khác khi kết nối với nhiều máy chủ."
 
 #: libraries/classes/Config/Descriptions.php:700
 msgid "Delete all cookies on logout"
@@ -4859,10 +4857,8 @@ msgid "Navigation panel width"
 msgstr "Độ rộng bảng điều hướng"
 
 #: libraries/classes/Config/Descriptions.php:774
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Đặt thành 0 để xóa bảng điều hướng"
+msgstr "Đặt là 0 để thu gọn bảng điều hướng."
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
@@ -5152,7 +5148,6 @@ msgid "Protect binary columns"
 msgstr "Các cột nhị phân bảo vệ"
 
 #: libraries/classes/Config/Descriptions.php:928
-#, fuzzy
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -5359,18 +5354,13 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Ẩn các cơ sở dữ liệu khớp mẫu biểu thức chính quy (PCRE)."
 
 #: libraries/classes/Config/Descriptions.php:1041
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Thông tin thêm trên [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] và [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"Thông tin thêm trên [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]"
+"theo dõi lỗi phpMyAdmin[/a] và [a@https://bugs.mysql.com/19588]Lỗi MySQL[/a]"
 
 #: libraries/classes/Config/Descriptions.php:1045
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -5425,13 +5415,14 @@ msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
 msgstr ""
+"Để trống nếu không hỗ trợ tìm kiếm đã lưu QBE, gợi ý: "
+"[kbd]pma__savedsearches[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1076
 msgid "Export templates table"
 msgstr "Xuất bảng mẫu"
 
 #: libraries/classes/Config/Descriptions.php:1079
-#, fuzzy
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
@@ -5660,6 +5651,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
 msgstr ""
+"Để trống nếu không hỗ trợ theo dõi truy vấn SQL, gợi ý: "
+"[kbd]pma__tracking[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1205
 msgid "SQL query tracking table"
@@ -5670,6 +5663,8 @@ msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
+"Liệu cơ chế theo dõi có tự động tạo phiên bản cho bảng và chế độ xem hay "
+"không."
 
 #: libraries/classes/Config/Descriptions.php:1212
 msgid "Automatically create versions"
@@ -6858,6 +6853,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"Bạn đã bật mbstring.func_overload trong cấu hình PHP của mình. Tùy chọn này "
+"không tương thích với phpMyAdmin và có thể khiến một số dữ liệu bị hỏng!"
 
 #: libraries/classes/Core.php:1231
 msgid ""
@@ -13521,6 +13518,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Không thể đặt cookie phiên. Có thể bạn đang sử dụng HTTP thay vì HTTPS để "
+"truy cập phpMyAdmin."
 
 #: libraries/common.inc.php:344
 msgid "Invalid authentication method set in configuration:"
@@ -15146,7 +15145,7 @@ msgstr "Di chuyển các cột"
 
 #: templates/table/structure/optional_action_links.twig:25
 msgid "Normalize"
-msgstr ""
+msgstr "Bình thường"
 
 #: templates/table/structure/optional_action_links.twig:31
 msgid "Track view"
@@ -15979,6 +15978,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Tạo khóa ngoại trên cột không được lập chỉ mục sẽ tự động tạo chỉ mục trên "
+"cột đó. Ngoài ra, bạn có thể xác định chỉ mục bên dưới trước khi tạo khóa "
+"ngoại."
 
 #: templates/table/relation/common_form.twig:20
 msgid ""
@@ -15997,10 +15999,8 @@ msgstr "+ Thêm ràng buộc"
 
 #: templates/table/relation/common_form.twig:99
 #: templates/table/relation/common_form.twig:104
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
-msgstr "Các quan hệ nội tại"
+msgstr "Mối quan hệ nội bộ"
 
 #: templates/table/relation/common_form.twig:110
 msgid "Internal relation"
@@ -16113,7 +16113,7 @@ msgstr "Tỷ lệ truy vấn chậm"
 #: libraries/advisory_rules_generic.txt:73
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
-msgstr ""
+msgstr "Có tỷ lệ truy vấn chậm cao so với thời gian hoạt động của máy chủ."
 
 #: libraries/advisory_rules_generic.txt:75
 #, php-format
