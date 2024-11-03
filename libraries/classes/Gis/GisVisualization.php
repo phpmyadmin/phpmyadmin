@@ -16,6 +16,7 @@ use TCPDF;
 use function array_merge;
 use function base64_encode;
 use function count;
+use function htmlspecialchars;
 use function intval;
 use function is_finite;
 use function is_numeric;
@@ -674,7 +675,7 @@ class GisVisualization
             if ($format === 'svg') {
                 $results .= $gis_obj->prepareRowAsSvg(
                     $row[$this->settings['spatialColumn']],
-                    $label,
+                    htmlspecialchars($label),
                     $this->settings['colors'][$index],
                     $scale_data
                 );
