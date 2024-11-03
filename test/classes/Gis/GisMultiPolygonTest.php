@@ -433,10 +433,10 @@ class GisMultiPolygonTest extends GisGeomTestCase
                     'scale' => 2,
                     'height' => 150,
                 ],
-                '/^(<path d=" M 248, 208 L 270, 122 L 8, 138 Z " name="svg" class="'
+                '/^(<path d=" M 248, 208 L 270, 122 L 8, 138 Z " data-label="svg" class="'
                 . 'multipolygon vector" stroke="black" stroke-width="0.5" fill="'
                 . '#B02EE0" fill-rule="evenodd" fill-opacity="0.8" id="svg)(\d+)'
-                . '("\/><path d=" M 186, 288 L 88, 248 L 132, 142 Z " name="svg" '
+                . '("\/><path d=" M 186, 288 L 88, 248 L 132, 142 Z " data-label="svg" '
                 . 'class="multipolygon vector" stroke="black" stroke-width="0.5" '
                 . 'fill="#B02EE0" fill-rule="evenodd" fill-opacity="0.8" id="svg)'
                 . '(\d+)("\/>)$/',

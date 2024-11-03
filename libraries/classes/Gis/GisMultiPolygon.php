@@ -247,7 +247,7 @@ class GisMultiPolygon extends GisGeometry
     public function prepareRowAsSvg($spatial, $label, $fill_color, array $scale_data)
     {
         $polygon_options = [
-            'name' => $label,
+            'data-label' => $label,
             'class' => 'multipolygon vector',
             'stroke' => 'black',
             'stroke-width' => 0.5,
