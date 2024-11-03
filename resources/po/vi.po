@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-11-03 00:25+0000\n"
-"PO-Revision-Date: 2024-05-31 05:09+0000\n"
+"PO-Revision-Date: 2024-11-03 19:25+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/vi/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -6908,10 +6908,8 @@ msgid "Repair partition"
 msgstr "Xóa phân vùng"
 
 #: resources/templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "Phân vùng con"
+msgstr "Cắt bớt phân vùng"
 
 #: resources/templates/table/privileges/index.twig:57
 msgid "table-specific"
@@ -6935,6 +6933,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Tạo khóa ngoại trên cột không được lập chỉ mục sẽ tự động tạo chỉ mục trên "
+"cột đó. Ngoài ra, bạn có thể xác định chỉ mục bên dưới trước khi tạo khóa "
+"ngoại."
 
 #: resources/templates/table/relation/common_form.twig:26
 msgid ""
@@ -6953,10 +6954,8 @@ msgstr "+ Thêm ràng buộc"
 
 #: resources/templates/table/relation/common_form.twig:61
 #: resources/templates/table/relation/common_form.twig:69
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
-msgstr "Các quan hệ nội tại"
+msgstr "Mối quan hệ nội bộ"
 
 #: resources/templates/table/relation/common_form.twig:78
 msgid "Internal relation"
@@ -7090,10 +7089,8 @@ msgid "Extra"
 msgstr "Thêm"
 
 #: resources/templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type:"
-msgstr "Kiểu MIME"
+msgstr "Kiểu phương tiện:"
 
 #: resources/templates/table/structure/display_structure.twig:91
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:47
@@ -7151,7 +7148,7 @@ msgstr "Đề xuất cấu trúc bảng"
 
 #: resources/templates/table/structure/display_structure.twig:409
 msgid "Normalize"
-msgstr ""
+msgstr "Bình thường"
 
 #: resources/templates/table/structure/display_structure.twig:415
 msgid "Track view"
@@ -7167,10 +7164,9 @@ msgid "at beginning of table"
 msgstr "tại đầu của bảng"
 
 #: resources/templates/table/structure/display_structure.twig:558
-#, fuzzy, php-format
-#| msgid "Create an index on &nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on %s columns"
-msgstr "Tạo một chỉ mục trên &nbsp;%s&nbsp;columns"
+msgstr "Tạo một chỉ mục trên %s cột"
 
 #: resources/templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
@@ -7291,10 +7287,8 @@ msgid "Reset zoom"
 msgstr "Đặt lại mức phóng to"
 
 #: resources/templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media types"
-msgstr "Các kiểu MIME sẵn có"
+msgstr "Loại phương tiện sẵn có"
 
 #: resources/templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -7302,8 +7296,6 @@ msgstr "Các chuyển dạng hiển thị trình duyệt sẵn có"
 
 #: resources/templates/transformation_overview.twig:19
 #: resources/templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media type transformation"
 msgid "Description"
 msgstr "Mô tả"
@@ -7482,7 +7474,7 @@ msgstr "Tỷ lệ truy vấn chậm"
 #: src/Advisory/Rules.php:79
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
-msgstr ""
+msgstr "Có tỷ lệ truy vấn chậm cao so với thời gian hoạt động của máy chủ."
 
 #: src/Advisory/Rules.php:84
 #, php-format
@@ -9166,12 +9158,11 @@ msgid "Users cannot set a higher value"
 msgstr "Người dùng không thể đặt giá trị cao hơn"
 
 #: src/Config/Descriptions.php:76
-#, fuzzy
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"Nếu được kích hoạt, người dùng có thể nhập bất kỳ máy chủ MySQL trong mẫu "
-"đăng nhập cho cookie chính xác."
+"Nếu bật, người dùng có thể nhập bất kỳ máy chủ MySQL nào trong biểu mẫu đăng "
+"nhập để xác thực cookie."
 
 #: src/Config/Descriptions.php:79
 msgid ""
@@ -9205,48 +9196,37 @@ msgid "Enable bzip2 compression for import operations."
 msgstr "Bật nén bzip2 dành cho các thao tác nhập dữ liệu."
 
 #: src/Config/Descriptions.php:92
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
-msgstr "Nhập vào khóa riêng cho dịch vụ reCaptcha theo miền của bạn."
+msgstr "Nhập URL cho API tương thích reCAPTCHA v2 của bạn."
 
 #: src/Config/Descriptions.php:93
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
-msgstr "Nhập vào khóa riêng cho dịch vụ reCaptcha theo miền của bạn."
+msgstr ""
+"Nhập đoạn mã Chính sách bảo mật nội dung cho API tương thích reCAPTCHA v2 "
+"của bạn."
 
 #: src/Config/Descriptions.php:94
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
-msgstr "Nhập vào khóa riêng cho dịch vụ reCaptcha theo miền của bạn."
+msgstr "Nhập tham số yêu cầu được API tương thích reCAPTCHA v2 của bạn sử dụng."
 
 #: src/Config/Descriptions.php:95
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
-msgstr "Nhập vào khóa riêng cho dịch vụ reCaptcha theo miền của bạn."
+msgstr ""
+"Nhập tham số phản hồi được API tương thích reCAPTCHA v2 của bạn sử dụng."
 
 #: src/Config/Descriptions.php:96
-#, fuzzy
-#| msgid "Enter your public key for your domain reCaptcha service."
 msgid "Enter your public key for the reCAPTCHA service on your domain."
-msgstr "Nhập vào khóa công cho dịch vụ reCaptcha theo miền của bạn."
+msgstr "Nhập khóa công khai cho dịch vụ reCAPTCHA trên miền của bạn."
 
 #: src/Config/Descriptions.php:97
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your private key for your domain reCAPTCHA service."
-msgstr "Nhập vào khóa riêng cho dịch vụ reCaptcha theo miền của bạn."
+msgstr "Nhập khóa riêng cho dịch vụ reCAPTCHA tên miền của bạn."
 
 #: src/Config/Descriptions.php:98
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCAPTCHA service."
-msgstr "Nhập vào khóa riêng cho dịch vụ reCaptcha theo miền của bạn."
+msgstr "Nhập URL siteverify cho dịch vụ reCAPTCHA của bạn."
 
 #: src/Config/Descriptions.php:100
 msgid ""
@@ -9338,7 +9318,7 @@ msgstr ""
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
 #: src/Plugins/Export/ExportSql.php:321
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "Loại trừ định nghĩa của người dùng hiện tại"
 
 #: src/Config/Descriptions.php:173
 msgid ""
@@ -9534,15 +9514,14 @@ msgid "Number of queries to skip from start."
 msgstr "Số lượng câu truy vấn được bỏ qua tính từ khởi đầu"
 
 #: src/Config/Descriptions.php:245
-#, fuzzy
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
-"Nếu ĐÚNG, đăng xuất xóa cookie cho tất cả các máy chủ; khi đặt thành SAI, "
-"đăng xuất chỉ xảy ra cho máy chủ hiện tại. Cài đặt này thành SAI khiến bạn "
-"dễ quên đăng xuất khỏi các máy chủ khác khi kết nối với nhiều máy chủ."
+"Nếu ĐÚNG, đăng xuất xóa cookie cho tất cả máy chủ; khi đặt là SAI, đăng xuất "
+"chỉ xảy ra ở máy chủ hiện tại. Cài đặt này thành SAI làm bạn dễ quên đăng "
+"xuất khỏi các máy chủ khác khi kết nối với nhiều máy chủ."
 
 #: src/Config/Descriptions.php:250
 msgid ""
@@ -9592,16 +9571,12 @@ msgstr ""
 "hơn một dòng, liên kết \"Kế trước\" và \"Kế tiếp\" sẽ được hiển thị."
 
 #: src/Config/Descriptions.php:274
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Số bytes một văn lệnh được phép phân bổ, ví dụ: [kbd]32M[/kbd] ([kbd]-1[/"
-"kbd] để không giới hạn gì và [kbd]0[/kbd] để không thay đổi)."
+"Số byte mà tập lệnh được phép phân bổ, vd: [kbd]32M[/kbd] ([kbd]-1[/kbd] để "
+"không giới hạn và [kbd]0[/kbd] để không thay đổi)."
 
 #: src/Config/Descriptions.php:278
 msgid "In the navigation panel, replaces the database tree with a selector"
@@ -9648,17 +9623,13 @@ msgstr ""
 "Có cho hiển thị các thủ tục dưới cơ sở dữ liệu trong cây điều hướng hay không"
 
 #: src/Config/Descriptions.php:300
-#, fuzzy
-#| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr ""
-"Có cho hiển thị các sự kiện dưới cơ sở dữ liệu trong cây điều hướng hay không"
+"Có nên tự động mở rộng cơ sở dữ liệu đơn lẻ trong cây điều hướng hay không."
 
 #: src/Config/Descriptions.php:302
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Đặt thành 0 để xóa bảng điều hướng"
+msgstr "Đặt là 0 để thu gọn bảng điều hướng."
 
 #: src/Config/Descriptions.php:303
 msgid "Show logo in navigation panel."
@@ -9730,7 +9701,6 @@ msgstr ""
 "cột trong một bảng là từ dành riêng cho MySQL."
 
 #: src/Config/Descriptions.php:327
-#, fuzzy
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -9760,16 +9730,12 @@ msgstr ""
 "[kbd]pma__bookmark[/kbd]"
 
 #: src/Config/Descriptions.php:339
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no central columns support, suggested: "
-#| "[kbd]pma__central_columns[/kbd]."
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Để trống nếu không có hỗ trợ cột trung tâm, gợi ý: "
-"[kbd]pma__central_columns[/kbd]."
+"Để trống nếu không có chú thích cột/loại phương tiện, gợi ý: "
+"[kbd]pma__column_info[/kbd]."
 
 #: src/Config/Descriptions.php:342
 msgid ""
@@ -9798,18 +9764,13 @@ msgstr ""
 "chủ."
 
 #: src/Config/Descriptions.php:354
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Thông tin thêm trên [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] và [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"Thông tin thêm trên [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]"
+"theo dõi lỗi phpMyAdmin[/a] và [a@https://bugs.mysql.com/19588]Lỗi MySQL[/a]"
 
 #: src/Config/Descriptions.php:358
 msgid ""
@@ -9828,7 +9789,6 @@ msgstr ""
 "bản ghi cũ nhất được tự động xóa."
 
 #: src/Config/Descriptions.php:365
-#, fuzzy
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
@@ -9957,12 +9917,16 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
 msgstr ""
+"Để trống nếu không hỗ trợ theo dõi truy vấn SQL, gợi ý: "
+"[kbd]pma__tracking[/kbd]."
 
 #: src/Config/Descriptions.php:429
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
+"Liệu cơ chế theo dõi có tự động tạo phiên bản cho bảng và chế độ xem hay "
+"không."
 
 #: src/Config/Descriptions.php:432
 msgid ""
@@ -16400,6 +16364,8 @@ msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
+"Các hàm ini_get và/hoặc ini_set bị tắt trong php.ini. phpMyAdmin yêu cầu các "
+"chức năng này!"
 
 #: src/Http/Middleware/TokenMismatchChecking.php:30
 msgid "Error: Token mismatch"
@@ -16410,6 +16376,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Không thể đặt cookie phiên. Có thể bạn đang sử dụng HTTP thay vì HTTPS để "
+"truy cập phpMyAdmin."
 
 #: src/I18n/LanguageManager.php:961
 msgid "Ignoring unsupported language code."
