@@ -6156,41 +6156,25 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$this->config->get('Lang')]]></code>
-      <code><![CDATA[$this->config->getCookie('pma_lang')]]></code>
-    </MixedArgument>
+    <DocblockTypeContradiction>
+      <code><![CDATA[$locales]]></code>
+    </DocblockTypeContradiction>
     <MixedArrayOffset>
       <code><![CDATA[$langs[$this->config->get('DefaultLang')]]]></code>
     </MixedArrayOffset>
     <MixedArrayTypeCoercion>
       <code><![CDATA[$langs[$this->config->get('DefaultLang')]]]></code>
     </MixedArrayTypeCoercion>
-    <MixedOperand>
-      <code><![CDATA[$this->config->get('FilterLanguages')]]></code>
-    </MixedOperand>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_GET['lang']]]></code>
-      <code><![CDATA[$_POST['lang']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['lang']]]></code>
-      <code><![CDATA[$_POST['lang']]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyNullArgument>
-      <code><![CDATA[$this->config->get('Lang')]]></code>
-      <code><![CDATA[$this->config->getCookie('pma_lang')]]></code>
-    </PossiblyNullArgument>
+    <MixedAssignment>
+      <code><![CDATA[$languageFromConfig]]></code>
+      <code><![CDATA[$languageFromCookie]]></code>
+    </MixedAssignment>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$langs]]></code>
     </PossiblyNullArrayOffset>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_GET['lang'])]]></code>
-      <code><![CDATA[empty($_POST['lang'])]]></code>
-      <code><![CDATA[empty($this->config->get('FilterLanguages'))]]></code>
-      <code><![CDATA[empty($this->config->get('Lang'))]]></code>
-      <code><![CDATA[empty($this->config->getCookie('pma_lang'))]]></code>
-    </RiskyTruthyFalsyComparison>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[$availableLocales !== false]]></code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Image/ImageWrapper.php">
     <PossiblyUnusedReturnValue>
@@ -13409,17 +13393,9 @@
       <code><![CDATA[providerForTestGetRoute]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="tests/unit/I18n/LanguageTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
+  <file src="tests/unit/I18n/LanguageManagerTest.php">
     <PossiblyUnusedMethod>
-      <code><![CDATA[listLocales]]></code>
+      <code><![CDATA[availableLocalesProvider]]></code>
       <code><![CDATA[selectDataProvider]]></code>
     </PossiblyUnusedMethod>
   </file>
