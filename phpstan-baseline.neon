@@ -6985,12 +6985,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#4 \$sortDirection of method PhpMyAdmin\\Display\\Results\:\:getSingleAndMultiSortUrls\(\) expects array\<string\>, array\<mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Parameter \#6 \$colVisib of method PhpMyAdmin\\Display\\Results\:\:getRowValues\(\) expects array\<mixed\>\|bool\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1

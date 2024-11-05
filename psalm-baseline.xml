@@ -4123,6 +4123,9 @@
     </MixedReturnTypeCoercion>
   </file>
   <file src="src/Display/Results.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$sortDirection]]></code>
+    </ArgumentTypeCoercion>
     <InvalidArgument>
       <code><![CDATA[$linkingUrlParams]]></code>
       <code><![CDATA[$linkingUrlParams]]></code>
@@ -4159,9 +4162,6 @@
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[empty($field->database) ? $this->db : $field->database]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$sortDirection]]></code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['display_binary']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['display_binary']]]></code>

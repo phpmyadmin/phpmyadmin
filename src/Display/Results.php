@@ -673,7 +673,7 @@ class Results
      *
      * @param array<int, string> $sortExpressionNoDirection sort expression
      *                                                        without direction
-     * @param mixed[]            $sortDirection             sort direction
+     * @param ('ASC'|'DESC')[]   $sortDirection             sort direction
      * @param bool               $isLimitedDisplay          with limited operations
      *                                                        or not
      *
@@ -769,7 +769,7 @@ class Results
      * @see getTable()
      *
      * @param array<int, string> $sortExpressionNoDirection sort expression without direction
-     * @param mixed[]            $sortDirection             sort direction
+     * @param ('ASC'|'DESC')[]   $sortDirection             sort direction
      * @param bool               $isLimitedDisplay          with limited operations or not
      *
      * @psalm-return array{
@@ -1154,7 +1154,7 @@ class Results
      * @param array<int, string> $sortExpressionNoDirection sort expression without direction
      * @param int                $sessionMaxRows            maximum rows resulted by sql
      * @param string             $comments                  comment for row
-     * @param mixed[]            $sortDirection             sort direction
+     * @param ('ASC'|'DESC')[]   $sortDirection             sort direction
      * @param bool|mixed[]       $colVisib                  column is visible(false)
      *                                                      or column isn't visible(string array)
      * @param int|string|null    $colVisibElement           element of $col_visib array
@@ -1253,7 +1253,7 @@ class Results
      * @param string             $sortTable                 The name of the table to which
      *                                                      the current column belongs to
      * @param string             $currentName               The current column under consideration
-     * @param string[]           $sortDirection             sort direction
+     * @param ('ASC'|'DESC')[]   $sortDirection             sort direction
      * @param FieldMetadata      $fieldsMeta                set of field properties
      *
      * @return string[]   3 element array - $single_sort_order, $sort_order, $order_img
@@ -1274,12 +1274,13 @@ class Results
             $tableName = $sortTable === '' ? '' : Util::backquote($sortTable) . '.';
             $sortExpressionNoDirection[$specialIndex] = $tableName . Util::backquote($currentName);
             // Set the direction to the config value
-            $sortDirection[$specialIndex] = $this->config->settings['Order'];
             // Or perform SMART mode
             if ($this->config->settings['Order'] === self::SMART_SORT_ORDER) {
                 $sortDirection[$specialIndex] = $fieldsMeta->isDateTimeType()
                     ? self::DESCENDING_SORT_DIR
                     : self::ASCENDING_SORT_DIR;
+            } else {
+                $sortDirection[$specialIndex] = $this->config->settings['Order'];
             }
         }
 
@@ -1315,22 +1316,26 @@ class Results
                 $singleSortOrder .= Util::backquote($currentName) . ' ';
 
                 if ($isInSort) {
-                    [$singleSortOrder, $orderImg] = $this->getSortingUrlParams(
-                        $sortDirection[$index],
-                        $singleSortOrder,
-                    );
+                    $singleSortOrder .= match ($sortDirection[$index]) {
+                        self::ASCENDING_SORT_DIR => self::DESCENDING_SORT_DIR,
+                        self::DESCENDING_SORT_DIR => self::ASCENDING_SORT_DIR,
+                    };
                 } else {
-                    $singleSortOrder .= strtoupper($sortDirection[$index]);
+                    $singleSortOrder .= $sortDirection[$index];
                 }
             }
 
             $sortOrder .= ' ';
             if ($currentName === $expression && $isInSort) {
                 // We need to generate the arrow button and related html
-                [$sortOrder, $orderImg] = $this->getSortingUrlParams($sortDirection[$index], $sortOrder);
+                $orderImg = $this->getSortingUrlParams($sortDirection[$index]);
                 $orderImg .= ' <small>' . ($index + 1) . '</small>';
+                $sortOrder .= match ($sortDirection[$index]) {
+                    self::ASCENDING_SORT_DIR => self::DESCENDING_SORT_DIR,
+                    self::DESCENDING_SORT_DIR => self::ASCENDING_SORT_DIR,
+                };
             } else {
-                $sortOrder .= strtoupper($sortDirection[$index]);
+                $sortOrder .= $sortDirection[$index];
             }
 
             // Separate columns by a comma
@@ -1374,16 +1379,10 @@ class Results
      * Get sort url parameters - sort order and order image
      *
      * @see     getSingleAndMultiSortUrls()
-     *
-     * @param string $sortDirection the sort direction
-     * @param string $sortOrder     the sorting order
-     *
-     * @return string[]             2 element array - $sort_order, $order_img
      */
-    private function getSortingUrlParams(string $sortDirection, string $sortOrder): array
+    private function getSortingUrlParams(string $sortDirection): string
     {
-        if (strtoupper(trim($sortDirection)) === self::DESCENDING_SORT_DIR) {
-            $sortOrder .= self::ASCENDING_SORT_DIR;
+        if ($sortDirection === self::DESCENDING_SORT_DIR) {
             $orderImg = ' ' . Generator::getImage(
                 's_desc',
                 __('Descending'),
@@ -1395,7 +1394,6 @@ class Results
                 ['class' => 'soimg hide', 'title' => ''],
             );
         } else {
-            $sortOrder .= self::DESCENDING_SORT_DIR;
             $orderImg = ' ' . Generator::getImage(
                 's_asc',
                 __('Ascending'),
@@ -1408,7 +1406,7 @@ class Results
             );
         }
 
-        return [$sortOrder, $orderImg];
+        return $orderImg;
     }
 
     /**
@@ -3039,7 +3037,6 @@ class Results
         } else {
             $sortExpression[] = '';
             $sortExpressionNoDirection[] = '';
-            $sortDirection[] = '';
         }
 
         // 1.4 Prepares display of first and last value of the sorted column
