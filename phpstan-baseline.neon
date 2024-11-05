@@ -6577,18 +6577,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Binary operation "\." between non\-empty\-string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Binary operation "\." between string and \(list\<string\>\|string\) results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Binary operation "/" between int and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -6883,12 +6871,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 3
-			path: src/Display/Results.php
-
-		-
 			message: '#^Parameter \#1 \$offset of method PhpMyAdmin\\Dbal\\ResultInterface\:\:seek\(\) expects int, float\|int given\.$#'
 			identifier: argument.type
 			count: 2
@@ -6961,12 +6943,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Parameter \#2 \$string2 of function strcasecmp expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -6994,12 +6970,6 @@ parameters:
 			message: '#^Parameter \#3 \$colOrder of method PhpMyAdmin\\Display\\Results\:\:getRowValues\(\) expects array\<mixed\>\|false, mixed given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 3
 			path: src/Display/Results.php
 
 		-

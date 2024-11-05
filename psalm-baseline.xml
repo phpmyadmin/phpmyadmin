@@ -4142,22 +4142,17 @@
       <code><![CDATA[$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['query']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['query']]]></code>
-      <code><![CDATA[$clause]]></code>
       <code><![CDATA[$colOrder]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisibCurrent]]></code>
       <code><![CDATA[$expr->alias]]></code>
       <code><![CDATA[$field->table]]></code>
-      <code><![CDATA[$newSortExpressionNoDirection]]></code>
       <code><![CDATA[$rel['foreign_db']]]></code>
       <code><![CDATA[$rel['foreign_db']]]></code>
       <code><![CDATA[$rel['foreign_field']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
-      <code><![CDATA[$sortExpressionNoDirection[$indexInExpression]]]></code>
-      <code><![CDATA[$sortExpressionNoDirection[$indexInExpression]]]></code>
-      <code><![CDATA[$sortExpressionNoDirection[$indexInExpression]]]></code>
       <code><![CDATA[$statementInfo->statement->from]]></code>
       <code><![CDATA[$urlParams['where_clause']]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
@@ -4283,7 +4278,6 @@
       <code><![CDATA[$_SESSION['tmpval']['query'][$sqlMd5]]]></code>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['repeat_cells']]]></code>
-      <code><![CDATA[$clause]]></code>
       <code><![CDATA[$colOrder]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisibCurrent]]></code>
@@ -4295,7 +4289,6 @@
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$identifier]]></code>
       <code><![CDATA[$meta->name]]></code>
-      <code><![CDATA[$newSortExpressionNoDirection]]></code>
       <code><![CDATA[$query]]></code>
       <code><![CDATA[$relationalDisplay]]></code>
       <code><![CDATA[$value]]></code>
@@ -4308,7 +4301,6 @@
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['repeat_cells']]]></code>
-      <code><![CDATA[$sortExpressionNoDirection[$indexInExpression]]]></code>
     </MixedOperand>
     <MixedPropertyFetch>
       <code><![CDATA[$expr->alias]]></code>
@@ -4380,6 +4372,7 @@
       <code><![CDATA[$posMimeOctetstream]]></code>
       <code><![CDATA[empty($linkRelations['link_dependancy_params'])]]></code>
       <code><![CDATA[empty($rowInfo['routine_type'])]]></code>
+      <code><![CDATA[empty($sortExpression[$indexInExpression])]]></code>
       <code><![CDATA[empty($statement->order)]]></code>
       <code><![CDATA[empty($this->mediaTypeMap[$orgFullColName]['input_transformation'])]]></code>
       <code><![CDATA[empty($this->mediaTypeMap[$orgFullColName]['transformation'])]]></code>
