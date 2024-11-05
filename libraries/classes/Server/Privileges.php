@@ -2539,7 +2539,7 @@ class Privileges
         $message = null;
         $queries = null;
         $queriesForDisplay = null;
-        $sqlQuery = null;
+        $sqlQuery = '';
 
         if (! isset($_POST['adduser_submit']) && ! isset($_POST['change_copy'])) {
             return [
@@ -2551,7 +2551,6 @@ class Privileges
             ];
         }
 
-        $sqlQuery = '';
         // Some reports where sent to the error reporting server with phpMyAdmin 5.1.0
         // pred_username was reported to be not defined
         $predUsername = $_POST['pred_username'] ?? '';
