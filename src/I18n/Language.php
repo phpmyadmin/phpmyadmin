@@ -4,15 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\I18n;
 
-use function __;
-use function _bindtextdomain;
-use function _setlocale;
-use function _textdomain;
 use function addcslashes;
-use function function_exists;
 use function in_array;
 use function preg_match;
-use function setlocale;
 use function str_contains;
 use function str_replace;
 use function strcmp;
@@ -145,38 +139,5 @@ class Language
     public function isRTL(): bool
     {
         return in_array($this->code, ['ar', 'fa', 'he', 'ur'], true);
-    }
-
-    /**
-     * Activates given translation
-     */
-    public function activate(): void
-    {
-        $GLOBALS['lang'] = $this->code;
-
-        // Set locale
-        _setlocale(0, $this->code);
-        _bindtextdomain('phpmyadmin', LOCALE_PATH);
-        _textdomain('phpmyadmin');
-        // Set PHP locale as well
-        if (function_exists('setlocale')) {
-            setlocale(0, $this->code);
-        }
-
-        LanguageManager::$textDirection = $this->isRTL() ? TextDirection::RightToLeft : TextDirection::LeftToRight;
-
-        /* TCPDF */
-        $GLOBALS['l'] = [];
-
-        /* TCPDF settings */
-        $GLOBALS['l']['a_meta_charset'] = 'UTF-8';
-        $GLOBALS['l']['a_meta_dir'] = LanguageManager::$textDirection->value;
-        $GLOBALS['l']['a_meta_language'] = $this->code;
-
-        /* TCPDF translations */
-        $GLOBALS['l']['w_page'] = __('Page number:');
-
-        /* Show possible warnings from language selection */
-        LanguageManager::getInstance()->showWarnings();
     }
 }

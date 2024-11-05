@@ -484,10 +484,11 @@ class Config
                 $this->setUserValue(null, 'lang', $GLOBALS['lang'], 'en');
             }
         } elseif (isset($configData['lang'])) {
+            $languageManager = LanguageManager::getInstance();
             // read language from settings
-            $language = LanguageManager::getInstance()->getLanguage($configData['lang']);
+            $language = $languageManager->getLanguage($configData['lang']);
             if ($language !== false) {
-                $language->activate();
+                $languageManager->activate($language);
                 $this->setCookie('pma_lang', $language->getCode());
             }
         }

@@ -13,6 +13,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Large;
 
 use function _ngettext;
+use function array_map;
 use function count;
 use function file_exists;
 use function is_readable;
@@ -21,23 +22,17 @@ use function strtolower;
 #[CoversClass(Language::class)]
 #[CoversClass(LanguageManager::class)]
 #[Large]
-class LanguageTest extends AbstractTestCase
+final class LanguageManagerTest extends AbstractTestCase
 {
-    private LanguageManager $manager;
-
-    /**
-     * Setup for Language tests.
-     */
     protected function setUp(): void
     {
         parent::setUp();
 
-        $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
-        if (! is_readable($loc)) {
-            self::markTestSkipped('Missing compiled locales.');
+        if (is_readable(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo')) {
+            return;
         }
 
-        $this->manager = new LanguageManager();
+        self::markTestSkipped('Missing compiled locales.');
     }
 
     protected function tearDown(): void
@@ -45,12 +40,18 @@ class LanguageTest extends AbstractTestCase
         parent::tearDown();
 
         // Ensure we have English locale after tests
-        $lang = $this->manager->getLanguage('en');
-        if ($lang === false) {
-            return;
-        }
+        $languageManager = new LanguageManager(new Config());
+        $lang = $languageManager->getLanguage('en');
+        self::assertNotFalse($lang);
+        $languageManager->activate($lang);
+    }
 
-        $lang->activate();
+    public function testUniqueness(): void
+    {
+        LanguageManager::$instance = null;
+        $instanceOne = LanguageManager::getInstance();
+        $instanceTwo = LanguageManager::getInstance();
+        self::assertSame($instanceOne, $instanceTwo);
     }
 
     /**
@@ -58,10 +59,10 @@ class LanguageTest extends AbstractTestCase
      */
     public function testAvailable(): void
     {
-        $config = Config::getInstance();
+        $config = new Config();
         $config->set('FilterLanguages', 'cs|en$');
 
-        $langs = $this->manager->availableLocales();
+        $langs = (new LanguageManager($config))->availableLocales();
 
         self::assertCount(2, $langs);
         self::assertContains('cs', $langs);
@@ -73,9 +74,10 @@ class LanguageTest extends AbstractTestCase
      */
     public function testAllAvailable(): void
     {
-        Config::getInstance()->set('FilterLanguages', '');
+        $config = new Config();
+        $config->set('FilterLanguages', '');
 
-        $langs = $this->manager->availableLocales();
+        $langs = (new LanguageManager($config))->availableLocales();
 
         self::assertContains('cs', $langs);
         self::assertContains('en', $langs);
@@ -86,7 +88,7 @@ class LanguageTest extends AbstractTestCase
      */
     public function testList(): void
     {
-        $langs = $this->manager->listLocaleDir();
+        $langs = (new LanguageManager(new Config()))->listLocaleDir();
         self::assertContains('cs', $langs);
         self::assertContains('en', $langs);
     }
@@ -96,7 +98,7 @@ class LanguageTest extends AbstractTestCase
      */
     public function testLanguages(): void
     {
-        $langs = $this->manager->availableLanguages();
+        $langs = (new LanguageManager(new Config()))->availableLanguages();
         self::assertGreaterThan(1, count($langs));
 
         /* Ensure we have name for every language */
@@ -115,12 +117,14 @@ class LanguageTest extends AbstractTestCase
      */
     public function testMySQLLocale(): void
     {
-        Config::getInstance()->set('FilterLanguages', '');
-        $czech = $this->manager->getLanguage('cs');
+        $config = new Config();
+        $config->set('FilterLanguages', '');
+        $languageManager = new LanguageManager($config);
+        $czech = $languageManager->getLanguage('cs');
         self::assertNotFalse($czech);
         self::assertSame('cs_CZ', $czech->getMySQLLocale());
 
-        $azerbaijani = $this->manager->getLanguage('az');
+        $azerbaijani = $languageManager->getLanguage('az');
         self::assertNotFalse($azerbaijani);
         self::assertSame('', $azerbaijani->getMySQLLocale());
     }
@@ -130,7 +134,7 @@ class LanguageTest extends AbstractTestCase
      */
     public function testSortedLanguages(): void
     {
-        $langs = $this->manager->sortedLanguages();
+        $langs = (new LanguageManager(new Config()))->sortedLanguages();
         self::assertGreaterThan(1, count($langs));
     }
 
@@ -139,12 +143,14 @@ class LanguageTest extends AbstractTestCase
      */
     public function testGet(): void
     {
-        Config::getInstance()->set('FilterLanguages', '');
-        $lang = $this->manager->getLanguage('cs');
+        $config = new Config();
+        $config->set('FilterLanguages', '');
+        $languageManager = new LanguageManager($config);
+        $lang = $languageManager->getLanguage('cs');
         self::assertNotFalse($lang);
         self::assertSame('Czech', $lang->getEnglishName());
         self::assertSame('Čeština', $lang->getNativeName());
-        $lang = $this->manager->getLanguage('nonexisting');
+        $lang = $languageManager->getLanguage('nonexisting');
         self::assertFalse($lang);
     }
 
@@ -176,7 +182,7 @@ class LanguageTest extends AbstractTestCase
             self::markTestSkipped('Locale file does not exists: ' . $expect);
         }
 
-        $config = Config::getInstance();
+        $config = new Config();
         $config->set('FilterLanguages', '');
         $config->set('Lang', $lang);
         $config->set('is_https', false);
@@ -187,7 +193,7 @@ class LanguageTest extends AbstractTestCase
         $_SERVER['HTTP_USER_AGENT'] = $agent;
         $config->set('DefaultLang', $default);
 
-        $lang = $this->manager->selectLanguage();
+        $lang = (new LanguageManager($config))->selectLanguage();
 
         self::assertSame($expect, $lang->getCode());
 
@@ -233,42 +239,33 @@ class LanguageTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * Test for setting and parsing locales
-     *
-     * @param string $locale locale name
-     */
-    #[DataProvider('listLocales')]
-    public function testGettext(string $locale): void
+    #[DataProvider('availableLocalesProvider')]
+    public function testSettingAndParsingLocales(string $localeCode): void
     {
-        Config::getInstance()->set('FilterLanguages', '');
+        $config = new Config();
+        $config->set('FilterLanguages', '');
         /* We should be able to set the language */
-        $lang = $this->manager->getLanguage($locale);
+        $languageManager = new LanguageManager($config);
+        $lang = $languageManager->getLanguage($localeCode);
         self::assertNotFalse($lang);
-        $lang->activate();
+        $languageManager->activate($lang);
 
         /* Grab some texts */
         self::assertStringContainsString('%s', _ngettext('%s table', '%s tables', 10));
         self::assertStringContainsString('%s', _ngettext('%s table', '%s tables', 1));
 
-        self::assertSame(
-            $locale,
-            $this->manager->getCurrentLanguage()->getCode(),
-        );
+        self::assertSame($localeCode, $languageManager->getCurrentLanguage()->getCode());
     }
 
     /**
      * Data provider to generate list of available locales.
      *
-     * @return mixed[] with arrays of available locales
+     * @return array<string, array{string}>
      */
-    public static function listLocales(): array
+    public static function availableLocalesProvider(): array
     {
-        $ret = [];
-        foreach (LanguageManager::getInstance()->availableLanguages() as $language) {
-            $ret[] = [$language->getCode()];
-        }
+        $availableLanguages = (new LanguageManager(new Config()))->availableLanguages();
 
-        return $ret;
+        return array_map(static fn ($language) => [$language->getCode()], $availableLanguages);
     }
 }

@@ -9,14 +9,20 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Exceptions\UnsupportedLanguageCode;
 
 use function __;
+use function _bindtextdomain;
+use function _setlocale;
+use function _textdomain;
 use function closedir;
 use function count;
 use function explode;
 use function file_exists;
+use function function_exists;
 use function is_dir;
+use function is_string;
 use function opendir;
 use function preg_grep;
 use function readdir;
+use function setlocale;
 use function strtolower;
 use function uasort;
 use function ucfirst;
@@ -721,15 +727,12 @@ class LanguageManager
 
     private bool $langFailedRequest = false;
 
-    private static LanguageManager|null $instance = null;
+    public static LanguageManager|null $instance = null;
 
     public static TextDirection $textDirection = TextDirection::LeftToRight;
 
-    private readonly Config $config;
-
-    public function __construct()
+    public function __construct(private readonly Config $config)
     {
-        $this->config = Config::getInstance();
     }
 
     /**
@@ -738,7 +741,7 @@ class LanguageManager
     public static function getInstance(): LanguageManager
     {
         if (self::$instance === null) {
-            self::$instance = new LanguageManager();
+            self::$instance = new LanguageManager(Config::getInstance());
         }
 
         return self::$instance;
@@ -791,18 +794,19 @@ class LanguageManager
      */
     public function availableLocales(): array
     {
-        if ($this->availableLocales === []) {
-            if (empty($this->config->get('FilterLanguages'))) {
-                $this->availableLocales = $this->listLocaleDir();
-            } else {
-                $this->availableLocales = preg_grep(
-                    '@' . $this->config->get('FilterLanguages') . '@',
-                    $this->listLocaleDir(),
-                );
-            }
+        if ($this->availableLocales !== []) {
+            return $this->availableLocales;
         }
 
-        return $this->availableLocales;
+        $filterLanguages = $this->config->get('FilterLanguages');
+        if (! is_string($filterLanguages) || $filterLanguages === '') {
+            return $this->availableLocales = $this->listLocaleDir();
+        }
+
+        $locales = $this->listLocaleDir();
+        $availableLocales = preg_grep('@' . $filterLanguages . '@', $locales);
+
+        return $this->availableLocales = $availableLocales !== false ? $availableLocales : $locales;
     }
 
     /**
@@ -878,9 +882,9 @@ class LanguageManager
      */
     public function selectLanguage(): Language
     {
-        // check forced language
-        if (! empty($this->config->get('Lang'))) {
-            $lang = $this->getLanguage($this->config->get('Lang'));
+        $languageFromConfig = $this->config->get('Lang');
+        if (is_string($languageFromConfig) && $languageFromConfig !== '') {
+            $lang = $this->getLanguage($languageFromConfig);
             if ($lang !== false) {
                 return $lang;
             }
@@ -888,10 +892,9 @@ class LanguageManager
             $this->langFailedConfig = true;
         }
 
-        // Don't use REQUEST in following code as it might be confused by cookies
-        // with same name. Check user requested language (POST)
-        if (! empty($_POST['lang'])) {
-            $lang = $this->getLanguage($_POST['lang']);
+        $languageFromRequest = $_POST['lang'] ?? null;
+        if (is_string($languageFromRequest) && $languageFromRequest !== '') {
+            $lang = $this->getLanguage($languageFromRequest);
             if ($lang !== false) {
                 return $lang;
             }
@@ -899,9 +902,9 @@ class LanguageManager
             $this->langFailedRequest = true;
         }
 
-        // check user requested language (GET)
-        if (! empty($_GET['lang'])) {
-            $lang = $this->getLanguage($_GET['lang']);
+        $languageFromRequest = $_GET['lang'] ?? null;
+        if (is_string($languageFromRequest) && $languageFromRequest !== '') {
+            $lang = $this->getLanguage($languageFromRequest);
             if ($lang !== false) {
                 return $lang;
             }
@@ -909,9 +912,9 @@ class LanguageManager
             $this->langFailedRequest = true;
         }
 
-        // check previous set language
-        if (! empty($this->config->getCookie('pma_lang'))) {
-            $lang = $this->getLanguage($this->config->getCookie('pma_lang'));
+        $languageFromCookie = $this->config->getCookie('pma_lang');
+        if (is_string($languageFromCookie) && $languageFromCookie !== '') {
+            $lang = $this->getLanguage($languageFromCookie);
             if ($lang !== false) {
                 return $lang;
             }
@@ -950,6 +953,8 @@ class LanguageManager
     /**
      * Displays warnings about invalid languages. This needs to be postponed
      * to show messages at time when language is initialized.
+     *
+     * @throws UnsupportedLanguageCode
      */
     public function showWarnings(): void
     {
@@ -959,5 +964,37 @@ class LanguageManager
         }
 
         throw new UnsupportedLanguageCode(__('Ignoring unsupported language code.'));
+    }
+
+    /**
+     * Activates given translation
+     *
+     * @throws UnsupportedLanguageCode
+     */
+    public function activate(Language $language): void
+    {
+        $GLOBALS['lang'] = $language->getCode();
+
+        // Set locale
+        _setlocale(0, $language->getCode());
+        _bindtextdomain('phpmyadmin', LOCALE_PATH);
+        _textdomain('phpmyadmin');
+        // Set PHP locale as well
+        if (function_exists('setlocale')) {
+            setlocale(0, $language->getCode());
+        }
+
+        self::$textDirection = $language->isRTL() ? TextDirection::RightToLeft : TextDirection::LeftToRight;
+
+        /* TCPDF settings and translations */
+        $GLOBALS['l'] = [
+            'a_meta_charset' => 'UTF-8',
+            'a_meta_dir' => self::$textDirection->value,
+            'a_meta_language' => $language->getCode(),
+            'w_page' => __('Page number:'),
+        ];
+
+        /* Show possible warnings from language selection */
+        $this->showWarnings();
     }
 }

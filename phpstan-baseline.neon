@@ -7855,26 +7855,6 @@ parameters:
 			path: src/Http/ServerRequest.php
 
 		-
-			message: "#^Cannot access offset 'a_meta_dir' on mixed\\.$#"
-			count: 1
-			path: src/I18n/Language.php
-
-		-
-			message: "#^Cannot access offset 'a_meta_language' on mixed\\.$#"
-			count: 1
-			path: src/I18n/Language.php
-
-		-
-			message: "#^Cannot access offset 'w_page' on mixed\\.$#"
-			count: 1
-			path: src/I18n/Language.php
-
-		-
-			message: "#^Parameter \\#2 \\$path of function _bindtextdomain expects string, mixed given\\.$#"
-			count: 1
-			path: src/I18n/Language.php
-
-		-
 			message: """
 				#^Call to deprecated method getInstance\\(\\) of class PhpMyAdmin\\\\Config\\:
 				Use dependency injection instead\\.$#
@@ -7883,18 +7863,8 @@ parameters:
 			path: src/I18n/LanguageManager.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 5
-			path: src/I18n/LanguageManager.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\I18n\\\\LanguageManager\\:\\:availableLocales\\(\\) should return array\\<string\\> but returns array\\|false\\.$#"
+			message: "#^Method PhpMyAdmin\\\\I18n\\\\LanguageManager\\:\\:availableLocales\\(\\) should return array\\<string\\> but returns array\\.$#"
 			count: 1
-			path: src/I18n/LanguageManager.php
-
-		-
-			message: "#^Parameter \\#1 \\$code of method PhpMyAdmin\\\\I18n\\\\LanguageManager\\:\\:getLanguage\\(\\) expects string, mixed given\\.$#"
-			count: 4
 			path: src/I18n/LanguageManager.php
 
 		-
@@ -7913,7 +7883,12 @@ parameters:
 			path: src/I18n/LanguageManager.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\I18n\\\\LanguageManager\\:\\:\\$availableLocales \\(array\\<string\\>\\) does not accept array\\|false\\.$#"
+			message: "#^Parameter \\#2 \\$path of function _bindtextdomain expects string, mixed given\\.$#"
+			count: 1
+			path: src/I18n/LanguageManager.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\I18n\\\\LanguageManager\\:\\:\\$availableLocales \\(array\\<string\\>\\) does not accept array\\.$#"
 			count: 1
 			path: src/I18n/LanguageManager.php
 
@@ -16669,14 +16644,6 @@ parameters:
 			"""
 			count: 1
 			path: tests/unit/Html/MySQLDocumentationTest.php
-
-		-
-			message: """
-				#^Call to deprecated method getInstance\\(\\) of class PhpMyAdmin\\\\Config\\:
-				Use dependency injection instead\\.$#
-			"""
-			count: 6
-			path: tests/unit/I18n/LanguageTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with true will always evaluate to true\\.$#"
