@@ -8,6 +8,7 @@ use PhpMyAdmin\Cache;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -99,6 +100,16 @@ abstract class AbstractTestCase extends TestCase
         $this->setGlobalDbi();
         $this->loadDbiIntoContainerBuilder();
         Cache::purge();
+    }
+
+    protected function createDatabaseInterface(?DbiExtension $extension = null): DatabaseInterface
+    {
+        return new DatabaseInterface($extension ?? $this->createDbiDummy());
+    }
+
+    protected function createDbiDummy(): DbiDummy
+    {
+        return new DbiDummy();
     }
 
     protected function assertAllQueriesConsumed(): void
