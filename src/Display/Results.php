@@ -1294,6 +1294,8 @@ class Results
             // order by clause to the  column name
             $sortOrder = $index === 0 ? 'ORDER BY ' : '';
 
+            $tableOfColumn = $currentTable;
+
             // Test to detect if the column name is a standard name
             // Standard name has the table name prefixed to the column name
             if ($tableAndColumn === null) {
@@ -1301,13 +1303,14 @@ class Results
             } elseif (count($tableAndColumn) === 2) {
                 $expression = $tableAndColumn[1];
                 $sortOrder .= Util::backquote($tableAndColumn[0]) . '.' . Util::backquote($expression);
+                $tableOfColumn = $tableAndColumn[0];
             } else {
                 $expression = $tableAndColumn[0];
                 $sortOrder .= Util::backquote($expression);
             }
 
             // Incase this is the current column save $single_sort_order
-            if ($currentColumn === $expression) {
+            if ($currentColumn === $expression && $currentTable === $tableOfColumn) {
                 $singleSortOrder = 'ORDER BY ';
                 if ($currentTable !== '') {
                     $singleSortOrder .= Util::backquote($currentTable) . '.';
@@ -1326,7 +1329,7 @@ class Results
             }
 
             $sortOrder .= ' ';
-            if ($currentColumn === $expression && $isInSort) {
+            if ($currentColumn === $expression && $currentTable === $tableOfColumn && $isInSort) {
                 // We need to generate the arrow button and related html
                 $orderImg = $this->getSortingUrlParams($sortDirection[$index]);
                 $orderImg .= ' <small>' . ($index + 1) . '</small>';
