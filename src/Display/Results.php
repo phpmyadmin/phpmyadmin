@@ -1250,9 +1250,9 @@ class Results
      * Prepare parameters and html for sorted table header fields
      *
      * @param array<int, string> $sortExpressionNoDirection sort expression without direction
-     * @param string             $sortTable                 The name of the table to which
-     *                                                      the current column belongs to
-     * @param string             $currentName               The current column under consideration
+     * @param string             $currentTable              The name of the table to which
+     *                                                   the current column belongs to
+     * @param string             $currentColumn             The current column under consideration
      * @param ('ASC'|'DESC')[]   $sortDirection             sort direction
      * @param FieldMetadata      $fieldsMeta                set of field properties
      *
@@ -1260,19 +1260,19 @@ class Results
      */
     private function getSingleAndMultiSortUrls(
         array $sortExpressionNoDirection,
-        string $sortTable,
-        string $currentName,
+        string $currentTable,
+        string $currentColumn,
         array $sortDirection,
         FieldMetadata $fieldsMeta,
     ): array {
         // Check if the current column is in the order by clause
-        $isInSort = $this->isInSorted($sortExpressionNoDirection, $sortTable, $currentName);
+        $isInSort = $this->isInSorted($sortExpressionNoDirection, $currentTable, $currentColumn);
         if ($sortExpressionNoDirection[0] == '' || ! $isInSort) {
             $specialIndex = $sortExpressionNoDirection[0] == ''
                 ? 0
                 : count($sortExpressionNoDirection);
-            $tableName = $sortTable === '' ? '' : Util::backquote($sortTable) . '.';
-            $sortExpressionNoDirection[$specialIndex] = $tableName . Util::backquote($currentName);
+            $tableName = $currentTable === '' ? '' : Util::backquote($currentTable) . '.';
+            $sortExpressionNoDirection[$specialIndex] = $tableName . Util::backquote($currentColumn);
             // Set the direction to the config value
             // Or perform SMART mode
             if ($this->config->settings['Order'] === self::SMART_SORT_ORDER) {
@@ -1307,13 +1307,13 @@ class Results
             }
 
             // Incase this is the current column save $single_sort_order
-            if ($currentName === $expression) {
+            if ($currentColumn === $expression) {
                 $singleSortOrder = 'ORDER BY ';
-                if ($sortTable !== '') {
-                    $singleSortOrder .= Util::backquote($sortTable) . '.';
+                if ($currentTable !== '') {
+                    $singleSortOrder .= Util::backquote($currentTable) . '.';
                 }
 
-                $singleSortOrder .= Util::backquote($currentName) . ' ';
+                $singleSortOrder .= Util::backquote($currentColumn) . ' ';
 
                 if ($isInSort) {
                     $singleSortOrder .= match ($sortDirection[$index]) {
@@ -1326,7 +1326,7 @@ class Results
             }
 
             $sortOrder .= ' ';
-            if ($currentName === $expression && $isInSort) {
+            if ($currentColumn === $expression && $isInSort) {
                 // We need to generate the arrow button and related html
                 $orderImg = $this->getSortingUrlParams($sortDirection[$index]);
                 $orderImg .= ' <small>' . ($index + 1) . '</small>';
@@ -1338,7 +1338,6 @@ class Results
                 $sortOrder .= $sortDirection[$index];
             }
 
-            // Separate columns by a comma
             $sortOrderColumns[] = $sortOrder;
         }
 
