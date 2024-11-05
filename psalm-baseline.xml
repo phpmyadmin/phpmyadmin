@@ -4161,7 +4161,6 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$sortDirection]]></code>
-      <code><![CDATA[$sortExpression]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['display_binary']]]></code>

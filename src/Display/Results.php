@@ -848,14 +848,14 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param mixed[]|null $sortExpression   the sort expression
-     * @param string       $unsortedSqlQuery the unsorted sql query
+     * @param string[] $sortExpression   the sort expression
+     * @param string   $unsortedSqlQuery the unsorted sql query
      *
      * @return mixed[][]
      * @psalm-return array{hidden_fields?:array, options?:array}
      */
     private function getSortByKeyDropDown(
-        array|null $sortExpression,
+        array $sortExpression,
         string $unsortedSqlQuery,
     ): array {
         // grab indexes data:
@@ -879,7 +879,7 @@ class Results
         }
 
         $isIndexUsed = false;
-        $localOrder = is_array($sortExpression) ? implode(', ', $sortExpression) : '';
+        $localOrder = implode(', ', $sortExpression);
 
         $options = [];
         foreach ($indexes as $index) {
