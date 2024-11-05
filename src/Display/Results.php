@@ -15,6 +15,7 @@ use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\IndexColumn;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Octetstream_Sql;
@@ -42,7 +43,7 @@ use PhpMyAdmin\Utils\Gis;
 
 use function __;
 use function array_filter;
-use function array_keys;
+use function array_map;
 use function array_merge;
 use function array_shift;
 use function bin2hex;
@@ -883,13 +884,15 @@ class Results
 
         $options = [];
         foreach ($indexes as $index) {
-            $ascSort = '`'
-                . implode('` ASC, `', array_keys($index->getColumns()))
-                . '` ASC';
+            $ascSort = implode(', ', array_map(
+                static fn (IndexColumn $indexName) => Util::backquote($indexName->getName()) . ' ASC',
+                $index->getColumns(),
+            ));
 
-            $descSort = '`'
-                . implode('` DESC, `', array_keys($index->getColumns()))
-                . '` DESC';
+            $descSort = implode(', ', array_map(
+                static fn (IndexColumn $indexName) => Util::backquote($indexName->getName()) . ' DESC',
+                $index->getColumns(),
+            ));
 
             $isIndexUsed = $isIndexUsed
                 || $localOrder === $ascSort
