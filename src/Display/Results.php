@@ -670,7 +670,6 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param string[]           $sortExpression            sort expression
      * @param array<int, string> $sortExpressionNoDirection sort expression
      *                                                        without direction
      * @param mixed[]            $sortDirection             sort direction
@@ -682,7 +681,6 @@ class Results
     private function getTableHeadersForColumns(
         bool $hasSortLink,
         StatementInfo $statementInfo,
-        array $sortExpression,
         array $sortExpressionNoDirection,
         array $sortDirection,
         bool $isLimitedDisplay,
@@ -720,7 +718,6 @@ class Results
             if ($hasSortLink && ! $isLimitedDisplay) {
                 $sortedHeaderData = $this->getOrderLinkAndSortedHeaderHtml(
                     $this->fieldsMeta[$i],
-                    $sortExpression,
                     $sortExpressionNoDirection,
                     $statementInfo,
                     $sessionMaxRows,
@@ -770,7 +767,6 @@ class Results
      *
      * @see getTable()
      *
-     * @param string[]           $sortExpression            sort expression
      * @param array<int, string> $sortExpressionNoDirection sort expression without direction
      * @param mixed[]            $sortDirection             sort direction
      * @param bool               $isLimitedDisplay          with limited operations or not
@@ -787,7 +783,6 @@ class Results
     private function getTableHeaders(
         DisplayParts $displayParts,
         StatementInfo $statementInfo,
-        array $sortExpression = [],
         array $sortExpressionNoDirection = [],
         array $sortDirection = [],
         bool $isLimitedDisplay = false,
@@ -826,7 +821,6 @@ class Results
         $tableHeadersForColumns = $this->getTableHeadersForColumns(
             $displayParts->hasSortLink,
             $statementInfo,
-            $sortExpression,
             $sortExpressionNoDirection,
             $sortDirection,
             $isLimitedDisplay,
@@ -1154,7 +1148,6 @@ class Results
      * @see getTableHeaders()
      *
      * @param FieldMetadata      $fieldsMeta                set of field properties
-     * @param string[]           $sortExpression            sort expression
      * @param array<int, string> $sortExpressionNoDirection sort expression without direction
      * @param int                $sessionMaxRows            maximum rows resulted by sql
      * @param string             $comments                  comment for row
@@ -1175,7 +1168,6 @@ class Results
      */
     private function getOrderLinkAndSortedHeaderHtml(
         FieldMetadata $fieldsMeta,
-        array $sortExpression,
         array $sortExpressionNoDirection,
         StatementInfo $statementInfo,
         int $sessionMaxRows,
@@ -1198,7 +1190,6 @@ class Results
         // Generates the orderby clause part of the query which is part
         // of URL
         [$singleSortOrder, $multiSortOrder, $orderImg] = $this->getSingleAndMultiSortUrls(
-            $sortExpression,
             $sortExpressionNoDirection,
             $sortTable,
             $fieldsMeta->name,
@@ -1255,7 +1246,6 @@ class Results
     /**
      * Prepare parameters and html for sorted table header fields
      *
-     * @param string[]           $sortExpression            sort expression
      * @param array<int, string> $sortExpressionNoDirection sort expression without direction
      * @param string             $sortTable                 The name of the table to which
      *                                                      the current column belongs to
@@ -1266,7 +1256,6 @@ class Results
      * @return string[]   3 element array - $single_sort_order, $sort_order, $order_img
      */
     private function getSingleAndMultiSortUrls(
-        array $sortExpression,
         array $sortExpressionNoDirection,
         string $sortTable,
         string $currentName,
@@ -1274,7 +1263,7 @@ class Results
         FieldMetadata $fieldsMeta,
     ): array {
         // Check if the current column is in the order by clause
-        $isInSort = $this->isInSorted($sortExpression, $sortExpressionNoDirection, $sortTable, $currentName);
+        $isInSort = $this->isInSorted($sortExpressionNoDirection, $sortTable, $currentName);
         if ($sortExpressionNoDirection[0] == '' || ! $isInSort) {
             $specialIndex = $sortExpressionNoDirection[0] == ''
                 ? 0
@@ -1353,66 +1342,29 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param string[] $sortExpression            sort expression
      * @param string[] $sortExpressionNoDirection sort expression without direction
-     * @param string   $sortTable                 the table name
-     * @param string   $nameToUseInSort           the sorting column name
      */
     private function isInSorted(
-        array $sortExpression,
         array $sortExpressionNoDirection,
-        string $sortTable,
-        string $nameToUseInSort,
+        string $currentTable,
+        string $currentColumn,
     ): bool {
-        $indexInExpression = 0;
-        if ($sortTable !== '') {
-            $sortTable = Util::backquote($sortTable) . '.';
-        }
-
-        foreach ($sortExpressionNoDirection as $index => $clause) {
-            if (str_contains($clause, '.')) {
-                $fragments = explode('.', $clause);
-                $clause2 = $fragments[0] . '.' . str_replace('`', '', $fragments[1]);
-            } else {
-                $clause2 = $sortTable . str_replace('`', '', $clause);
+        foreach ($sortExpressionNoDirection as $clause) {
+            $tableAndColumn = $this->parseStringIntoTableAndColumn($clause);
+            if ($tableAndColumn === null) {
+                continue;
             }
 
-            if ($clause2 === $sortTable . $nameToUseInSort) {
-                $indexInExpression = $index;
-                break;
+            if (count($tableAndColumn) === 2) {
+                if ($currentTable === $tableAndColumn[0] && $currentColumn === $tableAndColumn[1]) {
+                    return true;
+                }
+            } elseif ($currentColumn === $tableAndColumn[0]) {
+                return true;
             }
         }
 
-        if (empty($sortExpression[$indexInExpression])) {
-            return false;
-        }
-
-        // Field name may be preceded by a space, or any number
-        // of characters followed by a dot (tablename.fieldname)
-        // so do a direct comparison for the sort expression;
-        // this avoids problems with queries like
-        // "SELECT id, count(id)..." and clicking to sort
-        // on id or on count(id).
-        // Another query to test this:
-        // SELECT p.*, FROM_UNIXTIME(p.temps) FROM mytable AS p
-        // (and try clicking on each column's header twice)
-        $noSortTable = $sortTable === '' || ! str_contains($sortExpressionNoDirection[$indexInExpression], $sortTable);
-        $noOpenParenthesis = ! str_contains($sortExpressionNoDirection[$indexInExpression], '(');
-        if ($sortTable !== '' && $noSortTable && $noOpenParenthesis) {
-            $newSortExpressionNoDirection = $sortTable
-                . $sortExpressionNoDirection[$indexInExpression];
-        } else {
-            $newSortExpressionNoDirection = $sortExpressionNoDirection[$indexInExpression];
-        }
-
-        //Back quotes are removed in next comparison, so remove them from value
-        //to compare.
-        $nameToUseInSort = str_replace('`', '', $nameToUseInSort);
-
-        $sortName = str_replace('`', '', $sortTable) . $nameToUseInSort;
-
-        return $sortName == str_replace('`', '', $newSortExpressionNoDirection)
-            || $sortName == str_replace('`', '', $sortExpressionNoDirection[$indexInExpression]);
+        return false;
     }
 
     /**
@@ -3173,7 +3125,6 @@ class Results
         $headers = $this->getTableHeaders(
             $displayParts,
             $statementInfo,
-            $sortExpression,
             $sortExpressionNoDirection,
             $sortDirection,
             $isLimitedDisplay,

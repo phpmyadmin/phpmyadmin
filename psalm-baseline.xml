@@ -4372,7 +4372,6 @@
       <code><![CDATA[$posMimeOctetstream]]></code>
       <code><![CDATA[empty($linkRelations['link_dependancy_params'])]]></code>
       <code><![CDATA[empty($rowInfo['routine_type'])]]></code>
-      <code><![CDATA[empty($sortExpression[$indexInExpression])]]></code>
       <code><![CDATA[empty($statement->order)]]></code>
       <code><![CDATA[empty($this->mediaTypeMap[$orgFullColName]['input_transformation'])]]></code>
       <code><![CDATA[empty($this->mediaTypeMap[$orgFullColName]['transformation'])]]></code>

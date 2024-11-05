@@ -6753,7 +6753,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 24
+			count: 23
 			path: src/Display/Results.php
 
 		-
@@ -6765,7 +6765,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 8
+			count: 6
 			path: src/Display/Results.php
 
 		-
@@ -6973,19 +6973,19 @@ parameters:
 			path: src/Display/Results.php
 
 		-
+			message: '#^Parameter \#3 \$sortExpressionNoDirection of method PhpMyAdmin\\Display\\Results\:\:getTableHeaders\(\) expects array\<int, string\>, list\<string\|null\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Display/Results.php
+
+		-
 			message: '#^Parameter \#4 \$database of class PhpMyAdmin\\Display\\ForeignKeyRelatedTable constructor expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#4 \$sortExpressionNoDirection of method PhpMyAdmin\\Display\\Results\:\:getTableHeaders\(\) expects array\<int, string\>, list\<string\|null\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Parameter \#5 \$sortDirection of method PhpMyAdmin\\Display\\Results\:\:getSingleAndMultiSortUrls\(\) expects array\<string\>, array\<mixed\> given\.$#'
+			message: '#^Parameter \#4 \$sortDirection of method PhpMyAdmin\\Display\\Results\:\:getSingleAndMultiSortUrls\(\) expects array\<string\>, array\<mixed\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
@@ -6997,13 +6997,13 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#8 \$colVisib of method PhpMyAdmin\\Display\\Results\:\:getOrderLinkAndSortedHeaderHtml\(\) expects array\<mixed\>\|bool, mixed given\.$#'
+			message: '#^Parameter \#7 \$colVisib of method PhpMyAdmin\\Display\\Results\:\:getOrderLinkAndSortedHeaderHtml\(\) expects array\<mixed\>\|bool, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#9 \$colVisibElement of method PhpMyAdmin\\Display\\Results\:\:getOrderLinkAndSortedHeaderHtml\(\) expects int\|string\|null, mixed given\.$#'
+			message: '#^Parameter \#8 \$colVisibElement of method PhpMyAdmin\\Display\\Results\:\:getOrderLinkAndSortedHeaderHtml\(\) expects int\|string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
