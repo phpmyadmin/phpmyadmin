@@ -1762,9 +1762,8 @@ class ResultsTest extends AbstractTestCase
             DisplayResults::class,
             'getSingleAndMultiSortUrls',
             [
-                ['`Country`.`Code` ASC'], // sortExpression,
                 ['`Country`.`Code`'], // sortExpressionNoDirection,
-                '`Country`.',
+                'Country',
                 'FoundedIn',
                 ['ASC'], // sortDirection,
                 FieldHelper::fromArray(['type' => $metaType]),
@@ -1782,9 +1781,8 @@ class ResultsTest extends AbstractTestCase
             DisplayResults::class,
             'getSingleAndMultiSortUrls',
             [
-                ['`Country`.`Code` ASC'], // sortExpression,
                 ['`Country`.`Code`'], // sortExpressionNoDirection,
-                '`Country`.',
+                'Country',
                 'Code2',
                 ['ASC'], // sortDirection,
                 FieldHelper::fromArray(['type' => $metaType]),
@@ -1803,15 +1801,11 @@ class ResultsTest extends AbstractTestCase
             'getSingleAndMultiSortUrls',
             [
                 [
-                    '`Country`.`Continent` DESC","`Country`.`Region` ASC',
-                    '`Country`.`Population` ASC',
-                ], // sortExpression,
-                [
                     '`Country`.`Continent`',
                     '`Country`.`Region`',
                     '`Country`.`Population`',
                 ], // sortExpressionNoDirection,
-                '`Country`.',
+                'Country',
                 'Code2',
                 ['DESC', 'ASC', 'ASC'], // sortDirection,
                 FieldHelper::fromArray(['type' => $metaType]),
