@@ -23,8 +23,10 @@ use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\Plugins\TransformationsInterface;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\SqlParser\Utils\StatementInfo;
 use PhpMyAdmin\SqlParser\Utils\StatementType;
@@ -54,6 +56,7 @@ use function in_array;
 use function is_array;
 use function is_int;
 use function is_numeric;
+use function is_string;
 use function json_encode;
 use function max;
 use function mb_check_encoding;
@@ -67,7 +70,6 @@ use function pack;
 use function preg_match;
 use function random_int;
 use function str_contains;
-use function str_ends_with;
 use function str_replace;
 use function strcasecmp;
 use function strip_tags;
@@ -1190,7 +1192,7 @@ class Results
 
         $sortTable = $fieldsMeta->table !== ''
             && $fieldsMeta->orgname === $fieldsMeta->name
-            ? Util::backquote($fieldsMeta->table) . '.'
+            ? $fieldsMeta->table
             : '';
 
         // Generates the orderby clause part of the query which is part
@@ -1257,8 +1259,7 @@ class Results
      * @param array<int, string> $sortExpressionNoDirection sort expression without direction
      * @param string             $sortTable                 The name of the table to which
      *                                                      the current column belongs to
-     * @param string             $nameToUseInSort           The current column under
-     *                                                      consideration
+     * @param string             $currentName               The current column under consideration
      * @param string[]           $sortDirection             sort direction
      * @param FieldMetadata      $fieldsMeta                set of field properties
      *
@@ -1268,13 +1269,12 @@ class Results
         array $sortExpression,
         array $sortExpressionNoDirection,
         string $sortTable,
-        string $nameToUseInSort,
+        string $currentName,
         array $sortDirection,
         FieldMetadata $fieldsMeta,
     ): array {
         // Check if the current column is in the order by clause
-        $isInSort = $this->isInSorted($sortExpression, $sortExpressionNoDirection, $sortTable, $nameToUseInSort);
-        $currentName = $nameToUseInSort;
+        $isInSort = $this->isInSorted($sortExpression, $sortExpressionNoDirection, $sortTable, $currentName);
         if ($sortExpressionNoDirection[0] == '' || ! $isInSort) {
             $specialIndex = $sortExpressionNoDirection[0] == ''
                 ? 0
@@ -1284,11 +1284,9 @@ class Results
             $sortDirection[$specialIndex] = $this->config->settings['Order'];
             // Or perform SMART mode
             if ($this->config->settings['Order'] === self::SMART_SORT_ORDER) {
-                $isTimeOrDate = $fieldsMeta->isType(FieldMetadata::TYPE_TIME)
-                    || $fieldsMeta->isType(FieldMetadata::TYPE_DATE)
-                    || $fieldsMeta->isType(FieldMetadata::TYPE_DATETIME)
-                    || $fieldsMeta->isType(FieldMetadata::TYPE_TIMESTAMP);
-                $sortDirection[$specialIndex] = $isTimeOrDate ? self::DESCENDING_SORT_DIR : self::ASCENDING_SORT_DIR;
+                $sortDirection[$specialIndex] = $fieldsMeta->isDateTimeType()
+                    ? self::DESCENDING_SORT_DIR
+                    : self::ASCENDING_SORT_DIR;
             }
         }
 
@@ -1296,51 +1294,28 @@ class Results
         $singleSortOrder = '';
         $sortOrderColumns = [];
         foreach ($sortExpressionNoDirection as $index => $expression) {
-            $sortOrder = '';
-            // check if this is the first clause,
-            // if it is then we have to add "order by"
-            $isFirstClause = $index === 0;
-            $nameToUseInSort = $expression;
-            $sortTableNew = $sortTable;
-            // Test to detect if the column name is a standard name
-            // Standard name has the table name prefixed to the column name
-            if (str_contains($nameToUseInSort, '.') && ! str_contains($nameToUseInSort, '(')) {
-                $matches = explode('.', $nameToUseInSort);
-                // Matches[0] has the table name
-                // Matches[1] has the column name
-                $nameToUseInSort = $matches[1];
-                $sortTableNew = $matches[0];
-            }
-
-            // $name_to_use_in_sort might contain a space due to
-            // formatting of function expressions like "COUNT(name )"
-            // so we remove the space in this situation
-            $nameToUseInSort = str_replace([' )', '``'], [')', '`'], $nameToUseInSort);
-            $nameToUseInSort = trim($nameToUseInSort, '`');
+            $tableAndColumn = $this->parseStringIntoTableAndColumn($expression);
 
             // If this the first column name in the order by clause add
             // order by clause to the  column name
-            $sortOrder .= $isFirstClause ? "\nORDER BY " : '';
+            $sortOrder = $index === 0 ? 'ORDER BY ' : '';
 
-            // Again a check to see if the given column is a aggregate column
-            if (str_contains($nameToUseInSort, '(')) {
-                $sortOrder .= $nameToUseInSort;
+            // Test to detect if the column name is a standard name
+            // Standard name has the table name prefixed to the column name
+            if ($tableAndColumn === null) {
+                $sortOrder .= $expression;
+            } elseif (count($tableAndColumn) === 2) {
+                $expression = $tableAndColumn[1];
+                $sortOrder .= Util::backquote($tableAndColumn[0]) . '.' . Util::backquote($expression);
             } else {
-                if ($sortTableNew !== '' && ! str_ends_with($sortTableNew, '.')) {
-                    $sortTableNew .= '.';
-                }
-
-                $sortOrder .= $sortTableNew . Util::backquote($nameToUseInSort);
+                $expression = $tableAndColumn[0];
+                $sortOrder .= Util::backquote($sortTable) . '.' . Util::backquote($expression);
             }
 
             // Incase this is the current column save $single_sort_order
-            if ($currentName === $nameToUseInSort) {
-                $singleSortOrder = "\n" . 'ORDER BY ';
-
-                if (! str_contains($currentName, '(')) {
-                    $singleSortOrder .= $sortTable;
-                }
-
+            if ($currentName === $expression) {
+                $singleSortOrder = 'ORDER BY ';
+                $singleSortOrder .= Util::backquote($sortTable) . '.';
                 $singleSortOrder .= Util::backquote($currentName) . ' ';
 
                 if ($isInSort) {
@@ -1354,7 +1329,7 @@ class Results
             }
 
             $sortOrder .= ' ';
-            if ($currentName === $nameToUseInSort && $isInSort) {
+            if ($currentName === $expression && $isInSort) {
                 // We need to generate the arrow button and related html
                 [$sortOrder, $orderImg] = $this->getSortingUrlParams($sortDirection[$index], $sortOrder);
                 $orderImg .= ' <small>' . ($index + 1) . '</small>';
@@ -1386,6 +1361,9 @@ class Results
         string $nameToUseInSort,
     ): bool {
         $indexInExpression = 0;
+        if ($sortTable !== '') {
+            $sortTable = Util::backquote($sortTable) . '.';
+        }
 
         foreach ($sortExpressionNoDirection as $index => $clause) {
             if (str_contains($clause, '.')) {
@@ -3926,5 +3904,33 @@ class Results
         }
 
         return [$truncated, $str, $originalLength];
+    }
+
+    /** @return array{0:string, 1?:string}|null */
+    private function parseStringIntoTableAndColumn(string $nameToUseInSort): array|null
+    {
+        $lexer = new Lexer($nameToUseInSort);
+        if (
+            $lexer->list->count === 4
+            && $lexer->list[0]->type === TokenType::Symbol
+            && is_string($lexer->list[0]->value)
+            && $lexer->list[2]->type === TokenType::Symbol
+            && is_string($lexer->list[2]->value)
+        ) {
+            // If a table name and column name were provided
+            return [$lexer->list[0]->value, $lexer->list[2]->value];
+        }
+
+        if (
+            $lexer->list->count === 2
+            && $lexer->list[0]->type === TokenType::Symbol
+            && is_string($lexer->list[0]->value)
+        ) {
+            // If only a column name was provided
+            return [$lexer->list[0]->value];
+        }
+
+        // If some other expression was provided
+        return null;
     }
 }

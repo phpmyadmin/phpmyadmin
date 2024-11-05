@@ -6739,6 +6739,18 @@ parameters:
 			path: src/Display/Results.php
 
 		-
+			message: '#^Cannot access property \$type on PhpMyAdmin\\SqlParser\\Token\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: src/Display/Results.php
+
+		-
+			message: '#^Cannot access property \$value on PhpMyAdmin\\SqlParser\\Token\|null\.$#'
+			identifier: property.nonObject
+			count: 6
+			path: src/Display/Results.php
+
+		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
 			count: 6
