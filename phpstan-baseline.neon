@@ -6591,7 +6591,7 @@ parameters:
 		-
 			message: '#^Call to function array_filter\(\) requires parameter \#2 to be passed to avoid loose comparison semantics\.$#'
 			identifier: arrayFilter.strict
-			count: 3
+			count: 2
 			path: src/Display/Results.php
 
 		-
@@ -6699,7 +6699,7 @@ parameters:
 		-
 			message: '#^Cannot access property \$expr on PhpMyAdmin\\SqlParser\\Components\\Expression\|null\.$#'
 			identifier: property.nonObject
-			count: 2
+			count: 3
 			path: src/Display/Results.php
 
 		-
@@ -6765,7 +6765,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 6
+			count: 4
 			path: src/Display/Results.php
 
 		-
@@ -6973,7 +6973,7 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#3 \$sortExpressionNoDirection of method PhpMyAdmin\\Display\\Results\:\:getTableHeaders\(\) expects array\<int, string\>, list\<string\|null\> given\.$#'
+			message: '#^Parameter \#3 \$direction of class PhpMyAdmin\\Display\\SortExpression constructor expects ''ASC''\|''DESC'', PhpMyAdmin\\SqlParser\\Components\\OrderSortKeyword given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
@@ -6985,19 +6985,19 @@ parameters:
 			path: src/Display/Results.php
 
 		-
+			message: '#^Parameter \#6 \$colVisib of method PhpMyAdmin\\Display\\Results\:\:getOrderLinkAndSortedHeaderHtml\(\) expects array\<mixed\>\|bool, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Display/Results.php
+
+		-
 			message: '#^Parameter \#6 \$colVisib of method PhpMyAdmin\\Display\\Results\:\:getRowValues\(\) expects array\<mixed\>\|bool\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#7 \$colVisib of method PhpMyAdmin\\Display\\Results\:\:getOrderLinkAndSortedHeaderHtml\(\) expects array\<mixed\>\|bool, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Parameter \#8 \$colVisibElement of method PhpMyAdmin\\Display\\Results\:\:getOrderLinkAndSortedHeaderHtml\(\) expects int\|string\|null, mixed given\.$#'
+			message: '#^Parameter \#7 \$colVisibElement of method PhpMyAdmin\\Display\\Results\:\:getOrderLinkAndSortedHeaderHtml\(\) expects int\|string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php

@@ -12,6 +12,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Display\DeleteLinkEnum;
 use PhpMyAdmin\Display\DisplayParts;
 use PhpMyAdmin\Display\Results as DisplayResults;
+use PhpMyAdmin\Display\SortExpression;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -1762,10 +1763,9 @@ class ResultsTest extends AbstractTestCase
             DisplayResults::class,
             'getSingleAndMultiSortUrls',
             [
-                ['`Country`.`Code`'], // sortExpressionNoDirection,
+                [new SortExpression('Country', 'Code', 'ASC', '`Country`.`Code`')],
                 'Country',
                 'FoundedIn',
-                ['ASC'], // sortDirection,
                 FieldHelper::fromArray(['type' => $metaType]),
             ],
         );
@@ -1781,10 +1781,9 @@ class ResultsTest extends AbstractTestCase
             DisplayResults::class,
             'getSingleAndMultiSortUrls',
             [
-                ['`Country`.`Code`'], // sortExpressionNoDirection,
+                [new SortExpression('Country', 'Code', 'ASC', '`Country`.`Code`')],
                 'Country',
                 'Code2',
-                ['ASC'], // sortDirection,
                 FieldHelper::fromArray(['type' => $metaType]),
             ],
         );
@@ -1801,13 +1800,12 @@ class ResultsTest extends AbstractTestCase
             'getSingleAndMultiSortUrls',
             [
                 [
-                    '`Country`.`Continent`',
-                    '`Country`.`Region`',
-                    '`Country`.`Population`',
-                ], // sortExpressionNoDirection,
+                    new SortExpression('Country', 'Continent', 'DESC', '`Country`.`Continent`'),
+                    new SortExpression('Country', 'Region', 'ASC', '`Country`.`Region`'),
+                    new SortExpression('Country', 'Population', 'ASC', '`Country`.`Population`'),
+                ],
                 'Country',
                 'Code2',
-                ['DESC', 'ASC', 'ASC'], // sortDirection,
                 FieldHelper::fromArray(['type' => $metaType]),
             ],
         );
