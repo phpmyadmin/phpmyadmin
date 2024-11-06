@@ -3867,6 +3867,18 @@ class Results
     private function parseStringIntoTableAndColumn(string $nameToUseInSort): array|null
     {
         $lexer = new Lexer($nameToUseInSort);
+
+        if (
+            $lexer->list->count === 6
+            && $lexer->list[2]->type === TokenType::Symbol
+            && is_string($lexer->list[2]->value)
+            && $lexer->list[4]->type === TokenType::Symbol
+            && is_string($lexer->list[4]->value)
+        ) {
+            // If a database name, table name, and column name were provided
+            return [$lexer->list[2]->value, $lexer->list[4]->value];
+        }
+
         if (
             $lexer->list->count === 4
             && $lexer->list[0]->type === TokenType::Symbol

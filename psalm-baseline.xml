@@ -4347,7 +4347,11 @@
       <code><![CDATA[$lexer->list[0]->value]]></code>
       <code><![CDATA[$lexer->list[0]->value]]></code>
       <code><![CDATA[$lexer->list[2]->type]]></code>
+      <code><![CDATA[$lexer->list[2]->type]]></code>
       <code><![CDATA[$lexer->list[2]->value]]></code>
+      <code><![CDATA[$lexer->list[2]->value]]></code>
+      <code><![CDATA[$lexer->list[4]->type]]></code>
+      <code><![CDATA[$lexer->list[4]->value]]></code>
       <code><![CDATA[$o->expr->expr]]></code>
       <code><![CDATA[$order->expr->column]]></code>
     </PossiblyNullPropertyFetch>
