@@ -3841,8 +3841,8 @@ class Results
         return [$truncated, $str, $originalLength];
     }
 
-    /** @return array{0:string, 1?:string}|null */
-    private function parseStringIntoTableAndColumn(string $nameToUseInSort): array|null
+    /** @return array{table:string|null, column:string|null} */
+    private function parseStringIntoTableAndColumn(string $nameToUseInSort): array
     {
         $lexer = new Lexer($nameToUseInSort);
 
@@ -3854,7 +3854,7 @@ class Results
             && is_string($lexer->list[4]->value)
         ) {
             // If a database name, table name, and column name were provided
-            return [$lexer->list[2]->value, $lexer->list[4]->value];
+            return ['table' => $lexer->list[2]->value, 'column' => $lexer->list[4]->value];
         }
 
         if (
@@ -3865,7 +3865,7 @@ class Results
             && is_string($lexer->list[2]->value)
         ) {
             // If a table name and column name were provided
-            return [$lexer->list[0]->value, $lexer->list[2]->value];
+            return ['table' => $lexer->list[0]->value, 'column' => $lexer->list[2]->value];
         }
 
         if (
@@ -3874,11 +3874,11 @@ class Results
             && is_string($lexer->list[0]->value)
         ) {
             // If only a column name was provided
-            return [$lexer->list[0]->value];
+            return ['table' => null, 'column' => $lexer->list[0]->value];
         }
 
         // If some other expression was provided
-        return null;
+        return ['table' => null, 'column' => null];
     }
 
     /**
@@ -3890,8 +3890,6 @@ class Results
     {
         $expressions = [];
         foreach ($orderKeywords as $o) {
-            $tableName = null;
-            $columnName = null;
             if ((string) (int) $o->expr->expr === $o->expr->expr) {
                 // If a numerical column index is used, we need to convert it to a column name
                 $field = $this->fieldsMeta[(int) $o->expr->expr - 1];
@@ -3906,17 +3904,10 @@ class Results
                 $normalizedExpression .= Util::backquote($field->name);
             } else {
                 $normalizedExpression = $o->expr->expr ?? '';
-                $tableAndColumn = $this->parseStringIntoTableAndColumn($normalizedExpression);
-                if ($tableAndColumn === null) {
-                    $tableName = null;
-                    $columnName = null;
-                } elseif (count($tableAndColumn) === 1) {
-                    $tableName = null;
-                    $columnName = $tableAndColumn[0];
-                } elseif (count($tableAndColumn) === 2) {
-                    $tableName = $tableAndColumn[0];
-                    $columnName = $tableAndColumn[1];
-                }
+                [
+                    'table' => $tableName,
+                    'column' => $columnName,
+                ] = $this->parseStringIntoTableAndColumn($normalizedExpression);
             }
 
             $expressions[] = new SortExpression($tableName, $columnName, $o->type, $normalizedExpression);
