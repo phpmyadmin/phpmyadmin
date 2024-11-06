@@ -38,7 +38,7 @@ final class ThemeSetController implements InvocableController
 
         $this->themeManager->setActiveTheme($theme);
 
-        $themeColorMode = $request->getParsedBodyParamAsString('themeColorMode');
+        $themeColorMode = $request->getParsedBodyParamAsString('themeColorMode', '');
         if ($themeColorMode !== '') {
             $this->themeManager->theme->setColorMode($themeColorMode);
         }
