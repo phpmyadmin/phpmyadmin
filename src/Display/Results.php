@@ -1267,10 +1267,8 @@ class Results
     ): array {
         // Check if the current column is in the order by clause
         $isInSort = $this->isInSorted($sortExpressionNoDirection, $currentTable, $currentColumn);
-        if ($sortExpressionNoDirection[0] == '' || ! $isInSort) {
-            $specialIndex = $sortExpressionNoDirection[0] == ''
-                ? 0
-                : count($sortExpressionNoDirection);
+        if ($sortExpressionNoDirection === [] || ! $isInSort) {
+            $specialIndex = count($sortExpressionNoDirection);
             $tableName = $currentTable === '' ? '' : Util::backquote($currentTable) . '.';
             $sortExpressionNoDirection[$specialIndex] = $tableName . Util::backquote($currentColumn);
             // Set the direction to the config value
@@ -1284,7 +1282,6 @@ class Results
             }
         }
 
-        $sortExpressionNoDirection = array_filter($sortExpressionNoDirection);
         $singleSortOrder = '';
         $sortOrderColumns = [];
         foreach ($sortExpressionNoDirection as $index => $expression) {
@@ -3032,13 +3029,24 @@ class Results
 
         if ($statement !== null && ! empty($statement->order)) {
             foreach ($statement->order as $o) {
-                $sortExpression[] = $o->expr->expr . ' ' . $o->type->value;
-                $sortExpressionNoDirection[] = $o->expr->expr;
-                $sortDirection[] = $o->type->value;
+                $sortExpression[] = $o->expr->expr . ' ' . $o->type;
+
+                if ((string) (int) $o->expr->expr === $o->expr->expr) {
+                    // If a numerical column index is used, we need to convert it to a column name
+                    $field = $this->fieldsMeta[(int) $o->expr->expr - 1];
+                    $normalizedExpression = '';
+                    if ($field->table !== '') {
+                        $normalizedExpression = Util::backquote($field->table) . '.';
+                    }
+
+                    $normalizedExpression .= Util::backquote($field->name);
+                    $sortExpressionNoDirection[] = $normalizedExpression;
+                } else {
+                    $sortExpressionNoDirection[] = $o->expr->expr;
+                }
+
+                $sortDirection[] = $o->type;
             }
-        } else {
-            $sortExpression[] = '';
-            $sortExpressionNoDirection[] = '';
         }
 
         // 1.4 Prepares display of first and last value of the sorted column
