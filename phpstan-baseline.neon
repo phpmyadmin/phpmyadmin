@@ -6729,7 +6729,7 @@ parameters:
 		-
 			message: '#^Cannot access property \$type on PhpMyAdmin\\SqlParser\\Token\|null\.$#'
 			identifier: property.nonObject
-			count: 5
+			count: 10
 			path: src/Display/Results.php
 
 		-

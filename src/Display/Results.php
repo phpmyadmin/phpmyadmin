@@ -3848,9 +3848,9 @@ class Results
 
         if (
             $lexer->list->count === 6
-            && $lexer->list[2]->type === TokenType::Symbol
+            && ($lexer->list[2]->type === TokenType::Symbol || $lexer->list[2]->type === TokenType::None)
             && is_string($lexer->list[2]->value)
-            && $lexer->list[4]->type === TokenType::Symbol
+            && ($lexer->list[4]->type === TokenType::Symbol || $lexer->list[4]->type === TokenType::None)
             && is_string($lexer->list[4]->value)
         ) {
             // If a database name, table name, and column name were provided
@@ -3859,9 +3859,9 @@ class Results
 
         if (
             $lexer->list->count === 4
-            && $lexer->list[0]->type === TokenType::Symbol
+            && ($lexer->list[0]->type === TokenType::Symbol || $lexer->list[0]->type === TokenType::None)
             && is_string($lexer->list[0]->value)
-            && $lexer->list[2]->type === TokenType::Symbol
+            && ($lexer->list[2]->type === TokenType::Symbol || $lexer->list[2]->type === TokenType::None)
             && is_string($lexer->list[2]->value)
         ) {
             // If a table name and column name were provided
@@ -3870,7 +3870,7 @@ class Results
 
         if (
             $lexer->list->count === 2
-            && $lexer->list[0]->type === TokenType::Symbol
+            && ($lexer->list[0]->type === TokenType::Symbol || $lexer->list[0]->type === TokenType::None)
             && is_string($lexer->list[0]->value)
         ) {
             // If only a column name was provided
