@@ -852,7 +852,8 @@ class Generator
                 . '</div></div>' . "\n\n";
         }
 
-        $response->callExit($errorMessage);
+        $response->addHTML($errorMessage);
+        $response->callExit();
     }
 
     /**

@@ -402,9 +402,9 @@ class ResponseRenderer
         return $this->footer->getScripts();
     }
 
-    public function callExit(string $message = ''): never
+    public function callExit(): never
     {
-        throw new ExitException($message);
+        throw new ExitException();
     }
 
     /**
