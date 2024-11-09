@@ -2445,7 +2445,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['dbname']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query'][$key]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$dbName ?? '']]></code>
@@ -2461,12 +2460,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$dbName]]></code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[! empty($GLOBALS['message']) && $GLOBALS['message'] instanceof Message]]></code>
     </RedundantConditionGivenDocblockType>
@@ -12416,6 +12409,7 @@
   </file>
   <file src="tests/unit/Controllers/Server/PrivilegesControllerTest.php">
     <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>

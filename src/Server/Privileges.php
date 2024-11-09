@@ -2241,7 +2241,6 @@ class Privileges
             ];
         }
 
-        $sqlQuery = '';
         // Some reports were sent to the error reporting server with phpMyAdmin 5.1.0
         // pred_username was reported to be not defined
         $predUsername = $_POST['pred_username'] ?? '';

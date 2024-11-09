@@ -188,8 +188,9 @@ final class PrivilegesController implements InvocableController
          */
         if ($request->hasBodyParam('update_privs')) {
             if (is_array($GLOBALS['dbname'])) {
+                $statements = [];
                 foreach ($GLOBALS['dbname'] as $key => $dbName) {
-                    [$GLOBALS['sql_query'][$key], $GLOBALS['message']] = $serverPrivileges->updatePrivileges(
+                    [$statements[$key], $GLOBALS['message']] = $serverPrivileges->updatePrivileges(
                         $GLOBALS['username'] ?? '',
                         $GLOBALS['hostname'] ?? '',
                         $tablename ?? $routinename ?? '',
@@ -198,7 +199,7 @@ final class PrivilegesController implements InvocableController
                     );
                 }
 
-                $GLOBALS['sql_query'] = implode("\n", $GLOBALS['sql_query']);
+                $GLOBALS['sql_query'] = implode("\n", $statements);
             } else {
                 [$GLOBALS['sql_query'], $GLOBALS['message']] = $serverPrivileges->updatePrivileges(
                     $GLOBALS['username'] ?? '',

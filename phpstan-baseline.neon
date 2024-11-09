@@ -2941,11 +2941,6 @@ parameters:
 			path: src/Controllers/Server/ImportController.php
 
 		-
-			message: "#^Cannot access offset \\(int\\|string\\) on mixed\\.$#"
-			count: 2
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 5
 			path: src/Controllers/Server/PrivilegesController.php
@@ -2993,16 +2988,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$username of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:updatePrivileges\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$array of function implode expects array\\<string\\>, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$array of function implode expects array\\|null, mixed given\\.$#"
-			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
@@ -15701,7 +15686,7 @@ parameters:
 				#^Call to deprecated method getInstance\\(\\) of class PhpMyAdmin\\\\Config\\:
 				Use dependency injection instead\\.$#
 			"""
-			count: 1
+			count: 2
 			path: tests/unit/Controllers/Server/PrivilegesControllerTest.php
 
 		-
