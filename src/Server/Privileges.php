@@ -2226,17 +2226,12 @@ class Privileges
         string|null $password,
         bool $isMenuwork,
     ): array {
-        $message = null;
-        $queries = [];
-        $queriesForDisplay = null;
-        $sqlQuery = '';
-
         if (! isset($_POST['adduser_submit']) && ! isset($_POST['change_copy'])) {
             return [
-                $message,
-                $queries,
-                $queriesForDisplay,
-                $sqlQuery,
+                null,
+                [],
+                null,
+                '',
                 false, // Add user error
             ];
         }
@@ -2275,9 +2270,9 @@ class Privileges
 
             return [
                 $message,
-                $queries,
-                $queriesForDisplay,
-                $sqlQuery,
+                [],
+                null,
+                '',
                 true, // Add user error
             ];
         }
@@ -2328,8 +2323,8 @@ class Privileges
 
             return [
                 $message,
-                $queries,
-                $queriesForDisplay,
+                [],
+                null,
                 $sqlQuery,
                 $error, // Add user error if the query fails
             ];
@@ -2339,6 +2334,7 @@ class Privileges
         $oldUserGroup = $_POST['old_usergroup'] ?? '';
         $this->setUserGroup($_POST['username'], $oldUserGroup);
 
+        $queries = [];
         $queries[] = $createUserReal;
         $queries[] = $realSqlQuery;
 
@@ -2352,6 +2348,7 @@ class Privileges
         // $queries_for_display, at the same position occupied
         // by the real query in $queries
         $tmpCount = count($queries);
+        $queriesForDisplay = [];
         $queriesForDisplay[$tmpCount - 2] = $createUserShow;
 
         if ($passwordSetReal !== '') {
@@ -2363,7 +2360,7 @@ class Privileges
         }
 
         return [
-            $message,
+            null,
             $queries,
             $queriesForDisplay,
             $sqlQuery,
