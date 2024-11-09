@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-05-12 19:01+0000\n"
+"PO-Revision-Date: 2024-11-10 01:36+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.5.4\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -636,9 +636,8 @@ msgstr ""
 
 #: index.php:202 libraries/classes/Footer.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
-#, fuzzy
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin документација"
+msgstr "phpMyAdmin Демо Сервер"
 
 #: index.php:206 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
 #, php-format
@@ -7994,7 +7993,7 @@ msgstr "Гит информацијата недостига!"
 #: libraries/classes/Footer.php:207 libraries/classes/Footer.php:211
 #: libraries/classes/Footer.php:214
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "Отвори нов phpMyAdmin прозорец"
 
 #: libraries/classes/Header.php:390
 msgid "Print view"
@@ -8002,7 +8001,7 @@ msgstr "Преглед за печатење"
 
 #: libraries/classes/Header.php:468
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Кликнете на траката за скок до врвот на страницата"
 
 #: libraries/classes/Header.php:775 templates/login/header.twig:8
 msgid "Javascript must be enabled past this point!"
