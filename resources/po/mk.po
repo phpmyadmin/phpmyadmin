@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-11-03 00:25+0000\n"
-"PO-Revision-Date: 2024-05-13 01:02+0000\n"
+"PO-Revision-Date: 2024-11-10 00:24+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -13,16 +13,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.5.4\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript мора да е уклучен после оваа точка!"
 
 #: resources/templates/base.twig:46
-#, fuzzy
 msgid "Open user account menu"
-msgstr "Било кој корисник"
+msgstr "Отвори корисничко мени"
 
 #: resources/templates/base.twig:57 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
@@ -30,14 +29,12 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin документација"
 
 #: resources/templates/base.twig:62
-#, fuzzy
 msgid "MariaDB documentation"
-msgstr "Документација"
+msgstr "Документација за MariaDB"
 
 #: resources/templates/base.twig:62
-#, fuzzy
 msgid "MySQL documentation"
-msgstr "Документација"
+msgstr "Документација за MySQL"
 
 #: resources/templates/base.twig:73
 msgid "Appearance:"
@@ -45,17 +42,17 @@ msgstr "Изглед:"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "Режим на боја за тема"
 
 #: resources/templates/base.twig:80 resources/templates/home/index.twig:154
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr ""
+msgstr "Светло"
 
 #: resources/templates/base.twig:82 resources/templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Темно"
 
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
@@ -76,18 +73,17 @@ msgstr "Подесувања за Страници"
 
 #: resources/templates/base.twig:110
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Кликнете на траката за скок до врвот на страницата"
 
 #: resources/templates/base.twig:132 resources/templates/base.twig:134
 #: resources/templates/base.twig:136
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "Отвори нов phpMyAdmin прозорец"
 
 #: resources/templates/base.twig:151 resources/templates/home/index.twig:18
 #: resources/templates/login/form.twig:5
-#, fuzzy
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin документација"
+msgstr "phpMyAdmin Демо Сервер"
 
 #: resources/templates/base.twig:159
 #, php-format
