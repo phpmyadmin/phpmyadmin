@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-05-13 04:00+0000\n"
+"PO-Revision-Date: 2024-11-10 01:36+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.5.4\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -9972,9 +9972,8 @@ msgstr ""
 
 #: libraries/classes/Footer.php:82 templates/home/index.twig:18
 #: templates/login/form.twig:5
-#, fuzzy
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin документација"
+msgstr "phpMyAdmin Демо Сервер"
 
 #: libraries/classes/Footer.php:91
 #, php-format
@@ -9988,7 +9987,7 @@ msgstr "Гит информацијата недостига!"
 #: libraries/classes/Footer.php:218 libraries/classes/Footer.php:222
 #: libraries/classes/Footer.php:225
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "Отвори нов phpMyAdmin прозорец"
 
 #: libraries/classes/Header.php:344
 msgid "Print view"
@@ -16204,7 +16203,7 @@ msgstr "Javascript мора да е уклучен после оваа точк�
 
 #: templates/header.twig:52
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Кликнете на траката за скок до врвот на страницата"
 
 #: templates/home/git_info.twig:2
 msgid "Git revision:"
