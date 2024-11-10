@@ -49,7 +49,7 @@ class ExportRowsControllerTest extends AbstractTestCase
 
     public function testWithoutRowsToDelete(): void
     {
-        $_POST['goto'] = 'goto';
+        $GLOBALS['goto'] = 'goto';
 
         $controller = $this->createMock(ExportController::class);
         $controller->expects(self::never())->method('__invoke');
@@ -67,7 +67,7 @@ class ExportRowsControllerTest extends AbstractTestCase
 
     public function testWithRowsToDelete(): void
     {
-        $_POST['goto'] = 'goto';
+        $GLOBALS['goto'] = 'goto';
         $_POST['rows_to_delete'] = ['key1' => 'row1', 'key2' => 'row2'];
 
         $controller = $this->createMock(ExportController::class);
