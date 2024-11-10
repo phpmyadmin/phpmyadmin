@@ -2359,81 +2359,6 @@ class Privileges
     }
 
     /**
-     * Update DB information: DB, Table, isWildcard
-     *
-     * @psalm-return array{?string, ?string, array|string|null, ?string, ?string, bool}
-     */
-    public function getDataForDBInfo(ServerRequest $request): array
-    {
-        $username = null;
-        $hostname = null;
-        $dbname = null;
-        $tablename = null;
-        $routinename = null;
-
-        if ($request->has('username')) {
-            $username = (string) $request->getParam('username');
-        }
-
-        if ($request->has('hostname')) {
-            $hostname = (string) $request->getParam('hostname');
-        }
-
-        /**
-         * Checks if a dropdown box has been used for selecting a database / table
-         */
-        $postPredTablename = $request->getParsedBodyParamAsString('pred_tablename', '');
-        /** @var mixed $requestTablename */
-        $requestTablename = $request->getParam('tablename');
-        if ($postPredTablename !== '') {
-            $tablename = $postPredTablename;
-        } elseif (is_string($requestTablename) && $requestTablename !== '') {
-            $tablename = $requestTablename;
-        }
-
-        $postPredRoutinename = $request->getParsedBodyParamAsString('pred_routinename', '');
-        /** @var mixed $requestRoutinename */
-        $requestRoutinename = $request->getParam('routinename');
-        if ($postPredRoutinename !== '') {
-            $routinename = $postPredRoutinename;
-        } elseif (is_string($requestRoutinename) && $requestRoutinename !== '') {
-            $routinename = $requestRoutinename;
-        }
-
-        // Accept only array of non-empty strings
-        /** @var mixed $predDbname */
-        $predDbname = $request->getParsedBodyParam('pred_dbname');
-        if (
-            is_array($predDbname)
-            && $predDbname === array_filter($predDbname)
-        ) {
-            $dbname = $predDbname;
-            // If dbname contains only one database.
-            if (count($dbname) === 1) {
-                $dbname = (string) $dbname[0];
-            }
-        }
-
-        /** @var mixed $requestDbname */
-        $requestDbname = $request->getParam('dbname');
-        if ($dbname === null && $requestDbname !== null) {
-            if (is_array($requestDbname)) {
-                // Accept only array of non-empty strings
-                if ($requestDbname === array_filter($requestDbname)) {
-                    $dbname = $requestDbname;
-                }
-            } elseif (is_string($requestDbname) && $requestDbname !== '') {
-                $dbname = $requestDbname;
-            }
-        }
-
-        // check if given $dbname is a wildcard or not
-        $databaseNameIsWildcard = is_string($dbname) && preg_match('/(?<!\\\\)(?:_|%)/', $dbname) === 1;
-
-        return [$username, $hostname, $dbname, $tablename, $routinename, $databaseNameIsWildcard];
-    }
-
-    /**
      * Get title and textarea for export user definition in Privileges
      *
      * @param string        $username      username
@@ -3338,5 +3263,94 @@ class Privileges
         }
 
         return $globalHostname;
+    }
+
+    public function isDatabaseNameWildcard(mixed $dbname): bool
+    {
+        return is_string($dbname) && preg_match('/(?<!\\\\)(?:_|%)/', $dbname) === 1;
+    }
+
+    public function getRoutinename(ServerRequest $request): string|null
+    {
+        $postPredRoutinename = $request->getParsedBodyParamAsString('pred_routinename', '');
+        /** @var mixed $requestRoutinename */
+        $requestRoutinename = $request->getParam('routinename');
+        if ($postPredRoutinename !== '') {
+            return $postPredRoutinename;
+        }
+
+        if (is_string($requestRoutinename) && $requestRoutinename !== '') {
+            return $requestRoutinename;
+        }
+
+        return null;
+    }
+
+    public function getTablename(ServerRequest $request): string|null
+    {
+        $postPredTablename = $request->getParsedBodyParamAsString('pred_tablename', '');
+        /** @var mixed $requestTablename */
+        $requestTablename = $request->getParam('tablename');
+        if ($postPredTablename !== '') {
+            return $postPredTablename;
+        }
+
+        if (is_string($requestTablename) && $requestTablename !== '') {
+            return $requestTablename;
+        }
+
+        return null;
+    }
+
+    /** @return string|mixed[]|null */
+    public function getDbname(ServerRequest $request): string|array|null
+    {
+        $dbname = null;
+        // Accept only array of non-empty strings
+        /** @var mixed $predDbname */
+        $predDbname = $request->getParsedBodyParam('pred_dbname');
+        if (
+            is_array($predDbname)
+            && $predDbname === array_filter($predDbname)
+        ) {
+            $dbname = $predDbname;
+            // If dbname contains only one database.
+            if (count($dbname) === 1) {
+                $dbname = (string) $dbname[0];
+            }
+        }
+
+        /** @var mixed $requestDbname */
+        $requestDbname = $request->getParam('dbname');
+        if ($dbname === null && $requestDbname !== null) {
+            if (is_array($requestDbname)) {
+                // Accept only array of non-empty strings
+                if ($requestDbname === array_filter($requestDbname)) {
+                    $dbname = $requestDbname;
+                }
+            } elseif (is_string($requestDbname) && $requestDbname !== '') {
+                $dbname = $requestDbname;
+            }
+        }
+
+        return $dbname;
+    }
+
+    public function getHostnameParam(ServerRequest $request): string|null
+    {
+        if ($request->has('hostname')) {
+            return (string) $request->getParam('hostname');
+        }
+
+        return null;
+    }
+
+    public function getUsernameParam(ServerRequest $request): string|null
+    {
+        if ($request->has('username')) {
+            return (string) $request->getParam('username');
+        }
+
+        return null;
     }
 }
