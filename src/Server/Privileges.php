@@ -2226,16 +2226,6 @@ class Privileges
         string|null $password,
         bool $isMenuwork,
     ): array {
-        if (! isset($_POST['adduser_submit']) && ! isset($_POST['change_copy'])) {
-            return [
-                null,
-                [],
-                null,
-                '',
-                false, // Add user error
-            ];
-        }
-
         // Some reports were sent to the error reporting server with phpMyAdmin 5.1.0
         // pred_username was reported to be not defined
         $predUsername = $_POST['pred_username'] ?? '';

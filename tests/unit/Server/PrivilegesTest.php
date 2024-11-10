@@ -299,7 +299,6 @@ class PrivilegesTest extends AbstractTestCase
         $dbname = 'pma_dbname';
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $_POST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
         $_POST['pred_password'] = 'keep';
@@ -349,7 +348,6 @@ class PrivilegesTest extends AbstractTestCase
         $dbname = 'pma_dbname';
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $_POST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
         $_POST['pred_password'] = 'keep';
@@ -420,7 +418,6 @@ class PrivilegesTest extends AbstractTestCase
         $username = 'pma_username';
         $hostname = 'pma_hostname';
         $tablename = 'pma_tablename';
-        $_POST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
         $_POST['createdb-3'] = true;
@@ -460,7 +457,6 @@ class PrivilegesTest extends AbstractTestCase
         $username = 'pma_username';
         $hostname = 'pma_hostname';
         $tablename = 'pma_tablename';
-        $_POST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
         $_POST['createdb-3'] = true;
@@ -487,7 +483,6 @@ class PrivilegesTest extends AbstractTestCase
         $username = 'pma_username';
         $hostname = 'pma_hostname';
         $tablename = '';
-        $_POST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
         $_POST['Grant_priv'] = 'Y';
@@ -531,7 +526,6 @@ class PrivilegesTest extends AbstractTestCase
         $username = 'pma_username';
         $hostname = 'pma_hostname';
         $tablename = '';
-        $_POST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
         $_POST['Grant_priv'] = 'Y';
@@ -1146,7 +1140,6 @@ class PrivilegesTest extends AbstractTestCase
         $username = 'pma_username';
         $hostname = 'pma_hostname';
         $GLOBALS['dbname'] = 'pma_dbname';
-        $_POST['adduser_submit'] = 'adduser_submit';
         $_POST['username'] = 'username';
         $_POST['change_copy'] = 'change_copy';
         $_GET['validate_username'] = 'validate_username';

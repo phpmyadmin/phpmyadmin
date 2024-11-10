@@ -152,17 +152,23 @@ final class PrivilegesController implements InvocableController
          * Adds a user
          *   (Changes / copies a user, part II)
          */
-        [$retMessage, $queries, $queriesForDisplay, $GLOBALS['sql_query'], $addUserError] = $serverPrivileges->addUser(
-            $GLOBALS['dbname'] ?? null,
-            $GLOBALS['username'] ?? '',
-            $GLOBALS['hostname'] ?? '',
-            $password,
-            $relationParameters->configurableMenusFeature !== null,
-        );
-        //update the old variables
-        if (isset($retMessage)) {
-            $GLOBALS['message'] = $retMessage;
-            unset($retMessage);
+        $queries = [];
+        $queriesForDisplay = null;
+        $GLOBALS['sql_query'] = '';
+        $addUserError = false;
+        if ($request->hasBodyParam('adduser_submit') || $request->hasBodyParam('change_copy')) {
+            [$retMessage, $queries, $queriesForDisplay, $GLOBALS['sql_query'], $addUserError] = $serverPrivileges->addUser(
+                $GLOBALS['dbname'] ?? null,
+                $GLOBALS['username'] ?? '',
+                $GLOBALS['hostname'] ?? '',
+                $password,
+                $relationParameters->configurableMenusFeature !== null,
+            );
+            //update the old variables
+            if (isset($retMessage)) {
+                $GLOBALS['message'] = $retMessage;
+                unset($retMessage);
+            }
         }
 
         /**

@@ -2951,6 +2951,11 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
+			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUser\\(\\) expects array\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Server/PrivilegesController.php
+
+		-
 			message: "#^Parameter \\#1 \\$errorUrl of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:updatePassword\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
