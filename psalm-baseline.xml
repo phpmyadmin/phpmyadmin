@@ -9876,9 +9876,6 @@
       <code><![CDATA[$_POST['pma_pw']]]></code>
       <code><![CDATA[$_POST['userGroup']]]></code>
       <code><![CDATA[$_POST['username']]]></code>
-      <code><![CDATA[$_REQUEST['hostname']]]></code>
-      <code><![CDATA[$_REQUEST['username']]]></code>
-      <code><![CDATA[$dbname[0]]]></code>
       <code><![CDATA[$hashedPassword]]></code>
       <code><![CDATA[$oldUserGroup]]></code>
     </PossiblyInvalidCast>
@@ -9933,9 +9930,6 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$row1[0]]]></code>
     </PossiblyUndefinedArrayOffset>
-    <RedundantCondition>
-      <code><![CDATA[is_string($_REQUEST['dbname'])]]></code>
-    </RedundantCondition>
     <RiskyCast>
       <code><![CDATA[$_POST['max_connections']]]></code>
       <code><![CDATA[$_POST['max_questions']]]></code>
@@ -14104,9 +14098,6 @@
     </PossiblyUnusedMethod>
     <UnusedVariable>
       <code><![CDATA[$password]]></code>
-      <code><![CDATA[$routinename]]></code>
-      <code><![CDATA[$routinename]]></code>
-      <code><![CDATA[$routinename]]></code>
     </UnusedVariable>
   </file>
   <file src="tests/unit/Server/SelectTest.php">

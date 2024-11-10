@@ -19,6 +19,7 @@ use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
@@ -2360,10 +2361,9 @@ class Privileges
     /**
      * Update DB information: DB, Table, isWildcard
      *
-     * @return mixed[]
      * @psalm-return array{?string, ?string, array|string|null, ?string, ?string, bool}
      */
-    public function getDataForDBInfo(): array
+    public function getDataForDBInfo(ServerRequest $request): array
     {
         $username = null;
         $hostname = null;
@@ -2371,69 +2371,59 @@ class Privileges
         $tablename = null;
         $routinename = null;
 
-        if (isset($_REQUEST['username'])) {
-            $username = (string) $_REQUEST['username'];
+        if ($request->has('username')) {
+            $username = (string) $request->getParam('username');
         }
 
-        if (isset($_REQUEST['hostname'])) {
-            $hostname = (string) $_REQUEST['hostname'];
+        if ($request->has('hostname')) {
+            $hostname = (string) $request->getParam('hostname');
         }
 
         /**
          * Checks if a dropdown box has been used for selecting a database / table
          */
-        if (
-            isset($_POST['pred_tablename'])
-            && is_string($_POST['pred_tablename'])
-            && $_POST['pred_tablename'] !== ''
-        ) {
-            $tablename = $_POST['pred_tablename'];
-        } elseif (
-            isset($_REQUEST['tablename'])
-            && is_string($_REQUEST['tablename'])
-            && $_REQUEST['tablename'] !== ''
-        ) {
-            $tablename = $_REQUEST['tablename'];
+        $postPredTablename = $request->getParsedBodyParamAsString('pred_tablename', '');
+        /** @var mixed $requestTablename */
+        $requestTablename = $request->getParam('tablename');
+        if ($postPredTablename !== '') {
+            $tablename = $postPredTablename;
+        } elseif (is_string($requestTablename) && $requestTablename !== '') {
+            $tablename = $requestTablename;
         }
 
-        if (
-            isset($_POST['pred_routinename'])
-            && is_string($_POST['pred_routinename'])
-            && $_POST['pred_routinename'] !== ''
-        ) {
-            $routinename = $_POST['pred_routinename'];
-        } elseif (
-            isset($_REQUEST['routinename'])
-            && is_string($_REQUEST['routinename'])
-            && $_REQUEST['routinename'] !== ''
-        ) {
-            $routinename = $_REQUEST['routinename'];
+        $postPredRoutinename = $request->getParsedBodyParamAsString('pred_routinename', '');
+        /** @var mixed $requestRoutinename */
+        $requestRoutinename = $request->getParam('routinename');
+        if ($postPredRoutinename !== '') {
+            $routinename = $postPredRoutinename;
+        } elseif (is_string($requestRoutinename) && $requestRoutinename !== '') {
+            $routinename = $requestRoutinename;
         }
 
         // Accept only array of non-empty strings
+        /** @var mixed $predDbname */
+        $predDbname = $request->getParsedBodyParam('pred_dbname');
         if (
-            isset($_POST['pred_dbname'])
-            && is_array($_POST['pred_dbname'])
-            && $_POST['pred_dbname'] === array_filter($_POST['pred_dbname'])
+            is_array($predDbname)
+            && $predDbname === array_filter($predDbname)
         ) {
-            $dbname = $_POST['pred_dbname'];
+            $dbname = $predDbname;
             // If dbname contains only one database.
             if (count($dbname) === 1) {
                 $dbname = (string) $dbname[0];
             }
         }
 
-        if ($dbname === null && isset($_REQUEST['dbname'])) {
-            if (is_array($_REQUEST['dbname'])) {
+        /** @var mixed $requestDbname */
+        $requestDbname = $request->getParam('dbname');
+        if ($dbname === null && $requestDbname !== null) {
+            if (is_array($requestDbname)) {
                 // Accept only array of non-empty strings
-                if ($_REQUEST['dbname'] === array_filter($_REQUEST['dbname'])) {
-                    $dbname = $_REQUEST['dbname'];
+                if ($requestDbname === array_filter($requestDbname)) {
+                    $dbname = $requestDbname;
                 }
-            } elseif (
-                is_string($_REQUEST['dbname'])
-                && $_REQUEST['dbname'] !== ''
-            ) {
-                $dbname = $_REQUEST['dbname'];
+            } elseif (is_string($requestDbname) && $requestDbname !== '') {
+                $dbname = $requestDbname;
             }
         }
 

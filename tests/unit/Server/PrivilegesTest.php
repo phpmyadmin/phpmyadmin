@@ -13,6 +13,7 @@ use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Server\Privileges;
@@ -54,10 +55,13 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testGetDataForDBInfo(): void
     {
-        $_REQUEST['username'] = 'PMA_username';
-        $_REQUEST['hostname'] = 'PMA_hostname';
-        $_REQUEST['tablename'] = 'PMA_tablename';
-        $_REQUEST['dbname'] = 'PMA_dbname';
+        $requestTemplate = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
+        $request = $requestTemplate->withQueryParams([
+            'username' => 'PMA_username',
+            'hostname' => 'PMA_hostname',
+            'tablename' => 'PMA_tablename',
+            'dbname' => 'PMA_dbname',
+        ]);
 
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface());
 
@@ -65,10 +69,9 @@ class PrivilegesTest extends AbstractTestCase
             $username,
             $hostname,
             $dbname,
-            $tablename,
-            $routinename,
+            $tablename,,
             $dbnameIsWildcard,
-        ] = $serverPrivileges->getDataForDBInfo();
+        ] = $serverPrivileges->getDataForDBInfo($request);
         self::assertSame('PMA_username', $username);
         self::assertSame('PMA_hostname', $hostname);
         self::assertSame('PMA_dbname', $dbname);
@@ -76,33 +79,39 @@ class PrivilegesTest extends AbstractTestCase
         self::assertTrue($dbnameIsWildcard);
 
         //pre variable have been defined
-        $_POST['pred_tablename'] = 'PMA_pred__tablename';
-        $_POST['pred_dbname'] = ['PMA_pred_dbname'];
-        [, , $dbname, $tablename, $routinename, $dbnameIsWildcard] = $serverPrivileges->getDataForDBInfo();
+        $request = $requestTemplate->withParsedBody([
+            'pred_tablename' => 'PMA_pred__tablename',
+            'pred_dbname' => ['PMA_pred_dbname'],
+        ]);
+        [, , $dbname, $tablename, , $dbnameIsWildcard] = $serverPrivileges->getDataForDBInfo($request);
         self::assertSame('PMA_pred_dbname', $dbname);
         self::assertSame('PMA_pred__tablename', $tablename);
         self::assertTrue($dbnameIsWildcard);
 
         // Escaped database
-        $_POST['pred_tablename'] = 'PMA_pred__tablename';
-        $_POST['pred_dbname'] = ['PMA\_pred\_dbname'];
-        [, , $dbname, $tablename, $routinename, $dbnameIsWildcard] = $serverPrivileges->getDataForDBInfo();
+        $request = $requestTemplate->withParsedBody([
+            'pred_tablename' => 'PMA_pred__tablename',
+            'pred_dbname' => ['PMA\_pred\_dbname'],
+        ]);
+        [, , $dbname, $tablename, , $dbnameIsWildcard] = $serverPrivileges->getDataForDBInfo($request);
         self::assertSame('PMA\_pred\_dbname', $dbname);
         self::assertSame('PMA_pred__tablename', $tablename);
         self::assertFalse($dbnameIsWildcard);
 
         // Multiselect database - pred
-        unset($_POST['pred_tablename'], $_REQUEST['tablename'], $_REQUEST['dbname']);
-        $_POST['pred_dbname'] = ['PMA\_pred\_dbname', 'PMADbname2'];
-        [, , $dbname, $tablename, , $dbnameIsWildcard] = $serverPrivileges->getDataForDBInfo();
+        $request = $requestTemplate->withParsedBody([
+            'pred_dbname' => ['PMA\_pred\_dbname', 'PMADbname2'],
+        ]);
+        [, , $dbname, $tablename, , $dbnameIsWildcard] = $serverPrivileges->getDataForDBInfo($request);
         self::assertSame(['PMA\_pred\_dbname', 'PMADbname2'], $dbname);
         self::assertNull($tablename);
         self::assertFalse($dbnameIsWildcard);
 
         // Multiselect database
-        unset($_POST['pred_tablename'], $_REQUEST['tablename'], $_POST['pred_dbname']);
-        $_REQUEST['dbname'] = ['PMA\_dbname', 'PMADbname2'];
-        [, , $dbname, $tablename, , $dbnameIsWildcard] = $serverPrivileges->getDataForDBInfo();
+        $request = $requestTemplate->withParsedBody([
+            'dbname' => ['PMA\_dbname', 'PMADbname2'],
+        ]);
+        [, , $dbname, $tablename, , $dbnameIsWildcard] = $serverPrivileges->getDataForDBInfo($request);
         self::assertSame(['PMA\_dbname', 'PMADbname2'], $dbname);
         self::assertNull($tablename);
         self::assertFalse($dbnameIsWildcard);
