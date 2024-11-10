@@ -3096,6 +3096,11 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
+			message: "#^Parameter \\#5 \\$dbname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getExtraDataForAjaxBehavior\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Server/PrivilegesController.php
+
+		-
 			message: "#^Parameter \\#5 \\$dbname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getHtmlForUserProperties\\(\\) expects array\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
@@ -12474,11 +12479,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$string of function explode expects string, string\\|null given\\.$#"
 			count: 3
-			path: src/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, mixed given\\.$#"
-			count: 1
 			path: src/Server/Privileges.php
 
 		-

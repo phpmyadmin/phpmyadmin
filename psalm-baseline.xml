@@ -2460,6 +2460,9 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$dbName]]></code>
     </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$GLOBALS['dbname']]]></code>
+    </PossiblyInvalidArgument>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[! empty($GLOBALS['message']) && $GLOBALS['message'] instanceof Message]]></code>
     </RedundantConditionGivenDocblockType>
@@ -9734,7 +9737,6 @@
       <code><![CDATA[$initials]]></code>
     </InvalidArgument>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['dbname']]]></code>
       <code><![CDATA[$GLOBALS['new_username']]]></code>
       <code><![CDATA[$GLOBALS['pred_hostname']]]></code>
       <code><![CDATA[$GLOBALS['pred_username']]]></code>
@@ -9744,7 +9746,6 @@
       <code><![CDATA[$GLOBALS['x509_subject']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['dbname']]]></code>
       <code><![CDATA[$paramDbName]]></code>
       <code><![CDATA[$paramDbName]]></code>
       <code><![CDATA[$paramRoutineName]]></code>

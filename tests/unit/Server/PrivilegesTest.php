@@ -1174,14 +1174,20 @@ class PrivilegesTest extends AbstractTestCase
         $sqlQuery = 'pma_sql_query';
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $GLOBALS['dbname'] = 'pma_dbname';
+        $dbname = 'pma_dbname';
         $_POST['username'] = 'username';
         $_POST['change_copy'] = 'change_copy';
         $_GET['validate_username'] = 'validate_username';
         $_GET['username'] = 'username';
         $_POST['update_privs'] = 'update_privs';
 
-        $extraData = $serverPrivileges->getExtraDataForAjaxBehavior($password, $sqlQuery, $hostname, $username);
+        $extraData = $serverPrivileges->getExtraDataForAjaxBehavior(
+            $password,
+            $sqlQuery,
+            $hostname,
+            $username,
+            $dbname,
+        );
 
         //user_exists
         self::assertFalse($extraData['user_exists']);
