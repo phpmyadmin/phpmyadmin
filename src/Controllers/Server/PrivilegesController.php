@@ -309,6 +309,7 @@ final class PrivilegesController implements InvocableController
                 $GLOBALS['sql_query'] ?? '',
                 $GLOBALS['hostname'] ?? '',
                 $GLOBALS['username'] ?? '',
+                $GLOBALS['dbname'],
             );
 
             if (! empty($GLOBALS['message']) && $GLOBALS['message'] instanceof Message) {

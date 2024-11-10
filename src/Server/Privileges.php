@@ -1350,10 +1350,11 @@ class Privileges
         string $sqlQuery,
         string $hostname,
         string $username,
+        string|null $dbname,
     ): array {
-        if (isset($GLOBALS['dbname'])) {
+        if ($dbname !== null) {
             //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
-            if (preg_match('/(?<!\\\\)(?:_|%)/', $GLOBALS['dbname']) === 1) {
+            if (preg_match('/(?<!\\\\)(?:_|%)/', $dbname) === 1) {
                 $dbnameIsWildcard = true;
             } else {
                 $dbnameIsWildcard = false;
