@@ -26,6 +26,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 
@@ -71,7 +72,7 @@ class ReplaceControllerTest extends AbstractTestCase
 
     public function testReplace(): void
     {
-        $GLOBALS['urlParams'] = [];
+        UrlParams::$params = [];
         $_POST['db'] = Current::$database;
         $_POST['table'] = Current::$table;
         $_POST['ajax_request'] = 'true';

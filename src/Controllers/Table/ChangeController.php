@@ -21,6 +21,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 
 use function __;
 use function array_fill;
@@ -51,7 +52,6 @@ class ChangeController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['disp_message'] ??= null;
-        $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['where_clause'] ??= null;
         $GLOBALS['unsaved_values'] ??= null;
@@ -135,17 +135,17 @@ class ChangeController implements InvocableController
 
         /** @var mixed $sqlQuery */
         $sqlQuery = $request->getParsedBodyParam('sql_query');
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'sql_query' => is_string($sqlQuery) ? $sqlQuery : ''];
+        UrlParams::$params = ['db' => Current::$database, 'sql_query' => is_string($sqlQuery) ? $sqlQuery : ''];
 
         if (str_starts_with($GLOBALS['goto'] ?? '', 'index.php?route=/table')) {
-            $GLOBALS['urlParams']['table'] = Current::$table;
+            UrlParams::$params['table'] = Current::$table;
         }
 
         $GLOBALS['errorUrl'] = $GLOBALS['goto'] . Url::getCommon(
-            $GLOBALS['urlParams'],
+            UrlParams::$params,
             ! str_contains($GLOBALS['goto'], '?') ? '?' : '&',
         );
-        unset($GLOBALS['urlParams']);
+        unset(UrlParams::$params);
 
         $commentsMap = $this->insertEdit->getCommentsMap(Current::$database, Current::$table);
 
@@ -192,9 +192,9 @@ class ChangeController implements InvocableController
 
         $htmlOutput = '';
 
-        $GLOBALS['urlParams']['db'] = Current::$database;
-        $GLOBALS['urlParams']['table'] = Current::$table;
-        $GLOBALS['urlParams'] = $this->urlParamsInEditMode($GLOBALS['urlParams'], $whereClauseArray);
+        UrlParams::$params['db'] = Current::$database;
+        UrlParams::$params['table'] = Current::$table;
+        UrlParams::$params = $this->urlParamsInEditMode(UrlParams::$params, $whereClauseArray);
 
         $hasBlobField = false;
         foreach ($tableColumns as $tableColumn) {
@@ -220,11 +220,11 @@ class ChangeController implements InvocableController
         }
 
         if (! $this->config->settings['ShowFunctionFields']) {
-            $htmlOutput .= $this->insertEdit->showTypeOrFunction('function', $GLOBALS['urlParams'], false);
+            $htmlOutput .= $this->insertEdit->showTypeOrFunction('function', UrlParams::$params, false);
         }
 
         if (! $this->config->settings['ShowFieldTypesInDataEditView']) {
-            $htmlOutput .= $this->insertEdit->showTypeOrFunction('type', $GLOBALS['urlParams'], false);
+            $htmlOutput .= $this->insertEdit->showTypeOrFunction('type', UrlParams::$params, false);
         }
 
         $GLOBALS['plugin_scripts'] = [];
@@ -244,7 +244,7 @@ class ChangeController implements InvocableController
             }
 
             $htmlOutput .= $this->insertEdit->getHtmlForInsertEditRow(
-                $GLOBALS['urlParams'],
+                UrlParams::$params,
                 $tableColumns,
                 $commentsMap,
                 $GLOBALS['current_result'],

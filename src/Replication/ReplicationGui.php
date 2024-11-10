@@ -15,6 +15,7 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -83,7 +84,7 @@ class ReplicationGui
                 $replicas = $dbi->fetchResult('SHOW SLAVE HOSTS');
             }
 
-            $urlParams = $GLOBALS['urlParams'];
+            $urlParams = UrlParams::$params;
             $urlParams['primary_add_user'] = true;
             $urlParams['replica_clear_screen'] = true;
         }
@@ -146,7 +147,7 @@ class ReplicationGui
         $isReplicaSqlRunning = false;
 
         if ($serverReplicaStatus) {
-            $urlParams = $GLOBALS['urlParams'];
+            $urlParams = UrlParams::$params;
             $urlParams['sr_take_action'] = true;
             $urlParams['sr_replica_server_control'] = true;
 
@@ -190,12 +191,12 @@ class ReplicationGui
             $urlParams['sr_replica_action'] = 'reset';
             $replicaControlResetLink = Url::getCommon($urlParams, '', false);
 
-            $urlParams = $GLOBALS['urlParams'];
+            $urlParams = UrlParams::$params;
             $urlParams['sr_take_action'] = true;
             $urlParams['sr_replica_skip_error'] = true;
             $replicaSkipErrorLink = Url::getCommon($urlParams, '', false);
 
-            $urlParams = $GLOBALS['urlParams'];
+            $urlParams = UrlParams::$params;
             $urlParams['replica_configure'] = true;
             $urlParams['replica_clear_screen'] = true;
 
@@ -206,7 +207,7 @@ class ReplicationGui
 
         return $this->template->render('server/replication/replica_configuration', [
             'server_replica_multi_replication' => $serverReplicaMultiReplication,
-            'url_params' => $GLOBALS['urlParams'],
+            'url_params' => UrlParams::$params,
             'primary_connection' => $connection ?? '',
             'server_replica_status' => $serverReplicaStatus,
             'replica_status_table' => $replicaStatusTable ?? '',
@@ -491,7 +492,7 @@ class ReplicationGui
                 );
             } else {
                 $response->redirect(
-                    './index.php?route=/server/replication' . Url::getCommonRaw($GLOBALS['urlParams'], '&'),
+                    './index.php?route=/server/replication' . Url::getCommonRaw(UrlParams::$params, '&'),
                 );
             }
         }

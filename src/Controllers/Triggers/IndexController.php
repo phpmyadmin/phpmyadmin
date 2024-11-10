@@ -20,6 +20,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -47,7 +48,6 @@ final class IndexController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errors'] ??= null;
-        $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
         $this->response->addScriptFiles(['triggers.js', 'sql.js']);
@@ -62,9 +62,9 @@ final class IndexController implements InvocableController
                     return $this->response->response();
                 }
 
-                $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
+                UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
                 $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
-                $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
+                $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

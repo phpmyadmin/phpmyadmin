@@ -26,6 +26,7 @@ use PhpMyAdmin\Plugins\Import\ImportFormat;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 use Throwable;
@@ -66,7 +67,6 @@ final class ImportController implements InvocableController
         $GLOBALS['import_text'] ??= null;
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['urlParams'] ??= null;
         $GLOBALS['error'] ??= null;
         $GLOBALS['result'] ??= null;
 
@@ -197,11 +197,11 @@ final class ImportController implements InvocableController
         }
 
         if (Current::$table !== '' && Current::$database !== '') {
-            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
+            UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
         } elseif (Current::$database !== '') {
-            $GLOBALS['urlParams'] = ['db' => Current::$database];
+            UrlParams::$params = ['db' => Current::$database];
         } else {
-            $GLOBALS['urlParams'] = [];
+            UrlParams::$params = [];
         }
 
         // Create error and goto url
@@ -221,7 +221,7 @@ final class ImportController implements InvocableController
             }
         }
 
-        $GLOBALS['errorUrl'] = $GLOBALS['goto'] . Url::getCommon($GLOBALS['urlParams'], '&');
+        $GLOBALS['errorUrl'] = $GLOBALS['goto'] . Url::getCommon(UrlParams::$params, '&');
         $_SESSION['Import_message']['go_back_url'] = $GLOBALS['errorUrl'];
 
         if (Current::$database !== '') {
@@ -553,13 +553,13 @@ final class ImportController implements InvocableController
 
         // Did we hit timeout? Tell it user.
         if (ImportSettings::$timeoutPassed) {
-            $GLOBALS['urlParams']['timeout_passed'] = '1';
-            $GLOBALS['urlParams']['offset'] = ImportSettings::$offset;
+            UrlParams::$params['timeout_passed'] = '1';
+            UrlParams::$params['offset'] = ImportSettings::$offset;
             if (ImportSettings::$localImportFile !== '') {
-                $GLOBALS['urlParams']['local_import_file'] = ImportSettings::$localImportFile;
+                UrlParams::$params['local_import_file'] = ImportSettings::$localImportFile;
             }
 
-            $importUrl = $GLOBALS['errorUrl'] = $GLOBALS['goto'] . Url::getCommon($GLOBALS['urlParams'], '&');
+            $importUrl = $GLOBALS['errorUrl'] = $GLOBALS['goto'] . Url::getCommon(UrlParams::$params, '&');
 
             $GLOBALS['message'] = Message::error(
                 __(

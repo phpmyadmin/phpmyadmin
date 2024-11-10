@@ -1675,7 +1675,7 @@ class Sql
         $template = new Template();
 
         return $template->render('indexes', [
-            'url_params' => $GLOBALS['urlParams'],
+            'url_params' => UrlParams::$params,
             'indexes' => $indexes,
             'indexes_duplicates' => $indexesDuplicates,
         ]);

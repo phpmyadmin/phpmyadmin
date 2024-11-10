@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Http\Middleware;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\UrlParams;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -19,7 +20,7 @@ final class UrlParamsSetting implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $GLOBALS['urlParams'] = [];
+        UrlParams::$params = [];
 
         $this->setGotoAndBackGlobals();
 
@@ -33,7 +34,7 @@ final class UrlParamsSetting implements MiddlewareInterface
 
         if (isset($_REQUEST['goto']) && Core::checkPageValidity($_REQUEST['goto'])) {
             $GLOBALS['goto'] = $_REQUEST['goto'];
-            $GLOBALS['urlParams']['goto'] = $GLOBALS['goto'];
+            UrlParams::$params['goto'] = $GLOBALS['goto'];
         } else {
             if ($this->config->issetCookie('goto')) {
                 $this->config->removeCookie('goto');

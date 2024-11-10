@@ -19,6 +19,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
@@ -51,7 +52,6 @@ final class RoutinesController implements InvocableController
     {
         $GLOBALS['errors'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['urlParams'] ??= null;
 
         $this->response->addScriptFiles(['database/routines.js', 'sql.js']);
 
@@ -69,9 +69,9 @@ final class RoutinesController implements InvocableController
                     return $this->response->response();
                 }
 
-                $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
+                UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
                 $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
-                $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
+                $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

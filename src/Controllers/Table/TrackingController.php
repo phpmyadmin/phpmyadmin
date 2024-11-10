@@ -22,6 +22,7 @@ use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 use Throwable;
 use Webmozart\Assert\Assert;
@@ -48,7 +49,6 @@ final class TrackingController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
         $this->response->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
@@ -57,12 +57,12 @@ final class TrackingController implements InvocableController
             return $this->response->response();
         }
 
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
+        UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
         );
-        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
+        $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -98,8 +98,8 @@ final class TrackingController implements InvocableController
             )->getDisplay();
         }
 
-        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
-        $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/tracking');
+        UrlParams::$params['goto'] = Url::getFromRoute('/table/tracking');
+        UrlParams::$params['back'] = Url::getFromRoute('/table/tracking');
 
         $versionParam = $request->getParsedBodyParamAsString('version', '');
         $tableParam = $request->getParsedBodyParamAsString('table', '');
@@ -178,7 +178,7 @@ final class TrackingController implements InvocableController
 
             $trackingReport = $this->tracking->getHtmlForTrackingReport(
                 $trackedData,
-                $GLOBALS['urlParams'],
+                UrlParams::$params,
                 $logType,
                 $filterUsers,
                 $versionParam,
@@ -239,11 +239,11 @@ final class TrackingController implements InvocableController
                 $db,
                 $tableParam,
                 $versionParam,
-                $GLOBALS['urlParams'],
+                UrlParams::$params,
             );
         }
 
-        $main = $this->tracking->getHtmlForMainPage(Current::$database, Current::$table, $GLOBALS['urlParams']);
+        $main = $this->tracking->getHtmlForMainPage(Current::$database, Current::$table, UrlParams::$params);
 
         $this->response->render('table/tracking/index', [
             'active_message' => $activeMessage,

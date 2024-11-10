@@ -24,6 +24,7 @@ use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
@@ -50,7 +51,6 @@ final class DatabaseController implements InvocableController
     {
         $GLOBALS['message'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['urlParams'] ??= null;
         $GLOBALS['single_table'] ??= null;
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
@@ -247,7 +247,7 @@ final class DatabaseController implements InvocableController
             return $this->response->response();
         }
 
-        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/operations');
+        UrlParams::$params['goto'] = Url::getFromRoute('/database/operations');
 
         $oldMessage = '';
         if (isset($GLOBALS['message'])) {

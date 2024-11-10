@@ -18,6 +18,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -39,7 +40,6 @@ final class ViewController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
         $tableObject = $this->dbi->getTable(Current::$database, Current::$table);
 
         $GLOBALS['errorUrl'] ??= null;
@@ -49,12 +49,12 @@ final class ViewController implements InvocableController
             return $this->response->response();
         }
 
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
+        UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
         );
-        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
+        $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -84,7 +84,7 @@ final class ViewController implements InvocableController
             return $this->response->response();
         }
 
-        $GLOBALS['urlParams']['goto'] = $GLOBALS['urlParams']['back'] = Url::getFromRoute('/view/operations');
+        UrlParams::$params['goto'] = UrlParams::$params['back'] = Url::getFromRoute('/view/operations');
 
         $message = new Message();
         $type = MessageType::Success;
@@ -137,7 +137,7 @@ final class ViewController implements InvocableController
         $this->response->render('table/operations/view', [
             'db' => Current::$database,
             'table' => Current::$table,
-            'url_params' => $GLOBALS['urlParams'],
+            'url_params' => UrlParams::$params,
         ]);
 
         return $this->response->response();

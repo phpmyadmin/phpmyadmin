@@ -26,6 +26,7 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
@@ -54,7 +55,6 @@ final class TableController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
         $GLOBALS['auto_increment'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -74,10 +74,10 @@ final class TableController implements InvocableController
         }
 
         $isSystemSchema = Utilities::isSystemSchema(Current::$database);
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
+        UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
         $config = Config::getInstance();
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
-        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
+        $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -107,7 +107,7 @@ final class TableController implements InvocableController
             return $this->response->response();
         }
 
-        $GLOBALS['urlParams']['goto'] = $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/operations');
+        UrlParams::$params['goto'] = UrlParams::$params['back'] = Url::getFromRoute('/table/operations');
 
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -400,7 +400,7 @@ final class TableController implements InvocableController
             unset($newMessage);
         }
 
-        $GLOBALS['urlParams']['goto'] = $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/operations');
+        UrlParams::$params['goto'] = UrlParams::$params['back'] = Url::getFromRoute('/table/operations');
 
         $columns = $this->dbi->getColumns(Current::$database, Current::$table);
 
@@ -482,14 +482,14 @@ final class TableController implements InvocableController
         }
 
         $foreigners = $this->operations->getForeignersForReferentialIntegrityCheck(
-            $GLOBALS['urlParams'],
+            UrlParams::$params,
             $relationParameters->relationFeature !== null,
         );
 
         $this->response->render('table/operations/index', [
             'db' => Current::$database,
             'table' => Current::$table,
-            'url_params' => $GLOBALS['urlParams'],
+            'url_params' => UrlParams::$params,
             'columns' => $columns,
             'hide_order_table' => $hideOrderTable,
             'table_comment' => $comment,

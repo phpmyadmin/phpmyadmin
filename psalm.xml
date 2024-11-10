@@ -110,7 +110,6 @@
             tbl_storage_engine: string,
             token_mismatch: bool,
             token_provided: bool,
-            urlParams: array,
             username: string,
             xml_export_triggers: bool,
             xml_export_views: bool

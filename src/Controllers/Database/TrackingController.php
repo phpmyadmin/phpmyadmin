@@ -18,6 +18,7 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -39,7 +40,6 @@ final class TrackingController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
         $this->response->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
@@ -66,8 +66,8 @@ final class TrackingController implements InvocableController
             return $this->response->response();
         }
 
-        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
-        $GLOBALS['urlParams']['back'] = Url::getFromRoute('/database/tracking');
+        UrlParams::$params['goto'] = Url::getFromRoute('/table/tracking');
+        UrlParams::$params['back'] = Url::getFromRoute('/database/tracking');
 
         $isSystemSchema = Utilities::isSystemSchema(Current::$database);
 
@@ -105,7 +105,7 @@ final class TrackingController implements InvocableController
                 } elseif ($request->getParsedBodyParam('submit_mult') === 'track') {
                     $this->response->render('create_tracking_version', [
                         'route' => '/database/tracking',
-                        'url_params' => $GLOBALS['urlParams'],
+                        'url_params' => UrlParams::$params,
                         'last_version' => 0,
                         'db' => Current::$database,
                         'selected' => $selectedTable,
@@ -138,7 +138,7 @@ final class TrackingController implements InvocableController
 
         $this->response->addHTML($this->tracking->getHtmlForDbTrackingTables(
             Current::$database,
-            $GLOBALS['urlParams'],
+            UrlParams::$params,
         ));
 
         // If available print out database log

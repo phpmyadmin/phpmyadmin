@@ -21,6 +21,7 @@ use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -209,15 +210,14 @@ final class ChartController implements InvocableController
      */
     public function ajax(ServerRequest $request): void
     {
-        $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         if (Current::$table !== '' && Current::$database !== '') {
-            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
+            UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
                 Config::getInstance()->settings['DefaultTabTable'],
                 'table',
             );
-            $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
+            $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

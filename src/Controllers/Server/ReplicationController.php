@@ -15,6 +15,7 @@ use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 
 use function is_array;
 
@@ -32,7 +33,6 @@ final class ReplicationController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
         $hasReplicaClearScreen = (bool) $request->getParsedBodyParamAsStringOrNull('replica_clear_screen');
@@ -56,7 +56,7 @@ final class ReplicationController implements InvocableController
 
         $urlParams = $request->getParsedBodyParam('url_params');
         if (is_array($urlParams)) {
-            $GLOBALS['urlParams'] = $urlParams;
+            UrlParams::$params = $urlParams;
         }
 
         if ($this->dbi->isSuperUser()) {
@@ -113,7 +113,7 @@ final class ReplicationController implements InvocableController
         }
 
         $this->response->render('server/replication/index', [
-            'url_params' => $GLOBALS['urlParams'],
+            'url_params' => UrlParams::$params,
             'is_super_user' => $this->dbi->isSuperUser(),
             'error_messages' => $errorMessages,
             'is_primary' => $primaryInfo['status'],

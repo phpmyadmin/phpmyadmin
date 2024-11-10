@@ -18,6 +18,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -36,7 +37,6 @@ class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['where_clause'] ??= null;
         $GLOBALS['unlim_num_rows'] ??= null;
@@ -51,15 +51,15 @@ class ExportController implements InvocableController
             return $this->response->response();
         }
 
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
+        UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabTable'],
             'table',
         );
-        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
+        $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
 
-        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/export');
-        $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/export');
+        UrlParams::$params['goto'] = Url::getFromRoute('/table/export');
+        UrlParams::$params['back'] = Url::getFromRoute('/table/export');
 
         // When we have some query, we need to remove LIMIT from that and possibly
         // generate WHERE clause (if we are asked to export specific rows)
