@@ -82,18 +82,12 @@ final class PrivilegesController implements InvocableController
             $this->dbi->selectDb('mysql');
         }
 
-        /**
-         * Get DB information: username, hostname, dbname,
-         * tablename, db_and_table, dbname_is_wildcard
-         */
-        [
-            $GLOBALS['username'],
-            $GLOBALS['hostname'],
-            $GLOBALS['dbname'],
-            $tablename,
-            $routinename,
-            $dbnameIsWildcard,
-        ] = $serverPrivileges->getDataForDBInfo($request);
+        $GLOBALS['username'] = $serverPrivileges->getUsernameParam($request);
+        $GLOBALS['hostname'] = $serverPrivileges->getHostnameParam($request);
+        $GLOBALS['dbname'] = $serverPrivileges->getDbname($request);
+        $tablename = $serverPrivileges->getTablename($request);
+        $routinename = $serverPrivileges->getRoutinename($request);
+        $dbnameIsWildcard = $serverPrivileges->isDatabaseNameWildcard($GLOBALS['dbname']);
 
         /**
          * Checks if the user is allowed to do what they try to...

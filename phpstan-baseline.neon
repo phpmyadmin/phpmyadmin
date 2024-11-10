@@ -12337,11 +12337,6 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDataForDBInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
 			message: "#^Offset '@@old_passwords' does not exist on array\\<string\\|null\\>\\|null\\.$#"
 			count: 1
 			path: src/Server/Privileges.php
