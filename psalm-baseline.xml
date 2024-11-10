@@ -2896,12 +2896,6 @@
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
     </InvalidArrayOffset>
-    <InvalidReturnStatement>
-      <code><![CDATA[$urlParams]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[array<string, bool|int|string>]]></code>
-    </InvalidReturnType>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
@@ -2941,7 +2935,6 @@
       <code><![CDATA[empty($GLOBALS['disp_message'])]]></code>
       <code><![CDATA[empty($GLOBALS['goto'])]]></code>
       <code><![CDATA[empty($GLOBALS['unsaved_values'])]]></code>
-      <code><![CDATA[empty($_POST['sql_query'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/ChangeRowsController.php">
