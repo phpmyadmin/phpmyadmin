@@ -89,9 +89,9 @@ class InsertEdit
     /**
      * Retrieve form parameters for insert/edit form
      *
-     * @param string  $db               name of the database
-     * @param string  $table            name of the table
-     * @param mixed[] $whereClauseArray
+     * @param string   $db               name of the database
+     * @param string   $table            name of the table
+     * @param string[] $whereClauseArray
      *
      * @return array<string, string> array of insert/edit form parameters
      */
@@ -629,9 +629,9 @@ class InsertEdit
     /**
      * get html for continue insertion form
      *
-     * @param string  $table            name of the table
-     * @param string  $db               name of the database
-     * @param mixed[] $whereClauseArray
+     * @param string   $table            name of the table
+     * @param string   $db               name of the database
+     * @param string[] $whereClauseArray
      *
      * @return string                   an html snippet
      */
@@ -1410,8 +1410,7 @@ class InsertEdit
      * @param string               $db          current database
      * @param string               $table       current table
      *
-     * @return array<int, bool|string[]|string|ResultInterface|ResultInterface[]|null>
-     * @phpstan-return array{
+     * @return array{
      *     bool,
      *     string[]|string|null,
      *     string[],
@@ -1872,7 +1871,7 @@ class InsertEdit
      * @param string           $db               database
      * @param int              $rowId            row id
      * @param mixed[]          $repopulate       the data to be repopulated
-     * @param mixed[]          $whereClauseArray the array of where clauses
+     * @param string[]         $whereClauseArray the array of where clauses
      */
     public function getHtmlForInsertEditRow(
         array $urlParams,

@@ -3324,7 +3324,7 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\ChangeController\\:\\:urlParamsInEditMode\\(\\) should return array\\<string, bool\\|int\\|string\\> but returns array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\ChangeController\\:\\:urlParamsInEditMode\\(\\) should return array\\<string, bool\\|int\\|string\\> but returns array\\<string, mixed\\>\\.$#"
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
 
@@ -3355,11 +3355,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$sqlQuery of static method PhpMyAdmin\\\\Core\\:\\:checkSqlQuerySignature\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
 
@@ -8002,11 +7997,6 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
-			count: 1
-			path: src/InsertEdit.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: src/InsertEdit.php
@@ -8023,11 +8013,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\.\\.\\.\\$arrays of function array_merge expects array, mixed given\\.$#"
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#16 \\$whereClause of method PhpMyAdmin\\\\InsertEdit\\:\\:getHtmlForInsertEditFormColumn\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/InsertEdit.php
 

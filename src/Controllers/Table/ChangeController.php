@@ -295,8 +295,8 @@ class ChangeController implements InvocableController
     /**
      * Add some url parameters
      *
-     * @param mixed[] $urlParams        containing $db and $table as url parameters
-     * @param mixed[] $whereClauseArray where clauses array
+     * @param array<string, bool|int|string> $urlParams        containing $db and $table as url parameters
+     * @param string[]                       $whereClauseArray where clauses array
      *
      * @return array<string, bool|int|string> Add some url parameters to $url_params array and return it
      */
