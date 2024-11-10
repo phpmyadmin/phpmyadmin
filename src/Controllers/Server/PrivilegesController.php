@@ -93,7 +93,7 @@ final class PrivilegesController implements InvocableController
             $tablename,
             $routinename,
             $dbnameIsWildcard,
-        ] = $serverPrivileges->getDataForDBInfo();
+        ] = $serverPrivileges->getDataForDBInfo($request);
 
         /**
          * Checks if the user is allowed to do what they try to...
