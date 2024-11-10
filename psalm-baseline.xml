@@ -3144,6 +3144,9 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($GLOBALS['goto'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/FindReplaceController.php">
     <DeprecatedMethod>
@@ -6156,19 +6159,6 @@
       <code><![CDATA[(string) $_POST['token']]]></code>
       <code><![CDATA[(string) $_POST['token']]]></code>
     </RedundantCast>
-  </file>
-  <file src="src/Http/Middleware/UrlParamsSetting.php">
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[UrlParams::$params]]></code>
-    </InvalidPropertyAssignmentValue>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_REQUEST['back']]]></code>
-      <code><![CDATA[$_REQUEST['goto']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_REQUEST['back']]]></code>
-      <code><![CDATA[$_REQUEST['goto']]]></code>
-    </PossiblyInvalidCast>
   </file>
   <file src="src/I18n/LanguageManager.php">
     <DeprecatedMethod>

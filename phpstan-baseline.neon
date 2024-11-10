@@ -3631,6 +3631,11 @@ parameters:
 			path: src/Controllers/Table/ExportController.php
 
 		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: src/Controllers/Table/ExportRowsController.php
+
+		-
 			message: """
 				#^Call to deprecated method getInstance\\(\\) of class PhpMyAdmin\\\\Config\\:
 				Use dependency injection instead\\.$#
@@ -7500,12 +7505,12 @@ parameters:
 			path: src/Http/Middleware/TokenRequestParamChecking.php
 
 		-
-			message: "#^Parameter \\#1 \\$page of static method PhpMyAdmin\\\\Core\\:\\:checkPageValidity\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			message: "#^Cannot access offset 'back' on array\\|object\\.$#"
+			count: 1
 			path: src/Http/Middleware/UrlParamsSetting.php
 
 		-
-			message: "#^Static property PhpMyAdmin\\\\UrlParams\\:\\:\\$params \\(array\\<string, bool\\|int\\|string\\>\\) does not accept array\\<string, mixed\\>\\.$#"
+			message: "#^Cannot access offset 'goto' on array\\|object\\.$#"
 			count: 1
 			path: src/Http/Middleware/UrlParamsSetting.php
 

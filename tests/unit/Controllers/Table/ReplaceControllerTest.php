@@ -77,7 +77,6 @@ class ReplaceControllerTest extends AbstractTestCase
         $_POST['table'] = Current::$table;
         $_POST['ajax_request'] = 'true';
         $_POST['relational_display'] = 'K';
-        $_POST['goto'] = 'index.php?route=/sql';
 
         $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([

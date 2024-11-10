@@ -26,7 +26,7 @@ final class ExportRowsController implements InvocableController
         $GLOBALS['single_table'] ??= null;
         $GLOBALS['where_clause'] ??= null;
 
-        if (isset($_POST['goto']) && (! isset($_POST['rows_to_delete']) || ! is_array($_POST['rows_to_delete']))) {
+        if (! empty($GLOBALS['goto']) && (! isset($_POST['rows_to_delete']) || ! is_array($_POST['rows_to_delete']))) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));
 

@@ -11,6 +11,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use Webmozart\Assert\Assert;
 
 final class UrlParamsSetting implements MiddlewareInterface
 {
@@ -22,38 +23,42 @@ final class UrlParamsSetting implements MiddlewareInterface
     {
         UrlParams::$params = [];
 
-        $this->setGotoAndBackGlobals();
+        $this->setGotoAndBackGlobals($request);
 
         return $handler->handle($request);
     }
 
-    private function setGotoAndBackGlobals(): void
+    private function setGotoAndBackGlobals(ServerRequestInterface $request): void
     {
         // Holds page that should be displayed.
         $GLOBALS['goto'] = '';
 
-        if (isset($_REQUEST['goto']) && Core::checkPageValidity($_REQUEST['goto'])) {
-            $GLOBALS['goto'] = $_REQUEST['goto'];
-            UrlParams::$params['goto'] = $GLOBALS['goto'];
+        $goto = $request->getQueryParams()['goto'] ?? $request->getParsedBody()['goto'] ?? null;
+        Assert::nullOrString($goto);
+
+        if ($goto !== null && Core::checkPageValidity($goto)) {
+            $GLOBALS['goto'] = $goto;
+            UrlParams::$params['goto'] = $goto;
         } else {
             if ($this->config->issetCookie('goto')) {
                 $this->config->removeCookie('goto');
             }
-
-            unset($_REQUEST['goto'], $_GET['goto'], $_POST['goto']);
         }
 
-        if (isset($_REQUEST['back']) && Core::checkPageValidity($_REQUEST['back'])) {
+        $back = $request->getQueryParams()['back'] ?? $request->getParsedBody()['back'] ?? null;
+        Assert::nullOrString($back);
+
+        if ($back !== null && Core::checkPageValidity($back)) {
             // Returning page.
-            $GLOBALS['back'] = $_REQUEST['back'];
+            $GLOBALS['back'] = $back;
 
             return;
         }
 
-        if ($this->config->issetCookie('back')) {
-            $this->config->removeCookie('back');
+        if (! $this->config->issetCookie('back')) {
+            return;
         }
 
-        unset($_REQUEST['back'], $_GET['back'], $_POST['back']);
+        $this->config->removeCookie('back');
     }
 }

@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Http\Middleware;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\Middleware\UrlParamsSetting;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 #[CoversClass(UrlParamsSetting::class)]
@@ -21,10 +21,10 @@ final class UrlParamsSettingTest extends AbstractTestCase
         UrlParams::$params = [];
         $GLOBALS['goto'] = null;
         $GLOBALS['back'] = null;
-        $_REQUEST['goto'] = 'index.php?route=/';
-        $_REQUEST['back'] = 'index.php?route=/';
 
-        $request = self::createStub(ServerRequestInterface::class);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withQueryParams(['goto' => 'index.php?route=/', 'back' => 'index.php?route=/']);
+
         $response = self::createStub(ResponseInterface::class);
         $handler = self::createMock(RequestHandlerInterface::class);
         $handler->method('handle')->with($request)->willReturn($response);
@@ -37,5 +37,8 @@ final class UrlParamsSettingTest extends AbstractTestCase
         self::assertSame('index.php?route=/', $GLOBALS['back']);
         /** @psalm-suppress TypeDoesNotContainType */
         self::assertSame(['goto' => 'index.php?route=/'], UrlParams::$params);
+
+        $GLOBALS['goto'] = null;
+        $GLOBALS['back'] = null;
     }
 }
