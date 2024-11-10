@@ -50,7 +50,7 @@ final class UrlParamsSetting implements MiddlewareInterface
 
         if ($back !== null && Core::checkPageValidity($back)) {
             // Returning page.
-            $GLOBALS['back'] = $back;
+            UrlParams::$back = $back;
 
             return;
         }

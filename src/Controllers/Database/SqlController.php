@@ -37,7 +37,6 @@ class SqlController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['back'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
         $this->response->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
@@ -75,7 +74,7 @@ class SqlController implements InvocableController
          * with the typed query in the textarea.
          */
         UrlParams::$goto = Url::getFromRoute('/database/sql');
-        $GLOBALS['back'] = UrlParams::$goto;
+        UrlParams::$back = UrlParams::$goto;
         $delimiter = $request->getParsedBodyParamAsString('delimiter', ';');
 
         $this->response->addHTML($this->sqlQueryForm->getHtml(
