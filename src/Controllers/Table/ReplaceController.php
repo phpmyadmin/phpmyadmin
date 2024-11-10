@@ -27,6 +27,7 @@ use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function array_keys;
@@ -75,14 +76,13 @@ final class ReplaceController implements InvocableController
         $afterInsert = $request->getParsedBodyParamAsStringOrNull('after_insert');
         if (in_array($afterInsert, ['new_insert', 'same_insert', 'edit_next'], true)) {
             UrlParams::$params['after_insert'] = $afterInsert;
-            $whereClause = $request->getParsedBodyParam('where_clause');
-            if ($whereClause !== null) {
-                foreach ($whereClause as $oneWhereClause) {
-                    if ($afterInsert === 'same_insert') {
-                        UrlParams::$params['where_clause'][] = $oneWhereClause;
-                    } elseif ($afterInsert === 'edit_next') {
-                        $this->insertEdit->setSessionForEditNext($oneWhereClause);
-                    }
+            $whereClause = $request->getParsedBodyParam('where_clause', []);
+            Assert::allString($whereClause);
+            foreach ($whereClause as $oneWhereClause) {
+                if ($afterInsert === 'same_insert') {
+                    UrlParams::$params['where_clause'][] = $oneWhereClause;
+                } elseif ($afterInsert === 'edit_next') {
+                    $this->insertEdit->setSessionForEditNext($oneWhereClause);
                 }
             }
         }
