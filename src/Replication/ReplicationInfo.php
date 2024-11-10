@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Replication;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Query\Compatibility;
+use PhpMyAdmin\UrlParams;
 
 use function explode;
 use function sprintf;
@@ -90,8 +91,6 @@ final class ReplicationInfo
 
     public function load(string|null $connection = null): void
     {
-        $GLOBALS['urlParams'] ??= null;
-
         $this->setPrimaryStatus();
 
         if ($connection !== null && $connection !== '') {
@@ -99,7 +98,7 @@ final class ReplicationInfo
 
             if ($this->multiPrimaryStatus !== []) {
                 $this->setDefaultPrimaryConnection($connection);
-                $GLOBALS['urlParams']['primary_connection'] = $connection;
+                UrlParams::$params['primary_connection'] = $connection;
             }
         }
 

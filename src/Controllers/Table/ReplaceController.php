@@ -25,6 +25,7 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -56,7 +57,6 @@ final class ReplaceController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
         $GLOBALS['message'] ??= null;
         if (! $this->response->checkParameters(['db', 'table', 'goto'])) {
             return $this->response->response();
@@ -74,12 +74,12 @@ final class ReplaceController implements InvocableController
 
         $afterInsert = $request->getParsedBodyParamAsStringOrNull('after_insert');
         if (in_array($afterInsert, ['new_insert', 'same_insert', 'edit_next'], true)) {
-            $GLOBALS['urlParams']['after_insert'] = $afterInsert;
+            UrlParams::$params['after_insert'] = $afterInsert;
             $whereClause = $request->getParsedBodyParam('where_clause');
             if ($whereClause !== null) {
                 foreach ($whereClause as $oneWhereClause) {
                     if ($afterInsert === 'same_insert') {
-                        $GLOBALS['urlParams']['where_clause'][] = $oneWhereClause;
+                        UrlParams::$params['where_clause'][] = $oneWhereClause;
                     } elseif ($afterInsert === 'edit_next') {
                         $this->insertEdit->setSessionForEditNext($oneWhereClause);
                     }
@@ -91,7 +91,7 @@ final class ReplaceController implements InvocableController
         $gotoInclude = $this->insertEdit->getGotoInclude(false);
 
         // Defines the url to return in case of failure of the query
-        $GLOBALS['errorUrl'] = $this->insertEdit->getErrorUrl($GLOBALS['urlParams']);
+        $GLOBALS['errorUrl'] = $this->insertEdit->getErrorUrl(UrlParams::$params);
 
         /**
          * Prepares the update/insert of a row
@@ -304,7 +304,7 @@ final class ReplaceController implements InvocableController
 
         $returnToSqlQuery = '';
         if (! empty($GLOBALS['sql_query'])) {
-            $GLOBALS['urlParams']['sql_query'] = $GLOBALS['sql_query'];
+            UrlParams::$params['sql_query'] = $GLOBALS['sql_query'];
             $returnToSqlQuery = $GLOBALS['sql_query'];
         }
 

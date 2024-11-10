@@ -22,6 +22,7 @@ use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -58,7 +59,6 @@ final class CreateController implements InvocableController
             return $this->response->response();
         }
 
-        $GLOBALS['urlParams'] ??= null;
         $GLOBALS['message'] ??= null;
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
@@ -81,8 +81,8 @@ final class CreateController implements InvocableController
             return $this->response->response();
         }
 
-        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/structure');
-        $GLOBALS['urlParams']['back'] = Url::getFromRoute('/view/create');
+        UrlParams::$params['goto'] = Url::getFromRoute('/table/structure');
+        UrlParams::$params['back'] = Url::getFromRoute('/view/create');
 
         /** @var array|null $view */
         $view = $request->getParsedBodyParam('view');
@@ -181,14 +181,14 @@ final class CreateController implements InvocableController
             $viewData = array_merge($viewData, $view);
         }
 
-        $GLOBALS['urlParams']['db'] = Current::$database;
-        $GLOBALS['urlParams']['reload'] = 1;
+        UrlParams::$params['db'] = Current::$database;
+        UrlParams::$params['reload'] = 1;
 
         $this->response->addScriptFiles(['sql.js']);
 
         $this->response->render('view_create', [
             'ajax_dialog' => $ajaxdialog,
-            'url_params' => $GLOBALS['urlParams'],
+            'url_params' => UrlParams::$params,
             'view' => $viewData,
             'view_algorithm_options' => self::VIEW_ALGORITHM_OPTIONS,
             'view_with_options' => self::VIEW_WITH_OPTIONS,

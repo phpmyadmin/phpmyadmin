@@ -18,6 +18,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -35,7 +36,6 @@ final class SearchController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['urlParams'] ??= null;
 
         $this->response->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
 
@@ -81,7 +81,7 @@ final class SearchController implements InvocableController
             return $this->response->response();
         }
 
-        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/search');
+        UrlParams::$params['goto'] = Url::getFromRoute('/database/search');
 
         // Create a database search instance
         $databaseSearch = new Search($this->dbi, Current::$database, $this->template);

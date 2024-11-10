@@ -18,6 +18,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -38,7 +39,6 @@ final class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
         $GLOBALS['table_select'] ??= null;
         $GLOBALS['unlim_num_rows'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
@@ -73,7 +73,7 @@ final class ExportController implements InvocableController
             return $this->response->response();
         }
 
-        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/export');
+        UrlParams::$params['goto'] = Url::getFromRoute('/database/export');
 
         $tableNames = $this->export->getTableNames(Current::$database);
         $GLOBALS['num_tables'] = count($tableNames);

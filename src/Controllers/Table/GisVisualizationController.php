@@ -22,6 +22,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -137,7 +138,7 @@ final class GisVisualizationController implements InvocableController
         /**
          * Displays the page
          */
-        $urlParams = $GLOBALS['urlParams'] ?? [];
+        $urlParams = UrlParams::$params;
         $urlParams['goto'] = Util::getScriptNameForOption(
             Config::getInstance()->settings['DefaultTabDatabase'],
             'database',

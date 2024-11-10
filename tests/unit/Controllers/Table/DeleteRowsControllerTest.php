@@ -12,6 +12,7 @@ use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(DeleteRowsController::class)]
@@ -22,7 +23,7 @@ class DeleteRowsControllerTest extends AbstractTestCase
         $GLOBALS['goto'] = null;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        $GLOBALS['urlParams'] = [];
+        UrlParams::$params = [];
         $config = Config::getInstance();
         $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
         $config->selectedServer['DisableIS'] = true;

@@ -1841,7 +1841,7 @@
       <code><![CDATA[$GLOBALS['result']]]></code>
     </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$GLOBALS['urlParams']]]></code>
+      <code><![CDATA[UrlParams::$params]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
@@ -2920,8 +2920,12 @@
       <code><![CDATA[$GLOBALS['current_result']]]></code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument>
+      <code><![CDATA[$GLOBALS['goto']]]></code>
       <code><![CDATA[$isUpload]]></code>
     </PossiblyNullArgument>
+    <PossiblyNullOperand>
+      <code><![CDATA[$GLOBALS['goto']]]></code>
+    </PossiblyNullOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$currentRow]]></code>
       <code><![CDATA[empty($GLOBALS['disp_message'])]]></code>
@@ -2952,7 +2956,7 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$GLOBALS['urlParams']]]></code>
+      <code><![CDATA[UrlParams::$params]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -3435,11 +3439,11 @@
       <code><![CDATA[$request->getParsedBodyParam('fields_name')['multi_edit']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[$GLOBALS['urlParams']['where_clause'][]]]></code>
       <code><![CDATA[$extraData['relations']]]></code>
       <code><![CDATA[$extraData['relations'][$cellIndex]]]></code>
       <code><![CDATA[$multiEditColumns[$key]]]></code>
       <code><![CDATA[$multiEditColumns[$key]]]></code>
+      <code><![CDATA[UrlParams::$params['where_clause'][]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
       <code><![CDATA[$mimeMap[$columnName]]]></code>
@@ -3451,7 +3455,6 @@
       <code><![CDATA[$GLOBALS['query']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values'][$rowNumber]]]></code>
-      <code><![CDATA[$GLOBALS['urlParams']['where_clause'][]]]></code>
       <code><![CDATA[$clauseIsUnique]]></code>
       <code><![CDATA[$columnName]]></code>
       <code><![CDATA[$columnName]]></code>
@@ -3474,13 +3477,11 @@
       <code><![CDATA[$submitType]]></code>
       <code><![CDATA[$whereClause]]></code>
       <code><![CDATA[$whereClause]]></code>
+      <code><![CDATA[UrlParams::$params['where_clause'][]]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$relationFieldValue]]></code>
     </MixedOperand>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['urlParams']]]></code>
-    </PossiblyNullArgument>
     <PossiblyUndefinedVariable>
       <code><![CDATA[$extraData]]></code>
     </PossiblyUndefinedVariable>
@@ -9600,13 +9601,13 @@
       <code><![CDATA[$successMessage]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$GLOBALS['urlParams']]]></code>
       <code><![CDATA[$urlParams]]></code>
       <code><![CDATA[$urlParams]]></code>
       <code><![CDATA[$urlParams]]></code>
       <code><![CDATA[$urlParams]]></code>
       <code><![CDATA[$urlParams]]></code>
       <code><![CDATA[$urlParams]]></code>
+      <code><![CDATA[UrlParams::$params]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$serverReplication[0][$variable]]]></code>

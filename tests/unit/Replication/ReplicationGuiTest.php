@@ -12,6 +12,7 @@ use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 
@@ -48,7 +49,7 @@ class ReplicationGuiTest extends AbstractTestCase
         $config->settings['ShowHint'] = true;
 
         Current::$table = 'table';
-        $GLOBALS['urlParams'] = [];
+        UrlParams::$params = [];
 
         $this->replicationGui = new ReplicationGui(new Replication(DatabaseInterface::getInstance()), new Template());
     }

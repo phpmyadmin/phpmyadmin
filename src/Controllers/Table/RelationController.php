@@ -20,6 +20,7 @@ use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
@@ -206,7 +207,7 @@ final class RelationController implements InvocableController
                 'tbl_storage_engine' => $storageEngine,
                 'db' => Current::$database,
                 'table' => Current::$table,
-                'url_params' => $GLOBALS['urlParams'],
+                'url_params' => UrlParams::$params,
                 'databases' => $this->dbi->getDatabaseList(),
                 'foreign_db' => $foreignDb,
                 'foreign_table' => $foreignTable,
@@ -225,7 +226,7 @@ final class RelationController implements InvocableController
             'tbl_storage_engine' => $storageEngine,
             'db' => Current::$database,
             'table' => Current::$table,
-            'url_params' => $GLOBALS['urlParams'],
+            'url_params' => UrlParams::$params,
             'databases' => $this->dbi->getDatabaseList(),
             'foreign_db' => false,
             'foreign_table' => false,
@@ -293,7 +294,7 @@ final class RelationController implements InvocableController
             'tbl_storage_engine' => $storageEngine,
             'options_array' => $options,
             'internal_relation_columns' => $internalRelationColumns,
-            'url_params' => $GLOBALS['urlParams'],
+            'url_params' => UrlParams::$params,
             'databases' => $this->dbi->getDatabaseList(),
             'default_sliders_state' => $config->settings['InitialSlidersState'],
             'route' => $request->getRoute(),

@@ -8,6 +8,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\UrlParams;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -28,19 +29,13 @@ final class DatabaseAndTableSetting implements MiddlewareInterface
 
     private function setDatabaseAndTableFromRequest(ServerRequest $request): void
     {
-        $GLOBALS['urlParams'] ??= null;
-
         $db = DatabaseName::tryFrom($request->getParam('db'));
         $table = TableName::tryFrom($request->getParam('table'));
 
         Current::$database = $db?->getName() ?? '';
         Current::$table = $table?->getName() ?? '';
 
-        if (! is_array($GLOBALS['urlParams'])) {
-            $GLOBALS['urlParams'] = [];
-        }
-
-        $GLOBALS['urlParams']['db'] = Current::$database;
-        $GLOBALS['urlParams']['table'] = Current::$table;
+        UrlParams::$params['db'] = Current::$database;
+        UrlParams::$params['table'] = Current::$table;
     }
 }

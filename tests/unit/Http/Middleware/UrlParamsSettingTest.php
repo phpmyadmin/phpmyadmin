@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Http\Middleware;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Http\Middleware\UrlParamsSetting;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -17,7 +18,7 @@ final class UrlParamsSettingTest extends AbstractTestCase
 {
     public function testProcess(): void
     {
-        $GLOBALS['urlParams'] = null;
+        UrlParams::$params = null;
         $GLOBALS['goto'] = null;
         $GLOBALS['back'] = null;
         $_REQUEST['goto'] = 'index.php?route=/';
@@ -35,6 +36,6 @@ final class UrlParamsSettingTest extends AbstractTestCase
         /** @psalm-suppress TypeDoesNotContainType */
         self::assertSame('index.php?route=/', $GLOBALS['back']);
         /** @psalm-suppress TypeDoesNotContainType */
-        self::assertSame(['goto' => 'index.php?route=/'], $GLOBALS['urlParams']);
+        self::assertSame(['goto' => 'index.php?route=/'], UrlParams::$params);
     }
 }
