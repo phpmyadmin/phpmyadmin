@@ -298,9 +298,8 @@ class PrivilegesTest extends AbstractTestCase
 
         $dbname = 'pma_dbname';
         $username = 'pma_username';
-        $hostname = 'pma_hostname';
+        $hostname = 'localhost';
         $_POST['pred_username'] = 'any';
-        $_POST['pred_hostname'] = 'localhost';
         $_POST['pred_password'] = 'keep';
         $_POST['createdb-3'] = true;
         $_POST['userGroup'] = 'username';
@@ -347,9 +346,8 @@ class PrivilegesTest extends AbstractTestCase
         $GLOBALS['username'] = 'username';
         $dbname = 'pma_dbname';
         $username = 'pma_username';
-        $hostname = 'pma_hostname';
+        $hostname = 'localhost';
         $_POST['pred_username'] = 'any';
-        $_POST['pred_hostname'] = 'localhost';
         $_POST['pred_password'] = 'keep';
         $_POST['createdb-3'] = true;
         $_POST['userGroup'] = 'username';
@@ -1953,5 +1951,32 @@ class PrivilegesTest extends AbstractTestCase
             $b,
             $serverPrivileges->unescapeGrantWildcards($a),
         );
+    }
+
+    #[DataProvider('providerGetHostname')]
+    public function testGetHostname(string $expected, string $predHostname, string $globalHostname): void
+    {
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addResult(
+            'SELECT USER()',
+            [['@pma_host']],
+        );
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $serverPrivileges = $this->getPrivileges($dbi);
+
+        self::assertSame(
+            $expected,
+            $serverPrivileges->getHostname($predHostname, $globalHostname),
+        );
+    }
+
+    /** @return iterable<int, string[]> */
+    public static function providerGetHostname(): iterable
+    {
+        yield ['%', 'any', ''];
+        yield ['localhost', 'localhost', ''];
+        yield ['', 'hosttable', ''];
+        yield ['pma_host', 'thishost', ''];
+        yield ['global', '', 'global'];
     }
 }

@@ -157,10 +157,20 @@ final class PrivilegesController implements InvocableController
         $GLOBALS['sql_query'] = '';
         $addUserError = false;
         if ($request->hasBodyParam('adduser_submit') || $request->hasBodyParam('change_copy')) {
-            [$retMessage, $queries, $queriesForDisplay, $GLOBALS['sql_query'], $addUserError] = $serverPrivileges->addUser(
+            $hostname = $serverPrivileges->getHostname(
+                $request->getParsedBodyParamAsString('pred_hostname', ''),
+                $GLOBALS['hostname'] ?? '',
+            );
+            [
+                $retMessage,
+                $queries,
+                $queriesForDisplay,
+                $GLOBALS['sql_query'],
+                $addUserError,
+            ] = $serverPrivileges->addUser(
                 $GLOBALS['dbname'] ?? null,
                 $GLOBALS['username'] ?? '',
-                $GLOBALS['hostname'] ?? '',
+                $hostname,
                 $password,
                 $relationParameters->configurableMenusFeature !== null,
             );

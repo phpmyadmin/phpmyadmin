@@ -14099,6 +14099,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUnusedMethod>
+      <code><![CDATA[providerGetHostname]]></code>
       <code><![CDATA[providerUnEscapeMysqlWildcards]]></code>
     </PossiblyUnusedMethod>
     <UnusedVariable>
