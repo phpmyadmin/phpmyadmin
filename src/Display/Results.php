@@ -3910,7 +3910,7 @@ class Results
                 ] = $this->parseStringIntoTableAndColumn($normalizedExpression);
             }
 
-            $expressions[] = new SortExpression($tableName, $columnName, $o->type, $normalizedExpression);
+            $expressions[] = new SortExpression($tableName, $columnName, $o->type->value, $normalizedExpression);
         }
 
         return $expressions;

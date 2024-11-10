@@ -6973,12 +6973,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#3 \$direction of class PhpMyAdmin\\Display\\SortExpression constructor expects ''ASC''\|''DESC'', PhpMyAdmin\\SqlParser\\Components\\OrderSortKeyword given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Parameter \#4 \$database of class PhpMyAdmin\\Display\\ForeignKeyRelatedTable constructor expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
