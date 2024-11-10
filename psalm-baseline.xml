@@ -1194,11 +1194,9 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['back']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['back']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
@@ -2804,7 +2802,6 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
-      <code><![CDATA[$GLOBALS['back']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -2813,7 +2810,6 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['disp_message'] ?? null]]></code>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show'] ?? null]]></code>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
@@ -2827,10 +2823,8 @@
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
-      <code><![CDATA[$GLOBALS['back']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
@@ -2839,12 +2833,6 @@
       <code><![CDATA[$sqlQuery]]></code>
       <code><![CDATA[$sqlQuery]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-    </MixedOperand>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['back'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/AddFieldController.php">
     <InvalidArrayOffset>
@@ -3529,14 +3517,12 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['back']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$request->getQueryParam('sql_query', true)]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['back']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
   </file>

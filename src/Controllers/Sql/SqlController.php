@@ -49,7 +49,6 @@ class SqlController implements InvocableController
         $GLOBALS['message_to_show'] ??= null;
         $GLOBALS['disp_message'] ??= null;
         $GLOBALS['complete_query'] ??= null;
-        $GLOBALS['back'] ??= null;
 
         $this->pageSettings->init('Browse');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
@@ -83,7 +82,7 @@ class SqlController implements InvocableController
         }
 
         if (! isset($GLOBALS['errorUrl'])) {
-            $GLOBALS['errorUrl'] = ! empty($GLOBALS['back']) ? $GLOBALS['back'] : UrlParams::$goto;
+            $GLOBALS['errorUrl'] = UrlParams::$back !== '' ? UrlParams::$back : UrlParams::$goto;
             $GLOBALS['errorUrl'] .= Url::getCommon(
                 ['db' => Current::$database],
                 ! str_contains($GLOBALS['errorUrl'], '?') ? '?' : '&',

@@ -12,4 +12,5 @@ class UrlParams
     /** @var array<string, bool|int|string> $params */
     public static array $params = [];
     public static string $goto = '';
+    public static string $back = '';
 }
