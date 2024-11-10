@@ -2233,26 +2233,6 @@ class Privileges
             $username = '';
         }
 
-        switch ($_POST['pred_hostname']) {
-            case 'any':
-                $hostname = '%';
-                break;
-            case 'localhost':
-                $hostname = 'localhost';
-                break;
-            case 'hosttable':
-                $hostname = '';
-                break;
-            case 'thishost':
-                $currentUserName = $this->dbi->fetchValue('SELECT USER()');
-                if (is_string($currentUserName)) {
-                    $hostname = mb_substr($currentUserName, mb_strrpos($currentUserName, '@') + 1);
-                    unset($currentUserName);
-                }
-
-                break;
-        }
-
         if ($this->userExists($username, $hostname)) {
             $message = Message::error(__('The user %s already exists!'));
             $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
@@ -3346,5 +3326,27 @@ class Privileges
         }
 
         return '';
+    }
+
+    public function getHostname(string $predHostname, string $globalHostname): string
+    {
+        switch ($predHostname) {
+            case 'any':
+                return '%';
+
+            case 'localhost':
+                return 'localhost';
+
+            case 'hosttable':
+                return '';
+
+            case 'thishost':
+                $currentUserName = $this->dbi->fetchValue('SELECT USER()');
+                if (is_string($currentUserName)) {
+                    return mb_substr($currentUserName, mb_strrpos($currentUserName, '@') + 1);
+                }
+        }
+
+        return $globalHostname;
     }
 }

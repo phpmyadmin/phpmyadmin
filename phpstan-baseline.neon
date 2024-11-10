@@ -2996,6 +2996,11 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
+			message: "#^Parameter \\#2 \\$globalHostname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getHostname\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Controllers/Server/PrivilegesController.php
+
+		-
 			message: "#^Parameter \\#2 \\$hostname of method PhpMyAdmin\\\\Controllers\\\\Server\\\\PrivilegesController\\:\\:getExportPageTitle\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
@@ -3037,11 +3042,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$username of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:updatePassword\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: "#^Parameter \\#3 \\$hostname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUser\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
 
