@@ -17,6 +17,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 use const MYSQLI_TYPE_GEOMETRY;
@@ -38,6 +39,7 @@ class GisVisualizationControllerTest extends AbstractTestCase
         $_REQUEST['unlim_num_rows'] = null;
         $_SESSION['tmpval'] = [];
         $_SESSION['tmpval']['max_rows'] = 'all';
+        UrlParams::$params = [];
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');

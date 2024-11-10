@@ -9,5 +9,6 @@ namespace PhpMyAdmin;
 
 class UrlParams
 {
+    /** @var array<string, bool|int|string> $params */
     public static array $params = [];
 }
