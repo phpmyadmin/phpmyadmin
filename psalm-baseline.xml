@@ -2443,7 +2443,6 @@
   </file>
   <file src="src/Controllers/Server/PrivilegesController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['dbname']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
@@ -2456,13 +2455,9 @@
       <code><![CDATA[$queries]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['dbname']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$dbName]]></code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$GLOBALS['dbname']]]></code>
-    </PossiblyInvalidArgument>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[! empty($GLOBALS['message']) && $GLOBALS['message'] instanceof Message]]></code>
     </RedundantConditionGivenDocblockType>

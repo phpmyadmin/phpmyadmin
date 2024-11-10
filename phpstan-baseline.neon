@@ -2951,22 +2951,12 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUser\\(\\) expects array\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
 			message: "#^Parameter \\#1 \\$errorUrl of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:updatePassword\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function urlencode expects string, \\(array\\<int, string\\>\\|string\\) given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
 
@@ -3061,11 +3051,6 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
-			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
 			message: "#^Parameter \\#3 \\$username of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getHtmlForUserProperties\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
@@ -3077,7 +3062,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$dbname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:updatePrivileges\\(\\) expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
@@ -3092,16 +3077,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$username of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getExtraDataForAjaxBehavior\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: "#^Parameter \\#5 \\$dbname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getExtraDataForAjaxBehavior\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: "#^Parameter \\#5 \\$dbname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getHtmlForUserProperties\\(\\) expects array\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
 
