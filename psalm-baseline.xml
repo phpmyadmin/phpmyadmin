@@ -2554,7 +2554,7 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Server/PrivilegesController.php">
-    <MixedArgument occurrences="14">
+    <MixedArgument occurrences="13">
       <code>$db</code>
       <code>$db_name ?? ''</code>
       <code>$password ?? ''</code>
@@ -2563,7 +2563,6 @@
       <code>$queries</code>
       <code>$queries</code>
       <code>$queries_for_display</code>
-      <code>$sql_query</code>
       <code>$sql_query ?? ''</code>
       <code>$table</code>
       <code>$text_dir</code>
@@ -5979,8 +5978,11 @@
     </MixedReturnTypeCoercion>
   </file>
   <file src="libraries/classes/Display/Results.php">
-    <InvalidArgument occurrences="2">
+    <InvalidArgument occurrences="5">
       <code>$added[$orgFullTableName]</code>
+      <code>$expressions</code>
+      <code>$expressions</code>
+      <code>$expressions</code>
       <code>$sortExpressionNoDirection</code>
     </InvalidArgument>
     <InvalidArrayOffset occurrences="2">
