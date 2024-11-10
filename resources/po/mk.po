@@ -20,9 +20,8 @@ msgid "Javascript must be enabled past this point!"
 msgstr "Javascript мора да е уклучен после оваа точка!"
 
 #: resources/templates/base.twig:46
-#, fuzzy
 msgid "Open user account menu"
-msgstr "Било кој корисник"
+msgstr "Отвори корисничко мени"
 
 #: resources/templates/base.twig:57 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
@@ -30,14 +29,12 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin документација"
 
 #: resources/templates/base.twig:62
-#, fuzzy
 msgid "MariaDB documentation"
-msgstr "Документација"
+msgstr "Документација за MariaDB"
 
 #: resources/templates/base.twig:62
-#, fuzzy
 msgid "MySQL documentation"
-msgstr "Документација"
+msgstr "Документација за MySQL"
 
 #: resources/templates/base.twig:73
 msgid "Appearance:"
@@ -45,17 +42,17 @@ msgstr "Изглед:"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "Режим на боја за тема"
 
 #: resources/templates/base.twig:80 resources/templates/home/index.twig:154
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr ""
+msgstr "Светло"
 
 #: resources/templates/base.twig:82 resources/templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Темно"
 
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
@@ -76,18 +73,17 @@ msgstr "Подесувања за Страници"
 
 #: resources/templates/base.twig:110
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Кликнете на траката за скок до врвот на страницата"
 
 #: resources/templates/base.twig:132 resources/templates/base.twig:134
 #: resources/templates/base.twig:136
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "Отвори нов phpMyAdmin прозорец"
 
 #: resources/templates/base.twig:151 resources/templates/home/index.twig:18
 #: resources/templates/login/form.twig:5
-#, fuzzy
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin документација"
+msgstr "phpMyAdmin Демо Сервер"
 
 #: resources/templates/base.twig:159
 #, php-format
@@ -279,6 +275,7 @@ msgstr "колона/и"
 #: src/Controllers/Server/PrivilegesController.php:294
 #: src/Normalization.php:229 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
+#: src/Controllers/Server/PrivilegesController.php:293
 msgid "Go"
 msgstr "OK"
 
@@ -2321,6 +2318,7 @@ msgstr "Назив на дневникот"
 #: src/Config/ConfigFile.php:581
 #: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:256
 #: src/Menu.php:364 src/Util.php:1472 src/Util.php:1488
+#: src/Controllers/Server/PrivilegesController.php:411
 msgid "Privileges"
 msgstr "Привилегии"
 
@@ -3502,7 +3500,6 @@ msgstr "Содржи збор:"
 
 #: resources/templates/gis_data_editor_form.twig:26
 #, fuzzy
-#| msgid "Geometry %d:"
 msgid "Geometry type:"
 msgstr "Геометрија %d:"
 
@@ -3852,7 +3849,7 @@ msgstr "Промени"
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
 #: src/I18n/LanguageManager.php:994 src/Pdf.php:84
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483 src/I18n/Language.php:177
 msgid "Page number:"
 msgstr "Број на страници:"
 
@@ -6204,6 +6201,7 @@ msgstr ""
 #: resources/templates/server/user_groups/user_listings.twig:9
 #: src/Controllers/Server/PrivilegesController.php:415
 #: src/Server/Status/Processes.php:91
+#: src/Controllers/Server/PrivilegesController.php:414
 msgid "User"
 msgstr "Корисник"
 
@@ -11575,20 +11573,20 @@ msgstr "Транформации на веб прелистувачот"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 
-#: src/Config.php:609
+#: src/Config.php:609 src/Config.php:608
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: src/Config.php:645
+#: src/Config.php:645 src/Config.php:644
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: src/Config.php:659
+#: src/Config.php:659 src/Config.php:658
 msgid "Failed to read configuration file!"
 msgstr ""
 
-#: src/Config.php:661
+#: src/Config.php:661 src/Config.php:660
 msgid "This usually means there is a syntax error in it."
 msgstr ""
 
@@ -16093,7 +16091,7 @@ msgid ""
 "access phpMyAdmin."
 msgstr ""
 
-#: src/I18n/LanguageManager.php:966
+#: src/I18n/LanguageManager.php:966 src/I18n/LanguageManager.php:961
 msgid "Ignoring unsupported language code."
 msgstr ""
 
@@ -17755,7 +17753,7 @@ msgid "Error 405! Request method not allowed."
 msgstr ""
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:634
-#: src/Server/Privileges.php:3256
+#: src/Server/Privileges.php:3256 src/Server/Privileges.php:3257
 #, fuzzy
 msgid "Native MySQL authentication"
 msgstr "Документација"
@@ -17833,17 +17831,17 @@ msgstr "Бришам %s"
 msgid "The privileges were reloaded successfully."
 msgstr "Привилегиите се успешно вчитани."
 
-#: src/Server/Privileges.php:2272
+#: src/Server/Privileges.php:2272 src/Server/Privileges.php:2273
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Корисник %s веќе постои!"
 
-#: src/Server/Privileges.php:2509
+#: src/Server/Privileges.php:2509 src/Server/Privileges.php:2510
 #, php-format
 msgid "Privileges for %s"
 msgstr "Привилегии на %s"
 
-#: src/Server/Privileges.php:2595
+#: src/Server/Privileges.php:2595 src/Server/Privileges.php:2596
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -17856,7 +17854,7 @@ msgstr ""
 "привилегиите кои серверот ги користи ако се рачно изменети. Во тој случај "
 "%sповторно вчитајте ги привилегиите%s пред да продолжите."
 
-#: src/Server/Privileges.php:2611
+#: src/Server/Privileges.php:2611 src/Server/Privileges.php:2612
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -17870,11 +17868,11 @@ msgstr ""
 "привилегиите треба да се вчитаат повторно, но вие ja немате RELOAD "
 "привилегијата."
 
-#: src/Server/Privileges.php:2899
+#: src/Server/Privileges.php:2899 src/Server/Privileges.php:2900
 msgid "You have added a new user."
 msgstr "Додадовте нов корисник."
 
-#: src/Server/Privileges.php:3350
+#: src/Server/Privileges.php:3350 src/Server/Privileges.php:3351
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
