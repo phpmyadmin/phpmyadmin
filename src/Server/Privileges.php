@@ -2213,16 +2213,16 @@ class Privileges
     /**
      * update Data for information: Adds a user
      *
-     * @param string|mixed[]|null $dbname     db name
-     * @param string              $username   user name
-     * @param string              $hostname   host name
-     * @param string|null         $password   password
-     * @param bool                $isMenuwork is_menuwork set?
+     * @param string      $dbname     db name
+     * @param string      $username   user name
+     * @param string      $hostname   host name
+     * @param string|null $password   password
+     * @param bool        $isMenuwork is_menuwork set?
      *
      * @return array{Message|null, string[], string[]|null, string, bool}
      */
     public function addUser(
-        string|array|null $dbname,
+        string $dbname,
         string $username,
         string $hostname,
         string|null $password,
@@ -2282,7 +2282,7 @@ class Privileges
                 $sqlQuery,
                 $username,
                 $hostname,
-                is_string($dbname) ? $dbname : '',
+                $dbname,
                 $alterRealSqlQuery,
                 $alterSqlQuery,
                 isset($_POST['createdb-1']),
