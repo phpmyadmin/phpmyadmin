@@ -3303,7 +3303,7 @@ class Privileges
         return null;
     }
 
-    /** @return string|mixed[]|null */
+    /** @return string|string[]|null */
     public function getDbname(ServerRequest $request): string|array|null
     {
         $dbname = null;

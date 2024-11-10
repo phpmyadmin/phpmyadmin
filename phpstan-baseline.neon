@@ -3061,11 +3061,6 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
-			message: "#^Parameter \\#4 \\$dbname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:updatePrivileges\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
 			message: "#^Parameter \\#4 \\$hostname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getHtmlForUserProperties\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
@@ -12313,6 +12308,11 @@ parameters:
 
 		-
 			message: "#^Foreach overwrites \\$sqlQuery with its value variable\\.$#"
+			count: 1
+			path: src/Server/Privileges.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDbname\\(\\) should return array\\<string\\>\\|string\\|null but returns array\\<mixed\\>\\|string\\|null\\.$#"
 			count: 1
 			path: src/Server/Privileges.php
 
