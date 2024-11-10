@@ -3311,6 +3311,11 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Parameter \\#6 \\$expressions of static method PhpMyAdmin\\\\Util\\:\\:getUniqueCondition\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\> given\\.$#"
+			count: 3
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Parameter \\#8 \\$colVisib of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOrderLinkAndSortedHeaderHtml\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -6382,11 +6387,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str1 of function strcmp expects string, array\\<int\\<0, max\\>, array\\<int\\<0, max\\>, string\\>\\|string\\>\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^array\\<int\\<0, max\\>, array\\<int\\<0, max\\>, string\\>\\|string\\>\\|string does not accept array\\<int\\<0, max\\>, string\\>\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
