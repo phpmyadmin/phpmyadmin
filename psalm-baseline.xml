@@ -2892,6 +2892,12 @@
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
     </InvalidArrayOffset>
+    <InvalidReturnStatement>
+      <code><![CDATA[$urlParams]]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[array<string, bool|int|string>]]></code>
+    </InvalidReturnType>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
@@ -2900,7 +2906,6 @@
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$request->getQueryParam('where_clause_signature')]]></code>
-      <code><![CDATA[$whereClause]]></code>
       <code><![CDATA[$whereClause]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -2916,12 +2921,7 @@
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$whereClause]]></code>
-      <code><![CDATA[$whereClause]]></code>
     </MixedAssignment>
-    <MixedReturnTypeCoercion>
-      <code><![CDATA[$urlParams]]></code>
-      <code><![CDATA[array<string, bool|int|string>]]></code>
-    </MixedReturnTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$GLOBALS['current_result']]]></code>
     </PossiblyInvalidArgument>
@@ -6353,8 +6353,6 @@
       <code><![CDATA[$singleQuery]]></code>
       <code><![CDATA[$singleQuery]]></code>
       <code><![CDATA[$transformation[$type . '_options'] ?? '']]></code>
-      <code><![CDATA[$whereClause]]></code>
-      <code><![CDATA[$whereClause]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$query]]></code>
@@ -6387,8 +6385,6 @@
       <code><![CDATA[$maxlength]]></code>
       <code><![CDATA[$singleQuery]]></code>
       <code><![CDATA[$specialChars]]></code>
-      <code><![CDATA[$whereClause]]></code>
-      <code><![CDATA[$whereClause]]></code>
       <code><![CDATA[$whereClause]]></code>
     </MixedAssignment>
     <MixedOperand>
