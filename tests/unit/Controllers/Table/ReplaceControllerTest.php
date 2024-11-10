@@ -129,7 +129,7 @@ class ReplaceControllerTest extends AbstractTestCase
             self::createStub(TableSqlController::class),
         );
 
-        $GLOBALS['goto'] = 'index.php?route=/sql';
+        UrlParams::$goto = 'index.php?route=/sql';
         $dummyDbi->addSelectDb('my_db');
         $dummyDbi->addSelectDb('my_db');
         $dummyDbi->addResult(

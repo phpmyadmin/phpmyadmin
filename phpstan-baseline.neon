@@ -2308,7 +2308,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 9
+			count: 8
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -2358,7 +2358,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, mixed given\\.$#"
-			count: 5
+			count: 4
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -2378,11 +2378,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#5 \\$exit of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: "#^Parameter \\#8 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndGetQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -3185,16 +3180,11 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
+			count: 2
 			path: src/Controllers/Sql/SqlController.php
 
 		-
 			message: "#^Only booleans are allowed in an if condition, bool\\|null given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: "#^Parameter \\#1 \\$goto of method PhpMyAdmin\\\\Controllers\\\\Sql\\\\SqlController\\:\\:addBookmark\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
@@ -3245,11 +3235,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#6 \\$messageToShow of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: "#^Parameter \\#8 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
@@ -3320,21 +3305,11 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
+			count: 2
 			path: src/Controllers/Table/ChangeController.php
 
 		-
 			message: "#^Parameter \\#1 \\$files of method PhpMyAdmin\\\\ResponseRenderer\\:\\:addScriptFiles\\(\\) expects array\\<int, string\\>, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: "#^Parameter \\#1 \\$haystack of function str_starts_with expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
 
@@ -3543,11 +3518,6 @@ parameters:
 			path: src/Controllers/Table/DeleteRowsController.php
 
 		-
-			message: "#^Parameter \\#8 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/DeleteRowsController.php
-
-		-
 			message: "#^Parameter \\#9 \\$dispQuery of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/DeleteRowsController.php
@@ -3619,11 +3589,6 @@ parameters:
 			message: "#^Parameter \\#6 \\$unlimNumRows of method PhpMyAdmin\\\\Export\\\\Options\\:\\:getOptions\\(\\) expects int\\|string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ExportController.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Controllers/Table/ExportRowsController.php
 
 		-
 			message: """
@@ -4160,11 +4125,6 @@ parameters:
 			path: src/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#8 \\$goto of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
 			message: """
 				#^Call to deprecated method getInstance\\(\\) of class PhpMyAdmin\\\\Config\\:
 				Use dependency injection instead\\.$#
@@ -4184,11 +4144,6 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/Controllers/Table/Structure/BrowseController.php
-
-		-
-			message: "#^Parameter \\#1 \\$goto of method PhpMyAdmin\\\\Controllers\\\\Table\\\\Structure\\\\BrowseController\\:\\:displayTableBrowseForSelectedColumns\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/Structure/BrowseController.php
 
@@ -4632,11 +4587,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$foreignField of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#2 \\$goto of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:zoomSubmitAction\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
 
@@ -7858,7 +7808,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 3
+			count: 2
 			path: src/InsertEdit.php
 
 		-
@@ -7883,11 +7833,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getFormParametersForInsertForm\\(\\) should return array\\<string, string\\> but returns array\\<string, mixed\\>\\.$#"
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:getGotoInclude\\(\\) should return string but returns mixed\\.$#"
 			count: 1
 			path: src/InsertEdit.php
 
@@ -7917,6 +7862,11 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
+			message: "#^Only booleans are allowed in a negated boolean, string\\|false given\\.$#"
+			count: 1
+			path: src/InsertEdit.php
+
+		-
 			message: "#^Parameter \\#1 \\$buffer of method PhpMyAdmin\\\\Plugins\\\\TransformationsInterface\\:\\:applyTransformation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/InsertEdit.php
@@ -7938,7 +7888,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: src/InsertEdit.php
 
 		-
@@ -8028,11 +7978,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$specInBrackets of method PhpMyAdmin\\\\InsertEdit\\:\\:getColumnSize\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, mixed given\\.$#"
 			count: 1
 			path: src/InsertEdit.php
 
@@ -12734,7 +12679,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 5
+			count: 2
 			path: src/SqlQueryForm.php
 
 		-
@@ -17126,16 +17071,6 @@ parameters:
 				#^Call to deprecated method getInstance\\(\\) of class PhpMyAdmin\\\\Config\\:
 				Use dependency injection instead\\.$#
 			"""
-			count: 1
-			path: tests/unit/SqlQueryFormTest.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: tests/unit/SqlQueryFormTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
 			count: 1
 			path: tests/unit/SqlQueryFormTest.php
 

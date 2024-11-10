@@ -472,6 +472,10 @@ class ResponseRenderer
                 continue;
             }
 
+            if (! $request && $param === 'goto' && UrlParams::$goto !== '') {
+                continue;
+            }
+
             $errorMessage .=
                 __('Missing parameter:') . ' '
                 . $param

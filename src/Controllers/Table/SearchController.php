@@ -255,7 +255,7 @@ final class SearchController implements InvocableController
             null, // sql_query_for_bookmark
             null, // message_to_show
             null, // sql_data
-            $GLOBALS['goto'], // goto
+            UrlParams::$goto, // goto
             null, // disp_query
             null, // disp_message
             $sqlQuery, // sql_query
@@ -269,8 +269,8 @@ final class SearchController implements InvocableController
     private function displaySelectionFormAction(): void
     {
         $config = Config::getInstance();
-        if (! isset($GLOBALS['goto'])) {
-            $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
+        if (UrlParams::$goto === '') {
+            UrlParams::$goto = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
         }
 
         $properties = [];
@@ -281,7 +281,7 @@ final class SearchController implements InvocableController
         $this->response->render('table/search/index', [
             'db' => Current::$database,
             'table' => Current::$table,
-            'goto' => $GLOBALS['goto'],
+            'goto' => UrlParams::$goto,
             'properties' => $properties,
             'geom_column_flag' => $this->geomColumnFlag,
             'column_names' => $this->columnNames,

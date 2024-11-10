@@ -171,8 +171,8 @@ final class FindReplaceController implements InvocableController
      */
     private function displaySelectionFormAction(): void
     {
-        if (! isset($GLOBALS['goto'])) {
-            $GLOBALS['goto'] = Util::getScriptNameForOption(
+        if (UrlParams::$goto === '') {
+            UrlParams::$goto = Util::getScriptNameForOption(
                 Config::getInstance()->settings['DefaultTabTable'],
                 'table',
             );
@@ -186,7 +186,7 @@ final class FindReplaceController implements InvocableController
         $this->response->render('table/find_replace/index', [
             'db' => Current::$database,
             'table' => Current::$table,
-            'goto' => $GLOBALS['goto'],
+            'goto' => UrlParams::$goto,
             'column_names' => $this->columnNames,
             'types' => $types,
             'sql_types' => $this->dbi->types,

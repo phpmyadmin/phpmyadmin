@@ -17,6 +17,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
@@ -34,7 +35,6 @@ final class DeleteRowsController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['goto'] ??= null;
         $GLOBALS['disp_message'] ??= null;
         $GLOBALS['disp_query'] ??= null;
 
@@ -90,7 +90,7 @@ final class DeleteRowsController implements InvocableController
             null,
             null,
             null,
-            $GLOBALS['goto'] ?? '',
+            UrlParams::$goto,
             $GLOBALS['disp_query'] ?? null,
             $GLOBALS['disp_message'] ?? null,
             $GLOBALS['sql_query'],

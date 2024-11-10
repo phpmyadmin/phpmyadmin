@@ -1877,7 +1877,6 @@
       <code><![CDATA[$request->getParsedBodyParamAsString('import_type', '')]]></code>
     </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['goto'])]]></code>
       <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
       <code><![CDATA[empty($config->settings['MemoryLimit'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -2845,7 +2844,6 @@
     </MixedOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['back'])]]></code>
-      <code><![CDATA[empty($GLOBALS['goto'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/AddFieldController.php">
@@ -2924,16 +2922,11 @@
       <code><![CDATA[$GLOBALS['current_result']]]></code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['goto']]]></code>
       <code><![CDATA[$isUpload]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullOperand>
-      <code><![CDATA[$GLOBALS['goto']]]></code>
-    </PossiblyNullOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$currentRow]]></code>
       <code><![CDATA[empty($GLOBALS['disp_message'])]]></code>
-      <code><![CDATA[empty($GLOBALS['goto'])]]></code>
       <code><![CDATA[empty($GLOBALS['unsaved_values'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -3137,9 +3130,6 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['goto'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/FindReplaceController.php">
     <DeprecatedMethod>
@@ -6418,7 +6408,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $gotoInclude]]></code>
       <code><![CDATA[$editField->salt]]></code>
-      <code><![CDATA[empty($GLOBALS['goto'])]]></code>
       <code><![CDATA[empty($this->config->settings['UploadDir'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -7104,6 +7093,9 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <InvalidArgument>
+      <code><![CDATA[$GLOBALS[$match]]]></code>
+    </InvalidArgument>
     <InvalidReturnStatement>
       <code><![CDATA[$GLOBALS[$name] ?? $name ?? '']]></code>
     </InvalidReturnStatement>
@@ -7118,9 +7110,6 @@
       <code><![CDATA[$val]]></code>
       <code><![CDATA[$val]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$GLOBALS[$match]]]></code>
-    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$doc]]></code>
       <code><![CDATA[$propertyItem]]></code>
@@ -10351,9 +10340,6 @@
       <code><![CDATA[$query]]></code>
     </PossiblyInvalidCast>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['goto'])]]></code>
-      <code><![CDATA[empty($GLOBALS['goto'])]]></code>
-      <code><![CDATA[empty($GLOBALS['goto'])]]></code>
       <code><![CDATA[empty($this->config->settings['Servers'][Current::$server]['verbose'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -14168,9 +14154,6 @@
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['goto'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="tests/unit/SqlTest.php">
     <DeprecatedMethod>
