@@ -12,6 +12,7 @@ use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(ExportRowsController::class)]
@@ -31,6 +32,7 @@ class ExportRowsControllerTest extends AbstractTestCase
     public function testExportRowsController(): void
     {
         $_POST['rows_to_delete'] = 'row';
+        UrlParams::$goto = '';
 
         $controller = $this->createMock(ExportController::class);
         $controller->expects(self::once())->method('__invoke')
@@ -49,7 +51,7 @@ class ExportRowsControllerTest extends AbstractTestCase
 
     public function testWithoutRowsToDelete(): void
     {
-        $GLOBALS['goto'] = 'goto';
+        UrlParams::$goto = 'goto';
 
         $controller = $this->createMock(ExportController::class);
         $controller->expects(self::never())->method('__invoke');
@@ -67,7 +69,7 @@ class ExportRowsControllerTest extends AbstractTestCase
 
     public function testWithRowsToDelete(): void
     {
-        $GLOBALS['goto'] = 'goto';
+        UrlParams::$goto = 'goto';
         $_POST['rows_to_delete'] = ['key1' => 'row1', 'key2' => 'row2'];
 
         $controller = $this->createMock(ExportController::class);

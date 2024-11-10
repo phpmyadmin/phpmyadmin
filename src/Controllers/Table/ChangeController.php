@@ -122,14 +122,14 @@ class ChangeController implements InvocableController
 
         /**
          * Defines the url to return to in case of error in a sql statement
-         * (at this point, $GLOBALS['goto'] will be set but could be empty)
+         * (at this point, UrlParams::$goto will be set but could be empty)
          */
-        if (empty($GLOBALS['goto'])) {
+        if (UrlParams::$goto === '') {
             if (Current::$table !== '') {
                 // avoid a problem (see bug #2202709)
-                $GLOBALS['goto'] = Url::getFromRoute('/table/sql');
+                UrlParams::$goto = Url::getFromRoute('/table/sql');
             } else {
-                $GLOBALS['goto'] = Url::getFromRoute('/database/sql');
+                UrlParams::$goto = Url::getFromRoute('/database/sql');
             }
         }
 
@@ -137,13 +137,13 @@ class ChangeController implements InvocableController
         $sqlQuery = $request->getParsedBodyParam('sql_query');
         UrlParams::$params = ['db' => Current::$database, 'sql_query' => is_string($sqlQuery) ? $sqlQuery : ''];
 
-        if (str_starts_with($GLOBALS['goto'] ?? '', 'index.php?route=/table')) {
+        if (str_starts_with(UrlParams::$goto, 'index.php?route=/table')) {
             UrlParams::$params['table'] = Current::$table;
         }
 
-        $GLOBALS['errorUrl'] = $GLOBALS['goto'] . Url::getCommon(
+        $GLOBALS['errorUrl'] = UrlParams::$goto . Url::getCommon(
             UrlParams::$params,
-            ! str_contains($GLOBALS['goto'], '?') ? '?' : '&',
+            ! str_contains(UrlParams::$goto, '?') ? '?' : '&',
         );
         UrlParams::$params = [];
 

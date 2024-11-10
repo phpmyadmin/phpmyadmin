@@ -11,6 +11,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -32,7 +33,7 @@ final class BrowseController implements InvocableController
             return $this->response->response();
         }
 
-        $this->displayTableBrowseForSelectedColumns($GLOBALS['goto']);
+        $this->displayTableBrowseForSelectedColumns(UrlParams::$goto);
 
         return $this->response->response();
     }

@@ -75,12 +75,12 @@ class SqlQueryForm
 
         if ($db === '') {
             // prepare for server related
-            $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/server/sql') : $GLOBALS['goto'];
+            $goto = UrlParams::$goto === '' ? Url::getFromRoute('/server/sql') : UrlParams::$goto;
         } elseif ($table === '') {
             // prepare for db related
-            $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/database/sql') : $GLOBALS['goto'];
+            $goto = UrlParams::$goto === '' ? Url::getFromRoute('/database/sql') : UrlParams::$goto;
         } else {
-            $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/table/sql') : $GLOBALS['goto'];
+            $goto = UrlParams::$goto === '' ? Url::getFromRoute('/table/sql') : UrlParams::$goto;
         }
 
         if ($displayTab === 'full' || $displayTab === 'sql') {

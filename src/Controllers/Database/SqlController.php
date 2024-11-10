@@ -16,6 +16,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -36,7 +37,6 @@ class SqlController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['goto'] ??= null;
         $GLOBALS['back'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
@@ -74,8 +74,8 @@ class SqlController implements InvocableController
          * After a syntax error, we return to this script
          * with the typed query in the textarea.
          */
-        $GLOBALS['goto'] = Url::getFromRoute('/database/sql');
-        $GLOBALS['back'] = $GLOBALS['goto'];
+        UrlParams::$goto = Url::getFromRoute('/database/sql');
+        $GLOBALS['back'] = UrlParams::$goto;
         $delimiter = $request->getParsedBodyParamAsString('delimiter', ';');
 
         $this->response->addHTML($this->sqlQueryForm->getHtml(

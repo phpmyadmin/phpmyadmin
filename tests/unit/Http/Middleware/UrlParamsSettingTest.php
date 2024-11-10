@@ -19,7 +19,7 @@ final class UrlParamsSettingTest extends AbstractTestCase
     public function testProcess(): void
     {
         UrlParams::$params = [];
-        $GLOBALS['goto'] = null;
+        UrlParams::$goto = '';
         $GLOBALS['back'] = null;
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
@@ -32,13 +32,13 @@ final class UrlParamsSettingTest extends AbstractTestCase
         $urlParamsSetting = new UrlParamsSetting(self::createStub(Config::class));
         self::assertSame($response, $urlParamsSetting->process($request, $handler));
         /** @psalm-suppress TypeDoesNotContainType */
-        self::assertSame('index.php?route=/', $GLOBALS['goto']);
+        self::assertSame('index.php?route=/', UrlParams::$goto);
         /** @psalm-suppress TypeDoesNotContainType */
         self::assertSame('index.php?route=/', $GLOBALS['back']);
         /** @psalm-suppress TypeDoesNotContainType */
         self::assertSame(['goto' => 'index.php?route=/'], UrlParams::$params);
 
-        $GLOBALS['goto'] = null;
+        UrlParams::$goto = '';
         $GLOBALS['back'] = null;
     }
 }

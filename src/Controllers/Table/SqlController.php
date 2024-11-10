@@ -17,6 +17,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -38,7 +39,6 @@ class SqlController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['goto'] ??= null;
         $GLOBALS['back'] ??= null;
 
         $this->response->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
@@ -90,7 +90,7 @@ class SqlController implements InvocableController
          * After a syntax error, we return to this script
          * with the typed query in the textarea.
          */
-        $GLOBALS['goto'] = Url::getFromRoute('/table/sql');
+        UrlParams::$goto = Url::getFromRoute('/table/sql');
         $GLOBALS['back'] = Url::getFromRoute('/table/sql');
         $delimiter = $request->getParsedBodyParamAsString('delimiter', ';');
 

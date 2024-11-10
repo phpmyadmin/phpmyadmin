@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\UrlParams;
 
 use function __;
 use function array_values;
@@ -26,7 +27,7 @@ final class ExportRowsController implements InvocableController
         $GLOBALS['single_table'] ??= null;
         $GLOBALS['where_clause'] ??= null;
 
-        if (! empty($GLOBALS['goto']) && (! isset($_POST['rows_to_delete']) || ! is_array($_POST['rows_to_delete']))) {
+        if (UrlParams::$goto !== '' && (! isset($_POST['rows_to_delete']) || ! is_array($_POST['rows_to_delete']))) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));
 

@@ -31,13 +31,13 @@ final class UrlParamsSetting implements MiddlewareInterface
     private function setGotoAndBackGlobals(ServerRequestInterface $request): void
     {
         // Holds page that should be displayed.
-        $GLOBALS['goto'] = '';
+        UrlParams::$goto = '';
 
         $goto = $request->getQueryParams()['goto'] ?? $request->getParsedBody()['goto'] ?? null;
         Assert::nullOrString($goto);
 
         if ($goto !== null && Core::checkPageValidity($goto)) {
-            $GLOBALS['goto'] = $goto;
+            UrlParams::$goto = $goto;
             UrlParams::$params['goto'] = $goto;
         } else {
             if ($this->config->issetCookie('goto')) {

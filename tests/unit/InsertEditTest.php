@@ -22,6 +22,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
@@ -127,7 +128,7 @@ class InsertEditTest extends AbstractTestCase
         $whereClause = ['foo' => 'bar ', '1' => ' test'];
         $_POST['clause_is_unique'] = false;
         $_POST['sql_query'] = 'SELECT a';
-        $GLOBALS['goto'] = 'index.php';
+        UrlParams::$goto = 'index.php';
 
         $result = $this->insertEdit->getFormParametersForInsertForm(
             'dbname',
@@ -161,7 +162,7 @@ class InsertEditTest extends AbstractTestCase
         $_GET['clause_is_unique'] = false;
         $_GET['sql_query'] = 'SELECT a';
         $_GET['sql_signature'] = Core::signSqlQuery($_GET['sql_query']);
-        $GLOBALS['goto'] = 'index.php';
+        UrlParams::$goto = 'index.php';
 
         $result = $this->insertEdit->getFormParametersForInsertForm(
             'dbname',
@@ -971,7 +972,7 @@ class InsertEditTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['InsertRows'] = 1;
         $config->settings['ServerDefault'] = 1;
-        $GLOBALS['goto'] = 'index.php';
+        UrlParams::$goto = 'index.php';
         $_POST['where_clause'] = true;
         $_POST['sql_query'] = 'SELECT 1';
 
@@ -1346,7 +1347,7 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetGotoInclude(): void
     {
-        $GLOBALS['goto'] = '123.php';
+        UrlParams::$goto = '123.php';
         Current::$table = '';
 
         self::assertSame(
@@ -1360,7 +1361,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit->getGotoInclude('index'),
         );
 
-        $GLOBALS['goto'] = 'index.php?route=/database/sql';
+        UrlParams::$goto = 'index.php?route=/database/sql';
 
         self::assertSame(
             '/database/sql',
@@ -1369,7 +1370,7 @@ class InsertEditTest extends AbstractTestCase
 
         self::assertSame('', Current::$table);
 
-        $GLOBALS['goto'] = 'index.php?route=/sql&server=2';
+        UrlParams::$goto = 'index.php?route=/sql&server=2';
 
         self::assertSame(
             '/sql',

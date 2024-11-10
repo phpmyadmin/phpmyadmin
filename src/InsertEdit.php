@@ -105,7 +105,7 @@ class InsertEdit
         $formParams = [
             'db' => $db,
             'table' => $table,
-            'goto' => $GLOBALS['goto'],
+            'goto' => UrlParams::$goto,
             'err_url' => $errorUrl,
             'sql_query' => $_POST['sql_query'] ?? '',
         ];
@@ -646,7 +646,7 @@ class InsertEdit
             'table' => $table,
             'where_clause_array' => $whereClauseArray,
             'err_url' => $errorUrl,
-            'goto' => $GLOBALS['goto'],
+            'goto' => UrlParams::$goto,
             'sql_query' => $_POST['sql_query'] ?? null,
             'has_where_clause' => isset($_POST['where_clause']),
             'insert_rows_default' => $this->config->settings['InsertRows'],
@@ -855,7 +855,7 @@ class InsertEdit
 
     /**
      * set $goto_include variable for different cases and retrieve like,
-     * if $GLOBALS['goto'] empty, if $goto_include previously not defined
+     * if UrlParams::$goto empty, if $goto_include previously not defined
      * and new_insert, same_insert, edit_next
      *
      * @param string|false $gotoInclude store some script for include, otherwise it is
@@ -868,16 +868,16 @@ class InsertEdit
             return '/table/change';
         }
 
-        if (! empty($GLOBALS['goto'])) {
-            if (preg_match('@^[a-z_]+\.php$@', $GLOBALS['goto']) !== 1) {
+        if (UrlParams::$goto !== '') {
+            if (preg_match('@^[a-z_]+\.php$@', UrlParams::$goto) !== 1) {
                 // this should NOT happen
-                //$GLOBALS['goto'] = false;
-                $gotoInclude = str_contains($GLOBALS['goto'], 'index.php?route=/sql') ? '/sql' : false;
+                //UrlParams::$goto = false;
+                $gotoInclude = str_contains(UrlParams::$goto, 'index.php?route=/sql') ? '/sql' : false;
             } else {
-                $gotoInclude = $GLOBALS['goto'];
+                $gotoInclude = UrlParams::$goto;
             }
 
-            if ($GLOBALS['goto'] === 'index.php?route=/database/sql' && Current::$table !== '') {
+            if (UrlParams::$goto === 'index.php?route=/database/sql' && Current::$table !== '') {
                 Current::$table = '';
             }
         }

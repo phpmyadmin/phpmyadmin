@@ -20,7 +20,7 @@ class DeleteRowsControllerTest extends AbstractTestCase
 {
     public function testDeleteRowsController(): void
     {
-        $GLOBALS['goto'] = null;
+        UrlParams::$goto = '';
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         UrlParams::$params = [];
