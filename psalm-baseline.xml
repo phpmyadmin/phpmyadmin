@@ -2446,7 +2446,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$dbName ?? '']]></code>
       <code><![CDATA[$request->getQueryParam('initial')]]></code>
       <code><![CDATA[$urlDbname ?? '']]></code>
       <code><![CDATA[$urlDbname ?? '']]></code>
@@ -2456,7 +2455,6 @@
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$dbName]]></code>
     </MixedAssignment>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[! empty($GLOBALS['message']) && $GLOBALS['message'] instanceof Message]]></code>
@@ -9826,8 +9824,10 @@
       <code><![CDATA[$origValue]]></code>
     </MixedOperand>
     <MixedReturnTypeCoercion>
+      <code><![CDATA[$dbname]]></code>
       <code><![CDATA[$extraData]]></code>
       <code><![CDATA[(string|bool)[]]]></code>
+      <code><![CDATA[string|string[]|null]]></code>
     </MixedReturnTypeCoercion>
     <PossiblyFalseOperand>
       <code><![CDATA[mb_strpos($row1['Type'], '(')]]></code>

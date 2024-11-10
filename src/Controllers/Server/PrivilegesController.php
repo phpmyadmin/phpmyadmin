@@ -203,7 +203,7 @@ final class PrivilegesController implements InvocableController
                         $GLOBALS['username'] ?? '',
                         $GLOBALS['hostname'] ?? '',
                         $tablename ?? $routinename ?? '',
-                        $dbName ?? '',
+                        $dbName,
                         $itemType,
                     );
                 }
