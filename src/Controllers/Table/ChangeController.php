@@ -145,7 +145,7 @@ class ChangeController implements InvocableController
             UrlParams::$params,
             ! str_contains($GLOBALS['goto'], '?') ? '?' : '&',
         );
-        unset(UrlParams::$params);
+        UrlParams::$params = [];
 
         $commentsMap = $this->insertEdit->getCommentsMap(Current::$database, Current::$table);
 
@@ -298,7 +298,7 @@ class ChangeController implements InvocableController
      * @param mixed[] $urlParams        containing $db and $table as url parameters
      * @param mixed[] $whereClauseArray where clauses array
      *
-     * @return mixed[] Add some url parameters to $url_params array and return it
+     * @return array<string, bool|int|string> Add some url parameters to $url_params array and return it
      */
     public function urlParamsInEditMode(
         array $urlParams,

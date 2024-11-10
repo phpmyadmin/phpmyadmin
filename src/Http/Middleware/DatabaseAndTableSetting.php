@@ -15,7 +15,6 @@ use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 use function assert;
-use function is_array;
 
 final class DatabaseAndTableSetting implements MiddlewareInterface
 {

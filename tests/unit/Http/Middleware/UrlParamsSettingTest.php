@@ -18,7 +18,7 @@ final class UrlParamsSettingTest extends AbstractTestCase
 {
     public function testProcess(): void
     {
-        UrlParams::$params = null;
+        UrlParams::$params = [];
         $GLOBALS['goto'] = null;
         $GLOBALS['back'] = null;
         $_REQUEST['goto'] = 'index.php?route=/';

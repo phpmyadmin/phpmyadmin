@@ -201,10 +201,10 @@ final class ChangeControllerTest extends AbstractTestCase
         $whereClauseArray = ['foo=1', 'bar=2'];
         $_POST['sql_query'] = 'SELECT 1';
 
-        $result = $changeController->urlParamsInEditMode([1], $whereClauseArray);
+        $result = $changeController->urlParamsInEditMode(['temp' => 1], $whereClauseArray);
 
         self::assertSame(
-            ['0' => 1, 'where_clause' => 'bar=2', 'sql_query' => 'SELECT 1'],
+            ['temp' => 1, 'where_clause' => 'bar=2', 'sql_query' => 'SELECT 1'],
             $result,
         );
     }
