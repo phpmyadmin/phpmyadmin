@@ -201,7 +201,10 @@ final class ChangeControllerTest extends AbstractTestCase
         $whereClauseArray = ['foo=1', 'bar=2'];
         $_POST['sql_query'] = 'SELECT 1';
 
-        $result = $changeController->urlParamsInEditMode(['temp' => 1], $whereClauseArray);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody(['sql_query' => 'SELECT 1']);
+
+        $result = $changeController->urlParamsInEditMode($request, ['temp' => 1], $whereClauseArray);
 
         self::assertSame(
             ['temp' => 1, 'where_clause' => 'bar=2', 'sql_query' => 'SELECT 1'],

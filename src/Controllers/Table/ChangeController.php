@@ -194,7 +194,7 @@ class ChangeController implements InvocableController
 
         UrlParams::$params['db'] = Current::$database;
         UrlParams::$params['table'] = Current::$table;
-        UrlParams::$params = $this->urlParamsInEditMode(UrlParams::$params, $whereClauseArray);
+        UrlParams::$params = $this->urlParamsInEditMode($request, UrlParams::$params, $whereClauseArray);
 
         $hasBlobField = false;
         foreach ($tableColumns as $tableColumn) {
@@ -301,6 +301,7 @@ class ChangeController implements InvocableController
      * @return array<string, bool|int|string> Add some url parameters to $url_params array and return it
      */
     public function urlParamsInEditMode(
+        ServerRequest $request,
         array $urlParams,
         array $whereClauseArray,
     ): array {
@@ -308,8 +309,9 @@ class ChangeController implements InvocableController
             $urlParams['where_clause'] = trim($whereClause);
         }
 
-        if (! empty($_POST['sql_query'])) {
-            $urlParams['sql_query'] = $_POST['sql_query'];
+        $sqlQuery = $request->getParsedBodyParamAsString('sql_query', '');
+        if ($sqlQuery !== '') {
+            $urlParams['sql_query'] = $sqlQuery;
         }
 
         return $urlParams;
