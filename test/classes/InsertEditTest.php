@@ -822,7 +822,7 @@ class InsertEditTest extends AbstractTestCase
 
         $result = $this->parseString($result);
 
-        self::assertStringContainsString('<textarea name="fieldsb" class="char charField" '
+        self::assertStringContainsString('<textarea name="fieldsb" class="charField" '
         . 'data-maxlength="10" rows="7" cols="1" dir="abc/" '
         . 'id="field_1_3" tabindex="2" data-type="CHAR">', $result);
     }
@@ -1076,7 +1076,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         self::assertSame("a\n\na\n"
-        . '<textarea name="fieldsb" class="char charField" '
+        . '<textarea name="fieldsb" class="charField" '
         . 'data-maxlength="25" rows="7" cols="1" dir="/" '
         . 'id="field_1_3" c tabindex="34" data-type="CHAR">'
         . '&lt;</textarea>', $result);
