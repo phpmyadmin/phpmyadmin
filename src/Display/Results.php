@@ -3103,9 +3103,9 @@ class Results
 
         if ($statement !== null && ! empty($statement->order)) {
             foreach ($statement->order as $o) {
-                $sortExpression[] = $o->expr->expr . ' ' . $o->type;
+                $sortExpression[] = $o->expr->expr . ' ' . $o->type->value;
                 $sortExpressionNoDirection[] = $o->expr->expr;
-                $sortDirection[] = $o->type;
+                $sortDirection[] = $o->type->value;
             }
         } else {
             $sortExpression[] = '';
