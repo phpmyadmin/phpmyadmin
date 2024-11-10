@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-11-03 00:25+0000\n"
+"POT-Creation-Date: 2024-11-10 00:24+0000\n"
 "PO-Revision-Date: 2024-05-02 18:18+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -276,7 +276,7 @@ msgstr "coluna(s)"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
-#: src/Controllers/Server/PrivilegesController.php:293
+#: src/Controllers/Server/PrivilegesController.php:294
 #: src/Normalization.php:229 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
@@ -2229,7 +2229,7 @@ msgstr "Nome do Host"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:411 src/Menu.php:256
+#: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:256
 #: src/Menu.php:364 src/Util.php:1472 src/Util.php:1488
 msgid "Privileges"
 msgstr "Privilégios"
@@ -3706,7 +3706,7 @@ msgid "Taking you to the target site."
 msgstr "Indo para o site alvo."
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
-#: src/I18n/Language.php:177 src/Pdf.php:84
+#: src/I18n/LanguageManager.php:994 src/Pdf.php:84
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
 msgid "Page number:"
@@ -6108,7 +6108,7 @@ msgstr ""
 "Não foram encontrados utilizadores pertencentes a este grupo de utilizadores."
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:414
+#: src/Controllers/Server/PrivilegesController.php:415
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "Utilizador"
@@ -11670,22 +11670,22 @@ msgstr ""
 "As definições não podem ser guardadas, o formulário de configuração "
 "submetido contém erros!"
 
-#: src/Config.php:608
+#: src/Config.php:609
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "O ficheiro de configuração existente (%s) não pode ser lido."
 
-#: src/Config.php:644
+#: src/Config.php:645
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Permissões erradas no ficheiro de configuração. Não deve ser editável por "
 "todos!"
 
-#: src/Config.php:658
+#: src/Config.php:659
 msgid "Failed to read configuration file!"
 msgstr "Falha ao ler ficheiro de configuração!"
 
-#: src/Config.php:660
+#: src/Config.php:661
 #, fuzzy
 msgid "This usually means there is a syntax error in it."
 msgstr ""
@@ -16523,7 +16523,7 @@ msgstr ""
 "Falha ao configurar o cookie da sessão. Talvez você esteja usando HTTP em "
 "vez de HTTPS para acessar o phpMyAdmin."
 
-#: src/I18n/LanguageManager.php:961
+#: src/I18n/LanguageManager.php:966
 msgid "Ignoring unsupported language code."
 msgstr "A ignorar código de linguagem não suportado."
 
@@ -18289,7 +18289,7 @@ msgid "Error 405! Request method not allowed."
 msgstr "Erro 405! Método de solicitação não permitido."
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:634
-#: src/Server/Privileges.php:3257
+#: src/Server/Privileges.php:3256
 msgid "Native MySQL authentication"
 msgstr "Autenticação nativa do MySQL"
 
@@ -18362,17 +18362,17 @@ msgstr "A apagar %s"
 msgid "The privileges were reloaded successfully."
 msgstr "O privilégios foram recarregados com sucesso."
 
-#: src/Server/Privileges.php:2273
+#: src/Server/Privileges.php:2272
 #, php-format
 msgid "The user %s already exists!"
 msgstr "O utilizador %s já existe!"
 
-#: src/Server/Privileges.php:2510
+#: src/Server/Privileges.php:2509
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilégios para %s"
 
-#: src/Server/Privileges.php:2596
+#: src/Server/Privileges.php:2595
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -18385,7 +18385,7 @@ msgstr ""
 "privilégios que o servidor usa, se eles foram modificados manualmente. Neste "
 "caso, você deve %srecarregar os privilégios%s antes de continuar."
 
-#: src/Server/Privileges.php:2612
+#: src/Server/Privileges.php:2611
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -18399,11 +18399,11 @@ msgstr ""
 "caso, os privilégios devem ser recarregados, mas atualmente não tem o "
 "privilégio RELOAD."
 
-#: src/Server/Privileges.php:2900
+#: src/Server/Privileges.php:2899
 msgid "You have added a new user."
 msgstr "Acrescentou um novo utilizador."
 
-#: src/Server/Privileges.php:3351
+#: src/Server/Privileges.php:3350
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "

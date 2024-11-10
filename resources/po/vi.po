@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-11-03 00:25+0000\n"
+"POT-Creation-Date: 2024-11-10 00:24+0000\n"
 "PO-Revision-Date: 2024-11-03 19:25+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -277,7 +277,7 @@ msgstr "cột"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
-#: src/Controllers/Server/PrivilegesController.php:293
+#: src/Controllers/Server/PrivilegesController.php:294
 #: src/Normalization.php:229 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
@@ -2224,7 +2224,7 @@ msgstr "Tên máy"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:411 src/Menu.php:256
+#: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:256
 #: src/Menu.php:364 src/Util.php:1472 src/Util.php:1488
 msgid "Privileges"
 msgstr "Đặc quyền"
@@ -3686,7 +3686,7 @@ msgid "Taking you to the target site."
 msgstr "Đưa bạn đến trang đích."
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
-#: src/I18n/Language.php:177 src/Pdf.php:84
+#: src/I18n/LanguageManager.php:994 src/Pdf.php:84
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
 msgid "Page number:"
@@ -6098,7 +6098,7 @@ msgid "No users were found belonging to this user group."
 msgstr "Không tìm thấy người dùng nào trong nhóm người dùng này."
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:414
+#: src/Controllers/Server/PrivilegesController.php:415
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "Người dùng"
@@ -9209,7 +9209,8 @@ msgstr ""
 
 #: src/Config/Descriptions.php:94
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
-msgstr "Nhập tham số yêu cầu được API tương thích reCAPTCHA v2 của bạn sử dụng."
+msgstr ""
+"Nhập tham số yêu cầu được API tương thích reCAPTCHA v2 của bạn sử dụng."
 
 #: src/Config/Descriptions.php:95
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
@@ -9769,8 +9770,9 @@ msgid ""
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Thông tin thêm trên [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]"
-"theo dõi lỗi phpMyAdmin[/a] và [a@https://bugs.mysql.com/19588]Lỗi MySQL[/a]"
+"Thông tin thêm trên [a@https://github.com/phpmyadmin/phpmyadmin/"
+"issues/8970]theo dõi lỗi phpMyAdmin[/a] và [a@https://bugs.mysql."
+"com/19588]Lỗi MySQL[/a]"
 
 #: src/Config/Descriptions.php:358
 msgid ""
@@ -9917,8 +9919,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
 msgstr ""
-"Để trống nếu không hỗ trợ theo dõi truy vấn SQL, gợi ý: "
-"[kbd]pma__tracking[/kbd]."
+"Để trống nếu không hỗ trợ theo dõi truy vấn SQL, gợi ý: [kbd]pma__tracking[/"
+"kbd]."
 
 #: src/Config/Descriptions.php:429
 msgid ""
@@ -11674,21 +11676,21 @@ msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 "Không thể ghi các cài đặt lại, phần cấu hình đã gửi từ mẫu đơn có chứa lỗi!"
 
-#: src/Config.php:608
+#: src/Config.php:609
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Tập tin cấu hình sẵn có (%s) không thể đọc được."
 
-#: src/Config.php:644
+#: src/Config.php:645
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Tập tin cấu hình được phân quyền không đúng, không thể là ai cũng được đọc!"
 
-#: src/Config.php:658
+#: src/Config.php:659
 msgid "Failed to read configuration file!"
 msgstr "Gặp lỗi khi đọc tập tin cấu hình!"
 
-#: src/Config.php:660
+#: src/Config.php:661
 #, fuzzy
 #| msgid ""
 #| "This usually means there is a syntax error in it, please check any errors "
@@ -16379,7 +16381,7 @@ msgstr ""
 "Không thể đặt cookie phiên. Có thể bạn đang sử dụng HTTP thay vì HTTPS để "
 "truy cập phpMyAdmin."
 
-#: src/I18n/LanguageManager.php:961
+#: src/I18n/LanguageManager.php:966
 msgid "Ignoring unsupported language code."
 msgstr "Bỏ qua mã ngôn ngữ không được hỗ trợ."
 
@@ -18033,7 +18035,7 @@ msgid "Error 405! Request method not allowed."
 msgstr ""
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:634
-#: src/Server/Privileges.php:3257
+#: src/Server/Privileges.php:3256
 msgid "Native MySQL authentication"
 msgstr "Xác thực MySQL nguyên bản"
 
@@ -18112,17 +18114,17 @@ msgstr "Đang xóa %s"
 msgid "The privileges were reloaded successfully."
 msgstr "Các đặc quyền đã được tải lại thành công."
 
-#: src/Server/Privileges.php:2273
+#: src/Server/Privileges.php:2272
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Tài khoản %s đã sẵn có từ trước rồi!"
 
-#: src/Server/Privileges.php:2510
+#: src/Server/Privileges.php:2509
 #, php-format
 msgid "Privileges for %s"
 msgstr "Đặc quyền dành cho %s"
 
-#: src/Server/Privileges.php:2596
+#: src/Server/Privileges.php:2595
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -18140,7 +18142,7 @@ msgstr ""
 "những người dùng máy phục vụ, nếu chúng bị thay đổi bằng tay. Trong trường "
 "hợp này bạn nên %stải lại các đặc quyền%s trước khi tiếp tục."
 
-#: src/Server/Privileges.php:2612
+#: src/Server/Privileges.php:2611
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -18161,11 +18163,11 @@ msgstr ""
 "hợp này, đặc quyền phải được tại lại nhưng mà hiện tại bạn nên không có đặc "
 "quyền TẢI LẠI."
 
-#: src/Server/Privileges.php:2900
+#: src/Server/Privileges.php:2899
 msgid "You have added a new user."
 msgstr "Bạn đã thêm một người dùng mới."
 
-#: src/Server/Privileges.php:3351
+#: src/Server/Privileges.php:3350
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "

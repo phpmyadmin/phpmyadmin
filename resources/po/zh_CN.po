@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-11-03 00:25+0000\n"
+"POT-Creation-Date: 2024-11-10 00:24+0000\n"
 "PO-Revision-Date: 2024-06-14 16:09+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -270,7 +270,7 @@ msgstr "列"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
-#: src/Controllers/Server/PrivilegesController.php:293
+#: src/Controllers/Server/PrivilegesController.php:294
 #: src/Normalization.php:229 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
@@ -2204,7 +2204,7 @@ msgstr "主机名"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:411 src/Menu.php:256
+#: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:256
 #: src/Menu.php:364 src/Util.php:1472 src/Util.php:1488
 msgid "Privileges"
 msgstr "权限"
@@ -3652,7 +3652,7 @@ msgid "Taking you to the target site."
 msgstr "带你到目标网站。"
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
-#: src/I18n/Language.php:177 src/Pdf.php:84
+#: src/I18n/LanguageManager.php:994 src/Pdf.php:84
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
 msgid "Page number:"
@@ -5886,7 +5886,7 @@ msgid "No users were found belonging to this user group."
 msgstr "未找到属于此用户组的用户。"
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:414
+#: src/Controllers/Server/PrivilegesController.php:415
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "用户"
@@ -11066,20 +11066,20 @@ msgstr "默认转换"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "无法保存设置，提交的配置表单中存在错误！"
 
-#: src/Config.php:608
+#: src/Config.php:609
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "现有的配置文件（%s）是不可读的。"
 
-#: src/Config.php:644
+#: src/Config.php:645
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "配置文件权限错误，不应任何用户都能修改！"
 
-#: src/Config.php:658
+#: src/Config.php:659
 msgid "Failed to read configuration file!"
 msgstr "读取配置文件失败！"
 
-#: src/Config.php:660
+#: src/Config.php:661
 msgid "This usually means there is a syntax error in it."
 msgstr "这通常意味着文件中有语法错误。"
 
@@ -15524,7 +15524,7 @@ msgid ""
 "access phpMyAdmin."
 msgstr "无法设置会话cookie。也许您使用HTTP而不是HTTPS来访问phpMyAdmin。"
 
-#: src/I18n/LanguageManager.php:961
+#: src/I18n/LanguageManager.php:966
 msgid "Ignoring unsupported language code."
 msgstr "省略不支持的语言代码。"
 
@@ -17166,7 +17166,7 @@ msgid "Error 405! Request method not allowed."
 msgstr "错误 405！请求的方法不被允许。"
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:634
-#: src/Server/Privileges.php:3257
+#: src/Server/Privileges.php:3256
 msgid "Native MySQL authentication"
 msgstr "MySQL自带身份验证"
 
@@ -17239,17 +17239,17 @@ msgstr "正在删除 %s"
 msgid "The privileges were reloaded successfully."
 msgstr "已成功重新载入权限。"
 
-#: src/Server/Privileges.php:2273
+#: src/Server/Privileges.php:2272
 #, php-format
 msgid "The user %s already exists!"
 msgstr "用户 %s 己存在！"
 
-#: src/Server/Privileges.php:2510
+#: src/Server/Privileges.php:2509
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s 的权限"
 
-#: src/Server/Privileges.php:2596
+#: src/Server/Privileges.php:2595
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -17261,7 +17261,7 @@ msgstr ""
 "将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
 "限%s。"
 
-#: src/Server/Privileges.php:2612
+#: src/Server/Privileges.php:2611
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -17273,11 +17273,11 @@ msgstr ""
 "内容将可能与服务器使用的用户权限有异。在这种情况下，应当重新载入权限表，但您"
 "没有RELOAD权限。"
 
-#: src/Server/Privileges.php:2900
+#: src/Server/Privileges.php:2899
 msgid "You have added a new user."
 msgstr "您已添加了一个新用户。"
 
-#: src/Server/Privileges.php:3351
+#: src/Server/Privileges.php:3350
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
