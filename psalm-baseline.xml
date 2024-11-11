@@ -6105,9 +6105,6 @@
     <MixedArgument>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
     </MixedArgument>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['error_message'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Http/Middleware/TokenRequestParamChecking.php">
     <MixedArgument>
@@ -9630,7 +9627,6 @@
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['error_message'])]]></code>
       <code><![CDATA[empty($_REQUEST['no_debug'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>

@@ -37,7 +37,6 @@ final class StatementHistory implements MiddlewareInterface
 
         if (
             ! $request->has('no_history')
-            && empty($GLOBALS['error_message'])
             && $GLOBALS['sql_query'] !== ''
             && $this->dbi->isConnected()
         ) {
