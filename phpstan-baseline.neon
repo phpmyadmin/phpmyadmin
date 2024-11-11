@@ -7415,16 +7415,6 @@ parameters:
 			path: src/Http/Middleware/TokenRequestParamChecking.php
 
 		-
-			message: "#^Cannot access offset 'back' on array\\|object\\.$#"
-			count: 1
-			path: src/Http/Middleware/UrlParamsSetting.php
-
-		-
-			message: "#^Cannot access offset 'goto' on array\\|object\\.$#"
-			count: 1
-			path: src/Http/Middleware/UrlParamsSetting.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Http\\\\ServerRequest\\:\\:getAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Http/ServerRequest.php
