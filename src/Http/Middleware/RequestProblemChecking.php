@@ -11,7 +11,6 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use RuntimeException;
 
 use function __;
 use function count;
@@ -27,23 +26,24 @@ final class RequestProblemChecking implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        try {
-            if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
-                throw new RuntimeException(__('GLOBALS overwrite attempt'));
-            }
-
-            /**
-             * protect against possible exploits - there is no need to have so many variables
-             */
-            if (count($_REQUEST) >= 1000) {
-                throw new RuntimeException(__('possible exploit'));
-            }
-        } catch (RuntimeException $exception) {
+        if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
 
             return $response->write($this->template->render('error/generic', [
                 'lang' => $GLOBALS['lang'] ?? 'en',
-                'error_message' => $exception->getMessage(),
+                'error_message' => __('GLOBALS overwrite attempt'),
+            ]));
+        }
+
+        /**
+         * protect against possible exploits - there is no need to have so many variables
+         */
+        if (count($_REQUEST) >= 1000) {
+            $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
+
+            return $response->write($this->template->render('error/generic', [
+                'lang' => $GLOBALS['lang'] ?? 'en',
+                'error_message' => __('possible exploit'),
             ]));
         }
 
