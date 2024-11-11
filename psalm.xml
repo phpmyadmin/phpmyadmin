@@ -108,8 +108,6 @@
             sql_structure_or_data: 'structure'|'data'|'structure_and_data',
             sql_type: 'INSERT'|'UPDATE'|'REPLACE',
             tbl_storage_engine: string,
-            token_mismatch: bool,
-            token_provided: bool,
             urlParams: array,
             username: string,
             xml_export_triggers: bool,

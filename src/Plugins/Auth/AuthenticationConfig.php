@@ -57,10 +57,6 @@ class AuthenticationConfig extends AuthenticationPlugin
      */
     public function readCredentials(): bool
     {
-        if ($GLOBALS['token_provided'] && $GLOBALS['token_mismatch']) {
-            return false;
-        }
-
         $config = Config::getInstance();
         $this->user = $config->selectedServer['user'];
         $this->password = $config->selectedServer['password'];

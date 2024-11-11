@@ -18,7 +18,7 @@ final class LogoutController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $responseRenderer = ResponseRenderer::getInstance();
-        if (! $request->isPost() || $GLOBALS['token_mismatch']) {
+        if (! $request->isPost()) {
             $responseRenderer->redirect('./index.php?route=/');
 
             return $responseRenderer->response();

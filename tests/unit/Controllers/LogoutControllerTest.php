@@ -22,8 +22,6 @@ class LogoutControllerTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
-        $GLOBALS['token_mismatch'] = false;
-
         $request = self::createStub(ServerRequest::class);
         $request->method('isPost')->willReturn(true);
 
@@ -34,8 +32,6 @@ class LogoutControllerTest extends AbstractTestCase
         $factory->method('create')->willReturn($authPlugin);
 
         (new LogoutController($factory))($request);
-
-        unset($GLOBALS['token_mismatch']);
 
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
     }
