@@ -19,7 +19,6 @@ use function array_merge;
 use function array_values;
 use function bin2hex;
 use function count;
-use function current;
 use function explode;
 use function htmlspecialchars;
 use function implode;
@@ -1666,7 +1665,7 @@ class InsertEdit
 
         //add data attributes "no of decimals" and "data type"
         $noDecimals = 0;
-        $type = current(explode('(', $column->pmaType));
+        $type = explode('(', $column->pmaType)[0];
         if (preg_match('/\(([^()]+)\)/', $column->pmaType, $match) === 1) {
             $match[0] = trim($match[0], '()');
             $noDecimals = $match[0];
