@@ -6,12 +6,15 @@ namespace PhpMyAdmin\Http\Middleware;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\UrlParams;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Webmozart\Assert\Assert;
+
+use function assert;
 
 final class UrlParamsSetting implements MiddlewareInterface
 {
@@ -33,7 +36,9 @@ final class UrlParamsSetting implements MiddlewareInterface
         // Holds page that should be displayed.
         UrlParams::$goto = '';
 
-        $goto = $request->getQueryParams()['goto'] ?? $request->getParsedBody()['goto'] ?? null;
+        assert($request instanceof ServerRequest);
+
+        $goto = $request->getParam('goto');
         Assert::nullOrString($goto);
 
         if ($goto !== null && Core::checkPageValidity($goto)) {
@@ -45,7 +50,7 @@ final class UrlParamsSetting implements MiddlewareInterface
             }
         }
 
-        $back = $request->getQueryParams()['back'] ?? $request->getParsedBody()['back'] ?? null;
+        $back = $request->getParam('back');
         Assert::nullOrString($back);
 
         if ($back !== null && Core::checkPageValidity($back)) {
