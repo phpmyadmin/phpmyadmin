@@ -293,29 +293,27 @@ class ResponseRenderer
             $promptPhpErrors = $this->errorHandler->hasErrorsForPrompt();
             $this->addJSON('promptPhpErrors', $promptPhpErrors);
 
-            if (empty($GLOBALS['error_message'])) {
-                // set current db, table and sql query in the querywindow
-                // (this is for the bottom console)
-                $query = '';
-                $maxChars = $this->config->settings['MaxCharactersInDisplayedSQL'];
-                if (isset($GLOBALS['sql_query']) && mb_strlen($GLOBALS['sql_query']) < $maxChars) {
-                    $query = $GLOBALS['sql_query'];
-                }
-
-                $this->addJSON(
-                    'reloadQuerywindow',
-                    ['db' => Current::$database, 'table' => Current::$table, 'sql_query' => $query],
-                );
-                if (! empty($GLOBALS['focus_querywindow'])) {
-                    $this->addJSON('_focusQuerywindow', $query);
-                }
-
-                if (! empty($GLOBALS['reload'])) {
-                    $this->addJSON('reloadNavigation', 1);
-                }
-
-                $this->addJSON('params', $this->getHeader()->getJsParams());
+            // set current db, table and sql query in the querywindow
+            // (this is for the bottom console)
+            $query = '';
+            $maxChars = $this->config->settings['MaxCharactersInDisplayedSQL'];
+            if (isset($GLOBALS['sql_query']) && mb_strlen($GLOBALS['sql_query']) < $maxChars) {
+                $query = $GLOBALS['sql_query'];
             }
+
+            $this->addJSON(
+                'reloadQuerywindow',
+                ['db' => Current::$database, 'table' => Current::$table, 'sql_query' => $query],
+            );
+            if (! empty($GLOBALS['focus_querywindow'])) {
+                $this->addJSON('_focusQuerywindow', $query);
+            }
+
+            if (! empty($GLOBALS['reload'])) {
+                $this->addJSON('reloadNavigation', 1);
+            }
+
+            $this->addJSON('params', $this->getHeader()->getJsParams());
         }
 
         $result = json_encode($this->JSON);

@@ -46,7 +46,6 @@ class FooterTest extends AbstractTestCase
         $_GET['reload_left_frame'] = '1';
         $GLOBALS['focus_querywindow'] = 'main_pane_left';
         $this->object = new Footer(new Template(), $config);
-        unset($GLOBALS['error_message']);
         unset($GLOBALS['sql_query']);
         $_POST = [];
     }
