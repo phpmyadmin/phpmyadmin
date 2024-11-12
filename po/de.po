@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-11 21:28-0300\n"
-"PO-Revision-Date: 2023-12-04 01:03+0000\n"
-"Last-Translator: MoonE <maxi_kroeg@web.de>\n"
+"PO-Revision-Date: 2024-11-13 04:04+0000\n"
+"Last-Translator: Eric Marcel Black Stiller <marcelstiller2005@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/5-2/de/"
 ">\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6746,10 +6746,8 @@ msgid "Show query box"
 msgstr "SQL-Querybox anzeigen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "SQL-Befehl ausführen"
+msgstr "Abfrage bearbeiten"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 #: libraries/classes/Display/Results.php:3041
