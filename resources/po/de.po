@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-11-10 00:24+0000\n"
-"PO-Revision-Date: 2024-10-17 16:16+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"PO-Revision-Date: 2024-11-13 04:00+0000\n"
+"Last-Translator: Eric Marcel Black Stiller <marcelstiller2005@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2457,7 +2457,7 @@ msgstr "Optionen:"
 
 #: resources/templates/database/search/main.twig:40
 msgid "include hex matches"
-msgstr ""
+msgstr "Inkludiere Hexadezimal-Übereinstimmungen"
 
 #: resources/templates/database/search/main.twig:45
 msgid "Inside tables:"
@@ -2490,13 +2490,11 @@ msgid "Browse"
 msgstr "Anzeigen"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<strong>Total:</strong> <em>%count%</em> match"
-#| msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<strong>Insgesamt</strong> <em>%count%</em> Treffer"
-msgstr[1] "<strong>Insgesamt</strong> <em>%count%</em> Treffer"
+msgstr[0] "<strong>Insgesamt</strong> <em>%s</em> Treffer"
+msgstr[1] "<strong>Insgesamt</strong> <em>%s</em> Treffer"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
@@ -3348,7 +3346,7 @@ msgstr "Geometrietyp:"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
-msgstr ""
+msgstr "Räumliches Verweis-System Bezeichnung"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgctxt "Spatial Reference System Identifier"
@@ -5729,22 +5727,14 @@ msgstr ""
 "das Zahnrad-Icon des entsprechenden Schaubilds verwenden."
 
 #: resources/templates/server/status/monitor/index.twig:77
-#, fuzzy
-#| msgid ""
-#| "To display queries from the logs, select the relevant time span on any "
-#| "chart by holding down the left mouse button and panning over the chart. "
-#| "Once confirmed, this will load a table of grouped queries, there you may "
-#| "click on any occurring SELECT statements to further analyze them."
 msgid ""
 "To display queries from the logs, click on any chart. Once confirmed, this "
 "will load a table of grouped queries, there you may click on any occurring "
 "SELECT statements to further analyze them."
 msgstr ""
-"Um Abfragen aus den Logs anzuzeigen, wählen Sie die relevante Zeitspanne in "
-"einem Diagramm durch Drücken der linken Maustaste und markieren Sie einen "
-"Bereich des Diagramms durch Ziehen. Dadurch wird eine Tabelle von "
-"gruppierten Abfragen geladen. Sie können auf jede SELECT-Anweisung klicken, "
-"um diese weiter zu analysieren."
+"Um Abfragen aus den Logs anzuzeigen, klicken Sie auf ein beliebiges "
+"Diagramm. Dadurch wird eine Tabelle von gruppierten Abfragen geladen. Sie "
+"können auf jede SELECT-Anweisung klicken, um diese weiter zu analysieren."
 
 #: resources/templates/server/status/monitor/index.twig:81
 msgid "Please note:"
@@ -12496,13 +12486,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Sie sind dabei eine komplette Datenbank zu LÖSCHEN!"
 
 #: src/Controllers/JavaScriptMessagesController.php:56
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "Kann die Datenbank nicht auf den selben Namen umbenennen. Ändern Sie den "
-"Namen und versuchen Sie es erneut"
+"Namen und versuchen Sie es erneut."
 
 #: src/Controllers/JavaScriptMessagesController.php:58
 msgid "You are about to DESTROY a complete table!"
@@ -12732,6 +12719,9 @@ msgid ""
 "configuration directive <code>AllowNoPassword</code> is false. If you "
 "proceed, the account will not be able to log in through phpMyAdmin."
 msgstr ""
+"Sie versuchen, dieses Konto ohne Passwort einzuloggen, aber die "
+"Konfigurationsrichtlinie <code>AllowNoPassword</code> ist falsch. Wenn Sie "
+"fortfahren, kann sich das Konto nicht durch phpMyAdmin anmelden."
 
 #: src/Controllers/JavaScriptMessagesController.php:151
 msgid "Removing Selected Users"
@@ -16525,6 +16515,8 @@ msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
+"Nur INSERT, UPDATE, DELETE, REPLACE und SET (ohne Optionen wie GLOBAL) SQL-"
+"Abfragen mit Transaktions-Engine-Tabellen können zurückgerollt werden."
 
 #: src/Import/Import.php:1169
 #, php-format
