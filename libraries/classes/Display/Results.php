@@ -133,7 +133,6 @@ class Results
      *   unlim_num_rows: int|numeric-string|false,
      *   fields_meta: FieldMetadata[],
      *   is_count: bool|null,
-     *   is_group: bool|null,
      *   is_export: bool|null,
      *   is_func: bool|null,
      *   is_analyse: bool|null,
@@ -178,8 +177,6 @@ class Results
         'fields_meta' => [],
 
         'is_count' => null,
-
-        'is_group' => null,
 
         'is_export' => null,
 
@@ -397,7 +394,6 @@ class Results
      *                                                    any appended "LIMIT" clause programmatically
      * @param FieldMetadata[]           $fieldsMeta       meta information about fields
      * @param bool                      $isCount          statement is SELECT COUNT
-     * @param bool                      $isGroup          statement has GROUP BY
      * @param bool                      $isExport         statement contains INTO OUTFILE
      * @param bool                      $isFunction       statement contains a function like SUM()
      * @param bool                      $isAnalyse        statement contains PROCEDURE ANALYSE
@@ -419,7 +415,6 @@ class Results
         $unlimNumRows,
         array $fieldsMeta,
         $isCount,
-        $isGroup,
         $isExport,
         $isFunction,
         $isAnalyse,
@@ -438,7 +433,6 @@ class Results
         $this->properties['unlim_num_rows'] = $unlimNumRows;
         $this->properties['fields_meta'] = $fieldsMeta;
         $this->properties['is_count'] = $isCount;
-        $this->properties['is_group'] = $isGroup;
         $this->properties['is_export'] = $isExport;
         $this->properties['is_func'] = $isFunction;
         $this->properties['is_analyse'] = $isAnalyse;
@@ -472,7 +466,6 @@ class Results
         $displayParts['bkm_form'] = '0';
         $displayParts['text_btn'] = '0';
         $displayParts['pview_lnk'] = '0';
-        $displayParts['query_stats'] = '1';
 
         return $displayParts;
     }
@@ -517,7 +510,6 @@ class Results
         $displayParts['bkm_form'] = '1';
         $displayParts['text_btn'] = '1';
         $displayParts['pview_lnk'] = '1';
-        $displayParts['query_stats'] = '0';
 
         return $displayParts;
     }
@@ -539,7 +531,6 @@ class Results
         $displayParts['sort_lnk'] = '0';
         $displayParts['nav_bar'] = '0';
         $displayParts['bkm_form'] = '1';
-        $displayParts['query_stats'] = '0';
 
         if ($this->properties['is_maint']) {
             $displayParts['text_btn'] = '1';
@@ -637,13 +628,14 @@ class Results
         $db = $this->properties['db'];
         $table = $this->properties['table'];
         $unlimNumRows = $this->properties['unlim_num_rows'];
+        $numRows = $this->properties['num_rows'];
         $printView = $this->properties['printview'];
 
         // 2. Updates the display parts
         if ($printView == '1') {
             $displayParts = $this->setDisplayPartsForPrintView($displayParts);
         } elseif (
-            $this->properties['is_analyse']
+            $this->properties['is_count'] || $this->properties['is_analyse']
             || $this->properties['is_maint'] || $this->properties['is_explain']
         ) {
             $displayParts = $this->setDisplayPartsForNonData($displayParts);
@@ -666,9 +658,9 @@ class Results
 
         // if for COUNT query, number of rows returned more than 1
         // (may be being used GROUP BY)
-        if ($this->properties['is_count'] && ! $this->properties['is_group']) {
-            $displayParts['nav_bar'] = '0';
-            $displayParts['sort_lnk'] = '0';
+        if ($this->properties['is_count'] && $numRows > 1) {
+            $displayParts['nav_bar'] = '1';
+            $displayParts['sort_lnk'] = '1';
         }
 
         // 4. If navigation bar or sorting fields names URLs should be
@@ -3650,7 +3642,7 @@ class Results
         // 1.2 Defines offsets for the next and previous pages
         $posNext = 0;
         $posPrev = 0;
-        if ($displayParts['nav_bar'] == '1' || $displayParts['query_stats'] === '1') {
+        if ($displayParts['nav_bar'] == '1') {
             [$posNext, $posPrev] = $this->getOffsets();
         }
 
@@ -3683,7 +3675,7 @@ class Results
 
         // 2.1 Prepares a messages with position information
         $sqlQueryMessage = '';
-        if ($displayParts['query_stats'] == '1' && $total > 0) {
+        if ($displayParts['nav_bar'] == '1') {
             $message = $this->setMessageInformation(
                 $sortedColumnMessage,
                 $analyzedSqlResults,
