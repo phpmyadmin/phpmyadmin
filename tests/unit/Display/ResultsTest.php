@@ -820,7 +820,7 @@ class ResultsTest extends AbstractTestCase
             'The add query should be found',
         );
 
-        $firstLine = explode("\n", $out)[0] ?? '';
+        $firstLine = explode("\n", $out)[0];
         self::assertStringContainsString(
             'url-remove-order',
             $firstLine,

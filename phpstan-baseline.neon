@@ -14031,11 +14031,6 @@ parameters:
 			path: src/VersionInformation.php
 
 		-
-			message: "#^Comparison operation \"\\>\\=\" between int\\<1, max\\> and 1 is always true\\.$#"
-			count: 1
-			path: src/VersionInformation.php
-
-		-
 			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
 			count: 1
 			path: src/VersionInformation.php
