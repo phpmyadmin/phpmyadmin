@@ -46,7 +46,7 @@ final class TokenRequestParamChecking implements MiddlewareInterface
     {
         $token = $request->getParsedBodyParamAsString('token', '');
         if ($token !== '') {
-            if (@hash_equals($_SESSION[' PMA_token '], $token)) {
+            if (hash_equals($_SESSION[' PMA_token '], $token)) {
                 return null;
             }
         }
