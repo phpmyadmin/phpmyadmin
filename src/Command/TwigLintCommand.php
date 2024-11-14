@@ -107,7 +107,6 @@ class TwigLintCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        $showDeprecations = $input->getOption('show-deprecations');
 
         if ($showDeprecations) {
             $prevErrorHandler = set_error_handler(
@@ -128,12 +127,10 @@ class TwigLintCommand extends Command
 
         try {
             $filesInfo = $this->getFilesInfo(ROOT_PATH . 'resources/templates');
-        } finally {
-            if ($showDeprecations) {
-                restore_error_handler();
-            }
+        } catch {
+            console.err('log the error occurred')
         }
-
+        
         return $this->display($output, $io, $filesInfo);
     }
 
@@ -143,7 +140,9 @@ class TwigLintCommand extends Command
         $filesInfo = [];
         $filesFound = $this->findFiles($templatesPath);
         foreach ($filesFound as $file) {
-            $filesInfo[] = $this->validate($this->getTemplateContents($file), $file);
+            foreach ($filesFound as $file) {
+                $filesInfo[] = $this->validate($this->getTemplateContents($file), $file);
+            }
         }
 
         return $filesInfo;
