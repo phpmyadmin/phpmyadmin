@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-11-10 00:24+0000\n"
+"POT-Creation-Date: 2024-11-17 00:25+0000\n"
 "PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -272,7 +272,7 @@ msgstr "열"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
-#: src/Controllers/Server/PrivilegesController.php:294
+#: src/Controllers/Server/PrivilegesController.php:303
 #: src/Normalization.php:229 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
@@ -595,7 +595,7 @@ msgstr "이름"
 #: resources/templates/table/structure/display_structure.twig:465
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:289
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:288
 #: src/Plugins/Export/ExportHtmlword.php:262
 #: src/Plugins/Export/ExportHtmlword.php:353
 #: src/Plugins/Export/ExportLatex.php:505 src/Plugins/Export/ExportOdt.php:364
@@ -1013,8 +1013,8 @@ msgstr "삭제"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1567
-#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1569
+#: src/Server/Privileges.php:1571 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "데이터베이스"
 
@@ -1851,7 +1851,7 @@ msgstr "모두 선택"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:391 src/Menu.php:240
-#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1284
+#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1285
 #: src/Util.php:1454 src/Util.php:1469 src/Util.php:1486
 msgid "Export"
 msgstr "내보내기"
@@ -2213,7 +2213,7 @@ msgstr "호스트명"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:412 src/Menu.php:256
+#: src/Controllers/Server/PrivilegesController.php:422 src/Menu.php:256
 #: src/Menu.php:364 src/Util.php:1472 src/Util.php:1488
 msgid "Privileges"
 msgstr "권한"
@@ -2257,13 +2257,13 @@ msgstr "루틴"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1276
+#: src/Server/Privileges.php:1277
 msgid "Edit privileges"
 msgstr "권한 수정"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2061
+#: src/Server/Privileges.php:2063
 msgid "No user found."
 msgstr "사용자가 없습니다."
 
@@ -2283,7 +2283,7 @@ msgstr "선택한 것을:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1220
+#: src/Server/Privileges.php:1221
 msgid "Not enough privilege to view users."
 msgstr "사용자를 볼 수 있는 권한이 부족합니다."
 
@@ -2362,7 +2362,7 @@ msgstr "루틴 파라미터"
 
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:288
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:287
 #: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr "함수"
@@ -2707,8 +2707,8 @@ msgstr "생성 쿼리 보이기"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1573
-#: src/Server/Privileges.php:1575
+#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1575
+#: src/Server/Privileges.php:1577
 msgid "Table"
 msgstr "테이블"
 
@@ -3042,7 +3042,7 @@ msgstr "전각 가나로 변환"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:736 src/Import/Import.php:115 src/InsertEdit.php:488
+#: src/Html/Generator.php:736 src/Import/Import.php:115 src/InsertEdit.php:487
 #: src/Message.php:138
 msgid "Error"
 msgstr "오류"
@@ -3594,7 +3594,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "어느 페이지에서나 파일을 끌어다 놓을 수 있습니다."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:489
+#: src/InsertEdit.php:488
 msgid "The directory you set for upload work cannot be reached."
 msgstr "설정한 업로드 디렉토리에 접근할 수 없습니다."
 
@@ -4608,7 +4608,7 @@ msgstr "사용자 계정"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
-#: src/Server/Privileges.php:1579 src/Server/Privileges.php:1581
+#: src/Server/Privileges.php:1581 src/Server/Privileges.php:1583
 msgid "Routine"
 msgstr "루틴"
 
@@ -4620,7 +4620,7 @@ msgid ""
 msgstr "주의: 현재 로그인한 사용자의 권한을 수정하려고 합니다."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1582
 msgid "Routine-specific privileges"
 msgstr "루틴별 권한"
 
@@ -4758,7 +4758,7 @@ msgstr "사용자 그룹 수정"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1576
 msgid "Table-specific privileges"
 msgstr "테이블에 관한 권한"
 
@@ -4785,7 +4785,7 @@ msgstr "다음 루틴에 대한 권한 추가:"
 #: resources/templates/server/privileges/privileges_table.twig:16
 #: resources/templates/server/privileges/privileges_table.twig:287
 #: resources/templates/server/privileges/privileges_table.twig:290
-#: src/Server/Privileges.php:310
+#: src/Server/Privileges.php:311
 msgid "Allows reading data."
 msgstr "데이터 읽기 허용."
 
@@ -4793,7 +4793,7 @@ msgstr "데이터 읽기 허용."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:497
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:496
 msgid "Or"
 msgstr "또는"
 
@@ -4812,20 +4812,20 @@ msgstr "없음"
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
 #: resources/templates/server/privileges/privileges_table.twig:303
-#: src/Server/Privileges.php:311
+#: src/Server/Privileges.php:312
 msgid "Allows inserting and replacing data."
 msgstr "데이터 추가(insert) 및 변경(replace) 허용."
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
 #: resources/templates/server/privileges/privileges_table.twig:316
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:313
 msgid "Allows changing data."
 msgstr "데이터 변경 허용."
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
-#: src/Server/Privileges.php:320
+#: src/Server/Privileges.php:321
 msgid "Has no effect in this MySQL version."
 msgstr "이 버전의 MySQL에는 소용이 없습니다."
 
@@ -4833,7 +4833,7 @@ msgstr "이 버전의 MySQL에는 소용이 없습니다."
 #: resources/templates/server/privileges/privileges_table.twig:128
 #: resources/templates/server/privileges/privileges_table.twig:326
 #: resources/templates/server/privileges/privileges_table.twig:329
-#: src/Server/Privileges.php:290 src/Server/Privileges.php:313
+#: src/Server/Privileges.php:291 src/Server/Privileges.php:314
 msgid "Allows deleting data."
 msgstr "데이터 삭제 허용."
 
@@ -4841,7 +4841,7 @@ msgstr "데이터 삭제 허용."
 #: resources/templates/server/privileges/privileges_table.twig:140
 #: resources/templates/server/privileges/privileges_table.twig:367
 #: resources/templates/server/privileges/privileges_table.twig:375
-#: src/Server/Privileges.php:291
+#: src/Server/Privileges.php:292
 msgid "Allows creating new tables."
 msgstr "테이블 생성 허용."
 
@@ -4849,7 +4849,7 @@ msgstr "테이블 생성 허용."
 #: resources/templates/server/privileges/privileges_table.twig:152
 #: resources/templates/server/privileges/privileges_table.twig:415
 #: resources/templates/server/privileges/privileges_table.twig:423
-#: src/Server/Privileges.php:292
+#: src/Server/Privileges.php:293
 msgid "Allows dropping tables."
 msgstr "테이블 삭제 허용."
 
@@ -4867,7 +4867,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:177
 #: resources/templates/server/privileges/privileges_table.twig:399
 #: resources/templates/server/privileges/privileges_table.twig:402
-#: src/Server/Privileges.php:293 src/Server/Privileges.php:321
+#: src/Server/Privileges.php:294 src/Server/Privileges.php:322
 msgid "Allows creating and dropping indexes."
 msgstr "인덱스 생성 및 삭제 허용."
 
@@ -4875,7 +4875,7 @@ msgstr "인덱스 생성 및 삭제 허용."
 #: resources/templates/server/privileges/privileges_table.twig:189
 #: resources/templates/server/privileges/privileges_table.twig:386
 #: resources/templates/server/privileges/privileges_table.twig:389
-#: src/Server/Privileges.php:294 src/Server/Privileges.php:322
+#: src/Server/Privileges.php:295 src/Server/Privileges.php:323
 msgid "Allows altering the structure of existing tables."
 msgstr "테이블 구조 변경 허용."
 
@@ -4885,8 +4885,8 @@ msgstr "테이블 구조 변경 허용."
 #: resources/templates/server/privileges/privileges_table.twig:503
 #: resources/templates/server/privileges/privileges_table.twig:515
 #: resources/templates/server/privileges/privileges_table.twig:518
-#: src/Server/Privileges.php:295 src/Server/Privileges.php:341
-#: src/Server/Privileges.php:345
+#: src/Server/Privileges.php:296 src/Server/Privileges.php:342
+#: src/Server/Privileges.php:346
 msgid "Allows creating new views."
 msgstr "새로운 뷰 생성을 허가합니다."
 
@@ -4894,8 +4894,8 @@ msgstr "새로운 뷰 생성을 허가합니다."
 #: resources/templates/server/privileges/privileges_table.twig:213
 #: resources/templates/server/privileges/privileges_table.twig:447
 #: resources/templates/server/privileges/privileges_table.twig:450
-#: src/Server/Privileges.php:296 src/Server/Privileges.php:346
-#: src/Server/Privileges.php:348
+#: src/Server/Privileges.php:297 src/Server/Privileges.php:347
+#: src/Server/Privileges.php:349
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "SHOW CREATE VIEW 쿼리를 수행할 수 있다."
 
@@ -4903,14 +4903,14 @@ msgstr "SHOW CREATE VIEW 쿼리를 수행할 수 있다."
 #: resources/templates/server/privileges/privileges_table.twig:225
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: resources/templates/server/privileges/privileges_table.twig:546
-#: src/Server/Privileges.php:297 src/Server/Privileges.php:343
+#: src/Server/Privileges.php:298 src/Server/Privileges.php:344
 msgid "Allows creating and dropping triggers."
 msgstr "트리거 생성 및 삭제 허용."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
-#: src/Server/Privileges.php:354 src/Server/Privileges.php:363
+#: src/Server/Privileges.php:355 src/Server/Privileges.php:364
 msgid "Allows deleting historical rows."
 msgstr "기록 행 삭제를 허가합니다."
 
@@ -4924,55 +4924,55 @@ msgid "Global privileges"
 msgstr "전체적 권한"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1568
+#: src/Server/Privileges.php:1570
 msgid "Database-specific privileges"
 msgstr "데이터베이스에 관한 권한"
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
-#: src/Server/Privileges.php:319
+#: src/Server/Privileges.php:320
 msgid "Allows importing data from and exporting data into files."
 msgstr "데이터를 파일에서 가져오기 및 파일로 내보내기 허용."
 
 #: resources/templates/server/privileges/privileges_table.twig:365
 #: resources/templates/server/privileges/privileges_table.twig:373
-#: src/Server/Privileges.php:314
+#: src/Server/Privileges.php:315
 msgid "Allows creating new databases and tables."
 msgstr "DB 및 테이블 생성 허용."
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
-#: src/Server/Privileges.php:315
+#: src/Server/Privileges.php:316
 msgid "Allows dropping databases and tables."
 msgstr "DB 및 테이블 삭제 허용."
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
-#: src/Server/Privileges.php:333
+#: src/Server/Privileges.php:334
 msgid "Allows creating temporary tables."
 msgstr "임시테이블 생성 허용."
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
-#: src/Server/Privileges.php:365
+#: src/Server/Privileges.php:366
 msgid "Allows creating stored routines."
 msgstr "저장 루틴 생성을 허가합니다."
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
-#: src/Server/Privileges.php:366
+#: src/Server/Privileges.php:367
 msgid "Allows altering and dropping stored routines."
 msgstr "저장 루틴 변경 및 삭제를 허가합니다."
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
-#: src/Server/Privileges.php:368
+#: src/Server/Privileges.php:369
 msgid "Allows executing stored routines."
 msgstr "저장된 루틴 실행을 허용합니다."
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
-#: src/Server/Privileges.php:342
+#: src/Server/Privileges.php:343
 msgid "Allows to set up events for the event scheduler."
 msgstr "이벤트 스케줄러에 대한 이벤트를 설정을 허가합니다."
 
@@ -4988,7 +4988,7 @@ msgstr "권한 테이블을 갱신하지 않고 사용자와 권한 추가하기
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
-#: src/Server/Privileges.php:328
+#: src/Server/Privileges.php:329
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -4999,31 +4999,31 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
-#: src/Server/Privileges.php:318
+#: src/Server/Privileges.php:319
 msgid "Allows viewing processes of all users."
 msgstr "모든 사용자의 프로세스 보기 허용."
 
 #: resources/templates/server/privileges/privileges_table.twig:610
 #: resources/templates/server/privileges/privileges_table.twig:613
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:317
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "캐시를 비우고 서버를 재시동하는 것을 허용."
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:318
 msgid "Allows shutting down the server."
 msgstr "서버 종료 허용."
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
-#: src/Server/Privileges.php:323
+#: src/Server/Privileges.php:324
 msgid "Gives access to the complete list of databases."
 msgstr "전체 데이터베이스 목록 접근을 허용합니다."
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
-#: src/Server/Privileges.php:334
+#: src/Server/Privileges.php:335
 msgid "Allows locking tables for the current thread."
 msgstr "현재 쓰레드에 대한 테이블 잠금(lock) 허용."
 
@@ -5041,19 +5041,19 @@ msgstr "이 MySQL 버전에서는 사용하지 않습니다."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
-#: src/Server/Privileges.php:339
+#: src/Server/Privileges.php:340
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "사용자가 복제본/기본 서버를 조회하는 것을 허가합니다."
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
-#: src/Server/Privileges.php:335
+#: src/Server/Privileges.php:336
 msgid "Needed for the replication replicas."
 msgstr "복제본의 복제에 필요합니다."
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
-#: src/Server/Privileges.php:367
+#: src/Server/Privileges.php:368
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "사용자 계정을 생성, 삭제 및 계정명 변경하는 것을 허용."
 
@@ -5940,7 +5940,7 @@ msgid "No users were found belonging to this user group."
 msgstr "이 사용자 그룹에 속한 사용자를 찾을 수 없습니다."
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:415
+#: src/Controllers/Server/PrivilegesController.php:425
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "사용자"
@@ -6143,7 +6143,7 @@ msgstr "프로파일링 결과로 파이 차트."
 #: src/Controllers/Table/Partition/RebuildController.php:48
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
-#: src/Controllers/Table/RelationController.php:138
+#: src/Controllers/Table/RelationController.php:139
 #: src/Database/Routines.php:1029 src/Display/Results.php:3139
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
@@ -6454,7 +6454,7 @@ msgstr "재정렬하려면 드래그"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1518
+#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1516
 msgid "Ignore"
 msgstr "무시"
 
@@ -11603,8 +11603,8 @@ msgstr ""
 #: src/Controllers/Database/RoutinesController.php:109
 #: src/Controllers/Database/SearchController.php:54
 #: src/Controllers/Database/SearchController.php:59
-#: src/Controllers/Database/SqlController.php:63
-#: src/Controllers/Database/SqlController.php:68
+#: src/Controllers/Database/SqlController.php:62
+#: src/Controllers/Database/SqlController.php:67
 #: src/Controllers/Database/StructureController.php:142
 #: src/Controllers/Database/StructureController.php:147
 #: src/Controllers/Database/Structure/FavoriteTableController.php:83
@@ -11624,10 +11624,10 @@ msgstr ""
 #: src/Controllers/Table/AddFieldController.php:168
 #: src/Controllers/Table/ChangeController.php:68
 #: src/Controllers/Table/ChangeController.php:73
-#: src/Controllers/Table/ChartController.php:96
-#: src/Controllers/Table/ChartController.php:101
-#: src/Controllers/Table/ChartController.php:138
-#: src/Controllers/Table/ChartController.php:143
+#: src/Controllers/Table/ChartController.php:97
+#: src/Controllers/Table/ChartController.php:102
+#: src/Controllers/Table/ChartController.php:139
+#: src/Controllers/Table/ChartController.php:144
 #: src/Controllers/Table/ChartController.php:225
 #: src/Controllers/Table/DeleteConfirmController.php:61
 #: src/Controllers/Table/DeleteConfirmController.php:66
@@ -11635,26 +11635,26 @@ msgstr ""
 #: src/Controllers/Table/DropColumnConfirmationController.php:55
 #: src/Controllers/Table/FindReplaceController.php:74
 #: src/Controllers/Table/FindReplaceController.php:79
-#: src/Controllers/Table/GisVisualizationController.php:65
-#: src/Controllers/Table/GisVisualizationController.php:70
+#: src/Controllers/Table/GisVisualizationController.php:66
+#: src/Controllers/Table/GisVisualizationController.php:71
 #: src/Controllers/Table/ImportController.php:67
 #: src/Controllers/Table/ImportController.php:72
 #: src/Controllers/Table/IndexesController.php:69
 #: src/Controllers/Table/IndexesController.php:74
 #: src/Controllers/Table/IndexRenameController.php:59
 #: src/Controllers/Table/IndexRenameController.php:64
-#: src/Controllers/Table/SearchController.php:173
-#: src/Controllers/Table/SearchController.php:178
-#: src/Controllers/Table/SqlController.php:65
-#: src/Controllers/Table/SqlController.php:70
+#: src/Controllers/Table/SearchController.php:174
+#: src/Controllers/Table/SearchController.php:179
+#: src/Controllers/Table/SqlController.php:64
+#: src/Controllers/Table/SqlController.php:69
 #: src/Controllers/Table/StructureController.php:94
 #: src/Controllers/Table/StructureController.php:99
 #: src/Controllers/Table/Structure/PrimaryController.php:73
 #: src/Controllers/Table/Structure/PrimaryController.php:78
 #: src/Controllers/Table/TrackingController.php:71
 #: src/Controllers/Table/TrackingController.php:76
-#: src/Controllers/Table/ZoomSearchController.php:100
-#: src/Controllers/Table/ZoomSearchController.php:105
+#: src/Controllers/Table/ZoomSearchController.php:99
+#: src/Controllers/Table/ZoomSearchController.php:104
 #: src/Controllers/Triggers/IndexController.php:73
 #: src/Controllers/Triggers/IndexController.php:102
 #: src/Controllers/View/CreateController.php:74
@@ -11710,14 +11710,14 @@ msgstr ""
 "가져오기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
 #: src/Controllers/Database/PrivilegesController.php:61
-#: src/Controllers/Server/PrivilegesController.php:107
+#: src/Controllers/Server/PrivilegesController.php:100
 #: src/Controllers/Server/UserGroupsController.php:45
 #: src/Controllers/Table/PrivilegesController.php:64
 msgid "No Privileges"
 msgstr "권한 없음"
 
 #: src/Controllers/Database/PrivilegesController.php:70
-#: src/Controllers/Server/PrivilegesController.php:116
+#: src/Controllers/Server/PrivilegesController.php:109
 #: src/Controllers/Table/PrivilegesController.php:73
 msgid "You do not have the privileges to administrate the users!"
 msgstr "사용자를 관리할 권한이 없습니다!"
@@ -11742,8 +11742,8 @@ msgstr "사용자를 관리할 권한이 없습니다!"
 #: src/Controllers/Table/AddFieldController.php:182
 #: src/Controllers/Table/ChangeController.php:82
 #: src/Controllers/Table/ChangeController.php:87
-#: src/Controllers/Table/ChartController.php:110
-#: src/Controllers/Table/ChartController.php:115
+#: src/Controllers/Table/ChartController.php:111
+#: src/Controllers/Table/ChartController.php:116
 #: src/Controllers/Table/ChartController.php:233
 #: src/Controllers/Table/DeleteConfirmController.php:75
 #: src/Controllers/Table/DeleteConfirmController.php:80
@@ -11762,16 +11762,16 @@ msgstr "사용자를 관리할 권한이 없습니다!"
 #: src/Controllers/Table/Maintenance/ChecksumController.php:44
 #: src/Controllers/Table/Maintenance/OptimizeController.php:44
 #: src/Controllers/Table/Maintenance/RepairController.php:44
-#: src/Controllers/Table/SearchController.php:187
-#: src/Controllers/Table/SearchController.php:192
-#: src/Controllers/Table/SqlController.php:79
-#: src/Controllers/Table/SqlController.php:84
+#: src/Controllers/Table/SearchController.php:188
+#: src/Controllers/Table/SearchController.php:193
+#: src/Controllers/Table/SqlController.php:78
+#: src/Controllers/Table/SqlController.php:83
 #: src/Controllers/Table/StructureController.php:108
 #: src/Controllers/Table/StructureController.php:113
 #: src/Controllers/Table/Structure/PrimaryController.php:87
 #: src/Controllers/Table/Structure/PrimaryController.php:92
-#: src/Controllers/Table/ZoomSearchController.php:114
-#: src/Controllers/Table/ZoomSearchController.php:119
+#: src/Controllers/Table/ZoomSearchController.php:113
+#: src/Controllers/Table/ZoomSearchController.php:118
 #: src/Controllers/Triggers/IndexController.php:81
 msgid "No table selected."
 msgstr "선택한 테이블이 없습니다."
@@ -12025,7 +12025,7 @@ msgstr ""
 "curl 확장 기능이 발견되지 않았고 allow_url_fopen 이 비활성화 되어있습니다. 이"
 "로 인해 오류 보고나 버전 체크와 같은 기능들이 제한됩니다."
 
-#: src/Controllers/Import/ImportController.php:168
+#: src/Controllers/Import/ImportController.php:167
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12034,21 +12034,21 @@ msgstr ""
 "너무 큰 파일을 업로드하려고 시도했습니다. 제한을 해결하기 위해서는 "
 "%sdocumentation%s를 참조하여 주십시오."
 
-#: src/Controllers/Import/ImportController.php:194
+#: src/Controllers/Import/ImportController.php:193
 msgid "Incorrect format parameter"
 msgstr "잘못된 포맷 파라미터"
 
-#: src/Controllers/Import/ImportController.php:308
-#: src/Controllers/Import/ImportController.php:521
+#: src/Controllers/Import/ImportController.php:307
+#: src/Controllers/Import/ImportController.php:520
 msgid "Showing bookmark"
 msgstr "북마크 표시"
 
-#: src/Controllers/Import/ImportController.php:328
-#: src/Controllers/Import/ImportController.php:517
+#: src/Controllers/Import/ImportController.php:327
+#: src/Controllers/Import/ImportController.php:516
 msgid "The bookmark has been deleted."
 msgstr "북마크가 삭제되었습니다."
 
-#: src/Controllers/Import/ImportController.php:440
+#: src/Controllers/Import/ImportController.php:439
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12057,13 +12057,13 @@ msgstr ""
 "가져올 데이터가 없습니다. 파일이 지정되지 않았거나 파일 크기가 PHP 설정의 최"
 "대 파일 크기를 초과했을 수 있습니다. [doc@faq1-16]FAQ 1.16[/doc] 참조."
 
-#: src/Controllers/Import/ImportController.php:529
+#: src/Controllers/Import/ImportController.php:528
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "가져오기가 정상적으로 완료되었습니다, %d 쿼리가 실행되었습니다."
 
-#: src/Controllers/Import/ImportController.php:566
+#: src/Controllers/Import/ImportController.php:565
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12072,7 +12072,7 @@ msgstr ""
 "스크립트 시간 제한이 초과되었습니다. 이어서 하시려면 같은 파일을 다시 전송해 "
 "주세요 (%s, %s)."
 
-#: src/Controllers/Import/ImportController.php:576
+#: src/Controllers/Import/ImportController.php:575
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12080,12 +12080,12 @@ msgstr ""
 "파싱된 데이터가 없지만, 이것은 보통 phpMyAdmin이 php 시간 제한을 늘리지 않고"
 "는 이 가져오기를 마칠 수 없음을 뜻합니다."
 
-#: src/Controllers/Import/ImportController.php:639
-#: src/Controllers/Sql/SqlController.php:159
+#: src/Controllers/Import/ImportController.php:638
+#: src/Controllers/Sql/SqlController.php:158
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" 구문은 허락되지 않습니다."
 
-#: src/Controllers/Import/ImportController.php:692 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:691 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK이 발생했습니다.]"
 
@@ -12315,12 +12315,12 @@ msgid "The user name is empty!"
 msgstr "사용자명이 없습니다!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:767 src/UserPassword.php:39
+#: src/Server/Privileges.php:768 src/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "비밀번호가 비어있습니다!"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:765 src/UserPassword.php:43
+#: src/Server/Privileges.php:766 src/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "비밀번호가 동일하지 않습니다!"
 
@@ -13637,7 +13637,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "%s 테이블이 이미 존재합니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:273
+#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:272
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "숨기기"
@@ -14095,7 +14095,7 @@ msgstr "2단계 인증이 설정되었습니다."
 
 #: src/Controllers/SchemaExportController.php:38
 #: src/Controllers/Server/UserGroupsFormController.php:44
-#: src/ResponseRenderer.php:476
+#: src/ResponseRenderer.php:478
 msgid "Missing parameter:"
 msgstr "매개 변수 누락:"
 
@@ -14120,7 +14120,7 @@ msgstr "%s@%s계정을 정상적으로 잠갔습니다."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "%s@%s계정을 정상적으로 잠금 해제 했습니다."
 
-#: src/Controllers/Server/PrivilegesController.php:132
+#: src/Controllers/Server/PrivilegesController.php:125
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -14865,12 +14865,12 @@ msgstr "잘못된 데이터"
 msgid "Wrong data or no validation for %s"
 msgstr "잘못된 데이터 또는 %s에 대한 유효성 검사 없음"
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1054
+#: src/Controllers/Sql/SqlController.php:229 src/Sql.php:1054
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "북마크 %s가 생성되었습니다."
 
-#: src/Controllers/Sql/SqlController.php:237
+#: src/Controllers/Sql/SqlController.php:236
 msgid "Bookmark not created!"
 msgstr "북마크가 생성되지 않았습니다!"
 
@@ -14885,16 +14885,16 @@ msgstr "%1$s 테이블이 정상적으로 수정되었습니다."
 
 #: src/Controllers/Table/ChangeRowsController.php:35
 #: src/Controllers/Table/DeleteConfirmController.php:41
-#: src/Controllers/Table/ExportRowsController.php:31
+#: src/Controllers/Table/ExportRowsController.php:32
 msgid "No row selected."
 msgstr "선택한 행이 없습니다."
 
-#: src/Controllers/Table/ChartController.php:65
-#: src/Controllers/Table/GisVisualizationController.php:82
+#: src/Controllers/Table/ChartController.php:66
+#: src/Controllers/Table/GisVisualizationController.php:83
 msgid "No SQL query was set to fetch data."
 msgstr "데이터를 가져오기 위한 SQL 쿼리가 없습니다."
 
-#: src/Controllers/Table/ChartController.php:182
+#: src/Controllers/Table/ChartController.php:183
 msgid "No numeric columns present in the table to plot."
 msgstr "테이블에 숫자형 컬럼이 없어 표시할 수 없습니다."
 
@@ -14920,7 +14920,7 @@ msgstr "테이블 %s 가 이미 존재합니다!"
 #: src/Controllers/Table/DropColumnConfirmationController.php:42
 #: src/Controllers/Table/DropColumnController.php:38
 #: src/Controllers/Table/Structure/AbstractIndexController.php:34
-#: src/Controllers/Table/Structure/BrowseController.php:30
+#: src/Controllers/Table/Structure/BrowseController.php:31
 #: src/Controllers/Table/Structure/CentralColumnsAddController.php:37
 #: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:37
 #: src/Controllers/Table/Structure/ChangeController.php:51
@@ -14946,11 +14946,11 @@ msgstr "요청에 문제가 있습니다."
 
 #: src/Controllers/Table/GetFieldController.php:81
 #: src/Database/Routines.php:1046 src/Import/Import.php:131
-#: src/InsertEdit.php:200 src/Sql.php:863
+#: src/InsertEdit.php:199 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "결과값이 없습니다. (빈 레코드 리턴)."
 
-#: src/Controllers/Table/GisVisualizationController.php:104
+#: src/Controllers/Table/GisVisualizationController.php:105
 msgid "No spatial column found for this SQL query."
 msgstr "이 SQL 쿼리에 대한 공간 열을 찾을 수 없습니다."
 
@@ -14976,11 +14976,11 @@ msgstr "파티션 이름은 비어 있지 않은 문자열이어야 합니다."
 msgid "Invalid database or table name."
 msgstr "잘못된 데이터베이스 또는 테이블 이름입니다."
 
-#: src/Controllers/Table/RelationController.php:316
+#: src/Controllers/Table/RelationController.php:317
 msgid "Display column was successfully updated."
 msgstr "열 표시가 정상적으로 갱신 되었습니다."
 
-#: src/Controllers/Table/RelationController.php:350
+#: src/Controllers/Table/RelationController.php:351
 msgid "Internal relationships were successfully updated."
 msgstr "내부 릴레이션이 정상적으로 갱신되었습니다."
 
@@ -15865,11 +15865,11 @@ msgstr "%s를 %s 이상으로 업그레이드 하십시오."
 msgid "See %sour documentation%s for more information."
 msgstr "자세한 내용은 %s우리 문서%s를 참조하세요."
 
-#: src/Http/Middleware/RequestProblemChecking.php:32
+#: src/Http/Middleware/RequestProblemChecking.php:34
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS 덮어쓰기 시도"
 
-#: src/Http/Middleware/RequestProblemChecking.php:39
+#: src/Http/Middleware/RequestProblemChecking.php:46
 msgid "possible exploit"
 msgstr "어떤 공격을 받고있을 가능성이 있습니다"
 
@@ -15995,15 +15995,15 @@ msgid ""
 msgstr ""
 "인덱스 %1$s와 %2$s는 동일한 것으로, 두 가지 중 하나는 제거해도 상관없습니다."
 
-#: src/InsertEdit.php:498
+#: src/InsertEdit.php:497
 msgid "web server upload directory:"
 msgstr "웹 서버 업로드 디렉터리:"
 
-#: src/InsertEdit.php:925 src/Sql.php:860
+#: src/InsertEdit.php:924 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "SQL 쿼리 보기"
 
-#: src/InsertEdit.php:949 src/Sql.php:840
+#: src/InsertEdit.php:948 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "삽입된 행의 id: %1$d"
@@ -17509,7 +17509,7 @@ msgstr "디렉토리를 포함하는 데이터베이스의 권한을 확인하�
 msgid "Details…"
 msgstr "자세히…"
 
-#: src/Replication/ReplicationGui.php:451
+#: src/Replication/ReplicationGui.php:452
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
@@ -17517,54 +17517,54 @@ msgstr ""
 "서버에 대한 연결이 비활성화되어 있으므로 phpMyAdmin 설정에서 "
 "$cfg['AllowArbitraryServer']를 활성화하세요."
 
-#: src/Replication/ReplicationGui.php:462
+#: src/Replication/ReplicationGui.php:463
 msgid "Replication started successfully."
 msgstr "복제가 정상적으로 시작되었습니다."
 
-#: src/Replication/ReplicationGui.php:463
+#: src/Replication/ReplicationGui.php:464
 msgid "Error starting replication."
 msgstr "복제 시작 오류."
 
-#: src/Replication/ReplicationGui.php:466
+#: src/Replication/ReplicationGui.php:467
 msgid "Replication stopped successfully."
 msgstr "복제가 정상적으로 중단되었습니다."
 
-#: src/Replication/ReplicationGui.php:467
+#: src/Replication/ReplicationGui.php:468
 msgid "Error stopping replication."
 msgstr "복제 중단 오류."
 
-#: src/Replication/ReplicationGui.php:470
+#: src/Replication/ReplicationGui.php:471
 msgid "Replication resetting successfully."
 msgstr "복제가 정상적으로 리셋되었습니다."
 
-#: src/Replication/ReplicationGui.php:471
+#: src/Replication/ReplicationGui.php:472
 msgid "Error resetting replication."
 msgstr "복제 리셋 오류."
 
-#: src/Replication/ReplicationGui.php:474
+#: src/Replication/ReplicationGui.php:475
 msgid "Success."
 msgstr "성공."
 
-#: src/Replication/ReplicationGui.php:475
+#: src/Replication/ReplicationGui.php:476
 msgid "Error."
 msgstr "오류."
 
-#: src/Replication/ReplicationGui.php:520
+#: src/Replication/ReplicationGui.php:521
 #, php-format
 msgid "Unable to connect to primary %s."
 msgstr "%s 기본 서버에 연결할 수 없습니다."
 
-#: src/Replication/ReplicationGui.php:530
+#: src/Replication/ReplicationGui.php:531
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
 "기본 로그 위치를 읽을 수 없습니다. 기본 로그에 권한 문제가 있을 수 있습니다."
 
-#: src/Replication/ReplicationGui.php:548
+#: src/Replication/ReplicationGui.php:549
 msgid "Unable to change primary!"
 msgstr "기본 서버를 변경할 수 없습니다!"
 
-#: src/Replication/ReplicationGui.php:552
+#: src/Replication/ReplicationGui.php:553
 #, php-format
 msgid "Primary server changed successfully to %s."
 msgstr "기본 서버가 %s 서버로 정상적으로 변경되었습니다."
@@ -17586,8 +17586,8 @@ msgstr "404 에러! '%s' 페이지를 찾을 수 없습니다."
 msgid "Error 405! Request method not allowed."
 msgstr "405 오류! 요청 메서드가 허용되지 않습니다."
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:634
-#: src/Server/Privileges.php:3256
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:635
+#: src/Server/Privileges.php:3139
 msgid "Native MySQL authentication"
 msgstr "기본 MySQL 인증"
 
@@ -17612,65 +17612,65 @@ msgstr "구 MySQL-4.0 인증"
 msgid "Account locking is not supported."
 msgstr "계정 잠금은 지원되지 않습니다."
 
-#: src/Server/Privileges.php:267
+#: src/Server/Privileges.php:268
 msgid "No privileges."
 msgstr "권한 없음."
 
-#: src/Server/Privileges.php:273
+#: src/Server/Privileges.php:274
 msgid "Includes all privileges except GRANT."
 msgstr "GRANT 이외의 모든 권한을 포함함."
 
-#: src/Server/Privileges.php:894
+#: src/Server/Privileges.php:895
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s 의 비밀번호가 정상적으로 변경되었습니다."
 
-#: src/Server/Privileges.php:942
+#: src/Server/Privileges.php:943
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "%s의 권한을 제거했습니다."
 
-#: src/Server/Privileges.php:1280
+#: src/Server/Privileges.php:1281
 msgid "Revoke"
 msgstr "제거"
 
-#: src/Server/Privileges.php:1883
+#: src/Server/Privileges.php:1885
 msgid "No users selected for deleting!"
 msgstr "삭제할 사용자를 선택하세요!"
 
-#: src/Server/Privileges.php:1886
+#: src/Server/Privileges.php:1888
 msgid "Reloading the privileges"
 msgstr "사용권한을 갱신합니다(Reloading the privileges)"
 
-#: src/Server/Privileges.php:1911
+#: src/Server/Privileges.php:1913
 msgid "The selected users have been deleted successfully."
 msgstr "선택한 사용자를 정상적으로 삭제했습니다."
 
-#: src/Server/Privileges.php:1985
+#: src/Server/Privileges.php:1987
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "%s 에 대한 권한을 갱신했습니다."
 
-#: src/Server/Privileges.php:2142
+#: src/Server/Privileges.php:2144
 #, php-format
 msgid "Deleting %s"
 msgstr "%s 을 삭제합니다"
 
-#: src/Server/Privileges.php:2172
+#: src/Server/Privileges.php:2174
 msgid "The privileges were reloaded successfully."
 msgstr "권한을 정상적으로 다시 로드했습니다."
 
-#: src/Server/Privileges.php:2272
+#: src/Server/Privileges.php:2239
 #, php-format
 msgid "The user %s already exists!"
 msgstr "사용자 %s 가 이미 존재합니다!"
 
-#: src/Server/Privileges.php:2509
+#: src/Server/Privileges.php:2392
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s에 대한 권한"
 
-#: src/Server/Privileges.php:2595
+#: src/Server/Privileges.php:2478
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -17682,7 +17682,7 @@ msgstr ""
 "테이블의 내용은 수동으로 변경한 경우 서버에서 사용하는 권한과 다를 수 있습니"
 "다. 이 경우 계속하기 전에 %s권한을 다시 로드%s해야 합니다."
 
-#: src/Server/Privileges.php:2611
+#: src/Server/Privileges.php:2494
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -17695,11 +17695,11 @@ msgstr ""
 "다. 이 경우 권한을 다시 로드해야 하지만 현재 회원님에게는 RELOAD 권한이 없습"
 "니다."
 
-#: src/Server/Privileges.php:2899
+#: src/Server/Privileges.php:2782
 msgid "You have added a new user."
 msgstr "새 사용자를 추가했습니다."
 
-#: src/Server/Privileges.php:3350
+#: src/Server/Privileges.php:3233
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
