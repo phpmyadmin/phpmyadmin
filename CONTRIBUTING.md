@@ -16,7 +16,7 @@ We appreciate your effort to improve phpMyAdmin by submitting a bug report. Befo
 
 5. **Security problems** should not be reported here. See [our security page](https://www.phpmyadmin.net/security/).
 
-Thanks for your help!
+
 
 Please report [bugs on GitHub][1].
 
