@@ -6,11 +6,11 @@ version: 2
 
 build:
   os: ubuntu-24.04
-  apt_packages:
-    - python3-sphinx
-    - python3-sphinx-rtd-theme
   tools:
     python: "3.12"
+  jobs:
+      post_create_environment:
+        - python -m pip install sphinx-rtd-theme
 
 # Build documentation in the "doc/" directory with Sphinx
 sphinx:
