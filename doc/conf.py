@@ -100,9 +100,10 @@ pygments_style = 'sphinx'
 # a list of builtin themes.
 html_theme = 'default'
 
+# See: https://docs.readthedocs.io/en/stable/reference/environment-variables.html#envvar-READTHEDOCS
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
-if not on_rtd:  # only import and set the theme if we're building docs locally
+if on_rtd:  # only import and set the theme if we're building docs on readthedocs
     try:
         import sphinx_rtd_theme
         html_theme = 'sphinx_rtd_theme'
