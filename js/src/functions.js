@@ -1214,7 +1214,7 @@ Functions.insertQuery = function (queryType) {
 
     var query = '';
     var myListBox = document.sqlform.dummy;
-    table = document.sqlform.table.value;
+    table = Functions.escapeBacktick(document.sqlform.table.value);
 
     if (myListBox.options.length > 0) {
         sqlBoxLocked = true;
